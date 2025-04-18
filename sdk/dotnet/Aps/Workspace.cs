@@ -145,6 +145,9 @@ namespace Pulumi.AwsNative.Aps
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("workspaceConfiguration")]
+        public Output<Outputs.WorkspaceConfiguration?> WorkspaceConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Required to identify a specific APS Workspace.
         /// </summary>
@@ -235,6 +238,9 @@ namespace Pulumi.AwsNative.Aps
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("workspaceConfiguration")]
+        public Input<Inputs.WorkspaceConfigurationArgs>? WorkspaceConfiguration { get; set; }
 
         public WorkspaceArgs()
         {

@@ -100,6 +100,7 @@ namespace Pulumi.AwsNative.Lambda
         public readonly int? BatchSize;
         /// <summary>
         /// (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
+        ///   When using ``BisectBatchOnFunctionError``, check the ``BatchSize`` parameter in the ``OnFailure`` destination message's metadata. The ``BatchSize`` could be greater than 1 since LAM consolidates failed messages metadata when writing to the ``OnFailure`` destination.
         /// </summary>
         public readonly bool? BisectBatchOnFunctionError;
         /// <summary>

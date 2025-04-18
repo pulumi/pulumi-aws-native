@@ -89,7 +89,7 @@ class AwaitableGetTestGridProjectResult(GetTestGridProjectResult):
 def get_test_grid_project(arn: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestGridProjectResult:
     """
-    AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
+    Resource Type definition for a Device Farm TestGrid Project
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
@@ -107,7 +107,7 @@ def get_test_grid_project(arn: Optional[builtins.str] = None,
 def get_test_grid_project_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestGridProjectResult]:
     """
-    AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
+    Resource Type definition for a Device Farm TestGrid Project
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .

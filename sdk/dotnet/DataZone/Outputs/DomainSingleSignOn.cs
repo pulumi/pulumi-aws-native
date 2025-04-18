@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class DomainSingleSignOn
     {
+        public readonly string? IdcInstanceArn;
         /// <summary>
         /// The type of single sign-on in Amazon DataZone.
         /// </summary>
@@ -27,10 +28,13 @@ namespace Pulumi.AwsNative.DataZone.Outputs
 
         [OutputConstructor]
         private DomainSingleSignOn(
+            string? idcInstanceArn,
+
             Pulumi.AwsNative.DataZone.DomainAuthType? type,
 
             Pulumi.AwsNative.DataZone.DomainUserAssignment? userAssignment)
         {
+            IdcInstanceArn = idcInstanceArn;
             Type = type;
             UserAssignment = userAssignment;
         }

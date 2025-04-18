@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.S3Tables
     [OutputType]
     public sealed class GetTableBucketResult
     {
+        /// <summary>
+        /// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
+        /// </summary>
         public readonly Outputs.TableBucketEncryptionConfiguration? EncryptionConfiguration;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the table bucket.

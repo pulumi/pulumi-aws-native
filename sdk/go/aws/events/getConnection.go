@@ -44,6 +44,7 @@ type LookupConnectionResult struct {
 	Description *string `pulumi:"description"`
 	// The private resource the HTTP request will be sent to.
 	InvocationConnectivityParameters *InvocationConnectivityParametersProperties `pulumi:"invocationConnectivityParameters"`
+	KmsKeyIdentifier                 *string                                     `pulumi:"kmsKeyIdentifier"`
 	// The arn of the secrets manager secret created in the customer account.
 	SecretArn *string `pulumi:"secretArn"`
 }
@@ -114,6 +115,10 @@ func (o LookupConnectionResultOutput) InvocationConnectivityParameters() Invocat
 	return o.ApplyT(func(v LookupConnectionResult) *InvocationConnectivityParametersProperties {
 		return v.InvocationConnectivityParameters
 	}).(InvocationConnectivityParametersPropertiesPtrOutput)
+}
+
+func (o LookupConnectionResultOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *string { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The arn of the secrets manager secret created in the customer account.

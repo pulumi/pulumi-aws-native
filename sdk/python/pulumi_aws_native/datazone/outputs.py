@@ -2316,7 +2316,9 @@ class DomainSingleSignOn(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "userAssignment":
+        if key == "idcInstanceArn":
+            suggest = "idc_instance_arn"
+        elif key == "userAssignment":
             suggest = "user_assignment"
 
         if suggest:
@@ -2331,6 +2333,7 @@ class DomainSingleSignOn(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 idc_instance_arn: Optional[builtins.str] = None,
                  type: Optional['DomainAuthType'] = None,
                  user_assignment: Optional['DomainUserAssignment'] = None):
         """
@@ -2338,10 +2341,17 @@ class DomainSingleSignOn(dict):
         :param 'DomainAuthType' type: The type of single sign-on in Amazon DataZone.
         :param 'DomainUserAssignment' user_assignment: The single sign-on user assignment in Amazon DataZone.
         """
+        if idc_instance_arn is not None:
+            pulumi.set(__self__, "idc_instance_arn", idc_instance_arn)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_assignment is not None:
             pulumi.set(__self__, "user_assignment", user_assignment)
+
+    @property
+    @pulumi.getter(name="idcInstanceArn")
+    def idc_instance_arn(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "idc_instance_arn")
 
     @property
     @pulumi.getter

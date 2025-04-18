@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::DeviceFarm::Project creates a new Device Farm Project
+ * Resource Type definition for a Device Farm Project
  */
 export class Project extends pulumi.CustomResource {
     /**

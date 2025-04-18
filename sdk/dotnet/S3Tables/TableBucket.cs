@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3Tables
     [AwsNativeResourceType("aws-native:s3tables:TableBucket")]
     public partial class TableBucket : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
+        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.TableBucketEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
@@ -85,6 +88,9 @@ namespace Pulumi.AwsNative.S3Tables
 
     public sealed class TableBucketArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
+        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.TableBucketEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 

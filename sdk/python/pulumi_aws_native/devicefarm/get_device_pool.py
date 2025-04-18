@@ -117,7 +117,7 @@ class AwaitableGetDevicePoolResult(GetDevicePoolResult):
 def get_device_pool(arn: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevicePoolResult:
     """
-    AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+    Resource Type definition for a Device Pool for a given Device Farm Project
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
@@ -137,7 +137,7 @@ def get_device_pool(arn: Optional[builtins.str] = None,
 def get_device_pool_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevicePoolResult]:
     """
-    AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+    Resource Type definition for a Device Pool for a given Device Farm Project
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .

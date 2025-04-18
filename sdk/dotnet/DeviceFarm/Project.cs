@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DeviceFarm
 {
     /// <summary>
-    /// AWS::DeviceFarm::Project creates a new Device Farm Project
+    /// Resource Type definition for a Device Farm Project
     /// </summary>
     [AwsNativeResourceType("aws-native:devicefarm:Project")]
     public partial class Project : global::Pulumi.CustomResource

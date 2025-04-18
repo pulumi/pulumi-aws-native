@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
+ * Resource Type definition for a Device Farm TestGrid Project
  */
 export class TestGridProject extends pulumi.CustomResource {
     /**

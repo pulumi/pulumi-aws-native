@@ -93,6 +93,7 @@ export class Connection extends pulumi.CustomResource {
      * The private resource the HTTP request will be sent to.
      */
     public readonly invocationConnectivityParameters!: pulumi.Output<outputs.events.InvocationConnectivityParametersProperties | undefined>;
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Name of the connection.
      */
@@ -117,6 +118,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["invocationConnectivityParameters"] = args ? args.invocationConnectivityParameters : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnForPolicy"] = undefined /*out*/;
@@ -128,6 +130,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["authorizationType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["invocationConnectivityParameters"] = undefined /*out*/;
+            resourceInputs["kmsKeyIdentifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["secretArn"] = undefined /*out*/;
         }
@@ -162,6 +165,7 @@ export interface ConnectionArgs {
      * The private resource the HTTP request will be sent to.
      */
     invocationConnectivityParameters?: pulumi.Input<inputs.events.InvocationConnectivityParametersPropertiesArgs>;
+    kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * Name of the connection.
      */

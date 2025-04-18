@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.DeviceFarm
     public static class GetNetworkProfile
     {
         /// <summary>
-        /// AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+        /// Resource Type definition for a Device Farm Network Profile
         /// </summary>
         public static Task<GetNetworkProfileResult> InvokeAsync(GetNetworkProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkProfileResult>("aws-native:devicefarm:getNetworkProfile", args ?? new GetNetworkProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+        /// Resource Type definition for a Device Farm Network Profile
         /// </summary>
         public static Output<GetNetworkProfileResult> Invoke(GetNetworkProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkProfileResult>("aws-native:devicefarm:getNetworkProfile", args ?? new GetNetworkProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+        /// Resource Type definition for a Device Farm Network Profile
         /// </summary>
         public static Output<GetNetworkProfileResult> Invoke(GetNetworkProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkProfileResult>("aws-native:devicefarm:getNetworkProfile", args ?? new GetNetworkProfileInvokeArgs(), options.WithDefaults());

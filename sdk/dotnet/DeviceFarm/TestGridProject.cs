@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DeviceFarm
 {
     /// <summary>
-    /// AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
+    /// Resource Type definition for a Device Farm TestGrid Project
     /// </summary>
     [AwsNativeResourceType("aws-native:devicefarm:TestGridProject")]
     public partial class TestGridProject : global::Pulumi.CustomResource

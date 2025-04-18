@@ -28,7 +28,8 @@ class WorkspaceArgs:
                  alias: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 workspace_configuration: Optional[pulumi.Input['WorkspaceConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[builtins.str] alert_manager_definition: The AMP Workspace alert manager definition data
@@ -47,6 +48,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workspace_configuration is not None:
+            pulumi.set(__self__, "workspace_configuration", workspace_configuration)
 
     @property
     @pulumi.getter(name="alertManagerDefinition")
@@ -108,6 +111,15 @@ class WorkspaceArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="workspaceConfiguration")
+    def workspace_configuration(self) -> Optional[pulumi.Input['WorkspaceConfigurationArgs']]:
+        return pulumi.get(self, "workspace_configuration")
+
+    @workspace_configuration.setter
+    def workspace_configuration(self, value: Optional[pulumi.Input['WorkspaceConfigurationArgs']]):
+        pulumi.set(self, "workspace_configuration", value)
+
 
 class Workspace(pulumi.CustomResource):
 
@@ -122,6 +134,7 @@ class Workspace(pulumi.CustomResource):
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 workspace_configuration: Optional[pulumi.Input[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::APS::Workspace
@@ -263,6 +276,7 @@ class Workspace(pulumi.CustomResource):
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 workspace_configuration: Optional[pulumi.Input[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -277,6 +291,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["workspace_configuration"] = workspace_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["prometheus_endpoint"] = None
             __props__.__dict__["workspace_id"] = None
@@ -311,6 +326,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["logging_configuration"] = None
         __props__.__dict__["prometheus_endpoint"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["workspace_configuration"] = None
         __props__.__dict__["workspace_id"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
@@ -369,6 +385,11 @@ class Workspace(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="workspaceConfiguration")
+    def workspace_configuration(self) -> pulumi.Output[Optional['outputs.WorkspaceConfiguration']]:
+        return pulumi.get(self, "workspace_configuration")
 
     @property
     @pulumi.getter(name="workspaceId")

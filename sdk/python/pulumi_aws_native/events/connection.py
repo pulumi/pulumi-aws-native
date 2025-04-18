@@ -27,6 +27,7 @@ class ConnectionArgs:
                  authorization_type: Optional[pulumi.Input['ConnectionAuthorizationType']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  invocation_connectivity_parameters: Optional[pulumi.Input['InvocationConnectivityParametersPropertiesArgs']] = None,
+                 kms_key_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Connection resource.
@@ -48,6 +49,8 @@ class ConnectionArgs:
             pulumi.set(__self__, "description", description)
         if invocation_connectivity_parameters is not None:
             pulumi.set(__self__, "invocation_connectivity_parameters", invocation_connectivity_parameters)
+        if kms_key_identifier is not None:
+            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -104,6 +107,15 @@ class ConnectionArgs:
         pulumi.set(self, "invocation_connectivity_parameters", value)
 
     @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "kms_key_identifier")
+
+    @kms_key_identifier.setter
+    def kms_key_identifier(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "kms_key_identifier", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -128,6 +140,7 @@ class Connection(pulumi.CustomResource):
                  authorization_type: Optional[pulumi.Input['ConnectionAuthorizationType']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  invocation_connectivity_parameters: Optional[pulumi.Input[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict']]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -225,6 +238,7 @@ class Connection(pulumi.CustomResource):
                  authorization_type: Optional[pulumi.Input['ConnectionAuthorizationType']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  invocation_connectivity_parameters: Optional[pulumi.Input[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict']]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -239,6 +253,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["authorization_type"] = authorization_type
             __props__.__dict__["description"] = description
             __props__.__dict__["invocation_connectivity_parameters"] = invocation_connectivity_parameters
+            __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
             __props__.__dict__["arn_for_policy"] = None
@@ -273,6 +288,7 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["authorization_type"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["invocation_connectivity_parameters"] = None
+        __props__.__dict__["kms_key_identifier"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["secret_arn"] = None
         return Connection(resource_name, opts=opts, __props__=__props__)
@@ -328,6 +344,11 @@ class Connection(pulumi.CustomResource):
         The private resource the HTTP request will be sent to.
         """
         return pulumi.get(self, "invocation_connectivity_parameters")
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "kms_key_identifier")
 
     @property
     @pulumi.getter

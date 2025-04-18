@@ -94,6 +94,9 @@ namespace Pulumi.AwsNative.Events
         [Output("invocationConnectivityParameters")]
         public Output<Outputs.InvocationConnectivityParametersProperties?> InvocationConnectivityParameters { get; private set; } = null!;
 
+        [Output("kmsKeyIdentifier")]
+        public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
+
         /// <summary>
         /// Name of the connection.
         /// </summary>
@@ -182,6 +185,9 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         [Input("invocationConnectivityParameters")]
         public Input<Inputs.InvocationConnectivityParametersPropertiesArgs>? InvocationConnectivityParameters { get; set; }
+
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
 
         /// <summary>
         /// Name of the connection.

@@ -3,6 +3,7 @@
 
 
 export const KeyspaceRegionListItem = {
+    AfSouth1: "af-south-1",
     ApNortheast1: "ap-northeast-1",
     ApNortheast2: "ap-northeast-2",
     ApSouth1: "ap-south-1",

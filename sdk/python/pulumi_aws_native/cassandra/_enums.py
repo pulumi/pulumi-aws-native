@@ -16,6 +16,7 @@ __all__ = [
 
 
 class KeyspaceRegionListItem(builtins.str, Enum):
+    AF_SOUTH1 = "af-south-1"
     AP_NORTHEAST1 = "ap-northeast-1"
     AP_NORTHEAST2 = "ap-northeast-2"
     AP_SOUTH1 = "ap-south-1"

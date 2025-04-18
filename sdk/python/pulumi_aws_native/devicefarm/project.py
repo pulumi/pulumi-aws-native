@@ -107,7 +107,7 @@ class Project(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
-        AWS::DeviceFarm::Project creates a new Device Farm Project
+        Resource Type definition for a Device Farm Project
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +123,7 @@ class Project(pulumi.CustomResource):
                  args: Optional[ProjectArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        AWS::DeviceFarm::Project creates a new Device Farm Project
+        Resource Type definition for a Device Farm Project
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

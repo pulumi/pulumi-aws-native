@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DeviceFarm
 {
     /// <summary>
-    /// AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
+    /// Resource Type definition for a Device Farm Instance Profile
     /// </summary>
     [AwsNativeResourceType("aws-native:devicefarm:InstanceProfile")]
     public partial class InstanceProfile : global::Pulumi.CustomResource

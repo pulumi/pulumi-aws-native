@@ -53,6 +53,7 @@ export interface GetConnectionResult {
      * The private resource the HTTP request will be sent to.
      */
     readonly invocationConnectivityParameters?: outputs.events.InvocationConnectivityParametersProperties;
+    readonly kmsKeyIdentifier?: string;
     /**
      * The arn of the secrets manager secret created in the customer account.
      */

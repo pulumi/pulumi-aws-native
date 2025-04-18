@@ -13,6 +13,7 @@ import (
 type KeyspaceRegionListItem string
 
 const (
+	KeyspaceRegionListItemAfSouth1     = KeyspaceRegionListItem("af-south-1")
 	KeyspaceRegionListItemApNortheast1 = KeyspaceRegionListItem("ap-northeast-1")
 	KeyspaceRegionListItemApNortheast2 = KeyspaceRegionListItem("ap-northeast-2")
 	KeyspaceRegionListItemApSouth1     = KeyspaceRegionListItem("ap-south-1")
@@ -153,6 +154,7 @@ func (o KeyspaceRegionListItemPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // KeyspaceRegionListItemInput is an input type that accepts values of the KeyspaceRegionListItem enum
 // A concrete instance of `KeyspaceRegionListItemInput` can be one of the following:
 //
+//	KeyspaceRegionListItemAfSouth1
 //	KeyspaceRegionListItemApNortheast1
 //	KeyspaceRegionListItemApNortheast2
 //	KeyspaceRegionListItemApSouth1
@@ -921,8 +923,8 @@ func (in *tableModePtr) ToTableModePtrOutputWithContext(ctx context.Context) Tab
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceRegionListItemInput)(nil)).Elem(), KeyspaceRegionListItem("ap-northeast-1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceRegionListItemPtrInput)(nil)).Elem(), KeyspaceRegionListItem("ap-northeast-1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceRegionListItemInput)(nil)).Elem(), KeyspaceRegionListItem("af-south-1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceRegionListItemPtrInput)(nil)).Elem(), KeyspaceRegionListItem("af-south-1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceRegionListItemArrayInput)(nil)).Elem(), KeyspaceRegionListItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationReplicationStrategyInput)(nil)).Elem(), KeyspaceReplicationSpecificationReplicationStrategy("SINGLE_REGION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationReplicationStrategyPtrInput)(nil)).Elem(), KeyspaceReplicationSpecificationReplicationStrategy("SINGLE_REGION"))

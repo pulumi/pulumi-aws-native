@@ -26,8 +26,9 @@ type MailManagerIngressPoint struct {
 	// The identifier of the ingress endpoint resource.
 	IngressPointId pulumi.StringOutput `pulumi:"ingressPointId"`
 	// A user friendly name for an ingress endpoint resource.
-	IngressPointName     pulumi.StringPtrOutput `pulumi:"ingressPointName"`
-	NetworkConfiguration pulumi.AnyOutput       `pulumi:"networkConfiguration"`
+	IngressPointName pulumi.StringPtrOutput `pulumi:"ingressPointName"`
+	// The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
+	NetworkConfiguration pulumi.AnyOutput `pulumi:"networkConfiguration"`
 	// The identifier of an existing rule set that you attach to an ingress endpoint resource.
 	RuleSetId pulumi.StringOutput `pulumi:"ruleSetId"`
 	// The status of the ingress endpoint resource.
@@ -99,7 +100,8 @@ type mailManagerIngressPointArgs struct {
 	// The configuration of the ingress endpoint resource.
 	IngressPointConfiguration interface{} `pulumi:"ingressPointConfiguration"`
 	// A user friendly name for an ingress endpoint resource.
-	IngressPointName     *string     `pulumi:"ingressPointName"`
+	IngressPointName *string `pulumi:"ingressPointName"`
+	// The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
 	NetworkConfiguration interface{} `pulumi:"networkConfiguration"`
 	// The identifier of an existing rule set that you attach to an ingress endpoint resource.
 	RuleSetId string `pulumi:"ruleSetId"`
@@ -118,7 +120,8 @@ type MailManagerIngressPointArgs struct {
 	// The configuration of the ingress endpoint resource.
 	IngressPointConfiguration pulumi.Input
 	// A user friendly name for an ingress endpoint resource.
-	IngressPointName     pulumi.StringPtrInput
+	IngressPointName pulumi.StringPtrInput
+	// The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
 	NetworkConfiguration pulumi.Input
 	// The identifier of an existing rule set that you attach to an ingress endpoint resource.
 	RuleSetId pulumi.StringInput
@@ -194,6 +197,7 @@ func (o MailManagerIngressPointOutput) IngressPointName() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *MailManagerIngressPoint) pulumi.StringPtrOutput { return v.IngressPointName }).(pulumi.StringPtrOutput)
 }
 
+// The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
 func (o MailManagerIngressPointOutput) NetworkConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *MailManagerIngressPoint) pulumi.AnyOutput { return v.NetworkConfiguration }).(pulumi.AnyOutput)
 }

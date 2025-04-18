@@ -148,7 +148,7 @@ class DevicePool(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+        Resource Type definition for a Device Pool for a given Device Farm Project
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,7 +170,7 @@ class DevicePool(pulumi.CustomResource):
                  args: DevicePoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+        Resource Type definition for a Device Pool for a given Device Farm Project
 
         :param str resource_name: The name of the resource.
         :param DevicePoolArgs args: The arguments to use to populate this resource's properties.

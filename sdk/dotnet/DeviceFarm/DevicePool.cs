@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DeviceFarm
 {
     /// <summary>
-    /// AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+    /// Resource Type definition for a Device Pool for a given Device Farm Project
     /// </summary>
     [AwsNativeResourceType("aws-native:devicefarm:DevicePool")]
     public partial class DevicePool : global::Pulumi.CustomResource

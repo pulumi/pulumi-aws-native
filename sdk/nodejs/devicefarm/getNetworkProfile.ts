@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+ * Resource Type definition for a Device Farm Network Profile
  */
 export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +77,7 @@ export interface GetNetworkProfileResult {
     readonly uplinkLossPercent?: number;
 }
 /**
- * AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+ * Resource Type definition for a Device Farm Network Profile
  */
 export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

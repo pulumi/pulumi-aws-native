@@ -778,6 +778,8 @@ AWS::MemoryDB::ParameterGroup
 AWS::MemoryDB::SubnetGroup
 AWS::MemoryDB::User
 AWS::Neptune::DBCluster
+AWS::Neptune::DBClusterParameterGroup
+AWS::Neptune::DBParameterGroup
 AWS::Neptune::DBSubnetGroup
 AWS::NeptuneGraph::Graph
 AWS::NeptuneGraph::PrivateGraphEndpoint

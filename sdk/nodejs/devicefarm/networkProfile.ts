@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+ * Resource Type definition for a Device Farm Network Profile
  */
 export class NetworkProfile extends pulumi.CustomResource {
     /**

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+ * Resource Type definition for a Device Farm VPCE Configuration
  */
 export class VpceConfiguration extends pulumi.CustomResource {
     /**

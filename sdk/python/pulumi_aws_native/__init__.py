@@ -2493,6 +2493,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.neptune",
   "classes": {
    "aws-native:neptune:DbCluster": "DbCluster",
+   "aws-native:neptune:DbClusterParameterGroup": "DbClusterParameterGroup",
+   "aws-native:neptune:DbParameterGroup": "DbParameterGroup",
    "aws-native:neptune:DbSubnetGroup": "DbSubnetGroup"
   }
  },

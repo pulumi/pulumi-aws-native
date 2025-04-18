@@ -147,7 +147,7 @@ class InstanceProfile(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
+        Resource Type definition for a Device Farm Instance Profile
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,7 +169,7 @@ class InstanceProfile(pulumi.CustomResource):
                  args: Optional[InstanceProfileArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
+        Resource Type definition for a Device Farm Instance Profile
 
         :param str resource_name: The name of the resource.
         :param InstanceProfileArgs args: The arguments to use to populate this resource's properties.

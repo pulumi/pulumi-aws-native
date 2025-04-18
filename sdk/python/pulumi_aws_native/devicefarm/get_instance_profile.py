@@ -127,7 +127,7 @@ class AwaitableGetInstanceProfileResult(GetInstanceProfileResult):
 def get_instance_profile(arn: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceProfileResult:
     """
-    AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
+    Resource Type definition for a Device Farm Instance Profile
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
@@ -148,7 +148,7 @@ def get_instance_profile(arn: Optional[builtins.str] = None,
 def get_instance_profile_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
-    AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
+    Resource Type definition for a Device Farm Instance Profile
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .

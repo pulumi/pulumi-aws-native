@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectionResult:
-    def __init__(__self__, arn=None, arn_for_policy=None, auth_parameters=None, authorization_type=None, description=None, invocation_connectivity_parameters=None, secret_arn=None):
+    def __init__(__self__, arn=None, arn_for_policy=None, auth_parameters=None, authorization_type=None, description=None, invocation_connectivity_parameters=None, kms_key_identifier=None, secret_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetConnectionResult:
         if invocation_connectivity_parameters and not isinstance(invocation_connectivity_parameters, dict):
             raise TypeError("Expected argument 'invocation_connectivity_parameters' to be a dict")
         pulumi.set(__self__, "invocation_connectivity_parameters", invocation_connectivity_parameters)
+        if kms_key_identifier and not isinstance(kms_key_identifier, str):
+            raise TypeError("Expected argument 'kms_key_identifier' to be a str")
+        pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if secret_arn and not isinstance(secret_arn, str):
             raise TypeError("Expected argument 'secret_arn' to be a str")
         pulumi.set(__self__, "secret_arn", secret_arn)
@@ -102,6 +105,11 @@ class GetConnectionResult:
         return pulumi.get(self, "invocation_connectivity_parameters")
 
     @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "kms_key_identifier")
+
+    @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[builtins.str]:
         """
@@ -122,6 +130,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             authorization_type=self.authorization_type,
             description=self.description,
             invocation_connectivity_parameters=self.invocation_connectivity_parameters,
+            kms_key_identifier=self.kms_key_identifier,
             secret_arn=self.secret_arn)
 
 
@@ -145,6 +154,7 @@ def get_connection(name: Optional[builtins.str] = None,
         authorization_type=pulumi.get(__ret__, 'authorization_type'),
         description=pulumi.get(__ret__, 'description'),
         invocation_connectivity_parameters=pulumi.get(__ret__, 'invocation_connectivity_parameters'),
+        kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         secret_arn=pulumi.get(__ret__, 'secret_arn'))
 def get_connection_output(name: Optional[pulumi.Input[builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
@@ -165,4 +175,5 @@ def get_connection_output(name: Optional[pulumi.Input[builtins.str]] = None,
         authorization_type=pulumi.get(__response__, 'authorization_type'),
         description=pulumi.get(__response__, 'description'),
         invocation_connectivity_parameters=pulumi.get(__response__, 'invocation_connectivity_parameters'),
+        kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
         secret_arn=pulumi.get(__response__, 'secret_arn')))

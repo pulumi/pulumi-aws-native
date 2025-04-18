@@ -50,6 +50,7 @@ namespace Pulumi.AwsNative.Lambda
 
         /// <summary>
         /// (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
+        ///   When using ``BisectBatchOnFunctionError``, check the ``BatchSize`` parameter in the ``OnFailure`` destination message's metadata. The ``BatchSize`` could be greater than 1 since LAM consolidates failed messages metadata when writing to the ``OnFailure`` destination.
         /// </summary>
         [Output("bisectBatchOnFunctionError")]
         public Output<bool?> BisectBatchOnFunctionError { get; private set; } = null!;
@@ -302,6 +303,7 @@ namespace Pulumi.AwsNative.Lambda
 
         /// <summary>
         /// (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
+        ///   When using ``BisectBatchOnFunctionError``, check the ``BatchSize`` parameter in the ``OnFailure`` destination message's metadata. The ``BatchSize`` could be greater than 1 since LAM consolidates failed messages metadata when writing to the ``OnFailure`` destination.
         /// </summary>
         [Input("bisectBatchOnFunctionError")]
         public Input<bool>? BisectBatchOnFunctionError { get; set; }

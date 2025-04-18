@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+// Resource Type definition for a Device Farm VPCE Configuration
 func LookupVpceConfiguration(ctx *pulumi.Context, args *LookupVpceConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupVpceConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpceConfigurationResult

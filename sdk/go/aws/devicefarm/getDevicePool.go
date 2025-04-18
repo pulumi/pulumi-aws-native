@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+// Resource Type definition for a Device Pool for a given Device Farm Project
 func LookupDevicePool(ctx *pulumi.Context, args *LookupDevicePoolArgs, opts ...pulumi.InvokeOption) (*LookupDevicePoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDevicePoolResult

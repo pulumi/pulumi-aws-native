@@ -66,6 +66,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     public readonly batchSize!: pulumi.Output<number | undefined>;
     /**
      * (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
+     *   When using ``BisectBatchOnFunctionError``, check the ``BatchSize`` parameter in the ``OnFailure`` destination message's metadata. The ``BatchSize`` could be greater than 1 since LAM consolidates failed messages metadata when writing to the ``OnFailure`` destination.
      */
     public readonly bisectBatchOnFunctionError!: pulumi.Output<boolean | undefined>;
     /**
@@ -294,6 +295,7 @@ export interface EventSourceMappingArgs {
     batchSize?: pulumi.Input<number>;
     /**
      * (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
+     *   When using ``BisectBatchOnFunctionError``, check the ``BatchSize`` parameter in the ``OnFailure`` destination message's metadata. The ``BatchSize`` could be greater than 1 since LAM consolidates failed messages metadata when writing to the ``OnFailure`` destination.
      */
     bisectBatchOnFunctionError?: pulumi.Input<boolean>;
     /**

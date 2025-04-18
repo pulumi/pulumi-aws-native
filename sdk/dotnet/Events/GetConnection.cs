@@ -91,6 +91,7 @@ namespace Pulumi.AwsNative.Events
         /// The private resource the HTTP request will be sent to.
         /// </summary>
         public readonly Outputs.InvocationConnectivityParametersProperties? InvocationConnectivityParameters;
+        public readonly string? KmsKeyIdentifier;
         /// <summary>
         /// The arn of the secrets manager secret created in the customer account.
         /// </summary>
@@ -110,6 +111,8 @@ namespace Pulumi.AwsNative.Events
 
             Outputs.InvocationConnectivityParametersProperties? invocationConnectivityParameters,
 
+            string? kmsKeyIdentifier,
+
             string? secretArn)
         {
             Arn = arn;
@@ -118,6 +121,7 @@ namespace Pulumi.AwsNative.Events
             AuthorizationType = authorizationType;
             Description = description;
             InvocationConnectivityParameters = invocationConnectivityParameters;
+            KmsKeyIdentifier = kmsKeyIdentifier;
             SecretArn = secretArn;
         }
     }

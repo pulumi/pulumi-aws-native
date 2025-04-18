@@ -25,6 +25,9 @@ export interface GetTableBucketArgs {
 }
 
 export interface GetTableBucketResult {
+    /**
+     * Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
+     */
     readonly encryptionConfiguration?: outputs.s3tables.TableBucketEncryptionConfiguration;
     /**
      * The Amazon Resource Name (ARN) of the table bucket.

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+ * Resource Type definition for a Device Farm VPCE Configuration
  */
 export function getVpceConfiguration(args: GetVpceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVpceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,7 +55,7 @@ export interface GetVpceConfigurationResult {
     readonly vpceServiceName?: string;
 }
 /**
- * AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+ * Resource Type definition for a Device Farm VPCE Configuration
  */
 export function getVpceConfigurationOutput(args: GetVpceConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.DeviceFarm
     public static class GetProject
     {
         /// <summary>
-        /// AWS::DeviceFarm::Project creates a new Device Farm Project
+        /// Resource Type definition for a Device Farm Project
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("aws-native:devicefarm:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::DeviceFarm::Project creates a new Device Farm Project
+        /// Resource Type definition for a Device Farm Project
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:devicefarm:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::DeviceFarm::Project creates a new Device Farm Project
+        /// Resource Type definition for a Device Farm Project
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:devicefarm:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
+// Resource Type definition for a Device Farm TestGrid Project
 type TestGridProject struct {
 	pulumi.CustomResourceState
 

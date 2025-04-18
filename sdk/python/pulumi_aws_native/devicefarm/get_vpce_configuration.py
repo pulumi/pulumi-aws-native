@@ -115,7 +115,7 @@ class AwaitableGetVpceConfigurationResult(GetVpceConfigurationResult):
 def get_vpce_configuration(arn: Optional[builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpceConfigurationResult:
     """
-    AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+    Resource Type definition for a Device Farm VPCE Configuration
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
@@ -135,7 +135,7 @@ def get_vpce_configuration(arn: Optional[builtins.str] = None,
 def get_vpce_configuration_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpceConfigurationResult]:
     """
-    AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+    Resource Type definition for a Device Farm VPCE Configuration
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .

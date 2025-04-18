@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// This object is a list of containers.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionTaskContainerProperties> Containers;
+        /// <summary>
+        /// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
+        /// </summary>
         public readonly bool? EnableExecuteCommand;
         /// <summary>
         /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .

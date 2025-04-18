@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) routing in the *Amazon Elastic Container Service Developer Guide* .
+    /// </summary>
     [OutputType]
     public sealed class JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties
     {

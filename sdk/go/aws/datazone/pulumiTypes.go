@@ -7331,6 +7331,7 @@ func (o DataSourceScheduleConfigurationPtrOutput) Timezone() pulumi.StringPtrOut
 
 // The single-sign on configuration of the Amazon DataZone domain.
 type DomainSingleSignOn struct {
+	IdcInstanceArn *string `pulumi:"idcInstanceArn"`
 	// The type of single sign-on in Amazon DataZone.
 	Type *DomainAuthType `pulumi:"type"`
 	// The single sign-on user assignment in Amazon DataZone.
@@ -7350,6 +7351,7 @@ type DomainSingleSignOnInput interface {
 
 // The single-sign on configuration of the Amazon DataZone domain.
 type DomainSingleSignOnArgs struct {
+	IdcInstanceArn pulumi.StringPtrInput `pulumi:"idcInstanceArn"`
 	// The type of single sign-on in Amazon DataZone.
 	Type DomainAuthTypePtrInput `pulumi:"type"`
 	// The single sign-on user assignment in Amazon DataZone.
@@ -7434,6 +7436,10 @@ func (o DomainSingleSignOnOutput) ToDomainSingleSignOnPtrOutputWithContext(ctx c
 	}).(DomainSingleSignOnPtrOutput)
 }
 
+func (o DomainSingleSignOnOutput) IdcInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSingleSignOn) *string { return v.IdcInstanceArn }).(pulumi.StringPtrOutput)
+}
+
 // The type of single sign-on in Amazon DataZone.
 func (o DomainSingleSignOnOutput) Type() DomainAuthTypePtrOutput {
 	return o.ApplyT(func(v DomainSingleSignOn) *DomainAuthType { return v.Type }).(DomainAuthTypePtrOutput)
@@ -7466,6 +7472,15 @@ func (o DomainSingleSignOnPtrOutput) Elem() DomainSingleSignOnOutput {
 		var ret DomainSingleSignOn
 		return ret
 	}).(DomainSingleSignOnOutput)
+}
+
+func (o DomainSingleSignOnPtrOutput) IdcInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSingleSignOn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdcInstanceArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of single sign-on in Amazon DataZone.

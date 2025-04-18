@@ -118,6 +118,7 @@ export class Workspace extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly workspaceConfiguration!: pulumi.Output<outputs.aps.WorkspaceConfiguration | undefined>;
     /**
      * Required to identify a specific APS Workspace.
      */
@@ -139,6 +140,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceConfiguration"] = args ? args.workspaceConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["prometheusEndpoint"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
@@ -150,6 +152,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["loggingConfiguration"] = undefined /*out*/;
             resourceInputs["prometheusEndpoint"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["workspaceConfiguration"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -183,4 +186,5 @@ export interface WorkspaceArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    workspaceConfiguration?: pulumi.Input<inputs.aps.WorkspaceConfigurationArgs>;
 }

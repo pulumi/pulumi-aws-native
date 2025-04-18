@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DeviceFarm
 {
     /// <summary>
-    /// AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+    /// Resource Type definition for a Device Farm VPCE Configuration
     /// </summary>
     [AwsNativeResourceType("aws-native:devicefarm:VpceConfiguration")]
     public partial class VpceConfiguration : global::Pulumi.CustomResource

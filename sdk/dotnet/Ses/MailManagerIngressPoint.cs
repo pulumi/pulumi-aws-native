@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Ses
         [Output("ingressPointName")]
         public Output<string?> IngressPointName { get; private set; } = null!;
 
+        /// <summary>
+        /// The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
+        /// </summary>
         [Output("networkConfiguration")]
         public Output<Union<Outputs.MailManagerIngressPointNetworkConfiguration0Properties, Outputs.MailManagerIngressPointNetworkConfiguration1Properties>?> NetworkConfiguration { get; private set; } = null!;
 
@@ -146,6 +149,9 @@ namespace Pulumi.AwsNative.Ses
         [Input("ingressPointName")]
         public Input<string>? IngressPointName { get; set; }
 
+        /// <summary>
+        /// The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
+        /// </summary>
         [Input("networkConfiguration")]
         public InputUnion<Inputs.MailManagerIngressPointNetworkConfiguration0PropertiesArgs, Inputs.MailManagerIngressPointNetworkConfiguration1PropertiesArgs>? NetworkConfiguration { get; set; }
 

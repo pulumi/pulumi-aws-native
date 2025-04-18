@@ -185,7 +185,7 @@ class AwaitableGetNetworkProfileResult(GetNetworkProfileResult):
 def get_network_profile(arn: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkProfileResult:
     """
-    AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+    Resource Type definition for a Device Farm Network Profile
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
@@ -211,7 +211,7 @@ def get_network_profile(arn: Optional[builtins.str] = None,
 def get_network_profile_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkProfileResult]:
     """
-    AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+    Resource Type definition for a Device Farm Network Profile
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .

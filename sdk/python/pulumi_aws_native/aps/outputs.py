@@ -23,6 +23,10 @@ __all__ = [
     'ScraperScrapeConfiguration',
     'ScraperSource',
     'ScraperSourceEksConfigurationProperties',
+    'WorkspaceConfiguration',
+    'WorkspaceLabel',
+    'WorkspaceLimitsPerLabelSet',
+    'WorkspaceLimitsPerLabelSetEntry',
     'WorkspaceLoggingConfiguration',
 ]
 
@@ -303,6 +307,179 @@ class ScraperSourceEksConfigurationProperties(dict):
         List of security group IDs
         """
         return pulumi.get(self, "security_group_ids")
+
+
+@pulumi.output_type
+class WorkspaceConfiguration(dict):
+    """
+    Workspace configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "limitsPerLabelSets":
+            suggest = "limits_per_label_sets"
+        elif key == "retentionPeriodInDays":
+            suggest = "retention_period_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 limits_per_label_sets: Optional[Sequence['outputs.WorkspaceLimitsPerLabelSet']] = None,
+                 retention_period_in_days: Optional[builtins.int] = None):
+        """
+        Workspace configuration
+        :param Sequence['WorkspaceLimitsPerLabelSet'] limits_per_label_sets: An array of label set and associated limits
+        :param builtins.int retention_period_in_days: How many days that metrics are retained in the workspace
+        """
+        if limits_per_label_sets is not None:
+            pulumi.set(__self__, "limits_per_label_sets", limits_per_label_sets)
+        if retention_period_in_days is not None:
+            pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+
+    @property
+    @pulumi.getter(name="limitsPerLabelSets")
+    def limits_per_label_sets(self) -> Optional[Sequence['outputs.WorkspaceLimitsPerLabelSet']]:
+        """
+        An array of label set and associated limits
+        """
+        return pulumi.get(self, "limits_per_label_sets")
+
+    @property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> Optional[builtins.int]:
+        """
+        How many days that metrics are retained in the workspace
+        """
+        return pulumi.get(self, "retention_period_in_days")
+
+
+@pulumi.output_type
+class WorkspaceLabel(dict):
+    """
+    Series label
+    """
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 value: builtins.str):
+        """
+        Series label
+        :param builtins.str name: Name of the label
+        :param builtins.str value: Value of the label
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the label
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        Value of the label
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WorkspaceLimitsPerLabelSet(dict):
+    """
+    Label set and its associated limits
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelSet":
+            suggest = "label_set"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceLimitsPerLabelSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceLimitsPerLabelSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceLimitsPerLabelSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 label_set: Sequence['outputs.WorkspaceLabel'],
+                 limits: 'outputs.WorkspaceLimitsPerLabelSetEntry'):
+        """
+        Label set and its associated limits
+        :param Sequence['WorkspaceLabel'] label_set: An array of series labels
+        """
+        pulumi.set(__self__, "label_set", label_set)
+        pulumi.set(__self__, "limits", limits)
+
+    @property
+    @pulumi.getter(name="labelSet")
+    def label_set(self) -> Sequence['outputs.WorkspaceLabel']:
+        """
+        An array of series labels
+        """
+        return pulumi.get(self, "label_set")
+
+    @property
+    @pulumi.getter
+    def limits(self) -> 'outputs.WorkspaceLimitsPerLabelSetEntry':
+        return pulumi.get(self, "limits")
+
+
+@pulumi.output_type
+class WorkspaceLimitsPerLabelSetEntry(dict):
+    """
+    Limits that can be applied to a label set
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxSeries":
+            suggest = "max_series"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceLimitsPerLabelSetEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceLimitsPerLabelSetEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceLimitsPerLabelSetEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_series: Optional[builtins.int] = None):
+        """
+        Limits that can be applied to a label set
+        :param builtins.int max_series: The maximum number of active series that can be ingested for this label set
+        """
+        if max_series is not None:
+            pulumi.set(__self__, "max_series", max_series)
+
+    @property
+    @pulumi.getter(name="maxSeries")
+    def max_series(self) -> Optional[builtins.int]:
+        """
+        The maximum number of active series that can be ingested for this label set
+        """
+        return pulumi.get(self, "max_series")
 
 
 @pulumi.output_type

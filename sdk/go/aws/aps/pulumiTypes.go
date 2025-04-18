@@ -739,6 +739,435 @@ type ScraperTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Workspace configuration
+type WorkspaceConfiguration struct {
+	// An array of label set and associated limits
+	LimitsPerLabelSets []WorkspaceLimitsPerLabelSet `pulumi:"limitsPerLabelSets"`
+	// How many days that metrics are retained in the workspace
+	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
+}
+
+// WorkspaceConfigurationInput is an input type that accepts WorkspaceConfigurationArgs and WorkspaceConfigurationOutput values.
+// You can construct a concrete instance of `WorkspaceConfigurationInput` via:
+//
+//	WorkspaceConfigurationArgs{...}
+type WorkspaceConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkspaceConfigurationOutput() WorkspaceConfigurationOutput
+	ToWorkspaceConfigurationOutputWithContext(context.Context) WorkspaceConfigurationOutput
+}
+
+// Workspace configuration
+type WorkspaceConfigurationArgs struct {
+	// An array of label set and associated limits
+	LimitsPerLabelSets WorkspaceLimitsPerLabelSetArrayInput `pulumi:"limitsPerLabelSets"`
+	// How many days that metrics are retained in the workspace
+	RetentionPeriodInDays pulumi.IntPtrInput `pulumi:"retentionPeriodInDays"`
+}
+
+func (WorkspaceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConfiguration)(nil)).Elem()
+}
+
+func (i WorkspaceConfigurationArgs) ToWorkspaceConfigurationOutput() WorkspaceConfigurationOutput {
+	return i.ToWorkspaceConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConfigurationArgs) ToWorkspaceConfigurationOutputWithContext(ctx context.Context) WorkspaceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationOutput)
+}
+
+func (i WorkspaceConfigurationArgs) ToWorkspaceConfigurationPtrOutput() WorkspaceConfigurationPtrOutput {
+	return i.ToWorkspaceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConfigurationArgs) ToWorkspaceConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationOutput).ToWorkspaceConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkspaceConfigurationPtrInput is an input type that accepts WorkspaceConfigurationArgs, WorkspaceConfigurationPtr and WorkspaceConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkspaceConfigurationPtrInput` via:
+//
+//	        WorkspaceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceConfigurationPtrOutput() WorkspaceConfigurationPtrOutput
+	ToWorkspaceConfigurationPtrOutputWithContext(context.Context) WorkspaceConfigurationPtrOutput
+}
+
+type workspaceConfigurationPtrType WorkspaceConfigurationArgs
+
+func WorkspaceConfigurationPtr(v *WorkspaceConfigurationArgs) WorkspaceConfigurationPtrInput {
+	return (*workspaceConfigurationPtrType)(v)
+}
+
+func (*workspaceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceConfiguration)(nil)).Elem()
+}
+
+func (i *workspaceConfigurationPtrType) ToWorkspaceConfigurationPtrOutput() WorkspaceConfigurationPtrOutput {
+	return i.ToWorkspaceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceConfigurationPtrType) ToWorkspaceConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationPtrOutput)
+}
+
+// Workspace configuration
+type WorkspaceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConfiguration)(nil)).Elem()
+}
+
+func (o WorkspaceConfigurationOutput) ToWorkspaceConfigurationOutput() WorkspaceConfigurationOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationOutput) ToWorkspaceConfigurationOutputWithContext(ctx context.Context) WorkspaceConfigurationOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationOutput) ToWorkspaceConfigurationPtrOutput() WorkspaceConfigurationPtrOutput {
+	return o.ToWorkspaceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceConfigurationOutput) ToWorkspaceConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceConfiguration) *WorkspaceConfiguration {
+		return &v
+	}).(WorkspaceConfigurationPtrOutput)
+}
+
+// An array of label set and associated limits
+func (o WorkspaceConfigurationOutput) LimitsPerLabelSets() WorkspaceLimitsPerLabelSetArrayOutput {
+	return o.ApplyT(func(v WorkspaceConfiguration) []WorkspaceLimitsPerLabelSet { return v.LimitsPerLabelSets }).(WorkspaceLimitsPerLabelSetArrayOutput)
+}
+
+// How many days that metrics are retained in the workspace
+func (o WorkspaceConfigurationOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceConfiguration) *int { return v.RetentionPeriodInDays }).(pulumi.IntPtrOutput)
+}
+
+type WorkspaceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceConfiguration)(nil)).Elem()
+}
+
+func (o WorkspaceConfigurationPtrOutput) ToWorkspaceConfigurationPtrOutput() WorkspaceConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationPtrOutput) ToWorkspaceConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationPtrOutput) Elem() WorkspaceConfigurationOutput {
+	return o.ApplyT(func(v *WorkspaceConfiguration) WorkspaceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceConfiguration
+		return ret
+	}).(WorkspaceConfigurationOutput)
+}
+
+// An array of label set and associated limits
+func (o WorkspaceConfigurationPtrOutput) LimitsPerLabelSets() WorkspaceLimitsPerLabelSetArrayOutput {
+	return o.ApplyT(func(v *WorkspaceConfiguration) []WorkspaceLimitsPerLabelSet {
+		if v == nil {
+			return nil
+		}
+		return v.LimitsPerLabelSets
+	}).(WorkspaceLimitsPerLabelSetArrayOutput)
+}
+
+// How many days that metrics are retained in the workspace
+func (o WorkspaceConfigurationPtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Series label
+type WorkspaceLabel struct {
+	// Name of the label
+	Name string `pulumi:"name"`
+	// Value of the label
+	Value string `pulumi:"value"`
+}
+
+// WorkspaceLabelInput is an input type that accepts WorkspaceLabelArgs and WorkspaceLabelOutput values.
+// You can construct a concrete instance of `WorkspaceLabelInput` via:
+//
+//	WorkspaceLabelArgs{...}
+type WorkspaceLabelInput interface {
+	pulumi.Input
+
+	ToWorkspaceLabelOutput() WorkspaceLabelOutput
+	ToWorkspaceLabelOutputWithContext(context.Context) WorkspaceLabelOutput
+}
+
+// Series label
+type WorkspaceLabelArgs struct {
+	// Name of the label
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the label
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WorkspaceLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceLabel)(nil)).Elem()
+}
+
+func (i WorkspaceLabelArgs) ToWorkspaceLabelOutput() WorkspaceLabelOutput {
+	return i.ToWorkspaceLabelOutputWithContext(context.Background())
+}
+
+func (i WorkspaceLabelArgs) ToWorkspaceLabelOutputWithContext(ctx context.Context) WorkspaceLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLabelOutput)
+}
+
+// WorkspaceLabelArrayInput is an input type that accepts WorkspaceLabelArray and WorkspaceLabelArrayOutput values.
+// You can construct a concrete instance of `WorkspaceLabelArrayInput` via:
+//
+//	WorkspaceLabelArray{ WorkspaceLabelArgs{...} }
+type WorkspaceLabelArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceLabelArrayOutput() WorkspaceLabelArrayOutput
+	ToWorkspaceLabelArrayOutputWithContext(context.Context) WorkspaceLabelArrayOutput
+}
+
+type WorkspaceLabelArray []WorkspaceLabelInput
+
+func (WorkspaceLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceLabel)(nil)).Elem()
+}
+
+func (i WorkspaceLabelArray) ToWorkspaceLabelArrayOutput() WorkspaceLabelArrayOutput {
+	return i.ToWorkspaceLabelArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceLabelArray) ToWorkspaceLabelArrayOutputWithContext(ctx context.Context) WorkspaceLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLabelArrayOutput)
+}
+
+// Series label
+type WorkspaceLabelOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceLabel)(nil)).Elem()
+}
+
+func (o WorkspaceLabelOutput) ToWorkspaceLabelOutput() WorkspaceLabelOutput {
+	return o
+}
+
+func (o WorkspaceLabelOutput) ToWorkspaceLabelOutputWithContext(ctx context.Context) WorkspaceLabelOutput {
+	return o
+}
+
+// Name of the label
+func (o WorkspaceLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the label
+func (o WorkspaceLabelOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceLabel) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WorkspaceLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceLabel)(nil)).Elem()
+}
+
+func (o WorkspaceLabelArrayOutput) ToWorkspaceLabelArrayOutput() WorkspaceLabelArrayOutput {
+	return o
+}
+
+func (o WorkspaceLabelArrayOutput) ToWorkspaceLabelArrayOutputWithContext(ctx context.Context) WorkspaceLabelArrayOutput {
+	return o
+}
+
+func (o WorkspaceLabelArrayOutput) Index(i pulumi.IntInput) WorkspaceLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceLabel {
+		return vs[0].([]WorkspaceLabel)[vs[1].(int)]
+	}).(WorkspaceLabelOutput)
+}
+
+// Label set and its associated limits
+type WorkspaceLimitsPerLabelSet struct {
+	// An array of series labels
+	LabelSet []WorkspaceLabel                `pulumi:"labelSet"`
+	Limits   WorkspaceLimitsPerLabelSetEntry `pulumi:"limits"`
+}
+
+// WorkspaceLimitsPerLabelSetInput is an input type that accepts WorkspaceLimitsPerLabelSetArgs and WorkspaceLimitsPerLabelSetOutput values.
+// You can construct a concrete instance of `WorkspaceLimitsPerLabelSetInput` via:
+//
+//	WorkspaceLimitsPerLabelSetArgs{...}
+type WorkspaceLimitsPerLabelSetInput interface {
+	pulumi.Input
+
+	ToWorkspaceLimitsPerLabelSetOutput() WorkspaceLimitsPerLabelSetOutput
+	ToWorkspaceLimitsPerLabelSetOutputWithContext(context.Context) WorkspaceLimitsPerLabelSetOutput
+}
+
+// Label set and its associated limits
+type WorkspaceLimitsPerLabelSetArgs struct {
+	// An array of series labels
+	LabelSet WorkspaceLabelArrayInput             `pulumi:"labelSet"`
+	Limits   WorkspaceLimitsPerLabelSetEntryInput `pulumi:"limits"`
+}
+
+func (WorkspaceLimitsPerLabelSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceLimitsPerLabelSet)(nil)).Elem()
+}
+
+func (i WorkspaceLimitsPerLabelSetArgs) ToWorkspaceLimitsPerLabelSetOutput() WorkspaceLimitsPerLabelSetOutput {
+	return i.ToWorkspaceLimitsPerLabelSetOutputWithContext(context.Background())
+}
+
+func (i WorkspaceLimitsPerLabelSetArgs) ToWorkspaceLimitsPerLabelSetOutputWithContext(ctx context.Context) WorkspaceLimitsPerLabelSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLimitsPerLabelSetOutput)
+}
+
+// WorkspaceLimitsPerLabelSetArrayInput is an input type that accepts WorkspaceLimitsPerLabelSetArray and WorkspaceLimitsPerLabelSetArrayOutput values.
+// You can construct a concrete instance of `WorkspaceLimitsPerLabelSetArrayInput` via:
+//
+//	WorkspaceLimitsPerLabelSetArray{ WorkspaceLimitsPerLabelSetArgs{...} }
+type WorkspaceLimitsPerLabelSetArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceLimitsPerLabelSetArrayOutput() WorkspaceLimitsPerLabelSetArrayOutput
+	ToWorkspaceLimitsPerLabelSetArrayOutputWithContext(context.Context) WorkspaceLimitsPerLabelSetArrayOutput
+}
+
+type WorkspaceLimitsPerLabelSetArray []WorkspaceLimitsPerLabelSetInput
+
+func (WorkspaceLimitsPerLabelSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceLimitsPerLabelSet)(nil)).Elem()
+}
+
+func (i WorkspaceLimitsPerLabelSetArray) ToWorkspaceLimitsPerLabelSetArrayOutput() WorkspaceLimitsPerLabelSetArrayOutput {
+	return i.ToWorkspaceLimitsPerLabelSetArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceLimitsPerLabelSetArray) ToWorkspaceLimitsPerLabelSetArrayOutputWithContext(ctx context.Context) WorkspaceLimitsPerLabelSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLimitsPerLabelSetArrayOutput)
+}
+
+// Label set and its associated limits
+type WorkspaceLimitsPerLabelSetOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceLimitsPerLabelSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceLimitsPerLabelSet)(nil)).Elem()
+}
+
+func (o WorkspaceLimitsPerLabelSetOutput) ToWorkspaceLimitsPerLabelSetOutput() WorkspaceLimitsPerLabelSetOutput {
+	return o
+}
+
+func (o WorkspaceLimitsPerLabelSetOutput) ToWorkspaceLimitsPerLabelSetOutputWithContext(ctx context.Context) WorkspaceLimitsPerLabelSetOutput {
+	return o
+}
+
+// An array of series labels
+func (o WorkspaceLimitsPerLabelSetOutput) LabelSet() WorkspaceLabelArrayOutput {
+	return o.ApplyT(func(v WorkspaceLimitsPerLabelSet) []WorkspaceLabel { return v.LabelSet }).(WorkspaceLabelArrayOutput)
+}
+
+func (o WorkspaceLimitsPerLabelSetOutput) Limits() WorkspaceLimitsPerLabelSetEntryOutput {
+	return o.ApplyT(func(v WorkspaceLimitsPerLabelSet) WorkspaceLimitsPerLabelSetEntry { return v.Limits }).(WorkspaceLimitsPerLabelSetEntryOutput)
+}
+
+type WorkspaceLimitsPerLabelSetArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceLimitsPerLabelSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceLimitsPerLabelSet)(nil)).Elem()
+}
+
+func (o WorkspaceLimitsPerLabelSetArrayOutput) ToWorkspaceLimitsPerLabelSetArrayOutput() WorkspaceLimitsPerLabelSetArrayOutput {
+	return o
+}
+
+func (o WorkspaceLimitsPerLabelSetArrayOutput) ToWorkspaceLimitsPerLabelSetArrayOutputWithContext(ctx context.Context) WorkspaceLimitsPerLabelSetArrayOutput {
+	return o
+}
+
+func (o WorkspaceLimitsPerLabelSetArrayOutput) Index(i pulumi.IntInput) WorkspaceLimitsPerLabelSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceLimitsPerLabelSet {
+		return vs[0].([]WorkspaceLimitsPerLabelSet)[vs[1].(int)]
+	}).(WorkspaceLimitsPerLabelSetOutput)
+}
+
+// Limits that can be applied to a label set
+type WorkspaceLimitsPerLabelSetEntry struct {
+	// The maximum number of active series that can be ingested for this label set
+	MaxSeries *int `pulumi:"maxSeries"`
+}
+
+// WorkspaceLimitsPerLabelSetEntryInput is an input type that accepts WorkspaceLimitsPerLabelSetEntryArgs and WorkspaceLimitsPerLabelSetEntryOutput values.
+// You can construct a concrete instance of `WorkspaceLimitsPerLabelSetEntryInput` via:
+//
+//	WorkspaceLimitsPerLabelSetEntryArgs{...}
+type WorkspaceLimitsPerLabelSetEntryInput interface {
+	pulumi.Input
+
+	ToWorkspaceLimitsPerLabelSetEntryOutput() WorkspaceLimitsPerLabelSetEntryOutput
+	ToWorkspaceLimitsPerLabelSetEntryOutputWithContext(context.Context) WorkspaceLimitsPerLabelSetEntryOutput
+}
+
+// Limits that can be applied to a label set
+type WorkspaceLimitsPerLabelSetEntryArgs struct {
+	// The maximum number of active series that can be ingested for this label set
+	MaxSeries pulumi.IntPtrInput `pulumi:"maxSeries"`
+}
+
+func (WorkspaceLimitsPerLabelSetEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceLimitsPerLabelSetEntry)(nil)).Elem()
+}
+
+func (i WorkspaceLimitsPerLabelSetEntryArgs) ToWorkspaceLimitsPerLabelSetEntryOutput() WorkspaceLimitsPerLabelSetEntryOutput {
+	return i.ToWorkspaceLimitsPerLabelSetEntryOutputWithContext(context.Background())
+}
+
+func (i WorkspaceLimitsPerLabelSetEntryArgs) ToWorkspaceLimitsPerLabelSetEntryOutputWithContext(ctx context.Context) WorkspaceLimitsPerLabelSetEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLimitsPerLabelSetEntryOutput)
+}
+
+// Limits that can be applied to a label set
+type WorkspaceLimitsPerLabelSetEntryOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceLimitsPerLabelSetEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceLimitsPerLabelSetEntry)(nil)).Elem()
+}
+
+func (o WorkspaceLimitsPerLabelSetEntryOutput) ToWorkspaceLimitsPerLabelSetEntryOutput() WorkspaceLimitsPerLabelSetEntryOutput {
+	return o
+}
+
+func (o WorkspaceLimitsPerLabelSetEntryOutput) ToWorkspaceLimitsPerLabelSetEntryOutputWithContext(ctx context.Context) WorkspaceLimitsPerLabelSetEntryOutput {
+	return o
+}
+
+// The maximum number of active series that can be ingested for this label set
+func (o WorkspaceLimitsPerLabelSetEntryOutput) MaxSeries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceLimitsPerLabelSetEntry) *int { return v.MaxSeries }).(pulumi.IntPtrOutput)
+}
+
 // Logging configuration
 type WorkspaceLoggingConfiguration struct {
 	// CloudWatch log group ARN
@@ -897,6 +1326,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceInput)(nil)).Elem(), ScraperSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceEksConfigurationPropertiesInput)(nil)).Elem(), ScraperSourceEksConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceEksConfigurationPropertiesPtrInput)(nil)).Elem(), ScraperSourceEksConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationInput)(nil)).Elem(), WorkspaceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationPtrInput)(nil)).Elem(), WorkspaceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLabelInput)(nil)).Elem(), WorkspaceLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLabelArrayInput)(nil)).Elem(), WorkspaceLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLimitsPerLabelSetInput)(nil)).Elem(), WorkspaceLimitsPerLabelSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLimitsPerLabelSetArrayInput)(nil)).Elem(), WorkspaceLimitsPerLabelSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLimitsPerLabelSetEntryInput)(nil)).Elem(), WorkspaceLimitsPerLabelSetEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationPtrInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
 	pulumi.RegisterOutputType(ScraperDestinationOutput{})
@@ -910,6 +1346,13 @@ func init() {
 	pulumi.RegisterOutputType(ScraperSourceOutput{})
 	pulumi.RegisterOutputType(ScraperSourceEksConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(ScraperSourceEksConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkspaceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceLabelOutput{})
+	pulumi.RegisterOutputType(WorkspaceLabelArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceLimitsPerLabelSetOutput{})
+	pulumi.RegisterOutputType(WorkspaceLimitsPerLabelSetArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceLimitsPerLabelSetEntryOutput{})
 	pulumi.RegisterOutputType(WorkspaceLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkspaceLoggingConfigurationPtrOutput{})
 }

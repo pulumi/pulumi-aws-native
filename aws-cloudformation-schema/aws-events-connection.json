@@ -215,6 +215,11 @@
       },
       "required" : [ "ResourceParameters" ],
       "additionalProperties" : false
+    },
+    "KmsKeyIdentifier" : {
+      "type" : "string",
+      "maxLength" : 2048,
+      "pattern" : "^[a-zA-Z0-9_\\-/:]*$"
     }
   },
   "additionalProperties" : false,
@@ -230,13 +235,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "events:CreateConnection", "events:DescribeConnection", "secretsmanager:CreateSecret", "secretsmanager:GetSecretValue", "secretsmanager:PutSecretValue", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "events:CreateConnection", "events:DescribeConnection", "secretsmanager:CreateSecret", "secretsmanager:GetSecretValue", "secretsmanager:PutSecretValue", "iam:CreateServiceLinkedRole", "kms:DescribeKey", "kms:GenerateDataKey" ]
     },
     "read" : {
-      "permissions" : [ "events:DescribeConnection" ]
+      "permissions" : [ "events:DescribeConnection", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "events:UpdateConnection", "events:DescribeConnection", "secretsmanager:CreateSecret", "secretsmanager:UpdateSecret", "secretsmanager:GetSecretValue", "secretsmanager:PutSecretValue" ]
+      "permissions" : [ "events:UpdateConnection", "events:DescribeConnection", "secretsmanager:CreateSecret", "secretsmanager:UpdateSecret", "secretsmanager:GetSecretValue", "secretsmanager:PutSecretValue", "kms:Decrypt", "kms:DescribeKey", "kms:Encrypt", "kms:GenerateDataKey" ]
     },
     "delete" : {
       "permissions" : [ "events:DeleteConnection", "events:DescribeConnection" ]

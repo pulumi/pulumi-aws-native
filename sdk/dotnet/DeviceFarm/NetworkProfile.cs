@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DeviceFarm
 {
     /// <summary>
-    /// AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+    /// Resource Type definition for a Device Farm Network Profile
     /// </summary>
     [AwsNativeResourceType("aws-native:devicefarm:NetworkProfile")]
     public partial class NetworkProfile : global::Pulumi.CustomResource

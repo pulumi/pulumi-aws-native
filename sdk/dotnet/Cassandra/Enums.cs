@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Cassandra
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static KeyspaceRegionListItem AfSouth1 { get; } = new KeyspaceRegionListItem("af-south-1");
         public static KeyspaceRegionListItem ApNortheast1 { get; } = new KeyspaceRegionListItem("ap-northeast-1");
         public static KeyspaceRegionListItem ApNortheast2 { get; } = new KeyspaceRegionListItem("ap-northeast-2");
         public static KeyspaceRegionListItem ApSouth1 { get; } = new KeyspaceRegionListItem("ap-south-1");

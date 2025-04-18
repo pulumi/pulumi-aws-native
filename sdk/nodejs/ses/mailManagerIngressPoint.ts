@@ -57,6 +57,9 @@ export class MailManagerIngressPoint extends pulumi.CustomResource {
      * A user friendly name for an ingress endpoint resource.
      */
     public readonly ingressPointName!: pulumi.Output<string | undefined>;
+    /**
+     * The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
+     */
     public readonly networkConfiguration!: pulumi.Output<outputs.ses.MailManagerIngressPointNetworkConfiguration0Properties | outputs.ses.MailManagerIngressPointNetworkConfiguration1Properties | undefined>;
     /**
      * The identifier of an existing rule set that you attach to an ingress endpoint resource.
@@ -148,6 +151,9 @@ export interface MailManagerIngressPointArgs {
      * A user friendly name for an ingress endpoint resource.
      */
     ingressPointName?: pulumi.Input<string>;
+    /**
+     * The network type (IPv4-only, Dual-Stack, PrivateLink) of the ingress endpoint resource.
+     */
     networkConfiguration?: pulumi.Input<inputs.ses.MailManagerIngressPointNetworkConfiguration0PropertiesArgs | inputs.ses.MailManagerIngressPointNetworkConfiguration1PropertiesArgs>;
     /**
      * The identifier of an existing rule set that you attach to an ingress endpoint resource.

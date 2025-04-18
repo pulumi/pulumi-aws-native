@@ -133,7 +133,8 @@ type Workspace struct {
 	// AMP Workspace prometheus endpoint
 	PrometheusEndpoint pulumi.StringOutput `pulumi:"prometheusEndpoint"`
 	// An array of key-value pairs to apply to this resource.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags                   aws.TagArrayOutput              `pulumi:"tags"`
+	WorkspaceConfiguration WorkspaceConfigurationPtrOutput `pulumi:"workspaceConfiguration"`
 	// Required to identify a specific APS Workspace.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
@@ -191,7 +192,8 @@ type workspaceArgs struct {
 	// Contains information about the logging configuration for the workspace.
 	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                   []aws.Tag               `pulumi:"tags"`
+	WorkspaceConfiguration *WorkspaceConfiguration `pulumi:"workspaceConfiguration"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -205,7 +207,8 @@ type WorkspaceArgs struct {
 	// Contains information about the logging configuration for the workspace.
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags aws.TagArrayInput
+	Tags                   aws.TagArrayInput
+	WorkspaceConfiguration WorkspaceConfigurationPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -278,6 +281,10 @@ func (o WorkspaceOutput) PrometheusEndpoint() pulumi.StringOutput {
 // An array of key-value pairs to apply to this resource.
 func (o WorkspaceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Workspace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o WorkspaceOutput) WorkspaceConfiguration() WorkspaceConfigurationPtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceConfigurationPtrOutput { return v.WorkspaceConfiguration }).(WorkspaceConfigurationPtrOutput)
 }
 
 // Required to identify a specific APS Workspace.

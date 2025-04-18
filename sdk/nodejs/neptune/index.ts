@@ -10,6 +10,16 @@ export type DbCluster = import("./dbCluster").DbCluster;
 export const DbCluster: typeof import("./dbCluster").DbCluster = null as any;
 utilities.lazyLoad(exports, ["DbCluster"], () => require("./dbCluster"));
 
+export { DbClusterParameterGroupArgs } from "./dbClusterParameterGroup";
+export type DbClusterParameterGroup = import("./dbClusterParameterGroup").DbClusterParameterGroup;
+export const DbClusterParameterGroup: typeof import("./dbClusterParameterGroup").DbClusterParameterGroup = null as any;
+utilities.lazyLoad(exports, ["DbClusterParameterGroup"], () => require("./dbClusterParameterGroup"));
+
+export { DbParameterGroupArgs } from "./dbParameterGroup";
+export type DbParameterGroup = import("./dbParameterGroup").DbParameterGroup;
+export const DbParameterGroup: typeof import("./dbParameterGroup").DbParameterGroup = null as any;
+utilities.lazyLoad(exports, ["DbParameterGroup"], () => require("./dbParameterGroup"));
+
 export { DbSubnetGroupArgs } from "./dbSubnetGroup";
 export type DbSubnetGroup = import("./dbSubnetGroup").DbSubnetGroup;
 export const DbSubnetGroup: typeof import("./dbSubnetGroup").DbSubnetGroup = null as any;
@@ -19,6 +29,16 @@ export { GetDbClusterArgs, GetDbClusterResult, GetDbClusterOutputArgs } from "./
 export const getDbCluster: typeof import("./getDbCluster").getDbCluster = null as any;
 export const getDbClusterOutput: typeof import("./getDbCluster").getDbClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getDbCluster","getDbClusterOutput"], () => require("./getDbCluster"));
+
+export { GetDbClusterParameterGroupArgs, GetDbClusterParameterGroupResult, GetDbClusterParameterGroupOutputArgs } from "./getDbClusterParameterGroup";
+export const getDbClusterParameterGroup: typeof import("./getDbClusterParameterGroup").getDbClusterParameterGroup = null as any;
+export const getDbClusterParameterGroupOutput: typeof import("./getDbClusterParameterGroup").getDbClusterParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbClusterParameterGroup","getDbClusterParameterGroupOutput"], () => require("./getDbClusterParameterGroup"));
+
+export { GetDbParameterGroupArgs, GetDbParameterGroupResult, GetDbParameterGroupOutputArgs } from "./getDbParameterGroup";
+export const getDbParameterGroup: typeof import("./getDbParameterGroup").getDbParameterGroup = null as any;
+export const getDbParameterGroupOutput: typeof import("./getDbParameterGroup").getDbParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbParameterGroup","getDbParameterGroupOutput"], () => require("./getDbParameterGroup"));
 
 export { GetDbSubnetGroupArgs, GetDbSubnetGroupResult, GetDbSubnetGroupOutputArgs } from "./getDbSubnetGroup";
 export const getDbSubnetGroup: typeof import("./getDbSubnetGroup").getDbSubnetGroup = null as any;
@@ -32,6 +52,10 @@ const _module = {
         switch (type) {
             case "aws-native:neptune:DbCluster":
                 return new DbCluster(name, <any>undefined, { urn })
+            case "aws-native:neptune:DbClusterParameterGroup":
+                return new DbClusterParameterGroup(name, <any>undefined, { urn })
+            case "aws-native:neptune:DbParameterGroup":
+                return new DbParameterGroup(name, <any>undefined, { urn })
             case "aws-native:neptune:DbSubnetGroup":
                 return new DbSubnetGroup(name, <any>undefined, { urn })
             default:

@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+// Resource Type definition for a Device Pool for a given Device Farm Project
 type DevicePool struct {
 	pulumi.CustomResourceState
 

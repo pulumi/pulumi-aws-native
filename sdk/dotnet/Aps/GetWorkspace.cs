@@ -87,6 +87,7 @@ namespace Pulumi.AwsNative.Aps
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Outputs.WorkspaceConfiguration? WorkspaceConfiguration;
         /// <summary>
         /// Required to identify a specific APS Workspace.
         /// </summary>
@@ -106,6 +107,8 @@ namespace Pulumi.AwsNative.Aps
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            Outputs.WorkspaceConfiguration? workspaceConfiguration,
+
             string? workspaceId)
         {
             AlertManagerDefinition = alertManagerDefinition;
@@ -114,6 +117,7 @@ namespace Pulumi.AwsNative.Aps
             LoggingConfiguration = loggingConfiguration;
             PrometheusEndpoint = prometheusEndpoint;
             Tags = tags;
+            WorkspaceConfiguration = workspaceConfiguration;
             WorkspaceId = workspaceId;
         }
     }

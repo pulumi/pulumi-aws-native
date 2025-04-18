@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+ * Resource Type definition for a Device Pool for a given Device Farm Project
  */
 export function getDevicePool(args: GetDevicePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDevicePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,7 +55,7 @@ export interface GetDevicePoolResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+ * Resource Type definition for a Device Pool for a given Device Farm Project
  */
 export function getDevicePoolOutput(args: GetDevicePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevicePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

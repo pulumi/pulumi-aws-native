@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::DeviceFarm::Project creates a new Device Farm Project
+ * Resource Type definition for a Device Farm Project
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,7 +47,7 @@ export interface GetProjectResult {
     readonly vpcConfig?: outputs.devicefarm.ProjectVpcConfig;
 }
 /**
- * AWS::DeviceFarm::Project creates a new Device Farm Project
+ * Resource Type definition for a Device Farm Project
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

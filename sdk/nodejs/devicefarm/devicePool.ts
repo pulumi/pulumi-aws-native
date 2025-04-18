@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+ * Resource Type definition for a Device Pool for a given Device Farm Project
  */
 export class DevicePool extends pulumi.CustomResource {
     /**

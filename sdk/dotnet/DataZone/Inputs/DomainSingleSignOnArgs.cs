@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     /// </summary>
     public sealed class DomainSingleSignOnArgs : global::Pulumi.ResourceArgs
     {
+        [Input("idcInstanceArn")]
+        public Input<string>? IdcInstanceArn { get; set; }
+
         /// <summary>
         /// The type of single sign-on in Amazon DataZone.
         /// </summary>

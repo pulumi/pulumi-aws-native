@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
             set => _command = value;
         }
 
+        /// <summary>
+        /// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
+        /// </summary>
         [Input("enableExecuteCommand")]
         public Input<bool>? EnableExecuteCommand { get; set; }
 

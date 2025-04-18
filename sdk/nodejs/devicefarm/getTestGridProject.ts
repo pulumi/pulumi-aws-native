@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
+ * Resource Type definition for a Device Farm TestGrid Project
  */
 export function getTestGridProject(args: GetTestGridProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetTestGridProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,7 +45,7 @@ export interface GetTestGridProjectResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
+ * Resource Type definition for a Device Farm TestGrid Project
  */
 export function getTestGridProjectOutput(args: GetTestGridProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestGridProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

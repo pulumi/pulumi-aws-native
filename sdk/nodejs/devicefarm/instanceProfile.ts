@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
+ * Resource Type definition for a Device Farm Instance Profile
  */
 export class InstanceProfile extends pulumi.CustomResource {
     /**

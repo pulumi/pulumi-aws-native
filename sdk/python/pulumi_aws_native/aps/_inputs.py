@@ -28,6 +28,14 @@ __all__ = [
     'ScraperSourceEksConfigurationPropertiesArgsDict',
     'ScraperSourceArgs',
     'ScraperSourceArgsDict',
+    'WorkspaceConfigurationArgs',
+    'WorkspaceConfigurationArgsDict',
+    'WorkspaceLabelArgs',
+    'WorkspaceLabelArgsDict',
+    'WorkspaceLimitsPerLabelSetEntryArgs',
+    'WorkspaceLimitsPerLabelSetEntryArgsDict',
+    'WorkspaceLimitsPerLabelSetArgs',
+    'WorkspaceLimitsPerLabelSetArgsDict',
     'WorkspaceLoggingConfigurationArgs',
     'WorkspaceLoggingConfigurationArgsDict',
 ]
@@ -305,6 +313,199 @@ class ScraperSourceArgs:
     @eks_configuration.setter
     def eks_configuration(self, value: Optional[pulumi.Input['ScraperSourceEksConfigurationPropertiesArgs']]):
         pulumi.set(self, "eks_configuration", value)
+
+
+if not MYPY:
+    class WorkspaceConfigurationArgsDict(TypedDict):
+        """
+        Workspace configuration
+        """
+        limits_per_label_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgsDict']]]]
+        """
+        An array of label set and associated limits
+        """
+        retention_period_in_days: NotRequired[pulumi.Input[builtins.int]]
+        """
+        How many days that metrics are retained in the workspace
+        """
+elif False:
+    WorkspaceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceConfigurationArgs:
+    def __init__(__self__, *,
+                 limits_per_label_sets: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]]] = None,
+                 retention_period_in_days: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        Workspace configuration
+        :param pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]] limits_per_label_sets: An array of label set and associated limits
+        :param pulumi.Input[builtins.int] retention_period_in_days: How many days that metrics are retained in the workspace
+        """
+        if limits_per_label_sets is not None:
+            pulumi.set(__self__, "limits_per_label_sets", limits_per_label_sets)
+        if retention_period_in_days is not None:
+            pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+
+    @property
+    @pulumi.getter(name="limitsPerLabelSets")
+    def limits_per_label_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]]]:
+        """
+        An array of label set and associated limits
+        """
+        return pulumi.get(self, "limits_per_label_sets")
+
+    @limits_per_label_sets.setter
+    def limits_per_label_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]]]):
+        pulumi.set(self, "limits_per_label_sets", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        How many days that metrics are retained in the workspace
+        """
+        return pulumi.get(self, "retention_period_in_days")
+
+    @retention_period_in_days.setter
+    def retention_period_in_days(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "retention_period_in_days", value)
+
+
+if not MYPY:
+    class WorkspaceLabelArgsDict(TypedDict):
+        """
+        Series label
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        Name of the label
+        """
+        value: pulumi.Input[builtins.str]
+        """
+        Value of the label
+        """
+elif False:
+    WorkspaceLabelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceLabelArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 value: pulumi.Input[builtins.str]):
+        """
+        Series label
+        :param pulumi.Input[builtins.str] name: Name of the label
+        :param pulumi.Input[builtins.str] value: Value of the label
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the label
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.str]:
+        """
+        Value of the label
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class WorkspaceLimitsPerLabelSetEntryArgsDict(TypedDict):
+        """
+        Limits that can be applied to a label set
+        """
+        max_series: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The maximum number of active series that can be ingested for this label set
+        """
+elif False:
+    WorkspaceLimitsPerLabelSetEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceLimitsPerLabelSetEntryArgs:
+    def __init__(__self__, *,
+                 max_series: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        Limits that can be applied to a label set
+        :param pulumi.Input[builtins.int] max_series: The maximum number of active series that can be ingested for this label set
+        """
+        if max_series is not None:
+            pulumi.set(__self__, "max_series", max_series)
+
+    @property
+    @pulumi.getter(name="maxSeries")
+    def max_series(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The maximum number of active series that can be ingested for this label set
+        """
+        return pulumi.get(self, "max_series")
+
+    @max_series.setter
+    def max_series(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_series", value)
+
+
+if not MYPY:
+    class WorkspaceLimitsPerLabelSetArgsDict(TypedDict):
+        """
+        Label set and its associated limits
+        """
+        label_set: pulumi.Input[Sequence[pulumi.Input['WorkspaceLabelArgsDict']]]
+        """
+        An array of series labels
+        """
+        limits: pulumi.Input['WorkspaceLimitsPerLabelSetEntryArgsDict']
+elif False:
+    WorkspaceLimitsPerLabelSetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceLimitsPerLabelSetArgs:
+    def __init__(__self__, *,
+                 label_set: pulumi.Input[Sequence[pulumi.Input['WorkspaceLabelArgs']]],
+                 limits: pulumi.Input['WorkspaceLimitsPerLabelSetEntryArgs']):
+        """
+        Label set and its associated limits
+        :param pulumi.Input[Sequence[pulumi.Input['WorkspaceLabelArgs']]] label_set: An array of series labels
+        """
+        pulumi.set(__self__, "label_set", label_set)
+        pulumi.set(__self__, "limits", limits)
+
+    @property
+    @pulumi.getter(name="labelSet")
+    def label_set(self) -> pulumi.Input[Sequence[pulumi.Input['WorkspaceLabelArgs']]]:
+        """
+        An array of series labels
+        """
+        return pulumi.get(self, "label_set")
+
+    @label_set.setter
+    def label_set(self, value: pulumi.Input[Sequence[pulumi.Input['WorkspaceLabelArgs']]]):
+        pulumi.set(self, "label_set", value)
+
+    @property
+    @pulumi.getter
+    def limits(self) -> pulumi.Input['WorkspaceLimitsPerLabelSetEntryArgs']:
+        return pulumi.get(self, "limits")
+
+    @limits.setter
+    def limits(self, value: pulumi.Input['WorkspaceLimitsPerLabelSetEntryArgs']):
+        pulumi.set(self, "limits", value)
 
 
 if not MYPY:

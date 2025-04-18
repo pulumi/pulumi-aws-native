@@ -40,7 +40,8 @@ type LookupWorkspaceResult struct {
 	// AMP Workspace prometheus endpoint
 	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                   []aws.Tag               `pulumi:"tags"`
+	WorkspaceConfiguration *WorkspaceConfiguration `pulumi:"workspaceConfiguration"`
 	// Required to identify a specific APS Workspace.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
@@ -105,6 +106,10 @@ func (o LookupWorkspaceResultOutput) PrometheusEndpoint() pulumi.StringPtrOutput
 // An array of key-value pairs to apply to this resource.
 func (o LookupWorkspaceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupWorkspaceResultOutput) WorkspaceConfiguration() WorkspaceConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceConfiguration { return v.WorkspaceConfiguration }).(WorkspaceConfigurationPtrOutput)
 }
 
 // Required to identify a specific APS Workspace.

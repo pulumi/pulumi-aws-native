@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+// Resource Type definition for a Device Farm Network Profile
 type NetworkProfile struct {
 	pulumi.CustomResourceState
 

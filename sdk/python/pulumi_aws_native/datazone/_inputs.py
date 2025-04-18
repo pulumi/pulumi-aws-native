@@ -2435,6 +2435,7 @@ if not MYPY:
         """
         The single-sign on configuration of the Amazon DataZone domain.
         """
+        idc_instance_arn: NotRequired[pulumi.Input[builtins.str]]
         type: NotRequired[pulumi.Input['DomainAuthType']]
         """
         The type of single sign-on in Amazon DataZone.
@@ -2449,6 +2450,7 @@ elif False:
 @pulumi.input_type
 class DomainSingleSignOnArgs:
     def __init__(__self__, *,
+                 idc_instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input['DomainAuthType']] = None,
                  user_assignment: Optional[pulumi.Input['DomainUserAssignment']] = None):
         """
@@ -2456,10 +2458,21 @@ class DomainSingleSignOnArgs:
         :param pulumi.Input['DomainAuthType'] type: The type of single sign-on in Amazon DataZone.
         :param pulumi.Input['DomainUserAssignment'] user_assignment: The single sign-on user assignment in Amazon DataZone.
         """
+        if idc_instance_arn is not None:
+            pulumi.set(__self__, "idc_instance_arn", idc_instance_arn)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_assignment is not None:
             pulumi.set(__self__, "user_assignment", user_assignment)
+
+    @property
+    @pulumi.getter(name="idcInstanceArn")
+    def idc_instance_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "idc_instance_arn")
+
+    @idc_instance_arn.setter
+    def idc_instance_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "idc_instance_arn", value)
 
     @property
     @pulumi.getter

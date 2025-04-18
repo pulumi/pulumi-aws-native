@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+// Resource Type definition for a Device Farm VPCE Configuration
 type VpceConfiguration struct {
 	pulumi.CustomResourceState
 

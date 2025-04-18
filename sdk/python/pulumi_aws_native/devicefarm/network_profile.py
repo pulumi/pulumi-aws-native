@@ -244,7 +244,7 @@ class NetworkProfile(pulumi.CustomResource):
                  uplink_loss_percent: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         """
-        AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+        Resource Type definition for a Device Farm Network Profile
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,7 +270,7 @@ class NetworkProfile(pulumi.CustomResource):
                  args: NetworkProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+        Resource Type definition for a Device Farm Network Profile
 
         :param str resource_name: The name of the resource.
         :param NetworkProfileArgs args: The arguments to use to populate this resource's properties.

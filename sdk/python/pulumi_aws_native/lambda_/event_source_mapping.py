@@ -72,6 +72,7 @@ class EventSourceMappingArgs:
                  +   *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
                  +   *DocumentDB* – Default 100. Max 10,000.
         :param pulumi.Input[builtins.bool] bisect_batch_on_function_error: (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
+                 When using ``BisectBatchOnFunctionError``, check the ``BatchSize`` parameter in the ``OnFailure`` destination message's metadata. The ``BatchSize`` could be greater than 1 since LAM consolidates failed messages metadata when writing to the ``OnFailure`` destination.
         :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.
         :param pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs'] document_db_event_source_config: Specific configuration settings for a DocumentDB event source.
         :param pulumi.Input[builtins.bool] enabled: When true, the event source mapping is active. When false, Lambda pauses polling and invocation.
@@ -221,6 +222,7 @@ class EventSourceMappingArgs:
     def bisect_batch_on_function_error(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
+          When using ``BisectBatchOnFunctionError``, check the ``BatchSize`` parameter in the ``OnFailure`` destination message's metadata. The ``BatchSize`` could be greater than 1 since LAM consolidates failed messages metadata when writing to the ``OnFailure`` destination.
         """
         return pulumi.get(self, "bisect_batch_on_function_error")
 
@@ -580,6 +582,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  +   *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
                  +   *DocumentDB* – Default 100. Max 10,000.
         :param pulumi.Input[builtins.bool] bisect_batch_on_function_error: (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
+                 When using ``BisectBatchOnFunctionError``, check the ``BatchSize`` parameter in the ``OnFailure`` destination message's metadata. The ``BatchSize`` could be greater than 1 since LAM consolidates failed messages metadata when writing to the ``OnFailure`` destination.
         :param pulumi.Input[Union['EventSourceMappingDestinationConfigArgs', 'EventSourceMappingDestinationConfigArgsDict']] destination_config: (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.
         :param pulumi.Input[Union['EventSourceMappingDocumentDbEventSourceConfigArgs', 'EventSourceMappingDocumentDbEventSourceConfigArgsDict']] document_db_event_source_config: Specific configuration settings for a DocumentDB event source.
         :param pulumi.Input[builtins.bool] enabled: When true, the event source mapping is active. When false, Lambda pauses polling and invocation.
@@ -818,6 +821,7 @@ class EventSourceMapping(pulumi.CustomResource):
     def bisect_batch_on_function_error(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
+          When using ``BisectBatchOnFunctionError``, check the ``BatchSize`` parameter in the ``OnFailure`` destination message's metadata. The ``BatchSize`` could be greater than 1 since LAM consolidates failed messages metadata when writing to the ``OnFailure`` destination.
         """
         return pulumi.get(self, "bisect_batch_on_function_error")
 

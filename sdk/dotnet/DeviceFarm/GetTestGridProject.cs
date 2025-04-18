@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.DeviceFarm
     public static class GetTestGridProject
     {
         /// <summary>
-        /// AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
+        /// Resource Type definition for a Device Farm TestGrid Project
         /// </summary>
         public static Task<GetTestGridProjectResult> InvokeAsync(GetTestGridProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestGridProjectResult>("aws-native:devicefarm:getTestGridProject", args ?? new GetTestGridProjectArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
+        /// Resource Type definition for a Device Farm TestGrid Project
         /// </summary>
         public static Output<GetTestGridProjectResult> Invoke(GetTestGridProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestGridProjectResult>("aws-native:devicefarm:getTestGridProject", args ?? new GetTestGridProjectInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
+        /// Resource Type definition for a Device Farm TestGrid Project
         /// </summary>
         public static Output<GetTestGridProjectResult> Invoke(GetTestGridProjectInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestGridProjectResult>("aws-native:devicefarm:getTestGridProject", args ?? new GetTestGridProjectInvokeArgs(), options.WithDefaults());

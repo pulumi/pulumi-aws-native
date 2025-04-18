@@ -1927,8 +1927,9 @@ func (o JobDefinitionConsumableResourceRequirementArrayOutput) Index(i pulumi.In
 
 type JobDefinitionContainerProperties struct {
 	// The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
-	Command              []string `pulumi:"command"`
-	EnableExecuteCommand *bool    `pulumi:"enableExecuteCommand"`
+	Command []string `pulumi:"command"`
+	// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
+	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
@@ -2010,8 +2011,9 @@ type JobDefinitionContainerPropertiesInput interface {
 
 type JobDefinitionContainerPropertiesArgs struct {
 	// The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
-	Command              pulumi.StringArrayInput `pulumi:"command"`
-	EnableExecuteCommand pulumi.BoolPtrInput     `pulumi:"enableExecuteCommand"`
+	Command pulumi.StringArrayInput `pulumi:"command"`
+	// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
+	EnableExecuteCommand pulumi.BoolPtrInput `pulumi:"enableExecuteCommand"`
 	// The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
@@ -2162,6 +2164,7 @@ func (o JobDefinitionContainerPropertiesOutput) Command() pulumi.StringArrayOutp
 	return o.ApplyT(func(v JobDefinitionContainerProperties) []string { return v.Command }).(pulumi.StringArrayOutput)
 }
 
+// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
 func (o JobDefinitionContainerPropertiesOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionContainerProperties) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
@@ -2337,6 +2340,7 @@ func (o JobDefinitionContainerPropertiesPtrOutput) Command() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
 func (o JobDefinitionContainerPropertiesPtrOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionContainerProperties) *bool {
 		if v == nil {
@@ -2980,8 +2984,9 @@ func (o JobDefinitionEcsPropertiesPtrOutput) TaskProperties() JobDefinitionEcsTa
 
 type JobDefinitionEcsTaskProperties struct {
 	// This object is a list of containers.
-	Containers           []JobDefinitionTaskContainerProperties `pulumi:"containers"`
-	EnableExecuteCommand *bool                                  `pulumi:"enableExecuteCommand"`
+	Containers []JobDefinitionTaskContainerProperties `pulumi:"containers"`
+	// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
+	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
 	EphemeralStorage *JobDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
@@ -3031,8 +3036,9 @@ type JobDefinitionEcsTaskPropertiesInput interface {
 
 type JobDefinitionEcsTaskPropertiesArgs struct {
 	// This object is a list of containers.
-	Containers           JobDefinitionTaskContainerPropertiesArrayInput `pulumi:"containers"`
-	EnableExecuteCommand pulumi.BoolPtrInput                            `pulumi:"enableExecuteCommand"`
+	Containers JobDefinitionTaskContainerPropertiesArrayInput `pulumi:"containers"`
+	// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
+	EnableExecuteCommand pulumi.BoolPtrInput `pulumi:"enableExecuteCommand"`
 	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
 	EphemeralStorage JobDefinitionEphemeralStoragePtrInput `pulumi:"ephemeralStorage"`
 	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
@@ -3125,6 +3131,7 @@ func (o JobDefinitionEcsTaskPropertiesOutput) Containers() JobDefinitionTaskCont
 	return o.ApplyT(func(v JobDefinitionEcsTaskProperties) []JobDefinitionTaskContainerProperties { return v.Containers }).(JobDefinitionTaskContainerPropertiesArrayOutput)
 }
 
+// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
 func (o JobDefinitionEcsTaskPropertiesOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEcsTaskProperties) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
@@ -6970,6 +6977,7 @@ type JobDefinitionLogConfiguration struct {
 	//
 	// > Jobs that are running on Fargate resources are restricted to the `awslogs` and `splunk` log drivers.
 	//
+	// - **awsfirelens** - Specifies the firelens logging driver. For more information on configuring Firelens, see [Send Amazon ECS logs to an AWS service or AWS Partner](https://docs.aws.amazon.com//AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide* .
 	// - **awslogs** - Specifies the Amazon CloudWatch Logs logging driver. For more information, see [Using the awslogs log driver](https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html) in the *AWS Batch User Guide* and [Amazon CloudWatch Logs logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/awslogs/) in the Docker documentation.
 	// - **fluentd** - Specifies the Fluentd logging driver. For more information including usage and options, see [Fluentd logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/fluentd/) in the *Docker documentation* .
 	// - **gelf** - Specifies the Graylog Extended Format (GELF) logging driver. For more information including usage and options, see [Graylog Extended Format logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/gelf/) in the *Docker documentation* .
@@ -7006,6 +7014,7 @@ type JobDefinitionLogConfigurationArgs struct {
 	//
 	// > Jobs that are running on Fargate resources are restricted to the `awslogs` and `splunk` log drivers.
 	//
+	// - **awsfirelens** - Specifies the firelens logging driver. For more information on configuring Firelens, see [Send Amazon ECS logs to an AWS service or AWS Partner](https://docs.aws.amazon.com//AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide* .
 	// - **awslogs** - Specifies the Amazon CloudWatch Logs logging driver. For more information, see [Using the awslogs log driver](https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html) in the *AWS Batch User Guide* and [Amazon CloudWatch Logs logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/awslogs/) in the Docker documentation.
 	// - **fluentd** - Specifies the Fluentd logging driver. For more information including usage and options, see [Fluentd logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/fluentd/) in the *Docker documentation* .
 	// - **gelf** - Specifies the Graylog Extended Format (GELF) logging driver. For more information including usage and options, see [Graylog Extended Format logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/gelf/) in the *Docker documentation* .
@@ -7107,6 +7116,7 @@ func (o JobDefinitionLogConfigurationOutput) ToJobDefinitionLogConfigurationPtrO
 //
 // > Jobs that are running on Fargate resources are restricted to the `awslogs` and `splunk` log drivers.
 //
+// - **awsfirelens** - Specifies the firelens logging driver. For more information on configuring Firelens, see [Send Amazon ECS logs to an AWS service or AWS Partner](https://docs.aws.amazon.com//AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide* .
 // - **awslogs** - Specifies the Amazon CloudWatch Logs logging driver. For more information, see [Using the awslogs log driver](https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html) in the *AWS Batch User Guide* and [Amazon CloudWatch Logs logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/awslogs/) in the Docker documentation.
 // - **fluentd** - Specifies the Fluentd logging driver. For more information including usage and options, see [Fluentd logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/fluentd/) in the *Docker documentation* .
 // - **gelf** - Specifies the Graylog Extended Format (GELF) logging driver. For more information including usage and options, see [Graylog Extended Format logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/gelf/) in the *Docker documentation* .
@@ -7162,6 +7172,7 @@ func (o JobDefinitionLogConfigurationPtrOutput) Elem() JobDefinitionLogConfigura
 //
 // > Jobs that are running on Fargate resources are restricted to the `awslogs` and `splunk` log drivers.
 //
+// - **awsfirelens** - Specifies the firelens logging driver. For more information on configuring Firelens, see [Send Amazon ECS logs to an AWS service or AWS Partner](https://docs.aws.amazon.com//AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide* .
 // - **awslogs** - Specifies the Amazon CloudWatch Logs logging driver. For more information, see [Using the awslogs log driver](https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html) in the *AWS Batch User Guide* and [Amazon CloudWatch Logs logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/awslogs/) in the Docker documentation.
 // - **fluentd** - Specifies the Fluentd logging driver. For more information including usage and options, see [Fluentd logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/fluentd/) in the *Docker documentation* .
 // - **gelf** - Specifies the Graylog Extended Format (GELF) logging driver. For more information including usage and options, see [Graylog Extended Format logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/gelf/) in the *Docker documentation* .
@@ -7319,8 +7330,9 @@ func (o JobDefinitionMountPointArrayOutput) Index(i pulumi.IntInput) JobDefiniti
 
 type JobDefinitionMultiNodeContainerProperties struct {
 	// The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
-	Command              []string `pulumi:"command"`
-	EnableExecuteCommand *bool    `pulumi:"enableExecuteCommand"`
+	Command []string `pulumi:"command"`
+	// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
+	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
@@ -7406,8 +7418,9 @@ type JobDefinitionMultiNodeContainerPropertiesInput interface {
 
 type JobDefinitionMultiNodeContainerPropertiesArgs struct {
 	// The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
-	Command              pulumi.StringArrayInput `pulumi:"command"`
-	EnableExecuteCommand pulumi.BoolPtrInput     `pulumi:"enableExecuteCommand"`
+	Command pulumi.StringArrayInput `pulumi:"command"`
+	// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
+	EnableExecuteCommand pulumi.BoolPtrInput `pulumi:"enableExecuteCommand"`
 	// The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
@@ -7562,6 +7575,7 @@ func (o JobDefinitionMultiNodeContainerPropertiesOutput) Command() pulumi.String
 	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) []string { return v.Command }).(pulumi.StringArrayOutput)
 }
 
+// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
 func (o JobDefinitionMultiNodeContainerPropertiesOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
@@ -7742,6 +7756,7 @@ func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) Command() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
+// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
 func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *bool {
 		if v == nil {
@@ -8130,8 +8145,9 @@ func (o JobDefinitionMultiNodeEcsPropertiesPtrOutput) TaskProperties() JobDefini
 
 type JobDefinitionMultiNodeEcsTaskProperties struct {
 	// This object is a list of containers.
-	Containers           []JobDefinitionTaskContainerProperties `pulumi:"containers"`
-	EnableExecuteCommand *bool                                  `pulumi:"enableExecuteCommand"`
+	Containers []JobDefinitionTaskContainerProperties `pulumi:"containers"`
+	// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
+	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// The IPC resource namespace to use for the containers in the task. The valid values are `host` , `task` , or `none` .
@@ -8173,8 +8189,9 @@ type JobDefinitionMultiNodeEcsTaskPropertiesInput interface {
 
 type JobDefinitionMultiNodeEcsTaskPropertiesArgs struct {
 	// This object is a list of containers.
-	Containers           JobDefinitionTaskContainerPropertiesArrayInput `pulumi:"containers"`
-	EnableExecuteCommand pulumi.BoolPtrInput                            `pulumi:"enableExecuteCommand"`
+	Containers JobDefinitionTaskContainerPropertiesArrayInput `pulumi:"containers"`
+	// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
+	EnableExecuteCommand pulumi.BoolPtrInput `pulumi:"enableExecuteCommand"`
 	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
 	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
 	// The IPC resource namespace to use for the containers in the task. The valid values are `host` , `task` , or `none` .
@@ -8261,6 +8278,7 @@ func (o JobDefinitionMultiNodeEcsTaskPropertiesOutput) Containers() JobDefinitio
 	}).(JobDefinitionTaskContainerPropertiesArrayOutput)
 }
 
+// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
 func (o JobDefinitionMultiNodeEcsTaskPropertiesOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionMultiNodeEcsTaskProperties) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
@@ -9718,7 +9736,8 @@ type JobDefinitionTaskContainerProperties struct {
 	// If the essential parameter of a container is marked as `true` , and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the `essential` parameter of a container is marked as false, its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
 	//
 	// All jobs must have at least one essential container. If you have an application that's composed of multiple containers, group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see [Application Architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide* .
-	Essential             *bool                                                                `pulumi:"essential"`
+	Essential *bool `pulumi:"essential"`
+	// The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) routing in the *Amazon Elastic Container Service Developer Guide* .
 	FirelensConfiguration *JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties `pulumi:"firelensConfiguration"`
 	// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `IMAGE` parameter of the [*docker run*](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	Image string `pulumi:"image"`
@@ -9806,7 +9825,8 @@ type JobDefinitionTaskContainerPropertiesArgs struct {
 	// If the essential parameter of a container is marked as `true` , and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the `essential` parameter of a container is marked as false, its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
 	//
 	// All jobs must have at least one essential container. If you have an application that's composed of multiple containers, group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see [Application Architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide* .
-	Essential             pulumi.BoolPtrInput                                                         `pulumi:"essential"`
+	Essential pulumi.BoolPtrInput `pulumi:"essential"`
+	// The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) routing in the *Amazon Elastic Container Service Developer Guide* .
 	FirelensConfiguration JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrInput `pulumi:"firelensConfiguration"`
 	// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `IMAGE` parameter of the [*docker run*](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	Image pulumi.StringInput `pulumi:"image"`
@@ -9948,6 +9968,7 @@ func (o JobDefinitionTaskContainerPropertiesOutput) Essential() pulumi.BoolPtrOu
 	return o.ApplyT(func(v JobDefinitionTaskContainerProperties) *bool { return v.Essential }).(pulumi.BoolPtrOutput)
 }
 
+// The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) routing in the *Amazon Elastic Container Service Developer Guide* .
 func (o JobDefinitionTaskContainerPropertiesOutput) FirelensConfiguration() JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v JobDefinitionTaskContainerProperties) *JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties {
 		return v.FirelensConfiguration
@@ -10075,6 +10096,7 @@ func (o JobDefinitionTaskContainerPropertiesArrayOutput) Index(i pulumi.IntInput
 	}).(JobDefinitionTaskContainerPropertiesOutput)
 }
 
+// The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) routing in the *Amazon Elastic Container Service Developer Guide* .
 type JobDefinitionTaskContainerPropertiesFirelensConfigurationProperties struct {
 	Options map[string]string `pulumi:"options"`
 	Type    string            `pulumi:"type"`
@@ -10091,6 +10113,7 @@ type JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesInput in
 	ToJobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutputWithContext(context.Context) JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput
 }
 
+// The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) routing in the *Amazon Elastic Container Service Developer Guide* .
 type JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesArgs struct {
 	Options pulumi.StringMapInput `pulumi:"options"`
 	Type    pulumi.StringInput    `pulumi:"type"`
@@ -10149,6 +10172,7 @@ func (i *jobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrT
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesPtrOutput)
 }
 
+// The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) routing in the *Amazon Elastic Container Service Developer Guide* .
 type JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionTaskContainerPropertiesFirelensConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -10824,7 +10848,7 @@ type SchedulingPolicyFairsharePolicy struct {
 	ComputeReservation *float64 `pulumi:"computeReservation"`
 	// The amount of time (in seconds) to use to calculate a fair-share percentage for each share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
 	//
-	// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
+	// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn't meet your needs.
 	ShareDecaySeconds *float64 `pulumi:"shareDecaySeconds"`
 	// List of Share Attributes
 	ShareDistribution []SchedulingPolicyShareAttributes `pulumi:"shareDistribution"`
@@ -10853,7 +10877,7 @@ type SchedulingPolicyFairsharePolicyArgs struct {
 	ComputeReservation pulumi.Float64PtrInput `pulumi:"computeReservation"`
 	// The amount of time (in seconds) to use to calculate a fair-share percentage for each share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
 	//
-	// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
+	// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn't meet your needs.
 	ShareDecaySeconds pulumi.Float64PtrInput `pulumi:"shareDecaySeconds"`
 	// List of Share Attributes
 	ShareDistribution SchedulingPolicyShareAttributesArrayInput `pulumi:"shareDistribution"`
@@ -10950,7 +10974,7 @@ func (o SchedulingPolicyFairsharePolicyOutput) ComputeReservation() pulumi.Float
 
 // The amount of time (in seconds) to use to calculate a fair-share percentage for each share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
 //
-// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
+// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn't meet your needs.
 func (o SchedulingPolicyFairsharePolicyOutput) ShareDecaySeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairsharePolicy) *float64 { return v.ShareDecaySeconds }).(pulumi.Float64PtrOutput)
 }
@@ -11002,7 +11026,7 @@ func (o SchedulingPolicyFairsharePolicyPtrOutput) ComputeReservation() pulumi.Fl
 
 // The amount of time (in seconds) to use to calculate a fair-share percentage for each share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
 //
-// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
+// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn't meet your needs.
 func (o SchedulingPolicyFairsharePolicyPtrOutput) ShareDecaySeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SchedulingPolicyFairsharePolicy) *float64 {
 		if v == nil {

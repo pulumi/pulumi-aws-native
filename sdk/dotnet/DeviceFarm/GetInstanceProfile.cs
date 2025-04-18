@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.DeviceFarm
     public static class GetInstanceProfile
     {
         /// <summary>
-        /// AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
+        /// Resource Type definition for a Device Farm Instance Profile
         /// </summary>
         public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws-native:devicefarm:getInstanceProfile", args ?? new GetInstanceProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
+        /// Resource Type definition for a Device Farm Instance Profile
         /// </summary>
         public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:devicefarm:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
+        /// Resource Type definition for a Device Farm Instance Profile
         /// </summary>
         public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:devicefarm:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());

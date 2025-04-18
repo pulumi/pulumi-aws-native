@@ -15,6 +15,7 @@ import (
 type TableBucket struct {
 	pulumi.CustomResourceState
 
+	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
 	EncryptionConfiguration TableBucketEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the table bucket.
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
@@ -68,6 +69,7 @@ func (TableBucketState) ElementType() reflect.Type {
 }
 
 type tableBucketArgs struct {
+	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
 	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The name for the table bucket.
 	TableBucketName *string `pulumi:"tableBucketName"`
@@ -77,6 +79,7 @@ type tableBucketArgs struct {
 
 // The set of arguments for constructing a TableBucket resource.
 type TableBucketArgs struct {
+	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
 	EncryptionConfiguration TableBucketEncryptionConfigurationPtrInput
 	// The name for the table bucket.
 	TableBucketName pulumi.StringPtrInput
@@ -121,6 +124,7 @@ func (o TableBucketOutput) ToTableBucketOutputWithContext(ctx context.Context) T
 	return o
 }
 
+// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
 func (o TableBucketOutput) EncryptionConfiguration() TableBucketEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *TableBucket) TableBucketEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(TableBucketEncryptionConfigurationPtrOutput)
 }

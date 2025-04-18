@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.DeviceFarm
     public static class GetDevicePool
     {
         /// <summary>
-        /// AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+        /// Resource Type definition for a Device Pool for a given Device Farm Project
         /// </summary>
         public static Task<GetDevicePoolResult> InvokeAsync(GetDevicePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevicePoolResult>("aws-native:devicefarm:getDevicePool", args ?? new GetDevicePoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+        /// Resource Type definition for a Device Pool for a given Device Farm Project
         /// </summary>
         public static Output<GetDevicePoolResult> Invoke(GetDevicePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevicePoolResult>("aws-native:devicefarm:getDevicePool", args ?? new GetDevicePoolInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+        /// Resource Type definition for a Device Pool for a given Device Farm Project
         /// </summary>
         public static Output<GetDevicePoolResult> Invoke(GetDevicePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevicePoolResult>("aws-native:devicefarm:getDevicePool", args ?? new GetDevicePoolInvokeArgs(), options.WithDefaults());

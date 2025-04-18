@@ -77,6 +77,14 @@
     }
   },
   "required" : [ "ConnectionString" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "workspaces:CreateTags", "workspaces:DescribeTags" ]
+  },
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/AliasId" ],
   "createOnlyProperties" : [ "/properties/ConnectionString", "/properties/Tags" ],

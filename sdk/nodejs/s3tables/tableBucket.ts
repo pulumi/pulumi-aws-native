@@ -37,6 +37,9 @@ export class TableBucket extends pulumi.CustomResource {
         return obj['__pulumiType'] === TableBucket.__pulumiType;
     }
 
+    /**
+     * Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
+     */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the table bucket.
@@ -83,6 +86,9 @@ export class TableBucket extends pulumi.CustomResource {
  * The set of arguments for constructing a TableBucket resource.
  */
 export interface TableBucketArgs {
+    /**
+     * Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
+     */
     encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfigurationArgs>;
     /**
      * The name for the table bucket.

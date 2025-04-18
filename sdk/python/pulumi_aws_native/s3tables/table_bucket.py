@@ -28,6 +28,7 @@ class TableBucketArgs:
                  unreferenced_file_removal: Optional[pulumi.Input['TableBucketUnreferencedFileRemovalArgs']] = None):
         """
         The set of arguments for constructing a TableBucket resource.
+        :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
         :param pulumi.Input[builtins.str] table_bucket_name: The name for the table bucket.
         :param pulumi.Input['TableBucketUnreferencedFileRemovalArgs'] unreferenced_file_removal: The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
         """
@@ -41,6 +42,9 @@ class TableBucketArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']]:
+        """
+        Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -89,6 +93,7 @@ class TableBucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']] encryption_configuration: Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
         :param pulumi.Input[builtins.str] table_bucket_name: The name for the table bucket.
         :param pulumi.Input[Union['TableBucketUnreferencedFileRemovalArgs', 'TableBucketUnreferencedFileRemovalArgsDict']] unreferenced_file_removal: The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
         """
@@ -165,6 +170,9 @@ class TableBucket(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.TableBucketEncryptionConfiguration']]:
+        """
+        Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @property

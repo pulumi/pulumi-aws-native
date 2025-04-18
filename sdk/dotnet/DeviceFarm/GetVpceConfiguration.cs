@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.DeviceFarm
     public static class GetVpceConfiguration
     {
         /// <summary>
-        /// AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+        /// Resource Type definition for a Device Farm VPCE Configuration
         /// </summary>
         public static Task<GetVpceConfigurationResult> InvokeAsync(GetVpceConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpceConfigurationResult>("aws-native:devicefarm:getVpceConfiguration", args ?? new GetVpceConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+        /// Resource Type definition for a Device Farm VPCE Configuration
         /// </summary>
         public static Output<GetVpceConfigurationResult> Invoke(GetVpceConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpceConfigurationResult>("aws-native:devicefarm:getVpceConfiguration", args ?? new GetVpceConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
+        /// Resource Type definition for a Device Farm VPCE Configuration
         /// </summary>
         public static Output<GetVpceConfigurationResult> Invoke(GetVpceConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpceConfigurationResult>("aws-native:devicefarm:getVpceConfiguration", args ?? new GetVpceConfigurationInvokeArgs(), options.WithDefaults());

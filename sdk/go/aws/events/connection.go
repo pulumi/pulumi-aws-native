@@ -77,6 +77,7 @@ type Connection struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The private resource the HTTP request will be sent to.
 	InvocationConnectivityParameters InvocationConnectivityParametersPropertiesPtrOutput `pulumi:"invocationConnectivityParameters"`
+	KmsKeyIdentifier                 pulumi.StringPtrOutput                              `pulumi:"kmsKeyIdentifier"`
 	// Name of the connection.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The arn of the secrets manager secret created in the customer account.
@@ -139,6 +140,7 @@ type connectionArgs struct {
 	Description *string `pulumi:"description"`
 	// The private resource the HTTP request will be sent to.
 	InvocationConnectivityParameters *InvocationConnectivityParametersProperties `pulumi:"invocationConnectivityParameters"`
+	KmsKeyIdentifier                 *string                                     `pulumi:"kmsKeyIdentifier"`
 	// Name of the connection.
 	Name *string `pulumi:"name"`
 }
@@ -157,6 +159,7 @@ type ConnectionArgs struct {
 	Description pulumi.StringPtrInput
 	// The private resource the HTTP request will be sent to.
 	InvocationConnectivityParameters InvocationConnectivityParametersPropertiesPtrInput
+	KmsKeyIdentifier                 pulumi.StringPtrInput
 	// Name of the connection.
 	Name pulumi.StringPtrInput
 }
@@ -232,6 +235,10 @@ func (o ConnectionOutput) InvocationConnectivityParameters() InvocationConnectiv
 	return o.ApplyT(func(v *Connection) InvocationConnectivityParametersPropertiesPtrOutput {
 		return v.InvocationConnectivityParameters
 	}).(InvocationConnectivityParametersPropertiesPtrOutput)
+}
+
+func (o ConnectionOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Name of the connection.

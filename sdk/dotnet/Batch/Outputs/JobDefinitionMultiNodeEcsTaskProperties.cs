@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// This object is a list of containers.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionTaskContainerProperties> Containers;
+        /// <summary>
+        /// Determines whether execute command functionality is turned on for this task. If `true` , execute command functionality is turned on all the containers in the task.
+        /// </summary>
         public readonly bool? EnableExecuteCommand;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
