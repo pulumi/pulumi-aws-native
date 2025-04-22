@@ -1263,7 +1263,8 @@
         "description": "An array of key-value pairs to apply to this resource."
       },
       "workspaceConfiguration": {
-        "$ref": "#/types/aws-native:aps:WorkspaceConfiguration"
+        "$ref": "#/types/aws-native:aps:WorkspaceConfiguration",
+        "description": "Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace."
       }
     }
   },

@@ -56,6 +56,14 @@
     }
   },
   "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "ec2:CreateTags", "ec2:DeleteTags" ]
+  },
   "required" : [ "NetworkInsightsAccessScopeId" ],
   "readOnlyProperties" : [ "/properties/NetworkInsightsAccessScopeAnalysisId", "/properties/NetworkInsightsAccessScopeAnalysisArn", "/properties/Status", "/properties/StatusMessage", "/properties/StartDate", "/properties/EndDate", "/properties/FindingsFound", "/properties/AnalyzedEniCount" ],
   "createOnlyProperties" : [ "/properties/NetworkInsightsAccessScopeId" ],
