@@ -116,7 +116,7 @@ jobs:
         source_branch: generate-sdk/${{ github.run_id }}-${{ github.run_number }}
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
-      uses: 8398a7/action-slack@1750b5085f3ec60384090fb7c52965ef822e869e # v3.18.0
+      uses: 8398a7/action-slack@28ba43ae48961b90635b50953d216767a6bea486 # v3.16.2
       with:
         author_name: Failure during automated SDK generation
         fields: repo,commit,author,action
