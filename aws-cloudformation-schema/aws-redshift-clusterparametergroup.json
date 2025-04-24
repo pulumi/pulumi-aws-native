@@ -71,12 +71,16 @@
     }
   },
   "tagging" : {
-    "taggable" : false
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "redshift:DescribeTags", "redshift:CreateTags", "redshift:DeleteTags" ]
   },
   "required" : [ "Description", "ParameterGroupFamily" ],
   "createOnlyProperties" : [ "/properties/ParameterGroupName", "/properties/ParameterGroupFamily", "/properties/Description" ],
   "primaryIdentifier" : [ "/properties/ParameterGroupName" ],
-  "writeOnlyProperties" : [ "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "redshift:CreateClusterParameterGroup", "redshift:ModifyClusterParameterGroup", "redshift:DescribeClusterParameterGroups", "redshift:DescribeClusterParameters", "redshift:DescribeTags", "redshift:CreateTags", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:AttachNetworkInterface", "ec2:DescribeAccountAttributes", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ]
@@ -88,7 +92,7 @@
       "permissions" : [ "redshift:DescribeClusterParameterGroups", "redshift:ResetClusterParameterGroup", "redshift:ModifyClusterParameterGroup", "redshift:DescribeClusterParameters", "redshift:DescribeTags", "redshift:CreateTags", "redshift:DeleteTags", "initech:UpdateReport" ]
     },
     "delete" : {
-      "permissions" : [ "redshift:DescribeTags", "redshift:DescribeClusterParameterGroups", "redshift:DeleteClusterParameterGroup", "redshift:DescribeClusterParameters", "initech:DeleteReport" ]
+      "permissions" : [ "redshift:DescribeTags", "redshift:DeleteTags", "redshift:DescribeClusterParameterGroups", "redshift:DeleteClusterParameterGroup", "redshift:DescribeClusterParameters", "initech:DeleteReport" ]
     },
     "list" : {
       "permissions" : [ "redshift:DescribeTags", "redshift:DescribeClusterParameterGroups", "redshift:DescribeClusterParameters", "initech:ListReports" ]
