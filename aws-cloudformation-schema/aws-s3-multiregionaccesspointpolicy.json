@@ -27,6 +27,9 @@
       "required" : [ "IsPublic" ]
     }
   },
+  "tagging" : {
+    "taggable" : false
+  },
   "additionalProperties" : false,
   "required" : [ "Policy", "MrapName" ],
   "createOnlyProperties" : [ "/properties/MrapName" ],

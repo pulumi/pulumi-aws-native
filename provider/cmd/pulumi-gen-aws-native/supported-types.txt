@@ -169,8 +169,10 @@ AWS::CloudFormation::StackSet
 AWS::CloudFormation::TypeActivation
 AWS::CloudFront::CachePolicy
 AWS::CloudFront::CloudFrontOriginAccessIdentity
+AWS::CloudFront::ConnectionGroup
 AWS::CloudFront::ContinuousDeploymentPolicy
 AWS::CloudFront::Distribution
+AWS::CloudFront::DistributionTenant
 AWS::CloudFront::Function
 AWS::CloudFront::KeyGroup
 AWS::CloudFront::KeyValueStore
@@ -425,6 +427,7 @@ AWS::EC2::Volume
 AWS::EC2::VolumeAttachment
 AWS::ECR::PullThroughCacheRule
 AWS::ECR::RegistryPolicy
+AWS::ECR::RegistryScanningConfiguration
 AWS::ECR::ReplicationConfiguration
 AWS::ECR::Repository
 AWS::ECR::RepositoryCreationTemplate
