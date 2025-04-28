@@ -9,7 +9,13 @@ from enum import Enum
 __all__ = [
     'ContinuousDeploymentPolicyConfigType',
     'ContinuousDeploymentPolicyTrafficConfigType',
+    'DistributionConnectionMode',
     'DistributionOriginGroupSelectionCriteria',
+    'DistributionTenantDomainResultStatus',
+    'DistributionTenantGeoRestrictionCustomizationRestrictionType',
+    'DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference',
+    'DistributionTenantManagedCertificateRequestValidationTokenHost',
+    'DistributionTenantWebAclCustomizationAction',
     'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus',
 ]
 
@@ -30,9 +36,40 @@ class ContinuousDeploymentPolicyTrafficConfigType(builtins.str, Enum):
     SINGLE_HEADER = "SingleHeader"
 
 
+class DistributionConnectionMode(builtins.str, Enum):
+    DIRECT = "direct"
+    TENANT_ONLY = "tenant-only"
+
+
 class DistributionOriginGroupSelectionCriteria(builtins.str, Enum):
     DEFAULT = "default"
     MEDIA_QUALITY_BASED = "media-quality-based"
+
+
+class DistributionTenantDomainResultStatus(builtins.str, Enum):
+    ACTIVE = "active"
+    INACTIVE = "inactive"
+
+
+class DistributionTenantGeoRestrictionCustomizationRestrictionType(builtins.str, Enum):
+    BLACKLIST = "blacklist"
+    WHITELIST = "whitelist"
+    NONE = "none"
+
+
+class DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference(builtins.str, Enum):
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+class DistributionTenantManagedCertificateRequestValidationTokenHost(builtins.str, Enum):
+    CLOUDFRONT = "cloudfront"
+    SELF_HOSTED = "self-hosted"
+
+
+class DistributionTenantWebAclCustomizationAction(builtins.str, Enum):
+    OVERRIDE = "override"
+    DISABLE = "disable"
 
 
 class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus(builtins.str, Enum):

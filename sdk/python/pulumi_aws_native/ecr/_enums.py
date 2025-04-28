@@ -7,6 +7,9 @@ import builtins
 from enum import Enum
 
 __all__ = [
+    'RegistryScanningConfigurationFilterType',
+    'RegistryScanningConfigurationScanFrequency',
+    'RegistryScanningConfigurationScanType',
     'ReplicationConfigurationFilterType',
     'RepositoryCreationTemplateAppliedForItem',
     'RepositoryCreationTemplateEncryptionType',
@@ -14,6 +17,29 @@ __all__ = [
     'RepositoryEncryptionType',
     'RepositoryImageTagMutability',
 ]
+
+
+class RegistryScanningConfigurationFilterType(builtins.str, Enum):
+    """
+    The type associated with the filter.
+    """
+    WILDCARD = "WILDCARD"
+
+
+class RegistryScanningConfigurationScanFrequency(builtins.str, Enum):
+    """
+    The frequency that scans are performed.
+    """
+    SCAN_ON_PUSH = "SCAN_ON_PUSH"
+    CONTINUOUS_SCAN = "CONTINUOUS_SCAN"
+
+
+class RegistryScanningConfigurationScanType(builtins.str, Enum):
+    """
+    The type of scanning configured for the registry.
+    """
+    BASIC = "BASIC"
+    ENHANCED = "ENHANCED"
 
 
 class ReplicationConfigurationFilterType(builtins.str, Enum):

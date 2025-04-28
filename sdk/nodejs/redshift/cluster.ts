@@ -206,7 +206,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly namespaceResourcePolicy!: pulumi.Output<any | undefined>;
     /**
-     * The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+     * The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
      */
     public readonly nodeType!: pulumi.Output<string>;
     /**
@@ -577,7 +577,7 @@ export interface ClusterArgs {
      */
     namespaceResourcePolicy?: any;
     /**
-     * The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+     * The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
      */
     nodeType: pulumi.Input<string>;
     /**

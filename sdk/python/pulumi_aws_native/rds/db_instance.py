@@ -40,6 +40,7 @@ class DbInstanceArgs:
                  character_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+                 database_insights_mode: Optional[pulumi.Input[builtins.str]] = None,
                  db_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_cluster_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_instance_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -203,6 +204,9 @@ class DbInstanceArgs:
                  +  The instance profile name and the associated IAM role name must start with the prefix ``AWSRDSCustom``.
                  
                 For the list of permissions required for the IAM role, see [Configure IAM and your VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc) in the *Amazon RDS User Guide*.
+        :param pulumi.Input[builtins.str] database_insights_mode: The mode of Database Insights to enable for the DB instance.
+               
+               > Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
         :param pulumi.Input[builtins.str] db_cluster_identifier: The identifier of the DB cluster that this DB instance will belong to.
                 This setting doesn't apply to RDS Custom DB instances.
         :param pulumi.Input[builtins.str] db_cluster_snapshot_identifier: The identifier for the Multi-AZ DB cluster snapshot to restore from.
@@ -663,6 +667,8 @@ class DbInstanceArgs:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if custom_iam_instance_profile is not None:
             pulumi.set(__self__, "custom_iam_instance_profile", custom_iam_instance_profile)
+        if database_insights_mode is not None:
+            pulumi.set(__self__, "database_insights_mode", database_insights_mode)
         if db_cluster_identifier is not None:
             pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         if db_cluster_snapshot_identifier is not None:
@@ -1053,6 +1059,20 @@ class DbInstanceArgs:
     @custom_iam_instance_profile.setter
     def custom_iam_instance_profile(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "custom_iam_instance_profile", value)
+
+    @property
+    @pulumi.getter(name="databaseInsightsMode")
+    def database_insights_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The mode of Database Insights to enable for the DB instance.
+
+        > Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
+        """
+        return pulumi.get(self, "database_insights_mode")
+
+    @database_insights_mode.setter
+    def database_insights_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "database_insights_mode", value)
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")
@@ -2207,6 +2227,7 @@ class DbInstance(pulumi.CustomResource):
                  character_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+                 database_insights_mode: Optional[pulumi.Input[builtins.str]] = None,
                  db_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_cluster_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_instance_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -2394,6 +2415,9 @@ class DbInstance(pulumi.CustomResource):
                  +  The instance profile name and the associated IAM role name must start with the prefix ``AWSRDSCustom``.
                  
                 For the list of permissions required for the IAM role, see [Configure IAM and your VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc) in the *Amazon RDS User Guide*.
+        :param pulumi.Input[builtins.str] database_insights_mode: The mode of Database Insights to enable for the DB instance.
+               
+               > Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
         :param pulumi.Input[builtins.str] db_cluster_identifier: The identifier of the DB cluster that this DB instance will belong to.
                 This setting doesn't apply to RDS Custom DB instances.
         :param pulumi.Input[builtins.str] db_cluster_snapshot_identifier: The identifier for the Multi-AZ DB cluster snapshot to restore from.
@@ -2883,6 +2907,7 @@ class DbInstance(pulumi.CustomResource):
                  character_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+                 database_insights_mode: Optional[pulumi.Input[builtins.str]] = None,
                  db_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_cluster_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_instance_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -2971,6 +2996,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["character_set_name"] = character_set_name
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
             __props__.__dict__["custom_iam_instance_profile"] = custom_iam_instance_profile
+            __props__.__dict__["database_insights_mode"] = database_insights_mode
             __props__.__dict__["db_cluster_identifier"] = db_cluster_identifier
             __props__.__dict__["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
             __props__.__dict__["db_instance_class"] = db_instance_class
@@ -3036,7 +3062,6 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
             __props__.__dict__["vpc_security_groups"] = vpc_security_groups
             __props__.__dict__["certificate_details"] = None
-            __props__.__dict__["database_insights_mode"] = None
             __props__.__dict__["db_instance_arn"] = None
             __props__.__dict__["dbi_resource_id"] = None
             __props__.__dict__["endpoint"] = None
@@ -3359,9 +3384,11 @@ class DbInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseInsightsMode")
-    def database_insights_mode(self) -> pulumi.Output[builtins.str]:
+    def database_insights_mode(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The mode of Database Insights that is enabled for the instance.
+        The mode of Database Insights to enable for the DB instance.
+
+        > Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
         """
         return pulumi.get(self, "database_insights_mode")
 

@@ -1527,7 +1527,7 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput) Index(
 type ComputeEnvironmentUpdatePolicy struct {
 	// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated. The default value is 30.
 	JobExecutionTimeoutMinutes *int `pulumi:"jobExecutionTimeoutMinutes"`
-	// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+	// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated. The default value is `false` .
 	TerminateJobsOnUpdate *bool `pulumi:"terminateJobsOnUpdate"`
 }
 
@@ -1545,7 +1545,7 @@ type ComputeEnvironmentUpdatePolicyInput interface {
 type ComputeEnvironmentUpdatePolicyArgs struct {
 	// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated. The default value is 30.
 	JobExecutionTimeoutMinutes pulumi.IntPtrInput `pulumi:"jobExecutionTimeoutMinutes"`
-	// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+	// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated. The default value is `false` .
 	TerminateJobsOnUpdate pulumi.BoolPtrInput `pulumi:"terminateJobsOnUpdate"`
 }
 
@@ -1631,7 +1631,7 @@ func (o ComputeEnvironmentUpdatePolicyOutput) JobExecutionTimeoutMinutes() pulum
 	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *int { return v.JobExecutionTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated. The default value is `false` .
 func (o ComputeEnvironmentUpdatePolicyOutput) TerminateJobsOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *bool { return v.TerminateJobsOnUpdate }).(pulumi.BoolPtrOutput)
 }
@@ -1670,7 +1670,7 @@ func (o ComputeEnvironmentUpdatePolicyPtrOutput) JobExecutionTimeoutMinutes() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated. The default value is `false` .
 func (o ComputeEnvironmentUpdatePolicyPtrOutput) TerminateJobsOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentUpdatePolicy) *bool {
 		if v == nil {

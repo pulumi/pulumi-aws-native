@@ -39,6 +39,18 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         [Input("configuration")]
         public Input<object>? Configuration { get; set; }
 
+        [Input("environmentVariables")]
+        private InputList<Inputs.PipelineEnvironmentVariableArgs>? _environmentVariables;
+
+        /// <summary>
+        /// The list of environment variables that are input to a compute based action.
+        /// </summary>
+        public InputList<Inputs.PipelineEnvironmentVariableArgs> EnvironmentVariables
+        {
+            get => _environmentVariables ?? (_environmentVariables = new InputList<Inputs.PipelineEnvironmentVariableArgs>());
+            set => _environmentVariables = value;
+        }
+
         [Input("inputArtifacts")]
         private InputList<Inputs.PipelineInputArtifactArgs>? _inputArtifacts;
 

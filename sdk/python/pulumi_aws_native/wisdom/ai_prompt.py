@@ -35,7 +35,25 @@ class AiPromptArgs:
         """
         The set of arguments for constructing a AiPrompt resource.
         :param pulumi.Input['AiPromptAiPromptApiFormat'] api_format: The API format used for this AI Prompt.
-        :param pulumi.Input[builtins.str] model_id: The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
+        :param pulumi.Input[builtins.str] model_id: The identifier of the model used for this AI Prompt. The following model Ids are supported:
+               
+               - `anthropic.claude-3-haiku--v1:0`
+               - `apac.amazon.nova-lite-v1:0`
+               - `apac.amazon.nova-micro-v1:0`
+               - `apac.amazon.nova-pro-v1:0`
+               - `apac.anthropic.claude-3-5-sonnet--v2:0`
+               - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+               - `eu.amazon.nova-lite-v1:0`
+               - `eu.amazon.nova-micro-v1:0`
+               - `eu.amazon.nova-pro-v1:0`
+               - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+               - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+               - `us.amazon.nova-lite-v1:0`
+               - `us.amazon.nova-micro-v1:0`
+               - `us.amazon.nova-pro-v1:0`
+               - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+               - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+               - `us.anthropic.claude-3-haiku-20240307-v1:0`
         :param pulumi.Input['AiPromptAiPromptTemplateConfigurationArgs'] template_configuration: The configuration of the prompt template for this AI Prompt.
         :param pulumi.Input['AiPromptAiPromptTemplateType'] template_type: The type of the prompt template for this AI Prompt.
         :param pulumi.Input['AiPromptAiPromptType'] type: The type of this AI Prompt.
@@ -74,7 +92,25 @@ class AiPromptArgs:
     @pulumi.getter(name="modelId")
     def model_id(self) -> pulumi.Input[builtins.str]:
         """
-        The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
+        The identifier of the model used for this AI Prompt. The following model Ids are supported:
+
+        - `anthropic.claude-3-haiku--v1:0`
+        - `apac.amazon.nova-lite-v1:0`
+        - `apac.amazon.nova-micro-v1:0`
+        - `apac.amazon.nova-pro-v1:0`
+        - `apac.anthropic.claude-3-5-sonnet--v2:0`
+        - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+        - `eu.amazon.nova-lite-v1:0`
+        - `eu.amazon.nova-micro-v1:0`
+        - `eu.amazon.nova-pro-v1:0`
+        - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+        - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+        - `us.amazon.nova-lite-v1:0`
+        - `us.amazon.nova-micro-v1:0`
+        - `us.amazon.nova-pro-v1:0`
+        - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+        - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+        - `us.anthropic.claude-3-haiku-20240307-v1:0`
         """
         return pulumi.get(self, "model_id")
 
@@ -193,7 +229,25 @@ class AiPrompt(pulumi.CustomResource):
         :param pulumi.Input['AiPromptAiPromptApiFormat'] api_format: The API format used for this AI Prompt.
         :param pulumi.Input[builtins.str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
         :param pulumi.Input[builtins.str] description: The description of the AI Prompt.
-        :param pulumi.Input[builtins.str] model_id: The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
+        :param pulumi.Input[builtins.str] model_id: The identifier of the model used for this AI Prompt. The following model Ids are supported:
+               
+               - `anthropic.claude-3-haiku--v1:0`
+               - `apac.amazon.nova-lite-v1:0`
+               - `apac.amazon.nova-micro-v1:0`
+               - `apac.amazon.nova-pro-v1:0`
+               - `apac.anthropic.claude-3-5-sonnet--v2:0`
+               - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+               - `eu.amazon.nova-lite-v1:0`
+               - `eu.amazon.nova-micro-v1:0`
+               - `eu.amazon.nova-pro-v1:0`
+               - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+               - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+               - `us.amazon.nova-lite-v1:0`
+               - `us.amazon.nova-micro-v1:0`
+               - `us.amazon.nova-pro-v1:0`
+               - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+               - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+               - `us.anthropic.claude-3-haiku-20240307-v1:0`
         :param pulumi.Input[builtins.str] name: The name of the AI Prompt
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input[Union['AiPromptAiPromptTemplateConfigurationArgs', 'AiPromptAiPromptTemplateConfigurationArgsDict']] template_configuration: The configuration of the prompt template for this AI Prompt.
@@ -356,7 +410,25 @@ class AiPrompt(pulumi.CustomResource):
     @pulumi.getter(name="modelId")
     def model_id(self) -> pulumi.Output[builtins.str]:
         """
-        The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
+        The identifier of the model used for this AI Prompt. The following model Ids are supported:
+
+        - `anthropic.claude-3-haiku--v1:0`
+        - `apac.amazon.nova-lite-v1:0`
+        - `apac.amazon.nova-micro-v1:0`
+        - `apac.amazon.nova-pro-v1:0`
+        - `apac.anthropic.claude-3-5-sonnet--v2:0`
+        - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+        - `eu.amazon.nova-lite-v1:0`
+        - `eu.amazon.nova-micro-v1:0`
+        - `eu.amazon.nova-pro-v1:0`
+        - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+        - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+        - `us.amazon.nova-lite-v1:0`
+        - `us.amazon.nova-micro-v1:0`
+        - `us.amazon.nova-pro-v1:0`
+        - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+        - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+        - `us.anthropic.claude-3-haiku-20240307-v1:0`
         """
         return pulumi.get(self, "model_id")
 

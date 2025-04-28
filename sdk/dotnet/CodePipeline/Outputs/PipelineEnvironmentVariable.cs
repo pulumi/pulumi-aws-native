@@ -7,31 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ce.Outputs
+namespace Pulumi.AwsNative.CodePipeline.Outputs
 {
 
     /// <summary>
-    /// A key-value pair to associate with a resource.
+    /// Represents information about the environment variable of an action.
     /// </summary>
     [OutputType]
-    public sealed class AnomalyMonitorResourceTag
+    public sealed class PipelineEnvironmentVariable
     {
         /// <summary>
-        /// The key name for the tag.
+        /// The name of the environment variable.
         /// </summary>
-        public readonly string Key;
+        public readonly string Name;
         /// <summary>
-        /// The value for the tag.
+        /// The value of the environment variable.
         /// </summary>
         public readonly string Value;
 
         [OutputConstructor]
-        private AnomalyMonitorResourceTag(
-            string key,
+        private PipelineEnvironmentVariable(
+            string name,
 
             string value)
         {
-            Key = key;
+            Name = name;
             Value = value;
         }
     }

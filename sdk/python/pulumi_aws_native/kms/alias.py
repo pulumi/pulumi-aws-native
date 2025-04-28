@@ -29,8 +29,8 @@ class AliasArgs:
                 For help finding the key ID and ARN, see [Finding the key ID and ARN](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn) in the *Developer Guide*.
                 Specify the key ID or the key ARN of the KMS key.
                 For example:
-                 +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab`` 
-                 +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`` 
+                 +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
+                 +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
                  
                 To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html).
         :param pulumi.Input[builtins.str] alias_name: Specifies the alias name. This value must begin with ``alias/`` followed by a name, such as ``alias/ExampleAlias``. 
@@ -50,8 +50,8 @@ class AliasArgs:
          For help finding the key ID and ARN, see [Finding the key ID and ARN](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn) in the *Developer Guide*.
          Specify the key ID or the key ARN of the KMS key.
          For example:
-          +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab`` 
-          +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`` 
+          +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
+          +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
           
          To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html).
         """
@@ -98,7 +98,7 @@ class Alias(pulumi.CustomResource):
           +  Each alias name must begin with ``alias/`` followed by a name, such as ``alias/exampleKey``. The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with ``alias/aws/``. That alias name prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
 
           *Regions*
-          KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
+         KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,8 +110,8 @@ class Alias(pulumi.CustomResource):
                 For help finding the key ID and ARN, see [Finding the key ID and ARN](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn) in the *Developer Guide*.
                 Specify the key ID or the key ARN of the KMS key.
                 For example:
-                 +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab`` 
-                 +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`` 
+                 +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
+                 +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
                  
                 To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html).
         """
@@ -132,7 +132,7 @@ class Alias(pulumi.CustomResource):
           +  Each alias name must begin with ``alias/`` followed by a name, such as ``alias/exampleKey``. The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with ``alias/aws/``. That alias name prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
 
           *Regions*
-          KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
+         KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.
@@ -211,8 +211,8 @@ class Alias(pulumi.CustomResource):
          For help finding the key ID and ARN, see [Finding the key ID and ARN](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn) in the *Developer Guide*.
          Specify the key ID or the key ARN of the KMS key.
          For example:
-          +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab`` 
-          +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`` 
+          +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
+          +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
           
          To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html).
         """

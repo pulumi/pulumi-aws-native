@@ -15,11 +15,23 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataAutomationProjectOverrideConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("audio")]
+        public Input<Inputs.DataAutomationProjectAudioOverrideConfigurationArgs>? Audio { get; set; }
+
         /// <summary>
         /// Additional settings for a project.
         /// </summary>
         [Input("document")]
         public Input<Inputs.DataAutomationProjectDocumentOverrideConfigurationArgs>? Document { get; set; }
+
+        [Input("image")]
+        public Input<Inputs.DataAutomationProjectImageOverrideConfigurationArgs>? Image { get; set; }
+
+        [Input("modalityRouting")]
+        public Input<Inputs.DataAutomationProjectModalityRoutingConfigurationArgs>? ModalityRouting { get; set; }
+
+        [Input("video")]
+        public Input<Inputs.DataAutomationProjectVideoOverrideConfigurationArgs>? Video { get; set; }
 
         public DataAutomationProjectOverrideConfigurationArgs()
         {

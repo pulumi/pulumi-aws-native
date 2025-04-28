@@ -52,7 +52,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
      */
     public readonly domain!: pulumi.Output<string>;
     /**
-     * A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
+     * A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
      */
     public readonly managedLoginVersion!: pulumi.Output<number | undefined>;
     /**
@@ -111,7 +111,7 @@ export interface UserPoolDomainArgs {
      */
     domain: pulumi.Input<string>;
     /**
-     * A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
+     * A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
      */
     managedLoginVersion?: pulumi.Input<number>;
     /**

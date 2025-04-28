@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
+    /// <summary>
+    /// The target for the Capacity Reservation. Specify Capacity Reservations IDs or Capacity Reservation resource group ARNs.
+    /// </summary>
     public sealed class AutoScalingGroupCapacityReservationTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacityReservationIds")]

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,6 +31,8 @@ type LookupClusterParameterGroupArgs struct {
 type LookupClusterParameterGroupResult struct {
 	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupClusterParameterGroupOutput(ctx *pulumi.Context, args LookupClusterParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupClusterParameterGroupResultOutput {
@@ -67,6 +70,11 @@ func (o LookupClusterParameterGroupResultOutput) ToLookupClusterParameterGroupRe
 // An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 func (o LookupClusterParameterGroupResultOutput) Parameters() ClusterParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v LookupClusterParameterGroupResult) []ClusterParameterGroupParameter { return v.Parameters }).(ClusterParameterGroupParameterArrayOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupClusterParameterGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupClusterParameterGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

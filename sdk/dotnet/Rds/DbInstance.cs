@@ -211,10 +211,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> CustomIamInstanceProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The mode of Database Insights that is enabled for the instance.
+        /// The mode of Database Insights to enable for the DB instance.
+        /// 
+        /// &gt; Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
         /// </summary>
         [Output("databaseInsightsMode")]
-        public Output<string> DatabaseInsightsMode { get; private set; } = null!;
+        public Output<string?> DatabaseInsightsMode { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the DB cluster that this DB instance will belong to.
@@ -1214,6 +1216,14 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("customIamInstanceProfile")]
         public Input<string>? CustomIamInstanceProfile { get; set; }
+
+        /// <summary>
+        /// The mode of Database Insights to enable for the DB instance.
+        /// 
+        /// &gt; Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
+        /// </summary>
+        [Input("databaseInsightsMode")]
+        public Input<string>? DatabaseInsightsMode { get; set; }
 
         /// <summary>
         /// The identifier of the DB cluster that this DB instance will belong to.

@@ -64,6 +64,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        [Input("connectionMode")]
+        public Input<Pulumi.AwsNative.CloudFront.DistributionConnectionMode>? ConnectionMode { get; set; }
+
         /// <summary>
         /// The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
         /// </summary>
@@ -190,6 +193,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// </summary>
         [Input("staging")]
         public Input<bool>? Staging { get; set; }
+
+        [Input("tenantConfig")]
+        public Input<Inputs.DistributionConfigTenantConfigPropertiesArgs>? TenantConfig { get; set; }
 
         /// <summary>
         /// A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.

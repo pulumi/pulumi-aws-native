@@ -18,6 +18,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'RegistryScanningConfigurationRepositoryFilter',
+    'RegistryScanningConfigurationScanningRule',
     'ReplicationConfiguration',
     'ReplicationConfigurationReplicationDestination',
     'ReplicationConfigurationReplicationRule',
@@ -28,6 +30,96 @@ __all__ = [
     'RepositoryImageScanningConfiguration',
     'RepositoryLifecyclePolicy',
 ]
+
+@pulumi.output_type
+class RegistryScanningConfigurationRepositoryFilter(dict):
+    """
+    The details of a scanning repository filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryScanningConfigurationRepositoryFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryScanningConfigurationRepositoryFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryScanningConfigurationRepositoryFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter: builtins.str,
+                 filter_type: 'RegistryScanningConfigurationFilterType'):
+        """
+        The details of a scanning repository filter.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> builtins.str:
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> 'RegistryScanningConfigurationFilterType':
+        return pulumi.get(self, "filter_type")
+
+
+@pulumi.output_type
+class RegistryScanningConfigurationScanningRule(dict):
+    """
+    A rule representing the details of a scanning configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryFilters":
+            suggest = "repository_filters"
+        elif key == "scanFrequency":
+            suggest = "scan_frequency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryScanningConfigurationScanningRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryScanningConfigurationScanningRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryScanningConfigurationScanningRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_filters: Sequence['outputs.RegistryScanningConfigurationRepositoryFilter'],
+                 scan_frequency: 'RegistryScanningConfigurationScanFrequency'):
+        """
+        A rule representing the details of a scanning configuration.
+        :param Sequence['RegistryScanningConfigurationRepositoryFilter'] repository_filters: The repository filters associated with the scanning configuration for a private registry.
+        """
+        pulumi.set(__self__, "repository_filters", repository_filters)
+        pulumi.set(__self__, "scan_frequency", scan_frequency)
+
+    @property
+    @pulumi.getter(name="repositoryFilters")
+    def repository_filters(self) -> Sequence['outputs.RegistryScanningConfigurationRepositoryFilter']:
+        """
+        The repository filters associated with the scanning configuration for a private registry.
+        """
+        return pulumi.get(self, "repository_filters")
+
+    @property
+    @pulumi.getter(name="scanFrequency")
+    def scan_frequency(self) -> 'RegistryScanningConfigurationScanFrequency':
+        return pulumi.get(self, "scan_frequency")
+
 
 @pulumi.output_type
 class ReplicationConfiguration(dict):

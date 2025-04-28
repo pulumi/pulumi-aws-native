@@ -107,6 +107,13 @@ class GetConnectionResult:
     @property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[builtins.str]:
+        """
+        The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+
+        If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
+
+        For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
+        """
         return pulumi.get(self, "kms_key_identifier")
 
     @property

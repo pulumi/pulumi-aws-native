@@ -34,9 +34,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         /// <summary>
         /// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
         ///  The following are the supported values for each volume type.
-        ///   +   ``gp3``: 3,000 - 16,000 IOPS
-        ///   +   ``io1``: 100 - 64,000 IOPS
-        ///   +   ``io2``: 100 - 256,000 IOPS
+        ///   +  ``gp3``: 3,000 - 16,000 IOPS
+        ///   +  ``io1``: 100 - 64,000 IOPS
+        ///   +  ``io2``: 100 - 256,000 IOPS
         ///   
         ///  This parameter is required for ``io1`` and ``io2`` volume types. The default for ``gp3`` volumes is ``3,000 IOPS``. This parameter is not supported for ``st1``, ``sc1``, or ``standard`` volume types.
         ///  This parameter maps 1:1 with the ``Iops`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
         /// <summary>
         /// The Amazon Resource Name (ARN) identifier of the AWS Key Management Service key to use for Amazon EBS encryption. When encryption is turned on and no AWS Key Management Service key is specified, the default AWS managed key for Amazon EBS volumes is used. This parameter maps 1:1 with the ``KmsKeyId`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
-        ///    AWS authenticates the AWS Key Management Service key asynchronously. Therefore, if you specify an ID, alias, or ARN that is invalid, the action can appear to complete, but eventually fails.
+        ///   AWS authenticates the AWS Key Management Service key asynchronously. Therefore, if you specify an ID, alias, or ARN that is invalid, the action can appear to complete, but eventually fails.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -60,10 +60,10 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         /// <summary>
         /// The size of the volume in GiB. You must specify either a volume size or a snapshot ID. If you specify a snapshot ID, the snapshot size is used for the volume size by default. You can optionally specify a volume size greater than or equal to the snapshot size. This parameter maps 1:1 with the ``Size`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
         ///  The following are the supported volume size values for each volume type.
-        ///   +   ``gp2`` and ``gp3``: 1-16,384
-        ///   +   ``io1`` and ``io2``: 4-16,384
-        ///   +   ``st1`` and ``sc1``: 125-16,384
-        ///   +   ``standard``: 1-1,024
+        ///   +  ``gp2`` and ``gp3``: 1-16,384
+        ///   +  ``io1`` and ``io2``: 4-16,384
+        ///   +  ``st1`` and ``sc1``: 125-16,384
+        ///   +  ``standard``: 1-1,024
         /// </summary>
         [Input("sizeInGiB")]
         public Input<int>? SizeInGiB { get; set; }
@@ -96,11 +96,11 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         /// <summary>
         /// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
         ///  The following are the supported volume types.
-        ///   +  General Purpose SSD: ``gp2``|``gp3`` 
-        ///   +  Provisioned IOPS SSD: ``io1``|``io2`` 
-        ///   +  Throughput Optimized HDD: ``st1`` 
-        ///   +  Cold HDD: ``sc1`` 
-        ///   +  Magnetic: ``standard`` 
+        ///   +  General Purpose SSD: ``gp2``|``gp3``
+        ///   +  Provisioned IOPS SSD: ``io1``|``io2``
+        ///   +  Throughput Optimized HDD: ``st1``
+        ///   +  Cold HDD: ``sc1``
+        ///   +  Magnetic: ``standard``
         ///   The magnetic volume type is not supported on Fargate.
         /// </summary>
         [Input("volumeType")]

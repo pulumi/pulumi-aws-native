@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
 
     public sealed class DataAutomationProjectDocumentOverrideConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("modalityProcessing")]
+        public Input<Inputs.DataAutomationProjectModalityProcessingConfigurationArgs>? ModalityProcessing { get; set; }
+
         /// <summary>
         /// Whether document splitter is enabled for a project.
         /// </summary>

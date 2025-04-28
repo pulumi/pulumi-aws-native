@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
+    /// <summary>
+    /// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Auto Scaling uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. 
+    ///  Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` uses the CPU performance of the ``c6i`` family as the baseline reference.
+    /// </summary>
     public sealed class AutoScalingGroupBaselinePerformanceFactorsRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

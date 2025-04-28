@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Aps.Inputs
             set => _labelSet = value;
         }
 
+        /// <summary>
+        /// This structure contains the information about the limits that apply to time series that match this label set.
+        /// </summary>
         [Input("limits", required: true)]
         public Input<Inputs.WorkspaceLimitsPerLabelSetEntryArgs> Limits { get; set; } = null!;
 

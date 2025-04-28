@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public readonly object? Settings;
         /// <summary>
-        /// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+        /// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.
         /// 
         /// When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
         /// </summary>

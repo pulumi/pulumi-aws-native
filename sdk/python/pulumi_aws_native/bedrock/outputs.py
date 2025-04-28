@@ -44,6 +44,7 @@ __all__ = [
     'ApplicationInferenceProfileInferenceProfileModel',
     'ApplicationInferenceProfileInferenceProfileModelSourceProperties',
     'DataAutomationProjectAudioExtractionCategory',
+    'DataAutomationProjectAudioOverrideConfiguration',
     'DataAutomationProjectAudioStandardExtraction',
     'DataAutomationProjectAudioStandardGenerativeField',
     'DataAutomationProjectAudioStandardOutputConfiguration',
@@ -60,14 +61,18 @@ __all__ = [
     'DataAutomationProjectDocumentStandardOutputConfiguration',
     'DataAutomationProjectImageBoundingBox',
     'DataAutomationProjectImageExtractionCategory',
+    'DataAutomationProjectImageOverrideConfiguration',
     'DataAutomationProjectImageStandardExtraction',
     'DataAutomationProjectImageStandardGenerativeField',
     'DataAutomationProjectImageStandardOutputConfiguration',
+    'DataAutomationProjectModalityProcessingConfiguration',
+    'DataAutomationProjectModalityRoutingConfiguration',
     'DataAutomationProjectOverrideConfiguration',
     'DataAutomationProjectSplitterConfiguration',
     'DataAutomationProjectStandardOutputConfiguration',
     'DataAutomationProjectVideoBoundingBox',
     'DataAutomationProjectVideoExtractionCategory',
+    'DataAutomationProjectVideoOverrideConfiguration',
     'DataAutomationProjectVideoStandardExtraction',
     'DataAutomationProjectVideoStandardGenerativeField',
     'DataAutomationProjectVideoStandardOutputConfiguration',
@@ -1706,6 +1711,36 @@ class DataAutomationProjectAudioExtractionCategory(dict):
 
 
 @pulumi.output_type
+class DataAutomationProjectAudioOverrideConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modalityProcessing":
+            suggest = "modality_processing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectAudioOverrideConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectAudioOverrideConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectAudioOverrideConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 modality_processing: Optional['outputs.DataAutomationProjectModalityProcessingConfiguration'] = None):
+        if modality_processing is not None:
+            pulumi.set(__self__, "modality_processing", modality_processing)
+
+    @property
+    @pulumi.getter(name="modalityProcessing")
+    def modality_processing(self) -> Optional['outputs.DataAutomationProjectModalityProcessingConfiguration']:
+        return pulumi.get(self, "modality_processing")
+
+
+@pulumi.output_type
 class DataAutomationProjectAudioStandardExtraction(dict):
     def __init__(__self__, *,
                  category: 'outputs.DataAutomationProjectAudioExtractionCategory'):
@@ -2011,13 +2046,38 @@ class DataAutomationProjectDocumentOutputTextFormat(dict):
 
 @pulumi.output_type
 class DataAutomationProjectDocumentOverrideConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modalityProcessing":
+            suggest = "modality_processing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectDocumentOverrideConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectDocumentOverrideConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectDocumentOverrideConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 modality_processing: Optional['outputs.DataAutomationProjectModalityProcessingConfiguration'] = None,
                  splitter: Optional['outputs.DataAutomationProjectSplitterConfiguration'] = None):
         """
         :param 'DataAutomationProjectSplitterConfiguration' splitter: Whether document splitter is enabled for a project.
         """
+        if modality_processing is not None:
+            pulumi.set(__self__, "modality_processing", modality_processing)
         if splitter is not None:
             pulumi.set(__self__, "splitter", splitter)
+
+    @property
+    @pulumi.getter(name="modalityProcessing")
+    def modality_processing(self) -> Optional['outputs.DataAutomationProjectModalityProcessingConfiguration']:
+        return pulumi.get(self, "modality_processing")
 
     @property
     @pulumi.getter
@@ -2203,6 +2263,36 @@ class DataAutomationProjectImageExtractionCategory(dict):
 
 
 @pulumi.output_type
+class DataAutomationProjectImageOverrideConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modalityProcessing":
+            suggest = "modality_processing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectImageOverrideConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectImageOverrideConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectImageOverrideConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 modality_processing: Optional['outputs.DataAutomationProjectModalityProcessingConfiguration'] = None):
+        if modality_processing is not None:
+            pulumi.set(__self__, "modality_processing", modality_processing)
+
+    @property
+    @pulumi.getter(name="modalityProcessing")
+    def modality_processing(self) -> Optional['outputs.DataAutomationProjectModalityProcessingConfiguration']:
+        return pulumi.get(self, "modality_processing")
+
+
+@pulumi.output_type
 class DataAutomationProjectImageStandardExtraction(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2327,18 +2417,108 @@ class DataAutomationProjectImageStandardOutputConfiguration(dict):
 
 
 @pulumi.output_type
+class DataAutomationProjectModalityProcessingConfiguration(dict):
+    def __init__(__self__, *,
+                 state: Optional['DataAutomationProjectState'] = None):
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['DataAutomationProjectState']:
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class DataAutomationProjectModalityRoutingConfiguration(dict):
+    """
+    Modality routing configuration
+    """
+    def __init__(__self__, *,
+                 jpeg: Optional['DataAutomationProjectDesiredModality'] = None,
+                 mov: Optional['DataAutomationProjectDesiredModality'] = None,
+                 mp4: Optional['DataAutomationProjectDesiredModality'] = None,
+                 png: Optional['DataAutomationProjectDesiredModality'] = None):
+        """
+        Modality routing configuration
+        """
+        if jpeg is not None:
+            pulumi.set(__self__, "jpeg", jpeg)
+        if mov is not None:
+            pulumi.set(__self__, "mov", mov)
+        if mp4 is not None:
+            pulumi.set(__self__, "mp4", mp4)
+        if png is not None:
+            pulumi.set(__self__, "png", png)
+
+    @property
+    @pulumi.getter
+    def jpeg(self) -> Optional['DataAutomationProjectDesiredModality']:
+        return pulumi.get(self, "jpeg")
+
+    @property
+    @pulumi.getter
+    def mov(self) -> Optional['DataAutomationProjectDesiredModality']:
+        return pulumi.get(self, "mov")
+
+    @property
+    @pulumi.getter
+    def mp4(self) -> Optional['DataAutomationProjectDesiredModality']:
+        return pulumi.get(self, "mp4")
+
+    @property
+    @pulumi.getter
+    def png(self) -> Optional['DataAutomationProjectDesiredModality']:
+        return pulumi.get(self, "png")
+
+
+@pulumi.output_type
 class DataAutomationProjectOverrideConfiguration(dict):
     """
     Override configuration
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modalityRouting":
+            suggest = "modality_routing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectOverrideConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectOverrideConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectOverrideConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 document: Optional['outputs.DataAutomationProjectDocumentOverrideConfiguration'] = None):
+                 audio: Optional['outputs.DataAutomationProjectAudioOverrideConfiguration'] = None,
+                 document: Optional['outputs.DataAutomationProjectDocumentOverrideConfiguration'] = None,
+                 image: Optional['outputs.DataAutomationProjectImageOverrideConfiguration'] = None,
+                 modality_routing: Optional['outputs.DataAutomationProjectModalityRoutingConfiguration'] = None,
+                 video: Optional['outputs.DataAutomationProjectVideoOverrideConfiguration'] = None):
         """
         Override configuration
         :param 'DataAutomationProjectDocumentOverrideConfiguration' document: Additional settings for a project.
         """
+        if audio is not None:
+            pulumi.set(__self__, "audio", audio)
         if document is not None:
             pulumi.set(__self__, "document", document)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if modality_routing is not None:
+            pulumi.set(__self__, "modality_routing", modality_routing)
+        if video is not None:
+            pulumi.set(__self__, "video", video)
+
+    @property
+    @pulumi.getter
+    def audio(self) -> Optional['outputs.DataAutomationProjectAudioOverrideConfiguration']:
+        return pulumi.get(self, "audio")
 
     @property
     @pulumi.getter
@@ -2347,6 +2527,21 @@ class DataAutomationProjectOverrideConfiguration(dict):
         Additional settings for a project.
         """
         return pulumi.get(self, "document")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional['outputs.DataAutomationProjectImageOverrideConfiguration']:
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="modalityRouting")
+    def modality_routing(self) -> Optional['outputs.DataAutomationProjectModalityRoutingConfiguration']:
+        return pulumi.get(self, "modality_routing")
+
+    @property
+    @pulumi.getter
+    def video(self) -> Optional['outputs.DataAutomationProjectVideoOverrideConfiguration']:
+        return pulumi.get(self, "video")
 
 
 @pulumi.output_type
@@ -2473,6 +2668,36 @@ class DataAutomationProjectVideoExtractionCategory(dict):
         The types of data to generate.
         """
         return pulumi.get(self, "types")
+
+
+@pulumi.output_type
+class DataAutomationProjectVideoOverrideConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modalityProcessing":
+            suggest = "modality_processing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationProjectVideoOverrideConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationProjectVideoOverrideConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationProjectVideoOverrideConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 modality_processing: Optional['outputs.DataAutomationProjectModalityProcessingConfiguration'] = None):
+        if modality_processing is not None:
+            pulumi.set(__self__, "modality_processing", modality_processing)
+
+    @property
+    @pulumi.getter(name="modalityProcessing")
+    def modality_processing(self) -> Optional['outputs.DataAutomationProjectModalityProcessingConfiguration']:
+        return pulumi.get(self, "modality_processing")
 
 
 @pulumi.output_type

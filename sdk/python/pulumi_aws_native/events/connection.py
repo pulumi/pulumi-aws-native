@@ -39,6 +39,11 @@ class ConnectionArgs:
                > OAUTH tokens are refreshed when a 401 or 407 response is returned.
         :param pulumi.Input[builtins.str] description: Description of the connection.
         :param pulumi.Input['InvocationConnectivityParametersPropertiesArgs'] invocation_connectivity_parameters: The private resource the HTTP request will be sent to.
+        :param pulumi.Input[builtins.str] kms_key_identifier: The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+               
+               If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
+               
+               For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
         :param pulumi.Input[builtins.str] name: Name of the connection.
         """
         if auth_parameters is not None:
@@ -109,6 +114,13 @@ class ConnectionArgs:
     @property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+
+        If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
+
+        For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
+        """
         return pulumi.get(self, "kms_key_identifier")
 
     @kms_key_identifier.setter
@@ -182,6 +194,11 @@ class Connection(pulumi.CustomResource):
                > OAUTH tokens are refreshed when a 401 or 407 response is returned.
         :param pulumi.Input[builtins.str] description: Description of the connection.
         :param pulumi.Input[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict']] invocation_connectivity_parameters: The private resource the HTTP request will be sent to.
+        :param pulumi.Input[builtins.str] kms_key_identifier: The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+               
+               If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
+               
+               For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
         :param pulumi.Input[builtins.str] name: Name of the connection.
         """
         ...
@@ -348,6 +365,13 @@ class Connection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+
+        If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
+
+        For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
+        """
         return pulumi.get(self, "kms_key_identifier")
 
     @property

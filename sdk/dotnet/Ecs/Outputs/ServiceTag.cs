@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     ///  In order to tag a service that has the following ARN format, you need to migrate the service to the long ARN. You must use the API, CLI or console to migrate the service ARN. For more information, see [Migrate an short service ARN to a long ARN](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-arn-migration.html) in the *Developer Guide*.
     ///   ``arn:aws:ecs:region:aws_account_id:service/service-name`` 
     ///  After the migration is complete, the following are true:
-    ///   +   The service ARN is: ``arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name`` 
+    ///   +   The service ARN is: ``arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name``
     ///   +  You can use CFN to tag the service as you would a service with a long ARN format.
     ///   +  When the ``PhysicalResourceId`` in the CFN stack represents a service, the value does not change and will be the short service ARN.
     /// </summary>

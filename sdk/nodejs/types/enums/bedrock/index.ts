@@ -232,6 +232,15 @@ export const DataAutomationProjectBlueprintStage = {
  */
 export type DataAutomationProjectBlueprintStage = (typeof DataAutomationProjectBlueprintStage)[keyof typeof DataAutomationProjectBlueprintStage];
 
+export const DataAutomationProjectDesiredModality = {
+    Document: "DOCUMENT",
+    Image: "IMAGE",
+    Video: "VIDEO",
+    Audio: "AUDIO",
+} as const;
+
+export type DataAutomationProjectDesiredModality = (typeof DataAutomationProjectDesiredModality)[keyof typeof DataAutomationProjectDesiredModality];
+
 export const DataAutomationProjectDocumentExtractionGranularityType = {
     Document: "DOCUMENT",
     Page: "PAGE",

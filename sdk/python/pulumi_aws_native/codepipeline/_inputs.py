@@ -39,6 +39,8 @@ __all__ = [
     'PipelineConditionArgsDict',
     'PipelineEncryptionKeyArgs',
     'PipelineEncryptionKeyArgsDict',
+    'PipelineEnvironmentVariableArgs',
+    'PipelineEnvironmentVariableArgsDict',
     'PipelineFailureConditionsRetryConfigurationPropertiesArgs',
     'PipelineFailureConditionsRetryConfigurationPropertiesArgsDict',
     'PipelineFailureConditionsArgs',
@@ -400,6 +402,10 @@ if not MYPY:
         """
         The action's configuration. These are key-value pairs that specify input values for an action.
         """
+        environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineEnvironmentVariableArgsDict']]]]
+        """
+        The list of environment variables that are input to a compute based action.
+        """
         input_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineInputArtifactArgsDict']]]]
         """
         The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
@@ -444,6 +450,7 @@ class PipelineActionDeclarationArgs:
                  name: pulumi.Input[builtins.str],
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  configuration: Optional[Any] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineEnvironmentVariableArgs']]]] = None,
                  input_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineInputArtifactArgs']]]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
                  output_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineOutputArtifactArgs']]]] = None,
@@ -458,6 +465,7 @@ class PipelineActionDeclarationArgs:
         :param pulumi.Input[builtins.str] name: The action declaration's name.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] commands: The shell commands to run with your compute action in CodePipeline.
         :param Any configuration: The action's configuration. These are key-value pairs that specify input values for an action.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineEnvironmentVariableArgs']]] environment_variables: The list of environment variables that are input to a compute based action.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineInputArtifactArgs']]] input_artifacts: The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
                
                > For a CodeBuild action with multiple input artifacts, one of your input sources must be designated the PrimarySource. For more information, see the [CodeBuild action reference page](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeBuild.html) in the *AWS CodePipeline User Guide* .
@@ -475,6 +483,8 @@ class PipelineActionDeclarationArgs:
             pulumi.set(__self__, "commands", commands)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
         if input_artifacts is not None:
             pulumi.set(__self__, "input_artifacts", input_artifacts)
         if namespace is not None:
@@ -539,6 +549,18 @@ class PipelineActionDeclarationArgs:
     @configuration.setter
     def configuration(self, value: Optional[Any]):
         pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineEnvironmentVariableArgs']]]]:
+        """
+        The list of environment variables that are input to a compute based action.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineEnvironmentVariableArgs']]]]):
+        pulumi.set(self, "environment_variables", value)
 
     @property
     @pulumi.getter(name="inputArtifacts")
@@ -1063,6 +1085,60 @@ class PipelineEncryptionKeyArgs:
     @type.setter
     def type(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class PipelineEnvironmentVariableArgsDict(TypedDict):
+        """
+        Represents information about the environment variable of an action.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        The name of the environment variable.
+        """
+        value: pulumi.Input[builtins.str]
+        """
+        The value of the environment variable.
+        """
+elif False:
+    PipelineEnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineEnvironmentVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 value: pulumi.Input[builtins.str]):
+        """
+        Represents information about the environment variable of an action.
+        :param pulumi.Input[builtins.str] name: The name of the environment variable.
+        :param pulumi.Input[builtins.str] value: The value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.str]:
+        """
+        The value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

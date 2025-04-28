@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
         /// <summary>
         /// Server-side encryption type. The only supported value is:
-        ///   +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
+        ///   +  ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
         /// </summary>
         [Input("sseType")]
         public Input<string>? SseType { get; set; }

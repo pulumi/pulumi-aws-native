@@ -49,6 +49,9 @@ export interface GetWorkspaceResult {
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+     */
     readonly workspaceConfiguration?: outputs.aps.WorkspaceConfiguration;
     /**
      * Required to identify a specific APS Workspace.

@@ -32,6 +32,7 @@ class ApiArgs:
                  disable_execute_api_endpoint: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_schema_validation: Optional[pulumi.Input[builtins.bool]] = None,
                  fail_on_warnings: Optional[pulumi.Input[builtins.bool]] = None,
+                 ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_type: Optional[pulumi.Input[builtins.str]] = None,
                  route_key: Optional[pulumi.Input[builtins.str]] = None,
@@ -53,6 +54,9 @@ class ApiArgs:
         :param pulumi.Input[builtins.bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
         :param pulumi.Input[builtins.bool] disable_schema_validation: Avoid validating models when creating a deployment. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.bool] fail_on_warnings: Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
+        :param pulumi.Input[builtins.str] ip_address_type: The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+               
+               Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
         :param pulumi.Input[builtins.str] name: The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
         :param pulumi.Input[builtins.str] protocol_type: The API protocol. Valid values are ``WEBSOCKET`` or ``HTTP``. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
         :param pulumi.Input[builtins.str] route_key: This property is part of quick create. If you don't specify a ``routeKey``, a default route of ``$default`` is created. The ``$default`` route acts as a catch-all for any request made to your API, for a particular stage. The ``$default`` route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.
@@ -81,6 +85,8 @@ class ApiArgs:
             pulumi.set(__self__, "disable_schema_validation", disable_schema_validation)
         if fail_on_warnings is not None:
             pulumi.set(__self__, "fail_on_warnings", fail_on_warnings)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if protocol_type is not None:
@@ -219,6 +225,20 @@ class ApiArgs:
         pulumi.set(self, "fail_on_warnings", value)
 
     @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+
+        Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -321,6 +341,7 @@ class Api(pulumi.CustomResource):
                  disable_execute_api_endpoint: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_schema_validation: Optional[pulumi.Input[builtins.bool]] = None,
                  fail_on_warnings: Optional[pulumi.Input[builtins.bool]] = None,
+                 ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_type: Optional[pulumi.Input[builtins.str]] = None,
                  route_key: Optional[pulumi.Input[builtins.str]] = None,
@@ -346,6 +367,9 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
         :param pulumi.Input[builtins.bool] disable_schema_validation: Avoid validating models when creating a deployment. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.bool] fail_on_warnings: Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
+        :param pulumi.Input[builtins.str] ip_address_type: The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+               
+               Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
         :param pulumi.Input[builtins.str] name: The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
         :param pulumi.Input[builtins.str] protocol_type: The API protocol. Valid values are ``WEBSOCKET`` or ``HTTP``. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
         :param pulumi.Input[builtins.str] route_key: This property is part of quick create. If you don't specify a ``routeKey``, a default route of ``$default`` is created. The ``$default`` route acts as a catch-all for any request made to your API, for a particular stage. The ``$default`` route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.
@@ -388,6 +412,7 @@ class Api(pulumi.CustomResource):
                  disable_execute_api_endpoint: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_schema_validation: Optional[pulumi.Input[builtins.bool]] = None,
                  fail_on_warnings: Optional[pulumi.Input[builtins.bool]] = None,
+                 ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_type: Optional[pulumi.Input[builtins.str]] = None,
                  route_key: Optional[pulumi.Input[builtins.str]] = None,
@@ -414,6 +439,7 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["disable_execute_api_endpoint"] = disable_execute_api_endpoint
             __props__.__dict__["disable_schema_validation"] = disable_schema_validation
             __props__.__dict__["fail_on_warnings"] = fail_on_warnings
+            __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["name"] = name
             __props__.__dict__["protocol_type"] = protocol_type
             __props__.__dict__["route_key"] = route_key
@@ -459,6 +485,7 @@ class Api(pulumi.CustomResource):
         __props__.__dict__["disable_execute_api_endpoint"] = None
         __props__.__dict__["disable_schema_validation"] = None
         __props__.__dict__["fail_on_warnings"] = None
+        __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["protocol_type"] = None
         __props__.__dict__["route_key"] = None
@@ -565,6 +592,16 @@ class Api(pulumi.CustomResource):
         Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
         """
         return pulumi.get(self, "fail_on_warnings")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+
+        Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+        """
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter

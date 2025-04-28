@@ -52,7 +52,25 @@ namespace Pulumi.AwsNative.Wisdom
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
+        /// The identifier of the model used for this AI Prompt. The following model Ids are supported:
+        /// 
+        /// - `anthropic.claude-3-haiku--v1:0`
+        /// - `apac.amazon.nova-lite-v1:0`
+        /// - `apac.amazon.nova-micro-v1:0`
+        /// - `apac.amazon.nova-pro-v1:0`
+        /// - `apac.anthropic.claude-3-5-sonnet--v2:0`
+        /// - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+        /// - `eu.amazon.nova-lite-v1:0`
+        /// - `eu.amazon.nova-micro-v1:0`
+        /// - `eu.amazon.nova-pro-v1:0`
+        /// - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+        /// - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+        /// - `us.amazon.nova-lite-v1:0`
+        /// - `us.amazon.nova-micro-v1:0`
+        /// - `us.amazon.nova-pro-v1:0`
+        /// - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+        /// - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+        /// - `us.anthropic.claude-3-haiku-20240307-v1:0`
         /// </summary>
         [Output("modelId")]
         public Output<string> ModelId { get; private set; } = null!;
@@ -164,7 +182,25 @@ namespace Pulumi.AwsNative.Wisdom
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
+        /// The identifier of the model used for this AI Prompt. The following model Ids are supported:
+        /// 
+        /// - `anthropic.claude-3-haiku--v1:0`
+        /// - `apac.amazon.nova-lite-v1:0`
+        /// - `apac.amazon.nova-micro-v1:0`
+        /// - `apac.amazon.nova-pro-v1:0`
+        /// - `apac.anthropic.claude-3-5-sonnet--v2:0`
+        /// - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+        /// - `eu.amazon.nova-lite-v1:0`
+        /// - `eu.amazon.nova-micro-v1:0`
+        /// - `eu.amazon.nova-pro-v1:0`
+        /// - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+        /// - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+        /// - `us.amazon.nova-lite-v1:0`
+        /// - `us.amazon.nova-micro-v1:0`
+        /// - `us.amazon.nova-pro-v1:0`
+        /// - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+        /// - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+        /// - `us.anthropic.claude-3-haiku-20240307-v1:0`
         /// </summary>
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;

@@ -41,6 +41,26 @@ export const ChannelNamespaceAuthenticationType = {
  */
 export type ChannelNamespaceAuthenticationType = (typeof ChannelNamespaceAuthenticationType)[keyof typeof ChannelNamespaceAuthenticationType];
 
+export const ChannelNamespaceHandlerBehavior = {
+    Code: "CODE",
+    Direct: "DIRECT",
+} as const;
+
+/**
+ * Integration behavior for a handler configuration.
+ */
+export type ChannelNamespaceHandlerBehavior = (typeof ChannelNamespaceHandlerBehavior)[keyof typeof ChannelNamespaceHandlerBehavior];
+
+export const ChannelNamespaceInvokeType = {
+    RequestResponse: "REQUEST_RESPONSE",
+    Event: "EVENT",
+} as const;
+
+/**
+ * Invocation type for direct lambda integrations.
+ */
+export type ChannelNamespaceInvokeType = (typeof ChannelNamespaceInvokeType)[keyof typeof ChannelNamespaceInvokeType];
+
 export const DataSourceMetricsConfig = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",

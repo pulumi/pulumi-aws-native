@@ -103,6 +103,9 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="workspaceConfiguration")
     def workspace_configuration(self) -> Optional['outputs.WorkspaceConfiguration']:
+        """
+        Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+        """
         return pulumi.get(self, "workspace_configuration")
 
     @property

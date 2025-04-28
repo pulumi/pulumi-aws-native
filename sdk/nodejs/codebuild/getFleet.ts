@@ -34,7 +34,7 @@ export interface GetFleetResult {
      */
     readonly baseCapacity?: number;
     /**
-     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
      */
     readonly computeConfiguration?: outputs.codebuild.FleetComputeConfiguration;
     /**

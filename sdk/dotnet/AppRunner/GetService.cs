@@ -99,6 +99,10 @@ namespace Pulumi.AwsNative.AppRunner
         /// AppRunner Service status.
         /// </summary>
         public readonly string? Status;
+        /// <summary>
+        /// An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetServiceResult(
@@ -118,7 +122,9 @@ namespace Pulumi.AwsNative.AppRunner
 
             Outputs.ServiceSourceConfiguration? sourceConfiguration,
 
-            string? status)
+            string? status,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             HealthCheckConfiguration = healthCheckConfiguration;
             InstanceConfiguration = instanceConfiguration;
@@ -129,6 +135,7 @@ namespace Pulumi.AwsNative.AppRunner
             ServiceUrl = serviceUrl;
             SourceConfiguration = sourceConfiguration;
             Status = status;
+            Tags = tags;
         }
     }
 }

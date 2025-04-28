@@ -443,6 +443,8 @@ type PipelineActionDeclaration struct {
 	Commands []string `pulumi:"commands"`
 	// The action's configuration. These are key-value pairs that specify input values for an action.
 	Configuration interface{} `pulumi:"configuration"`
+	// The list of environment variables that are input to a compute based action.
+	EnvironmentVariables []PipelineEnvironmentVariable `pulumi:"environmentVariables"`
 	// The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
 	//
 	// > For a CodeBuild action with multiple input artifacts, one of your input sources must be designated the PrimarySource. For more information, see the [CodeBuild action reference page](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeBuild.html) in the *AWS CodePipeline User Guide* .
@@ -484,6 +486,8 @@ type PipelineActionDeclarationArgs struct {
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 	// The action's configuration. These are key-value pairs that specify input values for an action.
 	Configuration pulumi.Input `pulumi:"configuration"`
+	// The list of environment variables that are input to a compute based action.
+	EnvironmentVariables PipelineEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
 	// The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
 	//
 	// > For a CodeBuild action with multiple input artifacts, one of your input sources must be designated the PrimarySource. For more information, see the [CodeBuild action reference page](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeBuild.html) in the *AWS CodePipeline User Guide* .
@@ -571,6 +575,11 @@ func (o PipelineActionDeclarationOutput) Commands() pulumi.StringArrayOutput {
 // The action's configuration. These are key-value pairs that specify input values for an action.
 func (o PipelineActionDeclarationOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v PipelineActionDeclaration) interface{} { return v.Configuration }).(pulumi.AnyOutput)
+}
+
+// The list of environment variables that are input to a compute based action.
+func (o PipelineActionDeclarationOutput) EnvironmentVariables() PipelineEnvironmentVariableArrayOutput {
+	return o.ApplyT(func(v PipelineActionDeclaration) []PipelineEnvironmentVariable { return v.EnvironmentVariables }).(PipelineEnvironmentVariableArrayOutput)
 }
 
 // The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
@@ -1530,6 +1539,115 @@ func (o PipelineEncryptionKeyPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Represents information about the environment variable of an action.
+type PipelineEnvironmentVariable struct {
+	// The name of the environment variable.
+	Name string `pulumi:"name"`
+	// The value of the environment variable.
+	Value string `pulumi:"value"`
+}
+
+// PipelineEnvironmentVariableInput is an input type that accepts PipelineEnvironmentVariableArgs and PipelineEnvironmentVariableOutput values.
+// You can construct a concrete instance of `PipelineEnvironmentVariableInput` via:
+//
+//	PipelineEnvironmentVariableArgs{...}
+type PipelineEnvironmentVariableInput interface {
+	pulumi.Input
+
+	ToPipelineEnvironmentVariableOutput() PipelineEnvironmentVariableOutput
+	ToPipelineEnvironmentVariableOutputWithContext(context.Context) PipelineEnvironmentVariableOutput
+}
+
+// Represents information about the environment variable of an action.
+type PipelineEnvironmentVariableArgs struct {
+	// The name of the environment variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the environment variable.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PipelineEnvironmentVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEnvironmentVariable)(nil)).Elem()
+}
+
+func (i PipelineEnvironmentVariableArgs) ToPipelineEnvironmentVariableOutput() PipelineEnvironmentVariableOutput {
+	return i.ToPipelineEnvironmentVariableOutputWithContext(context.Background())
+}
+
+func (i PipelineEnvironmentVariableArgs) ToPipelineEnvironmentVariableOutputWithContext(ctx context.Context) PipelineEnvironmentVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineEnvironmentVariableOutput)
+}
+
+// PipelineEnvironmentVariableArrayInput is an input type that accepts PipelineEnvironmentVariableArray and PipelineEnvironmentVariableArrayOutput values.
+// You can construct a concrete instance of `PipelineEnvironmentVariableArrayInput` via:
+//
+//	PipelineEnvironmentVariableArray{ PipelineEnvironmentVariableArgs{...} }
+type PipelineEnvironmentVariableArrayInput interface {
+	pulumi.Input
+
+	ToPipelineEnvironmentVariableArrayOutput() PipelineEnvironmentVariableArrayOutput
+	ToPipelineEnvironmentVariableArrayOutputWithContext(context.Context) PipelineEnvironmentVariableArrayOutput
+}
+
+type PipelineEnvironmentVariableArray []PipelineEnvironmentVariableInput
+
+func (PipelineEnvironmentVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineEnvironmentVariable)(nil)).Elem()
+}
+
+func (i PipelineEnvironmentVariableArray) ToPipelineEnvironmentVariableArrayOutput() PipelineEnvironmentVariableArrayOutput {
+	return i.ToPipelineEnvironmentVariableArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineEnvironmentVariableArray) ToPipelineEnvironmentVariableArrayOutputWithContext(ctx context.Context) PipelineEnvironmentVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineEnvironmentVariableArrayOutput)
+}
+
+// Represents information about the environment variable of an action.
+type PipelineEnvironmentVariableOutput struct{ *pulumi.OutputState }
+
+func (PipelineEnvironmentVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEnvironmentVariable)(nil)).Elem()
+}
+
+func (o PipelineEnvironmentVariableOutput) ToPipelineEnvironmentVariableOutput() PipelineEnvironmentVariableOutput {
+	return o
+}
+
+func (o PipelineEnvironmentVariableOutput) ToPipelineEnvironmentVariableOutputWithContext(ctx context.Context) PipelineEnvironmentVariableOutput {
+	return o
+}
+
+// The name of the environment variable.
+func (o PipelineEnvironmentVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the environment variable.
+func (o PipelineEnvironmentVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PipelineEnvironmentVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineEnvironmentVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineEnvironmentVariable)(nil)).Elem()
+}
+
+func (o PipelineEnvironmentVariableArrayOutput) ToPipelineEnvironmentVariableArrayOutput() PipelineEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o PipelineEnvironmentVariableArrayOutput) ToPipelineEnvironmentVariableArrayOutputWithContext(ctx context.Context) PipelineEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o PipelineEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) PipelineEnvironmentVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineEnvironmentVariable {
+		return vs[0].([]PipelineEnvironmentVariable)[vs[1].(int)]
+	}).(PipelineEnvironmentVariableOutput)
 }
 
 // The configuration that specifies the result, such as rollback, to occur upon stage failure
@@ -3955,6 +4073,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineConditionArrayInput)(nil)).Elem(), PipelineConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEncryptionKeyInput)(nil)).Elem(), PipelineEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEncryptionKeyPtrInput)(nil)).Elem(), PipelineEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEnvironmentVariableInput)(nil)).Elem(), PipelineEnvironmentVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEnvironmentVariableArrayInput)(nil)).Elem(), PipelineEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineFailureConditionsInput)(nil)).Elem(), PipelineFailureConditionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineFailureConditionsPtrInput)(nil)).Elem(), PipelineFailureConditionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineFailureConditionsRetryConfigurationPropertiesInput)(nil)).Elem(), PipelineFailureConditionsRetryConfigurationPropertiesArgs{})
@@ -4009,6 +4129,8 @@ func init() {
 	pulumi.RegisterOutputType(PipelineConditionArrayOutput{})
 	pulumi.RegisterOutputType(PipelineEncryptionKeyOutput{})
 	pulumi.RegisterOutputType(PipelineEncryptionKeyPtrOutput{})
+	pulumi.RegisterOutputType(PipelineEnvironmentVariableOutput{})
+	pulumi.RegisterOutputType(PipelineEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(PipelineFailureConditionsOutput{})
 	pulumi.RegisterOutputType(PipelineFailureConditionsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineFailureConditionsRetryConfigurationPropertiesOutput{})

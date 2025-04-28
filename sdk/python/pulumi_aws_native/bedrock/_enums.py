@@ -29,6 +29,7 @@ __all__ = [
     'DataAutomationProjectAudioExtractionCategoryType',
     'DataAutomationProjectAudioStandardGenerativeFieldType',
     'DataAutomationProjectBlueprintStage',
+    'DataAutomationProjectDesiredModality',
     'DataAutomationProjectDocumentExtractionGranularityType',
     'DataAutomationProjectDocumentOutputTextFormatType',
     'DataAutomationProjectImageExtractionCategoryType',
@@ -281,6 +282,13 @@ class DataAutomationProjectBlueprintStage(builtins.str, Enum):
     """
     DEVELOPMENT = "DEVELOPMENT"
     LIVE = "LIVE"
+
+
+class DataAutomationProjectDesiredModality(builtins.str, Enum):
+    DOCUMENT = "DOCUMENT"
+    IMAGE = "IMAGE"
+    VIDEO = "VIDEO"
+    AUDIO = "AUDIO"
 
 
 class DataAutomationProjectDocumentExtractionGranularityType(builtins.str, Enum):

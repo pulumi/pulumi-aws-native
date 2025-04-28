@@ -2,6 +2,35 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const RegistryScanningConfigurationFilterType = {
+    Wildcard: "WILDCARD",
+} as const;
+
+/**
+ * The type associated with the filter.
+ */
+export type RegistryScanningConfigurationFilterType = (typeof RegistryScanningConfigurationFilterType)[keyof typeof RegistryScanningConfigurationFilterType];
+
+export const RegistryScanningConfigurationScanFrequency = {
+    ScanOnPush: "SCAN_ON_PUSH",
+    ContinuousScan: "CONTINUOUS_SCAN",
+} as const;
+
+/**
+ * The frequency that scans are performed.
+ */
+export type RegistryScanningConfigurationScanFrequency = (typeof RegistryScanningConfigurationScanFrequency)[keyof typeof RegistryScanningConfigurationScanFrequency];
+
+export const RegistryScanningConfigurationScanType = {
+    Basic: "BASIC",
+    Enhanced: "ENHANCED",
+} as const;
+
+/**
+ * The type of scanning configured for the registry.
+ */
+export type RegistryScanningConfigurationScanType = (typeof RegistryScanningConfigurationScanType)[keyof typeof RegistryScanningConfigurationScanType];
+
 export const ReplicationConfigurationFilterType = {
     PrefixMatch: "PREFIX_MATCH",
 } as const;

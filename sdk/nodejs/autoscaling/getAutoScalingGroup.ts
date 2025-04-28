@@ -30,6 +30,7 @@ export interface GetAutoScalingGroupArgs {
 }
 
 export interface GetAutoScalingGroupResult {
+    readonly autoScalingGroupArn?: string;
     /**
      * The instance capacity distribution across Availability Zones.
      */

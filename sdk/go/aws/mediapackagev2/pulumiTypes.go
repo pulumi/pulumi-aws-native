@@ -1541,11 +1541,11 @@ func (o OriginEndpointFilterConfigurationPtrOutput) TimeDelaySeconds() pulumi.In
 
 // <p>The failover settings for the endpoint.</p>
 type OriginEndpointForceEndpointErrorConfiguration struct {
-	// <p>The failover settings for the endpoint. The options are:</p>
+	// <p>The failover conditions for the endpoint. The options are:</p>
 	//          <ul>
 	//             <li>
 	//                <p>
-	//                   <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+	//                   <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
 	//             </li>
 	//             <li>
 	//                <p>
@@ -1554,6 +1554,10 @@ type OriginEndpointForceEndpointErrorConfiguration struct {
 	//             <li>
 	//                <p>
 	//                   <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+	//             </li>
+	//             <li>
+	//                <p>
+	//                   <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
 	//             </li>
 	//          </ul>
 	EndpointErrorConditions []OriginEndpointEndpointErrorCondition `pulumi:"endpointErrorConditions"`
@@ -1572,11 +1576,11 @@ type OriginEndpointForceEndpointErrorConfigurationInput interface {
 
 // <p>The failover settings for the endpoint.</p>
 type OriginEndpointForceEndpointErrorConfigurationArgs struct {
-	// <p>The failover settings for the endpoint. The options are:</p>
+	// <p>The failover conditions for the endpoint. The options are:</p>
 	//          <ul>
 	//             <li>
 	//                <p>
-	//                   <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+	//                   <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
 	//             </li>
 	//             <li>
 	//                <p>
@@ -1585,6 +1589,10 @@ type OriginEndpointForceEndpointErrorConfigurationArgs struct {
 	//             <li>
 	//                <p>
 	//                   <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+	//             </li>
+	//             <li>
+	//                <p>
+	//                   <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
 	//             </li>
 	//          </ul>
 	EndpointErrorConditions OriginEndpointEndpointErrorConditionArrayInput `pulumi:"endpointErrorConditions"`
@@ -1668,12 +1676,12 @@ func (o OriginEndpointForceEndpointErrorConfigurationOutput) ToOriginEndpointFor
 	}).(OriginEndpointForceEndpointErrorConfigurationPtrOutput)
 }
 
-// <p>The failover settings for the endpoint. The options are:</p>
+// <p>The failover conditions for the endpoint. The options are:</p>
 //
 //	<ul>
 //	   <li>
 //	      <p>
-//	         <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+//	         <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
 //	   </li>
 //	   <li>
 //	      <p>
@@ -1682,6 +1690,10 @@ func (o OriginEndpointForceEndpointErrorConfigurationOutput) ToOriginEndpointFor
 //	   <li>
 //	      <p>
 //	         <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+//	   </li>
+//	   <li>
+//	      <p>
+//	         <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
 //	   </li>
 //	</ul>
 func (o OriginEndpointForceEndpointErrorConfigurationOutput) EndpointErrorConditions() OriginEndpointEndpointErrorConditionArrayOutput {
@@ -1714,12 +1726,12 @@ func (o OriginEndpointForceEndpointErrorConfigurationPtrOutput) Elem() OriginEnd
 	}).(OriginEndpointForceEndpointErrorConfigurationOutput)
 }
 
-// <p>The failover settings for the endpoint. The options are:</p>
+// <p>The failover conditions for the endpoint. The options are:</p>
 //
 //	<ul>
 //	   <li>
 //	      <p>
-//	         <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+//	         <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
 //	   </li>
 //	   <li>
 //	      <p>
@@ -1728,6 +1740,10 @@ func (o OriginEndpointForceEndpointErrorConfigurationPtrOutput) Elem() OriginEnd
 //	   <li>
 //	      <p>
 //	         <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+//	   </li>
+//	   <li>
+//	      <p>
+//	         <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
 //	   </li>
 //	</ul>
 func (o OriginEndpointForceEndpointErrorConfigurationPtrOutput) EndpointErrorConditions() OriginEndpointEndpointErrorConditionArrayOutput {
@@ -1750,8 +1766,7 @@ type OriginEndpointHlsManifestConfiguration struct {
 	ManifestWindowSeconds *int `pulumi:"manifestWindowSeconds"`
 	// <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
 	//          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-	//          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-	//          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+	//          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
 	//          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
 	ProgramDateTimeIntervalSeconds *int `pulumi:"programDateTimeIntervalSeconds"`
 	// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
@@ -1759,6 +1774,9 @@ type OriginEndpointHlsManifestConfiguration struct {
 	StartTag *OriginEndpointStartTag `pulumi:"startTag"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url *string `pulumi:"url"`
+	// <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+	//          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+	UrlEncodeChildManifest *bool `pulumi:"urlEncodeChildManifest"`
 }
 
 // OriginEndpointHlsManifestConfigurationInput is an input type that accepts OriginEndpointHlsManifestConfigurationArgs and OriginEndpointHlsManifestConfigurationOutput values.
@@ -1783,8 +1801,7 @@ type OriginEndpointHlsManifestConfigurationArgs struct {
 	ManifestWindowSeconds pulumi.IntPtrInput `pulumi:"manifestWindowSeconds"`
 	// <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
 	//          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-	//          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-	//          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+	//          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
 	//          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
 	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput `pulumi:"programDateTimeIntervalSeconds"`
 	// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
@@ -1792,6 +1809,9 @@ type OriginEndpointHlsManifestConfigurationArgs struct {
 	StartTag OriginEndpointStartTagPtrInput `pulumi:"startTag"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url pulumi.StringPtrInput `pulumi:"url"`
+	// <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+	//          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+	UrlEncodeChildManifest pulumi.BoolPtrInput `pulumi:"urlEncodeChildManifest"`
 }
 
 func (OriginEndpointHlsManifestConfigurationArgs) ElementType() reflect.Type {
@@ -1870,8 +1890,7 @@ func (o OriginEndpointHlsManifestConfigurationOutput) ManifestWindowSeconds() pu
 // <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
 //
 //	EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-//	The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-//	ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+//	The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
 //	<p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
 func (o OriginEndpointHlsManifestConfigurationOutput) ProgramDateTimeIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifestConfiguration) *int { return v.ProgramDateTimeIntervalSeconds }).(pulumi.IntPtrOutput)
@@ -1889,6 +1908,13 @@ func (o OriginEndpointHlsManifestConfigurationOutput) StartTag() OriginEndpointS
 // <p>The egress domain URL for stream delivery from MediaPackage.</p>
 func (o OriginEndpointHlsManifestConfigurationOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifestConfiguration) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+//
+//	For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+func (o OriginEndpointHlsManifestConfigurationOutput) UrlEncodeChildManifest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OriginEndpointHlsManifestConfiguration) *bool { return v.UrlEncodeChildManifest }).(pulumi.BoolPtrOutput)
 }
 
 type OriginEndpointHlsManifestConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -1922,8 +1948,7 @@ type OriginEndpointLowLatencyHlsManifestConfiguration struct {
 	ManifestWindowSeconds *int `pulumi:"manifestWindowSeconds"`
 	// <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
 	//          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-	//          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-	//          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+	//          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
 	//          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
 	ProgramDateTimeIntervalSeconds *int `pulumi:"programDateTimeIntervalSeconds"`
 	// The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
@@ -1931,6 +1956,9 @@ type OriginEndpointLowLatencyHlsManifestConfiguration struct {
 	StartTag *OriginEndpointStartTag `pulumi:"startTag"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url *string `pulumi:"url"`
+	// <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+	//          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+	UrlEncodeChildManifest *bool `pulumi:"urlEncodeChildManifest"`
 }
 
 // OriginEndpointLowLatencyHlsManifestConfigurationInput is an input type that accepts OriginEndpointLowLatencyHlsManifestConfigurationArgs and OriginEndpointLowLatencyHlsManifestConfigurationOutput values.
@@ -1955,8 +1983,7 @@ type OriginEndpointLowLatencyHlsManifestConfigurationArgs struct {
 	ManifestWindowSeconds pulumi.IntPtrInput `pulumi:"manifestWindowSeconds"`
 	// <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
 	//          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-	//          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-	//          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+	//          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
 	//          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
 	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput `pulumi:"programDateTimeIntervalSeconds"`
 	// The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
@@ -1964,6 +1991,9 @@ type OriginEndpointLowLatencyHlsManifestConfigurationArgs struct {
 	StartTag OriginEndpointStartTagPtrInput `pulumi:"startTag"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url pulumi.StringPtrInput `pulumi:"url"`
+	// <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+	//          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+	UrlEncodeChildManifest pulumi.BoolPtrInput `pulumi:"urlEncodeChildManifest"`
 }
 
 func (OriginEndpointLowLatencyHlsManifestConfigurationArgs) ElementType() reflect.Type {
@@ -2042,8 +2072,7 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) ManifestWindowSe
 // <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
 //
 //	EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-//	The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-//	ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+//	The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
 //	<p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
 func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) ProgramDateTimeIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointLowLatencyHlsManifestConfiguration) *int { return v.ProgramDateTimeIntervalSeconds }).(pulumi.IntPtrOutput)
@@ -2061,6 +2090,13 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) StartTag() Origi
 // <p>The egress domain URL for stream delivery from MediaPackage.</p>
 func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointLowLatencyHlsManifestConfiguration) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+//
+//	For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) UrlEncodeChildManifest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OriginEndpointLowLatencyHlsManifestConfiguration) *bool { return v.UrlEncodeChildManifest }).(pulumi.BoolPtrOutput)
 }
 
 type OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput struct{ *pulumi.OutputState }

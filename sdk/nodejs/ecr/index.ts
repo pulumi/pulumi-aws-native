@@ -10,6 +10,11 @@ export const getRegistryPolicy: typeof import("./getRegistryPolicy").getRegistry
 export const getRegistryPolicyOutput: typeof import("./getRegistryPolicy").getRegistryPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getRegistryPolicy","getRegistryPolicyOutput"], () => require("./getRegistryPolicy"));
 
+export { GetRegistryScanningConfigurationArgs, GetRegistryScanningConfigurationResult, GetRegistryScanningConfigurationOutputArgs } from "./getRegistryScanningConfiguration";
+export const getRegistryScanningConfiguration: typeof import("./getRegistryScanningConfiguration").getRegistryScanningConfiguration = null as any;
+export const getRegistryScanningConfigurationOutput: typeof import("./getRegistryScanningConfiguration").getRegistryScanningConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryScanningConfiguration","getRegistryScanningConfigurationOutput"], () => require("./getRegistryScanningConfiguration"));
+
 export { GetReplicationConfigurationArgs, GetReplicationConfigurationResult, GetReplicationConfigurationOutputArgs } from "./getReplicationConfiguration";
 export const getReplicationConfiguration: typeof import("./getReplicationConfiguration").getReplicationConfiguration = null as any;
 export const getReplicationConfigurationOutput: typeof import("./getReplicationConfiguration").getReplicationConfigurationOutput = null as any;
@@ -34,6 +39,11 @@ export { RegistryPolicyArgs } from "./registryPolicy";
 export type RegistryPolicy = import("./registryPolicy").RegistryPolicy;
 export const RegistryPolicy: typeof import("./registryPolicy").RegistryPolicy = null as any;
 utilities.lazyLoad(exports, ["RegistryPolicy"], () => require("./registryPolicy"));
+
+export { RegistryScanningConfigurationArgs } from "./registryScanningConfiguration";
+export type RegistryScanningConfiguration = import("./registryScanningConfiguration").RegistryScanningConfiguration;
+export const RegistryScanningConfiguration: typeof import("./registryScanningConfiguration").RegistryScanningConfiguration = null as any;
+utilities.lazyLoad(exports, ["RegistryScanningConfiguration"], () => require("./registryScanningConfiguration"));
 
 export { ReplicationConfigurationArgs } from "./replicationConfiguration";
 export type ReplicationConfiguration = import("./replicationConfiguration").ReplicationConfiguration;
@@ -62,6 +72,8 @@ const _module = {
                 return new PullThroughCacheRule(name, <any>undefined, { urn })
             case "aws-native:ecr:RegistryPolicy":
                 return new RegistryPolicy(name, <any>undefined, { urn })
+            case "aws-native:ecr:RegistryScanningConfiguration":
+                return new RegistryScanningConfiguration(name, <any>undefined, { urn })
             case "aws-native:ecr:ReplicationConfiguration":
                 return new ReplicationConfiguration(name, <any>undefined, { urn })
             case "aws-native:ecr:Repository":

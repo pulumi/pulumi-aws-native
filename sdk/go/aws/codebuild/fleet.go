@@ -20,7 +20,7 @@ type Fleet struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
 	BaseCapacity pulumi.IntPtrOutput `pulumi:"baseCapacity"`
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
 	ComputeConfiguration FleetComputeConfigurationPtrOutput `pulumi:"computeConfiguration"`
 	// Information about the compute resources the compute fleet uses. Available values include:
 	//
@@ -133,7 +133,7 @@ func (FleetState) ElementType() reflect.Type {
 type fleetArgs struct {
 	// The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
 	BaseCapacity *int `pulumi:"baseCapacity"`
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
 	ComputeConfiguration *FleetComputeConfiguration `pulumi:"computeConfiguration"`
 	// Information about the compute resources the compute fleet uses. Available values include:
 	//
@@ -208,7 +208,7 @@ type fleetArgs struct {
 type FleetArgs struct {
 	// The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
 	BaseCapacity pulumi.IntPtrInput
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
 	ComputeConfiguration FleetComputeConfigurationPtrInput
 	// Information about the compute resources the compute fleet uses. Available values include:
 	//
@@ -326,7 +326,7 @@ func (o FleetOutput) BaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.BaseCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
 func (o FleetOutput) ComputeConfiguration() FleetComputeConfigurationPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetComputeConfigurationPtrOutput { return v.ComputeConfiguration }).(FleetComputeConfigurationPtrOutput)
 }

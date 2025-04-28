@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApiResult:
-    def __init__(__self__, api_endpoint=None, api_id=None, api_key_selection_expression=None, cors_configuration=None, description=None, disable_execute_api_endpoint=None, name=None, route_selection_expression=None, tags=None, version=None):
+    def __init__(__self__, api_endpoint=None, api_id=None, api_key_selection_expression=None, cors_configuration=None, description=None, disable_execute_api_endpoint=None, ip_address_type=None, name=None, route_selection_expression=None, tags=None, version=None):
         if api_endpoint and not isinstance(api_endpoint, str):
             raise TypeError("Expected argument 'api_endpoint' to be a str")
         pulumi.set(__self__, "api_endpoint", api_endpoint)
@@ -44,6 +44,9 @@ class GetApiResult:
         if disable_execute_api_endpoint and not isinstance(disable_execute_api_endpoint, bool):
             raise TypeError("Expected argument 'disable_execute_api_endpoint' to be a bool")
         pulumi.set(__self__, "disable_execute_api_endpoint", disable_execute_api_endpoint)
+        if ip_address_type and not isinstance(ip_address_type, str):
+            raise TypeError("Expected argument 'ip_address_type' to be a str")
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -106,6 +109,16 @@ class GetApiResult:
         return pulumi.get(self, "disable_execute_api_endpoint")
 
     @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[builtins.str]:
+        """
+        The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+
+        Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
         """
@@ -150,6 +163,7 @@ class AwaitableGetApiResult(GetApiResult):
             cors_configuration=self.cors_configuration,
             description=self.description,
             disable_execute_api_endpoint=self.disable_execute_api_endpoint,
+            ip_address_type=self.ip_address_type,
             name=self.name,
             route_selection_expression=self.route_selection_expression,
             tags=self.tags,
@@ -176,6 +190,7 @@ def get_api(api_id: Optional[builtins.str] = None,
         cors_configuration=pulumi.get(__ret__, 'cors_configuration'),
         description=pulumi.get(__ret__, 'description'),
         disable_execute_api_endpoint=pulumi.get(__ret__, 'disable_execute_api_endpoint'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         name=pulumi.get(__ret__, 'name'),
         route_selection_expression=pulumi.get(__ret__, 'route_selection_expression'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -199,6 +214,7 @@ def get_api_output(api_id: Optional[pulumi.Input[builtins.str]] = None,
         cors_configuration=pulumi.get(__response__, 'cors_configuration'),
         description=pulumi.get(__response__, 'description'),
         disable_execute_api_endpoint=pulumi.get(__response__, 'disable_execute_api_endpoint'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
         name=pulumi.get(__response__, 'name'),
         route_selection_expression=pulumi.get(__response__, 'route_selection_expression'),
         tags=pulumi.get(__response__, 'tags'),

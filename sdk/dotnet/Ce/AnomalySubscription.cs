@@ -213,7 +213,7 @@ namespace Pulumi.AwsNative.Ce
         /// Tags to assign to subscription.
         /// </summary>
         [Output("resourceTags")]
-        public Output<ImmutableArray<Outputs.AnomalySubscriptionResourceTag>> ResourceTags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> ResourceTags { get; private set; } = null!;
 
         /// <summary>
         /// A list of subscriber
@@ -313,14 +313,14 @@ namespace Pulumi.AwsNative.Ce
         }
 
         [Input("resourceTags")]
-        private InputList<Inputs.AnomalySubscriptionResourceTagArgs>? _resourceTags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _resourceTags;
 
         /// <summary>
         /// Tags to assign to subscription.
         /// </summary>
-        public InputList<Inputs.AnomalySubscriptionResourceTagArgs> ResourceTags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> ResourceTags
         {
-            get => _resourceTags ?? (_resourceTags = new InputList<Inputs.AnomalySubscriptionResourceTagArgs>());
+            get => _resourceTags ?? (_resourceTags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _resourceTags = value;
         }
 

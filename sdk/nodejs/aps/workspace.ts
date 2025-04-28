@@ -118,6 +118,9 @@ export class Workspace extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+     */
     public readonly workspaceConfiguration!: pulumi.Output<outputs.aps.WorkspaceConfiguration | undefined>;
     /**
      * Required to identify a specific APS Workspace.
@@ -186,5 +189,8 @@ export interface WorkspaceArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+     */
     workspaceConfiguration?: pulumi.Input<inputs.aps.WorkspaceConfigurationArgs>;
 }

@@ -8,6 +8,98 @@ using Pulumi;
 namespace Pulumi.AwsNative.Ecr
 {
     /// <summary>
+    /// The type associated with the filter.
+    /// </summary>
+    [EnumType]
+    public readonly struct RegistryScanningConfigurationFilterType : IEquatable<RegistryScanningConfigurationFilterType>
+    {
+        private readonly string _value;
+
+        private RegistryScanningConfigurationFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RegistryScanningConfigurationFilterType Wildcard { get; } = new RegistryScanningConfigurationFilterType("WILDCARD");
+
+        public static bool operator ==(RegistryScanningConfigurationFilterType left, RegistryScanningConfigurationFilterType right) => left.Equals(right);
+        public static bool operator !=(RegistryScanningConfigurationFilterType left, RegistryScanningConfigurationFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(RegistryScanningConfigurationFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RegistryScanningConfigurationFilterType other && Equals(other);
+        public bool Equals(RegistryScanningConfigurationFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The frequency that scans are performed.
+    /// </summary>
+    [EnumType]
+    public readonly struct RegistryScanningConfigurationScanFrequency : IEquatable<RegistryScanningConfigurationScanFrequency>
+    {
+        private readonly string _value;
+
+        private RegistryScanningConfigurationScanFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RegistryScanningConfigurationScanFrequency ScanOnPush { get; } = new RegistryScanningConfigurationScanFrequency("SCAN_ON_PUSH");
+        public static RegistryScanningConfigurationScanFrequency ContinuousScan { get; } = new RegistryScanningConfigurationScanFrequency("CONTINUOUS_SCAN");
+
+        public static bool operator ==(RegistryScanningConfigurationScanFrequency left, RegistryScanningConfigurationScanFrequency right) => left.Equals(right);
+        public static bool operator !=(RegistryScanningConfigurationScanFrequency left, RegistryScanningConfigurationScanFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(RegistryScanningConfigurationScanFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RegistryScanningConfigurationScanFrequency other && Equals(other);
+        public bool Equals(RegistryScanningConfigurationScanFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of scanning configured for the registry.
+    /// </summary>
+    [EnumType]
+    public readonly struct RegistryScanningConfigurationScanType : IEquatable<RegistryScanningConfigurationScanType>
+    {
+        private readonly string _value;
+
+        private RegistryScanningConfigurationScanType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RegistryScanningConfigurationScanType Basic { get; } = new RegistryScanningConfigurationScanType("BASIC");
+        public static RegistryScanningConfigurationScanType Enhanced { get; } = new RegistryScanningConfigurationScanType("ENHANCED");
+
+        public static bool operator ==(RegistryScanningConfigurationScanType left, RegistryScanningConfigurationScanType right) => left.Equals(right);
+        public static bool operator !=(RegistryScanningConfigurationScanType left, RegistryScanningConfigurationScanType right) => !left.Equals(right);
+
+        public static explicit operator string(RegistryScanningConfigurationScanType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RegistryScanningConfigurationScanType other && Equals(other);
+        public bool Equals(RegistryScanningConfigurationScanType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of repository filter
     /// </summary>
     [EnumType]

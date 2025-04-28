@@ -65,25 +65,25 @@
     "tagOnCreate" : true,
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "apprunner:TagResource", "apprunner:UntagResource", "apprunner:ListTagsForResource" ]
   },
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/AutoScalingConfigurationName", "/properties/MaxConcurrency", "/properties/MaxSize", "/properties/MinSize", "/properties/Tags" ],
   "readOnlyProperties" : [ "/properties/AutoScalingConfigurationArn", "/properties/AutoScalingConfigurationRevision", "/properties/Latest" ],
-  "writeOnlyProperties" : [ "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/AutoScalingConfigurationArn" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "apprunner:CreateAutoScalingConfiguration", "apprunner:DescribeAutoScalingConfiguration", "apprunner:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "apprunner:DescribeAutoScalingConfiguration" ]
+      "permissions" : [ "apprunner:DescribeAutoScalingConfiguration", "apprunner:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "apprunner:DeleteAutoScalingConfiguration" ]
     },
     "list" : {
-      "permissions" : [ "apprunner:ListAutoScalingConfiguration" ]
+      "permissions" : [ "apprunner:ListAutoScalingConfigurations" ]
     }
   }
 }

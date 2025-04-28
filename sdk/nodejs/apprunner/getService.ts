@@ -61,6 +61,10 @@ export interface GetServiceResult {
      * AppRunner Service status.
      */
     readonly status?: string;
+    /**
+     * An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::AppRunner::Service resource specifies an AppRunner Service.

@@ -29,6 +29,7 @@ __all__ = [
     'PipelineBlockerDeclaration',
     'PipelineCondition',
     'PipelineEncryptionKey',
+    'PipelineEnvironmentVariable',
     'PipelineFailureConditions',
     'PipelineFailureConditionsRetryConfigurationProperties',
     'PipelineGitBranchFilterCriteria',
@@ -283,6 +284,8 @@ class PipelineActionDeclaration(dict):
         suggest = None
         if key == "actionTypeId":
             suggest = "action_type_id"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
         elif key == "inputArtifacts":
             suggest = "input_artifacts"
         elif key == "outputArtifacts":
@@ -312,6 +315,7 @@ class PipelineActionDeclaration(dict):
                  name: builtins.str,
                  commands: Optional[Sequence[builtins.str]] = None,
                  configuration: Optional[Any] = None,
+                 environment_variables: Optional[Sequence['outputs.PipelineEnvironmentVariable']] = None,
                  input_artifacts: Optional[Sequence['outputs.PipelineInputArtifact']] = None,
                  namespace: Optional[builtins.str] = None,
                  output_artifacts: Optional[Sequence['outputs.PipelineOutputArtifact']] = None,
@@ -326,6 +330,7 @@ class PipelineActionDeclaration(dict):
         :param builtins.str name: The action declaration's name.
         :param Sequence[builtins.str] commands: The shell commands to run with your compute action in CodePipeline.
         :param Any configuration: The action's configuration. These are key-value pairs that specify input values for an action.
+        :param Sequence['PipelineEnvironmentVariable'] environment_variables: The list of environment variables that are input to a compute based action.
         :param Sequence['PipelineInputArtifact'] input_artifacts: The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
                
                > For a CodeBuild action with multiple input artifacts, one of your input sources must be designated the PrimarySource. For more information, see the [CodeBuild action reference page](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeBuild.html) in the *AWS CodePipeline User Guide* .
@@ -343,6 +348,8 @@ class PipelineActionDeclaration(dict):
             pulumi.set(__self__, "commands", commands)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
         if input_artifacts is not None:
             pulumi.set(__self__, "input_artifacts", input_artifacts)
         if namespace is not None:
@@ -391,6 +398,14 @@ class PipelineActionDeclaration(dict):
         The action's configuration. These are key-value pairs that specify input values for an action.
         """
         return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.PipelineEnvironmentVariable']]:
+        """
+        The list of environment variables that are input to a compute based action.
+        """
+        return pulumi.get(self, "environment_variables")
 
     @property
     @pulumi.getter(name="inputArtifacts")
@@ -752,6 +767,39 @@ class PipelineEncryptionKey(dict):
         The type of encryption key, such as an AWS KMS key. When creating or updating a pipeline, the value must be set to 'KMS'.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PipelineEnvironmentVariable(dict):
+    """
+    Represents information about the environment variable of an action.
+    """
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 value: builtins.str):
+        """
+        Represents information about the environment variable of an action.
+        :param builtins.str name: The name of the environment variable.
+        :param builtins.str value: The value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The value of the environment variable.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

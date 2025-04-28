@@ -37,10 +37,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         public Input<int>? ManifestWindowSeconds { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
-        ///          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
-        ///          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
-        ///          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.&lt;/p&gt;
+        /// &lt;p&gt;Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
+        ///          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
+        ///          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.&lt;/p&gt;
         ///          &lt;p&gt;Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.&lt;/p&gt;
         /// </summary>
         [Input("programDateTimeIntervalSeconds")]
@@ -60,6 +59,13 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
+
+        /// <summary>
+        /// &lt;p&gt;When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+        ///          For more information, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html"&gt;Amazon Web Services Signature Version 4 for API requests&lt;/a&gt; in &lt;i&gt;Identity and Access Management User Guide&lt;/i&gt;.&lt;/p&gt;
+        /// </summary>
+        [Input("urlEncodeChildManifest")]
+        public Input<bool>? UrlEncodeChildManifest { get; set; }
 
         public OriginEndpointHlsManifestConfigurationArgs()
         {

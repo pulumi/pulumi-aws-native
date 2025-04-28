@@ -37,6 +37,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// A comment to describe the distribution. The comment cannot be longer than 128 characters.
         /// </summary>
         public readonly string? Comment;
+        public readonly Pulumi.AwsNative.CloudFront.DistributionConnectionMode? ConnectionMode;
         /// <summary>
         /// The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
         /// </summary>
@@ -122,6 +123,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
         /// </summary>
         public readonly bool? Staging;
+        public readonly Outputs.DistributionConfigTenantConfigProperties? TenantConfig;
         /// <summary>
         /// A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
         /// </summary>
@@ -143,6 +145,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             ImmutableArray<string> cnames,
 
             string? comment,
+
+            Pulumi.AwsNative.CloudFront.DistributionConnectionMode? connectionMode,
 
             string? continuousDeploymentPolicyId,
 
@@ -174,6 +178,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             bool? staging,
 
+            Outputs.DistributionConfigTenantConfigProperties? tenantConfig,
+
             Outputs.DistributionViewerCertificate? viewerCertificate,
 
             string? webAclId)
@@ -183,6 +189,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             CacheBehaviors = cacheBehaviors;
             Cnames = cnames;
             Comment = comment;
+            ConnectionMode = connectionMode;
             ContinuousDeploymentPolicyId = continuousDeploymentPolicyId;
             CustomErrorResponses = customErrorResponses;
             CustomOrigin = customOrigin;
@@ -198,6 +205,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             Restrictions = restrictions;
             S3Origin = s3Origin;
             Staging = staging;
+            TenantConfig = tenantConfig;
             ViewerCertificate = viewerCertificate;
             WebAclId = webAclId;
         }

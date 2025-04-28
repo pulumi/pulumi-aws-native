@@ -614,6 +614,8 @@ type DomainNameConfiguration struct {
 	CertificateName *string `pulumi:"certificateName"`
 	// The endpoint type.
 	EndpointType *string `pulumi:"endpointType"`
+	// The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
 	// The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
@@ -641,6 +643,8 @@ type DomainNameConfigurationArgs struct {
 	CertificateName pulumi.StringPtrInput `pulumi:"certificateName"`
 	// The endpoint type.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
+	// The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput `pulumi:"ownershipVerificationCertificateArn"`
 	// The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
@@ -714,6 +718,11 @@ func (o DomainNameConfigurationOutput) CertificateName() pulumi.StringPtrOutput 
 // The endpoint type.
 func (o DomainNameConfigurationOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
+}
+
+// The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
+func (o DomainNameConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.

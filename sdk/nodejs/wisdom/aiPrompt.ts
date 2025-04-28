@@ -62,7 +62,25 @@ export class AiPrompt extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
+     * The identifier of the model used for this AI Prompt. The following model Ids are supported:
+     *
+     * - `anthropic.claude-3-haiku--v1:0`
+     * - `apac.amazon.nova-lite-v1:0`
+     * - `apac.amazon.nova-micro-v1:0`
+     * - `apac.amazon.nova-pro-v1:0`
+     * - `apac.anthropic.claude-3-5-sonnet--v2:0`
+     * - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+     * - `eu.amazon.nova-lite-v1:0`
+     * - `eu.amazon.nova-micro-v1:0`
+     * - `eu.amazon.nova-pro-v1:0`
+     * - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+     * - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+     * - `us.amazon.nova-lite-v1:0`
+     * - `us.amazon.nova-micro-v1:0`
+     * - `us.amazon.nova-pro-v1:0`
+     * - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+     * - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+     * - `us.anthropic.claude-3-haiku-20240307-v1:0`
      */
     public readonly modelId!: pulumi.Output<string>;
     public /*out*/ readonly modifiedTimeSeconds!: pulumi.Output<number>;
@@ -165,7 +183,25 @@ export interface AiPromptArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The identifier of the model used for this AI Prompt. Model Ids supported are: `anthropic.claude-3-haiku-20240307-v1:0` .
+     * The identifier of the model used for this AI Prompt. The following model Ids are supported:
+     *
+     * - `anthropic.claude-3-haiku--v1:0`
+     * - `apac.amazon.nova-lite-v1:0`
+     * - `apac.amazon.nova-micro-v1:0`
+     * - `apac.amazon.nova-pro-v1:0`
+     * - `apac.anthropic.claude-3-5-sonnet--v2:0`
+     * - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+     * - `eu.amazon.nova-lite-v1:0`
+     * - `eu.amazon.nova-micro-v1:0`
+     * - `eu.amazon.nova-pro-v1:0`
+     * - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+     * - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+     * - `us.amazon.nova-lite-v1:0`
+     * - `us.amazon.nova-micro-v1:0`
+     * - `us.amazon.nova-pro-v1:0`
+     * - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+     * - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+     * - `us.anthropic.claude-3-haiku-20240307-v1:0`
      */
     modelId: pulumi.Input<string>;
     /**

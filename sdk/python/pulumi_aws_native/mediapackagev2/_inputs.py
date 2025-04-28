@@ -788,11 +788,11 @@ if not MYPY:
         """
         endpoint_error_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]
         """
-        <p>The failover settings for the endpoint. The options are:</p>
+        <p>The failover conditions for the endpoint. The options are:</p>
                  <ul>
                     <li>
                        <p>
-                          <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+                          <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
                     </li>
                     <li>
                        <p>
@@ -801,6 +801,10 @@ if not MYPY:
                     <li>
                        <p>
                           <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+                    </li>
+                    <li>
+                       <p>
+                          <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
                     </li>
                  </ul>
         """
@@ -813,11 +817,11 @@ class OriginEndpointForceEndpointErrorConfigurationArgs:
                  endpoint_error_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]] = None):
         """
         <p>The failover settings for the endpoint.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]] endpoint_error_conditions: <p>The failover settings for the endpoint. The options are:</p>
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]] endpoint_error_conditions: <p>The failover conditions for the endpoint. The options are:</p>
                         <ul>
                            <li>
                               <p>
-                                 <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+                                 <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
                            </li>
                            <li>
                               <p>
@@ -826,6 +830,10 @@ class OriginEndpointForceEndpointErrorConfigurationArgs:
                            <li>
                               <p>
                                  <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+                           </li>
+                           <li>
+                              <p>
+                                 <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
                            </li>
                         </ul>
         """
@@ -836,11 +844,11 @@ class OriginEndpointForceEndpointErrorConfigurationArgs:
     @pulumi.getter(name="endpointErrorConditions")
     def endpoint_error_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]:
         """
-        <p>The failover settings for the endpoint. The options are:</p>
+        <p>The failover conditions for the endpoint. The options are:</p>
                  <ul>
                     <li>
                        <p>
-                          <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+                          <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
                     </li>
                     <li>
                        <p>
@@ -849,6 +857,10 @@ class OriginEndpointForceEndpointErrorConfigurationArgs:
                     <li>
                        <p>
                           <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+                    </li>
+                    <li>
+                       <p>
+                          <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
                     </li>
                  </ul>
         """
@@ -879,10 +891,9 @@ if not MYPY:
         """
         program_date_time_interval_seconds: NotRequired[pulumi.Input[builtins.int]]
         """
-        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
-                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
-                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
-                 ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
+                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
+                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
                  <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         """
         scte_hls: NotRequired[pulumi.Input['OriginEndpointScteHlsArgsDict']]
@@ -893,6 +904,11 @@ if not MYPY:
         url: NotRequired[pulumi.Input[builtins.str]]
         """
         <p>The egress domain URL for stream delivery from MediaPackage.</p>
+        """
+        url_encode_child_manifest: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+                 For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
 elif False:
     OriginEndpointHlsManifestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -907,19 +923,21 @@ class OriginEndpointHlsManifestConfigurationArgs:
                  program_date_time_interval_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  scte_hls: Optional[pulumi.Input['OriginEndpointScteHlsArgs']] = None,
                  start_tag: Optional[pulumi.Input['OriginEndpointStartTagArgs']] = None,
-                 url: Optional[pulumi.Input[builtins.str]] = None):
+                 url: Optional[pulumi.Input[builtins.str]] = None,
+                 url_encode_child_manifest: Optional[pulumi.Input[builtins.bool]] = None):
         """
         <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[builtins.str] manifest_name: <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         :param pulumi.Input[builtins.str] child_manifest_name: <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         :param pulumi.Input[builtins.int] manifest_window_seconds: <p>The total duration (in seconds) of the manifest's content.</p>
-        :param pulumi.Input[builtins.int] program_date_time_interval_seconds: <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
-                        EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
-                        The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
-                        ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+        :param pulumi.Input[builtins.int] program_date_time_interval_seconds: <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
+                        EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
+                        The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
                         <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         :param pulumi.Input['OriginEndpointScteHlsArgs'] scte_hls: THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
         :param pulumi.Input[builtins.str] url: <p>The egress domain URL for stream delivery from MediaPackage.</p>
+        :param pulumi.Input[builtins.bool] url_encode_child_manifest: <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+                        For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
         pulumi.set(__self__, "manifest_name", manifest_name)
         if child_manifest_name is not None:
@@ -936,6 +954,8 @@ class OriginEndpointHlsManifestConfigurationArgs:
             pulumi.set(__self__, "start_tag", start_tag)
         if url is not None:
             pulumi.set(__self__, "url", url)
+        if url_encode_child_manifest is not None:
+            pulumi.set(__self__, "url_encode_child_manifest", url_encode_child_manifest)
 
     @property
     @pulumi.getter(name="manifestName")
@@ -986,10 +1006,9 @@ class OriginEndpointHlsManifestConfigurationArgs:
     @pulumi.getter(name="programDateTimeIntervalSeconds")
     def program_date_time_interval_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
-                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
-                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
-                 ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
+                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
+                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
                  <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         """
         return pulumi.get(self, "program_date_time_interval_seconds")
@@ -1030,6 +1049,19 @@ class OriginEndpointHlsManifestConfigurationArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="urlEncodeChildManifest")
+    def url_encode_child_manifest(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+                 For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+        """
+        return pulumi.get(self, "url_encode_child_manifest")
+
+    @url_encode_child_manifest.setter
+    def url_encode_child_manifest(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "url_encode_child_manifest", value)
 
 
 if not MYPY:
@@ -1052,10 +1084,9 @@ if not MYPY:
         """
         program_date_time_interval_seconds: NotRequired[pulumi.Input[builtins.int]]
         """
-        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
-                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
-                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
-                 ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
+                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
+                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
                  <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         """
         scte_hls: NotRequired[pulumi.Input['OriginEndpointScteHlsArgsDict']]
@@ -1066,6 +1097,11 @@ if not MYPY:
         url: NotRequired[pulumi.Input[builtins.str]]
         """
         <p>The egress domain URL for stream delivery from MediaPackage.</p>
+        """
+        url_encode_child_manifest: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+                 For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
 elif False:
     OriginEndpointLowLatencyHlsManifestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1080,19 +1116,21 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
                  program_date_time_interval_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  scte_hls: Optional[pulumi.Input['OriginEndpointScteHlsArgs']] = None,
                  start_tag: Optional[pulumi.Input['OriginEndpointStartTagArgs']] = None,
-                 url: Optional[pulumi.Input[builtins.str]] = None):
+                 url: Optional[pulumi.Input[builtins.str]] = None,
+                 url_encode_child_manifest: Optional[pulumi.Input[builtins.bool]] = None):
         """
         <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[builtins.str] manifest_name: <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         :param pulumi.Input[builtins.str] child_manifest_name: <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         :param pulumi.Input[builtins.int] manifest_window_seconds: <p>The total duration (in seconds) of the manifest's content.</p>
-        :param pulumi.Input[builtins.int] program_date_time_interval_seconds: <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
-                        EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
-                        The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
-                        ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+        :param pulumi.Input[builtins.int] program_date_time_interval_seconds: <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
+                        EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
+                        The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
                         <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         :param pulumi.Input['OriginEndpointScteHlsArgs'] scte_hls: The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
         :param pulumi.Input[builtins.str] url: <p>The egress domain URL for stream delivery from MediaPackage.</p>
+        :param pulumi.Input[builtins.bool] url_encode_child_manifest: <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+                        For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
         pulumi.set(__self__, "manifest_name", manifest_name)
         if child_manifest_name is not None:
@@ -1109,6 +1147,8 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
             pulumi.set(__self__, "start_tag", start_tag)
         if url is not None:
             pulumi.set(__self__, "url", url)
+        if url_encode_child_manifest is not None:
+            pulumi.set(__self__, "url_encode_child_manifest", url_encode_child_manifest)
 
     @property
     @pulumi.getter(name="manifestName")
@@ -1159,10 +1199,9 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     @pulumi.getter(name="programDateTimeIntervalSeconds")
     def program_date_time_interval_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
-                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
-                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
-                 ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
+                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
+                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
                  <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         """
         return pulumi.get(self, "program_date_time_interval_seconds")
@@ -1203,6 +1242,19 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="urlEncodeChildManifest")
+    def url_encode_child_manifest(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
+                 For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+        """
+        return pulumi.get(self, "url_encode_child_manifest")
+
+    @url_encode_child_manifest.setter
+    def url_encode_child_manifest(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "url_encode_child_manifest", value)
 
 
 if not MYPY:

@@ -79,7 +79,7 @@ export class Workflow extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.omics.WorkflowStatus>;
     /**
-     * The default storage capacity for the workflow runs, in gibibytes.
+     * The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
      */
     public readonly storageCapacity!: pulumi.Output<number | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface WorkflowArgs {
      */
     parameterTemplate?: pulumi.Input<{[key: string]: pulumi.Input<inputs.omics.WorkflowParameterArgs>}>;
     /**
-     * The default storage capacity for the workflow runs, in gibibytes.
+     * The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
      */
     storageCapacity?: pulumi.Input<number>;
     /**

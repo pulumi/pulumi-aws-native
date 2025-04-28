@@ -849,6 +849,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["termination_policies"] = termination_policies
             __props__.__dict__["traffic_sources"] = traffic_sources
             __props__.__dict__["vpc_zone_identifier"] = vpc_zone_identifier
+            __props__.__dict__["auto_scaling_group_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoScalingGroupName", "instanceId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AutoScalingGroup, __self__).__init__(
@@ -873,6 +874,7 @@ class AutoScalingGroup(pulumi.CustomResource):
 
         __props__ = AutoScalingGroupArgs.__new__(AutoScalingGroupArgs)
 
+        __props__.__dict__["auto_scaling_group_arn"] = None
         __props__.__dict__["auto_scaling_group_name"] = None
         __props__.__dict__["availability_zone_distribution"] = None
         __props__.__dict__["availability_zone_impairment_policy"] = None
@@ -909,6 +911,11 @@ class AutoScalingGroup(pulumi.CustomResource):
         __props__.__dict__["traffic_sources"] = None
         __props__.__dict__["vpc_zone_identifier"] = None
         return AutoScalingGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoScalingGroupArn")
+    def auto_scaling_group_arn(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "auto_scaling_group_arn")
 
     @property
     @pulumi.getter(name="autoScalingGroupName")

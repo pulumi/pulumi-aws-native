@@ -40,7 +40,8 @@ type LookupWorkspaceResult struct {
 	// AMP Workspace prometheus endpoint
 	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                   []aws.Tag               `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
 	WorkspaceConfiguration *WorkspaceConfiguration `pulumi:"workspaceConfiguration"`
 	// Required to identify a specific APS Workspace.
 	WorkspaceId *string `pulumi:"workspaceId"`
@@ -108,6 +109,7 @@ func (o LookupWorkspaceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
 func (o LookupWorkspaceResultOutput) WorkspaceConfiguration() WorkspaceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceConfiguration { return v.WorkspaceConfiguration }).(WorkspaceConfigurationPtrOutput)
 }

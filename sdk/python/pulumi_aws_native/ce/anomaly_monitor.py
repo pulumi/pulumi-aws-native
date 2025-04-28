@@ -14,9 +14,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['AnomalyMonitorArgs', 'AnomalyMonitor']
 
@@ -27,14 +27,14 @@ class AnomalyMonitorArgs:
                  monitor_dimension: Optional[pulumi.Input['AnomalyMonitorMonitorDimension']] = None,
                  monitor_name: Optional[pulumi.Input[builtins.str]] = None,
                  monitor_specification: Optional[pulumi.Input[builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyMonitorResourceTagArgs']]]] = None):
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AnomalyMonitor resource.
         :param pulumi.Input['AnomalyMonitorMonitorType'] monitor_type: The possible type values.
         :param pulumi.Input['AnomalyMonitorMonitorDimension'] monitor_dimension: The dimensions to evaluate
         :param pulumi.Input[builtins.str] monitor_name: The name of the monitor.
         :param pulumi.Input[builtins.str] monitor_specification: The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
-        :param pulumi.Input[Sequence[pulumi.Input['AnomalyMonitorResourceTagArgs']]] resource_tags: Tags to assign to monitor.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] resource_tags: Tags to assign to monitor.
         """
         pulumi.set(__self__, "monitor_type", monitor_type)
         if monitor_dimension is not None:
@@ -96,14 +96,14 @@ class AnomalyMonitorArgs:
 
     @property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyMonitorResourceTagArgs']]]]:
+    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         Tags to assign to monitor.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyMonitorResourceTagArgs']]]]):
+    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "resource_tags", value)
 
 
@@ -119,7 +119,7 @@ class AnomalyMonitor(pulumi.CustomResource):
                  monitor_name: Optional[pulumi.Input[builtins.str]] = None,
                  monitor_specification: Optional[pulumi.Input[builtins.str]] = None,
                  monitor_type: Optional[pulumi.Input['AnomalyMonitorMonitorType']] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalyMonitorResourceTagArgs', 'AnomalyMonitorResourceTagArgsDict']]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
@@ -340,7 +340,7 @@ class AnomalyMonitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] monitor_name: The name of the monitor.
         :param pulumi.Input[builtins.str] monitor_specification: The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
         :param pulumi.Input['AnomalyMonitorMonitorType'] monitor_type: The possible type values.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalyMonitorResourceTagArgs', 'AnomalyMonitorResourceTagArgsDict']]]] resource_tags: Tags to assign to monitor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] resource_tags: Tags to assign to monitor.
         """
         ...
     @overload
@@ -580,7 +580,7 @@ class AnomalyMonitor(pulumi.CustomResource):
                  monitor_name: Optional[pulumi.Input[builtins.str]] = None,
                  monitor_specification: Optional[pulumi.Input[builtins.str]] = None,
                  monitor_type: Optional[pulumi.Input['AnomalyMonitorMonitorType']] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalyMonitorResourceTagArgs', 'AnomalyMonitorResourceTagArgsDict']]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -712,7 +712,7 @@ class AnomalyMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> pulumi.Output[Optional[Sequence['outputs.AnomalyMonitorResourceTag']]]:
+    def resource_tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
         Tags to assign to monitor.
         """

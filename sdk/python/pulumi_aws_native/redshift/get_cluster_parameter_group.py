@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetClusterParameterGroupResult',
@@ -25,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterParameterGroupResult:
-    def __init__(__self__, parameters=None):
+    def __init__(__self__, parameters=None, tags=None):
         if parameters and not isinstance(parameters, list):
             raise TypeError("Expected argument 'parameters' to be a list")
         pulumi.set(__self__, "parameters", parameters)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -38,6 +42,14 @@ class GetClusterParameterGroupResult:
         """
         return pulumi.get(self, "parameters")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetClusterParameterGroupResult(GetClusterParameterGroupResult):
     # pylint: disable=using-constant-test
@@ -45,7 +57,8 @@ class AwaitableGetClusterParameterGroupResult(GetClusterParameterGroupResult):
         if False:
             yield self
         return GetClusterParameterGroupResult(
-            parameters=self.parameters)
+            parameters=self.parameters,
+            tags=self.tags)
 
 
 def get_cluster_parameter_group(parameter_group_name: Optional[builtins.str] = None,
@@ -62,7 +75,8 @@ def get_cluster_parameter_group(parameter_group_name: Optional[builtins.str] = N
     __ret__ = pulumi.runtime.invoke('aws-native:redshift:getClusterParameterGroup', __args__, opts=opts, typ=GetClusterParameterGroupResult).value
 
     return AwaitableGetClusterParameterGroupResult(
-        parameters=pulumi.get(__ret__, 'parameters'))
+        parameters=pulumi.get(__ret__, 'parameters'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_cluster_parameter_group_output(parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterParameterGroupResult]:
     """
@@ -76,4 +90,5 @@ def get_cluster_parameter_group_output(parameter_group_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getClusterParameterGroup', __args__, opts=opts, typ=GetClusterParameterGroupResult)
     return __ret__.apply(lambda __response__: GetClusterParameterGroupResult(
-        parameters=pulumi.get(__response__, 'parameters')))
+        parameters=pulumi.get(__response__, 'parameters'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -55,6 +55,10 @@
           "description" : "The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.",
           "type" : "string"
         },
+        "IpAddressType" : {
+          "description" : "",
+          "type" : "string"
+        },
         "SecurityPolicy" : {
           "description" : "The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.",
           "type" : "string"

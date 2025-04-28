@@ -7,29 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ce.Inputs
+namespace Pulumi.AwsNative.CodePipeline.Inputs
 {
 
     /// <summary>
-    /// A key-value pair to associate with a resource.
+    /// Represents information about the environment variable of an action.
     /// </summary>
-    public sealed class AnomalySubscriptionResourceTagArgs : global::Pulumi.ResourceArgs
+    public sealed class PipelineEnvironmentVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key name for the tag.
+        /// The name of the environment variable.
         /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The value for the tag.
+        /// The value of the environment variable.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
-        public AnomalySubscriptionResourceTagArgs()
+        public PipelineEnvironmentVariableArgs()
         {
         }
-        public static new AnomalySubscriptionResourceTagArgs Empty => new AnomalySubscriptionResourceTagArgs();
+        public static new PipelineEnvironmentVariableArgs Empty => new PipelineEnvironmentVariableArgs();
     }
 }

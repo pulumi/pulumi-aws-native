@@ -101,7 +101,7 @@ type LookupClusterResult struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
 	NamespaceResourcePolicy interface{} `pulumi:"namespaceResourcePolicy"`
-	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
 	NodeType *string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
 	NumberOfNodes *int `pulumi:"numberOfNodes"`
@@ -327,7 +327,7 @@ func (o LookupClusterResultOutput) NamespaceResourcePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupClusterResult) interface{} { return v.NamespaceResourcePolicy }).(pulumi.AnyOutput)
 }
 
-// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
 func (o LookupClusterResultOutput) NodeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.NodeType }).(pulumi.StringPtrOutput)
 }

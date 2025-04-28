@@ -93,6 +93,13 @@ export class Connection extends pulumi.CustomResource {
      * The private resource the HTTP request will be sent to.
      */
     public readonly invocationConnectivityParameters!: pulumi.Output<outputs.events.InvocationConnectivityParametersProperties | undefined>;
+    /**
+     * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     *
+     * If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
+     *
+     * For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
+     */
     public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Name of the connection.
@@ -165,6 +172,13 @@ export interface ConnectionArgs {
      * The private resource the HTTP request will be sent to.
      */
     invocationConnectivityParameters?: pulumi.Input<inputs.events.InvocationConnectivityParametersPropertiesArgs>;
+    /**
+     * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     *
+     * If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
+     *
+     * For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
+     */
     kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * Name of the connection.

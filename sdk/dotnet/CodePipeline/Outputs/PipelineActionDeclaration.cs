@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         /// </summary>
         public readonly object? Configuration;
         /// <summary>
+        /// The list of environment variables that are input to a compute based action.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PipelineEnvironmentVariable> EnvironmentVariables;
+        /// <summary>
         /// The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
         /// 
         /// &gt; For a CodeBuild action with multiple input artifacts, one of your input sources must be designated the PrimarySource. For more information, see the [CodeBuild action reference page](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeBuild.html) in the *AWS CodePipeline User Guide* .
@@ -75,6 +79,8 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
 
             object? configuration,
 
+            ImmutableArray<Outputs.PipelineEnvironmentVariable> environmentVariables,
+
             ImmutableArray<Outputs.PipelineInputArtifact> inputArtifacts,
 
             string name,
@@ -96,6 +102,7 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
             ActionTypeId = actionTypeId;
             Commands = commands;
             Configuration = configuration;
+            EnvironmentVariables = environmentVariables;
             InputArtifacts = inputArtifacts;
             Name = name;
             Namespace = @namespace;

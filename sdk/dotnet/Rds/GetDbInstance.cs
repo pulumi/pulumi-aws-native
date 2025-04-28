@@ -228,7 +228,9 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly bool? CopyTagsToSnapshot;
         /// <summary>
-        /// The mode of Database Insights that is enabled for the instance.
+        /// The mode of Database Insights to enable for the DB instance.
+        /// 
+        /// &gt; Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
         /// </summary>
         public readonly string? DatabaseInsightsMode;
         /// <summary>

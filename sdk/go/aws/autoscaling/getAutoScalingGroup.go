@@ -34,6 +34,7 @@ type LookupAutoScalingGroupArgs struct {
 }
 
 type LookupAutoScalingGroupResult struct {
+	AutoScalingGroupArn *string `pulumi:"autoScalingGroupArn"`
 	// The instance capacity distribution across Availability Zones.
 	AvailabilityZoneDistribution *AutoScalingGroupAvailabilityZoneDistribution `pulumi:"availabilityZoneDistribution"`
 	// The Availability Zone impairment policy.
@@ -153,6 +154,10 @@ func (o LookupAutoScalingGroupResultOutput) ToLookupAutoScalingGroupResultOutput
 
 func (o LookupAutoScalingGroupResultOutput) ToLookupAutoScalingGroupResultOutputWithContext(ctx context.Context) LookupAutoScalingGroupResultOutput {
 	return o
+}
+
+func (o LookupAutoScalingGroupResultOutput) AutoScalingGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.AutoScalingGroupArn }).(pulumi.StringPtrOutput)
 }
 
 // The instance capacity distribution across Availability Zones.

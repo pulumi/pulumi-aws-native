@@ -1738,6 +1738,8 @@ type AiPromptAiPromptApiFormat string
 const (
 	AiPromptAiPromptApiFormatAnthropicClaudeMessages        = AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_MESSAGES")
 	AiPromptAiPromptApiFormatAnthropicClaudeTextCompletions = AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_TEXT_COMPLETIONS")
+	AiPromptAiPromptApiFormatMessages                       = AiPromptAiPromptApiFormat("MESSAGES")
+	AiPromptAiPromptApiFormatTextCompletions                = AiPromptAiPromptApiFormat("TEXT_COMPLETIONS")
 )
 
 func (AiPromptAiPromptApiFormat) ElementType() reflect.Type {
@@ -1864,6 +1866,8 @@ func (o AiPromptAiPromptApiFormatPtrOutput) ToStringPtrOutputWithContext(ctx con
 //
 //	AiPromptAiPromptApiFormatAnthropicClaudeMessages
 //	AiPromptAiPromptApiFormatAnthropicClaudeTextCompletions
+//	AiPromptAiPromptApiFormatMessages
+//	AiPromptAiPromptApiFormatTextCompletions
 type AiPromptAiPromptApiFormatInput interface {
 	pulumi.Input
 

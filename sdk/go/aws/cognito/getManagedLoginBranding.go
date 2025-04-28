@@ -38,7 +38,7 @@ type LookupManagedLoginBrandingResult struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
 	Settings interface{} `pulumi:"settings"`
-	// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+	// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.
 	//
 	// When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
 	UseCognitoProvidedValues *bool `pulumi:"useCognitoProvidedValues"`
@@ -95,7 +95,7 @@ func (o LookupManagedLoginBrandingResultOutput) Settings() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupManagedLoginBrandingResult) interface{} { return v.Settings }).(pulumi.AnyOutput)
 }
 
-// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.
 //
 // When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
 func (o LookupManagedLoginBrandingResultOutput) UseCognitoProvidedValues() pulumi.BoolPtrOutput {

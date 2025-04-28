@@ -248,6 +248,8 @@ class DomainNameConfiguration(dict):
             suggest = "certificate_name"
         elif key == "endpointType":
             suggest = "endpoint_type"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
         elif key == "ownershipVerificationCertificateArn":
             suggest = "ownership_verification_certificate_arn"
         elif key == "securityPolicy":
@@ -268,6 +270,7 @@ class DomainNameConfiguration(dict):
                  certificate_arn: Optional[builtins.str] = None,
                  certificate_name: Optional[builtins.str] = None,
                  endpoint_type: Optional[builtins.str] = None,
+                 ip_address_type: Optional[builtins.str] = None,
                  ownership_verification_certificate_arn: Optional[builtins.str] = None,
                  security_policy: Optional[builtins.str] = None):
         """
@@ -276,6 +279,7 @@ class DomainNameConfiguration(dict):
         :param builtins.str certificate_arn: An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
         :param builtins.str certificate_name: The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
         :param builtins.str endpoint_type: The endpoint type.
+        :param builtins.str ip_address_type: The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
         :param builtins.str ownership_verification_certificate_arn: The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
         :param builtins.str security_policy: The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
         """
@@ -285,6 +289,8 @@ class DomainNameConfiguration(dict):
             pulumi.set(__self__, "certificate_name", certificate_name)
         if endpoint_type is not None:
             pulumi.set(__self__, "endpoint_type", endpoint_type)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if ownership_verification_certificate_arn is not None:
             pulumi.set(__self__, "ownership_verification_certificate_arn", ownership_verification_certificate_arn)
         if security_policy is not None:
@@ -313,6 +319,14 @@ class DomainNameConfiguration(dict):
         The endpoint type.
         """
         return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[builtins.str]:
+        """
+        The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
+        """
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="ownershipVerificationCertificateArn")

@@ -45,6 +45,8 @@ __all__ = [
     'ContinuousDeploymentPolicyTrafficConfigArgsDict',
     'DistributionCacheBehaviorArgs',
     'DistributionCacheBehaviorArgsDict',
+    'DistributionConfigTenantConfigPropertiesArgs',
+    'DistributionConfigTenantConfigPropertiesArgsDict',
     'DistributionConfigArgs',
     'DistributionConfigArgsDict',
     'DistributionCookiesArgs',
@@ -87,12 +89,30 @@ __all__ = [
     'DistributionOriginShieldArgsDict',
     'DistributionOriginArgs',
     'DistributionOriginArgsDict',
+    'DistributionParameterDefinitionDefinitionPropertiesStringSchemaPropertiesArgs',
+    'DistributionParameterDefinitionDefinitionPropertiesStringSchemaPropertiesArgsDict',
+    'DistributionParameterDefinitionDefinitionPropertiesArgs',
+    'DistributionParameterDefinitionDefinitionPropertiesArgsDict',
+    'DistributionParameterDefinitionArgs',
+    'DistributionParameterDefinitionArgsDict',
     'DistributionRestrictionsArgs',
     'DistributionRestrictionsArgsDict',
     'DistributionS3OriginConfigArgs',
     'DistributionS3OriginConfigArgsDict',
     'DistributionStatusCodesArgs',
     'DistributionStatusCodesArgsDict',
+    'DistributionTenantCertificateArgs',
+    'DistributionTenantCertificateArgsDict',
+    'DistributionTenantCustomizationsArgs',
+    'DistributionTenantCustomizationsArgsDict',
+    'DistributionTenantGeoRestrictionCustomizationArgs',
+    'DistributionTenantGeoRestrictionCustomizationArgsDict',
+    'DistributionTenantManagedCertificateRequestArgs',
+    'DistributionTenantManagedCertificateRequestArgsDict',
+    'DistributionTenantParameterArgs',
+    'DistributionTenantParameterArgsDict',
+    'DistributionTenantWebAclCustomizationArgs',
+    'DistributionTenantWebAclCustomizationArgsDict',
     'DistributionViewerCertificateArgs',
     'DistributionViewerCertificateArgsDict',
     'DistributionVpcOriginConfigArgs',
@@ -1697,6 +1717,29 @@ class DistributionCacheBehaviorArgs:
 
 
 if not MYPY:
+    class DistributionConfigTenantConfigPropertiesArgsDict(TypedDict):
+        parameter_definitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionParameterDefinitionArgsDict']]]]
+elif False:
+    DistributionConfigTenantConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionConfigTenantConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 parameter_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionParameterDefinitionArgs']]]] = None):
+        if parameter_definitions is not None:
+            pulumi.set(__self__, "parameter_definitions", parameter_definitions)
+
+    @property
+    @pulumi.getter(name="parameterDefinitions")
+    def parameter_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionParameterDefinitionArgs']]]]:
+        return pulumi.get(self, "parameter_definitions")
+
+    @parameter_definitions.setter
+    def parameter_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionParameterDefinitionArgs']]]]):
+        pulumi.set(self, "parameter_definitions", value)
+
+
+if not MYPY:
     class DistributionConfigArgsDict(TypedDict):
         """
         A distribution configuration.
@@ -1730,6 +1773,7 @@ if not MYPY:
         """
         A comment to describe the distribution. The comment cannot be longer than 128 characters.
         """
+        connection_mode: NotRequired[pulumi.Input['DistributionConnectionMode']]
         continuous_deployment_policy_id: NotRequired[pulumi.Input[builtins.str]]
         """
         The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
@@ -1807,6 +1851,7 @@ if not MYPY:
         """
         A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
         """
+        tenant_config: NotRequired[pulumi.Input['DistributionConfigTenantConfigPropertiesArgsDict']]
         viewer_certificate: NotRequired[pulumi.Input['DistributionViewerCertificateArgsDict']]
         """
         A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
@@ -1829,6 +1874,7 @@ class DistributionConfigArgs:
                  cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
                  cnames: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
+                 connection_mode: Optional[pulumi.Input['DistributionConnectionMode']] = None,
                  continuous_deployment_policy_id: Optional[pulumi.Input[builtins.str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
                  custom_origin: Optional[pulumi.Input['DistributionLegacyCustomOriginArgs']] = None,
@@ -1842,6 +1888,7 @@ class DistributionConfigArgs:
                  restrictions: Optional[pulumi.Input['DistributionRestrictionsArgs']] = None,
                  s3_origin: Optional[pulumi.Input['DistributionLegacyS3OriginArgs']] = None,
                  staging: Optional[pulumi.Input[builtins.bool]] = None,
+                 tenant_config: Optional[pulumi.Input['DistributionConfigTenantConfigPropertiesArgs']] = None,
                  viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
                  web_acl_id: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -1908,6 +1955,8 @@ class DistributionConfigArgs:
             pulumi.set(__self__, "cnames", cnames)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if connection_mode is not None:
+            pulumi.set(__self__, "connection_mode", connection_mode)
         if continuous_deployment_policy_id is not None:
             pulumi.set(__self__, "continuous_deployment_policy_id", continuous_deployment_policy_id)
         if custom_error_responses is not None:
@@ -1934,6 +1983,8 @@ class DistributionConfigArgs:
             pulumi.set(__self__, "s3_origin", s3_origin)
         if staging is not None:
             pulumi.set(__self__, "staging", staging)
+        if tenant_config is not None:
+            pulumi.set(__self__, "tenant_config", tenant_config)
         if viewer_certificate is not None:
             pulumi.set(__self__, "viewer_certificate", viewer_certificate)
         if web_acl_id is not None:
@@ -2023,6 +2074,15 @@ class DistributionConfigArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="connectionMode")
+    def connection_mode(self) -> Optional[pulumi.Input['DistributionConnectionMode']]:
+        return pulumi.get(self, "connection_mode")
+
+    @connection_mode.setter
+    def connection_mode(self, value: Optional[pulumi.Input['DistributionConnectionMode']]):
+        pulumi.set(self, "connection_mode", value)
 
     @property
     @pulumi.getter(name="continuousDeploymentPolicyId")
@@ -2204,6 +2264,15 @@ class DistributionConfigArgs:
     @staging.setter
     def staging(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "staging", value)
+
+    @property
+    @pulumi.getter(name="tenantConfig")
+    def tenant_config(self) -> Optional[pulumi.Input['DistributionConfigTenantConfigPropertiesArgs']]:
+        return pulumi.get(self, "tenant_config")
+
+    @tenant_config.setter
+    def tenant_config(self, value: Optional[pulumi.Input['DistributionConfigTenantConfigPropertiesArgs']]):
+        pulumi.set(self, "tenant_config", value)
 
     @property
     @pulumi.getter(name="viewerCertificate")
@@ -4448,6 +4517,111 @@ class DistributionOriginArgs:
 
 
 if not MYPY:
+    class DistributionParameterDefinitionDefinitionPropertiesStringSchemaPropertiesArgsDict(TypedDict):
+        required: pulumi.Input[builtins.bool]
+        comment: NotRequired[pulumi.Input[builtins.str]]
+        default_value: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    DistributionParameterDefinitionDefinitionPropertiesStringSchemaPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionParameterDefinitionDefinitionPropertiesStringSchemaPropertiesArgs:
+    def __init__(__self__, *,
+                 required: pulumi.Input[builtins.bool],
+                 comment: Optional[pulumi.Input[builtins.str]] = None,
+                 default_value: Optional[pulumi.Input[builtins.str]] = None):
+        pulumi.set(__self__, "required", required)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+
+    @property
+    @pulumi.getter
+    def required(self) -> pulumi.Input[builtins.bool]:
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: pulumi.Input[builtins.bool]):
+        pulumi.set(self, "required", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "default_value", value)
+
+
+if not MYPY:
+    class DistributionParameterDefinitionDefinitionPropertiesArgsDict(TypedDict):
+        string_schema: NotRequired[pulumi.Input['DistributionParameterDefinitionDefinitionPropertiesStringSchemaPropertiesArgsDict']]
+elif False:
+    DistributionParameterDefinitionDefinitionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionParameterDefinitionDefinitionPropertiesArgs:
+    def __init__(__self__, *,
+                 string_schema: Optional[pulumi.Input['DistributionParameterDefinitionDefinitionPropertiesStringSchemaPropertiesArgs']] = None):
+        if string_schema is not None:
+            pulumi.set(__self__, "string_schema", string_schema)
+
+    @property
+    @pulumi.getter(name="stringSchema")
+    def string_schema(self) -> Optional[pulumi.Input['DistributionParameterDefinitionDefinitionPropertiesStringSchemaPropertiesArgs']]:
+        return pulumi.get(self, "string_schema")
+
+    @string_schema.setter
+    def string_schema(self, value: Optional[pulumi.Input['DistributionParameterDefinitionDefinitionPropertiesStringSchemaPropertiesArgs']]):
+        pulumi.set(self, "string_schema", value)
+
+
+if not MYPY:
+    class DistributionParameterDefinitionArgsDict(TypedDict):
+        definition: pulumi.Input['DistributionParameterDefinitionDefinitionPropertiesArgsDict']
+        name: pulumi.Input[builtins.str]
+elif False:
+    DistributionParameterDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionParameterDefinitionArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input['DistributionParameterDefinitionDefinitionPropertiesArgs'],
+                 name: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input['DistributionParameterDefinitionDefinitionPropertiesArgs']:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input['DistributionParameterDefinitionDefinitionPropertiesArgs']):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
     class DistributionRestrictionsArgsDict(TypedDict):
         """
         A complex type that identifies ways in which you want to restrict distribution of your content.
@@ -4591,6 +4765,235 @@ class DistributionStatusCodesArgs:
     @quantity.setter
     def quantity(self, value: pulumi.Input[builtins.int]):
         pulumi.set(self, "quantity", value)
+
+
+if not MYPY:
+    class DistributionTenantCertificateArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    DistributionTenantCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionTenantCertificateArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[builtins.str]] = None):
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "arn", value)
+
+
+if not MYPY:
+    class DistributionTenantCustomizationsArgsDict(TypedDict):
+        certificate: NotRequired[pulumi.Input['DistributionTenantCertificateArgsDict']]
+        geo_restrictions: NotRequired[pulumi.Input['DistributionTenantGeoRestrictionCustomizationArgsDict']]
+        web_acl: NotRequired[pulumi.Input['DistributionTenantWebAclCustomizationArgsDict']]
+elif False:
+    DistributionTenantCustomizationsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionTenantCustomizationsArgs:
+    def __init__(__self__, *,
+                 certificate: Optional[pulumi.Input['DistributionTenantCertificateArgs']] = None,
+                 geo_restrictions: Optional[pulumi.Input['DistributionTenantGeoRestrictionCustomizationArgs']] = None,
+                 web_acl: Optional[pulumi.Input['DistributionTenantWebAclCustomizationArgs']] = None):
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if geo_restrictions is not None:
+            pulumi.set(__self__, "geo_restrictions", geo_restrictions)
+        if web_acl is not None:
+            pulumi.set(__self__, "web_acl", web_acl)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input['DistributionTenantCertificateArgs']]:
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input['DistributionTenantCertificateArgs']]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="geoRestrictions")
+    def geo_restrictions(self) -> Optional[pulumi.Input['DistributionTenantGeoRestrictionCustomizationArgs']]:
+        return pulumi.get(self, "geo_restrictions")
+
+    @geo_restrictions.setter
+    def geo_restrictions(self, value: Optional[pulumi.Input['DistributionTenantGeoRestrictionCustomizationArgs']]):
+        pulumi.set(self, "geo_restrictions", value)
+
+    @property
+    @pulumi.getter(name="webAcl")
+    def web_acl(self) -> Optional[pulumi.Input['DistributionTenantWebAclCustomizationArgs']]:
+        return pulumi.get(self, "web_acl")
+
+    @web_acl.setter
+    def web_acl(self, value: Optional[pulumi.Input['DistributionTenantWebAclCustomizationArgs']]):
+        pulumi.set(self, "web_acl", value)
+
+
+if not MYPY:
+    class DistributionTenantGeoRestrictionCustomizationArgsDict(TypedDict):
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        restriction_type: NotRequired[pulumi.Input['DistributionTenantGeoRestrictionCustomizationRestrictionType']]
+elif False:
+    DistributionTenantGeoRestrictionCustomizationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionTenantGeoRestrictionCustomizationArgs:
+    def __init__(__self__, *,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 restriction_type: Optional[pulumi.Input['DistributionTenantGeoRestrictionCustomizationRestrictionType']] = None):
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if restriction_type is not None:
+            pulumi.set(__self__, "restriction_type", restriction_type)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter(name="restrictionType")
+    def restriction_type(self) -> Optional[pulumi.Input['DistributionTenantGeoRestrictionCustomizationRestrictionType']]:
+        return pulumi.get(self, "restriction_type")
+
+    @restriction_type.setter
+    def restriction_type(self, value: Optional[pulumi.Input['DistributionTenantGeoRestrictionCustomizationRestrictionType']]):
+        pulumi.set(self, "restriction_type", value)
+
+
+if not MYPY:
+    class DistributionTenantManagedCertificateRequestArgsDict(TypedDict):
+        certificate_transparency_logging_preference: NotRequired[pulumi.Input['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference']]
+        primary_domain_name: NotRequired[pulumi.Input[builtins.str]]
+        validation_token_host: NotRequired[pulumi.Input['DistributionTenantManagedCertificateRequestValidationTokenHost']]
+elif False:
+    DistributionTenantManagedCertificateRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionTenantManagedCertificateRequestArgs:
+    def __init__(__self__, *,
+                 certificate_transparency_logging_preference: Optional[pulumi.Input['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference']] = None,
+                 primary_domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 validation_token_host: Optional[pulumi.Input['DistributionTenantManagedCertificateRequestValidationTokenHost']] = None):
+        if certificate_transparency_logging_preference is not None:
+            pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
+        if primary_domain_name is not None:
+            pulumi.set(__self__, "primary_domain_name", primary_domain_name)
+        if validation_token_host is not None:
+            pulumi.set(__self__, "validation_token_host", validation_token_host)
+
+    @property
+    @pulumi.getter(name="certificateTransparencyLoggingPreference")
+    def certificate_transparency_logging_preference(self) -> Optional[pulumi.Input['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference']]:
+        return pulumi.get(self, "certificate_transparency_logging_preference")
+
+    @certificate_transparency_logging_preference.setter
+    def certificate_transparency_logging_preference(self, value: Optional[pulumi.Input['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference']]):
+        pulumi.set(self, "certificate_transparency_logging_preference", value)
+
+    @property
+    @pulumi.getter(name="primaryDomainName")
+    def primary_domain_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "primary_domain_name")
+
+    @primary_domain_name.setter
+    def primary_domain_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "primary_domain_name", value)
+
+    @property
+    @pulumi.getter(name="validationTokenHost")
+    def validation_token_host(self) -> Optional[pulumi.Input['DistributionTenantManagedCertificateRequestValidationTokenHost']]:
+        return pulumi.get(self, "validation_token_host")
+
+    @validation_token_host.setter
+    def validation_token_host(self, value: Optional[pulumi.Input['DistributionTenantManagedCertificateRequestValidationTokenHost']]):
+        pulumi.set(self, "validation_token_host", value)
+
+
+if not MYPY:
+    class DistributionTenantParameterArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[builtins.str]]
+        value: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    DistributionTenantParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionTenantParameterArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 value: Optional[pulumi.Input[builtins.str]] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class DistributionTenantWebAclCustomizationArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input['DistributionTenantWebAclCustomizationAction']]
+        arn: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    DistributionTenantWebAclCustomizationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionTenantWebAclCustomizationArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input['DistributionTenantWebAclCustomizationAction']] = None,
+                 arn: Optional[pulumi.Input[builtins.str]] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['DistributionTenantWebAclCustomizationAction']]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['DistributionTenantWebAclCustomizationAction']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "arn", value)
 
 
 if not MYPY:

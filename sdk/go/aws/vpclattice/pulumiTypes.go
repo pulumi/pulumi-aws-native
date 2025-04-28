@@ -126,7 +126,7 @@ func (o ListenerDefaultActionPtrOutput) Forward() ListenerForwardPtrOutput {
 }
 
 type ListenerFixedResponse struct {
-	// The HTTP response code.
+	// The HTTP response code. Only `404` and `500` status codes are supported.
 	StatusCode int `pulumi:"statusCode"`
 }
 
@@ -142,7 +142,7 @@ type ListenerFixedResponseInput interface {
 }
 
 type ListenerFixedResponseArgs struct {
-	// The HTTP response code.
+	// The HTTP response code. Only `404` and `500` status codes are supported.
 	StatusCode pulumi.IntInput `pulumi:"statusCode"`
 }
 
@@ -223,7 +223,7 @@ func (o ListenerFixedResponseOutput) ToListenerFixedResponsePtrOutputWithContext
 	}).(ListenerFixedResponsePtrOutput)
 }
 
-// The HTTP response code.
+// The HTTP response code. Only `404` and `500` status codes are supported.
 func (o ListenerFixedResponseOutput) StatusCode() pulumi.IntOutput {
 	return o.ApplyT(func(v ListenerFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
 }
@@ -252,7 +252,7 @@ func (o ListenerFixedResponsePtrOutput) Elem() ListenerFixedResponseOutput {
 	}).(ListenerFixedResponseOutput)
 }
 
-// The HTTP response code.
+// The HTTP response code. Only `404` and `500` status codes are supported.
 func (o ListenerFixedResponsePtrOutput) StatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerFixedResponse) *int {
 		if v == nil {
@@ -1236,7 +1236,7 @@ func (o RuleActionPtrOutput) Forward() RuleForwardPtrOutput {
 }
 
 type RuleFixedResponse struct {
-	// The HTTP response code.
+	// The HTTP response code. Only `404` and `500` status codes are supported.
 	StatusCode int `pulumi:"statusCode"`
 }
 
@@ -1252,7 +1252,7 @@ type RuleFixedResponseInput interface {
 }
 
 type RuleFixedResponseArgs struct {
-	// The HTTP response code.
+	// The HTTP response code. Only `404` and `500` status codes are supported.
 	StatusCode pulumi.IntInput `pulumi:"statusCode"`
 }
 
@@ -1333,7 +1333,7 @@ func (o RuleFixedResponseOutput) ToRuleFixedResponsePtrOutputWithContext(ctx con
 	}).(RuleFixedResponsePtrOutput)
 }
 
-// The HTTP response code.
+// The HTTP response code. Only `404` and `500` status codes are supported.
 func (o RuleFixedResponseOutput) StatusCode() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
 }
@@ -1362,7 +1362,7 @@ func (o RuleFixedResponsePtrOutput) Elem() RuleFixedResponseOutput {
 	}).(RuleFixedResponseOutput)
 }
 
-// The HTTP response code.
+// The HTTP response code. Only `404` and `500` status codes are supported.
 func (o RuleFixedResponsePtrOutput) StatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RuleFixedResponse) *int {
 		if v == nil {

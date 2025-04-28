@@ -81,7 +81,7 @@ class ClusterArgs:
         :param pulumi.Input[builtins.str] cluster_type: The type of the cluster. When cluster type is specified as single-node, the NumberOfNodes parameter is not required and if multi-node, the NumberOfNodes parameter is required
         :param pulumi.Input[builtins.str] db_name: The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
         :param pulumi.Input[builtins.str] master_username: The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
-        :param pulumi.Input[builtins.str] node_type: The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+        :param pulumi.Input[builtins.str] node_type: The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
         :param pulumi.Input[builtins.bool] allow_version_upgrade: Major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default value is True
         :param pulumi.Input[builtins.str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.
                
@@ -288,7 +288,7 @@ class ClusterArgs:
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Input[builtins.str]:
         """
-        The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+        The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
         """
         return pulumi.get(self, "node_type")
 
@@ -1003,7 +1003,7 @@ class Cluster(pulumi.CustomResource):
         :param Any namespace_resource_policy: The namespace resource policy document that will be attached to a Redshift cluster.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
-        :param pulumi.Input[builtins.str] node_type: The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+        :param pulumi.Input[builtins.str] node_type: The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
         :param pulumi.Input[builtins.int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
         :param pulumi.Input[builtins.str] owner_account: The AWS account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
         :param pulumi.Input[builtins.int] port: The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
@@ -1581,7 +1581,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Output[builtins.str]:
         """
-        The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+        The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
         """
         return pulumi.get(self, "node_type")
 

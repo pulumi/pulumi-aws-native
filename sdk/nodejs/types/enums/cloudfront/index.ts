@@ -22,12 +22,55 @@ export const ContinuousDeploymentPolicyTrafficConfigType = {
  */
 export type ContinuousDeploymentPolicyTrafficConfigType = (typeof ContinuousDeploymentPolicyTrafficConfigType)[keyof typeof ContinuousDeploymentPolicyTrafficConfigType];
 
+export const DistributionConnectionMode = {
+    Direct: "direct",
+    TenantOnly: "tenant-only",
+} as const;
+
+export type DistributionConnectionMode = (typeof DistributionConnectionMode)[keyof typeof DistributionConnectionMode];
+
 export const DistributionOriginGroupSelectionCriteria = {
     Default: "default",
     MediaQualityBased: "media-quality-based",
 } as const;
 
 export type DistributionOriginGroupSelectionCriteria = (typeof DistributionOriginGroupSelectionCriteria)[keyof typeof DistributionOriginGroupSelectionCriteria];
+
+export const DistributionTenantDomainResultStatus = {
+    Active: "active",
+    Inactive: "inactive",
+} as const;
+
+export type DistributionTenantDomainResultStatus = (typeof DistributionTenantDomainResultStatus)[keyof typeof DistributionTenantDomainResultStatus];
+
+export const DistributionTenantGeoRestrictionCustomizationRestrictionType = {
+    Blacklist: "blacklist",
+    Whitelist: "whitelist",
+    None: "none",
+} as const;
+
+export type DistributionTenantGeoRestrictionCustomizationRestrictionType = (typeof DistributionTenantGeoRestrictionCustomizationRestrictionType)[keyof typeof DistributionTenantGeoRestrictionCustomizationRestrictionType];
+
+export const DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+export type DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference = (typeof DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference)[keyof typeof DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference];
+
+export const DistributionTenantManagedCertificateRequestValidationTokenHost = {
+    Cloudfront: "cloudfront",
+    SelfHosted: "self-hosted",
+} as const;
+
+export type DistributionTenantManagedCertificateRequestValidationTokenHost = (typeof DistributionTenantManagedCertificateRequestValidationTokenHost)[keyof typeof DistributionTenantManagedCertificateRequestValidationTokenHost];
+
+export const DistributionTenantWebAclCustomizationAction = {
+    Override: "override",
+    Disable: "disable",
+} as const;
+
+export type DistributionTenantWebAclCustomizationAction = (typeof DistributionTenantWebAclCustomizationAction)[keyof typeof DistributionTenantWebAclCustomizationAction];
 
 export const MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus = {
     Enabled: "Enabled",

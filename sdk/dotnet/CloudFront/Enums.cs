@@ -70,6 +70,34 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
     [EnumType]
+    public readonly struct DistributionConnectionMode : IEquatable<DistributionConnectionMode>
+    {
+        private readonly string _value;
+
+        private DistributionConnectionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionConnectionMode Direct { get; } = new DistributionConnectionMode("direct");
+        public static DistributionConnectionMode TenantOnly { get; } = new DistributionConnectionMode("tenant-only");
+
+        public static bool operator ==(DistributionConnectionMode left, DistributionConnectionMode right) => left.Equals(right);
+        public static bool operator !=(DistributionConnectionMode left, DistributionConnectionMode right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionConnectionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionConnectionMode other && Equals(other);
+        public bool Equals(DistributionConnectionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DistributionOriginGroupSelectionCriteria : IEquatable<DistributionOriginGroupSelectionCriteria>
     {
         private readonly string _value;
@@ -90,6 +118,147 @@ namespace Pulumi.AwsNative.CloudFront
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DistributionOriginGroupSelectionCriteria other && Equals(other);
         public bool Equals(DistributionOriginGroupSelectionCriteria other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DistributionTenantDomainResultStatus : IEquatable<DistributionTenantDomainResultStatus>
+    {
+        private readonly string _value;
+
+        private DistributionTenantDomainResultStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionTenantDomainResultStatus Active { get; } = new DistributionTenantDomainResultStatus("active");
+        public static DistributionTenantDomainResultStatus Inactive { get; } = new DistributionTenantDomainResultStatus("inactive");
+
+        public static bool operator ==(DistributionTenantDomainResultStatus left, DistributionTenantDomainResultStatus right) => left.Equals(right);
+        public static bool operator !=(DistributionTenantDomainResultStatus left, DistributionTenantDomainResultStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionTenantDomainResultStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionTenantDomainResultStatus other && Equals(other);
+        public bool Equals(DistributionTenantDomainResultStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DistributionTenantGeoRestrictionCustomizationRestrictionType : IEquatable<DistributionTenantGeoRestrictionCustomizationRestrictionType>
+    {
+        private readonly string _value;
+
+        private DistributionTenantGeoRestrictionCustomizationRestrictionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionTenantGeoRestrictionCustomizationRestrictionType Blacklist { get; } = new DistributionTenantGeoRestrictionCustomizationRestrictionType("blacklist");
+        public static DistributionTenantGeoRestrictionCustomizationRestrictionType Whitelist { get; } = new DistributionTenantGeoRestrictionCustomizationRestrictionType("whitelist");
+        public static DistributionTenantGeoRestrictionCustomizationRestrictionType None { get; } = new DistributionTenantGeoRestrictionCustomizationRestrictionType("none");
+
+        public static bool operator ==(DistributionTenantGeoRestrictionCustomizationRestrictionType left, DistributionTenantGeoRestrictionCustomizationRestrictionType right) => left.Equals(right);
+        public static bool operator !=(DistributionTenantGeoRestrictionCustomizationRestrictionType left, DistributionTenantGeoRestrictionCustomizationRestrictionType right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionTenantGeoRestrictionCustomizationRestrictionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionTenantGeoRestrictionCustomizationRestrictionType other && Equals(other);
+        public bool Equals(DistributionTenantGeoRestrictionCustomizationRestrictionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference : IEquatable<DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference>
+    {
+        private readonly string _value;
+
+        private DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference Enabled { get; } = new DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference("enabled");
+        public static DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference Disabled { get; } = new DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference("disabled");
+
+        public static bool operator ==(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference left, DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference right) => left.Equals(right);
+        public static bool operator !=(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference left, DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference other && Equals(other);
+        public bool Equals(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DistributionTenantManagedCertificateRequestValidationTokenHost : IEquatable<DistributionTenantManagedCertificateRequestValidationTokenHost>
+    {
+        private readonly string _value;
+
+        private DistributionTenantManagedCertificateRequestValidationTokenHost(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionTenantManagedCertificateRequestValidationTokenHost Cloudfront { get; } = new DistributionTenantManagedCertificateRequestValidationTokenHost("cloudfront");
+        public static DistributionTenantManagedCertificateRequestValidationTokenHost SelfHosted { get; } = new DistributionTenantManagedCertificateRequestValidationTokenHost("self-hosted");
+
+        public static bool operator ==(DistributionTenantManagedCertificateRequestValidationTokenHost left, DistributionTenantManagedCertificateRequestValidationTokenHost right) => left.Equals(right);
+        public static bool operator !=(DistributionTenantManagedCertificateRequestValidationTokenHost left, DistributionTenantManagedCertificateRequestValidationTokenHost right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionTenantManagedCertificateRequestValidationTokenHost value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionTenantManagedCertificateRequestValidationTokenHost other && Equals(other);
+        public bool Equals(DistributionTenantManagedCertificateRequestValidationTokenHost other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DistributionTenantWebAclCustomizationAction : IEquatable<DistributionTenantWebAclCustomizationAction>
+    {
+        private readonly string _value;
+
+        private DistributionTenantWebAclCustomizationAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionTenantWebAclCustomizationAction Override { get; } = new DistributionTenantWebAclCustomizationAction("override");
+        public static DistributionTenantWebAclCustomizationAction Disable { get; } = new DistributionTenantWebAclCustomizationAction("disable");
+
+        public static bool operator ==(DistributionTenantWebAclCustomizationAction left, DistributionTenantWebAclCustomizationAction right) => left.Equals(right);
+        public static bool operator !=(DistributionTenantWebAclCustomizationAction left, DistributionTenantWebAclCustomizationAction right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionTenantWebAclCustomizationAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionTenantWebAclCustomizationAction other && Equals(other);
+        public bool Equals(DistributionTenantWebAclCustomizationAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

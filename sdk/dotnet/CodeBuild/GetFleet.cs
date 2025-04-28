@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.CodeBuild
         /// </summary>
         public readonly int? BaseCapacity;
         /// <summary>
-        /// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        /// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
         /// </summary>
         public readonly Outputs.FleetComputeConfiguration? ComputeConfiguration;
         /// <summary>

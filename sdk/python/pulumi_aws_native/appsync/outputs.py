@@ -27,6 +27,10 @@ __all__ = [
     'ApiLambdaAuthorizerConfig',
     'ApiOpenIdConnectConfig',
     'ChannelNamespaceAuthMode',
+    'ChannelNamespaceHandlerConfig',
+    'ChannelNamespaceHandlerConfigs',
+    'ChannelNamespaceIntegration',
+    'ChannelNamespaceLambdaConfig',
     'DataSourceAuthorizationConfig',
     'DataSourceAwsIamConfig',
     'DataSourceDeltaSyncConfig',
@@ -542,6 +546,139 @@ class ChannelNamespaceAuthMode(dict):
     @pulumi.getter(name="authType")
     def auth_type(self) -> Optional['ChannelNamespaceAuthenticationType']:
         return pulumi.get(self, "auth_type")
+
+
+@pulumi.output_type
+class ChannelNamespaceHandlerConfig(dict):
+    def __init__(__self__, *,
+                 behavior: 'ChannelNamespaceHandlerBehavior',
+                 integration: 'outputs.ChannelNamespaceIntegration'):
+        pulumi.set(__self__, "behavior", behavior)
+        pulumi.set(__self__, "integration", integration)
+
+    @property
+    @pulumi.getter
+    def behavior(self) -> 'ChannelNamespaceHandlerBehavior':
+        return pulumi.get(self, "behavior")
+
+    @property
+    @pulumi.getter
+    def integration(self) -> 'outputs.ChannelNamespaceIntegration':
+        return pulumi.get(self, "integration")
+
+
+@pulumi.output_type
+class ChannelNamespaceHandlerConfigs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onPublish":
+            suggest = "on_publish"
+        elif key == "onSubscribe":
+            suggest = "on_subscribe"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNamespaceHandlerConfigs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNamespaceHandlerConfigs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNamespaceHandlerConfigs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 on_publish: Optional['outputs.ChannelNamespaceHandlerConfig'] = None,
+                 on_subscribe: Optional['outputs.ChannelNamespaceHandlerConfig'] = None):
+        if on_publish is not None:
+            pulumi.set(__self__, "on_publish", on_publish)
+        if on_subscribe is not None:
+            pulumi.set(__self__, "on_subscribe", on_subscribe)
+
+    @property
+    @pulumi.getter(name="onPublish")
+    def on_publish(self) -> Optional['outputs.ChannelNamespaceHandlerConfig']:
+        return pulumi.get(self, "on_publish")
+
+    @property
+    @pulumi.getter(name="onSubscribe")
+    def on_subscribe(self) -> Optional['outputs.ChannelNamespaceHandlerConfig']:
+        return pulumi.get(self, "on_subscribe")
+
+
+@pulumi.output_type
+class ChannelNamespaceIntegration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceName":
+            suggest = "data_source_name"
+        elif key == "lambdaConfig":
+            suggest = "lambda_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNamespaceIntegration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNamespaceIntegration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNamespaceIntegration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_name: builtins.str,
+                 lambda_config: Optional['outputs.ChannelNamespaceLambdaConfig'] = None):
+        """
+        :param builtins.str data_source_name: Data source to invoke for this integration.
+        """
+        pulumi.set(__self__, "data_source_name", data_source_name)
+        if lambda_config is not None:
+            pulumi.set(__self__, "lambda_config", lambda_config)
+
+    @property
+    @pulumi.getter(name="dataSourceName")
+    def data_source_name(self) -> builtins.str:
+        """
+        Data source to invoke for this integration.
+        """
+        return pulumi.get(self, "data_source_name")
+
+    @property
+    @pulumi.getter(name="lambdaConfig")
+    def lambda_config(self) -> Optional['outputs.ChannelNamespaceLambdaConfig']:
+        return pulumi.get(self, "lambda_config")
+
+
+@pulumi.output_type
+class ChannelNamespaceLambdaConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "invokeType":
+            suggest = "invoke_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNamespaceLambdaConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNamespaceLambdaConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNamespaceLambdaConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 invoke_type: 'ChannelNamespaceInvokeType'):
+        pulumi.set(__self__, "invoke_type", invoke_type)
+
+    @property
+    @pulumi.getter(name="invokeType")
+    def invoke_type(self) -> 'ChannelNamespaceInvokeType':
+        return pulumi.get(self, "invoke_type")
 
 
 @pulumi.output_type

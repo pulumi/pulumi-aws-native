@@ -3407,7 +3407,7 @@ type DataSourceHookConfiguration struct {
 	//
 	// For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
 	InvocationCondition *DataSourceDocumentAttributeCondition `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+	// The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 	LambdaArn *string `pulumi:"lambdaArn"`
 	// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
 	RoleArn *string `pulumi:"roleArn"`
@@ -3431,7 +3431,7 @@ type DataSourceHookConfigurationArgs struct {
 	//
 	// For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
 	InvocationCondition DataSourceDocumentAttributeConditionPtrInput `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+	// The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 	LambdaArn pulumi.StringPtrInput `pulumi:"lambdaArn"`
 	// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -3525,7 +3525,7 @@ func (o DataSourceHookConfigurationOutput) InvocationCondition() DataSourceDocum
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+// The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 func (o DataSourceHookConfigurationOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHookConfiguration) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
 }
@@ -3576,7 +3576,7 @@ func (o DataSourceHookConfigurationPtrOutput) InvocationCondition() DataSourceDo
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+// The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 func (o DataSourceHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHookConfiguration) *string {
 		if v == nil {

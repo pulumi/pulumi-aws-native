@@ -111,14 +111,13 @@
   "required" : [ "MonitorArnList", "Subscribers", "Frequency", "SubscriptionName" ],
   "createOnlyProperties" : [ "/properties/ResourceTags" ],
   "readOnlyProperties" : [ "/properties/SubscriptionArn", "/properties/AccountId", "/properties/Subscribers/*/Status" ],
-  "writeOnlyProperties" : [ "/properties/ResourceTags" ],
   "primaryIdentifier" : [ "/properties/SubscriptionArn" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ce:CreateAnomalySubscription", "ce:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "ce:GetAnomalySubscriptions" ]
+      "permissions" : [ "ce:GetAnomalySubscriptions", "ce:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "ce:UpdateAnomalySubscription" ]
@@ -129,5 +128,13 @@
     "list" : {
       "permissions" : [ "ce:GetAnomalySubscriptions" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/ResourceTags",
+    "permissions" : [ "ce:ListTagsForResource" ]
   }
 }

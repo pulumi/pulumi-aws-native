@@ -40,6 +40,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === AutoScalingGroup.__pulumiType;
     }
 
+    public /*out*/ readonly autoScalingGroupArn!: pulumi.Output<string>;
     /**
      * The name of the Auto Scaling group. This name must be unique per Region per account.
      *  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
@@ -252,7 +253,9 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["terminationPolicies"] = args ? args.terminationPolicies : undefined;
             resourceInputs["trafficSources"] = args ? args.trafficSources : undefined;
             resourceInputs["vpcZoneIdentifier"] = args ? args.vpcZoneIdentifier : undefined;
+            resourceInputs["autoScalingGroupArn"] = undefined /*out*/;
         } else {
+            resourceInputs["autoScalingGroupArn"] = undefined /*out*/;
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
             resourceInputs["availabilityZoneDistribution"] = undefined /*out*/;
             resourceInputs["availabilityZoneImpairmentPolicy"] = undefined /*out*/;

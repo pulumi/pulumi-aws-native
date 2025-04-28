@@ -1188,7 +1188,7 @@ if not MYPY:
         """
         terminate_jobs_on_update: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+        Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated. The default value is `false` .
         """
 elif False:
     ComputeEnvironmentUpdatePolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -1200,7 +1200,7 @@ class ComputeEnvironmentUpdatePolicyArgs:
                  terminate_jobs_on_update: Optional[pulumi.Input[builtins.bool]] = None):
         """
         :param pulumi.Input[builtins.int] job_execution_timeout_minutes: Specifies the job timeout (in minutes) when the compute environment infrastructure is updated. The default value is 30.
-        :param pulumi.Input[builtins.bool] terminate_jobs_on_update: Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+        :param pulumi.Input[builtins.bool] terminate_jobs_on_update: Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated. The default value is `false` .
         """
         if job_execution_timeout_minutes is not None:
             pulumi.set(__self__, "job_execution_timeout_minutes", job_execution_timeout_minutes)
@@ -1223,7 +1223,7 @@ class ComputeEnvironmentUpdatePolicyArgs:
     @pulumi.getter(name="terminateJobsOnUpdate")
     def terminate_jobs_on_update(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+        Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated. The default value is `false` .
         """
         return pulumi.get(self, "terminate_jobs_on_update")
 

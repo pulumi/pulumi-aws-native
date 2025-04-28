@@ -10,6 +10,502 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type associated with the filter.
+type RegistryScanningConfigurationFilterType string
+
+const (
+	RegistryScanningConfigurationFilterTypeWildcard = RegistryScanningConfigurationFilterType("WILDCARD")
+)
+
+func (RegistryScanningConfigurationFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryScanningConfigurationFilterType)(nil)).Elem()
+}
+
+func (e RegistryScanningConfigurationFilterType) ToRegistryScanningConfigurationFilterTypeOutput() RegistryScanningConfigurationFilterTypeOutput {
+	return pulumi.ToOutput(e).(RegistryScanningConfigurationFilterTypeOutput)
+}
+
+func (e RegistryScanningConfigurationFilterType) ToRegistryScanningConfigurationFilterTypeOutputWithContext(ctx context.Context) RegistryScanningConfigurationFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RegistryScanningConfigurationFilterTypeOutput)
+}
+
+func (e RegistryScanningConfigurationFilterType) ToRegistryScanningConfigurationFilterTypePtrOutput() RegistryScanningConfigurationFilterTypePtrOutput {
+	return e.ToRegistryScanningConfigurationFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e RegistryScanningConfigurationFilterType) ToRegistryScanningConfigurationFilterTypePtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationFilterTypePtrOutput {
+	return RegistryScanningConfigurationFilterType(e).ToRegistryScanningConfigurationFilterTypeOutputWithContext(ctx).ToRegistryScanningConfigurationFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e RegistryScanningConfigurationFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryScanningConfigurationFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryScanningConfigurationFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RegistryScanningConfigurationFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RegistryScanningConfigurationFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (RegistryScanningConfigurationFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryScanningConfigurationFilterType)(nil)).Elem()
+}
+
+func (o RegistryScanningConfigurationFilterTypeOutput) ToRegistryScanningConfigurationFilterTypeOutput() RegistryScanningConfigurationFilterTypeOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationFilterTypeOutput) ToRegistryScanningConfigurationFilterTypeOutputWithContext(ctx context.Context) RegistryScanningConfigurationFilterTypeOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationFilterTypeOutput) ToRegistryScanningConfigurationFilterTypePtrOutput() RegistryScanningConfigurationFilterTypePtrOutput {
+	return o.ToRegistryScanningConfigurationFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o RegistryScanningConfigurationFilterTypeOutput) ToRegistryScanningConfigurationFilterTypePtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryScanningConfigurationFilterType) *RegistryScanningConfigurationFilterType {
+		return &v
+	}).(RegistryScanningConfigurationFilterTypePtrOutput)
+}
+
+func (o RegistryScanningConfigurationFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RegistryScanningConfigurationFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryScanningConfigurationFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RegistryScanningConfigurationFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryScanningConfigurationFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryScanningConfigurationFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryScanningConfigurationFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryScanningConfigurationFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryScanningConfigurationFilterType)(nil)).Elem()
+}
+
+func (o RegistryScanningConfigurationFilterTypePtrOutput) ToRegistryScanningConfigurationFilterTypePtrOutput() RegistryScanningConfigurationFilterTypePtrOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationFilterTypePtrOutput) ToRegistryScanningConfigurationFilterTypePtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationFilterTypePtrOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationFilterTypePtrOutput) Elem() RegistryScanningConfigurationFilterTypeOutput {
+	return o.ApplyT(func(v *RegistryScanningConfigurationFilterType) RegistryScanningConfigurationFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryScanningConfigurationFilterType
+		return ret
+	}).(RegistryScanningConfigurationFilterTypeOutput)
+}
+
+func (o RegistryScanningConfigurationFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryScanningConfigurationFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RegistryScanningConfigurationFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RegistryScanningConfigurationFilterTypeInput is an input type that accepts values of the RegistryScanningConfigurationFilterType enum
+// A concrete instance of `RegistryScanningConfigurationFilterTypeInput` can be one of the following:
+//
+//	RegistryScanningConfigurationFilterTypeWildcard
+type RegistryScanningConfigurationFilterTypeInput interface {
+	pulumi.Input
+
+	ToRegistryScanningConfigurationFilterTypeOutput() RegistryScanningConfigurationFilterTypeOutput
+	ToRegistryScanningConfigurationFilterTypeOutputWithContext(context.Context) RegistryScanningConfigurationFilterTypeOutput
+}
+
+var registryScanningConfigurationFilterTypePtrType = reflect.TypeOf((**RegistryScanningConfigurationFilterType)(nil)).Elem()
+
+type RegistryScanningConfigurationFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToRegistryScanningConfigurationFilterTypePtrOutput() RegistryScanningConfigurationFilterTypePtrOutput
+	ToRegistryScanningConfigurationFilterTypePtrOutputWithContext(context.Context) RegistryScanningConfigurationFilterTypePtrOutput
+}
+
+type registryScanningConfigurationFilterTypePtr string
+
+func RegistryScanningConfigurationFilterTypePtr(v string) RegistryScanningConfigurationFilterTypePtrInput {
+	return (*registryScanningConfigurationFilterTypePtr)(&v)
+}
+
+func (*registryScanningConfigurationFilterTypePtr) ElementType() reflect.Type {
+	return registryScanningConfigurationFilterTypePtrType
+}
+
+func (in *registryScanningConfigurationFilterTypePtr) ToRegistryScanningConfigurationFilterTypePtrOutput() RegistryScanningConfigurationFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(RegistryScanningConfigurationFilterTypePtrOutput)
+}
+
+func (in *registryScanningConfigurationFilterTypePtr) ToRegistryScanningConfigurationFilterTypePtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RegistryScanningConfigurationFilterTypePtrOutput)
+}
+
+// The frequency that scans are performed.
+type RegistryScanningConfigurationScanFrequency string
+
+const (
+	RegistryScanningConfigurationScanFrequencyScanOnPush     = RegistryScanningConfigurationScanFrequency("SCAN_ON_PUSH")
+	RegistryScanningConfigurationScanFrequencyContinuousScan = RegistryScanningConfigurationScanFrequency("CONTINUOUS_SCAN")
+)
+
+func (RegistryScanningConfigurationScanFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryScanningConfigurationScanFrequency)(nil)).Elem()
+}
+
+func (e RegistryScanningConfigurationScanFrequency) ToRegistryScanningConfigurationScanFrequencyOutput() RegistryScanningConfigurationScanFrequencyOutput {
+	return pulumi.ToOutput(e).(RegistryScanningConfigurationScanFrequencyOutput)
+}
+
+func (e RegistryScanningConfigurationScanFrequency) ToRegistryScanningConfigurationScanFrequencyOutputWithContext(ctx context.Context) RegistryScanningConfigurationScanFrequencyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RegistryScanningConfigurationScanFrequencyOutput)
+}
+
+func (e RegistryScanningConfigurationScanFrequency) ToRegistryScanningConfigurationScanFrequencyPtrOutput() RegistryScanningConfigurationScanFrequencyPtrOutput {
+	return e.ToRegistryScanningConfigurationScanFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (e RegistryScanningConfigurationScanFrequency) ToRegistryScanningConfigurationScanFrequencyPtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationScanFrequencyPtrOutput {
+	return RegistryScanningConfigurationScanFrequency(e).ToRegistryScanningConfigurationScanFrequencyOutputWithContext(ctx).ToRegistryScanningConfigurationScanFrequencyPtrOutputWithContext(ctx)
+}
+
+func (e RegistryScanningConfigurationScanFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryScanningConfigurationScanFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryScanningConfigurationScanFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RegistryScanningConfigurationScanFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RegistryScanningConfigurationScanFrequencyOutput struct{ *pulumi.OutputState }
+
+func (RegistryScanningConfigurationScanFrequencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryScanningConfigurationScanFrequency)(nil)).Elem()
+}
+
+func (o RegistryScanningConfigurationScanFrequencyOutput) ToRegistryScanningConfigurationScanFrequencyOutput() RegistryScanningConfigurationScanFrequencyOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationScanFrequencyOutput) ToRegistryScanningConfigurationScanFrequencyOutputWithContext(ctx context.Context) RegistryScanningConfigurationScanFrequencyOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationScanFrequencyOutput) ToRegistryScanningConfigurationScanFrequencyPtrOutput() RegistryScanningConfigurationScanFrequencyPtrOutput {
+	return o.ToRegistryScanningConfigurationScanFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryScanningConfigurationScanFrequencyOutput) ToRegistryScanningConfigurationScanFrequencyPtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationScanFrequencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryScanningConfigurationScanFrequency) *RegistryScanningConfigurationScanFrequency {
+		return &v
+	}).(RegistryScanningConfigurationScanFrequencyPtrOutput)
+}
+
+func (o RegistryScanningConfigurationScanFrequencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RegistryScanningConfigurationScanFrequencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryScanningConfigurationScanFrequency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RegistryScanningConfigurationScanFrequencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryScanningConfigurationScanFrequencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryScanningConfigurationScanFrequency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryScanningConfigurationScanFrequencyPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryScanningConfigurationScanFrequencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryScanningConfigurationScanFrequency)(nil)).Elem()
+}
+
+func (o RegistryScanningConfigurationScanFrequencyPtrOutput) ToRegistryScanningConfigurationScanFrequencyPtrOutput() RegistryScanningConfigurationScanFrequencyPtrOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationScanFrequencyPtrOutput) ToRegistryScanningConfigurationScanFrequencyPtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationScanFrequencyPtrOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationScanFrequencyPtrOutput) Elem() RegistryScanningConfigurationScanFrequencyOutput {
+	return o.ApplyT(func(v *RegistryScanningConfigurationScanFrequency) RegistryScanningConfigurationScanFrequency {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryScanningConfigurationScanFrequency
+		return ret
+	}).(RegistryScanningConfigurationScanFrequencyOutput)
+}
+
+func (o RegistryScanningConfigurationScanFrequencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryScanningConfigurationScanFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RegistryScanningConfigurationScanFrequency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RegistryScanningConfigurationScanFrequencyInput is an input type that accepts values of the RegistryScanningConfigurationScanFrequency enum
+// A concrete instance of `RegistryScanningConfigurationScanFrequencyInput` can be one of the following:
+//
+//	RegistryScanningConfigurationScanFrequencyScanOnPush
+//	RegistryScanningConfigurationScanFrequencyContinuousScan
+type RegistryScanningConfigurationScanFrequencyInput interface {
+	pulumi.Input
+
+	ToRegistryScanningConfigurationScanFrequencyOutput() RegistryScanningConfigurationScanFrequencyOutput
+	ToRegistryScanningConfigurationScanFrequencyOutputWithContext(context.Context) RegistryScanningConfigurationScanFrequencyOutput
+}
+
+var registryScanningConfigurationScanFrequencyPtrType = reflect.TypeOf((**RegistryScanningConfigurationScanFrequency)(nil)).Elem()
+
+type RegistryScanningConfigurationScanFrequencyPtrInput interface {
+	pulumi.Input
+
+	ToRegistryScanningConfigurationScanFrequencyPtrOutput() RegistryScanningConfigurationScanFrequencyPtrOutput
+	ToRegistryScanningConfigurationScanFrequencyPtrOutputWithContext(context.Context) RegistryScanningConfigurationScanFrequencyPtrOutput
+}
+
+type registryScanningConfigurationScanFrequencyPtr string
+
+func RegistryScanningConfigurationScanFrequencyPtr(v string) RegistryScanningConfigurationScanFrequencyPtrInput {
+	return (*registryScanningConfigurationScanFrequencyPtr)(&v)
+}
+
+func (*registryScanningConfigurationScanFrequencyPtr) ElementType() reflect.Type {
+	return registryScanningConfigurationScanFrequencyPtrType
+}
+
+func (in *registryScanningConfigurationScanFrequencyPtr) ToRegistryScanningConfigurationScanFrequencyPtrOutput() RegistryScanningConfigurationScanFrequencyPtrOutput {
+	return pulumi.ToOutput(in).(RegistryScanningConfigurationScanFrequencyPtrOutput)
+}
+
+func (in *registryScanningConfigurationScanFrequencyPtr) ToRegistryScanningConfigurationScanFrequencyPtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationScanFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RegistryScanningConfigurationScanFrequencyPtrOutput)
+}
+
+// The type of scanning configured for the registry.
+type RegistryScanningConfigurationScanType string
+
+const (
+	RegistryScanningConfigurationScanTypeBasic    = RegistryScanningConfigurationScanType("BASIC")
+	RegistryScanningConfigurationScanTypeEnhanced = RegistryScanningConfigurationScanType("ENHANCED")
+)
+
+func (RegistryScanningConfigurationScanType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryScanningConfigurationScanType)(nil)).Elem()
+}
+
+func (e RegistryScanningConfigurationScanType) ToRegistryScanningConfigurationScanTypeOutput() RegistryScanningConfigurationScanTypeOutput {
+	return pulumi.ToOutput(e).(RegistryScanningConfigurationScanTypeOutput)
+}
+
+func (e RegistryScanningConfigurationScanType) ToRegistryScanningConfigurationScanTypeOutputWithContext(ctx context.Context) RegistryScanningConfigurationScanTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RegistryScanningConfigurationScanTypeOutput)
+}
+
+func (e RegistryScanningConfigurationScanType) ToRegistryScanningConfigurationScanTypePtrOutput() RegistryScanningConfigurationScanTypePtrOutput {
+	return e.ToRegistryScanningConfigurationScanTypePtrOutputWithContext(context.Background())
+}
+
+func (e RegistryScanningConfigurationScanType) ToRegistryScanningConfigurationScanTypePtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationScanTypePtrOutput {
+	return RegistryScanningConfigurationScanType(e).ToRegistryScanningConfigurationScanTypeOutputWithContext(ctx).ToRegistryScanningConfigurationScanTypePtrOutputWithContext(ctx)
+}
+
+func (e RegistryScanningConfigurationScanType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryScanningConfigurationScanType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryScanningConfigurationScanType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RegistryScanningConfigurationScanType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RegistryScanningConfigurationScanTypeOutput struct{ *pulumi.OutputState }
+
+func (RegistryScanningConfigurationScanTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryScanningConfigurationScanType)(nil)).Elem()
+}
+
+func (o RegistryScanningConfigurationScanTypeOutput) ToRegistryScanningConfigurationScanTypeOutput() RegistryScanningConfigurationScanTypeOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationScanTypeOutput) ToRegistryScanningConfigurationScanTypeOutputWithContext(ctx context.Context) RegistryScanningConfigurationScanTypeOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationScanTypeOutput) ToRegistryScanningConfigurationScanTypePtrOutput() RegistryScanningConfigurationScanTypePtrOutput {
+	return o.ToRegistryScanningConfigurationScanTypePtrOutputWithContext(context.Background())
+}
+
+func (o RegistryScanningConfigurationScanTypeOutput) ToRegistryScanningConfigurationScanTypePtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationScanTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryScanningConfigurationScanType) *RegistryScanningConfigurationScanType {
+		return &v
+	}).(RegistryScanningConfigurationScanTypePtrOutput)
+}
+
+func (o RegistryScanningConfigurationScanTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RegistryScanningConfigurationScanTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryScanningConfigurationScanType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RegistryScanningConfigurationScanTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryScanningConfigurationScanTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryScanningConfigurationScanType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryScanningConfigurationScanTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryScanningConfigurationScanTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryScanningConfigurationScanType)(nil)).Elem()
+}
+
+func (o RegistryScanningConfigurationScanTypePtrOutput) ToRegistryScanningConfigurationScanTypePtrOutput() RegistryScanningConfigurationScanTypePtrOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationScanTypePtrOutput) ToRegistryScanningConfigurationScanTypePtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationScanTypePtrOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationScanTypePtrOutput) Elem() RegistryScanningConfigurationScanTypeOutput {
+	return o.ApplyT(func(v *RegistryScanningConfigurationScanType) RegistryScanningConfigurationScanType {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryScanningConfigurationScanType
+		return ret
+	}).(RegistryScanningConfigurationScanTypeOutput)
+}
+
+func (o RegistryScanningConfigurationScanTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryScanningConfigurationScanTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RegistryScanningConfigurationScanType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RegistryScanningConfigurationScanTypeInput is an input type that accepts values of the RegistryScanningConfigurationScanType enum
+// A concrete instance of `RegistryScanningConfigurationScanTypeInput` can be one of the following:
+//
+//	RegistryScanningConfigurationScanTypeBasic
+//	RegistryScanningConfigurationScanTypeEnhanced
+type RegistryScanningConfigurationScanTypeInput interface {
+	pulumi.Input
+
+	ToRegistryScanningConfigurationScanTypeOutput() RegistryScanningConfigurationScanTypeOutput
+	ToRegistryScanningConfigurationScanTypeOutputWithContext(context.Context) RegistryScanningConfigurationScanTypeOutput
+}
+
+var registryScanningConfigurationScanTypePtrType = reflect.TypeOf((**RegistryScanningConfigurationScanType)(nil)).Elem()
+
+type RegistryScanningConfigurationScanTypePtrInput interface {
+	pulumi.Input
+
+	ToRegistryScanningConfigurationScanTypePtrOutput() RegistryScanningConfigurationScanTypePtrOutput
+	ToRegistryScanningConfigurationScanTypePtrOutputWithContext(context.Context) RegistryScanningConfigurationScanTypePtrOutput
+}
+
+type registryScanningConfigurationScanTypePtr string
+
+func RegistryScanningConfigurationScanTypePtr(v string) RegistryScanningConfigurationScanTypePtrInput {
+	return (*registryScanningConfigurationScanTypePtr)(&v)
+}
+
+func (*registryScanningConfigurationScanTypePtr) ElementType() reflect.Type {
+	return registryScanningConfigurationScanTypePtrType
+}
+
+func (in *registryScanningConfigurationScanTypePtr) ToRegistryScanningConfigurationScanTypePtrOutput() RegistryScanningConfigurationScanTypePtrOutput {
+	return pulumi.ToOutput(in).(RegistryScanningConfigurationScanTypePtrOutput)
+}
+
+func (in *registryScanningConfigurationScanTypePtr) ToRegistryScanningConfigurationScanTypePtrOutputWithContext(ctx context.Context) RegistryScanningConfigurationScanTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RegistryScanningConfigurationScanTypePtrOutput)
+}
+
 // Type of repository filter
 type ReplicationConfigurationFilterType string
 
@@ -1054,6 +1550,12 @@ func (in *repositoryImageTagMutabilityPtr) ToRepositoryImageTagMutabilityPtrOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationFilterTypeInput)(nil)).Elem(), RegistryScanningConfigurationFilterType("WILDCARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationFilterTypePtrInput)(nil)).Elem(), RegistryScanningConfigurationFilterType("WILDCARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationScanFrequencyInput)(nil)).Elem(), RegistryScanningConfigurationScanFrequency("SCAN_ON_PUSH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationScanFrequencyPtrInput)(nil)).Elem(), RegistryScanningConfigurationScanFrequency("SCAN_ON_PUSH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationScanTypeInput)(nil)).Elem(), RegistryScanningConfigurationScanType("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationScanTypePtrInput)(nil)).Elem(), RegistryScanningConfigurationScanType("BASIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationFilterTypeInput)(nil)).Elem(), ReplicationConfigurationFilterType("PREFIX_MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationFilterTypePtrInput)(nil)).Elem(), ReplicationConfigurationFilterType("PREFIX_MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateAppliedForItemInput)(nil)).Elem(), RepositoryCreationTemplateAppliedForItem("REPLICATION"))
@@ -1067,6 +1569,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionTypePtrInput)(nil)).Elem(), RepositoryEncryptionType("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityInput)(nil)).Elem(), RepositoryImageTagMutability("MUTABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityPtrInput)(nil)).Elem(), RepositoryImageTagMutability("MUTABLE"))
+	pulumi.RegisterOutputType(RegistryScanningConfigurationFilterTypeOutput{})
+	pulumi.RegisterOutputType(RegistryScanningConfigurationFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(RegistryScanningConfigurationScanFrequencyOutput{})
+	pulumi.RegisterOutputType(RegistryScanningConfigurationScanFrequencyPtrOutput{})
+	pulumi.RegisterOutputType(RegistryScanningConfigurationScanTypeOutput{})
+	pulumi.RegisterOutputType(RegistryScanningConfigurationScanTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationFilterTypeOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryCreationTemplateAppliedForItemOutput{})

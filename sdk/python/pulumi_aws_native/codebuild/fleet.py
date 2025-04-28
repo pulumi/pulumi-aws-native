@@ -40,7 +40,7 @@ class FleetArgs:
         """
         The set of arguments for constructing a Fleet resource.
         :param pulumi.Input[builtins.int] base_capacity: The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
-        :param pulumi.Input['FleetComputeConfigurationArgs'] compute_configuration: The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        :param pulumi.Input['FleetComputeConfigurationArgs'] compute_configuration: The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
         :param pulumi.Input['FleetComputeType'] compute_type: Information about the compute resources the compute fleet uses. Available values include:
                
                - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
@@ -140,7 +140,7 @@ class FleetArgs:
     @pulumi.getter(name="computeConfiguration")
     def compute_configuration(self) -> Optional[pulumi.Input['FleetComputeConfigurationArgs']]:
         """
-        The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
         """
         return pulumi.get(self, "compute_configuration")
 
@@ -343,7 +343,7 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.int] base_capacity: The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
-        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']] compute_configuration: The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']] compute_configuration: The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
         :param pulumi.Input['FleetComputeType'] compute_type: Information about the compute resources the compute fleet uses. Available values include:
                
                - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
@@ -517,7 +517,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="computeConfiguration")
     def compute_configuration(self) -> pulumi.Output[Optional['outputs.FleetComputeConfiguration']]:
         """
-        The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
         """
         return pulumi.get(self, "compute_configuration")
 

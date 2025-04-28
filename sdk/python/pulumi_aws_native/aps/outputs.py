@@ -424,6 +424,7 @@ class WorkspaceLimitsPerLabelSet(dict):
         """
         Label set and its associated limits
         :param Sequence['WorkspaceLabel'] label_set: An array of series labels
+        :param 'WorkspaceLimitsPerLabelSetEntry' limits: This structure contains the information about the limits that apply to time series that match this label set.
         """
         pulumi.set(__self__, "label_set", label_set)
         pulumi.set(__self__, "limits", limits)
@@ -439,6 +440,9 @@ class WorkspaceLimitsPerLabelSet(dict):
     @property
     @pulumi.getter
     def limits(self) -> 'outputs.WorkspaceLimitsPerLabelSetEntry':
+        """
+        This structure contains the information about the limits that apply to time series that match this label set.
+        """
         return pulumi.get(self, "limits")
 
 

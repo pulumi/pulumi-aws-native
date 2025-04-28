@@ -15,6 +15,11 @@ export type CloudFrontOriginAccessIdentity = import("./cloudFrontOriginAccessIde
 export const CloudFrontOriginAccessIdentity: typeof import("./cloudFrontOriginAccessIdentity").CloudFrontOriginAccessIdentity = null as any;
 utilities.lazyLoad(exports, ["CloudFrontOriginAccessIdentity"], () => require("./cloudFrontOriginAccessIdentity"));
 
+export { ConnectionGroupArgs } from "./connectionGroup";
+export type ConnectionGroup = import("./connectionGroup").ConnectionGroup;
+export const ConnectionGroup: typeof import("./connectionGroup").ConnectionGroup = null as any;
+utilities.lazyLoad(exports, ["ConnectionGroup"], () => require("./connectionGroup"));
+
 export { ContinuousDeploymentPolicyArgs } from "./continuousDeploymentPolicy";
 export type ContinuousDeploymentPolicy = import("./continuousDeploymentPolicy").ContinuousDeploymentPolicy;
 export const ContinuousDeploymentPolicy: typeof import("./continuousDeploymentPolicy").ContinuousDeploymentPolicy = null as any;
@@ -24,6 +29,11 @@ export { DistributionArgs } from "./distribution";
 export type Distribution = import("./distribution").Distribution;
 export const Distribution: typeof import("./distribution").Distribution = null as any;
 utilities.lazyLoad(exports, ["Distribution"], () => require("./distribution"));
+
+export { DistributionTenantArgs } from "./distributionTenant";
+export type DistributionTenant = import("./distributionTenant").DistributionTenant;
+export const DistributionTenant: typeof import("./distributionTenant").DistributionTenant = null as any;
+utilities.lazyLoad(exports, ["DistributionTenant"], () => require("./distributionTenant"));
 
 export { FunctionArgs } from "./function";
 export type Function = import("./function").Function;
@@ -40,6 +50,11 @@ export const getCloudFrontOriginAccessIdentity: typeof import("./getCloudFrontOr
 export const getCloudFrontOriginAccessIdentityOutput: typeof import("./getCloudFrontOriginAccessIdentity").getCloudFrontOriginAccessIdentityOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudFrontOriginAccessIdentity","getCloudFrontOriginAccessIdentityOutput"], () => require("./getCloudFrontOriginAccessIdentity"));
 
+export { GetConnectionGroupArgs, GetConnectionGroupResult, GetConnectionGroupOutputArgs } from "./getConnectionGroup";
+export const getConnectionGroup: typeof import("./getConnectionGroup").getConnectionGroup = null as any;
+export const getConnectionGroupOutput: typeof import("./getConnectionGroup").getConnectionGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectionGroup","getConnectionGroupOutput"], () => require("./getConnectionGroup"));
+
 export { GetContinuousDeploymentPolicyArgs, GetContinuousDeploymentPolicyResult, GetContinuousDeploymentPolicyOutputArgs } from "./getContinuousDeploymentPolicy";
 export const getContinuousDeploymentPolicy: typeof import("./getContinuousDeploymentPolicy").getContinuousDeploymentPolicy = null as any;
 export const getContinuousDeploymentPolicyOutput: typeof import("./getContinuousDeploymentPolicy").getContinuousDeploymentPolicyOutput = null as any;
@@ -49,6 +64,11 @@ export { GetDistributionArgs, GetDistributionResult, GetDistributionOutputArgs }
 export const getDistribution: typeof import("./getDistribution").getDistribution = null as any;
 export const getDistributionOutput: typeof import("./getDistribution").getDistributionOutput = null as any;
 utilities.lazyLoad(exports, ["getDistribution","getDistributionOutput"], () => require("./getDistribution"));
+
+export { GetDistributionTenantArgs, GetDistributionTenantResult, GetDistributionTenantOutputArgs } from "./getDistributionTenant";
+export const getDistributionTenant: typeof import("./getDistributionTenant").getDistributionTenant = null as any;
+export const getDistributionTenantOutput: typeof import("./getDistributionTenant").getDistributionTenantOutput = null as any;
+utilities.lazyLoad(exports, ["getDistributionTenant","getDistributionTenantOutput"], () => require("./getDistributionTenant"));
 
 export { GetFunctionArgs, GetFunctionResult, GetFunctionOutputArgs } from "./getFunction";
 export const getFunction: typeof import("./getFunction").getFunction = null as any;
@@ -157,10 +177,14 @@ const _module = {
                 return new CachePolicy(name, <any>undefined, { urn })
             case "aws-native:cloudfront:CloudFrontOriginAccessIdentity":
                 return new CloudFrontOriginAccessIdentity(name, <any>undefined, { urn })
+            case "aws-native:cloudfront:ConnectionGroup":
+                return new ConnectionGroup(name, <any>undefined, { urn })
             case "aws-native:cloudfront:ContinuousDeploymentPolicy":
                 return new ContinuousDeploymentPolicy(name, <any>undefined, { urn })
             case "aws-native:cloudfront:Distribution":
                 return new Distribution(name, <any>undefined, { urn })
+            case "aws-native:cloudfront:DistributionTenant":
+                return new DistributionTenant(name, <any>undefined, { urn })
             case "aws-native:cloudfront:Function":
                 return new Function(name, <any>undefined, { urn })
             case "aws-native:cloudfront:KeyGroup":

@@ -50,6 +50,7 @@ class ServiceCodeConfigurationValuesRuntime(builtins.str, Enum):
     RUBY31 = "RUBY_31"
     PYTHON311 = "PYTHON_311"
     NODEJS18 = "NODEJS_18"
+    NODEJS22 = "NODEJS_22"
 
 
 class ServiceEgressConfigurationEgressType(builtins.str, Enum):

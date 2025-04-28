@@ -33,6 +33,7 @@ __all__ = [
     'ContinuousDeploymentPolicyTrafficConfig',
     'DistributionCacheBehavior',
     'DistributionConfig',
+    'DistributionConfigTenantConfigProperties',
     'DistributionCookies',
     'DistributionCustomErrorResponse',
     'DistributionCustomOriginConfig',
@@ -53,9 +54,19 @@ __all__ = [
     'DistributionOriginGroupMembers',
     'DistributionOriginGroups',
     'DistributionOriginShield',
+    'DistributionParameterDefinition',
+    'DistributionParameterDefinitionDefinitionProperties',
+    'DistributionParameterDefinitionDefinitionPropertiesStringSchemaProperties',
     'DistributionRestrictions',
     'DistributionS3OriginConfig',
     'DistributionStatusCodes',
+    'DistributionTenantCertificate',
+    'DistributionTenantCustomizations',
+    'DistributionTenantDomainResult',
+    'DistributionTenantGeoRestrictionCustomization',
+    'DistributionTenantManagedCertificateRequest',
+    'DistributionTenantParameter',
+    'DistributionTenantWebAclCustomization',
     'DistributionViewerCertificate',
     'DistributionVpcOriginConfig',
     'FunctionConfig',
@@ -1306,6 +1317,8 @@ class DistributionConfig(dict):
             suggest = "anycast_ip_list_id"
         elif key == "cacheBehaviors":
             suggest = "cache_behaviors"
+        elif key == "connectionMode":
+            suggest = "connection_mode"
         elif key == "continuousDeploymentPolicyId":
             suggest = "continuous_deployment_policy_id"
         elif key == "customErrorResponses":
@@ -1324,6 +1337,8 @@ class DistributionConfig(dict):
             suggest = "price_class"
         elif key == "s3Origin":
             suggest = "s3_origin"
+        elif key == "tenantConfig":
+            suggest = "tenant_config"
         elif key == "viewerCertificate":
             suggest = "viewer_certificate"
         elif key == "webAclId":
@@ -1348,6 +1363,7 @@ class DistributionConfig(dict):
                  cache_behaviors: Optional[Sequence['outputs.DistributionCacheBehavior']] = None,
                  cnames: Optional[Sequence[builtins.str]] = None,
                  comment: Optional[builtins.str] = None,
+                 connection_mode: Optional['DistributionConnectionMode'] = None,
                  continuous_deployment_policy_id: Optional[builtins.str] = None,
                  custom_error_responses: Optional[Sequence['outputs.DistributionCustomErrorResponse']] = None,
                  custom_origin: Optional['outputs.DistributionLegacyCustomOrigin'] = None,
@@ -1361,6 +1377,7 @@ class DistributionConfig(dict):
                  restrictions: Optional['outputs.DistributionRestrictions'] = None,
                  s3_origin: Optional['outputs.DistributionLegacyS3Origin'] = None,
                  staging: Optional[builtins.bool] = None,
+                 tenant_config: Optional['outputs.DistributionConfigTenantConfigProperties'] = None,
                  viewer_certificate: Optional['outputs.DistributionViewerCertificate'] = None,
                  web_acl_id: Optional[builtins.str] = None):
         """
@@ -1427,6 +1444,8 @@ class DistributionConfig(dict):
             pulumi.set(__self__, "cnames", cnames)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if connection_mode is not None:
+            pulumi.set(__self__, "connection_mode", connection_mode)
         if continuous_deployment_policy_id is not None:
             pulumi.set(__self__, "continuous_deployment_policy_id", continuous_deployment_policy_id)
         if custom_error_responses is not None:
@@ -1453,6 +1472,8 @@ class DistributionConfig(dict):
             pulumi.set(__self__, "s3_origin", s3_origin)
         if staging is not None:
             pulumi.set(__self__, "staging", staging)
+        if tenant_config is not None:
+            pulumi.set(__self__, "tenant_config", tenant_config)
         if viewer_certificate is not None:
             pulumi.set(__self__, "viewer_certificate", viewer_certificate)
         if web_acl_id is not None:
@@ -1514,6 +1535,11 @@ class DistributionConfig(dict):
         A comment to describe the distribution. The comment cannot be longer than 128 characters.
         """
         return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="connectionMode")
+    def connection_mode(self) -> Optional['DistributionConnectionMode']:
+        return pulumi.get(self, "connection_mode")
 
     @property
     @pulumi.getter(name="continuousDeploymentPolicyId")
@@ -1645,6 +1671,11 @@ class DistributionConfig(dict):
         return pulumi.get(self, "staging")
 
     @property
+    @pulumi.getter(name="tenantConfig")
+    def tenant_config(self) -> Optional['outputs.DistributionConfigTenantConfigProperties']:
+        return pulumi.get(self, "tenant_config")
+
+    @property
     @pulumi.getter(name="viewerCertificate")
     def viewer_certificate(self) -> Optional['outputs.DistributionViewerCertificate']:
         """
@@ -1660,6 +1691,36 @@ class DistributionConfig(dict):
           WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
         """
         return pulumi.get(self, "web_acl_id")
+
+
+@pulumi.output_type
+class DistributionConfigTenantConfigProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterDefinitions":
+            suggest = "parameter_definitions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigTenantConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigTenantConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigTenantConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameter_definitions: Optional[Sequence['outputs.DistributionParameterDefinition']] = None):
+        if parameter_definitions is not None:
+            pulumi.set(__self__, "parameter_definitions", parameter_definitions)
+
+    @property
+    @pulumi.getter(name="parameterDefinitions")
+    def parameter_definitions(self) -> Optional[Sequence['outputs.DistributionParameterDefinition']]:
+        return pulumi.get(self, "parameter_definitions")
 
 
 @pulumi.output_type
@@ -3434,6 +3495,100 @@ class DistributionOriginShield(dict):
 
 
 @pulumi.output_type
+class DistributionParameterDefinition(dict):
+    def __init__(__self__, *,
+                 definition: 'outputs.DistributionParameterDefinitionDefinitionProperties',
+                 name: builtins.str):
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> 'outputs.DistributionParameterDefinitionDefinitionProperties':
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DistributionParameterDefinitionDefinitionProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringSchema":
+            suggest = "string_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionParameterDefinitionDefinitionProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionParameterDefinitionDefinitionProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionParameterDefinitionDefinitionProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 string_schema: Optional['outputs.DistributionParameterDefinitionDefinitionPropertiesStringSchemaProperties'] = None):
+        if string_schema is not None:
+            pulumi.set(__self__, "string_schema", string_schema)
+
+    @property
+    @pulumi.getter(name="stringSchema")
+    def string_schema(self) -> Optional['outputs.DistributionParameterDefinitionDefinitionPropertiesStringSchemaProperties']:
+        return pulumi.get(self, "string_schema")
+
+
+@pulumi.output_type
+class DistributionParameterDefinitionDefinitionPropertiesStringSchemaProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionParameterDefinitionDefinitionPropertiesStringSchemaProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionParameterDefinitionDefinitionPropertiesStringSchemaProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionParameterDefinitionDefinitionPropertiesStringSchemaProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 required: builtins.bool,
+                 comment: Optional[builtins.str] = None,
+                 default_value: Optional[builtins.str] = None):
+        pulumi.set(__self__, "required", required)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+
+    @property
+    @pulumi.getter
+    def required(self) -> builtins.bool:
+        return pulumi.get(self, "required")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "default_value")
+
+
+@pulumi.output_type
 class DistributionRestrictions(dict):
     """
     A complex type that identifies ways in which you want to restrict distribution of your content.
@@ -3557,6 +3712,218 @@ class DistributionStatusCodes(dict):
         The number of status codes.
         """
         return pulumi.get(self, "quantity")
+
+
+@pulumi.output_type
+class DistributionTenantCertificate(dict):
+    def __init__(__self__, *,
+                 arn: Optional[builtins.str] = None):
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class DistributionTenantCustomizations(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "geoRestrictions":
+            suggest = "geo_restrictions"
+        elif key == "webAcl":
+            suggest = "web_acl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionTenantCustomizations. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionTenantCustomizations.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionTenantCustomizations.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate: Optional['outputs.DistributionTenantCertificate'] = None,
+                 geo_restrictions: Optional['outputs.DistributionTenantGeoRestrictionCustomization'] = None,
+                 web_acl: Optional['outputs.DistributionTenantWebAclCustomization'] = None):
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if geo_restrictions is not None:
+            pulumi.set(__self__, "geo_restrictions", geo_restrictions)
+        if web_acl is not None:
+            pulumi.set(__self__, "web_acl", web_acl)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional['outputs.DistributionTenantCertificate']:
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="geoRestrictions")
+    def geo_restrictions(self) -> Optional['outputs.DistributionTenantGeoRestrictionCustomization']:
+        return pulumi.get(self, "geo_restrictions")
+
+    @property
+    @pulumi.getter(name="webAcl")
+    def web_acl(self) -> Optional['outputs.DistributionTenantWebAclCustomization']:
+        return pulumi.get(self, "web_acl")
+
+
+@pulumi.output_type
+class DistributionTenantDomainResult(dict):
+    def __init__(__self__, *,
+                 domain: Optional[builtins.str] = None,
+                 status: Optional['DistributionTenantDomainResultStatus'] = None):
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['DistributionTenantDomainResultStatus']:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DistributionTenantGeoRestrictionCustomization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restrictionType":
+            suggest = "restriction_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionTenantGeoRestrictionCustomization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionTenantGeoRestrictionCustomization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionTenantGeoRestrictionCustomization.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 locations: Optional[Sequence[builtins.str]] = None,
+                 restriction_type: Optional['DistributionTenantGeoRestrictionCustomizationRestrictionType'] = None):
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if restriction_type is not None:
+            pulumi.set(__self__, "restriction_type", restriction_type)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter(name="restrictionType")
+    def restriction_type(self) -> Optional['DistributionTenantGeoRestrictionCustomizationRestrictionType']:
+        return pulumi.get(self, "restriction_type")
+
+
+@pulumi.output_type
+class DistributionTenantManagedCertificateRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateTransparencyLoggingPreference":
+            suggest = "certificate_transparency_logging_preference"
+        elif key == "primaryDomainName":
+            suggest = "primary_domain_name"
+        elif key == "validationTokenHost":
+            suggest = "validation_token_host"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionTenantManagedCertificateRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionTenantManagedCertificateRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionTenantManagedCertificateRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_transparency_logging_preference: Optional['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference'] = None,
+                 primary_domain_name: Optional[builtins.str] = None,
+                 validation_token_host: Optional['DistributionTenantManagedCertificateRequestValidationTokenHost'] = None):
+        if certificate_transparency_logging_preference is not None:
+            pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
+        if primary_domain_name is not None:
+            pulumi.set(__self__, "primary_domain_name", primary_domain_name)
+        if validation_token_host is not None:
+            pulumi.set(__self__, "validation_token_host", validation_token_host)
+
+    @property
+    @pulumi.getter(name="certificateTransparencyLoggingPreference")
+    def certificate_transparency_logging_preference(self) -> Optional['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference']:
+        return pulumi.get(self, "certificate_transparency_logging_preference")
+
+    @property
+    @pulumi.getter(name="primaryDomainName")
+    def primary_domain_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "primary_domain_name")
+
+    @property
+    @pulumi.getter(name="validationTokenHost")
+    def validation_token_host(self) -> Optional['DistributionTenantManagedCertificateRequestValidationTokenHost']:
+        return pulumi.get(self, "validation_token_host")
+
+
+@pulumi.output_type
+class DistributionTenantParameter(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DistributionTenantWebAclCustomization(dict):
+    def __init__(__self__, *,
+                 action: Optional['DistributionTenantWebAclCustomizationAction'] = None,
+                 arn: Optional[builtins.str] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['DistributionTenantWebAclCustomizationAction']:
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "arn")
 
 
 @pulumi.output_type

@@ -15,6 +15,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,7 @@ class AnomalySubscriptionArgs:
                  frequency: pulumi.Input['AnomalySubscriptionFrequency'],
                  monitor_arn_list: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  subscribers: pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]],
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionResourceTagArgs']]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
                  subscription_name: Optional[pulumi.Input[builtins.str]] = None,
                  threshold: Optional[pulumi.Input[builtins.float]] = None,
                  threshold_expression: Optional[pulumi.Input[builtins.str]] = None):
@@ -35,7 +37,7 @@ class AnomalySubscriptionArgs:
         :param pulumi.Input['AnomalySubscriptionFrequency'] frequency: The frequency at which anomaly reports are sent over email. 
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] monitor_arn_list: A list of cost anomaly monitors.
         :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]] subscribers: A list of subscriber
-        :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionResourceTagArgs']]] resource_tags: Tags to assign to subscription.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] resource_tags: Tags to assign to subscription.
         :param pulumi.Input[builtins.str] subscription_name: The name of the subscription.
         :param pulumi.Input[builtins.float] threshold: The dollar value that triggers a notification if the threshold is exceeded. 
         :param pulumi.Input[builtins.str] threshold_expression: An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
@@ -90,14 +92,14 @@ class AnomalySubscriptionArgs:
 
     @property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionResourceTagArgs']]]]:
+    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         Tags to assign to subscription.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionResourceTagArgs']]]]):
+    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "resource_tags", value)
 
     @property
@@ -147,7 +149,7 @@ class AnomalySubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frequency: Optional[pulumi.Input['AnomalySubscriptionFrequency']] = None,
                  monitor_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionResourceTagArgs', 'AnomalySubscriptionResourceTagArgsDict']]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
                  subscription_name: Optional[pulumi.Input[builtins.str]] = None,
                  threshold: Optional[pulumi.Input[builtins.float]] = None,
@@ -264,7 +266,7 @@ class AnomalySubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AnomalySubscriptionFrequency'] frequency: The frequency at which anomaly reports are sent over email. 
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] monitor_arn_list: A list of cost anomaly monitors.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionResourceTagArgs', 'AnomalySubscriptionResourceTagArgsDict']]]] resource_tags: Tags to assign to subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] resource_tags: Tags to assign to subscription.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]] subscribers: A list of subscriber
         :param pulumi.Input[builtins.str] subscription_name: The name of the subscription.
         :param pulumi.Input[builtins.float] threshold: The dollar value that triggers a notification if the threshold is exceeded. 
@@ -400,7 +402,7 @@ class AnomalySubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frequency: Optional[pulumi.Input['AnomalySubscriptionFrequency']] = None,
                  monitor_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionResourceTagArgs', 'AnomalySubscriptionResourceTagArgsDict']]]]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
                  subscription_name: Optional[pulumi.Input[builtins.str]] = None,
                  threshold: Optional[pulumi.Input[builtins.float]] = None,
@@ -490,7 +492,7 @@ class AnomalySubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> pulumi.Output[Optional[Sequence['outputs.AnomalySubscriptionResourceTag']]]:
+    def resource_tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
         Tags to assign to subscription.
         """

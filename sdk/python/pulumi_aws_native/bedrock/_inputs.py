@@ -65,6 +65,8 @@ __all__ = [
     'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict',
     'DataAutomationProjectAudioExtractionCategoryArgs',
     'DataAutomationProjectAudioExtractionCategoryArgsDict',
+    'DataAutomationProjectAudioOverrideConfigurationArgs',
+    'DataAutomationProjectAudioOverrideConfigurationArgsDict',
     'DataAutomationProjectAudioStandardExtractionArgs',
     'DataAutomationProjectAudioStandardExtractionArgsDict',
     'DataAutomationProjectAudioStandardGenerativeFieldArgs',
@@ -97,12 +99,18 @@ __all__ = [
     'DataAutomationProjectImageBoundingBoxArgsDict',
     'DataAutomationProjectImageExtractionCategoryArgs',
     'DataAutomationProjectImageExtractionCategoryArgsDict',
+    'DataAutomationProjectImageOverrideConfigurationArgs',
+    'DataAutomationProjectImageOverrideConfigurationArgsDict',
     'DataAutomationProjectImageStandardExtractionArgs',
     'DataAutomationProjectImageStandardExtractionArgsDict',
     'DataAutomationProjectImageStandardGenerativeFieldArgs',
     'DataAutomationProjectImageStandardGenerativeFieldArgsDict',
     'DataAutomationProjectImageStandardOutputConfigurationArgs',
     'DataAutomationProjectImageStandardOutputConfigurationArgsDict',
+    'DataAutomationProjectModalityProcessingConfigurationArgs',
+    'DataAutomationProjectModalityProcessingConfigurationArgsDict',
+    'DataAutomationProjectModalityRoutingConfigurationArgs',
+    'DataAutomationProjectModalityRoutingConfigurationArgsDict',
     'DataAutomationProjectOverrideConfigurationArgs',
     'DataAutomationProjectOverrideConfigurationArgsDict',
     'DataAutomationProjectSplitterConfigurationArgs',
@@ -113,6 +121,8 @@ __all__ = [
     'DataAutomationProjectVideoBoundingBoxArgsDict',
     'DataAutomationProjectVideoExtractionCategoryArgs',
     'DataAutomationProjectVideoExtractionCategoryArgsDict',
+    'DataAutomationProjectVideoOverrideConfigurationArgs',
+    'DataAutomationProjectVideoOverrideConfigurationArgsDict',
     'DataAutomationProjectVideoStandardExtractionArgs',
     'DataAutomationProjectVideoStandardExtractionArgsDict',
     'DataAutomationProjectVideoStandardGenerativeFieldArgs',
@@ -1980,6 +1990,29 @@ class DataAutomationProjectAudioExtractionCategoryArgs:
 
 
 if not MYPY:
+    class DataAutomationProjectAudioOverrideConfigurationArgsDict(TypedDict):
+        modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
+elif False:
+    DataAutomationProjectAudioOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectAudioOverrideConfigurationArgs:
+    def __init__(__self__, *,
+                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None):
+        if modality_processing is not None:
+            pulumi.set(__self__, "modality_processing", modality_processing)
+
+    @property
+    @pulumi.getter(name="modalityProcessing")
+    def modality_processing(self) -> Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]:
+        return pulumi.get(self, "modality_processing")
+
+    @modality_processing.setter
+    def modality_processing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]):
+        pulumi.set(self, "modality_processing", value)
+
+
+if not MYPY:
     class DataAutomationProjectAudioStandardExtractionArgsDict(TypedDict):
         category: pulumi.Input['DataAutomationProjectAudioExtractionCategoryArgsDict']
         """
@@ -2398,6 +2431,7 @@ class DataAutomationProjectDocumentOutputTextFormatArgs:
 
 if not MYPY:
     class DataAutomationProjectDocumentOverrideConfigurationArgsDict(TypedDict):
+        modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
         splitter: NotRequired[pulumi.Input['DataAutomationProjectSplitterConfigurationArgsDict']]
         """
         Whether document splitter is enabled for a project.
@@ -2408,12 +2442,24 @@ elif False:
 @pulumi.input_type
 class DataAutomationProjectDocumentOverrideConfigurationArgs:
     def __init__(__self__, *,
+                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
                  splitter: Optional[pulumi.Input['DataAutomationProjectSplitterConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectSplitterConfigurationArgs'] splitter: Whether document splitter is enabled for a project.
         """
+        if modality_processing is not None:
+            pulumi.set(__self__, "modality_processing", modality_processing)
         if splitter is not None:
             pulumi.set(__self__, "splitter", splitter)
+
+    @property
+    @pulumi.getter(name="modalityProcessing")
+    def modality_processing(self) -> Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]:
+        return pulumi.get(self, "modality_processing")
+
+    @modality_processing.setter
+    def modality_processing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]):
+        pulumi.set(self, "modality_processing", value)
 
     @property
     @pulumi.getter
@@ -2664,6 +2710,29 @@ class DataAutomationProjectImageExtractionCategoryArgs:
 
 
 if not MYPY:
+    class DataAutomationProjectImageOverrideConfigurationArgsDict(TypedDict):
+        modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
+elif False:
+    DataAutomationProjectImageOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectImageOverrideConfigurationArgs:
+    def __init__(__self__, *,
+                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None):
+        if modality_processing is not None:
+            pulumi.set(__self__, "modality_processing", modality_processing)
+
+    @property
+    @pulumi.getter(name="modalityProcessing")
+    def modality_processing(self) -> Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]:
+        return pulumi.get(self, "modality_processing")
+
+    @modality_processing.setter
+    def modality_processing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]):
+        pulumi.set(self, "modality_processing", value)
+
+
+if not MYPY:
     class DataAutomationProjectImageStandardExtractionArgsDict(TypedDict):
         bounding_box: pulumi.Input['DataAutomationProjectImageBoundingBoxArgsDict']
         """
@@ -2817,27 +2886,143 @@ class DataAutomationProjectImageStandardOutputConfigurationArgs:
 
 
 if not MYPY:
+    class DataAutomationProjectModalityProcessingConfigurationArgsDict(TypedDict):
+        state: NotRequired[pulumi.Input['DataAutomationProjectState']]
+elif False:
+    DataAutomationProjectModalityProcessingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectModalityProcessingConfigurationArgs:
+    def __init__(__self__, *,
+                 state: Optional[pulumi.Input['DataAutomationProjectState']] = None):
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input['DataAutomationProjectState']]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input['DataAutomationProjectState']]):
+        pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class DataAutomationProjectModalityRoutingConfigurationArgsDict(TypedDict):
+        """
+        Modality routing configuration
+        """
+        jpeg: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
+        mov: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
+        mp4: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
+        png: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
+elif False:
+    DataAutomationProjectModalityRoutingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectModalityRoutingConfigurationArgs:
+    def __init__(__self__, *,
+                 jpeg: Optional[pulumi.Input['DataAutomationProjectDesiredModality']] = None,
+                 mov: Optional[pulumi.Input['DataAutomationProjectDesiredModality']] = None,
+                 mp4: Optional[pulumi.Input['DataAutomationProjectDesiredModality']] = None,
+                 png: Optional[pulumi.Input['DataAutomationProjectDesiredModality']] = None):
+        """
+        Modality routing configuration
+        """
+        if jpeg is not None:
+            pulumi.set(__self__, "jpeg", jpeg)
+        if mov is not None:
+            pulumi.set(__self__, "mov", mov)
+        if mp4 is not None:
+            pulumi.set(__self__, "mp4", mp4)
+        if png is not None:
+            pulumi.set(__self__, "png", png)
+
+    @property
+    @pulumi.getter
+    def jpeg(self) -> Optional[pulumi.Input['DataAutomationProjectDesiredModality']]:
+        return pulumi.get(self, "jpeg")
+
+    @jpeg.setter
+    def jpeg(self, value: Optional[pulumi.Input['DataAutomationProjectDesiredModality']]):
+        pulumi.set(self, "jpeg", value)
+
+    @property
+    @pulumi.getter
+    def mov(self) -> Optional[pulumi.Input['DataAutomationProjectDesiredModality']]:
+        return pulumi.get(self, "mov")
+
+    @mov.setter
+    def mov(self, value: Optional[pulumi.Input['DataAutomationProjectDesiredModality']]):
+        pulumi.set(self, "mov", value)
+
+    @property
+    @pulumi.getter
+    def mp4(self) -> Optional[pulumi.Input['DataAutomationProjectDesiredModality']]:
+        return pulumi.get(self, "mp4")
+
+    @mp4.setter
+    def mp4(self, value: Optional[pulumi.Input['DataAutomationProjectDesiredModality']]):
+        pulumi.set(self, "mp4", value)
+
+    @property
+    @pulumi.getter
+    def png(self) -> Optional[pulumi.Input['DataAutomationProjectDesiredModality']]:
+        return pulumi.get(self, "png")
+
+    @png.setter
+    def png(self, value: Optional[pulumi.Input['DataAutomationProjectDesiredModality']]):
+        pulumi.set(self, "png", value)
+
+
+if not MYPY:
     class DataAutomationProjectOverrideConfigurationArgsDict(TypedDict):
         """
         Override configuration
         """
+        audio: NotRequired[pulumi.Input['DataAutomationProjectAudioOverrideConfigurationArgsDict']]
         document: NotRequired[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgsDict']]
         """
         Additional settings for a project.
         """
+        image: NotRequired[pulumi.Input['DataAutomationProjectImageOverrideConfigurationArgsDict']]
+        modality_routing: NotRequired[pulumi.Input['DataAutomationProjectModalityRoutingConfigurationArgsDict']]
+        video: NotRequired[pulumi.Input['DataAutomationProjectVideoOverrideConfigurationArgsDict']]
 elif False:
     DataAutomationProjectOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataAutomationProjectOverrideConfigurationArgs:
     def __init__(__self__, *,
-                 document: Optional[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgs']] = None):
+                 audio: Optional[pulumi.Input['DataAutomationProjectAudioOverrideConfigurationArgs']] = None,
+                 document: Optional[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgs']] = None,
+                 image: Optional[pulumi.Input['DataAutomationProjectImageOverrideConfigurationArgs']] = None,
+                 modality_routing: Optional[pulumi.Input['DataAutomationProjectModalityRoutingConfigurationArgs']] = None,
+                 video: Optional[pulumi.Input['DataAutomationProjectVideoOverrideConfigurationArgs']] = None):
         """
         Override configuration
         :param pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgs'] document: Additional settings for a project.
         """
+        if audio is not None:
+            pulumi.set(__self__, "audio", audio)
         if document is not None:
             pulumi.set(__self__, "document", document)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if modality_routing is not None:
+            pulumi.set(__self__, "modality_routing", modality_routing)
+        if video is not None:
+            pulumi.set(__self__, "video", video)
+
+    @property
+    @pulumi.getter
+    def audio(self) -> Optional[pulumi.Input['DataAutomationProjectAudioOverrideConfigurationArgs']]:
+        return pulumi.get(self, "audio")
+
+    @audio.setter
+    def audio(self, value: Optional[pulumi.Input['DataAutomationProjectAudioOverrideConfigurationArgs']]):
+        pulumi.set(self, "audio", value)
 
     @property
     @pulumi.getter
@@ -2850,6 +3035,33 @@ class DataAutomationProjectOverrideConfigurationArgs:
     @document.setter
     def document(self, value: Optional[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgs']]):
         pulumi.set(self, "document", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input['DataAutomationProjectImageOverrideConfigurationArgs']]:
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input['DataAutomationProjectImageOverrideConfigurationArgs']]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter(name="modalityRouting")
+    def modality_routing(self) -> Optional[pulumi.Input['DataAutomationProjectModalityRoutingConfigurationArgs']]:
+        return pulumi.get(self, "modality_routing")
+
+    @modality_routing.setter
+    def modality_routing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityRoutingConfigurationArgs']]):
+        pulumi.set(self, "modality_routing", value)
+
+    @property
+    @pulumi.getter
+    def video(self) -> Optional[pulumi.Input['DataAutomationProjectVideoOverrideConfigurationArgs']]:
+        return pulumi.get(self, "video")
+
+    @video.setter
+    def video(self, value: Optional[pulumi.Input['DataAutomationProjectVideoOverrideConfigurationArgs']]):
+        pulumi.set(self, "video", value)
 
 
 if not MYPY:
@@ -3060,6 +3272,29 @@ class DataAutomationProjectVideoExtractionCategoryArgs:
     @types.setter
     def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]]):
         pulumi.set(self, "types", value)
+
+
+if not MYPY:
+    class DataAutomationProjectVideoOverrideConfigurationArgsDict(TypedDict):
+        modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
+elif False:
+    DataAutomationProjectVideoOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectVideoOverrideConfigurationArgs:
+    def __init__(__self__, *,
+                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None):
+        if modality_processing is not None:
+            pulumi.set(__self__, "modality_processing", modality_processing)
+
+    @property
+    @pulumi.getter(name="modalityProcessing")
+    def modality_processing(self) -> Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]:
+        return pulumi.get(self, "modality_processing")
+
+    @modality_processing.setter
+    def modality_processing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]):
+        pulumi.set(self, "modality_processing", value)
 
 
 if not MYPY:

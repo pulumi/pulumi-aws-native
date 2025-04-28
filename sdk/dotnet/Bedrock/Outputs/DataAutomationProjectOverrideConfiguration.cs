@@ -16,15 +16,32 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataAutomationProjectOverrideConfiguration
     {
+        public readonly Outputs.DataAutomationProjectAudioOverrideConfiguration? Audio;
         /// <summary>
         /// Additional settings for a project.
         /// </summary>
         public readonly Outputs.DataAutomationProjectDocumentOverrideConfiguration? Document;
+        public readonly Outputs.DataAutomationProjectImageOverrideConfiguration? Image;
+        public readonly Outputs.DataAutomationProjectModalityRoutingConfiguration? ModalityRouting;
+        public readonly Outputs.DataAutomationProjectVideoOverrideConfiguration? Video;
 
         [OutputConstructor]
-        private DataAutomationProjectOverrideConfiguration(Outputs.DataAutomationProjectDocumentOverrideConfiguration? document)
+        private DataAutomationProjectOverrideConfiguration(
+            Outputs.DataAutomationProjectAudioOverrideConfiguration? audio,
+
+            Outputs.DataAutomationProjectDocumentOverrideConfiguration? document,
+
+            Outputs.DataAutomationProjectImageOverrideConfiguration? image,
+
+            Outputs.DataAutomationProjectModalityRoutingConfiguration? modalityRouting,
+
+            Outputs.DataAutomationProjectVideoOverrideConfiguration? video)
         {
+            Audio = audio;
             Document = document;
+            Image = image;
+            ModalityRouting = modalityRouting;
+            Video = video;
         }
     }
 }

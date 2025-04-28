@@ -127,7 +127,7 @@ if not MYPY:
     class ListenerFixedResponseArgsDict(TypedDict):
         status_code: pulumi.Input[builtins.int]
         """
-        The HTTP response code.
+        The HTTP response code. Only `404` and `500` status codes are supported.
         """
 elif False:
     ListenerFixedResponseArgsDict: TypeAlias = Mapping[str, Any]
@@ -137,7 +137,7 @@ class ListenerFixedResponseArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[builtins.int]):
         """
-        :param pulumi.Input[builtins.int] status_code: The HTTP response code.
+        :param pulumi.Input[builtins.int] status_code: The HTTP response code. Only `404` and `500` status codes are supported.
         """
         pulumi.set(__self__, "status_code", status_code)
 
@@ -145,7 +145,7 @@ class ListenerFixedResponseArgs:
     @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Input[builtins.int]:
         """
-        The HTTP response code.
+        The HTTP response code. Only `404` and `500` status codes are supported.
         """
         return pulumi.get(self, "status_code")
 
@@ -440,7 +440,7 @@ if not MYPY:
     class RuleFixedResponseArgsDict(TypedDict):
         status_code: pulumi.Input[builtins.int]
         """
-        The HTTP response code.
+        The HTTP response code. Only `404` and `500` status codes are supported.
         """
 elif False:
     RuleFixedResponseArgsDict: TypeAlias = Mapping[str, Any]
@@ -450,7 +450,7 @@ class RuleFixedResponseArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[builtins.int]):
         """
-        :param pulumi.Input[builtins.int] status_code: The HTTP response code.
+        :param pulumi.Input[builtins.int] status_code: The HTTP response code. Only `404` and `500` status codes are supported.
         """
         pulumi.set(__self__, "status_code", status_code)
 
@@ -458,7 +458,7 @@ class RuleFixedResponseArgs:
     @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Input[builtins.int]:
         """
-        The HTTP response code.
+        The HTTP response code. Only `404` and `500` status codes are supported.
         """
         return pulumi.get(self, "status_code")
 

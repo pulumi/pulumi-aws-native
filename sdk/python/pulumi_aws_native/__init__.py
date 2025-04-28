@@ -1115,8 +1115,10 @@ _utilities.register(
   "classes": {
    "aws-native:cloudfront:CachePolicy": "CachePolicy",
    "aws-native:cloudfront:CloudFrontOriginAccessIdentity": "CloudFrontOriginAccessIdentity",
+   "aws-native:cloudfront:ConnectionGroup": "ConnectionGroup",
    "aws-native:cloudfront:ContinuousDeploymentPolicy": "ContinuousDeploymentPolicy",
    "aws-native:cloudfront:Distribution": "Distribution",
+   "aws-native:cloudfront:DistributionTenant": "DistributionTenant",
    "aws-native:cloudfront:Function": "Function",
    "aws-native:cloudfront:KeyGroup": "KeyGroup",
    "aws-native:cloudfront:KeyValueStore": "KeyValueStore",
@@ -1609,6 +1611,7 @@ _utilities.register(
   "classes": {
    "aws-native:ecr:PullThroughCacheRule": "PullThroughCacheRule",
    "aws-native:ecr:RegistryPolicy": "RegistryPolicy",
+   "aws-native:ecr:RegistryScanningConfiguration": "RegistryScanningConfiguration",
    "aws-native:ecr:ReplicationConfiguration": "ReplicationConfiguration",
    "aws-native:ecr:Repository": "Repository",
    "aws-native:ecr:RepositoryCreationTemplate": "RepositoryCreationTemplate"

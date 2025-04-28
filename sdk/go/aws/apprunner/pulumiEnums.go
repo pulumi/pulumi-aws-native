@@ -356,6 +356,7 @@ const (
 	ServiceCodeConfigurationValuesRuntimeRuby31     = ServiceCodeConfigurationValuesRuntime("RUBY_31")
 	ServiceCodeConfigurationValuesRuntimePython311  = ServiceCodeConfigurationValuesRuntime("PYTHON_311")
 	ServiceCodeConfigurationValuesRuntimeNodejs18   = ServiceCodeConfigurationValuesRuntime("NODEJS_18")
+	ServiceCodeConfigurationValuesRuntimeNodejs22   = ServiceCodeConfigurationValuesRuntime("NODEJS_22")
 )
 
 func (ServiceCodeConfigurationValuesRuntime) ElementType() reflect.Type {
@@ -492,6 +493,7 @@ func (o ServiceCodeConfigurationValuesRuntimePtrOutput) ToStringPtrOutputWithCon
 //	ServiceCodeConfigurationValuesRuntimeRuby31
 //	ServiceCodeConfigurationValuesRuntimePython311
 //	ServiceCodeConfigurationValuesRuntimeNodejs18
+//	ServiceCodeConfigurationValuesRuntimeNodejs22
 type ServiceCodeConfigurationValuesRuntimeInput interface {
 	pulumi.Input
 

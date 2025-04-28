@@ -19,11 +19,11 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         private InputList<Pulumi.AwsNative.MediaPackageV2.OriginEndpointEndpointErrorCondition>? _endpointErrorConditions;
 
         /// <summary>
-        /// &lt;p&gt;The failover settings for the endpoint. The options are:&lt;/p&gt;
+        /// &lt;p&gt;The failover conditions for the endpoint. The options are:&lt;/p&gt;
         ///          &lt;ul&gt;
         ///             &lt;li&gt;
         ///                &lt;p&gt;
-        ///                   &lt;code&gt;STALE_MANIFEST&lt;/code&gt; - The manifest stalled and there a no new segments or parts.&lt;/p&gt;
+        ///                   &lt;code&gt;STALE_MANIFEST&lt;/code&gt; - The manifest stalled and there are no new segments or parts.&lt;/p&gt;
         ///             &lt;/li&gt;
         ///             &lt;li&gt;
         ///                &lt;p&gt;
@@ -32,6 +32,10 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         ///             &lt;li&gt;
         ///                &lt;p&gt;
         ///                   &lt;code&gt;MISSING_DRM_KEY&lt;/code&gt; - Key rotation is enabled but we're unable to fetch the key for the current key period.&lt;/p&gt;
+        ///             &lt;/li&gt;
+        ///             &lt;li&gt;
+        ///                &lt;p&gt;
+        ///                   &lt;code&gt;SLATE_INPUT&lt;/code&gt; - The segments which contain slate content are considered to be missing content.&lt;/p&gt;
         ///             &lt;/li&gt;
         ///          &lt;/ul&gt;
         /// </summary>

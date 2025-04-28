@@ -13,14 +13,19 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataAutomationProjectDocumentOverrideConfiguration
     {
+        public readonly Outputs.DataAutomationProjectModalityProcessingConfiguration? ModalityProcessing;
         /// <summary>
         /// Whether document splitter is enabled for a project.
         /// </summary>
         public readonly Outputs.DataAutomationProjectSplitterConfiguration? Splitter;
 
         [OutputConstructor]
-        private DataAutomationProjectDocumentOverrideConfiguration(Outputs.DataAutomationProjectSplitterConfiguration? splitter)
+        private DataAutomationProjectDocumentOverrideConfiguration(
+            Outputs.DataAutomationProjectModalityProcessingConfiguration? modalityProcessing,
+
+            Outputs.DataAutomationProjectSplitterConfiguration? splitter)
         {
+            ModalityProcessing = modalityProcessing;
             Splitter = splitter;
         }
     }

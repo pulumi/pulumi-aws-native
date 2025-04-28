@@ -28,6 +28,7 @@ class ChannelNamespaceArgs:
                  api_id: pulumi.Input[builtins.str],
                  code_handlers: Optional[pulumi.Input[builtins.str]] = None,
                  code_s3_location: Optional[pulumi.Input[builtins.str]] = None,
+                 handler_configs: Optional[pulumi.Input['ChannelNamespaceHandlerConfigsArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  publish_auth_modes: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelNamespaceAuthModeArgs']]]] = None,
                  subscribe_auth_modes: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelNamespaceAuthModeArgs']]]] = None,
@@ -47,6 +48,8 @@ class ChannelNamespaceArgs:
             pulumi.set(__self__, "code_handlers", code_handlers)
         if code_s3_location is not None:
             pulumi.set(__self__, "code_s3_location", code_s3_location)
+        if handler_configs is not None:
+            pulumi.set(__self__, "handler_configs", handler_configs)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if publish_auth_modes is not None:
@@ -91,6 +94,15 @@ class ChannelNamespaceArgs:
     @code_s3_location.setter
     def code_s3_location(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "code_s3_location", value)
+
+    @property
+    @pulumi.getter(name="handlerConfigs")
+    def handler_configs(self) -> Optional[pulumi.Input['ChannelNamespaceHandlerConfigsArgs']]:
+        return pulumi.get(self, "handler_configs")
+
+    @handler_configs.setter
+    def handler_configs(self, value: Optional[pulumi.Input['ChannelNamespaceHandlerConfigsArgs']]):
+        pulumi.set(self, "handler_configs", value)
 
     @property
     @pulumi.getter
@@ -152,6 +164,7 @@ class ChannelNamespace(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  code_handlers: Optional[pulumi.Input[builtins.str]] = None,
                  code_s3_location: Optional[pulumi.Input[builtins.str]] = None,
+                 handler_configs: Optional[pulumi.Input[Union['ChannelNamespaceHandlerConfigsArgs', 'ChannelNamespaceHandlerConfigsArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  publish_auth_modes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]]] = None,
                  subscribe_auth_modes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]]] = None,
@@ -197,6 +210,7 @@ class ChannelNamespace(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  code_handlers: Optional[pulumi.Input[builtins.str]] = None,
                  code_s3_location: Optional[pulumi.Input[builtins.str]] = None,
+                 handler_configs: Optional[pulumi.Input[Union['ChannelNamespaceHandlerConfigsArgs', 'ChannelNamespaceHandlerConfigsArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  publish_auth_modes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]]] = None,
                  subscribe_auth_modes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]]] = None,
@@ -215,6 +229,7 @@ class ChannelNamespace(pulumi.CustomResource):
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["code_handlers"] = code_handlers
             __props__.__dict__["code_s3_location"] = code_s3_location
+            __props__.__dict__["handler_configs"] = handler_configs
             __props__.__dict__["name"] = name
             __props__.__dict__["publish_auth_modes"] = publish_auth_modes
             __props__.__dict__["subscribe_auth_modes"] = subscribe_auth_modes
@@ -248,6 +263,7 @@ class ChannelNamespace(pulumi.CustomResource):
         __props__.__dict__["channel_namespace_arn"] = None
         __props__.__dict__["code_handlers"] = None
         __props__.__dict__["code_s3_location"] = None
+        __props__.__dict__["handler_configs"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["publish_auth_modes"] = None
         __props__.__dict__["subscribe_auth_modes"] = None
@@ -285,6 +301,11 @@ class ChannelNamespace(pulumi.CustomResource):
         The Amazon S3 endpoint where the code is located.
         """
         return pulumi.get(self, "code_s3_location")
+
+    @property
+    @pulumi.getter(name="handlerConfigs")
+    def handler_configs(self) -> pulumi.Output[Optional['outputs.ChannelNamespaceHandlerConfigs']]:
+        return pulumi.get(self, "handler_configs")
 
     @property
     @pulumi.getter

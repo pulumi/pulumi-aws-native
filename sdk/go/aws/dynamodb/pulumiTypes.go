@@ -3614,9 +3614,9 @@ type TableAttributeDefinition struct {
 	// A name for the attribute.
 	AttributeName string `pulumi:"attributeName"`
 	// The data type for the attribute, where:
-	//   +   ``S`` - the attribute is of type String
-	//   +   ``N`` - the attribute is of type Number
-	//   +   ``B`` - the attribute is of type Binary
+	//   +  ``S`` - the attribute is of type String
+	//   +  ``N`` - the attribute is of type Number
+	//   +  ``B`` - the attribute is of type Binary
 	AttributeType string `pulumi:"attributeType"`
 }
 
@@ -3636,9 +3636,9 @@ type TableAttributeDefinitionArgs struct {
 	// A name for the attribute.
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
 	// The data type for the attribute, where:
-	//   +   ``S`` - the attribute is of type String
-	//   +   ``N`` - the attribute is of type Number
-	//   +   ``B`` - the attribute is of type Binary
+	//   +  ``S`` - the attribute is of type String
+	//   +  ``N`` - the attribute is of type Number
+	//   +  ``B`` - the attribute is of type Binary
 	AttributeType pulumi.StringInput `pulumi:"attributeType"`
 }
 
@@ -4033,8 +4033,8 @@ type TableGlobalSecondaryIndex struct {
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName string `pulumi:"indexName"`
 	// The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
-	//   +   ``HASH`` - partition key
-	//   +   ``RANGE`` - sort key
+	//   +  ``HASH`` - partition key
+	//   +  ``RANGE`` - sort key
 	//
 	//   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	//  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -4068,8 +4068,8 @@ type TableGlobalSecondaryIndexArgs struct {
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
 	// The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
-	//   +   ``HASH`` - partition key
-	//   +   ``RANGE`` - sort key
+	//   +  ``HASH`` - partition key
+	//   +  ``RANGE`` - sort key
 	//
 	//   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	//  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -4548,8 +4548,8 @@ type TableKeySchema struct {
 	// The name of a key attribute.
 	AttributeName string `pulumi:"attributeName"`
 	// The role that this key attribute will assume:
-	//   +   ``HASH`` - partition key
-	//   +   ``RANGE`` - sort key
+	//   +  ``HASH`` - partition key
+	//   +  ``RANGE`` - sort key
 	//
 	//   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	//  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -4575,8 +4575,8 @@ type TableKeySchemaArgs struct {
 	// The name of a key attribute.
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
 	// The role that this key attribute will assume:
-	//   +   ``HASH`` - partition key
-	//   +   ``RANGE`` - sort key
+	//   +  ``HASH`` - partition key
+	//   +  ``RANGE`` - sort key
 	//
 	//   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	//  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -4847,8 +4847,8 @@ type TableLocalSecondaryIndex struct {
 	// The name of the local secondary index. The name must be unique among all other indexes on this table.
 	IndexName string `pulumi:"indexName"`
 	// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
-	//   +   ``HASH`` - partition key
-	//   +   ``RANGE`` - sort key
+	//   +  ``HASH`` - partition key
+	//   +  ``RANGE`` - sort key
 	//
 	//   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	//  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -4873,8 +4873,8 @@ type TableLocalSecondaryIndexArgs struct {
 	// The name of the local secondary index. The name must be unique among all other indexes on this table.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
 	// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
-	//   +   ``HASH`` - partition key
-	//   +   ``RANGE`` - sort key
+	//   +  ``HASH`` - partition key
+	//   +  ``RANGE`` - sort key
 	//
 	//   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 	//  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -5313,9 +5313,9 @@ type TableProjection struct {
 	//  For global and local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of ``INCLUDE``. You still can specify the ProjectionType of ``ALL`` to project all attributes from the source table, even if the table has more than 100 attributes.
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
 	// The set of attributes that are projected into the index:
-	//   +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
-	//   +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
-	//   +   ``ALL`` - All of the table attributes are projected into the index.
+	//   +  ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
+	//   +  ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
+	//   +  ``ALL`` - All of the table attributes are projected into the index.
 	//
 	//  When using the DynamoDB console, ``ALL`` is selected by default.
 	ProjectionType *string `pulumi:"projectionType"`
@@ -5338,9 +5338,9 @@ type TableProjectionArgs struct {
 	//  For global and local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of ``INCLUDE``. You still can specify the ProjectionType of ``ALL`` to project all attributes from the source table, even if the table has more than 100 attributes.
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
 	// The set of attributes that are projected into the index:
-	//   +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
-	//   +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
-	//   +   ``ALL`` - All of the table attributes are projected into the index.
+	//   +  ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
+	//   +  ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
+	//   +  ``ALL`` - All of the table attributes are projected into the index.
 	//
 	//  When using the DynamoDB console, ``ALL`` is selected by default.
 	ProjectionType pulumi.StringPtrInput `pulumi:"projectionType"`
@@ -5919,7 +5919,7 @@ type TableSseSpecification struct {
 	// Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
 	SseEnabled bool `pulumi:"sseEnabled"`
 	// Server-side encryption type. The only supported value is:
-	//   +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
+	//   +  ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
 	SseType *string `pulumi:"sseType"`
 }
 
@@ -5941,7 +5941,7 @@ type TableSseSpecificationArgs struct {
 	// Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
 	SseEnabled pulumi.BoolInput `pulumi:"sseEnabled"`
 	// Server-side encryption type. The only supported value is:
-	//   +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
+	//   +  ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
 	SseType pulumi.StringPtrInput `pulumi:"sseType"`
 }
 
@@ -6100,10 +6100,10 @@ type TableStreamSpecification struct {
 	//  In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
 	ResourcePolicy *TableResourcePolicy `pulumi:"resourcePolicy"`
 	// When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
-	//   +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
-	//   +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
-	//   +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
-	//   +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
+	//   +  ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+	//   +  ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
+	//   +  ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
+	//   +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
 	StreamViewType string `pulumi:"streamViewType"`
 }
 
@@ -6124,10 +6124,10 @@ type TableStreamSpecificationArgs struct {
 	//  In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
 	ResourcePolicy TableResourcePolicyPtrInput `pulumi:"resourcePolicy"`
 	// When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
-	//   +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
-	//   +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
-	//   +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
-	//   +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
+	//   +  ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+	//   +  ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
+	//   +  ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
+	//   +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
 	StreamViewType pulumi.StringInput `pulumi:"streamViewType"`
 }
 
@@ -6277,7 +6277,7 @@ func (o TableStreamSpecificationPtrOutput) StreamViewType() pulumi.StringPtrOutp
 
 // Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
 //
-//	 AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot backdate the application of a tag.
+//	AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot backdate the application of a tag.
 //	For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
 type TableTag struct {
 	// The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.

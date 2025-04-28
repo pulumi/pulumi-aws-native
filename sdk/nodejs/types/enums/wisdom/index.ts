@@ -129,6 +129,8 @@ export type AiGuardrailGuardrailTopicType = (typeof AiGuardrailGuardrailTopicTyp
 export const AiPromptAiPromptApiFormat = {
     AnthropicClaudeMessages: "ANTHROPIC_CLAUDE_MESSAGES",
     AnthropicClaudeTextCompletions: "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS",
+    Messages: "MESSAGES",
+    TextCompletions: "TEXT_COMPLETIONS",
 } as const;
 
 export type AiPromptAiPromptApiFormat = (typeof AiPromptAiPromptApiFormat)[keyof typeof AiPromptAiPromptApiFormat];

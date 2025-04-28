@@ -471,6 +471,9 @@ if not MYPY:
         An array of series labels
         """
         limits: pulumi.Input['WorkspaceLimitsPerLabelSetEntryArgsDict']
+        """
+        This structure contains the information about the limits that apply to time series that match this label set.
+        """
 elif False:
     WorkspaceLimitsPerLabelSetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -482,6 +485,7 @@ class WorkspaceLimitsPerLabelSetArgs:
         """
         Label set and its associated limits
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceLabelArgs']]] label_set: An array of series labels
+        :param pulumi.Input['WorkspaceLimitsPerLabelSetEntryArgs'] limits: This structure contains the information about the limits that apply to time series that match this label set.
         """
         pulumi.set(__self__, "label_set", label_set)
         pulumi.set(__self__, "limits", limits)
@@ -501,6 +505,9 @@ class WorkspaceLimitsPerLabelSetArgs:
     @property
     @pulumi.getter
     def limits(self) -> pulumi.Input['WorkspaceLimitsPerLabelSetEntryArgs']:
+        """
+        This structure contains the information about the limits that apply to time series that match this label set.
+        """
         return pulumi.get(self, "limits")
 
     @limits.setter

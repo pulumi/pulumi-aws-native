@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public Input<int>? JobExecutionTimeoutMinutes { get; set; }
 
         /// <summary>
-        /// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+        /// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated. The default value is `false` .
         /// </summary>
         [Input("terminateJobsOnUpdate")]
         public Input<bool>? TerminateJobsOnUpdate { get; set; }

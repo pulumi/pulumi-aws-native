@@ -876,7 +876,7 @@ class ComputeEnvironmentUpdatePolicy(dict):
                  terminate_jobs_on_update: Optional[builtins.bool] = None):
         """
         :param builtins.int job_execution_timeout_minutes: Specifies the job timeout (in minutes) when the compute environment infrastructure is updated. The default value is 30.
-        :param builtins.bool terminate_jobs_on_update: Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+        :param builtins.bool terminate_jobs_on_update: Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated. The default value is `false` .
         """
         if job_execution_timeout_minutes is not None:
             pulumi.set(__self__, "job_execution_timeout_minutes", job_execution_timeout_minutes)
@@ -895,7 +895,7 @@ class ComputeEnvironmentUpdatePolicy(dict):
     @pulumi.getter(name="terminateJobsOnUpdate")
     def terminate_jobs_on_update(self) -> Optional[builtins.bool]:
         """
-        Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+        Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated. The default value is `false` .
         """
         return pulumi.get(self, "terminate_jobs_on_update")
 

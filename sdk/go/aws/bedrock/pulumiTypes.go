@@ -3550,6 +3550,141 @@ func (o DataAutomationProjectAudioExtractionCategoryPtrOutput) Types() DataAutom
 	}).(DataAutomationProjectAudioExtractionCategoryTypeArrayOutput)
 }
 
+type DataAutomationProjectAudioOverrideConfiguration struct {
+	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+}
+
+// DataAutomationProjectAudioOverrideConfigurationInput is an input type that accepts DataAutomationProjectAudioOverrideConfigurationArgs and DataAutomationProjectAudioOverrideConfigurationOutput values.
+// You can construct a concrete instance of `DataAutomationProjectAudioOverrideConfigurationInput` via:
+//
+//	DataAutomationProjectAudioOverrideConfigurationArgs{...}
+type DataAutomationProjectAudioOverrideConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioOverrideConfigurationOutput() DataAutomationProjectAudioOverrideConfigurationOutput
+	ToDataAutomationProjectAudioOverrideConfigurationOutputWithContext(context.Context) DataAutomationProjectAudioOverrideConfigurationOutput
+}
+
+type DataAutomationProjectAudioOverrideConfigurationArgs struct {
+	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+}
+
+func (DataAutomationProjectAudioOverrideConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectAudioOverrideConfiguration)(nil)).Elem()
+}
+
+func (i DataAutomationProjectAudioOverrideConfigurationArgs) ToDataAutomationProjectAudioOverrideConfigurationOutput() DataAutomationProjectAudioOverrideConfigurationOutput {
+	return i.ToDataAutomationProjectAudioOverrideConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectAudioOverrideConfigurationArgs) ToDataAutomationProjectAudioOverrideConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectAudioOverrideConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectAudioOverrideConfigurationOutput)
+}
+
+func (i DataAutomationProjectAudioOverrideConfigurationArgs) ToDataAutomationProjectAudioOverrideConfigurationPtrOutput() DataAutomationProjectAudioOverrideConfigurationPtrOutput {
+	return i.ToDataAutomationProjectAudioOverrideConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectAudioOverrideConfigurationArgs) ToDataAutomationProjectAudioOverrideConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioOverrideConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectAudioOverrideConfigurationOutput).ToDataAutomationProjectAudioOverrideConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAutomationProjectAudioOverrideConfigurationPtrInput is an input type that accepts DataAutomationProjectAudioOverrideConfigurationArgs, DataAutomationProjectAudioOverrideConfigurationPtr and DataAutomationProjectAudioOverrideConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAutomationProjectAudioOverrideConfigurationPtrInput` via:
+//
+//	        DataAutomationProjectAudioOverrideConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAutomationProjectAudioOverrideConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioOverrideConfigurationPtrOutput() DataAutomationProjectAudioOverrideConfigurationPtrOutput
+	ToDataAutomationProjectAudioOverrideConfigurationPtrOutputWithContext(context.Context) DataAutomationProjectAudioOverrideConfigurationPtrOutput
+}
+
+type dataAutomationProjectAudioOverrideConfigurationPtrType DataAutomationProjectAudioOverrideConfigurationArgs
+
+func DataAutomationProjectAudioOverrideConfigurationPtr(v *DataAutomationProjectAudioOverrideConfigurationArgs) DataAutomationProjectAudioOverrideConfigurationPtrInput {
+	return (*dataAutomationProjectAudioOverrideConfigurationPtrType)(v)
+}
+
+func (*dataAutomationProjectAudioOverrideConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectAudioOverrideConfiguration)(nil)).Elem()
+}
+
+func (i *dataAutomationProjectAudioOverrideConfigurationPtrType) ToDataAutomationProjectAudioOverrideConfigurationPtrOutput() DataAutomationProjectAudioOverrideConfigurationPtrOutput {
+	return i.ToDataAutomationProjectAudioOverrideConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAutomationProjectAudioOverrideConfigurationPtrType) ToDataAutomationProjectAudioOverrideConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioOverrideConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectAudioOverrideConfigurationPtrOutput)
+}
+
+type DataAutomationProjectAudioOverrideConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioOverrideConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectAudioOverrideConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioOverrideConfigurationOutput) ToDataAutomationProjectAudioOverrideConfigurationOutput() DataAutomationProjectAudioOverrideConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioOverrideConfigurationOutput) ToDataAutomationProjectAudioOverrideConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectAudioOverrideConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioOverrideConfigurationOutput) ToDataAutomationProjectAudioOverrideConfigurationPtrOutput() DataAutomationProjectAudioOverrideConfigurationPtrOutput {
+	return o.ToDataAutomationProjectAudioOverrideConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioOverrideConfigurationOutput) ToDataAutomationProjectAudioOverrideConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioOverrideConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectAudioOverrideConfiguration {
+		return &v
+	}).(DataAutomationProjectAudioOverrideConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectAudioOverrideConfigurationOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
+		return v.ModalityProcessing
+	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
+type DataAutomationProjectAudioOverrideConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioOverrideConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectAudioOverrideConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) ToDataAutomationProjectAudioOverrideConfigurationPtrOutput() DataAutomationProjectAudioOverrideConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) ToDataAutomationProjectAudioOverrideConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioOverrideConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) Elem() DataAutomationProjectAudioOverrideConfigurationOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioOverrideConfiguration) DataAutomationProjectAudioOverrideConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectAudioOverrideConfiguration
+		return ret
+	}).(DataAutomationProjectAudioOverrideConfigurationOutput)
+}
+
+func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ModalityProcessing
+	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
 type DataAutomationProjectAudioStandardExtraction struct {
 	// Settings for generating data from audio.
 	Category DataAutomationProjectAudioExtractionCategory `pulumi:"category"`
@@ -4983,6 +5118,7 @@ func (o DataAutomationProjectDocumentOutputTextFormatPtrOutput) Types() DataAuto
 }
 
 type DataAutomationProjectDocumentOverrideConfiguration struct {
+	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
 	// Whether document splitter is enabled for a project.
 	Splitter *DataAutomationProjectSplitterConfiguration `pulumi:"splitter"`
 }
@@ -4999,6 +5135,7 @@ type DataAutomationProjectDocumentOverrideConfigurationInput interface {
 }
 
 type DataAutomationProjectDocumentOverrideConfigurationArgs struct {
+	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
 	// Whether document splitter is enabled for a project.
 	Splitter DataAutomationProjectSplitterConfigurationPtrInput `pulumi:"splitter"`
 }
@@ -5080,6 +5217,12 @@ func (o DataAutomationProjectDocumentOverrideConfigurationOutput) ToDataAutomati
 	}).(DataAutomationProjectDocumentOverrideConfigurationPtrOutput)
 }
 
+func (o DataAutomationProjectDocumentOverrideConfigurationOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectDocumentOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
+		return v.ModalityProcessing
+	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
 // Whether document splitter is enabled for a project.
 func (o DataAutomationProjectDocumentOverrideConfigurationOutput) Splitter() DataAutomationProjectSplitterConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectDocumentOverrideConfiguration) *DataAutomationProjectSplitterConfiguration {
@@ -5109,6 +5252,15 @@ func (o DataAutomationProjectDocumentOverrideConfigurationPtrOutput) Elem() Data
 		var ret DataAutomationProjectDocumentOverrideConfiguration
 		return ret
 	}).(DataAutomationProjectDocumentOverrideConfigurationOutput)
+}
+
+func (o DataAutomationProjectDocumentOverrideConfigurationPtrOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectDocumentOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ModalityProcessing
+	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
 // Whether document splitter is enabled for a project.
@@ -5896,6 +6048,141 @@ func (o DataAutomationProjectImageExtractionCategoryPtrOutput) Types() DataAutom
 	}).(DataAutomationProjectImageExtractionCategoryTypeArrayOutput)
 }
 
+type DataAutomationProjectImageOverrideConfiguration struct {
+	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+}
+
+// DataAutomationProjectImageOverrideConfigurationInput is an input type that accepts DataAutomationProjectImageOverrideConfigurationArgs and DataAutomationProjectImageOverrideConfigurationOutput values.
+// You can construct a concrete instance of `DataAutomationProjectImageOverrideConfigurationInput` via:
+//
+//	DataAutomationProjectImageOverrideConfigurationArgs{...}
+type DataAutomationProjectImageOverrideConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectImageOverrideConfigurationOutput() DataAutomationProjectImageOverrideConfigurationOutput
+	ToDataAutomationProjectImageOverrideConfigurationOutputWithContext(context.Context) DataAutomationProjectImageOverrideConfigurationOutput
+}
+
+type DataAutomationProjectImageOverrideConfigurationArgs struct {
+	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+}
+
+func (DataAutomationProjectImageOverrideConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectImageOverrideConfiguration)(nil)).Elem()
+}
+
+func (i DataAutomationProjectImageOverrideConfigurationArgs) ToDataAutomationProjectImageOverrideConfigurationOutput() DataAutomationProjectImageOverrideConfigurationOutput {
+	return i.ToDataAutomationProjectImageOverrideConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectImageOverrideConfigurationArgs) ToDataAutomationProjectImageOverrideConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectImageOverrideConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectImageOverrideConfigurationOutput)
+}
+
+func (i DataAutomationProjectImageOverrideConfigurationArgs) ToDataAutomationProjectImageOverrideConfigurationPtrOutput() DataAutomationProjectImageOverrideConfigurationPtrOutput {
+	return i.ToDataAutomationProjectImageOverrideConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectImageOverrideConfigurationArgs) ToDataAutomationProjectImageOverrideConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectImageOverrideConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectImageOverrideConfigurationOutput).ToDataAutomationProjectImageOverrideConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAutomationProjectImageOverrideConfigurationPtrInput is an input type that accepts DataAutomationProjectImageOverrideConfigurationArgs, DataAutomationProjectImageOverrideConfigurationPtr and DataAutomationProjectImageOverrideConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAutomationProjectImageOverrideConfigurationPtrInput` via:
+//
+//	        DataAutomationProjectImageOverrideConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAutomationProjectImageOverrideConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectImageOverrideConfigurationPtrOutput() DataAutomationProjectImageOverrideConfigurationPtrOutput
+	ToDataAutomationProjectImageOverrideConfigurationPtrOutputWithContext(context.Context) DataAutomationProjectImageOverrideConfigurationPtrOutput
+}
+
+type dataAutomationProjectImageOverrideConfigurationPtrType DataAutomationProjectImageOverrideConfigurationArgs
+
+func DataAutomationProjectImageOverrideConfigurationPtr(v *DataAutomationProjectImageOverrideConfigurationArgs) DataAutomationProjectImageOverrideConfigurationPtrInput {
+	return (*dataAutomationProjectImageOverrideConfigurationPtrType)(v)
+}
+
+func (*dataAutomationProjectImageOverrideConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectImageOverrideConfiguration)(nil)).Elem()
+}
+
+func (i *dataAutomationProjectImageOverrideConfigurationPtrType) ToDataAutomationProjectImageOverrideConfigurationPtrOutput() DataAutomationProjectImageOverrideConfigurationPtrOutput {
+	return i.ToDataAutomationProjectImageOverrideConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAutomationProjectImageOverrideConfigurationPtrType) ToDataAutomationProjectImageOverrideConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectImageOverrideConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectImageOverrideConfigurationPtrOutput)
+}
+
+type DataAutomationProjectImageOverrideConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectImageOverrideConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectImageOverrideConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectImageOverrideConfigurationOutput) ToDataAutomationProjectImageOverrideConfigurationOutput() DataAutomationProjectImageOverrideConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageOverrideConfigurationOutput) ToDataAutomationProjectImageOverrideConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectImageOverrideConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageOverrideConfigurationOutput) ToDataAutomationProjectImageOverrideConfigurationPtrOutput() DataAutomationProjectImageOverrideConfigurationPtrOutput {
+	return o.ToDataAutomationProjectImageOverrideConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectImageOverrideConfigurationOutput) ToDataAutomationProjectImageOverrideConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectImageOverrideConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectImageOverrideConfiguration) *DataAutomationProjectImageOverrideConfiguration {
+		return &v
+	}).(DataAutomationProjectImageOverrideConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectImageOverrideConfigurationOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectImageOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
+		return v.ModalityProcessing
+	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
+type DataAutomationProjectImageOverrideConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectImageOverrideConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectImageOverrideConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectImageOverrideConfigurationPtrOutput) ToDataAutomationProjectImageOverrideConfigurationPtrOutput() DataAutomationProjectImageOverrideConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageOverrideConfigurationPtrOutput) ToDataAutomationProjectImageOverrideConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectImageOverrideConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectImageOverrideConfigurationPtrOutput) Elem() DataAutomationProjectImageOverrideConfigurationOutput {
+	return o.ApplyT(func(v *DataAutomationProjectImageOverrideConfiguration) DataAutomationProjectImageOverrideConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectImageOverrideConfiguration
+		return ret
+	}).(DataAutomationProjectImageOverrideConfigurationOutput)
+}
+
+func (o DataAutomationProjectImageOverrideConfigurationPtrOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectImageOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ModalityProcessing
+	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
 type DataAutomationProjectImageStandardExtraction struct {
 	// Settings for generating bounding boxes.
 	BoundingBox DataAutomationProjectImageBoundingBox `pulumi:"boundingBox"`
@@ -6376,10 +6663,338 @@ func (o DataAutomationProjectImageStandardOutputConfigurationPtrOutput) Generati
 	}).(DataAutomationProjectImageStandardGenerativeFieldPtrOutput)
 }
 
+type DataAutomationProjectModalityProcessingConfiguration struct {
+	State *DataAutomationProjectStateEnum `pulumi:"state"`
+}
+
+// DataAutomationProjectModalityProcessingConfigurationInput is an input type that accepts DataAutomationProjectModalityProcessingConfigurationArgs and DataAutomationProjectModalityProcessingConfigurationOutput values.
+// You can construct a concrete instance of `DataAutomationProjectModalityProcessingConfigurationInput` via:
+//
+//	DataAutomationProjectModalityProcessingConfigurationArgs{...}
+type DataAutomationProjectModalityProcessingConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectModalityProcessingConfigurationOutput() DataAutomationProjectModalityProcessingConfigurationOutput
+	ToDataAutomationProjectModalityProcessingConfigurationOutputWithContext(context.Context) DataAutomationProjectModalityProcessingConfigurationOutput
+}
+
+type DataAutomationProjectModalityProcessingConfigurationArgs struct {
+	State DataAutomationProjectStateEnumPtrInput `pulumi:"state"`
+}
+
+func (DataAutomationProjectModalityProcessingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectModalityProcessingConfiguration)(nil)).Elem()
+}
+
+func (i DataAutomationProjectModalityProcessingConfigurationArgs) ToDataAutomationProjectModalityProcessingConfigurationOutput() DataAutomationProjectModalityProcessingConfigurationOutput {
+	return i.ToDataAutomationProjectModalityProcessingConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectModalityProcessingConfigurationArgs) ToDataAutomationProjectModalityProcessingConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectModalityProcessingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectModalityProcessingConfigurationOutput)
+}
+
+func (i DataAutomationProjectModalityProcessingConfigurationArgs) ToDataAutomationProjectModalityProcessingConfigurationPtrOutput() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return i.ToDataAutomationProjectModalityProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectModalityProcessingConfigurationArgs) ToDataAutomationProjectModalityProcessingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectModalityProcessingConfigurationOutput).ToDataAutomationProjectModalityProcessingConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAutomationProjectModalityProcessingConfigurationPtrInput is an input type that accepts DataAutomationProjectModalityProcessingConfigurationArgs, DataAutomationProjectModalityProcessingConfigurationPtr and DataAutomationProjectModalityProcessingConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAutomationProjectModalityProcessingConfigurationPtrInput` via:
+//
+//	        DataAutomationProjectModalityProcessingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAutomationProjectModalityProcessingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectModalityProcessingConfigurationPtrOutput() DataAutomationProjectModalityProcessingConfigurationPtrOutput
+	ToDataAutomationProjectModalityProcessingConfigurationPtrOutputWithContext(context.Context) DataAutomationProjectModalityProcessingConfigurationPtrOutput
+}
+
+type dataAutomationProjectModalityProcessingConfigurationPtrType DataAutomationProjectModalityProcessingConfigurationArgs
+
+func DataAutomationProjectModalityProcessingConfigurationPtr(v *DataAutomationProjectModalityProcessingConfigurationArgs) DataAutomationProjectModalityProcessingConfigurationPtrInput {
+	return (*dataAutomationProjectModalityProcessingConfigurationPtrType)(v)
+}
+
+func (*dataAutomationProjectModalityProcessingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectModalityProcessingConfiguration)(nil)).Elem()
+}
+
+func (i *dataAutomationProjectModalityProcessingConfigurationPtrType) ToDataAutomationProjectModalityProcessingConfigurationPtrOutput() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return i.ToDataAutomationProjectModalityProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAutomationProjectModalityProcessingConfigurationPtrType) ToDataAutomationProjectModalityProcessingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
+type DataAutomationProjectModalityProcessingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectModalityProcessingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectModalityProcessingConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectModalityProcessingConfigurationOutput) ToDataAutomationProjectModalityProcessingConfigurationOutput() DataAutomationProjectModalityProcessingConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectModalityProcessingConfigurationOutput) ToDataAutomationProjectModalityProcessingConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectModalityProcessingConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectModalityProcessingConfigurationOutput) ToDataAutomationProjectModalityProcessingConfigurationPtrOutput() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return o.ToDataAutomationProjectModalityProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectModalityProcessingConfigurationOutput) ToDataAutomationProjectModalityProcessingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectModalityProcessingConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
+		return &v
+	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectModalityProcessingConfigurationOutput) State() DataAutomationProjectStateEnumPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectModalityProcessingConfiguration) *DataAutomationProjectStateEnum {
+		return v.State
+	}).(DataAutomationProjectStateEnumPtrOutput)
+}
+
+type DataAutomationProjectModalityProcessingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectModalityProcessingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectModalityProcessingConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectModalityProcessingConfigurationPtrOutput) ToDataAutomationProjectModalityProcessingConfigurationPtrOutput() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectModalityProcessingConfigurationPtrOutput) ToDataAutomationProjectModalityProcessingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectModalityProcessingConfigurationPtrOutput) Elem() DataAutomationProjectModalityProcessingConfigurationOutput {
+	return o.ApplyT(func(v *DataAutomationProjectModalityProcessingConfiguration) DataAutomationProjectModalityProcessingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectModalityProcessingConfiguration
+		return ret
+	}).(DataAutomationProjectModalityProcessingConfigurationOutput)
+}
+
+func (o DataAutomationProjectModalityProcessingConfigurationPtrOutput) State() DataAutomationProjectStateEnumPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectModalityProcessingConfiguration) *DataAutomationProjectStateEnum {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(DataAutomationProjectStateEnumPtrOutput)
+}
+
+// Modality routing configuration
+type DataAutomationProjectModalityRoutingConfiguration struct {
+	Jpeg *DataAutomationProjectDesiredModality `pulumi:"jpeg"`
+	Mov  *DataAutomationProjectDesiredModality `pulumi:"mov"`
+	Mp4  *DataAutomationProjectDesiredModality `pulumi:"mp4"`
+	Png  *DataAutomationProjectDesiredModality `pulumi:"png"`
+}
+
+// DataAutomationProjectModalityRoutingConfigurationInput is an input type that accepts DataAutomationProjectModalityRoutingConfigurationArgs and DataAutomationProjectModalityRoutingConfigurationOutput values.
+// You can construct a concrete instance of `DataAutomationProjectModalityRoutingConfigurationInput` via:
+//
+//	DataAutomationProjectModalityRoutingConfigurationArgs{...}
+type DataAutomationProjectModalityRoutingConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectModalityRoutingConfigurationOutput() DataAutomationProjectModalityRoutingConfigurationOutput
+	ToDataAutomationProjectModalityRoutingConfigurationOutputWithContext(context.Context) DataAutomationProjectModalityRoutingConfigurationOutput
+}
+
+// Modality routing configuration
+type DataAutomationProjectModalityRoutingConfigurationArgs struct {
+	Jpeg DataAutomationProjectDesiredModalityPtrInput `pulumi:"jpeg"`
+	Mov  DataAutomationProjectDesiredModalityPtrInput `pulumi:"mov"`
+	Mp4  DataAutomationProjectDesiredModalityPtrInput `pulumi:"mp4"`
+	Png  DataAutomationProjectDesiredModalityPtrInput `pulumi:"png"`
+}
+
+func (DataAutomationProjectModalityRoutingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectModalityRoutingConfiguration)(nil)).Elem()
+}
+
+func (i DataAutomationProjectModalityRoutingConfigurationArgs) ToDataAutomationProjectModalityRoutingConfigurationOutput() DataAutomationProjectModalityRoutingConfigurationOutput {
+	return i.ToDataAutomationProjectModalityRoutingConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectModalityRoutingConfigurationArgs) ToDataAutomationProjectModalityRoutingConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectModalityRoutingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectModalityRoutingConfigurationOutput)
+}
+
+func (i DataAutomationProjectModalityRoutingConfigurationArgs) ToDataAutomationProjectModalityRoutingConfigurationPtrOutput() DataAutomationProjectModalityRoutingConfigurationPtrOutput {
+	return i.ToDataAutomationProjectModalityRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectModalityRoutingConfigurationArgs) ToDataAutomationProjectModalityRoutingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectModalityRoutingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectModalityRoutingConfigurationOutput).ToDataAutomationProjectModalityRoutingConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAutomationProjectModalityRoutingConfigurationPtrInput is an input type that accepts DataAutomationProjectModalityRoutingConfigurationArgs, DataAutomationProjectModalityRoutingConfigurationPtr and DataAutomationProjectModalityRoutingConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAutomationProjectModalityRoutingConfigurationPtrInput` via:
+//
+//	        DataAutomationProjectModalityRoutingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAutomationProjectModalityRoutingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectModalityRoutingConfigurationPtrOutput() DataAutomationProjectModalityRoutingConfigurationPtrOutput
+	ToDataAutomationProjectModalityRoutingConfigurationPtrOutputWithContext(context.Context) DataAutomationProjectModalityRoutingConfigurationPtrOutput
+}
+
+type dataAutomationProjectModalityRoutingConfigurationPtrType DataAutomationProjectModalityRoutingConfigurationArgs
+
+func DataAutomationProjectModalityRoutingConfigurationPtr(v *DataAutomationProjectModalityRoutingConfigurationArgs) DataAutomationProjectModalityRoutingConfigurationPtrInput {
+	return (*dataAutomationProjectModalityRoutingConfigurationPtrType)(v)
+}
+
+func (*dataAutomationProjectModalityRoutingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectModalityRoutingConfiguration)(nil)).Elem()
+}
+
+func (i *dataAutomationProjectModalityRoutingConfigurationPtrType) ToDataAutomationProjectModalityRoutingConfigurationPtrOutput() DataAutomationProjectModalityRoutingConfigurationPtrOutput {
+	return i.ToDataAutomationProjectModalityRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAutomationProjectModalityRoutingConfigurationPtrType) ToDataAutomationProjectModalityRoutingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectModalityRoutingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectModalityRoutingConfigurationPtrOutput)
+}
+
+// Modality routing configuration
+type DataAutomationProjectModalityRoutingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectModalityRoutingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectModalityRoutingConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationOutput) ToDataAutomationProjectModalityRoutingConfigurationOutput() DataAutomationProjectModalityRoutingConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationOutput) ToDataAutomationProjectModalityRoutingConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectModalityRoutingConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationOutput) ToDataAutomationProjectModalityRoutingConfigurationPtrOutput() DataAutomationProjectModalityRoutingConfigurationPtrOutput {
+	return o.ToDataAutomationProjectModalityRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationOutput) ToDataAutomationProjectModalityRoutingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectModalityRoutingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectModalityRoutingConfiguration {
+		return &v
+	}).(DataAutomationProjectModalityRoutingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationOutput) Jpeg() DataAutomationProjectDesiredModalityPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
+		return v.Jpeg
+	}).(DataAutomationProjectDesiredModalityPtrOutput)
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationOutput) Mov() DataAutomationProjectDesiredModalityPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
+		return v.Mov
+	}).(DataAutomationProjectDesiredModalityPtrOutput)
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationOutput) Mp4() DataAutomationProjectDesiredModalityPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
+		return v.Mp4
+	}).(DataAutomationProjectDesiredModalityPtrOutput)
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationOutput) Png() DataAutomationProjectDesiredModalityPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
+		return v.Png
+	}).(DataAutomationProjectDesiredModalityPtrOutput)
+}
+
+type DataAutomationProjectModalityRoutingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectModalityRoutingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectModalityRoutingConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) ToDataAutomationProjectModalityRoutingConfigurationPtrOutput() DataAutomationProjectModalityRoutingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) ToDataAutomationProjectModalityRoutingConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectModalityRoutingConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Elem() DataAutomationProjectModalityRoutingConfigurationOutput {
+	return o.ApplyT(func(v *DataAutomationProjectModalityRoutingConfiguration) DataAutomationProjectModalityRoutingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectModalityRoutingConfiguration
+		return ret
+	}).(DataAutomationProjectModalityRoutingConfigurationOutput)
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Jpeg() DataAutomationProjectDesiredModalityPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
+		if v == nil {
+			return nil
+		}
+		return v.Jpeg
+	}).(DataAutomationProjectDesiredModalityPtrOutput)
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Mov() DataAutomationProjectDesiredModalityPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
+		if v == nil {
+			return nil
+		}
+		return v.Mov
+	}).(DataAutomationProjectDesiredModalityPtrOutput)
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Mp4() DataAutomationProjectDesiredModalityPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
+		if v == nil {
+			return nil
+		}
+		return v.Mp4
+	}).(DataAutomationProjectDesiredModalityPtrOutput)
+}
+
+func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Png() DataAutomationProjectDesiredModalityPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
+		if v == nil {
+			return nil
+		}
+		return v.Png
+	}).(DataAutomationProjectDesiredModalityPtrOutput)
+}
+
 // Override configuration
 type DataAutomationProjectOverrideConfiguration struct {
+	Audio *DataAutomationProjectAudioOverrideConfiguration `pulumi:"audio"`
 	// Additional settings for a project.
-	Document *DataAutomationProjectDocumentOverrideConfiguration `pulumi:"document"`
+	Document        *DataAutomationProjectDocumentOverrideConfiguration `pulumi:"document"`
+	Image           *DataAutomationProjectImageOverrideConfiguration    `pulumi:"image"`
+	ModalityRouting *DataAutomationProjectModalityRoutingConfiguration  `pulumi:"modalityRouting"`
+	Video           *DataAutomationProjectVideoOverrideConfiguration    `pulumi:"video"`
 }
 
 // DataAutomationProjectOverrideConfigurationInput is an input type that accepts DataAutomationProjectOverrideConfigurationArgs and DataAutomationProjectOverrideConfigurationOutput values.
@@ -6395,8 +7010,12 @@ type DataAutomationProjectOverrideConfigurationInput interface {
 
 // Override configuration
 type DataAutomationProjectOverrideConfigurationArgs struct {
+	Audio DataAutomationProjectAudioOverrideConfigurationPtrInput `pulumi:"audio"`
 	// Additional settings for a project.
-	Document DataAutomationProjectDocumentOverrideConfigurationPtrInput `pulumi:"document"`
+	Document        DataAutomationProjectDocumentOverrideConfigurationPtrInput `pulumi:"document"`
+	Image           DataAutomationProjectImageOverrideConfigurationPtrInput    `pulumi:"image"`
+	ModalityRouting DataAutomationProjectModalityRoutingConfigurationPtrInput  `pulumi:"modalityRouting"`
+	Video           DataAutomationProjectVideoOverrideConfigurationPtrInput    `pulumi:"video"`
 }
 
 func (DataAutomationProjectOverrideConfigurationArgs) ElementType() reflect.Type {
@@ -6477,11 +7096,35 @@ func (o DataAutomationProjectOverrideConfigurationOutput) ToDataAutomationProjec
 	}).(DataAutomationProjectOverrideConfigurationPtrOutput)
 }
 
+func (o DataAutomationProjectOverrideConfigurationOutput) Audio() DataAutomationProjectAudioOverrideConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectOverrideConfiguration) *DataAutomationProjectAudioOverrideConfiguration {
+		return v.Audio
+	}).(DataAutomationProjectAudioOverrideConfigurationPtrOutput)
+}
+
 // Additional settings for a project.
 func (o DataAutomationProjectOverrideConfigurationOutput) Document() DataAutomationProjectDocumentOverrideConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectOverrideConfiguration) *DataAutomationProjectDocumentOverrideConfiguration {
 		return v.Document
 	}).(DataAutomationProjectDocumentOverrideConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectOverrideConfigurationOutput) Image() DataAutomationProjectImageOverrideConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectOverrideConfiguration) *DataAutomationProjectImageOverrideConfiguration {
+		return v.Image
+	}).(DataAutomationProjectImageOverrideConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectOverrideConfigurationOutput) ModalityRouting() DataAutomationProjectModalityRoutingConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectOverrideConfiguration) *DataAutomationProjectModalityRoutingConfiguration {
+		return v.ModalityRouting
+	}).(DataAutomationProjectModalityRoutingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectOverrideConfigurationOutput) Video() DataAutomationProjectVideoOverrideConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectOverrideConfiguration) *DataAutomationProjectVideoOverrideConfiguration {
+		return v.Video
+	}).(DataAutomationProjectVideoOverrideConfigurationPtrOutput)
 }
 
 type DataAutomationProjectOverrideConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -6508,6 +7151,15 @@ func (o DataAutomationProjectOverrideConfigurationPtrOutput) Elem() DataAutomati
 	}).(DataAutomationProjectOverrideConfigurationOutput)
 }
 
+func (o DataAutomationProjectOverrideConfigurationPtrOutput) Audio() DataAutomationProjectAudioOverrideConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectOverrideConfiguration) *DataAutomationProjectAudioOverrideConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Audio
+	}).(DataAutomationProjectAudioOverrideConfigurationPtrOutput)
+}
+
 // Additional settings for a project.
 func (o DataAutomationProjectOverrideConfigurationPtrOutput) Document() DataAutomationProjectDocumentOverrideConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectOverrideConfiguration) *DataAutomationProjectDocumentOverrideConfiguration {
@@ -6516,6 +7168,33 @@ func (o DataAutomationProjectOverrideConfigurationPtrOutput) Document() DataAuto
 		}
 		return v.Document
 	}).(DataAutomationProjectDocumentOverrideConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectOverrideConfigurationPtrOutput) Image() DataAutomationProjectImageOverrideConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectOverrideConfiguration) *DataAutomationProjectImageOverrideConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Image
+	}).(DataAutomationProjectImageOverrideConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectOverrideConfigurationPtrOutput) ModalityRouting() DataAutomationProjectModalityRoutingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectOverrideConfiguration) *DataAutomationProjectModalityRoutingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ModalityRouting
+	}).(DataAutomationProjectModalityRoutingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectOverrideConfigurationPtrOutput) Video() DataAutomationProjectVideoOverrideConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectOverrideConfiguration) *DataAutomationProjectVideoOverrideConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Video
+	}).(DataAutomationProjectVideoOverrideConfigurationPtrOutput)
 }
 
 type DataAutomationProjectSplitterConfiguration struct {
@@ -7161,6 +7840,141 @@ func (o DataAutomationProjectVideoExtractionCategoryPtrOutput) Types() DataAutom
 		}
 		return v.Types
 	}).(DataAutomationProjectVideoExtractionCategoryTypeArrayOutput)
+}
+
+type DataAutomationProjectVideoOverrideConfiguration struct {
+	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+}
+
+// DataAutomationProjectVideoOverrideConfigurationInput is an input type that accepts DataAutomationProjectVideoOverrideConfigurationArgs and DataAutomationProjectVideoOverrideConfigurationOutput values.
+// You can construct a concrete instance of `DataAutomationProjectVideoOverrideConfigurationInput` via:
+//
+//	DataAutomationProjectVideoOverrideConfigurationArgs{...}
+type DataAutomationProjectVideoOverrideConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectVideoOverrideConfigurationOutput() DataAutomationProjectVideoOverrideConfigurationOutput
+	ToDataAutomationProjectVideoOverrideConfigurationOutputWithContext(context.Context) DataAutomationProjectVideoOverrideConfigurationOutput
+}
+
+type DataAutomationProjectVideoOverrideConfigurationArgs struct {
+	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+}
+
+func (DataAutomationProjectVideoOverrideConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectVideoOverrideConfiguration)(nil)).Elem()
+}
+
+func (i DataAutomationProjectVideoOverrideConfigurationArgs) ToDataAutomationProjectVideoOverrideConfigurationOutput() DataAutomationProjectVideoOverrideConfigurationOutput {
+	return i.ToDataAutomationProjectVideoOverrideConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectVideoOverrideConfigurationArgs) ToDataAutomationProjectVideoOverrideConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectVideoOverrideConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectVideoOverrideConfigurationOutput)
+}
+
+func (i DataAutomationProjectVideoOverrideConfigurationArgs) ToDataAutomationProjectVideoOverrideConfigurationPtrOutput() DataAutomationProjectVideoOverrideConfigurationPtrOutput {
+	return i.ToDataAutomationProjectVideoOverrideConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectVideoOverrideConfigurationArgs) ToDataAutomationProjectVideoOverrideConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectVideoOverrideConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectVideoOverrideConfigurationOutput).ToDataAutomationProjectVideoOverrideConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAutomationProjectVideoOverrideConfigurationPtrInput is an input type that accepts DataAutomationProjectVideoOverrideConfigurationArgs, DataAutomationProjectVideoOverrideConfigurationPtr and DataAutomationProjectVideoOverrideConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAutomationProjectVideoOverrideConfigurationPtrInput` via:
+//
+//	        DataAutomationProjectVideoOverrideConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAutomationProjectVideoOverrideConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectVideoOverrideConfigurationPtrOutput() DataAutomationProjectVideoOverrideConfigurationPtrOutput
+	ToDataAutomationProjectVideoOverrideConfigurationPtrOutputWithContext(context.Context) DataAutomationProjectVideoOverrideConfigurationPtrOutput
+}
+
+type dataAutomationProjectVideoOverrideConfigurationPtrType DataAutomationProjectVideoOverrideConfigurationArgs
+
+func DataAutomationProjectVideoOverrideConfigurationPtr(v *DataAutomationProjectVideoOverrideConfigurationArgs) DataAutomationProjectVideoOverrideConfigurationPtrInput {
+	return (*dataAutomationProjectVideoOverrideConfigurationPtrType)(v)
+}
+
+func (*dataAutomationProjectVideoOverrideConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectVideoOverrideConfiguration)(nil)).Elem()
+}
+
+func (i *dataAutomationProjectVideoOverrideConfigurationPtrType) ToDataAutomationProjectVideoOverrideConfigurationPtrOutput() DataAutomationProjectVideoOverrideConfigurationPtrOutput {
+	return i.ToDataAutomationProjectVideoOverrideConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAutomationProjectVideoOverrideConfigurationPtrType) ToDataAutomationProjectVideoOverrideConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectVideoOverrideConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectVideoOverrideConfigurationPtrOutput)
+}
+
+type DataAutomationProjectVideoOverrideConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectVideoOverrideConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectVideoOverrideConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectVideoOverrideConfigurationOutput) ToDataAutomationProjectVideoOverrideConfigurationOutput() DataAutomationProjectVideoOverrideConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoOverrideConfigurationOutput) ToDataAutomationProjectVideoOverrideConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectVideoOverrideConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoOverrideConfigurationOutput) ToDataAutomationProjectVideoOverrideConfigurationPtrOutput() DataAutomationProjectVideoOverrideConfigurationPtrOutput {
+	return o.ToDataAutomationProjectVideoOverrideConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectVideoOverrideConfigurationOutput) ToDataAutomationProjectVideoOverrideConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectVideoOverrideConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectVideoOverrideConfiguration) *DataAutomationProjectVideoOverrideConfiguration {
+		return &v
+	}).(DataAutomationProjectVideoOverrideConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectVideoOverrideConfigurationOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectVideoOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
+		return v.ModalityProcessing
+	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
+type DataAutomationProjectVideoOverrideConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectVideoOverrideConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectVideoOverrideConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectVideoOverrideConfigurationPtrOutput) ToDataAutomationProjectVideoOverrideConfigurationPtrOutput() DataAutomationProjectVideoOverrideConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoOverrideConfigurationPtrOutput) ToDataAutomationProjectVideoOverrideConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectVideoOverrideConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectVideoOverrideConfigurationPtrOutput) Elem() DataAutomationProjectVideoOverrideConfigurationOutput {
+	return o.ApplyT(func(v *DataAutomationProjectVideoOverrideConfiguration) DataAutomationProjectVideoOverrideConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectVideoOverrideConfiguration
+		return ret
+	}).(DataAutomationProjectVideoOverrideConfigurationOutput)
+}
+
+func (o DataAutomationProjectVideoOverrideConfigurationPtrOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectVideoOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ModalityProcessing
+	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
 type DataAutomationProjectVideoStandardExtraction struct {
@@ -36570,6 +37384,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrInput)(nil)).Elem(), ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryPtrInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioOverrideConfigurationInput)(nil)).Elem(), DataAutomationProjectAudioOverrideConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioOverrideConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectAudioOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardExtractionInput)(nil)).Elem(), DataAutomationProjectAudioStandardExtractionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardExtractionPtrInput)(nil)).Elem(), DataAutomationProjectAudioStandardExtractionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardGenerativeFieldInput)(nil)).Elem(), DataAutomationProjectAudioStandardGenerativeFieldArgs{})
@@ -36602,12 +37418,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageBoundingBoxPtrInput)(nil)).Elem(), DataAutomationProjectImageBoundingBoxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageExtractionCategoryInput)(nil)).Elem(), DataAutomationProjectImageExtractionCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageExtractionCategoryPtrInput)(nil)).Elem(), DataAutomationProjectImageExtractionCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageOverrideConfigurationInput)(nil)).Elem(), DataAutomationProjectImageOverrideConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageOverrideConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectImageOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageStandardExtractionInput)(nil)).Elem(), DataAutomationProjectImageStandardExtractionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageStandardExtractionPtrInput)(nil)).Elem(), DataAutomationProjectImageStandardExtractionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageStandardGenerativeFieldInput)(nil)).Elem(), DataAutomationProjectImageStandardGenerativeFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageStandardGenerativeFieldPtrInput)(nil)).Elem(), DataAutomationProjectImageStandardGenerativeFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageStandardOutputConfigurationInput)(nil)).Elem(), DataAutomationProjectImageStandardOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageStandardOutputConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectImageStandardOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectModalityProcessingConfigurationInput)(nil)).Elem(), DataAutomationProjectModalityProcessingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectModalityProcessingConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectModalityProcessingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectModalityRoutingConfigurationInput)(nil)).Elem(), DataAutomationProjectModalityRoutingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectModalityRoutingConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectModalityRoutingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectOverrideConfigurationInput)(nil)).Elem(), DataAutomationProjectOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectOverrideConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSplitterConfigurationInput)(nil)).Elem(), DataAutomationProjectSplitterConfigurationArgs{})
@@ -36618,6 +37440,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoBoundingBoxPtrInput)(nil)).Elem(), DataAutomationProjectVideoBoundingBoxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoExtractionCategoryInput)(nil)).Elem(), DataAutomationProjectVideoExtractionCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoExtractionCategoryPtrInput)(nil)).Elem(), DataAutomationProjectVideoExtractionCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoOverrideConfigurationInput)(nil)).Elem(), DataAutomationProjectVideoOverrideConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoOverrideConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectVideoOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoStandardExtractionInput)(nil)).Elem(), DataAutomationProjectVideoStandardExtractionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoStandardExtractionPtrInput)(nil)).Elem(), DataAutomationProjectVideoStandardExtractionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoStandardGenerativeFieldInput)(nil)).Elem(), DataAutomationProjectVideoStandardGenerativeFieldArgs{})
@@ -36995,6 +37819,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioOverrideConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioOverrideConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardExtractionOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardExtractionPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardGenerativeFieldOutput{})
@@ -37027,12 +37853,18 @@ func init() {
 	pulumi.RegisterOutputType(DataAutomationProjectImageBoundingBoxPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectImageExtractionCategoryOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectImageExtractionCategoryPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectImageOverrideConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectImageOverrideConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectImageStandardExtractionOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectImageStandardExtractionPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectImageStandardGenerativeFieldOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectImageStandardGenerativeFieldPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectImageStandardOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectImageStandardOutputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectModalityProcessingConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectModalityProcessingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectModalityRoutingConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectModalityRoutingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectOverrideConfigurationOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectOverrideConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectSplitterConfigurationOutput{})
@@ -37043,6 +37875,8 @@ func init() {
 	pulumi.RegisterOutputType(DataAutomationProjectVideoBoundingBoxPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectVideoExtractionCategoryOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectVideoExtractionCategoryPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectVideoOverrideConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectVideoOverrideConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectVideoStandardExtractionOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectVideoStandardExtractionPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectVideoStandardGenerativeFieldOutput{})

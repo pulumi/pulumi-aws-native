@@ -88,7 +88,7 @@ class GetFleetResult:
     @pulumi.getter(name="computeConfiguration")
     def compute_configuration(self) -> Optional['outputs.FleetComputeConfiguration']:
         """
-        The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
         """
         return pulumi.get(self, "compute_configuration")
 

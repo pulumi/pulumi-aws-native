@@ -37,6 +37,7 @@ class WorkspaceArgs:
         :param pulumi.Input[builtins.str] kms_key_arn: KMS Key ARN used to encrypt and decrypt AMP workspace data.
         :param pulumi.Input['WorkspaceLoggingConfigurationArgs'] logging_configuration: Contains information about the logging configuration for the workspace.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['WorkspaceConfigurationArgs'] workspace_configuration: Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
         """
         if alert_manager_definition is not None:
             pulumi.set(__self__, "alert_manager_definition", alert_manager_definition)
@@ -114,6 +115,9 @@ class WorkspaceArgs:
     @property
     @pulumi.getter(name="workspaceConfiguration")
     def workspace_configuration(self) -> Optional[pulumi.Input['WorkspaceConfigurationArgs']]:
+        """
+        Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+        """
         return pulumi.get(self, "workspace_configuration")
 
     @workspace_configuration.setter
@@ -196,6 +200,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_arn: KMS Key ARN used to encrypt and decrypt AMP workspace data.
         :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']] logging_configuration: Contains information about the logging configuration for the workspace.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict']] workspace_configuration: Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
         """
         ...
     @overload
@@ -389,6 +394,9 @@ class Workspace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="workspaceConfiguration")
     def workspace_configuration(self) -> pulumi.Output[Optional['outputs.WorkspaceConfiguration']]:
+        """
+        Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+        """
         return pulumi.get(self, "workspace_configuration")
 
     @property

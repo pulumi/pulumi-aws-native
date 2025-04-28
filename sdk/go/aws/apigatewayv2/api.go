@@ -41,6 +41,10 @@ type Api struct {
 	DisableSchemaValidation pulumi.BoolPtrOutput `pulumi:"disableSchemaValidation"`
 	// Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
 	FailOnWarnings pulumi.BoolPtrOutput `pulumi:"failOnWarnings"`
+	// The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+	//
+	// Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The API protocol. Valid values are ``WEBSOCKET`` or ``HTTP``. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
@@ -123,6 +127,10 @@ type apiArgs struct {
 	DisableSchemaValidation *bool `pulumi:"disableSchemaValidation"`
 	// Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
 	FailOnWarnings *bool `pulumi:"failOnWarnings"`
+	// The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+	//
+	// Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
 	Name *string `pulumi:"name"`
 	// The API protocol. Valid values are ``WEBSOCKET`` or ``HTTP``. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
@@ -163,6 +171,10 @@ type ApiArgs struct {
 	DisableSchemaValidation pulumi.BoolPtrInput
 	// Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
 	FailOnWarnings pulumi.BoolPtrInput
+	// The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+	//
+	// Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+	IpAddressType pulumi.StringPtrInput
 	// The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
 	Name pulumi.StringPtrInput
 	// The API protocol. Valid values are ``WEBSOCKET`` or ``HTTP``. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
@@ -276,6 +288,13 @@ func (o ApiOutput) DisableSchemaValidation() pulumi.BoolPtrOutput {
 // Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
 func (o ApiOutput) FailOnWarnings() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.BoolPtrOutput { return v.FailOnWarnings }).(pulumi.BoolPtrOutput)
+}
+
+// The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+//
+// Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+func (o ApiOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
 // The name of the API. Required unless you specify an OpenAPI definition for “Body“ or “S3BodyLocation“.

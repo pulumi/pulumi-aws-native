@@ -34,6 +34,7 @@ export const ServiceCodeConfigurationValuesRuntime = {
     Ruby31: "RUBY_31",
     Python311: "PYTHON_311",
     Nodejs18: "NODEJS_18",
+    Nodejs22: "NODEJS_22",
 } as const;
 
 /**

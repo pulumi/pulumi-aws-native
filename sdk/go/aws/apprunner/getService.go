@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -46,6 +47,8 @@ type LookupServiceResult struct {
 	SourceConfiguration *ServiceSourceConfiguration `pulumi:"sourceConfiguration"`
 	// AppRunner Service status.
 	Status *string `pulumi:"status"`
+	// An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -123,6 +126,11 @@ func (o LookupServiceResultOutput) SourceConfiguration() ServiceSourceConfigurat
 // AppRunner Service status.
 func (o LookupServiceResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
+func (o LookupServiceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.Aps
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+        /// </summary>
         public readonly Outputs.WorkspaceConfiguration? WorkspaceConfiguration;
         /// <summary>
         /// Required to identify a specific APS Workspace.

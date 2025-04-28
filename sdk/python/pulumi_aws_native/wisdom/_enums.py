@@ -137,6 +137,8 @@ class AiGuardrailGuardrailTopicType(builtins.str, Enum):
 class AiPromptAiPromptApiFormat(builtins.str, Enum):
     ANTHROPIC_CLAUDE_MESSAGES = "ANTHROPIC_CLAUDE_MESSAGES"
     ANTHROPIC_CLAUDE_TEXT_COMPLETIONS = "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS"
+    MESSAGES = "MESSAGES"
+    TEXT_COMPLETIONS = "TEXT_COMPLETIONS"
 
 
 class AiPromptAiPromptTemplateType(builtins.str, Enum):

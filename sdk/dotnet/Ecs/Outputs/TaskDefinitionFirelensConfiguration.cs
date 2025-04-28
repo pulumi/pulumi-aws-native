@@ -19,9 +19,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// <summary>
         /// The options to use when configuring the log router. This field is optional and can be used to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event.
         ///   If specified, valid option keys are:
-        ///   +   ``enable-ecs-log-metadata``, which can be ``true`` or ``false`` 
-        ///   +   ``config-file-type``, which can be ``s3`` or ``file`` 
-        ///   +   ``config-file-value``, which is either an S3 ARN or a file path
+        ///   +  ``enable-ecs-log-metadata``, which can be ``true`` or ``false``
+        ///   +  ``config-file-type``, which can be ``s3`` or ``file``
+        ///   +  ``config-file-value``, which is either an S3 ARN or a file path
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Options;
         /// <summary>

@@ -353,6 +353,8 @@ namespace Pulumi.AwsNative.Wisdom
 
         public static AiPromptAiPromptApiFormat AnthropicClaudeMessages { get; } = new AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_MESSAGES");
         public static AiPromptAiPromptApiFormat AnthropicClaudeTextCompletions { get; } = new AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_TEXT_COMPLETIONS");
+        public static AiPromptAiPromptApiFormat Messages { get; } = new AiPromptAiPromptApiFormat("MESSAGES");
+        public static AiPromptAiPromptApiFormat TextCompletions { get; } = new AiPromptAiPromptApiFormat("TEXT_COMPLETIONS");
 
         public static bool operator ==(AiPromptAiPromptApiFormat left, AiPromptAiPromptApiFormat right) => left.Equals(right);
         public static bool operator !=(AiPromptAiPromptApiFormat left, AiPromptAiPromptApiFormat right) => !left.Equals(right);

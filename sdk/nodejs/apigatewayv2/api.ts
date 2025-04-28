@@ -88,6 +88,12 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly failOnWarnings!: pulumi.Output<boolean | undefined>;
     /**
+     * The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+     *
+     * Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+     */
+    public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    /**
      * The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
      */
     public readonly name!: pulumi.Output<string | undefined>;
@@ -137,6 +143,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
             resourceInputs["disableSchemaValidation"] = args ? args.disableSchemaValidation : undefined;
             resourceInputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["protocolType"] = args ? args.protocolType : undefined;
             resourceInputs["routeKey"] = args ? args.routeKey : undefined;
@@ -159,6 +166,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["disableExecuteApiEndpoint"] = undefined /*out*/;
             resourceInputs["disableSchemaValidation"] = undefined /*out*/;
             resourceInputs["failOnWarnings"] = undefined /*out*/;
+            resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protocolType"] = undefined /*out*/;
             resourceInputs["routeKey"] = undefined /*out*/;
@@ -220,6 +228,12 @@ export interface ApiArgs {
      * Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
      */
     failOnWarnings?: pulumi.Input<boolean>;
+    /**
+     * The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+     *
+     * Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+     */
+    ipAddressType?: pulumi.Input<string>;
     /**
      * The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
      */

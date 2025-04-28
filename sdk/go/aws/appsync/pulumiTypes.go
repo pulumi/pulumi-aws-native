@@ -1295,6 +1295,587 @@ func (o ChannelNamespaceAuthModeArrayOutput) Index(i pulumi.IntInput) ChannelNam
 	}).(ChannelNamespaceAuthModeOutput)
 }
 
+type ChannelNamespaceHandlerConfig struct {
+	Behavior    ChannelNamespaceHandlerBehavior `pulumi:"behavior"`
+	Integration ChannelNamespaceIntegration     `pulumi:"integration"`
+}
+
+// ChannelNamespaceHandlerConfigInput is an input type that accepts ChannelNamespaceHandlerConfigArgs and ChannelNamespaceHandlerConfigOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigInput` via:
+//
+//	ChannelNamespaceHandlerConfigArgs{...}
+type ChannelNamespaceHandlerConfigInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigOutput() ChannelNamespaceHandlerConfigOutput
+	ToChannelNamespaceHandlerConfigOutputWithContext(context.Context) ChannelNamespaceHandlerConfigOutput
+}
+
+type ChannelNamespaceHandlerConfigArgs struct {
+	Behavior    ChannelNamespaceHandlerBehaviorInput `pulumi:"behavior"`
+	Integration ChannelNamespaceIntegrationInput     `pulumi:"integration"`
+}
+
+func (ChannelNamespaceHandlerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfig)(nil)).Elem()
+}
+
+func (i ChannelNamespaceHandlerConfigArgs) ToChannelNamespaceHandlerConfigOutput() ChannelNamespaceHandlerConfigOutput {
+	return i.ToChannelNamespaceHandlerConfigOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigArgs) ToChannelNamespaceHandlerConfigOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigOutput)
+}
+
+func (i ChannelNamespaceHandlerConfigArgs) ToChannelNamespaceHandlerConfigPtrOutput() ChannelNamespaceHandlerConfigPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigArgs) ToChannelNamespaceHandlerConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigOutput).ToChannelNamespaceHandlerConfigPtrOutputWithContext(ctx)
+}
+
+// ChannelNamespaceHandlerConfigPtrInput is an input type that accepts ChannelNamespaceHandlerConfigArgs, ChannelNamespaceHandlerConfigPtr and ChannelNamespaceHandlerConfigPtrOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigPtrInput` via:
+//
+//	        ChannelNamespaceHandlerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelNamespaceHandlerConfigPtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigPtrOutput() ChannelNamespaceHandlerConfigPtrOutput
+	ToChannelNamespaceHandlerConfigPtrOutputWithContext(context.Context) ChannelNamespaceHandlerConfigPtrOutput
+}
+
+type channelNamespaceHandlerConfigPtrType ChannelNamespaceHandlerConfigArgs
+
+func ChannelNamespaceHandlerConfigPtr(v *ChannelNamespaceHandlerConfigArgs) ChannelNamespaceHandlerConfigPtrInput {
+	return (*channelNamespaceHandlerConfigPtrType)(v)
+}
+
+func (*channelNamespaceHandlerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfig)(nil)).Elem()
+}
+
+func (i *channelNamespaceHandlerConfigPtrType) ToChannelNamespaceHandlerConfigPtrOutput() ChannelNamespaceHandlerConfigPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNamespaceHandlerConfigPtrType) ToChannelNamespaceHandlerConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfig)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigOutput) ToChannelNamespaceHandlerConfigOutput() ChannelNamespaceHandlerConfigOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigOutput) ToChannelNamespaceHandlerConfigOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigOutput) ToChannelNamespaceHandlerConfigPtrOutput() ChannelNamespaceHandlerConfigPtrOutput {
+	return o.ToChannelNamespaceHandlerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerConfigOutput) ToChannelNamespaceHandlerConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceHandlerConfig) *ChannelNamespaceHandlerConfig {
+		return &v
+	}).(ChannelNamespaceHandlerConfigPtrOutput)
+}
+
+func (o ChannelNamespaceHandlerConfigOutput) Behavior() ChannelNamespaceHandlerBehaviorOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfig) ChannelNamespaceHandlerBehavior { return v.Behavior }).(ChannelNamespaceHandlerBehaviorOutput)
+}
+
+func (o ChannelNamespaceHandlerConfigOutput) Integration() ChannelNamespaceIntegrationOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfig) ChannelNamespaceIntegration { return v.Integration }).(ChannelNamespaceIntegrationOutput)
+}
+
+type ChannelNamespaceHandlerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfig)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigPtrOutput) ToChannelNamespaceHandlerConfigPtrOutput() ChannelNamespaceHandlerConfigPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigPtrOutput) ToChannelNamespaceHandlerConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigPtrOutput) Elem() ChannelNamespaceHandlerConfigOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfig) ChannelNamespaceHandlerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceHandlerConfig
+		return ret
+	}).(ChannelNamespaceHandlerConfigOutput)
+}
+
+func (o ChannelNamespaceHandlerConfigPtrOutput) Behavior() ChannelNamespaceHandlerBehaviorPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfig) *ChannelNamespaceHandlerBehavior {
+		if v == nil {
+			return nil
+		}
+		return &v.Behavior
+	}).(ChannelNamespaceHandlerBehaviorPtrOutput)
+}
+
+func (o ChannelNamespaceHandlerConfigPtrOutput) Integration() ChannelNamespaceIntegrationPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfig) *ChannelNamespaceIntegration {
+		if v == nil {
+			return nil
+		}
+		return &v.Integration
+	}).(ChannelNamespaceIntegrationPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigs struct {
+	OnPublish   *ChannelNamespaceHandlerConfig `pulumi:"onPublish"`
+	OnSubscribe *ChannelNamespaceHandlerConfig `pulumi:"onSubscribe"`
+}
+
+// ChannelNamespaceHandlerConfigsInput is an input type that accepts ChannelNamespaceHandlerConfigsArgs and ChannelNamespaceHandlerConfigsOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsInput` via:
+//
+//	ChannelNamespaceHandlerConfigsArgs{...}
+type ChannelNamespaceHandlerConfigsInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsOutput() ChannelNamespaceHandlerConfigsOutput
+	ToChannelNamespaceHandlerConfigsOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsOutput
+}
+
+type ChannelNamespaceHandlerConfigsArgs struct {
+	OnPublish   ChannelNamespaceHandlerConfigPtrInput `pulumi:"onPublish"`
+	OnSubscribe ChannelNamespaceHandlerConfigPtrInput `pulumi:"onSubscribe"`
+}
+
+func (ChannelNamespaceHandlerConfigsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigs)(nil)).Elem()
+}
+
+func (i ChannelNamespaceHandlerConfigsArgs) ToChannelNamespaceHandlerConfigsOutput() ChannelNamespaceHandlerConfigsOutput {
+	return i.ToChannelNamespaceHandlerConfigsOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsArgs) ToChannelNamespaceHandlerConfigsOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOutput)
+}
+
+func (i ChannelNamespaceHandlerConfigsArgs) ToChannelNamespaceHandlerConfigsPtrOutput() ChannelNamespaceHandlerConfigsPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceHandlerConfigsArgs) ToChannelNamespaceHandlerConfigsPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsOutput).ToChannelNamespaceHandlerConfigsPtrOutputWithContext(ctx)
+}
+
+// ChannelNamespaceHandlerConfigsPtrInput is an input type that accepts ChannelNamespaceHandlerConfigsArgs, ChannelNamespaceHandlerConfigsPtr and ChannelNamespaceHandlerConfigsPtrOutput values.
+// You can construct a concrete instance of `ChannelNamespaceHandlerConfigsPtrInput` via:
+//
+//	        ChannelNamespaceHandlerConfigsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelNamespaceHandlerConfigsPtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerConfigsPtrOutput() ChannelNamespaceHandlerConfigsPtrOutput
+	ToChannelNamespaceHandlerConfigsPtrOutputWithContext(context.Context) ChannelNamespaceHandlerConfigsPtrOutput
+}
+
+type channelNamespaceHandlerConfigsPtrType ChannelNamespaceHandlerConfigsArgs
+
+func ChannelNamespaceHandlerConfigsPtr(v *ChannelNamespaceHandlerConfigsArgs) ChannelNamespaceHandlerConfigsPtrInput {
+	return (*channelNamespaceHandlerConfigsPtrType)(v)
+}
+
+func (*channelNamespaceHandlerConfigsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigs)(nil)).Elem()
+}
+
+func (i *channelNamespaceHandlerConfigsPtrType) ToChannelNamespaceHandlerConfigsPtrOutput() ChannelNamespaceHandlerConfigsPtrOutput {
+	return i.ToChannelNamespaceHandlerConfigsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNamespaceHandlerConfigsPtrType) ToChannelNamespaceHandlerConfigsPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceHandlerConfigsPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerConfigs)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsOutput) ToChannelNamespaceHandlerConfigsOutput() ChannelNamespaceHandlerConfigsOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOutput) ToChannelNamespaceHandlerConfigsOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsOutput) ToChannelNamespaceHandlerConfigsPtrOutput() ChannelNamespaceHandlerConfigsPtrOutput {
+	return o.ToChannelNamespaceHandlerConfigsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerConfigsOutput) ToChannelNamespaceHandlerConfigsPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigs {
+		return &v
+	}).(ChannelNamespaceHandlerConfigsPtrOutput)
+}
+
+func (o ChannelNamespaceHandlerConfigsOutput) OnPublish() ChannelNamespaceHandlerConfigPtrOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfig { return v.OnPublish }).(ChannelNamespaceHandlerConfigPtrOutput)
+}
+
+func (o ChannelNamespaceHandlerConfigsOutput) OnSubscribe() ChannelNamespaceHandlerConfigPtrOutput {
+	return o.ApplyT(func(v ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfig { return v.OnSubscribe }).(ChannelNamespaceHandlerConfigPtrOutput)
+}
+
+type ChannelNamespaceHandlerConfigsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerConfigsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerConfigs)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerConfigsPtrOutput) ToChannelNamespaceHandlerConfigsPtrOutput() ChannelNamespaceHandlerConfigsPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsPtrOutput) ToChannelNamespaceHandlerConfigsPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerConfigsPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerConfigsPtrOutput) Elem() ChannelNamespaceHandlerConfigsOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigs) ChannelNamespaceHandlerConfigs {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceHandlerConfigs
+		return ret
+	}).(ChannelNamespaceHandlerConfigsOutput)
+}
+
+func (o ChannelNamespaceHandlerConfigsPtrOutput) OnPublish() ChannelNamespaceHandlerConfigPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.OnPublish
+	}).(ChannelNamespaceHandlerConfigPtrOutput)
+}
+
+func (o ChannelNamespaceHandlerConfigsPtrOutput) OnSubscribe() ChannelNamespaceHandlerConfigPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.OnSubscribe
+	}).(ChannelNamespaceHandlerConfigPtrOutput)
+}
+
+type ChannelNamespaceIntegration struct {
+	// Data source to invoke for this integration.
+	DataSourceName string                        `pulumi:"dataSourceName"`
+	LambdaConfig   *ChannelNamespaceLambdaConfig `pulumi:"lambdaConfig"`
+}
+
+// ChannelNamespaceIntegrationInput is an input type that accepts ChannelNamespaceIntegrationArgs and ChannelNamespaceIntegrationOutput values.
+// You can construct a concrete instance of `ChannelNamespaceIntegrationInput` via:
+//
+//	ChannelNamespaceIntegrationArgs{...}
+type ChannelNamespaceIntegrationInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceIntegrationOutput() ChannelNamespaceIntegrationOutput
+	ToChannelNamespaceIntegrationOutputWithContext(context.Context) ChannelNamespaceIntegrationOutput
+}
+
+type ChannelNamespaceIntegrationArgs struct {
+	// Data source to invoke for this integration.
+	DataSourceName pulumi.StringInput                   `pulumi:"dataSourceName"`
+	LambdaConfig   ChannelNamespaceLambdaConfigPtrInput `pulumi:"lambdaConfig"`
+}
+
+func (ChannelNamespaceIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceIntegration)(nil)).Elem()
+}
+
+func (i ChannelNamespaceIntegrationArgs) ToChannelNamespaceIntegrationOutput() ChannelNamespaceIntegrationOutput {
+	return i.ToChannelNamespaceIntegrationOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceIntegrationArgs) ToChannelNamespaceIntegrationOutputWithContext(ctx context.Context) ChannelNamespaceIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceIntegrationOutput)
+}
+
+func (i ChannelNamespaceIntegrationArgs) ToChannelNamespaceIntegrationPtrOutput() ChannelNamespaceIntegrationPtrOutput {
+	return i.ToChannelNamespaceIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceIntegrationArgs) ToChannelNamespaceIntegrationPtrOutputWithContext(ctx context.Context) ChannelNamespaceIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceIntegrationOutput).ToChannelNamespaceIntegrationPtrOutputWithContext(ctx)
+}
+
+// ChannelNamespaceIntegrationPtrInput is an input type that accepts ChannelNamespaceIntegrationArgs, ChannelNamespaceIntegrationPtr and ChannelNamespaceIntegrationPtrOutput values.
+// You can construct a concrete instance of `ChannelNamespaceIntegrationPtrInput` via:
+//
+//	        ChannelNamespaceIntegrationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelNamespaceIntegrationPtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceIntegrationPtrOutput() ChannelNamespaceIntegrationPtrOutput
+	ToChannelNamespaceIntegrationPtrOutputWithContext(context.Context) ChannelNamespaceIntegrationPtrOutput
+}
+
+type channelNamespaceIntegrationPtrType ChannelNamespaceIntegrationArgs
+
+func ChannelNamespaceIntegrationPtr(v *ChannelNamespaceIntegrationArgs) ChannelNamespaceIntegrationPtrInput {
+	return (*channelNamespaceIntegrationPtrType)(v)
+}
+
+func (*channelNamespaceIntegrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceIntegration)(nil)).Elem()
+}
+
+func (i *channelNamespaceIntegrationPtrType) ToChannelNamespaceIntegrationPtrOutput() ChannelNamespaceIntegrationPtrOutput {
+	return i.ToChannelNamespaceIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNamespaceIntegrationPtrType) ToChannelNamespaceIntegrationPtrOutputWithContext(ctx context.Context) ChannelNamespaceIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceIntegrationPtrOutput)
+}
+
+type ChannelNamespaceIntegrationOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceIntegration)(nil)).Elem()
+}
+
+func (o ChannelNamespaceIntegrationOutput) ToChannelNamespaceIntegrationOutput() ChannelNamespaceIntegrationOutput {
+	return o
+}
+
+func (o ChannelNamespaceIntegrationOutput) ToChannelNamespaceIntegrationOutputWithContext(ctx context.Context) ChannelNamespaceIntegrationOutput {
+	return o
+}
+
+func (o ChannelNamespaceIntegrationOutput) ToChannelNamespaceIntegrationPtrOutput() ChannelNamespaceIntegrationPtrOutput {
+	return o.ToChannelNamespaceIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceIntegrationOutput) ToChannelNamespaceIntegrationPtrOutputWithContext(ctx context.Context) ChannelNamespaceIntegrationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceIntegration) *ChannelNamespaceIntegration {
+		return &v
+	}).(ChannelNamespaceIntegrationPtrOutput)
+}
+
+// Data source to invoke for this integration.
+func (o ChannelNamespaceIntegrationOutput) DataSourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelNamespaceIntegration) string { return v.DataSourceName }).(pulumi.StringOutput)
+}
+
+func (o ChannelNamespaceIntegrationOutput) LambdaConfig() ChannelNamespaceLambdaConfigPtrOutput {
+	return o.ApplyT(func(v ChannelNamespaceIntegration) *ChannelNamespaceLambdaConfig { return v.LambdaConfig }).(ChannelNamespaceLambdaConfigPtrOutput)
+}
+
+type ChannelNamespaceIntegrationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceIntegrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceIntegration)(nil)).Elem()
+}
+
+func (o ChannelNamespaceIntegrationPtrOutput) ToChannelNamespaceIntegrationPtrOutput() ChannelNamespaceIntegrationPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceIntegrationPtrOutput) ToChannelNamespaceIntegrationPtrOutputWithContext(ctx context.Context) ChannelNamespaceIntegrationPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceIntegrationPtrOutput) Elem() ChannelNamespaceIntegrationOutput {
+	return o.ApplyT(func(v *ChannelNamespaceIntegration) ChannelNamespaceIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceIntegration
+		return ret
+	}).(ChannelNamespaceIntegrationOutput)
+}
+
+// Data source to invoke for this integration.
+func (o ChannelNamespaceIntegrationPtrOutput) DataSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelNamespaceIntegrationPtrOutput) LambdaConfig() ChannelNamespaceLambdaConfigPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceIntegration) *ChannelNamespaceLambdaConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaConfig
+	}).(ChannelNamespaceLambdaConfigPtrOutput)
+}
+
+type ChannelNamespaceLambdaConfig struct {
+	InvokeType ChannelNamespaceInvokeType `pulumi:"invokeType"`
+}
+
+// ChannelNamespaceLambdaConfigInput is an input type that accepts ChannelNamespaceLambdaConfigArgs and ChannelNamespaceLambdaConfigOutput values.
+// You can construct a concrete instance of `ChannelNamespaceLambdaConfigInput` via:
+//
+//	ChannelNamespaceLambdaConfigArgs{...}
+type ChannelNamespaceLambdaConfigInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceLambdaConfigOutput() ChannelNamespaceLambdaConfigOutput
+	ToChannelNamespaceLambdaConfigOutputWithContext(context.Context) ChannelNamespaceLambdaConfigOutput
+}
+
+type ChannelNamespaceLambdaConfigArgs struct {
+	InvokeType ChannelNamespaceInvokeTypeInput `pulumi:"invokeType"`
+}
+
+func (ChannelNamespaceLambdaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceLambdaConfig)(nil)).Elem()
+}
+
+func (i ChannelNamespaceLambdaConfigArgs) ToChannelNamespaceLambdaConfigOutput() ChannelNamespaceLambdaConfigOutput {
+	return i.ToChannelNamespaceLambdaConfigOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceLambdaConfigArgs) ToChannelNamespaceLambdaConfigOutputWithContext(ctx context.Context) ChannelNamespaceLambdaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceLambdaConfigOutput)
+}
+
+func (i ChannelNamespaceLambdaConfigArgs) ToChannelNamespaceLambdaConfigPtrOutput() ChannelNamespaceLambdaConfigPtrOutput {
+	return i.ToChannelNamespaceLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceLambdaConfigArgs) ToChannelNamespaceLambdaConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceLambdaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceLambdaConfigOutput).ToChannelNamespaceLambdaConfigPtrOutputWithContext(ctx)
+}
+
+// ChannelNamespaceLambdaConfigPtrInput is an input type that accepts ChannelNamespaceLambdaConfigArgs, ChannelNamespaceLambdaConfigPtr and ChannelNamespaceLambdaConfigPtrOutput values.
+// You can construct a concrete instance of `ChannelNamespaceLambdaConfigPtrInput` via:
+//
+//	        ChannelNamespaceLambdaConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelNamespaceLambdaConfigPtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceLambdaConfigPtrOutput() ChannelNamespaceLambdaConfigPtrOutput
+	ToChannelNamespaceLambdaConfigPtrOutputWithContext(context.Context) ChannelNamespaceLambdaConfigPtrOutput
+}
+
+type channelNamespaceLambdaConfigPtrType ChannelNamespaceLambdaConfigArgs
+
+func ChannelNamespaceLambdaConfigPtr(v *ChannelNamespaceLambdaConfigArgs) ChannelNamespaceLambdaConfigPtrInput {
+	return (*channelNamespaceLambdaConfigPtrType)(v)
+}
+
+func (*channelNamespaceLambdaConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceLambdaConfig)(nil)).Elem()
+}
+
+func (i *channelNamespaceLambdaConfigPtrType) ToChannelNamespaceLambdaConfigPtrOutput() ChannelNamespaceLambdaConfigPtrOutput {
+	return i.ToChannelNamespaceLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *channelNamespaceLambdaConfigPtrType) ToChannelNamespaceLambdaConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceLambdaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceLambdaConfigPtrOutput)
+}
+
+type ChannelNamespaceLambdaConfigOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceLambdaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceLambdaConfig)(nil)).Elem()
+}
+
+func (o ChannelNamespaceLambdaConfigOutput) ToChannelNamespaceLambdaConfigOutput() ChannelNamespaceLambdaConfigOutput {
+	return o
+}
+
+func (o ChannelNamespaceLambdaConfigOutput) ToChannelNamespaceLambdaConfigOutputWithContext(ctx context.Context) ChannelNamespaceLambdaConfigOutput {
+	return o
+}
+
+func (o ChannelNamespaceLambdaConfigOutput) ToChannelNamespaceLambdaConfigPtrOutput() ChannelNamespaceLambdaConfigPtrOutput {
+	return o.ToChannelNamespaceLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceLambdaConfigOutput) ToChannelNamespaceLambdaConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceLambdaConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceLambdaConfig) *ChannelNamespaceLambdaConfig {
+		return &v
+	}).(ChannelNamespaceLambdaConfigPtrOutput)
+}
+
+func (o ChannelNamespaceLambdaConfigOutput) InvokeType() ChannelNamespaceInvokeTypeOutput {
+	return o.ApplyT(func(v ChannelNamespaceLambdaConfig) ChannelNamespaceInvokeType { return v.InvokeType }).(ChannelNamespaceInvokeTypeOutput)
+}
+
+type ChannelNamespaceLambdaConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceLambdaConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceLambdaConfig)(nil)).Elem()
+}
+
+func (o ChannelNamespaceLambdaConfigPtrOutput) ToChannelNamespaceLambdaConfigPtrOutput() ChannelNamespaceLambdaConfigPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceLambdaConfigPtrOutput) ToChannelNamespaceLambdaConfigPtrOutputWithContext(ctx context.Context) ChannelNamespaceLambdaConfigPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceLambdaConfigPtrOutput) Elem() ChannelNamespaceLambdaConfigOutput {
+	return o.ApplyT(func(v *ChannelNamespaceLambdaConfig) ChannelNamespaceLambdaConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceLambdaConfig
+		return ret
+	}).(ChannelNamespaceLambdaConfigOutput)
+}
+
+func (o ChannelNamespaceLambdaConfigPtrOutput) InvokeType() ChannelNamespaceInvokeTypePtrOutput {
+	return o.ApplyT(func(v *ChannelNamespaceLambdaConfig) *ChannelNamespaceInvokeType {
+		if v == nil {
+			return nil
+		}
+		return &v.InvokeType
+	}).(ChannelNamespaceInvokeTypePtrOutput)
+}
+
 // An arbitrary set of tags (key-value pairs) for this AppSync API.
 type ChannelNamespaceTag struct {
 	// A string used to identify this tag. You can specify a maximum of 128 characters for a tag key.
@@ -5802,6 +6383,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOpenIdConnectConfigPtrInput)(nil)).Elem(), ApiOpenIdConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceAuthModeInput)(nil)).Elem(), ChannelNamespaceAuthModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceAuthModeArrayInput)(nil)).Elem(), ChannelNamespaceAuthModeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigInput)(nil)).Elem(), ChannelNamespaceHandlerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigPtrInput)(nil)).Elem(), ChannelNamespaceHandlerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerConfigsPtrInput)(nil)).Elem(), ChannelNamespaceHandlerConfigsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceIntegrationInput)(nil)).Elem(), ChannelNamespaceIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceIntegrationPtrInput)(nil)).Elem(), ChannelNamespaceIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceLambdaConfigInput)(nil)).Elem(), ChannelNamespaceLambdaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceLambdaConfigPtrInput)(nil)).Elem(), ChannelNamespaceLambdaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthorizationConfigInput)(nil)).Elem(), DataSourceAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthorizationConfigPtrInput)(nil)).Elem(), DataSourceAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAwsIamConfigInput)(nil)).Elem(), DataSourceAwsIamConfigArgs{})
@@ -5874,6 +6463,14 @@ func init() {
 	pulumi.RegisterOutputType(ApiOpenIdConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(ChannelNamespaceAuthModeOutput{})
 	pulumi.RegisterOutputType(ChannelNamespaceAuthModeArrayOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerConfigsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceIntegrationOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceIntegrationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceLambdaConfigOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceLambdaConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAuthorizationConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAwsIamConfigOutput{})

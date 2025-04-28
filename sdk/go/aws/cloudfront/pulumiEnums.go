@@ -342,6 +342,171 @@ func (in *continuousDeploymentPolicyTrafficConfigTypePtr) ToContinuousDeployment
 	return pulumi.ToOutputWithContext(ctx, in).(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput)
 }
 
+type DistributionConnectionMode string
+
+const (
+	DistributionConnectionModeDirect     = DistributionConnectionMode("direct")
+	DistributionConnectionModeTenantOnly = DistributionConnectionMode("tenant-only")
+)
+
+func (DistributionConnectionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConnectionMode)(nil)).Elem()
+}
+
+func (e DistributionConnectionMode) ToDistributionConnectionModeOutput() DistributionConnectionModeOutput {
+	return pulumi.ToOutput(e).(DistributionConnectionModeOutput)
+}
+
+func (e DistributionConnectionMode) ToDistributionConnectionModeOutputWithContext(ctx context.Context) DistributionConnectionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionConnectionModeOutput)
+}
+
+func (e DistributionConnectionMode) ToDistributionConnectionModePtrOutput() DistributionConnectionModePtrOutput {
+	return e.ToDistributionConnectionModePtrOutputWithContext(context.Background())
+}
+
+func (e DistributionConnectionMode) ToDistributionConnectionModePtrOutputWithContext(ctx context.Context) DistributionConnectionModePtrOutput {
+	return DistributionConnectionMode(e).ToDistributionConnectionModeOutputWithContext(ctx).ToDistributionConnectionModePtrOutputWithContext(ctx)
+}
+
+func (e DistributionConnectionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionConnectionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionConnectionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionConnectionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionConnectionModeOutput struct{ *pulumi.OutputState }
+
+func (DistributionConnectionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConnectionMode)(nil)).Elem()
+}
+
+func (o DistributionConnectionModeOutput) ToDistributionConnectionModeOutput() DistributionConnectionModeOutput {
+	return o
+}
+
+func (o DistributionConnectionModeOutput) ToDistributionConnectionModeOutputWithContext(ctx context.Context) DistributionConnectionModeOutput {
+	return o
+}
+
+func (o DistributionConnectionModeOutput) ToDistributionConnectionModePtrOutput() DistributionConnectionModePtrOutput {
+	return o.ToDistributionConnectionModePtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConnectionModeOutput) ToDistributionConnectionModePtrOutputWithContext(ctx context.Context) DistributionConnectionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConnectionMode) *DistributionConnectionMode {
+		return &v
+	}).(DistributionConnectionModePtrOutput)
+}
+
+func (o DistributionConnectionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionConnectionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionConnectionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionConnectionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConnectionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionConnectionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionConnectionModePtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConnectionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConnectionMode)(nil)).Elem()
+}
+
+func (o DistributionConnectionModePtrOutput) ToDistributionConnectionModePtrOutput() DistributionConnectionModePtrOutput {
+	return o
+}
+
+func (o DistributionConnectionModePtrOutput) ToDistributionConnectionModePtrOutputWithContext(ctx context.Context) DistributionConnectionModePtrOutput {
+	return o
+}
+
+func (o DistributionConnectionModePtrOutput) Elem() DistributionConnectionModeOutput {
+	return o.ApplyT(func(v *DistributionConnectionMode) DistributionConnectionMode {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConnectionMode
+		return ret
+	}).(DistributionConnectionModeOutput)
+}
+
+func (o DistributionConnectionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConnectionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionConnectionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionConnectionModeInput is an input type that accepts values of the DistributionConnectionMode enum
+// A concrete instance of `DistributionConnectionModeInput` can be one of the following:
+//
+//	DistributionConnectionModeDirect
+//	DistributionConnectionModeTenantOnly
+type DistributionConnectionModeInput interface {
+	pulumi.Input
+
+	ToDistributionConnectionModeOutput() DistributionConnectionModeOutput
+	ToDistributionConnectionModeOutputWithContext(context.Context) DistributionConnectionModeOutput
+}
+
+var distributionConnectionModePtrType = reflect.TypeOf((**DistributionConnectionMode)(nil)).Elem()
+
+type DistributionConnectionModePtrInput interface {
+	pulumi.Input
+
+	ToDistributionConnectionModePtrOutput() DistributionConnectionModePtrOutput
+	ToDistributionConnectionModePtrOutputWithContext(context.Context) DistributionConnectionModePtrOutput
+}
+
+type distributionConnectionModePtr string
+
+func DistributionConnectionModePtr(v string) DistributionConnectionModePtrInput {
+	return (*distributionConnectionModePtr)(&v)
+}
+
+func (*distributionConnectionModePtr) ElementType() reflect.Type {
+	return distributionConnectionModePtrType
+}
+
+func (in *distributionConnectionModePtr) ToDistributionConnectionModePtrOutput() DistributionConnectionModePtrOutput {
+	return pulumi.ToOutput(in).(DistributionConnectionModePtrOutput)
+}
+
+func (in *distributionConnectionModePtr) ToDistributionConnectionModePtrOutputWithContext(ctx context.Context) DistributionConnectionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionConnectionModePtrOutput)
+}
+
 type DistributionOriginGroupSelectionCriteria string
 
 const (
@@ -505,6 +670,758 @@ func (in *distributionOriginGroupSelectionCriteriaPtr) ToDistributionOriginGroup
 
 func (in *distributionOriginGroupSelectionCriteriaPtr) ToDistributionOriginGroupSelectionCriteriaPtrOutputWithContext(ctx context.Context) DistributionOriginGroupSelectionCriteriaPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DistributionOriginGroupSelectionCriteriaPtrOutput)
+}
+
+type DistributionTenantDomainResultStatus string
+
+const (
+	DistributionTenantDomainResultStatusActive   = DistributionTenantDomainResultStatus("active")
+	DistributionTenantDomainResultStatusInactive = DistributionTenantDomainResultStatus("inactive")
+)
+
+type DistributionTenantDomainResultStatusOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantDomainResultStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantDomainResultStatus)(nil)).Elem()
+}
+
+func (o DistributionTenantDomainResultStatusOutput) ToDistributionTenantDomainResultStatusOutput() DistributionTenantDomainResultStatusOutput {
+	return o
+}
+
+func (o DistributionTenantDomainResultStatusOutput) ToDistributionTenantDomainResultStatusOutputWithContext(ctx context.Context) DistributionTenantDomainResultStatusOutput {
+	return o
+}
+
+func (o DistributionTenantDomainResultStatusOutput) ToDistributionTenantDomainResultStatusPtrOutput() DistributionTenantDomainResultStatusPtrOutput {
+	return o.ToDistributionTenantDomainResultStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantDomainResultStatusOutput) ToDistributionTenantDomainResultStatusPtrOutputWithContext(ctx context.Context) DistributionTenantDomainResultStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantDomainResultStatus) *DistributionTenantDomainResultStatus {
+		return &v
+	}).(DistributionTenantDomainResultStatusPtrOutput)
+}
+
+func (o DistributionTenantDomainResultStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantDomainResultStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantDomainResultStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionTenantDomainResultStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantDomainResultStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantDomainResultStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantDomainResultStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantDomainResultStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantDomainResultStatus)(nil)).Elem()
+}
+
+func (o DistributionTenantDomainResultStatusPtrOutput) ToDistributionTenantDomainResultStatusPtrOutput() DistributionTenantDomainResultStatusPtrOutput {
+	return o
+}
+
+func (o DistributionTenantDomainResultStatusPtrOutput) ToDistributionTenantDomainResultStatusPtrOutputWithContext(ctx context.Context) DistributionTenantDomainResultStatusPtrOutput {
+	return o
+}
+
+func (o DistributionTenantDomainResultStatusPtrOutput) Elem() DistributionTenantDomainResultStatusOutput {
+	return o.ApplyT(func(v *DistributionTenantDomainResultStatus) DistributionTenantDomainResultStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantDomainResultStatus
+		return ret
+	}).(DistributionTenantDomainResultStatusOutput)
+}
+
+func (o DistributionTenantDomainResultStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantDomainResultStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionTenantDomainResultStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantGeoRestrictionCustomizationRestrictionType string
+
+const (
+	DistributionTenantGeoRestrictionCustomizationRestrictionTypeBlacklist = DistributionTenantGeoRestrictionCustomizationRestrictionType("blacklist")
+	DistributionTenantGeoRestrictionCustomizationRestrictionTypeWhitelist = DistributionTenantGeoRestrictionCustomizationRestrictionType("whitelist")
+	DistributionTenantGeoRestrictionCustomizationRestrictionTypeNone      = DistributionTenantGeoRestrictionCustomizationRestrictionType("none")
+)
+
+func (DistributionTenantGeoRestrictionCustomizationRestrictionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantGeoRestrictionCustomizationRestrictionType)(nil)).Elem()
+}
+
+func (e DistributionTenantGeoRestrictionCustomizationRestrictionType) ToDistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput() DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput {
+	return pulumi.ToOutput(e).(DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput)
+}
+
+func (e DistributionTenantGeoRestrictionCustomizationRestrictionType) ToDistributionTenantGeoRestrictionCustomizationRestrictionTypeOutputWithContext(ctx context.Context) DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput)
+}
+
+func (e DistributionTenantGeoRestrictionCustomizationRestrictionType) ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput() DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput {
+	return e.ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutputWithContext(context.Background())
+}
+
+func (e DistributionTenantGeoRestrictionCustomizationRestrictionType) ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutputWithContext(ctx context.Context) DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput {
+	return DistributionTenantGeoRestrictionCustomizationRestrictionType(e).ToDistributionTenantGeoRestrictionCustomizationRestrictionTypeOutputWithContext(ctx).ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutputWithContext(ctx)
+}
+
+func (e DistributionTenantGeoRestrictionCustomizationRestrictionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionTenantGeoRestrictionCustomizationRestrictionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionTenantGeoRestrictionCustomizationRestrictionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionTenantGeoRestrictionCustomizationRestrictionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantGeoRestrictionCustomizationRestrictionType)(nil)).Elem()
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput) ToDistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput() DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput {
+	return o
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput) ToDistributionTenantGeoRestrictionCustomizationRestrictionTypeOutputWithContext(ctx context.Context) DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput {
+	return o
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput) ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput() DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput {
+	return o.ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput) ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutputWithContext(ctx context.Context) DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantGeoRestrictionCustomizationRestrictionType) *DistributionTenantGeoRestrictionCustomizationRestrictionType {
+		return &v
+	}).(DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput)
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantGeoRestrictionCustomizationRestrictionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantGeoRestrictionCustomizationRestrictionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantGeoRestrictionCustomizationRestrictionType)(nil)).Elem()
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput) ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput() DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput {
+	return o
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput) ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutputWithContext(ctx context.Context) DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput {
+	return o
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput) Elem() DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput {
+	return o.ApplyT(func(v *DistributionTenantGeoRestrictionCustomizationRestrictionType) DistributionTenantGeoRestrictionCustomizationRestrictionType {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantGeoRestrictionCustomizationRestrictionType
+		return ret
+	}).(DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput)
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionTenantGeoRestrictionCustomizationRestrictionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionTenantGeoRestrictionCustomizationRestrictionTypeInput is an input type that accepts values of the DistributionTenantGeoRestrictionCustomizationRestrictionType enum
+// A concrete instance of `DistributionTenantGeoRestrictionCustomizationRestrictionTypeInput` can be one of the following:
+//
+//	DistributionTenantGeoRestrictionCustomizationRestrictionTypeBlacklist
+//	DistributionTenantGeoRestrictionCustomizationRestrictionTypeWhitelist
+//	DistributionTenantGeoRestrictionCustomizationRestrictionTypeNone
+type DistributionTenantGeoRestrictionCustomizationRestrictionTypeInput interface {
+	pulumi.Input
+
+	ToDistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput() DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput
+	ToDistributionTenantGeoRestrictionCustomizationRestrictionTypeOutputWithContext(context.Context) DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput
+}
+
+var distributionTenantGeoRestrictionCustomizationRestrictionTypePtrType = reflect.TypeOf((**DistributionTenantGeoRestrictionCustomizationRestrictionType)(nil)).Elem()
+
+type DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrInput interface {
+	pulumi.Input
+
+	ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput() DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput
+	ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutputWithContext(context.Context) DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput
+}
+
+type distributionTenantGeoRestrictionCustomizationRestrictionTypePtr string
+
+func DistributionTenantGeoRestrictionCustomizationRestrictionTypePtr(v string) DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrInput {
+	return (*distributionTenantGeoRestrictionCustomizationRestrictionTypePtr)(&v)
+}
+
+func (*distributionTenantGeoRestrictionCustomizationRestrictionTypePtr) ElementType() reflect.Type {
+	return distributionTenantGeoRestrictionCustomizationRestrictionTypePtrType
+}
+
+func (in *distributionTenantGeoRestrictionCustomizationRestrictionTypePtr) ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput() DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput {
+	return pulumi.ToOutput(in).(DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput)
+}
+
+func (in *distributionTenantGeoRestrictionCustomizationRestrictionTypePtr) ToDistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutputWithContext(ctx context.Context) DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput)
+}
+
+type DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference string
+
+const (
+	DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceEnabled  = DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference("enabled")
+	DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceDisabled = DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference("disabled")
+)
+
+func (DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference)(nil)).Elem()
+}
+
+func (e DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput() DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput {
+	return pulumi.ToOutput(e).(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput)
+}
+
+func (e DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput)
+}
+
+func (e DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput() DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput {
+	return e.ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutputWithContext(context.Background())
+}
+
+func (e DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput {
+	return DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference(e).ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutputWithContext(ctx).ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutputWithContext(ctx)
+}
+
+func (e DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference)(nil)).Elem()
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput) ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput() DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput {
+	return o
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput) ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput {
+	return o
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput) ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput() DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput {
+	return o.ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput) ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) *DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference {
+		return &v
+	}).(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput)
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference)(nil)).Elem()
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput) ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput() DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput {
+	return o
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput) ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput {
+	return o
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput) Elem() DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput {
+	return o.ApplyT(func(v *DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference
+		return ret
+	}).(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput)
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceInput is an input type that accepts values of the DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference enum
+// A concrete instance of `DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceInput` can be one of the following:
+//
+//	DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceEnabled
+//	DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceDisabled
+type DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceInput interface {
+	pulumi.Input
+
+	ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput() DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput
+	ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutputWithContext(context.Context) DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput
+}
+
+var distributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrType = reflect.TypeOf((**DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference)(nil)).Elem()
+
+type DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrInput interface {
+	pulumi.Input
+
+	ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput() DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput
+	ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutputWithContext(context.Context) DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput
+}
+
+type distributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtr string
+
+func DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtr(v string) DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrInput {
+	return (*distributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtr)(&v)
+}
+
+func (*distributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtr) ElementType() reflect.Type {
+	return distributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrType
+}
+
+func (in *distributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtr) ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput() DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput {
+	return pulumi.ToOutput(in).(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput)
+}
+
+func (in *distributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtr) ToDistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput)
+}
+
+type DistributionTenantManagedCertificateRequestValidationTokenHost string
+
+const (
+	DistributionTenantManagedCertificateRequestValidationTokenHostCloudfront = DistributionTenantManagedCertificateRequestValidationTokenHost("cloudfront")
+	DistributionTenantManagedCertificateRequestValidationTokenHostSelfHosted = DistributionTenantManagedCertificateRequestValidationTokenHost("self-hosted")
+)
+
+func (DistributionTenantManagedCertificateRequestValidationTokenHost) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantManagedCertificateRequestValidationTokenHost)(nil)).Elem()
+}
+
+func (e DistributionTenantManagedCertificateRequestValidationTokenHost) ToDistributionTenantManagedCertificateRequestValidationTokenHostOutput() DistributionTenantManagedCertificateRequestValidationTokenHostOutput {
+	return pulumi.ToOutput(e).(DistributionTenantManagedCertificateRequestValidationTokenHostOutput)
+}
+
+func (e DistributionTenantManagedCertificateRequestValidationTokenHost) ToDistributionTenantManagedCertificateRequestValidationTokenHostOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestValidationTokenHostOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionTenantManagedCertificateRequestValidationTokenHostOutput)
+}
+
+func (e DistributionTenantManagedCertificateRequestValidationTokenHost) ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput() DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput {
+	return e.ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionTenantManagedCertificateRequestValidationTokenHost) ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput {
+	return DistributionTenantManagedCertificateRequestValidationTokenHost(e).ToDistributionTenantManagedCertificateRequestValidationTokenHostOutputWithContext(ctx).ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutputWithContext(ctx)
+}
+
+func (e DistributionTenantManagedCertificateRequestValidationTokenHost) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionTenantManagedCertificateRequestValidationTokenHost) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionTenantManagedCertificateRequestValidationTokenHost) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionTenantManagedCertificateRequestValidationTokenHost) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionTenantManagedCertificateRequestValidationTokenHostOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantManagedCertificateRequestValidationTokenHostOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantManagedCertificateRequestValidationTokenHost)(nil)).Elem()
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostOutput) ToDistributionTenantManagedCertificateRequestValidationTokenHostOutput() DistributionTenantManagedCertificateRequestValidationTokenHostOutput {
+	return o
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostOutput) ToDistributionTenantManagedCertificateRequestValidationTokenHostOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestValidationTokenHostOutput {
+	return o
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostOutput) ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput() DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput {
+	return o.ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostOutput) ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantManagedCertificateRequestValidationTokenHost) *DistributionTenantManagedCertificateRequestValidationTokenHost {
+		return &v
+	}).(DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput)
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantManagedCertificateRequestValidationTokenHost) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantManagedCertificateRequestValidationTokenHost) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantManagedCertificateRequestValidationTokenHost)(nil)).Elem()
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput) ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput() DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput {
+	return o
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput) ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput {
+	return o
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput) Elem() DistributionTenantManagedCertificateRequestValidationTokenHostOutput {
+	return o.ApplyT(func(v *DistributionTenantManagedCertificateRequestValidationTokenHost) DistributionTenantManagedCertificateRequestValidationTokenHost {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantManagedCertificateRequestValidationTokenHost
+		return ret
+	}).(DistributionTenantManagedCertificateRequestValidationTokenHostOutput)
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionTenantManagedCertificateRequestValidationTokenHost) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionTenantManagedCertificateRequestValidationTokenHostInput is an input type that accepts values of the DistributionTenantManagedCertificateRequestValidationTokenHost enum
+// A concrete instance of `DistributionTenantManagedCertificateRequestValidationTokenHostInput` can be one of the following:
+//
+//	DistributionTenantManagedCertificateRequestValidationTokenHostCloudfront
+//	DistributionTenantManagedCertificateRequestValidationTokenHostSelfHosted
+type DistributionTenantManagedCertificateRequestValidationTokenHostInput interface {
+	pulumi.Input
+
+	ToDistributionTenantManagedCertificateRequestValidationTokenHostOutput() DistributionTenantManagedCertificateRequestValidationTokenHostOutput
+	ToDistributionTenantManagedCertificateRequestValidationTokenHostOutputWithContext(context.Context) DistributionTenantManagedCertificateRequestValidationTokenHostOutput
+}
+
+var distributionTenantManagedCertificateRequestValidationTokenHostPtrType = reflect.TypeOf((**DistributionTenantManagedCertificateRequestValidationTokenHost)(nil)).Elem()
+
+type DistributionTenantManagedCertificateRequestValidationTokenHostPtrInput interface {
+	pulumi.Input
+
+	ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput() DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput
+	ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutputWithContext(context.Context) DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput
+}
+
+type distributionTenantManagedCertificateRequestValidationTokenHostPtr string
+
+func DistributionTenantManagedCertificateRequestValidationTokenHostPtr(v string) DistributionTenantManagedCertificateRequestValidationTokenHostPtrInput {
+	return (*distributionTenantManagedCertificateRequestValidationTokenHostPtr)(&v)
+}
+
+func (*distributionTenantManagedCertificateRequestValidationTokenHostPtr) ElementType() reflect.Type {
+	return distributionTenantManagedCertificateRequestValidationTokenHostPtrType
+}
+
+func (in *distributionTenantManagedCertificateRequestValidationTokenHostPtr) ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput() DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput {
+	return pulumi.ToOutput(in).(DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput)
+}
+
+func (in *distributionTenantManagedCertificateRequestValidationTokenHostPtr) ToDistributionTenantManagedCertificateRequestValidationTokenHostPtrOutputWithContext(ctx context.Context) DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput)
+}
+
+type DistributionTenantWebAclCustomizationAction string
+
+const (
+	DistributionTenantWebAclCustomizationActionOverride = DistributionTenantWebAclCustomizationAction("override")
+	DistributionTenantWebAclCustomizationActionDisable  = DistributionTenantWebAclCustomizationAction("disable")
+)
+
+func (DistributionTenantWebAclCustomizationAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantWebAclCustomizationAction)(nil)).Elem()
+}
+
+func (e DistributionTenantWebAclCustomizationAction) ToDistributionTenantWebAclCustomizationActionOutput() DistributionTenantWebAclCustomizationActionOutput {
+	return pulumi.ToOutput(e).(DistributionTenantWebAclCustomizationActionOutput)
+}
+
+func (e DistributionTenantWebAclCustomizationAction) ToDistributionTenantWebAclCustomizationActionOutputWithContext(ctx context.Context) DistributionTenantWebAclCustomizationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionTenantWebAclCustomizationActionOutput)
+}
+
+func (e DistributionTenantWebAclCustomizationAction) ToDistributionTenantWebAclCustomizationActionPtrOutput() DistributionTenantWebAclCustomizationActionPtrOutput {
+	return e.ToDistributionTenantWebAclCustomizationActionPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionTenantWebAclCustomizationAction) ToDistributionTenantWebAclCustomizationActionPtrOutputWithContext(ctx context.Context) DistributionTenantWebAclCustomizationActionPtrOutput {
+	return DistributionTenantWebAclCustomizationAction(e).ToDistributionTenantWebAclCustomizationActionOutputWithContext(ctx).ToDistributionTenantWebAclCustomizationActionPtrOutputWithContext(ctx)
+}
+
+func (e DistributionTenantWebAclCustomizationAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionTenantWebAclCustomizationAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionTenantWebAclCustomizationAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionTenantWebAclCustomizationAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionTenantWebAclCustomizationActionOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantWebAclCustomizationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTenantWebAclCustomizationAction)(nil)).Elem()
+}
+
+func (o DistributionTenantWebAclCustomizationActionOutput) ToDistributionTenantWebAclCustomizationActionOutput() DistributionTenantWebAclCustomizationActionOutput {
+	return o
+}
+
+func (o DistributionTenantWebAclCustomizationActionOutput) ToDistributionTenantWebAclCustomizationActionOutputWithContext(ctx context.Context) DistributionTenantWebAclCustomizationActionOutput {
+	return o
+}
+
+func (o DistributionTenantWebAclCustomizationActionOutput) ToDistributionTenantWebAclCustomizationActionPtrOutput() DistributionTenantWebAclCustomizationActionPtrOutput {
+	return o.ToDistributionTenantWebAclCustomizationActionPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantWebAclCustomizationActionOutput) ToDistributionTenantWebAclCustomizationActionPtrOutputWithContext(ctx context.Context) DistributionTenantWebAclCustomizationActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTenantWebAclCustomizationAction) *DistributionTenantWebAclCustomizationAction {
+		return &v
+	}).(DistributionTenantWebAclCustomizationActionPtrOutput)
+}
+
+func (o DistributionTenantWebAclCustomizationActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantWebAclCustomizationActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantWebAclCustomizationAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionTenantWebAclCustomizationActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantWebAclCustomizationActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionTenantWebAclCustomizationAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionTenantWebAclCustomizationActionPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTenantWebAclCustomizationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTenantWebAclCustomizationAction)(nil)).Elem()
+}
+
+func (o DistributionTenantWebAclCustomizationActionPtrOutput) ToDistributionTenantWebAclCustomizationActionPtrOutput() DistributionTenantWebAclCustomizationActionPtrOutput {
+	return o
+}
+
+func (o DistributionTenantWebAclCustomizationActionPtrOutput) ToDistributionTenantWebAclCustomizationActionPtrOutputWithContext(ctx context.Context) DistributionTenantWebAclCustomizationActionPtrOutput {
+	return o
+}
+
+func (o DistributionTenantWebAclCustomizationActionPtrOutput) Elem() DistributionTenantWebAclCustomizationActionOutput {
+	return o.ApplyT(func(v *DistributionTenantWebAclCustomizationAction) DistributionTenantWebAclCustomizationAction {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTenantWebAclCustomizationAction
+		return ret
+	}).(DistributionTenantWebAclCustomizationActionOutput)
+}
+
+func (o DistributionTenantWebAclCustomizationActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTenantWebAclCustomizationActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionTenantWebAclCustomizationAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionTenantWebAclCustomizationActionInput is an input type that accepts values of the DistributionTenantWebAclCustomizationAction enum
+// A concrete instance of `DistributionTenantWebAclCustomizationActionInput` can be one of the following:
+//
+//	DistributionTenantWebAclCustomizationActionOverride
+//	DistributionTenantWebAclCustomizationActionDisable
+type DistributionTenantWebAclCustomizationActionInput interface {
+	pulumi.Input
+
+	ToDistributionTenantWebAclCustomizationActionOutput() DistributionTenantWebAclCustomizationActionOutput
+	ToDistributionTenantWebAclCustomizationActionOutputWithContext(context.Context) DistributionTenantWebAclCustomizationActionOutput
+}
+
+var distributionTenantWebAclCustomizationActionPtrType = reflect.TypeOf((**DistributionTenantWebAclCustomizationAction)(nil)).Elem()
+
+type DistributionTenantWebAclCustomizationActionPtrInput interface {
+	pulumi.Input
+
+	ToDistributionTenantWebAclCustomizationActionPtrOutput() DistributionTenantWebAclCustomizationActionPtrOutput
+	ToDistributionTenantWebAclCustomizationActionPtrOutputWithContext(context.Context) DistributionTenantWebAclCustomizationActionPtrOutput
+}
+
+type distributionTenantWebAclCustomizationActionPtr string
+
+func DistributionTenantWebAclCustomizationActionPtr(v string) DistributionTenantWebAclCustomizationActionPtrInput {
+	return (*distributionTenantWebAclCustomizationActionPtr)(&v)
+}
+
+func (*distributionTenantWebAclCustomizationActionPtr) ElementType() reflect.Type {
+	return distributionTenantWebAclCustomizationActionPtrType
+}
+
+func (in *distributionTenantWebAclCustomizationActionPtr) ToDistributionTenantWebAclCustomizationActionPtrOutput() DistributionTenantWebAclCustomizationActionPtrOutput {
+	return pulumi.ToOutput(in).(DistributionTenantWebAclCustomizationActionPtrOutput)
+}
+
+func (in *distributionTenantWebAclCustomizationActionPtr) ToDistributionTenantWebAclCustomizationActionPtrOutputWithContext(ctx context.Context) DistributionTenantWebAclCustomizationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionTenantWebAclCustomizationActionPtrOutput)
 }
 
 // A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
@@ -678,16 +1595,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyConfigTypePtrInput)(nil)).Elem(), ContinuousDeploymentPolicyConfigType("SingleWeight"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigTypeInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigType("SingleWeight"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigTypePtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigType("SingleWeight"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConnectionModeInput)(nil)).Elem(), DistributionConnectionMode("direct"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConnectionModePtrInput)(nil)).Elem(), DistributionConnectionMode("direct"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupSelectionCriteriaInput)(nil)).Elem(), DistributionOriginGroupSelectionCriteria("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupSelectionCriteriaPtrInput)(nil)).Elem(), DistributionOriginGroupSelectionCriteria("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantGeoRestrictionCustomizationRestrictionTypeInput)(nil)).Elem(), DistributionTenantGeoRestrictionCustomizationRestrictionType("blacklist"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrInput)(nil)).Elem(), DistributionTenantGeoRestrictionCustomizationRestrictionType("blacklist"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceInput)(nil)).Elem(), DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrInput)(nil)).Elem(), DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantManagedCertificateRequestValidationTokenHostInput)(nil)).Elem(), DistributionTenantManagedCertificateRequestValidationTokenHost("cloudfront"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantManagedCertificateRequestValidationTokenHostPtrInput)(nil)).Elem(), DistributionTenantManagedCertificateRequestValidationTokenHost("cloudfront"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantWebAclCustomizationActionInput)(nil)).Elem(), DistributionTenantWebAclCustomizationAction("override"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantWebAclCustomizationActionPtrInput)(nil)).Elem(), DistributionTenantWebAclCustomizationAction("override"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus("Enabled"))
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigTypeOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigTypePtrOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigTypeOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput{})
+	pulumi.RegisterOutputType(DistributionConnectionModeOutput{})
+	pulumi.RegisterOutputType(DistributionConnectionModePtrOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupSelectionCriteriaOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupSelectionCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantDomainResultStatusOutput{})
+	pulumi.RegisterOutputType(DistributionTenantDomainResultStatusPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantGeoRestrictionCustomizationRestrictionTypeOutput{})
+	pulumi.RegisterOutputType(DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferenceOutput{})
+	pulumi.RegisterOutputType(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantManagedCertificateRequestValidationTokenHostOutput{})
+	pulumi.RegisterOutputType(DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTenantWebAclCustomizationActionOutput{})
+	pulumi.RegisterOutputType(DistributionTenantWebAclCustomizationActionPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput{})
 }

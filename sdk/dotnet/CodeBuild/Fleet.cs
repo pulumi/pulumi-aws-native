@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public Output<int?> BaseCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        /// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
         /// </summary>
         [Output("computeConfiguration")]
         public Output<Outputs.FleetComputeConfiguration?> ComputeConfiguration { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public Input<int>? BaseCapacity { get; set; }
 
         /// <summary>
-        /// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        /// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
         /// </summary>
         [Input("computeConfiguration")]
         public Input<Inputs.FleetComputeConfigurationArgs>? ComputeConfiguration { get; set; }

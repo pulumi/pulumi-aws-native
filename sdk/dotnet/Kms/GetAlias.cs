@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Kms
         ///   +  Each alias name must begin with ``alias/`` followed by a name, such as ``alias/exampleKey``. The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with ``alias/aws/``. That alias name prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
         ///   
         ///   *Regions* 
-        ///   KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
+        ///  KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws-native:kms:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.Kms
         ///   +  Each alias name must begin with ``alias/`` followed by a name, such as ``alias/exampleKey``. The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with ``alias/aws/``. That alias name prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
         ///   
         ///   *Regions* 
-        ///   KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
+        ///  KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:kms:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Kms
         ///   +  Each alias name must begin with ``alias/`` followed by a name, such as ``alias/exampleKey``. The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with ``alias/aws/``. That alias name prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
         ///   
         ///   *Regions* 
-        ///   KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
+        ///  KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:kms:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
@@ -103,8 +103,8 @@ namespace Pulumi.AwsNative.Kms
         ///  For help finding the key ID and ARN, see [Finding the key ID and ARN](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn) in the *Developer Guide*.
         ///  Specify the key ID or the key ARN of the KMS key.
         ///  For example:
-        ///   +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab`` 
-        ///   +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`` 
+        ///   +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
+        ///   +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
         ///   
         ///  To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html).
         /// </summary>

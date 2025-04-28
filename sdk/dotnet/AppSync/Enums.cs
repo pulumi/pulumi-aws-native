@@ -110,6 +110,68 @@ namespace Pulumi.AwsNative.AppSync
     }
 
     /// <summary>
+    /// Integration behavior for a handler configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelNamespaceHandlerBehavior : IEquatable<ChannelNamespaceHandlerBehavior>
+    {
+        private readonly string _value;
+
+        private ChannelNamespaceHandlerBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelNamespaceHandlerBehavior Code { get; } = new ChannelNamespaceHandlerBehavior("CODE");
+        public static ChannelNamespaceHandlerBehavior Direct { get; } = new ChannelNamespaceHandlerBehavior("DIRECT");
+
+        public static bool operator ==(ChannelNamespaceHandlerBehavior left, ChannelNamespaceHandlerBehavior right) => left.Equals(right);
+        public static bool operator !=(ChannelNamespaceHandlerBehavior left, ChannelNamespaceHandlerBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelNamespaceHandlerBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelNamespaceHandlerBehavior other && Equals(other);
+        public bool Equals(ChannelNamespaceHandlerBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Invocation type for direct lambda integrations.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelNamespaceInvokeType : IEquatable<ChannelNamespaceInvokeType>
+    {
+        private readonly string _value;
+
+        private ChannelNamespaceInvokeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelNamespaceInvokeType RequestResponse { get; } = new ChannelNamespaceInvokeType("REQUEST_RESPONSE");
+        public static ChannelNamespaceInvokeType Event { get; } = new ChannelNamespaceInvokeType("EVENT");
+
+        public static bool operator ==(ChannelNamespaceInvokeType left, ChannelNamespaceInvokeType right) => left.Equals(right);
+        public static bool operator !=(ChannelNamespaceInvokeType left, ChannelNamespaceInvokeType right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelNamespaceInvokeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelNamespaceInvokeType other && Equals(other);
+        public bool Equals(ChannelNamespaceInvokeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enables or disables enhanced data source metrics for specified data sources. Note that `MetricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS` . If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
     /// 
     /// `MetricsConfig` can be `ENABLED` or `DISABLED` .

@@ -107,7 +107,7 @@ type Cluster struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
 	NamespaceResourcePolicy pulumi.AnyOutput `pulumi:"namespaceResourcePolicy"`
-	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
 	NumberOfNodes pulumi.IntPtrOutput `pulumi:"numberOfNodes"`
@@ -291,7 +291,7 @@ type clusterArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
 	NamespaceResourcePolicy interface{} `pulumi:"namespaceResourcePolicy"`
-	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
 	NodeType string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
 	NumberOfNodes *int `pulumi:"numberOfNodes"`
@@ -415,7 +415,7 @@ type ClusterArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Redshift::Cluster` for more information about the expected schema for this property.
 	NamespaceResourcePolicy pulumi.Input
-	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
 	NodeType pulumi.StringInput
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
 	NumberOfNodes pulumi.IntPtrInput
@@ -697,7 +697,7 @@ func (o ClusterOutput) NamespaceResourcePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.AnyOutput { return v.NamespaceResourcePolicy }).(pulumi.AnyOutput)
 }
 
-// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
 func (o ClusterOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NodeType }).(pulumi.StringOutput)
 }

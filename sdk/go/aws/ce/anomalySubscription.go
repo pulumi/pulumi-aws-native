@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -229,7 +230,7 @@ type AnomalySubscription struct {
 	// A list of cost anomaly monitors.
 	MonitorArnList pulumi.StringArrayOutput `pulumi:"monitorArnList"`
 	// Tags to assign to subscription.
-	ResourceTags AnomalySubscriptionResourceTagArrayOutput `pulumi:"resourceTags"`
+	ResourceTags aws.CreateOnlyTagArrayOutput `pulumi:"resourceTags"`
 	// A list of subscriber
 	Subscribers AnomalySubscriptionSubscriberArrayOutput `pulumi:"subscribers"`
 	// The `AnomalySubscription` Amazon Resource Name (ARN).
@@ -300,7 +301,7 @@ type anomalySubscriptionArgs struct {
 	// A list of cost anomaly monitors.
 	MonitorArnList []string `pulumi:"monitorArnList"`
 	// Tags to assign to subscription.
-	ResourceTags []AnomalySubscriptionResourceTag `pulumi:"resourceTags"`
+	ResourceTags []aws.CreateOnlyTag `pulumi:"resourceTags"`
 	// A list of subscriber
 	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
 	// The name of the subscription.
@@ -318,7 +319,7 @@ type AnomalySubscriptionArgs struct {
 	// A list of cost anomaly monitors.
 	MonitorArnList pulumi.StringArrayInput
 	// Tags to assign to subscription.
-	ResourceTags AnomalySubscriptionResourceTagArrayInput
+	ResourceTags aws.CreateOnlyTagArrayInput
 	// A list of subscriber
 	Subscribers AnomalySubscriptionSubscriberArrayInput
 	// The name of the subscription.
@@ -382,8 +383,8 @@ func (o AnomalySubscriptionOutput) MonitorArnList() pulumi.StringArrayOutput {
 }
 
 // Tags to assign to subscription.
-func (o AnomalySubscriptionOutput) ResourceTags() AnomalySubscriptionResourceTagArrayOutput {
-	return o.ApplyT(func(v *AnomalySubscription) AnomalySubscriptionResourceTagArrayOutput { return v.ResourceTags }).(AnomalySubscriptionResourceTagArrayOutput)
+func (o AnomalySubscriptionOutput) ResourceTags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscription) aws.CreateOnlyTagArrayOutput { return v.ResourceTags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 // A list of subscriber

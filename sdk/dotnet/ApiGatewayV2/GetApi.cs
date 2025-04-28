@@ -88,6 +88,12 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// </summary>
         public readonly bool? DisableExecuteApiEndpoint;
         /// <summary>
+        /// The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+        /// 
+        /// Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+        /// </summary>
+        public readonly string? IpAddressType;
+        /// <summary>
         /// The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
         /// </summary>
         public readonly string? Name;
@@ -118,6 +124,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
             bool? disableExecuteApiEndpoint,
 
+            string? ipAddressType,
+
             string? name,
 
             string? routeSelectionExpression,
@@ -132,6 +140,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
             CorsConfiguration = corsConfiguration;
             Description = description;
             DisableExecuteApiEndpoint = disableExecuteApiEndpoint;
+            IpAddressType = ipAddressType;
             Name = name;
             RouteSelectionExpression = routeSelectionExpression;
             Tags = tags;

@@ -145,6 +145,9 @@ namespace Pulumi.AwsNative.Aps
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+        /// </summary>
         [Output("workspaceConfiguration")]
         public Output<Outputs.WorkspaceConfiguration?> WorkspaceConfiguration { get; private set; } = null!;
 
@@ -239,6 +242,9 @@ namespace Pulumi.AwsNative.Aps
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+        /// </summary>
         [Input("workspaceConfiguration")]
         public Input<Inputs.WorkspaceConfigurationArgs>? WorkspaceConfiguration { get; set; }
 

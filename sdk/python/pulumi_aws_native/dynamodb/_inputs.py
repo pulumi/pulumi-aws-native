@@ -1783,9 +1783,9 @@ if not MYPY:
         attribute_type: pulumi.Input[builtins.str]
         """
         The data type for the attribute, where:
-          +   ``S`` - the attribute is of type String
-          +   ``N`` - the attribute is of type Number
-          +   ``B`` - the attribute is of type Binary
+          +  ``S`` - the attribute is of type String
+          +  ``N`` - the attribute is of type Number
+          +  ``B`` - the attribute is of type Binary
         """
 elif False:
     TableAttributeDefinitionArgsDict: TypeAlias = Mapping[str, Any]
@@ -1799,9 +1799,9 @@ class TableAttributeDefinitionArgs:
         Represents an attribute for describing the schema for the table and indexes.
         :param pulumi.Input[builtins.str] attribute_name: A name for the attribute.
         :param pulumi.Input[builtins.str] attribute_type: The data type for the attribute, where:
-                 +   ``S`` - the attribute is of type String
-                 +   ``N`` - the attribute is of type Number
-                 +   ``B`` - the attribute is of type Binary
+                 +  ``S`` - the attribute is of type String
+                 +  ``N`` - the attribute is of type Number
+                 +  ``B`` - the attribute is of type Binary
         """
         pulumi.set(__self__, "attribute_name", attribute_name)
         pulumi.set(__self__, "attribute_type", attribute_type)
@@ -1823,9 +1823,9 @@ class TableAttributeDefinitionArgs:
     def attribute_type(self) -> pulumi.Input[builtins.str]:
         """
         The data type for the attribute, where:
-          +   ``S`` - the attribute is of type String
-          +   ``N`` - the attribute is of type Number
-          +   ``B`` - the attribute is of type Binary
+          +  ``S`` - the attribute is of type String
+          +  ``N`` - the attribute is of type Number
+          +  ``B`` - the attribute is of type Binary
         """
         return pulumi.get(self, "attribute_type")
 
@@ -1937,8 +1937,8 @@ if not MYPY:
         key_schema: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgsDict']]]
         """
         The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
-          +   ``HASH`` - partition key
-          +   ``RANGE`` - sort key
+          +  ``HASH`` - partition key
+          +  ``RANGE`` - sort key
           
           The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
          The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -1981,8 +1981,8 @@ class TableGlobalSecondaryIndexArgs:
         Represents the properties of a global secondary index.
         :param pulumi.Input[builtins.str] index_name: The name of the global secondary index. The name must be unique among all other indexes on this table.
         :param pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]] key_schema: The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
-                 +   ``HASH`` - partition key
-                 +   ``RANGE`` - sort key
+                 +  ``HASH`` - partition key
+                 +  ``RANGE`` - sort key
                  
                  The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
                 The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -2022,8 +2022,8 @@ class TableGlobalSecondaryIndexArgs:
     def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]]:
         """
         The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
-          +   ``HASH`` - partition key
-          +   ``RANGE`` - sort key
+          +  ``HASH`` - partition key
+          +  ``RANGE`` - sort key
           
           The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
          The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -2240,8 +2240,8 @@ if not MYPY:
         key_type: pulumi.Input[builtins.str]
         """
         The role that this key attribute will assume:
-          +   ``HASH`` - partition key
-          +   ``RANGE`` - sort key
+          +  ``HASH`` - partition key
+          +  ``RANGE`` - sort key
           
           The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
          The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -2260,8 +2260,8 @@ class TableKeySchemaArgs:
          A ``KeySchemaElement`` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
         :param pulumi.Input[builtins.str] attribute_name: The name of a key attribute.
         :param pulumi.Input[builtins.str] key_type: The role that this key attribute will assume:
-                 +   ``HASH`` - partition key
-                 +   ``RANGE`` - sort key
+                 +  ``HASH`` - partition key
+                 +  ``RANGE`` - sort key
                  
                  The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
                 The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -2286,8 +2286,8 @@ class TableKeySchemaArgs:
     def key_type(self) -> pulumi.Input[builtins.str]:
         """
         The role that this key attribute will assume:
-          +   ``HASH`` - partition key
-          +   ``RANGE`` - sort key
+          +  ``HASH`` - partition key
+          +  ``RANGE`` - sort key
           
           The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
          The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -2369,8 +2369,8 @@ if not MYPY:
         key_schema: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgsDict']]]
         """
         The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
-          +   ``HASH`` - partition key
-          +   ``RANGE`` - sort key
+          +  ``HASH`` - partition key
+          +  ``RANGE`` - sort key
           
           The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
          The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -2392,8 +2392,8 @@ class TableLocalSecondaryIndexArgs:
         Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
         :param pulumi.Input[builtins.str] index_name: The name of the local secondary index. The name must be unique among all other indexes on this table.
         :param pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]] key_schema: The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
-                 +   ``HASH`` - partition key
-                 +   ``RANGE`` - sort key
+                 +  ``HASH`` - partition key
+                 +  ``RANGE`` - sort key
                  
                  The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
                 The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -2420,8 +2420,8 @@ class TableLocalSecondaryIndexArgs:
     def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]]:
         """
         The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
-          +   ``HASH`` - partition key
-          +   ``RANGE`` - sort key
+          +  ``HASH`` - partition key
+          +  ``RANGE`` - sort key
           
           The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
          The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
@@ -2576,9 +2576,9 @@ if not MYPY:
         projection_type: NotRequired[pulumi.Input[builtins.str]]
         """
         The set of attributes that are projected into the index:
-          +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
-          +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
-          +   ``ALL`` - All of the table attributes are projected into the index.
+          +  ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
+          +  ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
+          +  ``ALL`` - All of the table attributes are projected into the index.
           
          When using the DynamoDB console, ``ALL`` is selected by default.
         """
@@ -2595,9 +2595,9 @@ class TableProjectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] non_key_attributes: Represents the non-key attribute names which will be projected into the index.
                 For global and local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of ``INCLUDE``. You still can specify the ProjectionType of ``ALL`` to project all attributes from the source table, even if the table has more than 100 attributes.
         :param pulumi.Input[builtins.str] projection_type: The set of attributes that are projected into the index:
-                 +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
-                 +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
-                 +   ``ALL`` - All of the table attributes are projected into the index.
+                 +  ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
+                 +  ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
+                 +  ``ALL`` - All of the table attributes are projected into the index.
                  
                 When using the DynamoDB console, ``ALL`` is selected by default.
         """
@@ -2624,9 +2624,9 @@ class TableProjectionArgs:
     def projection_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The set of attributes that are projected into the index:
-          +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
-          +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
-          +   ``ALL`` - All of the table attributes are projected into the index.
+          +  ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
+          +  ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
+          +  ``ALL`` - All of the table attributes are projected into the index.
           
          When using the DynamoDB console, ``ALL`` is selected by default.
         """
@@ -2841,7 +2841,7 @@ if not MYPY:
         sse_type: NotRequired[pulumi.Input[builtins.str]]
         """
         Server-side encryption type. The only supported value is:
-          +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
+          +  ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
         """
 elif False:
     TableSseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2857,7 +2857,7 @@ class TableSseSpecificationArgs:
         :param pulumi.Input[builtins.bool] sse_enabled: Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
         :param pulumi.Input[builtins.str] kms_master_key_id: The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key ``alias/aws/dynamodb``.
         :param pulumi.Input[builtins.str] sse_type: Server-side encryption type. The only supported value is:
-                 +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
+                 +  ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
         """
         pulumi.set(__self__, "sse_enabled", sse_enabled)
         if kms_master_key_id is not None:
@@ -2894,7 +2894,7 @@ class TableSseSpecificationArgs:
     def sse_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Server-side encryption type. The only supported value is:
-          +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
+          +  ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
         """
         return pulumi.get(self, "sse_type")
 
@@ -2911,10 +2911,10 @@ if not MYPY:
         stream_view_type: pulumi.Input[builtins.str]
         """
         When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
-          +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
-          +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
-          +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
-          +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
+          +  ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+          +  ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
+          +  ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
+          +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
         """
         resource_policy: NotRequired[pulumi.Input['TableResourcePolicyArgsDict']]
         """
@@ -2932,10 +2932,10 @@ class TableStreamSpecificationArgs:
         """
         Represents the DynamoDB Streams configuration for a table in DynamoDB.
         :param pulumi.Input[builtins.str] stream_view_type: When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
-                 +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
-                 +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
-                 +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
-                 +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
+                 +  ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+                 +  ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
+                 +  ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
+                 +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
         :param pulumi.Input['TableResourcePolicyArgs'] resource_policy: Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
                 In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
         """
@@ -2948,10 +2948,10 @@ class TableStreamSpecificationArgs:
     def stream_view_type(self) -> pulumi.Input[builtins.str]:
         """
         When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
-          +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
-          +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
-          +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
-          +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
+          +  ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+          +  ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
+          +  ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
+          +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
         """
         return pulumi.get(self, "stream_view_type")
 

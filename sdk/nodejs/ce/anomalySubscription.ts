@@ -162,7 +162,7 @@ export class AnomalySubscription extends pulumi.CustomResource {
     /**
      * Tags to assign to subscription.
      */
-    public readonly resourceTags!: pulumi.Output<outputs.ce.AnomalySubscriptionResourceTag[] | undefined>;
+    public readonly resourceTags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * A list of subscriber
      */
@@ -246,7 +246,7 @@ export interface AnomalySubscriptionArgs {
     /**
      * Tags to assign to subscription.
      */
-    resourceTags?: pulumi.Input<pulumi.Input<inputs.ce.AnomalySubscriptionResourceTagArgs>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * A list of subscriber
      */

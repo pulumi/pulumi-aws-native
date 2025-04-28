@@ -133,7 +133,8 @@ type Workspace struct {
 	// AMP Workspace prometheus endpoint
 	PrometheusEndpoint pulumi.StringOutput `pulumi:"prometheusEndpoint"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                   aws.TagArrayOutput              `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
 	WorkspaceConfiguration WorkspaceConfigurationPtrOutput `pulumi:"workspaceConfiguration"`
 	// Required to identify a specific APS Workspace.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
@@ -192,7 +193,8 @@ type workspaceArgs struct {
 	// Contains information about the logging configuration for the workspace.
 	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
-	Tags                   []aws.Tag               `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
 	WorkspaceConfiguration *WorkspaceConfiguration `pulumi:"workspaceConfiguration"`
 }
 
@@ -207,7 +209,8 @@ type WorkspaceArgs struct {
 	// Contains information about the logging configuration for the workspace.
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags                   aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
 	WorkspaceConfiguration WorkspaceConfigurationPtrInput
 }
 
@@ -283,6 +286,7 @@ func (o WorkspaceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Workspace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
 func (o WorkspaceOutput) WorkspaceConfiguration() WorkspaceConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceConfigurationPtrOutput { return v.WorkspaceConfiguration }).(WorkspaceConfigurationPtrOutput)
 }

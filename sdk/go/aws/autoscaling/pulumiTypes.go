@@ -801,6 +801,9 @@ func (o AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Auto Scaling uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application.
+//
+//	Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` uses the CPU performance of the ``c6i`` family as the baseline reference.
 type AutoScalingGroupBaselinePerformanceFactorsRequest struct {
 	// The CPU performance to consider, using an instance family as the baseline reference.
 	Cpu *AutoScalingGroupCpuPerformanceFactorRequest `pulumi:"cpu"`
@@ -817,6 +820,9 @@ type AutoScalingGroupBaselinePerformanceFactorsRequestInput interface {
 	ToAutoScalingGroupBaselinePerformanceFactorsRequestOutputWithContext(context.Context) AutoScalingGroupBaselinePerformanceFactorsRequestOutput
 }
 
+// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Auto Scaling uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application.
+//
+//	Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` uses the CPU performance of the ``c6i`` family as the baseline reference.
 type AutoScalingGroupBaselinePerformanceFactorsRequestArgs struct {
 	// The CPU performance to consider, using an instance family as the baseline reference.
 	Cpu AutoScalingGroupCpuPerformanceFactorRequestPtrInput `pulumi:"cpu"`
@@ -875,6 +881,9 @@ func (i *autoScalingGroupBaselinePerformanceFactorsRequestPtrType) ToAutoScaling
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput)
 }
 
+// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Auto Scaling uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application.
+//
+//	Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` uses the CPU performance of the ``c6i`` family as the baseline reference.
 type AutoScalingGroupBaselinePerformanceFactorsRequestOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupBaselinePerformanceFactorsRequestOutput) ElementType() reflect.Type {
@@ -940,13 +949,13 @@ func (o AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput) Cpu() AutoSc
 	}).(AutoScalingGroupCpuPerformanceFactorRequestPtrOutput)
 }
 
+// Describes the Capacity Reservation preference and targeting options. If you specify “open“ or “none“ for “CapacityReservationPreference“, do not specify a “CapacityReservationTarget“.
 type AutoScalingGroupCapacityReservationSpecification struct {
 	// The capacity reservation preference. The following options are available:
-	//
-	// - `capacity-reservations-only` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
-	// - `capacity-reservations-first` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
-	// - `none` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
-	// - `default` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
+	//   +   ``capacity-reservations-only`` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+	//   +   ``capacity-reservations-first`` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+	//   +   ``none`` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
+	//   +   ``default`` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
 	CapacityReservationPreference string `pulumi:"capacityReservationPreference"`
 	// Describes a target Capacity Reservation or Capacity Reservation resource group.
 	CapacityReservationTarget *AutoScalingGroupCapacityReservationTarget `pulumi:"capacityReservationTarget"`
@@ -963,13 +972,13 @@ type AutoScalingGroupCapacityReservationSpecificationInput interface {
 	ToAutoScalingGroupCapacityReservationSpecificationOutputWithContext(context.Context) AutoScalingGroupCapacityReservationSpecificationOutput
 }
 
+// Describes the Capacity Reservation preference and targeting options. If you specify “open“ or “none“ for “CapacityReservationPreference“, do not specify a “CapacityReservationTarget“.
 type AutoScalingGroupCapacityReservationSpecificationArgs struct {
 	// The capacity reservation preference. The following options are available:
-	//
-	// - `capacity-reservations-only` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
-	// - `capacity-reservations-first` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
-	// - `none` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
-	// - `default` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
+	//   +   ``capacity-reservations-only`` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+	//   +   ``capacity-reservations-first`` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+	//   +   ``none`` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
+	//   +   ``default`` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
 	CapacityReservationPreference pulumi.StringInput `pulumi:"capacityReservationPreference"`
 	// Describes a target Capacity Reservation or Capacity Reservation resource group.
 	CapacityReservationTarget AutoScalingGroupCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
@@ -1028,6 +1037,7 @@ func (i *autoScalingGroupCapacityReservationSpecificationPtrType) ToAutoScalingG
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupCapacityReservationSpecificationPtrOutput)
 }
 
+// Describes the Capacity Reservation preference and targeting options. If you specify “open“ or “none“ for “CapacityReservationPreference“, do not specify a “CapacityReservationTarget“.
 type AutoScalingGroupCapacityReservationSpecificationOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupCapacityReservationSpecificationOutput) ElementType() reflect.Type {
@@ -1053,11 +1063,10 @@ func (o AutoScalingGroupCapacityReservationSpecificationOutput) ToAutoScalingGro
 }
 
 // The capacity reservation preference. The following options are available:
-//
-// - `capacity-reservations-only` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
-// - `capacity-reservations-first` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
-// - `none` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
-// - `default` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
+//   - “capacity-reservations-only“ - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+//   - “capacity-reservations-first“ - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+//   - “none“ - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
+//   - “default“ - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
 func (o AutoScalingGroupCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingGroupCapacityReservationSpecification) string {
 		return v.CapacityReservationPreference
@@ -1096,11 +1105,10 @@ func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) Elem() AutoSc
 }
 
 // The capacity reservation preference. The following options are available:
-//
-// - `capacity-reservations-only` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
-// - `capacity-reservations-first` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
-// - `none` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
-// - `default` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
+//   - “capacity-reservations-only“ - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+//   - “capacity-reservations-first“ - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+//   - “none“ - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
+//   - “default“ - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
 func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupCapacityReservationSpecification) *string {
 		if v == nil {
@@ -1120,6 +1128,7 @@ func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) CapacityReser
 	}).(AutoScalingGroupCapacityReservationTargetPtrOutput)
 }
 
+// The target for the Capacity Reservation. Specify Capacity Reservations IDs or Capacity Reservation resource group ARNs.
 type AutoScalingGroupCapacityReservationTarget struct {
 	// The Capacity Reservation IDs to launch instances into.
 	CapacityReservationIds []string `pulumi:"capacityReservationIds"`
@@ -1138,6 +1147,7 @@ type AutoScalingGroupCapacityReservationTargetInput interface {
 	ToAutoScalingGroupCapacityReservationTargetOutputWithContext(context.Context) AutoScalingGroupCapacityReservationTargetOutput
 }
 
+// The target for the Capacity Reservation. Specify Capacity Reservations IDs or Capacity Reservation resource group ARNs.
 type AutoScalingGroupCapacityReservationTargetArgs struct {
 	// The Capacity Reservation IDs to launch instances into.
 	CapacityReservationIds pulumi.StringArrayInput `pulumi:"capacityReservationIds"`
@@ -1198,6 +1208,7 @@ func (i *autoScalingGroupCapacityReservationTargetPtrType) ToAutoScalingGroupCap
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupCapacityReservationTargetPtrOutput)
 }
 
+// The target for the Capacity Reservation. Specify Capacity Reservations IDs or Capacity Reservation resource group ARNs.
 type AutoScalingGroupCapacityReservationTargetOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupCapacityReservationTargetOutput) ElementType() reflect.Type {
@@ -1278,10 +1289,10 @@ func (o AutoScalingGroupCapacityReservationTargetPtrOutput) CapacityReservationR
 	}).(pulumi.StringArrayOutput)
 }
 
+// The CPU performance to consider, using an instance family as the baseline reference.
 type AutoScalingGroupCpuPerformanceFactorRequest struct {
 	// Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
-	//
-	// > Currently only one instance family can be specified in the list.
+	//   Currently only one instance family can be specified in the list.
 	References []AutoScalingGroupPerformanceFactorReferenceRequest `pulumi:"references"`
 }
 
@@ -1296,10 +1307,10 @@ type AutoScalingGroupCpuPerformanceFactorRequestInput interface {
 	ToAutoScalingGroupCpuPerformanceFactorRequestOutputWithContext(context.Context) AutoScalingGroupCpuPerformanceFactorRequestOutput
 }
 
+// The CPU performance to consider, using an instance family as the baseline reference.
 type AutoScalingGroupCpuPerformanceFactorRequestArgs struct {
 	// Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
-	//
-	// > Currently only one instance family can be specified in the list.
+	//   Currently only one instance family can be specified in the list.
 	References AutoScalingGroupPerformanceFactorReferenceRequestArrayInput `pulumi:"references"`
 }
 
@@ -1356,6 +1367,7 @@ func (i *autoScalingGroupCpuPerformanceFactorRequestPtrType) ToAutoScalingGroupC
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupCpuPerformanceFactorRequestPtrOutput)
 }
 
+// The CPU performance to consider, using an instance family as the baseline reference.
 type AutoScalingGroupCpuPerformanceFactorRequestOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupCpuPerformanceFactorRequestOutput) ElementType() reflect.Type {
@@ -1382,7 +1394,7 @@ func (o AutoScalingGroupCpuPerformanceFactorRequestOutput) ToAutoScalingGroupCpu
 
 // Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
 //
-// > Currently only one instance family can be specified in the list.
+//	Currently only one instance family can be specified in the list.
 func (o AutoScalingGroupCpuPerformanceFactorRequestOutput) References() AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput {
 	return o.ApplyT(func(v AutoScalingGroupCpuPerformanceFactorRequest) []AutoScalingGroupPerformanceFactorReferenceRequest {
 		return v.References
@@ -1415,7 +1427,7 @@ func (o AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) Elem() AutoScaling
 
 // Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
 //
-// > Currently only one instance family can be specified in the list.
+//	Currently only one instance family can be specified in the list.
 func (o AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) References() AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput {
 	return o.ApplyT(func(v *AutoScalingGroupCpuPerformanceFactorRequest) []AutoScalingGroupPerformanceFactorReferenceRequest {
 		if v == nil {
@@ -4869,7 +4881,24 @@ func (o AutoScalingGroupNotificationConfigurationArrayOutput) Index(i pulumi.Int
 	}).(AutoScalingGroupNotificationConfigurationOutput)
 }
 
+// Specify an instance family to use as the baseline reference for CPU performance. All instance types that All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+//
+//	Currently only one instance family can be specified in the list.
 type AutoScalingGroupPerformanceFactorReferenceRequest struct {
+	// The instance family to use as a baseline reference.
+	//   Make sure that you specify the correct value for the instance family. The instance family is everything before the period (.) in the instance type name. For example, in the instance ``c6i.large``, the instance family is ``c6i``, not ``c6``. For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types*.
+	//   The following instance types are *not supported* for performance protection.
+	//   +   ``c1``
+	//   +   ``g3| g3s``
+	//   +   ``hpc7g``
+	//   +   ``m1| m2``
+	//   +   ``mac1 | mac2 | mac2-m1ultra | mac2-m2 | mac2-m2pro``
+	//   +   ``p3dn | p4d | p5``
+	//   +   ``t1``
+	//   +   ``u-12tb1 | u-18tb1 | u-24tb1 | u-3tb1 | u-6tb1 | u-9tb1 | u7i-12tb | u7in-16tb | u7in-24tb | u7in-32tb``
+	//
+	//  If you performance protection by specifying a supported instance family, the returned instance types will exclude the preceding unsupported instance families.
+	//  If you specify an unsupported instance family as a value for baseline performance, the API returns an empty response.
 	InstanceFamily *string `pulumi:"instanceFamily"`
 }
 
@@ -4884,7 +4913,24 @@ type AutoScalingGroupPerformanceFactorReferenceRequestInput interface {
 	ToAutoScalingGroupPerformanceFactorReferenceRequestOutputWithContext(context.Context) AutoScalingGroupPerformanceFactorReferenceRequestOutput
 }
 
+// Specify an instance family to use as the baseline reference for CPU performance. All instance types that All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+//
+//	Currently only one instance family can be specified in the list.
 type AutoScalingGroupPerformanceFactorReferenceRequestArgs struct {
+	// The instance family to use as a baseline reference.
+	//   Make sure that you specify the correct value for the instance family. The instance family is everything before the period (.) in the instance type name. For example, in the instance ``c6i.large``, the instance family is ``c6i``, not ``c6``. For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types*.
+	//   The following instance types are *not supported* for performance protection.
+	//   +   ``c1``
+	//   +   ``g3| g3s``
+	//   +   ``hpc7g``
+	//   +   ``m1| m2``
+	//   +   ``mac1 | mac2 | mac2-m1ultra | mac2-m2 | mac2-m2pro``
+	//   +   ``p3dn | p4d | p5``
+	//   +   ``t1``
+	//   +   ``u-12tb1 | u-18tb1 | u-24tb1 | u-3tb1 | u-6tb1 | u-9tb1 | u7i-12tb | u7in-16tb | u7in-24tb | u7in-32tb``
+	//
+	//  If you performance protection by specifying a supported instance family, the returned instance types will exclude the preceding unsupported instance families.
+	//  If you specify an unsupported instance family as a value for baseline performance, the API returns an empty response.
 	InstanceFamily pulumi.StringPtrInput `pulumi:"instanceFamily"`
 }
 
@@ -4925,6 +4971,9 @@ func (i AutoScalingGroupPerformanceFactorReferenceRequestArray) ToAutoScalingGro
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput)
 }
 
+// Specify an instance family to use as the baseline reference for CPU performance. All instance types that All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+//
+//	Currently only one instance family can be specified in the list.
 type AutoScalingGroupPerformanceFactorReferenceRequestOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupPerformanceFactorReferenceRequestOutput) ElementType() reflect.Type {
@@ -4939,6 +4988,21 @@ func (o AutoScalingGroupPerformanceFactorReferenceRequestOutput) ToAutoScalingGr
 	return o
 }
 
+// The instance family to use as a baseline reference.
+//
+//	 Make sure that you specify the correct value for the instance family. The instance family is everything before the period (.) in the instance type name. For example, in the instance ``c6i.large``, the instance family is ``c6i``, not ``c6``. For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types*.
+//	 The following instance types are *not supported* for performance protection.
+//	 +   ``c1``
+//	 +   ``g3| g3s``
+//	 +   ``hpc7g``
+//	 +   ``m1| m2``
+//	 +   ``mac1 | mac2 | mac2-m1ultra | mac2-m2 | mac2-m2pro``
+//	 +   ``p3dn | p4d | p5``
+//	 +   ``t1``
+//	 +   ``u-12tb1 | u-18tb1 | u-24tb1 | u-3tb1 | u-6tb1 | u-9tb1 | u7i-12tb | u7in-16tb | u7in-24tb | u7in-32tb``
+//
+//	If you performance protection by specifying a supported instance family, the returned instance types will exclude the preceding unsupported instance families.
+//	If you specify an unsupported instance family as a value for baseline performance, the API returns an empty response.
 func (o AutoScalingGroupPerformanceFactorReferenceRequestOutput) InstanceFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupPerformanceFactorReferenceRequest) *string { return v.InstanceFamily }).(pulumi.StringPtrOutput)
 }

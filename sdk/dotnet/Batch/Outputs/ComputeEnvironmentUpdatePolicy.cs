@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly int? JobExecutionTimeoutMinutes;
         /// <summary>
-        /// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+        /// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated. The default value is `false` .
         /// </summary>
         public readonly bool? TerminateJobsOnUpdate;
 

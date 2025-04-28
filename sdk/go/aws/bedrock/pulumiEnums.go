@@ -3444,6 +3444,175 @@ func (in *dataAutomationProjectBlueprintStagePtr) ToDataAutomationProjectBluepri
 	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectBlueprintStagePtrOutput)
 }
 
+type DataAutomationProjectDesiredModality string
+
+const (
+	DataAutomationProjectDesiredModalityDocument = DataAutomationProjectDesiredModality("DOCUMENT")
+	DataAutomationProjectDesiredModalityImage    = DataAutomationProjectDesiredModality("IMAGE")
+	DataAutomationProjectDesiredModalityVideo    = DataAutomationProjectDesiredModality("VIDEO")
+	DataAutomationProjectDesiredModalityAudio    = DataAutomationProjectDesiredModality("AUDIO")
+)
+
+func (DataAutomationProjectDesiredModality) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectDesiredModality)(nil)).Elem()
+}
+
+func (e DataAutomationProjectDesiredModality) ToDataAutomationProjectDesiredModalityOutput() DataAutomationProjectDesiredModalityOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectDesiredModalityOutput)
+}
+
+func (e DataAutomationProjectDesiredModality) ToDataAutomationProjectDesiredModalityOutputWithContext(ctx context.Context) DataAutomationProjectDesiredModalityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectDesiredModalityOutput)
+}
+
+func (e DataAutomationProjectDesiredModality) ToDataAutomationProjectDesiredModalityPtrOutput() DataAutomationProjectDesiredModalityPtrOutput {
+	return e.ToDataAutomationProjectDesiredModalityPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectDesiredModality) ToDataAutomationProjectDesiredModalityPtrOutputWithContext(ctx context.Context) DataAutomationProjectDesiredModalityPtrOutput {
+	return DataAutomationProjectDesiredModality(e).ToDataAutomationProjectDesiredModalityOutputWithContext(ctx).ToDataAutomationProjectDesiredModalityPtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectDesiredModality) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectDesiredModality) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectDesiredModality) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectDesiredModality) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectDesiredModalityOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectDesiredModalityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectDesiredModality)(nil)).Elem()
+}
+
+func (o DataAutomationProjectDesiredModalityOutput) ToDataAutomationProjectDesiredModalityOutput() DataAutomationProjectDesiredModalityOutput {
+	return o
+}
+
+func (o DataAutomationProjectDesiredModalityOutput) ToDataAutomationProjectDesiredModalityOutputWithContext(ctx context.Context) DataAutomationProjectDesiredModalityOutput {
+	return o
+}
+
+func (o DataAutomationProjectDesiredModalityOutput) ToDataAutomationProjectDesiredModalityPtrOutput() DataAutomationProjectDesiredModalityPtrOutput {
+	return o.ToDataAutomationProjectDesiredModalityPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectDesiredModalityOutput) ToDataAutomationProjectDesiredModalityPtrOutputWithContext(ctx context.Context) DataAutomationProjectDesiredModalityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectDesiredModality) *DataAutomationProjectDesiredModality {
+		return &v
+	}).(DataAutomationProjectDesiredModalityPtrOutput)
+}
+
+func (o DataAutomationProjectDesiredModalityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectDesiredModalityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectDesiredModality) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectDesiredModalityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectDesiredModalityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectDesiredModality) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectDesiredModalityPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectDesiredModalityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectDesiredModality)(nil)).Elem()
+}
+
+func (o DataAutomationProjectDesiredModalityPtrOutput) ToDataAutomationProjectDesiredModalityPtrOutput() DataAutomationProjectDesiredModalityPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectDesiredModalityPtrOutput) ToDataAutomationProjectDesiredModalityPtrOutputWithContext(ctx context.Context) DataAutomationProjectDesiredModalityPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectDesiredModalityPtrOutput) Elem() DataAutomationProjectDesiredModalityOutput {
+	return o.ApplyT(func(v *DataAutomationProjectDesiredModality) DataAutomationProjectDesiredModality {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectDesiredModality
+		return ret
+	}).(DataAutomationProjectDesiredModalityOutput)
+}
+
+func (o DataAutomationProjectDesiredModalityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectDesiredModalityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectDesiredModality) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectDesiredModalityInput is an input type that accepts values of the DataAutomationProjectDesiredModality enum
+// A concrete instance of `DataAutomationProjectDesiredModalityInput` can be one of the following:
+//
+//	DataAutomationProjectDesiredModalityDocument
+//	DataAutomationProjectDesiredModalityImage
+//	DataAutomationProjectDesiredModalityVideo
+//	DataAutomationProjectDesiredModalityAudio
+type DataAutomationProjectDesiredModalityInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectDesiredModalityOutput() DataAutomationProjectDesiredModalityOutput
+	ToDataAutomationProjectDesiredModalityOutputWithContext(context.Context) DataAutomationProjectDesiredModalityOutput
+}
+
+var dataAutomationProjectDesiredModalityPtrType = reflect.TypeOf((**DataAutomationProjectDesiredModality)(nil)).Elem()
+
+type DataAutomationProjectDesiredModalityPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectDesiredModalityPtrOutput() DataAutomationProjectDesiredModalityPtrOutput
+	ToDataAutomationProjectDesiredModalityPtrOutputWithContext(context.Context) DataAutomationProjectDesiredModalityPtrOutput
+}
+
+type dataAutomationProjectDesiredModalityPtr string
+
+func DataAutomationProjectDesiredModalityPtr(v string) DataAutomationProjectDesiredModalityPtrInput {
+	return (*dataAutomationProjectDesiredModalityPtr)(&v)
+}
+
+func (*dataAutomationProjectDesiredModalityPtr) ElementType() reflect.Type {
+	return dataAutomationProjectDesiredModalityPtrType
+}
+
+func (in *dataAutomationProjectDesiredModalityPtr) ToDataAutomationProjectDesiredModalityPtrOutput() DataAutomationProjectDesiredModalityPtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectDesiredModalityPtrOutput)
+}
+
+func (in *dataAutomationProjectDesiredModalityPtr) ToDataAutomationProjectDesiredModalityPtrOutputWithContext(ctx context.Context) DataAutomationProjectDesiredModalityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectDesiredModalityPtrOutput)
+}
+
 type DataAutomationProjectDocumentExtractionGranularityType string
 
 const (
@@ -13664,6 +13833,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardGenerativeFieldTypeArrayInput)(nil)).Elem(), DataAutomationProjectAudioStandardGenerativeFieldTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectBlueprintStageInput)(nil)).Elem(), DataAutomationProjectBlueprintStage("DEVELOPMENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectBlueprintStagePtrInput)(nil)).Elem(), DataAutomationProjectBlueprintStage("DEVELOPMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectDesiredModalityInput)(nil)).Elem(), DataAutomationProjectDesiredModality("DOCUMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectDesiredModalityPtrInput)(nil)).Elem(), DataAutomationProjectDesiredModality("DOCUMENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectDocumentExtractionGranularityTypeInput)(nil)).Elem(), DataAutomationProjectDocumentExtractionGranularityType("DOCUMENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectDocumentExtractionGranularityTypePtrInput)(nil)).Elem(), DataAutomationProjectDocumentExtractionGranularityType("DOCUMENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectDocumentExtractionGranularityTypeArrayInput)(nil)).Elem(), DataAutomationProjectDocumentExtractionGranularityTypeArray{})
@@ -13820,6 +13991,8 @@ func init() {
 	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectBlueprintStageOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectBlueprintStagePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectDesiredModalityOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectDesiredModalityPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectDocumentExtractionGranularityTypeOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectDocumentExtractionGranularityTypePtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectDocumentExtractionGranularityTypeArrayOutput{})

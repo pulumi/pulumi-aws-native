@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -465,7 +466,7 @@ type AnomalyMonitor struct {
 	// The possible type values.
 	MonitorType AnomalyMonitorMonitorTypeOutput `pulumi:"monitorType"`
 	// Tags to assign to monitor.
-	ResourceTags AnomalyMonitorResourceTagArrayOutput `pulumi:"resourceTags"`
+	ResourceTags aws.CreateOnlyTagArrayOutput `pulumi:"resourceTags"`
 }
 
 // NewAnomalyMonitor registers a new resource with the given unique name, arguments, and options.
@@ -527,7 +528,7 @@ type anomalyMonitorArgs struct {
 	// The possible type values.
 	MonitorType AnomalyMonitorMonitorType `pulumi:"monitorType"`
 	// Tags to assign to monitor.
-	ResourceTags []AnomalyMonitorResourceTag `pulumi:"resourceTags"`
+	ResourceTags []aws.CreateOnlyTag `pulumi:"resourceTags"`
 }
 
 // The set of arguments for constructing a AnomalyMonitor resource.
@@ -541,7 +542,7 @@ type AnomalyMonitorArgs struct {
 	// The possible type values.
 	MonitorType AnomalyMonitorMonitorTypeInput
 	// Tags to assign to monitor.
-	ResourceTags AnomalyMonitorResourceTagArrayInput
+	ResourceTags aws.CreateOnlyTagArrayInput
 }
 
 func (AnomalyMonitorArgs) ElementType() reflect.Type {
@@ -627,8 +628,8 @@ func (o AnomalyMonitorOutput) MonitorType() AnomalyMonitorMonitorTypeOutput {
 }
 
 // Tags to assign to monitor.
-func (o AnomalyMonitorOutput) ResourceTags() AnomalyMonitorResourceTagArrayOutput {
-	return o.ApplyT(func(v *AnomalyMonitor) AnomalyMonitorResourceTagArrayOutput { return v.ResourceTags }).(AnomalyMonitorResourceTagArrayOutput)
+func (o AnomalyMonitorOutput) ResourceTags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *AnomalyMonitor) aws.CreateOnlyTagArrayOutput { return v.ResourceTags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

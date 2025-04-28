@@ -27,13 +27,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetChannelNamespaceResult:
-    def __init__(__self__, channel_namespace_arn=None, code_handlers=None, publish_auth_modes=None, subscribe_auth_modes=None, tags=None):
+    def __init__(__self__, channel_namespace_arn=None, code_handlers=None, handler_configs=None, publish_auth_modes=None, subscribe_auth_modes=None, tags=None):
         if channel_namespace_arn and not isinstance(channel_namespace_arn, str):
             raise TypeError("Expected argument 'channel_namespace_arn' to be a str")
         pulumi.set(__self__, "channel_namespace_arn", channel_namespace_arn)
         if code_handlers and not isinstance(code_handlers, str):
             raise TypeError("Expected argument 'code_handlers' to be a str")
         pulumi.set(__self__, "code_handlers", code_handlers)
+        if handler_configs and not isinstance(handler_configs, dict):
+            raise TypeError("Expected argument 'handler_configs' to be a dict")
+        pulumi.set(__self__, "handler_configs", handler_configs)
         if publish_auth_modes and not isinstance(publish_auth_modes, list):
             raise TypeError("Expected argument 'publish_auth_modes' to be a list")
         pulumi.set(__self__, "publish_auth_modes", publish_auth_modes)
@@ -59,6 +62,11 @@ class GetChannelNamespaceResult:
         The event handler functions that run custom business logic to process published events and subscribe requests.
         """
         return pulumi.get(self, "code_handlers")
+
+    @property
+    @pulumi.getter(name="handlerConfigs")
+    def handler_configs(self) -> Optional['outputs.ChannelNamespaceHandlerConfigs']:
+        return pulumi.get(self, "handler_configs")
 
     @property
     @pulumi.getter(name="publishAuthModes")
@@ -93,6 +101,7 @@ class AwaitableGetChannelNamespaceResult(GetChannelNamespaceResult):
         return GetChannelNamespaceResult(
             channel_namespace_arn=self.channel_namespace_arn,
             code_handlers=self.code_handlers,
+            handler_configs=self.handler_configs,
             publish_auth_modes=self.publish_auth_modes,
             subscribe_auth_modes=self.subscribe_auth_modes,
             tags=self.tags)
@@ -114,6 +123,7 @@ def get_channel_namespace(channel_namespace_arn: Optional[builtins.str] = None,
     return AwaitableGetChannelNamespaceResult(
         channel_namespace_arn=pulumi.get(__ret__, 'channel_namespace_arn'),
         code_handlers=pulumi.get(__ret__, 'code_handlers'),
+        handler_configs=pulumi.get(__ret__, 'handler_configs'),
         publish_auth_modes=pulumi.get(__ret__, 'publish_auth_modes'),
         subscribe_auth_modes=pulumi.get(__ret__, 'subscribe_auth_modes'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -132,6 +142,7 @@ def get_channel_namespace_output(channel_namespace_arn: Optional[pulumi.Input[bu
     return __ret__.apply(lambda __response__: GetChannelNamespaceResult(
         channel_namespace_arn=pulumi.get(__response__, 'channel_namespace_arn'),
         code_handlers=pulumi.get(__response__, 'code_handlers'),
+        handler_configs=pulumi.get(__response__, 'handler_configs'),
         publish_auth_modes=pulumi.get(__response__, 'publish_auth_modes'),
         subscribe_auth_modes=pulumi.get(__response__, 'subscribe_auth_modes'),
         tags=pulumi.get(__response__, 'tags')))

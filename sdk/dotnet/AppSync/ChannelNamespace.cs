@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("codeS3Location")]
         public Output<string?> CodeS3Location { get; private set; } = null!;
 
+        [Output("handlerConfigs")]
+        public Output<Outputs.ChannelNamespaceHandlerConfigs?> HandlerConfigs { get; private set; } = null!;
+
         /// <summary>
         /// The name of the channel namespace. This name must be unique within the `Api` .
         /// </summary>
@@ -130,6 +133,9 @@ namespace Pulumi.AwsNative.AppSync
         /// </summary>
         [Input("codeS3Location")]
         public Input<string>? CodeS3Location { get; set; }
+
+        [Input("handlerConfigs")]
+        public Input<Inputs.ChannelNamespaceHandlerConfigsArgs>? HandlerConfigs { get; set; }
 
         /// <summary>
         /// The name of the channel namespace. This name must be unique within the `Api` .

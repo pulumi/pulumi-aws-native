@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Aps.Outputs
         /// An array of series labels
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkspaceLabel> LabelSet;
+        /// <summary>
+        /// This structure contains the information about the limits that apply to time series that match this label set.
+        /// </summary>
         public readonly Outputs.WorkspaceLimitsPerLabelSetEntry Limits;
 
         [OutputConstructor]

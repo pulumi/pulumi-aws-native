@@ -196,7 +196,7 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         public readonly object? NamespaceResourcePolicy;
         /// <summary>
-        /// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+        /// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge
         /// </summary>
         public readonly string? NodeType;
         /// <summary>

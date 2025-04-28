@@ -92,7 +92,7 @@
       "permissions" : [ "mq:UpdateConfiguration", "mq:CreateTags", "mq:DeleteTags" ]
     },
     "delete" : {
-      "permissions" : [ "mq:DescribeConfiguration" ]
+      "permissions" : [ "mq:DeleteConfiguration" ]
     },
     "list" : {
       "permissions" : [ "mq:ListConfigurations" ]

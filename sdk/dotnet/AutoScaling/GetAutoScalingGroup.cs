@@ -76,6 +76,7 @@ namespace Pulumi.AwsNative.AutoScaling
     [OutputType]
     public sealed class GetAutoScalingGroupResult
     {
+        public readonly string? AutoScalingGroupArn;
         /// <summary>
         /// The instance capacity distribution across Availability Zones.
         /// </summary>
@@ -226,6 +227,8 @@ namespace Pulumi.AwsNative.AutoScaling
 
         [OutputConstructor]
         private GetAutoScalingGroupResult(
+            string? autoScalingGroupArn,
+
             Outputs.AutoScalingGroupAvailabilityZoneDistribution? availabilityZoneDistribution,
 
             Outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy? availabilityZoneImpairmentPolicy,
@@ -290,6 +293,7 @@ namespace Pulumi.AwsNative.AutoScaling
 
             ImmutableArray<string> vpcZoneIdentifier)
         {
+            AutoScalingGroupArn = autoScalingGroupArn;
             AvailabilityZoneDistribution = availabilityZoneDistribution;
             AvailabilityZoneImpairmentPolicy = availabilityZoneImpairmentPolicy;
             AvailabilityZones = availabilityZones;

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<int>? IdleTimeoutSeconds { get; set; }
 
         /// <summary>
-        /// The amount of time waiting for the upstream to respond with a complete response per request. A value of ``0`` can be set to disable ``perRequestTimeout``. ``perRequestTimeout`` can only be set if Service Connect ``appProtocol`` isn't ``TCP``. Only ``idleTimeout`` is allowed for ``TCP`` ``appProtocol``.
+        /// The amount of time waiting for the upstream to respond with a complete response per request. A value of ``0`` can be set to disable ``perRequestTimeout``. ``perRequestTimeout`` can only be set if Service Connect ``appProtocol`` isn't ``TCP``. Only ``idleTimeout`` is allowed for ``TCP````appProtocol``.
         /// </summary>
         [Input("perRequestTimeoutSeconds")]
         public Input<int>? PerRequestTimeoutSeconds { get; set; }

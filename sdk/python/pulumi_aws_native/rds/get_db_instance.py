@@ -344,7 +344,9 @@ class GetDbInstanceResult:
     @pulumi.getter(name="databaseInsightsMode")
     def database_insights_mode(self) -> Optional[builtins.str]:
         """
-        The mode of Database Insights that is enabled for the instance.
+        The mode of Database Insights to enable for the DB instance.
+
+        > Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
         """
         return pulumi.get(self, "database_insights_mode")
 

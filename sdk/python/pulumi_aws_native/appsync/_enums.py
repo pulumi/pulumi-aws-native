@@ -10,6 +10,8 @@ __all__ = [
     'ApiAuthenticationType',
     'ApiEventLogLevel',
     'ChannelNamespaceAuthenticationType',
+    'ChannelNamespaceHandlerBehavior',
+    'ChannelNamespaceInvokeType',
     'DataSourceMetricsConfig',
     'ResolverMetricsConfig',
     'SourceApiAssociationConfigMergeType',
@@ -48,6 +50,22 @@ class ChannelNamespaceAuthenticationType(builtins.str, Enum):
     API_KEY = "API_KEY"
     OPENID_CONNECT = "OPENID_CONNECT"
     AWS_LAMBDA = "AWS_LAMBDA"
+
+
+class ChannelNamespaceHandlerBehavior(builtins.str, Enum):
+    """
+    Integration behavior for a handler configuration.
+    """
+    CODE = "CODE"
+    DIRECT = "DIRECT"
+
+
+class ChannelNamespaceInvokeType(builtins.str, Enum):
+    """
+    Invocation type for direct lambda integrations.
+    """
+    REQUEST_RESPONSE = "REQUEST_RESPONSE"
+    EVENT = "EVENT"
 
 
 class DataSourceMetricsConfig(builtins.str, Enum):

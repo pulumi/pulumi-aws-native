@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     public sealed class RuleFixedResponse
     {
         /// <summary>
-        /// The HTTP response code.
+        /// The HTTP response code. Only `404` and `500` status codes are supported.
         /// </summary>
         public readonly int StatusCode;
 

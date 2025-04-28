@@ -24,7 +24,8 @@ type ChannelNamespace struct {
 	// The event handler functions that run custom business logic to process published events and subscribe requests.
 	CodeHandlers pulumi.StringPtrOutput `pulumi:"codeHandlers"`
 	// The Amazon S3 endpoint where the code is located.
-	CodeS3Location pulumi.StringPtrOutput `pulumi:"codeS3Location"`
+	CodeS3Location pulumi.StringPtrOutput                  `pulumi:"codeS3Location"`
+	HandlerConfigs ChannelNamespaceHandlerConfigsPtrOutput `pulumi:"handlerConfigs"`
 	// The name of the channel namespace. This name must be unique within the `Api` .
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of AuthModes supported for Publish operations.
@@ -88,7 +89,8 @@ type channelNamespaceArgs struct {
 	// The event handler functions that run custom business logic to process published events and subscribe requests.
 	CodeHandlers *string `pulumi:"codeHandlers"`
 	// The Amazon S3 endpoint where the code is located.
-	CodeS3Location *string `pulumi:"codeS3Location"`
+	CodeS3Location *string                         `pulumi:"codeS3Location"`
+	HandlerConfigs *ChannelNamespaceHandlerConfigs `pulumi:"handlerConfigs"`
 	// The name of the channel namespace. This name must be unique within the `Api` .
 	Name *string `pulumi:"name"`
 	// List of AuthModes supported for Publish operations.
@@ -107,6 +109,7 @@ type ChannelNamespaceArgs struct {
 	CodeHandlers pulumi.StringPtrInput
 	// The Amazon S3 endpoint where the code is located.
 	CodeS3Location pulumi.StringPtrInput
+	HandlerConfigs ChannelNamespaceHandlerConfigsPtrInput
 	// The name of the channel namespace. This name must be unique within the `Api` .
 	Name pulumi.StringPtrInput
 	// List of AuthModes supported for Publish operations.
@@ -172,6 +175,10 @@ func (o ChannelNamespaceOutput) CodeHandlers() pulumi.StringPtrOutput {
 // The Amazon S3 endpoint where the code is located.
 func (o ChannelNamespaceOutput) CodeS3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringPtrOutput { return v.CodeS3Location }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelNamespaceOutput) HandlerConfigs() ChannelNamespaceHandlerConfigsPtrOutput {
+	return o.ApplyT(func(v *ChannelNamespace) ChannelNamespaceHandlerConfigsPtrOutput { return v.HandlerConfigs }).(ChannelNamespaceHandlerConfigsPtrOutput)
 }
 
 // The name of the channel namespace. This name must be unique within the `Api` .

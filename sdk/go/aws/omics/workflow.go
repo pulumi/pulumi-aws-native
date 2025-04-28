@@ -36,7 +36,7 @@ type Workflow struct {
 	ParameterTemplate WorkflowParameterMapOutput `pulumi:"parameterTemplate"`
 	// The workflow's status.
 	Status WorkflowStatusOutput `pulumi:"status"`
-	// The default storage capacity for the workflow runs, in gibibytes.
+	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
 	StorageCapacity pulumi.Float64PtrOutput `pulumi:"storageCapacity"`
 	// Tags for the workflow.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -106,7 +106,7 @@ type workflowArgs struct {
 	Name *string `pulumi:"name"`
 	// The workflow's parameter template.
 	ParameterTemplate map[string]WorkflowParameter `pulumi:"parameterTemplate"`
-	// The default storage capacity for the workflow runs, in gibibytes.
+	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
 	StorageCapacity *float64 `pulumi:"storageCapacity"`
 	// Tags for the workflow.
 	Tags map[string]string `pulumi:"tags"`
@@ -127,7 +127,7 @@ type WorkflowArgs struct {
 	Name pulumi.StringPtrInput
 	// The workflow's parameter template.
 	ParameterTemplate WorkflowParameterMapInput
-	// The default storage capacity for the workflow runs, in gibibytes.
+	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
 	StorageCapacity pulumi.Float64PtrInput
 	// Tags for the workflow.
 	Tags pulumi.StringMapInput
@@ -224,7 +224,7 @@ func (o WorkflowOutput) Status() WorkflowStatusOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowStatusOutput { return v.Status }).(WorkflowStatusOutput)
 }
 
-// The default storage capacity for the workflow runs, in gibibytes.
+// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
 func (o WorkflowOutput) StorageCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.Float64PtrOutput { return v.StorageCapacity }).(pulumi.Float64PtrOutput)
 }

@@ -306,7 +306,7 @@ export class AnomalyMonitor extends pulumi.CustomResource {
     /**
      * Tags to assign to monitor.
      */
-    public readonly resourceTags!: pulumi.Output<outputs.ce.AnomalyMonitorResourceTag[] | undefined>;
+    public readonly resourceTags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a AnomalyMonitor resource with the given unique name, arguments, and options.
@@ -374,5 +374,5 @@ export interface AnomalyMonitorArgs {
     /**
      * Tags to assign to monitor.
      */
-    resourceTags?: pulumi.Input<pulumi.Input<inputs.ce.AnomalyMonitorResourceTagArgs>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

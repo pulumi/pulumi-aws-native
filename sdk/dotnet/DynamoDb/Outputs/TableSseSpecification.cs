@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         public readonly bool SseEnabled;
         /// <summary>
         /// Server-side encryption type. The only supported value is:
-        ///   +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
+        ///   +  ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
         /// </summary>
         public readonly string? SseType;
 

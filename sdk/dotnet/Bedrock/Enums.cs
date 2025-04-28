@@ -700,6 +700,36 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     [EnumType]
+    public readonly struct DataAutomationProjectDesiredModality : IEquatable<DataAutomationProjectDesiredModality>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectDesiredModality(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectDesiredModality Document { get; } = new DataAutomationProjectDesiredModality("DOCUMENT");
+        public static DataAutomationProjectDesiredModality Image { get; } = new DataAutomationProjectDesiredModality("IMAGE");
+        public static DataAutomationProjectDesiredModality Video { get; } = new DataAutomationProjectDesiredModality("VIDEO");
+        public static DataAutomationProjectDesiredModality Audio { get; } = new DataAutomationProjectDesiredModality("AUDIO");
+
+        public static bool operator ==(DataAutomationProjectDesiredModality left, DataAutomationProjectDesiredModality right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectDesiredModality left, DataAutomationProjectDesiredModality right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectDesiredModality value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectDesiredModality other && Equals(other);
+        public bool Equals(DataAutomationProjectDesiredModality other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataAutomationProjectDocumentExtractionGranularityType : IEquatable<DataAutomationProjectDocumentExtractionGranularityType>
     {
         private readonly string _value;

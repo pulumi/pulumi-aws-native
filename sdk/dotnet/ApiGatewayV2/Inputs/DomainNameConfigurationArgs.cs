@@ -35,6 +35,12 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
+        /// The IP address types that can invoke the domain name. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
         /// The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
         /// </summary>
         [Input("ownershipVerificationCertificateArn")]

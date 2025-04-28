@@ -1445,6 +1445,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                
                - For instance types with FPGA accelerators, specify `fpga` .
                - For instance types with GPU accelerators, specify `gpu` .
+               - For instance types with Inference accelerators, specify `inference` .
                
                Default: Any accelerator type
         :param Sequence[builtins.str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -1682,6 +1683,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
 
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
+        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """
@@ -11916,6 +11918,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
                
                - For instance types with FPGA accelerators, specify `fpga` .
                - For instance types with GPU accelerators, specify `gpu` .
+               - For instance types with Inference accelerators, specify `inference` .
                
                Default: Any accelerator type
         :param Sequence[builtins.str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -12153,6 +12156,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
 
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
+        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """

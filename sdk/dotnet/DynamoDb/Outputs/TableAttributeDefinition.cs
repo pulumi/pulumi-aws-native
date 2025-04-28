@@ -22,9 +22,9 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         public readonly string AttributeName;
         /// <summary>
         /// The data type for the attribute, where:
-        ///   +   ``S`` - the attribute is of type String
-        ///   +   ``N`` - the attribute is of type Number
-        ///   +   ``B`` - the attribute is of type Binary
+        ///   +  ``S`` - the attribute is of type String
+        ///   +  ``N`` - the attribute is of type Number
+        ///   +  ``B`` - the attribute is of type Binary
         /// </summary>
         public readonly string AttributeType;
 

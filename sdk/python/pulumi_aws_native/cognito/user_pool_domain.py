@@ -33,7 +33,7 @@ class UserPoolDomainArgs:
         :param pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs'] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
                
                When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
-        :param pulumi.Input[builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
+        :param pulumi.Input[builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -84,7 +84,7 @@ class UserPoolDomainArgs:
     @pulumi.getter(name="managedLoginVersion")
     def managed_login_version(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
+        A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
         """
         return pulumi.get(self, "managed_login_version")
 
@@ -115,7 +115,7 @@ class UserPoolDomain(pulumi.CustomResource):
                
                When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
         :param pulumi.Input[builtins.str] domain: The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
-        :param pulumi.Input[builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
+        :param pulumi.Input[builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
         :param pulumi.Input[builtins.str] user_pool_id: The ID of the user pool that is associated with the domain you're updating.
         """
         ...
@@ -225,7 +225,7 @@ class UserPoolDomain(pulumi.CustomResource):
     @pulumi.getter(name="managedLoginVersion")
     def managed_login_version(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
+        A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
         """
         return pulumi.get(self, "managed_login_version")
 

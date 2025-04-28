@@ -1010,8 +1010,9 @@ func (o WorkspaceLabelArrayOutput) Index(i pulumi.IntInput) WorkspaceLabelOutput
 // Label set and its associated limits
 type WorkspaceLimitsPerLabelSet struct {
 	// An array of series labels
-	LabelSet []WorkspaceLabel                `pulumi:"labelSet"`
-	Limits   WorkspaceLimitsPerLabelSetEntry `pulumi:"limits"`
+	LabelSet []WorkspaceLabel `pulumi:"labelSet"`
+	// This structure contains the information about the limits that apply to time series that match this label set.
+	Limits WorkspaceLimitsPerLabelSetEntry `pulumi:"limits"`
 }
 
 // WorkspaceLimitsPerLabelSetInput is an input type that accepts WorkspaceLimitsPerLabelSetArgs and WorkspaceLimitsPerLabelSetOutput values.
@@ -1028,8 +1029,9 @@ type WorkspaceLimitsPerLabelSetInput interface {
 // Label set and its associated limits
 type WorkspaceLimitsPerLabelSetArgs struct {
 	// An array of series labels
-	LabelSet WorkspaceLabelArrayInput             `pulumi:"labelSet"`
-	Limits   WorkspaceLimitsPerLabelSetEntryInput `pulumi:"limits"`
+	LabelSet WorkspaceLabelArrayInput `pulumi:"labelSet"`
+	// This structure contains the information about the limits that apply to time series that match this label set.
+	Limits WorkspaceLimitsPerLabelSetEntryInput `pulumi:"limits"`
 }
 
 func (WorkspaceLimitsPerLabelSetArgs) ElementType() reflect.Type {
@@ -1089,6 +1091,7 @@ func (o WorkspaceLimitsPerLabelSetOutput) LabelSet() WorkspaceLabelArrayOutput {
 	return o.ApplyT(func(v WorkspaceLimitsPerLabelSet) []WorkspaceLabel { return v.LabelSet }).(WorkspaceLabelArrayOutput)
 }
 
+// This structure contains the information about the limits that apply to time series that match this label set.
 func (o WorkspaceLimitsPerLabelSetOutput) Limits() WorkspaceLimitsPerLabelSetEntryOutput {
 	return o.ApplyT(func(v WorkspaceLimitsPerLabelSet) WorkspaceLimitsPerLabelSetEntry { return v.Limits }).(WorkspaceLimitsPerLabelSetEntryOutput)
 }

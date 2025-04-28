@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PullThroughCacheRule{}
 	case "aws-native:ecr:RegistryPolicy":
 		r = &RegistryPolicy{}
+	case "aws-native:ecr:RegistryScanningConfiguration":
+		r = &RegistryScanningConfiguration{}
 	case "aws-native:ecr:ReplicationConfiguration":
 		r = &ReplicationConfiguration{}
 	case "aws-native:ecr:Repository":

@@ -201,9 +201,11 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly customIamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
-     * The mode of Database Insights that is enabled for the instance.
+     * The mode of Database Insights to enable for the DB instance.
+     *
+     * > Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
      */
-    public /*out*/ readonly databaseInsightsMode!: pulumi.Output<string>;
+    public readonly databaseInsightsMode!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the DB cluster that this DB instance will belong to.
      *  This setting doesn't apply to RDS Custom DB instances.
@@ -857,6 +859,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["characterSetName"] = args ? args.characterSetName : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             resourceInputs["customIamInstanceProfile"] = args ? args.customIamInstanceProfile : undefined;
+            resourceInputs["databaseInsightsMode"] = args ? args.databaseInsightsMode : undefined;
             resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
             resourceInputs["dbClusterSnapshotIdentifier"] = args ? args.dbClusterSnapshotIdentifier : undefined;
             resourceInputs["dbInstanceClass"] = args ? args.dbInstanceClass : undefined;
@@ -922,7 +925,6 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
             resourceInputs["vpcSecurityGroups"] = args ? args.vpcSecurityGroups : undefined;
             resourceInputs["certificateDetails"] = undefined /*out*/;
-            resourceInputs["databaseInsightsMode"] = undefined /*out*/;
             resourceInputs["dbInstanceArn"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -1165,6 +1167,12 @@ export interface DbInstanceArgs {
      *  For the list of permissions required for the IAM role, see [Configure IAM and your VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc) in the *Amazon RDS User Guide*.
      */
     customIamInstanceProfile?: pulumi.Input<string>;
+    /**
+     * The mode of Database Insights to enable for the DB instance.
+     *
+     * > Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
+     */
+    databaseInsightsMode?: pulumi.Input<string>;
     /**
      * The identifier of the DB cluster that this DB instance will belong to.
      *  This setting doesn't apply to RDS Custom DB instances.

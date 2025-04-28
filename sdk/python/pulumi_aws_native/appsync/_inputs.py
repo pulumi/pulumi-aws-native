@@ -33,6 +33,14 @@ __all__ = [
     'ApiOpenIdConnectConfigArgsDict',
     'ChannelNamespaceAuthModeArgs',
     'ChannelNamespaceAuthModeArgsDict',
+    'ChannelNamespaceHandlerConfigsArgs',
+    'ChannelNamespaceHandlerConfigsArgsDict',
+    'ChannelNamespaceHandlerConfigArgs',
+    'ChannelNamespaceHandlerConfigArgsDict',
+    'ChannelNamespaceIntegrationArgs',
+    'ChannelNamespaceIntegrationArgsDict',
+    'ChannelNamespaceLambdaConfigArgs',
+    'ChannelNamespaceLambdaConfigArgsDict',
     'DataSourceAuthorizationConfigArgs',
     'DataSourceAuthorizationConfigArgsDict',
     'DataSourceAwsIamConfigArgs',
@@ -554,6 +562,142 @@ class ChannelNamespaceAuthModeArgs:
     @auth_type.setter
     def auth_type(self, value: Optional[pulumi.Input['ChannelNamespaceAuthenticationType']]):
         pulumi.set(self, "auth_type", value)
+
+
+if not MYPY:
+    class ChannelNamespaceHandlerConfigsArgsDict(TypedDict):
+        on_publish: NotRequired[pulumi.Input['ChannelNamespaceHandlerConfigArgsDict']]
+        on_subscribe: NotRequired[pulumi.Input['ChannelNamespaceHandlerConfigArgsDict']]
+elif False:
+    ChannelNamespaceHandlerConfigsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ChannelNamespaceHandlerConfigsArgs:
+    def __init__(__self__, *,
+                 on_publish: Optional[pulumi.Input['ChannelNamespaceHandlerConfigArgs']] = None,
+                 on_subscribe: Optional[pulumi.Input['ChannelNamespaceHandlerConfigArgs']] = None):
+        if on_publish is not None:
+            pulumi.set(__self__, "on_publish", on_publish)
+        if on_subscribe is not None:
+            pulumi.set(__self__, "on_subscribe", on_subscribe)
+
+    @property
+    @pulumi.getter(name="onPublish")
+    def on_publish(self) -> Optional[pulumi.Input['ChannelNamespaceHandlerConfigArgs']]:
+        return pulumi.get(self, "on_publish")
+
+    @on_publish.setter
+    def on_publish(self, value: Optional[pulumi.Input['ChannelNamespaceHandlerConfigArgs']]):
+        pulumi.set(self, "on_publish", value)
+
+    @property
+    @pulumi.getter(name="onSubscribe")
+    def on_subscribe(self) -> Optional[pulumi.Input['ChannelNamespaceHandlerConfigArgs']]:
+        return pulumi.get(self, "on_subscribe")
+
+    @on_subscribe.setter
+    def on_subscribe(self, value: Optional[pulumi.Input['ChannelNamespaceHandlerConfigArgs']]):
+        pulumi.set(self, "on_subscribe", value)
+
+
+if not MYPY:
+    class ChannelNamespaceHandlerConfigArgsDict(TypedDict):
+        behavior: pulumi.Input['ChannelNamespaceHandlerBehavior']
+        integration: pulumi.Input['ChannelNamespaceIntegrationArgsDict']
+elif False:
+    ChannelNamespaceHandlerConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ChannelNamespaceHandlerConfigArgs:
+    def __init__(__self__, *,
+                 behavior: pulumi.Input['ChannelNamespaceHandlerBehavior'],
+                 integration: pulumi.Input['ChannelNamespaceIntegrationArgs']):
+        pulumi.set(__self__, "behavior", behavior)
+        pulumi.set(__self__, "integration", integration)
+
+    @property
+    @pulumi.getter
+    def behavior(self) -> pulumi.Input['ChannelNamespaceHandlerBehavior']:
+        return pulumi.get(self, "behavior")
+
+    @behavior.setter
+    def behavior(self, value: pulumi.Input['ChannelNamespaceHandlerBehavior']):
+        pulumi.set(self, "behavior", value)
+
+    @property
+    @pulumi.getter
+    def integration(self) -> pulumi.Input['ChannelNamespaceIntegrationArgs']:
+        return pulumi.get(self, "integration")
+
+    @integration.setter
+    def integration(self, value: pulumi.Input['ChannelNamespaceIntegrationArgs']):
+        pulumi.set(self, "integration", value)
+
+
+if not MYPY:
+    class ChannelNamespaceIntegrationArgsDict(TypedDict):
+        data_source_name: pulumi.Input[builtins.str]
+        """
+        Data source to invoke for this integration.
+        """
+        lambda_config: NotRequired[pulumi.Input['ChannelNamespaceLambdaConfigArgsDict']]
+elif False:
+    ChannelNamespaceIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ChannelNamespaceIntegrationArgs:
+    def __init__(__self__, *,
+                 data_source_name: pulumi.Input[builtins.str],
+                 lambda_config: Optional[pulumi.Input['ChannelNamespaceLambdaConfigArgs']] = None):
+        """
+        :param pulumi.Input[builtins.str] data_source_name: Data source to invoke for this integration.
+        """
+        pulumi.set(__self__, "data_source_name", data_source_name)
+        if lambda_config is not None:
+            pulumi.set(__self__, "lambda_config", lambda_config)
+
+    @property
+    @pulumi.getter(name="dataSourceName")
+    def data_source_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Data source to invoke for this integration.
+        """
+        return pulumi.get(self, "data_source_name")
+
+    @data_source_name.setter
+    def data_source_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "data_source_name", value)
+
+    @property
+    @pulumi.getter(name="lambdaConfig")
+    def lambda_config(self) -> Optional[pulumi.Input['ChannelNamespaceLambdaConfigArgs']]:
+        return pulumi.get(self, "lambda_config")
+
+    @lambda_config.setter
+    def lambda_config(self, value: Optional[pulumi.Input['ChannelNamespaceLambdaConfigArgs']]):
+        pulumi.set(self, "lambda_config", value)
+
+
+if not MYPY:
+    class ChannelNamespaceLambdaConfigArgsDict(TypedDict):
+        invoke_type: pulumi.Input['ChannelNamespaceInvokeType']
+elif False:
+    ChannelNamespaceLambdaConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ChannelNamespaceLambdaConfigArgs:
+    def __init__(__self__, *,
+                 invoke_type: pulumi.Input['ChannelNamespaceInvokeType']):
+        pulumi.set(__self__, "invoke_type", invoke_type)
+
+    @property
+    @pulumi.getter(name="invokeType")
+    def invoke_type(self) -> pulumi.Input['ChannelNamespaceInvokeType']:
+        return pulumi.get(self, "invoke_type")
+
+    @invoke_type.setter
+    def invoke_type(self, value: pulumi.Input['ChannelNamespaceInvokeType']):
+        pulumi.set(self, "invoke_type", value)
 
 
 if not MYPY:

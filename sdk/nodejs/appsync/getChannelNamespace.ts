@@ -33,6 +33,7 @@ export interface GetChannelNamespaceResult {
      * The event handler functions that run custom business logic to process published events and subscribe requests.
      */
     readonly codeHandlers?: string;
+    readonly handlerConfigs?: outputs.appsync.ChannelNamespaceHandlerConfigs;
     /**
      * List of AuthModes supported for Publish operations.
      */

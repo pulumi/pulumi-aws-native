@@ -17,6 +17,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'RegistryScanningConfigurationRepositoryFilterArgs',
+    'RegistryScanningConfigurationRepositoryFilterArgsDict',
+    'RegistryScanningConfigurationScanningRuleArgs',
+    'RegistryScanningConfigurationScanningRuleArgsDict',
     'ReplicationConfigurationReplicationDestinationArgs',
     'ReplicationConfigurationReplicationDestinationArgsDict',
     'ReplicationConfigurationReplicationRuleArgs',
@@ -38,6 +42,93 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class RegistryScanningConfigurationRepositoryFilterArgsDict(TypedDict):
+        """
+        The details of a scanning repository filter.
+        """
+        filter: pulumi.Input[builtins.str]
+        filter_type: pulumi.Input['RegistryScanningConfigurationFilterType']
+elif False:
+    RegistryScanningConfigurationRepositoryFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryScanningConfigurationRepositoryFilterArgs:
+    def __init__(__self__, *,
+                 filter: pulumi.Input[builtins.str],
+                 filter_type: pulumi.Input['RegistryScanningConfigurationFilterType']):
+        """
+        The details of a scanning repository filter.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> pulumi.Input['RegistryScanningConfigurationFilterType']:
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: pulumi.Input['RegistryScanningConfigurationFilterType']):
+        pulumi.set(self, "filter_type", value)
+
+
+if not MYPY:
+    class RegistryScanningConfigurationScanningRuleArgsDict(TypedDict):
+        """
+        A rule representing the details of a scanning configuration.
+        """
+        repository_filters: pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRepositoryFilterArgsDict']]]
+        """
+        The repository filters associated with the scanning configuration for a private registry.
+        """
+        scan_frequency: pulumi.Input['RegistryScanningConfigurationScanFrequency']
+elif False:
+    RegistryScanningConfigurationScanningRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryScanningConfigurationScanningRuleArgs:
+    def __init__(__self__, *,
+                 repository_filters: pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRepositoryFilterArgs']]],
+                 scan_frequency: pulumi.Input['RegistryScanningConfigurationScanFrequency']):
+        """
+        A rule representing the details of a scanning configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRepositoryFilterArgs']]] repository_filters: The repository filters associated with the scanning configuration for a private registry.
+        """
+        pulumi.set(__self__, "repository_filters", repository_filters)
+        pulumi.set(__self__, "scan_frequency", scan_frequency)
+
+    @property
+    @pulumi.getter(name="repositoryFilters")
+    def repository_filters(self) -> pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRepositoryFilterArgs']]]:
+        """
+        The repository filters associated with the scanning configuration for a private registry.
+        """
+        return pulumi.get(self, "repository_filters")
+
+    @repository_filters.setter
+    def repository_filters(self, value: pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRepositoryFilterArgs']]]):
+        pulumi.set(self, "repository_filters", value)
+
+    @property
+    @pulumi.getter(name="scanFrequency")
+    def scan_frequency(self) -> pulumi.Input['RegistryScanningConfigurationScanFrequency']:
+        return pulumi.get(self, "scan_frequency")
+
+    @scan_frequency.setter
+    def scan_frequency(self, value: pulumi.Input['RegistryScanningConfigurationScanFrequency']):
+        pulumi.set(self, "scan_frequency", value)
+
 
 if not MYPY:
     class ReplicationConfigurationReplicationDestinationArgsDict(TypedDict):

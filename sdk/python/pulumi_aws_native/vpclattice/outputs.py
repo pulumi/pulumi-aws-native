@@ -115,7 +115,7 @@ class ListenerFixedResponse(dict):
     def __init__(__self__, *,
                  status_code: builtins.int):
         """
-        :param builtins.int status_code: The HTTP response code.
+        :param builtins.int status_code: The HTTP response code. Only `404` and `500` status codes are supported.
         """
         pulumi.set(__self__, "status_code", status_code)
 
@@ -123,7 +123,7 @@ class ListenerFixedResponse(dict):
     @pulumi.getter(name="statusCode")
     def status_code(self) -> builtins.int:
         """
-        The HTTP response code.
+        The HTTP response code. Only `404` and `500` status codes are supported.
         """
         return pulumi.get(self, "status_code")
 
@@ -451,7 +451,7 @@ class RuleFixedResponse(dict):
     def __init__(__self__, *,
                  status_code: builtins.int):
         """
-        :param builtins.int status_code: The HTTP response code.
+        :param builtins.int status_code: The HTTP response code. Only `404` and `500` status codes are supported.
         """
         pulumi.set(__self__, "status_code", status_code)
 
@@ -459,7 +459,7 @@ class RuleFixedResponse(dict):
     @pulumi.getter(name="statusCode")
     def status_code(self) -> builtins.int:
         """
-        The HTTP response code.
+        The HTTP response code. Only `404` and `500` status codes are supported.
         """
         return pulumi.get(self, "status_code")
 

@@ -90,6 +90,14 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Output<bool?> FailOnWarnings { get; private set; } = null!;
 
         /// <summary>
+        /// The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+        /// 
+        /// Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+        /// </summary>
+        [Output("ipAddressType")]
+        public Output<string?> IpAddressType { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
         /// </summary>
         [Output("name")]
@@ -241,6 +249,14 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// </summary>
         [Input("failOnWarnings")]
         public Input<bool>? FailOnWarnings { get; set; }
+
+        /// <summary>
+        /// The IP address types that can invoke the API. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API.
+        /// 
+        /// Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
         /// The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.

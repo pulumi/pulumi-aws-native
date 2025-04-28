@@ -526,6 +526,338 @@ func (in *channelNamespaceAuthenticationTypePtr) ToChannelNamespaceAuthenticatio
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelNamespaceAuthenticationTypePtrOutput)
 }
 
+// Integration behavior for a handler configuration.
+type ChannelNamespaceHandlerBehavior string
+
+const (
+	ChannelNamespaceHandlerBehaviorCode   = ChannelNamespaceHandlerBehavior("CODE")
+	ChannelNamespaceHandlerBehaviorDirect = ChannelNamespaceHandlerBehavior("DIRECT")
+)
+
+func (ChannelNamespaceHandlerBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerBehavior)(nil)).Elem()
+}
+
+func (e ChannelNamespaceHandlerBehavior) ToChannelNamespaceHandlerBehaviorOutput() ChannelNamespaceHandlerBehaviorOutput {
+	return pulumi.ToOutput(e).(ChannelNamespaceHandlerBehaviorOutput)
+}
+
+func (e ChannelNamespaceHandlerBehavior) ToChannelNamespaceHandlerBehaviorOutputWithContext(ctx context.Context) ChannelNamespaceHandlerBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelNamespaceHandlerBehaviorOutput)
+}
+
+func (e ChannelNamespaceHandlerBehavior) ToChannelNamespaceHandlerBehaviorPtrOutput() ChannelNamespaceHandlerBehaviorPtrOutput {
+	return e.ToChannelNamespaceHandlerBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelNamespaceHandlerBehavior) ToChannelNamespaceHandlerBehaviorPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerBehaviorPtrOutput {
+	return ChannelNamespaceHandlerBehavior(e).ToChannelNamespaceHandlerBehaviorOutputWithContext(ctx).ToChannelNamespaceHandlerBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e ChannelNamespaceHandlerBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelNamespaceHandlerBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelNamespaceHandlerBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelNamespaceHandlerBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelNamespaceHandlerBehaviorOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceHandlerBehavior)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerBehaviorOutput) ToChannelNamespaceHandlerBehaviorOutput() ChannelNamespaceHandlerBehaviorOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerBehaviorOutput) ToChannelNamespaceHandlerBehaviorOutputWithContext(ctx context.Context) ChannelNamespaceHandlerBehaviorOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerBehaviorOutput) ToChannelNamespaceHandlerBehaviorPtrOutput() ChannelNamespaceHandlerBehaviorPtrOutput {
+	return o.ToChannelNamespaceHandlerBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerBehaviorOutput) ToChannelNamespaceHandlerBehaviorPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceHandlerBehavior) *ChannelNamespaceHandlerBehavior {
+		return &v
+	}).(ChannelNamespaceHandlerBehaviorPtrOutput)
+}
+
+func (o ChannelNamespaceHandlerBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelNamespaceHandlerBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelNamespaceHandlerBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelNamespaceHandlerBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelNamespaceHandlerBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceHandlerBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceHandlerBehavior)(nil)).Elem()
+}
+
+func (o ChannelNamespaceHandlerBehaviorPtrOutput) ToChannelNamespaceHandlerBehaviorPtrOutput() ChannelNamespaceHandlerBehaviorPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerBehaviorPtrOutput) ToChannelNamespaceHandlerBehaviorPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerBehaviorPtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceHandlerBehaviorPtrOutput) Elem() ChannelNamespaceHandlerBehaviorOutput {
+	return o.ApplyT(func(v *ChannelNamespaceHandlerBehavior) ChannelNamespaceHandlerBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceHandlerBehavior
+		return ret
+	}).(ChannelNamespaceHandlerBehaviorOutput)
+}
+
+func (o ChannelNamespaceHandlerBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceHandlerBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelNamespaceHandlerBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelNamespaceHandlerBehaviorInput is an input type that accepts values of the ChannelNamespaceHandlerBehavior enum
+// A concrete instance of `ChannelNamespaceHandlerBehaviorInput` can be one of the following:
+//
+//	ChannelNamespaceHandlerBehaviorCode
+//	ChannelNamespaceHandlerBehaviorDirect
+type ChannelNamespaceHandlerBehaviorInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerBehaviorOutput() ChannelNamespaceHandlerBehaviorOutput
+	ToChannelNamespaceHandlerBehaviorOutputWithContext(context.Context) ChannelNamespaceHandlerBehaviorOutput
+}
+
+var channelNamespaceHandlerBehaviorPtrType = reflect.TypeOf((**ChannelNamespaceHandlerBehavior)(nil)).Elem()
+
+type ChannelNamespaceHandlerBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceHandlerBehaviorPtrOutput() ChannelNamespaceHandlerBehaviorPtrOutput
+	ToChannelNamespaceHandlerBehaviorPtrOutputWithContext(context.Context) ChannelNamespaceHandlerBehaviorPtrOutput
+}
+
+type channelNamespaceHandlerBehaviorPtr string
+
+func ChannelNamespaceHandlerBehaviorPtr(v string) ChannelNamespaceHandlerBehaviorPtrInput {
+	return (*channelNamespaceHandlerBehaviorPtr)(&v)
+}
+
+func (*channelNamespaceHandlerBehaviorPtr) ElementType() reflect.Type {
+	return channelNamespaceHandlerBehaviorPtrType
+}
+
+func (in *channelNamespaceHandlerBehaviorPtr) ToChannelNamespaceHandlerBehaviorPtrOutput() ChannelNamespaceHandlerBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(ChannelNamespaceHandlerBehaviorPtrOutput)
+}
+
+func (in *channelNamespaceHandlerBehaviorPtr) ToChannelNamespaceHandlerBehaviorPtrOutputWithContext(ctx context.Context) ChannelNamespaceHandlerBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelNamespaceHandlerBehaviorPtrOutput)
+}
+
+// Invocation type for direct lambda integrations.
+type ChannelNamespaceInvokeType string
+
+const (
+	ChannelNamespaceInvokeTypeRequestResponse = ChannelNamespaceInvokeType("REQUEST_RESPONSE")
+	ChannelNamespaceInvokeTypeEvent           = ChannelNamespaceInvokeType("EVENT")
+)
+
+func (ChannelNamespaceInvokeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceInvokeType)(nil)).Elem()
+}
+
+func (e ChannelNamespaceInvokeType) ToChannelNamespaceInvokeTypeOutput() ChannelNamespaceInvokeTypeOutput {
+	return pulumi.ToOutput(e).(ChannelNamespaceInvokeTypeOutput)
+}
+
+func (e ChannelNamespaceInvokeType) ToChannelNamespaceInvokeTypeOutputWithContext(ctx context.Context) ChannelNamespaceInvokeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelNamespaceInvokeTypeOutput)
+}
+
+func (e ChannelNamespaceInvokeType) ToChannelNamespaceInvokeTypePtrOutput() ChannelNamespaceInvokeTypePtrOutput {
+	return e.ToChannelNamespaceInvokeTypePtrOutputWithContext(context.Background())
+}
+
+func (e ChannelNamespaceInvokeType) ToChannelNamespaceInvokeTypePtrOutputWithContext(ctx context.Context) ChannelNamespaceInvokeTypePtrOutput {
+	return ChannelNamespaceInvokeType(e).ToChannelNamespaceInvokeTypeOutputWithContext(ctx).ToChannelNamespaceInvokeTypePtrOutputWithContext(ctx)
+}
+
+func (e ChannelNamespaceInvokeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelNamespaceInvokeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelNamespaceInvokeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelNamespaceInvokeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelNamespaceInvokeTypeOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceInvokeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceInvokeType)(nil)).Elem()
+}
+
+func (o ChannelNamespaceInvokeTypeOutput) ToChannelNamespaceInvokeTypeOutput() ChannelNamespaceInvokeTypeOutput {
+	return o
+}
+
+func (o ChannelNamespaceInvokeTypeOutput) ToChannelNamespaceInvokeTypeOutputWithContext(ctx context.Context) ChannelNamespaceInvokeTypeOutput {
+	return o
+}
+
+func (o ChannelNamespaceInvokeTypeOutput) ToChannelNamespaceInvokeTypePtrOutput() ChannelNamespaceInvokeTypePtrOutput {
+	return o.ToChannelNamespaceInvokeTypePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceInvokeTypeOutput) ToChannelNamespaceInvokeTypePtrOutputWithContext(ctx context.Context) ChannelNamespaceInvokeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceInvokeType) *ChannelNamespaceInvokeType {
+		return &v
+	}).(ChannelNamespaceInvokeTypePtrOutput)
+}
+
+func (o ChannelNamespaceInvokeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceInvokeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelNamespaceInvokeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelNamespaceInvokeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceInvokeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelNamespaceInvokeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelNamespaceInvokeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceInvokeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceInvokeType)(nil)).Elem()
+}
+
+func (o ChannelNamespaceInvokeTypePtrOutput) ToChannelNamespaceInvokeTypePtrOutput() ChannelNamespaceInvokeTypePtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceInvokeTypePtrOutput) ToChannelNamespaceInvokeTypePtrOutputWithContext(ctx context.Context) ChannelNamespaceInvokeTypePtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceInvokeTypePtrOutput) Elem() ChannelNamespaceInvokeTypeOutput {
+	return o.ApplyT(func(v *ChannelNamespaceInvokeType) ChannelNamespaceInvokeType {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceInvokeType
+		return ret
+	}).(ChannelNamespaceInvokeTypeOutput)
+}
+
+func (o ChannelNamespaceInvokeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceInvokeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelNamespaceInvokeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelNamespaceInvokeTypeInput is an input type that accepts values of the ChannelNamespaceInvokeType enum
+// A concrete instance of `ChannelNamespaceInvokeTypeInput` can be one of the following:
+//
+//	ChannelNamespaceInvokeTypeRequestResponse
+//	ChannelNamespaceInvokeTypeEvent
+type ChannelNamespaceInvokeTypeInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceInvokeTypeOutput() ChannelNamespaceInvokeTypeOutput
+	ToChannelNamespaceInvokeTypeOutputWithContext(context.Context) ChannelNamespaceInvokeTypeOutput
+}
+
+var channelNamespaceInvokeTypePtrType = reflect.TypeOf((**ChannelNamespaceInvokeType)(nil)).Elem()
+
+type ChannelNamespaceInvokeTypePtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceInvokeTypePtrOutput() ChannelNamespaceInvokeTypePtrOutput
+	ToChannelNamespaceInvokeTypePtrOutputWithContext(context.Context) ChannelNamespaceInvokeTypePtrOutput
+}
+
+type channelNamespaceInvokeTypePtr string
+
+func ChannelNamespaceInvokeTypePtr(v string) ChannelNamespaceInvokeTypePtrInput {
+	return (*channelNamespaceInvokeTypePtr)(&v)
+}
+
+func (*channelNamespaceInvokeTypePtr) ElementType() reflect.Type {
+	return channelNamespaceInvokeTypePtrType
+}
+
+func (in *channelNamespaceInvokeTypePtr) ToChannelNamespaceInvokeTypePtrOutput() ChannelNamespaceInvokeTypePtrOutput {
+	return pulumi.ToOutput(in).(ChannelNamespaceInvokeTypePtrOutput)
+}
+
+func (in *channelNamespaceInvokeTypePtr) ToChannelNamespaceInvokeTypePtrOutputWithContext(ctx context.Context) ChannelNamespaceInvokeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelNamespaceInvokeTypePtrOutput)
+}
+
 // Enables or disables enhanced data source metrics for specified data sources. Note that `MetricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS` . If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
 //
 // `MetricsConfig` can be `ENABLED` or `DISABLED` .
@@ -1130,6 +1462,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventLogLevelPtrInput)(nil)).Elem(), ApiEventLogLevel("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceAuthenticationTypeInput)(nil)).Elem(), ChannelNamespaceAuthenticationType("AMAZON_COGNITO_USER_POOLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceAuthenticationTypePtrInput)(nil)).Elem(), ChannelNamespaceAuthenticationType("AMAZON_COGNITO_USER_POOLS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerBehaviorInput)(nil)).Elem(), ChannelNamespaceHandlerBehavior("CODE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceHandlerBehaviorPtrInput)(nil)).Elem(), ChannelNamespaceHandlerBehavior("CODE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceInvokeTypeInput)(nil)).Elem(), ChannelNamespaceInvokeType("REQUEST_RESPONSE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceInvokeTypePtrInput)(nil)).Elem(), ChannelNamespaceInvokeType("REQUEST_RESPONSE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMetricsConfigInput)(nil)).Elem(), DataSourceMetricsConfig("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMetricsConfigPtrInput)(nil)).Elem(), DataSourceMetricsConfig("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverMetricsConfigInput)(nil)).Elem(), ResolverMetricsConfig("ENABLED"))
@@ -1142,6 +1478,10 @@ func init() {
 	pulumi.RegisterOutputType(ApiEventLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(ChannelNamespaceAuthenticationTypeOutput{})
 	pulumi.RegisterOutputType(ChannelNamespaceAuthenticationTypePtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerBehaviorOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceHandlerBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceInvokeTypeOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceInvokeTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceMetricsConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceMetricsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverMetricsConfigOutput{})

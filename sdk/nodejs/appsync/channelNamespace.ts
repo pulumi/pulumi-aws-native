@@ -53,6 +53,7 @@ export class ChannelNamespace extends pulumi.CustomResource {
      * The Amazon S3 endpoint where the code is located.
      */
     public readonly codeS3Location!: pulumi.Output<string | undefined>;
+    public readonly handlerConfigs!: pulumi.Output<outputs.appsync.ChannelNamespaceHandlerConfigs | undefined>;
     /**
      * The name of the channel namespace. This name must be unique within the `Api` .
      */
@@ -87,6 +88,7 @@ export class ChannelNamespace extends pulumi.CustomResource {
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["codeHandlers"] = args ? args.codeHandlers : undefined;
             resourceInputs["codeS3Location"] = args ? args.codeS3Location : undefined;
+            resourceInputs["handlerConfigs"] = args ? args.handlerConfigs : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publishAuthModes"] = args ? args.publishAuthModes : undefined;
             resourceInputs["subscribeAuthModes"] = args ? args.subscribeAuthModes : undefined;
@@ -97,6 +99,7 @@ export class ChannelNamespace extends pulumi.CustomResource {
             resourceInputs["channelNamespaceArn"] = undefined /*out*/;
             resourceInputs["codeHandlers"] = undefined /*out*/;
             resourceInputs["codeS3Location"] = undefined /*out*/;
+            resourceInputs["handlerConfigs"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["publishAuthModes"] = undefined /*out*/;
             resourceInputs["subscribeAuthModes"] = undefined /*out*/;
@@ -125,6 +128,7 @@ export interface ChannelNamespaceArgs {
      * The Amazon S3 endpoint where the code is located.
      */
     codeS3Location?: pulumi.Input<string>;
+    handlerConfigs?: pulumi.Input<inputs.appsync.ChannelNamespaceHandlerConfigsArgs>;
     /**
      * The name of the channel namespace. This name must be unique within the `Api` .
      */

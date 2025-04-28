@@ -25,7 +25,16 @@ type Archive struct {
 	// An event pattern to use to filter events sent to the archive.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
-	EventPattern     pulumi.AnyOutput       `pulumi:"eventPattern"`
+	EventPattern pulumi.AnyOutput `pulumi:"eventPattern"`
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	//
+	// If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the archive.
+	//
+	// For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
+	//
+	// > If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a customer managed key for any archives for the event bus as well.
+	// >
+	// > For more information, see [Encrypting archives](https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html) in the *Amazon EventBridge User Guide* .
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
 	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
@@ -88,8 +97,17 @@ type archiveArgs struct {
 	// An event pattern to use to filter events sent to the archive.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
-	EventPattern     interface{} `pulumi:"eventPattern"`
-	KmsKeyIdentifier *string     `pulumi:"kmsKeyIdentifier"`
+	EventPattern interface{} `pulumi:"eventPattern"`
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	//
+	// If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the archive.
+	//
+	// For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
+	//
+	// > If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a customer managed key for any archives for the event bus as well.
+	// >
+	// > For more information, see [Encrypting archives](https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html) in the *Amazon EventBridge User Guide* .
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
 	RetentionDays *int `pulumi:"retentionDays"`
 	// The ARN of the event bus that sends events to the archive.
@@ -105,7 +123,16 @@ type ArchiveArgs struct {
 	// An event pattern to use to filter events sent to the archive.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
-	EventPattern     pulumi.Input
+	EventPattern pulumi.Input
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	//
+	// If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the archive.
+	//
+	// For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
+	//
+	// > If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a customer managed key for any archives for the event bus as well.
+	// >
+	// > For more information, see [Encrypting archives](https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html) in the *Amazon EventBridge User Guide* .
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
 	RetentionDays pulumi.IntPtrInput
@@ -172,6 +199,15 @@ func (o ArchiveOutput) EventPattern() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Archive) pulumi.AnyOutput { return v.EventPattern }).(pulumi.AnyOutput)
 }
 
+// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+//
+// If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the archive.
+//
+// For more information, see [Identify and view keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide* .
+//
+// > If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a customer managed key for any archives for the event bus as well.
+// >
+// > For more information, see [Encrypting archives](https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html) in the *Amazon EventBridge User Guide* .
 func (o ArchiveOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Archive) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
