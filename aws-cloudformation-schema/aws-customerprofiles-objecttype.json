@@ -204,13 +204,13 @@
   "primaryIdentifier" : [ "/properties/DomainName", "/properties/ObjectTypeName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "profile:GetProfileObjectType", "profile:PutProfileObjectType", "profile:TagResource" ]
+      "permissions" : [ "profile:GetProfileObjectType", "profile:PutProfileObjectType", "profile:TagResource", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "profile:GetProfileObjectType" ]
+      "permissions" : [ "profile:GetProfileObjectType", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "profile:GetProfileObjectType", "profile:PutProfileObjectType", "profile:UntagResource", "profile:TagResource" ]
+      "permissions" : [ "profile:GetProfileObjectType", "profile:PutProfileObjectType", "profile:UntagResource", "profile:TagResource", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "delete" : {
       "permissions" : [ "profile:DeleteProfileObjectType" ]
@@ -224,7 +224,7 @@
         },
         "required" : [ "DomainName" ]
       },
-      "permissions" : [ "profile:ListProfileObjectTypes" ]
+      "permissions" : [ "profile:ListProfileObjectTypes", "kms:GenerateDataKey", "kms:Decrypt" ]
     }
   }
 }
