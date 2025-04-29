@@ -10552,7 +10552,7 @@
     "properties": {
       "labelTemplate": {
         "type": "string",
-        "description": "Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.\n\nYou can include the following variables in your template:\n\n- `$AccountName` is the name of the account\n- `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`\n- `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`"
+        "description": "Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.\n\nYou can include the following variables in your template:\n\n- `$AccountName` is the name of the account\n- `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`\n- `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`\n\n\u003e In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable."
       },
       "linkConfiguration": {
         "$ref": "#/types/aws-native:oam:LinkConfiguration",
@@ -10563,7 +10563,7 @@
         "items": {
           "$ref": "#/types/aws-native:oam:LinkResourceType"
         },
-        "description": "An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` ."
+        "description": "An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` ."
       },
       "sinkIdentifier": {
         "type": "string",
