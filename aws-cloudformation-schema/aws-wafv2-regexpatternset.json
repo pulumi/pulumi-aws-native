@@ -69,11 +69,12 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "taggable" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "wafv2:TagResource", "wafv2:UntagResource", "wafv2:ListTagsForResource" ]
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "wafv2:CreateRegexPatternSet", "wafv2:GetRegexPatternSet", "wafv2:ListTagsForResource" ]
+      "permissions" : [ "wafv2:CreateRegexPatternSet", "wafv2:GetRegexPatternSet", "wafv2:TagResource", "wafv2:UntagResource", "wafv2:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "wafv2:DeleteRegexPatternSet", "wafv2:GetRegexPatternSet" ]
