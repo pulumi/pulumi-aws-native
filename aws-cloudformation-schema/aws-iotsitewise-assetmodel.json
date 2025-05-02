@@ -425,7 +425,14 @@
     }
   },
   "additionalProperties" : false,
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotsitewise:TagResource", "iotsitewise:UntagResource", "iotsitewise:ListTagsForResource" ]
+  },
   "required" : [ "AssetModelName" ],
   "writeOnlyProperties" : [ "/properties/AssetModelProperties/*/DataTypeSpec", "/properties/AssetModelProperties/*/Type/Transform/Variables/*/Value/HierarchyLogicalId", "/properties/AssetModelProperties/*/Type/Transform/Variables/*/Value/HierarchyId", "/properties/AssetModelProperties/*/Type/Metric/Variables/*/Value/HierarchyId", "/properties/AssetModelProperties/*/Type/Transform/Variables/*/Value/HierarchyExternalId", "/properties/AssetModelProperties/*/Type/Metric/Variables/*/Value/PropertyPath/*/Name", "/properties/AssetModelProperties/*/Type/Transform/Variables/*/Value/PropertyPath/*/Name", "/properties/AssetModelProperties/*/Type/Transform/Variables/*/Value/HierarchyExternalId", "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Transform/Variables/*/Value/HierarchyId", "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Metric/Variables/*/Value/HierarchyId", "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Transform/Variables/*/Value/HierarchyLogicalId", "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Transform/Variables/*/Value/HierarchyExternalId", "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Transform/Variables/*/Value/PropertyPath/*/Name", "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Metric/Variables/*/Value/PropertyPath/*/Name", "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/DataTypeSpec" ],
   "readOnlyProperties" : [ "/properties/AssetModelArn", "/properties/AssetModelId", "/properties/AssetModelProperties/*/Id", "/properties/AssetModelProperties/*/Type/Transform/Variables/*/Value/PropertyId", "/properties/AssetModelProperties/*/Type/Metric/Variables/*/Value/PropertyId", "/properties/AssetModelHierarchies/*/Id", "/properties/AssetModelCompositeModels/*/Id", "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Id", "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Transform/Variables/*/Value/PropertyId", "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Metric/Variables/*/Value/PropertyId" ],
