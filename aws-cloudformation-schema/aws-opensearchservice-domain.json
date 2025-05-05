@@ -565,6 +565,14 @@
       "$ref" : "#/definitions/IdentityCenterOptions"
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "es:AddTags", "es:RemoveTags", "es:ListTags" ]
+  },
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/DomainName" ],
   "conditionalCreateOnlyProperties" : [ "/properties/EncryptionAtRestOptions/properties", "/properties/AdvancedSecurityOptions/properties/Enabled" ],
@@ -573,7 +581,7 @@
   "primaryIdentifier" : [ "/properties/DomainName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "es:CreateDomain", "es:DescribeDomain", "es:AddTags", "es:ListTags" ]
+      "permissions" : [ "es:CreateDomain", "es:DescribeDomain", "es:AddTags", "es:ListTags", "es:DescribeDomainChangeProgress" ]
     },
     "read" : {
       "permissions" : [ "es:DescribeDomain", "es:ListTags" ]

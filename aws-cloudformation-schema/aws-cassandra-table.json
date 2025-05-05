@@ -306,5 +306,10 @@
     "list" : {
       "permissions" : [ "cassandra:Select", "cassandra:SelectMultiRegionResource", "application-autoscaling:DescribeScalableTargets", "application-autoscaling:DescribeScalingPolicies", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:RegisterScalableTarget", "application-autoscaling:PutScalingPolicy", "cloudwatch:DeleteAlarms", "cloudwatch:DescribeAlarms", "cloudwatch:GetMetricData", "cloudwatch:PutMetricAlarm" ]
     }
+  },
+  "propertyTransform" : {
+    "/properties/ClusteringKeyColumns/*/Column/ColumnType" : "$lowercase(ColumnType)",
+    "/properties/PartitionKeyColumns/*/ColumnType" : "$lowercase(ColumnType)",
+    "/properties/RegularColumns/*/ColumnType" : "$lowercase(ColumnType)"
   }
 }
