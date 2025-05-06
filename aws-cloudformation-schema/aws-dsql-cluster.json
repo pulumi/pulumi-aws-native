@@ -50,6 +50,10 @@
     "Status" : {
       "description" : "The status of the cluster.",
       "type" : "string"
+    },
+    "VpcEndpointServiceName" : {
+      "description" : "The VPC endpoint service name.",
+      "type" : "string"
     }
   },
   "additionalProperties" : false,
@@ -63,16 +67,16 @@
     "permissions" : [ "dsql:UntagResource", "dsql:TagResource", "dsql:ListTagsForResource" ]
   },
   "primaryIdentifier" : [ "/properties/Identifier" ],
-  "readOnlyProperties" : [ "/properties/ResourceArn", "/properties/Identifier", "/properties/CreationTime", "/properties/Status" ],
+  "readOnlyProperties" : [ "/properties/ResourceArn", "/properties/Identifier", "/properties/CreationTime", "/properties/Status", "/properties/VpcEndpointServiceName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "dsql:CreateCluster", "dsql:GetCluster", "dsql:TagResource", "dsql:ListTagsForResource", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "dsql:CreateCluster", "dsql:GetCluster", "dsql:TagResource", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
-      "permissions" : [ "dsql:GetCluster", "dsql:ListTagsForResource", "tag:GetTagKeys", "tag:GetTagValues" ]
+      "permissions" : [ "dsql:GetCluster", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource", "tag:GetTagKeys", "tag:GetTagValues" ]
     },
     "update" : {
-      "permissions" : [ "dsql:UpdateCluster", "dsql:GetCluster", "dsql:UntagResource", "dsql:TagResource", "dsql:ListTagsForResource" ]
+      "permissions" : [ "dsql:UpdateCluster", "dsql:GetCluster", "dsql:UntagResource", "dsql:TagResource", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "dsql:DeleteCluster", "dsql:GetCluster", "dsql:ListTagsForResource" ]

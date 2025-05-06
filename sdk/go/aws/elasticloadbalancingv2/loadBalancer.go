@@ -28,7 +28,8 @@ type LoadBalancer struct {
 	//  [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
 	//  Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
 	//  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
-	IpAddressType  pulumi.StringPtrOutput `pulumi:"ipAddressType"`
+	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
+	// The ID of the IPv4 IPAM pool.
 	Ipv4IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
@@ -123,7 +124,8 @@ type loadBalancerArgs struct {
 	//  [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
 	//  Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
 	//  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
-	IpAddressType  *string `pulumi:"ipAddressType"`
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// The ID of the IPv4 IPAM pool.
 	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
 	// The load balancer attributes.
 	LoadBalancerAttributes []LoadBalancerAttribute `pulumi:"loadBalancerAttributes"`
@@ -168,7 +170,8 @@ type LoadBalancerArgs struct {
 	//  [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
 	//  Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
 	//  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
-	IpAddressType  pulumi.StringPtrInput
+	IpAddressType pulumi.StringPtrInput
+	// The ID of the IPv4 IPAM pool.
 	Ipv4IpamPoolId pulumi.StringPtrInput
 	// The load balancer attributes.
 	LoadBalancerAttributes LoadBalancerAttributeArrayInput
@@ -271,6 +274,7 @@ func (o LoadBalancerOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the IPv4 IPAM pool.
 func (o LoadBalancerOutput) Ipv4IpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.Ipv4IpamPoolId }).(pulumi.StringPtrOutput)
 }

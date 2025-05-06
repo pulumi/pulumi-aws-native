@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetConnectionGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the connection group.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetConnectionGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the connection group.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -61,21 +67,45 @@ namespace Pulumi.AwsNative.CloudFront
         /// The ID of the Anycast static IP list.
         /// </summary>
         public readonly string? AnycastIpListId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the connection group.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The date and time when the connection group was created.
+        /// </summary>
         public readonly string? CreatedTime;
         /// <summary>
-        /// A complex type that contains `Tag` key and `Tag` value.
+        /// The current version of the connection group.
         /// </summary>
         public readonly string? ETag;
+        /// <summary>
+        /// Whether the connection group is enabled.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The ID of the connection group.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// IPv6 is enabled for the connection group.
+        /// </summary>
         public readonly bool? Ipv6Enabled;
+        /// <summary>
+        /// Whether the connection group is the default connection group for the distribution tenants.
+        /// </summary>
         public readonly bool? IsDefault;
+        /// <summary>
+        /// The date and time when the connection group was updated.
+        /// </summary>
         public readonly string? LastModifiedTime;
         /// <summary>
-        /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+        /// The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
         /// </summary>
         public readonly string? RoutingEndpoint;
+        /// <summary>
+        /// The status of the connection group.
+        /// </summary>
         public readonly string? Status;
         /// <summary>
         /// A complex type that contains zero or more `Tag` elements.

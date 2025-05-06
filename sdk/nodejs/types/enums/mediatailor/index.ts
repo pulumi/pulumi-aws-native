@@ -67,6 +67,13 @@ export const PlaybackConfigurationDashConfigurationOriginManifestType = {
  */
 export type PlaybackConfigurationDashConfigurationOriginManifestType = (typeof PlaybackConfigurationDashConfigurationOriginManifestType)[keyof typeof PlaybackConfigurationDashConfigurationOriginManifestType];
 
+export const PlaybackConfigurationStreamingMediaFileConditioning = {
+    Transcode: "TRANSCODE",
+    None: "NONE",
+} as const;
+
+export type PlaybackConfigurationStreamingMediaFileConditioning = (typeof PlaybackConfigurationStreamingMediaFileConditioning)[keyof typeof PlaybackConfigurationStreamingMediaFileConditioning];
+
 export const SourceLocationAccessType = {
     S3Sigv4: "S3_SIGV4",
     SecretsManagerAccessToken: "SECRETS_MANAGER_ACCESS_TOKEN",

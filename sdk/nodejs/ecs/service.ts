@@ -250,7 +250,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["vpcLatticeConfigurations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["cluster", "deploymentController", "launchType", "role", "schedulingStrategy", "serviceName"] };
+        const replaceOnChanges = { replaceOnChanges: ["cluster", "launchType", "role", "schedulingStrategy", "serviceName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

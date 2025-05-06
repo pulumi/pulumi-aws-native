@@ -2516,7 +2516,8 @@ type DistributionConfig struct {
 	//   This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
 	Cnames []string `pulumi:"cnames"`
 	// A comment to describe the distribution. The comment cannot be longer than 128 characters.
-	Comment        *string                     `pulumi:"comment"`
+	Comment *string `pulumi:"comment"`
+	// The connection mode to filter distributions by.
 	ConnectionMode *DistributionConnectionMode `pulumi:"connectionMode"`
 	// The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
 	ContinuousDeploymentPolicyId *string `pulumi:"continuousDeploymentPolicyId"`
@@ -2572,7 +2573,8 @@ type DistributionConfig struct {
 	//   This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
 	S3Origin *DistributionLegacyS3Origin `pulumi:"s3Origin"`
 	// A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
-	Staging      *bool                                     `pulumi:"staging"`
+	Staging *bool `pulumi:"staging"`
+	// A distribution tenant configuration.
 	TenantConfig *DistributionConfigTenantConfigProperties `pulumi:"tenantConfig"`
 	// A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
 	ViewerCertificate *DistributionViewerCertificate `pulumi:"viewerCertificate"`
@@ -2604,7 +2606,8 @@ type DistributionConfigArgs struct {
 	//   This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
 	Cnames pulumi.StringArrayInput `pulumi:"cnames"`
 	// A comment to describe the distribution. The comment cannot be longer than 128 characters.
-	Comment        pulumi.StringPtrInput              `pulumi:"comment"`
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// The connection mode to filter distributions by.
 	ConnectionMode DistributionConnectionModePtrInput `pulumi:"connectionMode"`
 	// The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
 	ContinuousDeploymentPolicyId pulumi.StringPtrInput `pulumi:"continuousDeploymentPolicyId"`
@@ -2660,7 +2663,8 @@ type DistributionConfigArgs struct {
 	//   This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
 	S3Origin DistributionLegacyS3OriginPtrInput `pulumi:"s3Origin"`
 	// A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
-	Staging      pulumi.BoolPtrInput                              `pulumi:"staging"`
+	Staging pulumi.BoolPtrInput `pulumi:"staging"`
+	// A distribution tenant configuration.
 	TenantConfig DistributionConfigTenantConfigPropertiesPtrInput `pulumi:"tenantConfig"`
 	// A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
 	ViewerCertificate DistributionViewerCertificatePtrInput `pulumi:"viewerCertificate"`
@@ -2723,6 +2727,7 @@ func (o DistributionConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// The connection mode to filter distributions by.
 func (o DistributionConfigOutput) ConnectionMode() DistributionConnectionModePtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *DistributionConnectionMode { return v.ConnectionMode }).(DistributionConnectionModePtrOutput)
 }
@@ -2838,6 +2843,7 @@ func (o DistributionConfigOutput) Staging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *bool { return v.Staging }).(pulumi.BoolPtrOutput)
 }
 
+// A distribution tenant configuration.
 func (o DistributionConfigOutput) TenantConfig() DistributionConfigTenantConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *DistributionConfigTenantConfigProperties { return v.TenantConfig }).(DistributionConfigTenantConfigPropertiesPtrOutput)
 }
@@ -2930,6 +2936,7 @@ func (o DistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The connection mode to filter distributions by.
 func (o DistributionConfigPtrOutput) ConnectionMode() DistributionConnectionModePtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *DistributionConnectionMode {
 		if v == nil {
@@ -3125,6 +3132,7 @@ func (o DistributionConfigPtrOutput) Staging() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A distribution tenant configuration.
 func (o DistributionConfigPtrOutput) TenantConfig() DistributionConfigTenantConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *DistributionConfigTenantConfigProperties {
 		if v == nil {
@@ -3156,6 +3164,7 @@ func (o DistributionConfigPtrOutput) WebAclId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A distribution tenant configuration.
 type DistributionConfigTenantConfigProperties struct {
 	ParameterDefinitions []DistributionParameterDefinition `pulumi:"parameterDefinitions"`
 }
@@ -3171,6 +3180,7 @@ type DistributionConfigTenantConfigPropertiesInput interface {
 	ToDistributionConfigTenantConfigPropertiesOutputWithContext(context.Context) DistributionConfigTenantConfigPropertiesOutput
 }
 
+// A distribution tenant configuration.
 type DistributionConfigTenantConfigPropertiesArgs struct {
 	ParameterDefinitions DistributionParameterDefinitionArrayInput `pulumi:"parameterDefinitions"`
 }
@@ -3228,6 +3238,7 @@ func (i *distributionConfigTenantConfigPropertiesPtrType) ToDistributionConfigTe
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigTenantConfigPropertiesPtrOutput)
 }
 
+// A distribution tenant configuration.
 type DistributionConfigTenantConfigPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigTenantConfigPropertiesOutput) ElementType() reflect.Type {
@@ -7046,8 +7057,10 @@ func (o DistributionOriginShieldPtrOutput) OriginShieldRegion() pulumi.StringPtr
 }
 
 type DistributionParameterDefinition struct {
+	// The value that you assigned to the parameter.
 	Definition DistributionParameterDefinitionDefinitionProperties `pulumi:"definition"`
-	Name       string                                              `pulumi:"name"`
+	// The name of the parameter.
+	Name string `pulumi:"name"`
 }
 
 // DistributionParameterDefinitionInput is an input type that accepts DistributionParameterDefinitionArgs and DistributionParameterDefinitionOutput values.
@@ -7062,8 +7075,10 @@ type DistributionParameterDefinitionInput interface {
 }
 
 type DistributionParameterDefinitionArgs struct {
+	// The value that you assigned to the parameter.
 	Definition DistributionParameterDefinitionDefinitionPropertiesInput `pulumi:"definition"`
-	Name       pulumi.StringInput                                       `pulumi:"name"`
+	// The name of the parameter.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (DistributionParameterDefinitionArgs) ElementType() reflect.Type {
@@ -7117,12 +7132,14 @@ func (o DistributionParameterDefinitionOutput) ToDistributionParameterDefinition
 	return o
 }
 
+// The value that you assigned to the parameter.
 func (o DistributionParameterDefinitionOutput) Definition() DistributionParameterDefinitionDefinitionPropertiesOutput {
 	return o.ApplyT(func(v DistributionParameterDefinition) DistributionParameterDefinitionDefinitionProperties {
 		return v.Definition
 	}).(DistributionParameterDefinitionDefinitionPropertiesOutput)
 }
 
+// The name of the parameter.
 func (o DistributionParameterDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionParameterDefinition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7147,6 +7164,7 @@ func (o DistributionParameterDefinitionArrayOutput) Index(i pulumi.IntInput) Dis
 	}).(DistributionParameterDefinitionOutput)
 }
 
+// The value that you assigned to the parameter.
 type DistributionParameterDefinitionDefinitionProperties struct {
 	StringSchema *DistributionParameterDefinitionDefinitionPropertiesStringSchemaProperties `pulumi:"stringSchema"`
 }
@@ -7162,6 +7180,7 @@ type DistributionParameterDefinitionDefinitionPropertiesInput interface {
 	ToDistributionParameterDefinitionDefinitionPropertiesOutputWithContext(context.Context) DistributionParameterDefinitionDefinitionPropertiesOutput
 }
 
+// The value that you assigned to the parameter.
 type DistributionParameterDefinitionDefinitionPropertiesArgs struct {
 	StringSchema DistributionParameterDefinitionDefinitionPropertiesStringSchemaPropertiesPtrInput `pulumi:"stringSchema"`
 }
@@ -7178,6 +7197,7 @@ func (i DistributionParameterDefinitionDefinitionPropertiesArgs) ToDistributionP
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionParameterDefinitionDefinitionPropertiesOutput)
 }
 
+// The value that you assigned to the parameter.
 type DistributionParameterDefinitionDefinitionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DistributionParameterDefinitionDefinitionPropertiesOutput) ElementType() reflect.Type {
@@ -7752,6 +7772,7 @@ type DistributionTag struct {
 }
 
 type DistributionTenantCertificate struct {
+	// The Amazon Resource Name (ARN) of the ACM certificate.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -7767,6 +7788,7 @@ type DistributionTenantCertificateInput interface {
 }
 
 type DistributionTenantCertificateArgs struct {
+	// The Amazon Resource Name (ARN) of the ACM certificate.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -7847,6 +7869,7 @@ func (o DistributionTenantCertificateOutput) ToDistributionTenantCertificatePtrO
 	}).(DistributionTenantCertificatePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the ACM certificate.
 func (o DistributionTenantCertificateOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionTenantCertificate) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -7875,6 +7898,7 @@ func (o DistributionTenantCertificatePtrOutput) Elem() DistributionTenantCertifi
 	}).(DistributionTenantCertificateOutput)
 }
 
+// The Amazon Resource Name (ARN) of the ACM certificate.
 func (o DistributionTenantCertificatePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionTenantCertificate) *string {
 		if v == nil {
@@ -7885,9 +7909,12 @@ func (o DistributionTenantCertificatePtrOutput) Arn() pulumi.StringPtrOutput {
 }
 
 type DistributionTenantCustomizations struct {
-	Certificate     *DistributionTenantCertificate                 `pulumi:"certificate"`
+	// The AWS Certificate Manager (ACM) certificate.
+	Certificate *DistributionTenantCertificate `pulumi:"certificate"`
+	// The geographic restrictions.
 	GeoRestrictions *DistributionTenantGeoRestrictionCustomization `pulumi:"geoRestrictions"`
-	WebAcl          *DistributionTenantWebAclCustomization         `pulumi:"webAcl"`
+	// The AWS WAF web ACL.
+	WebAcl *DistributionTenantWebAclCustomization `pulumi:"webAcl"`
 }
 
 // DistributionTenantCustomizationsInput is an input type that accepts DistributionTenantCustomizationsArgs and DistributionTenantCustomizationsOutput values.
@@ -7902,9 +7929,12 @@ type DistributionTenantCustomizationsInput interface {
 }
 
 type DistributionTenantCustomizationsArgs struct {
-	Certificate     DistributionTenantCertificatePtrInput                 `pulumi:"certificate"`
+	// The AWS Certificate Manager (ACM) certificate.
+	Certificate DistributionTenantCertificatePtrInput `pulumi:"certificate"`
+	// The geographic restrictions.
 	GeoRestrictions DistributionTenantGeoRestrictionCustomizationPtrInput `pulumi:"geoRestrictions"`
-	WebAcl          DistributionTenantWebAclCustomizationPtrInput         `pulumi:"webAcl"`
+	// The AWS WAF web ACL.
+	WebAcl DistributionTenantWebAclCustomizationPtrInput `pulumi:"webAcl"`
 }
 
 func (DistributionTenantCustomizationsArgs) ElementType() reflect.Type {
@@ -7984,16 +8014,19 @@ func (o DistributionTenantCustomizationsOutput) ToDistributionTenantCustomizatio
 	}).(DistributionTenantCustomizationsPtrOutput)
 }
 
+// The AWS Certificate Manager (ACM) certificate.
 func (o DistributionTenantCustomizationsOutput) Certificate() DistributionTenantCertificatePtrOutput {
 	return o.ApplyT(func(v DistributionTenantCustomizations) *DistributionTenantCertificate { return v.Certificate }).(DistributionTenantCertificatePtrOutput)
 }
 
+// The geographic restrictions.
 func (o DistributionTenantCustomizationsOutput) GeoRestrictions() DistributionTenantGeoRestrictionCustomizationPtrOutput {
 	return o.ApplyT(func(v DistributionTenantCustomizations) *DistributionTenantGeoRestrictionCustomization {
 		return v.GeoRestrictions
 	}).(DistributionTenantGeoRestrictionCustomizationPtrOutput)
 }
 
+// The AWS WAF web ACL.
 func (o DistributionTenantCustomizationsOutput) WebAcl() DistributionTenantWebAclCustomizationPtrOutput {
 	return o.ApplyT(func(v DistributionTenantCustomizations) *DistributionTenantWebAclCustomization { return v.WebAcl }).(DistributionTenantWebAclCustomizationPtrOutput)
 }
@@ -8022,6 +8055,7 @@ func (o DistributionTenantCustomizationsPtrOutput) Elem() DistributionTenantCust
 	}).(DistributionTenantCustomizationsOutput)
 }
 
+// The AWS Certificate Manager (ACM) certificate.
 func (o DistributionTenantCustomizationsPtrOutput) Certificate() DistributionTenantCertificatePtrOutput {
 	return o.ApplyT(func(v *DistributionTenantCustomizations) *DistributionTenantCertificate {
 		if v == nil {
@@ -8031,6 +8065,7 @@ func (o DistributionTenantCustomizationsPtrOutput) Certificate() DistributionTen
 	}).(DistributionTenantCertificatePtrOutput)
 }
 
+// The geographic restrictions.
 func (o DistributionTenantCustomizationsPtrOutput) GeoRestrictions() DistributionTenantGeoRestrictionCustomizationPtrOutput {
 	return o.ApplyT(func(v *DistributionTenantCustomizations) *DistributionTenantGeoRestrictionCustomization {
 		if v == nil {
@@ -8040,6 +8075,7 @@ func (o DistributionTenantCustomizationsPtrOutput) GeoRestrictions() Distributio
 	}).(DistributionTenantGeoRestrictionCustomizationPtrOutput)
 }
 
+// The AWS WAF web ACL.
 func (o DistributionTenantCustomizationsPtrOutput) WebAcl() DistributionTenantWebAclCustomizationPtrOutput {
 	return o.ApplyT(func(v *DistributionTenantCustomizations) *DistributionTenantWebAclCustomization {
 		if v == nil {
@@ -8050,7 +8086,9 @@ func (o DistributionTenantCustomizationsPtrOutput) WebAcl() DistributionTenantWe
 }
 
 type DistributionTenantDomainResult struct {
-	Domain *string                               `pulumi:"domain"`
+	// The specified domain.
+	Domain *string `pulumi:"domain"`
+	// Whether the domain is active or inactive.
 	Status *DistributionTenantDomainResultStatus `pulumi:"status"`
 }
 
@@ -8068,10 +8106,12 @@ func (o DistributionTenantDomainResultOutput) ToDistributionTenantDomainResultOu
 	return o
 }
 
+// The specified domain.
 func (o DistributionTenantDomainResultOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionTenantDomainResult) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
+// Whether the domain is active or inactive.
 func (o DistributionTenantDomainResultOutput) Status() DistributionTenantDomainResultStatusPtrOutput {
 	return o.ApplyT(func(v DistributionTenantDomainResult) *DistributionTenantDomainResultStatus { return v.Status }).(DistributionTenantDomainResultStatusPtrOutput)
 }
@@ -8097,7 +8137,13 @@ func (o DistributionTenantDomainResultArrayOutput) Index(i pulumi.IntInput) Dist
 }
 
 type DistributionTenantGeoRestrictionCustomization struct {
-	Locations       []string                                                      `pulumi:"locations"`
+	// The locations for geographic restrictions.
+	Locations []string `pulumi:"locations"`
+	// The method that you want to use to restrict distribution of your content by country:
+	//
+	// - `none` : No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
+	// - `blacklist` : The `Location` elements specify the countries in which you don't want CloudFront to distribute your content.
+	// - `whitelist` : The `Location` elements specify the countries in which you want CloudFront to distribute your content.
 	RestrictionType *DistributionTenantGeoRestrictionCustomizationRestrictionType `pulumi:"restrictionType"`
 }
 
@@ -8113,7 +8159,13 @@ type DistributionTenantGeoRestrictionCustomizationInput interface {
 }
 
 type DistributionTenantGeoRestrictionCustomizationArgs struct {
-	Locations       pulumi.StringArrayInput                                              `pulumi:"locations"`
+	// The locations for geographic restrictions.
+	Locations pulumi.StringArrayInput `pulumi:"locations"`
+	// The method that you want to use to restrict distribution of your content by country:
+	//
+	// - `none` : No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
+	// - `blacklist` : The `Location` elements specify the countries in which you don't want CloudFront to distribute your content.
+	// - `whitelist` : The `Location` elements specify the countries in which you want CloudFront to distribute your content.
 	RestrictionType DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrInput `pulumi:"restrictionType"`
 }
 
@@ -8194,10 +8246,16 @@ func (o DistributionTenantGeoRestrictionCustomizationOutput) ToDistributionTenan
 	}).(DistributionTenantGeoRestrictionCustomizationPtrOutput)
 }
 
+// The locations for geographic restrictions.
 func (o DistributionTenantGeoRestrictionCustomizationOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionTenantGeoRestrictionCustomization) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
+// The method that you want to use to restrict distribution of your content by country:
+//
+// - `none` : No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
+// - `blacklist` : The `Location` elements specify the countries in which you don't want CloudFront to distribute your content.
+// - `whitelist` : The `Location` elements specify the countries in which you want CloudFront to distribute your content.
 func (o DistributionTenantGeoRestrictionCustomizationOutput) RestrictionType() DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput {
 	return o.ApplyT(func(v DistributionTenantGeoRestrictionCustomization) *DistributionTenantGeoRestrictionCustomizationRestrictionType {
 		return v.RestrictionType
@@ -8228,6 +8286,7 @@ func (o DistributionTenantGeoRestrictionCustomizationPtrOutput) Elem() Distribut
 	}).(DistributionTenantGeoRestrictionCustomizationOutput)
 }
 
+// The locations for geographic restrictions.
 func (o DistributionTenantGeoRestrictionCustomizationPtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionTenantGeoRestrictionCustomization) []string {
 		if v == nil {
@@ -8237,6 +8296,11 @@ func (o DistributionTenantGeoRestrictionCustomizationPtrOutput) Locations() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
+// The method that you want to use to restrict distribution of your content by country:
+//
+// - `none` : No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
+// - `blacklist` : The `Location` elements specify the countries in which you don't want CloudFront to distribute your content.
+// - `whitelist` : The `Location` elements specify the countries in which you want CloudFront to distribute your content.
 func (o DistributionTenantGeoRestrictionCustomizationPtrOutput) RestrictionType() DistributionTenantGeoRestrictionCustomizationRestrictionTypePtrOutput {
 	return o.ApplyT(func(v *DistributionTenantGeoRestrictionCustomization) *DistributionTenantGeoRestrictionCustomizationRestrictionType {
 		if v == nil {
@@ -8247,9 +8311,15 @@ func (o DistributionTenantGeoRestrictionCustomizationPtrOutput) RestrictionType(
 }
 
 type DistributionTenantManagedCertificateRequest struct {
+	// You can opt out of certificate transparency logging by specifying the `disabled` option. Opt in by specifying `enabled` . For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *AWS Certificate Manager User Guide* .
 	CertificateTransparencyLoggingPreference *DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference `pulumi:"certificateTransparencyLoggingPreference"`
-	PrimaryDomainName                        *string                                                                              `pulumi:"primaryDomainName"`
-	ValidationTokenHost                      *DistributionTenantManagedCertificateRequestValidationTokenHost                      `pulumi:"validationTokenHost"`
+	// The primary domain name associated with the CloudFront managed ACM certificate.
+	PrimaryDomainName *string `pulumi:"primaryDomainName"`
+	// Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.
+	//
+	// - For `cloudfront` , CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
+	// - For `self-hosted` , you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
+	ValidationTokenHost *DistributionTenantManagedCertificateRequestValidationTokenHost `pulumi:"validationTokenHost"`
 }
 
 // DistributionTenantManagedCertificateRequestInput is an input type that accepts DistributionTenantManagedCertificateRequestArgs and DistributionTenantManagedCertificateRequestOutput values.
@@ -8264,9 +8334,15 @@ type DistributionTenantManagedCertificateRequestInput interface {
 }
 
 type DistributionTenantManagedCertificateRequestArgs struct {
+	// You can opt out of certificate transparency logging by specifying the `disabled` option. Opt in by specifying `enabled` . For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *AWS Certificate Manager User Guide* .
 	CertificateTransparencyLoggingPreference DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrInput `pulumi:"certificateTransparencyLoggingPreference"`
-	PrimaryDomainName                        pulumi.StringPtrInput                                                                       `pulumi:"primaryDomainName"`
-	ValidationTokenHost                      DistributionTenantManagedCertificateRequestValidationTokenHostPtrInput                      `pulumi:"validationTokenHost"`
+	// The primary domain name associated with the CloudFront managed ACM certificate.
+	PrimaryDomainName pulumi.StringPtrInput `pulumi:"primaryDomainName"`
+	// Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.
+	//
+	// - For `cloudfront` , CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
+	// - For `self-hosted` , you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
+	ValidationTokenHost DistributionTenantManagedCertificateRequestValidationTokenHostPtrInput `pulumi:"validationTokenHost"`
 }
 
 func (DistributionTenantManagedCertificateRequestArgs) ElementType() reflect.Type {
@@ -8346,16 +8422,22 @@ func (o DistributionTenantManagedCertificateRequestOutput) ToDistributionTenantM
 	}).(DistributionTenantManagedCertificateRequestPtrOutput)
 }
 
+// You can opt out of certificate transparency logging by specifying the `disabled` option. Opt in by specifying `enabled` . For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *AWS Certificate Manager User Guide* .
 func (o DistributionTenantManagedCertificateRequestOutput) CertificateTransparencyLoggingPreference() DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput {
 	return o.ApplyT(func(v DistributionTenantManagedCertificateRequest) *DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference {
 		return v.CertificateTransparencyLoggingPreference
 	}).(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput)
 }
 
+// The primary domain name associated with the CloudFront managed ACM certificate.
 func (o DistributionTenantManagedCertificateRequestOutput) PrimaryDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionTenantManagedCertificateRequest) *string { return v.PrimaryDomainName }).(pulumi.StringPtrOutput)
 }
 
+// Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.
+//
+// - For `cloudfront` , CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
+// - For `self-hosted` , you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
 func (o DistributionTenantManagedCertificateRequestOutput) ValidationTokenHost() DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput {
 	return o.ApplyT(func(v DistributionTenantManagedCertificateRequest) *DistributionTenantManagedCertificateRequestValidationTokenHost {
 		return v.ValidationTokenHost
@@ -8386,6 +8468,7 @@ func (o DistributionTenantManagedCertificateRequestPtrOutput) Elem() Distributio
 	}).(DistributionTenantManagedCertificateRequestOutput)
 }
 
+// You can opt out of certificate transparency logging by specifying the `disabled` option. Opt in by specifying `enabled` . For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *AWS Certificate Manager User Guide* .
 func (o DistributionTenantManagedCertificateRequestPtrOutput) CertificateTransparencyLoggingPreference() DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput {
 	return o.ApplyT(func(v *DistributionTenantManagedCertificateRequest) *DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference {
 		if v == nil {
@@ -8395,6 +8478,7 @@ func (o DistributionTenantManagedCertificateRequestPtrOutput) CertificateTranspa
 	}).(DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreferencePtrOutput)
 }
 
+// The primary domain name associated with the CloudFront managed ACM certificate.
 func (o DistributionTenantManagedCertificateRequestPtrOutput) PrimaryDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionTenantManagedCertificateRequest) *string {
 		if v == nil {
@@ -8404,6 +8488,10 @@ func (o DistributionTenantManagedCertificateRequestPtrOutput) PrimaryDomainName(
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.
+//
+// - For `cloudfront` , CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
+// - For `self-hosted` , you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
 func (o DistributionTenantManagedCertificateRequestPtrOutput) ValidationTokenHost() DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput {
 	return o.ApplyT(func(v *DistributionTenantManagedCertificateRequest) *DistributionTenantManagedCertificateRequestValidationTokenHost {
 		if v == nil {
@@ -8414,7 +8502,9 @@ func (o DistributionTenantManagedCertificateRequestPtrOutput) ValidationTokenHos
 }
 
 type DistributionTenantParameter struct {
-	Name  *string `pulumi:"name"`
+	// The parameter name.
+	Name *string `pulumi:"name"`
+	// The parameter value.
 	Value *string `pulumi:"value"`
 }
 
@@ -8430,7 +8520,9 @@ type DistributionTenantParameterInput interface {
 }
 
 type DistributionTenantParameterArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
+	// The parameter name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The parameter value.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -8485,10 +8577,12 @@ func (o DistributionTenantParameterOutput) ToDistributionTenantParameterOutputWi
 	return o
 }
 
+// The parameter name.
 func (o DistributionTenantParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionTenantParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The parameter value.
 func (o DistributionTenantParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionTenantParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -8525,8 +8619,10 @@ type DistributionTenantTag struct {
 }
 
 type DistributionTenantWebAclCustomization struct {
+	// The action for the AWS WAF web ACL customization. You can specify `override` to specify a separate AWS WAF web ACL for the distribution tenant. If you specify `disable` , the distribution tenant won't have AWS WAF web ACL protections and won't inherit from the multi-tenant distribution.
 	Action *DistributionTenantWebAclCustomizationAction `pulumi:"action"`
-	Arn    *string                                      `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the AWS WAF web ACL.
+	Arn *string `pulumi:"arn"`
 }
 
 // DistributionTenantWebAclCustomizationInput is an input type that accepts DistributionTenantWebAclCustomizationArgs and DistributionTenantWebAclCustomizationOutput values.
@@ -8541,8 +8637,10 @@ type DistributionTenantWebAclCustomizationInput interface {
 }
 
 type DistributionTenantWebAclCustomizationArgs struct {
+	// The action for the AWS WAF web ACL customization. You can specify `override` to specify a separate AWS WAF web ACL for the distribution tenant. If you specify `disable` , the distribution tenant won't have AWS WAF web ACL protections and won't inherit from the multi-tenant distribution.
 	Action DistributionTenantWebAclCustomizationActionPtrInput `pulumi:"action"`
-	Arn    pulumi.StringPtrInput                               `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the AWS WAF web ACL.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
 func (DistributionTenantWebAclCustomizationArgs) ElementType() reflect.Type {
@@ -8622,12 +8720,14 @@ func (o DistributionTenantWebAclCustomizationOutput) ToDistributionTenantWebAclC
 	}).(DistributionTenantWebAclCustomizationPtrOutput)
 }
 
+// The action for the AWS WAF web ACL customization. You can specify `override` to specify a separate AWS WAF web ACL for the distribution tenant. If you specify `disable` , the distribution tenant won't have AWS WAF web ACL protections and won't inherit from the multi-tenant distribution.
 func (o DistributionTenantWebAclCustomizationOutput) Action() DistributionTenantWebAclCustomizationActionPtrOutput {
 	return o.ApplyT(func(v DistributionTenantWebAclCustomization) *DistributionTenantWebAclCustomizationAction {
 		return v.Action
 	}).(DistributionTenantWebAclCustomizationActionPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS WAF web ACL.
 func (o DistributionTenantWebAclCustomizationOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionTenantWebAclCustomization) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -8656,6 +8756,7 @@ func (o DistributionTenantWebAclCustomizationPtrOutput) Elem() DistributionTenan
 	}).(DistributionTenantWebAclCustomizationOutput)
 }
 
+// The action for the AWS WAF web ACL customization. You can specify `override` to specify a separate AWS WAF web ACL for the distribution tenant. If you specify `disable` , the distribution tenant won't have AWS WAF web ACL protections and won't inherit from the multi-tenant distribution.
 func (o DistributionTenantWebAclCustomizationPtrOutput) Action() DistributionTenantWebAclCustomizationActionPtrOutput {
 	return o.ApplyT(func(v *DistributionTenantWebAclCustomization) *DistributionTenantWebAclCustomizationAction {
 		if v == nil {
@@ -8665,6 +8766,7 @@ func (o DistributionTenantWebAclCustomizationPtrOutput) Action() DistributionTen
 	}).(DistributionTenantWebAclCustomizationActionPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS WAF web ACL.
 func (o DistributionTenantWebAclCustomizationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionTenantWebAclCustomization) *string {
 		if v == nil {

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
     [OutputType]
     public sealed class DomainNameV2EndpointConfiguration
     {
+        /// <summary>
+        /// The IP address types that can invoke an API (RestApi) or a DomainName. Use `ipv4` to allow only IPv4 addresses to invoke an API or DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API or a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported.
+        /// </summary>
         public readonly string? IpAddressType;
         /// <summary>
         /// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .

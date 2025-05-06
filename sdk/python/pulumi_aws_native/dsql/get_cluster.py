@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, creation_time=None, deletion_protection_enabled=None, identifier=None, resource_arn=None, status=None, tags=None):
+    def __init__(__self__, creation_time=None, deletion_protection_enabled=None, identifier=None, resource_arn=None, status=None, tags=None, vpc_endpoint_service_name=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -44,6 +44,9 @@ class GetClusterResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if vpc_endpoint_service_name and not isinstance(vpc_endpoint_service_name, str):
+            raise TypeError("Expected argument 'vpc_endpoint_service_name' to be a str")
+        pulumi.set(__self__, "vpc_endpoint_service_name", vpc_endpoint_service_name)
 
     @property
     @pulumi.getter(name="creationTime")
@@ -88,7 +91,18 @@ class GetClusterResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A map of key and value pairs this cluster is tagged with.
+        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcEndpointServiceName")
+    def vpc_endpoint_service_name(self) -> Optional[builtins.str]:
+        """
+        The VPC endpoint service name.
+        """
+        return pulumi.get(self, "vpc_endpoint_service_name")
 
 
 class AwaitableGetClusterResult(GetClusterResult):
@@ -102,7 +116,8 @@ class AwaitableGetClusterResult(GetClusterResult):
             identifier=self.identifier,
             resource_arn=self.resource_arn,
             status=self.status,
-            tags=self.tags)
+            tags=self.tags,
+            vpc_endpoint_service_name=self.vpc_endpoint_service_name)
 
 
 def get_cluster(identifier: Optional[builtins.str] = None,
@@ -124,7 +139,8 @@ def get_cluster(identifier: Optional[builtins.str] = None,
         identifier=pulumi.get(__ret__, 'identifier'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         status=pulumi.get(__ret__, 'status'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_endpoint_service_name=pulumi.get(__ret__, 'vpc_endpoint_service_name'))
 def get_cluster_output(identifier: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -143,4 +159,5 @@ def get_cluster_output(identifier: Optional[pulumi.Input[builtins.str]] = None,
         identifier=pulumi.get(__response__, 'identifier'),
         resource_arn=pulumi.get(__response__, 'resource_arn'),
         status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_endpoint_service_name=pulumi.get(__response__, 'vpc_endpoint_service_name')))

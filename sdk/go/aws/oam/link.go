@@ -27,10 +27,12 @@ type Link struct {
 	// - `$AccountName` is the name of the account
 	// - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
 	// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+	//
+	// > In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
 	LabelTemplate pulumi.StringPtrOutput `pulumi:"labelTemplate"`
 	// Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
 	LinkConfiguration LinkConfigurationPtrOutput `pulumi:"linkConfiguration"`
-	// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
+	// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
 	ResourceTypes LinkResourceTypeArrayOutput `pulumi:"resourceTypes"`
 	// The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
 	SinkIdentifier pulumi.StringOutput `pulumi:"sinkIdentifier"`
@@ -96,10 +98,12 @@ type linkArgs struct {
 	// - `$AccountName` is the name of the account
 	// - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
 	// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+	//
+	// > In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
 	LabelTemplate *string `pulumi:"labelTemplate"`
 	// Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
 	LinkConfiguration *LinkConfiguration `pulumi:"linkConfiguration"`
-	// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
+	// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
 	ResourceTypes []LinkResourceType `pulumi:"resourceTypes"`
 	// The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
 	SinkIdentifier string `pulumi:"sinkIdentifier"`
@@ -116,10 +120,12 @@ type LinkArgs struct {
 	// - `$AccountName` is the name of the account
 	// - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
 	// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+	//
+	// > In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
 	LabelTemplate pulumi.StringPtrInput
 	// Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
 	LinkConfiguration LinkConfigurationPtrInput
-	// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
+	// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
 	ResourceTypes LinkResourceTypeArrayInput
 	// The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
 	SinkIdentifier pulumi.StringInput
@@ -181,6 +187,8 @@ func (o LinkOutput) Label() pulumi.StringOutput {
 // - `$AccountName` is the name of the account
 // - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
 // - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+//
+// > In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
 func (o LinkOutput) LabelTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.LabelTemplate }).(pulumi.StringPtrOutput)
 }
@@ -190,7 +198,7 @@ func (o LinkOutput) LinkConfiguration() LinkConfigurationPtrOutput {
 	return o.ApplyT(func(v *Link) LinkConfigurationPtrOutput { return v.LinkConfiguration }).(LinkConfigurationPtrOutput)
 }
 
-// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
+// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
 func (o LinkOutput) ResourceTypes() LinkResourceTypeArrayOutput {
 	return o.ApplyT(func(v *Link) LinkResourceTypeArrayOutput { return v.ResourceTypes }).(LinkResourceTypeArrayOutput)
 }

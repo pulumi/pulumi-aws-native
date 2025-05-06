@@ -74,28 +74,40 @@ class GetDistributionTenantResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the distribution tenant.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="connectionGroupId")
     def connection_group_id(self) -> Optional[builtins.str]:
+        """
+        The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+        """
         return pulumi.get(self, "connection_group_id")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[builtins.str]:
+        """
+        The date and time when the distribution tenant was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def customizations(self) -> Optional['outputs.DistributionTenantCustomizations']:
+        """
+        Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        """
         return pulumi.get(self, "customizations")
 
     @property
     @pulumi.getter(name="distributionId")
     def distribution_id(self) -> Optional[builtins.str]:
         """
-        The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        The ID of the multi-tenant distribution.
         """
         return pulumi.get(self, "distribution_id")
 
@@ -107,39 +119,57 @@ class GetDistributionTenantResult:
     @property
     @pulumi.getter
     def domains(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The domains associated with the distribution tenant.
+        """
         return pulumi.get(self, "domains")
 
     @property
     @pulumi.getter(name="eTag")
     def e_tag(self) -> Optional[builtins.str]:
         """
-        A complex type that contains `Tag` key and `Tag` value.
+        The current version of the distribution tenant.
         """
         return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
+        """
+        Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[builtins.str]:
+        """
+        The ID of the distribution tenant.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[builtins.str]:
+        """
+        The date and time when the distribution tenant was updated.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.DistributionTenantParameter']]:
+        """
+        A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[builtins.str]:
+        """
+        The status of the distribution tenant.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -177,6 +207,9 @@ def get_distribution_tenant(id: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionTenantResult:
     """
     Resource Type definition for AWS::CloudFront::DistributionTenant
+
+
+    :param builtins.str id: The ID of the distribution tenant.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -202,6 +235,9 @@ def get_distribution_tenant_output(id: Optional[pulumi.Input[builtins.str]] = No
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionTenantResult]:
     """
     Resource Type definition for AWS::CloudFront::DistributionTenant
+
+
+    :param builtins.str id: The ID of the distribution tenant.
     """
     __args__ = dict()
     __args__['id'] = id

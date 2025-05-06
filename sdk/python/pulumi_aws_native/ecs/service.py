@@ -686,7 +686,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["vpc_lattice_configurations"] = vpc_lattice_configurations
             __props__.__dict__["name"] = None
             __props__.__dict__["service_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster", "deploymentController", "launchType", "role", "schedulingStrategy", "serviceName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster", "launchType", "role", "schedulingStrategy", "serviceName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Service, __self__).__init__(
             'aws-native:ecs:Service',

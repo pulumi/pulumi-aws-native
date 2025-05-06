@@ -67,6 +67,12 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         public Output<Outputs.PolicyStoreSchemaDefinition?> Schema { get; private set; } = null!;
 
         /// <summary>
+        /// The tags to add to the policy store
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the validation setting for this policy store.
         /// 
         /// Currently, the only valid and required value is `Mode` .
@@ -132,6 +138,18 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// </summary>
         [Input("schema")]
         public Input<Inputs.PolicyStoreSchemaDefinitionArgs>? Schema { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to add to the policy store
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Specifies the validation setting for this policy store.

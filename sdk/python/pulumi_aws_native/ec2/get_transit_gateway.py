@@ -86,7 +86,7 @@ class GetTransitGatewayResult:
     @pulumi.getter(name="defaultRouteTableAssociation")
     def default_route_table_association(self) -> Optional[builtins.str]:
         """
-        Enable or disable automatic association with the default association route table. Enabled by default.
+        Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         """
         return pulumi.get(self, "default_route_table_association")
 
@@ -94,7 +94,7 @@ class GetTransitGatewayResult:
     @pulumi.getter(name="defaultRouteTablePropagation")
     def default_route_table_propagation(self) -> Optional[builtins.str]:
         """
-        Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         """
         return pulumi.get(self, "default_route_table_propagation")
 

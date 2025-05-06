@@ -54,11 +54,11 @@ export class TransitGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * Enable or disable automatic association with the default association route table. Enabled by default.
+     * Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
      */
     public readonly defaultRouteTableAssociation!: pulumi.Output<string | undefined>;
     /**
-     * Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+     * Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
      */
     public readonly defaultRouteTablePropagation!: pulumi.Output<string | undefined>;
     /**
@@ -164,11 +164,11 @@ export interface TransitGatewayArgs {
      */
     autoAcceptSharedAttachments?: pulumi.Input<string>;
     /**
-     * Enable or disable automatic association with the default association route table. Enabled by default.
+     * Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
      */
     defaultRouteTableAssociation?: pulumi.Input<string>;
     /**
-     * Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+     * Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
      */
     defaultRouteTablePropagation?: pulumi.Input<string>;
     /**

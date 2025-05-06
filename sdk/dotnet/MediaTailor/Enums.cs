@@ -241,6 +241,34 @@ namespace Pulumi.AwsNative.MediaTailor
     }
 
     [EnumType]
+    public readonly struct PlaybackConfigurationStreamingMediaFileConditioning : IEquatable<PlaybackConfigurationStreamingMediaFileConditioning>
+    {
+        private readonly string _value;
+
+        private PlaybackConfigurationStreamingMediaFileConditioning(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlaybackConfigurationStreamingMediaFileConditioning Transcode { get; } = new PlaybackConfigurationStreamingMediaFileConditioning("TRANSCODE");
+        public static PlaybackConfigurationStreamingMediaFileConditioning None { get; } = new PlaybackConfigurationStreamingMediaFileConditioning("NONE");
+
+        public static bool operator ==(PlaybackConfigurationStreamingMediaFileConditioning left, PlaybackConfigurationStreamingMediaFileConditioning right) => left.Equals(right);
+        public static bool operator !=(PlaybackConfigurationStreamingMediaFileConditioning left, PlaybackConfigurationStreamingMediaFileConditioning right) => !left.Equals(right);
+
+        public static explicit operator string(PlaybackConfigurationStreamingMediaFileConditioning value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlaybackConfigurationStreamingMediaFileConditioning other && Equals(other);
+        public bool Equals(PlaybackConfigurationStreamingMediaFileConditioning other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct SourceLocationAccessType : IEquatable<SourceLocationAccessType>
     {
         private readonly string _value;

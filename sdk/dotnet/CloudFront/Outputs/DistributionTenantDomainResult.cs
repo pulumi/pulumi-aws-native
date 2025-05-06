@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTenantDomainResult
     {
+        /// <summary>
+        /// The specified domain.
+        /// </summary>
         public readonly string? Domain;
+        /// <summary>
+        /// Whether the domain is active or inactive.
+        /// </summary>
         public readonly Pulumi.AwsNative.CloudFront.DistributionTenantDomainResultStatus? Status;
 
         [OutputConstructor]

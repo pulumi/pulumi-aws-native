@@ -7975,6 +7975,52 @@ func (o EnvironmentProfileEnvironmentParameterArrayOutput) Index(i pulumi.IntInp
 	}).(EnvironmentProfileEnvironmentParameterOutput)
 }
 
+// The properties of a domain unit's owner.
+type OwnerProperties struct {
+}
+
+// OwnerPropertiesInput is an input type that accepts OwnerPropertiesArgs and OwnerPropertiesOutput values.
+// You can construct a concrete instance of `OwnerPropertiesInput` via:
+//
+//	OwnerPropertiesArgs{...}
+type OwnerPropertiesInput interface {
+	pulumi.Input
+
+	ToOwnerPropertiesOutput() OwnerPropertiesOutput
+	ToOwnerPropertiesOutputWithContext(context.Context) OwnerPropertiesOutput
+}
+
+// The properties of a domain unit's owner.
+type OwnerPropertiesArgs struct {
+}
+
+func (OwnerPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OwnerProperties)(nil)).Elem()
+}
+
+func (i OwnerPropertiesArgs) ToOwnerPropertiesOutput() OwnerPropertiesOutput {
+	return i.ToOwnerPropertiesOutputWithContext(context.Background())
+}
+
+func (i OwnerPropertiesArgs) ToOwnerPropertiesOutputWithContext(ctx context.Context) OwnerPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OwnerPropertiesOutput)
+}
+
+// The properties of a domain unit's owner.
+type OwnerPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OwnerPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OwnerProperties)(nil)).Elem()
+}
+
+func (o OwnerPropertiesOutput) ToOwnerPropertiesOutput() OwnerPropertiesOutput {
+	return o
+}
+
+func (o OwnerPropertiesOutput) ToOwnerPropertiesOutputWithContext(ctx context.Context) OwnerPropertiesOutput {
+	return o
+}
+
 type ProjectMembershipMember0Properties struct {
 	UserIdentifier string `pulumi:"userIdentifier"`
 }
@@ -8551,6 +8597,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentParameterArrayInput)(nil)).Elem(), EnvironmentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileEnvironmentParameterInput)(nil)).Elem(), EnvironmentProfileEnvironmentParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileEnvironmentParameterArrayInput)(nil)).Elem(), EnvironmentProfileEnvironmentParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OwnerPropertiesInput)(nil)).Elem(), OwnerPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember0PropertiesInput)(nil)).Elem(), ProjectMembershipMember0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember1PropertiesInput)(nil)).Elem(), ProjectMembershipMember1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormInput)(nil)).Elem(), SubscriptionTargetFormArgs{})
@@ -8659,6 +8706,7 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentParameterArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentProfileEnvironmentParameterOutput{})
 	pulumi.RegisterOutputType(EnvironmentProfileEnvironmentParameterArrayOutput{})
+	pulumi.RegisterOutputType(OwnerPropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipMember0PropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipMember1PropertiesOutput{})
 	pulumi.RegisterOutputType(SubscriptionTargetFormOutput{})

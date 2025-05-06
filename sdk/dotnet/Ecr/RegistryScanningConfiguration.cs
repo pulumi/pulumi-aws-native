@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ecr
     [AwsNativeResourceType("aws-native:ecr:RegistryScanningConfiguration")]
     public partial class RegistryScanningConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The account ID of the destination registry.
+        /// </summary>
         [Output("registryId")]
         public Output<string> RegistryId { get; private set; } = null!;
 

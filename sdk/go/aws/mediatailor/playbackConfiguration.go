@@ -17,6 +17,8 @@ import (
 type PlaybackConfiguration struct {
 	pulumi.CustomResourceState
 
+	// The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+	AdConditioningConfiguration PlaybackConfigurationAdConditioningConfigurationPtrOutput `pulumi:"adConditioningConfiguration"`
 	// The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
 	AdDecisionServerUrl pulumi.StringOutput `pulumi:"adDecisionServerUrl"`
 	// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
@@ -105,6 +107,8 @@ func (PlaybackConfigurationState) ElementType() reflect.Type {
 }
 
 type playbackConfigurationArgs struct {
+	// The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+	AdConditioningConfiguration *PlaybackConfigurationAdConditioningConfiguration `pulumi:"adConditioningConfiguration"`
 	// The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
 	AdDecisionServerUrl string `pulumi:"adDecisionServerUrl"`
 	// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
@@ -139,6 +143,8 @@ type playbackConfigurationArgs struct {
 
 // The set of arguments for constructing a PlaybackConfiguration resource.
 type PlaybackConfigurationArgs struct {
+	// The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+	AdConditioningConfiguration PlaybackConfigurationAdConditioningConfigurationPtrInput
 	// The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
 	AdDecisionServerUrl pulumi.StringInput
 	// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
@@ -206,6 +212,13 @@ func (o PlaybackConfigurationOutput) ToPlaybackConfigurationOutput() PlaybackCon
 
 func (o PlaybackConfigurationOutput) ToPlaybackConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationOutput {
 	return o
+}
+
+// The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+func (o PlaybackConfigurationOutput) AdConditioningConfiguration() PlaybackConfigurationAdConditioningConfigurationPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationAdConditioningConfigurationPtrOutput {
+		return v.AdConditioningConfiguration
+	}).(PlaybackConfigurationAdConditioningConfigurationPtrOutput)
 }
 
 // The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.

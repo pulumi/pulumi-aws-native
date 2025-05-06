@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::DomainName.
+ * The ``AWS::ApiGateway::DomainName`` resource specifies a custom domain name for your API in API Gateway.
+ *  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
  *
  * ## Example Usage
  * ### Example
@@ -99,6 +100,7 @@ export class DomainName extends pulumi.CustomResource {
      * The custom domain name as an API host name, for example, `my-api.example.com` .
      */
     public readonly domainName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly domainNameArn!: pulumi.Output<string>;
     /**
      * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
      */
@@ -153,6 +155,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["distributionDomainName"] = undefined /*out*/;
             resourceInputs["distributionHostedZoneId"] = undefined /*out*/;
+            resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["regionalDomainName"] = undefined /*out*/;
             resourceInputs["regionalHostedZoneId"] = undefined /*out*/;
         } else {
@@ -160,6 +163,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["distributionDomainName"] = undefined /*out*/;
             resourceInputs["distributionHostedZoneId"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["endpointConfiguration"] = undefined /*out*/;
             resourceInputs["mutualTlsAuthentication"] = undefined /*out*/;
             resourceInputs["ownershipVerificationCertificateArn"] = undefined /*out*/;

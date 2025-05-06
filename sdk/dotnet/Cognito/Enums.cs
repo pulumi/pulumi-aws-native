@@ -109,6 +109,37 @@ namespace Pulumi.AwsNative.Cognito
     }
 
     /// <summary>
+    /// The state of refresh token rotation for the current app client.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserPoolClientRefreshTokenRotationFeature : IEquatable<UserPoolClientRefreshTokenRotationFeature>
+    {
+        private readonly string _value;
+
+        private UserPoolClientRefreshTokenRotationFeature(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserPoolClientRefreshTokenRotationFeature Enabled { get; } = new UserPoolClientRefreshTokenRotationFeature("ENABLED");
+        public static UserPoolClientRefreshTokenRotationFeature Disabled { get; } = new UserPoolClientRefreshTokenRotationFeature("DISABLED");
+
+        public static bool operator ==(UserPoolClientRefreshTokenRotationFeature left, UserPoolClientRefreshTokenRotationFeature right) => left.Equals(right);
+        public static bool operator !=(UserPoolClientRefreshTokenRotationFeature left, UserPoolClientRefreshTokenRotationFeature right) => !left.Equals(right);
+
+        public static explicit operator string(UserPoolClientRefreshTokenRotationFeature value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserPoolClientRefreshTokenRotationFeature other && Equals(other);
+        public bool Equals(UserPoolClientRefreshTokenRotationFeature other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
     /// </summary>
     [EnumType]

@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -26,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPolicyStoreResult:
-    def __init__(__self__, arn=None, description=None, policy_store_id=None, schema=None, validation_settings=None):
+    def __init__(__self__, arn=None, description=None, policy_store_id=None, schema=None, tags=None, validation_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +40,9 @@ class GetPolicyStoreResult:
         if schema and not isinstance(schema, dict):
             raise TypeError("Expected argument 'schema' to be a dict")
         pulumi.set(__self__, "schema", schema)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if validation_settings and not isinstance(validation_settings, dict):
             raise TypeError("Expected argument 'validation_settings' to be a dict")
         pulumi.set(__self__, "validation_settings", validation_settings)
@@ -76,6 +80,14 @@ class GetPolicyStoreResult:
         return pulumi.get(self, "schema")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to add to the policy store
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> Optional['outputs.PolicyStoreValidationSettings']:
         """
@@ -98,6 +110,7 @@ class AwaitableGetPolicyStoreResult(GetPolicyStoreResult):
             description=self.description,
             policy_store_id=self.policy_store_id,
             schema=self.schema,
+            tags=self.tags,
             validation_settings=self.validation_settings)
 
 
@@ -119,6 +132,7 @@ def get_policy_store(policy_store_id: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         policy_store_id=pulumi.get(__ret__, 'policy_store_id'),
         schema=pulumi.get(__ret__, 'schema'),
+        tags=pulumi.get(__ret__, 'tags'),
         validation_settings=pulumi.get(__ret__, 'validation_settings'))
 def get_policy_store_output(policy_store_id: Optional[pulumi.Input[builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyStoreResult]:
@@ -137,4 +151,5 @@ def get_policy_store_output(policy_store_id: Optional[pulumi.Input[builtins.str]
         description=pulumi.get(__response__, 'description'),
         policy_store_id=pulumi.get(__response__, 'policy_store_id'),
         schema=pulumi.get(__response__, 'schema'),
+        tags=pulumi.get(__response__, 'tags'),
         validation_settings=pulumi.get(__response__, 'validation_settings')))

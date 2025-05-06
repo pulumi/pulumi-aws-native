@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataAutomationProjectOverrideConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This element declares whether your project will process audio files.
+        /// </summary>
         [Input("audio")]
         public Input<Inputs.DataAutomationProjectAudioOverrideConfigurationArgs>? Audio { get; set; }
 
@@ -24,12 +27,21 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("document")]
         public Input<Inputs.DataAutomationProjectDocumentOverrideConfigurationArgs>? Document { get; set; }
 
+        /// <summary>
+        /// This element declares whether your project will process image files.
+        /// </summary>
         [Input("image")]
         public Input<Inputs.DataAutomationProjectImageOverrideConfigurationArgs>? Image { get; set; }
 
+        /// <summary>
+        /// Lets you set which modalities certain file types are processed as.
+        /// </summary>
         [Input("modalityRouting")]
         public Input<Inputs.DataAutomationProjectModalityRoutingConfigurationArgs>? ModalityRouting { get; set; }
 
+        /// <summary>
+        /// This element declares whether your project will process video files.
+        /// </summary>
         [Input("video")]
         public Input<Inputs.DataAutomationProjectVideoOverrideConfigurationArgs>? Video { get; set; }
 

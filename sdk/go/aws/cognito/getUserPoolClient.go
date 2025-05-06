@@ -135,6 +135,8 @@ type LookupUserPoolClientResult struct {
 	//
 	// When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
 	ReadAttributes []string `pulumi:"readAttributes"`
+	// The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
+	RefreshTokenRotation *UserPoolClientRefreshTokenRotation `pulumi:"refreshTokenRotation"`
 	// The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
 	//
 	// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session
@@ -355,6 +357,11 @@ func (o LookupUserPoolClientResultOutput) PreventUserExistenceErrors() pulumi.St
 // When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
 func (o LookupUserPoolClientResultOutput) ReadAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.ReadAttributes }).(pulumi.StringArrayOutput)
+}
+
+// The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
+func (o LookupUserPoolClientResultOutput) RefreshTokenRotation() UserPoolClientRefreshTokenRotationPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *UserPoolClientRefreshTokenRotation { return v.RefreshTokenRotation }).(UserPoolClientRefreshTokenRotationPtrOutput)
 }
 
 // The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.

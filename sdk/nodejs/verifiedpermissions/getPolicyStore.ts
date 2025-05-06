@@ -42,6 +42,10 @@ export interface GetPolicyStoreResult {
      */
     readonly schema?: outputs.verifiedpermissions.PolicyStoreSchemaDefinition;
     /**
+     * The tags to add to the policy store
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * Specifies the validation setting for this policy store.
      *
      * Currently, the only valid and required value is `Mode` .

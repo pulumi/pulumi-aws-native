@@ -18,28 +18,61 @@ export function getDistributionTenant(args: GetDistributionTenantArgs, opts?: pu
 }
 
 export interface GetDistributionTenantArgs {
+    /**
+     * The ID of the distribution tenant.
+     */
     id: string;
 }
 
 export interface GetDistributionTenantResult {
+    /**
+     * The Amazon Resource Name (ARN) of the distribution tenant.
+     */
     readonly arn?: string;
+    /**
+     * The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+     */
     readonly connectionGroupId?: string;
+    /**
+     * The date and time when the distribution tenant was created.
+     */
     readonly createdTime?: string;
+    /**
+     * Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+     */
     readonly customizations?: outputs.cloudfront.DistributionTenantCustomizations;
     /**
-     * The distribution's identifier. For example: `E1U5RQF7T870K0` .
+     * The ID of the multi-tenant distribution.
      */
     readonly distributionId?: string;
     readonly domainResults?: outputs.cloudfront.DistributionTenantDomainResult[];
+    /**
+     * The domains associated with the distribution tenant.
+     */
     readonly domains?: string[];
     /**
-     * A complex type that contains `Tag` key and `Tag` value.
+     * The current version of the distribution tenant.
      */
     readonly eTag?: string;
+    /**
+     * Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+     */
     readonly enabled?: boolean;
+    /**
+     * The ID of the distribution tenant.
+     */
     readonly id?: string;
+    /**
+     * The date and time when the distribution tenant was updated.
+     */
     readonly lastModifiedTime?: string;
+    /**
+     * A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+     */
     readonly parameters?: outputs.cloudfront.DistributionTenantParameter[];
+    /**
+     * The status of the distribution tenant.
+     */
     readonly status?: string;
     /**
      * A complex type that contains zero or more `Tag` elements.
@@ -57,5 +90,8 @@ export function getDistributionTenantOutput(args: GetDistributionTenantOutputArg
 }
 
 export interface GetDistributionTenantOutputArgs {
+    /**
+     * The ID of the distribution tenant.
+     */
     id: pulumi.Input<string>;
 }

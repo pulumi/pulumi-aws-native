@@ -16,13 +16,25 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataAutomationProjectOverrideConfiguration
     {
+        /// <summary>
+        /// This element declares whether your project will process audio files.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectAudioOverrideConfiguration? Audio;
         /// <summary>
         /// Additional settings for a project.
         /// </summary>
         public readonly Outputs.DataAutomationProjectDocumentOverrideConfiguration? Document;
+        /// <summary>
+        /// This element declares whether your project will process image files.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectImageOverrideConfiguration? Image;
+        /// <summary>
+        /// Lets you set which modalities certain file types are processed as.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectModalityRoutingConfiguration? ModalityRouting;
+        /// <summary>
+        /// This element declares whether your project will process video files.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectVideoOverrideConfiguration? Video;
 
         [OutputConstructor]

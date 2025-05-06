@@ -16,6 +16,7 @@ import (
 type RegistryScanningConfiguration struct {
 	pulumi.CustomResourceState
 
+	// The account ID of the destination registry.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 	// The scanning rules associated with the registry.
 	Rules RegistryScanningConfigurationScanningRuleArrayOutput `pulumi:"rules"`
@@ -120,6 +121,7 @@ func (o RegistryScanningConfigurationOutput) ToRegistryScanningConfigurationOutp
 	return o
 }
 
+// The account ID of the destination registry.
 func (o RegistryScanningConfigurationOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryScanningConfiguration) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }

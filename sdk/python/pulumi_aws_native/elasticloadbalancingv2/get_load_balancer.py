@@ -119,6 +119,9 @@ class GetLoadBalancerResult:
     @property
     @pulumi.getter(name="ipv4IpamPoolId")
     def ipv4_ipam_pool_id(self) -> Optional[builtins.str]:
+        """
+        The ID of the IPv4 IPAM pool.
+        """
         return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @property

@@ -181,6 +181,10 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly readAttributes!: pulumi.Output<string[] | undefined>;
     /**
+     * The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
+     */
+    public readonly refreshTokenRotation!: pulumi.Output<outputs.cognito.UserPoolClientRefreshTokenRotation | undefined>;
+    /**
      * The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
      *
      * For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session
@@ -246,6 +250,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["logoutUrls"] = args ? args.logoutUrls : undefined;
             resourceInputs["preventUserExistenceErrors"] = args ? args.preventUserExistenceErrors : undefined;
             resourceInputs["readAttributes"] = args ? args.readAttributes : undefined;
+            resourceInputs["refreshTokenRotation"] = args ? args.refreshTokenRotation : undefined;
             resourceInputs["refreshTokenValidity"] = args ? args.refreshTokenValidity : undefined;
             resourceInputs["supportedIdentityProviders"] = args ? args.supportedIdentityProviders : undefined;
             resourceInputs["tokenValidityUnits"] = args ? args.tokenValidityUnits : undefined;
@@ -275,6 +280,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["preventUserExistenceErrors"] = undefined /*out*/;
             resourceInputs["readAttributes"] = undefined /*out*/;
+            resourceInputs["refreshTokenRotation"] = undefined /*out*/;
             resourceInputs["refreshTokenValidity"] = undefined /*out*/;
             resourceInputs["supportedIdentityProviders"] = undefined /*out*/;
             resourceInputs["tokenValidityUnits"] = undefined /*out*/;
@@ -429,6 +435,10 @@ export interface UserPoolClientArgs {
      * When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
      */
     readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
+     */
+    refreshTokenRotation?: pulumi.Input<inputs.cognito.UserPoolClientRefreshTokenRotationArgs>;
     /**
      * The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
      *

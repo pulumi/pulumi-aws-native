@@ -23,10 +23,12 @@ func LookupRegistryScanningConfiguration(ctx *pulumi.Context, args *LookupRegist
 }
 
 type LookupRegistryScanningConfigurationArgs struct {
+	// The account ID of the destination registry.
 	RegistryId string `pulumi:"registryId"`
 }
 
 type LookupRegistryScanningConfigurationResult struct {
+	// The account ID of the destination registry.
 	RegistryId *string `pulumi:"registryId"`
 	// The scanning rules associated with the registry.
 	Rules []RegistryScanningConfigurationScanningRule `pulumi:"rules"`
@@ -44,6 +46,7 @@ func LookupRegistryScanningConfigurationOutput(ctx *pulumi.Context, args LookupR
 }
 
 type LookupRegistryScanningConfigurationOutputArgs struct {
+	// The account ID of the destination registry.
 	RegistryId pulumi.StringInput `pulumi:"registryId"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupRegistryScanningConfigurationResultOutput) ToLookupRegistryScannin
 	return o
 }
 
+// The account ID of the destination registry.
 func (o LookupRegistryScanningConfigurationResultOutput) RegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegistryScanningConfigurationResult) *string { return v.RegistryId }).(pulumi.StringPtrOutput)
 }

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Ecr
 
     public sealed class GetRegistryScanningConfigurationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The account ID of the destination registry.
+        /// </summary>
         [Input("registryId", required: true)]
         public string RegistryId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Ecr
 
     public sealed class GetRegistryScanningConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The account ID of the destination registry.
+        /// </summary>
         [Input("registryId", required: true)]
         public Input<string> RegistryId { get; set; } = null!;
 
@@ -57,6 +63,9 @@ namespace Pulumi.AwsNative.Ecr
     [OutputType]
     public sealed class GetRegistryScanningConfigurationResult
     {
+        /// <summary>
+        /// The account ID of the destination registry.
+        /// </summary>
         public readonly string? RegistryId;
         /// <summary>
         /// The scanning rules associated with the registry.

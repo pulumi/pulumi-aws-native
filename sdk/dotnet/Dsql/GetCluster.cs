@@ -83,7 +83,14 @@ namespace Pulumi.AwsNative.Dsql
         /// The status of the cluster.
         /// </summary>
         public readonly string? Status;
+        /// <summary>
+        /// A map of key and value pairs this cluster is tagged with.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The VPC endpoint service name.
+        /// </summary>
+        public readonly string? VpcEndpointServiceName;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -97,7 +104,9 @@ namespace Pulumi.AwsNative.Dsql
 
             string? status,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            string? vpcEndpointServiceName)
         {
             CreationTime = creationTime;
             DeletionProtectionEnabled = deletionProtectionEnabled;
@@ -105,6 +114,7 @@ namespace Pulumi.AwsNative.Dsql
             ResourceArn = resourceArn;
             Status = status;
             Tags = tags;
+            VpcEndpointServiceName = vpcEndpointServiceName;
         }
     }
 }

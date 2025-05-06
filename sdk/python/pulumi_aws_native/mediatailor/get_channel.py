@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetChannelResult:
-    def __init__(__self__, arn=None, audiences=None, filler_slate=None, log_configuration=None, playback_mode=None, tags=None, time_shift_configuration=None):
+    def __init__(__self__, arn=None, audiences=None, filler_slate=None, log_configuration=None, outputs=None, playback_mode=None, tags=None, time_shift_configuration=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetChannelResult:
         if log_configuration and not isinstance(log_configuration, dict):
             raise TypeError("Expected argument 'log_configuration' to be a dict")
         pulumi.set(__self__, "log_configuration", log_configuration)
+        if outputs and not isinstance(outputs, list):
+            raise TypeError("Expected argument 'outputs' to be a list")
+        pulumi.set(__self__, "outputs", outputs)
         if playback_mode and not isinstance(playback_mode, str):
             raise TypeError("Expected argument 'playback_mode' to be a str")
         pulumi.set(__self__, "playback_mode", playback_mode)
@@ -83,6 +86,14 @@ class GetChannelResult:
         return pulumi.get(self, "log_configuration")
 
     @property
+    @pulumi.getter
+    def outputs(self) -> Optional[Sequence['outputs.ChannelRequestOutputItem']]:
+        """
+        <p>The channel's output properties.</p>
+        """
+        return pulumi.get(self, "outputs")
+
+    @property
     @pulumi.getter(name="playbackMode")
     def playback_mode(self) -> Optional['ChannelPlaybackMode']:
         """
@@ -121,6 +132,7 @@ class AwaitableGetChannelResult(GetChannelResult):
             audiences=self.audiences,
             filler_slate=self.filler_slate,
             log_configuration=self.log_configuration,
+            outputs=self.outputs,
             playback_mode=self.playback_mode,
             tags=self.tags,
             time_shift_configuration=self.time_shift_configuration)
@@ -144,6 +156,7 @@ def get_channel(channel_name: Optional[builtins.str] = None,
         audiences=pulumi.get(__ret__, 'audiences'),
         filler_slate=pulumi.get(__ret__, 'filler_slate'),
         log_configuration=pulumi.get(__ret__, 'log_configuration'),
+        outputs=pulumi.get(__ret__, 'outputs'),
         playback_mode=pulumi.get(__ret__, 'playback_mode'),
         tags=pulumi.get(__ret__, 'tags'),
         time_shift_configuration=pulumi.get(__ret__, 'time_shift_configuration'))
@@ -164,6 +177,7 @@ def get_channel_output(channel_name: Optional[pulumi.Input[builtins.str]] = None
         audiences=pulumi.get(__response__, 'audiences'),
         filler_slate=pulumi.get(__response__, 'filler_slate'),
         log_configuration=pulumi.get(__response__, 'log_configuration'),
+        outputs=pulumi.get(__response__, 'outputs'),
         playback_mode=pulumi.get(__response__, 'playback_mode'),
         tags=pulumi.get(__response__, 'tags'),
         time_shift_configuration=pulumi.get(__response__, 'time_shift_configuration')))

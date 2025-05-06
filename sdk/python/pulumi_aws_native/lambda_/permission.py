@@ -34,9 +34,9 @@ class PermissionArgs:
         :param pulumi.Input[builtins.str] action: The action that the principal can use on the function. For example, ``lambda:InvokeFunction`` or ``lambda:GetFunction``.
         :param pulumi.Input[builtins.str] function_name: The name or ARN of the Lambda function, version, or alias.
                  **Name formats**
-                +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
-                 +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
-                 +   *Partial ARN* – ``123456789012:function:my-function``.
+                +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+                 +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+                 +  *Partial ARN* – ``123456789012:function:my-function``.
                  
                 You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
         :param pulumi.Input[builtins.str] principal: The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
@@ -79,9 +79,9 @@ class PermissionArgs:
         """
         The name or ARN of the Lambda function, version, or alias.
           **Name formats**
-         +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
-          +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
-          +   *Partial ARN* – ``123456789012:function:my-function``.
+         +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+          +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+          +  *Partial ARN* – ``123456789012:function:my-function``.
           
          You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
         """
@@ -194,9 +194,9 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] event_source_token: For Alexa Smart Home functions, a token that the invoker must supply.
         :param pulumi.Input[builtins.str] function_name: The name or ARN of the Lambda function, version, or alias.
                  **Name formats**
-                +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
-                 +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
-                 +   *Partial ARN* – ``123456789012:function:my-function``.
+                +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+                 +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+                 +  *Partial ARN* – ``123456789012:function:my-function``.
                  
                 You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
         :param pulumi.Input['PermissionFunctionUrlAuthType'] function_url_auth_type: The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
@@ -327,9 +327,9 @@ class Permission(pulumi.CustomResource):
         """
         The name or ARN of the Lambda function, version, or alias.
           **Name formats**
-         +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
-          +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
-          +   *Partial ARN* – ``123456789012:function:my-function``.
+         +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+          +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+          +  *Partial ARN* – ``123456789012:function:my-function``.
           
          You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
         """

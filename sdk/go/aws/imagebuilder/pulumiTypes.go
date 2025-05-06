@@ -1388,6 +1388,8 @@ type DistributionConfigurationDistribution struct {
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
 	// region
 	Region string `pulumi:"region"`
+	// The SSM parameter configurations to use for AMI distribution.
+	SsmParameterConfigurations []DistributionConfigurationSsmParameterConfiguration `pulumi:"ssmParameterConfigurations"`
 }
 
 // DistributionConfigurationDistributionInput is an input type that accepts DistributionConfigurationDistributionArgs and DistributionConfigurationDistributionOutput values.
@@ -1415,6 +1417,8 @@ type DistributionConfigurationDistributionArgs struct {
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
 	// region
 	Region pulumi.StringInput `pulumi:"region"`
+	// The SSM parameter configurations to use for AMI distribution.
+	SsmParameterConfigurations DistributionConfigurationSsmParameterConfigurationArrayInput `pulumi:"ssmParameterConfigurations"`
 }
 
 func (DistributionConfigurationDistributionArgs) ElementType() reflect.Type {
@@ -1505,6 +1509,13 @@ func (o DistributionConfigurationDistributionOutput) LicenseConfigurationArns() 
 // region
 func (o DistributionConfigurationDistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// The SSM parameter configurations to use for AMI distribution.
+func (o DistributionConfigurationDistributionOutput) SsmParameterConfigurations() DistributionConfigurationSsmParameterConfigurationArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistribution) []DistributionConfigurationSsmParameterConfiguration {
+		return v.SsmParameterConfigurations
+	}).(DistributionConfigurationSsmParameterConfigurationArrayOutput)
 }
 
 type DistributionConfigurationDistributionArrayOutput struct{ *pulumi.OutputState }
@@ -2306,6 +2317,126 @@ func (o DistributionConfigurationLaunchTemplateConfigurationArrayOutput) Index(i
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionConfigurationLaunchTemplateConfiguration {
 		return vs[0].([]DistributionConfigurationLaunchTemplateConfiguration)[vs[1].(int)]
 	}).(DistributionConfigurationLaunchTemplateConfigurationOutput)
+}
+
+// The SSM parameter configuration for AMI distribution.
+type DistributionConfigurationSsmParameterConfiguration struct {
+	// The account ID for the AMI to update the parameter with.
+	AmiAccountId *string `pulumi:"amiAccountId"`
+	// The data type of the SSM parameter.
+	DataType *DistributionConfigurationSsmParameterConfigurationDataType `pulumi:"dataType"`
+	// The name of the SSM parameter.
+	ParameterName string `pulumi:"parameterName"`
+}
+
+// DistributionConfigurationSsmParameterConfigurationInput is an input type that accepts DistributionConfigurationSsmParameterConfigurationArgs and DistributionConfigurationSsmParameterConfigurationOutput values.
+// You can construct a concrete instance of `DistributionConfigurationSsmParameterConfigurationInput` via:
+//
+//	DistributionConfigurationSsmParameterConfigurationArgs{...}
+type DistributionConfigurationSsmParameterConfigurationInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationSsmParameterConfigurationOutput() DistributionConfigurationSsmParameterConfigurationOutput
+	ToDistributionConfigurationSsmParameterConfigurationOutputWithContext(context.Context) DistributionConfigurationSsmParameterConfigurationOutput
+}
+
+// The SSM parameter configuration for AMI distribution.
+type DistributionConfigurationSsmParameterConfigurationArgs struct {
+	// The account ID for the AMI to update the parameter with.
+	AmiAccountId pulumi.StringPtrInput `pulumi:"amiAccountId"`
+	// The data type of the SSM parameter.
+	DataType DistributionConfigurationSsmParameterConfigurationDataTypePtrInput `pulumi:"dataType"`
+	// The name of the SSM parameter.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+}
+
+func (DistributionConfigurationSsmParameterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationSsmParameterConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationSsmParameterConfigurationArgs) ToDistributionConfigurationSsmParameterConfigurationOutput() DistributionConfigurationSsmParameterConfigurationOutput {
+	return i.ToDistributionConfigurationSsmParameterConfigurationOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationSsmParameterConfigurationArgs) ToDistributionConfigurationSsmParameterConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationSsmParameterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationSsmParameterConfigurationOutput)
+}
+
+// DistributionConfigurationSsmParameterConfigurationArrayInput is an input type that accepts DistributionConfigurationSsmParameterConfigurationArray and DistributionConfigurationSsmParameterConfigurationArrayOutput values.
+// You can construct a concrete instance of `DistributionConfigurationSsmParameterConfigurationArrayInput` via:
+//
+//	DistributionConfigurationSsmParameterConfigurationArray{ DistributionConfigurationSsmParameterConfigurationArgs{...} }
+type DistributionConfigurationSsmParameterConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationSsmParameterConfigurationArrayOutput() DistributionConfigurationSsmParameterConfigurationArrayOutput
+	ToDistributionConfigurationSsmParameterConfigurationArrayOutputWithContext(context.Context) DistributionConfigurationSsmParameterConfigurationArrayOutput
+}
+
+type DistributionConfigurationSsmParameterConfigurationArray []DistributionConfigurationSsmParameterConfigurationInput
+
+func (DistributionConfigurationSsmParameterConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionConfigurationSsmParameterConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationSsmParameterConfigurationArray) ToDistributionConfigurationSsmParameterConfigurationArrayOutput() DistributionConfigurationSsmParameterConfigurationArrayOutput {
+	return i.ToDistributionConfigurationSsmParameterConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationSsmParameterConfigurationArray) ToDistributionConfigurationSsmParameterConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationSsmParameterConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationSsmParameterConfigurationArrayOutput)
+}
+
+// The SSM parameter configuration for AMI distribution.
+type DistributionConfigurationSsmParameterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationSsmParameterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationSsmParameterConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationOutput) ToDistributionConfigurationSsmParameterConfigurationOutput() DistributionConfigurationSsmParameterConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationOutput) ToDistributionConfigurationSsmParameterConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationSsmParameterConfigurationOutput {
+	return o
+}
+
+// The account ID for the AMI to update the parameter with.
+func (o DistributionConfigurationSsmParameterConfigurationOutput) AmiAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationSsmParameterConfiguration) *string { return v.AmiAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The data type of the SSM parameter.
+func (o DistributionConfigurationSsmParameterConfigurationOutput) DataType() DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationSsmParameterConfiguration) *DistributionConfigurationSsmParameterConfigurationDataType {
+		return v.DataType
+	}).(DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput)
+}
+
+// The name of the SSM parameter.
+func (o DistributionConfigurationSsmParameterConfigurationOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionConfigurationSsmParameterConfiguration) string { return v.ParameterName }).(pulumi.StringOutput)
+}
+
+type DistributionConfigurationSsmParameterConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationSsmParameterConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionConfigurationSsmParameterConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationArrayOutput) ToDistributionConfigurationSsmParameterConfigurationArrayOutput() DistributionConfigurationSsmParameterConfigurationArrayOutput {
+	return o
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationArrayOutput) ToDistributionConfigurationSsmParameterConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationSsmParameterConfigurationArrayOutput {
+	return o
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationArrayOutput) Index(i pulumi.IntInput) DistributionConfigurationSsmParameterConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionConfigurationSsmParameterConfiguration {
+		return vs[0].([]DistributionConfigurationSsmParameterConfiguration)[vs[1].(int)]
+	}).(DistributionConfigurationSsmParameterConfigurationOutput)
 }
 
 // The destination repository for the container image.
@@ -6864,6 +6995,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationLaunchPermissionConfigurationPtrInput)(nil)).Elem(), DistributionConfigurationLaunchPermissionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationLaunchTemplateConfigurationInput)(nil)).Elem(), DistributionConfigurationLaunchTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationLaunchTemplateConfigurationArrayInput)(nil)).Elem(), DistributionConfigurationLaunchTemplateConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationSsmParameterConfigurationInput)(nil)).Elem(), DistributionConfigurationSsmParameterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationSsmParameterConfigurationArrayInput)(nil)).Elem(), DistributionConfigurationSsmParameterConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryInput)(nil)).Elem(), DistributionConfigurationTargetContainerRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryPtrInput)(nil)).Elem(), DistributionConfigurationTargetContainerRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageEcrConfigurationInput)(nil)).Elem(), ImageEcrConfigurationArgs{})
@@ -6951,6 +7084,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationLaunchPermissionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationLaunchTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationLaunchTemplateConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationSsmParameterConfigurationOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationSsmParameterConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(ImageEcrConfigurationOutput{})

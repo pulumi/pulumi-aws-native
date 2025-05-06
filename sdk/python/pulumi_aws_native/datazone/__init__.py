@@ -10,6 +10,7 @@ from ._enums import *
 from .connection import *
 from .data_source import *
 from .domain import *
+from .domain_unit import *
 from .environment import *
 from .environment_actions import *
 from .environment_blueprint_configuration import *
@@ -17,6 +18,7 @@ from .environment_profile import *
 from .get_connection import *
 from .get_data_source import *
 from .get_domain import *
+from .get_domain_unit import *
 from .get_environment import *
 from .get_environment_actions import *
 from .get_environment_blueprint_configuration import *
@@ -26,6 +28,7 @@ from .get_project import *
 from .get_subscription_target import *
 from .get_user_profile import *
 from .group_profile import *
+from .owner import *
 from .project import *
 from .project_membership import *
 from .subscription_target import *

@@ -199,6 +199,7 @@ export type BlueprintStage = (typeof BlueprintStage)[keyof typeof BlueprintStage
 export const BlueprintType = {
     Document: "DOCUMENT",
     Image: "IMAGE",
+    Audio: "AUDIO",
 } as const;
 
 /**

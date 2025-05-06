@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class DistributionTenantParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The parameter name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The parameter value.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

@@ -118,7 +118,6 @@ func NewService(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"cluster",
-		"deploymentController",
 		"launchType",
 		"role",
 		"schedulingStrategy",

@@ -15,6 +15,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +27,8 @@ class PolicyStoreArgs:
     def __init__(__self__, *,
                  validation_settings: pulumi.Input['PolicyStoreValidationSettingsArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 schema: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']] = None):
+                 schema: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PolicyStore resource.
         :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Specifies the validation setting for this policy store.
@@ -35,12 +38,15 @@ class PolicyStoreArgs:
                > We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
         :param pulumi.Input[builtins.str] description: Descriptive text that you can provide to help with identification of the current policy store.
         :param pulumi.Input['PolicyStoreSchemaDefinitionArgs'] schema: Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the policy store
         """
         pulumi.set(__self__, "validation_settings", validation_settings)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="validationSettings")
@@ -82,6 +88,18 @@ class PolicyStoreArgs:
     def schema(self, value: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']]):
         pulumi.set(self, "schema", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to add to the policy store
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class PolicyStore(pulumi.CustomResource):
 
@@ -93,6 +111,7 @@ class PolicyStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
                  __props__=None):
         """
@@ -119,6 +138,7 @@ class PolicyStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Descriptive text that you can provide to help with identification of the current policy store.
         :param pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']] schema: Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the policy store
         :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']] validation_settings: Specifies the validation setting for this policy store.
                
                Currently, the only valid and required value is `Mode` .
@@ -168,6 +188,7 @@ class PolicyStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -180,6 +201,7 @@ class PolicyStore(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["tags"] = tags
             if validation_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'validation_settings'")
             __props__.__dict__["validation_settings"] = validation_settings
@@ -211,6 +233,7 @@ class PolicyStore(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["policy_store_id"] = None
         __props__.__dict__["schema"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["validation_settings"] = None
         return PolicyStore(resource_name, opts=opts, __props__=__props__)
 
@@ -245,6 +268,14 @@ class PolicyStore(pulumi.CustomResource):
         Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
         """
         return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to add to the policy store
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="validationSettings")

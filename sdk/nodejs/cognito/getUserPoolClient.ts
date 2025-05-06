@@ -170,6 +170,10 @@ export interface GetUserPoolClientResult {
      */
     readonly readAttributes?: string[];
     /**
+     * The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
+     */
+    readonly refreshTokenRotation?: outputs.cognito.UserPoolClientRefreshTokenRotation;
+    /**
      * The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
      *
      * For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session

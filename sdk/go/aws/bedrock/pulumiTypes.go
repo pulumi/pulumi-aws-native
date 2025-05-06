@@ -3551,6 +3551,7 @@ func (o DataAutomationProjectAudioExtractionCategoryPtrOutput) Types() DataAutom
 }
 
 type DataAutomationProjectAudioOverrideConfiguration struct {
+	// Sets modality processing for audio files. All modalities are enabled by default.
 	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
 }
 
@@ -3566,6 +3567,7 @@ type DataAutomationProjectAudioOverrideConfigurationInput interface {
 }
 
 type DataAutomationProjectAudioOverrideConfigurationArgs struct {
+	// Sets modality processing for audio files. All modalities are enabled by default.
 	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
 }
 
@@ -3646,6 +3648,7 @@ func (o DataAutomationProjectAudioOverrideConfigurationOutput) ToDataAutomationP
 	}).(DataAutomationProjectAudioOverrideConfigurationPtrOutput)
 }
 
+// Sets modality processing for audio files. All modalities are enabled by default.
 func (o DataAutomationProjectAudioOverrideConfigurationOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
 		return v.ModalityProcessing
@@ -3676,6 +3679,7 @@ func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) Elem() DataAut
 	}).(DataAutomationProjectAudioOverrideConfigurationOutput)
 }
 
+// Sets modality processing for audio files. All modalities are enabled by default.
 func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
 		if v == nil {
@@ -5118,6 +5122,7 @@ func (o DataAutomationProjectDocumentOutputTextFormatPtrOutput) Types() DataAuto
 }
 
 type DataAutomationProjectDocumentOverrideConfiguration struct {
+	// Sets modality processing for document files. All modalities are enabled by default.
 	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
 	// Whether document splitter is enabled for a project.
 	Splitter *DataAutomationProjectSplitterConfiguration `pulumi:"splitter"`
@@ -5135,6 +5140,7 @@ type DataAutomationProjectDocumentOverrideConfigurationInput interface {
 }
 
 type DataAutomationProjectDocumentOverrideConfigurationArgs struct {
+	// Sets modality processing for document files. All modalities are enabled by default.
 	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
 	// Whether document splitter is enabled for a project.
 	Splitter DataAutomationProjectSplitterConfigurationPtrInput `pulumi:"splitter"`
@@ -5217,6 +5223,7 @@ func (o DataAutomationProjectDocumentOverrideConfigurationOutput) ToDataAutomati
 	}).(DataAutomationProjectDocumentOverrideConfigurationPtrOutput)
 }
 
+// Sets modality processing for document files. All modalities are enabled by default.
 func (o DataAutomationProjectDocumentOverrideConfigurationOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectDocumentOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
 		return v.ModalityProcessing
@@ -5254,6 +5261,7 @@ func (o DataAutomationProjectDocumentOverrideConfigurationPtrOutput) Elem() Data
 	}).(DataAutomationProjectDocumentOverrideConfigurationOutput)
 }
 
+// Sets modality processing for document files. All modalities are enabled by default.
 func (o DataAutomationProjectDocumentOverrideConfigurationPtrOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectDocumentOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
 		if v == nil {
@@ -6049,6 +6057,7 @@ func (o DataAutomationProjectImageExtractionCategoryPtrOutput) Types() DataAutom
 }
 
 type DataAutomationProjectImageOverrideConfiguration struct {
+	// Sets modality processing for image files. All modalities are enabled by default.
 	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
 }
 
@@ -6064,6 +6073,7 @@ type DataAutomationProjectImageOverrideConfigurationInput interface {
 }
 
 type DataAutomationProjectImageOverrideConfigurationArgs struct {
+	// Sets modality processing for image files. All modalities are enabled by default.
 	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
 }
 
@@ -6144,6 +6154,7 @@ func (o DataAutomationProjectImageOverrideConfigurationOutput) ToDataAutomationP
 	}).(DataAutomationProjectImageOverrideConfigurationPtrOutput)
 }
 
+// Sets modality processing for image files. All modalities are enabled by default.
 func (o DataAutomationProjectImageOverrideConfigurationOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectImageOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
 		return v.ModalityProcessing
@@ -6174,6 +6185,7 @@ func (o DataAutomationProjectImageOverrideConfigurationPtrOutput) Elem() DataAut
 	}).(DataAutomationProjectImageOverrideConfigurationOutput)
 }
 
+// Sets modality processing for image files. All modalities are enabled by default.
 func (o DataAutomationProjectImageOverrideConfigurationPtrOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectImageOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
 		if v == nil {
@@ -6664,6 +6676,7 @@ func (o DataAutomationProjectImageStandardOutputConfigurationPtrOutput) Generati
 }
 
 type DataAutomationProjectModalityProcessingConfiguration struct {
+	// Stores the state of the modality for your project, set to either enabled or disabled
 	State *DataAutomationProjectStateEnum `pulumi:"state"`
 }
 
@@ -6679,6 +6692,7 @@ type DataAutomationProjectModalityProcessingConfigurationInput interface {
 }
 
 type DataAutomationProjectModalityProcessingConfigurationArgs struct {
+	// Stores the state of the modality for your project, set to either enabled or disabled
 	State DataAutomationProjectStateEnumPtrInput `pulumi:"state"`
 }
 
@@ -6759,6 +6773,7 @@ func (o DataAutomationProjectModalityProcessingConfigurationOutput) ToDataAutoma
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
+// Stores the state of the modality for your project, set to either enabled or disabled
 func (o DataAutomationProjectModalityProcessingConfigurationOutput) State() DataAutomationProjectStateEnumPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectModalityProcessingConfiguration) *DataAutomationProjectStateEnum {
 		return v.State
@@ -6789,6 +6804,7 @@ func (o DataAutomationProjectModalityProcessingConfigurationPtrOutput) Elem() Da
 	}).(DataAutomationProjectModalityProcessingConfigurationOutput)
 }
 
+// Stores the state of the modality for your project, set to either enabled or disabled
 func (o DataAutomationProjectModalityProcessingConfigurationPtrOutput) State() DataAutomationProjectStateEnumPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectModalityProcessingConfiguration) *DataAutomationProjectStateEnum {
 		if v == nil {
@@ -6800,10 +6816,14 @@ func (o DataAutomationProjectModalityProcessingConfigurationPtrOutput) State() D
 
 // Modality routing configuration
 type DataAutomationProjectModalityRoutingConfiguration struct {
+	// Sets whether JPEG files are routed to document or image processing.
 	Jpeg *DataAutomationProjectDesiredModality `pulumi:"jpeg"`
-	Mov  *DataAutomationProjectDesiredModality `pulumi:"mov"`
-	Mp4  *DataAutomationProjectDesiredModality `pulumi:"mp4"`
-	Png  *DataAutomationProjectDesiredModality `pulumi:"png"`
+	// Sets whether MOV files are routed to audio or video processing.
+	Mov *DataAutomationProjectDesiredModality `pulumi:"mov"`
+	// Sets whether MP4 files are routed to audio or video processing.
+	Mp4 *DataAutomationProjectDesiredModality `pulumi:"mp4"`
+	// Sets whether PNG files are routed to document or image processing.
+	Png *DataAutomationProjectDesiredModality `pulumi:"png"`
 }
 
 // DataAutomationProjectModalityRoutingConfigurationInput is an input type that accepts DataAutomationProjectModalityRoutingConfigurationArgs and DataAutomationProjectModalityRoutingConfigurationOutput values.
@@ -6819,10 +6839,14 @@ type DataAutomationProjectModalityRoutingConfigurationInput interface {
 
 // Modality routing configuration
 type DataAutomationProjectModalityRoutingConfigurationArgs struct {
+	// Sets whether JPEG files are routed to document or image processing.
 	Jpeg DataAutomationProjectDesiredModalityPtrInput `pulumi:"jpeg"`
-	Mov  DataAutomationProjectDesiredModalityPtrInput `pulumi:"mov"`
-	Mp4  DataAutomationProjectDesiredModalityPtrInput `pulumi:"mp4"`
-	Png  DataAutomationProjectDesiredModalityPtrInput `pulumi:"png"`
+	// Sets whether MOV files are routed to audio or video processing.
+	Mov DataAutomationProjectDesiredModalityPtrInput `pulumi:"mov"`
+	// Sets whether MP4 files are routed to audio or video processing.
+	Mp4 DataAutomationProjectDesiredModalityPtrInput `pulumi:"mp4"`
+	// Sets whether PNG files are routed to document or image processing.
+	Png DataAutomationProjectDesiredModalityPtrInput `pulumi:"png"`
 }
 
 func (DataAutomationProjectModalityRoutingConfigurationArgs) ElementType() reflect.Type {
@@ -6903,24 +6927,28 @@ func (o DataAutomationProjectModalityRoutingConfigurationOutput) ToDataAutomatio
 	}).(DataAutomationProjectModalityRoutingConfigurationPtrOutput)
 }
 
+// Sets whether JPEG files are routed to document or image processing.
 func (o DataAutomationProjectModalityRoutingConfigurationOutput) Jpeg() DataAutomationProjectDesiredModalityPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
 		return v.Jpeg
 	}).(DataAutomationProjectDesiredModalityPtrOutput)
 }
 
+// Sets whether MOV files are routed to audio or video processing.
 func (o DataAutomationProjectModalityRoutingConfigurationOutput) Mov() DataAutomationProjectDesiredModalityPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
 		return v.Mov
 	}).(DataAutomationProjectDesiredModalityPtrOutput)
 }
 
+// Sets whether MP4 files are routed to audio or video processing.
 func (o DataAutomationProjectModalityRoutingConfigurationOutput) Mp4() DataAutomationProjectDesiredModalityPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
 		return v.Mp4
 	}).(DataAutomationProjectDesiredModalityPtrOutput)
 }
 
+// Sets whether PNG files are routed to document or image processing.
 func (o DataAutomationProjectModalityRoutingConfigurationOutput) Png() DataAutomationProjectDesiredModalityPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
 		return v.Png
@@ -6951,6 +6979,7 @@ func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Elem() DataA
 	}).(DataAutomationProjectModalityRoutingConfigurationOutput)
 }
 
+// Sets whether JPEG files are routed to document or image processing.
 func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Jpeg() DataAutomationProjectDesiredModalityPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
 		if v == nil {
@@ -6960,6 +6989,7 @@ func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Jpeg() DataA
 	}).(DataAutomationProjectDesiredModalityPtrOutput)
 }
 
+// Sets whether MOV files are routed to audio or video processing.
 func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Mov() DataAutomationProjectDesiredModalityPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
 		if v == nil {
@@ -6969,6 +6999,7 @@ func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Mov() DataAu
 	}).(DataAutomationProjectDesiredModalityPtrOutput)
 }
 
+// Sets whether MP4 files are routed to audio or video processing.
 func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Mp4() DataAutomationProjectDesiredModalityPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
 		if v == nil {
@@ -6978,6 +7009,7 @@ func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Mp4() DataAu
 	}).(DataAutomationProjectDesiredModalityPtrOutput)
 }
 
+// Sets whether PNG files are routed to document or image processing.
 func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Png() DataAutomationProjectDesiredModalityPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectModalityRoutingConfiguration) *DataAutomationProjectDesiredModality {
 		if v == nil {
@@ -6989,12 +7021,16 @@ func (o DataAutomationProjectModalityRoutingConfigurationPtrOutput) Png() DataAu
 
 // Override configuration
 type DataAutomationProjectOverrideConfiguration struct {
+	// This element declares whether your project will process audio files.
 	Audio *DataAutomationProjectAudioOverrideConfiguration `pulumi:"audio"`
 	// Additional settings for a project.
-	Document        *DataAutomationProjectDocumentOverrideConfiguration `pulumi:"document"`
-	Image           *DataAutomationProjectImageOverrideConfiguration    `pulumi:"image"`
-	ModalityRouting *DataAutomationProjectModalityRoutingConfiguration  `pulumi:"modalityRouting"`
-	Video           *DataAutomationProjectVideoOverrideConfiguration    `pulumi:"video"`
+	Document *DataAutomationProjectDocumentOverrideConfiguration `pulumi:"document"`
+	// This element declares whether your project will process image files.
+	Image *DataAutomationProjectImageOverrideConfiguration `pulumi:"image"`
+	// Lets you set which modalities certain file types are processed as.
+	ModalityRouting *DataAutomationProjectModalityRoutingConfiguration `pulumi:"modalityRouting"`
+	// This element declares whether your project will process video files.
+	Video *DataAutomationProjectVideoOverrideConfiguration `pulumi:"video"`
 }
 
 // DataAutomationProjectOverrideConfigurationInput is an input type that accepts DataAutomationProjectOverrideConfigurationArgs and DataAutomationProjectOverrideConfigurationOutput values.
@@ -7010,12 +7046,16 @@ type DataAutomationProjectOverrideConfigurationInput interface {
 
 // Override configuration
 type DataAutomationProjectOverrideConfigurationArgs struct {
+	// This element declares whether your project will process audio files.
 	Audio DataAutomationProjectAudioOverrideConfigurationPtrInput `pulumi:"audio"`
 	// Additional settings for a project.
-	Document        DataAutomationProjectDocumentOverrideConfigurationPtrInput `pulumi:"document"`
-	Image           DataAutomationProjectImageOverrideConfigurationPtrInput    `pulumi:"image"`
-	ModalityRouting DataAutomationProjectModalityRoutingConfigurationPtrInput  `pulumi:"modalityRouting"`
-	Video           DataAutomationProjectVideoOverrideConfigurationPtrInput    `pulumi:"video"`
+	Document DataAutomationProjectDocumentOverrideConfigurationPtrInput `pulumi:"document"`
+	// This element declares whether your project will process image files.
+	Image DataAutomationProjectImageOverrideConfigurationPtrInput `pulumi:"image"`
+	// Lets you set which modalities certain file types are processed as.
+	ModalityRouting DataAutomationProjectModalityRoutingConfigurationPtrInput `pulumi:"modalityRouting"`
+	// This element declares whether your project will process video files.
+	Video DataAutomationProjectVideoOverrideConfigurationPtrInput `pulumi:"video"`
 }
 
 func (DataAutomationProjectOverrideConfigurationArgs) ElementType() reflect.Type {
@@ -7096,6 +7136,7 @@ func (o DataAutomationProjectOverrideConfigurationOutput) ToDataAutomationProjec
 	}).(DataAutomationProjectOverrideConfigurationPtrOutput)
 }
 
+// This element declares whether your project will process audio files.
 func (o DataAutomationProjectOverrideConfigurationOutput) Audio() DataAutomationProjectAudioOverrideConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectOverrideConfiguration) *DataAutomationProjectAudioOverrideConfiguration {
 		return v.Audio
@@ -7109,18 +7150,21 @@ func (o DataAutomationProjectOverrideConfigurationOutput) Document() DataAutomat
 	}).(DataAutomationProjectDocumentOverrideConfigurationPtrOutput)
 }
 
+// This element declares whether your project will process image files.
 func (o DataAutomationProjectOverrideConfigurationOutput) Image() DataAutomationProjectImageOverrideConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectOverrideConfiguration) *DataAutomationProjectImageOverrideConfiguration {
 		return v.Image
 	}).(DataAutomationProjectImageOverrideConfigurationPtrOutput)
 }
 
+// Lets you set which modalities certain file types are processed as.
 func (o DataAutomationProjectOverrideConfigurationOutput) ModalityRouting() DataAutomationProjectModalityRoutingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectOverrideConfiguration) *DataAutomationProjectModalityRoutingConfiguration {
 		return v.ModalityRouting
 	}).(DataAutomationProjectModalityRoutingConfigurationPtrOutput)
 }
 
+// This element declares whether your project will process video files.
 func (o DataAutomationProjectOverrideConfigurationOutput) Video() DataAutomationProjectVideoOverrideConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectOverrideConfiguration) *DataAutomationProjectVideoOverrideConfiguration {
 		return v.Video
@@ -7151,6 +7195,7 @@ func (o DataAutomationProjectOverrideConfigurationPtrOutput) Elem() DataAutomati
 	}).(DataAutomationProjectOverrideConfigurationOutput)
 }
 
+// This element declares whether your project will process audio files.
 func (o DataAutomationProjectOverrideConfigurationPtrOutput) Audio() DataAutomationProjectAudioOverrideConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectOverrideConfiguration) *DataAutomationProjectAudioOverrideConfiguration {
 		if v == nil {
@@ -7170,6 +7215,7 @@ func (o DataAutomationProjectOverrideConfigurationPtrOutput) Document() DataAuto
 	}).(DataAutomationProjectDocumentOverrideConfigurationPtrOutput)
 }
 
+// This element declares whether your project will process image files.
 func (o DataAutomationProjectOverrideConfigurationPtrOutput) Image() DataAutomationProjectImageOverrideConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectOverrideConfiguration) *DataAutomationProjectImageOverrideConfiguration {
 		if v == nil {
@@ -7179,6 +7225,7 @@ func (o DataAutomationProjectOverrideConfigurationPtrOutput) Image() DataAutomat
 	}).(DataAutomationProjectImageOverrideConfigurationPtrOutput)
 }
 
+// Lets you set which modalities certain file types are processed as.
 func (o DataAutomationProjectOverrideConfigurationPtrOutput) ModalityRouting() DataAutomationProjectModalityRoutingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectOverrideConfiguration) *DataAutomationProjectModalityRoutingConfiguration {
 		if v == nil {
@@ -7188,6 +7235,7 @@ func (o DataAutomationProjectOverrideConfigurationPtrOutput) ModalityRouting() D
 	}).(DataAutomationProjectModalityRoutingConfigurationPtrOutput)
 }
 
+// This element declares whether your project will process video files.
 func (o DataAutomationProjectOverrideConfigurationPtrOutput) Video() DataAutomationProjectVideoOverrideConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectOverrideConfiguration) *DataAutomationProjectVideoOverrideConfiguration {
 		if v == nil {
@@ -7843,6 +7891,7 @@ func (o DataAutomationProjectVideoExtractionCategoryPtrOutput) Types() DataAutom
 }
 
 type DataAutomationProjectVideoOverrideConfiguration struct {
+	// Sets modality processing for video files. All modalities are enabled by default.
 	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
 }
 
@@ -7858,6 +7907,7 @@ type DataAutomationProjectVideoOverrideConfigurationInput interface {
 }
 
 type DataAutomationProjectVideoOverrideConfigurationArgs struct {
+	// Sets modality processing for video files. All modalities are enabled by default.
 	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
 }
 
@@ -7938,6 +7988,7 @@ func (o DataAutomationProjectVideoOverrideConfigurationOutput) ToDataAutomationP
 	}).(DataAutomationProjectVideoOverrideConfigurationPtrOutput)
 }
 
+// Sets modality processing for video files. All modalities are enabled by default.
 func (o DataAutomationProjectVideoOverrideConfigurationOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectVideoOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
 		return v.ModalityProcessing
@@ -7968,6 +8019,7 @@ func (o DataAutomationProjectVideoOverrideConfigurationPtrOutput) Elem() DataAut
 	}).(DataAutomationProjectVideoOverrideConfigurationOutput)
 }
 
+// Sets modality processing for video files. All modalities are enabled by default.
 func (o DataAutomationProjectVideoOverrideConfigurationPtrOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectVideoOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
 		if v == nil {

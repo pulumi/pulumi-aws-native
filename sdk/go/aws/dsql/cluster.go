@@ -26,7 +26,10 @@ type Cluster struct {
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The status of the cluster.
 	Status pulumi.StringOutput `pulumi:"status"`
-	Tags   aws.TagArrayOutput  `pulumi:"tags"`
+	// A map of key and value pairs this cluster is tagged with.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The VPC endpoint service name.
+	VpcEndpointServiceName pulumi.StringOutput `pulumi:"vpcEndpointServiceName"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -70,15 +73,17 @@ func (ClusterState) ElementType() reflect.Type {
 
 type clusterArgs struct {
 	// Whether deletion protection is enabled in this cluster.
-	DeletionProtectionEnabled *bool     `pulumi:"deletionProtectionEnabled"`
-	Tags                      []aws.Tag `pulumi:"tags"`
+	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
+	// A map of key and value pairs this cluster is tagged with.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// Whether deletion protection is enabled in this cluster.
 	DeletionProtectionEnabled pulumi.BoolPtrInput
-	Tags                      aws.TagArrayInput
+	// A map of key and value pairs this cluster is tagged with.
+	Tags aws.TagArrayInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -143,8 +148,14 @@ func (o ClusterOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// A map of key and value pairs this cluster is tagged with.
 func (o ClusterOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Cluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The VPC endpoint service name.
+func (o ClusterOutput) VpcEndpointServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.VpcEndpointServiceName }).(pulumi.StringOutput)
 }
 
 func init() {

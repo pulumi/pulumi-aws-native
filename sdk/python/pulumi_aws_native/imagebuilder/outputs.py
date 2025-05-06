@@ -32,6 +32,7 @@ __all__ = [
     'DistributionConfigurationFastLaunchSnapshotConfiguration',
     'DistributionConfigurationLaunchPermissionConfiguration',
     'DistributionConfigurationLaunchTemplateConfiguration',
+    'DistributionConfigurationSsmParameterConfiguration',
     'DistributionConfigurationTargetContainerRepository',
     'ImageEcrConfiguration',
     'ImagePipelineEcrConfiguration',
@@ -656,6 +657,8 @@ class DistributionConfigurationDistribution(dict):
             suggest = "launch_template_configurations"
         elif key == "licenseConfigurationArns":
             suggest = "license_configuration_arns"
+        elif key == "ssmParameterConfigurations":
+            suggest = "ssm_parameter_configurations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistribution. Access the value via the '{suggest}' property getter instead.")
@@ -674,7 +677,8 @@ class DistributionConfigurationDistribution(dict):
                  container_distribution_configuration: Optional['outputs.DistributionConfigurationContainerDistributionConfiguration'] = None,
                  fast_launch_configurations: Optional[Sequence['outputs.DistributionConfigurationFastLaunchConfiguration']] = None,
                  launch_template_configurations: Optional[Sequence['outputs.DistributionConfigurationLaunchTemplateConfiguration']] = None,
-                 license_configuration_arns: Optional[Sequence[builtins.str]] = None):
+                 license_configuration_arns: Optional[Sequence[builtins.str]] = None,
+                 ssm_parameter_configurations: Optional[Sequence['outputs.DistributionConfigurationSsmParameterConfiguration']] = None):
         """
         The distributions of the distribution configuration.
         :param builtins.str region: region
@@ -683,6 +687,7 @@ class DistributionConfigurationDistribution(dict):
         :param Sequence['DistributionConfigurationFastLaunchConfiguration'] fast_launch_configurations: The Windows faster-launching configurations to use for AMI distribution.
         :param Sequence['DistributionConfigurationLaunchTemplateConfiguration'] launch_template_configurations: A group of launchTemplateConfiguration settings that apply to image distribution.
         :param Sequence[builtins.str] license_configuration_arns: The License Manager Configuration to associate with the AMI in the specified Region.
+        :param Sequence['DistributionConfigurationSsmParameterConfiguration'] ssm_parameter_configurations: The SSM parameter configurations to use for AMI distribution.
         """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
@@ -695,6 +700,8 @@ class DistributionConfigurationDistribution(dict):
             pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         if license_configuration_arns is not None:
             pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
+        if ssm_parameter_configurations is not None:
+            pulumi.set(__self__, "ssm_parameter_configurations", ssm_parameter_configurations)
 
     @property
     @pulumi.getter
@@ -743,6 +750,14 @@ class DistributionConfigurationDistribution(dict):
         The License Manager Configuration to associate with the AMI in the specified Region.
         """
         return pulumi.get(self, "license_configuration_arns")
+
+    @property
+    @pulumi.getter(name="ssmParameterConfigurations")
+    def ssm_parameter_configurations(self) -> Optional[Sequence['outputs.DistributionConfigurationSsmParameterConfiguration']]:
+        """
+        The SSM parameter configurations to use for AMI distribution.
+        """
+        return pulumi.get(self, "ssm_parameter_configurations")
 
 
 @pulumi.output_type
@@ -1095,6 +1110,73 @@ class DistributionConfigurationLaunchTemplateConfiguration(dict):
         Set the specified EC2 launch template as the default launch template for the specified account.
         """
         return pulumi.get(self, "set_default_version")
+
+
+@pulumi.output_type
+class DistributionConfigurationSsmParameterConfiguration(dict):
+    """
+    The SSM parameter configuration for AMI distribution.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "amiAccountId":
+            suggest = "ami_account_id"
+        elif key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationSsmParameterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationSsmParameterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationSsmParameterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameter_name: builtins.str,
+                 ami_account_id: Optional[builtins.str] = None,
+                 data_type: Optional['DistributionConfigurationSsmParameterConfigurationDataType'] = None):
+        """
+        The SSM parameter configuration for AMI distribution.
+        :param builtins.str parameter_name: The name of the SSM parameter.
+        :param builtins.str ami_account_id: The account ID for the AMI to update the parameter with.
+        :param 'DistributionConfigurationSsmParameterConfigurationDataType' data_type: The data type of the SSM parameter.
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        if ami_account_id is not None:
+            pulumi.set(__self__, "ami_account_id", ami_account_id)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> builtins.str:
+        """
+        The name of the SSM parameter.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @property
+    @pulumi.getter(name="amiAccountId")
+    def ami_account_id(self) -> Optional[builtins.str]:
+        """
+        The account ID for the AMI to update the parameter with.
+        """
+        return pulumi.get(self, "ami_account_id")
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional['DistributionConfigurationSsmParameterConfigurationDataType']:
+        """
+        The data type of the SSM parameter.
+        """
+        return pulumi.get(self, "data_type")
 
 
 @pulumi.output_type

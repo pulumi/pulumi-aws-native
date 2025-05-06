@@ -15,23 +15,38 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:DistributionTenant")]
     public partial class DistributionTenant : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the distribution tenant.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the distribution tenant.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+        /// </summary>
         [Output("connectionGroupId")]
         public Output<string?> ConnectionGroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when the distribution tenant was created.
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        /// </summary>
         [Output("customizations")]
         public Output<Outputs.DistributionTenantCustomizations?> Customizations { get; private set; } = null!;
 
         /// <summary>
-        /// The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        /// The ID of the multi-tenant distribution.
         /// </summary>
         [Output("distributionId")]
         public Output<string> DistributionId { get; private set; } = null!;
@@ -39,30 +54,51 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("domainResults")]
         public Output<ImmutableArray<Outputs.DistributionTenantDomainResult>> DomainResults { get; private set; } = null!;
 
+        /// <summary>
+        /// The domains associated with the distribution tenant.
+        /// </summary>
         [Output("domains")]
         public Output<ImmutableArray<string>> Domains { get; private set; } = null!;
 
         /// <summary>
-        /// A complex type that contains `Tag` key and `Tag` value.
+        /// The current version of the distribution tenant.
         /// </summary>
         [Output("eTag")]
         public Output<string> ETag { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when the distribution tenant was updated.
+        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that represents the request for the Amazon CloudFront managed ACM certificate.
+        /// </summary>
         [Output("managedCertificateRequest")]
         public Output<Outputs.DistributionTenantManagedCertificateRequest?> ManagedCertificateRequest { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the distribution tenant.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+        /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.DistributionTenantParameter>> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the distribution tenant.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -122,37 +158,60 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class DistributionTenantArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+        /// </summary>
         [Input("connectionGroupId")]
         public Input<string>? ConnectionGroupId { get; set; }
 
+        /// <summary>
+        /// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        /// </summary>
         [Input("customizations")]
         public Input<Inputs.DistributionTenantCustomizationsArgs>? Customizations { get; set; }
 
         /// <summary>
-        /// The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        /// The ID of the multi-tenant distribution.
         /// </summary>
         [Input("distributionId", required: true)]
         public Input<string> DistributionId { get; set; } = null!;
 
         [Input("domains", required: true)]
         private InputList<string>? _domains;
+
+        /// <summary>
+        /// The domains associated with the distribution tenant.
+        /// </summary>
         public InputList<string> Domains
         {
             get => _domains ?? (_domains = new InputList<string>());
             set => _domains = value;
         }
 
+        /// <summary>
+        /// Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// An object that represents the request for the Amazon CloudFront managed ACM certificate.
+        /// </summary>
         [Input("managedCertificateRequest")]
         public Input<Inputs.DistributionTenantManagedCertificateRequestArgs>? ManagedCertificateRequest { get; set; }
 
+        /// <summary>
+        /// The name of the distribution tenant.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.DistributionTenantParameterArgs>? _parameters;
+
+        /// <summary>
+        /// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+        /// </summary>
         public InputList<Inputs.DistributionTenantParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.DistributionTenantParameterArgs>());

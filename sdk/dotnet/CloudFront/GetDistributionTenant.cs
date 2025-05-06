@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetDistributionTenantArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the distribution tenant.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetDistributionTenantInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the distribution tenant.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -57,24 +63,54 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetDistributionTenantResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the distribution tenant.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+        /// </summary>
         public readonly string? ConnectionGroupId;
+        /// <summary>
+        /// The date and time when the distribution tenant was created.
+        /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        /// </summary>
         public readonly Outputs.DistributionTenantCustomizations? Customizations;
         /// <summary>
-        /// The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        /// The ID of the multi-tenant distribution.
         /// </summary>
         public readonly string? DistributionId;
         public readonly ImmutableArray<Outputs.DistributionTenantDomainResult> DomainResults;
+        /// <summary>
+        /// The domains associated with the distribution tenant.
+        /// </summary>
         public readonly ImmutableArray<string> Domains;
         /// <summary>
-        /// A complex type that contains `Tag` key and `Tag` value.
+        /// The current version of the distribution tenant.
         /// </summary>
         public readonly string? ETag;
+        /// <summary>
+        /// Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The ID of the distribution tenant.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The date and time when the distribution tenant was updated.
+        /// </summary>
         public readonly string? LastModifiedTime;
+        /// <summary>
+        /// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DistributionTenantParameter> Parameters;
+        /// <summary>
+        /// The status of the distribution tenant.
+        /// </summary>
         public readonly string? Status;
         /// <summary>
         /// A complex type that contains zero or more `Tag` elements.

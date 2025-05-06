@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataAutomationProjectAudioOverrideConfiguration
     {
+        /// <summary>
+        /// Sets modality processing for audio files. All modalities are enabled by default.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectModalityProcessingConfiguration? ModalityProcessing;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTenantCertificate
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the ACM certificate.
+        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

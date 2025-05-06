@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataAutomationProjectDocumentOverrideConfiguration
     {
+        /// <summary>
+        /// Sets modality processing for document files. All modalities are enabled by default.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectModalityProcessingConfiguration? ModalityProcessing;
         /// <summary>
         /// Whether document splitter is enabled for a project.

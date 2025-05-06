@@ -24,9 +24,9 @@ type TransitGateway struct {
 	AutoAcceptSharedAttachments pulumi.StringPtrOutput `pulumi:"autoAcceptSharedAttachments"`
 	// The ID of the transit gateway.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// Enable or disable automatic association with the default association route table. Enabled by default.
+	// Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
 	DefaultRouteTableAssociation pulumi.StringPtrOutput `pulumi:"defaultRouteTableAssociation"`
-	// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+	// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
 	DefaultRouteTablePropagation pulumi.StringPtrOutput `pulumi:"defaultRouteTablePropagation"`
 	// The description of the transit gateway.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -100,9 +100,9 @@ type transitGatewayArgs struct {
 	AssociationDefaultRouteTableId *string `pulumi:"associationDefaultRouteTableId"`
 	// Enable or disable automatic acceptance of attachment requests. Disabled by default.
 	AutoAcceptSharedAttachments *string `pulumi:"autoAcceptSharedAttachments"`
-	// Enable or disable automatic association with the default association route table. Enabled by default.
+	// Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
 	DefaultRouteTableAssociation *string `pulumi:"defaultRouteTableAssociation"`
-	// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+	// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
 	DefaultRouteTablePropagation *string `pulumi:"defaultRouteTablePropagation"`
 	// The description of the transit gateway.
 	Description *string `pulumi:"description"`
@@ -132,9 +132,9 @@ type TransitGatewayArgs struct {
 	AssociationDefaultRouteTableId pulumi.StringPtrInput
 	// Enable or disable automatic acceptance of attachment requests. Disabled by default.
 	AutoAcceptSharedAttachments pulumi.StringPtrInput
-	// Enable or disable automatic association with the default association route table. Enabled by default.
+	// Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
 	DefaultRouteTableAssociation pulumi.StringPtrInput
-	// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+	// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
 	DefaultRouteTablePropagation pulumi.StringPtrInput
 	// The description of the transit gateway.
 	Description pulumi.StringPtrInput
@@ -213,12 +213,12 @@ func (o TransitGatewayOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// Enable or disable automatic association with the default association route table. Enabled by default.
+// Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
 func (o TransitGatewayOutput) DefaultRouteTableAssociation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DefaultRouteTableAssociation }).(pulumi.StringPtrOutput)
 }
 
-// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
 func (o TransitGatewayOutput) DefaultRouteTablePropagation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DefaultRouteTablePropagation }).(pulumi.StringPtrOutput)
 }

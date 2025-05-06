@@ -72,6 +72,10 @@ export class PolicyStore extends pulumi.CustomResource {
      */
     public readonly schema!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreSchemaDefinition | undefined>;
     /**
+     * The tags to add to the policy store
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * Specifies the validation setting for this policy store.
      *
      * Currently, the only valid and required value is `Mode` .
@@ -96,6 +100,7 @@ export class PolicyStore extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["validationSettings"] = args ? args.validationSettings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
@@ -104,6 +109,7 @@ export class PolicyStore extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
             resourceInputs["schema"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["validationSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -123,6 +129,10 @@ export interface PolicyStoreArgs {
      * Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
      */
     schema?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreSchemaDefinitionArgs>;
+    /**
+     * The tags to add to the policy store
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Specifies the validation setting for this policy store.
      *

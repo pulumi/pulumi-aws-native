@@ -14,12 +14,23 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
     {
         [Input("locations")]
         private InputList<string>? _locations;
+
+        /// <summary>
+        /// The locations for geographic restrictions.
+        /// </summary>
         public InputList<string> Locations
         {
             get => _locations ?? (_locations = new InputList<string>());
             set => _locations = value;
         }
 
+        /// <summary>
+        /// The method that you want to use to restrict distribution of your content by country:
+        /// 
+        /// - `none` : No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
+        /// - `blacklist` : The `Location` elements specify the countries in which you don't want CloudFront to distribute your content.
+        /// - `whitelist` : The `Location` elements specify the countries in which you want CloudFront to distribute your content.
+        /// </summary>
         [Input("restrictionType")]
         public Input<Pulumi.AwsNative.CloudFront.DistributionTenantGeoRestrictionCustomizationRestrictionType>? RestrictionType { get; set; }
 

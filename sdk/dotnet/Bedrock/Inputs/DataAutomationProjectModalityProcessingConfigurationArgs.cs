@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
 
     public sealed class DataAutomationProjectModalityProcessingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Stores the state of the modality for your project, set to either enabled or disabled
+        /// </summary>
         [Input("state")]
         public Input<Pulumi.AwsNative.Bedrock.DataAutomationProjectState>? State { get; set; }
 

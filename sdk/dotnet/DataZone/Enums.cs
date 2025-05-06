@@ -371,6 +371,36 @@ namespace Pulumi.AwsNative.DataZone
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of an entity.
+    /// </summary>
+    [EnumType]
+    public readonly struct OwnerEntityType : IEquatable<OwnerEntityType>
+    {
+        private readonly string _value;
+
+        private OwnerEntityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OwnerEntityType DomainUnit { get; } = new OwnerEntityType("DOMAIN_UNIT");
+
+        public static bool operator ==(OwnerEntityType left, OwnerEntityType right) => left.Equals(right);
+        public static bool operator !=(OwnerEntityType left, OwnerEntityType right) => !left.Equals(right);
+
+        public static explicit operator string(OwnerEntityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OwnerEntityType other && Equals(other);
+        public bool Equals(OwnerEntityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct ProjectMembershipUserDesignation : IEquatable<ProjectMembershipUserDesignation>
     {

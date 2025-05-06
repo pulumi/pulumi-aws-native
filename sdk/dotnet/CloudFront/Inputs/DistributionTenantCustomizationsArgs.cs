@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class DistributionTenantCustomizationsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Certificate Manager (ACM) certificate.
+        /// </summary>
         [Input("certificate")]
         public Input<Inputs.DistributionTenantCertificateArgs>? Certificate { get; set; }
 
+        /// <summary>
+        /// The geographic restrictions.
+        /// </summary>
         [Input("geoRestrictions")]
         public Input<Inputs.DistributionTenantGeoRestrictionCustomizationArgs>? GeoRestrictions { get; set; }
 
+        /// <summary>
+        /// The AWS WAF web ACL.
+        /// </summary>
         [Input("webAcl")]
         public Input<Inputs.DistributionTenantWebAclCustomizationArgs>? WebAcl { get; set; }
 

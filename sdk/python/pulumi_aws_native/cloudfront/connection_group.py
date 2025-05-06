@@ -30,6 +30,9 @@ class ConnectionGroupArgs:
         """
         The set of arguments for constructing a ConnectionGroup resource.
         :param pulumi.Input[builtins.str] anycast_ip_list_id: The ID of the Anycast static IP list.
+        :param pulumi.Input[builtins.bool] enabled: Whether the connection group is enabled.
+        :param pulumi.Input[builtins.bool] ipv6_enabled: IPv6 is enabled for the connection group.
+        :param pulumi.Input[builtins.str] name: The name of the connection group.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more `Tag` elements.
         """
         if anycast_ip_list_id is not None:
@@ -58,6 +61,9 @@ class ConnectionGroupArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether the connection group is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -67,6 +73,9 @@ class ConnectionGroupArgs:
     @property
     @pulumi.getter(name="ipv6Enabled")
     def ipv6_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        IPv6 is enabled for the connection group.
+        """
         return pulumi.get(self, "ipv6_enabled")
 
     @ipv6_enabled.setter
@@ -76,6 +85,9 @@ class ConnectionGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the connection group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -115,6 +127,9 @@ class ConnectionGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] anycast_ip_list_id: The ID of the Anycast static IP list.
+        :param pulumi.Input[builtins.bool] enabled: Whether the connection group is enabled.
+        :param pulumi.Input[builtins.bool] ipv6_enabled: IPv6 is enabled for the connection group.
+        :param pulumi.Input[builtins.str] name: The name of the connection group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more `Tag` elements.
         """
         ...
@@ -218,62 +233,89 @@ class ConnectionGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the connection group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The ID of the connection group.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[builtins.str]:
+        """
+        The date and time when the connection group was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="eTag")
     def e_tag(self) -> pulumi.Output[builtins.str]:
         """
-        A complex type that contains `Tag` key and `Tag` value.
+        The current version of the connection group.
         """
         return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Whether the connection group is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="ipv6Enabled")
     def ipv6_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        IPv6 is enabled for the connection group.
+        """
         return pulumi.get(self, "ipv6_enabled")
 
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[builtins.bool]:
+        """
+        Whether the connection group is the default connection group for the distribution tenants.
+        """
         return pulumi.get(self, "is_default")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[builtins.str]:
+        """
+        The date and time when the connection group was updated.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name of the connection group.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="routingEndpoint")
     def routing_endpoint(self) -> pulumi.Output[builtins.str]:
         """
-        Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+        The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
         """
         return pulumi.get(self, "routing_endpoint")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
+        """
+        The status of the connection group.
+        """
         return pulumi.get(self, "status")
 
     @property

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
 
     public sealed class DataAutomationProjectImageOverrideConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets modality processing for image files. All modalities are enabled by default.
+        /// </summary>
         [Input("modalityProcessing")]
         public Input<Inputs.DataAutomationProjectModalityProcessingConfigurationArgs>? ModalityProcessing { get; set; }
 

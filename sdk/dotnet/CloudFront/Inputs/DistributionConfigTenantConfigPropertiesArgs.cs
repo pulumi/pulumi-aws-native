@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// A distribution tenant configuration.
+    /// </summary>
     public sealed class DistributionConfigTenantConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("parameterDefinitions")]

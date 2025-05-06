@@ -53,6 +53,8 @@ export class Link extends pulumi.CustomResource {
      * - `$AccountName` is the name of the account
      * - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
      * - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+     *
+     * > In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
      */
     public readonly labelTemplate!: pulumi.Output<string | undefined>;
     /**
@@ -60,7 +62,7 @@ export class Link extends pulumi.CustomResource {
      */
     public readonly linkConfiguration!: pulumi.Output<outputs.oam.LinkConfiguration | undefined>;
     /**
-     * An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
+     * An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
      */
     public readonly resourceTypes!: pulumi.Output<enums.oam.LinkResourceType[]>;
     /**
@@ -124,6 +126,8 @@ export interface LinkArgs {
      * - `$AccountName` is the name of the account
      * - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
      * - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+     *
+     * > In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
      */
     labelTemplate?: pulumi.Input<string>;
     /**
@@ -131,7 +135,7 @@ export interface LinkArgs {
      */
     linkConfiguration?: pulumi.Input<inputs.oam.LinkConfigurationArgs>;
     /**
-     * An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
+     * An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
      */
     resourceTypes: pulumi.Input<pulumi.Input<enums.oam.LinkResourceType>[]>;
     /**

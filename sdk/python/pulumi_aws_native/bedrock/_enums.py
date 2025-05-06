@@ -262,6 +262,7 @@ class BlueprintType(builtins.str, Enum):
     """
     DOCUMENT = "DOCUMENT"
     IMAGE = "IMAGE"
+    AUDIO = "AUDIO"
 
 
 class DataAutomationProjectAudioExtractionCategoryType(builtins.str, Enum):

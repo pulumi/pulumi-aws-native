@@ -1731,12 +1731,18 @@ class DataAutomationProjectAudioOverrideConfiguration(dict):
 
     def __init__(__self__, *,
                  modality_processing: Optional['outputs.DataAutomationProjectModalityProcessingConfiguration'] = None):
+        """
+        :param 'DataAutomationProjectModalityProcessingConfiguration' modality_processing: Sets modality processing for audio files. All modalities are enabled by default.
+        """
         if modality_processing is not None:
             pulumi.set(__self__, "modality_processing", modality_processing)
 
     @property
     @pulumi.getter(name="modalityProcessing")
     def modality_processing(self) -> Optional['outputs.DataAutomationProjectModalityProcessingConfiguration']:
+        """
+        Sets modality processing for audio files. All modalities are enabled by default.
+        """
         return pulumi.get(self, "modality_processing")
 
 
@@ -2067,6 +2073,7 @@ class DataAutomationProjectDocumentOverrideConfiguration(dict):
                  modality_processing: Optional['outputs.DataAutomationProjectModalityProcessingConfiguration'] = None,
                  splitter: Optional['outputs.DataAutomationProjectSplitterConfiguration'] = None):
         """
+        :param 'DataAutomationProjectModalityProcessingConfiguration' modality_processing: Sets modality processing for document files. All modalities are enabled by default.
         :param 'DataAutomationProjectSplitterConfiguration' splitter: Whether document splitter is enabled for a project.
         """
         if modality_processing is not None:
@@ -2077,6 +2084,9 @@ class DataAutomationProjectDocumentOverrideConfiguration(dict):
     @property
     @pulumi.getter(name="modalityProcessing")
     def modality_processing(self) -> Optional['outputs.DataAutomationProjectModalityProcessingConfiguration']:
+        """
+        Sets modality processing for document files. All modalities are enabled by default.
+        """
         return pulumi.get(self, "modality_processing")
 
     @property
@@ -2283,12 +2293,18 @@ class DataAutomationProjectImageOverrideConfiguration(dict):
 
     def __init__(__self__, *,
                  modality_processing: Optional['outputs.DataAutomationProjectModalityProcessingConfiguration'] = None):
+        """
+        :param 'DataAutomationProjectModalityProcessingConfiguration' modality_processing: Sets modality processing for image files. All modalities are enabled by default.
+        """
         if modality_processing is not None:
             pulumi.set(__self__, "modality_processing", modality_processing)
 
     @property
     @pulumi.getter(name="modalityProcessing")
     def modality_processing(self) -> Optional['outputs.DataAutomationProjectModalityProcessingConfiguration']:
+        """
+        Sets modality processing for image files. All modalities are enabled by default.
+        """
         return pulumi.get(self, "modality_processing")
 
 
@@ -2420,12 +2436,18 @@ class DataAutomationProjectImageStandardOutputConfiguration(dict):
 class DataAutomationProjectModalityProcessingConfiguration(dict):
     def __init__(__self__, *,
                  state: Optional['DataAutomationProjectState'] = None):
+        """
+        :param 'DataAutomationProjectState' state: Stores the state of the modality for your project, set to either enabled or disabled
+        """
         if state is not None:
             pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
     def state(self) -> Optional['DataAutomationProjectState']:
+        """
+        Stores the state of the modality for your project, set to either enabled or disabled
+        """
         return pulumi.get(self, "state")
 
 
@@ -2441,6 +2463,10 @@ class DataAutomationProjectModalityRoutingConfiguration(dict):
                  png: Optional['DataAutomationProjectDesiredModality'] = None):
         """
         Modality routing configuration
+        :param 'DataAutomationProjectDesiredModality' jpeg: Sets whether JPEG files are routed to document or image processing.
+        :param 'DataAutomationProjectDesiredModality' mov: Sets whether MOV files are routed to audio or video processing.
+        :param 'DataAutomationProjectDesiredModality' mp4: Sets whether MP4 files are routed to audio or video processing.
+        :param 'DataAutomationProjectDesiredModality' png: Sets whether PNG files are routed to document or image processing.
         """
         if jpeg is not None:
             pulumi.set(__self__, "jpeg", jpeg)
@@ -2454,21 +2480,33 @@ class DataAutomationProjectModalityRoutingConfiguration(dict):
     @property
     @pulumi.getter
     def jpeg(self) -> Optional['DataAutomationProjectDesiredModality']:
+        """
+        Sets whether JPEG files are routed to document or image processing.
+        """
         return pulumi.get(self, "jpeg")
 
     @property
     @pulumi.getter
     def mov(self) -> Optional['DataAutomationProjectDesiredModality']:
+        """
+        Sets whether MOV files are routed to audio or video processing.
+        """
         return pulumi.get(self, "mov")
 
     @property
     @pulumi.getter
     def mp4(self) -> Optional['DataAutomationProjectDesiredModality']:
+        """
+        Sets whether MP4 files are routed to audio or video processing.
+        """
         return pulumi.get(self, "mp4")
 
     @property
     @pulumi.getter
     def png(self) -> Optional['DataAutomationProjectDesiredModality']:
+        """
+        Sets whether PNG files are routed to document or image processing.
+        """
         return pulumi.get(self, "png")
 
 
@@ -2502,7 +2540,11 @@ class DataAutomationProjectOverrideConfiguration(dict):
                  video: Optional['outputs.DataAutomationProjectVideoOverrideConfiguration'] = None):
         """
         Override configuration
+        :param 'DataAutomationProjectAudioOverrideConfiguration' audio: This element declares whether your project will process audio files.
         :param 'DataAutomationProjectDocumentOverrideConfiguration' document: Additional settings for a project.
+        :param 'DataAutomationProjectImageOverrideConfiguration' image: This element declares whether your project will process image files.
+        :param 'DataAutomationProjectModalityRoutingConfiguration' modality_routing: Lets you set which modalities certain file types are processed as.
+        :param 'DataAutomationProjectVideoOverrideConfiguration' video: This element declares whether your project will process video files.
         """
         if audio is not None:
             pulumi.set(__self__, "audio", audio)
@@ -2518,6 +2560,9 @@ class DataAutomationProjectOverrideConfiguration(dict):
     @property
     @pulumi.getter
     def audio(self) -> Optional['outputs.DataAutomationProjectAudioOverrideConfiguration']:
+        """
+        This element declares whether your project will process audio files.
+        """
         return pulumi.get(self, "audio")
 
     @property
@@ -2531,16 +2576,25 @@ class DataAutomationProjectOverrideConfiguration(dict):
     @property
     @pulumi.getter
     def image(self) -> Optional['outputs.DataAutomationProjectImageOverrideConfiguration']:
+        """
+        This element declares whether your project will process image files.
+        """
         return pulumi.get(self, "image")
 
     @property
     @pulumi.getter(name="modalityRouting")
     def modality_routing(self) -> Optional['outputs.DataAutomationProjectModalityRoutingConfiguration']:
+        """
+        Lets you set which modalities certain file types are processed as.
+        """
         return pulumi.get(self, "modality_routing")
 
     @property
     @pulumi.getter
     def video(self) -> Optional['outputs.DataAutomationProjectVideoOverrideConfiguration']:
+        """
+        This element declares whether your project will process video files.
+        """
         return pulumi.get(self, "video")
 
 
@@ -2691,12 +2745,18 @@ class DataAutomationProjectVideoOverrideConfiguration(dict):
 
     def __init__(__self__, *,
                  modality_processing: Optional['outputs.DataAutomationProjectModalityProcessingConfiguration'] = None):
+        """
+        :param 'DataAutomationProjectModalityProcessingConfiguration' modality_processing: Sets modality processing for video files. All modalities are enabled by default.
+        """
         if modality_processing is not None:
             pulumi.set(__self__, "modality_processing", modality_processing)
 
     @property
     @pulumi.getter(name="modalityProcessing")
     def modality_processing(self) -> Optional['outputs.DataAutomationProjectModalityProcessingConfiguration']:
+        """
+        Sets modality processing for video files. All modalities are enabled by default.
+        """
         return pulumi.get(self, "modality_processing")
 
 

@@ -59,6 +59,7 @@ export type LogAnomalyDetectorEvaluationFrequency = (typeof LogAnomalyDetectorEv
 export const LogGroupClass = {
     Standard: "STANDARD",
     InfrequentAccess: "INFREQUENT_ACCESS",
+    Delivery: "DELIVERY",
 } as const;
 
 /**

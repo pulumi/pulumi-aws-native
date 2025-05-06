@@ -10,6 +10,7 @@ __all__ = [
     'ManagedLoginBrandingCategoryType',
     'ManagedLoginBrandingColorModeType',
     'ManagedLoginBrandingExtensionType',
+    'UserPoolClientRefreshTokenRotationFeature',
     'UserPoolTier',
 ]
 
@@ -44,6 +45,14 @@ class ManagedLoginBrandingExtensionType(builtins.str, Enum):
     PNG = "PNG"
     SVG = "SVG"
     WEBP = "WEBP"
+
+
+class UserPoolClientRefreshTokenRotationFeature(builtins.str, Enum):
+    """
+    The state of refresh token rotation for the current app client.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class UserPoolTier(builtins.str, Enum):

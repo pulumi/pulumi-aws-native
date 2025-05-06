@@ -1140,7 +1140,7 @@
       },
       "kind": {
         "type": "string",
-        "description": "The resolver type.\n  +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.\n  +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources."
+        "description": "The resolver type.\n  +  *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.\n  +  *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources."
       },
       "maxBatchSize": {
         "type": "integer",
@@ -2280,7 +2280,7 @@
       },
       "clientId": {
         "type": "string",
-        "description": "The app client that's assigned to the branding style that you want more information about."
+        "description": "The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it."
       },
       "returnMergedResources": {
         "type": "boolean",
@@ -3317,6 +3317,32 @@
       }
     }
   },
+  "aws-native:datazone:Owner": {
+    "cfTypeName": "AWS::DataZone::Owner",
+    "properties": {
+      "domainIdentifier": {
+        "type": "string",
+        "description": "The ID of the domain in which you want to add the entity owner."
+      },
+      "entityIdentifier": {
+        "type": "string",
+        "description": "The ID of the entity to which you want to add an owner."
+      },
+      "entityType": {
+        "$ref": "#/types/aws-native:datazone:OwnerEntityType",
+        "description": "The type of an entity."
+      },
+      "owner": {
+        "$ref": "#/types/aws-native:datazone:OwnerProperties",
+        "description": "The owner that you want to add to the entity.",
+        "language": {
+          "csharp": {
+            "name": "OwnerValue"
+          }
+        }
+      }
+    }
+  },
   "aws-native:datazone:ProjectMembership": {
     "cfTypeName": "AWS::DataZone::ProjectMembership",
     "properties": {
@@ -3794,7 +3820,8 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        }
+        },
+        "description": "A map of key and value pairs this cluster is tagged with."
       }
     }
   },
@@ -4870,14 +4897,14 @@
       },
       "secondaryPrivateIpAddressCount": {
         "type": "integer",
-        "description": "[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.\n  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time."
+        "description": "[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.\n ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time."
       },
       "secondaryPrivateIpAddresses": {
         "type": "array",
         "items": {
           "type": "string"
         },
-        "description": "Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.\n  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time."
+        "description": "Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.\n ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time."
       },
       "subnetId": {
         "type": "string",
@@ -5629,11 +5656,11 @@
       },
       "defaultRouteTableAssociation": {
         "type": "string",
-        "description": "Enable or disable automatic association with the default association route table. Enabled by default."
+        "description": "Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table."
       },
       "defaultRouteTablePropagation": {
         "type": "string",
-        "description": "Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default."
+        "description": "Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table."
       },
       "description": {
         "type": "string",
@@ -6220,7 +6247,7 @@
       },
       "instanceTenancy": {
         "type": "string",
-        "description": "The allowed tenancy of instances launched into the VPC.\n  +   ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.\n  +   ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.\n  \n Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement."
+        "description": "The allowed tenancy of instances launched into the VPC.\n  +  ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.\n  +  ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.\n  \n Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement."
       },
       "ipv4IpamPoolId": {
         "type": "string",
@@ -6822,7 +6849,7 @@
       },
       "cpu": {
         "type": "string",
-        "description": "The number of ``cpu`` units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the ``memory`` parameter.\n If you're using the EC2 launch type or the external launch type, this field is optional. Supported values are between ``128`` CPU units (``0.125`` vCPUs) and ``196608`` CPU units (``192`` vCPUs). The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.\n  +  256 (.25 vCPU) - Available ``memory`` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)\n  +  512 (.5 vCPU) - Available ``memory`` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)\n  +  1024 (1 vCPU) - Available ``memory`` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)\n  +  2048 (2 vCPU) - Available ``memory`` values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)\n  +  4096 (4 vCPU) - Available ``memory`` values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)\n  +  8192 (8 vCPU) - Available ``memory`` values: 16 GB and 60 GB in 4 GB increments\n This option requires Linux platform ``1.4.0`` or later.\n  +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments\n This option requires Linux platform ``1.4.0`` or later."
+        "description": "The number of ``cpu`` units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the ``memory`` parameter.\n If you're using the EC2 launch type or the external launch type, this field is optional. Supported values are between ``128`` CPU units (``0.125`` vCPUs) and ``196608`` CPU units (``192`` vCPUs). \n This field is required for Fargate. For information about the valid values, see [Task size](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size) in the *Amazon Elastic Container Service Developer Guide*."
       },
       "enableFaultInjection": {
         "type": "boolean",
@@ -9251,7 +9278,7 @@
       },
       "functionName": {
         "type": "string",
-        "description": "The name or ARN of the Lambda function, version, or alias.\n  **Name formats**\n +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).\n  +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.\n  +   *Partial ARN* – ``123456789012:function:my-function``.\n  \n You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length."
+        "description": "The name or ARN of the Lambda function, version, or alias.\n  **Name formats**\n +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).\n  +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.\n  +  *Partial ARN* – ``123456789012:function:my-function``.\n  \n You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length."
       },
       "functionUrlAuthType": {
         "$ref": "#/types/aws-native:lambda:PermissionFunctionUrlAuthType",
@@ -10552,7 +10579,7 @@
     "properties": {
       "labelTemplate": {
         "type": "string",
-        "description": "Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.\n\nYou can include the following variables in your template:\n\n- `$AccountName` is the name of the account\n- `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`\n- `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`"
+        "description": "Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.\n\nYou can include the following variables in your template:\n\n- `$AccountName` is the name of the account\n- `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`\n- `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`\n\n\u003e In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable."
       },
       "linkConfiguration": {
         "$ref": "#/types/aws-native:oam:LinkConfiguration",
@@ -10563,7 +10590,7 @@
         "items": {
           "$ref": "#/types/aws-native:oam:LinkResourceType"
         },
-        "description": "An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` ."
+        "description": "An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` ."
       },
       "sinkIdentifier": {
         "type": "string",
@@ -13440,6 +13467,15 @@
       }
     }
   },
+  "aws-native:ssmguiconnect:Preferences": {
+    "cfTypeName": "AWS::SSMGuiConnect::Preferences",
+    "properties": {
+      "connectionRecordingPreferences": {
+        "$ref": "#/types/aws-native:ssmguiconnect:ConnectionRecordingPreferencesProperties",
+        "description": "The set of preferences used for recording RDP connections in the requesting AWS account and AWS Region. This includes details such as which S3 bucket recordings are stored in."
+      }
+    }
+  },
   "aws-native:ssmincidents:ReplicationSet": {
     "cfTypeName": "AWS::SSMIncidents::ReplicationSet",
     "properties": {
@@ -14022,6 +14058,13 @@
       "schema": {
         "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreSchemaDefinition",
         "description": "Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to add to the policy store"
       },
       "validationSettings": {
         "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreValidationSettings",

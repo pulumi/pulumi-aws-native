@@ -27,9 +27,9 @@ type Permission struct {
 	EventSourceToken pulumi.StringPtrOutput `pulumi:"eventSourceToken"`
 	// The name or ARN of the Lambda function, version, or alias.
 	//   **Name formats**
-	//  +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
-	//   +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
-	//   +   *Partial ARN* – ``123456789012:function:my-function``.
+	//  +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+	//   +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+	//   +  *Partial ARN* – ``123456789012:function:my-function``.
 	//
 	//  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
@@ -112,9 +112,9 @@ type permissionArgs struct {
 	EventSourceToken *string `pulumi:"eventSourceToken"`
 	// The name or ARN of the Lambda function, version, or alias.
 	//   **Name formats**
-	//  +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
-	//   +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
-	//   +   *Partial ARN* – ``123456789012:function:my-function``.
+	//  +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+	//   +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+	//   +  *Partial ARN* – ``123456789012:function:my-function``.
 	//
 	//  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	FunctionName string `pulumi:"functionName"`
@@ -139,9 +139,9 @@ type PermissionArgs struct {
 	EventSourceToken pulumi.StringPtrInput
 	// The name or ARN of the Lambda function, version, or alias.
 	//   **Name formats**
-	//  +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
-	//   +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
-	//   +   *Partial ARN* – ``123456789012:function:my-function``.
+	//  +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+	//   +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+	//   +  *Partial ARN* – ``123456789012:function:my-function``.
 	//
 	//  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	FunctionName pulumi.StringInput
@@ -212,9 +212,9 @@ func (o PermissionOutput) EventSourceToken() pulumi.StringPtrOutput {
 // The name or ARN of the Lambda function, version, or alias.
 //
 //	 **Name formats**
-//	+   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
-//	 +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
-//	 +   *Partial ARN* – ``123456789012:function:my-function``.
+//	+  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+//	 +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+//	 +  *Partial ARN* – ``123456789012:function:my-function``.
 //
 //	You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 func (o PermissionOutput) FunctionName() pulumi.StringOutput {

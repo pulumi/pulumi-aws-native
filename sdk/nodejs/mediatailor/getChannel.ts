@@ -42,6 +42,10 @@ export interface GetChannelResult {
      */
     readonly logConfiguration?: outputs.mediatailor.ChannelLogConfigurationForChannel;
     /**
+     * <p>The channel's output properties.</p>
+     */
+    readonly outputs?: outputs.mediatailor.ChannelRequestOutputItem[];
+    /**
      * The type of playback mode for this channel.
      *
      * `LINEAR` - Programs play back-to-back only once.

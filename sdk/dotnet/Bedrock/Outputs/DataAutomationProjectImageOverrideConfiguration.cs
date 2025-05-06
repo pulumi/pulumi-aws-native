@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataAutomationProjectImageOverrideConfiguration
     {
+        /// <summary>
+        /// Sets modality processing for image files. All modalities are enabled by default.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectModalityProcessingConfiguration? ModalityProcessing;
 
         [OutputConstructor]

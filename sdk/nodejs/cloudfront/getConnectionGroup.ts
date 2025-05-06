@@ -18,6 +18,9 @@ export function getConnectionGroup(args: GetConnectionGroupArgs, opts?: pulumi.I
 }
 
 export interface GetConnectionGroupArgs {
+    /**
+     * The ID of the connection group.
+     */
     id: string;
 }
 
@@ -26,21 +29,45 @@ export interface GetConnectionGroupResult {
      * The ID of the Anycast static IP list.
      */
     readonly anycastIpListId?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the connection group.
+     */
     readonly arn?: string;
+    /**
+     * The date and time when the connection group was created.
+     */
     readonly createdTime?: string;
     /**
-     * A complex type that contains `Tag` key and `Tag` value.
+     * The current version of the connection group.
      */
     readonly eTag?: string;
+    /**
+     * Whether the connection group is enabled.
+     */
     readonly enabled?: boolean;
+    /**
+     * The ID of the connection group.
+     */
     readonly id?: string;
+    /**
+     * IPv6 is enabled for the connection group.
+     */
     readonly ipv6Enabled?: boolean;
+    /**
+     * Whether the connection group is the default connection group for the distribution tenants.
+     */
     readonly isDefault?: boolean;
+    /**
+     * The date and time when the connection group was updated.
+     */
     readonly lastModifiedTime?: string;
     /**
-     * Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+     * The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
      */
     readonly routingEndpoint?: string;
+    /**
+     * The status of the connection group.
+     */
     readonly status?: string;
     /**
      * A complex type that contains zero or more `Tag` elements.
@@ -58,5 +85,8 @@ export function getConnectionGroupOutput(args: GetConnectionGroupOutputArgs, opt
 }
 
 export interface GetConnectionGroupOutputArgs {
+    /**
+     * The ID of the connection group.
+     */
     id: pulumi.Input<string>;
 }

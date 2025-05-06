@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataAutomationProjectModalityRoutingConfiguration
     {
+        /// <summary>
+        /// Sets whether JPEG files are routed to document or image processing.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataAutomationProjectDesiredModality? Jpeg;
+        /// <summary>
+        /// Sets whether MOV files are routed to audio or video processing.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataAutomationProjectDesiredModality? Mov;
+        /// <summary>
+        /// Sets whether MP4 files are routed to audio or video processing.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataAutomationProjectDesiredModality? Mp4;
+        /// <summary>
+        /// Sets whether PNG files are routed to document or image processing.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataAutomationProjectDesiredModality? Png;
 
         [OutputConstructor]

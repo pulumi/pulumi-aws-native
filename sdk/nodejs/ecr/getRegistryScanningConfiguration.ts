@@ -18,10 +18,16 @@ export function getRegistryScanningConfiguration(args: GetRegistryScanningConfig
 }
 
 export interface GetRegistryScanningConfigurationArgs {
+    /**
+     * The account ID of the destination registry.
+     */
     registryId: string;
 }
 
 export interface GetRegistryScanningConfigurationResult {
+    /**
+     * The account ID of the destination registry.
+     */
     readonly registryId?: string;
     /**
      * The scanning rules associated with the registry.
@@ -43,5 +49,8 @@ export function getRegistryScanningConfigurationOutput(args: GetRegistryScanning
 }
 
 export interface GetRegistryScanningConfigurationOutputArgs {
+    /**
+     * The account ID of the destination registry.
+     */
     registryId: pulumi.Input<string>;
 }

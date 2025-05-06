@@ -10,7 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::DomainName.
+    /// The ``AWS::ApiGateway::DomainName`` resource specifies a custom domain name for your API in API Gateway.
+    ///  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
     /// 
     /// ## Example Usage
     /// ### Example
@@ -112,6 +113,9 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         [Output("domainName")]
         public Output<string?> DomainNameValue { get; private set; } = null!;
+
+        [Output("domainNameArn")]
+        public Output<string> DomainNameArn { get; private set; } = null!;
 
         /// <summary>
         /// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.

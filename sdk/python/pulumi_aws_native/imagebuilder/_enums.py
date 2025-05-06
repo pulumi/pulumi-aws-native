@@ -13,6 +13,7 @@ __all__ = [
     'ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType',
     'ContainerRecipePlatformOverride',
     'ContainerRecipeTargetContainerRepositoryService',
+    'DistributionConfigurationSsmParameterConfigurationDataType',
     'DistributionConfigurationTargetContainerRepositoryService',
     'ImagePipelineSchedulePipelineExecutionStartCondition',
     'ImagePipelineStatus',
@@ -80,6 +81,14 @@ class ContainerRecipeTargetContainerRepositoryService(builtins.str, Enum):
     Specifies the service in which this image was registered.
     """
     ECR = "ECR"
+
+
+class DistributionConfigurationSsmParameterConfigurationDataType(builtins.str, Enum):
+    """
+    The data type of the SSM parameter.
+    """
+    TEXT = "text"
+    AWSEC2IMAGE = "aws:ec2:image"
 
 
 class DistributionConfigurationTargetContainerRepositoryService(builtins.str, Enum):

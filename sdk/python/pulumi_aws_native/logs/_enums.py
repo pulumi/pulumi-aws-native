@@ -75,6 +75,7 @@ class LogGroupClass(builtins.str, Enum):
     """
     STANDARD = "STANDARD"
     INFREQUENT_ACCESS = "INFREQUENT_ACCESS"
+    DELIVERY = "DELIVERY"
 
 
 class MetricFilterMetricTransformationUnit(builtins.str, Enum):

@@ -41,22 +41,49 @@ export class ConnectionGroup extends pulumi.CustomResource {
      * The ID of the Anycast static IP list.
      */
     public readonly anycastIpListId!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the connection group.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the connection group.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The date and time when the connection group was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * A complex type that contains `Tag` key and `Tag` value.
+     * The current version of the connection group.
      */
     public /*out*/ readonly eTag!: pulumi.Output<string>;
+    /**
+     * Whether the connection group is enabled.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * IPv6 is enabled for the connection group.
+     */
     public readonly ipv6Enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the connection group is the default connection group for the distribution tenants.
+     */
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    /**
+     * The date and time when the connection group was updated.
+     */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
+     * The name of the connection group.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+     * The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
      */
     public /*out*/ readonly routingEndpoint!: pulumi.Output<string>;
+    /**
+     * The status of the connection group.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * A complex type that contains zero or more `Tag` elements.
@@ -117,8 +144,17 @@ export interface ConnectionGroupArgs {
      * The ID of the Anycast static IP list.
      */
     anycastIpListId?: pulumi.Input<string>;
+    /**
+     * Whether the connection group is enabled.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * IPv6 is enabled for the connection group.
+     */
     ipv6Enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the connection group.
+     */
     name?: pulumi.Input<string>;
     /**
      * A complex type that contains zero or more `Tag` elements.

@@ -517,7 +517,7 @@ func (o RotationScheduleRotationRulesPtrOutput) ScheduleExpression() pulumi.Stri
 
 // Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
 //
-//	*Required permissions:* ``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+//	*Required permissions:*``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
 type SecretGenerateSecretString struct {
 	// A string of the characters that you don't want in the password.
 	ExcludeCharacters *string `pulumi:"excludeCharacters"`
@@ -554,7 +554,7 @@ type SecretGenerateSecretStringInput interface {
 
 // Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
 //
-//	*Required permissions:* ``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+//	*Required permissions:*``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
 type SecretGenerateSecretStringArgs struct {
 	// A string of the characters that you don't want in the password.
 	ExcludeCharacters pulumi.StringPtrInput `pulumi:"excludeCharacters"`
@@ -633,7 +633,7 @@ func (i *secretGenerateSecretStringPtrType) ToSecretGenerateSecretStringPtrOutpu
 
 // Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
 //
-//	*Required permissions:* ``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+//	*Required permissions:*``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
 type SecretGenerateSecretStringOutput struct{ *pulumi.OutputState }
 
 func (SecretGenerateSecretStringOutput) ElementType() reflect.Type {

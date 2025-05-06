@@ -49,6 +49,10 @@ export interface GetServiceResult {
      */
     readonly deploymentConfiguration?: outputs.ecs.ServiceDeploymentConfiguration;
     /**
+     * The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+     */
+    readonly deploymentController?: outputs.ecs.ServiceDeploymentController;
+    /**
      * The number of instantiations of the specified task definition to place and keep running in your service.
      *  For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
      *  For existing services, if a desired count is not specified, it is omitted from the operation.

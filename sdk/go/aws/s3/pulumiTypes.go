@@ -1328,7 +1328,7 @@ type BucketCorsRule struct {
 	// Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
 	// An HTTP method that you allow the origin to run.
-	//   *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+	//  *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
 	AllowedMethods []BucketCorsRuleAllowedMethodsItem `pulumi:"allowedMethods"`
 	// One or more origins you want customers to be able to access the bucket from.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
@@ -1356,7 +1356,7 @@ type BucketCorsRuleArgs struct {
 	// Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
 	// An HTTP method that you allow the origin to run.
-	//   *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+	//  *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
 	AllowedMethods BucketCorsRuleAllowedMethodsItemArrayInput `pulumi:"allowedMethods"`
 	// One or more origins you want customers to be able to access the bucket from.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
@@ -1815,7 +1815,7 @@ func (o BucketDefaultRetentionPtrOutput) Years() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether Amazon S3 replicates delete markers. If you specify a “Filter“ in your replication configuration, you must also include a “DeleteMarkerReplication“ element. If your “Filter“ includes a “Tag“ element, the “DeleteMarkerReplication“ “Status“ must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
+// Specifies whether Amazon S3 replicates delete markers. If you specify a “Filter“ in your replication configuration, you must also include a “DeleteMarkerReplication“ element. If your “Filter“ includes a “Tag“ element, the “DeleteMarkerReplication````Status“ must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
 //
 //	For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).
 //	 If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
@@ -1835,7 +1835,7 @@ type BucketDeleteMarkerReplicationInput interface {
 	ToBucketDeleteMarkerReplicationOutputWithContext(context.Context) BucketDeleteMarkerReplicationOutput
 }
 
-// Specifies whether Amazon S3 replicates delete markers. If you specify a “Filter“ in your replication configuration, you must also include a “DeleteMarkerReplication“ element. If your “Filter“ includes a “Tag“ element, the “DeleteMarkerReplication“ “Status“ must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
+// Specifies whether Amazon S3 replicates delete markers. If you specify a “Filter“ in your replication configuration, you must also include a “DeleteMarkerReplication“ element. If your “Filter“ includes a “Tag“ element, the “DeleteMarkerReplication````Status“ must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
 //
 //	For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).
 //	 If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
@@ -1897,7 +1897,7 @@ func (i *bucketDeleteMarkerReplicationPtrType) ToBucketDeleteMarkerReplicationPt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketDeleteMarkerReplicationPtrOutput)
 }
 
-// Specifies whether Amazon S3 replicates delete markers. If you specify a “Filter“ in your replication configuration, you must also include a “DeleteMarkerReplication“ element. If your “Filter“ includes a “Tag“ element, the “DeleteMarkerReplication“ “Status“ must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
+// Specifies whether Amazon S3 replicates delete markers. If you specify a “Filter“ in your replication configuration, you must also include a “DeleteMarkerReplication“ element. If your “Filter“ includes a “Tag“ element, the “DeleteMarkerReplication````Status“ must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
 //
 //	For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).
 //	 If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
@@ -1972,7 +1972,7 @@ type BucketDestination struct {
 	// The Amazon Resource Name (ARN) of the bucket to which data is exported.
 	BucketArn string `pulumi:"bucketArn"`
 	// Specifies the file format used when exporting data to Amazon S3.
-	//   *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+	//  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
 	Format BucketDestinationFormat `pulumi:"format"`
 	// The prefix to use when exporting data. The prefix is prepended to all results.
 	Prefix *string `pulumi:"prefix"`
@@ -1997,7 +1997,7 @@ type BucketDestinationArgs struct {
 	// The Amazon Resource Name (ARN) of the bucket to which data is exported.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Specifies the file format used when exporting data to Amazon S3.
-	//   *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+	//  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
 	Format BucketDestinationFormatInput `pulumi:"format"`
 	// The prefix to use when exporting data. The prefix is prepended to all results.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -3146,8 +3146,8 @@ type BucketLifecycleConfiguration struct {
 	Rules []BucketRule `pulumi:"rules"`
 	// Indicates which default minimum object size behavior is applied to the lifecycle configuration.
 	//   This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
-	//    +   ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
-	//   +   ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+	//    +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
+	//   +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
 	//
 	//  To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
 	TransitionDefaultMinimumObjectSize *BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize `pulumi:"transitionDefaultMinimumObjectSize"`
@@ -3170,8 +3170,8 @@ type BucketLifecycleConfigurationArgs struct {
 	Rules BucketRuleArrayInput `pulumi:"rules"`
 	// Indicates which default minimum object size behavior is applied to the lifecycle configuration.
 	//   This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
-	//    +   ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
-	//   +   ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+	//    +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
+	//   +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
 	//
 	//  To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
 	TransitionDefaultMinimumObjectSize BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrInput `pulumi:"transitionDefaultMinimumObjectSize"`
@@ -3263,8 +3263,8 @@ func (o BucketLifecycleConfigurationOutput) Rules() BucketRuleArrayOutput {
 // Indicates which default minimum object size behavior is applied to the lifecycle configuration.
 //
 //	 This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
-//	  +   ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
-//	 +   ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+//	  +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
+//	 +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
 //
 //	To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
 func (o BucketLifecycleConfigurationOutput) TransitionDefaultMinimumObjectSize() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
@@ -3310,8 +3310,8 @@ func (o BucketLifecycleConfigurationPtrOutput) Rules() BucketRuleArrayOutput {
 // Indicates which default minimum object size behavior is applied to the lifecycle configuration.
 //
 //	 This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
-//	  +   ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
-//	 +   ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+//	  +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
+//	 +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
 //
 //	To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
 func (o BucketLifecycleConfigurationPtrOutput) TransitionDefaultMinimumObjectSize() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
@@ -5844,7 +5844,7 @@ func (o BucketRedirectRuleOutput) ReplaceKeyWith() pulumi.StringPtrOutput {
 // A filter that you can specify for selection for modifications on replicas.
 type BucketReplicaModifications struct {
 	// Specifies whether Amazon S3 replicates modifications on replicas.
-	//   *Allowed values*: ``Enabled`` | ``Disabled``
+	//  *Allowed values*: ``Enabled`` | ``Disabled``
 	Status BucketReplicaModificationsStatus `pulumi:"status"`
 }
 
@@ -5862,7 +5862,7 @@ type BucketReplicaModificationsInput interface {
 // A filter that you can specify for selection for modifications on replicas.
 type BucketReplicaModificationsArgs struct {
 	// Specifies whether Amazon S3 replicates modifications on replicas.
-	//   *Allowed values*: ``Enabled`` | ``Disabled``
+	//  *Allowed values*: ``Enabled`` | ``Disabled``
 	Status BucketReplicaModificationsStatusInput `pulumi:"status"`
 }
 
@@ -6267,7 +6267,7 @@ func (o BucketReplicationDestinationOutput) StorageClass() BucketReplicationDest
 
 // Specifies which Amazon S3 objects to replicate and where to store the replicas.
 type BucketReplicationRule struct {
-	// Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
+	// Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
 	//  For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).
 	//   If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
 	DeleteMarkerReplication *BucketDeleteMarkerReplication `pulumi:"deleteMarkerReplication"`
@@ -6303,7 +6303,7 @@ type BucketReplicationRuleInput interface {
 
 // Specifies which Amazon S3 objects to replicate and where to store the replicas.
 type BucketReplicationRuleArgs struct {
-	// Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
+	// Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
 	//  For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).
 	//   If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
 	DeleteMarkerReplication BucketDeleteMarkerReplicationPtrInput `pulumi:"deleteMarkerReplication"`
@@ -6378,7 +6378,7 @@ func (o BucketReplicationRuleOutput) ToBucketReplicationRuleOutputWithContext(ct
 	return o
 }
 
-// Specifies whether Amazon S3 replicates delete markers. If you specify a “Filter“ in your replication configuration, you must also include a “DeleteMarkerReplication“ element. If your “Filter“ includes a “Tag“ element, the “DeleteMarkerReplication“ “Status“ must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
+// Specifies whether Amazon S3 replicates delete markers. If you specify a “Filter“ in your replication configuration, you must also include a “DeleteMarkerReplication“ element. If your “Filter“ includes a “Tag“ element, the “DeleteMarkerReplication````Status“ must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
 //
 //	For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).
 //	 If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
@@ -7995,8 +7995,8 @@ func (o BucketS3TablesDestinationPtrOutput) TableNamespace() pulumi.StringPtrOut
 //   - *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
 type BucketServerSideEncryptionByDefault struct {
 	// AWS Key Management Service (KMS) customer managed key ID to use for the default encryption.
-	//    +   *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
-	//   +   *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
+	//    +  *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
+	//   +  *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
 	//
 	//   You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
 	//   +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
@@ -8004,8 +8004,8 @@ type BucketServerSideEncryptionByDefault struct {
 	//   +  Key Alias: ``alias/alias-name``
 	//
 	//  If you are using encryption with cross-account or AWS service operations, you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).
-	//    +   *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log.
-	//   +   *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
+	//    +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log.
+	//   +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
 	//
 	//    Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
 	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
@@ -8031,8 +8031,8 @@ type BucketServerSideEncryptionByDefaultInput interface {
 //   - *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
 type BucketServerSideEncryptionByDefaultArgs struct {
 	// AWS Key Management Service (KMS) customer managed key ID to use for the default encryption.
-	//    +   *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
-	//   +   *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
+	//    +  *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
+	//   +  *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
 	//
 	//   You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
 	//   +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
@@ -8040,8 +8040,8 @@ type BucketServerSideEncryptionByDefaultArgs struct {
 	//   +  Key Alias: ``alias/alias-name``
 	//
 	//  If you are using encryption with cross-account or AWS service operations, you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).
-	//    +   *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log.
-	//   +   *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
+	//    +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log.
+	//   +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
 	//
 	//    Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
 	KmsMasterKeyId pulumi.StringPtrInput `pulumi:"kmsMasterKeyId"`

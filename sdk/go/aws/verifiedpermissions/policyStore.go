@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -56,6 +57,8 @@ type PolicyStore struct {
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
 	// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
 	Schema PolicyStoreSchemaDefinitionPtrOutput `pulumi:"schema"`
+	// The tags to add to the policy store
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Specifies the validation setting for this policy store.
 	//
 	// Currently, the only valid and required value is `Mode` .
@@ -111,6 +114,8 @@ type policyStoreArgs struct {
 	Description *string `pulumi:"description"`
 	// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
 	Schema *PolicyStoreSchemaDefinition `pulumi:"schema"`
+	// The tags to add to the policy store
+	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies the validation setting for this policy store.
 	//
 	// Currently, the only valid and required value is `Mode` .
@@ -125,6 +130,8 @@ type PolicyStoreArgs struct {
 	Description pulumi.StringPtrInput
 	// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
 	Schema PolicyStoreSchemaDefinitionPtrInput
+	// The tags to add to the policy store
+	Tags aws.TagArrayInput
 	// Specifies the validation setting for this policy store.
 	//
 	// Currently, the only valid and required value is `Mode` .
@@ -188,6 +195,11 @@ func (o PolicyStoreOutput) PolicyStoreId() pulumi.StringOutput {
 // Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
 func (o PolicyStoreOutput) Schema() PolicyStoreSchemaDefinitionPtrOutput {
 	return o.ApplyT(func(v *PolicyStore) PolicyStoreSchemaDefinitionPtrOutput { return v.Schema }).(PolicyStoreSchemaDefinitionPtrOutput)
+}
+
+// The tags to add to the policy store
+func (o PolicyStoreOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *PolicyStore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Specifies the validation setting for this policy store.

@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// </summary>
         public readonly Outputs.PolicyStoreSchemaDefinition? Schema;
         /// <summary>
+        /// The tags to add to the policy store
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// Specifies the validation setting for this policy store.
         /// 
         /// Currently, the only valid and required value is `Mode` .
@@ -98,12 +102,15 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
             Outputs.PolicyStoreSchemaDefinition? schema,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             Outputs.PolicyStoreValidationSettings? validationSettings)
         {
             Arn = arn;
             Description = description;
             PolicyStoreId = policyStoreId;
             Schema = schema;
+            Tags = tags;
             ValidationSettings = validationSettings;
         }
     }

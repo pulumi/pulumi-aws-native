@@ -2694,6 +2694,7 @@ type BlueprintType string
 const (
 	BlueprintTypeDocument = BlueprintType("DOCUMENT")
 	BlueprintTypeImage    = BlueprintType("IMAGE")
+	BlueprintTypeAudio    = BlueprintType("AUDIO")
 )
 
 func (BlueprintType) ElementType() reflect.Type {
@@ -2820,6 +2821,7 @@ func (o BlueprintTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //
 //	BlueprintTypeDocument
 //	BlueprintTypeImage
+//	BlueprintTypeAudio
 type BlueprintTypeInput interface {
 	pulumi.Input
 

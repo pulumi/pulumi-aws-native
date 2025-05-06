@@ -70,6 +70,7 @@ __all__ = [
     'EnvironmentBlueprintConfigurationRegionalParameter',
     'EnvironmentParameter',
     'EnvironmentProfileEnvironmentParameter',
+    'OwnerProperties',
     'ProjectMembershipMember0Properties',
     'ProjectMembershipMember1Properties',
     'SubscriptionTargetForm',
@@ -2492,6 +2493,18 @@ class EnvironmentProfileEnvironmentParameter(dict):
         The value of an environment profile parameter.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OwnerProperties(dict):
+    """
+    The properties of a domain unit's owner.
+    """
+    def __init__(__self__):
+        """
+        The properties of a domain unit's owner.
+        """
+        pass
 
 
 @pulumi.output_type

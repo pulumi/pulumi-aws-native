@@ -69,6 +69,18 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
+        [Input("ssmParameterConfigurations")]
+        private InputList<Inputs.DistributionConfigurationSsmParameterConfigurationArgs>? _ssmParameterConfigurations;
+
+        /// <summary>
+        /// The SSM parameter configurations to use for AMI distribution.
+        /// </summary>
+        public InputList<Inputs.DistributionConfigurationSsmParameterConfigurationArgs> SsmParameterConfigurations
+        {
+            get => _ssmParameterConfigurations ?? (_ssmParameterConfigurations = new InputList<Inputs.DistributionConfigurationSsmParameterConfigurationArgs>());
+            set => _ssmParameterConfigurations = value;
+        }
+
         public DistributionConfigurationDistributionArgs()
         {
         }

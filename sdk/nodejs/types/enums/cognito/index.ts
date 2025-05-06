@@ -40,6 +40,16 @@ export const ManagedLoginBrandingExtensionType = {
 
 export type ManagedLoginBrandingExtensionType = (typeof ManagedLoginBrandingExtensionType)[keyof typeof ManagedLoginBrandingExtensionType];
 
+export const UserPoolClientRefreshTokenRotationFeature = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The state of refresh token rotation for the current app client.
+ */
+export type UserPoolClientRefreshTokenRotationFeature = (typeof UserPoolClientRefreshTokenRotationFeature)[keyof typeof UserPoolClientRefreshTokenRotationFeature];
+
 export const UserPoolTier = {
     Lite: "LITE",
     Essentials: "ESSENTIALS",

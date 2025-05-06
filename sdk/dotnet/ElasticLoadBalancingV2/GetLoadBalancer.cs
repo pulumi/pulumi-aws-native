@@ -86,6 +86,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         ///  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
         /// </summary>
         public readonly string? IpAddressType;
+        /// <summary>
+        /// The ID of the IPv4 IPAM pool.
+        /// </summary>
         public readonly string? Ipv4IpamPoolId;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the load balancer.

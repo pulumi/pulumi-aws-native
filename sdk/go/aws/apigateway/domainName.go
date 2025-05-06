@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ApiGateway::DomainName.
+// The “AWS::ApiGateway::DomainName“ resource specifies a custom domain name for your API in API Gateway.
+//
+//	You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 //
 // ## Example Usage
 // ### Example
@@ -103,7 +105,8 @@ type DomainName struct {
 	// The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
 	DistributionHostedZoneId pulumi.StringOutput `pulumi:"distributionHostedZoneId"`
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
-	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
+	DomainName    pulumi.StringPtrOutput `pulumi:"domainName"`
+	DomainNameArn pulumi.StringOutput    `pulumi:"domainNameArn"`
 	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	EndpointConfiguration DomainNameEndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
@@ -261,6 +264,10 @@ func (o DomainNameOutput) DistributionHostedZoneId() pulumi.StringOutput {
 // The custom domain name as an API host name, for example, `my-api.example.com` .
 func (o DomainNameOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainNameOutput) DomainNameArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainNameArn }).(pulumi.StringOutput)
 }
 
 // The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.

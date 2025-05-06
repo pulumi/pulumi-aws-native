@@ -50,8 +50,8 @@ class ResolverArgs:
         :param pulumi.Input[builtins.str] code_s3_location: The Amazon S3 endpoint.
         :param pulumi.Input[builtins.str] data_source_name: The resolver data source name.
         :param pulumi.Input[builtins.str] kind: The resolver type.
-                 +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
-                 +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
+                 +  *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+                 +  *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
         :param pulumi.Input[builtins.int] max_batch_size: The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
         :param pulumi.Input['ResolverMetricsConfig'] metrics_config: Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
         :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: Functions linked with the pipeline resolver.
@@ -184,8 +184,8 @@ class ResolverArgs:
     def kind(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The resolver type.
-          +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
-          +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
+          +  *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+          +  *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
         """
         return pulumi.get(self, "kind")
 
@@ -367,8 +367,8 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] data_source_name: The resolver data source name.
         :param pulumi.Input[builtins.str] field_name: The GraphQL field on a type that invokes the resolver.
         :param pulumi.Input[builtins.str] kind: The resolver type.
-                 +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
-                 +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
+                 +  *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+                 +  *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
         :param pulumi.Input[builtins.int] max_batch_size: The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
         :param pulumi.Input['ResolverMetricsConfig'] metrics_config: Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
         :param pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']] pipeline_config: Functions linked with the pipeline resolver.
@@ -578,8 +578,8 @@ class Resolver(pulumi.CustomResource):
     def kind(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         The resolver type.
-          +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
-          +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
+          +  *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+          +  *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
         """
         return pulumi.get(self, "kind")
 
