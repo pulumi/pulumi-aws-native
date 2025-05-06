@@ -77,7 +77,7 @@
       "permissions" : [ "apprunner:CreateAutoScalingConfiguration", "apprunner:DescribeAutoScalingConfiguration", "apprunner:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "apprunner:DescribeAutoScalingConfiguration", "apprunner:ListTagsForResource" ]
+      "permissions" : [ "apprunner:DescribeAutoScalingConfiguration" ]
     },
     "delete" : {
       "permissions" : [ "apprunner:DeleteAutoScalingConfiguration" ]

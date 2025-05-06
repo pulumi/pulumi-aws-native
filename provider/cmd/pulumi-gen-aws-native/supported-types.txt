@@ -130,6 +130,7 @@ AWS::Bedrock::FlowAlias
 AWS::Bedrock::FlowVersion
 AWS::Bedrock::Guardrail
 AWS::Bedrock::GuardrailVersion
+AWS::Bedrock::IntelligentPromptRouter
 AWS::Bedrock::KnowledgeBase
 AWS::Bedrock::Prompt
 AWS::Bedrock::PromptVersion
@@ -299,11 +300,13 @@ AWS::DataSync::Task
 AWS::DataZone::Connection
 AWS::DataZone::DataSource
 AWS::DataZone::Domain
+AWS::DataZone::DomainUnit
 AWS::DataZone::Environment
 AWS::DataZone::EnvironmentActions
 AWS::DataZone::EnvironmentBlueprintConfiguration
 AWS::DataZone::EnvironmentProfile
 AWS::DataZone::GroupProfile
+AWS::DataZone::Owner
 AWS::DataZone::Project
 AWS::DataZone::ProjectMembership
 AWS::DataZone::SubscriptionTarget
