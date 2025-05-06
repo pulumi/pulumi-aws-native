@@ -1390,6 +1390,7 @@ class DistributionConfig(dict):
         :param Sequence[builtins.str] cnames: An alias for the CF distribution's domain name.
                  This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
         :param builtins.str comment: A comment to describe the distribution. The comment cannot be longer than 128 characters.
+        :param 'DistributionConnectionMode' connection_mode: The connection mode to filter distributions by.
         :param builtins.str continuous_deployment_policy_id: The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
         :param Sequence['DistributionCustomErrorResponse'] custom_error_responses: A complex type that controls the following:
                  +  Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
@@ -1428,6 +1429,7 @@ class DistributionConfig(dict):
         :param 'DistributionLegacyS3Origin' s3_origin: The origin as an S3 bucket.
                  This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
         :param builtins.bool staging: A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
+        :param 'DistributionConfigTenantConfigProperties' tenant_config: A distribution tenant configuration.
         :param 'DistributionViewerCertificate' viewer_certificate: A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
         :param builtins.str web_acl_id: A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
                  WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
@@ -1539,6 +1541,9 @@ class DistributionConfig(dict):
     @property
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> Optional['DistributionConnectionMode']:
+        """
+        The connection mode to filter distributions by.
+        """
         return pulumi.get(self, "connection_mode")
 
     @property
@@ -1673,6 +1678,9 @@ class DistributionConfig(dict):
     @property
     @pulumi.getter(name="tenantConfig")
     def tenant_config(self) -> Optional['outputs.DistributionConfigTenantConfigProperties']:
+        """
+        A distribution tenant configuration.
+        """
         return pulumi.get(self, "tenant_config")
 
     @property
@@ -1695,6 +1703,9 @@ class DistributionConfig(dict):
 
 @pulumi.output_type
 class DistributionConfigTenantConfigProperties(dict):
+    """
+    A distribution tenant configuration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1714,6 +1725,9 @@ class DistributionConfigTenantConfigProperties(dict):
 
     def __init__(__self__, *,
                  parameter_definitions: Optional[Sequence['outputs.DistributionParameterDefinition']] = None):
+        """
+        A distribution tenant configuration.
+        """
         if parameter_definitions is not None:
             pulumi.set(__self__, "parameter_definitions", parameter_definitions)
 
@@ -3499,22 +3513,35 @@ class DistributionParameterDefinition(dict):
     def __init__(__self__, *,
                  definition: 'outputs.DistributionParameterDefinitionDefinitionProperties',
                  name: builtins.str):
+        """
+        :param 'DistributionParameterDefinitionDefinitionProperties' definition: The value that you assigned to the parameter.
+        :param builtins.str name: The name of the parameter.
+        """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def definition(self) -> 'outputs.DistributionParameterDefinitionDefinitionProperties':
+        """
+        The value that you assigned to the parameter.
+        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        The name of the parameter.
+        """
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class DistributionParameterDefinitionDefinitionProperties(dict):
+    """
+    The value that you assigned to the parameter.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3534,6 +3561,9 @@ class DistributionParameterDefinitionDefinitionProperties(dict):
 
     def __init__(__self__, *,
                  string_schema: Optional['outputs.DistributionParameterDefinitionDefinitionPropertiesStringSchemaProperties'] = None):
+        """
+        The value that you assigned to the parameter.
+        """
         if string_schema is not None:
             pulumi.set(__self__, "string_schema", string_schema)
 
@@ -3718,12 +3748,18 @@ class DistributionStatusCodes(dict):
 class DistributionTenantCertificate(dict):
     def __init__(__self__, *,
                  arn: Optional[builtins.str] = None):
+        """
+        :param builtins.str arn: The Amazon Resource Name (ARN) of the ACM certificate.
+        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the ACM certificate.
+        """
         return pulumi.get(self, "arn")
 
 
@@ -3752,6 +3788,11 @@ class DistributionTenantCustomizations(dict):
                  certificate: Optional['outputs.DistributionTenantCertificate'] = None,
                  geo_restrictions: Optional['outputs.DistributionTenantGeoRestrictionCustomization'] = None,
                  web_acl: Optional['outputs.DistributionTenantWebAclCustomization'] = None):
+        """
+        :param 'DistributionTenantCertificate' certificate: The AWS Certificate Manager (ACM) certificate.
+        :param 'DistributionTenantGeoRestrictionCustomization' geo_restrictions: The geographic restrictions.
+        :param 'DistributionTenantWebAclCustomization' web_acl: The AWS WAF web ACL.
+        """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
         if geo_restrictions is not None:
@@ -3762,16 +3803,25 @@ class DistributionTenantCustomizations(dict):
     @property
     @pulumi.getter
     def certificate(self) -> Optional['outputs.DistributionTenantCertificate']:
+        """
+        The AWS Certificate Manager (ACM) certificate.
+        """
         return pulumi.get(self, "certificate")
 
     @property
     @pulumi.getter(name="geoRestrictions")
     def geo_restrictions(self) -> Optional['outputs.DistributionTenantGeoRestrictionCustomization']:
+        """
+        The geographic restrictions.
+        """
         return pulumi.get(self, "geo_restrictions")
 
     @property
     @pulumi.getter(name="webAcl")
     def web_acl(self) -> Optional['outputs.DistributionTenantWebAclCustomization']:
+        """
+        The AWS WAF web ACL.
+        """
         return pulumi.get(self, "web_acl")
 
 
@@ -3780,6 +3830,10 @@ class DistributionTenantDomainResult(dict):
     def __init__(__self__, *,
                  domain: Optional[builtins.str] = None,
                  status: Optional['DistributionTenantDomainResultStatus'] = None):
+        """
+        :param builtins.str domain: The specified domain.
+        :param 'DistributionTenantDomainResultStatus' status: Whether the domain is active or inactive.
+        """
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
         if status is not None:
@@ -3788,11 +3842,17 @@ class DistributionTenantDomainResult(dict):
     @property
     @pulumi.getter
     def domain(self) -> Optional[builtins.str]:
+        """
+        The specified domain.
+        """
         return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['DistributionTenantDomainResultStatus']:
+        """
+        Whether the domain is active or inactive.
+        """
         return pulumi.get(self, "status")
 
 
@@ -3818,6 +3878,14 @@ class DistributionTenantGeoRestrictionCustomization(dict):
     def __init__(__self__, *,
                  locations: Optional[Sequence[builtins.str]] = None,
                  restriction_type: Optional['DistributionTenantGeoRestrictionCustomizationRestrictionType'] = None):
+        """
+        :param Sequence[builtins.str] locations: The locations for geographic restrictions.
+        :param 'DistributionTenantGeoRestrictionCustomizationRestrictionType' restriction_type: The method that you want to use to restrict distribution of your content by country:
+               
+               - `none` : No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
+               - `blacklist` : The `Location` elements specify the countries in which you don't want CloudFront to distribute your content.
+               - `whitelist` : The `Location` elements specify the countries in which you want CloudFront to distribute your content.
+        """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
         if restriction_type is not None:
@@ -3826,11 +3894,21 @@ class DistributionTenantGeoRestrictionCustomization(dict):
     @property
     @pulumi.getter
     def locations(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The locations for geographic restrictions.
+        """
         return pulumi.get(self, "locations")
 
     @property
     @pulumi.getter(name="restrictionType")
     def restriction_type(self) -> Optional['DistributionTenantGeoRestrictionCustomizationRestrictionType']:
+        """
+        The method that you want to use to restrict distribution of your content by country:
+
+        - `none` : No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
+        - `blacklist` : The `Location` elements specify the countries in which you don't want CloudFront to distribute your content.
+        - `whitelist` : The `Location` elements specify the countries in which you want CloudFront to distribute your content.
+        """
         return pulumi.get(self, "restriction_type")
 
 
@@ -3861,6 +3939,14 @@ class DistributionTenantManagedCertificateRequest(dict):
                  certificate_transparency_logging_preference: Optional['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference'] = None,
                  primary_domain_name: Optional[builtins.str] = None,
                  validation_token_host: Optional['DistributionTenantManagedCertificateRequestValidationTokenHost'] = None):
+        """
+        :param 'DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference' certificate_transparency_logging_preference: You can opt out of certificate transparency logging by specifying the `disabled` option. Opt in by specifying `enabled` . For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *AWS Certificate Manager User Guide* .
+        :param builtins.str primary_domain_name: The primary domain name associated with the CloudFront managed ACM certificate.
+        :param 'DistributionTenantManagedCertificateRequestValidationTokenHost' validation_token_host: Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.
+               
+               - For `cloudfront` , CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
+               - For `self-hosted` , you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
+        """
         if certificate_transparency_logging_preference is not None:
             pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
         if primary_domain_name is not None:
@@ -3871,16 +3957,28 @@ class DistributionTenantManagedCertificateRequest(dict):
     @property
     @pulumi.getter(name="certificateTransparencyLoggingPreference")
     def certificate_transparency_logging_preference(self) -> Optional['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference']:
+        """
+        You can opt out of certificate transparency logging by specifying the `disabled` option. Opt in by specifying `enabled` . For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *AWS Certificate Manager User Guide* .
+        """
         return pulumi.get(self, "certificate_transparency_logging_preference")
 
     @property
     @pulumi.getter(name="primaryDomainName")
     def primary_domain_name(self) -> Optional[builtins.str]:
+        """
+        The primary domain name associated with the CloudFront managed ACM certificate.
+        """
         return pulumi.get(self, "primary_domain_name")
 
     @property
     @pulumi.getter(name="validationTokenHost")
     def validation_token_host(self) -> Optional['DistributionTenantManagedCertificateRequestValidationTokenHost']:
+        """
+        Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.
+
+        - For `cloudfront` , CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
+        - For `self-hosted` , you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
+        """
         return pulumi.get(self, "validation_token_host")
 
 
@@ -3889,6 +3987,10 @@ class DistributionTenantParameter(dict):
     def __init__(__self__, *,
                  name: Optional[builtins.str] = None,
                  value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: The parameter name.
+        :param builtins.str value: The parameter value.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -3897,11 +3999,17 @@ class DistributionTenantParameter(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
+        """
+        The parameter name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[builtins.str]:
+        """
+        The parameter value.
+        """
         return pulumi.get(self, "value")
 
 
@@ -3910,6 +4018,10 @@ class DistributionTenantWebAclCustomization(dict):
     def __init__(__self__, *,
                  action: Optional['DistributionTenantWebAclCustomizationAction'] = None,
                  arn: Optional[builtins.str] = None):
+        """
+        :param 'DistributionTenantWebAclCustomizationAction' action: The action for the AWS WAF web ACL customization. You can specify `override` to specify a separate AWS WAF web ACL for the distribution tenant. If you specify `disable` , the distribution tenant won't have AWS WAF web ACL protections and won't inherit from the multi-tenant distribution.
+        :param builtins.str arn: The Amazon Resource Name (ARN) of the AWS WAF web ACL.
+        """
         if action is not None:
             pulumi.set(__self__, "action", action)
         if arn is not None:
@@ -3918,11 +4030,17 @@ class DistributionTenantWebAclCustomization(dict):
     @property
     @pulumi.getter
     def action(self) -> Optional['DistributionTenantWebAclCustomizationAction']:
+        """
+        The action for the AWS WAF web ACL customization. You can specify `override` to specify a separate AWS WAF web ACL for the distribution tenant. If you specify `disable` , the distribution tenant won't have AWS WAF web ACL protections and won't inherit from the multi-tenant distribution.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS WAF web ACL.
+        """
         return pulumi.get(self, "arn")
 
 

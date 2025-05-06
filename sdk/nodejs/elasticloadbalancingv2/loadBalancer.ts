@@ -60,6 +60,9 @@ export class LoadBalancer extends pulumi.CustomResource {
      *  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the IPv4 IPAM pool.
+     */
     public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the load balancer.
@@ -198,6 +201,9 @@ export interface LoadBalancerArgs {
      *  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
      */
     ipAddressType?: pulumi.Input<string>;
+    /**
+     * The ID of the IPv4 IPAM pool.
+     */
     ipv4IpamPoolId?: pulumi.Input<string>;
     /**
      * The load balancer attributes.

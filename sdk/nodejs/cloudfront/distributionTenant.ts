@@ -37,26 +37,62 @@ export class DistributionTenant extends pulumi.CustomResource {
         return obj['__pulumiType'] === DistributionTenant.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the distribution tenant.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the distribution tenant.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+     */
     public readonly connectionGroupId!: pulumi.Output<string | undefined>;
+    /**
+     * The date and time when the distribution tenant was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+     */
     public readonly customizations!: pulumi.Output<outputs.cloudfront.DistributionTenantCustomizations | undefined>;
     /**
-     * The distribution's identifier. For example: `E1U5RQF7T870K0` .
+     * The ID of the multi-tenant distribution.
      */
     public readonly distributionId!: pulumi.Output<string>;
     public /*out*/ readonly domainResults!: pulumi.Output<outputs.cloudfront.DistributionTenantDomainResult[]>;
+    /**
+     * The domains associated with the distribution tenant.
+     */
     public readonly domains!: pulumi.Output<string[]>;
     /**
-     * A complex type that contains `Tag` key and `Tag` value.
+     * The current version of the distribution tenant.
      */
     public /*out*/ readonly eTag!: pulumi.Output<string>;
+    /**
+     * Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The date and time when the distribution tenant was updated.
+     */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
+     * An object that represents the request for the Amazon CloudFront managed ACM certificate.
+     */
     public readonly managedCertificateRequest!: pulumi.Output<outputs.cloudfront.DistributionTenantManagedCertificateRequest | undefined>;
+    /**
+     * The name of the distribution tenant.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+     */
     public readonly parameters!: pulumi.Output<outputs.cloudfront.DistributionTenantParameter[] | undefined>;
+    /**
+     * The status of the distribution tenant.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * A complex type that contains zero or more `Tag` elements.
@@ -125,16 +161,37 @@ export class DistributionTenant extends pulumi.CustomResource {
  * The set of arguments for constructing a DistributionTenant resource.
  */
 export interface DistributionTenantArgs {
+    /**
+     * The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+     */
     connectionGroupId?: pulumi.Input<string>;
+    /**
+     * Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+     */
     customizations?: pulumi.Input<inputs.cloudfront.DistributionTenantCustomizationsArgs>;
     /**
-     * The distribution's identifier. For example: `E1U5RQF7T870K0` .
+     * The ID of the multi-tenant distribution.
      */
     distributionId: pulumi.Input<string>;
+    /**
+     * The domains associated with the distribution tenant.
+     */
     domains: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * An object that represents the request for the Amazon CloudFront managed ACM certificate.
+     */
     managedCertificateRequest?: pulumi.Input<inputs.cloudfront.DistributionTenantManagedCertificateRequestArgs>;
+    /**
+     * The name of the distribution tenant.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+     */
     parameters?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantParameterArgs>[]>;
     /**
      * A complex type that contains zero or more `Tag` elements.

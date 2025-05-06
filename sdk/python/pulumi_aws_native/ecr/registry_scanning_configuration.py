@@ -149,6 +149,9 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The account ID of the destination registry.
+        """
         return pulumi.get(self, "registry_id")
 
     @property

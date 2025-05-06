@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.S3.Outputs
     {
         /// <summary>
         /// Specifies whether Amazon S3 replicates modifications on replicas.
-        ///   *Allowed values*: ``Enabled`` | ``Disabled``
+        ///  *Allowed values*: ``Enabled`` | ``Disabled``
         /// </summary>
         public readonly Pulumi.AwsNative.S3.BucketReplicaModificationsStatus Status;
 

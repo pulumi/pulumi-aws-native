@@ -261,7 +261,7 @@ class RotationScheduleRotationRules(dict):
 class SecretGenerateSecretString(dict):
     """
     Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
-      *Required permissions:* ``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+     *Required permissions:*``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -311,7 +311,7 @@ class SecretGenerateSecretString(dict):
                  secret_string_template: Optional[builtins.str] = None):
         """
         Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
-          *Required permissions:* ``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+         *Required permissions:*``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
         :param builtins.str exclude_characters: A string of the characters that you don't want in the password.
         :param builtins.bool exclude_lowercase: Specifies whether to exclude lowercase letters from the password. If you don't include this switch, the password can contain lowercase letters.
         :param builtins.bool exclude_numbers: Specifies whether to exclude numbers from the password. If you don't include this switch, the password can contain numbers.

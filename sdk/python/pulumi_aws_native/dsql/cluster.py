@@ -27,6 +27,7 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A map of key and value pairs this cluster is tagged with.
         """
         if deletion_protection_enabled is not None:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
@@ -48,6 +49,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A map of key and value pairs this cluster is tagged with.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -72,6 +76,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A map of key and value pairs this cluster is tagged with.
         """
         ...
     @overload
@@ -114,6 +119,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["identifier"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["vpc_endpoint_service_name"] = None
         super(Cluster, __self__).__init__(
             'aws-native:dsql:Cluster',
             resource_name,
@@ -142,6 +148,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_endpoint_service_name"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -187,5 +194,16 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A map of key and value pairs this cluster is tagged with.
+        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcEndpointServiceName")
+    def vpc_endpoint_service_name(self) -> pulumi.Output[builtins.str]:
+        """
+        The VPC endpoint service name.
+        """
+        return pulumi.get(self, "vpc_endpoint_service_name")
 

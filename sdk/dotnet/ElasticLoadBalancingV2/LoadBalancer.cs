@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the IPv4 IPAM pool.
+        /// </summary>
         [Output("ipv4IpamPoolId")]
         public Output<string?> Ipv4IpamPoolId { get; private set; } = null!;
 
@@ -208,6 +211,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
+        /// <summary>
+        /// The ID of the IPv4 IPAM pool.
+        /// </summary>
         [Input("ipv4IpamPoolId")]
         public Input<string>? Ipv4IpamPoolId { get; set; }
 

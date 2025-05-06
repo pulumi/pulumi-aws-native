@@ -33,7 +33,7 @@ class ManagedLoginBrandingArgs:
         The set of arguments for constructing a ManagedLoginBranding resource.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool where the branding style is assigned.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetTypeArgs']]] assets: An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
-        :param pulumi.Input[builtins.str] client_id: The app client that's assigned to the branding style that you want more information about.
+        :param pulumi.Input[builtins.str] client_id: The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
         :param pulumi.Input[builtins.bool] return_merged_resources: When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
         :param Any settings: A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
                
@@ -82,7 +82,7 @@ class ManagedLoginBrandingArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The app client that's assigned to the branding style that you want more information about.
+        The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
         """
         return pulumi.get(self, "client_id")
 
@@ -152,7 +152,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict']]]] assets: An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
-        :param pulumi.Input[builtins.str] client_id: The app client that's assigned to the branding style that you want more information about.
+        :param pulumi.Input[builtins.str] client_id: The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
         :param pulumi.Input[builtins.bool] return_merged_resources: When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
         :param Any settings: A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
                
@@ -255,7 +255,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The app client that's assigned to the branding style that you want more information about.
+        The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
         """
         return pulumi.get(self, "client_id")
 

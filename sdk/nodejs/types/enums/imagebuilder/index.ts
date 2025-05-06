@@ -66,6 +66,16 @@ export const ContainerRecipeTargetContainerRepositoryService = {
  */
 export type ContainerRecipeTargetContainerRepositoryService = (typeof ContainerRecipeTargetContainerRepositoryService)[keyof typeof ContainerRecipeTargetContainerRepositoryService];
 
+export const DistributionConfigurationSsmParameterConfigurationDataType = {
+    Text: "text",
+    Awsec2image: "aws:ec2:image",
+} as const;
+
+/**
+ * The data type of the SSM parameter.
+ */
+export type DistributionConfigurationSsmParameterConfigurationDataType = (typeof DistributionConfigurationSsmParameterConfigurationDataType)[keyof typeof DistributionConfigurationSsmParameterConfigurationDataType];
+
 export const DistributionConfigurationTargetContainerRepositoryService = {
     Ecr: "ECR",
 } as const;

@@ -72,8 +72,8 @@ type Resolver struct {
 	// The GraphQL field on a type that invokes the resolver.
 	FieldName pulumi.StringOutput `pulumi:"fieldName"`
 	// The resolver type.
-	//   +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
-	//   +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
+	//   +  *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+	//   +  *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
 	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
@@ -168,8 +168,8 @@ type resolverArgs struct {
 	// The GraphQL field on a type that invokes the resolver.
 	FieldName string `pulumi:"fieldName"`
 	// The resolver type.
-	//   +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
-	//   +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
+	//   +  *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+	//   +  *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 	Kind *string `pulumi:"kind"`
 	// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
@@ -209,8 +209,8 @@ type ResolverArgs struct {
 	// The GraphQL field on a type that invokes the resolver.
 	FieldName pulumi.StringInput
 	// The resolver type.
-	//   +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
-	//   +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
+	//   +  *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+	//   +  *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 	Kind pulumi.StringPtrInput
 	// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
 	MaxBatchSize pulumi.IntPtrInput

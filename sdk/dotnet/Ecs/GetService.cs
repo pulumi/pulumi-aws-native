@@ -98,6 +98,10 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         public readonly Outputs.ServiceDeploymentConfiguration? DeploymentConfiguration;
         /// <summary>
+        /// The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+        /// </summary>
+        public readonly Outputs.ServiceDeploymentController? DeploymentController;
+        /// <summary>
         /// The number of instantiations of the specified task definition to place and keep running in your service.
         ///  For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
         ///  For existing services, if a desired count is not specified, it is omitted from the operation.
@@ -191,6 +195,8 @@ namespace Pulumi.AwsNative.Ecs
 
             Outputs.ServiceDeploymentConfiguration? deploymentConfiguration,
 
+            Outputs.ServiceDeploymentController? deploymentController,
+
             int? desiredCount,
 
             bool? enableEcsManagedTags,
@@ -226,6 +232,7 @@ namespace Pulumi.AwsNative.Ecs
             AvailabilityZoneRebalancing = availabilityZoneRebalancing;
             CapacityProviderStrategy = capacityProviderStrategy;
             DeploymentConfiguration = deploymentConfiguration;
+            DeploymentController = deploymentController;
             DesiredCount = desiredCount;
             EnableEcsManagedTags = enableEcsManagedTags;
             EnableExecuteCommand = enableExecuteCommand;

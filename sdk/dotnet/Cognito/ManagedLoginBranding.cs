@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<ImmutableArray<Outputs.ManagedLoginBrandingAssetType>> Assets { get; private set; } = null!;
 
         /// <summary>
-        /// The app client that's assigned to the branding style that you want more information about.
+        /// The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
         /// </summary>
         [Output("clientId")]
         public Output<string?> ClientId { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.Cognito
         }
 
         /// <summary>
-        /// The app client that's assigned to the branding style that you want more information about.
+        /// The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }

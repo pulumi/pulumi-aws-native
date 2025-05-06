@@ -31,6 +31,8 @@ __all__ = [
     'ChannelTimeShiftConfigurationArgsDict',
     'LiveSourceHttpPackageConfigurationArgs',
     'LiveSourceHttpPackageConfigurationArgsDict',
+    'PlaybackConfigurationAdConditioningConfigurationArgs',
+    'PlaybackConfigurationAdConditioningConfigurationArgsDict',
     'PlaybackConfigurationAdMarkerPassthroughArgs',
     'PlaybackConfigurationAdMarkerPassthroughArgsDict',
     'PlaybackConfigurationAvailSuppressionArgs',
@@ -507,6 +509,41 @@ class LiveSourceHttpPackageConfigurationArgs:
     @type.setter
     def type(self, value: pulumi.Input['LiveSourceType']):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class PlaybackConfigurationAdConditioningConfigurationArgsDict(TypedDict):
+        """
+        <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+        """
+        streaming_media_file_conditioning: pulumi.Input['PlaybackConfigurationStreamingMediaFileConditioning']
+        """
+        For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the AWS Elemental MediaTailor user guide.
+        """
+elif False:
+    PlaybackConfigurationAdConditioningConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlaybackConfigurationAdConditioningConfigurationArgs:
+    def __init__(__self__, *,
+                 streaming_media_file_conditioning: pulumi.Input['PlaybackConfigurationStreamingMediaFileConditioning']):
+        """
+        <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+        :param pulumi.Input['PlaybackConfigurationStreamingMediaFileConditioning'] streaming_media_file_conditioning: For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the AWS Elemental MediaTailor user guide.
+        """
+        pulumi.set(__self__, "streaming_media_file_conditioning", streaming_media_file_conditioning)
+
+    @property
+    @pulumi.getter(name="streamingMediaFileConditioning")
+    def streaming_media_file_conditioning(self) -> pulumi.Input['PlaybackConfigurationStreamingMediaFileConditioning']:
+        """
+        For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the AWS Elemental MediaTailor user guide.
+        """
+        return pulumi.get(self, "streaming_media_file_conditioning")
+
+    @streaming_media_file_conditioning.setter
+    def streaming_media_file_conditioning(self, value: pulumi.Input['PlaybackConfigurationStreamingMediaFileConditioning']):
+        pulumi.set(self, "streaming_media_file_conditioning", value)
 
 
 if not MYPY:

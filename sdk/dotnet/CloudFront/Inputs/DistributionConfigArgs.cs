@@ -64,6 +64,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// The connection mode to filter distributions by.
+        /// </summary>
         [Input("connectionMode")]
         public Input<Pulumi.AwsNative.CloudFront.DistributionConnectionMode>? ConnectionMode { get; set; }
 
@@ -194,6 +197,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("staging")]
         public Input<bool>? Staging { get; set; }
 
+        /// <summary>
+        /// A distribution tenant configuration.
+        /// </summary>
         [Input("tenantConfig")]
         public Input<Inputs.DistributionConfigTenantConfigPropertiesArgs>? TenantConfig { get; set; }
 

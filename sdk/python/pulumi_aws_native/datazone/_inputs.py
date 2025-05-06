@@ -121,6 +121,8 @@ __all__ = [
     'EnvironmentParameterArgsDict',
     'EnvironmentProfileEnvironmentParameterArgs',
     'EnvironmentProfileEnvironmentParameterArgsDict',
+    'OwnerPropertiesArgs',
+    'OwnerPropertiesArgsDict',
     'ProjectMembershipMember0PropertiesArgs',
     'ProjectMembershipMember0PropertiesArgsDict',
     'ProjectMembershipMember1PropertiesArgs',
@@ -2697,6 +2699,24 @@ class EnvironmentProfileEnvironmentParameterArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class OwnerPropertiesArgsDict(TypedDict):
+        """
+        The properties of a domain unit's owner.
+        """
+        pass
+elif False:
+    OwnerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OwnerPropertiesArgs:
+    def __init__(__self__):
+        """
+        The properties of a domain unit's owner.
+        """
+        pass
 
 
 if not MYPY:

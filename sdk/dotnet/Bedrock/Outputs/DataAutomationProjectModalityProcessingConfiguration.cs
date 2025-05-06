@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class DataAutomationProjectModalityProcessingConfiguration
     {
+        /// <summary>
+        /// Stores the state of the modality for your project, set to either enabled or disabled
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataAutomationProjectState? State;
 
         [OutputConstructor]

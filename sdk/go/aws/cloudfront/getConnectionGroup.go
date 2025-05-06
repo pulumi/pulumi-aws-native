@@ -24,24 +24,33 @@ func LookupConnectionGroup(ctx *pulumi.Context, args *LookupConnectionGroupArgs,
 }
 
 type LookupConnectionGroupArgs struct {
+	// The ID of the connection group.
 	Id string `pulumi:"id"`
 }
 
 type LookupConnectionGroupResult struct {
 	// The ID of the Anycast static IP list.
 	AnycastIpListId *string `pulumi:"anycastIpListId"`
-	Arn             *string `pulumi:"arn"`
-	CreatedTime     *string `pulumi:"createdTime"`
-	// A complex type that contains `Tag` key and `Tag` value.
-	ETag             *string `pulumi:"eTag"`
-	Enabled          *bool   `pulumi:"enabled"`
-	Id               *string `pulumi:"id"`
-	Ipv6Enabled      *bool   `pulumi:"ipv6Enabled"`
-	IsDefault        *bool   `pulumi:"isDefault"`
+	// The Amazon Resource Name (ARN) of the connection group.
+	Arn *string `pulumi:"arn"`
+	// The date and time when the connection group was created.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The current version of the connection group.
+	ETag *string `pulumi:"eTag"`
+	// Whether the connection group is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The ID of the connection group.
+	Id *string `pulumi:"id"`
+	// IPv6 is enabled for the connection group.
+	Ipv6Enabled *bool `pulumi:"ipv6Enabled"`
+	// Whether the connection group is the default connection group for the distribution tenants.
+	IsDefault *bool `pulumi:"isDefault"`
+	// The date and time when the connection group was updated.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+	// The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
 	RoutingEndpoint *string `pulumi:"routingEndpoint"`
-	Status          *string `pulumi:"status"`
+	// The status of the connection group.
+	Status *string `pulumi:"status"`
 	// A complex type that contains zero or more `Tag` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -56,6 +65,7 @@ func LookupConnectionGroupOutput(ctx *pulumi.Context, args LookupConnectionGroup
 }
 
 type LookupConnectionGroupOutputArgs struct {
+	// The ID of the connection group.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -82,44 +92,52 @@ func (o LookupConnectionGroupResultOutput) AnycastIpListId() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupConnectionGroupResult) *string { return v.AnycastIpListId }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the connection group.
 func (o LookupConnectionGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the connection group was created.
 func (o LookupConnectionGroupResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// A complex type that contains `Tag` key and `Tag` value.
+// The current version of the connection group.
 func (o LookupConnectionGroupResultOutput) ETag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) *string { return v.ETag }).(pulumi.StringPtrOutput)
 }
 
+// Whether the connection group is enabled.
 func (o LookupConnectionGroupResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the connection group.
 func (o LookupConnectionGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// IPv6 is enabled for the connection group.
 func (o LookupConnectionGroupResultOutput) Ipv6Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) *bool { return v.Ipv6Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Whether the connection group is the default connection group for the distribution tenants.
 func (o LookupConnectionGroupResultOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
 }
 
+// The date and time when the connection group was updated.
 func (o LookupConnectionGroupResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+// The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
 func (o LookupConnectionGroupResultOutput) RoutingEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) *string { return v.RoutingEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The status of the connection group.
 func (o LookupConnectionGroupResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }

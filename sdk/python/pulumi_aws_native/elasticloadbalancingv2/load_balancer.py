@@ -45,6 +45,7 @@ class LoadBalancerArgs:
                 [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
                 Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
                 [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
+        :param pulumi.Input[builtins.str] ipv4_ipam_pool_id: The ID of the IPv4 IPAM pool.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]] load_balancer_attributes: The load balancer attributes.
         :param pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs'] minimum_load_balancer_capacity: The minimum capacity for a load balancer.
         :param pulumi.Input[builtins.str] name: The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
@@ -137,6 +138,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="ipv4IpamPoolId")
     def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ID of the IPv4 IPAM pool.
+        """
         return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @ipv4_ipam_pool_id.setter
@@ -298,6 +302,7 @@ class LoadBalancer(pulumi.CustomResource):
                 [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
                 Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
                 [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
+        :param pulumi.Input[builtins.str] ipv4_ipam_pool_id: The ID of the IPv4 IPAM pool.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerAttributeArgs', 'LoadBalancerAttributeArgsDict']]]] load_balancer_attributes: The load balancer attributes.
         :param pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']] minimum_load_balancer_capacity: The minimum capacity for a load balancer.
         :param pulumi.Input[builtins.str] name: The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
@@ -475,6 +480,9 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ipv4IpamPoolId")
     def ipv4_ipam_pool_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The ID of the IPv4 IPAM pool.
+        """
         return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @property

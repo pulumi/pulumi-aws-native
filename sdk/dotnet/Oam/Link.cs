@@ -35,6 +35,8 @@ namespace Pulumi.AwsNative.Oam
         /// - `$AccountName` is the name of the account
         /// - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
         /// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+        /// 
+        /// &gt; In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
         /// </summary>
         [Output("labelTemplate")]
         public Output<string?> LabelTemplate { get; private set; } = null!;
@@ -46,7 +48,7 @@ namespace Pulumi.AwsNative.Oam
         public Output<Outputs.LinkConfiguration?> LinkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
+        /// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
         /// </summary>
         [Output("resourceTypes")]
         public Output<ImmutableArray<Pulumi.AwsNative.Oam.LinkResourceType>> ResourceTypes { get; private set; } = null!;
@@ -121,6 +123,8 @@ namespace Pulumi.AwsNative.Oam
         /// - `$AccountName` is the name of the account
         /// - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
         /// - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+        /// 
+        /// &gt; In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
         /// </summary>
         [Input("labelTemplate")]
         public Input<string>? LabelTemplate { get; set; }
@@ -135,7 +139,7 @@ namespace Pulumi.AwsNative.Oam
         private InputList<Pulumi.AwsNative.Oam.LinkResourceType>? _resourceTypes;
 
         /// <summary>
-        /// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
+        /// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
         /// </summary>
         public InputList<Pulumi.AwsNative.Oam.LinkResourceType> ResourceTypes
         {

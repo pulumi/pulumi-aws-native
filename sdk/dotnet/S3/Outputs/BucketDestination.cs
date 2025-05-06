@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         public readonly string BucketArn;
         /// <summary>
         /// Specifies the file format used when exporting data to Amazon S3.
-        ///   *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+        ///  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
         /// </summary>
         public readonly Pulumi.AwsNative.S3.BucketDestinationFormat Format;
         /// <summary>

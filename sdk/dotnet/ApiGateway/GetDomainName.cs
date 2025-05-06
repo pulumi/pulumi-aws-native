@@ -12,19 +12,22 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetDomainName
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::DomainName.
+        /// The ``AWS::ApiGateway::DomainName`` resource specifies a custom domain name for your API in API Gateway.
+        ///  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Task<GetDomainNameResult> InvokeAsync(GetDomainNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainNameResult>("aws-native:apigateway:getDomainName", args ?? new GetDomainNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::DomainName.
+        /// The ``AWS::ApiGateway::DomainName`` resource specifies a custom domain name for your API in API Gateway.
+        ///  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Output<GetDomainNameResult> Invoke(GetDomainNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameResult>("aws-native:apigateway:getDomainName", args ?? new GetDomainNameInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::DomainName.
+        /// The ``AWS::ApiGateway::DomainName`` resource specifies a custom domain name for your API in API Gateway.
+        ///  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Output<GetDomainNameResult> Invoke(GetDomainNameInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameResult>("aws-native:apigateway:getDomainName", args ?? new GetDomainNameInvokeArgs(), options.WithDefaults());
@@ -77,6 +80,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
         /// </summary>
         public readonly string? DistributionHostedZoneId;
+        public readonly string? DomainNameArn;
         /// <summary>
         /// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
         /// </summary>
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
             string? distributionHostedZoneId,
 
+            string? domainNameArn,
+
             Outputs.DomainNameEndpointConfiguration? endpointConfiguration,
 
             Outputs.DomainNameMutualTlsAuthentication? mutualTlsAuthentication,
@@ -137,6 +143,7 @@ namespace Pulumi.AwsNative.ApiGateway
             CertificateArn = certificateArn;
             DistributionDomainName = distributionDomainName;
             DistributionHostedZoneId = distributionHostedZoneId;
+            DomainNameArn = domainNameArn;
             EndpointConfiguration = endpointConfiguration;
             MutualTlsAuthentication = mutualTlsAuthentication;
             OwnershipVerificationCertificateArn = ownershipVerificationCertificateArn;

@@ -2325,6 +2325,164 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) UserDataShared() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+type UserPoolClientRefreshTokenRotation struct {
+	// The state of refresh token rotation for the current app client.
+	Feature *UserPoolClientRefreshTokenRotationFeature `pulumi:"feature"`
+	// When you request a token refresh with `GetTokensFromRefreshToken` , the original refresh token that you're rotating out can remain valid for a period of time of up to 60 seconds. This allows for client-side retries. When `RetryGracePeriodSeconds` is `0` , the grace period is disabled and a successful request immediately invalidates the submitted refresh token.
+	RetryGracePeriodSeconds *int `pulumi:"retryGracePeriodSeconds"`
+}
+
+// UserPoolClientRefreshTokenRotationInput is an input type that accepts UserPoolClientRefreshTokenRotationArgs and UserPoolClientRefreshTokenRotationOutput values.
+// You can construct a concrete instance of `UserPoolClientRefreshTokenRotationInput` via:
+//
+//	UserPoolClientRefreshTokenRotationArgs{...}
+type UserPoolClientRefreshTokenRotationInput interface {
+	pulumi.Input
+
+	ToUserPoolClientRefreshTokenRotationOutput() UserPoolClientRefreshTokenRotationOutput
+	ToUserPoolClientRefreshTokenRotationOutputWithContext(context.Context) UserPoolClientRefreshTokenRotationOutput
+}
+
+type UserPoolClientRefreshTokenRotationArgs struct {
+	// The state of refresh token rotation for the current app client.
+	Feature UserPoolClientRefreshTokenRotationFeaturePtrInput `pulumi:"feature"`
+	// When you request a token refresh with `GetTokensFromRefreshToken` , the original refresh token that you're rotating out can remain valid for a period of time of up to 60 seconds. This allows for client-side retries. When `RetryGracePeriodSeconds` is `0` , the grace period is disabled and a successful request immediately invalidates the submitted refresh token.
+	RetryGracePeriodSeconds pulumi.IntPtrInput `pulumi:"retryGracePeriodSeconds"`
+}
+
+func (UserPoolClientRefreshTokenRotationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (i UserPoolClientRefreshTokenRotationArgs) ToUserPoolClientRefreshTokenRotationOutput() UserPoolClientRefreshTokenRotationOutput {
+	return i.ToUserPoolClientRefreshTokenRotationOutputWithContext(context.Background())
+}
+
+func (i UserPoolClientRefreshTokenRotationArgs) ToUserPoolClientRefreshTokenRotationOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientRefreshTokenRotationOutput)
+}
+
+func (i UserPoolClientRefreshTokenRotationArgs) ToUserPoolClientRefreshTokenRotationPtrOutput() UserPoolClientRefreshTokenRotationPtrOutput {
+	return i.ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolClientRefreshTokenRotationArgs) ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientRefreshTokenRotationOutput).ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx)
+}
+
+// UserPoolClientRefreshTokenRotationPtrInput is an input type that accepts UserPoolClientRefreshTokenRotationArgs, UserPoolClientRefreshTokenRotationPtr and UserPoolClientRefreshTokenRotationPtrOutput values.
+// You can construct a concrete instance of `UserPoolClientRefreshTokenRotationPtrInput` via:
+//
+//	        UserPoolClientRefreshTokenRotationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolClientRefreshTokenRotationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolClientRefreshTokenRotationPtrOutput() UserPoolClientRefreshTokenRotationPtrOutput
+	ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(context.Context) UserPoolClientRefreshTokenRotationPtrOutput
+}
+
+type userPoolClientRefreshTokenRotationPtrType UserPoolClientRefreshTokenRotationArgs
+
+func UserPoolClientRefreshTokenRotationPtr(v *UserPoolClientRefreshTokenRotationArgs) UserPoolClientRefreshTokenRotationPtrInput {
+	return (*userPoolClientRefreshTokenRotationPtrType)(v)
+}
+
+func (*userPoolClientRefreshTokenRotationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (i *userPoolClientRefreshTokenRotationPtrType) ToUserPoolClientRefreshTokenRotationPtrOutput() UserPoolClientRefreshTokenRotationPtrOutput {
+	return i.ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolClientRefreshTokenRotationPtrType) ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientRefreshTokenRotationPtrOutput)
+}
+
+type UserPoolClientRefreshTokenRotationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientRefreshTokenRotationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (o UserPoolClientRefreshTokenRotationOutput) ToUserPoolClientRefreshTokenRotationOutput() UserPoolClientRefreshTokenRotationOutput {
+	return o
+}
+
+func (o UserPoolClientRefreshTokenRotationOutput) ToUserPoolClientRefreshTokenRotationOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationOutput {
+	return o
+}
+
+func (o UserPoolClientRefreshTokenRotationOutput) ToUserPoolClientRefreshTokenRotationPtrOutput() UserPoolClientRefreshTokenRotationPtrOutput {
+	return o.ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolClientRefreshTokenRotationOutput) ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolClientRefreshTokenRotation) *UserPoolClientRefreshTokenRotation {
+		return &v
+	}).(UserPoolClientRefreshTokenRotationPtrOutput)
+}
+
+// The state of refresh token rotation for the current app client.
+func (o UserPoolClientRefreshTokenRotationOutput) Feature() UserPoolClientRefreshTokenRotationFeaturePtrOutput {
+	return o.ApplyT(func(v UserPoolClientRefreshTokenRotation) *UserPoolClientRefreshTokenRotationFeature {
+		return v.Feature
+	}).(UserPoolClientRefreshTokenRotationFeaturePtrOutput)
+}
+
+// When you request a token refresh with `GetTokensFromRefreshToken` , the original refresh token that you're rotating out can remain valid for a period of time of up to 60 seconds. This allows for client-side retries. When `RetryGracePeriodSeconds` is `0` , the grace period is disabled and a successful request immediately invalidates the submitted refresh token.
+func (o UserPoolClientRefreshTokenRotationOutput) RetryGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPoolClientRefreshTokenRotation) *int { return v.RetryGracePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+type UserPoolClientRefreshTokenRotationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientRefreshTokenRotationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (o UserPoolClientRefreshTokenRotationPtrOutput) ToUserPoolClientRefreshTokenRotationPtrOutput() UserPoolClientRefreshTokenRotationPtrOutput {
+	return o
+}
+
+func (o UserPoolClientRefreshTokenRotationPtrOutput) ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationPtrOutput {
+	return o
+}
+
+func (o UserPoolClientRefreshTokenRotationPtrOutput) Elem() UserPoolClientRefreshTokenRotationOutput {
+	return o.ApplyT(func(v *UserPoolClientRefreshTokenRotation) UserPoolClientRefreshTokenRotation {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolClientRefreshTokenRotation
+		return ret
+	}).(UserPoolClientRefreshTokenRotationOutput)
+}
+
+// The state of refresh token rotation for the current app client.
+func (o UserPoolClientRefreshTokenRotationPtrOutput) Feature() UserPoolClientRefreshTokenRotationFeaturePtrOutput {
+	return o.ApplyT(func(v *UserPoolClientRefreshTokenRotation) *UserPoolClientRefreshTokenRotationFeature {
+		if v == nil {
+			return nil
+		}
+		return v.Feature
+	}).(UserPoolClientRefreshTokenRotationFeaturePtrOutput)
+}
+
+// When you request a token refresh with `GetTokensFromRefreshToken` , the original refresh token that you're rotating out can remain valid for a period of time of up to 60 seconds. This allows for client-side retries. When `RetryGracePeriodSeconds` is `0` , the grace period is disabled and a successful request immediately invalidates the submitted refresh token.
+func (o UserPoolClientRefreshTokenRotationPtrOutput) RetryGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientRefreshTokenRotation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryGracePeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 type UserPoolClientTokenValidityUnits struct {
 	// A time unit for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is `hours` . `AccessTokenValidity` duration can range from five minutes to one day.
 	AccessToken *string `pulumi:"accessToken"`
@@ -7671,6 +7829,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAdvancedSecurityAdditionalFlowsPtrInput)(nil)).Elem(), UserPoolAdvancedSecurityAdditionalFlowsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientAnalyticsConfigurationInput)(nil)).Elem(), UserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientAnalyticsConfigurationPtrInput)(nil)).Elem(), UserPoolClientAnalyticsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationPtrInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientTokenValidityUnitsInput)(nil)).Elem(), UserPoolClientTokenValidityUnitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientTokenValidityUnitsPtrInput)(nil)).Elem(), UserPoolClientTokenValidityUnitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolCustomEmailSenderInput)(nil)).Elem(), UserPoolCustomEmailSenderArgs{})
@@ -7763,6 +7923,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolAdvancedSecurityAdditionalFlowsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolClientAnalyticsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationOutput{})
+	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientTokenValidityUnitsOutput{})
 	pulumi.RegisterOutputType(UserPoolClientTokenValidityUnitsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolCustomEmailSenderOutput{})

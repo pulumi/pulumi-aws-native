@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Oam.Inputs
     public sealed class LinkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Use this structure to filter which log groups are to send log events from the source account to the monitoring account.
+        /// Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
         /// </summary>
         [Input("logGroupConfiguration")]
         public Input<Inputs.LinkFilterArgs>? LogGroupConfiguration { get; set; }

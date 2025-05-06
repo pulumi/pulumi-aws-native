@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetUserPoolClientResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolClientResult:
-    def __init__(__self__, access_token_validity=None, allowed_o_auth_flows=None, allowed_o_auth_flows_user_pool_client=None, allowed_o_auth_scopes=None, analytics_configuration=None, auth_session_validity=None, callback_urls=None, client_id=None, client_name=None, client_secret=None, default_redirect_uri=None, enable_propagate_additional_user_context_data=None, enable_token_revocation=None, explicit_auth_flows=None, id_token_validity=None, logout_urls=None, name=None, prevent_user_existence_errors=None, read_attributes=None, refresh_token_validity=None, supported_identity_providers=None, token_validity_units=None, write_attributes=None):
+    def __init__(__self__, access_token_validity=None, allowed_o_auth_flows=None, allowed_o_auth_flows_user_pool_client=None, allowed_o_auth_scopes=None, analytics_configuration=None, auth_session_validity=None, callback_urls=None, client_id=None, client_name=None, client_secret=None, default_redirect_uri=None, enable_propagate_additional_user_context_data=None, enable_token_revocation=None, explicit_auth_flows=None, id_token_validity=None, logout_urls=None, name=None, prevent_user_existence_errors=None, read_attributes=None, refresh_token_rotation=None, refresh_token_validity=None, supported_identity_providers=None, token_validity_units=None, write_attributes=None):
         if access_token_validity and not isinstance(access_token_validity, int):
             raise TypeError("Expected argument 'access_token_validity' to be a int")
         pulumi.set(__self__, "access_token_validity", access_token_validity)
@@ -83,6 +84,9 @@ class GetUserPoolClientResult:
         if read_attributes and not isinstance(read_attributes, list):
             raise TypeError("Expected argument 'read_attributes' to be a list")
         pulumi.set(__self__, "read_attributes", read_attributes)
+        if refresh_token_rotation and not isinstance(refresh_token_rotation, dict):
+            raise TypeError("Expected argument 'refresh_token_rotation' to be a dict")
+        pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
         if refresh_token_validity and not isinstance(refresh_token_validity, int):
             raise TypeError("Expected argument 'refresh_token_validity' to be a int")
         pulumi.set(__self__, "refresh_token_validity", refresh_token_validity)
@@ -312,6 +316,14 @@ class GetUserPoolClientResult:
         return pulumi.get(self, "read_attributes")
 
     @property
+    @pulumi.getter(name="refreshTokenRotation")
+    def refresh_token_rotation(self) -> Optional['outputs.UserPoolClientRefreshTokenRotation']:
+        """
+        The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
+        """
+        return pulumi.get(self, "refresh_token_rotation")
+
+    @property
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> Optional[builtins.int]:
         """
@@ -383,6 +395,7 @@ class AwaitableGetUserPoolClientResult(GetUserPoolClientResult):
             name=self.name,
             prevent_user_existence_errors=self.prevent_user_existence_errors,
             read_attributes=self.read_attributes,
+            refresh_token_rotation=self.refresh_token_rotation,
             refresh_token_validity=self.refresh_token_validity,
             supported_identity_providers=self.supported_identity_providers,
             token_validity_units=self.token_validity_units,
@@ -425,6 +438,7 @@ def get_user_pool_client(client_id: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         prevent_user_existence_errors=pulumi.get(__ret__, 'prevent_user_existence_errors'),
         read_attributes=pulumi.get(__ret__, 'read_attributes'),
+        refresh_token_rotation=pulumi.get(__ret__, 'refresh_token_rotation'),
         refresh_token_validity=pulumi.get(__ret__, 'refresh_token_validity'),
         supported_identity_providers=pulumi.get(__ret__, 'supported_identity_providers'),
         token_validity_units=pulumi.get(__ret__, 'token_validity_units'),
@@ -464,6 +478,7 @@ def get_user_pool_client_output(client_id: Optional[pulumi.Input[builtins.str]] 
         name=pulumi.get(__response__, 'name'),
         prevent_user_existence_errors=pulumi.get(__response__, 'prevent_user_existence_errors'),
         read_attributes=pulumi.get(__response__, 'read_attributes'),
+        refresh_token_rotation=pulumi.get(__response__, 'refresh_token_rotation'),
         refresh_token_validity=pulumi.get(__response__, 'refresh_token_validity'),
         supported_identity_providers=pulumi.get(__response__, 'supported_identity_providers'),
         token_validity_units=pulumi.get(__response__, 'token_validity_units'),

@@ -335,7 +335,7 @@ if not MYPY:
     class SecretGenerateSecretStringArgsDict(TypedDict):
         """
         Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
-          *Required permissions:* ``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+         *Required permissions:*``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
         """
         exclude_characters: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -395,7 +395,7 @@ class SecretGenerateSecretStringArgs:
                  secret_string_template: Optional[pulumi.Input[builtins.str]] = None):
         """
         Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
-          *Required permissions:* ``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+         *Required permissions:*``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
         :param pulumi.Input[builtins.str] exclude_characters: A string of the characters that you don't want in the password.
         :param pulumi.Input[builtins.bool] exclude_lowercase: Specifies whether to exclude lowercase letters from the password. If you don't include this switch, the password can contain lowercase letters.
         :param pulumi.Input[builtins.bool] exclude_numbers: Specifies whether to exclude numbers from the password. If you don't include this switch, the password can contain numbers.

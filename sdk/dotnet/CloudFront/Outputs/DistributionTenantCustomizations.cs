@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTenantCustomizations
     {
+        /// <summary>
+        /// The AWS Certificate Manager (ACM) certificate.
+        /// </summary>
         public readonly Outputs.DistributionTenantCertificate? Certificate;
+        /// <summary>
+        /// The geographic restrictions.
+        /// </summary>
         public readonly Outputs.DistributionTenantGeoRestrictionCustomization? GeoRestrictions;
+        /// <summary>
+        /// The AWS WAF web ACL.
+        /// </summary>
         public readonly Outputs.DistributionTenantWebAclCustomization? WebAcl;
 
         [OutputConstructor]

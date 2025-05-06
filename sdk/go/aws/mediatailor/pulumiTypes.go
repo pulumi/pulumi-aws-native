@@ -1063,6 +1063,148 @@ type LiveSourceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+type PlaybackConfigurationAdConditioningConfiguration struct {
+	// For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the AWS Elemental MediaTailor user guide.
+	StreamingMediaFileConditioning PlaybackConfigurationStreamingMediaFileConditioning `pulumi:"streamingMediaFileConditioning"`
+}
+
+// PlaybackConfigurationAdConditioningConfigurationInput is an input type that accepts PlaybackConfigurationAdConditioningConfigurationArgs and PlaybackConfigurationAdConditioningConfigurationOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationAdConditioningConfigurationInput` via:
+//
+//	PlaybackConfigurationAdConditioningConfigurationArgs{...}
+type PlaybackConfigurationAdConditioningConfigurationInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationAdConditioningConfigurationOutput() PlaybackConfigurationAdConditioningConfigurationOutput
+	ToPlaybackConfigurationAdConditioningConfigurationOutputWithContext(context.Context) PlaybackConfigurationAdConditioningConfigurationOutput
+}
+
+// <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+type PlaybackConfigurationAdConditioningConfigurationArgs struct {
+	// For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the AWS Elemental MediaTailor user guide.
+	StreamingMediaFileConditioning PlaybackConfigurationStreamingMediaFileConditioningInput `pulumi:"streamingMediaFileConditioning"`
+}
+
+func (PlaybackConfigurationAdConditioningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationAdConditioningConfiguration)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationAdConditioningConfigurationArgs) ToPlaybackConfigurationAdConditioningConfigurationOutput() PlaybackConfigurationAdConditioningConfigurationOutput {
+	return i.ToPlaybackConfigurationAdConditioningConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationAdConditioningConfigurationArgs) ToPlaybackConfigurationAdConditioningConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationAdConditioningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdConditioningConfigurationOutput)
+}
+
+func (i PlaybackConfigurationAdConditioningConfigurationArgs) ToPlaybackConfigurationAdConditioningConfigurationPtrOutput() PlaybackConfigurationAdConditioningConfigurationPtrOutput {
+	return i.ToPlaybackConfigurationAdConditioningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationAdConditioningConfigurationArgs) ToPlaybackConfigurationAdConditioningConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdConditioningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdConditioningConfigurationOutput).ToPlaybackConfigurationAdConditioningConfigurationPtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationAdConditioningConfigurationPtrInput is an input type that accepts PlaybackConfigurationAdConditioningConfigurationArgs, PlaybackConfigurationAdConditioningConfigurationPtr and PlaybackConfigurationAdConditioningConfigurationPtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationAdConditioningConfigurationPtrInput` via:
+//
+//	        PlaybackConfigurationAdConditioningConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationAdConditioningConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationAdConditioningConfigurationPtrOutput() PlaybackConfigurationAdConditioningConfigurationPtrOutput
+	ToPlaybackConfigurationAdConditioningConfigurationPtrOutputWithContext(context.Context) PlaybackConfigurationAdConditioningConfigurationPtrOutput
+}
+
+type playbackConfigurationAdConditioningConfigurationPtrType PlaybackConfigurationAdConditioningConfigurationArgs
+
+func PlaybackConfigurationAdConditioningConfigurationPtr(v *PlaybackConfigurationAdConditioningConfigurationArgs) PlaybackConfigurationAdConditioningConfigurationPtrInput {
+	return (*playbackConfigurationAdConditioningConfigurationPtrType)(v)
+}
+
+func (*playbackConfigurationAdConditioningConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationAdConditioningConfiguration)(nil)).Elem()
+}
+
+func (i *playbackConfigurationAdConditioningConfigurationPtrType) ToPlaybackConfigurationAdConditioningConfigurationPtrOutput() PlaybackConfigurationAdConditioningConfigurationPtrOutput {
+	return i.ToPlaybackConfigurationAdConditioningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationAdConditioningConfigurationPtrType) ToPlaybackConfigurationAdConditioningConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdConditioningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdConditioningConfigurationPtrOutput)
+}
+
+// <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+type PlaybackConfigurationAdConditioningConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationAdConditioningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationAdConditioningConfiguration)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationAdConditioningConfigurationOutput) ToPlaybackConfigurationAdConditioningConfigurationOutput() PlaybackConfigurationAdConditioningConfigurationOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdConditioningConfigurationOutput) ToPlaybackConfigurationAdConditioningConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationAdConditioningConfigurationOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdConditioningConfigurationOutput) ToPlaybackConfigurationAdConditioningConfigurationPtrOutput() PlaybackConfigurationAdConditioningConfigurationPtrOutput {
+	return o.ToPlaybackConfigurationAdConditioningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationAdConditioningConfigurationOutput) ToPlaybackConfigurationAdConditioningConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdConditioningConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationAdConditioningConfiguration) *PlaybackConfigurationAdConditioningConfiguration {
+		return &v
+	}).(PlaybackConfigurationAdConditioningConfigurationPtrOutput)
+}
+
+// For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the AWS Elemental MediaTailor user guide.
+func (o PlaybackConfigurationAdConditioningConfigurationOutput) StreamingMediaFileConditioning() PlaybackConfigurationStreamingMediaFileConditioningOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdConditioningConfiguration) PlaybackConfigurationStreamingMediaFileConditioning {
+		return v.StreamingMediaFileConditioning
+	}).(PlaybackConfigurationStreamingMediaFileConditioningOutput)
+}
+
+type PlaybackConfigurationAdConditioningConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationAdConditioningConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationAdConditioningConfiguration)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationAdConditioningConfigurationPtrOutput) ToPlaybackConfigurationAdConditioningConfigurationPtrOutput() PlaybackConfigurationAdConditioningConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdConditioningConfigurationPtrOutput) ToPlaybackConfigurationAdConditioningConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdConditioningConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdConditioningConfigurationPtrOutput) Elem() PlaybackConfigurationAdConditioningConfigurationOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdConditioningConfiguration) PlaybackConfigurationAdConditioningConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationAdConditioningConfiguration
+		return ret
+	}).(PlaybackConfigurationAdConditioningConfigurationOutput)
+}
+
+// For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the AWS Elemental MediaTailor user guide.
+func (o PlaybackConfigurationAdConditioningConfigurationPtrOutput) StreamingMediaFileConditioning() PlaybackConfigurationStreamingMediaFileConditioningPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdConditioningConfiguration) *PlaybackConfigurationStreamingMediaFileConditioning {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamingMediaFileConditioning
+	}).(PlaybackConfigurationStreamingMediaFileConditioningPtrOutput)
+}
+
 // For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
 type PlaybackConfigurationAdMarkerPassthrough struct {
 	// Enables ad marker passthrough for your configuration.
@@ -3186,6 +3328,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeShiftConfigurationPtrInput)(nil)).Elem(), ChannelTimeShiftConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationArrayInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdConditioningConfigurationInput)(nil)).Elem(), PlaybackConfigurationAdConditioningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdConditioningConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationAdConditioningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdMarkerPassthroughInput)(nil)).Elem(), PlaybackConfigurationAdMarkerPassthroughArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdMarkerPassthroughPtrInput)(nil)).Elem(), PlaybackConfigurationAdMarkerPassthroughArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionArgs{})
@@ -3227,6 +3371,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelTimeShiftConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationOutput{})
 	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationAdConditioningConfigurationOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationAdConditioningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdMarkerPassthroughOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdMarkerPassthroughPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionOutput{})

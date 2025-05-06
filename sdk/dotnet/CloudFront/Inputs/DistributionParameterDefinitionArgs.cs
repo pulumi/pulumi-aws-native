@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class DistributionParameterDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The value that you assigned to the parameter.
+        /// </summary>
         [Input("definition", required: true)]
         public Input<Inputs.DistributionParameterDefinitionDefinitionPropertiesArgs> Definition { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the parameter.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

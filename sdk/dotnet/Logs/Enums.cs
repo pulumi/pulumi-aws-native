@@ -185,6 +185,7 @@ namespace Pulumi.AwsNative.Logs
 
         public static LogGroupClass Standard { get; } = new LogGroupClass("STANDARD");
         public static LogGroupClass InfrequentAccess { get; } = new LogGroupClass("INFREQUENT_ACCESS");
+        public static LogGroupClass Delivery { get; } = new LogGroupClass("DELIVERY");
 
         public static bool operator ==(LogGroupClass left, LogGroupClass right) => left.Equals(right);
         public static bool operator !=(LogGroupClass left, LogGroupClass right) => !left.Equals(right);

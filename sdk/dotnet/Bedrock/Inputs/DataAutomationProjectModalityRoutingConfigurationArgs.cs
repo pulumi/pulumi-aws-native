@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataAutomationProjectModalityRoutingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets whether JPEG files are routed to document or image processing.
+        /// </summary>
         [Input("jpeg")]
         public Input<Pulumi.AwsNative.Bedrock.DataAutomationProjectDesiredModality>? Jpeg { get; set; }
 
+        /// <summary>
+        /// Sets whether MOV files are routed to audio or video processing.
+        /// </summary>
         [Input("mov")]
         public Input<Pulumi.AwsNative.Bedrock.DataAutomationProjectDesiredModality>? Mov { get; set; }
 
+        /// <summary>
+        /// Sets whether MP4 files are routed to audio or video processing.
+        /// </summary>
         [Input("mp4")]
         public Input<Pulumi.AwsNative.Bedrock.DataAutomationProjectDesiredModality>? Mp4 { get; set; }
 
+        /// <summary>
+        /// Sets whether PNG files are routed to document or image processing.
+        /// </summary>
         [Input("png")]
         public Input<Pulumi.AwsNative.Bedrock.DataAutomationProjectDesiredModality>? Png { get; set; }
 

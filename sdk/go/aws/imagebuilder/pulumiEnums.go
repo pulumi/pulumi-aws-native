@@ -939,6 +939,172 @@ func (in *containerRecipeTargetContainerRepositoryServicePtr) ToContainerRecipeT
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerRecipeTargetContainerRepositoryServicePtrOutput)
 }
 
+// The data type of the SSM parameter.
+type DistributionConfigurationSsmParameterConfigurationDataType string
+
+const (
+	DistributionConfigurationSsmParameterConfigurationDataTypeText        = DistributionConfigurationSsmParameterConfigurationDataType("text")
+	DistributionConfigurationSsmParameterConfigurationDataTypeAwsec2image = DistributionConfigurationSsmParameterConfigurationDataType("aws:ec2:image")
+)
+
+func (DistributionConfigurationSsmParameterConfigurationDataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationSsmParameterConfigurationDataType)(nil)).Elem()
+}
+
+func (e DistributionConfigurationSsmParameterConfigurationDataType) ToDistributionConfigurationSsmParameterConfigurationDataTypeOutput() DistributionConfigurationSsmParameterConfigurationDataTypeOutput {
+	return pulumi.ToOutput(e).(DistributionConfigurationSsmParameterConfigurationDataTypeOutput)
+}
+
+func (e DistributionConfigurationSsmParameterConfigurationDataType) ToDistributionConfigurationSsmParameterConfigurationDataTypeOutputWithContext(ctx context.Context) DistributionConfigurationSsmParameterConfigurationDataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionConfigurationSsmParameterConfigurationDataTypeOutput)
+}
+
+func (e DistributionConfigurationSsmParameterConfigurationDataType) ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutput() DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput {
+	return e.ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutputWithContext(context.Background())
+}
+
+func (e DistributionConfigurationSsmParameterConfigurationDataType) ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutputWithContext(ctx context.Context) DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput {
+	return DistributionConfigurationSsmParameterConfigurationDataType(e).ToDistributionConfigurationSsmParameterConfigurationDataTypeOutputWithContext(ctx).ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutputWithContext(ctx)
+}
+
+func (e DistributionConfigurationSsmParameterConfigurationDataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionConfigurationSsmParameterConfigurationDataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionConfigurationSsmParameterConfigurationDataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionConfigurationSsmParameterConfigurationDataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionConfigurationSsmParameterConfigurationDataTypeOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationSsmParameterConfigurationDataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationSsmParameterConfigurationDataType)(nil)).Elem()
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypeOutput) ToDistributionConfigurationSsmParameterConfigurationDataTypeOutput() DistributionConfigurationSsmParameterConfigurationDataTypeOutput {
+	return o
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypeOutput) ToDistributionConfigurationSsmParameterConfigurationDataTypeOutputWithContext(ctx context.Context) DistributionConfigurationSsmParameterConfigurationDataTypeOutput {
+	return o
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypeOutput) ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutput() DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput {
+	return o.ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypeOutput) ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutputWithContext(ctx context.Context) DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationSsmParameterConfigurationDataType) *DistributionConfigurationSsmParameterConfigurationDataType {
+		return &v
+	}).(DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput)
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionConfigurationSsmParameterConfigurationDataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionConfigurationSsmParameterConfigurationDataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationSsmParameterConfigurationDataType)(nil)).Elem()
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput) ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutput() DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput) ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutputWithContext(ctx context.Context) DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput) Elem() DistributionConfigurationSsmParameterConfigurationDataTypeOutput {
+	return o.ApplyT(func(v *DistributionConfigurationSsmParameterConfigurationDataType) DistributionConfigurationSsmParameterConfigurationDataType {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfigurationSsmParameterConfigurationDataType
+		return ret
+	}).(DistributionConfigurationSsmParameterConfigurationDataTypeOutput)
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionConfigurationSsmParameterConfigurationDataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionConfigurationSsmParameterConfigurationDataTypeInput is an input type that accepts values of the DistributionConfigurationSsmParameterConfigurationDataType enum
+// A concrete instance of `DistributionConfigurationSsmParameterConfigurationDataTypeInput` can be one of the following:
+//
+//	DistributionConfigurationSsmParameterConfigurationDataTypeText
+//	DistributionConfigurationSsmParameterConfigurationDataTypeAwsec2image
+type DistributionConfigurationSsmParameterConfigurationDataTypeInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationSsmParameterConfigurationDataTypeOutput() DistributionConfigurationSsmParameterConfigurationDataTypeOutput
+	ToDistributionConfigurationSsmParameterConfigurationDataTypeOutputWithContext(context.Context) DistributionConfigurationSsmParameterConfigurationDataTypeOutput
+}
+
+var distributionConfigurationSsmParameterConfigurationDataTypePtrType = reflect.TypeOf((**DistributionConfigurationSsmParameterConfigurationDataType)(nil)).Elem()
+
+type DistributionConfigurationSsmParameterConfigurationDataTypePtrInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutput() DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput
+	ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutputWithContext(context.Context) DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput
+}
+
+type distributionConfigurationSsmParameterConfigurationDataTypePtr string
+
+func DistributionConfigurationSsmParameterConfigurationDataTypePtr(v string) DistributionConfigurationSsmParameterConfigurationDataTypePtrInput {
+	return (*distributionConfigurationSsmParameterConfigurationDataTypePtr)(&v)
+}
+
+func (*distributionConfigurationSsmParameterConfigurationDataTypePtr) ElementType() reflect.Type {
+	return distributionConfigurationSsmParameterConfigurationDataTypePtrType
+}
+
+func (in *distributionConfigurationSsmParameterConfigurationDataTypePtr) ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutput() DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput {
+	return pulumi.ToOutput(in).(DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput)
+}
+
+func (in *distributionConfigurationSsmParameterConfigurationDataTypePtr) ToDistributionConfigurationSsmParameterConfigurationDataTypePtrOutputWithContext(ctx context.Context) DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput)
+}
+
 // The service of target container repository.
 type DistributionConfigurationTargetContainerRepositoryService string
 
@@ -3292,6 +3458,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipePlatformOverridePtrInput)(nil)).Elem(), ContainerRecipePlatformOverride("Windows"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeTargetContainerRepositoryServiceInput)(nil)).Elem(), ContainerRecipeTargetContainerRepositoryService("ECR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeTargetContainerRepositoryServicePtrInput)(nil)).Elem(), ContainerRecipeTargetContainerRepositoryService("ECR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationSsmParameterConfigurationDataTypeInput)(nil)).Elem(), DistributionConfigurationSsmParameterConfigurationDataType("text"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationSsmParameterConfigurationDataTypePtrInput)(nil)).Elem(), DistributionConfigurationSsmParameterConfigurationDataType("text"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryServiceInput)(nil)).Elem(), DistributionConfigurationTargetContainerRepositoryService("ECR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryServicePtrInput)(nil)).Elem(), DistributionConfigurationTargetContainerRepositoryService("ECR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineSchedulePipelineExecutionStartConditionInput)(nil)).Elem(), ImagePipelineSchedulePipelineExecutionStartCondition("EXPRESSION_MATCH_ONLY"))
@@ -3332,6 +3500,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerRecipePlatformOverridePtrOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeTargetContainerRepositoryServiceOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeTargetContainerRepositoryServicePtrOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationSsmParameterConfigurationDataTypeOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationSsmParameterConfigurationDataTypePtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryServiceOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryServicePtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineSchedulePipelineExecutionStartConditionOutput{})

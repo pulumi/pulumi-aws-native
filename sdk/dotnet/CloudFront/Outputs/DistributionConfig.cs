@@ -37,6 +37,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// A comment to describe the distribution. The comment cannot be longer than 128 characters.
         /// </summary>
         public readonly string? Comment;
+        /// <summary>
+        /// The connection mode to filter distributions by.
+        /// </summary>
         public readonly Pulumi.AwsNative.CloudFront.DistributionConnectionMode? ConnectionMode;
         /// <summary>
         /// The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
@@ -123,6 +126,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
         /// </summary>
         public readonly bool? Staging;
+        /// <summary>
+        /// A distribution tenant configuration.
+        /// </summary>
         public readonly Outputs.DistributionConfigTenantConfigProperties? TenantConfig;
         /// <summary>
         /// A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.

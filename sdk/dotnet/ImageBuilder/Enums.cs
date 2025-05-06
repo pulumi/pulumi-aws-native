@@ -198,6 +198,37 @@ namespace Pulumi.AwsNative.ImageBuilder
     }
 
     /// <summary>
+    /// The data type of the SSM parameter.
+    /// </summary>
+    [EnumType]
+    public readonly struct DistributionConfigurationSsmParameterConfigurationDataType : IEquatable<DistributionConfigurationSsmParameterConfigurationDataType>
+    {
+        private readonly string _value;
+
+        private DistributionConfigurationSsmParameterConfigurationDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionConfigurationSsmParameterConfigurationDataType Text { get; } = new DistributionConfigurationSsmParameterConfigurationDataType("text");
+        public static DistributionConfigurationSsmParameterConfigurationDataType Awsec2image { get; } = new DistributionConfigurationSsmParameterConfigurationDataType("aws:ec2:image");
+
+        public static bool operator ==(DistributionConfigurationSsmParameterConfigurationDataType left, DistributionConfigurationSsmParameterConfigurationDataType right) => left.Equals(right);
+        public static bool operator !=(DistributionConfigurationSsmParameterConfigurationDataType left, DistributionConfigurationSsmParameterConfigurationDataType right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionConfigurationSsmParameterConfigurationDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionConfigurationSsmParameterConfigurationDataType other && Equals(other);
+        public bool Equals(DistributionConfigurationSsmParameterConfigurationDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The service of target container repository.
     /// </summary>
     [EnumType]

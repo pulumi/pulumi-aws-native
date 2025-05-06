@@ -15,6 +15,7 @@ __all__ = [
     'PlaybackConfigurationAvailSuppressionFillPolicy',
     'PlaybackConfigurationAvailSuppressionMode',
     'PlaybackConfigurationDashConfigurationOriginManifestType',
+    'PlaybackConfigurationStreamingMediaFileConditioning',
     'SourceLocationAccessType',
     'VodSourceType',
 ]
@@ -67,6 +68,11 @@ class PlaybackConfigurationDashConfigurationOriginManifestType(builtins.str, Enu
     """
     SINGLE_PERIOD = "SINGLE_PERIOD"
     MULTI_PERIOD = "MULTI_PERIOD"
+
+
+class PlaybackConfigurationStreamingMediaFileConditioning(builtins.str, Enum):
+    TRANSCODE = "TRANSCODE"
+    NONE = "NONE"
 
 
 class SourceLocationAccessType(builtins.str, Enum):

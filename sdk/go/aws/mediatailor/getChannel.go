@@ -37,6 +37,8 @@ type LookupChannelResult struct {
 	FillerSlate *ChannelSlateSource `pulumi:"fillerSlate"`
 	// The log configuration.
 	LogConfiguration *ChannelLogConfigurationForChannel `pulumi:"logConfiguration"`
+	// <p>The channel's output properties.</p>
+	Outputs []ChannelRequestOutputItem `pulumi:"outputs"`
 	// The type of playback mode for this channel.
 	//
 	// `LINEAR` - Programs play back-to-back only once.
@@ -99,6 +101,11 @@ func (o LookupChannelResultOutput) FillerSlate() ChannelSlateSourcePtrOutput {
 // The log configuration.
 func (o LookupChannelResultOutput) LogConfiguration() ChannelLogConfigurationForChannelPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelLogConfigurationForChannel { return v.LogConfiguration }).(ChannelLogConfigurationForChannelPtrOutput)
+}
+
+// <p>The channel's output properties.</p>
+func (o LookupChannelResultOutput) Outputs() ChannelRequestOutputItemArrayOutput {
+	return o.ApplyT(func(v LookupChannelResult) []ChannelRequestOutputItem { return v.Outputs }).(ChannelRequestOutputItemArrayOutput)
 }
 
 // The type of playback mode for this channel.

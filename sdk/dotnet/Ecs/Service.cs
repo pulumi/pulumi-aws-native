@@ -239,7 +239,6 @@ namespace Pulumi.AwsNative.Ecs
                 ReplaceOnChanges =
                 {
                     "cluster",
-                    "deploymentController",
                     "launchType",
                     "role",
                     "schedulingStrategy",

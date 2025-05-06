@@ -18,6 +18,7 @@ __all__ = [
     'DomainVersion',
     'EnvironmentStatus',
     'GroupProfileStatus',
+    'OwnerEntityType',
     'ProjectMembershipUserDesignation',
     'UserProfileStatus',
     'UserProfileType',
@@ -134,6 +135,13 @@ class GroupProfileStatus(builtins.str, Enum):
     """
     ASSIGNED = "ASSIGNED"
     NOT_ASSIGNED = "NOT_ASSIGNED"
+
+
+class OwnerEntityType(builtins.str, Enum):
+    """
+    The type of an entity.
+    """
+    DOMAIN_UNIT = "DOMAIN_UNIT"
 
 
 class ProjectMembershipUserDesignation(builtins.str, Enum):

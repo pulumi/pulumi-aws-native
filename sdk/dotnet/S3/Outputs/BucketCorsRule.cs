@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         public readonly ImmutableArray<string> AllowedHeaders;
         /// <summary>
         /// An HTTP method that you allow the origin to run.
-        ///   *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+        ///  *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.S3.BucketCorsRuleAllowedMethodsItem> AllowedMethods;
         /// <summary>

@@ -37,6 +37,9 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegistryScanningConfiguration.__pulumiType;
     }
 
+    /**
+     * The account ID of the destination registry.
+     */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
     /**
      * The scanning rules associated with the registry.

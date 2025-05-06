@@ -1423,6 +1423,171 @@ func (in *playbackConfigurationDashConfigurationOriginManifestTypePtr) ToPlaybac
 	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput)
 }
 
+type PlaybackConfigurationStreamingMediaFileConditioning string
+
+const (
+	PlaybackConfigurationStreamingMediaFileConditioningTranscode = PlaybackConfigurationStreamingMediaFileConditioning("TRANSCODE")
+	PlaybackConfigurationStreamingMediaFileConditioningNone      = PlaybackConfigurationStreamingMediaFileConditioning("NONE")
+)
+
+func (PlaybackConfigurationStreamingMediaFileConditioning) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationStreamingMediaFileConditioning)(nil)).Elem()
+}
+
+func (e PlaybackConfigurationStreamingMediaFileConditioning) ToPlaybackConfigurationStreamingMediaFileConditioningOutput() PlaybackConfigurationStreamingMediaFileConditioningOutput {
+	return pulumi.ToOutput(e).(PlaybackConfigurationStreamingMediaFileConditioningOutput)
+}
+
+func (e PlaybackConfigurationStreamingMediaFileConditioning) ToPlaybackConfigurationStreamingMediaFileConditioningOutputWithContext(ctx context.Context) PlaybackConfigurationStreamingMediaFileConditioningOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlaybackConfigurationStreamingMediaFileConditioningOutput)
+}
+
+func (e PlaybackConfigurationStreamingMediaFileConditioning) ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutput() PlaybackConfigurationStreamingMediaFileConditioningPtrOutput {
+	return e.ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationStreamingMediaFileConditioning) ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutputWithContext(ctx context.Context) PlaybackConfigurationStreamingMediaFileConditioningPtrOutput {
+	return PlaybackConfigurationStreamingMediaFileConditioning(e).ToPlaybackConfigurationStreamingMediaFileConditioningOutputWithContext(ctx).ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutputWithContext(ctx)
+}
+
+func (e PlaybackConfigurationStreamingMediaFileConditioning) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationStreamingMediaFileConditioning) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationStreamingMediaFileConditioning) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationStreamingMediaFileConditioning) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlaybackConfigurationStreamingMediaFileConditioningOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationStreamingMediaFileConditioningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationStreamingMediaFileConditioning)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningOutput) ToPlaybackConfigurationStreamingMediaFileConditioningOutput() PlaybackConfigurationStreamingMediaFileConditioningOutput {
+	return o
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningOutput) ToPlaybackConfigurationStreamingMediaFileConditioningOutputWithContext(ctx context.Context) PlaybackConfigurationStreamingMediaFileConditioningOutput {
+	return o
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningOutput) ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutput() PlaybackConfigurationStreamingMediaFileConditioningPtrOutput {
+	return o.ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningOutput) ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutputWithContext(ctx context.Context) PlaybackConfigurationStreamingMediaFileConditioningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationStreamingMediaFileConditioning) *PlaybackConfigurationStreamingMediaFileConditioning {
+		return &v
+	}).(PlaybackConfigurationStreamingMediaFileConditioningPtrOutput)
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationStreamingMediaFileConditioning) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationStreamingMediaFileConditioning) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlaybackConfigurationStreamingMediaFileConditioningPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationStreamingMediaFileConditioningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationStreamingMediaFileConditioning)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningPtrOutput) ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutput() PlaybackConfigurationStreamingMediaFileConditioningPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningPtrOutput) ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutputWithContext(ctx context.Context) PlaybackConfigurationStreamingMediaFileConditioningPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningPtrOutput) Elem() PlaybackConfigurationStreamingMediaFileConditioningOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationStreamingMediaFileConditioning) PlaybackConfigurationStreamingMediaFileConditioning {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationStreamingMediaFileConditioning
+		return ret
+	}).(PlaybackConfigurationStreamingMediaFileConditioningOutput)
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationStreamingMediaFileConditioningPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlaybackConfigurationStreamingMediaFileConditioning) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlaybackConfigurationStreamingMediaFileConditioningInput is an input type that accepts values of the PlaybackConfigurationStreamingMediaFileConditioning enum
+// A concrete instance of `PlaybackConfigurationStreamingMediaFileConditioningInput` can be one of the following:
+//
+//	PlaybackConfigurationStreamingMediaFileConditioningTranscode
+//	PlaybackConfigurationStreamingMediaFileConditioningNone
+type PlaybackConfigurationStreamingMediaFileConditioningInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationStreamingMediaFileConditioningOutput() PlaybackConfigurationStreamingMediaFileConditioningOutput
+	ToPlaybackConfigurationStreamingMediaFileConditioningOutputWithContext(context.Context) PlaybackConfigurationStreamingMediaFileConditioningOutput
+}
+
+var playbackConfigurationStreamingMediaFileConditioningPtrType = reflect.TypeOf((**PlaybackConfigurationStreamingMediaFileConditioning)(nil)).Elem()
+
+type PlaybackConfigurationStreamingMediaFileConditioningPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutput() PlaybackConfigurationStreamingMediaFileConditioningPtrOutput
+	ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutputWithContext(context.Context) PlaybackConfigurationStreamingMediaFileConditioningPtrOutput
+}
+
+type playbackConfigurationStreamingMediaFileConditioningPtr string
+
+func PlaybackConfigurationStreamingMediaFileConditioningPtr(v string) PlaybackConfigurationStreamingMediaFileConditioningPtrInput {
+	return (*playbackConfigurationStreamingMediaFileConditioningPtr)(&v)
+}
+
+func (*playbackConfigurationStreamingMediaFileConditioningPtr) ElementType() reflect.Type {
+	return playbackConfigurationStreamingMediaFileConditioningPtrType
+}
+
+func (in *playbackConfigurationStreamingMediaFileConditioningPtr) ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutput() PlaybackConfigurationStreamingMediaFileConditioningPtrOutput {
+	return pulumi.ToOutput(in).(PlaybackConfigurationStreamingMediaFileConditioningPtrOutput)
+}
+
+func (in *playbackConfigurationStreamingMediaFileConditioningPtr) ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutputWithContext(ctx context.Context) PlaybackConfigurationStreamingMediaFileConditioningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationStreamingMediaFileConditioningPtrOutput)
+}
+
 type SourceLocationAccessType string
 
 const (
@@ -1774,6 +1939,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionModePtrInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypeInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypePtrInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationStreamingMediaFileConditioningInput)(nil)).Elem(), PlaybackConfigurationStreamingMediaFileConditioning("TRANSCODE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationStreamingMediaFileConditioningPtrInput)(nil)).Elem(), PlaybackConfigurationStreamingMediaFileConditioning("TRANSCODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessTypeInput)(nil)).Elem(), SourceLocationAccessType("S3_SIGV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessTypePtrInput)(nil)).Elem(), SourceLocationAccessType("S3_SIGV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceTypeInput)(nil)).Elem(), VodSourceType("DASH"))
@@ -1796,6 +1963,8 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionModePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypeOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationStreamingMediaFileConditioningOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationStreamingMediaFileConditioningPtrOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessTypeOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessTypePtrOutput{})
 	pulumi.RegisterOutputType(VodSourceTypeOutput{})

@@ -135,6 +135,15 @@ export const GroupProfileStatus = {
  */
 export type GroupProfileStatus = (typeof GroupProfileStatus)[keyof typeof GroupProfileStatus];
 
+export const OwnerEntityType = {
+    DomainUnit: "DOMAIN_UNIT",
+} as const;
+
+/**
+ * The type of an entity.
+ */
+export type OwnerEntityType = (typeof OwnerEntityType)[keyof typeof OwnerEntityType];
+
 export const ProjectMembershipUserDesignation = {
     ProjectOwner: "PROJECT_OWNER",
     ProjectContributor: "PROJECT_CONTRIBUTOR",

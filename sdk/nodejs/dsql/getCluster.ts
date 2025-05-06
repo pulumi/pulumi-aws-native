@@ -45,7 +45,14 @@ export interface GetClusterResult {
      * The status of the cluster.
      */
     readonly status?: string;
+    /**
+     * A map of key and value pairs this cluster is tagged with.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The VPC endpoint service name.
+     */
+    readonly vpcEndpointServiceName?: string;
 }
 /**
  * Resource Type definition for AWS::DSQL::Cluster

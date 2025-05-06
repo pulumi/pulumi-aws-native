@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     {
         /// <summary>
         /// Specifies whether Amazon S3 replicates modifications on replicas.
-        ///   *Allowed values*: ``Enabled`` | ``Disabled``
+        ///  *Allowed values*: ``Enabled`` | ``Disabled``
         /// </summary>
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketReplicaModificationsStatus> Status { get; set; } = null!;

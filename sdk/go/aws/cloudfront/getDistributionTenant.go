@@ -24,25 +24,36 @@ func LookupDistributionTenant(ctx *pulumi.Context, args *LookupDistributionTenan
 }
 
 type LookupDistributionTenantArgs struct {
+	// The ID of the distribution tenant.
 	Id string `pulumi:"id"`
 }
 
 type LookupDistributionTenantResult struct {
-	Arn               *string                           `pulumi:"arn"`
-	ConnectionGroupId *string                           `pulumi:"connectionGroupId"`
-	CreatedTime       *string                           `pulumi:"createdTime"`
-	Customizations    *DistributionTenantCustomizations `pulumi:"customizations"`
-	// The distribution's identifier. For example: `E1U5RQF7T870K0` .
+	// The Amazon Resource Name (ARN) of the distribution tenant.
+	Arn *string `pulumi:"arn"`
+	// The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+	ConnectionGroupId *string `pulumi:"connectionGroupId"`
+	// The date and time when the distribution tenant was created.
+	CreatedTime *string `pulumi:"createdTime"`
+	// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+	Customizations *DistributionTenantCustomizations `pulumi:"customizations"`
+	// The ID of the multi-tenant distribution.
 	DistributionId *string                          `pulumi:"distributionId"`
 	DomainResults  []DistributionTenantDomainResult `pulumi:"domainResults"`
-	Domains        []string                         `pulumi:"domains"`
-	// A complex type that contains `Tag` key and `Tag` value.
-	ETag             *string                       `pulumi:"eTag"`
-	Enabled          *bool                         `pulumi:"enabled"`
-	Id               *string                       `pulumi:"id"`
-	LastModifiedTime *string                       `pulumi:"lastModifiedTime"`
-	Parameters       []DistributionTenantParameter `pulumi:"parameters"`
-	Status           *string                       `pulumi:"status"`
+	// The domains associated with the distribution tenant.
+	Domains []string `pulumi:"domains"`
+	// The current version of the distribution tenant.
+	ETag *string `pulumi:"eTag"`
+	// Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+	Enabled *bool `pulumi:"enabled"`
+	// The ID of the distribution tenant.
+	Id *string `pulumi:"id"`
+	// The date and time when the distribution tenant was updated.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+	Parameters []DistributionTenantParameter `pulumi:"parameters"`
+	// The status of the distribution tenant.
+	Status *string `pulumi:"status"`
 	// A complex type that contains zero or more `Tag` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -57,6 +68,7 @@ func LookupDistributionTenantOutput(ctx *pulumi.Context, args LookupDistribution
 }
 
 type LookupDistributionTenantOutputArgs struct {
+	// The ID of the distribution tenant.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -78,23 +90,27 @@ func (o LookupDistributionTenantResultOutput) ToLookupDistributionTenantResultOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the distribution tenant.
 func (o LookupDistributionTenantResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
 func (o LookupDistributionTenantResultOutput) ConnectionGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *string { return v.ConnectionGroupId }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the distribution tenant was created.
 func (o LookupDistributionTenantResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
 func (o LookupDistributionTenantResultOutput) Customizations() DistributionTenantCustomizationsPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *DistributionTenantCustomizations { return v.Customizations }).(DistributionTenantCustomizationsPtrOutput)
 }
 
-// The distribution's identifier. For example: `E1U5RQF7T870K0` .
+// The ID of the multi-tenant distribution.
 func (o LookupDistributionTenantResultOutput) DistributionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *string { return v.DistributionId }).(pulumi.StringPtrOutput)
 }
@@ -103,31 +119,37 @@ func (o LookupDistributionTenantResultOutput) DomainResults() DistributionTenant
 	return o.ApplyT(func(v LookupDistributionTenantResult) []DistributionTenantDomainResult { return v.DomainResults }).(DistributionTenantDomainResultArrayOutput)
 }
 
+// The domains associated with the distribution tenant.
 func (o LookupDistributionTenantResultOutput) Domains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) []string { return v.Domains }).(pulumi.StringArrayOutput)
 }
 
-// A complex type that contains `Tag` key and `Tag` value.
+// The current version of the distribution tenant.
 func (o LookupDistributionTenantResultOutput) ETag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *string { return v.ETag }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
 func (o LookupDistributionTenantResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the distribution tenant.
 func (o LookupDistributionTenantResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the distribution tenant was updated.
 func (o LookupDistributionTenantResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
+// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
 func (o LookupDistributionTenantResultOutput) Parameters() DistributionTenantParameterArrayOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) []DistributionTenantParameter { return v.Parameters }).(DistributionTenantParameterArrayOutput)
 }
 
+// The status of the distribution tenant.
 func (o LookupDistributionTenantResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }

@@ -13,7 +13,17 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTenantGeoRestrictionCustomization
     {
+        /// <summary>
+        /// The locations for geographic restrictions.
+        /// </summary>
         public readonly ImmutableArray<string> Locations;
+        /// <summary>
+        /// The method that you want to use to restrict distribution of your content by country:
+        /// 
+        /// - `none` : No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
+        /// - `blacklist` : The `Location` elements specify the countries in which you don't want CloudFront to distribute your content.
+        /// - `whitelist` : The `Location` elements specify the countries in which you want CloudFront to distribute your content.
+        /// </summary>
         public readonly Pulumi.AwsNative.CloudFront.DistributionTenantGeoRestrictionCustomizationRestrictionType? RestrictionType;
 
         [OutputConstructor]

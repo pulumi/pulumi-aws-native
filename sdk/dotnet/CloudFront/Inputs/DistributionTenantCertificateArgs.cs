@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class DistributionTenantCertificateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the ACM certificate.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

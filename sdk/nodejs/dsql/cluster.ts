@@ -57,7 +57,14 @@ export class Cluster extends pulumi.CustomResource {
      * The status of the cluster.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * A map of key and value pairs this cluster is tagged with.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The VPC endpoint service name.
+     */
+    public /*out*/ readonly vpcEndpointServiceName!: pulumi.Output<string>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -76,6 +83,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["vpcEndpointServiceName"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deletionProtectionEnabled"] = undefined /*out*/;
@@ -83,6 +91,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcEndpointServiceName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
@@ -97,5 +106,8 @@ export interface ClusterArgs {
      * Whether deletion protection is enabled in this cluster.
      */
     deletionProtectionEnabled?: pulumi.Input<boolean>;
+    /**
+     * A map of key and value pairs this cluster is tagged with.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

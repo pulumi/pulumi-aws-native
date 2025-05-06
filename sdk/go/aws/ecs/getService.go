@@ -44,6 +44,8 @@ type LookupServiceResult struct {
 	CapacityProviderStrategy []ServiceCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
 	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 	DeploymentConfiguration *ServiceDeploymentConfiguration `pulumi:"deploymentConfiguration"`
+	// The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+	DeploymentController *ServiceDeploymentController `pulumi:"deploymentController"`
 	// The number of instantiations of the specified task definition to place and keep running in your service.
 	//  For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
 	//  For existing services, if a desired count is not specified, it is omitted from the operation.
@@ -152,6 +154,11 @@ func (o LookupServiceResultOutput) CapacityProviderStrategy() ServiceCapacityPro
 // Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 func (o LookupServiceResultOutput) DeploymentConfiguration() ServiceDeploymentConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceDeploymentConfiguration { return v.DeploymentConfiguration }).(ServiceDeploymentConfigurationPtrOutput)
+}
+
+// The deployment controller to use for the service. If no deployment controller is specified, the default value of “ECS“ is used.
+func (o LookupServiceResultOutput) DeploymentController() ServiceDeploymentControllerPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *ServiceDeploymentController { return v.DeploymentController }).(ServiceDeploymentControllerPtrOutput)
 }
 
 // The number of instantiations of the specified task definition to place and keep running in your service.

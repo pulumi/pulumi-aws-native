@@ -18,7 +18,7 @@ type ManagedLoginBranding struct {
 
 	// An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
 	Assets ManagedLoginBrandingAssetTypeArrayOutput `pulumi:"assets"`
-	// The app client that's assigned to the branding style that you want more information about.
+	// The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// The ID of the managed login branding style.
 	ManagedLoginBrandingId pulumi.StringOutput `pulumi:"managedLoginBrandingId"`
@@ -86,7 +86,7 @@ func (ManagedLoginBrandingState) ElementType() reflect.Type {
 type managedLoginBrandingArgs struct {
 	// An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
 	Assets []ManagedLoginBrandingAssetType `pulumi:"assets"`
-	// The app client that's assigned to the branding style that you want more information about.
+	// The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
 	ClientId *string `pulumi:"clientId"`
 	// When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
 	ReturnMergedResources *bool `pulumi:"returnMergedResources"`
@@ -106,7 +106,7 @@ type managedLoginBrandingArgs struct {
 type ManagedLoginBrandingArgs struct {
 	// An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
 	Assets ManagedLoginBrandingAssetTypeArrayInput
-	// The app client that's assigned to the branding style that you want more information about.
+	// The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
 	ClientId pulumi.StringPtrInput
 	// When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
 	ReturnMergedResources pulumi.BoolPtrInput
@@ -164,7 +164,7 @@ func (o ManagedLoginBrandingOutput) Assets() ManagedLoginBrandingAssetTypeArrayO
 	return o.ApplyT(func(v *ManagedLoginBranding) ManagedLoginBrandingAssetTypeArrayOutput { return v.Assets }).(ManagedLoginBrandingAssetTypeArrayOutput)
 }
 
-// The app client that's assigned to the branding style that you want more information about.
+// The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
 func (o ManagedLoginBrandingOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
 }

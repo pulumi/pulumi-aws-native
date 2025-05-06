@@ -2064,13 +2064,13 @@ class ResolverLambdaConflictHandlerConfig(dict):
 class ResolverPipelineConfig(dict):
     """
     Use the ``PipelineConfig`` property type to specify ``PipelineConfig`` for an APSYlong resolver.
-      ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
+     ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
     """
     def __init__(__self__, *,
                  functions: Optional[Sequence[builtins.str]] = None):
         """
         Use the ``PipelineConfig`` property type to specify ``PipelineConfig`` for an APSYlong resolver.
-          ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
+         ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
         :param Sequence[builtins.str] functions: A list of ``Function`` objects.
         """
         if functions is not None:
@@ -2120,12 +2120,12 @@ class ResolverSyncConfig(dict):
         Describes a Sync configuration for a resolver.
          Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
         :param builtins.str conflict_detection: The Conflict Detection strategy to use.
-                 +   *VERSION*: Detect conflicts based on object versions for this resolver.
-                 +   *NONE*: Do not detect conflicts when invoking this resolver.
+                 +  *VERSION*: Detect conflicts based on object versions for this resolver.
+                 +  *NONE*: Do not detect conflicts when invoking this resolver.
         :param builtins.str conflict_handler: The Conflict Resolution strategy to perform in the event of a conflict.
-                 +   *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
-                 +   *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
-                 +   *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
+                 +  *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
+                 +  *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
+                 +  *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
         :param 'ResolverLambdaConflictHandlerConfig' lambda_conflict_handler_config: The ``LambdaConflictHandlerConfig`` when configuring ``LAMBDA`` as the Conflict Handler.
         """
         pulumi.set(__self__, "conflict_detection", conflict_detection)
@@ -2139,8 +2139,8 @@ class ResolverSyncConfig(dict):
     def conflict_detection(self) -> builtins.str:
         """
         The Conflict Detection strategy to use.
-          +   *VERSION*: Detect conflicts based on object versions for this resolver.
-          +   *NONE*: Do not detect conflicts when invoking this resolver.
+          +  *VERSION*: Detect conflicts based on object versions for this resolver.
+          +  *NONE*: Do not detect conflicts when invoking this resolver.
         """
         return pulumi.get(self, "conflict_detection")
 
@@ -2149,9 +2149,9 @@ class ResolverSyncConfig(dict):
     def conflict_handler(self) -> Optional[builtins.str]:
         """
         The Conflict Resolution strategy to perform in the event of a conflict.
-          +   *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
-          +   *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
-          +   *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
+          +  *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
+          +  *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
+          +  *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
         """
         return pulumi.get(self, "conflict_handler")
 

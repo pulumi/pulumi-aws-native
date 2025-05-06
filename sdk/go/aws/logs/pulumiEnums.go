@@ -784,6 +784,7 @@ type LogGroupClass string
 const (
 	LogGroupClassStandard         = LogGroupClass("STANDARD")
 	LogGroupClassInfrequentAccess = LogGroupClass("INFREQUENT_ACCESS")
+	LogGroupClassDelivery         = LogGroupClass("DELIVERY")
 )
 
 func (LogGroupClass) ElementType() reflect.Type {
@@ -910,6 +911,7 @@ func (o LogGroupClassPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //
 //	LogGroupClassStandard
 //	LogGroupClassInfrequentAccess
+//	LogGroupClassDelivery
 type LogGroupClassInput interface {
 	pulumi.Input
 

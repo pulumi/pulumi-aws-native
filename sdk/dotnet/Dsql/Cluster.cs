@@ -45,8 +45,17 @@ namespace Pulumi.AwsNative.Dsql
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of key and value pairs this cluster is tagged with.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The VPC endpoint service name.
+        /// </summary>
+        [Output("vpcEndpointServiceName")]
+        public Output<string> VpcEndpointServiceName { get; private set; } = null!;
 
 
         /// <summary>
@@ -101,6 +110,10 @@ namespace Pulumi.AwsNative.Dsql
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A map of key and value pairs this cluster is tagged with.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

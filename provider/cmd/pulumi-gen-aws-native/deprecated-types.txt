@@ -5,7 +5,6 @@ AWS::NimbleStudio::StreamingImage
 AWS::NimbleStudio::Studio
 AWS::NimbleStudio::StudioComponent
 AWS::SNS::TopicPolicy
-AWS::SSMGuiConnect::Preferences
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get
 AWSQS::Kubernetes::Helm

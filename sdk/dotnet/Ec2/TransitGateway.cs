@@ -40,13 +40,13 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable automatic association with the default association route table. Enabled by default.
+        /// Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         /// </summary>
         [Output("defaultRouteTableAssociation")]
         public Output<string?> DefaultRouteTableAssociation { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        /// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         /// </summary>
         [Output("defaultRouteTablePropagation")]
         public Output<string?> DefaultRouteTablePropagation { get; private set; } = null!;
@@ -173,13 +173,13 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? AutoAcceptSharedAttachments { get; set; }
 
         /// <summary>
-        /// Enable or disable automatic association with the default association route table. Enabled by default.
+        /// Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         /// </summary>
         [Input("defaultRouteTableAssociation")]
         public Input<string>? DefaultRouteTableAssociation { get; set; }
 
         /// <summary>
-        /// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        /// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         /// </summary>
         [Input("defaultRouteTablePropagation")]
         public Input<string>? DefaultRouteTablePropagation { get; set; }

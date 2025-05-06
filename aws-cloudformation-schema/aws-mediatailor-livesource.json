@@ -73,7 +73,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "mediatailor:TagResource", "mediatailor:UntagResource" ]
   },
   "required" : [ "HttpPackageConfigurations", "LiveSourceName", "SourceLocationName" ],
   "readOnlyProperties" : [ "/properties/Arn" ],

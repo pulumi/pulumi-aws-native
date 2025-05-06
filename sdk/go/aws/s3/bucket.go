@@ -821,7 +821,7 @@ type Bucket struct {
 	LifecycleConfiguration BucketLifecycleConfigurationPtrOutput `pulumi:"lifecycleConfiguration"`
 	// Settings that define where logs are stored.
 	LoggingConfiguration BucketLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
-	// The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+	// The metadata table configuration of an S3 general purpose bucket.
 	MetadataTableConfiguration BucketMetadataTableConfigurationPtrOutput `pulumi:"metadataTableConfiguration"`
 	// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
 	MetricsConfigurations BucketMetricsConfigurationArrayOutput `pulumi:"metricsConfigurations"`
@@ -929,7 +929,7 @@ type bucketArgs struct {
 	LifecycleConfiguration *BucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Settings that define where logs are stored.
 	LoggingConfiguration *BucketLoggingConfiguration `pulumi:"loggingConfiguration"`
-	// The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+	// The metadata table configuration of an S3 general purpose bucket.
 	MetadataTableConfiguration *BucketMetadataTableConfiguration `pulumi:"metadataTableConfiguration"`
 	// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
 	MetricsConfigurations []BucketMetricsConfiguration `pulumi:"metricsConfigurations"`
@@ -985,7 +985,7 @@ type BucketArgs struct {
 	LifecycleConfiguration BucketLifecycleConfigurationPtrInput
 	// Settings that define where logs are stored.
 	LoggingConfiguration BucketLoggingConfigurationPtrInput
-	// The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+	// The metadata table configuration of an S3 general purpose bucket.
 	MetadataTableConfiguration BucketMetadataTableConfigurationPtrInput
 	// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
 	MetricsConfigurations BucketMetricsConfigurationArrayInput
@@ -1133,7 +1133,7 @@ func (o BucketOutput) LoggingConfiguration() BucketLoggingConfigurationPtrOutput
 	return o.ApplyT(func(v *Bucket) BucketLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(BucketLoggingConfigurationPtrOutput)
 }
 
-// The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+// The metadata table configuration of an S3 general purpose bucket.
 func (o BucketOutput) MetadataTableConfiguration() BucketMetadataTableConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketMetadataTableConfigurationPtrOutput { return v.MetadataTableConfiguration }).(BucketMetadataTableConfigurationPtrOutput)
 }

@@ -72,11 +72,11 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? AutoAcceptSharedAttachments;
         /// <summary>
-        /// Enable or disable automatic association with the default association route table. Enabled by default.
+        /// Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         /// </summary>
         public readonly string? DefaultRouteTableAssociation;
         /// <summary>
-        /// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        /// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         /// </summary>
         public readonly string? DefaultRouteTablePropagation;
         /// <summary>

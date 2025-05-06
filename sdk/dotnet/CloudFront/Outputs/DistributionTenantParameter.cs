@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTenantParameter
     {
+        /// <summary>
+        /// The parameter name.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The parameter value.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

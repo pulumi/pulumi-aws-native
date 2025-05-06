@@ -48,6 +48,9 @@ export interface GetLoadBalancerResult {
      *  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
      */
     readonly ipAddressType?: string;
+    /**
+     * The ID of the IPv4 IPAM pool.
+     */
     readonly ipv4IpamPoolId?: string;
     /**
      * The Amazon Resource Name (ARN) of the load balancer.

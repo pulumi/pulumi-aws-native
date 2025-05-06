@@ -27,6 +27,7 @@ class PlaybackConfigurationArgs:
     def __init__(__self__, *,
                  ad_decision_server_url: pulumi.Input[builtins.str],
                  video_content_source_url: pulumi.Input[builtins.str],
+                 ad_conditioning_configuration: Optional[pulumi.Input['PlaybackConfigurationAdConditioningConfigurationArgs']] = None,
                  avail_suppression: Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionArgs']] = None,
                  bumper: Optional[pulumi.Input['PlaybackConfigurationBumperArgs']] = None,
                  cdn_configuration: Optional[pulumi.Input['PlaybackConfigurationCdnConfigurationArgs']] = None,
@@ -44,6 +45,7 @@ class PlaybackConfigurationArgs:
         The set of arguments for constructing a PlaybackConfiguration resource.
         :param pulumi.Input[builtins.str] ad_decision_server_url: The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
         :param pulumi.Input[builtins.str] video_content_source_url: The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.
+        :param pulumi.Input['PlaybackConfigurationAdConditioningConfigurationArgs'] ad_conditioning_configuration: The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
         :param pulumi.Input['PlaybackConfigurationAvailSuppressionArgs'] avail_suppression: The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         :param pulumi.Input['PlaybackConfigurationBumperArgs'] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input['PlaybackConfigurationCdnConfigurationArgs'] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
@@ -60,6 +62,8 @@ class PlaybackConfigurationArgs:
         """
         pulumi.set(__self__, "ad_decision_server_url", ad_decision_server_url)
         pulumi.set(__self__, "video_content_source_url", video_content_source_url)
+        if ad_conditioning_configuration is not None:
+            pulumi.set(__self__, "ad_conditioning_configuration", ad_conditioning_configuration)
         if avail_suppression is not None:
             pulumi.set(__self__, "avail_suppression", avail_suppression)
         if bumper is not None:
@@ -110,6 +114,18 @@ class PlaybackConfigurationArgs:
     @video_content_source_url.setter
     def video_content_source_url(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "video_content_source_url", value)
+
+    @property
+    @pulumi.getter(name="adConditioningConfiguration")
+    def ad_conditioning_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationAdConditioningConfigurationArgs']]:
+        """
+        The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+        """
+        return pulumi.get(self, "ad_conditioning_configuration")
+
+    @ad_conditioning_configuration.setter
+    def ad_conditioning_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationAdConditioningConfigurationArgs']]):
+        pulumi.set(self, "ad_conditioning_configuration", value)
 
     @property
     @pulumi.getter(name="availSuppression")
@@ -276,6 +292,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ad_conditioning_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']]] = None,
                  ad_decision_server_url: Optional[pulumi.Input[builtins.str]] = None,
                  avail_suppression: Optional[pulumi.Input[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']]] = None,
                  bumper: Optional[pulumi.Input[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']]] = None,
@@ -297,6 +314,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']] ad_conditioning_configuration: The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
         :param pulumi.Input[builtins.str] ad_decision_server_url: The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
         :param pulumi.Input[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']] avail_suppression: The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         :param pulumi.Input[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
@@ -337,6 +355,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ad_conditioning_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']]] = None,
                  ad_decision_server_url: Optional[pulumi.Input[builtins.str]] = None,
                  avail_suppression: Optional[pulumi.Input[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']]] = None,
                  bumper: Optional[pulumi.Input[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']]] = None,
@@ -361,6 +380,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PlaybackConfigurationArgs.__new__(PlaybackConfigurationArgs)
 
+            __props__.__dict__["ad_conditioning_configuration"] = ad_conditioning_configuration
             if ad_decision_server_url is None and not opts.urn:
                 raise TypeError("Missing required property 'ad_decision_server_url'")
             __props__.__dict__["ad_decision_server_url"] = ad_decision_server_url
@@ -407,6 +427,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
 
         __props__ = PlaybackConfigurationArgs.__new__(PlaybackConfigurationArgs)
 
+        __props__.__dict__["ad_conditioning_configuration"] = None
         __props__.__dict__["ad_decision_server_url"] = None
         __props__.__dict__["avail_suppression"] = None
         __props__.__dict__["bumper"] = None
@@ -426,6 +447,14 @@ class PlaybackConfiguration(pulumi.CustomResource):
         __props__.__dict__["transcode_profile_name"] = None
         __props__.__dict__["video_content_source_url"] = None
         return PlaybackConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="adConditioningConfiguration")
+    def ad_conditioning_configuration(self) -> pulumi.Output[Optional['outputs.PlaybackConfigurationAdConditioningConfiguration']]:
+        """
+        The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+        """
+        return pulumi.get(self, "ad_conditioning_configuration")
 
     @property
     @pulumi.getter(name="adDecisionServerUrl")

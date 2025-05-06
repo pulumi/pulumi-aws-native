@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['UserPoolClientArgs', 'UserPoolClient']
@@ -40,6 +41,7 @@ class UserPoolClientArgs:
                  logout_urls: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input['UserPoolClientRefreshTokenRotationArgs']] = None,
                  refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  token_validity_units: Optional[pulumi.Input['UserPoolClientTokenValidityUnitsArgs']] = None,
@@ -133,6 +135,7 @@ class UserPoolClientArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_attributes: The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
                
                When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
+        :param pulumi.Input['UserPoolClientRefreshTokenRotationArgs'] refresh_token_rotation: The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
         :param pulumi.Input[builtins.int] refresh_token_validity: The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
                
                For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session
@@ -187,6 +190,8 @@ class UserPoolClientArgs:
             pulumi.set(__self__, "prevent_user_existence_errors", prevent_user_existence_errors)
         if read_attributes is not None:
             pulumi.set(__self__, "read_attributes", read_attributes)
+        if refresh_token_rotation is not None:
+            pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
         if refresh_token_validity is not None:
             pulumi.set(__self__, "refresh_token_validity", refresh_token_validity)
         if supported_identity_providers is not None:
@@ -482,6 +487,18 @@ class UserPoolClientArgs:
         pulumi.set(self, "read_attributes", value)
 
     @property
+    @pulumi.getter(name="refreshTokenRotation")
+    def refresh_token_rotation(self) -> Optional[pulumi.Input['UserPoolClientRefreshTokenRotationArgs']]:
+        """
+        The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
+        """
+        return pulumi.get(self, "refresh_token_rotation")
+
+    @refresh_token_rotation.setter
+    def refresh_token_rotation(self, value: Optional[pulumi.Input['UserPoolClientRefreshTokenRotationArgs']]):
+        pulumi.set(self, "refresh_token_rotation", value)
+
+    @property
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -569,6 +586,7 @@ class UserPoolClient(pulumi.CustomResource):
                  logout_urls: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']]] = None,
                  refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  token_validity_units: Optional[pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
@@ -666,6 +684,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_attributes: The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
                
                When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
+        :param pulumi.Input[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']] refresh_token_rotation: The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
         :param pulumi.Input[builtins.int] refresh_token_validity: The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
                
                For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session
@@ -727,6 +746,7 @@ class UserPoolClient(pulumi.CustomResource):
                  logout_urls: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']]] = None,
                  refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  token_validity_units: Optional[pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
@@ -758,6 +778,7 @@ class UserPoolClient(pulumi.CustomResource):
             __props__.__dict__["logout_urls"] = logout_urls
             __props__.__dict__["prevent_user_existence_errors"] = prevent_user_existence_errors
             __props__.__dict__["read_attributes"] = read_attributes
+            __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
             __props__.__dict__["refresh_token_validity"] = refresh_token_validity
             __props__.__dict__["supported_identity_providers"] = supported_identity_providers
             __props__.__dict__["token_validity_units"] = token_validity_units
@@ -812,6 +833,7 @@ class UserPoolClient(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["prevent_user_existence_errors"] = None
         __props__.__dict__["read_attributes"] = None
+        __props__.__dict__["refresh_token_rotation"] = None
         __props__.__dict__["refresh_token_validity"] = None
         __props__.__dict__["supported_identity_providers"] = None
         __props__.__dict__["token_validity_units"] = None
@@ -1041,6 +1063,14 @@ class UserPoolClient(pulumi.CustomResource):
         When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
         """
         return pulumi.get(self, "read_attributes")
+
+    @property
+    @pulumi.getter(name="refreshTokenRotation")
+    def refresh_token_rotation(self) -> pulumi.Output[Optional['outputs.UserPoolClientRefreshTokenRotation']]:
+        """
+        The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
+        """
+        return pulumi.get(self, "refresh_token_rotation")
 
     @property
     @pulumi.getter(name="refreshTokenValidity")

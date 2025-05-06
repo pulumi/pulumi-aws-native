@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         public readonly Outputs.ChannelLogConfigurationForChannel? LogConfiguration;
         /// <summary>
+        /// &lt;p&gt;The channel's output properties.&lt;/p&gt;
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ChannelRequestOutputItem> Outputs;
+        /// <summary>
         /// The type of playback mode for this channel.
         /// 
         /// `LINEAR` - Programs play back-to-back only once.
@@ -106,6 +110,8 @@ namespace Pulumi.AwsNative.MediaTailor
 
             Outputs.ChannelLogConfigurationForChannel? logConfiguration,
 
+            ImmutableArray<Outputs.ChannelRequestOutputItem> outputs,
+
             Pulumi.AwsNative.MediaTailor.ChannelPlaybackMode? playbackMode,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -116,6 +122,7 @@ namespace Pulumi.AwsNative.MediaTailor
             Audiences = audiences;
             FillerSlate = fillerSlate;
             LogConfiguration = logConfiguration;
+            Outputs = outputs;
             PlaybackMode = playbackMode;
             Tags = tags;
             TimeShiftConfiguration = timeShiftConfiguration;

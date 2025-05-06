@@ -27,6 +27,19 @@
         }
       },
       "additionalProperties" : false
+    },
+    "Tag" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Key" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Key", "Value" ]
     }
   },
   "properties" : {
@@ -52,16 +65,27 @@
     },
     "Schema" : {
       "$ref" : "#/definitions/SchemaDefinition"
+    },
+    "Tags" : {
+      "description" : "The tags to add to the policy store",
+      "type" : "array",
+      "uniqueItems" : false,
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
     }
   },
   "required" : [ "ValidationSettings" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/PolicyStoreId" ],
   "primaryIdentifier" : [ "/properties/PolicyStoreId" ],
   "tagging" : {
-    "taggable" : false,
-    "tagOnCreate" : false,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "verifiedpermissions:TagResource", "verifiedpermissions:ListTagsForResource", "verifiedpermissions:UntagResource" ]
   },
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-avp",
   "propertyTransform" : {
@@ -69,13 +93,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "verifiedpermissions:CreatePolicyStore", "verifiedpermissions:GetPolicyStore", "verifiedpermissions:PutSchema" ]
+      "permissions" : [ "verifiedpermissions:CreatePolicyStore", "verifiedpermissions:TagResource", "verifiedpermissions:GetPolicyStore", "verifiedpermissions:PutSchema" ]
     },
     "read" : {
-      "permissions" : [ "verifiedpermissions:GetPolicyStore", "verifiedpermissions:GetSchema" ]
+      "permissions" : [ "verifiedpermissions:GetPolicyStore", "verifiedpermissions:ListTagsForResource", "verifiedpermissions:GetSchema" ]
     },
     "update" : {
-      "permissions" : [ "verifiedpermissions:UpdatePolicyStore", "verifiedpermissions:GetPolicyStore", "verifiedpermissions:GetSchema", "verifiedpermissions:PutSchema" ]
+      "permissions" : [ "verifiedpermissions:UpdatePolicyStore", "verifiedpermissions:GetPolicyStore", "verifiedpermissions:TagResource", "verifiedpermissions:UntagResource", "verifiedpermissions:GetSchema", "verifiedpermissions:PutSchema" ]
     },
     "delete" : {
       "permissions" : [ "verifiedpermissions:DeletePolicyStore", "verifiedpermissions:GetPolicyStore" ]

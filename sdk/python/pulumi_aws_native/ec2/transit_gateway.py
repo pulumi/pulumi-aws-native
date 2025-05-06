@@ -40,8 +40,8 @@ class TransitGatewayArgs:
         :param pulumi.Input[builtins.int] amazon_side_asn: A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
         :param pulumi.Input[builtins.str] association_default_route_table_id: The ID of the default association route table.
         :param pulumi.Input[builtins.str] auto_accept_shared_attachments: Enable or disable automatic acceptance of attachment requests. Disabled by default.
-        :param pulumi.Input[builtins.str] default_route_table_association: Enable or disable automatic association with the default association route table. Enabled by default.
-        :param pulumi.Input[builtins.str] default_route_table_propagation: Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        :param pulumi.Input[builtins.str] default_route_table_association: Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
+        :param pulumi.Input[builtins.str] default_route_table_propagation: Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         :param pulumi.Input[builtins.str] description: The description of the transit gateway.
         :param pulumi.Input[builtins.str] dns_support: Enable or disable DNS support. Enabled by default.
         :param pulumi.Input[builtins.str] multicast_support: Indicates whether multicast is enabled on the transit gateway
@@ -120,7 +120,7 @@ class TransitGatewayArgs:
     @pulumi.getter(name="defaultRouteTableAssociation")
     def default_route_table_association(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Enable or disable automatic association with the default association route table. Enabled by default.
+        Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         """
         return pulumi.get(self, "default_route_table_association")
 
@@ -132,7 +132,7 @@ class TransitGatewayArgs:
     @pulumi.getter(name="defaultRouteTablePropagation")
     def default_route_table_propagation(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         """
         return pulumi.get(self, "default_route_table_propagation")
 
@@ -269,8 +269,8 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] amazon_side_asn: A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
         :param pulumi.Input[builtins.str] association_default_route_table_id: The ID of the default association route table.
         :param pulumi.Input[builtins.str] auto_accept_shared_attachments: Enable or disable automatic acceptance of attachment requests. Disabled by default.
-        :param pulumi.Input[builtins.str] default_route_table_association: Enable or disable automatic association with the default association route table. Enabled by default.
-        :param pulumi.Input[builtins.str] default_route_table_propagation: Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        :param pulumi.Input[builtins.str] default_route_table_association: Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
+        :param pulumi.Input[builtins.str] default_route_table_propagation: Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         :param pulumi.Input[builtins.str] description: The description of the transit gateway.
         :param pulumi.Input[builtins.str] dns_support: Enable or disable DNS support. Enabled by default.
         :param pulumi.Input[builtins.str] multicast_support: Indicates whether multicast is enabled on the transit gateway
@@ -420,7 +420,7 @@ class TransitGateway(pulumi.CustomResource):
     @pulumi.getter(name="defaultRouteTableAssociation")
     def default_route_table_association(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Enable or disable automatic association with the default association route table. Enabled by default.
+        Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         """
         return pulumi.get(self, "default_route_table_association")
 
@@ -428,7 +428,7 @@ class TransitGateway(pulumi.CustomResource):
     @pulumi.getter(name="defaultRouteTablePropagation")
     def default_route_table_propagation(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         """
         return pulumi.get(self, "default_route_table_propagation")
 

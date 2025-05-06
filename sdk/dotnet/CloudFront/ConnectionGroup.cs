@@ -21,42 +21,69 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("anycastIpListId")]
         public Output<string?> AnycastIpListId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the connection group.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the connection group.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when the connection group was created.
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// A complex type that contains `Tag` key and `Tag` value.
+        /// The current version of the connection group.
         /// </summary>
         [Output("eTag")]
         public Output<string> ETag { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the connection group is enabled.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// IPv6 is enabled for the connection group.
+        /// </summary>
         [Output("ipv6Enabled")]
         public Output<bool?> Ipv6Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the connection group is the default connection group for the distribution tenants.
+        /// </summary>
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when the connection group was updated.
+        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the connection group.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+        /// The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
         /// </summary>
         [Output("routingEndpoint")]
         public Output<string> RoutingEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the connection group.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -121,12 +148,21 @@ namespace Pulumi.AwsNative.CloudFront
         [Input("anycastIpListId")]
         public Input<string>? AnycastIpListId { get; set; }
 
+        /// <summary>
+        /// Whether the connection group is enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// IPv6 is enabled for the connection group.
+        /// </summary>
         [Input("ipv6Enabled")]
         public Input<bool>? Ipv6Enabled { get; set; }
 
+        /// <summary>
+        /// The name of the connection group.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

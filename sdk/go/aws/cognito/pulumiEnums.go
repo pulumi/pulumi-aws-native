@@ -539,6 +539,172 @@ func (in *managedLoginBrandingExtensionTypePtr) ToManagedLoginBrandingExtensionT
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedLoginBrandingExtensionTypePtrOutput)
 }
 
+// The state of refresh token rotation for the current app client.
+type UserPoolClientRefreshTokenRotationFeature string
+
+const (
+	UserPoolClientRefreshTokenRotationFeatureEnabled  = UserPoolClientRefreshTokenRotationFeature("ENABLED")
+	UserPoolClientRefreshTokenRotationFeatureDisabled = UserPoolClientRefreshTokenRotationFeature("DISABLED")
+)
+
+func (UserPoolClientRefreshTokenRotationFeature) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientRefreshTokenRotationFeature)(nil)).Elem()
+}
+
+func (e UserPoolClientRefreshTokenRotationFeature) ToUserPoolClientRefreshTokenRotationFeatureOutput() UserPoolClientRefreshTokenRotationFeatureOutput {
+	return pulumi.ToOutput(e).(UserPoolClientRefreshTokenRotationFeatureOutput)
+}
+
+func (e UserPoolClientRefreshTokenRotationFeature) ToUserPoolClientRefreshTokenRotationFeatureOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationFeatureOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserPoolClientRefreshTokenRotationFeatureOutput)
+}
+
+func (e UserPoolClientRefreshTokenRotationFeature) ToUserPoolClientRefreshTokenRotationFeaturePtrOutput() UserPoolClientRefreshTokenRotationFeaturePtrOutput {
+	return e.ToUserPoolClientRefreshTokenRotationFeaturePtrOutputWithContext(context.Background())
+}
+
+func (e UserPoolClientRefreshTokenRotationFeature) ToUserPoolClientRefreshTokenRotationFeaturePtrOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationFeaturePtrOutput {
+	return UserPoolClientRefreshTokenRotationFeature(e).ToUserPoolClientRefreshTokenRotationFeatureOutputWithContext(ctx).ToUserPoolClientRefreshTokenRotationFeaturePtrOutputWithContext(ctx)
+}
+
+func (e UserPoolClientRefreshTokenRotationFeature) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserPoolClientRefreshTokenRotationFeature) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserPoolClientRefreshTokenRotationFeature) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserPoolClientRefreshTokenRotationFeature) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserPoolClientRefreshTokenRotationFeatureOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientRefreshTokenRotationFeatureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientRefreshTokenRotationFeature)(nil)).Elem()
+}
+
+func (o UserPoolClientRefreshTokenRotationFeatureOutput) ToUserPoolClientRefreshTokenRotationFeatureOutput() UserPoolClientRefreshTokenRotationFeatureOutput {
+	return o
+}
+
+func (o UserPoolClientRefreshTokenRotationFeatureOutput) ToUserPoolClientRefreshTokenRotationFeatureOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationFeatureOutput {
+	return o
+}
+
+func (o UserPoolClientRefreshTokenRotationFeatureOutput) ToUserPoolClientRefreshTokenRotationFeaturePtrOutput() UserPoolClientRefreshTokenRotationFeaturePtrOutput {
+	return o.ToUserPoolClientRefreshTokenRotationFeaturePtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolClientRefreshTokenRotationFeatureOutput) ToUserPoolClientRefreshTokenRotationFeaturePtrOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationFeaturePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolClientRefreshTokenRotationFeature) *UserPoolClientRefreshTokenRotationFeature {
+		return &v
+	}).(UserPoolClientRefreshTokenRotationFeaturePtrOutput)
+}
+
+func (o UserPoolClientRefreshTokenRotationFeatureOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserPoolClientRefreshTokenRotationFeatureOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserPoolClientRefreshTokenRotationFeature) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserPoolClientRefreshTokenRotationFeatureOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolClientRefreshTokenRotationFeatureOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserPoolClientRefreshTokenRotationFeature) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolClientRefreshTokenRotationFeaturePtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientRefreshTokenRotationFeaturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolClientRefreshTokenRotationFeature)(nil)).Elem()
+}
+
+func (o UserPoolClientRefreshTokenRotationFeaturePtrOutput) ToUserPoolClientRefreshTokenRotationFeaturePtrOutput() UserPoolClientRefreshTokenRotationFeaturePtrOutput {
+	return o
+}
+
+func (o UserPoolClientRefreshTokenRotationFeaturePtrOutput) ToUserPoolClientRefreshTokenRotationFeaturePtrOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationFeaturePtrOutput {
+	return o
+}
+
+func (o UserPoolClientRefreshTokenRotationFeaturePtrOutput) Elem() UserPoolClientRefreshTokenRotationFeatureOutput {
+	return o.ApplyT(func(v *UserPoolClientRefreshTokenRotationFeature) UserPoolClientRefreshTokenRotationFeature {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolClientRefreshTokenRotationFeature
+		return ret
+	}).(UserPoolClientRefreshTokenRotationFeatureOutput)
+}
+
+func (o UserPoolClientRefreshTokenRotationFeaturePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolClientRefreshTokenRotationFeaturePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserPoolClientRefreshTokenRotationFeature) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserPoolClientRefreshTokenRotationFeatureInput is an input type that accepts values of the UserPoolClientRefreshTokenRotationFeature enum
+// A concrete instance of `UserPoolClientRefreshTokenRotationFeatureInput` can be one of the following:
+//
+//	UserPoolClientRefreshTokenRotationFeatureEnabled
+//	UserPoolClientRefreshTokenRotationFeatureDisabled
+type UserPoolClientRefreshTokenRotationFeatureInput interface {
+	pulumi.Input
+
+	ToUserPoolClientRefreshTokenRotationFeatureOutput() UserPoolClientRefreshTokenRotationFeatureOutput
+	ToUserPoolClientRefreshTokenRotationFeatureOutputWithContext(context.Context) UserPoolClientRefreshTokenRotationFeatureOutput
+}
+
+var userPoolClientRefreshTokenRotationFeaturePtrType = reflect.TypeOf((**UserPoolClientRefreshTokenRotationFeature)(nil)).Elem()
+
+type UserPoolClientRefreshTokenRotationFeaturePtrInput interface {
+	pulumi.Input
+
+	ToUserPoolClientRefreshTokenRotationFeaturePtrOutput() UserPoolClientRefreshTokenRotationFeaturePtrOutput
+	ToUserPoolClientRefreshTokenRotationFeaturePtrOutputWithContext(context.Context) UserPoolClientRefreshTokenRotationFeaturePtrOutput
+}
+
+type userPoolClientRefreshTokenRotationFeaturePtr string
+
+func UserPoolClientRefreshTokenRotationFeaturePtr(v string) UserPoolClientRefreshTokenRotationFeaturePtrInput {
+	return (*userPoolClientRefreshTokenRotationFeaturePtr)(&v)
+}
+
+func (*userPoolClientRefreshTokenRotationFeaturePtr) ElementType() reflect.Type {
+	return userPoolClientRefreshTokenRotationFeaturePtrType
+}
+
+func (in *userPoolClientRefreshTokenRotationFeaturePtr) ToUserPoolClientRefreshTokenRotationFeaturePtrOutput() UserPoolClientRefreshTokenRotationFeaturePtrOutput {
+	return pulumi.ToOutput(in).(UserPoolClientRefreshTokenRotationFeaturePtrOutput)
+}
+
+func (in *userPoolClientRefreshTokenRotationFeaturePtr) ToUserPoolClientRefreshTokenRotationFeaturePtrOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationFeaturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserPoolClientRefreshTokenRotationFeaturePtrOutput)
+}
+
 // The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
 type UserPoolTier string
 
@@ -714,6 +880,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLoginBrandingColorModeTypePtrInput)(nil)).Elem(), ManagedLoginBrandingColorModeType("LIGHT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLoginBrandingExtensionTypeInput)(nil)).Elem(), ManagedLoginBrandingExtensionType("ICO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLoginBrandingExtensionTypePtrInput)(nil)).Elem(), ManagedLoginBrandingExtensionType("ICO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationFeatureInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationFeature("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationFeaturePtrInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationFeature("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolTierInput)(nil)).Elem(), UserPoolTier("LITE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolTierPtrInput)(nil)).Elem(), UserPoolTier("LITE"))
 	pulumi.RegisterOutputType(ManagedLoginBrandingCategoryTypeOutput{})
@@ -722,6 +890,8 @@ func init() {
 	pulumi.RegisterOutputType(ManagedLoginBrandingColorModeTypePtrOutput{})
 	pulumi.RegisterOutputType(ManagedLoginBrandingExtensionTypeOutput{})
 	pulumi.RegisterOutputType(ManagedLoginBrandingExtensionTypePtrOutput{})
+	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationFeatureOutput{})
+	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationFeaturePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolTierOutput{})
 	pulumi.RegisterOutputType(UserPoolTierPtrOutput{})
 }

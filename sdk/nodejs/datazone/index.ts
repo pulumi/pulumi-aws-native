@@ -20,6 +20,11 @@ export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
 utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
+export { DomainUnitArgs } from "./domainUnit";
+export type DomainUnit = import("./domainUnit").DomainUnit;
+export const DomainUnit: typeof import("./domainUnit").DomainUnit = null as any;
+utilities.lazyLoad(exports, ["DomainUnit"], () => require("./domainUnit"));
+
 export { EnvironmentArgs } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
@@ -54,6 +59,11 @@ export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+
+export { GetDomainUnitArgs, GetDomainUnitResult, GetDomainUnitOutputArgs } from "./getDomainUnit";
+export const getDomainUnit: typeof import("./getDomainUnit").getDomainUnit = null as any;
+export const getDomainUnitOutput: typeof import("./getDomainUnit").getDomainUnitOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainUnit","getDomainUnitOutput"], () => require("./getDomainUnit"));
 
 export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
 export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
@@ -100,6 +110,11 @@ export type GroupProfile = import("./groupProfile").GroupProfile;
 export const GroupProfile: typeof import("./groupProfile").GroupProfile = null as any;
 utilities.lazyLoad(exports, ["GroupProfile"], () => require("./groupProfile"));
 
+export { OwnerArgs } from "./owner";
+export type Owner = import("./owner").Owner;
+export const Owner: typeof import("./owner").Owner = null as any;
+utilities.lazyLoad(exports, ["Owner"], () => require("./owner"));
+
 export { ProjectArgs } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
@@ -134,6 +149,8 @@ const _module = {
                 return new DataSource(name, <any>undefined, { urn })
             case "aws-native:datazone:Domain":
                 return new Domain(name, <any>undefined, { urn })
+            case "aws-native:datazone:DomainUnit":
+                return new DomainUnit(name, <any>undefined, { urn })
             case "aws-native:datazone:Environment":
                 return new Environment(name, <any>undefined, { urn })
             case "aws-native:datazone:EnvironmentActions":
@@ -144,6 +161,8 @@ const _module = {
                 return new EnvironmentProfile(name, <any>undefined, { urn })
             case "aws-native:datazone:GroupProfile":
                 return new GroupProfile(name, <any>undefined, { urn })
+            case "aws-native:datazone:Owner":
+                return new Owner(name, <any>undefined, { urn })
             case "aws-native:datazone:Project":
                 return new Project(name, <any>undefined, { urn })
             case "aws-native:datazone:ProjectMembership":

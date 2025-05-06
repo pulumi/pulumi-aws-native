@@ -62,7 +62,7 @@ class BucketArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationArgs']]] inventory_configurations: Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         :param pulumi.Input['BucketLifecycleConfigurationArgs'] lifecycle_configuration: Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input['BucketLoggingConfigurationArgs'] logging_configuration: Settings that define where logs are stored.
-        :param pulumi.Input['BucketMetadataTableConfigurationArgs'] metadata_table_configuration: The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+        :param pulumi.Input['BucketMetadataTableConfigurationArgs'] metadata_table_configuration: The metadata table configuration of an S3 general purpose bucket.
         :param pulumi.Input[Sequence[pulumi.Input['BucketMetricsConfigurationArgs']]] metrics_configurations: Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
         :param pulumi.Input['BucketNotificationConfigurationArgs'] notification_configuration: Configuration that defines how Amazon S3 handles bucket notifications.
         :param pulumi.Input['BucketObjectLockConfigurationArgs'] object_lock_configuration: This operation is not supported for directory buckets.
@@ -251,7 +251,7 @@ class BucketArgs:
     @pulumi.getter(name="metadataTableConfiguration")
     def metadata_table_configuration(self) -> Optional[pulumi.Input['BucketMetadataTableConfigurationArgs']]:
         """
-        The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+        The metadata table configuration of an S3 general purpose bucket.
         """
         return pulumi.get(self, "metadata_table_configuration")
 
@@ -922,7 +922,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketInventoryConfigurationArgs', 'BucketInventoryConfigurationArgsDict']]]] inventory_configurations: Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         :param pulumi.Input[Union['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfigurationArgsDict']] lifecycle_configuration: Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input[Union['BucketLoggingConfigurationArgs', 'BucketLoggingConfigurationArgsDict']] logging_configuration: Settings that define where logs are stored.
-        :param pulumi.Input[Union['BucketMetadataTableConfigurationArgs', 'BucketMetadataTableConfigurationArgsDict']] metadata_table_configuration: The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+        :param pulumi.Input[Union['BucketMetadataTableConfigurationArgs', 'BucketMetadataTableConfigurationArgsDict']] metadata_table_configuration: The metadata table configuration of an S3 general purpose bucket.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketMetricsConfigurationArgs', 'BucketMetricsConfigurationArgsDict']]]] metrics_configurations: Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
         :param pulumi.Input[Union['BucketNotificationConfigurationArgs', 'BucketNotificationConfigurationArgsDict']] notification_configuration: Configuration that defines how Amazon S3 handles bucket notifications.
         :param pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']] object_lock_configuration: This operation is not supported for directory buckets.
@@ -1679,7 +1679,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="metadataTableConfiguration")
     def metadata_table_configuration(self) -> pulumi.Output[Optional['outputs.BucketMetadataTableConfiguration']]:
         """
-        The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+        The metadata table configuration of an S3 general purpose bucket.
         """
         return pulumi.get(self, "metadata_table_configuration")
 

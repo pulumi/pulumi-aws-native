@@ -74,57 +74,81 @@ class GetConnectionGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the connection group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[builtins.str]:
+        """
+        The date and time when the connection group was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="eTag")
     def e_tag(self) -> Optional[builtins.str]:
         """
-        A complex type that contains `Tag` key and `Tag` value.
+        The current version of the connection group.
         """
         return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
+        """
+        Whether the connection group is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[builtins.str]:
+        """
+        The ID of the connection group.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipv6Enabled")
     def ipv6_enabled(self) -> Optional[builtins.bool]:
+        """
+        IPv6 is enabled for the connection group.
+        """
         return pulumi.get(self, "ipv6_enabled")
 
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> Optional[builtins.bool]:
+        """
+        Whether the connection group is the default connection group for the distribution tenants.
+        """
         return pulumi.get(self, "is_default")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[builtins.str]:
+        """
+        The date and time when the connection group was updated.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter(name="routingEndpoint")
     def routing_endpoint(self) -> Optional[builtins.str]:
         """
-        Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+        The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
         """
         return pulumi.get(self, "routing_endpoint")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[builtins.str]:
+        """
+        The status of the connection group.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -160,6 +184,9 @@ def get_connection_group(id: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionGroupResult:
     """
     Resource Type definition for AWS::CloudFront::ConnectionGroup
+
+
+    :param builtins.str id: The ID of the connection group.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -183,6 +210,9 @@ def get_connection_group_output(id: Optional[pulumi.Input[builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionGroupResult]:
     """
     Resource Type definition for AWS::CloudFront::ConnectionGroup
+
+
+    :param builtins.str id: The ID of the connection group.
     """
     __args__ = dict()
     __args__['id'] = id

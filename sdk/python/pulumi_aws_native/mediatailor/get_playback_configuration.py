@@ -27,7 +27,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetPlaybackConfigurationResult:
-    def __init__(__self__, ad_decision_server_url=None, avail_suppression=None, bumper=None, cdn_configuration=None, configuration_aliases=None, dash_configuration=None, hls_configuration=None, live_pre_roll_configuration=None, manifest_processing_rules=None, personalization_threshold_seconds=None, playback_configuration_arn=None, playback_endpoint_prefix=None, session_initialization_endpoint_prefix=None, slate_ad_url=None, tags=None, transcode_profile_name=None, video_content_source_url=None):
+    def __init__(__self__, ad_conditioning_configuration=None, ad_decision_server_url=None, avail_suppression=None, bumper=None, cdn_configuration=None, configuration_aliases=None, dash_configuration=None, hls_configuration=None, live_pre_roll_configuration=None, manifest_processing_rules=None, personalization_threshold_seconds=None, playback_configuration_arn=None, playback_endpoint_prefix=None, session_initialization_endpoint_prefix=None, slate_ad_url=None, tags=None, transcode_profile_name=None, video_content_source_url=None):
+        if ad_conditioning_configuration and not isinstance(ad_conditioning_configuration, dict):
+            raise TypeError("Expected argument 'ad_conditioning_configuration' to be a dict")
+        pulumi.set(__self__, "ad_conditioning_configuration", ad_conditioning_configuration)
         if ad_decision_server_url and not isinstance(ad_decision_server_url, str):
             raise TypeError("Expected argument 'ad_decision_server_url' to be a str")
         pulumi.set(__self__, "ad_decision_server_url", ad_decision_server_url)
@@ -79,6 +82,14 @@ class GetPlaybackConfigurationResult:
         if video_content_source_url and not isinstance(video_content_source_url, str):
             raise TypeError("Expected argument 'video_content_source_url' to be a str")
         pulumi.set(__self__, "video_content_source_url", video_content_source_url)
+
+    @property
+    @pulumi.getter(name="adConditioningConfiguration")
+    def ad_conditioning_configuration(self) -> Optional['outputs.PlaybackConfigurationAdConditioningConfiguration']:
+        """
+        The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+        """
+        return pulumi.get(self, "ad_conditioning_configuration")
 
     @property
     @pulumi.getter(name="adDecisionServerUrl")
@@ -223,6 +234,7 @@ class AwaitableGetPlaybackConfigurationResult(GetPlaybackConfigurationResult):
         if False:
             yield self
         return GetPlaybackConfigurationResult(
+            ad_conditioning_configuration=self.ad_conditioning_configuration,
             ad_decision_server_url=self.ad_decision_server_url,
             avail_suppression=self.avail_suppression,
             bumper=self.bumper,
@@ -256,6 +268,7 @@ def get_playback_configuration(name: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediatailor:getPlaybackConfiguration', __args__, opts=opts, typ=GetPlaybackConfigurationResult).value
 
     return AwaitableGetPlaybackConfigurationResult(
+        ad_conditioning_configuration=pulumi.get(__ret__, 'ad_conditioning_configuration'),
         ad_decision_server_url=pulumi.get(__ret__, 'ad_decision_server_url'),
         avail_suppression=pulumi.get(__ret__, 'avail_suppression'),
         bumper=pulumi.get(__ret__, 'bumper'),
@@ -286,6 +299,7 @@ def get_playback_configuration_output(name: Optional[pulumi.Input[builtins.str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediatailor:getPlaybackConfiguration', __args__, opts=opts, typ=GetPlaybackConfigurationResult)
     return __ret__.apply(lambda __response__: GetPlaybackConfigurationResult(
+        ad_conditioning_configuration=pulumi.get(__response__, 'ad_conditioning_configuration'),
         ad_decision_server_url=pulumi.get(__response__, 'ad_decision_server_url'),
         avail_suppression=pulumi.get(__response__, 'avail_suppression'),
         bumper=pulumi.get(__response__, 'bumper'),

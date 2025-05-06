@@ -36,7 +36,14 @@ class DistributionTenantArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DistributionTenant resource.
-        :param pulumi.Input[builtins.str] distribution_id: The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        :param pulumi.Input[builtins.str] distribution_id: The ID of the multi-tenant distribution.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] domains: The domains associated with the distribution tenant.
+        :param pulumi.Input[builtins.str] connection_group_id: The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+        :param pulumi.Input['DistributionTenantCustomizationsArgs'] customizations: Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        :param pulumi.Input[builtins.bool] enabled: Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+        :param pulumi.Input['DistributionTenantManagedCertificateRequestArgs'] managed_certificate_request: An object that represents the request for the Amazon CloudFront managed ACM certificate.
+        :param pulumi.Input[builtins.str] name: The name of the distribution tenant.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]] parameters: A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more `Tag` elements.
         """
         pulumi.set(__self__, "distribution_id", distribution_id)
@@ -60,7 +67,7 @@ class DistributionTenantArgs:
     @pulumi.getter(name="distributionId")
     def distribution_id(self) -> pulumi.Input[builtins.str]:
         """
-        The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        The ID of the multi-tenant distribution.
         """
         return pulumi.get(self, "distribution_id")
 
@@ -71,6 +78,9 @@ class DistributionTenantArgs:
     @property
     @pulumi.getter
     def domains(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        The domains associated with the distribution tenant.
+        """
         return pulumi.get(self, "domains")
 
     @domains.setter
@@ -80,6 +90,9 @@ class DistributionTenantArgs:
     @property
     @pulumi.getter(name="connectionGroupId")
     def connection_group_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+        """
         return pulumi.get(self, "connection_group_id")
 
     @connection_group_id.setter
@@ -89,6 +102,9 @@ class DistributionTenantArgs:
     @property
     @pulumi.getter
     def customizations(self) -> Optional[pulumi.Input['DistributionTenantCustomizationsArgs']]:
+        """
+        Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        """
         return pulumi.get(self, "customizations")
 
     @customizations.setter
@@ -98,6 +114,9 @@ class DistributionTenantArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -107,6 +126,9 @@ class DistributionTenantArgs:
     @property
     @pulumi.getter(name="managedCertificateRequest")
     def managed_certificate_request(self) -> Optional[pulumi.Input['DistributionTenantManagedCertificateRequestArgs']]:
+        """
+        An object that represents the request for the Amazon CloudFront managed ACM certificate.
+        """
         return pulumi.get(self, "managed_certificate_request")
 
     @managed_certificate_request.setter
@@ -116,6 +138,9 @@ class DistributionTenantArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the distribution tenant.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -125,6 +150,9 @@ class DistributionTenantArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]]:
+        """
+        A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -167,7 +195,14 @@ class DistributionTenant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] distribution_id: The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        :param pulumi.Input[builtins.str] connection_group_id: The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+        :param pulumi.Input[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']] customizations: Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        :param pulumi.Input[builtins.str] distribution_id: The ID of the multi-tenant distribution.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] domains: The domains associated with the distribution tenant.
+        :param pulumi.Input[builtins.bool] enabled: Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+        :param pulumi.Input[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']] managed_certificate_request: An object that represents the request for the Amazon CloudFront managed ACM certificate.
+        :param pulumi.Input[builtins.str] name: The name of the distribution tenant.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]] parameters: A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more `Tag` elements.
         """
         ...
@@ -277,33 +312,48 @@ class DistributionTenant(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the distribution tenant.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The ID of the distribution tenant.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="connectionGroupId")
     def connection_group_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+        """
         return pulumi.get(self, "connection_group_id")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[builtins.str]:
+        """
+        The date and time when the distribution tenant was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def customizations(self) -> pulumi.Output[Optional['outputs.DistributionTenantCustomizations']]:
+        """
+        Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        """
         return pulumi.get(self, "customizations")
 
     @property
     @pulumi.getter(name="distributionId")
     def distribution_id(self) -> pulumi.Output[builtins.str]:
         """
-        The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        The ID of the multi-tenant distribution.
         """
         return pulumi.get(self, "distribution_id")
 
@@ -315,44 +365,65 @@ class DistributionTenant(pulumi.CustomResource):
     @property
     @pulumi.getter
     def domains(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        The domains associated with the distribution tenant.
+        """
         return pulumi.get(self, "domains")
 
     @property
     @pulumi.getter(name="eTag")
     def e_tag(self) -> pulumi.Output[builtins.str]:
         """
-        A complex type that contains `Tag` key and `Tag` value.
+        The current version of the distribution tenant.
         """
         return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[builtins.str]:
+        """
+        The date and time when the distribution tenant was updated.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter(name="managedCertificateRequest")
     def managed_certificate_request(self) -> pulumi.Output[Optional['outputs.DistributionTenantManagedCertificateRequest']]:
+        """
+        An object that represents the request for the Amazon CloudFront managed ACM certificate.
+        """
         return pulumi.get(self, "managed_certificate_request")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name of the distribution tenant.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionTenantParameter']]]:
+        """
+        A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
+        """
+        The status of the distribution tenant.
+        """
         return pulumi.get(self, "status")
 
     @property

@@ -34,7 +34,7 @@ type LookupLinkResult struct {
 	Label *string `pulumi:"label"`
 	// Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
 	LinkConfiguration *LinkConfiguration `pulumi:"linkConfiguration"`
-	// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
+	// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
 	ResourceTypes []LinkResourceType `pulumi:"resourceTypes"`
 	// Tags to apply to the link
 	Tags map[string]string `pulumi:"tags"`
@@ -87,7 +87,7 @@ func (o LookupLinkResultOutput) LinkConfiguration() LinkConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *LinkConfiguration { return v.LinkConfiguration }).(LinkConfigurationPtrOutput)
 }
 
-// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor | AWS::ApplicationSignals::Service | AWS::ApplicationSignals::ServiceLevelObjective` .
+// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
 func (o LookupLinkResultOutput) ResourceTypes() LinkResourceTypeArrayOutput {
 	return o.ApplyT(func(v LookupLinkResult) []LinkResourceType { return v.ResourceTypes }).(LinkResourceTypeArrayOutput)
 }

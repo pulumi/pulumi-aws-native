@@ -435,6 +435,8 @@ if typing.TYPE_CHECKING:
     ssm = __ssm
     import pulumi_aws_native.ssmcontacts as __ssmcontacts
     ssmcontacts = __ssmcontacts
+    import pulumi_aws_native.ssmguiconnect as __ssmguiconnect
+    ssmguiconnect = __ssmguiconnect
     import pulumi_aws_native.ssmincidents as __ssmincidents
     ssmincidents = __ssmincidents
     import pulumi_aws_native.ssmquicksetup as __ssmquicksetup
@@ -678,6 +680,7 @@ else:
     sqs = _utilities.lazy_import('pulumi_aws_native.sqs')
     ssm = _utilities.lazy_import('pulumi_aws_native.ssm')
     ssmcontacts = _utilities.lazy_import('pulumi_aws_native.ssmcontacts')
+    ssmguiconnect = _utilities.lazy_import('pulumi_aws_native.ssmguiconnect')
     ssmincidents = _utilities.lazy_import('pulumi_aws_native.ssmincidents')
     ssmquicksetup = _utilities.lazy_import('pulumi_aws_native.ssmquicksetup')
     sso = _utilities.lazy_import('pulumi_aws_native.sso')
@@ -1400,11 +1403,13 @@ _utilities.register(
    "aws-native:datazone:Connection": "Connection",
    "aws-native:datazone:DataSource": "DataSource",
    "aws-native:datazone:Domain": "Domain",
+   "aws-native:datazone:DomainUnit": "DomainUnit",
    "aws-native:datazone:Environment": "Environment",
    "aws-native:datazone:EnvironmentActions": "EnvironmentActions",
    "aws-native:datazone:EnvironmentBlueprintConfiguration": "EnvironmentBlueprintConfiguration",
    "aws-native:datazone:EnvironmentProfile": "EnvironmentProfile",
    "aws-native:datazone:GroupProfile": "GroupProfile",
+   "aws-native:datazone:Owner": "Owner",
    "aws-native:datazone:Project": "Project",
    "aws-native:datazone:ProjectMembership": "ProjectMembership",
    "aws-native:datazone:SubscriptionTarget": "SubscriptionTarget",
@@ -3209,6 +3214,14 @@ _utilities.register(
    "aws-native:ssmcontacts:ContactChannel": "ContactChannel",
    "aws-native:ssmcontacts:Plan": "Plan",
    "aws-native:ssmcontacts:Rotation": "Rotation"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "ssmguiconnect",
+  "fqn": "pulumi_aws_native.ssmguiconnect",
+  "classes": {
+   "aws-native:ssmguiconnect:Preferences": "Preferences"
   }
  },
  {

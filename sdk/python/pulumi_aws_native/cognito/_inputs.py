@@ -49,6 +49,8 @@ __all__ = [
     'UserPoolAdvancedSecurityAdditionalFlowsArgsDict',
     'UserPoolClientAnalyticsConfigurationArgs',
     'UserPoolClientAnalyticsConfigurationArgsDict',
+    'UserPoolClientRefreshTokenRotationArgs',
+    'UserPoolClientRefreshTokenRotationArgsDict',
     'UserPoolClientTokenValidityUnitsArgs',
     'UserPoolClientTokenValidityUnitsArgsDict',
     'UserPoolCustomEmailSenderArgs',
@@ -992,6 +994,58 @@ class UserPoolClientAnalyticsConfigurationArgs:
     @user_data_shared.setter
     def user_data_shared(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "user_data_shared", value)
+
+
+if not MYPY:
+    class UserPoolClientRefreshTokenRotationArgsDict(TypedDict):
+        feature: NotRequired[pulumi.Input['UserPoolClientRefreshTokenRotationFeature']]
+        """
+        The state of refresh token rotation for the current app client.
+        """
+        retry_grace_period_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        When you request a token refresh with `GetTokensFromRefreshToken` , the original refresh token that you're rotating out can remain valid for a period of time of up to 60 seconds. This allows for client-side retries. When `RetryGracePeriodSeconds` is `0` , the grace period is disabled and a successful request immediately invalidates the submitted refresh token.
+        """
+elif False:
+    UserPoolClientRefreshTokenRotationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserPoolClientRefreshTokenRotationArgs:
+    def __init__(__self__, *,
+                 feature: Optional[pulumi.Input['UserPoolClientRefreshTokenRotationFeature']] = None,
+                 retry_grace_period_seconds: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input['UserPoolClientRefreshTokenRotationFeature'] feature: The state of refresh token rotation for the current app client.
+        :param pulumi.Input[builtins.int] retry_grace_period_seconds: When you request a token refresh with `GetTokensFromRefreshToken` , the original refresh token that you're rotating out can remain valid for a period of time of up to 60 seconds. This allows for client-side retries. When `RetryGracePeriodSeconds` is `0` , the grace period is disabled and a successful request immediately invalidates the submitted refresh token.
+        """
+        if feature is not None:
+            pulumi.set(__self__, "feature", feature)
+        if retry_grace_period_seconds is not None:
+            pulumi.set(__self__, "retry_grace_period_seconds", retry_grace_period_seconds)
+
+    @property
+    @pulumi.getter
+    def feature(self) -> Optional[pulumi.Input['UserPoolClientRefreshTokenRotationFeature']]:
+        """
+        The state of refresh token rotation for the current app client.
+        """
+        return pulumi.get(self, "feature")
+
+    @feature.setter
+    def feature(self, value: Optional[pulumi.Input['UserPoolClientRefreshTokenRotationFeature']]):
+        pulumi.set(self, "feature", value)
+
+    @property
+    @pulumi.getter(name="retryGracePeriodSeconds")
+    def retry_grace_period_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        When you request a token refresh with `GetTokensFromRefreshToken` , the original refresh token that you're rotating out can remain valid for a period of time of up to 60 seconds. This allows for client-side retries. When `RetryGracePeriodSeconds` is `0` , the grace period is disabled and a successful request immediately invalidates the submitted refresh token.
+        """
+        return pulumi.get(self, "retry_grace_period_seconds")
+
+    @retry_grace_period_seconds.setter
+    def retry_grace_period_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "retry_grace_period_seconds", value)
 
 
 if not MYPY:

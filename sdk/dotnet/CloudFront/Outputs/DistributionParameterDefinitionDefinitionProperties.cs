@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// The value that you assigned to the parameter.
+    /// </summary>
     [OutputType]
     public sealed class DistributionParameterDefinitionDefinitionProperties
     {

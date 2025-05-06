@@ -2404,8 +2404,8 @@ func (in *bucketInventoryConfigurationScheduleFrequencyPtr) ToBucketInventoryCon
 // Indicates which default minimum object size behavior is applied to the lifecycle configuration.
 //
 //	 This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
-//	  +   ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
-//	 +   ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+//	  +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
+//	 +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
 //
 //	To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
 type BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize string

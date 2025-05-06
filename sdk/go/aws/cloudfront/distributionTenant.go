@@ -17,23 +17,35 @@ import (
 type DistributionTenant struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput                       `pulumi:"arn"`
-	AwsId             pulumi.StringOutput                       `pulumi:"awsId"`
-	ConnectionGroupId pulumi.StringPtrOutput                    `pulumi:"connectionGroupId"`
-	CreatedTime       pulumi.StringOutput                       `pulumi:"createdTime"`
-	Customizations    DistributionTenantCustomizationsPtrOutput `pulumi:"customizations"`
-	// The distribution's identifier. For example: `E1U5RQF7T870K0` .
+	// The Amazon Resource Name (ARN) of the distribution tenant.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the distribution tenant.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+	ConnectionGroupId pulumi.StringPtrOutput `pulumi:"connectionGroupId"`
+	// The date and time when the distribution tenant was created.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+	Customizations DistributionTenantCustomizationsPtrOutput `pulumi:"customizations"`
+	// The ID of the multi-tenant distribution.
 	DistributionId pulumi.StringOutput                       `pulumi:"distributionId"`
 	DomainResults  DistributionTenantDomainResultArrayOutput `pulumi:"domainResults"`
-	Domains        pulumi.StringArrayOutput                  `pulumi:"domains"`
-	// A complex type that contains `Tag` key and `Tag` value.
-	ETag                      pulumi.StringOutput                                  `pulumi:"eTag"`
-	Enabled                   pulumi.BoolPtrOutput                                 `pulumi:"enabled"`
-	LastModifiedTime          pulumi.StringOutput                                  `pulumi:"lastModifiedTime"`
+	// The domains associated with the distribution tenant.
+	Domains pulumi.StringArrayOutput `pulumi:"domains"`
+	// The current version of the distribution tenant.
+	ETag pulumi.StringOutput `pulumi:"eTag"`
+	// Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The date and time when the distribution tenant was updated.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// An object that represents the request for the Amazon CloudFront managed ACM certificate.
 	ManagedCertificateRequest DistributionTenantManagedCertificateRequestPtrOutput `pulumi:"managedCertificateRequest"`
-	Name                      pulumi.StringOutput                                  `pulumi:"name"`
-	Parameters                DistributionTenantParameterArrayOutput               `pulumi:"parameters"`
-	Status                    pulumi.StringOutput                                  `pulumi:"status"`
+	// The name of the distribution tenant.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+	Parameters DistributionTenantParameterArrayOutput `pulumi:"parameters"`
+	// The status of the distribution tenant.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// A complex type that contains zero or more `Tag` elements.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -89,30 +101,44 @@ func (DistributionTenantState) ElementType() reflect.Type {
 }
 
 type distributionTenantArgs struct {
-	ConnectionGroupId *string                           `pulumi:"connectionGroupId"`
-	Customizations    *DistributionTenantCustomizations `pulumi:"customizations"`
-	// The distribution's identifier. For example: `E1U5RQF7T870K0` .
-	DistributionId            string                                       `pulumi:"distributionId"`
-	Domains                   []string                                     `pulumi:"domains"`
-	Enabled                   *bool                                        `pulumi:"enabled"`
+	// The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
+	ConnectionGroupId *string `pulumi:"connectionGroupId"`
+	// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+	Customizations *DistributionTenantCustomizations `pulumi:"customizations"`
+	// The ID of the multi-tenant distribution.
+	DistributionId string `pulumi:"distributionId"`
+	// The domains associated with the distribution tenant.
+	Domains []string `pulumi:"domains"`
+	// Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+	Enabled *bool `pulumi:"enabled"`
+	// An object that represents the request for the Amazon CloudFront managed ACM certificate.
 	ManagedCertificateRequest *DistributionTenantManagedCertificateRequest `pulumi:"managedCertificateRequest"`
-	Name                      *string                                      `pulumi:"name"`
-	Parameters                []DistributionTenantParameter                `pulumi:"parameters"`
+	// The name of the distribution tenant.
+	Name *string `pulumi:"name"`
+	// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+	Parameters []DistributionTenantParameter `pulumi:"parameters"`
 	// A complex type that contains zero or more `Tag` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DistributionTenant resource.
 type DistributionTenantArgs struct {
+	// The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
 	ConnectionGroupId pulumi.StringPtrInput
-	Customizations    DistributionTenantCustomizationsPtrInput
-	// The distribution's identifier. For example: `E1U5RQF7T870K0` .
-	DistributionId            pulumi.StringInput
-	Domains                   pulumi.StringArrayInput
-	Enabled                   pulumi.BoolPtrInput
+	// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+	Customizations DistributionTenantCustomizationsPtrInput
+	// The ID of the multi-tenant distribution.
+	DistributionId pulumi.StringInput
+	// The domains associated with the distribution tenant.
+	Domains pulumi.StringArrayInput
+	// Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
+	Enabled pulumi.BoolPtrInput
+	// An object that represents the request for the Amazon CloudFront managed ACM certificate.
 	ManagedCertificateRequest DistributionTenantManagedCertificateRequestPtrInput
-	Name                      pulumi.StringPtrInput
-	Parameters                DistributionTenantParameterArrayInput
+	// The name of the distribution tenant.
+	Name pulumi.StringPtrInput
+	// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+	Parameters DistributionTenantParameterArrayInput
 	// A complex type that contains zero or more `Tag` elements.
 	Tags aws.TagArrayInput
 }
@@ -154,27 +180,32 @@ func (o DistributionTenantOutput) ToDistributionTenantOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the distribution tenant.
 func (o DistributionTenantOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the distribution tenant.
 func (o DistributionTenantOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
 func (o DistributionTenantOutput) ConnectionGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringPtrOutput { return v.ConnectionGroupId }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the distribution tenant was created.
 func (o DistributionTenantOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
 func (o DistributionTenantOutput) Customizations() DistributionTenantCustomizationsPtrOutput {
 	return o.ApplyT(func(v *DistributionTenant) DistributionTenantCustomizationsPtrOutput { return v.Customizations }).(DistributionTenantCustomizationsPtrOutput)
 }
 
-// The distribution's identifier. For example: `E1U5RQF7T870K0` .
+// The ID of the multi-tenant distribution.
 func (o DistributionTenantOutput) DistributionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.DistributionId }).(pulumi.StringOutput)
 }
@@ -183,37 +214,44 @@ func (o DistributionTenantOutput) DomainResults() DistributionTenantDomainResult
 	return o.ApplyT(func(v *DistributionTenant) DistributionTenantDomainResultArrayOutput { return v.DomainResults }).(DistributionTenantDomainResultArrayOutput)
 }
 
+// The domains associated with the distribution tenant.
 func (o DistributionTenantOutput) Domains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringArrayOutput { return v.Domains }).(pulumi.StringArrayOutput)
 }
 
-// A complex type that contains `Tag` key and `Tag` value.
+// The current version of the distribution tenant.
 func (o DistributionTenantOutput) ETag() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.ETag }).(pulumi.StringOutput)
 }
 
+// Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
 func (o DistributionTenantOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The date and time when the distribution tenant was updated.
 func (o DistributionTenantOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
+// An object that represents the request for the Amazon CloudFront managed ACM certificate.
 func (o DistributionTenantOutput) ManagedCertificateRequest() DistributionTenantManagedCertificateRequestPtrOutput {
 	return o.ApplyT(func(v *DistributionTenant) DistributionTenantManagedCertificateRequestPtrOutput {
 		return v.ManagedCertificateRequest
 	}).(DistributionTenantManagedCertificateRequestPtrOutput)
 }
 
+// The name of the distribution tenant.
 func (o DistributionTenantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
 func (o DistributionTenantOutput) Parameters() DistributionTenantParameterArrayOutput {
 	return o.ApplyT(func(v *DistributionTenant) DistributionTenantParameterArrayOutput { return v.Parameters }).(DistributionTenantParameterArrayOutput)
 }
 
+// The status of the distribution tenant.
 func (o DistributionTenantOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

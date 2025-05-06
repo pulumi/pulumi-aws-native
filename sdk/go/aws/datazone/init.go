@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataSource{}
 	case "aws-native:datazone:Domain":
 		r = &Domain{}
+	case "aws-native:datazone:DomainUnit":
+		r = &DomainUnit{}
 	case "aws-native:datazone:Environment":
 		r = &Environment{}
 	case "aws-native:datazone:EnvironmentActions":
@@ -37,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EnvironmentProfile{}
 	case "aws-native:datazone:GroupProfile":
 		r = &GroupProfile{}
+	case "aws-native:datazone:Owner":
+		r = &Owner{}
 	case "aws-native:datazone:Project":
 		r = &Project{}
 	case "aws-native:datazone:ProjectMembership":

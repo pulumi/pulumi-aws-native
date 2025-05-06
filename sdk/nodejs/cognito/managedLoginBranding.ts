@@ -42,7 +42,7 @@ export class ManagedLoginBranding extends pulumi.CustomResource {
      */
     public readonly assets!: pulumi.Output<outputs.cognito.ManagedLoginBrandingAssetType[] | undefined>;
     /**
-     * The app client that's assigned to the branding style that you want more information about.
+     * The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
      */
     public readonly clientId!: pulumi.Output<string | undefined>;
     /**
@@ -116,7 +116,7 @@ export interface ManagedLoginBrandingArgs {
      */
     assets?: pulumi.Input<pulumi.Input<inputs.cognito.ManagedLoginBrandingAssetTypeArgs>[]>;
     /**
-     * The app client that's assigned to the branding style that you want more information about.
+     * The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
      */
     clientId?: pulumi.Input<string>;
     /**

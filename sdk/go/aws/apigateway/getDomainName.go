@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ApiGateway::DomainName.
+// The “AWS::ApiGateway::DomainName“ resource specifies a custom domain name for your API in API Gateway.
+//
+//	You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 func LookupDomainName(ctx *pulumi.Context, args *LookupDomainNameArgs, opts ...pulumi.InvokeOption) (*LookupDomainNameResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainNameResult
@@ -37,6 +39,7 @@ type LookupDomainNameResult struct {
 	DistributionDomainName *string `pulumi:"distributionDomainName"`
 	// The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
 	DistributionHostedZoneId *string `pulumi:"distributionHostedZoneId"`
+	DomainNameArn            *string `pulumi:"domainNameArn"`
 	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	EndpointConfiguration *DomainNameEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
@@ -102,6 +105,10 @@ func (o LookupDomainNameResultOutput) DistributionDomainName() pulumi.StringPtrO
 // The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
 func (o LookupDomainNameResultOutput) DistributionHostedZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.DistributionHostedZoneId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDomainNameResultOutput) DomainNameArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.DomainNameArn }).(pulumi.StringPtrOutput)
 }
 
 // The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// The value that you assigned to the parameter.
+    /// </summary>
     public sealed class DistributionParameterDefinitionDefinitionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("stringSchema")]

@@ -25,6 +25,7 @@ __all__ = [
     'ChannelSlateSource',
     'ChannelTimeShiftConfiguration',
     'LiveSourceHttpPackageConfiguration',
+    'PlaybackConfigurationAdConditioningConfiguration',
     'PlaybackConfigurationAdMarkerPassthrough',
     'PlaybackConfigurationAvailSuppression',
     'PlaybackConfigurationBumper',
@@ -449,6 +450,45 @@ class LiveSourceHttpPackageConfiguration(dict):
         The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PlaybackConfigurationAdConditioningConfiguration(dict):
+    """
+    <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamingMediaFileConditioning":
+            suggest = "streaming_media_file_conditioning"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlaybackConfigurationAdConditioningConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlaybackConfigurationAdConditioningConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlaybackConfigurationAdConditioningConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 streaming_media_file_conditioning: 'PlaybackConfigurationStreamingMediaFileConditioning'):
+        """
+        <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+        :param 'PlaybackConfigurationStreamingMediaFileConditioning' streaming_media_file_conditioning: For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the AWS Elemental MediaTailor user guide.
+        """
+        pulumi.set(__self__, "streaming_media_file_conditioning", streaming_media_file_conditioning)
+
+    @property
+    @pulumi.getter(name="streamingMediaFileConditioning")
+    def streaming_media_file_conditioning(self) -> 'PlaybackConfigurationStreamingMediaFileConditioning':
+        """
+        For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the AWS Elemental MediaTailor user guide.
+        """
+        return pulumi.get(self, "streaming_media_file_conditioning")
 
 
 @pulumi.output_type

@@ -1710,6 +1710,11 @@ func (o PolicyStoreSchemaDefinitionPtrOutput) CedarJson() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type PolicyStoreTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type PolicyStoreValidationSettings struct {
 	// The validation mode currently configured for this policy store. The valid values are:
 	//

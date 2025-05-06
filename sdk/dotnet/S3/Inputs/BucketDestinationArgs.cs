@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.S3.Inputs
 
         /// <summary>
         /// Specifies the file format used when exporting data to Amazon S3.
-        ///   *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+        ///  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
         /// </summary>
         [Input("format", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketDestinationFormat> Format { get; set; } = null!;

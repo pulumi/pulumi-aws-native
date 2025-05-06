@@ -175,7 +175,8 @@ class DomainName(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::DomainName.
+        The ``AWS::ApiGateway::DomainName`` resource specifies a custom domain name for your API in API Gateway.
+         You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 
         ## Example Usage
         ### Example
@@ -237,7 +238,8 @@ class DomainName(pulumi.CustomResource):
                  args: Optional[DomainNameArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::DomainName.
+        The ``AWS::ApiGateway::DomainName`` resource specifies a custom domain name for your API in API Gateway.
+         You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 
         ## Example Usage
         ### Example
@@ -323,6 +325,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["distribution_domain_name"] = None
             __props__.__dict__["distribution_hosted_zone_id"] = None
+            __props__.__dict__["domain_name_arn"] = None
             __props__.__dict__["regional_domain_name"] = None
             __props__.__dict__["regional_hosted_zone_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainName"])
@@ -353,6 +356,7 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["distribution_domain_name"] = None
         __props__.__dict__["distribution_hosted_zone_id"] = None
         __props__.__dict__["domain_name"] = None
+        __props__.__dict__["domain_name_arn"] = None
         __props__.__dict__["endpoint_configuration"] = None
         __props__.__dict__["mutual_tls_authentication"] = None
         __props__.__dict__["ownership_verification_certificate_arn"] = None
@@ -396,6 +400,11 @@ class DomainName(pulumi.CustomResource):
         The custom domain name as an API host name, for example, `my-api.example.com` .
         """
         return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="domainNameArn")
+    def domain_name_arn(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "domain_name_arn")
 
     @property
     @pulumi.getter(name="endpointConfiguration")

@@ -668,7 +668,7 @@ if not MYPY:
         allowed_methods: pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleAllowedMethodsItem']]]
         """
         An HTTP method that you allow the origin to run.
-          *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+         *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
         """
         allowed_origins: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
         """
@@ -705,7 +705,7 @@ class BucketCorsRuleArgs:
         """
         Specifies a cross-origin access rule for an Amazon S3 bucket.
         :param pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleAllowedMethodsItem']]] allowed_methods: An HTTP method that you allow the origin to run.
-                 *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+                *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_origins: One or more origins you want customers to be able to access the bucket from.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_headers: Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] exposed_headers: One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript ``XMLHttpRequest`` object).
@@ -728,7 +728,7 @@ class BucketCorsRuleArgs:
     def allowed_methods(self) -> pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleAllowedMethodsItem']]]:
         """
         An HTTP method that you allow the origin to run.
-          *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+         *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
         """
         return pulumi.get(self, "allowed_methods")
 
@@ -934,7 +934,7 @@ class BucketDefaultRetentionArgs:
 if not MYPY:
     class BucketDeleteMarkerReplicationArgsDict(TypedDict):
         """
-        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
          For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
           If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
         """
@@ -950,7 +950,7 @@ class BucketDeleteMarkerReplicationArgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input['BucketDeleteMarkerReplicationStatus']] = None):
         """
-        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
          For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
           If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
         :param pulumi.Input['BucketDeleteMarkerReplicationStatus'] status: Indicates whether to replicate delete markers. Disabled by default.
@@ -983,7 +983,7 @@ if not MYPY:
         format: pulumi.Input['BucketDestinationFormat']
         """
         Specifies the file format used when exporting data to Amazon S3.
-          *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+         *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
         """
         bucket_account_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1008,7 +1008,7 @@ class BucketDestinationArgs:
         Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
         :param pulumi.Input[builtins.str] bucket_arn: The Amazon Resource Name (ARN) of the bucket to which data is exported.
         :param pulumi.Input['BucketDestinationFormat'] format: Specifies the file format used when exporting data to Amazon S3.
-                 *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+                *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
         :param pulumi.Input[builtins.str] bucket_account_id: The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
                   Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
         :param pulumi.Input[builtins.str] prefix: The prefix to use when exporting data. The prefix is prepended to all results.
@@ -1037,7 +1037,7 @@ class BucketDestinationArgs:
     def format(self) -> pulumi.Input['BucketDestinationFormat']:
         """
         Specifies the file format used when exporting data to Amazon S3.
-          *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+         *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
         """
         return pulumi.get(self, "format")
 
@@ -1590,8 +1590,8 @@ if not MYPY:
         """
         Indicates which default minimum object size behavior is applied to the lifecycle configuration.
           This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
-           +   ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
-          +   ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
+           +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
+          +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
           
          To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
         """
@@ -1608,8 +1608,8 @@ class BucketLifecycleConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BucketRuleArgs']]] rules: A lifecycle rule for individual objects in an Amazon S3 bucket.
         :param pulumi.Input['BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize'] transition_default_minimum_object_size: Indicates which default minimum object size behavior is applied to the lifecycle configuration.
                  This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
-                  +   ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
-                 +   ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
+                  +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
+                 +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
                  
                 To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
         """
@@ -1635,8 +1635,8 @@ class BucketLifecycleConfigurationArgs:
         """
         Indicates which default minimum object size behavior is applied to the lifecycle configuration.
           This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
-           +   ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
-          +   ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
+           +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
+          +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
           
          To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
         """
@@ -2724,7 +2724,7 @@ if not MYPY:
         status: pulumi.Input['BucketReplicaModificationsStatus']
         """
         Specifies whether Amazon S3 replicates modifications on replicas.
-          *Allowed values*: ``Enabled`` | ``Disabled``
+         *Allowed values*: ``Enabled`` | ``Disabled``
         """
 elif False:
     BucketReplicaModificationsArgsDict: TypeAlias = Mapping[str, Any]
@@ -2736,7 +2736,7 @@ class BucketReplicaModificationsArgs:
         """
         A filter that you can specify for selection for modifications on replicas.
         :param pulumi.Input['BucketReplicaModificationsStatus'] status: Specifies whether Amazon S3 replicates modifications on replicas.
-                 *Allowed values*: ``Enabled`` | ``Disabled``
+                *Allowed values*: ``Enabled`` | ``Disabled``
         """
         pulumi.set(__self__, "status", status)
 
@@ -2745,7 +2745,7 @@ class BucketReplicaModificationsArgs:
     def status(self) -> pulumi.Input['BucketReplicaModificationsStatus']:
         """
         Specifies whether Amazon S3 replicates modifications on replicas.
-          *Allowed values*: ``Enabled`` | ``Disabled``
+         *Allowed values*: ``Enabled`` | ``Disabled``
         """
         return pulumi.get(self, "status")
 
@@ -3134,7 +3134,7 @@ if not MYPY:
         """
         delete_marker_replication: NotRequired[pulumi.Input['BucketDeleteMarkerReplicationArgsDict']]
         """
-        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
          For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
           If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
         """
@@ -3179,7 +3179,7 @@ class BucketReplicationRuleArgs:
         Specifies which Amazon S3 objects to replicate and where to store the replicas.
         :param pulumi.Input['BucketReplicationDestinationArgs'] destination: A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
         :param pulumi.Input['BucketReplicationRuleStatus'] status: Specifies whether the rule is enabled.
-        :param pulumi.Input['BucketDeleteMarkerReplicationArgs'] delete_marker_replication: Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+        :param pulumi.Input['BucketDeleteMarkerReplicationArgs'] delete_marker_replication: Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
                 For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
                  If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
         :param pulumi.Input['BucketReplicationRuleFilterArgs'] filter: A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element. The use of the filter field indicates that this is a V2 replication configuration. This field isn't supported in a V1 replication configuration.
@@ -3234,7 +3234,7 @@ class BucketReplicationRuleArgs:
     @pulumi.getter(name="deleteMarkerReplication")
     def delete_marker_replication(self) -> Optional[pulumi.Input['BucketDeleteMarkerReplicationArgs']]:
         """
-        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
          For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
           If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
         """
@@ -3992,9 +3992,9 @@ if not MYPY:
     class BucketServerSideEncryptionByDefaultArgsDict(TypedDict):
         """
         Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html).
-           +   *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. 
-          +   *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. 
-          +   *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
+           +  *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. 
+          +  *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. 
+          +  *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
         """
         sse_algorithm: pulumi.Input['BucketServerSideEncryptionByDefaultSseAlgorithm']
         """
@@ -4004,17 +4004,17 @@ if not MYPY:
         kms_master_key_id: NotRequired[pulumi.Input[builtins.str]]
         """
         AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. 
-           +   *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
-          +   *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
+           +  *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
+          +  *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
           
           You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
-          +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab`` 
-          +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`` 
-          +  Key Alias: ``alias/alias-name`` 
+          +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
+          +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
+          +  Key Alias: ``alias/alias-name``
           
          If you are using encryption with cross-account or AWS service operations, you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).
-           +   *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
-          +   *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
+           +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
+          +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
           
            Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
         """
@@ -4028,23 +4028,23 @@ class BucketServerSideEncryptionByDefaultArgs:
                  kms_master_key_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html).
-           +   *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. 
-          +   *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. 
-          +   *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
+           +  *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. 
+          +  *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. 
+          +  *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
         :param pulumi.Input['BucketServerSideEncryptionByDefaultSseAlgorithm'] sse_algorithm: Server-side encryption algorithm to use for the default encryption.
                  For directory buckets, there are only two supported values for server-side encryption: ``AES256`` and ``aws:kms``.
         :param pulumi.Input[builtins.str] kms_master_key_id: AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. 
-                  +   *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
-                 +   *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
+                  +  *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
+                 +  *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
                  
                  You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
-                 +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab`` 
-                 +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`` 
-                 +  Key Alias: ``alias/alias-name`` 
+                 +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
+                 +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
+                 +  Key Alias: ``alias/alias-name``
                  
                 If you are using encryption with cross-account or AWS service operations, you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).
-                  +   *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
-                 +   *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
+                  +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
+                 +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
                  
                   Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
         """
@@ -4070,17 +4070,17 @@ class BucketServerSideEncryptionByDefaultArgs:
     def kms_master_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. 
-           +   *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
-          +   *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
+           +  *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
+          +  *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
           
           You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
-          +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab`` 
-          +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`` 
-          +  Key Alias: ``alias/alias-name`` 
+          +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
+          +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
+          +  Key Alias: ``alias/alias-name``
           
          If you are using encryption with cross-account or AWS service operations, you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).
-           +   *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
-          +   *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
+           +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
+          +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
           
            Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
         """
@@ -4095,8 +4095,8 @@ if not MYPY:
     class BucketServerSideEncryptionRuleArgsDict(TypedDict):
         """
         Specifies the default server-side encryption configuration.
-           +   *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
-          +   *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
+           +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
+          +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
         """
         bucket_key_enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -4117,8 +4117,8 @@ class BucketServerSideEncryptionRuleArgs:
                  server_side_encryption_by_default: Optional[pulumi.Input['BucketServerSideEncryptionByDefaultArgs']] = None):
         """
         Specifies the default server-side encryption configuration.
-           +   *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
-          +   *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
+           +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
+          +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
         :param pulumi.Input[builtins.bool] bucket_key_enabled: Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
                 For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input['BucketServerSideEncryptionByDefaultArgs'] server_side_encryption_by_default: Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.

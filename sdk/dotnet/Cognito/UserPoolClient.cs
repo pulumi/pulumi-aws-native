@@ -199,6 +199,12 @@ namespace Pulumi.AwsNative.Cognito
         public Output<ImmutableArray<string>> ReadAttributes { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
+        /// </summary>
+        [Output("refreshTokenRotation")]
+        public Output<Outputs.UserPoolClientRefreshTokenRotation?> RefreshTokenRotation { get; private set; } = null!;
+
+        /// <summary>
         /// The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
         /// 
         /// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session
@@ -498,6 +504,12 @@ namespace Pulumi.AwsNative.Cognito
             get => _readAttributes ?? (_readAttributes = new InputList<string>());
             set => _readAttributes = value;
         }
+
+        /// <summary>
+        /// The configuration of your app client for refresh token rotation. When enabled, your app client issues new ID, access, and refresh tokens when users renew their sessions with refresh tokens. When disabled, token refresh issues only ID and access tokens.
+        /// </summary>
+        [Input("refreshTokenRotation")]
+        public Input<Inputs.UserPoolClientRefreshTokenRotationArgs>? RefreshTokenRotation { get; set; }
 
         /// <summary>
         /// The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.

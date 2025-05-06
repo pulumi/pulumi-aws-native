@@ -45,6 +45,8 @@ __all__ = [
     'DistributionConfigurationLaunchPermissionConfigurationArgsDict',
     'DistributionConfigurationLaunchTemplateConfigurationArgs',
     'DistributionConfigurationLaunchTemplateConfigurationArgsDict',
+    'DistributionConfigurationSsmParameterConfigurationArgs',
+    'DistributionConfigurationSsmParameterConfigurationArgsDict',
     'DistributionConfigurationTargetContainerRepositoryArgs',
     'DistributionConfigurationTargetContainerRepositoryArgsDict',
     'ImageEcrConfigurationArgs',
@@ -846,6 +848,10 @@ if not MYPY:
         """
         The License Manager Configuration to associate with the AMI in the specified Region.
         """
+        ssm_parameter_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationSsmParameterConfigurationArgsDict']]]]
+        """
+        The SSM parameter configurations to use for AMI distribution.
+        """
 elif False:
     DistributionConfigurationDistributionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -857,7 +863,8 @@ class DistributionConfigurationDistributionArgs:
                  container_distribution_configuration: Optional[pulumi.Input['DistributionConfigurationContainerDistributionConfigurationArgs']] = None,
                  fast_launch_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationFastLaunchConfigurationArgs']]]] = None,
                  launch_template_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]]] = None,
-                 license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 ssm_parameter_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationSsmParameterConfigurationArgs']]]] = None):
         """
         The distributions of the distribution configuration.
         :param pulumi.Input[builtins.str] region: region
@@ -866,6 +873,7 @@ class DistributionConfigurationDistributionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationFastLaunchConfigurationArgs']]] fast_launch_configurations: The Windows faster-launching configurations to use for AMI distribution.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]] launch_template_configurations: A group of launchTemplateConfiguration settings that apply to image distribution.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] license_configuration_arns: The License Manager Configuration to associate with the AMI in the specified Region.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationSsmParameterConfigurationArgs']]] ssm_parameter_configurations: The SSM parameter configurations to use for AMI distribution.
         """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
@@ -878,6 +886,8 @@ class DistributionConfigurationDistributionArgs:
             pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         if license_configuration_arns is not None:
             pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
+        if ssm_parameter_configurations is not None:
+            pulumi.set(__self__, "ssm_parameter_configurations", ssm_parameter_configurations)
 
     @property
     @pulumi.getter
@@ -950,6 +960,18 @@ class DistributionConfigurationDistributionArgs:
     @license_configuration_arns.setter
     def license_configuration_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "license_configuration_arns", value)
+
+    @property
+    @pulumi.getter(name="ssmParameterConfigurations")
+    def ssm_parameter_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationSsmParameterConfigurationArgs']]]]:
+        """
+        The SSM parameter configurations to use for AMI distribution.
+        """
+        return pulumi.get(self, "ssm_parameter_configurations")
+
+    @ssm_parameter_configurations.setter
+    def ssm_parameter_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationSsmParameterConfigurationArgs']]]]):
+        pulumi.set(self, "ssm_parameter_configurations", value)
 
 
 if not MYPY:
@@ -1350,6 +1372,81 @@ class DistributionConfigurationLaunchTemplateConfigurationArgs:
     @set_default_version.setter
     def set_default_version(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "set_default_version", value)
+
+
+if not MYPY:
+    class DistributionConfigurationSsmParameterConfigurationArgsDict(TypedDict):
+        """
+        The SSM parameter configuration for AMI distribution.
+        """
+        parameter_name: pulumi.Input[builtins.str]
+        """
+        The name of the SSM parameter.
+        """
+        ami_account_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The account ID for the AMI to update the parameter with.
+        """
+        data_type: NotRequired[pulumi.Input['DistributionConfigurationSsmParameterConfigurationDataType']]
+        """
+        The data type of the SSM parameter.
+        """
+elif False:
+    DistributionConfigurationSsmParameterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionConfigurationSsmParameterConfigurationArgs:
+    def __init__(__self__, *,
+                 parameter_name: pulumi.Input[builtins.str],
+                 ami_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 data_type: Optional[pulumi.Input['DistributionConfigurationSsmParameterConfigurationDataType']] = None):
+        """
+        The SSM parameter configuration for AMI distribution.
+        :param pulumi.Input[builtins.str] parameter_name: The name of the SSM parameter.
+        :param pulumi.Input[builtins.str] ami_account_id: The account ID for the AMI to update the parameter with.
+        :param pulumi.Input['DistributionConfigurationSsmParameterConfigurationDataType'] data_type: The data type of the SSM parameter.
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        if ami_account_id is not None:
+            pulumi.set(__self__, "ami_account_id", ami_account_id)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the SSM parameter.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @parameter_name.setter
+    def parameter_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "parameter_name", value)
+
+    @property
+    @pulumi.getter(name="amiAccountId")
+    def ami_account_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The account ID for the AMI to update the parameter with.
+        """
+        return pulumi.get(self, "ami_account_id")
+
+    @ami_account_id.setter
+    def ami_account_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ami_account_id", value)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[pulumi.Input['DistributionConfigurationSsmParameterConfigurationDataType']]:
+        """
+        The data type of the SSM parameter.
+        """
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: Optional[pulumi.Input['DistributionConfigurationSsmParameterConfigurationDataType']]):
+        pulumi.set(self, "data_type", value)
 
 
 if not MYPY:

@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceResult:
-    def __init__(__self__, availability_zone_rebalancing=None, capacity_provider_strategy=None, deployment_configuration=None, desired_count=None, enable_ecs_managed_tags=None, enable_execute_command=None, health_check_grace_period_seconds=None, load_balancers=None, name=None, network_configuration=None, placement_constraints=None, placement_strategies=None, platform_version=None, propagate_tags=None, service_arn=None, service_registries=None, tags=None, task_definition=None, vpc_lattice_configurations=None):
+    def __init__(__self__, availability_zone_rebalancing=None, capacity_provider_strategy=None, deployment_configuration=None, deployment_controller=None, desired_count=None, enable_ecs_managed_tags=None, enable_execute_command=None, health_check_grace_period_seconds=None, load_balancers=None, name=None, network_configuration=None, placement_constraints=None, placement_strategies=None, platform_version=None, propagate_tags=None, service_arn=None, service_registries=None, tags=None, task_definition=None, vpc_lattice_configurations=None):
         if availability_zone_rebalancing and not isinstance(availability_zone_rebalancing, str):
             raise TypeError("Expected argument 'availability_zone_rebalancing' to be a str")
         pulumi.set(__self__, "availability_zone_rebalancing", availability_zone_rebalancing)
@@ -37,6 +37,9 @@ class GetServiceResult:
         if deployment_configuration and not isinstance(deployment_configuration, dict):
             raise TypeError("Expected argument 'deployment_configuration' to be a dict")
         pulumi.set(__self__, "deployment_configuration", deployment_configuration)
+        if deployment_controller and not isinstance(deployment_controller, dict):
+            raise TypeError("Expected argument 'deployment_controller' to be a dict")
+        pulumi.set(__self__, "deployment_controller", deployment_controller)
         if desired_count and not isinstance(desired_count, int):
             raise TypeError("Expected argument 'desired_count' to be a int")
         pulumi.set(__self__, "desired_count", desired_count)
@@ -113,6 +116,14 @@ class GetServiceResult:
         Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
         """
         return pulumi.get(self, "deployment_configuration")
+
+    @property
+    @pulumi.getter(name="deploymentController")
+    def deployment_controller(self) -> Optional['outputs.ServiceDeploymentController']:
+        """
+        The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+        """
+        return pulumi.get(self, "deployment_controller")
 
     @property
     @pulumi.getter(name="desiredCount")
@@ -273,6 +284,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             availability_zone_rebalancing=self.availability_zone_rebalancing,
             capacity_provider_strategy=self.capacity_provider_strategy,
             deployment_configuration=self.deployment_configuration,
+            deployment_controller=self.deployment_controller,
             desired_count=self.desired_count,
             enable_ecs_managed_tags=self.enable_ecs_managed_tags,
             enable_execute_command=self.enable_execute_command,
@@ -313,6 +325,7 @@ def get_service(cluster: Optional[builtins.str] = None,
         availability_zone_rebalancing=pulumi.get(__ret__, 'availability_zone_rebalancing'),
         capacity_provider_strategy=pulumi.get(__ret__, 'capacity_provider_strategy'),
         deployment_configuration=pulumi.get(__ret__, 'deployment_configuration'),
+        deployment_controller=pulumi.get(__ret__, 'deployment_controller'),
         desired_count=pulumi.get(__ret__, 'desired_count'),
         enable_ecs_managed_tags=pulumi.get(__ret__, 'enable_ecs_managed_tags'),
         enable_execute_command=pulumi.get(__ret__, 'enable_execute_command'),
@@ -350,6 +363,7 @@ def get_service_output(cluster: Optional[pulumi.Input[builtins.str]] = None,
         availability_zone_rebalancing=pulumi.get(__response__, 'availability_zone_rebalancing'),
         capacity_provider_strategy=pulumi.get(__response__, 'capacity_provider_strategy'),
         deployment_configuration=pulumi.get(__response__, 'deployment_configuration'),
+        deployment_controller=pulumi.get(__response__, 'deployment_controller'),
         desired_count=pulumi.get(__response__, 'desired_count'),
         enable_ecs_managed_tags=pulumi.get(__response__, 'enable_ecs_managed_tags'),
         enable_execute_command=pulumi.get(__response__, 'enable_execute_command'),
