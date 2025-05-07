@@ -27,11 +27,13 @@ from .get_flow_alias import *
 from .get_flow_version import *
 from .get_guardrail import *
 from .get_guardrail_version import *
+from .get_intelligent_prompt_router import *
 from .get_knowledge_base import *
 from .get_prompt import *
 from .get_prompt_version import *
 from .guardrail import *
 from .guardrail_version import *
+from .intelligent_prompt_router import *
 from .knowledge_base import *
 from .prompt import *
 from .prompt_version import *

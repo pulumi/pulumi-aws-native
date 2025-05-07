@@ -333,6 +333,10 @@ __all__ = [
     'GuardrailWordConfigArgsDict',
     'GuardrailWordPolicyConfigArgs',
     'GuardrailWordPolicyConfigArgsDict',
+    'IntelligentPromptRouterPromptRouterTargetModelArgs',
+    'IntelligentPromptRouterPromptRouterTargetModelArgsDict',
+    'IntelligentPromptRouterRoutingCriteriaArgs',
+    'IntelligentPromptRouterRoutingCriteriaArgsDict',
     'KnowledgeBaseBedrockEmbeddingModelConfigurationArgs',
     'KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict',
     'KnowledgeBaseConfigurationArgs',
@@ -9354,6 +9358,69 @@ class GuardrailWordPolicyConfigArgs:
     @words_config.setter
     def words_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgs']]]]):
         pulumi.set(self, "words_config", value)
+
+
+if not MYPY:
+    class IntelligentPromptRouterPromptRouterTargetModelArgsDict(TypedDict):
+        """
+        Model configuration
+        """
+        model_arn: pulumi.Input[builtins.str]
+        """
+        Arn of underlying model which are added in the Prompt Router.
+        """
+elif False:
+    IntelligentPromptRouterPromptRouterTargetModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntelligentPromptRouterPromptRouterTargetModelArgs:
+    def __init__(__self__, *,
+                 model_arn: pulumi.Input[builtins.str]):
+        """
+        Model configuration
+        :param pulumi.Input[builtins.str] model_arn: Arn of underlying model which are added in the Prompt Router.
+        """
+        pulumi.set(__self__, "model_arn", model_arn)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        Arn of underlying model which are added in the Prompt Router.
+        """
+        return pulumi.get(self, "model_arn")
+
+    @model_arn.setter
+    def model_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "model_arn", value)
+
+
+if not MYPY:
+    class IntelligentPromptRouterRoutingCriteriaArgsDict(TypedDict):
+        """
+        Represents the criteria used for routing requests.
+        """
+        response_quality_difference: pulumi.Input[builtins.float]
+elif False:
+    IntelligentPromptRouterRoutingCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntelligentPromptRouterRoutingCriteriaArgs:
+    def __init__(__self__, *,
+                 response_quality_difference: pulumi.Input[builtins.float]):
+        """
+        Represents the criteria used for routing requests.
+        """
+        pulumi.set(__self__, "response_quality_difference", response_quality_difference)
+
+    @property
+    @pulumi.getter(name="responseQualityDifference")
+    def response_quality_difference(self) -> pulumi.Input[builtins.float]:
+        return pulumi.get(self, "response_quality_difference")
+
+    @response_quality_difference.setter
+    def response_quality_difference(self, value: pulumi.Input[builtins.float]):
+        pulumi.set(self, "response_quality_difference", value)
 
 
 if not MYPY:

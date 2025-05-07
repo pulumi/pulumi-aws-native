@@ -78,6 +78,8 @@ __all__ = [
     'GuardrailTopicAction',
     'GuardrailTopicType',
     'GuardrailWordAction',
+    'IntelligentPromptRouterPromptRouterStatus',
+    'IntelligentPromptRouterPromptRouterType',
     'KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType',
     'KnowledgeBaseInclusionType',
     'KnowledgeBaseQueryEngineType',
@@ -714,6 +716,21 @@ class GuardrailTopicType(builtins.str, Enum):
 class GuardrailWordAction(builtins.str, Enum):
     BLOCK = "BLOCK"
     NONE = "NONE"
+
+
+class IntelligentPromptRouterPromptRouterStatus(builtins.str, Enum):
+    """
+    Status of a PromptRouter
+    """
+    AVAILABLE = "AVAILABLE"
+
+
+class IntelligentPromptRouterPromptRouterType(builtins.str, Enum):
+    """
+    Type of a Prompt Router
+    """
+    CUSTOM = "custom"
+    DEFAULT = "default"
 
 
 class KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType(builtins.str, Enum):

@@ -762,6 +762,25 @@ export const GuardrailWordAction = {
 
 export type GuardrailWordAction = (typeof GuardrailWordAction)[keyof typeof GuardrailWordAction];
 
+export const IntelligentPromptRouterPromptRouterStatus = {
+    Available: "AVAILABLE",
+} as const;
+
+/**
+ * Status of a PromptRouter
+ */
+export type IntelligentPromptRouterPromptRouterStatus = (typeof IntelligentPromptRouterPromptRouterStatus)[keyof typeof IntelligentPromptRouterPromptRouterStatus];
+
+export const IntelligentPromptRouterPromptRouterType = {
+    Custom: "custom",
+    Default: "default",
+} as const;
+
+/**
+ * Type of a Prompt Router
+ */
+export type IntelligentPromptRouterPromptRouterType = (typeof IntelligentPromptRouterPromptRouterType)[keyof typeof IntelligentPromptRouterPromptRouterType];
+
 export const KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType = {
     Float32: "FLOAT32",
     Binary: "BINARY",

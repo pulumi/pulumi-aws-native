@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// - `FULL_REFRESH` : A complete refresh of a dataset.
         /// - `INCREMENTAL_REFRESH` : A partial refresh of some rows of a dataset, based on the time window specified.
         /// 
-        /// For more information on full and incremental refreshes, see [Refreshing SPICE data](https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html) in the *Amazon QuickSight User Guide* .
+        /// For more information on full and incremental refreshes, see [Refreshing SPICE data](https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html) in the *QuickSight User Guide* .
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.RefreshScheduleMapRefreshType? RefreshType;
         /// <summary>

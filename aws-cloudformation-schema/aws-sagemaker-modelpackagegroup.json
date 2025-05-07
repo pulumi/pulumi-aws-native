@@ -98,7 +98,7 @@
       "permissions" : [ "sagemaker:ListModelPackageGroups" ]
     },
     "read" : {
-      "permissions" : [ "sagemaker:DescribeModelPackageGroup", "sagemaker:GetModelPackageGroupPolicy", "sagemaker:PutModelPackageGroupPolicy", "sagemaker:ListTags" ]
+      "permissions" : [ "sagemaker:DescribeModelPackageGroup", "sagemaker:GetModelPackageGroupPolicy", "sagemaker:ListTags" ]
     },
     "update" : {
       "permissions" : [ "sagemaker:DescribeModelPackageGroup", "sagemaker:GetModelPackageGroupPolicy", "sagemaker:DeleteModelPackageGroupPolicy", "sagemaker:PutModelPackageGroupPolicy", "sagemaker:ListTags", "sagemaker:AddTags", "sagemaker:DeleteTags" ]

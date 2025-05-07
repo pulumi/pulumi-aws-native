@@ -2259,6 +2259,67 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Status of a PromptRouter
+    /// </summary>
+    [EnumType]
+    public readonly struct IntelligentPromptRouterPromptRouterStatus : IEquatable<IntelligentPromptRouterPromptRouterStatus>
+    {
+        private readonly string _value;
+
+        private IntelligentPromptRouterPromptRouterStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntelligentPromptRouterPromptRouterStatus Available { get; } = new IntelligentPromptRouterPromptRouterStatus("AVAILABLE");
+
+        public static bool operator ==(IntelligentPromptRouterPromptRouterStatus left, IntelligentPromptRouterPromptRouterStatus right) => left.Equals(right);
+        public static bool operator !=(IntelligentPromptRouterPromptRouterStatus left, IntelligentPromptRouterPromptRouterStatus right) => !left.Equals(right);
+
+        public static explicit operator string(IntelligentPromptRouterPromptRouterStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntelligentPromptRouterPromptRouterStatus other && Equals(other);
+        public bool Equals(IntelligentPromptRouterPromptRouterStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of a Prompt Router
+    /// </summary>
+    [EnumType]
+    public readonly struct IntelligentPromptRouterPromptRouterType : IEquatable<IntelligentPromptRouterPromptRouterType>
+    {
+        private readonly string _value;
+
+        private IntelligentPromptRouterPromptRouterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntelligentPromptRouterPromptRouterType Custom { get; } = new IntelligentPromptRouterPromptRouterType("custom");
+        public static IntelligentPromptRouterPromptRouterType Default { get; } = new IntelligentPromptRouterPromptRouterType("default");
+
+        public static bool operator ==(IntelligentPromptRouterPromptRouterType left, IntelligentPromptRouterPromptRouterType right) => left.Equals(right);
+        public static bool operator !=(IntelligentPromptRouterPromptRouterType left, IntelligentPromptRouterPromptRouterType right) => !left.Equals(right);
+
+        public static explicit operator string(IntelligentPromptRouterPromptRouterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntelligentPromptRouterPromptRouterType other && Equals(other);
+        public bool Equals(IntelligentPromptRouterPromptRouterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The data type for the vectors when using a model to convert text into vector embeddings.
     /// </summary>
     [EnumType]

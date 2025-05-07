@@ -105,6 +105,11 @@ export const getGuardrailVersion: typeof import("./getGuardrailVersion").getGuar
 export const getGuardrailVersionOutput: typeof import("./getGuardrailVersion").getGuardrailVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getGuardrailVersion","getGuardrailVersionOutput"], () => require("./getGuardrailVersion"));
 
+export { GetIntelligentPromptRouterArgs, GetIntelligentPromptRouterResult, GetIntelligentPromptRouterOutputArgs } from "./getIntelligentPromptRouter";
+export const getIntelligentPromptRouter: typeof import("./getIntelligentPromptRouter").getIntelligentPromptRouter = null as any;
+export const getIntelligentPromptRouterOutput: typeof import("./getIntelligentPromptRouter").getIntelligentPromptRouterOutput = null as any;
+utilities.lazyLoad(exports, ["getIntelligentPromptRouter","getIntelligentPromptRouterOutput"], () => require("./getIntelligentPromptRouter"));
+
 export { GetKnowledgeBaseArgs, GetKnowledgeBaseResult, GetKnowledgeBaseOutputArgs } from "./getKnowledgeBase";
 export const getKnowledgeBase: typeof import("./getKnowledgeBase").getKnowledgeBase = null as any;
 export const getKnowledgeBaseOutput: typeof import("./getKnowledgeBase").getKnowledgeBaseOutput = null as any;
@@ -129,6 +134,11 @@ export { GuardrailVersionArgs } from "./guardrailVersion";
 export type GuardrailVersion = import("./guardrailVersion").GuardrailVersion;
 export const GuardrailVersion: typeof import("./guardrailVersion").GuardrailVersion = null as any;
 utilities.lazyLoad(exports, ["GuardrailVersion"], () => require("./guardrailVersion"));
+
+export { IntelligentPromptRouterArgs } from "./intelligentPromptRouter";
+export type IntelligentPromptRouter = import("./intelligentPromptRouter").IntelligentPromptRouter;
+export const IntelligentPromptRouter: typeof import("./intelligentPromptRouter").IntelligentPromptRouter = null as any;
+utilities.lazyLoad(exports, ["IntelligentPromptRouter"], () => require("./intelligentPromptRouter"));
 
 export { KnowledgeBaseArgs } from "./knowledgeBase";
 export type KnowledgeBase = import("./knowledgeBase").KnowledgeBase;
@@ -175,6 +185,8 @@ const _module = {
                 return new Guardrail(name, <any>undefined, { urn })
             case "aws-native:bedrock:GuardrailVersion":
                 return new GuardrailVersion(name, <any>undefined, { urn })
+            case "aws-native:bedrock:IntelligentPromptRouter":
+                return new IntelligentPromptRouter(name, <any>undefined, { urn })
             case "aws-native:bedrock:KnowledgeBase":
                 return new KnowledgeBase(name, <any>undefined, { urn })
             case "aws-native:bedrock:Prompt":

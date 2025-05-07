@@ -26879,6 +26879,166 @@ func (o GuardrailWordPolicyConfigPtrOutput) WordsConfig() GuardrailWordConfigArr
 	}).(GuardrailWordConfigArrayOutput)
 }
 
+// Model configuration
+type IntelligentPromptRouterPromptRouterTargetModel struct {
+	// Arn of underlying model which are added in the Prompt Router.
+	ModelArn string `pulumi:"modelArn"`
+}
+
+// IntelligentPromptRouterPromptRouterTargetModelInput is an input type that accepts IntelligentPromptRouterPromptRouterTargetModelArgs and IntelligentPromptRouterPromptRouterTargetModelOutput values.
+// You can construct a concrete instance of `IntelligentPromptRouterPromptRouterTargetModelInput` via:
+//
+//	IntelligentPromptRouterPromptRouterTargetModelArgs{...}
+type IntelligentPromptRouterPromptRouterTargetModelInput interface {
+	pulumi.Input
+
+	ToIntelligentPromptRouterPromptRouterTargetModelOutput() IntelligentPromptRouterPromptRouterTargetModelOutput
+	ToIntelligentPromptRouterPromptRouterTargetModelOutputWithContext(context.Context) IntelligentPromptRouterPromptRouterTargetModelOutput
+}
+
+// Model configuration
+type IntelligentPromptRouterPromptRouterTargetModelArgs struct {
+	// Arn of underlying model which are added in the Prompt Router.
+	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+}
+
+func (IntelligentPromptRouterPromptRouterTargetModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntelligentPromptRouterPromptRouterTargetModel)(nil)).Elem()
+}
+
+func (i IntelligentPromptRouterPromptRouterTargetModelArgs) ToIntelligentPromptRouterPromptRouterTargetModelOutput() IntelligentPromptRouterPromptRouterTargetModelOutput {
+	return i.ToIntelligentPromptRouterPromptRouterTargetModelOutputWithContext(context.Background())
+}
+
+func (i IntelligentPromptRouterPromptRouterTargetModelArgs) ToIntelligentPromptRouterPromptRouterTargetModelOutputWithContext(ctx context.Context) IntelligentPromptRouterPromptRouterTargetModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntelligentPromptRouterPromptRouterTargetModelOutput)
+}
+
+// IntelligentPromptRouterPromptRouterTargetModelArrayInput is an input type that accepts IntelligentPromptRouterPromptRouterTargetModelArray and IntelligentPromptRouterPromptRouterTargetModelArrayOutput values.
+// You can construct a concrete instance of `IntelligentPromptRouterPromptRouterTargetModelArrayInput` via:
+//
+//	IntelligentPromptRouterPromptRouterTargetModelArray{ IntelligentPromptRouterPromptRouterTargetModelArgs{...} }
+type IntelligentPromptRouterPromptRouterTargetModelArrayInput interface {
+	pulumi.Input
+
+	ToIntelligentPromptRouterPromptRouterTargetModelArrayOutput() IntelligentPromptRouterPromptRouterTargetModelArrayOutput
+	ToIntelligentPromptRouterPromptRouterTargetModelArrayOutputWithContext(context.Context) IntelligentPromptRouterPromptRouterTargetModelArrayOutput
+}
+
+type IntelligentPromptRouterPromptRouterTargetModelArray []IntelligentPromptRouterPromptRouterTargetModelInput
+
+func (IntelligentPromptRouterPromptRouterTargetModelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntelligentPromptRouterPromptRouterTargetModel)(nil)).Elem()
+}
+
+func (i IntelligentPromptRouterPromptRouterTargetModelArray) ToIntelligentPromptRouterPromptRouterTargetModelArrayOutput() IntelligentPromptRouterPromptRouterTargetModelArrayOutput {
+	return i.ToIntelligentPromptRouterPromptRouterTargetModelArrayOutputWithContext(context.Background())
+}
+
+func (i IntelligentPromptRouterPromptRouterTargetModelArray) ToIntelligentPromptRouterPromptRouterTargetModelArrayOutputWithContext(ctx context.Context) IntelligentPromptRouterPromptRouterTargetModelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntelligentPromptRouterPromptRouterTargetModelArrayOutput)
+}
+
+// Model configuration
+type IntelligentPromptRouterPromptRouterTargetModelOutput struct{ *pulumi.OutputState }
+
+func (IntelligentPromptRouterPromptRouterTargetModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntelligentPromptRouterPromptRouterTargetModel)(nil)).Elem()
+}
+
+func (o IntelligentPromptRouterPromptRouterTargetModelOutput) ToIntelligentPromptRouterPromptRouterTargetModelOutput() IntelligentPromptRouterPromptRouterTargetModelOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterPromptRouterTargetModelOutput) ToIntelligentPromptRouterPromptRouterTargetModelOutputWithContext(ctx context.Context) IntelligentPromptRouterPromptRouterTargetModelOutput {
+	return o
+}
+
+// Arn of underlying model which are added in the Prompt Router.
+func (o IntelligentPromptRouterPromptRouterTargetModelOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v IntelligentPromptRouterPromptRouterTargetModel) string { return v.ModelArn }).(pulumi.StringOutput)
+}
+
+type IntelligentPromptRouterPromptRouterTargetModelArrayOutput struct{ *pulumi.OutputState }
+
+func (IntelligentPromptRouterPromptRouterTargetModelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntelligentPromptRouterPromptRouterTargetModel)(nil)).Elem()
+}
+
+func (o IntelligentPromptRouterPromptRouterTargetModelArrayOutput) ToIntelligentPromptRouterPromptRouterTargetModelArrayOutput() IntelligentPromptRouterPromptRouterTargetModelArrayOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterPromptRouterTargetModelArrayOutput) ToIntelligentPromptRouterPromptRouterTargetModelArrayOutputWithContext(ctx context.Context) IntelligentPromptRouterPromptRouterTargetModelArrayOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterPromptRouterTargetModelArrayOutput) Index(i pulumi.IntInput) IntelligentPromptRouterPromptRouterTargetModelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntelligentPromptRouterPromptRouterTargetModel {
+		return vs[0].([]IntelligentPromptRouterPromptRouterTargetModel)[vs[1].(int)]
+	}).(IntelligentPromptRouterPromptRouterTargetModelOutput)
+}
+
+// Represents the criteria used for routing requests.
+type IntelligentPromptRouterRoutingCriteria struct {
+	ResponseQualityDifference float64 `pulumi:"responseQualityDifference"`
+}
+
+// IntelligentPromptRouterRoutingCriteriaInput is an input type that accepts IntelligentPromptRouterRoutingCriteriaArgs and IntelligentPromptRouterRoutingCriteriaOutput values.
+// You can construct a concrete instance of `IntelligentPromptRouterRoutingCriteriaInput` via:
+//
+//	IntelligentPromptRouterRoutingCriteriaArgs{...}
+type IntelligentPromptRouterRoutingCriteriaInput interface {
+	pulumi.Input
+
+	ToIntelligentPromptRouterRoutingCriteriaOutput() IntelligentPromptRouterRoutingCriteriaOutput
+	ToIntelligentPromptRouterRoutingCriteriaOutputWithContext(context.Context) IntelligentPromptRouterRoutingCriteriaOutput
+}
+
+// Represents the criteria used for routing requests.
+type IntelligentPromptRouterRoutingCriteriaArgs struct {
+	ResponseQualityDifference pulumi.Float64Input `pulumi:"responseQualityDifference"`
+}
+
+func (IntelligentPromptRouterRoutingCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntelligentPromptRouterRoutingCriteria)(nil)).Elem()
+}
+
+func (i IntelligentPromptRouterRoutingCriteriaArgs) ToIntelligentPromptRouterRoutingCriteriaOutput() IntelligentPromptRouterRoutingCriteriaOutput {
+	return i.ToIntelligentPromptRouterRoutingCriteriaOutputWithContext(context.Background())
+}
+
+func (i IntelligentPromptRouterRoutingCriteriaArgs) ToIntelligentPromptRouterRoutingCriteriaOutputWithContext(ctx context.Context) IntelligentPromptRouterRoutingCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntelligentPromptRouterRoutingCriteriaOutput)
+}
+
+// Represents the criteria used for routing requests.
+type IntelligentPromptRouterRoutingCriteriaOutput struct{ *pulumi.OutputState }
+
+func (IntelligentPromptRouterRoutingCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntelligentPromptRouterRoutingCriteria)(nil)).Elem()
+}
+
+func (o IntelligentPromptRouterRoutingCriteriaOutput) ToIntelligentPromptRouterRoutingCriteriaOutput() IntelligentPromptRouterRoutingCriteriaOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterRoutingCriteriaOutput) ToIntelligentPromptRouterRoutingCriteriaOutputWithContext(ctx context.Context) IntelligentPromptRouterRoutingCriteriaOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterRoutingCriteriaOutput) ResponseQualityDifference() pulumi.Float64Output {
+	return o.ApplyT(func(v IntelligentPromptRouterRoutingCriteria) float64 { return v.ResponseQualityDifference }).(pulumi.Float64Output)
+}
+
+// Definition of the key/value pair for a tag
+type IntelligentPromptRouterTag struct {
+	// Tag Key
+	Key string `pulumi:"key"`
+	// Tag Value
+	Value string `pulumi:"value"`
+}
+
 // The vector configuration details for the Bedrock embeddings model.
 type KnowledgeBaseBedrockEmbeddingModelConfiguration struct {
 	// The dimensions details for the vector configuration used on the Bedrock embeddings model.
@@ -37701,6 +37861,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordConfigArrayInput)(nil)).Elem(), GuardrailWordConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordPolicyConfigInput)(nil)).Elem(), GuardrailWordPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordPolicyConfigPtrInput)(nil)).Elem(), GuardrailWordPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntelligentPromptRouterPromptRouterTargetModelInput)(nil)).Elem(), IntelligentPromptRouterPromptRouterTargetModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntelligentPromptRouterPromptRouterTargetModelArrayInput)(nil)).Elem(), IntelligentPromptRouterPromptRouterTargetModelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntelligentPromptRouterRoutingCriteriaInput)(nil)).Elem(), IntelligentPromptRouterRoutingCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationInput)(nil)).Elem(), KnowledgeBaseBedrockEmbeddingModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseBedrockEmbeddingModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseConfigurationInput)(nil)).Elem(), KnowledgeBaseConfigurationArgs{})
@@ -38235,6 +38398,9 @@ func init() {
 	pulumi.RegisterOutputType(GuardrailWordConfigArrayOutput{})
 	pulumi.RegisterOutputType(GuardrailWordPolicyConfigOutput{})
 	pulumi.RegisterOutputType(GuardrailWordPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(IntelligentPromptRouterPromptRouterTargetModelOutput{})
+	pulumi.RegisterOutputType(IntelligentPromptRouterPromptRouterTargetModelArrayOutput{})
+	pulumi.RegisterOutputType(IntelligentPromptRouterRoutingCriteriaOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseBedrockEmbeddingModelConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseConfigurationOutput{})

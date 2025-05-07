@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Guardrail{}
 	case "aws-native:bedrock:GuardrailVersion":
 		r = &GuardrailVersion{}
+	case "aws-native:bedrock:IntelligentPromptRouter":
+		r = &IntelligentPromptRouter{}
 	case "aws-native:bedrock:KnowledgeBase":
 		r = &KnowledgeBase{}
 	case "aws-native:bedrock:Prompt":

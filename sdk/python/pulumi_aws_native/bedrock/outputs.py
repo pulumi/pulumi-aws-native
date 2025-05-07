@@ -227,6 +227,8 @@ __all__ = [
     'GuardrailTopicPolicyConfig',
     'GuardrailWordConfig',
     'GuardrailWordPolicyConfig',
+    'IntelligentPromptRouterPromptRouterTargetModel',
+    'IntelligentPromptRouterRoutingCriteria',
     'KnowledgeBaseBedrockEmbeddingModelConfiguration',
     'KnowledgeBaseConfiguration',
     'KnowledgeBaseCuratedQuery',
@@ -9302,6 +9304,80 @@ class GuardrailWordPolicyConfig(dict):
         List of custom word configs.
         """
         return pulumi.get(self, "words_config")
+
+
+@pulumi.output_type
+class IntelligentPromptRouterPromptRouterTargetModel(dict):
+    """
+    Model configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelArn":
+            suggest = "model_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntelligentPromptRouterPromptRouterTargetModel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntelligentPromptRouterPromptRouterTargetModel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntelligentPromptRouterPromptRouterTargetModel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_arn: builtins.str):
+        """
+        Model configuration
+        :param builtins.str model_arn: Arn of underlying model which are added in the Prompt Router.
+        """
+        pulumi.set(__self__, "model_arn", model_arn)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> builtins.str:
+        """
+        Arn of underlying model which are added in the Prompt Router.
+        """
+        return pulumi.get(self, "model_arn")
+
+
+@pulumi.output_type
+class IntelligentPromptRouterRoutingCriteria(dict):
+    """
+    Represents the criteria used for routing requests.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "responseQualityDifference":
+            suggest = "response_quality_difference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntelligentPromptRouterRoutingCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntelligentPromptRouterRoutingCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntelligentPromptRouterRoutingCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 response_quality_difference: builtins.float):
+        """
+        Represents the criteria used for routing requests.
+        """
+        pulumi.set(__self__, "response_quality_difference", response_quality_difference)
+
+    @property
+    @pulumi.getter(name="responseQualityDifference")
+    def response_quality_difference(self) -> builtins.float:
+        return pulumi.get(self, "response_quality_difference")
 
 
 @pulumi.output_type

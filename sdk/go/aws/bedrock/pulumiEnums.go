@@ -11266,6 +11266,187 @@ func (in *guardrailWordActionPtr) ToGuardrailWordActionPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(GuardrailWordActionPtrOutput)
 }
 
+// Status of a PromptRouter
+type IntelligentPromptRouterPromptRouterStatus string
+
+const (
+	IntelligentPromptRouterPromptRouterStatusAvailable = IntelligentPromptRouterPromptRouterStatus("AVAILABLE")
+)
+
+type IntelligentPromptRouterPromptRouterStatusOutput struct{ *pulumi.OutputState }
+
+func (IntelligentPromptRouterPromptRouterStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntelligentPromptRouterPromptRouterStatus)(nil)).Elem()
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusOutput) ToIntelligentPromptRouterPromptRouterStatusOutput() IntelligentPromptRouterPromptRouterStatusOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusOutput) ToIntelligentPromptRouterPromptRouterStatusOutputWithContext(ctx context.Context) IntelligentPromptRouterPromptRouterStatusOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusOutput) ToIntelligentPromptRouterPromptRouterStatusPtrOutput() IntelligentPromptRouterPromptRouterStatusPtrOutput {
+	return o.ToIntelligentPromptRouterPromptRouterStatusPtrOutputWithContext(context.Background())
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusOutput) ToIntelligentPromptRouterPromptRouterStatusPtrOutputWithContext(ctx context.Context) IntelligentPromptRouterPromptRouterStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntelligentPromptRouterPromptRouterStatus) *IntelligentPromptRouterPromptRouterStatus {
+		return &v
+	}).(IntelligentPromptRouterPromptRouterStatusPtrOutput)
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntelligentPromptRouterPromptRouterStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntelligentPromptRouterPromptRouterStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntelligentPromptRouterPromptRouterStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (IntelligentPromptRouterPromptRouterStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntelligentPromptRouterPromptRouterStatus)(nil)).Elem()
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusPtrOutput) ToIntelligentPromptRouterPromptRouterStatusPtrOutput() IntelligentPromptRouterPromptRouterStatusPtrOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusPtrOutput) ToIntelligentPromptRouterPromptRouterStatusPtrOutputWithContext(ctx context.Context) IntelligentPromptRouterPromptRouterStatusPtrOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusPtrOutput) Elem() IntelligentPromptRouterPromptRouterStatusOutput {
+	return o.ApplyT(func(v *IntelligentPromptRouterPromptRouterStatus) IntelligentPromptRouterPromptRouterStatus {
+		if v != nil {
+			return *v
+		}
+		var ret IntelligentPromptRouterPromptRouterStatus
+		return ret
+	}).(IntelligentPromptRouterPromptRouterStatusOutput)
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntelligentPromptRouterPromptRouterStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntelligentPromptRouterPromptRouterStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of a Prompt Router
+type IntelligentPromptRouterPromptRouterType string
+
+const (
+	IntelligentPromptRouterPromptRouterTypeCustom  = IntelligentPromptRouterPromptRouterType("custom")
+	IntelligentPromptRouterPromptRouterTypeDefault = IntelligentPromptRouterPromptRouterType("default")
+)
+
+type IntelligentPromptRouterPromptRouterTypeOutput struct{ *pulumi.OutputState }
+
+func (IntelligentPromptRouterPromptRouterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntelligentPromptRouterPromptRouterType)(nil)).Elem()
+}
+
+func (o IntelligentPromptRouterPromptRouterTypeOutput) ToIntelligentPromptRouterPromptRouterTypeOutput() IntelligentPromptRouterPromptRouterTypeOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterPromptRouterTypeOutput) ToIntelligentPromptRouterPromptRouterTypeOutputWithContext(ctx context.Context) IntelligentPromptRouterPromptRouterTypeOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterPromptRouterTypeOutput) ToIntelligentPromptRouterPromptRouterTypePtrOutput() IntelligentPromptRouterPromptRouterTypePtrOutput {
+	return o.ToIntelligentPromptRouterPromptRouterTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntelligentPromptRouterPromptRouterTypeOutput) ToIntelligentPromptRouterPromptRouterTypePtrOutputWithContext(ctx context.Context) IntelligentPromptRouterPromptRouterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntelligentPromptRouterPromptRouterType) *IntelligentPromptRouterPromptRouterType {
+		return &v
+	}).(IntelligentPromptRouterPromptRouterTypePtrOutput)
+}
+
+func (o IntelligentPromptRouterPromptRouterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntelligentPromptRouterPromptRouterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntelligentPromptRouterPromptRouterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntelligentPromptRouterPromptRouterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntelligentPromptRouterPromptRouterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntelligentPromptRouterPromptRouterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntelligentPromptRouterPromptRouterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntelligentPromptRouterPromptRouterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntelligentPromptRouterPromptRouterType)(nil)).Elem()
+}
+
+func (o IntelligentPromptRouterPromptRouterTypePtrOutput) ToIntelligentPromptRouterPromptRouterTypePtrOutput() IntelligentPromptRouterPromptRouterTypePtrOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterPromptRouterTypePtrOutput) ToIntelligentPromptRouterPromptRouterTypePtrOutputWithContext(ctx context.Context) IntelligentPromptRouterPromptRouterTypePtrOutput {
+	return o
+}
+
+func (o IntelligentPromptRouterPromptRouterTypePtrOutput) Elem() IntelligentPromptRouterPromptRouterTypeOutput {
+	return o.ApplyT(func(v *IntelligentPromptRouterPromptRouterType) IntelligentPromptRouterPromptRouterType {
+		if v != nil {
+			return *v
+		}
+		var ret IntelligentPromptRouterPromptRouterType
+		return ret
+	}).(IntelligentPromptRouterPromptRouterTypeOutput)
+}
+
+func (o IntelligentPromptRouterPromptRouterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntelligentPromptRouterPromptRouterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntelligentPromptRouterPromptRouterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The data type for the vectors when using a model to convert text into vector embeddings.
 type KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType string
 
@@ -14098,6 +14279,10 @@ func init() {
 	pulumi.RegisterOutputType(GuardrailTopicTypePtrOutput{})
 	pulumi.RegisterOutputType(GuardrailWordActionOutput{})
 	pulumi.RegisterOutputType(GuardrailWordActionPtrOutput{})
+	pulumi.RegisterOutputType(IntelligentPromptRouterPromptRouterStatusOutput{})
+	pulumi.RegisterOutputType(IntelligentPromptRouterPromptRouterStatusPtrOutput{})
+	pulumi.RegisterOutputType(IntelligentPromptRouterPromptRouterTypeOutput{})
+	pulumi.RegisterOutputType(IntelligentPromptRouterPromptRouterTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseInclusionTypeOutput{})

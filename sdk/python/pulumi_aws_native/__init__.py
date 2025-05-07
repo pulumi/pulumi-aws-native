@@ -1015,6 +1015,7 @@ _utilities.register(
    "aws-native:bedrock:FlowVersion": "FlowVersion",
    "aws-native:bedrock:Guardrail": "Guardrail",
    "aws-native:bedrock:GuardrailVersion": "GuardrailVersion",
+   "aws-native:bedrock:IntelligentPromptRouter": "IntelligentPromptRouter",
    "aws-native:bedrock:KnowledgeBase": "KnowledgeBase",
    "aws-native:bedrock:Prompt": "Prompt",
    "aws-native:bedrock:PromptVersion": "PromptVersion"
