@@ -1573,6 +1573,139 @@ func (o PolicyStaticPolicyDefinitionPtrOutput) Statement() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type PolicyStoreDeletionProtection struct {
+	Mode PolicyStoreDeletionMode `pulumi:"mode"`
+}
+
+// PolicyStoreDeletionProtectionInput is an input type that accepts PolicyStoreDeletionProtectionArgs and PolicyStoreDeletionProtectionOutput values.
+// You can construct a concrete instance of `PolicyStoreDeletionProtectionInput` via:
+//
+//	PolicyStoreDeletionProtectionArgs{...}
+type PolicyStoreDeletionProtectionInput interface {
+	pulumi.Input
+
+	ToPolicyStoreDeletionProtectionOutput() PolicyStoreDeletionProtectionOutput
+	ToPolicyStoreDeletionProtectionOutputWithContext(context.Context) PolicyStoreDeletionProtectionOutput
+}
+
+type PolicyStoreDeletionProtectionArgs struct {
+	Mode PolicyStoreDeletionModeInput `pulumi:"mode"`
+}
+
+func (PolicyStoreDeletionProtectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStoreDeletionProtection)(nil)).Elem()
+}
+
+func (i PolicyStoreDeletionProtectionArgs) ToPolicyStoreDeletionProtectionOutput() PolicyStoreDeletionProtectionOutput {
+	return i.ToPolicyStoreDeletionProtectionOutputWithContext(context.Background())
+}
+
+func (i PolicyStoreDeletionProtectionArgs) ToPolicyStoreDeletionProtectionOutputWithContext(ctx context.Context) PolicyStoreDeletionProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreDeletionProtectionOutput)
+}
+
+func (i PolicyStoreDeletionProtectionArgs) ToPolicyStoreDeletionProtectionPtrOutput() PolicyStoreDeletionProtectionPtrOutput {
+	return i.ToPolicyStoreDeletionProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyStoreDeletionProtectionArgs) ToPolicyStoreDeletionProtectionPtrOutputWithContext(ctx context.Context) PolicyStoreDeletionProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreDeletionProtectionOutput).ToPolicyStoreDeletionProtectionPtrOutputWithContext(ctx)
+}
+
+// PolicyStoreDeletionProtectionPtrInput is an input type that accepts PolicyStoreDeletionProtectionArgs, PolicyStoreDeletionProtectionPtr and PolicyStoreDeletionProtectionPtrOutput values.
+// You can construct a concrete instance of `PolicyStoreDeletionProtectionPtrInput` via:
+//
+//	        PolicyStoreDeletionProtectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyStoreDeletionProtectionPtrInput interface {
+	pulumi.Input
+
+	ToPolicyStoreDeletionProtectionPtrOutput() PolicyStoreDeletionProtectionPtrOutput
+	ToPolicyStoreDeletionProtectionPtrOutputWithContext(context.Context) PolicyStoreDeletionProtectionPtrOutput
+}
+
+type policyStoreDeletionProtectionPtrType PolicyStoreDeletionProtectionArgs
+
+func PolicyStoreDeletionProtectionPtr(v *PolicyStoreDeletionProtectionArgs) PolicyStoreDeletionProtectionPtrInput {
+	return (*policyStoreDeletionProtectionPtrType)(v)
+}
+
+func (*policyStoreDeletionProtectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStoreDeletionProtection)(nil)).Elem()
+}
+
+func (i *policyStoreDeletionProtectionPtrType) ToPolicyStoreDeletionProtectionPtrOutput() PolicyStoreDeletionProtectionPtrOutput {
+	return i.ToPolicyStoreDeletionProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *policyStoreDeletionProtectionPtrType) ToPolicyStoreDeletionProtectionPtrOutputWithContext(ctx context.Context) PolicyStoreDeletionProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreDeletionProtectionPtrOutput)
+}
+
+type PolicyStoreDeletionProtectionOutput struct{ *pulumi.OutputState }
+
+func (PolicyStoreDeletionProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStoreDeletionProtection)(nil)).Elem()
+}
+
+func (o PolicyStoreDeletionProtectionOutput) ToPolicyStoreDeletionProtectionOutput() PolicyStoreDeletionProtectionOutput {
+	return o
+}
+
+func (o PolicyStoreDeletionProtectionOutput) ToPolicyStoreDeletionProtectionOutputWithContext(ctx context.Context) PolicyStoreDeletionProtectionOutput {
+	return o
+}
+
+func (o PolicyStoreDeletionProtectionOutput) ToPolicyStoreDeletionProtectionPtrOutput() PolicyStoreDeletionProtectionPtrOutput {
+	return o.ToPolicyStoreDeletionProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStoreDeletionProtectionOutput) ToPolicyStoreDeletionProtectionPtrOutputWithContext(ctx context.Context) PolicyStoreDeletionProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStoreDeletionProtection) *PolicyStoreDeletionProtection {
+		return &v
+	}).(PolicyStoreDeletionProtectionPtrOutput)
+}
+
+func (o PolicyStoreDeletionProtectionOutput) Mode() PolicyStoreDeletionModeOutput {
+	return o.ApplyT(func(v PolicyStoreDeletionProtection) PolicyStoreDeletionMode { return v.Mode }).(PolicyStoreDeletionModeOutput)
+}
+
+type PolicyStoreDeletionProtectionPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyStoreDeletionProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStoreDeletionProtection)(nil)).Elem()
+}
+
+func (o PolicyStoreDeletionProtectionPtrOutput) ToPolicyStoreDeletionProtectionPtrOutput() PolicyStoreDeletionProtectionPtrOutput {
+	return o
+}
+
+func (o PolicyStoreDeletionProtectionPtrOutput) ToPolicyStoreDeletionProtectionPtrOutputWithContext(ctx context.Context) PolicyStoreDeletionProtectionPtrOutput {
+	return o
+}
+
+func (o PolicyStoreDeletionProtectionPtrOutput) Elem() PolicyStoreDeletionProtectionOutput {
+	return o.ApplyT(func(v *PolicyStoreDeletionProtection) PolicyStoreDeletionProtection {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyStoreDeletionProtection
+		return ret
+	}).(PolicyStoreDeletionProtectionOutput)
+}
+
+func (o PolicyStoreDeletionProtectionPtrOutput) Mode() PolicyStoreDeletionModePtrOutput {
+	return o.ApplyT(func(v *PolicyStoreDeletionProtection) *PolicyStoreDeletionMode {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(PolicyStoreDeletionModePtrOutput)
+}
+
 type PolicyStoreSchemaDefinition struct {
 	// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
 	CedarJson *string `pulumi:"cedarJson"`
@@ -1961,6 +2094,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyEntityIdentifierInput)(nil)).Elem(), PolicyEntityIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyEntityIdentifierPtrInput)(nil)).Elem(), PolicyEntityIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStaticPolicyDefinitionInput)(nil)).Elem(), PolicyStaticPolicyDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreDeletionProtectionInput)(nil)).Elem(), PolicyStoreDeletionProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreDeletionProtectionPtrInput)(nil)).Elem(), PolicyStoreDeletionProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinitionInput)(nil)).Elem(), PolicyStoreSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinitionPtrInput)(nil)).Elem(), PolicyStoreSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreValidationSettingsInput)(nil)).Elem(), PolicyStoreValidationSettingsArgs{})
@@ -1995,6 +2130,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyEntityIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStaticPolicyDefinitionOutput{})
 	pulumi.RegisterOutputType(PolicyStaticPolicyDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(PolicyStoreDeletionProtectionOutput{})
+	pulumi.RegisterOutputType(PolicyStoreDeletionProtectionPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreSchemaDefinitionOutput{})
 	pulumi.RegisterOutputType(PolicyStoreSchemaDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreValidationSettingsOutput{})

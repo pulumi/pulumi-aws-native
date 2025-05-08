@@ -59,6 +59,7 @@ export class PolicyStore extends pulumi.CustomResource {
      * The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly deletionProtection!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreDeletionProtection | undefined>;
     /**
      * Descriptive text that you can provide to help with identification of the current policy store.
      */
@@ -98,6 +99,7 @@ export class PolicyStore extends pulumi.CustomResource {
             if ((!args || args.validationSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'validationSettings'");
             }
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -106,6 +108,7 @@ export class PolicyStore extends pulumi.CustomResource {
             resourceInputs["policyStoreId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
             resourceInputs["schema"] = undefined /*out*/;
@@ -121,6 +124,7 @@ export class PolicyStore extends pulumi.CustomResource {
  * The set of arguments for constructing a PolicyStore resource.
  */
 export interface PolicyStoreArgs {
+    deletionProtection?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreDeletionProtectionArgs>;
     /**
      * Descriptive text that you can provide to help with identification of the current policy store.
      */

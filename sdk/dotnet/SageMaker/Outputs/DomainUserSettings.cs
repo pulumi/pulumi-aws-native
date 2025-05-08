@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class DomainUserSettings
     {
         /// <summary>
+        /// Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+        /// </summary>
+        public readonly Pulumi.AwsNative.SageMaker.DomainUserSettingsAutoMountHomeEfs? AutoMountHomeEfs;
+        /// <summary>
         /// The Code Editor application settings.
         /// 
         /// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -89,6 +93,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private DomainUserSettings(
+            Pulumi.AwsNative.SageMaker.DomainUserSettingsAutoMountHomeEfs? autoMountHomeEfs,
+
             Outputs.DomainCodeEditorAppSettings? codeEditorAppSettings,
 
             ImmutableArray<Outputs.DomainCustomFileSystemConfig> customFileSystemConfigs,
@@ -119,6 +125,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.DomainStudioWebPortalSettings? studioWebPortalSettings)
         {
+            AutoMountHomeEfs = autoMountHomeEfs;
             CodeEditorAppSettings = codeEditorAppSettings;
             CustomFileSystemConfigs = customFileSystemConfigs;
             CustomPosixUserConfig = customPosixUserConfig;

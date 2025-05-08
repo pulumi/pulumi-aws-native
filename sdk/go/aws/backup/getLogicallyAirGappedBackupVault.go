@@ -31,15 +31,19 @@ type LookupLogicallyAirGappedBackupVaultResult struct {
 	// The backup vault access policy document in JSON format.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
-	AccessPolicy   interface{} `pulumi:"accessPolicy"`
-	BackupVaultArn *string     `pulumi:"backupVaultArn"`
+	AccessPolicy interface{} `pulumi:"accessPolicy"`
+	// The ARN of the backup vault.
+	BackupVaultArn *string `pulumi:"backupVaultArn"`
 	// The tags to assign to the vault.
-	BackupVaultTags  map[string]string `pulumi:"backupVaultTags"`
-	EncryptionKeyArn *string           `pulumi:"encryptionKeyArn"`
+	BackupVaultTags map[string]string `pulumi:"backupVaultTags"`
+	// The ARN of the server-side encryption key.
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Returns event notifications for the specified backup vault.
 	Notifications *LogicallyAirGappedBackupVaultNotificationObjectType `pulumi:"notifications"`
-	VaultState    *string                                              `pulumi:"vaultState"`
-	VaultType     *string                                              `pulumi:"vaultType"`
+	// The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
+	VaultState *string `pulumi:"vaultState"`
+	// The vault type. The possible values are `BACKUP_VAULT` and `LOGICALLY_AIR_GAPPED_BACKUP_VAULT` .
+	VaultType *string `pulumi:"vaultType"`
 }
 
 func LookupLogicallyAirGappedBackupVaultOutput(ctx *pulumi.Context, args LookupLogicallyAirGappedBackupVaultOutputArgs, opts ...pulumi.InvokeOption) LookupLogicallyAirGappedBackupVaultResultOutput {
@@ -81,6 +85,7 @@ func (o LookupLogicallyAirGappedBackupVaultResultOutput) AccessPolicy() pulumi.A
 	return o.ApplyT(func(v LookupLogicallyAirGappedBackupVaultResult) interface{} { return v.AccessPolicy }).(pulumi.AnyOutput)
 }
 
+// The ARN of the backup vault.
 func (o LookupLogicallyAirGappedBackupVaultResultOutput) BackupVaultArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogicallyAirGappedBackupVaultResult) *string { return v.BackupVaultArn }).(pulumi.StringPtrOutput)
 }
@@ -90,6 +95,7 @@ func (o LookupLogicallyAirGappedBackupVaultResultOutput) BackupVaultTags() pulum
 	return o.ApplyT(func(v LookupLogicallyAirGappedBackupVaultResult) map[string]string { return v.BackupVaultTags }).(pulumi.StringMapOutput)
 }
 
+// The ARN of the server-side encryption key.
 func (o LookupLogicallyAirGappedBackupVaultResultOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogicallyAirGappedBackupVaultResult) *string { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -101,10 +107,12 @@ func (o LookupLogicallyAirGappedBackupVaultResultOutput) Notifications() Logical
 	}).(LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput)
 }
 
+// The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
 func (o LookupLogicallyAirGappedBackupVaultResultOutput) VaultState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogicallyAirGappedBackupVaultResult) *string { return v.VaultState }).(pulumi.StringPtrOutput)
 }
 
+// The vault type. The possible values are `BACKUP_VAULT` and `LOGICALLY_AIR_GAPPED_BACKUP_VAULT` .
 func (o LookupLogicallyAirGappedBackupVaultResultOutput) VaultType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogicallyAirGappedBackupVaultResult) *string { return v.VaultType }).(pulumi.StringPtrOutput)
 }

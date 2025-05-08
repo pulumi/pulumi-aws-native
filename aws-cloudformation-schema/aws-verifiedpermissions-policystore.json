@@ -28,6 +28,21 @@
       },
       "additionalProperties" : false
     },
+    "DeletionMode" : {
+      "type" : "string",
+      "default" : "DISABLED",
+      "enum" : [ "ENABLED", "DISABLED" ]
+    },
+    "DeletionProtection" : {
+      "type" : "object",
+      "properties" : {
+        "Mode" : {
+          "$ref" : "#/definitions/DeletionMode"
+        }
+      },
+      "required" : [ "Mode" ],
+      "additionalProperties" : false
+    },
     "Tag" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -65,6 +80,9 @@
     },
     "Schema" : {
       "$ref" : "#/definitions/SchemaDefinition"
+    },
+    "DeletionProtection" : {
+      "$ref" : "#/definitions/DeletionProtection"
     },
     "Tags" : {
       "description" : "The tags to add to the policy store",

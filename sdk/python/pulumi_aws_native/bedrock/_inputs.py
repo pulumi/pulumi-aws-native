@@ -9401,6 +9401,9 @@ if not MYPY:
         Represents the criteria used for routing requests.
         """
         response_quality_difference: pulumi.Input[builtins.float]
+        """
+        The criteria's response quality difference.
+        """
 elif False:
     IntelligentPromptRouterRoutingCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9410,12 +9413,16 @@ class IntelligentPromptRouterRoutingCriteriaArgs:
                  response_quality_difference: pulumi.Input[builtins.float]):
         """
         Represents the criteria used for routing requests.
+        :param pulumi.Input[builtins.float] response_quality_difference: The criteria's response quality difference.
         """
         pulumi.set(__self__, "response_quality_difference", response_quality_difference)
 
     @property
     @pulumi.getter(name="responseQualityDifference")
     def response_quality_difference(self) -> pulumi.Input[builtins.float]:
+        """
+        The criteria's response quality difference.
+        """
         return pulumi.get(self, "response_quality_difference")
 
     @response_quality_difference.setter

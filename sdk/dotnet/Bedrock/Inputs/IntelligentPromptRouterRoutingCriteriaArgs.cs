@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class IntelligentPromptRouterRoutingCriteriaArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The criteria's response quality difference.
+        /// </summary>
         [Input("responseQualityDifference", required: true)]
         public Input<double> ResponseQualityDifference { get; set; } = null!;
 

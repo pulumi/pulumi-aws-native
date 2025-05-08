@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.CleanRooms
     public sealed class GetCollaborationResult
     {
         /// <summary>
+        /// The analytics engine for the collaboration.
+        /// </summary>
+        public readonly Pulumi.AwsNative.CleanRooms.CollaborationAnalyticsEngine? AnalyticsEngine;
+        /// <summary>
         /// Returns the Amazon Resource Name (ARN) of the specified collaboration.
         /// 
         /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
@@ -94,6 +98,8 @@ namespace Pulumi.AwsNative.CleanRooms
 
         [OutputConstructor]
         private GetCollaborationResult(
+            Pulumi.AwsNative.CleanRooms.CollaborationAnalyticsEngine? analyticsEngine,
+
             string? arn,
 
             string? collaborationIdentifier,
@@ -104,6 +110,7 @@ namespace Pulumi.AwsNative.CleanRooms
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AnalyticsEngine = analyticsEngine;
             Arn = arn;
             CollaborationIdentifier = collaborationIdentifier;
             Description = description;

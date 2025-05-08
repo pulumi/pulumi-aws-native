@@ -134,7 +134,6 @@ namespace Pulumi.AwsNative.CleanRooms
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "analyticsEngine",
                     "creatorDisplayName",
                     "creatorMemberAbilities[*]",
                     "creatorMlMemberAbilities",

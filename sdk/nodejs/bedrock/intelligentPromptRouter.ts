@@ -58,6 +58,9 @@ export class IntelligentPromptRouter extends pulumi.CustomResource {
      * Name of the Prompt Router.
      */
     public readonly promptRouterName!: pulumi.Output<string>;
+    /**
+     * Routing criteria for a prompt router.
+     */
     public readonly routingCriteria!: pulumi.Output<outputs.bedrock.IntelligentPromptRouterRoutingCriteria>;
     public /*out*/ readonly status!: pulumi.Output<enums.bedrock.IntelligentPromptRouterPromptRouterStatus>;
     /**
@@ -138,6 +141,9 @@ export interface IntelligentPromptRouterArgs {
      * Name of the Prompt Router.
      */
     promptRouterName?: pulumi.Input<string>;
+    /**
+     * Routing criteria for a prompt router.
+     */
     routingCriteria: pulumi.Input<inputs.bedrock.IntelligentPromptRouterRoutingCriteriaArgs>;
     /**
      * List of Tags

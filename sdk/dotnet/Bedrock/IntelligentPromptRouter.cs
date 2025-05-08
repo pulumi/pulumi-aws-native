@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("promptRouterName")]
         public Output<string> PromptRouterName { get; private set; } = null!;
 
+        /// <summary>
+        /// Routing criteria for a prompt router.
+        /// </summary>
         [Output("routingCriteria")]
         public Output<Outputs.IntelligentPromptRouterRoutingCriteria> RoutingCriteria { get; private set; } = null!;
 
@@ -149,6 +152,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("promptRouterName")]
         public Input<string>? PromptRouterName { get; set; }
 
+        /// <summary>
+        /// Routing criteria for a prompt router.
+        /// </summary>
         [Input("routingCriteria", required: true)]
         public Input<Inputs.IntelligentPromptRouterRoutingCriteriaArgs> RoutingCriteria { get; set; } = null!;
 

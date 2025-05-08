@@ -61,6 +61,9 @@ class GetLogicallyAirGappedBackupVaultResult:
     @property
     @pulumi.getter(name="backupVaultArn")
     def backup_vault_arn(self) -> Optional[builtins.str]:
+        """
+        The ARN of the backup vault.
+        """
         return pulumi.get(self, "backup_vault_arn")
 
     @property
@@ -74,6 +77,9 @@ class GetLogicallyAirGappedBackupVaultResult:
     @property
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> Optional[builtins.str]:
+        """
+        The ARN of the server-side encryption key.
+        """
         return pulumi.get(self, "encryption_key_arn")
 
     @property
@@ -87,11 +93,17 @@ class GetLogicallyAirGappedBackupVaultResult:
     @property
     @pulumi.getter(name="vaultState")
     def vault_state(self) -> Optional[builtins.str]:
+        """
+        The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
+        """
         return pulumi.get(self, "vault_state")
 
     @property
     @pulumi.getter(name="vaultType")
     def vault_type(self) -> Optional[builtins.str]:
+        """
+        The vault type. The possible values are `BACKUP_VAULT` and `LOGICALLY_AIR_GAPPED_BACKUP_VAULT` .
+        """
         return pulumi.get(self, "vault_type")
 
 

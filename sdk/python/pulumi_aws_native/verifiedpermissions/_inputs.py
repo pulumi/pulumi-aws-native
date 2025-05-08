@@ -45,6 +45,8 @@ __all__ = [
     'PolicyEntityIdentifierArgsDict',
     'PolicyStaticPolicyDefinitionArgs',
     'PolicyStaticPolicyDefinitionArgsDict',
+    'PolicyStoreDeletionProtectionArgs',
+    'PolicyStoreDeletionProtectionArgsDict',
     'PolicyStoreSchemaDefinitionArgs',
     'PolicyStoreSchemaDefinitionArgsDict',
     'PolicyStoreValidationSettingsArgs',
@@ -490,6 +492,28 @@ class PolicyStaticPolicyDefinitionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+
+if not MYPY:
+    class PolicyStoreDeletionProtectionArgsDict(TypedDict):
+        mode: pulumi.Input['PolicyStoreDeletionMode']
+elif False:
+    PolicyStoreDeletionProtectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyStoreDeletionProtectionArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input['PolicyStoreDeletionMode']):
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input['PolicyStoreDeletionMode']:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input['PolicyStoreDeletionMode']):
+        pulumi.set(self, "mode", value)
 
 
 if not MYPY:

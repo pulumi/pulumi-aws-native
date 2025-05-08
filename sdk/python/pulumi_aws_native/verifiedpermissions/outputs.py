@@ -33,6 +33,7 @@ __all__ = [
     'PolicyDefinition1Properties',
     'PolicyEntityIdentifier',
     'PolicyStaticPolicyDefinition',
+    'PolicyStoreDeletionProtection',
     'PolicyStoreSchemaDefinition',
     'PolicyStoreValidationSettings',
     'PolicyTemplateLinkedPolicyDefinition',
@@ -561,6 +562,18 @@ class PolicyStaticPolicyDefinition(dict):
     @pulumi.getter
     def description(self) -> Optional[builtins.str]:
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class PolicyStoreDeletionProtection(dict):
+    def __init__(__self__, *,
+                 mode: 'PolicyStoreDeletionMode'):
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> 'PolicyStoreDeletionMode':
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type

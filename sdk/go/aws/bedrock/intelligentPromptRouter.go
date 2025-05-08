@@ -27,9 +27,10 @@ type IntelligentPromptRouter struct {
 	// Arn of the Prompt Router.
 	PromptRouterArn pulumi.StringOutput `pulumi:"promptRouterArn"`
 	// Name of the Prompt Router.
-	PromptRouterName pulumi.StringOutput                             `pulumi:"promptRouterName"`
-	RoutingCriteria  IntelligentPromptRouterRoutingCriteriaOutput    `pulumi:"routingCriteria"`
-	Status           IntelligentPromptRouterPromptRouterStatusOutput `pulumi:"status"`
+	PromptRouterName pulumi.StringOutput `pulumi:"promptRouterName"`
+	// Routing criteria for a prompt router.
+	RoutingCriteria IntelligentPromptRouterRoutingCriteriaOutput    `pulumi:"routingCriteria"`
+	Status          IntelligentPromptRouterPromptRouterStatusOutput `pulumi:"status"`
 	// List of Tags
 	Tags aws.TagArrayOutput                            `pulumi:"tags"`
 	Type IntelligentPromptRouterPromptRouterTypeOutput `pulumi:"type"`
@@ -100,8 +101,9 @@ type intelligentPromptRouterArgs struct {
 	// List of model configuration
 	Models []IntelligentPromptRouterPromptRouterTargetModel `pulumi:"models"`
 	// Name of the Prompt Router.
-	PromptRouterName *string                                `pulumi:"promptRouterName"`
-	RoutingCriteria  IntelligentPromptRouterRoutingCriteria `pulumi:"routingCriteria"`
+	PromptRouterName *string `pulumi:"promptRouterName"`
+	// Routing criteria for a prompt router.
+	RoutingCriteria IntelligentPromptRouterRoutingCriteria `pulumi:"routingCriteria"`
 	// List of Tags
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -115,7 +117,8 @@ type IntelligentPromptRouterArgs struct {
 	Models IntelligentPromptRouterPromptRouterTargetModelArrayInput
 	// Name of the Prompt Router.
 	PromptRouterName pulumi.StringPtrInput
-	RoutingCriteria  IntelligentPromptRouterRoutingCriteriaInput
+	// Routing criteria for a prompt router.
+	RoutingCriteria IntelligentPromptRouterRoutingCriteriaInput
 	// List of Tags
 	Tags aws.TagArrayInput
 }
@@ -190,6 +193,7 @@ func (o IntelligentPromptRouterOutput) PromptRouterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntelligentPromptRouter) pulumi.StringOutput { return v.PromptRouterName }).(pulumi.StringOutput)
 }
 
+// Routing criteria for a prompt router.
 func (o IntelligentPromptRouterOutput) RoutingCriteria() IntelligentPromptRouterRoutingCriteriaOutput {
 	return o.ApplyT(func(v *IntelligentPromptRouter) IntelligentPromptRouterRoutingCriteriaOutput {
 		return v.RoutingCriteria

@@ -70,7 +70,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "route53profiles:AssociateProfile", "route53profiles:GetProfileAssociation", "ec2:DescribeVpcs", "route53profiles:TagResource", "route53profiles:ListTagsForResource" ]
+      "permissions" : [ "route53profiles:AssociateProfile", "route53profiles:GetProfileAssociation", "route53profiles:ListProfileAssociations", "ec2:DescribeVpcs", "route53profiles:TagResource", "route53profiles:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "route53profiles:GetProfileAssociation", "route53profiles:TagResource", "route53profiles:UntagResource", "route53profiles:ListTagsForResource" ]

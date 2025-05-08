@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     /// </summary>
     public sealed class DomainSingleSignOnArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the IDC instance.
+        /// </summary>
         [Input("idcInstanceArn")]
         public Input<string>? IdcInstanceArn { get; set; }
 

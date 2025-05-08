@@ -13,6 +13,14 @@ namespace Pulumi.AwsNative.Backup.Outputs
     [OutputType]
     public sealed class BackupPlanIndexActionsResourceType
     {
+        /// <summary>
+        /// 0 or 1 index action will be accepted for each BackupRule.
+        /// 
+        /// Valid values:
+        /// 
+        /// - `EBS` for Amazon Elastic Block Store
+        /// - `S3` for Amazon Simple Storage Service (Amazon S3)
+        /// </summary>
         public readonly ImmutableArray<string> ResourceTypes;
 
         [OutputConstructor]

@@ -50,9 +50,17 @@ export class App extends pulumi.CustomResource {
      */
     public readonly appType!: pulumi.Output<enums.sagemaker.AppType>;
     /**
+     * The lifecycle configuration that runs before the default lifecycle configuration.
+     */
+    public /*out*/ readonly builtInLifecycleConfigArn!: pulumi.Output<string>;
+    /**
      * The domain ID.
      */
     public readonly domainId!: pulumi.Output<string>;
+    /**
+     * Indicates whether the application is launched in recovery mode.
+     */
+    public readonly recoveryMode!: pulumi.Output<boolean | undefined>;
     /**
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
      */
@@ -89,15 +97,19 @@ export class App extends pulumi.CustomResource {
             resourceInputs["appName"] = args ? args.appName : undefined;
             resourceInputs["appType"] = args ? args.appType : undefined;
             resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["recoveryMode"] = args ? args.recoveryMode : undefined;
             resourceInputs["resourceSpec"] = args ? args.resourceSpec : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userProfileName"] = args ? args.userProfileName : undefined;
             resourceInputs["appArn"] = undefined /*out*/;
+            resourceInputs["builtInLifecycleConfigArn"] = undefined /*out*/;
         } else {
             resourceInputs["appArn"] = undefined /*out*/;
             resourceInputs["appName"] = undefined /*out*/;
             resourceInputs["appType"] = undefined /*out*/;
+            resourceInputs["builtInLifecycleConfigArn"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
+            resourceInputs["recoveryMode"] = undefined /*out*/;
             resourceInputs["resourceSpec"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["userProfileName"] = undefined /*out*/;
@@ -125,6 +137,10 @@ export interface AppArgs {
      * The domain ID.
      */
     domainId: pulumi.Input<string>;
+    /**
+     * Indicates whether the application is launched in recovery mode.
+     */
+    recoveryMode?: pulumi.Input<boolean>;
     /**
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
      */

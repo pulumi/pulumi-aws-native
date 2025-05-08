@@ -387,6 +387,196 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The instance type that the image version runs on.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainAppInstanceType : IEquatable<DomainAppInstanceType>
+    {
+        private readonly string _value;
+
+        private DomainAppInstanceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainAppInstanceType System { get; } = new DomainAppInstanceType("system");
+        public static DomainAppInstanceType MlT3Micro { get; } = new DomainAppInstanceType("ml.t3.micro");
+        public static DomainAppInstanceType MlT3Small { get; } = new DomainAppInstanceType("ml.t3.small");
+        public static DomainAppInstanceType MlT3Medium { get; } = new DomainAppInstanceType("ml.t3.medium");
+        public static DomainAppInstanceType MlT3Large { get; } = new DomainAppInstanceType("ml.t3.large");
+        public static DomainAppInstanceType MlT3Xlarge { get; } = new DomainAppInstanceType("ml.t3.xlarge");
+        public static DomainAppInstanceType MlT32xlarge { get; } = new DomainAppInstanceType("ml.t3.2xlarge");
+        public static DomainAppInstanceType MlM5Large { get; } = new DomainAppInstanceType("ml.m5.large");
+        public static DomainAppInstanceType MlM5Xlarge { get; } = new DomainAppInstanceType("ml.m5.xlarge");
+        public static DomainAppInstanceType MlM52xlarge { get; } = new DomainAppInstanceType("ml.m5.2xlarge");
+        public static DomainAppInstanceType MlM54xlarge { get; } = new DomainAppInstanceType("ml.m5.4xlarge");
+        public static DomainAppInstanceType MlM58xlarge { get; } = new DomainAppInstanceType("ml.m5.8xlarge");
+        public static DomainAppInstanceType MlM512xlarge { get; } = new DomainAppInstanceType("ml.m5.12xlarge");
+        public static DomainAppInstanceType MlM516xlarge { get; } = new DomainAppInstanceType("ml.m5.16xlarge");
+        public static DomainAppInstanceType MlM524xlarge { get; } = new DomainAppInstanceType("ml.m5.24xlarge");
+        public static DomainAppInstanceType MlM5dLarge { get; } = new DomainAppInstanceType("ml.m5d.large");
+        public static DomainAppInstanceType MlM5dXlarge { get; } = new DomainAppInstanceType("ml.m5d.xlarge");
+        public static DomainAppInstanceType MlM5d2xlarge { get; } = new DomainAppInstanceType("ml.m5d.2xlarge");
+        public static DomainAppInstanceType MlM5d4xlarge { get; } = new DomainAppInstanceType("ml.m5d.4xlarge");
+        public static DomainAppInstanceType MlM5d8xlarge { get; } = new DomainAppInstanceType("ml.m5d.8xlarge");
+        public static DomainAppInstanceType MlM5d12xlarge { get; } = new DomainAppInstanceType("ml.m5d.12xlarge");
+        public static DomainAppInstanceType MlM5d16xlarge { get; } = new DomainAppInstanceType("ml.m5d.16xlarge");
+        public static DomainAppInstanceType MlM5d24xlarge { get; } = new DomainAppInstanceType("ml.m5d.24xlarge");
+        public static DomainAppInstanceType MlC5Large { get; } = new DomainAppInstanceType("ml.c5.large");
+        public static DomainAppInstanceType MlC5Xlarge { get; } = new DomainAppInstanceType("ml.c5.xlarge");
+        public static DomainAppInstanceType MlC52xlarge { get; } = new DomainAppInstanceType("ml.c5.2xlarge");
+        public static DomainAppInstanceType MlC54xlarge { get; } = new DomainAppInstanceType("ml.c5.4xlarge");
+        public static DomainAppInstanceType MlC59xlarge { get; } = new DomainAppInstanceType("ml.c5.9xlarge");
+        public static DomainAppInstanceType MlC512xlarge { get; } = new DomainAppInstanceType("ml.c5.12xlarge");
+        public static DomainAppInstanceType MlC518xlarge { get; } = new DomainAppInstanceType("ml.c5.18xlarge");
+        public static DomainAppInstanceType MlC524xlarge { get; } = new DomainAppInstanceType("ml.c5.24xlarge");
+        public static DomainAppInstanceType MlP32xlarge { get; } = new DomainAppInstanceType("ml.p3.2xlarge");
+        public static DomainAppInstanceType MlP38xlarge { get; } = new DomainAppInstanceType("ml.p3.8xlarge");
+        public static DomainAppInstanceType MlP316xlarge { get; } = new DomainAppInstanceType("ml.p3.16xlarge");
+        public static DomainAppInstanceType MlP3dn24xlarge { get; } = new DomainAppInstanceType("ml.p3dn.24xlarge");
+        public static DomainAppInstanceType MlG4dnXlarge { get; } = new DomainAppInstanceType("ml.g4dn.xlarge");
+        public static DomainAppInstanceType MlG4dn2xlarge { get; } = new DomainAppInstanceType("ml.g4dn.2xlarge");
+        public static DomainAppInstanceType MlG4dn4xlarge { get; } = new DomainAppInstanceType("ml.g4dn.4xlarge");
+        public static DomainAppInstanceType MlG4dn8xlarge { get; } = new DomainAppInstanceType("ml.g4dn.8xlarge");
+        public static DomainAppInstanceType MlG4dn12xlarge { get; } = new DomainAppInstanceType("ml.g4dn.12xlarge");
+        public static DomainAppInstanceType MlG4dn16xlarge { get; } = new DomainAppInstanceType("ml.g4dn.16xlarge");
+        public static DomainAppInstanceType MlR5Large { get; } = new DomainAppInstanceType("ml.r5.large");
+        public static DomainAppInstanceType MlR5Xlarge { get; } = new DomainAppInstanceType("ml.r5.xlarge");
+        public static DomainAppInstanceType MlR52xlarge { get; } = new DomainAppInstanceType("ml.r5.2xlarge");
+        public static DomainAppInstanceType MlR54xlarge { get; } = new DomainAppInstanceType("ml.r5.4xlarge");
+        public static DomainAppInstanceType MlR58xlarge { get; } = new DomainAppInstanceType("ml.r5.8xlarge");
+        public static DomainAppInstanceType MlR512xlarge { get; } = new DomainAppInstanceType("ml.r5.12xlarge");
+        public static DomainAppInstanceType MlR516xlarge { get; } = new DomainAppInstanceType("ml.r5.16xlarge");
+        public static DomainAppInstanceType MlR524xlarge { get; } = new DomainAppInstanceType("ml.r5.24xlarge");
+        public static DomainAppInstanceType MlG5Xlarge { get; } = new DomainAppInstanceType("ml.g5.xlarge");
+        public static DomainAppInstanceType MlG52xlarge { get; } = new DomainAppInstanceType("ml.g5.2xlarge");
+        public static DomainAppInstanceType MlG54xlarge { get; } = new DomainAppInstanceType("ml.g5.4xlarge");
+        public static DomainAppInstanceType MlG58xlarge { get; } = new DomainAppInstanceType("ml.g5.8xlarge");
+        public static DomainAppInstanceType MlG512xlarge { get; } = new DomainAppInstanceType("ml.g5.12xlarge");
+        public static DomainAppInstanceType MlG516xlarge { get; } = new DomainAppInstanceType("ml.g5.16xlarge");
+        public static DomainAppInstanceType MlG524xlarge { get; } = new DomainAppInstanceType("ml.g5.24xlarge");
+        public static DomainAppInstanceType MlG548xlarge { get; } = new DomainAppInstanceType("ml.g5.48xlarge");
+        public static DomainAppInstanceType MlG6Xlarge { get; } = new DomainAppInstanceType("ml.g6.xlarge");
+        public static DomainAppInstanceType MlG62xlarge { get; } = new DomainAppInstanceType("ml.g6.2xlarge");
+        public static DomainAppInstanceType MlG64xlarge { get; } = new DomainAppInstanceType("ml.g6.4xlarge");
+        public static DomainAppInstanceType MlG68xlarge { get; } = new DomainAppInstanceType("ml.g6.8xlarge");
+        public static DomainAppInstanceType MlG612xlarge { get; } = new DomainAppInstanceType("ml.g6.12xlarge");
+        public static DomainAppInstanceType MlG616xlarge { get; } = new DomainAppInstanceType("ml.g6.16xlarge");
+        public static DomainAppInstanceType MlG624xlarge { get; } = new DomainAppInstanceType("ml.g6.24xlarge");
+        public static DomainAppInstanceType MlG648xlarge { get; } = new DomainAppInstanceType("ml.g6.48xlarge");
+        public static DomainAppInstanceType MlG6eXlarge { get; } = new DomainAppInstanceType("ml.g6e.xlarge");
+        public static DomainAppInstanceType MlG6e2xlarge { get; } = new DomainAppInstanceType("ml.g6e.2xlarge");
+        public static DomainAppInstanceType MlG6e4xlarge { get; } = new DomainAppInstanceType("ml.g6e.4xlarge");
+        public static DomainAppInstanceType MlG6e8xlarge { get; } = new DomainAppInstanceType("ml.g6e.8xlarge");
+        public static DomainAppInstanceType MlG6e12xlarge { get; } = new DomainAppInstanceType("ml.g6e.12xlarge");
+        public static DomainAppInstanceType MlG6e16xlarge { get; } = new DomainAppInstanceType("ml.g6e.16xlarge");
+        public static DomainAppInstanceType MlG6e24xlarge { get; } = new DomainAppInstanceType("ml.g6e.24xlarge");
+        public static DomainAppInstanceType MlG6e48xlarge { get; } = new DomainAppInstanceType("ml.g6e.48xlarge");
+        public static DomainAppInstanceType MlGeospatialInteractive { get; } = new DomainAppInstanceType("ml.geospatial.interactive");
+        public static DomainAppInstanceType MlP4d24xlarge { get; } = new DomainAppInstanceType("ml.p4d.24xlarge");
+        public static DomainAppInstanceType MlP4de24xlarge { get; } = new DomainAppInstanceType("ml.p4de.24xlarge");
+        public static DomainAppInstanceType MlTrn12xlarge { get; } = new DomainAppInstanceType("ml.trn1.2xlarge");
+        public static DomainAppInstanceType MlTrn132xlarge { get; } = new DomainAppInstanceType("ml.trn1.32xlarge");
+        public static DomainAppInstanceType MlTrn1n32xlarge { get; } = new DomainAppInstanceType("ml.trn1n.32xlarge");
+        public static DomainAppInstanceType MlP548xlarge { get; } = new DomainAppInstanceType("ml.p5.48xlarge");
+        public static DomainAppInstanceType MlM6iLarge { get; } = new DomainAppInstanceType("ml.m6i.large");
+        public static DomainAppInstanceType MlM6iXlarge { get; } = new DomainAppInstanceType("ml.m6i.xlarge");
+        public static DomainAppInstanceType MlM6i2xlarge { get; } = new DomainAppInstanceType("ml.m6i.2xlarge");
+        public static DomainAppInstanceType MlM6i4xlarge { get; } = new DomainAppInstanceType("ml.m6i.4xlarge");
+        public static DomainAppInstanceType MlM6i8xlarge { get; } = new DomainAppInstanceType("ml.m6i.8xlarge");
+        public static DomainAppInstanceType MlM6i12xlarge { get; } = new DomainAppInstanceType("ml.m6i.12xlarge");
+        public static DomainAppInstanceType MlM6i16xlarge { get; } = new DomainAppInstanceType("ml.m6i.16xlarge");
+        public static DomainAppInstanceType MlM6i24xlarge { get; } = new DomainAppInstanceType("ml.m6i.24xlarge");
+        public static DomainAppInstanceType MlM6i32xlarge { get; } = new DomainAppInstanceType("ml.m6i.32xlarge");
+        public static DomainAppInstanceType MlM7iLarge { get; } = new DomainAppInstanceType("ml.m7i.large");
+        public static DomainAppInstanceType MlM7iXlarge { get; } = new DomainAppInstanceType("ml.m7i.xlarge");
+        public static DomainAppInstanceType MlM7i2xlarge { get; } = new DomainAppInstanceType("ml.m7i.2xlarge");
+        public static DomainAppInstanceType MlM7i4xlarge { get; } = new DomainAppInstanceType("ml.m7i.4xlarge");
+        public static DomainAppInstanceType MlM7i8xlarge { get; } = new DomainAppInstanceType("ml.m7i.8xlarge");
+        public static DomainAppInstanceType MlM7i12xlarge { get; } = new DomainAppInstanceType("ml.m7i.12xlarge");
+        public static DomainAppInstanceType MlM7i16xlarge { get; } = new DomainAppInstanceType("ml.m7i.16xlarge");
+        public static DomainAppInstanceType MlM7i24xlarge { get; } = new DomainAppInstanceType("ml.m7i.24xlarge");
+        public static DomainAppInstanceType MlM7i48xlarge { get; } = new DomainAppInstanceType("ml.m7i.48xlarge");
+        public static DomainAppInstanceType MlC6iLarge { get; } = new DomainAppInstanceType("ml.c6i.large");
+        public static DomainAppInstanceType MlC6iXlarge { get; } = new DomainAppInstanceType("ml.c6i.xlarge");
+        public static DomainAppInstanceType MlC6i2xlarge { get; } = new DomainAppInstanceType("ml.c6i.2xlarge");
+        public static DomainAppInstanceType MlC6i4xlarge { get; } = new DomainAppInstanceType("ml.c6i.4xlarge");
+        public static DomainAppInstanceType MlC6i8xlarge { get; } = new DomainAppInstanceType("ml.c6i.8xlarge");
+        public static DomainAppInstanceType MlC6i12xlarge { get; } = new DomainAppInstanceType("ml.c6i.12xlarge");
+        public static DomainAppInstanceType MlC6i16xlarge { get; } = new DomainAppInstanceType("ml.c6i.16xlarge");
+        public static DomainAppInstanceType MlC6i24xlarge { get; } = new DomainAppInstanceType("ml.c6i.24xlarge");
+        public static DomainAppInstanceType MlC6i32xlarge { get; } = new DomainAppInstanceType("ml.c6i.32xlarge");
+        public static DomainAppInstanceType MlC7iLarge { get; } = new DomainAppInstanceType("ml.c7i.large");
+        public static DomainAppInstanceType MlC7iXlarge { get; } = new DomainAppInstanceType("ml.c7i.xlarge");
+        public static DomainAppInstanceType MlC7i2xlarge { get; } = new DomainAppInstanceType("ml.c7i.2xlarge");
+        public static DomainAppInstanceType MlC7i4xlarge { get; } = new DomainAppInstanceType("ml.c7i.4xlarge");
+        public static DomainAppInstanceType MlC7i8xlarge { get; } = new DomainAppInstanceType("ml.c7i.8xlarge");
+        public static DomainAppInstanceType MlC7i12xlarge { get; } = new DomainAppInstanceType("ml.c7i.12xlarge");
+        public static DomainAppInstanceType MlC7i16xlarge { get; } = new DomainAppInstanceType("ml.c7i.16xlarge");
+        public static DomainAppInstanceType MlC7i24xlarge { get; } = new DomainAppInstanceType("ml.c7i.24xlarge");
+        public static DomainAppInstanceType MlC7i48xlarge { get; } = new DomainAppInstanceType("ml.c7i.48xlarge");
+        public static DomainAppInstanceType MlR6iLarge { get; } = new DomainAppInstanceType("ml.r6i.large");
+        public static DomainAppInstanceType MlR6iXlarge { get; } = new DomainAppInstanceType("ml.r6i.xlarge");
+        public static DomainAppInstanceType MlR6i2xlarge { get; } = new DomainAppInstanceType("ml.r6i.2xlarge");
+        public static DomainAppInstanceType MlR6i4xlarge { get; } = new DomainAppInstanceType("ml.r6i.4xlarge");
+        public static DomainAppInstanceType MlR6i8xlarge { get; } = new DomainAppInstanceType("ml.r6i.8xlarge");
+        public static DomainAppInstanceType MlR6i12xlarge { get; } = new DomainAppInstanceType("ml.r6i.12xlarge");
+        public static DomainAppInstanceType MlR6i16xlarge { get; } = new DomainAppInstanceType("ml.r6i.16xlarge");
+        public static DomainAppInstanceType MlR6i24xlarge { get; } = new DomainAppInstanceType("ml.r6i.24xlarge");
+        public static DomainAppInstanceType MlR6i32xlarge { get; } = new DomainAppInstanceType("ml.r6i.32xlarge");
+        public static DomainAppInstanceType MlR7iLarge { get; } = new DomainAppInstanceType("ml.r7i.large");
+        public static DomainAppInstanceType MlR7iXlarge { get; } = new DomainAppInstanceType("ml.r7i.xlarge");
+        public static DomainAppInstanceType MlR7i2xlarge { get; } = new DomainAppInstanceType("ml.r7i.2xlarge");
+        public static DomainAppInstanceType MlR7i4xlarge { get; } = new DomainAppInstanceType("ml.r7i.4xlarge");
+        public static DomainAppInstanceType MlR7i8xlarge { get; } = new DomainAppInstanceType("ml.r7i.8xlarge");
+        public static DomainAppInstanceType MlR7i12xlarge { get; } = new DomainAppInstanceType("ml.r7i.12xlarge");
+        public static DomainAppInstanceType MlR7i16xlarge { get; } = new DomainAppInstanceType("ml.r7i.16xlarge");
+        public static DomainAppInstanceType MlR7i24xlarge { get; } = new DomainAppInstanceType("ml.r7i.24xlarge");
+        public static DomainAppInstanceType MlR7i48xlarge { get; } = new DomainAppInstanceType("ml.r7i.48xlarge");
+        public static DomainAppInstanceType MlM6idLarge { get; } = new DomainAppInstanceType("ml.m6id.large");
+        public static DomainAppInstanceType MlM6idXlarge { get; } = new DomainAppInstanceType("ml.m6id.xlarge");
+        public static DomainAppInstanceType MlM6id2xlarge { get; } = new DomainAppInstanceType("ml.m6id.2xlarge");
+        public static DomainAppInstanceType MlM6id4xlarge { get; } = new DomainAppInstanceType("ml.m6id.4xlarge");
+        public static DomainAppInstanceType MlM6id8xlarge { get; } = new DomainAppInstanceType("ml.m6id.8xlarge");
+        public static DomainAppInstanceType MlM6id12xlarge { get; } = new DomainAppInstanceType("ml.m6id.12xlarge");
+        public static DomainAppInstanceType MlM6id16xlarge { get; } = new DomainAppInstanceType("ml.m6id.16xlarge");
+        public static DomainAppInstanceType MlM6id24xlarge { get; } = new DomainAppInstanceType("ml.m6id.24xlarge");
+        public static DomainAppInstanceType MlM6id32xlarge { get; } = new DomainAppInstanceType("ml.m6id.32xlarge");
+        public static DomainAppInstanceType MlC6idLarge { get; } = new DomainAppInstanceType("ml.c6id.large");
+        public static DomainAppInstanceType MlC6idXlarge { get; } = new DomainAppInstanceType("ml.c6id.xlarge");
+        public static DomainAppInstanceType MlC6id2xlarge { get; } = new DomainAppInstanceType("ml.c6id.2xlarge");
+        public static DomainAppInstanceType MlC6id4xlarge { get; } = new DomainAppInstanceType("ml.c6id.4xlarge");
+        public static DomainAppInstanceType MlC6id8xlarge { get; } = new DomainAppInstanceType("ml.c6id.8xlarge");
+        public static DomainAppInstanceType MlC6id12xlarge { get; } = new DomainAppInstanceType("ml.c6id.12xlarge");
+        public static DomainAppInstanceType MlC6id16xlarge { get; } = new DomainAppInstanceType("ml.c6id.16xlarge");
+        public static DomainAppInstanceType MlC6id24xlarge { get; } = new DomainAppInstanceType("ml.c6id.24xlarge");
+        public static DomainAppInstanceType MlC6id32xlarge { get; } = new DomainAppInstanceType("ml.c6id.32xlarge");
+        public static DomainAppInstanceType MlR6idLarge { get; } = new DomainAppInstanceType("ml.r6id.large");
+        public static DomainAppInstanceType MlR6idXlarge { get; } = new DomainAppInstanceType("ml.r6id.xlarge");
+        public static DomainAppInstanceType MlR6id2xlarge { get; } = new DomainAppInstanceType("ml.r6id.2xlarge");
+        public static DomainAppInstanceType MlR6id4xlarge { get; } = new DomainAppInstanceType("ml.r6id.4xlarge");
+        public static DomainAppInstanceType MlR6id8xlarge { get; } = new DomainAppInstanceType("ml.r6id.8xlarge");
+        public static DomainAppInstanceType MlR6id12xlarge { get; } = new DomainAppInstanceType("ml.r6id.12xlarge");
+        public static DomainAppInstanceType MlR6id16xlarge { get; } = new DomainAppInstanceType("ml.r6id.16xlarge");
+        public static DomainAppInstanceType MlR6id24xlarge { get; } = new DomainAppInstanceType("ml.r6id.24xlarge");
+        public static DomainAppInstanceType MlR6id32xlarge { get; } = new DomainAppInstanceType("ml.r6id.32xlarge");
+
+        public static bool operator ==(DomainAppInstanceType left, DomainAppInstanceType right) => left.Equals(right);
+        public static bool operator !=(DomainAppInstanceType left, DomainAppInstanceType right) => !left.Equals(right);
+
+        public static explicit operator string(DomainAppInstanceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainAppInstanceType other && Equals(other);
+        public bool Equals(DomainAppInstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
     /// </summary>
     [EnumType]
@@ -536,6 +726,36 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainDockerSettingsEnableDockerAccess other && Equals(other);
         public bool Equals(DomainDockerSettingsEnableDockerAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The SageMaker image name that you are hiding from the Studio user interface.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainHiddenSageMakerImageSageMakerImageName : IEquatable<DomainHiddenSageMakerImageSageMakerImageName>
+    {
+        private readonly string _value;
+
+        private DomainHiddenSageMakerImageSageMakerImageName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainHiddenSageMakerImageSageMakerImageName SagemakerDistribution { get; } = new DomainHiddenSageMakerImageSageMakerImageName("sagemaker_distribution");
+
+        public static bool operator ==(DomainHiddenSageMakerImageSageMakerImageName left, DomainHiddenSageMakerImageSageMakerImageName right) => left.Equals(right);
+        public static bool operator !=(DomainHiddenSageMakerImageSageMakerImageName left, DomainHiddenSageMakerImageSageMakerImageName right) => !left.Equals(right);
+
+        public static explicit operator string(DomainHiddenSageMakerImageSageMakerImageName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainHiddenSageMakerImageSageMakerImageName other && Equals(other);
+        public bool Equals(DomainHiddenSageMakerImageSageMakerImageName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -860,6 +1080,38 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainTagPropagation other && Equals(other);
         public bool Equals(DomainTagPropagation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainUserSettingsAutoMountHomeEfs : IEquatable<DomainUserSettingsAutoMountHomeEfs>
+    {
+        private readonly string _value;
+
+        private DomainUserSettingsAutoMountHomeEfs(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainUserSettingsAutoMountHomeEfs Enabled { get; } = new DomainUserSettingsAutoMountHomeEfs("Enabled");
+        public static DomainUserSettingsAutoMountHomeEfs Disabled { get; } = new DomainUserSettingsAutoMountHomeEfs("Disabled");
+        public static DomainUserSettingsAutoMountHomeEfs DefaultAsDomain { get; } = new DomainUserSettingsAutoMountHomeEfs("DefaultAsDomain");
+
+        public static bool operator ==(DomainUserSettingsAutoMountHomeEfs left, DomainUserSettingsAutoMountHomeEfs right) => left.Equals(right);
+        public static bool operator !=(DomainUserSettingsAutoMountHomeEfs left, DomainUserSettingsAutoMountHomeEfs right) => !left.Equals(right);
+
+        public static explicit operator string(DomainUserSettingsAutoMountHomeEfs value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainUserSettingsAutoMountHomeEfs other && Equals(other);
+        public bool Equals(DomainUserSettingsAutoMountHomeEfs other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3173,6 +3425,196 @@ namespace Pulumi.AwsNative.SageMaker
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The instance type that the image version runs on.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserProfileAppInstanceType : IEquatable<UserProfileAppInstanceType>
+    {
+        private readonly string _value;
+
+        private UserProfileAppInstanceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserProfileAppInstanceType System { get; } = new UserProfileAppInstanceType("system");
+        public static UserProfileAppInstanceType MlT3Micro { get; } = new UserProfileAppInstanceType("ml.t3.micro");
+        public static UserProfileAppInstanceType MlT3Small { get; } = new UserProfileAppInstanceType("ml.t3.small");
+        public static UserProfileAppInstanceType MlT3Medium { get; } = new UserProfileAppInstanceType("ml.t3.medium");
+        public static UserProfileAppInstanceType MlT3Large { get; } = new UserProfileAppInstanceType("ml.t3.large");
+        public static UserProfileAppInstanceType MlT3Xlarge { get; } = new UserProfileAppInstanceType("ml.t3.xlarge");
+        public static UserProfileAppInstanceType MlT32xlarge { get; } = new UserProfileAppInstanceType("ml.t3.2xlarge");
+        public static UserProfileAppInstanceType MlM5Large { get; } = new UserProfileAppInstanceType("ml.m5.large");
+        public static UserProfileAppInstanceType MlM5Xlarge { get; } = new UserProfileAppInstanceType("ml.m5.xlarge");
+        public static UserProfileAppInstanceType MlM52xlarge { get; } = new UserProfileAppInstanceType("ml.m5.2xlarge");
+        public static UserProfileAppInstanceType MlM54xlarge { get; } = new UserProfileAppInstanceType("ml.m5.4xlarge");
+        public static UserProfileAppInstanceType MlM58xlarge { get; } = new UserProfileAppInstanceType("ml.m5.8xlarge");
+        public static UserProfileAppInstanceType MlM512xlarge { get; } = new UserProfileAppInstanceType("ml.m5.12xlarge");
+        public static UserProfileAppInstanceType MlM516xlarge { get; } = new UserProfileAppInstanceType("ml.m5.16xlarge");
+        public static UserProfileAppInstanceType MlM524xlarge { get; } = new UserProfileAppInstanceType("ml.m5.24xlarge");
+        public static UserProfileAppInstanceType MlM5dLarge { get; } = new UserProfileAppInstanceType("ml.m5d.large");
+        public static UserProfileAppInstanceType MlM5dXlarge { get; } = new UserProfileAppInstanceType("ml.m5d.xlarge");
+        public static UserProfileAppInstanceType MlM5d2xlarge { get; } = new UserProfileAppInstanceType("ml.m5d.2xlarge");
+        public static UserProfileAppInstanceType MlM5d4xlarge { get; } = new UserProfileAppInstanceType("ml.m5d.4xlarge");
+        public static UserProfileAppInstanceType MlM5d8xlarge { get; } = new UserProfileAppInstanceType("ml.m5d.8xlarge");
+        public static UserProfileAppInstanceType MlM5d12xlarge { get; } = new UserProfileAppInstanceType("ml.m5d.12xlarge");
+        public static UserProfileAppInstanceType MlM5d16xlarge { get; } = new UserProfileAppInstanceType("ml.m5d.16xlarge");
+        public static UserProfileAppInstanceType MlM5d24xlarge { get; } = new UserProfileAppInstanceType("ml.m5d.24xlarge");
+        public static UserProfileAppInstanceType MlC5Large { get; } = new UserProfileAppInstanceType("ml.c5.large");
+        public static UserProfileAppInstanceType MlC5Xlarge { get; } = new UserProfileAppInstanceType("ml.c5.xlarge");
+        public static UserProfileAppInstanceType MlC52xlarge { get; } = new UserProfileAppInstanceType("ml.c5.2xlarge");
+        public static UserProfileAppInstanceType MlC54xlarge { get; } = new UserProfileAppInstanceType("ml.c5.4xlarge");
+        public static UserProfileAppInstanceType MlC59xlarge { get; } = new UserProfileAppInstanceType("ml.c5.9xlarge");
+        public static UserProfileAppInstanceType MlC512xlarge { get; } = new UserProfileAppInstanceType("ml.c5.12xlarge");
+        public static UserProfileAppInstanceType MlC518xlarge { get; } = new UserProfileAppInstanceType("ml.c5.18xlarge");
+        public static UserProfileAppInstanceType MlC524xlarge { get; } = new UserProfileAppInstanceType("ml.c5.24xlarge");
+        public static UserProfileAppInstanceType MlP32xlarge { get; } = new UserProfileAppInstanceType("ml.p3.2xlarge");
+        public static UserProfileAppInstanceType MlP38xlarge { get; } = new UserProfileAppInstanceType("ml.p3.8xlarge");
+        public static UserProfileAppInstanceType MlP316xlarge { get; } = new UserProfileAppInstanceType("ml.p3.16xlarge");
+        public static UserProfileAppInstanceType MlP3dn24xlarge { get; } = new UserProfileAppInstanceType("ml.p3dn.24xlarge");
+        public static UserProfileAppInstanceType MlG4dnXlarge { get; } = new UserProfileAppInstanceType("ml.g4dn.xlarge");
+        public static UserProfileAppInstanceType MlG4dn2xlarge { get; } = new UserProfileAppInstanceType("ml.g4dn.2xlarge");
+        public static UserProfileAppInstanceType MlG4dn4xlarge { get; } = new UserProfileAppInstanceType("ml.g4dn.4xlarge");
+        public static UserProfileAppInstanceType MlG4dn8xlarge { get; } = new UserProfileAppInstanceType("ml.g4dn.8xlarge");
+        public static UserProfileAppInstanceType MlG4dn12xlarge { get; } = new UserProfileAppInstanceType("ml.g4dn.12xlarge");
+        public static UserProfileAppInstanceType MlG4dn16xlarge { get; } = new UserProfileAppInstanceType("ml.g4dn.16xlarge");
+        public static UserProfileAppInstanceType MlR5Large { get; } = new UserProfileAppInstanceType("ml.r5.large");
+        public static UserProfileAppInstanceType MlR5Xlarge { get; } = new UserProfileAppInstanceType("ml.r5.xlarge");
+        public static UserProfileAppInstanceType MlR52xlarge { get; } = new UserProfileAppInstanceType("ml.r5.2xlarge");
+        public static UserProfileAppInstanceType MlR54xlarge { get; } = new UserProfileAppInstanceType("ml.r5.4xlarge");
+        public static UserProfileAppInstanceType MlR58xlarge { get; } = new UserProfileAppInstanceType("ml.r5.8xlarge");
+        public static UserProfileAppInstanceType MlR512xlarge { get; } = new UserProfileAppInstanceType("ml.r5.12xlarge");
+        public static UserProfileAppInstanceType MlR516xlarge { get; } = new UserProfileAppInstanceType("ml.r5.16xlarge");
+        public static UserProfileAppInstanceType MlR524xlarge { get; } = new UserProfileAppInstanceType("ml.r5.24xlarge");
+        public static UserProfileAppInstanceType MlG5Xlarge { get; } = new UserProfileAppInstanceType("ml.g5.xlarge");
+        public static UserProfileAppInstanceType MlG52xlarge { get; } = new UserProfileAppInstanceType("ml.g5.2xlarge");
+        public static UserProfileAppInstanceType MlG54xlarge { get; } = new UserProfileAppInstanceType("ml.g5.4xlarge");
+        public static UserProfileAppInstanceType MlG58xlarge { get; } = new UserProfileAppInstanceType("ml.g5.8xlarge");
+        public static UserProfileAppInstanceType MlG512xlarge { get; } = new UserProfileAppInstanceType("ml.g5.12xlarge");
+        public static UserProfileAppInstanceType MlG516xlarge { get; } = new UserProfileAppInstanceType("ml.g5.16xlarge");
+        public static UserProfileAppInstanceType MlG524xlarge { get; } = new UserProfileAppInstanceType("ml.g5.24xlarge");
+        public static UserProfileAppInstanceType MlG548xlarge { get; } = new UserProfileAppInstanceType("ml.g5.48xlarge");
+        public static UserProfileAppInstanceType MlG6Xlarge { get; } = new UserProfileAppInstanceType("ml.g6.xlarge");
+        public static UserProfileAppInstanceType MlG62xlarge { get; } = new UserProfileAppInstanceType("ml.g6.2xlarge");
+        public static UserProfileAppInstanceType MlG64xlarge { get; } = new UserProfileAppInstanceType("ml.g6.4xlarge");
+        public static UserProfileAppInstanceType MlG68xlarge { get; } = new UserProfileAppInstanceType("ml.g6.8xlarge");
+        public static UserProfileAppInstanceType MlG612xlarge { get; } = new UserProfileAppInstanceType("ml.g6.12xlarge");
+        public static UserProfileAppInstanceType MlG616xlarge { get; } = new UserProfileAppInstanceType("ml.g6.16xlarge");
+        public static UserProfileAppInstanceType MlG624xlarge { get; } = new UserProfileAppInstanceType("ml.g6.24xlarge");
+        public static UserProfileAppInstanceType MlG648xlarge { get; } = new UserProfileAppInstanceType("ml.g6.48xlarge");
+        public static UserProfileAppInstanceType MlG6eXlarge { get; } = new UserProfileAppInstanceType("ml.g6e.xlarge");
+        public static UserProfileAppInstanceType MlG6e2xlarge { get; } = new UserProfileAppInstanceType("ml.g6e.2xlarge");
+        public static UserProfileAppInstanceType MlG6e4xlarge { get; } = new UserProfileAppInstanceType("ml.g6e.4xlarge");
+        public static UserProfileAppInstanceType MlG6e8xlarge { get; } = new UserProfileAppInstanceType("ml.g6e.8xlarge");
+        public static UserProfileAppInstanceType MlG6e12xlarge { get; } = new UserProfileAppInstanceType("ml.g6e.12xlarge");
+        public static UserProfileAppInstanceType MlG6e16xlarge { get; } = new UserProfileAppInstanceType("ml.g6e.16xlarge");
+        public static UserProfileAppInstanceType MlG6e24xlarge { get; } = new UserProfileAppInstanceType("ml.g6e.24xlarge");
+        public static UserProfileAppInstanceType MlG6e48xlarge { get; } = new UserProfileAppInstanceType("ml.g6e.48xlarge");
+        public static UserProfileAppInstanceType MlGeospatialInteractive { get; } = new UserProfileAppInstanceType("ml.geospatial.interactive");
+        public static UserProfileAppInstanceType MlP4d24xlarge { get; } = new UserProfileAppInstanceType("ml.p4d.24xlarge");
+        public static UserProfileAppInstanceType MlP4de24xlarge { get; } = new UserProfileAppInstanceType("ml.p4de.24xlarge");
+        public static UserProfileAppInstanceType MlTrn12xlarge { get; } = new UserProfileAppInstanceType("ml.trn1.2xlarge");
+        public static UserProfileAppInstanceType MlTrn132xlarge { get; } = new UserProfileAppInstanceType("ml.trn1.32xlarge");
+        public static UserProfileAppInstanceType MlTrn1n32xlarge { get; } = new UserProfileAppInstanceType("ml.trn1n.32xlarge");
+        public static UserProfileAppInstanceType MlP548xlarge { get; } = new UserProfileAppInstanceType("ml.p5.48xlarge");
+        public static UserProfileAppInstanceType MlM6iLarge { get; } = new UserProfileAppInstanceType("ml.m6i.large");
+        public static UserProfileAppInstanceType MlM6iXlarge { get; } = new UserProfileAppInstanceType("ml.m6i.xlarge");
+        public static UserProfileAppInstanceType MlM6i2xlarge { get; } = new UserProfileAppInstanceType("ml.m6i.2xlarge");
+        public static UserProfileAppInstanceType MlM6i4xlarge { get; } = new UserProfileAppInstanceType("ml.m6i.4xlarge");
+        public static UserProfileAppInstanceType MlM6i8xlarge { get; } = new UserProfileAppInstanceType("ml.m6i.8xlarge");
+        public static UserProfileAppInstanceType MlM6i12xlarge { get; } = new UserProfileAppInstanceType("ml.m6i.12xlarge");
+        public static UserProfileAppInstanceType MlM6i16xlarge { get; } = new UserProfileAppInstanceType("ml.m6i.16xlarge");
+        public static UserProfileAppInstanceType MlM6i24xlarge { get; } = new UserProfileAppInstanceType("ml.m6i.24xlarge");
+        public static UserProfileAppInstanceType MlM6i32xlarge { get; } = new UserProfileAppInstanceType("ml.m6i.32xlarge");
+        public static UserProfileAppInstanceType MlM7iLarge { get; } = new UserProfileAppInstanceType("ml.m7i.large");
+        public static UserProfileAppInstanceType MlM7iXlarge { get; } = new UserProfileAppInstanceType("ml.m7i.xlarge");
+        public static UserProfileAppInstanceType MlM7i2xlarge { get; } = new UserProfileAppInstanceType("ml.m7i.2xlarge");
+        public static UserProfileAppInstanceType MlM7i4xlarge { get; } = new UserProfileAppInstanceType("ml.m7i.4xlarge");
+        public static UserProfileAppInstanceType MlM7i8xlarge { get; } = new UserProfileAppInstanceType("ml.m7i.8xlarge");
+        public static UserProfileAppInstanceType MlM7i12xlarge { get; } = new UserProfileAppInstanceType("ml.m7i.12xlarge");
+        public static UserProfileAppInstanceType MlM7i16xlarge { get; } = new UserProfileAppInstanceType("ml.m7i.16xlarge");
+        public static UserProfileAppInstanceType MlM7i24xlarge { get; } = new UserProfileAppInstanceType("ml.m7i.24xlarge");
+        public static UserProfileAppInstanceType MlM7i48xlarge { get; } = new UserProfileAppInstanceType("ml.m7i.48xlarge");
+        public static UserProfileAppInstanceType MlC6iLarge { get; } = new UserProfileAppInstanceType("ml.c6i.large");
+        public static UserProfileAppInstanceType MlC6iXlarge { get; } = new UserProfileAppInstanceType("ml.c6i.xlarge");
+        public static UserProfileAppInstanceType MlC6i2xlarge { get; } = new UserProfileAppInstanceType("ml.c6i.2xlarge");
+        public static UserProfileAppInstanceType MlC6i4xlarge { get; } = new UserProfileAppInstanceType("ml.c6i.4xlarge");
+        public static UserProfileAppInstanceType MlC6i8xlarge { get; } = new UserProfileAppInstanceType("ml.c6i.8xlarge");
+        public static UserProfileAppInstanceType MlC6i12xlarge { get; } = new UserProfileAppInstanceType("ml.c6i.12xlarge");
+        public static UserProfileAppInstanceType MlC6i16xlarge { get; } = new UserProfileAppInstanceType("ml.c6i.16xlarge");
+        public static UserProfileAppInstanceType MlC6i24xlarge { get; } = new UserProfileAppInstanceType("ml.c6i.24xlarge");
+        public static UserProfileAppInstanceType MlC6i32xlarge { get; } = new UserProfileAppInstanceType("ml.c6i.32xlarge");
+        public static UserProfileAppInstanceType MlC7iLarge { get; } = new UserProfileAppInstanceType("ml.c7i.large");
+        public static UserProfileAppInstanceType MlC7iXlarge { get; } = new UserProfileAppInstanceType("ml.c7i.xlarge");
+        public static UserProfileAppInstanceType MlC7i2xlarge { get; } = new UserProfileAppInstanceType("ml.c7i.2xlarge");
+        public static UserProfileAppInstanceType MlC7i4xlarge { get; } = new UserProfileAppInstanceType("ml.c7i.4xlarge");
+        public static UserProfileAppInstanceType MlC7i8xlarge { get; } = new UserProfileAppInstanceType("ml.c7i.8xlarge");
+        public static UserProfileAppInstanceType MlC7i12xlarge { get; } = new UserProfileAppInstanceType("ml.c7i.12xlarge");
+        public static UserProfileAppInstanceType MlC7i16xlarge { get; } = new UserProfileAppInstanceType("ml.c7i.16xlarge");
+        public static UserProfileAppInstanceType MlC7i24xlarge { get; } = new UserProfileAppInstanceType("ml.c7i.24xlarge");
+        public static UserProfileAppInstanceType MlC7i48xlarge { get; } = new UserProfileAppInstanceType("ml.c7i.48xlarge");
+        public static UserProfileAppInstanceType MlR6iLarge { get; } = new UserProfileAppInstanceType("ml.r6i.large");
+        public static UserProfileAppInstanceType MlR6iXlarge { get; } = new UserProfileAppInstanceType("ml.r6i.xlarge");
+        public static UserProfileAppInstanceType MlR6i2xlarge { get; } = new UserProfileAppInstanceType("ml.r6i.2xlarge");
+        public static UserProfileAppInstanceType MlR6i4xlarge { get; } = new UserProfileAppInstanceType("ml.r6i.4xlarge");
+        public static UserProfileAppInstanceType MlR6i8xlarge { get; } = new UserProfileAppInstanceType("ml.r6i.8xlarge");
+        public static UserProfileAppInstanceType MlR6i12xlarge { get; } = new UserProfileAppInstanceType("ml.r6i.12xlarge");
+        public static UserProfileAppInstanceType MlR6i16xlarge { get; } = new UserProfileAppInstanceType("ml.r6i.16xlarge");
+        public static UserProfileAppInstanceType MlR6i24xlarge { get; } = new UserProfileAppInstanceType("ml.r6i.24xlarge");
+        public static UserProfileAppInstanceType MlR6i32xlarge { get; } = new UserProfileAppInstanceType("ml.r6i.32xlarge");
+        public static UserProfileAppInstanceType MlR7iLarge { get; } = new UserProfileAppInstanceType("ml.r7i.large");
+        public static UserProfileAppInstanceType MlR7iXlarge { get; } = new UserProfileAppInstanceType("ml.r7i.xlarge");
+        public static UserProfileAppInstanceType MlR7i2xlarge { get; } = new UserProfileAppInstanceType("ml.r7i.2xlarge");
+        public static UserProfileAppInstanceType MlR7i4xlarge { get; } = new UserProfileAppInstanceType("ml.r7i.4xlarge");
+        public static UserProfileAppInstanceType MlR7i8xlarge { get; } = new UserProfileAppInstanceType("ml.r7i.8xlarge");
+        public static UserProfileAppInstanceType MlR7i12xlarge { get; } = new UserProfileAppInstanceType("ml.r7i.12xlarge");
+        public static UserProfileAppInstanceType MlR7i16xlarge { get; } = new UserProfileAppInstanceType("ml.r7i.16xlarge");
+        public static UserProfileAppInstanceType MlR7i24xlarge { get; } = new UserProfileAppInstanceType("ml.r7i.24xlarge");
+        public static UserProfileAppInstanceType MlR7i48xlarge { get; } = new UserProfileAppInstanceType("ml.r7i.48xlarge");
+        public static UserProfileAppInstanceType MlM6idLarge { get; } = new UserProfileAppInstanceType("ml.m6id.large");
+        public static UserProfileAppInstanceType MlM6idXlarge { get; } = new UserProfileAppInstanceType("ml.m6id.xlarge");
+        public static UserProfileAppInstanceType MlM6id2xlarge { get; } = new UserProfileAppInstanceType("ml.m6id.2xlarge");
+        public static UserProfileAppInstanceType MlM6id4xlarge { get; } = new UserProfileAppInstanceType("ml.m6id.4xlarge");
+        public static UserProfileAppInstanceType MlM6id8xlarge { get; } = new UserProfileAppInstanceType("ml.m6id.8xlarge");
+        public static UserProfileAppInstanceType MlM6id12xlarge { get; } = new UserProfileAppInstanceType("ml.m6id.12xlarge");
+        public static UserProfileAppInstanceType MlM6id16xlarge { get; } = new UserProfileAppInstanceType("ml.m6id.16xlarge");
+        public static UserProfileAppInstanceType MlM6id24xlarge { get; } = new UserProfileAppInstanceType("ml.m6id.24xlarge");
+        public static UserProfileAppInstanceType MlM6id32xlarge { get; } = new UserProfileAppInstanceType("ml.m6id.32xlarge");
+        public static UserProfileAppInstanceType MlC6idLarge { get; } = new UserProfileAppInstanceType("ml.c6id.large");
+        public static UserProfileAppInstanceType MlC6idXlarge { get; } = new UserProfileAppInstanceType("ml.c6id.xlarge");
+        public static UserProfileAppInstanceType MlC6id2xlarge { get; } = new UserProfileAppInstanceType("ml.c6id.2xlarge");
+        public static UserProfileAppInstanceType MlC6id4xlarge { get; } = new UserProfileAppInstanceType("ml.c6id.4xlarge");
+        public static UserProfileAppInstanceType MlC6id8xlarge { get; } = new UserProfileAppInstanceType("ml.c6id.8xlarge");
+        public static UserProfileAppInstanceType MlC6id12xlarge { get; } = new UserProfileAppInstanceType("ml.c6id.12xlarge");
+        public static UserProfileAppInstanceType MlC6id16xlarge { get; } = new UserProfileAppInstanceType("ml.c6id.16xlarge");
+        public static UserProfileAppInstanceType MlC6id24xlarge { get; } = new UserProfileAppInstanceType("ml.c6id.24xlarge");
+        public static UserProfileAppInstanceType MlC6id32xlarge { get; } = new UserProfileAppInstanceType("ml.c6id.32xlarge");
+        public static UserProfileAppInstanceType MlR6idLarge { get; } = new UserProfileAppInstanceType("ml.r6id.large");
+        public static UserProfileAppInstanceType MlR6idXlarge { get; } = new UserProfileAppInstanceType("ml.r6id.xlarge");
+        public static UserProfileAppInstanceType MlR6id2xlarge { get; } = new UserProfileAppInstanceType("ml.r6id.2xlarge");
+        public static UserProfileAppInstanceType MlR6id4xlarge { get; } = new UserProfileAppInstanceType("ml.r6id.4xlarge");
+        public static UserProfileAppInstanceType MlR6id8xlarge { get; } = new UserProfileAppInstanceType("ml.r6id.8xlarge");
+        public static UserProfileAppInstanceType MlR6id12xlarge { get; } = new UserProfileAppInstanceType("ml.r6id.12xlarge");
+        public static UserProfileAppInstanceType MlR6id16xlarge { get; } = new UserProfileAppInstanceType("ml.r6id.16xlarge");
+        public static UserProfileAppInstanceType MlR6id24xlarge { get; } = new UserProfileAppInstanceType("ml.r6id.24xlarge");
+        public static UserProfileAppInstanceType MlR6id32xlarge { get; } = new UserProfileAppInstanceType("ml.r6id.32xlarge");
+
+        public static bool operator ==(UserProfileAppInstanceType left, UserProfileAppInstanceType right) => left.Equals(right);
+        public static bool operator !=(UserProfileAppInstanceType left, UserProfileAppInstanceType right) => !left.Equals(right);
+
+        public static explicit operator string(UserProfileAppInstanceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserProfileAppInstanceType other && Equals(other);
+        public bool Equals(UserProfileAppInstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct UserProfileAppType : IEquatable<UserProfileAppType>
     {
@@ -3199,6 +3641,36 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UserProfileAppType other && Equals(other);
         public bool Equals(UserProfileAppType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The SageMaker image name that you are hiding from the Studio user interface.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserProfileHiddenSageMakerImageSageMakerImageName : IEquatable<UserProfileHiddenSageMakerImageSageMakerImageName>
+    {
+        private readonly string _value;
+
+        private UserProfileHiddenSageMakerImageSageMakerImageName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserProfileHiddenSageMakerImageSageMakerImageName SagemakerDistribution { get; } = new UserProfileHiddenSageMakerImageSageMakerImageName("sagemaker_distribution");
+
+        public static bool operator ==(UserProfileHiddenSageMakerImageSageMakerImageName left, UserProfileHiddenSageMakerImageSageMakerImageName right) => left.Equals(right);
+        public static bool operator !=(UserProfileHiddenSageMakerImageSageMakerImageName left, UserProfileHiddenSageMakerImageSageMakerImageName right) => !left.Equals(right);
+
+        public static explicit operator string(UserProfileHiddenSageMakerImageSageMakerImageName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserProfileHiddenSageMakerImageSageMakerImageName other && Equals(other);
+        public bool Equals(UserProfileHiddenSageMakerImageSageMakerImageName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3461,6 +3933,38 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UserProfileSharingSettingsNotebookOutputOption other && Equals(other);
         public bool Equals(UserProfileSharingSettingsNotebookOutputOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+    /// </summary>
+    [EnumType]
+    public readonly struct UserProfileUserSettingsAutoMountHomeEfs : IEquatable<UserProfileUserSettingsAutoMountHomeEfs>
+    {
+        private readonly string _value;
+
+        private UserProfileUserSettingsAutoMountHomeEfs(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserProfileUserSettingsAutoMountHomeEfs Enabled { get; } = new UserProfileUserSettingsAutoMountHomeEfs("Enabled");
+        public static UserProfileUserSettingsAutoMountHomeEfs Disabled { get; } = new UserProfileUserSettingsAutoMountHomeEfs("Disabled");
+        public static UserProfileUserSettingsAutoMountHomeEfs DefaultAsDomain { get; } = new UserProfileUserSettingsAutoMountHomeEfs("DefaultAsDomain");
+
+        public static bool operator ==(UserProfileUserSettingsAutoMountHomeEfs left, UserProfileUserSettingsAutoMountHomeEfs right) => left.Equals(right);
+        public static bool operator !=(UserProfileUserSettingsAutoMountHomeEfs left, UserProfileUserSettingsAutoMountHomeEfs right) => !left.Equals(right);
+
+        public static explicit operator string(UserProfileUserSettingsAutoMountHomeEfs value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserProfileUserSettingsAutoMountHomeEfs other && Equals(other);
+        public bool Equals(UserProfileUserSettingsAutoMountHomeEfs other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

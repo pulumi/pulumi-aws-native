@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetCollaborationResult',
@@ -25,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetCollaborationResult:
-    def __init__(__self__, arn=None, collaboration_identifier=None, description=None, name=None, tags=None):
+    def __init__(__self__, analytics_engine=None, arn=None, collaboration_identifier=None, description=None, name=None, tags=None):
+        if analytics_engine and not isinstance(analytics_engine, str):
+            raise TypeError("Expected argument 'analytics_engine' to be a str")
+        pulumi.set(__self__, "analytics_engine", analytics_engine)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +45,14 @@ class GetCollaborationResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="analyticsEngine")
+    def analytics_engine(self) -> Optional['CollaborationAnalyticsEngine']:
+        """
+        The analytics engine for the collaboration.
+        """
+        return pulumi.get(self, "analytics_engine")
 
     @property
     @pulumi.getter
@@ -93,6 +105,7 @@ class AwaitableGetCollaborationResult(GetCollaborationResult):
         if False:
             yield self
         return GetCollaborationResult(
+            analytics_engine=self.analytics_engine,
             arn=self.arn,
             collaboration_identifier=self.collaboration_identifier,
             description=self.description,
@@ -116,6 +129,7 @@ def get_collaboration(collaboration_identifier: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cleanrooms:getCollaboration', __args__, opts=opts, typ=GetCollaborationResult).value
 
     return AwaitableGetCollaborationResult(
+        analytics_engine=pulumi.get(__ret__, 'analytics_engine'),
         arn=pulumi.get(__ret__, 'arn'),
         collaboration_identifier=pulumi.get(__ret__, 'collaboration_identifier'),
         description=pulumi.get(__ret__, 'description'),
@@ -136,6 +150,7 @@ def get_collaboration_output(collaboration_identifier: Optional[pulumi.Input[bui
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getCollaboration', __args__, opts=opts, typ=GetCollaborationResult)
     return __ret__.apply(lambda __response__: GetCollaborationResult(
+        analytics_engine=pulumi.get(__response__, 'analytics_engine'),
         arn=pulumi.get(__response__, 'arn'),
         collaboration_identifier=pulumi.get(__response__, 'collaboration_identifier'),
         description=pulumi.get(__response__, 'description'),

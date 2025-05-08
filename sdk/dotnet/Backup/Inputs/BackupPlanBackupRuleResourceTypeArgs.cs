@@ -38,6 +38,15 @@ namespace Pulumi.AwsNative.Backup.Inputs
 
         [Input("indexActions")]
         private InputList<Inputs.BackupPlanIndexActionsResourceTypeArgs>? _indexActions;
+
+        /// <summary>
+        /// There can up to one IndexAction in each BackupRule, as each backup can have 0 or 1 backup index associated with it.
+        /// 
+        /// Within the array is ResourceTypes. Only 1 resource type will be accepted for each BackupRule. Valid values:
+        /// 
+        /// - `EBS` for Amazon Elastic Block Store
+        /// - `S3` for Amazon Simple Storage Service (Amazon S3)
+        /// </summary>
         public InputList<Inputs.BackupPlanIndexActionsResourceTypeArgs> IndexActions
         {
             get => _indexActions ?? (_indexActions = new InputList<Inputs.BackupPlanIndexActionsResourceTypeArgs>());

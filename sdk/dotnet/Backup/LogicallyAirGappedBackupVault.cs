@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.Backup
         [Output("accessPolicy")]
         public Output<object?> AccessPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the backup vault.
+        /// </summary>
         [Output("backupVaultArn")]
         public Output<string> BackupVaultArn { get; private set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Backup
         [Output("backupVaultTags")]
         public Output<ImmutableDictionary<string, string>?> BackupVaultTags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the server-side encryption key.
+        /// </summary>
         [Output("encryptionKeyArn")]
         public Output<string> EncryptionKeyArn { get; private set; } = null!;
 
@@ -61,9 +67,15 @@ namespace Pulumi.AwsNative.Backup
         [Output("notifications")]
         public Output<Outputs.LogicallyAirGappedBackupVaultNotificationObjectType?> Notifications { get; private set; } = null!;
 
+        /// <summary>
+        /// The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
+        /// </summary>
         [Output("vaultState")]
         public Output<string> VaultState { get; private set; } = null!;
 
+        /// <summary>
+        /// The vault type. The possible values are `BACKUP_VAULT` and `LOGICALLY_AIR_GAPPED_BACKUP_VAULT` .
+        /// </summary>
         [Output("vaultType")]
         public Output<string> VaultType { get; private set; } = null!;
 

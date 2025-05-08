@@ -44,6 +44,14 @@ export interface GetAppResult {
      * The Amazon Resource Name (ARN) of the app.
      */
     readonly appArn?: string;
+    /**
+     * The lifecycle configuration that runs before the default lifecycle configuration.
+     */
+    readonly builtInLifecycleConfigArn?: string;
+    /**
+     * Indicates whether the application is launched in recovery mode.
+     */
+    readonly recoveryMode?: boolean;
 }
 /**
  * Resource Type definition for AWS::SageMaker::App

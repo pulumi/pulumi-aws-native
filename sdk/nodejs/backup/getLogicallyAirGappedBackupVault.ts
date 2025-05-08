@@ -31,17 +31,29 @@ export interface GetLogicallyAirGappedBackupVaultResult {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
      */
     readonly accessPolicy?: any;
+    /**
+     * The ARN of the backup vault.
+     */
     readonly backupVaultArn?: string;
     /**
      * The tags to assign to the vault.
      */
     readonly backupVaultTags?: {[key: string]: string};
+    /**
+     * The ARN of the server-side encryption key.
+     */
     readonly encryptionKeyArn?: string;
     /**
      * Returns event notifications for the specified backup vault.
      */
     readonly notifications?: outputs.backup.LogicallyAirGappedBackupVaultNotificationObjectType;
+    /**
+     * The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
+     */
     readonly vaultState?: string;
+    /**
+     * The vault type. The possible values are `BACKUP_VAULT` and `LOGICALLY_AIR_GAPPED_BACKUP_VAULT` .
+     */
     readonly vaultType?: string;
 }
 /**

@@ -25,10 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppResult:
-    def __init__(__self__, app_arn=None):
+    def __init__(__self__, app_arn=None, built_in_lifecycle_config_arn=None, recovery_mode=None):
         if app_arn and not isinstance(app_arn, str):
             raise TypeError("Expected argument 'app_arn' to be a str")
         pulumi.set(__self__, "app_arn", app_arn)
+        if built_in_lifecycle_config_arn and not isinstance(built_in_lifecycle_config_arn, str):
+            raise TypeError("Expected argument 'built_in_lifecycle_config_arn' to be a str")
+        pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
+        if recovery_mode and not isinstance(recovery_mode, bool):
+            raise TypeError("Expected argument 'recovery_mode' to be a bool")
+        pulumi.set(__self__, "recovery_mode", recovery_mode)
 
     @property
     @pulumi.getter(name="appArn")
@@ -38,6 +44,22 @@ class GetAppResult:
         """
         return pulumi.get(self, "app_arn")
 
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[builtins.str]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
+
+    @property
+    @pulumi.getter(name="recoveryMode")
+    def recovery_mode(self) -> Optional[builtins.bool]:
+        """
+        Indicates whether the application is launched in recovery mode.
+        """
+        return pulumi.get(self, "recovery_mode")
+
 
 class AwaitableGetAppResult(GetAppResult):
     # pylint: disable=using-constant-test
@@ -45,7 +67,9 @@ class AwaitableGetAppResult(GetAppResult):
         if False:
             yield self
         return GetAppResult(
-            app_arn=self.app_arn)
+            app_arn=self.app_arn,
+            built_in_lifecycle_config_arn=self.built_in_lifecycle_config_arn,
+            recovery_mode=self.recovery_mode)
 
 
 def get_app(app_name: Optional[builtins.str] = None,
@@ -71,7 +95,9 @@ def get_app(app_name: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getApp', __args__, opts=opts, typ=GetAppResult).value
 
     return AwaitableGetAppResult(
-        app_arn=pulumi.get(__ret__, 'app_arn'))
+        app_arn=pulumi.get(__ret__, 'app_arn'),
+        built_in_lifecycle_config_arn=pulumi.get(__ret__, 'built_in_lifecycle_config_arn'),
+        recovery_mode=pulumi.get(__ret__, 'recovery_mode'))
 def get_app_output(app_name: Optional[pulumi.Input[builtins.str]] = None,
                    app_type: Optional[pulumi.Input['AppType']] = None,
                    domain_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -94,4 +120,6 @@ def get_app_output(app_name: Optional[pulumi.Input[builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getApp', __args__, opts=opts, typ=GetAppResult)
     return __ret__.apply(lambda __response__: GetAppResult(
-        app_arn=pulumi.get(__response__, 'app_arn')))
+        app_arn=pulumi.get(__response__, 'app_arn'),
+        built_in_lifecycle_config_arn=pulumi.get(__response__, 'built_in_lifecycle_config_arn'),
+        recovery_mode=pulumi.get(__response__, 'recovery_mode')))
