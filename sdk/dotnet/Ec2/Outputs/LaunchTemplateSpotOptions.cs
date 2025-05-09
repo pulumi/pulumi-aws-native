@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
     /// <summary>
     /// Specifies options for Spot Instances.
-    ///   ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
+    ///  ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateSpotOptions

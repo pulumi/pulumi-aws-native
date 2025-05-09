@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("appLifecycleManagement")]
         public Input<Inputs.UserProfileAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
 
+        /// <summary>
+        /// The lifecycle configuration that runs before the default lifecycle configuration.
+        /// </summary>
+        [Input("builtInLifecycleConfigArn")]
+        public Input<string>? BuiltInLifecycleConfigArn { get; set; }
+
         [Input("customImages")]
         private InputList<Inputs.UserProfileCustomImageArgs>? _customImages;
 

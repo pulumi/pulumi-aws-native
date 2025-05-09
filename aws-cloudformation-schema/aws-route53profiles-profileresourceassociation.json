@@ -41,13 +41,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "route53profiles:AssociateResourceToProfile", "route53profiles:GetProfileResourceAssociation", "route53resolver:*", "route53:*" ]
+      "permissions" : [ "route53profiles:AssociateResourceToProfile", "route53profiles:GetProfileResourceAssociation", "route53resolver:GetFirewallRuleGroup", "route53resolver:GetResolverRule", "route53:GetHostedZone", "route53resolver:GetResolverQueryLogConfig", "ec2:DescribeVpcEndpoints" ]
     },
     "read" : {
-      "permissions" : [ "route53profiles:GetProfileResourceAssociation", "route53resolver:*", "route53:*" ]
+      "permissions" : [ "route53profiles:GetProfileResourceAssociation" ]
     },
     "delete" : {
-      "permissions" : [ "route53profiles:DisassociateResourceFromProfile", "route53profiles:GetProfileResourceAssociation", "route53resolver:*", "route53:*" ]
+      "permissions" : [ "route53profiles:DisassociateResourceFromProfile", "route53profiles:GetProfileResourceAssociation", "route53resolver:GetFirewallRuleGroup", "route53resolver:GetResolverRule", "route53:GetHostedZone", "route53resolver:GetResolverQueryLogConfig", "ec2:DescribeVpcEndpoints" ]
     },
     "list" : {
       "handlerSchema" : {
@@ -58,10 +58,10 @@
         },
         "required" : [ "ProfileId" ]
       },
-      "permissions" : [ "route53profiles:ListProfileResourceAssociations", "route53resolver:*", "route53:*" ]
+      "permissions" : [ "route53profiles:ListProfileResourceAssociations" ]
     },
     "update" : {
-      "permissions" : [ "route53profiles:UpdateProfileResourceAssociation", "route53profiles:GetProfileResourceAssociation", "route53resolver:*", "route53:*" ]
+      "permissions" : [ "route53profiles:UpdateProfileResourceAssociation" ]
     }
   }
 }

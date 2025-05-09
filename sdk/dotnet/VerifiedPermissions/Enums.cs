@@ -35,6 +35,34 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     }
 
     [EnumType]
+    public readonly struct PolicyStoreDeletionMode : IEquatable<PolicyStoreDeletionMode>
+    {
+        private readonly string _value;
+
+        private PolicyStoreDeletionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyStoreDeletionMode Enabled { get; } = new PolicyStoreDeletionMode("ENABLED");
+        public static PolicyStoreDeletionMode Disabled { get; } = new PolicyStoreDeletionMode("DISABLED");
+
+        public static bool operator ==(PolicyStoreDeletionMode left, PolicyStoreDeletionMode right) => left.Equals(right);
+        public static bool operator !=(PolicyStoreDeletionMode left, PolicyStoreDeletionMode right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyStoreDeletionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyStoreDeletionMode other && Equals(other);
+        public bool Equals(PolicyStoreDeletionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct PolicyStoreValidationMode : IEquatable<PolicyStoreValidationMode>
     {
         private readonly string _value;

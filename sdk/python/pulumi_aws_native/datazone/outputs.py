@@ -2339,6 +2339,7 @@ class DomainSingleSignOn(dict):
                  user_assignment: Optional['DomainUserAssignment'] = None):
         """
         The single-sign on configuration of the Amazon DataZone domain.
+        :param builtins.str idc_instance_arn: The ARN of the IDC instance.
         :param 'DomainAuthType' type: The type of single sign-on in Amazon DataZone.
         :param 'DomainUserAssignment' user_assignment: The single sign-on user assignment in Amazon DataZone.
         """
@@ -2352,6 +2353,9 @@ class DomainSingleSignOn(dict):
     @property
     @pulumi.getter(name="idcInstanceArn")
     def idc_instance_arn(self) -> Optional[builtins.str]:
+        """
+        The ARN of the IDC instance.
+        """
         return pulumi.get(self, "idc_instance_arn")
 
     @property

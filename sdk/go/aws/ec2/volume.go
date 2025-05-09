@@ -43,9 +43,9 @@ type Volume struct {
 	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 	//  The following are the supported values for each volume type:
-	//   +   ``gp3``: 3,000 - 16,000 IOPS
-	//   +   ``io1``: 100 - 64,000 IOPS
-	//   +   ``io2``: 100 - 256,000 IOPS
+	//   +  ``gp3``: 3,000 - 16,000 IOPS
+	//   +  ``io1``: 100 - 64,000 IOPS
+	//   +  ``io2``: 100 - 256,000 IOPS
 	//
 	//  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
 	//  This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
@@ -59,17 +59,17 @@ type Volume struct {
 	//   +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Indicates whether Amazon EBS Multi-Attach is enabled.
-	//   CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
+	//  CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
 	MultiAttachEnabled pulumi.BoolPtrOutput `pulumi:"multiAttachEnabled"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
 	//  The following are the supported volumes sizes for each volume type:
-	//   +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
-	//   +   ``io1``: 4 - 16,384 GiB
-	//   +   ``io2``: 4 - 65,536 GiB
-	//   +   ``st1`` and ``sc1``: 125 - 16,384 GiB
-	//   +   ``standard``: 1 - 1024 GiB
+	//   +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+	//   +  ``io1``: 4 - 16,384 GiB
+	//   +  ``io2``: 4 - 65,536 GiB
+	//   +  ``st1`` and ``sc1``: 125 - 16,384 GiB
+	//   +  ``standard``: 1 - 1024 GiB
 	Size pulumi.IntPtrOutput `pulumi:"size"`
 	// The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
 	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
@@ -81,6 +81,19 @@ type Volume struct {
 	Throughput pulumi.IntPtrOutput `pulumi:"throughput"`
 	// The ID of the volume.
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
+	// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+	//
+	// This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+	//
+	// - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+	//
+	// > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+	// - You want to create a volume that is initialized at the default rate.
+	//
+	// For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+	//
+	// Valid range: 100 - 300 MiB/s
+	VolumeInitializationRate pulumi.IntPtrOutput `pulumi:"volumeInitializationRate"`
 	// The volume type. This parameter can be one of the following values:
 	//   +  General Purpose SSD: ``gp2`` | ``gp3``
 	//   +  Provisioned IOPS SSD: ``io1`` | ``io2``
@@ -145,9 +158,9 @@ type volumeArgs struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 	//  The following are the supported values for each volume type:
-	//   +   ``gp3``: 3,000 - 16,000 IOPS
-	//   +   ``io1``: 100 - 64,000 IOPS
-	//   +   ``io2``: 100 - 256,000 IOPS
+	//   +  ``gp3``: 3,000 - 16,000 IOPS
+	//   +  ``io1``: 100 - 64,000 IOPS
+	//   +  ``io2``: 100 - 256,000 IOPS
 	//
 	//  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
 	//  This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
@@ -161,17 +174,17 @@ type volumeArgs struct {
 	//   +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Indicates whether Amazon EBS Multi-Attach is enabled.
-	//   CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
+	//  CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
 	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
 	//  The following are the supported volumes sizes for each volume type:
-	//   +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
-	//   +   ``io1``: 4 - 16,384 GiB
-	//   +   ``io2``: 4 - 65,536 GiB
-	//   +   ``st1`` and ``sc1``: 125 - 16,384 GiB
-	//   +   ``standard``: 1 - 1024 GiB
+	//   +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+	//   +  ``io1``: 4 - 16,384 GiB
+	//   +  ``io2``: 4 - 65,536 GiB
+	//   +  ``st1`` and ``sc1``: 125 - 16,384 GiB
+	//   +  ``standard``: 1 - 1024 GiB
 	Size *int `pulumi:"size"`
 	// The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -181,6 +194,19 @@ type volumeArgs struct {
 	//  This parameter is valid only for ``gp3`` volumes. The default value is 125.
 	//  Valid Range: Minimum value of 125. Maximum value of 1000.
 	Throughput *int `pulumi:"throughput"`
+	// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+	//
+	// This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+	//
+	// - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+	//
+	// > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+	// - You want to create a volume that is initialized at the default rate.
+	//
+	// For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+	//
+	// Valid range: 100 - 300 MiB/s
+	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
 	// The volume type. This parameter can be one of the following values:
 	//   +  General Purpose SSD: ``gp2`` | ``gp3``
 	//   +  Provisioned IOPS SSD: ``io1`` | ``io2``
@@ -204,9 +230,9 @@ type VolumeArgs struct {
 	Encrypted pulumi.BoolPtrInput
 	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 	//  The following are the supported values for each volume type:
-	//   +   ``gp3``: 3,000 - 16,000 IOPS
-	//   +   ``io1``: 100 - 64,000 IOPS
-	//   +   ``io2``: 100 - 256,000 IOPS
+	//   +  ``gp3``: 3,000 - 16,000 IOPS
+	//   +  ``io1``: 100 - 64,000 IOPS
+	//   +  ``io2``: 100 - 256,000 IOPS
 	//
 	//  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
 	//  This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
@@ -220,17 +246,17 @@ type VolumeArgs struct {
 	//   +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
 	KmsKeyId pulumi.StringPtrInput
 	// Indicates whether Amazon EBS Multi-Attach is enabled.
-	//   CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
+	//  CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
 	MultiAttachEnabled pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrInput
 	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
 	//  The following are the supported volumes sizes for each volume type:
-	//   +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
-	//   +   ``io1``: 4 - 16,384 GiB
-	//   +   ``io2``: 4 - 65,536 GiB
-	//   +   ``st1`` and ``sc1``: 125 - 16,384 GiB
-	//   +   ``standard``: 1 - 1024 GiB
+	//   +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+	//   +  ``io1``: 4 - 16,384 GiB
+	//   +  ``io2``: 4 - 65,536 GiB
+	//   +  ``st1`` and ``sc1``: 125 - 16,384 GiB
+	//   +  ``standard``: 1 - 1024 GiB
 	Size pulumi.IntPtrInput
 	// The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
 	SnapshotId pulumi.StringPtrInput
@@ -240,6 +266,19 @@ type VolumeArgs struct {
 	//  This parameter is valid only for ``gp3`` volumes. The default value is 125.
 	//  Valid Range: Minimum value of 125. Maximum value of 1000.
 	Throughput pulumi.IntPtrInput
+	// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+	//
+	// This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+	//
+	// - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+	//
+	// > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+	// - You want to create a volume that is initialized at the default rate.
+	//
+	// For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+	//
+	// Valid range: 100 - 300 MiB/s
+	VolumeInitializationRate pulumi.IntPtrInput
 	// The volume type. This parameter can be one of the following values:
 	//   +  General Purpose SSD: ``gp2`` | ``gp3``
 	//   +  Provisioned IOPS SSD: ``io1`` | ``io2``
@@ -309,9 +348,9 @@ func (o VolumeOutput) Encrypted() pulumi.BoolPtrOutput {
 // The number of I/O operations per second (IOPS). For “gp3“, “io1“, and “io2“ volumes, this represents the number of IOPS that are provisioned for the volume. For “gp2“ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 //
 //	The following are the supported values for each volume type:
-//	 +   ``gp3``: 3,000 - 16,000 IOPS
-//	 +   ``io1``: 100 - 64,000 IOPS
-//	 +   ``io2``: 100 - 256,000 IOPS
+//	 +  ``gp3``: 3,000 - 16,000 IOPS
+//	 +  ``io1``: 100 - 64,000 IOPS
+//	 +  ``io2``: 100 - 256,000 IOPS
 //
 //	For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
 //	This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
@@ -346,11 +385,11 @@ func (o VolumeOutput) OutpostArn() pulumi.StringPtrOutput {
 // The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
 //
 //	The following are the supported volumes sizes for each volume type:
-//	 +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
-//	 +   ``io1``: 4 - 16,384 GiB
-//	 +   ``io2``: 4 - 65,536 GiB
-//	 +   ``st1`` and ``sc1``: 125 - 16,384 GiB
-//	 +   ``standard``: 1 - 1024 GiB
+//	 +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+//	 +  ``io1``: 4 - 16,384 GiB
+//	 +  ``io2``: 4 - 65,536 GiB
+//	 +  ``st1`` and ``sc1``: 125 - 16,384 GiB
+//	 +  ``standard``: 1 - 1024 GiB
 func (o VolumeOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.IntPtrOutput { return v.Size }).(pulumi.IntPtrOutput)
 }
@@ -376,6 +415,22 @@ func (o VolumeOutput) Throughput() pulumi.IntPtrOutput {
 // The ID of the volume.
 func (o VolumeOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
+}
+
+// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+//
+// This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+//
+// - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+//
+// > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+// - You want to create a volume that is initialized at the default rate.
+//
+// For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+//
+// Valid range: 100 - 300 MiB/s
+func (o VolumeOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.IntPtrOutput { return v.VolumeInitializationRate }).(pulumi.IntPtrOutput)
 }
 
 // The volume type. This parameter can be one of the following values:

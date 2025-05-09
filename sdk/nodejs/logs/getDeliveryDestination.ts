@@ -38,7 +38,7 @@ export interface GetDeliveryDestinationResult {
      *
      * Length Constraints: Maximum length of 51200
      */
-    readonly deliveryDestinationPolicy?: outputs.logs.DeliveryDestinationDestinationPolicy[];
+    readonly deliveryDestinationPolicy?: outputs.logs.DeliveryDestinationDestinationPolicy;
     /**
      * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
      */

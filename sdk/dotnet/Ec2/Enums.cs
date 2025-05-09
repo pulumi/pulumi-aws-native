@@ -2582,7 +2582,7 @@ namespace Pulumi.AwsNative.Ec2
 
     /// <summary>
     /// The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
-    ///  Valid Values: ``clear`` | ``none`` | ``restart`` 
+    ///  Valid Values: ``clear`` | ``none`` | ``restart``
     ///  Default: ``clear``
     /// </summary>
     [EnumType]
@@ -2616,7 +2616,7 @@ namespace Pulumi.AwsNative.Ec2
 
     /// <summary>
     /// The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.
-    ///  Valid Values: ``add`` | ``start`` 
+    ///  Valid Values: ``add`` | ``start``
     ///  Default: ``add``
     /// </summary>
     [EnumType]

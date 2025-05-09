@@ -27,6 +27,18 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
             set => _hiddenAppTypes = value;
         }
 
+        [Input("hiddenInstanceTypes")]
+        private InputList<Pulumi.AwsNative.SageMaker.DomainAppInstanceType>? _hiddenInstanceTypes;
+
+        /// <summary>
+        /// The instance types you are hiding from the Studio user interface.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.SageMaker.DomainAppInstanceType> HiddenInstanceTypes
+        {
+            get => _hiddenInstanceTypes ?? (_hiddenInstanceTypes = new InputList<Pulumi.AwsNative.SageMaker.DomainAppInstanceType>());
+            set => _hiddenInstanceTypes = value;
+        }
+
         [Input("hiddenMlTools")]
         private InputList<Pulumi.AwsNative.SageMaker.DomainMlTools>? _hiddenMlTools;
 
@@ -37,6 +49,18 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         {
             get => _hiddenMlTools ?? (_hiddenMlTools = new InputList<Pulumi.AwsNative.SageMaker.DomainMlTools>());
             set => _hiddenMlTools = value;
+        }
+
+        [Input("hiddenSageMakerImageVersionAliases")]
+        private InputList<Inputs.DomainHiddenSageMakerImageArgs>? _hiddenSageMakerImageVersionAliases;
+
+        /// <summary>
+        /// The version aliases you are hiding from the Studio user interface.
+        /// </summary>
+        public InputList<Inputs.DomainHiddenSageMakerImageArgs> HiddenSageMakerImageVersionAliases
+        {
+            get => _hiddenSageMakerImageVersionAliases ?? (_hiddenSageMakerImageVersionAliases = new InputList<Inputs.DomainHiddenSageMakerImageArgs>());
+            set => _hiddenSageMakerImageVersionAliases = value;
         }
 
         public DomainStudioWebPortalSettingsArgs()

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
     /// <summary>
     /// Specifies a secondary private IPv4 address for a network interface.
-    ///   ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+    ///  ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplatePrivateIpAdd

@@ -30,20 +30,20 @@ type LookupEvaluationFormArgs struct {
 
 type LookupEvaluationFormResult struct {
 	// The description of the evaluation form.
-	//   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
 	Description *string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the evaluation form.
 	EvaluationFormArn *string `pulumi:"evaluationFormArn"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn *string `pulumi:"instanceArn"`
 	// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
-	//   *Minimum size*: 1
-	//   *Maximum size*: 100
+	//  *Minimum size*: 1
+	//  *Maximum size*: 100
 	Items []EvaluationFormBaseItem `pulumi:"items"`
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy *EvaluationFormScoringStrategy `pulumi:"scoringStrategy"`
 	// The status of the evaluation form.
-	//   *Allowed values*: ``DRAFT`` | ``ACTIVE``
+	//  *Allowed values*: ``DRAFT`` | ``ACTIVE``
 	Status *EvaluationFormStatus `pulumi:"status"`
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags []aws.Tag `pulumi:"tags"`

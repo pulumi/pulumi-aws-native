@@ -19,13 +19,15 @@ type LogicallyAirGappedBackupVault struct {
 	// The backup vault access policy document in JSON format.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
-	AccessPolicy   pulumi.AnyOutput    `pulumi:"accessPolicy"`
+	AccessPolicy pulumi.AnyOutput `pulumi:"accessPolicy"`
+	// The ARN of the backup vault.
 	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
 	// The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
 	// The tags to assign to the vault.
-	BackupVaultTags  pulumi.StringMapOutput `pulumi:"backupVaultTags"`
-	EncryptionKeyArn pulumi.StringOutput    `pulumi:"encryptionKeyArn"`
+	BackupVaultTags pulumi.StringMapOutput `pulumi:"backupVaultTags"`
+	// The ARN of the server-side encryption key.
+	EncryptionKeyArn pulumi.StringOutput `pulumi:"encryptionKeyArn"`
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays pulumi.IntOutput `pulumi:"maxRetentionDays"`
 	// This setting specifies the minimum retention period that the vault retains its recovery points.
@@ -34,8 +36,10 @@ type LogicallyAirGappedBackupVault struct {
 	MinRetentionDays pulumi.IntOutput `pulumi:"minRetentionDays"`
 	// Returns event notifications for the specified backup vault.
 	Notifications LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput `pulumi:"notifications"`
-	VaultState    pulumi.StringOutput                                          `pulumi:"vaultState"`
-	VaultType     pulumi.StringOutput                                          `pulumi:"vaultType"`
+	// The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
+	VaultState pulumi.StringOutput `pulumi:"vaultState"`
+	// The vault type. The possible values are `BACKUP_VAULT` and `LOGICALLY_AIR_GAPPED_BACKUP_VAULT` .
+	VaultType pulumi.StringOutput `pulumi:"vaultType"`
 }
 
 // NewLogicallyAirGappedBackupVault registers a new resource with the given unique name, arguments, and options.
@@ -172,6 +176,7 @@ func (o LogicallyAirGappedBackupVaultOutput) AccessPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.AnyOutput { return v.AccessPolicy }).(pulumi.AnyOutput)
 }
 
+// The ARN of the backup vault.
 func (o LogicallyAirGappedBackupVaultOutput) BackupVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
 }
@@ -186,6 +191,7 @@ func (o LogicallyAirGappedBackupVaultOutput) BackupVaultTags() pulumi.StringMapO
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringMapOutput { return v.BackupVaultTags }).(pulumi.StringMapOutput)
 }
 
+// The ARN of the server-side encryption key.
 func (o LogicallyAirGappedBackupVaultOutput) EncryptionKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringOutput { return v.EncryptionKeyArn }).(pulumi.StringOutput)
 }
@@ -209,10 +215,12 @@ func (o LogicallyAirGappedBackupVaultOutput) Notifications() LogicallyAirGappedB
 	}).(LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput)
 }
 
+// The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
 func (o LogicallyAirGappedBackupVaultOutput) VaultState() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringOutput { return v.VaultState }).(pulumi.StringOutput)
 }
 
+// The vault type. The possible values are `BACKUP_VAULT` and `LOGICALLY_AIR_GAPPED_BACKUP_VAULT` .
 func (o LogicallyAirGappedBackupVaultOutput) VaultType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringOutput { return v.VaultType }).(pulumi.StringOutput)
 }

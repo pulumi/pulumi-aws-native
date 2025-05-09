@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("appLifecycleManagement")]
         public Input<Inputs.DomainAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
 
+        /// <summary>
+        /// The lifecycle configuration that runs before the default lifecycle configuration.
+        /// </summary>
+        [Input("builtInLifecycleConfigArn")]
+        public Input<string>? BuiltInLifecycleConfigArn { get; set; }
+
         [Input("codeRepositories")]
         private InputList<Inputs.DomainCodeRepositoryArgs>? _codeRepositories;
 

@@ -103,11 +103,26 @@ namespace Pulumi.AwsNative.SageMaker
         /// The Amazon Resource Name (ARN) of the app.
         /// </summary>
         public readonly string? AppArn;
+        /// <summary>
+        /// The lifecycle configuration that runs before the default lifecycle configuration.
+        /// </summary>
+        public readonly string? BuiltInLifecycleConfigArn;
+        /// <summary>
+        /// Indicates whether the application is launched in recovery mode.
+        /// </summary>
+        public readonly bool? RecoveryMode;
 
         [OutputConstructor]
-        private GetAppResult(string? appArn)
+        private GetAppResult(
+            string? appArn,
+
+            string? builtInLifecycleConfigArn,
+
+            bool? recoveryMode)
         {
             AppArn = appArn;
+            BuiltInLifecycleConfigArn = builtInLifecycleConfigArn;
+            RecoveryMode = recoveryMode;
         }
     }
 }

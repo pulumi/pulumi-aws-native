@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("deletionProtection")]
+        public Output<Outputs.PolicyStoreDeletionProtection?> DeletionProtection { get; private set; } = null!;
+
         /// <summary>
         /// Descriptive text that you can provide to help with identification of the current policy store.
         /// </summary>
@@ -127,6 +130,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class PolicyStoreArgs : global::Pulumi.ResourceArgs
     {
+        [Input("deletionProtection")]
+        public Input<Inputs.PolicyStoreDeletionProtectionArgs>? DeletionProtection { get; set; }
+
         /// <summary>
         /// Descriptive text that you can provide to help with identification of the current policy store.
         /// </summary>

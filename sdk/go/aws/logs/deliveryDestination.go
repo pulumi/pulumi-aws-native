@@ -25,7 +25,7 @@ type DeliveryDestination struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 51200
-	DeliveryDestinationPolicy DeliveryDestinationDestinationPolicyArrayOutput `pulumi:"deliveryDestinationPolicy"`
+	DeliveryDestinationPolicy DeliveryDestinationDestinationPolicyPtrOutput `pulumi:"deliveryDestinationPolicy"`
 	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 	DeliveryDestinationType pulumi.StringOutput `pulumi:"deliveryDestinationType"`
 	// The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
@@ -89,7 +89,7 @@ type deliveryDestinationArgs struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 51200
-	DeliveryDestinationPolicy []DeliveryDestinationDestinationPolicy `pulumi:"deliveryDestinationPolicy"`
+	DeliveryDestinationPolicy *DeliveryDestinationDestinationPolicy `pulumi:"deliveryDestinationPolicy"`
 	// The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
 	DestinationResourceArn *string `pulumi:"destinationResourceArn"`
 	// The name of this delivery destination.
@@ -107,7 +107,7 @@ type DeliveryDestinationArgs struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 51200
-	DeliveryDestinationPolicy DeliveryDestinationDestinationPolicyArrayInput
+	DeliveryDestinationPolicy DeliveryDestinationDestinationPolicyPtrInput
 	// The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
 	DestinationResourceArn pulumi.StringPtrInput
 	// The name of this delivery destination.
@@ -165,10 +165,10 @@ func (o DeliveryDestinationOutput) Arn() pulumi.StringOutput {
 // The policy must be in JSON string format.
 //
 // Length Constraints: Maximum length of 51200
-func (o DeliveryDestinationOutput) DeliveryDestinationPolicy() DeliveryDestinationDestinationPolicyArrayOutput {
-	return o.ApplyT(func(v *DeliveryDestination) DeliveryDestinationDestinationPolicyArrayOutput {
+func (o DeliveryDestinationOutput) DeliveryDestinationPolicy() DeliveryDestinationDestinationPolicyPtrOutput {
+	return o.ApplyT(func(v *DeliveryDestination) DeliveryDestinationDestinationPolicyPtrOutput {
 		return v.DeliveryDestinationPolicy
-	}).(DeliveryDestinationDestinationPolicyArrayOutput)
+	}).(DeliveryDestinationDestinationPolicyPtrOutput)
 }
 
 // Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.

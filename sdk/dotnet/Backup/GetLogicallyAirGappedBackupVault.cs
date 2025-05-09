@@ -69,17 +69,29 @@ namespace Pulumi.AwsNative.Backup
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? AccessPolicy;
+        /// <summary>
+        /// The ARN of the backup vault.
+        /// </summary>
         public readonly string? BackupVaultArn;
         /// <summary>
         /// The tags to assign to the vault.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? BackupVaultTags;
+        /// <summary>
+        /// The ARN of the server-side encryption key.
+        /// </summary>
         public readonly string? EncryptionKeyArn;
         /// <summary>
         /// Returns event notifications for the specified backup vault.
         /// </summary>
         public readonly Outputs.LogicallyAirGappedBackupVaultNotificationObjectType? Notifications;
+        /// <summary>
+        /// The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
+        /// </summary>
         public readonly string? VaultState;
+        /// <summary>
+        /// The vault type. The possible values are `BACKUP_VAULT` and `LOGICALLY_AIR_GAPPED_BACKUP_VAULT` .
+        /// </summary>
         public readonly string? VaultType;
 
         [OutputConstructor]

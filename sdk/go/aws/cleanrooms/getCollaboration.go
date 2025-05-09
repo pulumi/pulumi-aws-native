@@ -31,6 +31,8 @@ type LookupCollaborationArgs struct {
 }
 
 type LookupCollaborationResult struct {
+	// The analytics engine for the collaboration.
+	AnalyticsEngine *CollaborationAnalyticsEngine `pulumi:"analyticsEngine"`
 	// Returns the Amazon Resource Name (ARN) of the specified collaboration.
 	//
 	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
@@ -79,6 +81,11 @@ func (o LookupCollaborationResultOutput) ToLookupCollaborationResultOutput() Loo
 
 func (o LookupCollaborationResultOutput) ToLookupCollaborationResultOutputWithContext(ctx context.Context) LookupCollaborationResultOutput {
 	return o
+}
+
+// The analytics engine for the collaboration.
+func (o LookupCollaborationResultOutput) AnalyticsEngine() CollaborationAnalyticsEnginePtrOutput {
+	return o.ApplyT(func(v LookupCollaborationResult) *CollaborationAnalyticsEngine { return v.AnalyticsEngine }).(CollaborationAnalyticsEnginePtrOutput)
 }
 
 // Returns the Amazon Resource Name (ARN) of the specified collaboration.

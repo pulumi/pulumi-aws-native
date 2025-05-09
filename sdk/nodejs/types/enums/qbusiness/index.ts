@@ -21,6 +21,7 @@ export const ApplicationIdentityType = {
     AwsIamIdpOidc: "AWS_IAM_IDP_OIDC",
     AwsIamIdc: "AWS_IAM_IDC",
     AwsQuicksightIdp: "AWS_QUICKSIGHT_IDP",
+    Anonymous: "ANONYMOUS",
 } as const;
 
 export type ApplicationIdentityType = (typeof ApplicationIdentityType)[keyof typeof ApplicationIdentityType];

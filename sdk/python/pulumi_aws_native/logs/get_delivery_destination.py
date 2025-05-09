@@ -30,8 +30,8 @@ class GetDeliveryDestinationResult:
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if delivery_destination_policy and not isinstance(delivery_destination_policy, list):
-            raise TypeError("Expected argument 'delivery_destination_policy' to be a list")
+        if delivery_destination_policy and not isinstance(delivery_destination_policy, dict):
+            raise TypeError("Expected argument 'delivery_destination_policy' to be a dict")
         pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
         if delivery_destination_type and not isinstance(delivery_destination_type, str):
             raise TypeError("Expected argument 'delivery_destination_type' to be a str")
@@ -50,7 +50,7 @@ class GetDeliveryDestinationResult:
 
     @property
     @pulumi.getter(name="deliveryDestinationPolicy")
-    def delivery_destination_policy(self) -> Optional[Sequence['outputs.DeliveryDestinationDestinationPolicy']]:
+    def delivery_destination_policy(self) -> Optional['outputs.DeliveryDestinationDestinationPolicy']:
         """
         IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
 

@@ -14,6 +14,15 @@ namespace Pulumi.AwsNative.Backup.Inputs
     {
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;
+
+        /// <summary>
+        /// 0 or 1 index action will be accepted for each BackupRule.
+        /// 
+        /// Valid values:
+        /// 
+        /// - `EBS` for Amazon Elastic Block Store
+        /// - `S3` for Amazon Simple Storage Service (Amazon S3)
+        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());

@@ -109,6 +109,8 @@ __all__ = [
     'DomainEfsFileSystemConfigArgsDict',
     'DomainFSxLustreFileSystemConfigArgs',
     'DomainFSxLustreFileSystemConfigArgsDict',
+    'DomainHiddenSageMakerImageArgs',
+    'DomainHiddenSageMakerImageArgsDict',
     'DomainIdleSettingsArgs',
     'DomainIdleSettingsArgsDict',
     'DomainJupyterLabAppSettingsArgs',
@@ -549,6 +551,8 @@ __all__ = [
     'UserProfileEfsFileSystemConfigArgsDict',
     'UserProfileFSxLustreFileSystemConfigArgs',
     'UserProfileFSxLustreFileSystemConfigArgsDict',
+    'UserProfileHiddenSageMakerImageArgs',
+    'UserProfileHiddenSageMakerImageArgsDict',
     'UserProfileIdleSettingsArgs',
     'UserProfileIdleSettingsArgsDict',
     'UserProfileJupyterLabAppSettingsArgs',
@@ -2738,6 +2742,10 @@ if not MYPY:
         """
         Settings that are used to configure and manage the lifecycle of CodeEditor applications.
         """
+        built_in_lifecycle_config_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgsDict']]]]
         """
         A list of custom images for use for CodeEditor apps.
@@ -2757,18 +2765,22 @@ elif False:
 class DomainCodeEditorAppSettingsArgs:
     def __init__(__self__, *,
                  app_lifecycle_management: Optional[pulumi.Input['DomainAppLifecycleManagementArgs']] = None,
+                 built_in_lifecycle_config_arn: Optional[pulumi.Input[builtins.str]] = None,
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['DomainResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The CodeEditor app settings.
         :param pulumi.Input['DomainAppLifecycleManagementArgs'] app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications.
+        :param pulumi.Input[builtins.str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]] custom_images: A list of custom images for use for CodeEditor apps.
         :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
         """
         if app_lifecycle_management is not None:
             pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
@@ -2787,6 +2799,18 @@ class DomainCodeEditorAppSettingsArgs:
     @app_lifecycle_management.setter
     def app_lifecycle_management(self, value: Optional[pulumi.Input['DomainAppLifecycleManagementArgs']]):
         pulumi.set(self, "app_lifecycle_management", value)
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
+
+    @built_in_lifecycle_config_arn.setter
+    def built_in_lifecycle_config_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "built_in_lifecycle_config_arn", value)
 
     @property
     @pulumi.getter(name="customImages")
@@ -3456,6 +3480,51 @@ class DomainFSxLustreFileSystemConfigArgs:
 
 
 if not MYPY:
+    class DomainHiddenSageMakerImageArgsDict(TypedDict):
+        sage_maker_image_name: NotRequired[pulumi.Input['DomainHiddenSageMakerImageSageMakerImageName']]
+        """
+        The SageMaker image name that you are hiding from the Studio user interface.
+        """
+        version_aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+elif False:
+    DomainHiddenSageMakerImageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainHiddenSageMakerImageArgs:
+    def __init__(__self__, *,
+                 sage_maker_image_name: Optional[pulumi.Input['DomainHiddenSageMakerImageSageMakerImageName']] = None,
+                 version_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        :param pulumi.Input['DomainHiddenSageMakerImageSageMakerImageName'] sage_maker_image_name: The SageMaker image name that you are hiding from the Studio user interface.
+        """
+        if sage_maker_image_name is not None:
+            pulumi.set(__self__, "sage_maker_image_name", sage_maker_image_name)
+        if version_aliases is not None:
+            pulumi.set(__self__, "version_aliases", version_aliases)
+
+    @property
+    @pulumi.getter(name="sageMakerImageName")
+    def sage_maker_image_name(self) -> Optional[pulumi.Input['DomainHiddenSageMakerImageSageMakerImageName']]:
+        """
+        The SageMaker image name that you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "sage_maker_image_name")
+
+    @sage_maker_image_name.setter
+    def sage_maker_image_name(self, value: Optional[pulumi.Input['DomainHiddenSageMakerImageSageMakerImageName']]):
+        pulumi.set(self, "sage_maker_image_name", value)
+
+    @property
+    @pulumi.getter(name="versionAliases")
+    def version_aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "version_aliases")
+
+    @version_aliases.setter
+    def version_aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "version_aliases", value)
+
+
+if not MYPY:
     class DomainIdleSettingsArgsDict(TypedDict):
         idle_timeout_in_minutes: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -3556,6 +3625,10 @@ if not MYPY:
         """
         Indicates whether idle shutdown is activated for JupyterLab applications.
         """
+        built_in_lifecycle_config_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainCodeRepositoryArgsDict']]]]
         """
         A list of CodeRepositories available for use with JupyterLab apps.
@@ -3579,6 +3652,7 @@ elif False:
 class DomainJupyterLabAppSettingsArgs:
     def __init__(__self__, *,
                  app_lifecycle_management: Optional[pulumi.Input['DomainAppLifecycleManagementArgs']] = None,
+                 built_in_lifecycle_config_arn: Optional[pulumi.Input[builtins.str]] = None,
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCodeRepositoryArgs']]]] = None,
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['DomainResourceSpecArgs']] = None,
@@ -3586,6 +3660,7 @@ class DomainJupyterLabAppSettingsArgs:
         """
         The JupyterLab app settings.
         :param pulumi.Input['DomainAppLifecycleManagementArgs'] app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications.
+        :param pulumi.Input[builtins.str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param pulumi.Input[Sequence[pulumi.Input['DomainCodeRepositoryArgs']]] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
         :param pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]] custom_images: A list of custom images for use for JupyterLab apps.
         :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
@@ -3593,6 +3668,8 @@ class DomainJupyterLabAppSettingsArgs:
         """
         if app_lifecycle_management is not None:
             pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if custom_images is not None:
@@ -3613,6 +3690,18 @@ class DomainJupyterLabAppSettingsArgs:
     @app_lifecycle_management.setter
     def app_lifecycle_management(self, value: Optional[pulumi.Input['DomainAppLifecycleManagementArgs']]):
         pulumi.set(self, "app_lifecycle_management", value)
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
+
+    @built_in_lifecycle_config_arn.setter
+    def built_in_lifecycle_config_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "built_in_lifecycle_config_arn", value)
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -4275,9 +4364,17 @@ if not MYPY:
         """
         Applications supported in Studio that are hidden from the Studio left navigation pane.
         """
+        hidden_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainAppInstanceType']]]]
+        """
+        The instance types you are hiding from the Studio user interface.
+        """
         hidden_ml_tools: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]]]
         """
         The machine learning tools that are hidden from the Studio left navigation pane.
+        """
+        hidden_sage_maker_image_version_aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainHiddenSageMakerImageArgsDict']]]]
+        """
+        The version aliases you are hiding from the Studio user interface.
         """
 elif False:
     DomainStudioWebPortalSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -4286,16 +4383,24 @@ elif False:
 class DomainStudioWebPortalSettingsArgs:
     def __init__(__self__, *,
                  hidden_app_types: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAppType']]]] = None,
-                 hidden_ml_tools: Optional[pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]]] = None):
+                 hidden_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAppInstanceType']]]] = None,
+                 hidden_ml_tools: Optional[pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]]] = None,
+                 hidden_sage_maker_image_version_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['DomainHiddenSageMakerImageArgs']]]] = None):
         """
         Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         :param pulumi.Input[Sequence[pulumi.Input['DomainAppType']]] hidden_app_types: Applications supported in Studio that are hidden from the Studio left navigation pane.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainAppInstanceType']]] hidden_instance_types: The instance types you are hiding from the Studio user interface.
         :param pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainHiddenSageMakerImageArgs']]] hidden_sage_maker_image_version_aliases: The version aliases you are hiding from the Studio user interface.
         """
         if hidden_app_types is not None:
             pulumi.set(__self__, "hidden_app_types", hidden_app_types)
+        if hidden_instance_types is not None:
+            pulumi.set(__self__, "hidden_instance_types", hidden_instance_types)
         if hidden_ml_tools is not None:
             pulumi.set(__self__, "hidden_ml_tools", hidden_ml_tools)
+        if hidden_sage_maker_image_version_aliases is not None:
+            pulumi.set(__self__, "hidden_sage_maker_image_version_aliases", hidden_sage_maker_image_version_aliases)
 
     @property
     @pulumi.getter(name="hiddenAppTypes")
@@ -4310,6 +4415,18 @@ class DomainStudioWebPortalSettingsArgs:
         pulumi.set(self, "hidden_app_types", value)
 
     @property
+    @pulumi.getter(name="hiddenInstanceTypes")
+    def hidden_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainAppInstanceType']]]]:
+        """
+        The instance types you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "hidden_instance_types")
+
+    @hidden_instance_types.setter
+    def hidden_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAppInstanceType']]]]):
+        pulumi.set(self, "hidden_instance_types", value)
+
+    @property
     @pulumi.getter(name="hiddenMlTools")
     def hidden_ml_tools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]]]:
         """
@@ -4321,6 +4438,18 @@ class DomainStudioWebPortalSettingsArgs:
     def hidden_ml_tools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]]]):
         pulumi.set(self, "hidden_ml_tools", value)
 
+    @property
+    @pulumi.getter(name="hiddenSageMakerImageVersionAliases")
+    def hidden_sage_maker_image_version_aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainHiddenSageMakerImageArgs']]]]:
+        """
+        The version aliases you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "hidden_sage_maker_image_version_aliases")
+
+    @hidden_sage_maker_image_version_aliases.setter
+    def hidden_sage_maker_image_version_aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainHiddenSageMakerImageArgs']]]]):
+        pulumi.set(self, "hidden_sage_maker_image_version_aliases", value)
+
 
 if not MYPY:
     class DomainUserSettingsArgsDict(TypedDict):
@@ -4330,6 +4459,10 @@ if not MYPY:
         execution_role: pulumi.Input[builtins.str]
         """
         The execution role for the user.
+        """
+        auto_mount_home_efs: NotRequired[pulumi.Input['DomainUserSettingsAutoMountHomeEfs']]
+        """
+        Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
         """
         code_editor_app_settings: NotRequired[pulumi.Input['DomainCodeEditorAppSettingsArgsDict']]
         """
@@ -4404,6 +4537,7 @@ elif False:
 class DomainUserSettingsArgs:
     def __init__(__self__, *,
                  execution_role: pulumi.Input[builtins.str],
+                 auto_mount_home_efs: Optional[pulumi.Input['DomainUserSettingsAutoMountHomeEfs']] = None,
                  code_editor_app_settings: Optional[pulumi.Input['DomainCodeEditorAppSettingsArgs']] = None,
                  custom_file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgs']]]] = None,
                  custom_posix_user_config: Optional[pulumi.Input['DomainCustomPosixUserConfigArgs']] = None,
@@ -4421,6 +4555,7 @@ class DomainUserSettingsArgs:
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
         :param pulumi.Input[builtins.str] execution_role: The execution role for the user.
+        :param pulumi.Input['DomainUserSettingsAutoMountHomeEfs'] auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
         :param pulumi.Input['DomainCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings.
                
                SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -4447,6 +4582,8 @@ class DomainUserSettingsArgs:
         :param pulumi.Input['DomainStudioWebPortalSettingsArgs'] studio_web_portal_settings: Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         """
         pulumi.set(__self__, "execution_role", execution_role)
+        if auto_mount_home_efs is not None:
+            pulumi.set(__self__, "auto_mount_home_efs", auto_mount_home_efs)
         if code_editor_app_settings is not None:
             pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
         if custom_file_system_configs is not None:
@@ -4487,6 +4624,18 @@ class DomainUserSettingsArgs:
     @execution_role.setter
     def execution_role(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "execution_role", value)
+
+    @property
+    @pulumi.getter(name="autoMountHomeEfs")
+    def auto_mount_home_efs(self) -> Optional[pulumi.Input['DomainUserSettingsAutoMountHomeEfs']]:
+        """
+        Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+        """
+        return pulumi.get(self, "auto_mount_home_efs")
+
+    @auto_mount_home_efs.setter
+    def auto_mount_home_efs(self, value: Optional[pulumi.Input['DomainUserSettingsAutoMountHomeEfs']]):
+        pulumi.set(self, "auto_mount_home_efs", value)
 
     @property
     @pulumi.getter(name="codeEditorAppSettings")
@@ -18565,6 +18714,10 @@ if not MYPY:
         """
         Settings that are used to configure and manage the lifecycle of CodeEditor applications.
         """
+        built_in_lifecycle_config_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgsDict']]]]
         """
         A list of custom images for use for CodeEditor apps.
@@ -18584,18 +18737,22 @@ elif False:
 class UserProfileCodeEditorAppSettingsArgs:
     def __init__(__self__, *,
                  app_lifecycle_management: Optional[pulumi.Input['UserProfileAppLifecycleManagementArgs']] = None,
+                 built_in_lifecycle_config_arn: Optional[pulumi.Input[builtins.str]] = None,
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['UserProfileResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The CodeEditor app settings.
         :param pulumi.Input['UserProfileAppLifecycleManagementArgs'] app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications.
+        :param pulumi.Input[builtins.str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]] custom_images: A list of custom images for use for CodeEditor apps.
         :param pulumi.Input['UserProfileResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
         """
         if app_lifecycle_management is not None:
             pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
@@ -18614,6 +18771,18 @@ class UserProfileCodeEditorAppSettingsArgs:
     @app_lifecycle_management.setter
     def app_lifecycle_management(self, value: Optional[pulumi.Input['UserProfileAppLifecycleManagementArgs']]):
         pulumi.set(self, "app_lifecycle_management", value)
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
+
+    @built_in_lifecycle_config_arn.setter
+    def built_in_lifecycle_config_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "built_in_lifecycle_config_arn", value)
 
     @property
     @pulumi.getter(name="customImages")
@@ -19052,6 +19221,51 @@ class UserProfileFSxLustreFileSystemConfigArgs:
 
 
 if not MYPY:
+    class UserProfileHiddenSageMakerImageArgsDict(TypedDict):
+        sage_maker_image_name: NotRequired[pulumi.Input['UserProfileHiddenSageMakerImageSageMakerImageName']]
+        """
+        The SageMaker image name that you are hiding from the Studio user interface.
+        """
+        version_aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+elif False:
+    UserProfileHiddenSageMakerImageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserProfileHiddenSageMakerImageArgs:
+    def __init__(__self__, *,
+                 sage_maker_image_name: Optional[pulumi.Input['UserProfileHiddenSageMakerImageSageMakerImageName']] = None,
+                 version_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        :param pulumi.Input['UserProfileHiddenSageMakerImageSageMakerImageName'] sage_maker_image_name: The SageMaker image name that you are hiding from the Studio user interface.
+        """
+        if sage_maker_image_name is not None:
+            pulumi.set(__self__, "sage_maker_image_name", sage_maker_image_name)
+        if version_aliases is not None:
+            pulumi.set(__self__, "version_aliases", version_aliases)
+
+    @property
+    @pulumi.getter(name="sageMakerImageName")
+    def sage_maker_image_name(self) -> Optional[pulumi.Input['UserProfileHiddenSageMakerImageSageMakerImageName']]:
+        """
+        The SageMaker image name that you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "sage_maker_image_name")
+
+    @sage_maker_image_name.setter
+    def sage_maker_image_name(self, value: Optional[pulumi.Input['UserProfileHiddenSageMakerImageSageMakerImageName']]):
+        pulumi.set(self, "sage_maker_image_name", value)
+
+    @property
+    @pulumi.getter(name="versionAliases")
+    def version_aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "version_aliases")
+
+    @version_aliases.setter
+    def version_aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "version_aliases", value)
+
+
+if not MYPY:
     class UserProfileIdleSettingsArgsDict(TypedDict):
         idle_timeout_in_minutes: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -19152,6 +19366,10 @@ if not MYPY:
         """
         Indicates whether idle shutdown is activated for JupyterLab applications.
         """
+        built_in_lifecycle_config_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileCodeRepositoryArgsDict']]]]
         """
         A list of CodeRepositories available for use with JupyterLab apps.
@@ -19175,6 +19393,7 @@ elif False:
 class UserProfileJupyterLabAppSettingsArgs:
     def __init__(__self__, *,
                  app_lifecycle_management: Optional[pulumi.Input['UserProfileAppLifecycleManagementArgs']] = None,
+                 built_in_lifecycle_config_arn: Optional[pulumi.Input[builtins.str]] = None,
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCodeRepositoryArgs']]]] = None,
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['UserProfileResourceSpecArgs']] = None,
@@ -19182,6 +19401,7 @@ class UserProfileJupyterLabAppSettingsArgs:
         """
         The JupyterLab app settings.
         :param pulumi.Input['UserProfileAppLifecycleManagementArgs'] app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications.
+        :param pulumi.Input[builtins.str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileCodeRepositoryArgs']]] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]] custom_images: A list of custom images available for use for JupyterLab apps
         :param pulumi.Input['UserProfileResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
@@ -19189,6 +19409,8 @@ class UserProfileJupyterLabAppSettingsArgs:
         """
         if app_lifecycle_management is not None:
             pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if custom_images is not None:
@@ -19209,6 +19431,18 @@ class UserProfileJupyterLabAppSettingsArgs:
     @app_lifecycle_management.setter
     def app_lifecycle_management(self, value: Optional[pulumi.Input['UserProfileAppLifecycleManagementArgs']]):
         pulumi.set(self, "app_lifecycle_management", value)
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
+
+    @built_in_lifecycle_config_arn.setter
+    def built_in_lifecycle_config_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "built_in_lifecycle_config_arn", value)
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -19624,9 +19858,17 @@ if not MYPY:
         """
         Applications supported in Studio that are hidden from the Studio left navigation pane.
         """
+        hidden_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileAppInstanceType']]]]
+        """
+        The instance types you are hiding from the Studio user interface.
+        """
         hidden_ml_tools: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]]]
         """
         The machine learning tools that are hidden from the Studio left navigation pane.
+        """
+        hidden_sage_maker_image_version_aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileHiddenSageMakerImageArgsDict']]]]
+        """
+        The version aliases you are hiding from the Studio user interface.
         """
 elif False:
     UserProfileStudioWebPortalSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -19635,16 +19877,24 @@ elif False:
 class UserProfileStudioWebPortalSettingsArgs:
     def __init__(__self__, *,
                  hidden_app_types: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileAppType']]]] = None,
-                 hidden_ml_tools: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]]] = None):
+                 hidden_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileAppInstanceType']]]] = None,
+                 hidden_ml_tools: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]]] = None,
+                 hidden_sage_maker_image_version_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileHiddenSageMakerImageArgs']]]] = None):
         """
         Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileAppType']]] hidden_app_types: Applications supported in Studio that are hidden from the Studio left navigation pane.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileAppInstanceType']]] hidden_instance_types: The instance types you are hiding from the Studio user interface.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileHiddenSageMakerImageArgs']]] hidden_sage_maker_image_version_aliases: The version aliases you are hiding from the Studio user interface.
         """
         if hidden_app_types is not None:
             pulumi.set(__self__, "hidden_app_types", hidden_app_types)
+        if hidden_instance_types is not None:
+            pulumi.set(__self__, "hidden_instance_types", hidden_instance_types)
         if hidden_ml_tools is not None:
             pulumi.set(__self__, "hidden_ml_tools", hidden_ml_tools)
+        if hidden_sage_maker_image_version_aliases is not None:
+            pulumi.set(__self__, "hidden_sage_maker_image_version_aliases", hidden_sage_maker_image_version_aliases)
 
     @property
     @pulumi.getter(name="hiddenAppTypes")
@@ -19659,6 +19909,18 @@ class UserProfileStudioWebPortalSettingsArgs:
         pulumi.set(self, "hidden_app_types", value)
 
     @property
+    @pulumi.getter(name="hiddenInstanceTypes")
+    def hidden_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileAppInstanceType']]]]:
+        """
+        The instance types you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "hidden_instance_types")
+
+    @hidden_instance_types.setter
+    def hidden_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileAppInstanceType']]]]):
+        pulumi.set(self, "hidden_instance_types", value)
+
+    @property
     @pulumi.getter(name="hiddenMlTools")
     def hidden_ml_tools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]]]:
         """
@@ -19670,11 +19932,27 @@ class UserProfileStudioWebPortalSettingsArgs:
     def hidden_ml_tools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]]]):
         pulumi.set(self, "hidden_ml_tools", value)
 
+    @property
+    @pulumi.getter(name="hiddenSageMakerImageVersionAliases")
+    def hidden_sage_maker_image_version_aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileHiddenSageMakerImageArgs']]]]:
+        """
+        The version aliases you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "hidden_sage_maker_image_version_aliases")
+
+    @hidden_sage_maker_image_version_aliases.setter
+    def hidden_sage_maker_image_version_aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileHiddenSageMakerImageArgs']]]]):
+        pulumi.set(self, "hidden_sage_maker_image_version_aliases", value)
+
 
 if not MYPY:
     class UserProfileUserSettingsArgsDict(TypedDict):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
+        """
+        auto_mount_home_efs: NotRequired[pulumi.Input['UserProfileUserSettingsAutoMountHomeEfs']]
+        """
+        Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
         """
         code_editor_app_settings: NotRequired[pulumi.Input['UserProfileCodeEditorAppSettingsArgsDict']]
         """
@@ -19748,6 +20026,7 @@ elif False:
 @pulumi.input_type
 class UserProfileUserSettingsArgs:
     def __init__(__self__, *,
+                 auto_mount_home_efs: Optional[pulumi.Input['UserProfileUserSettingsAutoMountHomeEfs']] = None,
                  code_editor_app_settings: Optional[pulumi.Input['UserProfileCodeEditorAppSettingsArgs']] = None,
                  custom_file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomFileSystemConfigArgs']]]] = None,
                  custom_posix_user_config: Optional[pulumi.Input['UserProfileCustomPosixUserConfigArgs']] = None,
@@ -19764,6 +20043,7 @@ class UserProfileUserSettingsArgs:
                  studio_web_portal_settings: Optional[pulumi.Input['UserProfileStudioWebPortalSettingsArgs']] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
+        :param pulumi.Input['UserProfileUserSettingsAutoMountHomeEfs'] auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
         :param pulumi.Input['UserProfileCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings.
                
                SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -19789,6 +20069,8 @@ class UserProfileUserSettingsArgs:
         :param pulumi.Input['UserProfileUserSettingsStudioWebPortal'] studio_web_portal: Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
         :param pulumi.Input['UserProfileStudioWebPortalSettingsArgs'] studio_web_portal_settings: Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         """
+        if auto_mount_home_efs is not None:
+            pulumi.set(__self__, "auto_mount_home_efs", auto_mount_home_efs)
         if code_editor_app_settings is not None:
             pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
         if custom_file_system_configs is not None:
@@ -19817,6 +20099,18 @@ class UserProfileUserSettingsArgs:
             pulumi.set(__self__, "studio_web_portal", studio_web_portal)
         if studio_web_portal_settings is not None:
             pulumi.set(__self__, "studio_web_portal_settings", studio_web_portal_settings)
+
+    @property
+    @pulumi.getter(name="autoMountHomeEfs")
+    def auto_mount_home_efs(self) -> Optional[pulumi.Input['UserProfileUserSettingsAutoMountHomeEfs']]:
+        """
+        Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+        """
+        return pulumi.get(self, "auto_mount_home_efs")
+
+    @auto_mount_home_efs.setter
+    def auto_mount_home_efs(self, value: Optional[pulumi.Input['UserProfileUserSettingsAutoMountHomeEfs']]):
+        pulumi.set(self, "auto_mount_home_efs", value)
 
     @property
     @pulumi.getter(name="codeEditorAppSettings")

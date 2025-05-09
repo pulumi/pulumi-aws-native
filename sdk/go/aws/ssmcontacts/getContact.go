@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +32,8 @@ type LookupContactResult struct {
 	// The Amazon Resource Name (ARN) of the contact.
 	Arn *string `pulumi:"arn"`
 	// Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
-	DisplayName *string `pulumi:"displayName"`
+	DisplayName *string   `pulumi:"displayName"`
+	Tags        []aws.Tag `pulumi:"tags"`
 }
 
 func LookupContactOutput(ctx *pulumi.Context, args LookupContactOutputArgs, opts ...pulumi.InvokeOption) LookupContactResultOutput {
@@ -74,6 +76,10 @@ func (o LookupContactResultOutput) Arn() pulumi.StringPtrOutput {
 // Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
 func (o LookupContactResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContactResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupContactResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupContactResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

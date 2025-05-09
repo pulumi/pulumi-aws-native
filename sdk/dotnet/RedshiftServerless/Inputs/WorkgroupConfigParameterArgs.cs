@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.RedshiftServerless.Inputs
     public sealed class WorkgroupConfigParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
+        /// The key of the parameter. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
         /// </summary>
         [Input("parameterKey")]
         public Input<string>? ParameterKey { get; set; }

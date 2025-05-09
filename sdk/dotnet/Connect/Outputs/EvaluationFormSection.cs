@@ -22,23 +22,23 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly string? Instructions;
         /// <summary>
         /// The items of the section.
-        ///   *Minimum*: 1
+        ///  *Minimum*: 1
         /// </summary>
         public readonly ImmutableArray<Outputs.EvaluationFormItem> Items;
         /// <summary>
         /// The identifier of the section. An identifier must be unique within the evaluation form.
-        ///   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         public readonly string RefId;
         /// <summary>
         /// The title of the section.
-        ///   *Length Constraints*: Minimum length of 1. Maximum length of 128.
+        ///  *Length Constraints*: Minimum length of 1. Maximum length of 128.
         /// </summary>
         public readonly string Title;
         /// <summary>
         /// The scoring weight of the section.
-        ///   *Minimum*: 0 
-        ///   *Maximum*: 100
+        ///  *Minimum*: 0 
+        ///  *Maximum*: 100
         /// </summary>
         public readonly double? Weight;
 

@@ -99,6 +99,171 @@ func (o IdentitySourceOpenIdIssuerPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
+type PolicyStoreDeletionMode string
+
+const (
+	PolicyStoreDeletionModeEnabled  = PolicyStoreDeletionMode("ENABLED")
+	PolicyStoreDeletionModeDisabled = PolicyStoreDeletionMode("DISABLED")
+)
+
+func (PolicyStoreDeletionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStoreDeletionMode)(nil)).Elem()
+}
+
+func (e PolicyStoreDeletionMode) ToPolicyStoreDeletionModeOutput() PolicyStoreDeletionModeOutput {
+	return pulumi.ToOutput(e).(PolicyStoreDeletionModeOutput)
+}
+
+func (e PolicyStoreDeletionMode) ToPolicyStoreDeletionModeOutputWithContext(ctx context.Context) PolicyStoreDeletionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyStoreDeletionModeOutput)
+}
+
+func (e PolicyStoreDeletionMode) ToPolicyStoreDeletionModePtrOutput() PolicyStoreDeletionModePtrOutput {
+	return e.ToPolicyStoreDeletionModePtrOutputWithContext(context.Background())
+}
+
+func (e PolicyStoreDeletionMode) ToPolicyStoreDeletionModePtrOutputWithContext(ctx context.Context) PolicyStoreDeletionModePtrOutput {
+	return PolicyStoreDeletionMode(e).ToPolicyStoreDeletionModeOutputWithContext(ctx).ToPolicyStoreDeletionModePtrOutputWithContext(ctx)
+}
+
+func (e PolicyStoreDeletionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyStoreDeletionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyStoreDeletionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyStoreDeletionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyStoreDeletionModeOutput struct{ *pulumi.OutputState }
+
+func (PolicyStoreDeletionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStoreDeletionMode)(nil)).Elem()
+}
+
+func (o PolicyStoreDeletionModeOutput) ToPolicyStoreDeletionModeOutput() PolicyStoreDeletionModeOutput {
+	return o
+}
+
+func (o PolicyStoreDeletionModeOutput) ToPolicyStoreDeletionModeOutputWithContext(ctx context.Context) PolicyStoreDeletionModeOutput {
+	return o
+}
+
+func (o PolicyStoreDeletionModeOutput) ToPolicyStoreDeletionModePtrOutput() PolicyStoreDeletionModePtrOutput {
+	return o.ToPolicyStoreDeletionModePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStoreDeletionModeOutput) ToPolicyStoreDeletionModePtrOutputWithContext(ctx context.Context) PolicyStoreDeletionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStoreDeletionMode) *PolicyStoreDeletionMode {
+		return &v
+	}).(PolicyStoreDeletionModePtrOutput)
+}
+
+func (o PolicyStoreDeletionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyStoreDeletionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyStoreDeletionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyStoreDeletionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStoreDeletionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyStoreDeletionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyStoreDeletionModePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyStoreDeletionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStoreDeletionMode)(nil)).Elem()
+}
+
+func (o PolicyStoreDeletionModePtrOutput) ToPolicyStoreDeletionModePtrOutput() PolicyStoreDeletionModePtrOutput {
+	return o
+}
+
+func (o PolicyStoreDeletionModePtrOutput) ToPolicyStoreDeletionModePtrOutputWithContext(ctx context.Context) PolicyStoreDeletionModePtrOutput {
+	return o
+}
+
+func (o PolicyStoreDeletionModePtrOutput) Elem() PolicyStoreDeletionModeOutput {
+	return o.ApplyT(func(v *PolicyStoreDeletionMode) PolicyStoreDeletionMode {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyStoreDeletionMode
+		return ret
+	}).(PolicyStoreDeletionModeOutput)
+}
+
+func (o PolicyStoreDeletionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStoreDeletionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyStoreDeletionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyStoreDeletionModeInput is an input type that accepts values of the PolicyStoreDeletionMode enum
+// A concrete instance of `PolicyStoreDeletionModeInput` can be one of the following:
+//
+//	PolicyStoreDeletionModeEnabled
+//	PolicyStoreDeletionModeDisabled
+type PolicyStoreDeletionModeInput interface {
+	pulumi.Input
+
+	ToPolicyStoreDeletionModeOutput() PolicyStoreDeletionModeOutput
+	ToPolicyStoreDeletionModeOutputWithContext(context.Context) PolicyStoreDeletionModeOutput
+}
+
+var policyStoreDeletionModePtrType = reflect.TypeOf((**PolicyStoreDeletionMode)(nil)).Elem()
+
+type PolicyStoreDeletionModePtrInput interface {
+	pulumi.Input
+
+	ToPolicyStoreDeletionModePtrOutput() PolicyStoreDeletionModePtrOutput
+	ToPolicyStoreDeletionModePtrOutputWithContext(context.Context) PolicyStoreDeletionModePtrOutput
+}
+
+type policyStoreDeletionModePtr string
+
+func PolicyStoreDeletionModePtr(v string) PolicyStoreDeletionModePtrInput {
+	return (*policyStoreDeletionModePtr)(&v)
+}
+
+func (*policyStoreDeletionModePtr) ElementType() reflect.Type {
+	return policyStoreDeletionModePtrType
+}
+
+func (in *policyStoreDeletionModePtr) ToPolicyStoreDeletionModePtrOutput() PolicyStoreDeletionModePtrOutput {
+	return pulumi.ToOutput(in).(PolicyStoreDeletionModePtrOutput)
+}
+
+func (in *policyStoreDeletionModePtr) ToPolicyStoreDeletionModePtrOutputWithContext(ctx context.Context) PolicyStoreDeletionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyStoreDeletionModePtrOutput)
+}
+
 type PolicyStoreValidationMode string
 
 const (
@@ -355,10 +520,14 @@ func (o PolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreDeletionModeInput)(nil)).Elem(), PolicyStoreDeletionMode("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreDeletionModePtrInput)(nil)).Elem(), PolicyStoreDeletionMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreValidationModeInput)(nil)).Elem(), PolicyStoreValidationMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreValidationModePtrInput)(nil)).Elem(), PolicyStoreValidationMode("OFF"))
 	pulumi.RegisterOutputType(IdentitySourceOpenIdIssuerOutput{})
 	pulumi.RegisterOutputType(IdentitySourceOpenIdIssuerPtrOutput{})
+	pulumi.RegisterOutputType(PolicyStoreDeletionModeOutput{})
+	pulumi.RegisterOutputType(PolicyStoreDeletionModePtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreValidationModeOutput{})
 	pulumi.RegisterOutputType(PolicyStoreValidationModePtrOutput{})
 	pulumi.RegisterOutputType(PolicyTypeOutput{})

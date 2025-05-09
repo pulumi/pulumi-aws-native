@@ -16,17 +16,17 @@ namespace Pulumi.AwsNative.Logs.Outputs
         /// <summary>
         /// The name of the delivery destination to assign this policy to
         /// </summary>
-        public readonly string DeliveryDestinationName;
+        public readonly string? DeliveryDestinationName;
         /// <summary>
         /// The contents of the policy attached to the delivery destination
         /// </summary>
-        public readonly string DeliveryDestinationPolicy;
+        public readonly object? DeliveryDestinationPolicy;
 
         [OutputConstructor]
         private DeliveryDestinationDestinationPolicy(
-            string deliveryDestinationName,
+            string? deliveryDestinationName,
 
-            string deliveryDestinationPolicy)
+            object? deliveryDestinationPolicy)
         {
             DeliveryDestinationName = deliveryDestinationName;
             DeliveryDestinationPolicy = deliveryDestinationPolicy;

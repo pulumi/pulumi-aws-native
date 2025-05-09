@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,6 +25,7 @@ type Contact struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The stages that an escalation plan or engagement plan engages contacts and contact methods in.
 	Plan ContactStageArrayOutput `pulumi:"plan"`
+	Tags aws.TagArrayOutput      `pulumi:"tags"`
 	// Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
 	Type ContactTypeOutput `pulumi:"type"`
 }
@@ -88,6 +90,7 @@ type contactArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// The stages that an escalation plan or engagement plan engages contacts and contact methods in.
 	Plan []ContactStage `pulumi:"plan"`
+	Tags []aws.Tag      `pulumi:"tags"`
 	// Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
 	Type ContactType `pulumi:"type"`
 }
@@ -100,6 +103,7 @@ type ContactArgs struct {
 	DisplayName pulumi.StringInput
 	// The stages that an escalation plan or engagement plan engages contacts and contact methods in.
 	Plan ContactStageArrayInput
+	Tags aws.TagArrayInput
 	// Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
 	Type ContactTypeInput
 }
@@ -159,6 +163,10 @@ func (o ContactOutput) DisplayName() pulumi.StringOutput {
 // The stages that an escalation plan or engagement plan engages contacts and contact methods in.
 func (o ContactOutput) Plan() ContactStageArrayOutput {
 	return o.ApplyT(func(v *Contact) ContactStageArrayOutput { return v.Plan }).(ContactStageArrayOutput)
+}
+
+func (o ContactOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Contact) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".

@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         /// <summary>
         /// The items of the section.
-        ///   *Minimum*: 1
+        ///  *Minimum*: 1
         /// </summary>
         public InputList<Inputs.EvaluationFormItemArgs> Items
         {
@@ -36,22 +36,22 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         /// <summary>
         /// The identifier of the section. An identifier must be unique within the evaluation form.
-        ///   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         [Input("refId", required: true)]
         public Input<string> RefId { get; set; } = null!;
 
         /// <summary>
         /// The title of the section.
-        ///   *Length Constraints*: Minimum length of 1. Maximum length of 128.
+        ///  *Length Constraints*: Minimum length of 1. Maximum length of 128.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
         /// The scoring weight of the section.
-        ///   *Minimum*: 0 
-        ///   *Maximum*: 100
+        ///  *Minimum*: 0 
+        ///  *Maximum*: 100
         /// </summary>
         [Input("weight")]
         public Input<double>? Weight { get; set; }

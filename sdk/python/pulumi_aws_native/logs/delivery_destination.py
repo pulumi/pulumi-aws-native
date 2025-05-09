@@ -24,14 +24,14 @@ __all__ = ['DeliveryDestinationArgs', 'DeliveryDestination']
 @pulumi.input_type
 class DeliveryDestinationArgs:
     def __init__(__self__, *,
-                 delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]]] = None,
+                 delivery_destination_policy: Optional[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']] = None,
                  destination_resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_format: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeliveryDestination resource.
-        :param pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]] delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+        :param pulumi.Input['DeliveryDestinationDestinationPolicyArgs'] delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
                
                The policy must be in JSON string format.
                
@@ -54,7 +54,7 @@ class DeliveryDestinationArgs:
 
     @property
     @pulumi.getter(name="deliveryDestinationPolicy")
-    def delivery_destination_policy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]]]:
+    def delivery_destination_policy(self) -> Optional[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]:
         """
         IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
 
@@ -65,7 +65,7 @@ class DeliveryDestinationArgs:
         return pulumi.get(self, "delivery_destination_policy")
 
     @delivery_destination_policy.setter
-    def delivery_destination_policy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]]]):
+    def delivery_destination_policy(self, value: Optional[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]):
         pulumi.set(self, "delivery_destination_policy", value)
 
     @property
@@ -125,7 +125,7 @@ class DeliveryDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]]]] = None,
+                 delivery_destination_policy: Optional[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]] = None,
                  destination_resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_format: Optional[pulumi.Input[builtins.str]] = None,
@@ -138,7 +138,7 @@ class DeliveryDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]]] delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+        :param pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']] delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
                
                The policy must be in JSON string format.
                
@@ -174,7 +174,7 @@ class DeliveryDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]]]] = None,
+                 delivery_destination_policy: Optional[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]] = None,
                  destination_resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_format: Optional[pulumi.Input[builtins.str]] = None,
@@ -238,7 +238,7 @@ class DeliveryDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryDestinationPolicy")
-    def delivery_destination_policy(self) -> pulumi.Output[Optional[Sequence['outputs.DeliveryDestinationDestinationPolicy']]]:
+    def delivery_destination_policy(self) -> pulumi.Output[Optional['outputs.DeliveryDestinationDestinationPolicy']]:
         """
         IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
 

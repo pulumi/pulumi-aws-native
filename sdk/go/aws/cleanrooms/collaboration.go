@@ -80,7 +80,6 @@ func NewCollaboration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"analyticsEngine",
 		"creatorDisplayName",
 		"creatorMemberAbilities[*]",
 		"creatorMlMemberAbilities",

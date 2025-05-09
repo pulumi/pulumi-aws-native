@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class IntelligentPromptRouterRoutingCriteria
     {
+        /// <summary>
+        /// The criteria's response quality difference.
+        /// </summary>
         public readonly double ResponseQualityDifference;
 
         [OutputConstructor]

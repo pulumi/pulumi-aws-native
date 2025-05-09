@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly Outputs.EvaluationFormSingleSelectQuestionAutomation? Automation;
         /// <summary>
         /// The display mode of the single select question.
-        ///   *Allowed values*: ``DROPDOWN`` | ``RADIO``
+        ///  *Allowed values*: ``DROPDOWN`` | ``RADIO``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.EvaluationFormSingleSelectQuestionPropertiesDisplayAs? DisplayAs;
         /// <summary>
         /// The answer options of the single select question.
-        ///   *Minimum*: 2
-        ///   *Maximum*: 256
+        ///  *Minimum*: 2
+        ///  *Maximum*: 256
         /// </summary>
         public readonly ImmutableArray<Outputs.EvaluationFormSingleSelectQuestionOption> Options;
 

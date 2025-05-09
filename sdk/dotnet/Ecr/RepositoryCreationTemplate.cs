@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Ecr
         public Output<string> Prefix { get; private set; } = null!;
 
         /// <summary>
-        /// he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+        /// The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
         /// </summary>
         [Output("repositoryPolicy")]
         public Output<string?> RepositoryPolicy { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.AwsNative.Ecr
         public Input<string> Prefix { get; set; } = null!;
 
         /// <summary>
-        /// he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+        /// The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
         /// </summary>
         [Input("repositoryPolicy")]
         public Input<string>? RepositoryPolicy { get; set; }

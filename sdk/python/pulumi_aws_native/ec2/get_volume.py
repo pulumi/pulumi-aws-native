@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVolumeResult:
-    def __init__(__self__, auto_enable_io=None, availability_zone=None, encrypted=None, iops=None, kms_key_id=None, multi_attach_enabled=None, outpost_arn=None, size=None, snapshot_id=None, tags=None, throughput=None, volume_id=None, volume_type=None):
+    def __init__(__self__, auto_enable_io=None, availability_zone=None, encrypted=None, iops=None, kms_key_id=None, multi_attach_enabled=None, outpost_arn=None, size=None, snapshot_id=None, tags=None, throughput=None, volume_id=None, volume_initialization_rate=None, volume_type=None):
         if auto_enable_io and not isinstance(auto_enable_io, bool):
             raise TypeError("Expected argument 'auto_enable_io' to be a bool")
         pulumi.set(__self__, "auto_enable_io", auto_enable_io)
@@ -62,6 +62,9 @@ class GetVolumeResult:
         if volume_id and not isinstance(volume_id, str):
             raise TypeError("Expected argument 'volume_id' to be a str")
         pulumi.set(__self__, "volume_id", volume_id)
+        if volume_initialization_rate and not isinstance(volume_initialization_rate, int):
+            raise TypeError("Expected argument 'volume_initialization_rate' to be a int")
+        pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         if volume_type and not isinstance(volume_type, str):
             raise TypeError("Expected argument 'volume_type' to be a str")
         pulumi.set(__self__, "volume_type", volume_type)
@@ -97,9 +100,9 @@ class GetVolumeResult:
         """
         The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
          The following are the supported values for each volume type:
-          +   ``gp3``: 3,000 - 16,000 IOPS
-          +   ``io1``: 100 - 64,000 IOPS
-          +   ``io2``: 100 - 256,000 IOPS
+          +  ``gp3``: 3,000 - 16,000 IOPS
+          +  ``io1``: 100 - 64,000 IOPS
+          +  ``io2``: 100 - 256,000 IOPS
           
          For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
          This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
@@ -125,7 +128,7 @@ class GetVolumeResult:
     def multi_attach_enabled(self) -> Optional[builtins.bool]:
         """
         Indicates whether Amazon EBS Multi-Attach is enabled.
-          CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
+         CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
         """
         return pulumi.get(self, "multi_attach_enabled")
 
@@ -143,11 +146,11 @@ class GetVolumeResult:
         """
         The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
          The following are the supported volumes sizes for each volume type:
-          +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
-          +   ``io1``: 4 - 16,384 GiB
-          +   ``io2``: 4 - 65,536 GiB
-          +   ``st1`` and ``sc1``: 125 - 16,384 GiB
-          +   ``standard``: 1 - 1024 GiB
+          +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+          +  ``io1``: 4 - 16,384 GiB
+          +  ``io2``: 4 - 65,536 GiB
+          +  ``st1`` and ``sc1``: 125 - 16,384 GiB
+          +  ``standard``: 1 - 1024 GiB
         """
         return pulumi.get(self, "size")
 
@@ -186,15 +189,34 @@ class GetVolumeResult:
         return pulumi.get(self, "volume_id")
 
     @property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> Optional[builtins.int]:
+        """
+        Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+
+        This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+
+        - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+
+        > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+        - You want to create a volume that is initialized at the default rate.
+
+        For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+
+        Valid range: 100 - 300 MiB/s
+        """
+        return pulumi.get(self, "volume_initialization_rate")
+
+    @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[builtins.str]:
         """
         The volume type. This parameter can be one of the following values:
-          +  General Purpose SSD: ``gp2`` | ``gp3`` 
-          +  Provisioned IOPS SSD: ``io1`` | ``io2`` 
-          +  Throughput Optimized HDD: ``st1`` 
-          +  Cold HDD: ``sc1`` 
-          +  Magnetic: ``standard`` 
+          +  General Purpose SSD: ``gp2`` | ``gp3``
+          +  Provisioned IOPS SSD: ``io1`` | ``io2``
+          +  Throughput Optimized HDD: ``st1``
+          +  Cold HDD: ``sc1``
+          +  Magnetic: ``standard``
           
          For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html).
          Default: ``gp2``
@@ -220,6 +242,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             tags=self.tags,
             throughput=self.throughput,
             volume_id=self.volume_id,
+            volume_initialization_rate=self.volume_initialization_rate,
             volume_type=self.volume_type)
 
 
@@ -266,6 +289,7 @@ def get_volume(volume_id: Optional[builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         throughput=pulumi.get(__ret__, 'throughput'),
         volume_id=pulumi.get(__ret__, 'volume_id'),
+        volume_initialization_rate=pulumi.get(__ret__, 'volume_initialization_rate'),
         volume_type=pulumi.get(__ret__, 'volume_type'))
 def get_volume_output(volume_id: Optional[pulumi.Input[builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
@@ -309,4 +333,5 @@ def get_volume_output(volume_id: Optional[pulumi.Input[builtins.str]] = None,
         tags=pulumi.get(__response__, 'tags'),
         throughput=pulumi.get(__response__, 'throughput'),
         volume_id=pulumi.get(__response__, 'volume_id'),
+        volume_initialization_rate=pulumi.get(__response__, 'volume_initialization_rate'),
         volume_type=pulumi.get(__response__, 'volume_type')))

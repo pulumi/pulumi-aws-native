@@ -29,6 +29,7 @@ export interface GetPolicyStoreResult {
      * The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
      */
     readonly arn?: string;
+    readonly deletionProtection?: outputs.verifiedpermissions.PolicyStoreDeletionProtection;
     /**
      * Descriptive text that you can provide to help with identification of the current policy store.
      */

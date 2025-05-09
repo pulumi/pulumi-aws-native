@@ -93,6 +93,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
+        [Input("volumeInitializationRate")]
+        public Input<int>? VolumeInitializationRate { get; set; }
+
         /// <summary>
         /// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
         ///  The following are the supported volume types.

@@ -29,6 +29,7 @@ class AppArgs:
                  domain_id: pulumi.Input[builtins.str],
                  user_profile_name: pulumi.Input[builtins.str],
                  app_name: Optional[pulumi.Input[builtins.str]] = None,
+                 recovery_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
@@ -37,6 +38,7 @@ class AppArgs:
         :param pulumi.Input[builtins.str] domain_id: The domain ID.
         :param pulumi.Input[builtins.str] user_profile_name: The user profile name.
         :param pulumi.Input[builtins.str] app_name: The name of the app.
+        :param pulumi.Input[builtins.bool] recovery_mode: Indicates whether the application is launched in recovery mode.
         :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A list of tags to apply to the app.
         """
@@ -45,6 +47,8 @@ class AppArgs:
         pulumi.set(__self__, "user_profile_name", user_profile_name)
         if app_name is not None:
             pulumi.set(__self__, "app_name", app_name)
+        if recovery_mode is not None:
+            pulumi.set(__self__, "recovery_mode", recovery_mode)
         if resource_spec is not None:
             pulumi.set(__self__, "resource_spec", resource_spec)
         if tags is not None:
@@ -99,6 +103,18 @@ class AppArgs:
         pulumi.set(self, "app_name", value)
 
     @property
+    @pulumi.getter(name="recoveryMode")
+    def recovery_mode(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates whether the application is launched in recovery mode.
+        """
+        return pulumi.get(self, "recovery_mode")
+
+    @recovery_mode.setter
+    def recovery_mode(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "recovery_mode", value)
+
+    @property
     @pulumi.getter(name="resourceSpec")
     def resource_spec(self) -> Optional[pulumi.Input['AppResourceSpecArgs']]:
         """
@@ -134,6 +150,7 @@ class App(pulumi.CustomResource):
                  app_name: Optional[pulumi.Input[builtins.str]] = None,
                  app_type: Optional[pulumi.Input['AppType']] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
+                 recovery_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  resource_spec: Optional[pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  user_profile_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -146,6 +163,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_name: The name of the app.
         :param pulumi.Input['AppType'] app_type: The type of app.
         :param pulumi.Input[builtins.str] domain_id: The domain ID.
+        :param pulumi.Input[builtins.bool] recovery_mode: Indicates whether the application is launched in recovery mode.
         :param pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: A list of tags to apply to the app.
         :param pulumi.Input[builtins.str] user_profile_name: The user profile name.
@@ -177,6 +195,7 @@ class App(pulumi.CustomResource):
                  app_name: Optional[pulumi.Input[builtins.str]] = None,
                  app_type: Optional[pulumi.Input['AppType']] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
+                 recovery_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  resource_spec: Optional[pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  user_profile_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -196,12 +215,14 @@ class App(pulumi.CustomResource):
             if domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_id'")
             __props__.__dict__["domain_id"] = domain_id
+            __props__.__dict__["recovery_mode"] = recovery_mode
             __props__.__dict__["resource_spec"] = resource_spec
             __props__.__dict__["tags"] = tags
             if user_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_profile_name'")
             __props__.__dict__["user_profile_name"] = user_profile_name
             __props__.__dict__["app_arn"] = None
+            __props__.__dict__["built_in_lifecycle_config_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["appName", "appType", "domainId", "resourceSpec", "tags[*]", "userProfileName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(App, __self__).__init__(
@@ -229,7 +250,9 @@ class App(pulumi.CustomResource):
         __props__.__dict__["app_arn"] = None
         __props__.__dict__["app_name"] = None
         __props__.__dict__["app_type"] = None
+        __props__.__dict__["built_in_lifecycle_config_arn"] = None
         __props__.__dict__["domain_id"] = None
+        __props__.__dict__["recovery_mode"] = None
         __props__.__dict__["resource_spec"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["user_profile_name"] = None
@@ -260,12 +283,28 @@ class App(pulumi.CustomResource):
         return pulumi.get(self, "app_type")
 
     @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
+
+    @property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Output[builtins.str]:
         """
         The domain ID.
         """
         return pulumi.get(self, "domain_id")
+
+    @property
+    @pulumi.getter(name="recoveryMode")
+    def recovery_mode(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Indicates whether the application is launched in recovery mode.
+        """
+        return pulumi.get(self, "recovery_mode")
 
     @property
     @pulumi.getter(name="resourceSpec")

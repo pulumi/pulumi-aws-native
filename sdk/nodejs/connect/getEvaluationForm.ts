@@ -27,7 +27,7 @@ export interface GetEvaluationFormArgs {
 export interface GetEvaluationFormResult {
     /**
      * The description of the evaluation form.
-     *   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+     *  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
      */
     readonly description?: string;
     /**
@@ -40,8 +40,8 @@ export interface GetEvaluationFormResult {
     readonly instanceArn?: string;
     /**
      * Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
-     *   *Minimum size*: 1
-     *   *Maximum size*: 100
+     *  *Minimum size*: 1
+     *  *Maximum size*: 100
      */
     readonly items?: outputs.connect.EvaluationFormBaseItem[];
     /**
@@ -50,7 +50,7 @@ export interface GetEvaluationFormResult {
     readonly scoringStrategy?: outputs.connect.EvaluationFormScoringStrategy;
     /**
      * The status of the evaluation form.
-     *   *Allowed values*: ``DRAFT`` | ``ACTIVE``
+     *  *Allowed values*: ``DRAFT`` | ``ACTIVE``
      */
     readonly status?: enums.connect.EvaluationFormStatus;
     /**

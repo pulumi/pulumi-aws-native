@@ -43,6 +43,12 @@
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/ContactId", "/properties/ChannelType" ],
   "writeOnlyProperties" : [ "/properties/DeferActivation" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "ssm-contacts:CreateContactChannel", "ssm-contacts:GetContactChannel" ]

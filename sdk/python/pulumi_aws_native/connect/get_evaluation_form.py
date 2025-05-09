@@ -58,7 +58,7 @@ class GetEvaluationFormResult:
     def description(self) -> Optional[builtins.str]:
         """
         The description of the evaluation form.
-          *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+         *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         """
         return pulumi.get(self, "description")
 
@@ -83,8 +83,8 @@ class GetEvaluationFormResult:
     def items(self) -> Optional[Sequence['outputs.EvaluationFormBaseItem']]:
         """
         Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
-          *Minimum size*: 1
-          *Maximum size*: 100
+         *Minimum size*: 1
+         *Maximum size*: 100
         """
         return pulumi.get(self, "items")
 
@@ -101,7 +101,7 @@ class GetEvaluationFormResult:
     def status(self) -> Optional['EvaluationFormStatus']:
         """
         The status of the evaluation form.
-          *Allowed values*: ``DRAFT`` | ``ACTIVE``
+         *Allowed values*: ``DRAFT`` | ``ACTIVE``
         """
         return pulumi.get(self, "status")
 

@@ -77,18 +77,20 @@ class DeliveryDestinationDestinationPolicy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 delivery_destination_name: builtins.str,
-                 delivery_destination_policy: builtins.str):
+                 delivery_destination_name: Optional[builtins.str] = None,
+                 delivery_destination_policy: Optional[Any] = None):
         """
         :param builtins.str delivery_destination_name: The name of the delivery destination to assign this policy to
-        :param builtins.str delivery_destination_policy: The contents of the policy attached to the delivery destination
+        :param Any delivery_destination_policy: The contents of the policy attached to the delivery destination
         """
-        pulumi.set(__self__, "delivery_destination_name", delivery_destination_name)
-        pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
+        if delivery_destination_name is not None:
+            pulumi.set(__self__, "delivery_destination_name", delivery_destination_name)
+        if delivery_destination_policy is not None:
+            pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
 
     @property
     @pulumi.getter(name="deliveryDestinationName")
-    def delivery_destination_name(self) -> builtins.str:
+    def delivery_destination_name(self) -> Optional[builtins.str]:
         """
         The name of the delivery destination to assign this policy to
         """
@@ -96,7 +98,7 @@ class DeliveryDestinationDestinationPolicy(dict):
 
     @property
     @pulumi.getter(name="deliveryDestinationPolicy")
-    def delivery_destination_policy(self) -> builtins.str:
+    def delivery_destination_policy(self) -> Optional[Any]:
         """
         The contents of the policy attached to the delivery destination
         """

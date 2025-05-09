@@ -15,9 +15,9 @@ var _ = internal.GetEnvOrDefault
 
 type DeliveryDestinationDestinationPolicy struct {
 	// The name of the delivery destination to assign this policy to
-	DeliveryDestinationName string `pulumi:"deliveryDestinationName"`
+	DeliveryDestinationName *string `pulumi:"deliveryDestinationName"`
 	// The contents of the policy attached to the delivery destination
-	DeliveryDestinationPolicy string `pulumi:"deliveryDestinationPolicy"`
+	DeliveryDestinationPolicy interface{} `pulumi:"deliveryDestinationPolicy"`
 }
 
 // DeliveryDestinationDestinationPolicyInput is an input type that accepts DeliveryDestinationDestinationPolicyArgs and DeliveryDestinationDestinationPolicyOutput values.
@@ -33,9 +33,9 @@ type DeliveryDestinationDestinationPolicyInput interface {
 
 type DeliveryDestinationDestinationPolicyArgs struct {
 	// The name of the delivery destination to assign this policy to
-	DeliveryDestinationName pulumi.StringInput `pulumi:"deliveryDestinationName"`
+	DeliveryDestinationName pulumi.StringPtrInput `pulumi:"deliveryDestinationName"`
 	// The contents of the policy attached to the delivery destination
-	DeliveryDestinationPolicy pulumi.StringInput `pulumi:"deliveryDestinationPolicy"`
+	DeliveryDestinationPolicy pulumi.Input `pulumi:"deliveryDestinationPolicy"`
 }
 
 func (DeliveryDestinationDestinationPolicyArgs) ElementType() reflect.Type {
@@ -50,29 +50,45 @@ func (i DeliveryDestinationDestinationPolicyArgs) ToDeliveryDestinationDestinati
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryDestinationDestinationPolicyOutput)
 }
 
-// DeliveryDestinationDestinationPolicyArrayInput is an input type that accepts DeliveryDestinationDestinationPolicyArray and DeliveryDestinationDestinationPolicyArrayOutput values.
-// You can construct a concrete instance of `DeliveryDestinationDestinationPolicyArrayInput` via:
+func (i DeliveryDestinationDestinationPolicyArgs) ToDeliveryDestinationDestinationPolicyPtrOutput() DeliveryDestinationDestinationPolicyPtrOutput {
+	return i.ToDeliveryDestinationDestinationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryDestinationDestinationPolicyArgs) ToDeliveryDestinationDestinationPolicyPtrOutputWithContext(ctx context.Context) DeliveryDestinationDestinationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryDestinationDestinationPolicyOutput).ToDeliveryDestinationDestinationPolicyPtrOutputWithContext(ctx)
+}
+
+// DeliveryDestinationDestinationPolicyPtrInput is an input type that accepts DeliveryDestinationDestinationPolicyArgs, DeliveryDestinationDestinationPolicyPtr and DeliveryDestinationDestinationPolicyPtrOutput values.
+// You can construct a concrete instance of `DeliveryDestinationDestinationPolicyPtrInput` via:
 //
-//	DeliveryDestinationDestinationPolicyArray{ DeliveryDestinationDestinationPolicyArgs{...} }
-type DeliveryDestinationDestinationPolicyArrayInput interface {
+//	        DeliveryDestinationDestinationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryDestinationDestinationPolicyPtrInput interface {
 	pulumi.Input
 
-	ToDeliveryDestinationDestinationPolicyArrayOutput() DeliveryDestinationDestinationPolicyArrayOutput
-	ToDeliveryDestinationDestinationPolicyArrayOutputWithContext(context.Context) DeliveryDestinationDestinationPolicyArrayOutput
+	ToDeliveryDestinationDestinationPolicyPtrOutput() DeliveryDestinationDestinationPolicyPtrOutput
+	ToDeliveryDestinationDestinationPolicyPtrOutputWithContext(context.Context) DeliveryDestinationDestinationPolicyPtrOutput
 }
 
-type DeliveryDestinationDestinationPolicyArray []DeliveryDestinationDestinationPolicyInput
+type deliveryDestinationDestinationPolicyPtrType DeliveryDestinationDestinationPolicyArgs
 
-func (DeliveryDestinationDestinationPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryDestinationDestinationPolicy)(nil)).Elem()
+func DeliveryDestinationDestinationPolicyPtr(v *DeliveryDestinationDestinationPolicyArgs) DeliveryDestinationDestinationPolicyPtrInput {
+	return (*deliveryDestinationDestinationPolicyPtrType)(v)
 }
 
-func (i DeliveryDestinationDestinationPolicyArray) ToDeliveryDestinationDestinationPolicyArrayOutput() DeliveryDestinationDestinationPolicyArrayOutput {
-	return i.ToDeliveryDestinationDestinationPolicyArrayOutputWithContext(context.Background())
+func (*deliveryDestinationDestinationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryDestinationDestinationPolicy)(nil)).Elem()
 }
 
-func (i DeliveryDestinationDestinationPolicyArray) ToDeliveryDestinationDestinationPolicyArrayOutputWithContext(ctx context.Context) DeliveryDestinationDestinationPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryDestinationDestinationPolicyArrayOutput)
+func (i *deliveryDestinationDestinationPolicyPtrType) ToDeliveryDestinationDestinationPolicyPtrOutput() DeliveryDestinationDestinationPolicyPtrOutput {
+	return i.ToDeliveryDestinationDestinationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryDestinationDestinationPolicyPtrType) ToDeliveryDestinationDestinationPolicyPtrOutputWithContext(ctx context.Context) DeliveryDestinationDestinationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryDestinationDestinationPolicyPtrOutput)
 }
 
 type DeliveryDestinationDestinationPolicyOutput struct{ *pulumi.OutputState }
@@ -89,34 +105,68 @@ func (o DeliveryDestinationDestinationPolicyOutput) ToDeliveryDestinationDestina
 	return o
 }
 
+func (o DeliveryDestinationDestinationPolicyOutput) ToDeliveryDestinationDestinationPolicyPtrOutput() DeliveryDestinationDestinationPolicyPtrOutput {
+	return o.ToDeliveryDestinationDestinationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryDestinationDestinationPolicyOutput) ToDeliveryDestinationDestinationPolicyPtrOutputWithContext(ctx context.Context) DeliveryDestinationDestinationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryDestinationDestinationPolicy) *DeliveryDestinationDestinationPolicy {
+		return &v
+	}).(DeliveryDestinationDestinationPolicyPtrOutput)
+}
+
 // The name of the delivery destination to assign this policy to
-func (o DeliveryDestinationDestinationPolicyOutput) DeliveryDestinationName() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryDestinationDestinationPolicy) string { return v.DeliveryDestinationName }).(pulumi.StringOutput)
+func (o DeliveryDestinationDestinationPolicyOutput) DeliveryDestinationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryDestinationDestinationPolicy) *string { return v.DeliveryDestinationName }).(pulumi.StringPtrOutput)
 }
 
 // The contents of the policy attached to the delivery destination
-func (o DeliveryDestinationDestinationPolicyOutput) DeliveryDestinationPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryDestinationDestinationPolicy) string { return v.DeliveryDestinationPolicy }).(pulumi.StringOutput)
+func (o DeliveryDestinationDestinationPolicyOutput) DeliveryDestinationPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeliveryDestinationDestinationPolicy) interface{} { return v.DeliveryDestinationPolicy }).(pulumi.AnyOutput)
 }
 
-type DeliveryDestinationDestinationPolicyArrayOutput struct{ *pulumi.OutputState }
+type DeliveryDestinationDestinationPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (DeliveryDestinationDestinationPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryDestinationDestinationPolicy)(nil)).Elem()
+func (DeliveryDestinationDestinationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryDestinationDestinationPolicy)(nil)).Elem()
 }
 
-func (o DeliveryDestinationDestinationPolicyArrayOutput) ToDeliveryDestinationDestinationPolicyArrayOutput() DeliveryDestinationDestinationPolicyArrayOutput {
+func (o DeliveryDestinationDestinationPolicyPtrOutput) ToDeliveryDestinationDestinationPolicyPtrOutput() DeliveryDestinationDestinationPolicyPtrOutput {
 	return o
 }
 
-func (o DeliveryDestinationDestinationPolicyArrayOutput) ToDeliveryDestinationDestinationPolicyArrayOutputWithContext(ctx context.Context) DeliveryDestinationDestinationPolicyArrayOutput {
+func (o DeliveryDestinationDestinationPolicyPtrOutput) ToDeliveryDestinationDestinationPolicyPtrOutputWithContext(ctx context.Context) DeliveryDestinationDestinationPolicyPtrOutput {
 	return o
 }
 
-func (o DeliveryDestinationDestinationPolicyArrayOutput) Index(i pulumi.IntInput) DeliveryDestinationDestinationPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryDestinationDestinationPolicy {
-		return vs[0].([]DeliveryDestinationDestinationPolicy)[vs[1].(int)]
+func (o DeliveryDestinationDestinationPolicyPtrOutput) Elem() DeliveryDestinationDestinationPolicyOutput {
+	return o.ApplyT(func(v *DeliveryDestinationDestinationPolicy) DeliveryDestinationDestinationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryDestinationDestinationPolicy
+		return ret
 	}).(DeliveryDestinationDestinationPolicyOutput)
+}
+
+// The name of the delivery destination to assign this policy to
+func (o DeliveryDestinationDestinationPolicyPtrOutput) DeliveryDestinationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryDestinationDestinationPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryDestinationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The contents of the policy attached to the delivery destination
+func (o DeliveryDestinationDestinationPolicyPtrOutput) DeliveryDestinationPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeliveryDestinationDestinationPolicy) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryDestinationPolicy
+	}).(pulumi.AnyOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -5109,7 +5159,7 @@ func (o TransformerTypeConverterEntryArrayOutput) Index(i pulumi.IntInput) Trans
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryDestinationDestinationPolicyInput)(nil)).Elem(), DeliveryDestinationDestinationPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryDestinationDestinationPolicyArrayInput)(nil)).Elem(), DeliveryDestinationDestinationPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryDestinationDestinationPolicyPtrInput)(nil)).Elem(), DeliveryDestinationDestinationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationOpenSearchResourceConfigInput)(nil)).Elem(), IntegrationOpenSearchResourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationOpenSearchResourceConfigPtrInput)(nil)).Elem(), IntegrationOpenSearchResourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterDimensionInput)(nil)).Elem(), MetricFilterDimensionArgs{})
@@ -5178,7 +5228,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerTypeConverterEntryInput)(nil)).Elem(), TransformerTypeConverterEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerTypeConverterEntryArrayInput)(nil)).Elem(), TransformerTypeConverterEntryArray{})
 	pulumi.RegisterOutputType(DeliveryDestinationDestinationPolicyOutput{})
-	pulumi.RegisterOutputType(DeliveryDestinationDestinationPolicyArrayOutput{})
+	pulumi.RegisterOutputType(DeliveryDestinationDestinationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationOpenSearchResourceConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationOpenSearchResourceConfigPtrOutput{})
 	pulumi.RegisterOutputType(MetricFilterDimensionOutput{})

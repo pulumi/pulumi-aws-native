@@ -42,7 +42,7 @@ type LookupRepositoryCreationTemplateResult struct {
 	ImageTagMutability *RepositoryCreationTemplateImageTagMutability `pulumi:"imageTagMutability"`
 	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
-	// he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+	// The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
 	RepositoryPolicy *string `pulumi:"repositoryPolicy"`
 	// The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 	ResourceTags []RepositoryCreationTemplateTag `pulumi:"resourceTags"`
@@ -123,7 +123,7 @@ func (o LookupRepositoryCreationTemplateResultOutput) LifecyclePolicy() pulumi.S
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) *string { return v.LifecyclePolicy }).(pulumi.StringPtrOutput)
 }
 
-// he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+// The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
 func (o LookupRepositoryCreationTemplateResultOutput) RepositoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) *string { return v.RepositoryPolicy }).(pulumi.StringPtrOutput)
 }

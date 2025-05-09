@@ -12,29 +12,29 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     /// <summary>
     /// Information about the automation option based on a rule category for a single select question.
-    ///   *Length Constraints*: Minimum length of 1. Maximum length of 50.
+    ///  *Length Constraints*: Minimum length of 1. Maximum length of 50.
     /// </summary>
     public sealed class EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The category name, as defined in Rules.
-        ///   *Minimum*: 1
-        ///   *Maximum*: 50
+        ///  *Minimum*: 1
+        ///  *Maximum*: 50
         /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
 
         /// <summary>
         /// The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
-        ///   *Allowed values*: ``PRESENT`` | ``NOT_PRESENT`` 
-        ///   *Maximum*: 50
+        ///  *Allowed values*: ``PRESENT`` | ``NOT_PRESENT``
+        ///  *Maximum*: 50
         /// </summary>
         [Input("condition", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition> Condition { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the answer option. An identifier must be unique within the question.
-        ///   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         [Input("optionRefId", required: true)]
         public Input<string> OptionRefId { get; set; } = null!;

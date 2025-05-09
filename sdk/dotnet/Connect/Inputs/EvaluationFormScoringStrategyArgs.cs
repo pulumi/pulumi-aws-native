@@ -17,14 +17,14 @@ namespace Pulumi.AwsNative.Connect.Inputs
     {
         /// <summary>
         /// The scoring mode of the evaluation form.
-        ///   *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
+        ///  *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
         /// </summary>
         [Input("mode", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormScoringStrategyMode> Mode { get; set; } = null!;
 
         /// <summary>
         /// The scoring status of the evaluation form.
-        ///   *Allowed values*: ``ENABLED`` | ``DISABLED``
+        ///  *Allowed values*: ``ENABLED`` | ``DISABLED``
         /// </summary>
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormScoringStrategyStatus> Status { get; set; } = null!;

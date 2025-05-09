@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("filterInArns")]
         public Output<ImmutableArray<string>> FilterInArns { get; private set; } = null!;
 
+        [Output("filterOutArns")]
+        public Output<ImmutableArray<string>> FilterOutArns { get; private set; } = null!;
+
         /// <summary>
         /// The components in the path from source to destination.
         /// </summary>
@@ -131,6 +134,7 @@ namespace Pulumi.AwsNative.Ec2
                 ReplaceOnChanges =
                 {
                     "filterInArns[*]",
+                    "filterOutArns[*]",
                     "networkInsightsPathId",
                 },
             };
@@ -177,6 +181,14 @@ namespace Pulumi.AwsNative.Ec2
         {
             get => _filterInArns ?? (_filterInArns = new InputList<string>());
             set => _filterInArns = value;
+        }
+
+        [Input("filterOutArns")]
+        private InputList<string>? _filterOutArns;
+        public InputList<string> FilterOutArns
+        {
+            get => _filterOutArns ?? (_filterOutArns = new InputList<string>());
+            set => _filterOutArns = value;
         }
 
         /// <summary>

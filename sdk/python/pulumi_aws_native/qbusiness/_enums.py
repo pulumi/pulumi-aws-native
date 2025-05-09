@@ -52,6 +52,7 @@ class ApplicationIdentityType(builtins.str, Enum):
     AWS_IAM_IDP_OIDC = "AWS_IAM_IDP_OIDC"
     AWS_IAM_IDC = "AWS_IAM_IDC"
     AWS_QUICKSIGHT_IDP = "AWS_QUICKSIGHT_IDP"
+    ANONYMOUS = "ANONYMOUS"
 
 
 class ApplicationPersonalizationControlMode(builtins.str, Enum):

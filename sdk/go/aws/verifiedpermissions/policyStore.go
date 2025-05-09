@@ -50,7 +50,8 @@ type PolicyStore struct {
 	pulumi.CustomResourceState
 
 	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn                pulumi.StringOutput                    `pulumi:"arn"`
+	DeletionProtection PolicyStoreDeletionProtectionPtrOutput `pulumi:"deletionProtection"`
 	// Descriptive text that you can provide to help with identification of the current policy store.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The unique ID of the new or updated policy store.
@@ -110,6 +111,7 @@ func (PolicyStoreState) ElementType() reflect.Type {
 }
 
 type policyStoreArgs struct {
+	DeletionProtection *PolicyStoreDeletionProtection `pulumi:"deletionProtection"`
 	// Descriptive text that you can provide to help with identification of the current policy store.
 	Description *string `pulumi:"description"`
 	// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
@@ -126,6 +128,7 @@ type policyStoreArgs struct {
 
 // The set of arguments for constructing a PolicyStore resource.
 type PolicyStoreArgs struct {
+	DeletionProtection PolicyStoreDeletionProtectionPtrInput
 	// Descriptive text that you can provide to help with identification of the current policy store.
 	Description pulumi.StringPtrInput
 	// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
@@ -180,6 +183,10 @@ func (o PolicyStoreOutput) ToPolicyStoreOutputWithContext(ctx context.Context) P
 // The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
 func (o PolicyStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PolicyStoreOutput) DeletionProtection() PolicyStoreDeletionProtectionPtrOutput {
+	return o.ApplyT(func(v *PolicyStore) PolicyStoreDeletionProtectionPtrOutput { return v.DeletionProtection }).(PolicyStoreDeletionProtectionPtrOutput)
 }
 
 // Descriptive text that you can provide to help with identification of the current policy store.

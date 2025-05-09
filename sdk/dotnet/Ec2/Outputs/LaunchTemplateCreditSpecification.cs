@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
     /// <summary>
     /// Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
-    ///   ``CreditSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    ///  ``CreditSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateCreditSpecification

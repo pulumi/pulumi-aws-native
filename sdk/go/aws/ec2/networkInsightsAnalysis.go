@@ -24,7 +24,8 @@ type NetworkInsightsAnalysis struct {
 	// The explanations. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
 	Explanations NetworkInsightsAnalysisExplanationArrayOutput `pulumi:"explanations"`
 	// The Amazon Resource Names (ARN) of the resources that the path must traverse.
-	FilterInArns pulumi.StringArrayOutput `pulumi:"filterInArns"`
+	FilterInArns  pulumi.StringArrayOutput `pulumi:"filterInArns"`
+	FilterOutArns pulumi.StringArrayOutput `pulumi:"filterOutArns"`
 	// The components in the path from source to destination.
 	ForwardPathComponents NetworkInsightsAnalysisPathComponentArrayOutput `pulumi:"forwardPathComponents"`
 	// The Amazon Resource Name (ARN) of the network insights analysis.
@@ -61,6 +62,7 @@ func NewNetworkInsightsAnalysis(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"filterInArns[*]",
+		"filterOutArns[*]",
 		"networkInsightsPathId",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -100,7 +102,8 @@ type networkInsightsAnalysisArgs struct {
 	// The member accounts that contain resources that the path can traverse.
 	AdditionalAccounts []string `pulumi:"additionalAccounts"`
 	// The Amazon Resource Names (ARN) of the resources that the path must traverse.
-	FilterInArns []string `pulumi:"filterInArns"`
+	FilterInArns  []string `pulumi:"filterInArns"`
+	FilterOutArns []string `pulumi:"filterOutArns"`
 	// The ID of the path.
 	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
 	// The tags to apply.
@@ -112,7 +115,8 @@ type NetworkInsightsAnalysisArgs struct {
 	// The member accounts that contain resources that the path can traverse.
 	AdditionalAccounts pulumi.StringArrayInput
 	// The Amazon Resource Names (ARN) of the resources that the path must traverse.
-	FilterInArns pulumi.StringArrayInput
+	FilterInArns  pulumi.StringArrayInput
+	FilterOutArns pulumi.StringArrayInput
 	// The ID of the path.
 	NetworkInsightsPathId pulumi.StringInput
 	// The tags to apply.
@@ -176,6 +180,10 @@ func (o NetworkInsightsAnalysisOutput) Explanations() NetworkInsightsAnalysisExp
 // The Amazon Resource Names (ARN) of the resources that the path must traverse.
 func (o NetworkInsightsAnalysisOutput) FilterInArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringArrayOutput { return v.FilterInArns }).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) FilterOutArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringArrayOutput { return v.FilterOutArns }).(pulumi.StringArrayOutput)
 }
 
 // The components in the path from source to destination.
