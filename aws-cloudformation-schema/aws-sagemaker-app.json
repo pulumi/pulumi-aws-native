@@ -48,6 +48,16 @@
       "minLength" : 1,
       "maxLength" : 63,
       "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}"
+    },
+    "BuiltInLifecycleConfigArn" : {
+      "type" : "string",
+      "description" : "The lifecycle configuration that runs before the default lifecycle configuration.",
+      "maxLength" : 256,
+      "pattern" : "^(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:studio-lifecycle-config/.*|None)$"
+    },
+    "RecoveryMode" : {
+      "type" : "boolean",
+      "description" : "Indicates whether the application is launched in recovery mode."
     }
   },
   "definitions" : {
@@ -78,7 +88,7 @@
           "type" : "string",
           "description" : "The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.",
           "maxLength" : 256,
-          "pattern" : "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:studio-lifecycle-config/.*"
+          "pattern" : "^(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:studio-lifecycle-config/.*|None)$"
         }
       }
     },
@@ -104,7 +114,7 @@
   "createOnlyProperties" : [ "/properties/AppName", "/properties/AppType", "/properties/DomainId", "/properties/UserProfileName", "/properties/Tags", "/properties/ResourceSpec" ],
   "writeOnlyProperties" : [ "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/AppName", "/properties/AppType", "/properties/DomainId", "/properties/UserProfileName" ],
-  "readOnlyProperties" : [ "/properties/AppArn" ],
+  "readOnlyProperties" : [ "/properties/AppArn", "/properties/BuiltInLifecycleConfigArn" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "sagemaker:CreateApp", "sagemaker:DescribeApp" ]

@@ -257,7 +257,7 @@
   },
   "required" : [ "CreatorDisplayName", "CreatorMemberAbilities", "Members", "Name", "Description", "QueryLogStatus" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CollaborationIdentifier" ],
-  "createOnlyProperties" : [ "/properties/CreatorDisplayName", "/properties/CreatorMemberAbilities", "/properties/CreatorMLMemberAbilities", "/properties/DataEncryptionMetadata", "/properties/JobLogStatus", "/properties/QueryLogStatus", "/properties/Members", "/properties/CreatorPaymentConfiguration", "/properties/AnalyticsEngine" ],
+  "createOnlyProperties" : [ "/properties/CreatorDisplayName", "/properties/CreatorMemberAbilities", "/properties/CreatorMLMemberAbilities", "/properties/DataEncryptionMetadata", "/properties/JobLogStatus", "/properties/QueryLogStatus", "/properties/Members", "/properties/CreatorPaymentConfiguration" ],
   "primaryIdentifier" : [ "/properties/CollaborationIdentifier" ],
   "tagging" : {
     "taggable" : true,
