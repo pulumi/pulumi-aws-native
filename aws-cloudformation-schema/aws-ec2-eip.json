@@ -93,7 +93,7 @@
       "permissions" : [ "ec2:DescribeAddresses" ]
     }
   },
-  "createOnlyProperties" : [ "/properties/Domain", "/properties/NetworkBorderGroup", "/properties/TransferAddress", "/properties/IpamPoolId", "/properties/Address" ],
+  "createOnlyProperties" : [ "/properties/NetworkBorderGroup", "/properties/TransferAddress", "/properties/IpamPoolId", "/properties/Address" ],
   "writeOnlyProperties" : [ "/properties/TransferAddress", "/properties/IpamPoolId", "/properties/Address" ],
   "readOnlyProperties" : [ "/properties/PublicIp", "/properties/AllocationId" ],
   "primaryIdentifier" : [ "/properties/PublicIp", "/properties/AllocationId" ],

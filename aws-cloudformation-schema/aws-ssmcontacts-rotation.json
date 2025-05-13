@@ -211,16 +211,18 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "ssm-contacts:TagResource", "ssm-contacts:UntagResource", "ssm-contacts:ListTagsForResource" ]
   },
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ssm-contacts:CreateRotation", "ssm-contacts:GetRotation", "ssm-contacts:TagResource", "ssm-contacts:ListTagsForResource", "ssm-contacts:UntagResource" ]
+      "permissions" : [ "ssm-contacts:CreateRotation", "ssm-contacts:GetRotation", "ssm-contacts:TagResource", "ssm-contacts:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "ssm-contacts:GetRotation", "ssm-contacts:TagResource", "ssm-contacts:ListTagsForResource", "ssm-contacts:UntagResource" ]
+      "permissions" : [ "ssm-contacts:GetRotation", "ssm-contacts:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "ssm-contacts:UpdateRotation", "ssm-contacts:GetRotation", "ssm-contacts:TagResource", "ssm-contacts:ListTagsForResource", "ssm-contacts:UntagResource" ]
