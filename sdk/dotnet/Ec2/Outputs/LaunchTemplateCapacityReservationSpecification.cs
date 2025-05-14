@@ -12,16 +12,16 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
     /// <summary>
     /// Specifies an instance's Capacity Reservation targeting option. You can specify only one option at a time.
-    ///   ``CapacityReservationSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    ///  ``CapacityReservationSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateCapacityReservationSpecification
     {
         /// <summary>
         /// Indicates the instance's Capacity Reservation preferences. Possible preferences include:
-        ///   +   ``capacity-reservations-only`` - The instance will only run in a Capacity Reservation or Capacity Reservation group. If capacity isn't available, the instance will fail to launch.
-        ///   +   ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone, tenancy).
-        ///   +   ``none`` - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+        ///   +  ``capacity-reservations-only`` - The instance will only run in a Capacity Reservation or Capacity Reservation group. If capacity isn't available, the instance will fail to launch.
+        ///   +  ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone, tenancy).
+        ///   +  ``none`` - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
         /// </summary>
         public readonly string? CapacityReservationPreference;
         /// <summary>

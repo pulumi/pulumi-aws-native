@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.GameLiftStreams.Inputs
     public sealed class StreamGroupDefaultApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Format example: `arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6` .
+        /// An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// An ID that uniquely identifies the application resource. For example: `a-9ZY8X7Wv6` .
+        /// An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

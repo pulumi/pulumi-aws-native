@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Outputs.DomainAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
+        /// The lifecycle configuration that runs before the default lifecycle configuration.
+        /// </summary>
+        public readonly string? BuiltInLifecycleConfigArn;
+        /// <summary>
         /// A list of custom images for use for CodeEditor apps.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainCustomImage> CustomImages;
@@ -37,6 +41,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private DomainCodeEditorAppSettings(
             Outputs.DomainAppLifecycleManagement? appLifecycleManagement,
 
+            string? builtInLifecycleConfigArn,
+
             ImmutableArray<Outputs.DomainCustomImage> customImages,
 
             Outputs.DomainResourceSpec? defaultResourceSpec,
@@ -44,6 +50,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             ImmutableArray<string> lifecycleConfigArns)
         {
             AppLifecycleManagement = appLifecycleManagement;
+            BuiltInLifecycleConfigArn = builtInLifecycleConfigArn;
             CustomImages = customImages;
             DefaultResourceSpec = defaultResourceSpec;
             LifecycleConfigArns = lifecycleConfigArns;

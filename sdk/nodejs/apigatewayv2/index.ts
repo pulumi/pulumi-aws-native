@@ -80,6 +80,11 @@ export const getRouteResponse: typeof import("./getRouteResponse").getRouteRespo
 export const getRouteResponseOutput: typeof import("./getRouteResponse").getRouteResponseOutput = null as any;
 utilities.lazyLoad(exports, ["getRouteResponse","getRouteResponseOutput"], () => require("./getRouteResponse"));
 
+export { GetRoutingRuleArgs, GetRoutingRuleResult, GetRoutingRuleOutputArgs } from "./getRoutingRule";
+export const getRoutingRule: typeof import("./getRoutingRule").getRoutingRule = null as any;
+export const getRoutingRuleOutput: typeof import("./getRoutingRule").getRoutingRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getRoutingRule","getRoutingRuleOutput"], () => require("./getRoutingRule"));
+
 export { GetVpcLinkArgs, GetVpcLinkResult, GetVpcLinkOutputArgs } from "./getVpcLink";
 export const getVpcLink: typeof import("./getVpcLink").getVpcLink = null as any;
 export const getVpcLinkOutput: typeof import("./getVpcLink").getVpcLinkOutput = null as any;
@@ -110,11 +115,19 @@ export type RouteResponse = import("./routeResponse").RouteResponse;
 export const RouteResponse: typeof import("./routeResponse").RouteResponse = null as any;
 utilities.lazyLoad(exports, ["RouteResponse"], () => require("./routeResponse"));
 
+export { RoutingRuleArgs } from "./routingRule";
+export type RoutingRule = import("./routingRule").RoutingRule;
+export const RoutingRule: typeof import("./routingRule").RoutingRule = null as any;
+utilities.lazyLoad(exports, ["RoutingRule"], () => require("./routingRule"));
+
 export { VpcLinkArgs } from "./vpcLink";
 export type VpcLink = import("./vpcLink").VpcLink;
 export const VpcLink: typeof import("./vpcLink").VpcLink = null as any;
 utilities.lazyLoad(exports, ["VpcLink"], () => require("./vpcLink"));
 
+
+// Export enums:
+export * from "../types/enums/apigatewayv2";
 
 const _module = {
     version: utilities.getVersion(),
@@ -140,6 +153,8 @@ const _module = {
                 return new Route(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:RouteResponse":
                 return new RouteResponse(name, <any>undefined, { urn })
+            case "aws-native:apigatewayv2:RoutingRule":
+                return new RoutingRule(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:VpcLink":
                 return new VpcLink(name, <any>undefined, { urn })
             default:

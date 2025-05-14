@@ -76,7 +76,7 @@ class AwaitableGetRegistryScanningConfigurationResult(GetRegistryScanningConfigu
 def get_registry_scanning_configuration(registry_id: Optional[builtins.str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryScanningConfigurationResult:
     """
-    The AWS::ECR::RegistryScanningConfiguration controls the scanning configuration for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
+    The scanning configuration for a private registry.
 
 
     :param builtins.str registry_id: The account ID of the destination registry.
@@ -93,7 +93,7 @@ def get_registry_scanning_configuration(registry_id: Optional[builtins.str] = No
 def get_registry_scanning_configuration_output(registry_id: Optional[pulumi.Input[builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryScanningConfigurationResult]:
     """
-    The AWS::ECR::RegistryScanningConfiguration controls the scanning configuration for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
+    The scanning configuration for a private registry.
 
 
     :param builtins.str registry_id: The account ID of the destination registry.

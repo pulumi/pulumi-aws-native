@@ -23,8 +23,12 @@ type App struct {
 	AppName pulumi.StringOutput `pulumi:"appName"`
 	// The type of app.
 	AppType AppTypeOutput `pulumi:"appType"`
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	BuiltInLifecycleConfigArn pulumi.StringOutput `pulumi:"builtInLifecycleConfigArn"`
 	// The domain ID.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
+	// Indicates whether the application is launched in recovery mode.
+	RecoveryMode pulumi.BoolPtrOutput `pulumi:"recoveryMode"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	ResourceSpec AppResourceSpecPtrOutput `pulumi:"resourceSpec"`
 	// A list of tags to apply to the app.
@@ -97,6 +101,8 @@ type appArgs struct {
 	AppType AppType `pulumi:"appType"`
 	// The domain ID.
 	DomainId string `pulumi:"domainId"`
+	// Indicates whether the application is launched in recovery mode.
+	RecoveryMode *bool `pulumi:"recoveryMode"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
 	// A list of tags to apply to the app.
@@ -113,6 +119,8 @@ type AppArgs struct {
 	AppType AppTypeInput
 	// The domain ID.
 	DomainId pulumi.StringInput
+	// Indicates whether the application is launched in recovery mode.
+	RecoveryMode pulumi.BoolPtrInput
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	ResourceSpec AppResourceSpecPtrInput
 	// A list of tags to apply to the app.
@@ -173,9 +181,19 @@ func (o AppOutput) AppType() AppTypeOutput {
 	return o.ApplyT(func(v *App) AppTypeOutput { return v.AppType }).(AppTypeOutput)
 }
 
+// The lifecycle configuration that runs before the default lifecycle configuration.
+func (o AppOutput) BuiltInLifecycleConfigArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.BuiltInLifecycleConfigArn }).(pulumi.StringOutput)
+}
+
 // The domain ID.
 func (o AppOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
+}
+
+// Indicates whether the application is launched in recovery mode.
+func (o AppOutput) RecoveryMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.BoolPtrOutput { return v.RecoveryMode }).(pulumi.BoolPtrOutput)
 }
 
 // The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.

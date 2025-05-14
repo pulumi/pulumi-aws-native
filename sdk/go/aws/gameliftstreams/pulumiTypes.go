@@ -75,9 +75,9 @@ func (o ApplicationRuntimeEnvironmentOutput) Version() pulumi.StringOutput {
 }
 
 type StreamGroupDefaultApplication struct {
-	// An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Format example: `arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6` .
+	// An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
 	Arn *string `pulumi:"arn"`
-	// An ID that uniquely identifies the application resource. For example: `a-9ZY8X7Wv6` .
+	// An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
 	Id *string `pulumi:"id"`
 }
 
@@ -93,9 +93,9 @@ type StreamGroupDefaultApplicationInput interface {
 }
 
 type StreamGroupDefaultApplicationArgs struct {
-	// An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Format example: `arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6` .
+	// An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// An ID that uniquely identifies the application resource. For example: `a-9ZY8X7Wv6` .
+	// An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -176,12 +176,12 @@ func (o StreamGroupDefaultApplicationOutput) ToStreamGroupDefaultApplicationPtrO
 	}).(StreamGroupDefaultApplicationPtrOutput)
 }
 
-// An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Format example: `arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6` .
+// An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
 func (o StreamGroupDefaultApplicationOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamGroupDefaultApplication) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// An ID that uniquely identifies the application resource. For example: `a-9ZY8X7Wv6` .
+// An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
 func (o StreamGroupDefaultApplicationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamGroupDefaultApplication) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -210,7 +210,7 @@ func (o StreamGroupDefaultApplicationPtrOutput) Elem() StreamGroupDefaultApplica
 	}).(StreamGroupDefaultApplicationOutput)
 }
 
-// An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Format example: `arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6` .
+// An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
 func (o StreamGroupDefaultApplicationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamGroupDefaultApplication) *string {
 		if v == nil {
@@ -220,7 +220,7 @@ func (o StreamGroupDefaultApplicationPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An ID that uniquely identifies the application resource. For example: `a-9ZY8X7Wv6` .
+// An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
 func (o StreamGroupDefaultApplicationPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamGroupDefaultApplication) *string {
 		if v == nil {
@@ -233,7 +233,7 @@ func (o StreamGroupDefaultApplicationPtrOutput) Id() pulumi.StringPtrOutput {
 type StreamGroupLocationConfiguration struct {
 	// The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session.
 	AlwaysOnCapacity *int `pulumi:"alwaysOnCapacity"`
-	// A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions and quotas](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
+	// A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
 	LocationName string `pulumi:"locationName"`
 	// The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes).
 	OnDemandCapacity *int `pulumi:"onDemandCapacity"`
@@ -253,7 +253,7 @@ type StreamGroupLocationConfigurationInput interface {
 type StreamGroupLocationConfigurationArgs struct {
 	// The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session.
 	AlwaysOnCapacity pulumi.IntPtrInput `pulumi:"alwaysOnCapacity"`
-	// A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions and quotas](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
+	// A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
 	LocationName pulumi.StringInput `pulumi:"locationName"`
 	// The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes).
 	OnDemandCapacity pulumi.IntPtrInput `pulumi:"onDemandCapacity"`
@@ -315,7 +315,7 @@ func (o StreamGroupLocationConfigurationOutput) AlwaysOnCapacity() pulumi.IntPtr
 	return o.ApplyT(func(v StreamGroupLocationConfiguration) *int { return v.AlwaysOnCapacity }).(pulumi.IntPtrOutput)
 }
 
-// A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions and quotas](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
+// A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
 func (o StreamGroupLocationConfigurationOutput) LocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamGroupLocationConfiguration) string { return v.LocationName }).(pulumi.StringOutput)
 }

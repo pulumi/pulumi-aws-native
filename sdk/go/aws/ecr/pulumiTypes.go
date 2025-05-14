@@ -13,9 +13,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// The details of a scanning repository filter.
+// The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
 type RegistryScanningConfigurationRepositoryFilter struct {
-	Filter     string                                  `pulumi:"filter"`
+	// The filter to use when scanning.
+	Filter string `pulumi:"filter"`
+	// The type associated with the filter.
 	FilterType RegistryScanningConfigurationFilterType `pulumi:"filterType"`
 }
 
@@ -30,9 +32,11 @@ type RegistryScanningConfigurationRepositoryFilterInput interface {
 	ToRegistryScanningConfigurationRepositoryFilterOutputWithContext(context.Context) RegistryScanningConfigurationRepositoryFilterOutput
 }
 
-// The details of a scanning repository filter.
+// The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
 type RegistryScanningConfigurationRepositoryFilterArgs struct {
-	Filter     pulumi.StringInput                           `pulumi:"filter"`
+	// The filter to use when scanning.
+	Filter pulumi.StringInput `pulumi:"filter"`
+	// The type associated with the filter.
 	FilterType RegistryScanningConfigurationFilterTypeInput `pulumi:"filterType"`
 }
 
@@ -73,7 +77,7 @@ func (i RegistryScanningConfigurationRepositoryFilterArray) ToRegistryScanningCo
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationRepositoryFilterArrayOutput)
 }
 
-// The details of a scanning repository filter.
+// The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
 type RegistryScanningConfigurationRepositoryFilterOutput struct{ *pulumi.OutputState }
 
 func (RegistryScanningConfigurationRepositoryFilterOutput) ElementType() reflect.Type {
@@ -88,10 +92,12 @@ func (o RegistryScanningConfigurationRepositoryFilterOutput) ToRegistryScanningC
 	return o
 }
 
+// The filter to use when scanning.
 func (o RegistryScanningConfigurationRepositoryFilterOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryScanningConfigurationRepositoryFilter) string { return v.Filter }).(pulumi.StringOutput)
 }
 
+// The type associated with the filter.
 func (o RegistryScanningConfigurationRepositoryFilterOutput) FilterType() RegistryScanningConfigurationFilterTypeOutput {
 	return o.ApplyT(func(v RegistryScanningConfigurationRepositoryFilter) RegistryScanningConfigurationFilterType {
 		return v.FilterType
@@ -118,11 +124,12 @@ func (o RegistryScanningConfigurationRepositoryFilterArrayOutput) Index(i pulumi
 	}).(RegistryScanningConfigurationRepositoryFilterOutput)
 }
 
-// A rule representing the details of a scanning configuration.
+// The scanning rules associated with the registry.
 type RegistryScanningConfigurationScanningRule struct {
-	// The repository filters associated with the scanning configuration for a private registry.
+	// The details of a scanning repository filter. For more information on how to use filters, see [Using filters](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html#image-scanning-filters) in the *Amazon Elastic Container Registry User Guide*.
 	RepositoryFilters []RegistryScanningConfigurationRepositoryFilter `pulumi:"repositoryFilters"`
-	ScanFrequency     RegistryScanningConfigurationScanFrequency      `pulumi:"scanFrequency"`
+	// The frequency that scans are performed at for a private registry. When the ``ENHANCED`` scan type is specified, the supported scan frequencies are ``CONTINUOUS_SCAN`` and ``SCAN_ON_PUSH``. When the ``BASIC`` scan type is specified, the ``SCAN_ON_PUSH`` scan frequency is supported. If scan on push is not specified, then the ``MANUAL`` scan frequency is set by default.
+	ScanFrequency RegistryScanningConfigurationScanFrequency `pulumi:"scanFrequency"`
 }
 
 // RegistryScanningConfigurationScanningRuleInput is an input type that accepts RegistryScanningConfigurationScanningRuleArgs and RegistryScanningConfigurationScanningRuleOutput values.
@@ -136,11 +143,12 @@ type RegistryScanningConfigurationScanningRuleInput interface {
 	ToRegistryScanningConfigurationScanningRuleOutputWithContext(context.Context) RegistryScanningConfigurationScanningRuleOutput
 }
 
-// A rule representing the details of a scanning configuration.
+// The scanning rules associated with the registry.
 type RegistryScanningConfigurationScanningRuleArgs struct {
-	// The repository filters associated with the scanning configuration for a private registry.
+	// The details of a scanning repository filter. For more information on how to use filters, see [Using filters](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html#image-scanning-filters) in the *Amazon Elastic Container Registry User Guide*.
 	RepositoryFilters RegistryScanningConfigurationRepositoryFilterArrayInput `pulumi:"repositoryFilters"`
-	ScanFrequency     RegistryScanningConfigurationScanFrequencyInput         `pulumi:"scanFrequency"`
+	// The frequency that scans are performed at for a private registry. When the ``ENHANCED`` scan type is specified, the supported scan frequencies are ``CONTINUOUS_SCAN`` and ``SCAN_ON_PUSH``. When the ``BASIC`` scan type is specified, the ``SCAN_ON_PUSH`` scan frequency is supported. If scan on push is not specified, then the ``MANUAL`` scan frequency is set by default.
+	ScanFrequency RegistryScanningConfigurationScanFrequencyInput `pulumi:"scanFrequency"`
 }
 
 func (RegistryScanningConfigurationScanningRuleArgs) ElementType() reflect.Type {
@@ -180,7 +188,7 @@ func (i RegistryScanningConfigurationScanningRuleArray) ToRegistryScanningConfig
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationScanningRuleArrayOutput)
 }
 
-// A rule representing the details of a scanning configuration.
+// The scanning rules associated with the registry.
 type RegistryScanningConfigurationScanningRuleOutput struct{ *pulumi.OutputState }
 
 func (RegistryScanningConfigurationScanningRuleOutput) ElementType() reflect.Type {
@@ -195,13 +203,14 @@ func (o RegistryScanningConfigurationScanningRuleOutput) ToRegistryScanningConfi
 	return o
 }
 
-// The repository filters associated with the scanning configuration for a private registry.
+// The details of a scanning repository filter. For more information on how to use filters, see [Using filters](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html#image-scanning-filters) in the *Amazon Elastic Container Registry User Guide*.
 func (o RegistryScanningConfigurationScanningRuleOutput) RepositoryFilters() RegistryScanningConfigurationRepositoryFilterArrayOutput {
 	return o.ApplyT(func(v RegistryScanningConfigurationScanningRule) []RegistryScanningConfigurationRepositoryFilter {
 		return v.RepositoryFilters
 	}).(RegistryScanningConfigurationRepositoryFilterArrayOutput)
 }
 
+// The frequency that scans are performed at for a private registry. When the “ENHANCED“ scan type is specified, the supported scan frequencies are “CONTINUOUS_SCAN“ and “SCAN_ON_PUSH“. When the “BASIC“ scan type is specified, the “SCAN_ON_PUSH“ scan frequency is supported. If scan on push is not specified, then the “MANUAL“ scan frequency is set by default.
 func (o RegistryScanningConfigurationScanningRuleOutput) ScanFrequency() RegistryScanningConfigurationScanFrequencyOutput {
 	return o.ApplyT(func(v RegistryScanningConfigurationScanningRule) RegistryScanningConfigurationScanFrequency {
 		return v.ScanFrequency

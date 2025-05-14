@@ -26,14 +26,6 @@ export interface GetDeliveryStreamArgs {
 
 export interface GetDeliveryStreamResult {
     /**
-     * Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
-     */
-    readonly amazonOpenSearchServerlessDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration;
-    /**
-     * The destination in Amazon OpenSearch Service. You can specify only one destination.
-     */
-    readonly amazonopensearchserviceDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfiguration;
-    /**
      * The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
      */
     readonly arn?: string;
@@ -41,14 +33,6 @@ export interface GetDeliveryStreamResult {
      * Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
      */
     readonly deliveryStreamEncryptionConfigurationInput?: outputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationInput;
-    /**
-     * An Amazon ES destination for the delivery stream.
-     *
-     * Conditional. You must specify only one destination configuration.
-     *
-     * If you change the delivery stream destination from an Amazon ES destination to an Amazon S3 or Amazon Redshift destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
-     */
-    readonly elasticsearchDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfiguration;
     /**
      * An Amazon S3 destination for the delivery stream.
      *
@@ -62,10 +46,6 @@ export interface GetDeliveryStreamResult {
      */
     readonly httpEndpointDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration;
     /**
-     * Specifies the destination configure settings for Apache Iceberg Table.
-     */
-    readonly icebergDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamIcebergDestinationConfiguration;
-    /**
      * An Amazon Redshift destination for the delivery stream.
      *
      * Conditional. You must specify only one destination configuration.
@@ -73,18 +53,6 @@ export interface GetDeliveryStreamResult {
      * If you change the delivery stream destination from an Amazon Redshift destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
     readonly redshiftDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfiguration;
-    /**
-     * The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-     *
-     * Conditional. You must specify only one destination configuration.
-     *
-     * If you change the delivery stream destination from an Amazon S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
-     */
-    readonly s3DestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
-    /**
-     * Configure Snowflake destination
-     */
-    readonly snowflakeDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfiguration;
     /**
      * The configuration of a destination in Splunk for the delivery stream.
      */

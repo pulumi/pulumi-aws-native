@@ -155,8 +155,14 @@ type BackupPlanBackupRuleResourceType struct {
 	// An array of CopyAction objects, which contains the details of the copy operation.
 	CopyActions []BackupPlanCopyActionResourceType `pulumi:"copyActions"`
 	// Enables continuous backup and point-in-time restores (PITR).
-	EnableContinuousBackup *bool                                `pulumi:"enableContinuousBackup"`
-	IndexActions           []BackupPlanIndexActionsResourceType `pulumi:"indexActions"`
+	EnableContinuousBackup *bool `pulumi:"enableContinuousBackup"`
+	// There can up to one IndexAction in each BackupRule, as each backup can have 0 or 1 backup index associated with it.
+	//
+	// Within the array is ResourceTypes. Only 1 resource type will be accepted for each BackupRule. Valid values:
+	//
+	// - `EBS` for Amazon Elastic Block Store
+	// - `S3` for Amazon Simple Storage Service (Amazon S3)
+	IndexActions []BackupPlanIndexActionsResourceType `pulumi:"indexActions"`
 	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
 	Lifecycle *BackupPlanLifecycleResourceType `pulumi:"lifecycle"`
 	// The tags to assign to the resources.
@@ -192,8 +198,14 @@ type BackupPlanBackupRuleResourceTypeArgs struct {
 	// An array of CopyAction objects, which contains the details of the copy operation.
 	CopyActions BackupPlanCopyActionResourceTypeArrayInput `pulumi:"copyActions"`
 	// Enables continuous backup and point-in-time restores (PITR).
-	EnableContinuousBackup pulumi.BoolPtrInput                          `pulumi:"enableContinuousBackup"`
-	IndexActions           BackupPlanIndexActionsResourceTypeArrayInput `pulumi:"indexActions"`
+	EnableContinuousBackup pulumi.BoolPtrInput `pulumi:"enableContinuousBackup"`
+	// There can up to one IndexAction in each BackupRule, as each backup can have 0 or 1 backup index associated with it.
+	//
+	// Within the array is ResourceTypes. Only 1 resource type will be accepted for each BackupRule. Valid values:
+	//
+	// - `EBS` for Amazon Elastic Block Store
+	// - `S3` for Amazon Simple Storage Service (Amazon S3)
+	IndexActions BackupPlanIndexActionsResourceTypeArrayInput `pulumi:"indexActions"`
 	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
 	Lifecycle BackupPlanLifecycleResourceTypePtrInput `pulumi:"lifecycle"`
 	// The tags to assign to the resources.
@@ -278,6 +290,12 @@ func (o BackupPlanBackupRuleResourceTypeOutput) EnableContinuousBackup() pulumi.
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *bool { return v.EnableContinuousBackup }).(pulumi.BoolPtrOutput)
 }
 
+// There can up to one IndexAction in each BackupRule, as each backup can have 0 or 1 backup index associated with it.
+//
+// Within the array is ResourceTypes. Only 1 resource type will be accepted for each BackupRule. Valid values:
+//
+// - `EBS` for Amazon Elastic Block Store
+// - `S3` for Amazon Simple Storage Service (Amazon S3)
 func (o BackupPlanBackupRuleResourceTypeOutput) IndexActions() BackupPlanIndexActionsResourceTypeArrayOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) []BackupPlanIndexActionsResourceType { return v.IndexActions }).(BackupPlanIndexActionsResourceTypeArrayOutput)
 }
@@ -452,6 +470,12 @@ func (o BackupPlanCopyActionResourceTypeArrayOutput) Index(i pulumi.IntInput) Ba
 }
 
 type BackupPlanIndexActionsResourceType struct {
+	// 0 or 1 index action will be accepted for each BackupRule.
+	//
+	// Valid values:
+	//
+	// - `EBS` for Amazon Elastic Block Store
+	// - `S3` for Amazon Simple Storage Service (Amazon S3)
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
@@ -467,6 +491,12 @@ type BackupPlanIndexActionsResourceTypeInput interface {
 }
 
 type BackupPlanIndexActionsResourceTypeArgs struct {
+	// 0 or 1 index action will be accepted for each BackupRule.
+	//
+	// Valid values:
+	//
+	// - `EBS` for Amazon Elastic Block Store
+	// - `S3` for Amazon Simple Storage Service (Amazon S3)
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 }
 
@@ -521,6 +551,12 @@ func (o BackupPlanIndexActionsResourceTypeOutput) ToBackupPlanIndexActionsResour
 	return o
 }
 
+// 0 or 1 index action will be accepted for each BackupRule.
+//
+// Valid values:
+//
+// - `EBS` for Amazon Elastic Block Store
+// - `S3` for Amazon Simple Storage Service (Amazon S3)
 func (o BackupPlanIndexActionsResourceTypeOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupPlanIndexActionsResourceType) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -546,9 +582,9 @@ func (o BackupPlanIndexActionsResourceTypeArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type BackupPlanLifecycleResourceType struct {
-	// Specifies the number of days after creation that a recovery point is deleted. Must be greater than `MoveToColdStorageAfterDays` .
+	// The number of days after creation that a recovery point is deleted. This value must be at least 90 days after the number of days specified in `MoveToColdStorageAfterDays` .
 	DeleteAfterDays *float64 `pulumi:"deleteAfterDays"`
-	// Specifies the number of days after creation that a recovery point is moved to cold storage.
+	// The number of days after creation that a recovery point is moved to cold storage.
 	MoveToColdStorageAfterDays *float64 `pulumi:"moveToColdStorageAfterDays"`
 	// If the value is true, your backup plan transitions supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
 	OptInToArchiveForSupportedResources *bool `pulumi:"optInToArchiveForSupportedResources"`
@@ -566,9 +602,9 @@ type BackupPlanLifecycleResourceTypeInput interface {
 }
 
 type BackupPlanLifecycleResourceTypeArgs struct {
-	// Specifies the number of days after creation that a recovery point is deleted. Must be greater than `MoveToColdStorageAfterDays` .
+	// The number of days after creation that a recovery point is deleted. This value must be at least 90 days after the number of days specified in `MoveToColdStorageAfterDays` .
 	DeleteAfterDays pulumi.Float64PtrInput `pulumi:"deleteAfterDays"`
-	// Specifies the number of days after creation that a recovery point is moved to cold storage.
+	// The number of days after creation that a recovery point is moved to cold storage.
 	MoveToColdStorageAfterDays pulumi.Float64PtrInput `pulumi:"moveToColdStorageAfterDays"`
 	// If the value is true, your backup plan transitions supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
 	OptInToArchiveForSupportedResources pulumi.BoolPtrInput `pulumi:"optInToArchiveForSupportedResources"`
@@ -651,12 +687,12 @@ func (o BackupPlanLifecycleResourceTypeOutput) ToBackupPlanLifecycleResourceType
 	}).(BackupPlanLifecycleResourceTypePtrOutput)
 }
 
-// Specifies the number of days after creation that a recovery point is deleted. Must be greater than `MoveToColdStorageAfterDays` .
+// The number of days after creation that a recovery point is deleted. This value must be at least 90 days after the number of days specified in `MoveToColdStorageAfterDays` .
 func (o BackupPlanLifecycleResourceTypeOutput) DeleteAfterDays() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v BackupPlanLifecycleResourceType) *float64 { return v.DeleteAfterDays }).(pulumi.Float64PtrOutput)
 }
 
-// Specifies the number of days after creation that a recovery point is moved to cold storage.
+// The number of days after creation that a recovery point is moved to cold storage.
 func (o BackupPlanLifecycleResourceTypeOutput) MoveToColdStorageAfterDays() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v BackupPlanLifecycleResourceType) *float64 { return v.MoveToColdStorageAfterDays }).(pulumi.Float64PtrOutput)
 }
@@ -690,7 +726,7 @@ func (o BackupPlanLifecycleResourceTypePtrOutput) Elem() BackupPlanLifecycleReso
 	}).(BackupPlanLifecycleResourceTypeOutput)
 }
 
-// Specifies the number of days after creation that a recovery point is deleted. Must be greater than `MoveToColdStorageAfterDays` .
+// The number of days after creation that a recovery point is deleted. This value must be at least 90 days after the number of days specified in `MoveToColdStorageAfterDays` .
 func (o BackupPlanLifecycleResourceTypePtrOutput) DeleteAfterDays() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *BackupPlanLifecycleResourceType) *float64 {
 		if v == nil {
@@ -700,7 +736,7 @@ func (o BackupPlanLifecycleResourceTypePtrOutput) DeleteAfterDays() pulumi.Float
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Specifies the number of days after creation that a recovery point is moved to cold storage.
+// The number of days after creation that a recovery point is moved to cold storage.
 func (o BackupPlanLifecycleResourceTypePtrOutput) MoveToColdStorageAfterDays() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *BackupPlanLifecycleResourceType) *float64 {
 		if v == nil {

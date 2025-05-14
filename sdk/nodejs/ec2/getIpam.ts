@@ -54,6 +54,10 @@ export interface GetIpamResult {
      */
     readonly ipamId?: string;
     /**
+     * A metered account is an account that is charged for active IP addresses managed in IPAM
+     */
+    readonly meteredAccount?: enums.ec2.IpamMeteredAccount;
+    /**
      * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
      */
     readonly operatingRegions?: outputs.ec2.IpamOperatingRegion[];

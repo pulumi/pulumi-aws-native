@@ -33,6 +33,7 @@ class VolumeArgs:
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  throughput: Optional[pulumi.Input[builtins.int]] = None,
+                 volume_initialization_rate: Optional[pulumi.Input[builtins.int]] = None,
                  volume_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Volume resource.
@@ -42,9 +43,9 @@ class VolumeArgs:
                 Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
         :param pulumi.Input[builtins.int] iops: The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
                 The following are the supported values for each volume type:
-                 +   ``gp3``: 3,000 - 16,000 IOPS
-                 +   ``io1``: 100 - 64,000 IOPS
-                 +   ``io2``: 100 - 256,000 IOPS
+                 +  ``gp3``: 3,000 - 16,000 IOPS
+                 +  ``io1``: 100 - 64,000 IOPS
+                 +  ``io2``: 100 - 256,000 IOPS
                  
                 For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
                 This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
@@ -56,26 +57,38 @@ class VolumeArgs:
                  +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
                  +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
         :param pulumi.Input[builtins.bool] multi_attach_enabled: Indicates whether Amazon EBS Multi-Attach is enabled.
-                 CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
+                CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[builtins.int] size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
                 The following are the supported volumes sizes for each volume type:
-                 +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
-                 +   ``io1``: 4 - 16,384 GiB
-                 +   ``io2``: 4 - 65,536 GiB
-                 +   ``st1`` and ``sc1``: 125 - 16,384 GiB
-                 +   ``standard``: 1 - 1024 GiB
+                 +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+                 +  ``io1``: 4 - 16,384 GiB
+                 +  ``io2``: 4 - 65,536 GiB
+                 +  ``st1`` and ``sc1``: 125 - 16,384 GiB
+                 +  ``standard``: 1 - 1024 GiB
         :param pulumi.Input[builtins.str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to apply to the volume during creation.
         :param pulumi.Input[builtins.int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
                 This parameter is valid only for ``gp3`` volumes. The default value is 125.
                 Valid Range: Minimum value of 125. Maximum value of 1000.
+        :param pulumi.Input[builtins.int] volume_initialization_rate: Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+               
+               This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+               
+               - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+               
+               > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+               - You want to create a volume that is initialized at the default rate.
+               
+               For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+               
+               Valid range: 100 - 300 MiB/s
         :param pulumi.Input[builtins.str] volume_type: The volume type. This parameter can be one of the following values:
-                 +  General Purpose SSD: ``gp2`` | ``gp3`` 
-                 +  Provisioned IOPS SSD: ``io1`` | ``io2`` 
-                 +  Throughput Optimized HDD: ``st1`` 
-                 +  Cold HDD: ``sc1`` 
-                 +  Magnetic: ``standard`` 
+                 +  General Purpose SSD: ``gp2`` | ``gp3``
+                 +  Provisioned IOPS SSD: ``io1`` | ``io2``
+                 +  Throughput Optimized HDD: ``st1``
+                 +  Cold HDD: ``sc1``
+                 +  Magnetic: ``standard``
                  
                 For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html).
                 Default: ``gp2``
@@ -101,6 +114,8 @@ class VolumeArgs:
             pulumi.set(__self__, "tags", tags)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
+        if volume_initialization_rate is not None:
+            pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         if volume_type is not None:
             pulumi.set(__self__, "volume_type", volume_type)
 
@@ -147,9 +162,9 @@ class VolumeArgs:
         """
         The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
          The following are the supported values for each volume type:
-          +   ``gp3``: 3,000 - 16,000 IOPS
-          +   ``io1``: 100 - 64,000 IOPS
-          +   ``io2``: 100 - 256,000 IOPS
+          +  ``gp3``: 3,000 - 16,000 IOPS
+          +  ``io1``: 100 - 64,000 IOPS
+          +  ``io2``: 100 - 256,000 IOPS
           
          For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
          This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
@@ -183,7 +198,7 @@ class VolumeArgs:
     def multi_attach_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Indicates whether Amazon EBS Multi-Attach is enabled.
-          CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
+         CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
         """
         return pulumi.get(self, "multi_attach_enabled")
 
@@ -209,11 +224,11 @@ class VolumeArgs:
         """
         The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
          The following are the supported volumes sizes for each volume type:
-          +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
-          +   ``io1``: 4 - 16,384 GiB
-          +   ``io2``: 4 - 65,536 GiB
-          +   ``st1`` and ``sc1``: 125 - 16,384 GiB
-          +   ``standard``: 1 - 1024 GiB
+          +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+          +  ``io1``: 4 - 16,384 GiB
+          +  ``io2``: 4 - 65,536 GiB
+          +  ``st1`` and ``sc1``: 125 - 16,384 GiB
+          +  ``standard``: 1 - 1024 GiB
         """
         return pulumi.get(self, "size")
 
@@ -260,15 +275,38 @@ class VolumeArgs:
         pulumi.set(self, "throughput", value)
 
     @property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+
+        This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+
+        - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+
+        > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+        - You want to create a volume that is initialized at the default rate.
+
+        For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+
+        Valid range: 100 - 300 MiB/s
+        """
+        return pulumi.get(self, "volume_initialization_rate")
+
+    @volume_initialization_rate.setter
+    def volume_initialization_rate(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "volume_initialization_rate", value)
+
+    @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The volume type. This parameter can be one of the following values:
-          +  General Purpose SSD: ``gp2`` | ``gp3`` 
-          +  Provisioned IOPS SSD: ``io1`` | ``io2`` 
-          +  Throughput Optimized HDD: ``st1`` 
-          +  Cold HDD: ``sc1`` 
-          +  Magnetic: ``standard`` 
+          +  General Purpose SSD: ``gp2`` | ``gp3``
+          +  Provisioned IOPS SSD: ``io1`` | ``io2``
+          +  Throughput Optimized HDD: ``st1``
+          +  Cold HDD: ``sc1``
+          +  Magnetic: ``standard``
           
          For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html).
          Default: ``gp2``
@@ -299,6 +337,7 @@ class Volume(pulumi.CustomResource):
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  throughput: Optional[pulumi.Input[builtins.int]] = None,
+                 volume_initialization_rate: Optional[pulumi.Input[builtins.int]] = None,
                  volume_type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -329,9 +368,9 @@ class Volume(pulumi.CustomResource):
                 Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
         :param pulumi.Input[builtins.int] iops: The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
                 The following are the supported values for each volume type:
-                 +   ``gp3``: 3,000 - 16,000 IOPS
-                 +   ``io1``: 100 - 64,000 IOPS
-                 +   ``io2``: 100 - 256,000 IOPS
+                 +  ``gp3``: 3,000 - 16,000 IOPS
+                 +  ``io1``: 100 - 64,000 IOPS
+                 +  ``io2``: 100 - 256,000 IOPS
                  
                 For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
                 This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
@@ -343,26 +382,38 @@ class Volume(pulumi.CustomResource):
                  +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
                  +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
         :param pulumi.Input[builtins.bool] multi_attach_enabled: Indicates whether Amazon EBS Multi-Attach is enabled.
-                 CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
+                CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[builtins.int] size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
                 The following are the supported volumes sizes for each volume type:
-                 +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
-                 +   ``io1``: 4 - 16,384 GiB
-                 +   ``io2``: 4 - 65,536 GiB
-                 +   ``st1`` and ``sc1``: 125 - 16,384 GiB
-                 +   ``standard``: 1 - 1024 GiB
+                 +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+                 +  ``io1``: 4 - 16,384 GiB
+                 +  ``io2``: 4 - 65,536 GiB
+                 +  ``st1`` and ``sc1``: 125 - 16,384 GiB
+                 +  ``standard``: 1 - 1024 GiB
         :param pulumi.Input[builtins.str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the volume during creation.
         :param pulumi.Input[builtins.int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
                 This parameter is valid only for ``gp3`` volumes. The default value is 125.
                 Valid Range: Minimum value of 125. Maximum value of 1000.
+        :param pulumi.Input[builtins.int] volume_initialization_rate: Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+               
+               This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+               
+               - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+               
+               > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+               - You want to create a volume that is initialized at the default rate.
+               
+               For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+               
+               Valid range: 100 - 300 MiB/s
         :param pulumi.Input[builtins.str] volume_type: The volume type. This parameter can be one of the following values:
-                 +  General Purpose SSD: ``gp2`` | ``gp3`` 
-                 +  Provisioned IOPS SSD: ``io1`` | ``io2`` 
-                 +  Throughput Optimized HDD: ``st1`` 
-                 +  Cold HDD: ``sc1`` 
-                 +  Magnetic: ``standard`` 
+                 +  General Purpose SSD: ``gp2`` | ``gp3``
+                 +  Provisioned IOPS SSD: ``io1`` | ``io2``
+                 +  Throughput Optimized HDD: ``st1``
+                 +  Cold HDD: ``sc1``
+                 +  Magnetic: ``standard``
                  
                 For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html).
                 Default: ``gp2``
@@ -419,6 +470,7 @@ class Volume(pulumi.CustomResource):
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  throughput: Optional[pulumi.Input[builtins.int]] = None,
+                 volume_initialization_rate: Optional[pulumi.Input[builtins.int]] = None,
                  volume_type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -442,6 +494,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["snapshot_id"] = snapshot_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["throughput"] = throughput
+            __props__.__dict__["volume_initialization_rate"] = volume_initialization_rate
             __props__.__dict__["volume_type"] = volume_type
             __props__.__dict__["volume_id"] = None
         super(Volume, __self__).__init__(
@@ -478,6 +531,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["throughput"] = None
         __props__.__dict__["volume_id"] = None
+        __props__.__dict__["volume_initialization_rate"] = None
         __props__.__dict__["volume_type"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
 
@@ -512,9 +566,9 @@ class Volume(pulumi.CustomResource):
         """
         The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
          The following are the supported values for each volume type:
-          +   ``gp3``: 3,000 - 16,000 IOPS
-          +   ``io1``: 100 - 64,000 IOPS
-          +   ``io2``: 100 - 256,000 IOPS
+          +  ``gp3``: 3,000 - 16,000 IOPS
+          +  ``io1``: 100 - 64,000 IOPS
+          +  ``io2``: 100 - 256,000 IOPS
           
          For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
          This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
@@ -540,7 +594,7 @@ class Volume(pulumi.CustomResource):
     def multi_attach_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Indicates whether Amazon EBS Multi-Attach is enabled.
-          CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
+         CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
         """
         return pulumi.get(self, "multi_attach_enabled")
 
@@ -558,11 +612,11 @@ class Volume(pulumi.CustomResource):
         """
         The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
          The following are the supported volumes sizes for each volume type:
-          +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
-          +   ``io1``: 4 - 16,384 GiB
-          +   ``io2``: 4 - 65,536 GiB
-          +   ``st1`` and ``sc1``: 125 - 16,384 GiB
-          +   ``standard``: 1 - 1024 GiB
+          +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+          +  ``io1``: 4 - 16,384 GiB
+          +  ``io2``: 4 - 65,536 GiB
+          +  ``st1`` and ``sc1``: 125 - 16,384 GiB
+          +  ``standard``: 1 - 1024 GiB
         """
         return pulumi.get(self, "size")
 
@@ -601,15 +655,34 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "volume_id")
 
     @property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> pulumi.Output[Optional[builtins.int]]:
+        """
+        Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+
+        This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+
+        - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+
+        > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+        - You want to create a volume that is initialized at the default rate.
+
+        For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+
+        Valid range: 100 - 300 MiB/s
+        """
+        return pulumi.get(self, "volume_initialization_rate")
+
+    @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         The volume type. This parameter can be one of the following values:
-          +  General Purpose SSD: ``gp2`` | ``gp3`` 
-          +  Provisioned IOPS SSD: ``io1`` | ``io2`` 
-          +  Throughput Optimized HDD: ``st1`` 
-          +  Cold HDD: ``sc1`` 
-          +  Magnetic: ``standard`` 
+          +  General Purpose SSD: ``gp2`` | ``gp3``
+          +  Provisioned IOPS SSD: ``io1`` | ``io2``
+          +  Throughput Optimized HDD: ``st1``
+          +  Cold HDD: ``sc1``
+          +  Magnetic: ``standard``
           
          For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html).
          Default: ``gp2``

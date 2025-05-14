@@ -118,7 +118,7 @@ class GetRepositoryCreationTemplateResult:
     @pulumi.getter(name="repositoryPolicy")
     def repository_policy(self) -> Optional[builtins.str]:
         """
-        he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+        The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
         """
         return pulumi.get(self, "repository_policy")
 

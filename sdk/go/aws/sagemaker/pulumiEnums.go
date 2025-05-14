@@ -1773,6 +1773,535 @@ func (in *dataQualityJobDefinitionS3OutputS3UploadModePtr) ToDataQualityJobDefin
 	return pulumi.ToOutputWithContext(ctx, in).(DataQualityJobDefinitionS3OutputS3UploadModePtrOutput)
 }
 
+// The instance type that the image version runs on.
+type DomainAppInstanceType string
+
+const (
+	DomainAppInstanceTypeSystem                  = DomainAppInstanceType("system")
+	DomainAppInstanceTypeMlT3Micro               = DomainAppInstanceType("ml.t3.micro")
+	DomainAppInstanceTypeMlT3Small               = DomainAppInstanceType("ml.t3.small")
+	DomainAppInstanceTypeMlT3Medium              = DomainAppInstanceType("ml.t3.medium")
+	DomainAppInstanceTypeMlT3Large               = DomainAppInstanceType("ml.t3.large")
+	DomainAppInstanceTypeMlT3Xlarge              = DomainAppInstanceType("ml.t3.xlarge")
+	DomainAppInstanceTypeMlT32xlarge             = DomainAppInstanceType("ml.t3.2xlarge")
+	DomainAppInstanceTypeMlM5Large               = DomainAppInstanceType("ml.m5.large")
+	DomainAppInstanceTypeMlM5Xlarge              = DomainAppInstanceType("ml.m5.xlarge")
+	DomainAppInstanceTypeMlM52xlarge             = DomainAppInstanceType("ml.m5.2xlarge")
+	DomainAppInstanceTypeMlM54xlarge             = DomainAppInstanceType("ml.m5.4xlarge")
+	DomainAppInstanceTypeMlM58xlarge             = DomainAppInstanceType("ml.m5.8xlarge")
+	DomainAppInstanceTypeMlM512xlarge            = DomainAppInstanceType("ml.m5.12xlarge")
+	DomainAppInstanceTypeMlM516xlarge            = DomainAppInstanceType("ml.m5.16xlarge")
+	DomainAppInstanceTypeMlM524xlarge            = DomainAppInstanceType("ml.m5.24xlarge")
+	DomainAppInstanceTypeMlM5dLarge              = DomainAppInstanceType("ml.m5d.large")
+	DomainAppInstanceTypeMlM5dXlarge             = DomainAppInstanceType("ml.m5d.xlarge")
+	DomainAppInstanceTypeMlM5d2xlarge            = DomainAppInstanceType("ml.m5d.2xlarge")
+	DomainAppInstanceTypeMlM5d4xlarge            = DomainAppInstanceType("ml.m5d.4xlarge")
+	DomainAppInstanceTypeMlM5d8xlarge            = DomainAppInstanceType("ml.m5d.8xlarge")
+	DomainAppInstanceTypeMlM5d12xlarge           = DomainAppInstanceType("ml.m5d.12xlarge")
+	DomainAppInstanceTypeMlM5d16xlarge           = DomainAppInstanceType("ml.m5d.16xlarge")
+	DomainAppInstanceTypeMlM5d24xlarge           = DomainAppInstanceType("ml.m5d.24xlarge")
+	DomainAppInstanceTypeMlC5Large               = DomainAppInstanceType("ml.c5.large")
+	DomainAppInstanceTypeMlC5Xlarge              = DomainAppInstanceType("ml.c5.xlarge")
+	DomainAppInstanceTypeMlC52xlarge             = DomainAppInstanceType("ml.c5.2xlarge")
+	DomainAppInstanceTypeMlC54xlarge             = DomainAppInstanceType("ml.c5.4xlarge")
+	DomainAppInstanceTypeMlC59xlarge             = DomainAppInstanceType("ml.c5.9xlarge")
+	DomainAppInstanceTypeMlC512xlarge            = DomainAppInstanceType("ml.c5.12xlarge")
+	DomainAppInstanceTypeMlC518xlarge            = DomainAppInstanceType("ml.c5.18xlarge")
+	DomainAppInstanceTypeMlC524xlarge            = DomainAppInstanceType("ml.c5.24xlarge")
+	DomainAppInstanceTypeMlP32xlarge             = DomainAppInstanceType("ml.p3.2xlarge")
+	DomainAppInstanceTypeMlP38xlarge             = DomainAppInstanceType("ml.p3.8xlarge")
+	DomainAppInstanceTypeMlP316xlarge            = DomainAppInstanceType("ml.p3.16xlarge")
+	DomainAppInstanceTypeMlP3dn24xlarge          = DomainAppInstanceType("ml.p3dn.24xlarge")
+	DomainAppInstanceTypeMlG4dnXlarge            = DomainAppInstanceType("ml.g4dn.xlarge")
+	DomainAppInstanceTypeMlG4dn2xlarge           = DomainAppInstanceType("ml.g4dn.2xlarge")
+	DomainAppInstanceTypeMlG4dn4xlarge           = DomainAppInstanceType("ml.g4dn.4xlarge")
+	DomainAppInstanceTypeMlG4dn8xlarge           = DomainAppInstanceType("ml.g4dn.8xlarge")
+	DomainAppInstanceTypeMlG4dn12xlarge          = DomainAppInstanceType("ml.g4dn.12xlarge")
+	DomainAppInstanceTypeMlG4dn16xlarge          = DomainAppInstanceType("ml.g4dn.16xlarge")
+	DomainAppInstanceTypeMlR5Large               = DomainAppInstanceType("ml.r5.large")
+	DomainAppInstanceTypeMlR5Xlarge              = DomainAppInstanceType("ml.r5.xlarge")
+	DomainAppInstanceTypeMlR52xlarge             = DomainAppInstanceType("ml.r5.2xlarge")
+	DomainAppInstanceTypeMlR54xlarge             = DomainAppInstanceType("ml.r5.4xlarge")
+	DomainAppInstanceTypeMlR58xlarge             = DomainAppInstanceType("ml.r5.8xlarge")
+	DomainAppInstanceTypeMlR512xlarge            = DomainAppInstanceType("ml.r5.12xlarge")
+	DomainAppInstanceTypeMlR516xlarge            = DomainAppInstanceType("ml.r5.16xlarge")
+	DomainAppInstanceTypeMlR524xlarge            = DomainAppInstanceType("ml.r5.24xlarge")
+	DomainAppInstanceTypeMlG5Xlarge              = DomainAppInstanceType("ml.g5.xlarge")
+	DomainAppInstanceTypeMlG52xlarge             = DomainAppInstanceType("ml.g5.2xlarge")
+	DomainAppInstanceTypeMlG54xlarge             = DomainAppInstanceType("ml.g5.4xlarge")
+	DomainAppInstanceTypeMlG58xlarge             = DomainAppInstanceType("ml.g5.8xlarge")
+	DomainAppInstanceTypeMlG512xlarge            = DomainAppInstanceType("ml.g5.12xlarge")
+	DomainAppInstanceTypeMlG516xlarge            = DomainAppInstanceType("ml.g5.16xlarge")
+	DomainAppInstanceTypeMlG524xlarge            = DomainAppInstanceType("ml.g5.24xlarge")
+	DomainAppInstanceTypeMlG548xlarge            = DomainAppInstanceType("ml.g5.48xlarge")
+	DomainAppInstanceTypeMlG6Xlarge              = DomainAppInstanceType("ml.g6.xlarge")
+	DomainAppInstanceTypeMlG62xlarge             = DomainAppInstanceType("ml.g6.2xlarge")
+	DomainAppInstanceTypeMlG64xlarge             = DomainAppInstanceType("ml.g6.4xlarge")
+	DomainAppInstanceTypeMlG68xlarge             = DomainAppInstanceType("ml.g6.8xlarge")
+	DomainAppInstanceTypeMlG612xlarge            = DomainAppInstanceType("ml.g6.12xlarge")
+	DomainAppInstanceTypeMlG616xlarge            = DomainAppInstanceType("ml.g6.16xlarge")
+	DomainAppInstanceTypeMlG624xlarge            = DomainAppInstanceType("ml.g6.24xlarge")
+	DomainAppInstanceTypeMlG648xlarge            = DomainAppInstanceType("ml.g6.48xlarge")
+	DomainAppInstanceTypeMlG6eXlarge             = DomainAppInstanceType("ml.g6e.xlarge")
+	DomainAppInstanceTypeMlG6e2xlarge            = DomainAppInstanceType("ml.g6e.2xlarge")
+	DomainAppInstanceTypeMlG6e4xlarge            = DomainAppInstanceType("ml.g6e.4xlarge")
+	DomainAppInstanceTypeMlG6e8xlarge            = DomainAppInstanceType("ml.g6e.8xlarge")
+	DomainAppInstanceTypeMlG6e12xlarge           = DomainAppInstanceType("ml.g6e.12xlarge")
+	DomainAppInstanceTypeMlG6e16xlarge           = DomainAppInstanceType("ml.g6e.16xlarge")
+	DomainAppInstanceTypeMlG6e24xlarge           = DomainAppInstanceType("ml.g6e.24xlarge")
+	DomainAppInstanceTypeMlG6e48xlarge           = DomainAppInstanceType("ml.g6e.48xlarge")
+	DomainAppInstanceTypeMlGeospatialInteractive = DomainAppInstanceType("ml.geospatial.interactive")
+	DomainAppInstanceTypeMlP4d24xlarge           = DomainAppInstanceType("ml.p4d.24xlarge")
+	DomainAppInstanceTypeMlP4de24xlarge          = DomainAppInstanceType("ml.p4de.24xlarge")
+	DomainAppInstanceTypeMlTrn12xlarge           = DomainAppInstanceType("ml.trn1.2xlarge")
+	DomainAppInstanceTypeMlTrn132xlarge          = DomainAppInstanceType("ml.trn1.32xlarge")
+	DomainAppInstanceTypeMlTrn1n32xlarge         = DomainAppInstanceType("ml.trn1n.32xlarge")
+	DomainAppInstanceTypeMlP548xlarge            = DomainAppInstanceType("ml.p5.48xlarge")
+	DomainAppInstanceTypeMlM6iLarge              = DomainAppInstanceType("ml.m6i.large")
+	DomainAppInstanceTypeMlM6iXlarge             = DomainAppInstanceType("ml.m6i.xlarge")
+	DomainAppInstanceTypeMlM6i2xlarge            = DomainAppInstanceType("ml.m6i.2xlarge")
+	DomainAppInstanceTypeMlM6i4xlarge            = DomainAppInstanceType("ml.m6i.4xlarge")
+	DomainAppInstanceTypeMlM6i8xlarge            = DomainAppInstanceType("ml.m6i.8xlarge")
+	DomainAppInstanceTypeMlM6i12xlarge           = DomainAppInstanceType("ml.m6i.12xlarge")
+	DomainAppInstanceTypeMlM6i16xlarge           = DomainAppInstanceType("ml.m6i.16xlarge")
+	DomainAppInstanceTypeMlM6i24xlarge           = DomainAppInstanceType("ml.m6i.24xlarge")
+	DomainAppInstanceTypeMlM6i32xlarge           = DomainAppInstanceType("ml.m6i.32xlarge")
+	DomainAppInstanceTypeMlM7iLarge              = DomainAppInstanceType("ml.m7i.large")
+	DomainAppInstanceTypeMlM7iXlarge             = DomainAppInstanceType("ml.m7i.xlarge")
+	DomainAppInstanceTypeMlM7i2xlarge            = DomainAppInstanceType("ml.m7i.2xlarge")
+	DomainAppInstanceTypeMlM7i4xlarge            = DomainAppInstanceType("ml.m7i.4xlarge")
+	DomainAppInstanceTypeMlM7i8xlarge            = DomainAppInstanceType("ml.m7i.8xlarge")
+	DomainAppInstanceTypeMlM7i12xlarge           = DomainAppInstanceType("ml.m7i.12xlarge")
+	DomainAppInstanceTypeMlM7i16xlarge           = DomainAppInstanceType("ml.m7i.16xlarge")
+	DomainAppInstanceTypeMlM7i24xlarge           = DomainAppInstanceType("ml.m7i.24xlarge")
+	DomainAppInstanceTypeMlM7i48xlarge           = DomainAppInstanceType("ml.m7i.48xlarge")
+	DomainAppInstanceTypeMlC6iLarge              = DomainAppInstanceType("ml.c6i.large")
+	DomainAppInstanceTypeMlC6iXlarge             = DomainAppInstanceType("ml.c6i.xlarge")
+	DomainAppInstanceTypeMlC6i2xlarge            = DomainAppInstanceType("ml.c6i.2xlarge")
+	DomainAppInstanceTypeMlC6i4xlarge            = DomainAppInstanceType("ml.c6i.4xlarge")
+	DomainAppInstanceTypeMlC6i8xlarge            = DomainAppInstanceType("ml.c6i.8xlarge")
+	DomainAppInstanceTypeMlC6i12xlarge           = DomainAppInstanceType("ml.c6i.12xlarge")
+	DomainAppInstanceTypeMlC6i16xlarge           = DomainAppInstanceType("ml.c6i.16xlarge")
+	DomainAppInstanceTypeMlC6i24xlarge           = DomainAppInstanceType("ml.c6i.24xlarge")
+	DomainAppInstanceTypeMlC6i32xlarge           = DomainAppInstanceType("ml.c6i.32xlarge")
+	DomainAppInstanceTypeMlC7iLarge              = DomainAppInstanceType("ml.c7i.large")
+	DomainAppInstanceTypeMlC7iXlarge             = DomainAppInstanceType("ml.c7i.xlarge")
+	DomainAppInstanceTypeMlC7i2xlarge            = DomainAppInstanceType("ml.c7i.2xlarge")
+	DomainAppInstanceTypeMlC7i4xlarge            = DomainAppInstanceType("ml.c7i.4xlarge")
+	DomainAppInstanceTypeMlC7i8xlarge            = DomainAppInstanceType("ml.c7i.8xlarge")
+	DomainAppInstanceTypeMlC7i12xlarge           = DomainAppInstanceType("ml.c7i.12xlarge")
+	DomainAppInstanceTypeMlC7i16xlarge           = DomainAppInstanceType("ml.c7i.16xlarge")
+	DomainAppInstanceTypeMlC7i24xlarge           = DomainAppInstanceType("ml.c7i.24xlarge")
+	DomainAppInstanceTypeMlC7i48xlarge           = DomainAppInstanceType("ml.c7i.48xlarge")
+	DomainAppInstanceTypeMlR6iLarge              = DomainAppInstanceType("ml.r6i.large")
+	DomainAppInstanceTypeMlR6iXlarge             = DomainAppInstanceType("ml.r6i.xlarge")
+	DomainAppInstanceTypeMlR6i2xlarge            = DomainAppInstanceType("ml.r6i.2xlarge")
+	DomainAppInstanceTypeMlR6i4xlarge            = DomainAppInstanceType("ml.r6i.4xlarge")
+	DomainAppInstanceTypeMlR6i8xlarge            = DomainAppInstanceType("ml.r6i.8xlarge")
+	DomainAppInstanceTypeMlR6i12xlarge           = DomainAppInstanceType("ml.r6i.12xlarge")
+	DomainAppInstanceTypeMlR6i16xlarge           = DomainAppInstanceType("ml.r6i.16xlarge")
+	DomainAppInstanceTypeMlR6i24xlarge           = DomainAppInstanceType("ml.r6i.24xlarge")
+	DomainAppInstanceTypeMlR6i32xlarge           = DomainAppInstanceType("ml.r6i.32xlarge")
+	DomainAppInstanceTypeMlR7iLarge              = DomainAppInstanceType("ml.r7i.large")
+	DomainAppInstanceTypeMlR7iXlarge             = DomainAppInstanceType("ml.r7i.xlarge")
+	DomainAppInstanceTypeMlR7i2xlarge            = DomainAppInstanceType("ml.r7i.2xlarge")
+	DomainAppInstanceTypeMlR7i4xlarge            = DomainAppInstanceType("ml.r7i.4xlarge")
+	DomainAppInstanceTypeMlR7i8xlarge            = DomainAppInstanceType("ml.r7i.8xlarge")
+	DomainAppInstanceTypeMlR7i12xlarge           = DomainAppInstanceType("ml.r7i.12xlarge")
+	DomainAppInstanceTypeMlR7i16xlarge           = DomainAppInstanceType("ml.r7i.16xlarge")
+	DomainAppInstanceTypeMlR7i24xlarge           = DomainAppInstanceType("ml.r7i.24xlarge")
+	DomainAppInstanceTypeMlR7i48xlarge           = DomainAppInstanceType("ml.r7i.48xlarge")
+	DomainAppInstanceTypeMlM6idLarge             = DomainAppInstanceType("ml.m6id.large")
+	DomainAppInstanceTypeMlM6idXlarge            = DomainAppInstanceType("ml.m6id.xlarge")
+	DomainAppInstanceTypeMlM6id2xlarge           = DomainAppInstanceType("ml.m6id.2xlarge")
+	DomainAppInstanceTypeMlM6id4xlarge           = DomainAppInstanceType("ml.m6id.4xlarge")
+	DomainAppInstanceTypeMlM6id8xlarge           = DomainAppInstanceType("ml.m6id.8xlarge")
+	DomainAppInstanceTypeMlM6id12xlarge          = DomainAppInstanceType("ml.m6id.12xlarge")
+	DomainAppInstanceTypeMlM6id16xlarge          = DomainAppInstanceType("ml.m6id.16xlarge")
+	DomainAppInstanceTypeMlM6id24xlarge          = DomainAppInstanceType("ml.m6id.24xlarge")
+	DomainAppInstanceTypeMlM6id32xlarge          = DomainAppInstanceType("ml.m6id.32xlarge")
+	DomainAppInstanceTypeMlC6idLarge             = DomainAppInstanceType("ml.c6id.large")
+	DomainAppInstanceTypeMlC6idXlarge            = DomainAppInstanceType("ml.c6id.xlarge")
+	DomainAppInstanceTypeMlC6id2xlarge           = DomainAppInstanceType("ml.c6id.2xlarge")
+	DomainAppInstanceTypeMlC6id4xlarge           = DomainAppInstanceType("ml.c6id.4xlarge")
+	DomainAppInstanceTypeMlC6id8xlarge           = DomainAppInstanceType("ml.c6id.8xlarge")
+	DomainAppInstanceTypeMlC6id12xlarge          = DomainAppInstanceType("ml.c6id.12xlarge")
+	DomainAppInstanceTypeMlC6id16xlarge          = DomainAppInstanceType("ml.c6id.16xlarge")
+	DomainAppInstanceTypeMlC6id24xlarge          = DomainAppInstanceType("ml.c6id.24xlarge")
+	DomainAppInstanceTypeMlC6id32xlarge          = DomainAppInstanceType("ml.c6id.32xlarge")
+	DomainAppInstanceTypeMlR6idLarge             = DomainAppInstanceType("ml.r6id.large")
+	DomainAppInstanceTypeMlR6idXlarge            = DomainAppInstanceType("ml.r6id.xlarge")
+	DomainAppInstanceTypeMlR6id2xlarge           = DomainAppInstanceType("ml.r6id.2xlarge")
+	DomainAppInstanceTypeMlR6id4xlarge           = DomainAppInstanceType("ml.r6id.4xlarge")
+	DomainAppInstanceTypeMlR6id8xlarge           = DomainAppInstanceType("ml.r6id.8xlarge")
+	DomainAppInstanceTypeMlR6id12xlarge          = DomainAppInstanceType("ml.r6id.12xlarge")
+	DomainAppInstanceTypeMlR6id16xlarge          = DomainAppInstanceType("ml.r6id.16xlarge")
+	DomainAppInstanceTypeMlR6id24xlarge          = DomainAppInstanceType("ml.r6id.24xlarge")
+	DomainAppInstanceTypeMlR6id32xlarge          = DomainAppInstanceType("ml.r6id.32xlarge")
+)
+
+func (DomainAppInstanceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAppInstanceType)(nil)).Elem()
+}
+
+func (e DomainAppInstanceType) ToDomainAppInstanceTypeOutput() DomainAppInstanceTypeOutput {
+	return pulumi.ToOutput(e).(DomainAppInstanceTypeOutput)
+}
+
+func (e DomainAppInstanceType) ToDomainAppInstanceTypeOutputWithContext(ctx context.Context) DomainAppInstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainAppInstanceTypeOutput)
+}
+
+func (e DomainAppInstanceType) ToDomainAppInstanceTypePtrOutput() DomainAppInstanceTypePtrOutput {
+	return e.ToDomainAppInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainAppInstanceType) ToDomainAppInstanceTypePtrOutputWithContext(ctx context.Context) DomainAppInstanceTypePtrOutput {
+	return DomainAppInstanceType(e).ToDomainAppInstanceTypeOutputWithContext(ctx).ToDomainAppInstanceTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainAppInstanceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainAppInstanceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainAppInstanceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainAppInstanceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainAppInstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainAppInstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAppInstanceType)(nil)).Elem()
+}
+
+func (o DomainAppInstanceTypeOutput) ToDomainAppInstanceTypeOutput() DomainAppInstanceTypeOutput {
+	return o
+}
+
+func (o DomainAppInstanceTypeOutput) ToDomainAppInstanceTypeOutputWithContext(ctx context.Context) DomainAppInstanceTypeOutput {
+	return o
+}
+
+func (o DomainAppInstanceTypeOutput) ToDomainAppInstanceTypePtrOutput() DomainAppInstanceTypePtrOutput {
+	return o.ToDomainAppInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainAppInstanceTypeOutput) ToDomainAppInstanceTypePtrOutputWithContext(ctx context.Context) DomainAppInstanceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAppInstanceType) *DomainAppInstanceType {
+		return &v
+	}).(DomainAppInstanceTypePtrOutput)
+}
+
+func (o DomainAppInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainAppInstanceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAppInstanceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainAppInstanceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAppInstanceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAppInstanceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainAppInstanceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAppInstanceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAppInstanceType)(nil)).Elem()
+}
+
+func (o DomainAppInstanceTypePtrOutput) ToDomainAppInstanceTypePtrOutput() DomainAppInstanceTypePtrOutput {
+	return o
+}
+
+func (o DomainAppInstanceTypePtrOutput) ToDomainAppInstanceTypePtrOutputWithContext(ctx context.Context) DomainAppInstanceTypePtrOutput {
+	return o
+}
+
+func (o DomainAppInstanceTypePtrOutput) Elem() DomainAppInstanceTypeOutput {
+	return o.ApplyT(func(v *DomainAppInstanceType) DomainAppInstanceType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAppInstanceType
+		return ret
+	}).(DomainAppInstanceTypeOutput)
+}
+
+func (o DomainAppInstanceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAppInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainAppInstanceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainAppInstanceTypeInput is an input type that accepts values of the DomainAppInstanceType enum
+// A concrete instance of `DomainAppInstanceTypeInput` can be one of the following:
+//
+//	DomainAppInstanceTypeSystem
+//	DomainAppInstanceTypeMlT3Micro
+//	DomainAppInstanceTypeMlT3Small
+//	DomainAppInstanceTypeMlT3Medium
+//	DomainAppInstanceTypeMlT3Large
+//	DomainAppInstanceTypeMlT3Xlarge
+//	DomainAppInstanceTypeMlT32xlarge
+//	DomainAppInstanceTypeMlM5Large
+//	DomainAppInstanceTypeMlM5Xlarge
+//	DomainAppInstanceTypeMlM52xlarge
+//	DomainAppInstanceTypeMlM54xlarge
+//	DomainAppInstanceTypeMlM58xlarge
+//	DomainAppInstanceTypeMlM512xlarge
+//	DomainAppInstanceTypeMlM516xlarge
+//	DomainAppInstanceTypeMlM524xlarge
+//	DomainAppInstanceTypeMlM5dLarge
+//	DomainAppInstanceTypeMlM5dXlarge
+//	DomainAppInstanceTypeMlM5d2xlarge
+//	DomainAppInstanceTypeMlM5d4xlarge
+//	DomainAppInstanceTypeMlM5d8xlarge
+//	DomainAppInstanceTypeMlM5d12xlarge
+//	DomainAppInstanceTypeMlM5d16xlarge
+//	DomainAppInstanceTypeMlM5d24xlarge
+//	DomainAppInstanceTypeMlC5Large
+//	DomainAppInstanceTypeMlC5Xlarge
+//	DomainAppInstanceTypeMlC52xlarge
+//	DomainAppInstanceTypeMlC54xlarge
+//	DomainAppInstanceTypeMlC59xlarge
+//	DomainAppInstanceTypeMlC512xlarge
+//	DomainAppInstanceTypeMlC518xlarge
+//	DomainAppInstanceTypeMlC524xlarge
+//	DomainAppInstanceTypeMlP32xlarge
+//	DomainAppInstanceTypeMlP38xlarge
+//	DomainAppInstanceTypeMlP316xlarge
+//	DomainAppInstanceTypeMlP3dn24xlarge
+//	DomainAppInstanceTypeMlG4dnXlarge
+//	DomainAppInstanceTypeMlG4dn2xlarge
+//	DomainAppInstanceTypeMlG4dn4xlarge
+//	DomainAppInstanceTypeMlG4dn8xlarge
+//	DomainAppInstanceTypeMlG4dn12xlarge
+//	DomainAppInstanceTypeMlG4dn16xlarge
+//	DomainAppInstanceTypeMlR5Large
+//	DomainAppInstanceTypeMlR5Xlarge
+//	DomainAppInstanceTypeMlR52xlarge
+//	DomainAppInstanceTypeMlR54xlarge
+//	DomainAppInstanceTypeMlR58xlarge
+//	DomainAppInstanceTypeMlR512xlarge
+//	DomainAppInstanceTypeMlR516xlarge
+//	DomainAppInstanceTypeMlR524xlarge
+//	DomainAppInstanceTypeMlG5Xlarge
+//	DomainAppInstanceTypeMlG52xlarge
+//	DomainAppInstanceTypeMlG54xlarge
+//	DomainAppInstanceTypeMlG58xlarge
+//	DomainAppInstanceTypeMlG512xlarge
+//	DomainAppInstanceTypeMlG516xlarge
+//	DomainAppInstanceTypeMlG524xlarge
+//	DomainAppInstanceTypeMlG548xlarge
+//	DomainAppInstanceTypeMlG6Xlarge
+//	DomainAppInstanceTypeMlG62xlarge
+//	DomainAppInstanceTypeMlG64xlarge
+//	DomainAppInstanceTypeMlG68xlarge
+//	DomainAppInstanceTypeMlG612xlarge
+//	DomainAppInstanceTypeMlG616xlarge
+//	DomainAppInstanceTypeMlG624xlarge
+//	DomainAppInstanceTypeMlG648xlarge
+//	DomainAppInstanceTypeMlG6eXlarge
+//	DomainAppInstanceTypeMlG6e2xlarge
+//	DomainAppInstanceTypeMlG6e4xlarge
+//	DomainAppInstanceTypeMlG6e8xlarge
+//	DomainAppInstanceTypeMlG6e12xlarge
+//	DomainAppInstanceTypeMlG6e16xlarge
+//	DomainAppInstanceTypeMlG6e24xlarge
+//	DomainAppInstanceTypeMlG6e48xlarge
+//	DomainAppInstanceTypeMlGeospatialInteractive
+//	DomainAppInstanceTypeMlP4d24xlarge
+//	DomainAppInstanceTypeMlP4de24xlarge
+//	DomainAppInstanceTypeMlTrn12xlarge
+//	DomainAppInstanceTypeMlTrn132xlarge
+//	DomainAppInstanceTypeMlTrn1n32xlarge
+//	DomainAppInstanceTypeMlP548xlarge
+//	DomainAppInstanceTypeMlM6iLarge
+//	DomainAppInstanceTypeMlM6iXlarge
+//	DomainAppInstanceTypeMlM6i2xlarge
+//	DomainAppInstanceTypeMlM6i4xlarge
+//	DomainAppInstanceTypeMlM6i8xlarge
+//	DomainAppInstanceTypeMlM6i12xlarge
+//	DomainAppInstanceTypeMlM6i16xlarge
+//	DomainAppInstanceTypeMlM6i24xlarge
+//	DomainAppInstanceTypeMlM6i32xlarge
+//	DomainAppInstanceTypeMlM7iLarge
+//	DomainAppInstanceTypeMlM7iXlarge
+//	DomainAppInstanceTypeMlM7i2xlarge
+//	DomainAppInstanceTypeMlM7i4xlarge
+//	DomainAppInstanceTypeMlM7i8xlarge
+//	DomainAppInstanceTypeMlM7i12xlarge
+//	DomainAppInstanceTypeMlM7i16xlarge
+//	DomainAppInstanceTypeMlM7i24xlarge
+//	DomainAppInstanceTypeMlM7i48xlarge
+//	DomainAppInstanceTypeMlC6iLarge
+//	DomainAppInstanceTypeMlC6iXlarge
+//	DomainAppInstanceTypeMlC6i2xlarge
+//	DomainAppInstanceTypeMlC6i4xlarge
+//	DomainAppInstanceTypeMlC6i8xlarge
+//	DomainAppInstanceTypeMlC6i12xlarge
+//	DomainAppInstanceTypeMlC6i16xlarge
+//	DomainAppInstanceTypeMlC6i24xlarge
+//	DomainAppInstanceTypeMlC6i32xlarge
+//	DomainAppInstanceTypeMlC7iLarge
+//	DomainAppInstanceTypeMlC7iXlarge
+//	DomainAppInstanceTypeMlC7i2xlarge
+//	DomainAppInstanceTypeMlC7i4xlarge
+//	DomainAppInstanceTypeMlC7i8xlarge
+//	DomainAppInstanceTypeMlC7i12xlarge
+//	DomainAppInstanceTypeMlC7i16xlarge
+//	DomainAppInstanceTypeMlC7i24xlarge
+//	DomainAppInstanceTypeMlC7i48xlarge
+//	DomainAppInstanceTypeMlR6iLarge
+//	DomainAppInstanceTypeMlR6iXlarge
+//	DomainAppInstanceTypeMlR6i2xlarge
+//	DomainAppInstanceTypeMlR6i4xlarge
+//	DomainAppInstanceTypeMlR6i8xlarge
+//	DomainAppInstanceTypeMlR6i12xlarge
+//	DomainAppInstanceTypeMlR6i16xlarge
+//	DomainAppInstanceTypeMlR6i24xlarge
+//	DomainAppInstanceTypeMlR6i32xlarge
+//	DomainAppInstanceTypeMlR7iLarge
+//	DomainAppInstanceTypeMlR7iXlarge
+//	DomainAppInstanceTypeMlR7i2xlarge
+//	DomainAppInstanceTypeMlR7i4xlarge
+//	DomainAppInstanceTypeMlR7i8xlarge
+//	DomainAppInstanceTypeMlR7i12xlarge
+//	DomainAppInstanceTypeMlR7i16xlarge
+//	DomainAppInstanceTypeMlR7i24xlarge
+//	DomainAppInstanceTypeMlR7i48xlarge
+//	DomainAppInstanceTypeMlM6idLarge
+//	DomainAppInstanceTypeMlM6idXlarge
+//	DomainAppInstanceTypeMlM6id2xlarge
+//	DomainAppInstanceTypeMlM6id4xlarge
+//	DomainAppInstanceTypeMlM6id8xlarge
+//	DomainAppInstanceTypeMlM6id12xlarge
+//	DomainAppInstanceTypeMlM6id16xlarge
+//	DomainAppInstanceTypeMlM6id24xlarge
+//	DomainAppInstanceTypeMlM6id32xlarge
+//	DomainAppInstanceTypeMlC6idLarge
+//	DomainAppInstanceTypeMlC6idXlarge
+//	DomainAppInstanceTypeMlC6id2xlarge
+//	DomainAppInstanceTypeMlC6id4xlarge
+//	DomainAppInstanceTypeMlC6id8xlarge
+//	DomainAppInstanceTypeMlC6id12xlarge
+//	DomainAppInstanceTypeMlC6id16xlarge
+//	DomainAppInstanceTypeMlC6id24xlarge
+//	DomainAppInstanceTypeMlC6id32xlarge
+//	DomainAppInstanceTypeMlR6idLarge
+//	DomainAppInstanceTypeMlR6idXlarge
+//	DomainAppInstanceTypeMlR6id2xlarge
+//	DomainAppInstanceTypeMlR6id4xlarge
+//	DomainAppInstanceTypeMlR6id8xlarge
+//	DomainAppInstanceTypeMlR6id12xlarge
+//	DomainAppInstanceTypeMlR6id16xlarge
+//	DomainAppInstanceTypeMlR6id24xlarge
+//	DomainAppInstanceTypeMlR6id32xlarge
+type DomainAppInstanceTypeInput interface {
+	pulumi.Input
+
+	ToDomainAppInstanceTypeOutput() DomainAppInstanceTypeOutput
+	ToDomainAppInstanceTypeOutputWithContext(context.Context) DomainAppInstanceTypeOutput
+}
+
+var domainAppInstanceTypePtrType = reflect.TypeOf((**DomainAppInstanceType)(nil)).Elem()
+
+type DomainAppInstanceTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainAppInstanceTypePtrOutput() DomainAppInstanceTypePtrOutput
+	ToDomainAppInstanceTypePtrOutputWithContext(context.Context) DomainAppInstanceTypePtrOutput
+}
+
+type domainAppInstanceTypePtr string
+
+func DomainAppInstanceTypePtr(v string) DomainAppInstanceTypePtrInput {
+	return (*domainAppInstanceTypePtr)(&v)
+}
+
+func (*domainAppInstanceTypePtr) ElementType() reflect.Type {
+	return domainAppInstanceTypePtrType
+}
+
+func (in *domainAppInstanceTypePtr) ToDomainAppInstanceTypePtrOutput() DomainAppInstanceTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainAppInstanceTypePtrOutput)
+}
+
+func (in *domainAppInstanceTypePtr) ToDomainAppInstanceTypePtrOutputWithContext(ctx context.Context) DomainAppInstanceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainAppInstanceTypePtrOutput)
+}
+
+// DomainAppInstanceTypeArrayInput is an input type that accepts DomainAppInstanceTypeArray and DomainAppInstanceTypeArrayOutput values.
+// You can construct a concrete instance of `DomainAppInstanceTypeArrayInput` via:
+//
+//	DomainAppInstanceTypeArray{ DomainAppInstanceTypeArgs{...} }
+type DomainAppInstanceTypeArrayInput interface {
+	pulumi.Input
+
+	ToDomainAppInstanceTypeArrayOutput() DomainAppInstanceTypeArrayOutput
+	ToDomainAppInstanceTypeArrayOutputWithContext(context.Context) DomainAppInstanceTypeArrayOutput
+}
+
+type DomainAppInstanceTypeArray []DomainAppInstanceType
+
+func (DomainAppInstanceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainAppInstanceType)(nil)).Elem()
+}
+
+func (i DomainAppInstanceTypeArray) ToDomainAppInstanceTypeArrayOutput() DomainAppInstanceTypeArrayOutput {
+	return i.ToDomainAppInstanceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i DomainAppInstanceTypeArray) ToDomainAppInstanceTypeArrayOutputWithContext(ctx context.Context) DomainAppInstanceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAppInstanceTypeArrayOutput)
+}
+
+type DomainAppInstanceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainAppInstanceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainAppInstanceType)(nil)).Elem()
+}
+
+func (o DomainAppInstanceTypeArrayOutput) ToDomainAppInstanceTypeArrayOutput() DomainAppInstanceTypeArrayOutput {
+	return o
+}
+
+func (o DomainAppInstanceTypeArrayOutput) ToDomainAppInstanceTypeArrayOutputWithContext(ctx context.Context) DomainAppInstanceTypeArrayOutput {
+	return o
+}
+
+func (o DomainAppInstanceTypeArrayOutput) Index(i pulumi.IntInput) DomainAppInstanceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainAppInstanceType {
+		return vs[0].([]DomainAppInstanceType)[vs[1].(int)]
+	}).(DomainAppInstanceTypeOutput)
+}
+
 // Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
 type DomainAppNetworkAccessType string
 
@@ -2655,6 +3184,170 @@ func (in *domainDockerSettingsEnableDockerAccessPtr) ToDomainDockerSettingsEnabl
 
 func (in *domainDockerSettingsEnableDockerAccessPtr) ToDomainDockerSettingsEnableDockerAccessPtrOutputWithContext(ctx context.Context) DomainDockerSettingsEnableDockerAccessPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainDockerSettingsEnableDockerAccessPtrOutput)
+}
+
+// The SageMaker image name that you are hiding from the Studio user interface.
+type DomainHiddenSageMakerImageSageMakerImageName string
+
+const (
+	DomainHiddenSageMakerImageSageMakerImageNameSagemakerDistribution = DomainHiddenSageMakerImageSageMakerImageName("sagemaker_distribution")
+)
+
+func (DomainHiddenSageMakerImageSageMakerImageName) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainHiddenSageMakerImageSageMakerImageName)(nil)).Elem()
+}
+
+func (e DomainHiddenSageMakerImageSageMakerImageName) ToDomainHiddenSageMakerImageSageMakerImageNameOutput() DomainHiddenSageMakerImageSageMakerImageNameOutput {
+	return pulumi.ToOutput(e).(DomainHiddenSageMakerImageSageMakerImageNameOutput)
+}
+
+func (e DomainHiddenSageMakerImageSageMakerImageName) ToDomainHiddenSageMakerImageSageMakerImageNameOutputWithContext(ctx context.Context) DomainHiddenSageMakerImageSageMakerImageNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainHiddenSageMakerImageSageMakerImageNameOutput)
+}
+
+func (e DomainHiddenSageMakerImageSageMakerImageName) ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutput() DomainHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return e.ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(context.Background())
+}
+
+func (e DomainHiddenSageMakerImageSageMakerImageName) ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(ctx context.Context) DomainHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return DomainHiddenSageMakerImageSageMakerImageName(e).ToDomainHiddenSageMakerImageSageMakerImageNameOutputWithContext(ctx).ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(ctx)
+}
+
+func (e DomainHiddenSageMakerImageSageMakerImageName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainHiddenSageMakerImageSageMakerImageName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainHiddenSageMakerImageSageMakerImageName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainHiddenSageMakerImageSageMakerImageName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainHiddenSageMakerImageSageMakerImageNameOutput struct{ *pulumi.OutputState }
+
+func (DomainHiddenSageMakerImageSageMakerImageNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainHiddenSageMakerImageSageMakerImageName)(nil)).Elem()
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNameOutput) ToDomainHiddenSageMakerImageSageMakerImageNameOutput() DomainHiddenSageMakerImageSageMakerImageNameOutput {
+	return o
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNameOutput) ToDomainHiddenSageMakerImageSageMakerImageNameOutputWithContext(ctx context.Context) DomainHiddenSageMakerImageSageMakerImageNameOutput {
+	return o
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNameOutput) ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutput() DomainHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return o.ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(context.Background())
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNameOutput) ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(ctx context.Context) DomainHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainHiddenSageMakerImageSageMakerImageName) *DomainHiddenSageMakerImageSageMakerImageName {
+		return &v
+	}).(DomainHiddenSageMakerImageSageMakerImageNamePtrOutput)
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainHiddenSageMakerImageSageMakerImageName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainHiddenSageMakerImageSageMakerImageName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainHiddenSageMakerImageSageMakerImageNamePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainHiddenSageMakerImageSageMakerImageNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainHiddenSageMakerImageSageMakerImageName)(nil)).Elem()
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNamePtrOutput) ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutput() DomainHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return o
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNamePtrOutput) ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(ctx context.Context) DomainHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return o
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNamePtrOutput) Elem() DomainHiddenSageMakerImageSageMakerImageNameOutput {
+	return o.ApplyT(func(v *DomainHiddenSageMakerImageSageMakerImageName) DomainHiddenSageMakerImageSageMakerImageName {
+		if v != nil {
+			return *v
+		}
+		var ret DomainHiddenSageMakerImageSageMakerImageName
+		return ret
+	}).(DomainHiddenSageMakerImageSageMakerImageNameOutput)
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainHiddenSageMakerImageSageMakerImageNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainHiddenSageMakerImageSageMakerImageName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainHiddenSageMakerImageSageMakerImageNameInput is an input type that accepts values of the DomainHiddenSageMakerImageSageMakerImageName enum
+// A concrete instance of `DomainHiddenSageMakerImageSageMakerImageNameInput` can be one of the following:
+//
+//	DomainHiddenSageMakerImageSageMakerImageNameSagemakerDistribution
+type DomainHiddenSageMakerImageSageMakerImageNameInput interface {
+	pulumi.Input
+
+	ToDomainHiddenSageMakerImageSageMakerImageNameOutput() DomainHiddenSageMakerImageSageMakerImageNameOutput
+	ToDomainHiddenSageMakerImageSageMakerImageNameOutputWithContext(context.Context) DomainHiddenSageMakerImageSageMakerImageNameOutput
+}
+
+var domainHiddenSageMakerImageSageMakerImageNamePtrType = reflect.TypeOf((**DomainHiddenSageMakerImageSageMakerImageName)(nil)).Elem()
+
+type DomainHiddenSageMakerImageSageMakerImageNamePtrInput interface {
+	pulumi.Input
+
+	ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutput() DomainHiddenSageMakerImageSageMakerImageNamePtrOutput
+	ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(context.Context) DomainHiddenSageMakerImageSageMakerImageNamePtrOutput
+}
+
+type domainHiddenSageMakerImageSageMakerImageNamePtr string
+
+func DomainHiddenSageMakerImageSageMakerImageNamePtr(v string) DomainHiddenSageMakerImageSageMakerImageNamePtrInput {
+	return (*domainHiddenSageMakerImageSageMakerImageNamePtr)(&v)
+}
+
+func (*domainHiddenSageMakerImageSageMakerImageNamePtr) ElementType() reflect.Type {
+	return domainHiddenSageMakerImageSageMakerImageNamePtrType
+}
+
+func (in *domainHiddenSageMakerImageSageMakerImageNamePtr) ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutput() DomainHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return pulumi.ToOutput(in).(DomainHiddenSageMakerImageSageMakerImageNamePtrOutput)
+}
+
+func (in *domainHiddenSageMakerImageSageMakerImageNamePtr) ToDomainHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(ctx context.Context) DomainHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainHiddenSageMakerImageSageMakerImageNamePtrOutput)
 }
 
 // A flag to enable/disable AppLifecycleManagement settings
@@ -4185,6 +4878,174 @@ func (in *domainTagPropagationPtr) ToDomainTagPropagationPtrOutput() DomainTagPr
 
 func (in *domainTagPropagationPtr) ToDomainTagPropagationPtrOutputWithContext(ctx context.Context) DomainTagPropagationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainTagPropagationPtrOutput)
+}
+
+// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
+type DomainUserSettingsAutoMountHomeEfs string
+
+const (
+	DomainUserSettingsAutoMountHomeEfsEnabled         = DomainUserSettingsAutoMountHomeEfs("Enabled")
+	DomainUserSettingsAutoMountHomeEfsDisabled        = DomainUserSettingsAutoMountHomeEfs("Disabled")
+	DomainUserSettingsAutoMountHomeEfsDefaultAsDomain = DomainUserSettingsAutoMountHomeEfs("DefaultAsDomain")
+)
+
+func (DomainUserSettingsAutoMountHomeEfs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainUserSettingsAutoMountHomeEfs)(nil)).Elem()
+}
+
+func (e DomainUserSettingsAutoMountHomeEfs) ToDomainUserSettingsAutoMountHomeEfsOutput() DomainUserSettingsAutoMountHomeEfsOutput {
+	return pulumi.ToOutput(e).(DomainUserSettingsAutoMountHomeEfsOutput)
+}
+
+func (e DomainUserSettingsAutoMountHomeEfs) ToDomainUserSettingsAutoMountHomeEfsOutputWithContext(ctx context.Context) DomainUserSettingsAutoMountHomeEfsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainUserSettingsAutoMountHomeEfsOutput)
+}
+
+func (e DomainUserSettingsAutoMountHomeEfs) ToDomainUserSettingsAutoMountHomeEfsPtrOutput() DomainUserSettingsAutoMountHomeEfsPtrOutput {
+	return e.ToDomainUserSettingsAutoMountHomeEfsPtrOutputWithContext(context.Background())
+}
+
+func (e DomainUserSettingsAutoMountHomeEfs) ToDomainUserSettingsAutoMountHomeEfsPtrOutputWithContext(ctx context.Context) DomainUserSettingsAutoMountHomeEfsPtrOutput {
+	return DomainUserSettingsAutoMountHomeEfs(e).ToDomainUserSettingsAutoMountHomeEfsOutputWithContext(ctx).ToDomainUserSettingsAutoMountHomeEfsPtrOutputWithContext(ctx)
+}
+
+func (e DomainUserSettingsAutoMountHomeEfs) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainUserSettingsAutoMountHomeEfs) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainUserSettingsAutoMountHomeEfs) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainUserSettingsAutoMountHomeEfs) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainUserSettingsAutoMountHomeEfsOutput struct{ *pulumi.OutputState }
+
+func (DomainUserSettingsAutoMountHomeEfsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainUserSettingsAutoMountHomeEfs)(nil)).Elem()
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsOutput) ToDomainUserSettingsAutoMountHomeEfsOutput() DomainUserSettingsAutoMountHomeEfsOutput {
+	return o
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsOutput) ToDomainUserSettingsAutoMountHomeEfsOutputWithContext(ctx context.Context) DomainUserSettingsAutoMountHomeEfsOutput {
+	return o
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsOutput) ToDomainUserSettingsAutoMountHomeEfsPtrOutput() DomainUserSettingsAutoMountHomeEfsPtrOutput {
+	return o.ToDomainUserSettingsAutoMountHomeEfsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsOutput) ToDomainUserSettingsAutoMountHomeEfsPtrOutputWithContext(ctx context.Context) DomainUserSettingsAutoMountHomeEfsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainUserSettingsAutoMountHomeEfs) *DomainUserSettingsAutoMountHomeEfs {
+		return &v
+	}).(DomainUserSettingsAutoMountHomeEfsPtrOutput)
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainUserSettingsAutoMountHomeEfs) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainUserSettingsAutoMountHomeEfs) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainUserSettingsAutoMountHomeEfsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainUserSettingsAutoMountHomeEfsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainUserSettingsAutoMountHomeEfs)(nil)).Elem()
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsPtrOutput) ToDomainUserSettingsAutoMountHomeEfsPtrOutput() DomainUserSettingsAutoMountHomeEfsPtrOutput {
+	return o
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsPtrOutput) ToDomainUserSettingsAutoMountHomeEfsPtrOutputWithContext(ctx context.Context) DomainUserSettingsAutoMountHomeEfsPtrOutput {
+	return o
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsPtrOutput) Elem() DomainUserSettingsAutoMountHomeEfsOutput {
+	return o.ApplyT(func(v *DomainUserSettingsAutoMountHomeEfs) DomainUserSettingsAutoMountHomeEfs {
+		if v != nil {
+			return *v
+		}
+		var ret DomainUserSettingsAutoMountHomeEfs
+		return ret
+	}).(DomainUserSettingsAutoMountHomeEfsOutput)
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUserSettingsAutoMountHomeEfsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainUserSettingsAutoMountHomeEfs) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainUserSettingsAutoMountHomeEfsInput is an input type that accepts values of the DomainUserSettingsAutoMountHomeEfs enum
+// A concrete instance of `DomainUserSettingsAutoMountHomeEfsInput` can be one of the following:
+//
+//	DomainUserSettingsAutoMountHomeEfsEnabled
+//	DomainUserSettingsAutoMountHomeEfsDisabled
+//	DomainUserSettingsAutoMountHomeEfsDefaultAsDomain
+type DomainUserSettingsAutoMountHomeEfsInput interface {
+	pulumi.Input
+
+	ToDomainUserSettingsAutoMountHomeEfsOutput() DomainUserSettingsAutoMountHomeEfsOutput
+	ToDomainUserSettingsAutoMountHomeEfsOutputWithContext(context.Context) DomainUserSettingsAutoMountHomeEfsOutput
+}
+
+var domainUserSettingsAutoMountHomeEfsPtrType = reflect.TypeOf((**DomainUserSettingsAutoMountHomeEfs)(nil)).Elem()
+
+type DomainUserSettingsAutoMountHomeEfsPtrInput interface {
+	pulumi.Input
+
+	ToDomainUserSettingsAutoMountHomeEfsPtrOutput() DomainUserSettingsAutoMountHomeEfsPtrOutput
+	ToDomainUserSettingsAutoMountHomeEfsPtrOutputWithContext(context.Context) DomainUserSettingsAutoMountHomeEfsPtrOutput
+}
+
+type domainUserSettingsAutoMountHomeEfsPtr string
+
+func DomainUserSettingsAutoMountHomeEfsPtr(v string) DomainUserSettingsAutoMountHomeEfsPtrInput {
+	return (*domainUserSettingsAutoMountHomeEfsPtr)(&v)
+}
+
+func (*domainUserSettingsAutoMountHomeEfsPtr) ElementType() reflect.Type {
+	return domainUserSettingsAutoMountHomeEfsPtrType
+}
+
+func (in *domainUserSettingsAutoMountHomeEfsPtr) ToDomainUserSettingsAutoMountHomeEfsPtrOutput() DomainUserSettingsAutoMountHomeEfsPtrOutput {
+	return pulumi.ToOutput(in).(DomainUserSettingsAutoMountHomeEfsPtrOutput)
+}
+
+func (in *domainUserSettingsAutoMountHomeEfsPtr) ToDomainUserSettingsAutoMountHomeEfsPtrOutputWithContext(ctx context.Context) DomainUserSettingsAutoMountHomeEfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainUserSettingsAutoMountHomeEfsPtrOutput)
 }
 
 // Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
@@ -15671,6 +16532,535 @@ func (in *studioLifecycleConfigAppTypePtr) ToStudioLifecycleConfigAppTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(StudioLifecycleConfigAppTypePtrOutput)
 }
 
+// The instance type that the image version runs on.
+type UserProfileAppInstanceType string
+
+const (
+	UserProfileAppInstanceTypeSystem                  = UserProfileAppInstanceType("system")
+	UserProfileAppInstanceTypeMlT3Micro               = UserProfileAppInstanceType("ml.t3.micro")
+	UserProfileAppInstanceTypeMlT3Small               = UserProfileAppInstanceType("ml.t3.small")
+	UserProfileAppInstanceTypeMlT3Medium              = UserProfileAppInstanceType("ml.t3.medium")
+	UserProfileAppInstanceTypeMlT3Large               = UserProfileAppInstanceType("ml.t3.large")
+	UserProfileAppInstanceTypeMlT3Xlarge              = UserProfileAppInstanceType("ml.t3.xlarge")
+	UserProfileAppInstanceTypeMlT32xlarge             = UserProfileAppInstanceType("ml.t3.2xlarge")
+	UserProfileAppInstanceTypeMlM5Large               = UserProfileAppInstanceType("ml.m5.large")
+	UserProfileAppInstanceTypeMlM5Xlarge              = UserProfileAppInstanceType("ml.m5.xlarge")
+	UserProfileAppInstanceTypeMlM52xlarge             = UserProfileAppInstanceType("ml.m5.2xlarge")
+	UserProfileAppInstanceTypeMlM54xlarge             = UserProfileAppInstanceType("ml.m5.4xlarge")
+	UserProfileAppInstanceTypeMlM58xlarge             = UserProfileAppInstanceType("ml.m5.8xlarge")
+	UserProfileAppInstanceTypeMlM512xlarge            = UserProfileAppInstanceType("ml.m5.12xlarge")
+	UserProfileAppInstanceTypeMlM516xlarge            = UserProfileAppInstanceType("ml.m5.16xlarge")
+	UserProfileAppInstanceTypeMlM524xlarge            = UserProfileAppInstanceType("ml.m5.24xlarge")
+	UserProfileAppInstanceTypeMlM5dLarge              = UserProfileAppInstanceType("ml.m5d.large")
+	UserProfileAppInstanceTypeMlM5dXlarge             = UserProfileAppInstanceType("ml.m5d.xlarge")
+	UserProfileAppInstanceTypeMlM5d2xlarge            = UserProfileAppInstanceType("ml.m5d.2xlarge")
+	UserProfileAppInstanceTypeMlM5d4xlarge            = UserProfileAppInstanceType("ml.m5d.4xlarge")
+	UserProfileAppInstanceTypeMlM5d8xlarge            = UserProfileAppInstanceType("ml.m5d.8xlarge")
+	UserProfileAppInstanceTypeMlM5d12xlarge           = UserProfileAppInstanceType("ml.m5d.12xlarge")
+	UserProfileAppInstanceTypeMlM5d16xlarge           = UserProfileAppInstanceType("ml.m5d.16xlarge")
+	UserProfileAppInstanceTypeMlM5d24xlarge           = UserProfileAppInstanceType("ml.m5d.24xlarge")
+	UserProfileAppInstanceTypeMlC5Large               = UserProfileAppInstanceType("ml.c5.large")
+	UserProfileAppInstanceTypeMlC5Xlarge              = UserProfileAppInstanceType("ml.c5.xlarge")
+	UserProfileAppInstanceTypeMlC52xlarge             = UserProfileAppInstanceType("ml.c5.2xlarge")
+	UserProfileAppInstanceTypeMlC54xlarge             = UserProfileAppInstanceType("ml.c5.4xlarge")
+	UserProfileAppInstanceTypeMlC59xlarge             = UserProfileAppInstanceType("ml.c5.9xlarge")
+	UserProfileAppInstanceTypeMlC512xlarge            = UserProfileAppInstanceType("ml.c5.12xlarge")
+	UserProfileAppInstanceTypeMlC518xlarge            = UserProfileAppInstanceType("ml.c5.18xlarge")
+	UserProfileAppInstanceTypeMlC524xlarge            = UserProfileAppInstanceType("ml.c5.24xlarge")
+	UserProfileAppInstanceTypeMlP32xlarge             = UserProfileAppInstanceType("ml.p3.2xlarge")
+	UserProfileAppInstanceTypeMlP38xlarge             = UserProfileAppInstanceType("ml.p3.8xlarge")
+	UserProfileAppInstanceTypeMlP316xlarge            = UserProfileAppInstanceType("ml.p3.16xlarge")
+	UserProfileAppInstanceTypeMlP3dn24xlarge          = UserProfileAppInstanceType("ml.p3dn.24xlarge")
+	UserProfileAppInstanceTypeMlG4dnXlarge            = UserProfileAppInstanceType("ml.g4dn.xlarge")
+	UserProfileAppInstanceTypeMlG4dn2xlarge           = UserProfileAppInstanceType("ml.g4dn.2xlarge")
+	UserProfileAppInstanceTypeMlG4dn4xlarge           = UserProfileAppInstanceType("ml.g4dn.4xlarge")
+	UserProfileAppInstanceTypeMlG4dn8xlarge           = UserProfileAppInstanceType("ml.g4dn.8xlarge")
+	UserProfileAppInstanceTypeMlG4dn12xlarge          = UserProfileAppInstanceType("ml.g4dn.12xlarge")
+	UserProfileAppInstanceTypeMlG4dn16xlarge          = UserProfileAppInstanceType("ml.g4dn.16xlarge")
+	UserProfileAppInstanceTypeMlR5Large               = UserProfileAppInstanceType("ml.r5.large")
+	UserProfileAppInstanceTypeMlR5Xlarge              = UserProfileAppInstanceType("ml.r5.xlarge")
+	UserProfileAppInstanceTypeMlR52xlarge             = UserProfileAppInstanceType("ml.r5.2xlarge")
+	UserProfileAppInstanceTypeMlR54xlarge             = UserProfileAppInstanceType("ml.r5.4xlarge")
+	UserProfileAppInstanceTypeMlR58xlarge             = UserProfileAppInstanceType("ml.r5.8xlarge")
+	UserProfileAppInstanceTypeMlR512xlarge            = UserProfileAppInstanceType("ml.r5.12xlarge")
+	UserProfileAppInstanceTypeMlR516xlarge            = UserProfileAppInstanceType("ml.r5.16xlarge")
+	UserProfileAppInstanceTypeMlR524xlarge            = UserProfileAppInstanceType("ml.r5.24xlarge")
+	UserProfileAppInstanceTypeMlG5Xlarge              = UserProfileAppInstanceType("ml.g5.xlarge")
+	UserProfileAppInstanceTypeMlG52xlarge             = UserProfileAppInstanceType("ml.g5.2xlarge")
+	UserProfileAppInstanceTypeMlG54xlarge             = UserProfileAppInstanceType("ml.g5.4xlarge")
+	UserProfileAppInstanceTypeMlG58xlarge             = UserProfileAppInstanceType("ml.g5.8xlarge")
+	UserProfileAppInstanceTypeMlG512xlarge            = UserProfileAppInstanceType("ml.g5.12xlarge")
+	UserProfileAppInstanceTypeMlG516xlarge            = UserProfileAppInstanceType("ml.g5.16xlarge")
+	UserProfileAppInstanceTypeMlG524xlarge            = UserProfileAppInstanceType("ml.g5.24xlarge")
+	UserProfileAppInstanceTypeMlG548xlarge            = UserProfileAppInstanceType("ml.g5.48xlarge")
+	UserProfileAppInstanceTypeMlG6Xlarge              = UserProfileAppInstanceType("ml.g6.xlarge")
+	UserProfileAppInstanceTypeMlG62xlarge             = UserProfileAppInstanceType("ml.g6.2xlarge")
+	UserProfileAppInstanceTypeMlG64xlarge             = UserProfileAppInstanceType("ml.g6.4xlarge")
+	UserProfileAppInstanceTypeMlG68xlarge             = UserProfileAppInstanceType("ml.g6.8xlarge")
+	UserProfileAppInstanceTypeMlG612xlarge            = UserProfileAppInstanceType("ml.g6.12xlarge")
+	UserProfileAppInstanceTypeMlG616xlarge            = UserProfileAppInstanceType("ml.g6.16xlarge")
+	UserProfileAppInstanceTypeMlG624xlarge            = UserProfileAppInstanceType("ml.g6.24xlarge")
+	UserProfileAppInstanceTypeMlG648xlarge            = UserProfileAppInstanceType("ml.g6.48xlarge")
+	UserProfileAppInstanceTypeMlG6eXlarge             = UserProfileAppInstanceType("ml.g6e.xlarge")
+	UserProfileAppInstanceTypeMlG6e2xlarge            = UserProfileAppInstanceType("ml.g6e.2xlarge")
+	UserProfileAppInstanceTypeMlG6e4xlarge            = UserProfileAppInstanceType("ml.g6e.4xlarge")
+	UserProfileAppInstanceTypeMlG6e8xlarge            = UserProfileAppInstanceType("ml.g6e.8xlarge")
+	UserProfileAppInstanceTypeMlG6e12xlarge           = UserProfileAppInstanceType("ml.g6e.12xlarge")
+	UserProfileAppInstanceTypeMlG6e16xlarge           = UserProfileAppInstanceType("ml.g6e.16xlarge")
+	UserProfileAppInstanceTypeMlG6e24xlarge           = UserProfileAppInstanceType("ml.g6e.24xlarge")
+	UserProfileAppInstanceTypeMlG6e48xlarge           = UserProfileAppInstanceType("ml.g6e.48xlarge")
+	UserProfileAppInstanceTypeMlGeospatialInteractive = UserProfileAppInstanceType("ml.geospatial.interactive")
+	UserProfileAppInstanceTypeMlP4d24xlarge           = UserProfileAppInstanceType("ml.p4d.24xlarge")
+	UserProfileAppInstanceTypeMlP4de24xlarge          = UserProfileAppInstanceType("ml.p4de.24xlarge")
+	UserProfileAppInstanceTypeMlTrn12xlarge           = UserProfileAppInstanceType("ml.trn1.2xlarge")
+	UserProfileAppInstanceTypeMlTrn132xlarge          = UserProfileAppInstanceType("ml.trn1.32xlarge")
+	UserProfileAppInstanceTypeMlTrn1n32xlarge         = UserProfileAppInstanceType("ml.trn1n.32xlarge")
+	UserProfileAppInstanceTypeMlP548xlarge            = UserProfileAppInstanceType("ml.p5.48xlarge")
+	UserProfileAppInstanceTypeMlM6iLarge              = UserProfileAppInstanceType("ml.m6i.large")
+	UserProfileAppInstanceTypeMlM6iXlarge             = UserProfileAppInstanceType("ml.m6i.xlarge")
+	UserProfileAppInstanceTypeMlM6i2xlarge            = UserProfileAppInstanceType("ml.m6i.2xlarge")
+	UserProfileAppInstanceTypeMlM6i4xlarge            = UserProfileAppInstanceType("ml.m6i.4xlarge")
+	UserProfileAppInstanceTypeMlM6i8xlarge            = UserProfileAppInstanceType("ml.m6i.8xlarge")
+	UserProfileAppInstanceTypeMlM6i12xlarge           = UserProfileAppInstanceType("ml.m6i.12xlarge")
+	UserProfileAppInstanceTypeMlM6i16xlarge           = UserProfileAppInstanceType("ml.m6i.16xlarge")
+	UserProfileAppInstanceTypeMlM6i24xlarge           = UserProfileAppInstanceType("ml.m6i.24xlarge")
+	UserProfileAppInstanceTypeMlM6i32xlarge           = UserProfileAppInstanceType("ml.m6i.32xlarge")
+	UserProfileAppInstanceTypeMlM7iLarge              = UserProfileAppInstanceType("ml.m7i.large")
+	UserProfileAppInstanceTypeMlM7iXlarge             = UserProfileAppInstanceType("ml.m7i.xlarge")
+	UserProfileAppInstanceTypeMlM7i2xlarge            = UserProfileAppInstanceType("ml.m7i.2xlarge")
+	UserProfileAppInstanceTypeMlM7i4xlarge            = UserProfileAppInstanceType("ml.m7i.4xlarge")
+	UserProfileAppInstanceTypeMlM7i8xlarge            = UserProfileAppInstanceType("ml.m7i.8xlarge")
+	UserProfileAppInstanceTypeMlM7i12xlarge           = UserProfileAppInstanceType("ml.m7i.12xlarge")
+	UserProfileAppInstanceTypeMlM7i16xlarge           = UserProfileAppInstanceType("ml.m7i.16xlarge")
+	UserProfileAppInstanceTypeMlM7i24xlarge           = UserProfileAppInstanceType("ml.m7i.24xlarge")
+	UserProfileAppInstanceTypeMlM7i48xlarge           = UserProfileAppInstanceType("ml.m7i.48xlarge")
+	UserProfileAppInstanceTypeMlC6iLarge              = UserProfileAppInstanceType("ml.c6i.large")
+	UserProfileAppInstanceTypeMlC6iXlarge             = UserProfileAppInstanceType("ml.c6i.xlarge")
+	UserProfileAppInstanceTypeMlC6i2xlarge            = UserProfileAppInstanceType("ml.c6i.2xlarge")
+	UserProfileAppInstanceTypeMlC6i4xlarge            = UserProfileAppInstanceType("ml.c6i.4xlarge")
+	UserProfileAppInstanceTypeMlC6i8xlarge            = UserProfileAppInstanceType("ml.c6i.8xlarge")
+	UserProfileAppInstanceTypeMlC6i12xlarge           = UserProfileAppInstanceType("ml.c6i.12xlarge")
+	UserProfileAppInstanceTypeMlC6i16xlarge           = UserProfileAppInstanceType("ml.c6i.16xlarge")
+	UserProfileAppInstanceTypeMlC6i24xlarge           = UserProfileAppInstanceType("ml.c6i.24xlarge")
+	UserProfileAppInstanceTypeMlC6i32xlarge           = UserProfileAppInstanceType("ml.c6i.32xlarge")
+	UserProfileAppInstanceTypeMlC7iLarge              = UserProfileAppInstanceType("ml.c7i.large")
+	UserProfileAppInstanceTypeMlC7iXlarge             = UserProfileAppInstanceType("ml.c7i.xlarge")
+	UserProfileAppInstanceTypeMlC7i2xlarge            = UserProfileAppInstanceType("ml.c7i.2xlarge")
+	UserProfileAppInstanceTypeMlC7i4xlarge            = UserProfileAppInstanceType("ml.c7i.4xlarge")
+	UserProfileAppInstanceTypeMlC7i8xlarge            = UserProfileAppInstanceType("ml.c7i.8xlarge")
+	UserProfileAppInstanceTypeMlC7i12xlarge           = UserProfileAppInstanceType("ml.c7i.12xlarge")
+	UserProfileAppInstanceTypeMlC7i16xlarge           = UserProfileAppInstanceType("ml.c7i.16xlarge")
+	UserProfileAppInstanceTypeMlC7i24xlarge           = UserProfileAppInstanceType("ml.c7i.24xlarge")
+	UserProfileAppInstanceTypeMlC7i48xlarge           = UserProfileAppInstanceType("ml.c7i.48xlarge")
+	UserProfileAppInstanceTypeMlR6iLarge              = UserProfileAppInstanceType("ml.r6i.large")
+	UserProfileAppInstanceTypeMlR6iXlarge             = UserProfileAppInstanceType("ml.r6i.xlarge")
+	UserProfileAppInstanceTypeMlR6i2xlarge            = UserProfileAppInstanceType("ml.r6i.2xlarge")
+	UserProfileAppInstanceTypeMlR6i4xlarge            = UserProfileAppInstanceType("ml.r6i.4xlarge")
+	UserProfileAppInstanceTypeMlR6i8xlarge            = UserProfileAppInstanceType("ml.r6i.8xlarge")
+	UserProfileAppInstanceTypeMlR6i12xlarge           = UserProfileAppInstanceType("ml.r6i.12xlarge")
+	UserProfileAppInstanceTypeMlR6i16xlarge           = UserProfileAppInstanceType("ml.r6i.16xlarge")
+	UserProfileAppInstanceTypeMlR6i24xlarge           = UserProfileAppInstanceType("ml.r6i.24xlarge")
+	UserProfileAppInstanceTypeMlR6i32xlarge           = UserProfileAppInstanceType("ml.r6i.32xlarge")
+	UserProfileAppInstanceTypeMlR7iLarge              = UserProfileAppInstanceType("ml.r7i.large")
+	UserProfileAppInstanceTypeMlR7iXlarge             = UserProfileAppInstanceType("ml.r7i.xlarge")
+	UserProfileAppInstanceTypeMlR7i2xlarge            = UserProfileAppInstanceType("ml.r7i.2xlarge")
+	UserProfileAppInstanceTypeMlR7i4xlarge            = UserProfileAppInstanceType("ml.r7i.4xlarge")
+	UserProfileAppInstanceTypeMlR7i8xlarge            = UserProfileAppInstanceType("ml.r7i.8xlarge")
+	UserProfileAppInstanceTypeMlR7i12xlarge           = UserProfileAppInstanceType("ml.r7i.12xlarge")
+	UserProfileAppInstanceTypeMlR7i16xlarge           = UserProfileAppInstanceType("ml.r7i.16xlarge")
+	UserProfileAppInstanceTypeMlR7i24xlarge           = UserProfileAppInstanceType("ml.r7i.24xlarge")
+	UserProfileAppInstanceTypeMlR7i48xlarge           = UserProfileAppInstanceType("ml.r7i.48xlarge")
+	UserProfileAppInstanceTypeMlM6idLarge             = UserProfileAppInstanceType("ml.m6id.large")
+	UserProfileAppInstanceTypeMlM6idXlarge            = UserProfileAppInstanceType("ml.m6id.xlarge")
+	UserProfileAppInstanceTypeMlM6id2xlarge           = UserProfileAppInstanceType("ml.m6id.2xlarge")
+	UserProfileAppInstanceTypeMlM6id4xlarge           = UserProfileAppInstanceType("ml.m6id.4xlarge")
+	UserProfileAppInstanceTypeMlM6id8xlarge           = UserProfileAppInstanceType("ml.m6id.8xlarge")
+	UserProfileAppInstanceTypeMlM6id12xlarge          = UserProfileAppInstanceType("ml.m6id.12xlarge")
+	UserProfileAppInstanceTypeMlM6id16xlarge          = UserProfileAppInstanceType("ml.m6id.16xlarge")
+	UserProfileAppInstanceTypeMlM6id24xlarge          = UserProfileAppInstanceType("ml.m6id.24xlarge")
+	UserProfileAppInstanceTypeMlM6id32xlarge          = UserProfileAppInstanceType("ml.m6id.32xlarge")
+	UserProfileAppInstanceTypeMlC6idLarge             = UserProfileAppInstanceType("ml.c6id.large")
+	UserProfileAppInstanceTypeMlC6idXlarge            = UserProfileAppInstanceType("ml.c6id.xlarge")
+	UserProfileAppInstanceTypeMlC6id2xlarge           = UserProfileAppInstanceType("ml.c6id.2xlarge")
+	UserProfileAppInstanceTypeMlC6id4xlarge           = UserProfileAppInstanceType("ml.c6id.4xlarge")
+	UserProfileAppInstanceTypeMlC6id8xlarge           = UserProfileAppInstanceType("ml.c6id.8xlarge")
+	UserProfileAppInstanceTypeMlC6id12xlarge          = UserProfileAppInstanceType("ml.c6id.12xlarge")
+	UserProfileAppInstanceTypeMlC6id16xlarge          = UserProfileAppInstanceType("ml.c6id.16xlarge")
+	UserProfileAppInstanceTypeMlC6id24xlarge          = UserProfileAppInstanceType("ml.c6id.24xlarge")
+	UserProfileAppInstanceTypeMlC6id32xlarge          = UserProfileAppInstanceType("ml.c6id.32xlarge")
+	UserProfileAppInstanceTypeMlR6idLarge             = UserProfileAppInstanceType("ml.r6id.large")
+	UserProfileAppInstanceTypeMlR6idXlarge            = UserProfileAppInstanceType("ml.r6id.xlarge")
+	UserProfileAppInstanceTypeMlR6id2xlarge           = UserProfileAppInstanceType("ml.r6id.2xlarge")
+	UserProfileAppInstanceTypeMlR6id4xlarge           = UserProfileAppInstanceType("ml.r6id.4xlarge")
+	UserProfileAppInstanceTypeMlR6id8xlarge           = UserProfileAppInstanceType("ml.r6id.8xlarge")
+	UserProfileAppInstanceTypeMlR6id12xlarge          = UserProfileAppInstanceType("ml.r6id.12xlarge")
+	UserProfileAppInstanceTypeMlR6id16xlarge          = UserProfileAppInstanceType("ml.r6id.16xlarge")
+	UserProfileAppInstanceTypeMlR6id24xlarge          = UserProfileAppInstanceType("ml.r6id.24xlarge")
+	UserProfileAppInstanceTypeMlR6id32xlarge          = UserProfileAppInstanceType("ml.r6id.32xlarge")
+)
+
+func (UserProfileAppInstanceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileAppInstanceType)(nil)).Elem()
+}
+
+func (e UserProfileAppInstanceType) ToUserProfileAppInstanceTypeOutput() UserProfileAppInstanceTypeOutput {
+	return pulumi.ToOutput(e).(UserProfileAppInstanceTypeOutput)
+}
+
+func (e UserProfileAppInstanceType) ToUserProfileAppInstanceTypeOutputWithContext(ctx context.Context) UserProfileAppInstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserProfileAppInstanceTypeOutput)
+}
+
+func (e UserProfileAppInstanceType) ToUserProfileAppInstanceTypePtrOutput() UserProfileAppInstanceTypePtrOutput {
+	return e.ToUserProfileAppInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileAppInstanceType) ToUserProfileAppInstanceTypePtrOutputWithContext(ctx context.Context) UserProfileAppInstanceTypePtrOutput {
+	return UserProfileAppInstanceType(e).ToUserProfileAppInstanceTypeOutputWithContext(ctx).ToUserProfileAppInstanceTypePtrOutputWithContext(ctx)
+}
+
+func (e UserProfileAppInstanceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileAppInstanceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileAppInstanceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileAppInstanceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserProfileAppInstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (UserProfileAppInstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileAppInstanceType)(nil)).Elem()
+}
+
+func (o UserProfileAppInstanceTypeOutput) ToUserProfileAppInstanceTypeOutput() UserProfileAppInstanceTypeOutput {
+	return o
+}
+
+func (o UserProfileAppInstanceTypeOutput) ToUserProfileAppInstanceTypeOutputWithContext(ctx context.Context) UserProfileAppInstanceTypeOutput {
+	return o
+}
+
+func (o UserProfileAppInstanceTypeOutput) ToUserProfileAppInstanceTypePtrOutput() UserProfileAppInstanceTypePtrOutput {
+	return o.ToUserProfileAppInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileAppInstanceTypeOutput) ToUserProfileAppInstanceTypePtrOutputWithContext(ctx context.Context) UserProfileAppInstanceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileAppInstanceType) *UserProfileAppInstanceType {
+		return &v
+	}).(UserProfileAppInstanceTypePtrOutput)
+}
+
+func (o UserProfileAppInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserProfileAppInstanceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileAppInstanceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserProfileAppInstanceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileAppInstanceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileAppInstanceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileAppInstanceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileAppInstanceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileAppInstanceType)(nil)).Elem()
+}
+
+func (o UserProfileAppInstanceTypePtrOutput) ToUserProfileAppInstanceTypePtrOutput() UserProfileAppInstanceTypePtrOutput {
+	return o
+}
+
+func (o UserProfileAppInstanceTypePtrOutput) ToUserProfileAppInstanceTypePtrOutputWithContext(ctx context.Context) UserProfileAppInstanceTypePtrOutput {
+	return o
+}
+
+func (o UserProfileAppInstanceTypePtrOutput) Elem() UserProfileAppInstanceTypeOutput {
+	return o.ApplyT(func(v *UserProfileAppInstanceType) UserProfileAppInstanceType {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileAppInstanceType
+		return ret
+	}).(UserProfileAppInstanceTypeOutput)
+}
+
+func (o UserProfileAppInstanceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileAppInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserProfileAppInstanceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserProfileAppInstanceTypeInput is an input type that accepts values of the UserProfileAppInstanceType enum
+// A concrete instance of `UserProfileAppInstanceTypeInput` can be one of the following:
+//
+//	UserProfileAppInstanceTypeSystem
+//	UserProfileAppInstanceTypeMlT3Micro
+//	UserProfileAppInstanceTypeMlT3Small
+//	UserProfileAppInstanceTypeMlT3Medium
+//	UserProfileAppInstanceTypeMlT3Large
+//	UserProfileAppInstanceTypeMlT3Xlarge
+//	UserProfileAppInstanceTypeMlT32xlarge
+//	UserProfileAppInstanceTypeMlM5Large
+//	UserProfileAppInstanceTypeMlM5Xlarge
+//	UserProfileAppInstanceTypeMlM52xlarge
+//	UserProfileAppInstanceTypeMlM54xlarge
+//	UserProfileAppInstanceTypeMlM58xlarge
+//	UserProfileAppInstanceTypeMlM512xlarge
+//	UserProfileAppInstanceTypeMlM516xlarge
+//	UserProfileAppInstanceTypeMlM524xlarge
+//	UserProfileAppInstanceTypeMlM5dLarge
+//	UserProfileAppInstanceTypeMlM5dXlarge
+//	UserProfileAppInstanceTypeMlM5d2xlarge
+//	UserProfileAppInstanceTypeMlM5d4xlarge
+//	UserProfileAppInstanceTypeMlM5d8xlarge
+//	UserProfileAppInstanceTypeMlM5d12xlarge
+//	UserProfileAppInstanceTypeMlM5d16xlarge
+//	UserProfileAppInstanceTypeMlM5d24xlarge
+//	UserProfileAppInstanceTypeMlC5Large
+//	UserProfileAppInstanceTypeMlC5Xlarge
+//	UserProfileAppInstanceTypeMlC52xlarge
+//	UserProfileAppInstanceTypeMlC54xlarge
+//	UserProfileAppInstanceTypeMlC59xlarge
+//	UserProfileAppInstanceTypeMlC512xlarge
+//	UserProfileAppInstanceTypeMlC518xlarge
+//	UserProfileAppInstanceTypeMlC524xlarge
+//	UserProfileAppInstanceTypeMlP32xlarge
+//	UserProfileAppInstanceTypeMlP38xlarge
+//	UserProfileAppInstanceTypeMlP316xlarge
+//	UserProfileAppInstanceTypeMlP3dn24xlarge
+//	UserProfileAppInstanceTypeMlG4dnXlarge
+//	UserProfileAppInstanceTypeMlG4dn2xlarge
+//	UserProfileAppInstanceTypeMlG4dn4xlarge
+//	UserProfileAppInstanceTypeMlG4dn8xlarge
+//	UserProfileAppInstanceTypeMlG4dn12xlarge
+//	UserProfileAppInstanceTypeMlG4dn16xlarge
+//	UserProfileAppInstanceTypeMlR5Large
+//	UserProfileAppInstanceTypeMlR5Xlarge
+//	UserProfileAppInstanceTypeMlR52xlarge
+//	UserProfileAppInstanceTypeMlR54xlarge
+//	UserProfileAppInstanceTypeMlR58xlarge
+//	UserProfileAppInstanceTypeMlR512xlarge
+//	UserProfileAppInstanceTypeMlR516xlarge
+//	UserProfileAppInstanceTypeMlR524xlarge
+//	UserProfileAppInstanceTypeMlG5Xlarge
+//	UserProfileAppInstanceTypeMlG52xlarge
+//	UserProfileAppInstanceTypeMlG54xlarge
+//	UserProfileAppInstanceTypeMlG58xlarge
+//	UserProfileAppInstanceTypeMlG512xlarge
+//	UserProfileAppInstanceTypeMlG516xlarge
+//	UserProfileAppInstanceTypeMlG524xlarge
+//	UserProfileAppInstanceTypeMlG548xlarge
+//	UserProfileAppInstanceTypeMlG6Xlarge
+//	UserProfileAppInstanceTypeMlG62xlarge
+//	UserProfileAppInstanceTypeMlG64xlarge
+//	UserProfileAppInstanceTypeMlG68xlarge
+//	UserProfileAppInstanceTypeMlG612xlarge
+//	UserProfileAppInstanceTypeMlG616xlarge
+//	UserProfileAppInstanceTypeMlG624xlarge
+//	UserProfileAppInstanceTypeMlG648xlarge
+//	UserProfileAppInstanceTypeMlG6eXlarge
+//	UserProfileAppInstanceTypeMlG6e2xlarge
+//	UserProfileAppInstanceTypeMlG6e4xlarge
+//	UserProfileAppInstanceTypeMlG6e8xlarge
+//	UserProfileAppInstanceTypeMlG6e12xlarge
+//	UserProfileAppInstanceTypeMlG6e16xlarge
+//	UserProfileAppInstanceTypeMlG6e24xlarge
+//	UserProfileAppInstanceTypeMlG6e48xlarge
+//	UserProfileAppInstanceTypeMlGeospatialInteractive
+//	UserProfileAppInstanceTypeMlP4d24xlarge
+//	UserProfileAppInstanceTypeMlP4de24xlarge
+//	UserProfileAppInstanceTypeMlTrn12xlarge
+//	UserProfileAppInstanceTypeMlTrn132xlarge
+//	UserProfileAppInstanceTypeMlTrn1n32xlarge
+//	UserProfileAppInstanceTypeMlP548xlarge
+//	UserProfileAppInstanceTypeMlM6iLarge
+//	UserProfileAppInstanceTypeMlM6iXlarge
+//	UserProfileAppInstanceTypeMlM6i2xlarge
+//	UserProfileAppInstanceTypeMlM6i4xlarge
+//	UserProfileAppInstanceTypeMlM6i8xlarge
+//	UserProfileAppInstanceTypeMlM6i12xlarge
+//	UserProfileAppInstanceTypeMlM6i16xlarge
+//	UserProfileAppInstanceTypeMlM6i24xlarge
+//	UserProfileAppInstanceTypeMlM6i32xlarge
+//	UserProfileAppInstanceTypeMlM7iLarge
+//	UserProfileAppInstanceTypeMlM7iXlarge
+//	UserProfileAppInstanceTypeMlM7i2xlarge
+//	UserProfileAppInstanceTypeMlM7i4xlarge
+//	UserProfileAppInstanceTypeMlM7i8xlarge
+//	UserProfileAppInstanceTypeMlM7i12xlarge
+//	UserProfileAppInstanceTypeMlM7i16xlarge
+//	UserProfileAppInstanceTypeMlM7i24xlarge
+//	UserProfileAppInstanceTypeMlM7i48xlarge
+//	UserProfileAppInstanceTypeMlC6iLarge
+//	UserProfileAppInstanceTypeMlC6iXlarge
+//	UserProfileAppInstanceTypeMlC6i2xlarge
+//	UserProfileAppInstanceTypeMlC6i4xlarge
+//	UserProfileAppInstanceTypeMlC6i8xlarge
+//	UserProfileAppInstanceTypeMlC6i12xlarge
+//	UserProfileAppInstanceTypeMlC6i16xlarge
+//	UserProfileAppInstanceTypeMlC6i24xlarge
+//	UserProfileAppInstanceTypeMlC6i32xlarge
+//	UserProfileAppInstanceTypeMlC7iLarge
+//	UserProfileAppInstanceTypeMlC7iXlarge
+//	UserProfileAppInstanceTypeMlC7i2xlarge
+//	UserProfileAppInstanceTypeMlC7i4xlarge
+//	UserProfileAppInstanceTypeMlC7i8xlarge
+//	UserProfileAppInstanceTypeMlC7i12xlarge
+//	UserProfileAppInstanceTypeMlC7i16xlarge
+//	UserProfileAppInstanceTypeMlC7i24xlarge
+//	UserProfileAppInstanceTypeMlC7i48xlarge
+//	UserProfileAppInstanceTypeMlR6iLarge
+//	UserProfileAppInstanceTypeMlR6iXlarge
+//	UserProfileAppInstanceTypeMlR6i2xlarge
+//	UserProfileAppInstanceTypeMlR6i4xlarge
+//	UserProfileAppInstanceTypeMlR6i8xlarge
+//	UserProfileAppInstanceTypeMlR6i12xlarge
+//	UserProfileAppInstanceTypeMlR6i16xlarge
+//	UserProfileAppInstanceTypeMlR6i24xlarge
+//	UserProfileAppInstanceTypeMlR6i32xlarge
+//	UserProfileAppInstanceTypeMlR7iLarge
+//	UserProfileAppInstanceTypeMlR7iXlarge
+//	UserProfileAppInstanceTypeMlR7i2xlarge
+//	UserProfileAppInstanceTypeMlR7i4xlarge
+//	UserProfileAppInstanceTypeMlR7i8xlarge
+//	UserProfileAppInstanceTypeMlR7i12xlarge
+//	UserProfileAppInstanceTypeMlR7i16xlarge
+//	UserProfileAppInstanceTypeMlR7i24xlarge
+//	UserProfileAppInstanceTypeMlR7i48xlarge
+//	UserProfileAppInstanceTypeMlM6idLarge
+//	UserProfileAppInstanceTypeMlM6idXlarge
+//	UserProfileAppInstanceTypeMlM6id2xlarge
+//	UserProfileAppInstanceTypeMlM6id4xlarge
+//	UserProfileAppInstanceTypeMlM6id8xlarge
+//	UserProfileAppInstanceTypeMlM6id12xlarge
+//	UserProfileAppInstanceTypeMlM6id16xlarge
+//	UserProfileAppInstanceTypeMlM6id24xlarge
+//	UserProfileAppInstanceTypeMlM6id32xlarge
+//	UserProfileAppInstanceTypeMlC6idLarge
+//	UserProfileAppInstanceTypeMlC6idXlarge
+//	UserProfileAppInstanceTypeMlC6id2xlarge
+//	UserProfileAppInstanceTypeMlC6id4xlarge
+//	UserProfileAppInstanceTypeMlC6id8xlarge
+//	UserProfileAppInstanceTypeMlC6id12xlarge
+//	UserProfileAppInstanceTypeMlC6id16xlarge
+//	UserProfileAppInstanceTypeMlC6id24xlarge
+//	UserProfileAppInstanceTypeMlC6id32xlarge
+//	UserProfileAppInstanceTypeMlR6idLarge
+//	UserProfileAppInstanceTypeMlR6idXlarge
+//	UserProfileAppInstanceTypeMlR6id2xlarge
+//	UserProfileAppInstanceTypeMlR6id4xlarge
+//	UserProfileAppInstanceTypeMlR6id8xlarge
+//	UserProfileAppInstanceTypeMlR6id12xlarge
+//	UserProfileAppInstanceTypeMlR6id16xlarge
+//	UserProfileAppInstanceTypeMlR6id24xlarge
+//	UserProfileAppInstanceTypeMlR6id32xlarge
+type UserProfileAppInstanceTypeInput interface {
+	pulumi.Input
+
+	ToUserProfileAppInstanceTypeOutput() UserProfileAppInstanceTypeOutput
+	ToUserProfileAppInstanceTypeOutputWithContext(context.Context) UserProfileAppInstanceTypeOutput
+}
+
+var userProfileAppInstanceTypePtrType = reflect.TypeOf((**UserProfileAppInstanceType)(nil)).Elem()
+
+type UserProfileAppInstanceTypePtrInput interface {
+	pulumi.Input
+
+	ToUserProfileAppInstanceTypePtrOutput() UserProfileAppInstanceTypePtrOutput
+	ToUserProfileAppInstanceTypePtrOutputWithContext(context.Context) UserProfileAppInstanceTypePtrOutput
+}
+
+type userProfileAppInstanceTypePtr string
+
+func UserProfileAppInstanceTypePtr(v string) UserProfileAppInstanceTypePtrInput {
+	return (*userProfileAppInstanceTypePtr)(&v)
+}
+
+func (*userProfileAppInstanceTypePtr) ElementType() reflect.Type {
+	return userProfileAppInstanceTypePtrType
+}
+
+func (in *userProfileAppInstanceTypePtr) ToUserProfileAppInstanceTypePtrOutput() UserProfileAppInstanceTypePtrOutput {
+	return pulumi.ToOutput(in).(UserProfileAppInstanceTypePtrOutput)
+}
+
+func (in *userProfileAppInstanceTypePtr) ToUserProfileAppInstanceTypePtrOutputWithContext(ctx context.Context) UserProfileAppInstanceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserProfileAppInstanceTypePtrOutput)
+}
+
+// UserProfileAppInstanceTypeArrayInput is an input type that accepts UserProfileAppInstanceTypeArray and UserProfileAppInstanceTypeArrayOutput values.
+// You can construct a concrete instance of `UserProfileAppInstanceTypeArrayInput` via:
+//
+//	UserProfileAppInstanceTypeArray{ UserProfileAppInstanceTypeArgs{...} }
+type UserProfileAppInstanceTypeArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileAppInstanceTypeArrayOutput() UserProfileAppInstanceTypeArrayOutput
+	ToUserProfileAppInstanceTypeArrayOutputWithContext(context.Context) UserProfileAppInstanceTypeArrayOutput
+}
+
+type UserProfileAppInstanceTypeArray []UserProfileAppInstanceType
+
+func (UserProfileAppInstanceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileAppInstanceType)(nil)).Elem()
+}
+
+func (i UserProfileAppInstanceTypeArray) ToUserProfileAppInstanceTypeArrayOutput() UserProfileAppInstanceTypeArrayOutput {
+	return i.ToUserProfileAppInstanceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileAppInstanceTypeArray) ToUserProfileAppInstanceTypeArrayOutputWithContext(ctx context.Context) UserProfileAppInstanceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileAppInstanceTypeArrayOutput)
+}
+
+type UserProfileAppInstanceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileAppInstanceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileAppInstanceType)(nil)).Elem()
+}
+
+func (o UserProfileAppInstanceTypeArrayOutput) ToUserProfileAppInstanceTypeArrayOutput() UserProfileAppInstanceTypeArrayOutput {
+	return o
+}
+
+func (o UserProfileAppInstanceTypeArrayOutput) ToUserProfileAppInstanceTypeArrayOutputWithContext(ctx context.Context) UserProfileAppInstanceTypeArrayOutput {
+	return o
+}
+
+func (o UserProfileAppInstanceTypeArrayOutput) Index(i pulumi.IntInput) UserProfileAppInstanceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileAppInstanceType {
+		return vs[0].([]UserProfileAppInstanceType)[vs[1].(int)]
+	}).(UserProfileAppInstanceTypeOutput)
+}
+
 type UserProfileAppType string
 
 const (
@@ -15889,6 +17279,170 @@ func (o UserProfileAppTypeArrayOutput) Index(i pulumi.IntInput) UserProfileAppTy
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileAppType {
 		return vs[0].([]UserProfileAppType)[vs[1].(int)]
 	}).(UserProfileAppTypeOutput)
+}
+
+// The SageMaker image name that you are hiding from the Studio user interface.
+type UserProfileHiddenSageMakerImageSageMakerImageName string
+
+const (
+	UserProfileHiddenSageMakerImageSageMakerImageNameSagemakerDistribution = UserProfileHiddenSageMakerImageSageMakerImageName("sagemaker_distribution")
+)
+
+func (UserProfileHiddenSageMakerImageSageMakerImageName) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileHiddenSageMakerImageSageMakerImageName)(nil)).Elem()
+}
+
+func (e UserProfileHiddenSageMakerImageSageMakerImageName) ToUserProfileHiddenSageMakerImageSageMakerImageNameOutput() UserProfileHiddenSageMakerImageSageMakerImageNameOutput {
+	return pulumi.ToOutput(e).(UserProfileHiddenSageMakerImageSageMakerImageNameOutput)
+}
+
+func (e UserProfileHiddenSageMakerImageSageMakerImageName) ToUserProfileHiddenSageMakerImageSageMakerImageNameOutputWithContext(ctx context.Context) UserProfileHiddenSageMakerImageSageMakerImageNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserProfileHiddenSageMakerImageSageMakerImageNameOutput)
+}
+
+func (e UserProfileHiddenSageMakerImageSageMakerImageName) ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput() UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return e.ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileHiddenSageMakerImageSageMakerImageName) ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(ctx context.Context) UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return UserProfileHiddenSageMakerImageSageMakerImageName(e).ToUserProfileHiddenSageMakerImageSageMakerImageNameOutputWithContext(ctx).ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(ctx)
+}
+
+func (e UserProfileHiddenSageMakerImageSageMakerImageName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileHiddenSageMakerImageSageMakerImageName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileHiddenSageMakerImageSageMakerImageName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileHiddenSageMakerImageSageMakerImageName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserProfileHiddenSageMakerImageSageMakerImageNameOutput struct{ *pulumi.OutputState }
+
+func (UserProfileHiddenSageMakerImageSageMakerImageNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileHiddenSageMakerImageSageMakerImageName)(nil)).Elem()
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNameOutput) ToUserProfileHiddenSageMakerImageSageMakerImageNameOutput() UserProfileHiddenSageMakerImageSageMakerImageNameOutput {
+	return o
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNameOutput) ToUserProfileHiddenSageMakerImageSageMakerImageNameOutputWithContext(ctx context.Context) UserProfileHiddenSageMakerImageSageMakerImageNameOutput {
+	return o
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNameOutput) ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput() UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return o.ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNameOutput) ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(ctx context.Context) UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileHiddenSageMakerImageSageMakerImageName) *UserProfileHiddenSageMakerImageSageMakerImageName {
+		return &v
+	}).(UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput)
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileHiddenSageMakerImageSageMakerImageName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileHiddenSageMakerImageSageMakerImageName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileHiddenSageMakerImageSageMakerImageName)(nil)).Elem()
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput) ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput() UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return o
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput) ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(ctx context.Context) UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return o
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput) Elem() UserProfileHiddenSageMakerImageSageMakerImageNameOutput {
+	return o.ApplyT(func(v *UserProfileHiddenSageMakerImageSageMakerImageName) UserProfileHiddenSageMakerImageSageMakerImageName {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileHiddenSageMakerImageSageMakerImageName
+		return ret
+	}).(UserProfileHiddenSageMakerImageSageMakerImageNameOutput)
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserProfileHiddenSageMakerImageSageMakerImageName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserProfileHiddenSageMakerImageSageMakerImageNameInput is an input type that accepts values of the UserProfileHiddenSageMakerImageSageMakerImageName enum
+// A concrete instance of `UserProfileHiddenSageMakerImageSageMakerImageNameInput` can be one of the following:
+//
+//	UserProfileHiddenSageMakerImageSageMakerImageNameSagemakerDistribution
+type UserProfileHiddenSageMakerImageSageMakerImageNameInput interface {
+	pulumi.Input
+
+	ToUserProfileHiddenSageMakerImageSageMakerImageNameOutput() UserProfileHiddenSageMakerImageSageMakerImageNameOutput
+	ToUserProfileHiddenSageMakerImageSageMakerImageNameOutputWithContext(context.Context) UserProfileHiddenSageMakerImageSageMakerImageNameOutput
+}
+
+var userProfileHiddenSageMakerImageSageMakerImageNamePtrType = reflect.TypeOf((**UserProfileHiddenSageMakerImageSageMakerImageName)(nil)).Elem()
+
+type UserProfileHiddenSageMakerImageSageMakerImageNamePtrInput interface {
+	pulumi.Input
+
+	ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput() UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput
+	ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(context.Context) UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput
+}
+
+type userProfileHiddenSageMakerImageSageMakerImageNamePtr string
+
+func UserProfileHiddenSageMakerImageSageMakerImageNamePtr(v string) UserProfileHiddenSageMakerImageSageMakerImageNamePtrInput {
+	return (*userProfileHiddenSageMakerImageSageMakerImageNamePtr)(&v)
+}
+
+func (*userProfileHiddenSageMakerImageSageMakerImageNamePtr) ElementType() reflect.Type {
+	return userProfileHiddenSageMakerImageSageMakerImageNamePtrType
+}
+
+func (in *userProfileHiddenSageMakerImageSageMakerImageNamePtr) ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput() UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return pulumi.ToOutput(in).(UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput)
+}
+
+func (in *userProfileHiddenSageMakerImageSageMakerImageNamePtr) ToUserProfileHiddenSageMakerImageSageMakerImageNamePtrOutputWithContext(ctx context.Context) UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput)
 }
 
 // A flag to enable/disable AppLifecycleManagement settings
@@ -17089,6 +18643,174 @@ func (in *userProfileSharingSettingsNotebookOutputOptionPtr) ToUserProfileSharin
 	return pulumi.ToOutputWithContext(ctx, in).(UserProfileSharingSettingsNotebookOutputOptionPtrOutput)
 }
 
+// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
+type UserProfileUserSettingsAutoMountHomeEfs string
+
+const (
+	UserProfileUserSettingsAutoMountHomeEfsEnabled         = UserProfileUserSettingsAutoMountHomeEfs("Enabled")
+	UserProfileUserSettingsAutoMountHomeEfsDisabled        = UserProfileUserSettingsAutoMountHomeEfs("Disabled")
+	UserProfileUserSettingsAutoMountHomeEfsDefaultAsDomain = UserProfileUserSettingsAutoMountHomeEfs("DefaultAsDomain")
+)
+
+func (UserProfileUserSettingsAutoMountHomeEfs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsAutoMountHomeEfs)(nil)).Elem()
+}
+
+func (e UserProfileUserSettingsAutoMountHomeEfs) ToUserProfileUserSettingsAutoMountHomeEfsOutput() UserProfileUserSettingsAutoMountHomeEfsOutput {
+	return pulumi.ToOutput(e).(UserProfileUserSettingsAutoMountHomeEfsOutput)
+}
+
+func (e UserProfileUserSettingsAutoMountHomeEfs) ToUserProfileUserSettingsAutoMountHomeEfsOutputWithContext(ctx context.Context) UserProfileUserSettingsAutoMountHomeEfsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserProfileUserSettingsAutoMountHomeEfsOutput)
+}
+
+func (e UserProfileUserSettingsAutoMountHomeEfs) ToUserProfileUserSettingsAutoMountHomeEfsPtrOutput() UserProfileUserSettingsAutoMountHomeEfsPtrOutput {
+	return e.ToUserProfileUserSettingsAutoMountHomeEfsPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileUserSettingsAutoMountHomeEfs) ToUserProfileUserSettingsAutoMountHomeEfsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsAutoMountHomeEfsPtrOutput {
+	return UserProfileUserSettingsAutoMountHomeEfs(e).ToUserProfileUserSettingsAutoMountHomeEfsOutputWithContext(ctx).ToUserProfileUserSettingsAutoMountHomeEfsPtrOutputWithContext(ctx)
+}
+
+func (e UserProfileUserSettingsAutoMountHomeEfs) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileUserSettingsAutoMountHomeEfs) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileUserSettingsAutoMountHomeEfs) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileUserSettingsAutoMountHomeEfs) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserProfileUserSettingsAutoMountHomeEfsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsAutoMountHomeEfsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsAutoMountHomeEfs)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsOutput) ToUserProfileUserSettingsAutoMountHomeEfsOutput() UserProfileUserSettingsAutoMountHomeEfsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsOutput) ToUserProfileUserSettingsAutoMountHomeEfsOutputWithContext(ctx context.Context) UserProfileUserSettingsAutoMountHomeEfsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsOutput) ToUserProfileUserSettingsAutoMountHomeEfsPtrOutput() UserProfileUserSettingsAutoMountHomeEfsPtrOutput {
+	return o.ToUserProfileUserSettingsAutoMountHomeEfsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsOutput) ToUserProfileUserSettingsAutoMountHomeEfsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsAutoMountHomeEfsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsAutoMountHomeEfs) *UserProfileUserSettingsAutoMountHomeEfs {
+		return &v
+	}).(UserProfileUserSettingsAutoMountHomeEfsPtrOutput)
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileUserSettingsAutoMountHomeEfs) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileUserSettingsAutoMountHomeEfs) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsAutoMountHomeEfsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsAutoMountHomeEfsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsAutoMountHomeEfs)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsPtrOutput) ToUserProfileUserSettingsAutoMountHomeEfsPtrOutput() UserProfileUserSettingsAutoMountHomeEfsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsPtrOutput) ToUserProfileUserSettingsAutoMountHomeEfsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsAutoMountHomeEfsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsPtrOutput) Elem() UserProfileUserSettingsAutoMountHomeEfsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsAutoMountHomeEfs) UserProfileUserSettingsAutoMountHomeEfs {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsAutoMountHomeEfs
+		return ret
+	}).(UserProfileUserSettingsAutoMountHomeEfsOutput)
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsAutoMountHomeEfsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserProfileUserSettingsAutoMountHomeEfs) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserProfileUserSettingsAutoMountHomeEfsInput is an input type that accepts values of the UserProfileUserSettingsAutoMountHomeEfs enum
+// A concrete instance of `UserProfileUserSettingsAutoMountHomeEfsInput` can be one of the following:
+//
+//	UserProfileUserSettingsAutoMountHomeEfsEnabled
+//	UserProfileUserSettingsAutoMountHomeEfsDisabled
+//	UserProfileUserSettingsAutoMountHomeEfsDefaultAsDomain
+type UserProfileUserSettingsAutoMountHomeEfsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsAutoMountHomeEfsOutput() UserProfileUserSettingsAutoMountHomeEfsOutput
+	ToUserProfileUserSettingsAutoMountHomeEfsOutputWithContext(context.Context) UserProfileUserSettingsAutoMountHomeEfsOutput
+}
+
+var userProfileUserSettingsAutoMountHomeEfsPtrType = reflect.TypeOf((**UserProfileUserSettingsAutoMountHomeEfs)(nil)).Elem()
+
+type UserProfileUserSettingsAutoMountHomeEfsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsAutoMountHomeEfsPtrOutput() UserProfileUserSettingsAutoMountHomeEfsPtrOutput
+	ToUserProfileUserSettingsAutoMountHomeEfsPtrOutputWithContext(context.Context) UserProfileUserSettingsAutoMountHomeEfsPtrOutput
+}
+
+type userProfileUserSettingsAutoMountHomeEfsPtr string
+
+func UserProfileUserSettingsAutoMountHomeEfsPtr(v string) UserProfileUserSettingsAutoMountHomeEfsPtrInput {
+	return (*userProfileUserSettingsAutoMountHomeEfsPtr)(&v)
+}
+
+func (*userProfileUserSettingsAutoMountHomeEfsPtr) ElementType() reflect.Type {
+	return userProfileUserSettingsAutoMountHomeEfsPtrType
+}
+
+func (in *userProfileUserSettingsAutoMountHomeEfsPtr) ToUserProfileUserSettingsAutoMountHomeEfsPtrOutput() UserProfileUserSettingsAutoMountHomeEfsPtrOutput {
+	return pulumi.ToOutput(in).(UserProfileUserSettingsAutoMountHomeEfsPtrOutput)
+}
+
+func (in *userProfileUserSettingsAutoMountHomeEfsPtr) ToUserProfileUserSettingsAutoMountHomeEfsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsAutoMountHomeEfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserProfileUserSettingsAutoMountHomeEfsPtrOutput)
+}
+
 // Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 type UserProfileUserSettingsStudioWebPortal string
 
@@ -17275,6 +18997,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionEndpointInputS3InputModePtrInput)(nil)).Elem(), DataQualityJobDefinitionEndpointInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionS3OutputS3UploadModeInput)(nil)).Elem(), DataQualityJobDefinitionS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionS3OutputS3UploadModePtrInput)(nil)).Elem(), DataQualityJobDefinitionS3OutputS3UploadMode("Continuous"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppInstanceTypeInput)(nil)).Elem(), DomainAppInstanceType("system"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppInstanceTypePtrInput)(nil)).Elem(), DomainAppInstanceType("system"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppInstanceTypeArrayInput)(nil)).Elem(), DomainAppInstanceTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppNetworkAccessTypeInput)(nil)).Elem(), DomainAppNetworkAccessType("PublicInternetOnly"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppNetworkAccessTypePtrInput)(nil)).Elem(), DomainAppNetworkAccessType("PublicInternetOnly"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppSecurityGroupManagementInput)(nil)).Elem(), DomainAppSecurityGroupManagement("Service"))
@@ -17286,6 +19011,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAuthModePtrInput)(nil)).Elem(), DomainAuthMode("SSO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDockerSettingsEnableDockerAccessInput)(nil)).Elem(), DomainDockerSettingsEnableDockerAccess("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDockerSettingsEnableDockerAccessPtrInput)(nil)).Elem(), DomainDockerSettingsEnableDockerAccess("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainHiddenSageMakerImageSageMakerImageNameInput)(nil)).Elem(), DomainHiddenSageMakerImageSageMakerImageName("sagemaker_distribution"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainHiddenSageMakerImageSageMakerImageNamePtrInput)(nil)).Elem(), DomainHiddenSageMakerImageSageMakerImageName("sagemaker_distribution"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainLifecycleManagementInput)(nil)).Elem(), DomainLifecycleManagement("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainLifecycleManagementPtrInput)(nil)).Elem(), DomainLifecycleManagement("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMlToolsInput)(nil)).Elem(), DomainMlTools("DataWrangler"))
@@ -17303,6 +19030,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsNotebookOutputOptionPtrInput)(nil)).Elem(), DomainSharingSettingsNotebookOutputOption("Allowed"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagPropagationInput)(nil)).Elem(), DomainTagPropagation("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagPropagationPtrInput)(nil)).Elem(), DomainTagPropagation("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsAutoMountHomeEfsInput)(nil)).Elem(), DomainUserSettingsAutoMountHomeEfs("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsAutoMountHomeEfsPtrInput)(nil)).Elem(), DomainUserSettingsAutoMountHomeEfs("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsStudioWebPortalInput)(nil)).Elem(), DomainUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsStudioWebPortalPtrInput)(nil)).Elem(), DomainUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypeInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
@@ -17431,9 +19160,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSharingSettingsSharingTypePtrInput)(nil)).Elem(), SpaceSharingSettingsSharingType("Private"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigAppTypeInput)(nil)).Elem(), StudioLifecycleConfigAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigAppTypePtrInput)(nil)).Elem(), StudioLifecycleConfigAppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppInstanceTypeInput)(nil)).Elem(), UserProfileAppInstanceType("system"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppInstanceTypePtrInput)(nil)).Elem(), UserProfileAppInstanceType("system"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppInstanceTypeArrayInput)(nil)).Elem(), UserProfileAppInstanceTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppTypeInput)(nil)).Elem(), UserProfileAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppTypePtrInput)(nil)).Elem(), UserProfileAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppTypeArrayInput)(nil)).Elem(), UserProfileAppTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileHiddenSageMakerImageSageMakerImageNameInput)(nil)).Elem(), UserProfileHiddenSageMakerImageSageMakerImageName("sagemaker_distribution"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileHiddenSageMakerImageSageMakerImageNamePtrInput)(nil)).Elem(), UserProfileHiddenSageMakerImageSageMakerImageName("sagemaker_distribution"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileLifecycleManagementInput)(nil)).Elem(), UserProfileLifecycleManagement("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileLifecycleManagementPtrInput)(nil)).Elem(), UserProfileLifecycleManagement("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileMlToolsInput)(nil)).Elem(), UserProfileMlTools("DataWrangler"))
@@ -17447,6 +19181,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileResourceSpecInstanceTypePtrInput)(nil)).Elem(), UserProfileResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsNotebookOutputOptionInput)(nil)).Elem(), UserProfileSharingSettingsNotebookOutputOption("Allowed"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsNotebookOutputOptionPtrInput)(nil)).Elem(), UserProfileSharingSettingsNotebookOutputOption("Allowed"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsAutoMountHomeEfsInput)(nil)).Elem(), UserProfileUserSettingsAutoMountHomeEfs("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsAutoMountHomeEfsPtrInput)(nil)).Elem(), UserProfileUserSettingsAutoMountHomeEfs("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsStudioWebPortalInput)(nil)).Elem(), UserProfileUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsStudioWebPortalPtrInput)(nil)).Elem(), UserProfileUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterOutputType(AppResourceSpecInstanceTypeOutput{})
@@ -17470,6 +19206,9 @@ func init() {
 	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputS3InputModePtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionS3OutputS3UploadModeOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionS3OutputS3UploadModePtrOutput{})
+	pulumi.RegisterOutputType(DomainAppInstanceTypeOutput{})
+	pulumi.RegisterOutputType(DomainAppInstanceTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainAppInstanceTypeArrayOutput{})
 	pulumi.RegisterOutputType(DomainAppNetworkAccessTypeOutput{})
 	pulumi.RegisterOutputType(DomainAppNetworkAccessTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainAppSecurityGroupManagementOutput{})
@@ -17481,6 +19220,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainAuthModePtrOutput{})
 	pulumi.RegisterOutputType(DomainDockerSettingsEnableDockerAccessOutput{})
 	pulumi.RegisterOutputType(DomainDockerSettingsEnableDockerAccessPtrOutput{})
+	pulumi.RegisterOutputType(DomainHiddenSageMakerImageSageMakerImageNameOutput{})
+	pulumi.RegisterOutputType(DomainHiddenSageMakerImageSageMakerImageNamePtrOutput{})
 	pulumi.RegisterOutputType(DomainLifecycleManagementOutput{})
 	pulumi.RegisterOutputType(DomainLifecycleManagementPtrOutput{})
 	pulumi.RegisterOutputType(DomainMlToolsOutput{})
@@ -17498,6 +19239,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainSharingSettingsNotebookOutputOptionPtrOutput{})
 	pulumi.RegisterOutputType(DomainTagPropagationOutput{})
 	pulumi.RegisterOutputType(DomainTagPropagationPtrOutput{})
+	pulumi.RegisterOutputType(DomainUserSettingsAutoMountHomeEfsOutput{})
+	pulumi.RegisterOutputType(DomainUserSettingsAutoMountHomeEfsPtrOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypeOutput{})
@@ -17640,9 +19383,14 @@ func init() {
 	pulumi.RegisterOutputType(SpaceSharingSettingsSharingTypePtrOutput{})
 	pulumi.RegisterOutputType(StudioLifecycleConfigAppTypeOutput{})
 	pulumi.RegisterOutputType(StudioLifecycleConfigAppTypePtrOutput{})
+	pulumi.RegisterOutputType(UserProfileAppInstanceTypeOutput{})
+	pulumi.RegisterOutputType(UserProfileAppInstanceTypePtrOutput{})
+	pulumi.RegisterOutputType(UserProfileAppInstanceTypeArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileAppTypeOutput{})
 	pulumi.RegisterOutputType(UserProfileAppTypePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileAppTypeArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileHiddenSageMakerImageSageMakerImageNameOutput{})
+	pulumi.RegisterOutputType(UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileLifecycleManagementOutput{})
 	pulumi.RegisterOutputType(UserProfileLifecycleManagementPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileMlToolsOutput{})
@@ -17656,6 +19404,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsNotebookOutputOptionOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsNotebookOutputOptionPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsAutoMountHomeEfsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsAutoMountHomeEfsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsStudioWebPortalOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsStudioWebPortalPtrOutput{})
 }

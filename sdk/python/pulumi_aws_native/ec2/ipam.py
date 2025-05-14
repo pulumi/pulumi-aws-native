@@ -28,6 +28,7 @@ class IpamArgs:
                  default_resource_discovery_organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['IpamOrganizationalUnitExclusionArgs']]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enable_private_gua: Optional[pulumi.Input[builtins.bool]] = None,
+                 metered_account: Optional[pulumi.Input['IpamMeteredAccount']] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tier: Optional[pulumi.Input['IpamTier']] = None):
@@ -36,6 +37,7 @@ class IpamArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpamOrganizationalUnitExclusionArgs']]] default_resource_discovery_organizational_unit_exclusions: A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
         :param pulumi.Input[builtins.str] description: The description for the IPAM.
         :param pulumi.Input[builtins.bool] enable_private_gua: Enable provisioning of GUA space in private pools.
+        :param pulumi.Input['IpamMeteredAccount'] metered_account: A metered account is an account that is charged for active IP addresses managed in IPAM
         :param pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['IpamTier'] tier: The tier of the IPAM.
@@ -46,6 +48,8 @@ class IpamArgs:
             pulumi.set(__self__, "description", description)
         if enable_private_gua is not None:
             pulumi.set(__self__, "enable_private_gua", enable_private_gua)
+        if metered_account is not None:
+            pulumi.set(__self__, "metered_account", metered_account)
         if operating_regions is not None:
             pulumi.set(__self__, "operating_regions", operating_regions)
         if tags is not None:
@@ -88,6 +92,18 @@ class IpamArgs:
     @enable_private_gua.setter
     def enable_private_gua(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_private_gua", value)
+
+    @property
+    @pulumi.getter(name="meteredAccount")
+    def metered_account(self) -> Optional[pulumi.Input['IpamMeteredAccount']]:
+        """
+        A metered account is an account that is charged for active IP addresses managed in IPAM
+        """
+        return pulumi.get(self, "metered_account")
+
+    @metered_account.setter
+    def metered_account(self, value: Optional[pulumi.Input['IpamMeteredAccount']]):
+        pulumi.set(self, "metered_account", value)
 
     @property
     @pulumi.getter(name="operatingRegions")
@@ -137,6 +153,7 @@ class Ipam(pulumi.CustomResource):
                  default_resource_discovery_organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enable_private_gua: Optional[pulumi.Input[builtins.bool]] = None,
+                 metered_account: Optional[pulumi.Input['IpamMeteredAccount']] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tier: Optional[pulumi.Input['IpamTier']] = None,
@@ -149,6 +166,7 @@ class Ipam(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict']]]] default_resource_discovery_organizational_unit_exclusions: A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
         :param pulumi.Input[builtins.str] description: The description for the IPAM.
         :param pulumi.Input[builtins.bool] enable_private_gua: Enable provisioning of GUA space in private pools.
+        :param pulumi.Input['IpamMeteredAccount'] metered_account: A metered account is an account that is charged for active IP addresses managed in IPAM
         :param pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['IpamTier'] tier: The tier of the IPAM.
@@ -180,6 +198,7 @@ class Ipam(pulumi.CustomResource):
                  default_resource_discovery_organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enable_private_gua: Optional[pulumi.Input[builtins.bool]] = None,
+                 metered_account: Optional[pulumi.Input['IpamMeteredAccount']] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tier: Optional[pulumi.Input['IpamTier']] = None,
@@ -195,6 +214,7 @@ class Ipam(pulumi.CustomResource):
             __props__.__dict__["default_resource_discovery_organizational_unit_exclusions"] = default_resource_discovery_organizational_unit_exclusions
             __props__.__dict__["description"] = description
             __props__.__dict__["enable_private_gua"] = enable_private_gua
+            __props__.__dict__["metered_account"] = metered_account
             __props__.__dict__["operating_regions"] = operating_regions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tier"] = tier
@@ -235,6 +255,7 @@ class Ipam(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["enable_private_gua"] = None
         __props__.__dict__["ipam_id"] = None
+        __props__.__dict__["metered_account"] = None
         __props__.__dict__["operating_regions"] = None
         __props__.__dict__["private_default_scope_id"] = None
         __props__.__dict__["public_default_scope_id"] = None
@@ -299,6 +320,14 @@ class Ipam(pulumi.CustomResource):
         Id of the IPAM.
         """
         return pulumi.get(self, "ipam_id")
+
+    @property
+    @pulumi.getter(name="meteredAccount")
+    def metered_account(self) -> pulumi.Output[Optional['IpamMeteredAccount']]:
+        """
+        A metered account is an account that is charged for active IP addresses managed in IPAM
+        """
+        return pulumi.get(self, "metered_account")
 
     @property
     @pulumi.getter(name="operatingRegions")

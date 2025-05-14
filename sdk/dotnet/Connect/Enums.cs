@@ -179,7 +179,7 @@ namespace Pulumi.AwsNative.Connect
 
     /// <summary>
     /// The type of the question.
-    ///   *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
+    ///  *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormQuestionQuestionType : IEquatable<EvaluationFormQuestionQuestionType>
@@ -212,7 +212,7 @@ namespace Pulumi.AwsNative.Connect
 
     /// <summary>
     /// The scoring mode of the evaluation form.
-    ///   *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
+    ///  *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormScoringStrategyMode : IEquatable<EvaluationFormScoringStrategyMode>
@@ -244,7 +244,7 @@ namespace Pulumi.AwsNative.Connect
 
     /// <summary>
     /// The scoring status of the evaluation form.
-    ///   *Allowed values*: ``ENABLED`` | ``DISABLED``
+    ///  *Allowed values*: ``ENABLED`` | ``DISABLED``
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormScoringStrategyStatus : IEquatable<EvaluationFormScoringStrategyStatus>
@@ -276,7 +276,7 @@ namespace Pulumi.AwsNative.Connect
 
     /// <summary>
     /// The display mode of the single select question.
-    ///   *Allowed values*: ``DROPDOWN`` | ``RADIO``
+    ///  *Allowed values*: ``DROPDOWN`` | ``RADIO``
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormSingleSelectQuestionPropertiesDisplayAs : IEquatable<EvaluationFormSingleSelectQuestionPropertiesDisplayAs>
@@ -308,8 +308,8 @@ namespace Pulumi.AwsNative.Connect
 
     /// <summary>
     /// The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
-    ///   *Allowed values*: ``PRESENT`` | ``NOT_PRESENT`` 
-    ///   *Maximum*: 50
+    ///  *Allowed values*: ``PRESENT`` | ``NOT_PRESENT``
+    ///  *Maximum*: 50
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition : IEquatable<EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition>
@@ -341,7 +341,7 @@ namespace Pulumi.AwsNative.Connect
 
     /// <summary>
     /// The status of the evaluation form.
-    ///   *Allowed values*: ``DRAFT`` | ``ACTIVE``
+    ///  *Allowed values*: ``DRAFT`` | ``ACTIVE``
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormStatus : IEquatable<EvaluationFormStatus>

@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.Backup.Outputs
     public sealed class BackupPlanLifecycleResourceType
     {
         /// <summary>
-        /// Specifies the number of days after creation that a recovery point is deleted. Must be greater than `MoveToColdStorageAfterDays` .
+        /// The number of days after creation that a recovery point is deleted. This value must be at least 90 days after the number of days specified in `MoveToColdStorageAfterDays` .
         /// </summary>
         public readonly double? DeleteAfterDays;
         /// <summary>
-        /// Specifies the number of days after creation that a recovery point is moved to cold storage.
+        /// The number of days after creation that a recovery point is moved to cold storage.
         /// </summary>
         public readonly double? MoveToColdStorageAfterDays;
         /// <summary>

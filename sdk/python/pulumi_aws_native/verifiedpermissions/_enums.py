@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'IdentitySourceOpenIdIssuer',
+    'PolicyStoreDeletionMode',
     'PolicyStoreValidationMode',
     'PolicyType',
 ]
@@ -15,6 +16,11 @@ __all__ = [
 
 class IdentitySourceOpenIdIssuer(builtins.str, Enum):
     COGNITO = "COGNITO"
+
+
+class PolicyStoreDeletionMode(builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class PolicyStoreValidationMode(builtins.str, Enum):

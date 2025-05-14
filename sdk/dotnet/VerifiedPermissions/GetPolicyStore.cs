@@ -67,6 +67,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
         /// </summary>
         public readonly string? Arn;
+        public readonly Outputs.PolicyStoreDeletionProtection? DeletionProtection;
         /// <summary>
         /// Descriptive text that you can provide to help with identification of the current policy store.
         /// </summary>
@@ -96,6 +97,8 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         private GetPolicyStoreResult(
             string? arn,
 
+            Outputs.PolicyStoreDeletionProtection? deletionProtection,
+
             string? description,
 
             string? policyStoreId,
@@ -107,6 +110,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
             Outputs.PolicyStoreValidationSettings? validationSettings)
         {
             Arn = arn;
+            DeletionProtection = deletionProtection;
             Description = description;
             PolicyStoreId = policyStoreId;
             Schema = schema;

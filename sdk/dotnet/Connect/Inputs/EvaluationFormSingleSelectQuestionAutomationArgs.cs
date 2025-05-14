@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     {
         /// <summary>
         /// The identifier of the default answer option, when none of the automation options match the criteria.
-        ///   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         [Input("defaultOptionRefId")]
         public Input<string>? DefaultOptionRefId { get; set; }
@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         /// <summary>
         /// The automation options of the single select question.
-        ///   *Minimum*: 1
-        ///   *Maximum*: 20
+        ///  *Minimum*: 1
+        ///  *Maximum*: 20
         /// </summary>
         public InputList<Inputs.EvaluationFormSingleSelectQuestionAutomationOptionArgs> Options
         {

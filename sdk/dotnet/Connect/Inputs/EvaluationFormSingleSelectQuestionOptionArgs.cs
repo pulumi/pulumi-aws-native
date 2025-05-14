@@ -23,22 +23,22 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         /// <summary>
         /// The identifier of the answer option. An identifier must be unique within the question.
-        ///   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         [Input("refId", required: true)]
         public Input<string> RefId { get; set; } = null!;
 
         /// <summary>
         /// The score assigned to the answer option.
-        ///   *Minimum*: 0
-        ///   *Maximum*: 10
+        ///  *Minimum*: 0
+        ///  *Maximum*: 10
         /// </summary>
         [Input("score")]
         public Input<int>? Score { get; set; }
 
         /// <summary>
         /// The title of the answer option.
-        ///   *Length Constraints*: Minimum length of 1. Maximum length of 128.
+        ///  *Length Constraints*: Minimum length of 1. Maximum length of 128.
         /// </summary>
         [Input("text", required: true)]
         public Input<string> Text { get; set; } = null!;

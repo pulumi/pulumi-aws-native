@@ -110,7 +110,7 @@ if not MYPY:
     class WorkgroupConfigParameterArgsDict(TypedDict):
         parameter_key: NotRequired[pulumi.Input[builtins.str]]
         """
-        The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
+        The key of the parameter. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
         """
         parameter_value: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -125,7 +125,7 @@ class WorkgroupConfigParameterArgs:
                  parameter_key: Optional[pulumi.Input[builtins.str]] = None,
                  parameter_value: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] parameter_key: The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
+        :param pulumi.Input[builtins.str] parameter_key: The key of the parameter. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
         :param pulumi.Input[builtins.str] parameter_value: The value of the parameter to set.
         """
         if parameter_key is not None:
@@ -137,7 +137,7 @@ class WorkgroupConfigParameterArgs:
     @pulumi.getter(name="parameterKey")
     def parameter_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
+        The key of the parameter. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
         """
         return pulumi.get(self, "parameter_key")
 

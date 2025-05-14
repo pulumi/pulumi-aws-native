@@ -31,6 +31,7 @@ class WorkflowArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]]] = None,
                  storage_capacity: Optional[pulumi.Input[builtins.float]] = None,
+                 storage_type: Optional[pulumi.Input['WorkflowStorageType']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
@@ -59,6 +60,8 @@ class WorkflowArgs:
             pulumi.set(__self__, "parameter_template", parameter_template)
         if storage_capacity is not None:
             pulumi.set(__self__, "storage_capacity", storage_capacity)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -156,6 +159,15 @@ class WorkflowArgs:
         pulumi.set(self, "storage_capacity", value)
 
     @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[pulumi.Input['WorkflowStorageType']]:
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: Optional[pulumi.Input['WorkflowStorageType']]):
+        pulumi.set(self, "storage_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -184,6 +196,7 @@ class Workflow(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]]] = None,
                  storage_capacity: Optional[pulumi.Input[builtins.float]] = None,
+                 storage_type: Optional[pulumi.Input['WorkflowStorageType']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -232,6 +245,7 @@ class Workflow(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]]] = None,
                  storage_capacity: Optional[pulumi.Input[builtins.float]] = None,
+                 storage_type: Optional[pulumi.Input['WorkflowStorageType']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -250,12 +264,14 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["parameter_template"] = parameter_template
             __props__.__dict__["storage_capacity"] = storage_capacity
+            __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["uuid"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accelerators", "definitionUri", "engine", "main", "parameterTemplate.*", "storageCapacity"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workflow, __self__).__init__(
@@ -292,8 +308,10 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["parameter_template"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["storage_capacity"] = None
+        __props__.__dict__["storage_type"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["uuid"] = None
         return Workflow(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -390,6 +408,11 @@ class Workflow(pulumi.CustomResource):
         return pulumi.get(self, "storage_capacity")
 
     @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> pulumi.Output[Optional['WorkflowStorageType']]:
+        return pulumi.get(self, "storage_type")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
@@ -404,4 +427,9 @@ class Workflow(pulumi.CustomResource):
         The workflow's type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def uuid(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "uuid")
 

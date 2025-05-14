@@ -40,6 +40,9 @@ export interface GetDomainNameResult {
      * The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
      */
     readonly distributionHostedZoneId?: string;
+    /**
+     * The ARN of the domain name. Supported only for private custom domain names.
+     */
     readonly domainNameArn?: string;
     /**
      * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
@@ -65,6 +68,7 @@ export interface GetDomainNameResult {
      * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
      */
     readonly regionalHostedZoneId?: string;
+    readonly routingMode?: enums.apigateway.DomainNameRoutingMode;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
      */

@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DomainNameArgs', 'DomainName']
@@ -25,6 +26,7 @@ class DomainNameArgs:
                  domain_name: pulumi.Input[builtins.str],
                  domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
+                 routing_mode: Optional[pulumi.Input['DomainNameRoutingMode']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
@@ -38,6 +40,8 @@ class DomainNameArgs:
             pulumi.set(__self__, "domain_name_configurations", domain_name_configurations)
         if mutual_tls_authentication is not None:
             pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
+        if routing_mode is not None:
+            pulumi.set(__self__, "routing_mode", routing_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -78,6 +82,15 @@ class DomainNameArgs:
         pulumi.set(self, "mutual_tls_authentication", value)
 
     @property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> Optional[pulumi.Input['DomainNameRoutingMode']]:
+        return pulumi.get(self, "routing_mode")
+
+    @routing_mode.setter
+    def routing_mode(self, value: Optional[pulumi.Input['DomainNameRoutingMode']]):
+        pulumi.set(self, "routing_mode", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -101,6 +114,7 @@ class DomainName(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainNameConfigurationArgs', 'DomainNameConfigurationArgsDict']]]]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+                 routing_mode: Optional[pulumi.Input['DomainNameRoutingMode']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -142,6 +156,7 @@ class DomainName(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainNameConfigurationArgs', 'DomainNameConfigurationArgsDict']]]]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+                 routing_mode: Optional[pulumi.Input['DomainNameRoutingMode']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -157,6 +172,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_name_configurations"] = domain_name_configurations
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
+            __props__.__dict__["routing_mode"] = routing_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["domain_name_arn"] = None
             __props__.__dict__["regional_domain_name"] = None
@@ -191,6 +207,7 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["mutual_tls_authentication"] = None
         __props__.__dict__["regional_domain_name"] = None
         __props__.__dict__["regional_hosted_zone_id"] = None
+        __props__.__dict__["routing_mode"] = None
         __props__.__dict__["tags"] = None
         return DomainName(resource_name, opts=opts, __props__=__props__)
 
@@ -241,6 +258,11 @@ class DomainName(pulumi.CustomResource):
         The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
         """
         return pulumi.get(self, "regional_hosted_zone_id")
+
+    @property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> pulumi.Output[Optional['DomainNameRoutingMode']]:
+        return pulumi.get(self, "routing_mode")
 
     @property
     @pulumi.getter

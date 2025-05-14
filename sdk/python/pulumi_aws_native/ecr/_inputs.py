@@ -46,10 +46,16 @@ MYPY = False
 if not MYPY:
     class RegistryScanningConfigurationRepositoryFilterArgsDict(TypedDict):
         """
-        The details of a scanning repository filter.
+        The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
         """
         filter: pulumi.Input[builtins.str]
+        """
+        The filter to use when scanning.
+        """
         filter_type: pulumi.Input['RegistryScanningConfigurationFilterType']
+        """
+        The type associated with the filter.
+        """
 elif False:
     RegistryScanningConfigurationRepositoryFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -59,7 +65,9 @@ class RegistryScanningConfigurationRepositoryFilterArgs:
                  filter: pulumi.Input[builtins.str],
                  filter_type: pulumi.Input['RegistryScanningConfigurationFilterType']):
         """
-        The details of a scanning repository filter.
+        The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
+        :param pulumi.Input[builtins.str] filter: The filter to use when scanning.
+        :param pulumi.Input['RegistryScanningConfigurationFilterType'] filter_type: The type associated with the filter.
         """
         pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "filter_type", filter_type)
@@ -67,6 +75,9 @@ class RegistryScanningConfigurationRepositoryFilterArgs:
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Input[builtins.str]:
+        """
+        The filter to use when scanning.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -76,6 +87,9 @@ class RegistryScanningConfigurationRepositoryFilterArgs:
     @property
     @pulumi.getter(name="filterType")
     def filter_type(self) -> pulumi.Input['RegistryScanningConfigurationFilterType']:
+        """
+        The type associated with the filter.
+        """
         return pulumi.get(self, "filter_type")
 
     @filter_type.setter
@@ -86,13 +100,16 @@ class RegistryScanningConfigurationRepositoryFilterArgs:
 if not MYPY:
     class RegistryScanningConfigurationScanningRuleArgsDict(TypedDict):
         """
-        A rule representing the details of a scanning configuration.
+        The scanning rules associated with the registry.
         """
         repository_filters: pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRepositoryFilterArgsDict']]]
         """
-        The repository filters associated with the scanning configuration for a private registry.
+        The details of a scanning repository filter. For more information on how to use filters, see [Using filters](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html#image-scanning-filters) in the *Amazon Elastic Container Registry User Guide*.
         """
         scan_frequency: pulumi.Input['RegistryScanningConfigurationScanFrequency']
+        """
+        The frequency that scans are performed at for a private registry. When the ``ENHANCED`` scan type is specified, the supported scan frequencies are ``CONTINUOUS_SCAN`` and ``SCAN_ON_PUSH``. When the ``BASIC`` scan type is specified, the ``SCAN_ON_PUSH`` scan frequency is supported. If scan on push is not specified, then the ``MANUAL`` scan frequency is set by default.
+        """
 elif False:
     RegistryScanningConfigurationScanningRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -102,8 +119,9 @@ class RegistryScanningConfigurationScanningRuleArgs:
                  repository_filters: pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRepositoryFilterArgs']]],
                  scan_frequency: pulumi.Input['RegistryScanningConfigurationScanFrequency']):
         """
-        A rule representing the details of a scanning configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRepositoryFilterArgs']]] repository_filters: The repository filters associated with the scanning configuration for a private registry.
+        The scanning rules associated with the registry.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRepositoryFilterArgs']]] repository_filters: The details of a scanning repository filter. For more information on how to use filters, see [Using filters](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html#image-scanning-filters) in the *Amazon Elastic Container Registry User Guide*.
+        :param pulumi.Input['RegistryScanningConfigurationScanFrequency'] scan_frequency: The frequency that scans are performed at for a private registry. When the ``ENHANCED`` scan type is specified, the supported scan frequencies are ``CONTINUOUS_SCAN`` and ``SCAN_ON_PUSH``. When the ``BASIC`` scan type is specified, the ``SCAN_ON_PUSH`` scan frequency is supported. If scan on push is not specified, then the ``MANUAL`` scan frequency is set by default.
         """
         pulumi.set(__self__, "repository_filters", repository_filters)
         pulumi.set(__self__, "scan_frequency", scan_frequency)
@@ -112,7 +130,7 @@ class RegistryScanningConfigurationScanningRuleArgs:
     @pulumi.getter(name="repositoryFilters")
     def repository_filters(self) -> pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRepositoryFilterArgs']]]:
         """
-        The repository filters associated with the scanning configuration for a private registry.
+        The details of a scanning repository filter. For more information on how to use filters, see [Using filters](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html#image-scanning-filters) in the *Amazon Elastic Container Registry User Guide*.
         """
         return pulumi.get(self, "repository_filters")
 
@@ -123,6 +141,9 @@ class RegistryScanningConfigurationScanningRuleArgs:
     @property
     @pulumi.getter(name="scanFrequency")
     def scan_frequency(self) -> pulumi.Input['RegistryScanningConfigurationScanFrequency']:
+        """
+        The frequency that scans are performed at for a private registry. When the ``ENHANCED`` scan type is specified, the supported scan frequencies are ``CONTINUOUS_SCAN`` and ``SCAN_ON_PUSH``. When the ``BASIC`` scan type is specified, the ``SCAN_ON_PUSH`` scan frequency is supported. If scan on push is not specified, then the ``MANUAL`` scan frequency is set by default.
+        """
         return pulumi.get(self, "scan_frequency")
 
     @scan_frequency.setter

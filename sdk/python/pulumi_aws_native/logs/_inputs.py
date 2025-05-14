@@ -93,11 +93,11 @@ MYPY = False
 
 if not MYPY:
     class DeliveryDestinationDestinationPolicyArgsDict(TypedDict):
-        delivery_destination_name: pulumi.Input[builtins.str]
+        delivery_destination_name: NotRequired[pulumi.Input[builtins.str]]
         """
         The name of the delivery destination to assign this policy to
         """
-        delivery_destination_policy: pulumi.Input[builtins.str]
+        delivery_destination_policy: NotRequired[Any]
         """
         The contents of the policy attached to the delivery destination
         """
@@ -107,37 +107,39 @@ elif False:
 @pulumi.input_type
 class DeliveryDestinationDestinationPolicyArgs:
     def __init__(__self__, *,
-                 delivery_destination_name: pulumi.Input[builtins.str],
-                 delivery_destination_policy: pulumi.Input[builtins.str]):
+                 delivery_destination_name: Optional[pulumi.Input[builtins.str]] = None,
+                 delivery_destination_policy: Optional[Any] = None):
         """
         :param pulumi.Input[builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to
-        :param pulumi.Input[builtins.str] delivery_destination_policy: The contents of the policy attached to the delivery destination
+        :param Any delivery_destination_policy: The contents of the policy attached to the delivery destination
         """
-        pulumi.set(__self__, "delivery_destination_name", delivery_destination_name)
-        pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
+        if delivery_destination_name is not None:
+            pulumi.set(__self__, "delivery_destination_name", delivery_destination_name)
+        if delivery_destination_policy is not None:
+            pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
 
     @property
     @pulumi.getter(name="deliveryDestinationName")
-    def delivery_destination_name(self) -> pulumi.Input[builtins.str]:
+    def delivery_destination_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The name of the delivery destination to assign this policy to
         """
         return pulumi.get(self, "delivery_destination_name")
 
     @delivery_destination_name.setter
-    def delivery_destination_name(self, value: pulumi.Input[builtins.str]):
+    def delivery_destination_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "delivery_destination_name", value)
 
     @property
     @pulumi.getter(name="deliveryDestinationPolicy")
-    def delivery_destination_policy(self) -> pulumi.Input[builtins.str]:
+    def delivery_destination_policy(self) -> Optional[Any]:
         """
         The contents of the policy attached to the delivery destination
         """
         return pulumi.get(self, "delivery_destination_policy")
 
     @delivery_destination_policy.setter
-    def delivery_destination_policy(self, value: pulumi.Input[builtins.str]):
+    def delivery_destination_policy(self, value: Optional[Any]):
         pulumi.set(self, "delivery_destination_policy", value)
 
 

@@ -1238,6 +1238,106 @@ func (o WorkflowParameterMapOutput) MapIndex(k pulumi.StringInput) WorkflowParam
 	}).(WorkflowParameterOutput)
 }
 
+type WorkflowVersionWorkflowParameter struct {
+	Description *string `pulumi:"description"`
+	Optional    *bool   `pulumi:"optional"`
+}
+
+// WorkflowVersionWorkflowParameterInput is an input type that accepts WorkflowVersionWorkflowParameterArgs and WorkflowVersionWorkflowParameterOutput values.
+// You can construct a concrete instance of `WorkflowVersionWorkflowParameterInput` via:
+//
+//	WorkflowVersionWorkflowParameterArgs{...}
+type WorkflowVersionWorkflowParameterInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionWorkflowParameterOutput() WorkflowVersionWorkflowParameterOutput
+	ToWorkflowVersionWorkflowParameterOutputWithContext(context.Context) WorkflowVersionWorkflowParameterOutput
+}
+
+type WorkflowVersionWorkflowParameterArgs struct {
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Optional    pulumi.BoolPtrInput   `pulumi:"optional"`
+}
+
+func (WorkflowVersionWorkflowParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionWorkflowParameter)(nil)).Elem()
+}
+
+func (i WorkflowVersionWorkflowParameterArgs) ToWorkflowVersionWorkflowParameterOutput() WorkflowVersionWorkflowParameterOutput {
+	return i.ToWorkflowVersionWorkflowParameterOutputWithContext(context.Background())
+}
+
+func (i WorkflowVersionWorkflowParameterArgs) ToWorkflowVersionWorkflowParameterOutputWithContext(ctx context.Context) WorkflowVersionWorkflowParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionWorkflowParameterOutput)
+}
+
+// WorkflowVersionWorkflowParameterMapInput is an input type that accepts WorkflowVersionWorkflowParameterMap and WorkflowVersionWorkflowParameterMapOutput values.
+// You can construct a concrete instance of `WorkflowVersionWorkflowParameterMapInput` via:
+//
+//	WorkflowVersionWorkflowParameterMap{ "key": WorkflowVersionWorkflowParameterArgs{...} }
+type WorkflowVersionWorkflowParameterMapInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionWorkflowParameterMapOutput() WorkflowVersionWorkflowParameterMapOutput
+	ToWorkflowVersionWorkflowParameterMapOutputWithContext(context.Context) WorkflowVersionWorkflowParameterMapOutput
+}
+
+type WorkflowVersionWorkflowParameterMap map[string]WorkflowVersionWorkflowParameterInput
+
+func (WorkflowVersionWorkflowParameterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkflowVersionWorkflowParameter)(nil)).Elem()
+}
+
+func (i WorkflowVersionWorkflowParameterMap) ToWorkflowVersionWorkflowParameterMapOutput() WorkflowVersionWorkflowParameterMapOutput {
+	return i.ToWorkflowVersionWorkflowParameterMapOutputWithContext(context.Background())
+}
+
+func (i WorkflowVersionWorkflowParameterMap) ToWorkflowVersionWorkflowParameterMapOutputWithContext(ctx context.Context) WorkflowVersionWorkflowParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowVersionWorkflowParameterMapOutput)
+}
+
+type WorkflowVersionWorkflowParameterOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionWorkflowParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionWorkflowParameter)(nil)).Elem()
+}
+
+func (o WorkflowVersionWorkflowParameterOutput) ToWorkflowVersionWorkflowParameterOutput() WorkflowVersionWorkflowParameterOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowParameterOutput) ToWorkflowVersionWorkflowParameterOutputWithContext(ctx context.Context) WorkflowVersionWorkflowParameterOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowVersionWorkflowParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowVersionWorkflowParameterOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkflowVersionWorkflowParameter) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
+}
+
+type WorkflowVersionWorkflowParameterMapOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionWorkflowParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkflowVersionWorkflowParameter)(nil)).Elem()
+}
+
+func (o WorkflowVersionWorkflowParameterMapOutput) ToWorkflowVersionWorkflowParameterMapOutput() WorkflowVersionWorkflowParameterMapOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowParameterMapOutput) ToWorkflowVersionWorkflowParameterMapOutputWithContext(ctx context.Context) WorkflowVersionWorkflowParameterMapOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowParameterMapOutput) MapIndex(k pulumi.StringInput) WorkflowVersionWorkflowParameterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkflowVersionWorkflowParameter {
+		return vs[0].(map[string]WorkflowVersionWorkflowParameter)[vs[1].(string)]
+	}).(WorkflowVersionWorkflowParameterOutput)
+}
+
 type AnnotationStoreSchemaValueTypeMapArray []AnnotationStoreSchemaValueTypeMapInput
 
 func (AnnotationStoreSchemaValueTypeMapArray) ElementType() reflect.Type {
@@ -1301,6 +1401,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreSseConfigPtrInput)(nil)).Elem(), VariantStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterInput)(nil)).Elem(), WorkflowParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterMapInput)(nil)).Elem(), WorkflowParameterMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionWorkflowParameterInput)(nil)).Elem(), WorkflowVersionWorkflowParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionWorkflowParameterMapInput)(nil)).Elem(), WorkflowVersionWorkflowParameterMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreSchemaValueTypeMapArrayInput)(nil)).Elem(), AnnotationStoreSchemaValueTypeMapArray{})
 	pulumi.RegisterOutputType(AnnotationStoreReferenceItemOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreReferenceItemPtrOutput{})
@@ -1319,5 +1421,7 @@ func init() {
 	pulumi.RegisterOutputType(VariantStoreSseConfigPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterMapOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionWorkflowParameterOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionWorkflowParameterMapOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreSchemaValueTypeMapArrayOutput{})
 }

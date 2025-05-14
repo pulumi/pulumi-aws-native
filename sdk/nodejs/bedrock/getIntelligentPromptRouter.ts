@@ -33,11 +33,17 @@ export interface GetIntelligentPromptRouterResult {
      * Arn of the Prompt Router.
      */
     readonly promptRouterArn?: string;
+    /**
+     * The router's status.
+     */
     readonly status?: enums.bedrock.IntelligentPromptRouterPromptRouterStatus;
     /**
      * List of Tags
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The router's type.
+     */
     readonly type?: enums.bedrock.IntelligentPromptRouterPromptRouterType;
     /**
      * Time Stamp

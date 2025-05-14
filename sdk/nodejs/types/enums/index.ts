@@ -5,6 +5,7 @@
 import * as amplify from "./amplify";
 import * as amplifyuibuilder from "./amplifyuibuilder";
 import * as apigateway from "./apigateway";
+import * as apigatewayv2 from "./apigatewayv2";
 import * as appconfig from "./appconfig";
 import * as appflow from "./appflow";
 import * as applicationinsights from "./applicationinsights";
@@ -181,6 +182,7 @@ export {
     amplify,
     amplifyuibuilder,
     apigateway,
+    apigatewayv2,
     appconfig,
     appflow,
     applicationinsights,

@@ -21,18 +21,32 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.SageMaker.DomainAppType> HiddenAppTypes;
         /// <summary>
+        /// The instance types you are hiding from the Studio user interface.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.SageMaker.DomainAppInstanceType> HiddenInstanceTypes;
+        /// <summary>
         /// The machine learning tools that are hidden from the Studio left navigation pane.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.SageMaker.DomainMlTools> HiddenMlTools;
+        /// <summary>
+        /// The version aliases you are hiding from the Studio user interface.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DomainHiddenSageMakerImage> HiddenSageMakerImageVersionAliases;
 
         [OutputConstructor]
         private DomainStudioWebPortalSettings(
             ImmutableArray<Pulumi.AwsNative.SageMaker.DomainAppType> hiddenAppTypes,
 
-            ImmutableArray<Pulumi.AwsNative.SageMaker.DomainMlTools> hiddenMlTools)
+            ImmutableArray<Pulumi.AwsNative.SageMaker.DomainAppInstanceType> hiddenInstanceTypes,
+
+            ImmutableArray<Pulumi.AwsNative.SageMaker.DomainMlTools> hiddenMlTools,
+
+            ImmutableArray<Outputs.DomainHiddenSageMakerImage> hiddenSageMakerImageVersionAliases)
         {
             HiddenAppTypes = hiddenAppTypes;
+            HiddenInstanceTypes = hiddenInstanceTypes;
             HiddenMlTools = hiddenMlTools;
+            HiddenSageMakerImageVersionAliases = hiddenSageMakerImageVersionAliases;
         }
     }
 }

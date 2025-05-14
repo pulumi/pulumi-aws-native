@@ -55,7 +55,6 @@ func NewEip(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"address",
-		"domain",
 		"ipamPoolId",
 		"networkBorderGroup",
 		"transferAddress",

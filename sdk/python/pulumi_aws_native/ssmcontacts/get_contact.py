@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetContactResult',
@@ -24,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetContactResult:
-    def __init__(__self__, arn=None, display_name=None):
+    def __init__(__self__, arn=None, display_name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -48,6 +52,11 @@ class GetContactResult:
         """
         return pulumi.get(self, "display_name")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetContactResult(GetContactResult):
     # pylint: disable=using-constant-test
@@ -56,7 +65,8 @@ class AwaitableGetContactResult(GetContactResult):
             yield self
         return GetContactResult(
             arn=self.arn,
-            display_name=self.display_name)
+            display_name=self.display_name,
+            tags=self.tags)
 
 
 def get_contact(arn: Optional[builtins.str] = None,
@@ -74,7 +84,8 @@ def get_contact(arn: Optional[builtins.str] = None,
 
     return AwaitableGetContactResult(
         arn=pulumi.get(__ret__, 'arn'),
-        display_name=pulumi.get(__ret__, 'display_name'))
+        display_name=pulumi.get(__ret__, 'display_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_contact_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactResult]:
     """
@@ -89,4 +100,5 @@ def get_contact_output(arn: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssmcontacts:getContact', __args__, opts=opts, typ=GetContactResult)
     return __ret__.apply(lambda __response__: GetContactResult(
         arn=pulumi.get(__response__, 'arn'),
-        display_name=pulumi.get(__response__, 'display_name')))
+        display_name=pulumi.get(__response__, 'display_name'),
+        tags=pulumi.get(__response__, 'tags')))

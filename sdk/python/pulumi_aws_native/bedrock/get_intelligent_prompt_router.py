@@ -65,6 +65,9 @@ class GetIntelligentPromptRouterResult:
     @property
     @pulumi.getter
     def status(self) -> Optional['IntelligentPromptRouterPromptRouterStatus']:
+        """
+        The router's status.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -78,6 +81,9 @@ class GetIntelligentPromptRouterResult:
     @property
     @pulumi.getter
     def type(self) -> Optional['IntelligentPromptRouterPromptRouterType']:
+        """
+        The router's type.
+        """
         return pulumi.get(self, "type")
 
     @property

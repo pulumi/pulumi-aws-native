@@ -36,6 +36,9 @@ type LookupEipArgs struct {
 type LookupEipResult struct {
 	// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
 	AllocationId *string `pulumi:"allocationId"`
+	// The network (``vpc``).
+	//  If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
+	Domain *string `pulumi:"domain"`
 	// The ID of the instance.
 	//   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
 	InstanceId *string `pulumi:"instanceId"`
@@ -86,6 +89,13 @@ func (o LookupEipResultOutput) ToLookupEipResultOutputWithContext(ctx context.Co
 // The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
 func (o LookupEipResultOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEipResult) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
+// The network (“vpc“).
+//
+//	If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
+func (o LookupEipResultOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEipResult) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the instance.

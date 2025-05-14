@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.SsmContacts
         [Output("plan")]
         public Output<ImmutableArray<Outputs.ContactStage>> Plan { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
         /// <summary>
         /// Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
         /// </summary>
@@ -117,6 +120,14 @@ namespace Pulumi.AwsNative.SsmContacts
         {
             get => _plan ?? (_plan = new InputList<Inputs.ContactStageArgs>());
             set => _plan = value;
+        }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>

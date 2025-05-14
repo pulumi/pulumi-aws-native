@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Logs
         /// 
         /// Length Constraints: Maximum length of 51200
         /// </summary>
-        public readonly ImmutableArray<Outputs.DeliveryDestinationDestinationPolicy> DeliveryDestinationPolicy;
+        public readonly Outputs.DeliveryDestinationDestinationPolicy? DeliveryDestinationPolicy;
         /// <summary>
         /// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Logs
         private GetDeliveryDestinationResult(
             string? arn,
 
-            ImmutableArray<Outputs.DeliveryDestinationDestinationPolicy> deliveryDestinationPolicy,
+            Outputs.DeliveryDestinationDestinationPolicy? deliveryDestinationPolicy,
 
             string? deliveryDestinationType,
 

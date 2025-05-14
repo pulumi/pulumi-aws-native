@@ -11,13 +11,19 @@ namespace Pulumi.AwsNative.Ecr.Inputs
 {
 
     /// <summary>
-    /// The details of a scanning repository filter.
+    /// The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
     /// </summary>
     public sealed class RegistryScanningConfigurationRepositoryFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The filter to use when scanning.
+        /// </summary>
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;
 
+        /// <summary>
+        /// The type associated with the filter.
+        /// </summary>
         [Input("filterType", required: true)]
         public Input<Pulumi.AwsNative.Ecr.RegistryScanningConfigurationFilterType> FilterType { get; set; } = null!;
 

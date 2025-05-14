@@ -102,7 +102,7 @@ class EvaluationFormNumericQuestionPropertyValueAutomationLabel(builtins.str, En
 class EvaluationFormQuestionQuestionType(builtins.str, Enum):
     """
     The type of the question.
-      *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
+     *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
     """
     NUMERIC = "NUMERIC"
     SINGLESELECT = "SINGLESELECT"
@@ -112,7 +112,7 @@ class EvaluationFormQuestionQuestionType(builtins.str, Enum):
 class EvaluationFormScoringStrategyMode(builtins.str, Enum):
     """
     The scoring mode of the evaluation form.
-      *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
+     *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
     """
     QUESTION_ONLY = "QUESTION_ONLY"
     SECTION_ONLY = "SECTION_ONLY"
@@ -121,7 +121,7 @@ class EvaluationFormScoringStrategyMode(builtins.str, Enum):
 class EvaluationFormScoringStrategyStatus(builtins.str, Enum):
     """
     The scoring status of the evaluation form.
-      *Allowed values*: ``ENABLED`` | ``DISABLED``
+     *Allowed values*: ``ENABLED`` | ``DISABLED``
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
@@ -130,7 +130,7 @@ class EvaluationFormScoringStrategyStatus(builtins.str, Enum):
 class EvaluationFormSingleSelectQuestionPropertiesDisplayAs(builtins.str, Enum):
     """
     The display mode of the single select question.
-      *Allowed values*: ``DROPDOWN`` | ``RADIO``
+     *Allowed values*: ``DROPDOWN`` | ``RADIO``
     """
     DROPDOWN = "DROPDOWN"
     RADIO = "RADIO"
@@ -139,8 +139,8 @@ class EvaluationFormSingleSelectQuestionPropertiesDisplayAs(builtins.str, Enum):
 class EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition(builtins.str, Enum):
     """
     The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
-      *Allowed values*: ``PRESENT`` | ``NOT_PRESENT`` 
-      *Maximum*: 50
+     *Allowed values*: ``PRESENT`` | ``NOT_PRESENT``
+     *Maximum*: 50
     """
     PRESENT = "PRESENT"
     NOT_PRESENT = "NOT_PRESENT"
@@ -149,7 +149,7 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition(builtins
 class EvaluationFormStatus(builtins.str, Enum):
     """
     The status of the evaluation form.
-      *Allowed values*: ``DRAFT`` | ``ACTIVE``
+     *Allowed values*: ``DRAFT`` | ``ACTIVE``
     """
     DRAFT = "DRAFT"
     ACTIVE = "ACTIVE"

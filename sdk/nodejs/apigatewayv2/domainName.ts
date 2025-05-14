@@ -62,6 +62,7 @@ export class DomainName extends pulumi.CustomResource {
      * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
      */
     public /*out*/ readonly regionalHostedZoneId!: pulumi.Output<string>;
+    public readonly routingMode!: pulumi.Output<enums.apigatewayv2.DomainNameRoutingMode | undefined>;
     /**
      * The collection of tags associated with a domain name.
      */
@@ -84,6 +85,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["domainNameConfigurations"] = args ? args.domainNameConfigurations : undefined;
             resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
+            resourceInputs["routingMode"] = args ? args.routingMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["regionalDomainName"] = undefined /*out*/;
@@ -95,6 +97,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["mutualTlsAuthentication"] = undefined /*out*/;
             resourceInputs["regionalDomainName"] = undefined /*out*/;
             resourceInputs["regionalHostedZoneId"] = undefined /*out*/;
+            resourceInputs["routingMode"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -120,6 +123,7 @@ export interface DomainNameArgs {
      * The mutual TLS authentication configuration for a custom domain name.
      */
     mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthenticationArgs>;
+    routingMode?: pulumi.Input<enums.apigatewayv2.DomainNameRoutingMode>;
     /**
      * The collection of tags associated with a domain name.
      */

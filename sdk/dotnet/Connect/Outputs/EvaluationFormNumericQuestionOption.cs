@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly int MinValue;
         /// <summary>
         /// The score assigned to answer values within the range option.
-        ///   *Minimum*: 0
-        ///   *Maximum*: 10
+        ///  *Minimum*: 0
+        ///  *Maximum*: 10
         /// </summary>
         public readonly int? Score;
 

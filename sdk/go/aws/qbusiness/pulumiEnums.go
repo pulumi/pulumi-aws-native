@@ -347,6 +347,7 @@ const (
 	ApplicationIdentityTypeAwsIamIdpOidc    = ApplicationIdentityType("AWS_IAM_IDP_OIDC")
 	ApplicationIdentityTypeAwsIamIdc        = ApplicationIdentityType("AWS_IAM_IDC")
 	ApplicationIdentityTypeAwsQuicksightIdp = ApplicationIdentityType("AWS_QUICKSIGHT_IDP")
+	ApplicationIdentityTypeAnonymous        = ApplicationIdentityType("ANONYMOUS")
 )
 
 func (ApplicationIdentityType) ElementType() reflect.Type {
@@ -475,6 +476,7 @@ func (o ApplicationIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 //	ApplicationIdentityTypeAwsIamIdpOidc
 //	ApplicationIdentityTypeAwsIamIdc
 //	ApplicationIdentityTypeAwsQuicksightIdp
+//	ApplicationIdentityTypeAnonymous
 type ApplicationIdentityTypeInput interface {
 	pulumi.Input
 

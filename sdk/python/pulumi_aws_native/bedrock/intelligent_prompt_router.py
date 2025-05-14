@@ -33,7 +33,9 @@ class IntelligentPromptRouterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IntelligentPromptRouter resource.
+        :param pulumi.Input['IntelligentPromptRouterPromptRouterTargetModelArgs'] fallback_model: The default model to use when the routing criteria is not met.
         :param pulumi.Input[Sequence[pulumi.Input['IntelligentPromptRouterPromptRouterTargetModelArgs']]] models: List of model configuration
+        :param pulumi.Input['IntelligentPromptRouterRoutingCriteriaArgs'] routing_criteria: Routing criteria for a prompt router.
         :param pulumi.Input[builtins.str] description: Description of the Prompt Router.
         :param pulumi.Input[builtins.str] prompt_router_name: Name of the Prompt Router.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: List of Tags
@@ -51,6 +53,9 @@ class IntelligentPromptRouterArgs:
     @property
     @pulumi.getter(name="fallbackModel")
     def fallback_model(self) -> pulumi.Input['IntelligentPromptRouterPromptRouterTargetModelArgs']:
+        """
+        The default model to use when the routing criteria is not met.
+        """
         return pulumi.get(self, "fallback_model")
 
     @fallback_model.setter
@@ -72,6 +77,9 @@ class IntelligentPromptRouterArgs:
     @property
     @pulumi.getter(name="routingCriteria")
     def routing_criteria(self) -> pulumi.Input['IntelligentPromptRouterRoutingCriteriaArgs']:
+        """
+        Routing criteria for a prompt router.
+        """
         return pulumi.get(self, "routing_criteria")
 
     @routing_criteria.setter
@@ -136,8 +144,10 @@ class IntelligentPromptRouter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Description of the Prompt Router.
+        :param pulumi.Input[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict']] fallback_model: The default model to use when the routing criteria is not met.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict']]]] models: List of model configuration
         :param pulumi.Input[builtins.str] prompt_router_name: Name of the Prompt Router.
+        :param pulumi.Input[Union['IntelligentPromptRouterRoutingCriteriaArgs', 'IntelligentPromptRouterRoutingCriteriaArgsDict']] routing_criteria: Routing criteria for a prompt router.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: List of Tags
         """
         ...
@@ -252,6 +262,9 @@ class IntelligentPromptRouter(pulumi.CustomResource):
     @property
     @pulumi.getter(name="fallbackModel")
     def fallback_model(self) -> pulumi.Output['outputs.IntelligentPromptRouterPromptRouterTargetModel']:
+        """
+        The default model to use when the routing criteria is not met.
+        """
         return pulumi.get(self, "fallback_model")
 
     @property
@@ -281,11 +294,17 @@ class IntelligentPromptRouter(pulumi.CustomResource):
     @property
     @pulumi.getter(name="routingCriteria")
     def routing_criteria(self) -> pulumi.Output['outputs.IntelligentPromptRouterRoutingCriteria']:
+        """
+        Routing criteria for a prompt router.
+        """
         return pulumi.get(self, "routing_criteria")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['IntelligentPromptRouterPromptRouterStatus']:
+        """
+        The router's status.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -299,6 +318,9 @@ class IntelligentPromptRouter(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['IntelligentPromptRouterPromptRouterType']:
+        """
+        The router's type.
+        """
         return pulumi.get(self, "type")
 
     @property

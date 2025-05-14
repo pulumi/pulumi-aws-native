@@ -80,11 +80,11 @@ if not MYPY:
     class StreamGroupDefaultApplicationArgsDict(TypedDict):
         arn: NotRequired[pulumi.Input[builtins.str]]
         """
-        An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Format example: `arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6` .
+        An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
         """
         id: NotRequired[pulumi.Input[builtins.str]]
         """
-        An ID that uniquely identifies the application resource. For example: `a-9ZY8X7Wv6` .
+        An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
         """
 elif False:
     StreamGroupDefaultApplicationArgsDict: TypeAlias = Mapping[str, Any]
@@ -95,8 +95,8 @@ class StreamGroupDefaultApplicationArgs:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  id: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] arn: An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Format example: `arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6` .
-        :param pulumi.Input[builtins.str] id: An ID that uniquely identifies the application resource. For example: `a-9ZY8X7Wv6` .
+        :param pulumi.Input[builtins.str] arn: An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
+        :param pulumi.Input[builtins.str] id: An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -107,7 +107,7 @@ class StreamGroupDefaultApplicationArgs:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Format example: `arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6` .
+        An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource. Example ARN: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6` .
         """
         return pulumi.get(self, "arn")
 
@@ -119,7 +119,7 @@ class StreamGroupDefaultApplicationArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        An ID that uniquely identifies the application resource. For example: `a-9ZY8X7Wv6` .
+        An ID that uniquely identifies the application resource. Example ID: `a-9ZY8X7Wv6` .
         """
         return pulumi.get(self, "id")
 
@@ -132,7 +132,7 @@ if not MYPY:
     class StreamGroupLocationConfigurationArgsDict(TypedDict):
         location_name: pulumi.Input[builtins.str]
         """
-        A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions and quotas](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
+        A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
         """
         always_on_capacity: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -152,7 +152,7 @@ class StreamGroupLocationConfigurationArgs:
                  always_on_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  on_demand_capacity: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.str] location_name: A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions and quotas](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
+        :param pulumi.Input[builtins.str] location_name: A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
         :param pulumi.Input[builtins.int] always_on_capacity: The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session.
         :param pulumi.Input[builtins.int] on_demand_capacity: The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes).
         """
@@ -166,7 +166,7 @@ class StreamGroupLocationConfigurationArgs:
     @pulumi.getter(name="locationName")
     def location_name(self) -> pulumi.Input[builtins.str]:
         """
-        A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions and quotas](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
+        A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
         """
         return pulumi.get(self, "location_name")
 

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
     {
         /// <summary>
         /// The instructions of the section.
-        ///   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+        ///  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         /// </summary>
         public readonly string? Instructions;
         /// <summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly bool? NotApplicableEnabled;
         /// <summary>
         /// The type of the question.
-        ///   *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
+        ///  *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.EvaluationFormQuestionQuestionType QuestionType;
         /// <summary>
@@ -36,18 +36,18 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly Outputs.EvaluationFormQuestionTypeProperties? QuestionTypeProperties;
         /// <summary>
         /// The identifier of the question. An identifier must be unique within the evaluation form.
-        ///   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         public readonly string RefId;
         /// <summary>
         /// The title of the question.
-        ///   *Length Constraints*: Minimum length of 1. Maximum length of 350.
+        ///  *Length Constraints*: Minimum length of 1. Maximum length of 350.
         /// </summary>
         public readonly string Title;
         /// <summary>
         /// The scoring weight of the section.
-        ///   *Minimum*: 0
-        ///   *Maximum*: 100
+        ///  *Minimum*: 0
+        ///  *Maximum*: 100
         /// </summary>
         public readonly double? Weight;
 

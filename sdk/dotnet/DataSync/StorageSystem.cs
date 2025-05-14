@@ -45,15 +45,9 @@ namespace Pulumi.AwsNative.DataSync
         [Output("secretsManagerArn")]
         public Output<string> SecretsManagerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
-        /// </summary>
         [Output("serverConfiguration")]
         public Output<Outputs.StorageSystemServerConfiguration> ServerConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the user name and password for accessing your on-premises storage system's management interface.
-        /// </summary>
         [Output("serverCredentials")]
         public Output<Outputs.StorageSystemServerCredentials?> ServerCredentials { get; private set; } = null!;
 
@@ -144,15 +138,9 @@ namespace Pulumi.AwsNative.DataSync
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
-        /// </summary>
         [Input("serverConfiguration", required: true)]
         public Input<Inputs.StorageSystemServerConfigurationArgs> ServerConfiguration { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the user name and password for accessing your on-premises storage system's management interface.
-        /// </summary>
         [Input("serverCredentials")]
         public Input<Inputs.StorageSystemServerCredentialsArgs>? ServerCredentials { get; set; }
 

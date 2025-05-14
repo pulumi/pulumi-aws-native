@@ -1,3 +1,4 @@
+AWS::DataSync::StorageSystem
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::NimbleStudio::LaunchProfile

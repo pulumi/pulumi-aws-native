@@ -40,6 +40,11 @@ export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as a
 export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
 
+export { GetWorkflowVersionArgs, GetWorkflowVersionResult, GetWorkflowVersionOutputArgs } from "./getWorkflowVersion";
+export const getWorkflowVersion: typeof import("./getWorkflowVersion").getWorkflowVersion = null as any;
+export const getWorkflowVersionOutput: typeof import("./getWorkflowVersion").getWorkflowVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkflowVersion","getWorkflowVersionOutput"], () => require("./getWorkflowVersion"));
+
 export { ReferenceStoreArgs } from "./referenceStore";
 export type ReferenceStore = import("./referenceStore").ReferenceStore;
 export const ReferenceStore: typeof import("./referenceStore").ReferenceStore = null as any;
@@ -65,6 +70,11 @@ export type Workflow = import("./workflow").Workflow;
 export const Workflow: typeof import("./workflow").Workflow = null as any;
 utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
 
+export { WorkflowVersionArgs } from "./workflowVersion";
+export type WorkflowVersion = import("./workflowVersion").WorkflowVersion;
+export const WorkflowVersion: typeof import("./workflowVersion").WorkflowVersion = null as any;
+utilities.lazyLoad(exports, ["WorkflowVersion"], () => require("./workflowVersion"));
+
 
 // Export enums:
 export * from "../types/enums/omics";
@@ -85,6 +95,8 @@ const _module = {
                 return new VariantStore(name, <any>undefined, { urn })
             case "aws-native:omics:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
+            case "aws-native:omics:WorkflowVersion":
+                return new WorkflowVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

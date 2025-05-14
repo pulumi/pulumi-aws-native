@@ -478,8 +478,8 @@ type DbClusterScalingConfiguration struct {
 	//  Specify a value between 300 and 86,400 seconds.
 	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
 	// The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
-	//   ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
-	//   ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+	//  ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
+	//  ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
 	//   If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
 	//   For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
 	TimeoutAction *string `pulumi:"timeoutAction"`
@@ -522,8 +522,8 @@ type DbClusterScalingConfigurationArgs struct {
 	//  Specify a value between 300 and 86,400 seconds.
 	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
 	// The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
-	//   ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
-	//   ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+	//  ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
+	//  ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
 	//   If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
 	//   For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
 	TimeoutAction pulumi.StringPtrInput `pulumi:"timeoutAction"`
@@ -654,8 +654,8 @@ func (o DbClusterScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntP
 //
 //	``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
 //	``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
-//	If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
-//	For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
+//	 If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
+//	 For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
 func (o DbClusterScalingConfigurationOutput) TimeoutAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbClusterScalingConfiguration) *string { return v.TimeoutAction }).(pulumi.StringPtrOutput)
 }
@@ -752,8 +752,8 @@ func (o DbClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.I
 //
 //	``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
 //	``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
-//	If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
-//	For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
+//	 If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
+//	 For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
 func (o DbClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbClusterScalingConfiguration) *string {
 		if v == nil {

@@ -4785,6 +4785,172 @@ func (in *instancePrivateDnsNameOptionsHostnameTypePtr) ToInstancePrivateDnsName
 	return pulumi.ToOutputWithContext(ctx, in).(InstancePrivateDnsNameOptionsHostnameTypePtrOutput)
 }
 
+// A metered account is an account that is charged for active IP addresses managed in IPAM
+type IpamMeteredAccount string
+
+const (
+	IpamMeteredAccountIpamOwner     = IpamMeteredAccount("ipam-owner")
+	IpamMeteredAccountResourceOwner = IpamMeteredAccount("resource-owner")
+)
+
+func (IpamMeteredAccount) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamMeteredAccount)(nil)).Elem()
+}
+
+func (e IpamMeteredAccount) ToIpamMeteredAccountOutput() IpamMeteredAccountOutput {
+	return pulumi.ToOutput(e).(IpamMeteredAccountOutput)
+}
+
+func (e IpamMeteredAccount) ToIpamMeteredAccountOutputWithContext(ctx context.Context) IpamMeteredAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IpamMeteredAccountOutput)
+}
+
+func (e IpamMeteredAccount) ToIpamMeteredAccountPtrOutput() IpamMeteredAccountPtrOutput {
+	return e.ToIpamMeteredAccountPtrOutputWithContext(context.Background())
+}
+
+func (e IpamMeteredAccount) ToIpamMeteredAccountPtrOutputWithContext(ctx context.Context) IpamMeteredAccountPtrOutput {
+	return IpamMeteredAccount(e).ToIpamMeteredAccountOutputWithContext(ctx).ToIpamMeteredAccountPtrOutputWithContext(ctx)
+}
+
+func (e IpamMeteredAccount) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamMeteredAccount) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamMeteredAccount) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IpamMeteredAccount) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IpamMeteredAccountOutput struct{ *pulumi.OutputState }
+
+func (IpamMeteredAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamMeteredAccount)(nil)).Elem()
+}
+
+func (o IpamMeteredAccountOutput) ToIpamMeteredAccountOutput() IpamMeteredAccountOutput {
+	return o
+}
+
+func (o IpamMeteredAccountOutput) ToIpamMeteredAccountOutputWithContext(ctx context.Context) IpamMeteredAccountOutput {
+	return o
+}
+
+func (o IpamMeteredAccountOutput) ToIpamMeteredAccountPtrOutput() IpamMeteredAccountPtrOutput {
+	return o.ToIpamMeteredAccountPtrOutputWithContext(context.Background())
+}
+
+func (o IpamMeteredAccountOutput) ToIpamMeteredAccountPtrOutputWithContext(ctx context.Context) IpamMeteredAccountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamMeteredAccount) *IpamMeteredAccount {
+		return &v
+	}).(IpamMeteredAccountPtrOutput)
+}
+
+func (o IpamMeteredAccountOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IpamMeteredAccountOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamMeteredAccount) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IpamMeteredAccountOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamMeteredAccountOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamMeteredAccount) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpamMeteredAccountPtrOutput struct{ *pulumi.OutputState }
+
+func (IpamMeteredAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamMeteredAccount)(nil)).Elem()
+}
+
+func (o IpamMeteredAccountPtrOutput) ToIpamMeteredAccountPtrOutput() IpamMeteredAccountPtrOutput {
+	return o
+}
+
+func (o IpamMeteredAccountPtrOutput) ToIpamMeteredAccountPtrOutputWithContext(ctx context.Context) IpamMeteredAccountPtrOutput {
+	return o
+}
+
+func (o IpamMeteredAccountPtrOutput) Elem() IpamMeteredAccountOutput {
+	return o.ApplyT(func(v *IpamMeteredAccount) IpamMeteredAccount {
+		if v != nil {
+			return *v
+		}
+		var ret IpamMeteredAccount
+		return ret
+	}).(IpamMeteredAccountOutput)
+}
+
+func (o IpamMeteredAccountPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamMeteredAccountPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpamMeteredAccount) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IpamMeteredAccountInput is an input type that accepts values of the IpamMeteredAccount enum
+// A concrete instance of `IpamMeteredAccountInput` can be one of the following:
+//
+//	IpamMeteredAccountIpamOwner
+//	IpamMeteredAccountResourceOwner
+type IpamMeteredAccountInput interface {
+	pulumi.Input
+
+	ToIpamMeteredAccountOutput() IpamMeteredAccountOutput
+	ToIpamMeteredAccountOutputWithContext(context.Context) IpamMeteredAccountOutput
+}
+
+var ipamMeteredAccountPtrType = reflect.TypeOf((**IpamMeteredAccount)(nil)).Elem()
+
+type IpamMeteredAccountPtrInput interface {
+	pulumi.Input
+
+	ToIpamMeteredAccountPtrOutput() IpamMeteredAccountPtrOutput
+	ToIpamMeteredAccountPtrOutputWithContext(context.Context) IpamMeteredAccountPtrOutput
+}
+
+type ipamMeteredAccountPtr string
+
+func IpamMeteredAccountPtr(v string) IpamMeteredAccountPtrInput {
+	return (*ipamMeteredAccountPtr)(&v)
+}
+
+func (*ipamMeteredAccountPtr) ElementType() reflect.Type {
+	return ipamMeteredAccountPtrType
+}
+
+func (in *ipamMeteredAccountPtr) ToIpamMeteredAccountPtrOutput() IpamMeteredAccountPtrOutput {
+	return pulumi.ToOutput(in).(IpamMeteredAccountPtrOutput)
+}
+
+func (in *ipamMeteredAccountPtr) ToIpamMeteredAccountPtrOutputWithContext(ctx context.Context) IpamMeteredAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IpamMeteredAccountPtrOutput)
+}
+
 // Limits which service in Amazon Web Services that the pool can be used in.
 type IpamPoolAwsService string
 
@@ -13546,6 +13712,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAffinityPtrInput)(nil)).Elem(), InstanceAffinity("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsHostnameTypeInput)(nil)).Elem(), InstancePrivateDnsNameOptionsHostnameType("ip-name"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsHostnameTypePtrInput)(nil)).Elem(), InstancePrivateDnsNameOptionsHostnameType("ip-name"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamMeteredAccountInput)(nil)).Elem(), IpamMeteredAccount("ipam-owner"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamMeteredAccountPtrInput)(nil)).Elem(), IpamMeteredAccount("ipam-owner"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolAwsServiceInput)(nil)).Elem(), IpamPoolAwsService("ec2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolAwsServicePtrInput)(nil)).Elem(), IpamPoolAwsService("ec2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolPublicIpSourceInput)(nil)).Elem(), IpamPoolPublicIpSource("byoip"))
@@ -13702,6 +13870,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceAffinityPtrOutput{})
 	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsHostnameTypeOutput{})
 	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsHostnameTypePtrOutput{})
+	pulumi.RegisterOutputType(IpamMeteredAccountOutput{})
+	pulumi.RegisterOutputType(IpamMeteredAccountPtrOutput{})
 	pulumi.RegisterOutputType(IpamPoolAwsServiceOutput{})
 	pulumi.RegisterOutputType(IpamPoolAwsServicePtrOutput{})
 	pulumi.RegisterOutputType(IpamPoolIpamScopeTypeOutput{})

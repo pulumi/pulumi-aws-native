@@ -343,7 +343,7 @@ class Collaboration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["collaboration_identifier"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analyticsEngine", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "jobLogStatus", "members[*]", "queryLogStatus"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "jobLogStatus", "members[*]", "queryLogStatus"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Collaboration, __self__).__init__(
             'aws-native:cleanrooms:Collaboration',

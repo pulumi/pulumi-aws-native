@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetDomainNameV2Result',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainNameV2Result:
-    def __init__(__self__, certificate_arn=None, domain_name_arn=None, domain_name_id=None, policy=None, tags=None):
+    def __init__(__self__, certificate_arn=None, domain_name_arn=None, domain_name_id=None, policy=None, routing_mode=None, tags=None):
         if certificate_arn and not isinstance(certificate_arn, str):
             raise TypeError("Expected argument 'certificate_arn' to be a str")
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -38,6 +39,9 @@ class GetDomainNameV2Result:
         if policy and not isinstance(policy, dict):
             raise TypeError("Expected argument 'policy' to be a dict")
         pulumi.set(__self__, "policy", policy)
+        if routing_mode and not isinstance(routing_mode, str):
+            raise TypeError("Expected argument 'routing_mode' to be a str")
+        pulumi.set(__self__, "routing_mode", routing_mode)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -77,6 +81,14 @@ class GetDomainNameV2Result:
         return pulumi.get(self, "policy")
 
     @property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> Optional['DomainNameV2RoutingMode']:
+        """
+        The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+        """
+        return pulumi.get(self, "routing_mode")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -95,6 +107,7 @@ class AwaitableGetDomainNameV2Result(GetDomainNameV2Result):
             domain_name_arn=self.domain_name_arn,
             domain_name_id=self.domain_name_id,
             policy=self.policy,
+            routing_mode=self.routing_mode,
             tags=self.tags)
 
 
@@ -116,6 +129,7 @@ def get_domain_name_v2(domain_name_arn: Optional[builtins.str] = None,
         domain_name_arn=pulumi.get(__ret__, 'domain_name_arn'),
         domain_name_id=pulumi.get(__ret__, 'domain_name_id'),
         policy=pulumi.get(__ret__, 'policy'),
+        routing_mode=pulumi.get(__ret__, 'routing_mode'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_domain_name_v2_output(domain_name_arn: Optional[pulumi.Input[builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameV2Result]:
@@ -134,4 +148,5 @@ def get_domain_name_v2_output(domain_name_arn: Optional[pulumi.Input[builtins.st
         domain_name_arn=pulumi.get(__response__, 'domain_name_arn'),
         domain_name_id=pulumi.get(__response__, 'domain_name_id'),
         policy=pulumi.get(__response__, 'policy'),
+        routing_mode=pulumi.get(__response__, 'routing_mode'),
         tags=pulumi.get(__response__, 'tags')))

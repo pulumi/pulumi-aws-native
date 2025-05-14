@@ -360,6 +360,341 @@ func (in *domainNameAccessAssociationAccessAssociationSourceTypePtr) ToDomainNam
 	return pulumi.ToOutputWithContext(ctx, in).(DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput)
 }
 
+type DomainNameRoutingMode string
+
+const (
+	DomainNameRoutingModeBasePathMappingOnly            = DomainNameRoutingMode("BASE_PATH_MAPPING_ONLY")
+	DomainNameRoutingModeRoutingRuleThenBasePathMapping = DomainNameRoutingMode("ROUTING_RULE_THEN_BASE_PATH_MAPPING")
+	DomainNameRoutingModeRoutingRuleOnly                = DomainNameRoutingMode("ROUTING_RULE_ONLY")
+)
+
+func (DomainNameRoutingMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameRoutingMode)(nil)).Elem()
+}
+
+func (e DomainNameRoutingMode) ToDomainNameRoutingModeOutput() DomainNameRoutingModeOutput {
+	return pulumi.ToOutput(e).(DomainNameRoutingModeOutput)
+}
+
+func (e DomainNameRoutingMode) ToDomainNameRoutingModeOutputWithContext(ctx context.Context) DomainNameRoutingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainNameRoutingModeOutput)
+}
+
+func (e DomainNameRoutingMode) ToDomainNameRoutingModePtrOutput() DomainNameRoutingModePtrOutput {
+	return e.ToDomainNameRoutingModePtrOutputWithContext(context.Background())
+}
+
+func (e DomainNameRoutingMode) ToDomainNameRoutingModePtrOutputWithContext(ctx context.Context) DomainNameRoutingModePtrOutput {
+	return DomainNameRoutingMode(e).ToDomainNameRoutingModeOutputWithContext(ctx).ToDomainNameRoutingModePtrOutputWithContext(ctx)
+}
+
+func (e DomainNameRoutingMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainNameRoutingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainNameRoutingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainNameRoutingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainNameRoutingModeOutput struct{ *pulumi.OutputState }
+
+func (DomainNameRoutingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameRoutingMode)(nil)).Elem()
+}
+
+func (o DomainNameRoutingModeOutput) ToDomainNameRoutingModeOutput() DomainNameRoutingModeOutput {
+	return o
+}
+
+func (o DomainNameRoutingModeOutput) ToDomainNameRoutingModeOutputWithContext(ctx context.Context) DomainNameRoutingModeOutput {
+	return o
+}
+
+func (o DomainNameRoutingModeOutput) ToDomainNameRoutingModePtrOutput() DomainNameRoutingModePtrOutput {
+	return o.ToDomainNameRoutingModePtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameRoutingModeOutput) ToDomainNameRoutingModePtrOutputWithContext(ctx context.Context) DomainNameRoutingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNameRoutingMode) *DomainNameRoutingMode {
+		return &v
+	}).(DomainNameRoutingModePtrOutput)
+}
+
+func (o DomainNameRoutingModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainNameRoutingModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainNameRoutingMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainNameRoutingModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameRoutingModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainNameRoutingMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainNameRoutingModePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainNameRoutingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameRoutingMode)(nil)).Elem()
+}
+
+func (o DomainNameRoutingModePtrOutput) ToDomainNameRoutingModePtrOutput() DomainNameRoutingModePtrOutput {
+	return o
+}
+
+func (o DomainNameRoutingModePtrOutput) ToDomainNameRoutingModePtrOutputWithContext(ctx context.Context) DomainNameRoutingModePtrOutput {
+	return o
+}
+
+func (o DomainNameRoutingModePtrOutput) Elem() DomainNameRoutingModeOutput {
+	return o.ApplyT(func(v *DomainNameRoutingMode) DomainNameRoutingMode {
+		if v != nil {
+			return *v
+		}
+		var ret DomainNameRoutingMode
+		return ret
+	}).(DomainNameRoutingModeOutput)
+}
+
+func (o DomainNameRoutingModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameRoutingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainNameRoutingMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainNameRoutingModeInput is an input type that accepts values of the DomainNameRoutingMode enum
+// A concrete instance of `DomainNameRoutingModeInput` can be one of the following:
+//
+//	DomainNameRoutingModeBasePathMappingOnly
+//	DomainNameRoutingModeRoutingRuleThenBasePathMapping
+//	DomainNameRoutingModeRoutingRuleOnly
+type DomainNameRoutingModeInput interface {
+	pulumi.Input
+
+	ToDomainNameRoutingModeOutput() DomainNameRoutingModeOutput
+	ToDomainNameRoutingModeOutputWithContext(context.Context) DomainNameRoutingModeOutput
+}
+
+var domainNameRoutingModePtrType = reflect.TypeOf((**DomainNameRoutingMode)(nil)).Elem()
+
+type DomainNameRoutingModePtrInput interface {
+	pulumi.Input
+
+	ToDomainNameRoutingModePtrOutput() DomainNameRoutingModePtrOutput
+	ToDomainNameRoutingModePtrOutputWithContext(context.Context) DomainNameRoutingModePtrOutput
+}
+
+type domainNameRoutingModePtr string
+
+func DomainNameRoutingModePtr(v string) DomainNameRoutingModePtrInput {
+	return (*domainNameRoutingModePtr)(&v)
+}
+
+func (*domainNameRoutingModePtr) ElementType() reflect.Type {
+	return domainNameRoutingModePtrType
+}
+
+func (in *domainNameRoutingModePtr) ToDomainNameRoutingModePtrOutput() DomainNameRoutingModePtrOutput {
+	return pulumi.ToOutput(in).(DomainNameRoutingModePtrOutput)
+}
+
+func (in *domainNameRoutingModePtr) ToDomainNameRoutingModePtrOutputWithContext(ctx context.Context) DomainNameRoutingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainNameRoutingModePtrOutput)
+}
+
+// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+type DomainNameV2RoutingMode string
+
+const (
+	DomainNameV2RoutingModeBasePathMappingOnly            = DomainNameV2RoutingMode("BASE_PATH_MAPPING_ONLY")
+	DomainNameV2RoutingModeRoutingRuleThenBasePathMapping = DomainNameV2RoutingMode("ROUTING_RULE_THEN_BASE_PATH_MAPPING")
+	DomainNameV2RoutingModeRoutingRuleOnly                = DomainNameV2RoutingMode("ROUTING_RULE_ONLY")
+)
+
+func (DomainNameV2RoutingMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameV2RoutingMode)(nil)).Elem()
+}
+
+func (e DomainNameV2RoutingMode) ToDomainNameV2RoutingModeOutput() DomainNameV2RoutingModeOutput {
+	return pulumi.ToOutput(e).(DomainNameV2RoutingModeOutput)
+}
+
+func (e DomainNameV2RoutingMode) ToDomainNameV2RoutingModeOutputWithContext(ctx context.Context) DomainNameV2RoutingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainNameV2RoutingModeOutput)
+}
+
+func (e DomainNameV2RoutingMode) ToDomainNameV2RoutingModePtrOutput() DomainNameV2RoutingModePtrOutput {
+	return e.ToDomainNameV2RoutingModePtrOutputWithContext(context.Background())
+}
+
+func (e DomainNameV2RoutingMode) ToDomainNameV2RoutingModePtrOutputWithContext(ctx context.Context) DomainNameV2RoutingModePtrOutput {
+	return DomainNameV2RoutingMode(e).ToDomainNameV2RoutingModeOutputWithContext(ctx).ToDomainNameV2RoutingModePtrOutputWithContext(ctx)
+}
+
+func (e DomainNameV2RoutingMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainNameV2RoutingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainNameV2RoutingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainNameV2RoutingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainNameV2RoutingModeOutput struct{ *pulumi.OutputState }
+
+func (DomainNameV2RoutingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameV2RoutingMode)(nil)).Elem()
+}
+
+func (o DomainNameV2RoutingModeOutput) ToDomainNameV2RoutingModeOutput() DomainNameV2RoutingModeOutput {
+	return o
+}
+
+func (o DomainNameV2RoutingModeOutput) ToDomainNameV2RoutingModeOutputWithContext(ctx context.Context) DomainNameV2RoutingModeOutput {
+	return o
+}
+
+func (o DomainNameV2RoutingModeOutput) ToDomainNameV2RoutingModePtrOutput() DomainNameV2RoutingModePtrOutput {
+	return o.ToDomainNameV2RoutingModePtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameV2RoutingModeOutput) ToDomainNameV2RoutingModePtrOutputWithContext(ctx context.Context) DomainNameV2RoutingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNameV2RoutingMode) *DomainNameV2RoutingMode {
+		return &v
+	}).(DomainNameV2RoutingModePtrOutput)
+}
+
+func (o DomainNameV2RoutingModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainNameV2RoutingModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainNameV2RoutingMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainNameV2RoutingModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameV2RoutingModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainNameV2RoutingMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainNameV2RoutingModePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainNameV2RoutingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameV2RoutingMode)(nil)).Elem()
+}
+
+func (o DomainNameV2RoutingModePtrOutput) ToDomainNameV2RoutingModePtrOutput() DomainNameV2RoutingModePtrOutput {
+	return o
+}
+
+func (o DomainNameV2RoutingModePtrOutput) ToDomainNameV2RoutingModePtrOutputWithContext(ctx context.Context) DomainNameV2RoutingModePtrOutput {
+	return o
+}
+
+func (o DomainNameV2RoutingModePtrOutput) Elem() DomainNameV2RoutingModeOutput {
+	return o.ApplyT(func(v *DomainNameV2RoutingMode) DomainNameV2RoutingMode {
+		if v != nil {
+			return *v
+		}
+		var ret DomainNameV2RoutingMode
+		return ret
+	}).(DomainNameV2RoutingModeOutput)
+}
+
+func (o DomainNameV2RoutingModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameV2RoutingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainNameV2RoutingMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainNameV2RoutingModeInput is an input type that accepts values of the DomainNameV2RoutingMode enum
+// A concrete instance of `DomainNameV2RoutingModeInput` can be one of the following:
+//
+//	DomainNameV2RoutingModeBasePathMappingOnly
+//	DomainNameV2RoutingModeRoutingRuleThenBasePathMapping
+//	DomainNameV2RoutingModeRoutingRuleOnly
+type DomainNameV2RoutingModeInput interface {
+	pulumi.Input
+
+	ToDomainNameV2RoutingModeOutput() DomainNameV2RoutingModeOutput
+	ToDomainNameV2RoutingModeOutputWithContext(context.Context) DomainNameV2RoutingModeOutput
+}
+
+var domainNameV2RoutingModePtrType = reflect.TypeOf((**DomainNameV2RoutingMode)(nil)).Elem()
+
+type DomainNameV2RoutingModePtrInput interface {
+	pulumi.Input
+
+	ToDomainNameV2RoutingModePtrOutput() DomainNameV2RoutingModePtrOutput
+	ToDomainNameV2RoutingModePtrOutputWithContext(context.Context) DomainNameV2RoutingModePtrOutput
+}
+
+type domainNameV2RoutingModePtr string
+
+func DomainNameV2RoutingModePtr(v string) DomainNameV2RoutingModePtrInput {
+	return (*domainNameV2RoutingModePtr)(&v)
+}
+
+func (*domainNameV2RoutingModePtr) ElementType() reflect.Type {
+	return domainNameV2RoutingModePtrType
+}
+
+func (in *domainNameV2RoutingModePtr) ToDomainNameV2RoutingModePtrOutput() DomainNameV2RoutingModePtrOutput {
+	return pulumi.ToOutput(in).(DomainNameV2RoutingModePtrOutput)
+}
+
+func (in *domainNameV2RoutingModePtr) ToDomainNameV2RoutingModePtrOutputWithContext(ctx context.Context) DomainNameV2RoutingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainNameV2RoutingModePtrOutput)
+}
+
 // The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
 type MethodIntegrationConnectionType string
 
@@ -1373,6 +1708,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationTypePtrInput)(nil)).Elem(), DocumentationPartLocationType("API"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameAccessAssociationAccessAssociationSourceTypeInput)(nil)).Elem(), DomainNameAccessAssociationAccessAssociationSourceType("VPCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameAccessAssociationAccessAssociationSourceTypePtrInput)(nil)).Elem(), DomainNameAccessAssociationAccessAssociationSourceType("VPCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameRoutingModeInput)(nil)).Elem(), DomainNameRoutingMode("BASE_PATH_MAPPING_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameRoutingModePtrInput)(nil)).Elem(), DomainNameRoutingMode("BASE_PATH_MAPPING_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameV2RoutingModeInput)(nil)).Elem(), DomainNameV2RoutingMode("BASE_PATH_MAPPING_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameV2RoutingModePtrInput)(nil)).Elem(), DomainNameV2RoutingMode("BASE_PATH_MAPPING_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationConnectionTypeInput)(nil)).Elem(), MethodIntegrationConnectionType("INTERNET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationConnectionTypePtrInput)(nil)).Elem(), MethodIntegrationConnectionType("INTERNET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationContentHandlingInput)(nil)).Elem(), MethodIntegrationContentHandling("CONVERT_TO_BINARY"))
@@ -1389,6 +1728,10 @@ func init() {
 	pulumi.RegisterOutputType(DocumentationPartLocationTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainNameAccessAssociationAccessAssociationSourceTypeOutput{})
 	pulumi.RegisterOutputType(DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainNameRoutingModeOutput{})
+	pulumi.RegisterOutputType(DomainNameRoutingModePtrOutput{})
+	pulumi.RegisterOutputType(DomainNameV2RoutingModeOutput{})
+	pulumi.RegisterOutputType(DomainNameV2RoutingModePtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationConnectionTypeOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationConnectionTypePtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationContentHandlingOutput{})

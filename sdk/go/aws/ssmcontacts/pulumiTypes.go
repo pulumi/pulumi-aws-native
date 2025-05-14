@@ -290,6 +290,14 @@ func (o ContactStageArrayOutput) Index(i pulumi.IntInput) ContactStageOutput {
 	}).(ContactStageOutput)
 }
 
+// A key-value pair to associate with a resource.
+type ContactTag struct {
+	// The key name of the tag
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // The contact that SSM Incident Manager is engaging during an incident.
 type ContactTargetInfo struct {
 	// The Amazon Resource Name (ARN) of the contact.

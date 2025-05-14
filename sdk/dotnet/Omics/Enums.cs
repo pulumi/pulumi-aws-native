@@ -419,6 +419,34 @@ namespace Pulumi.AwsNative.Omics
     }
 
     [EnumType]
+    public readonly struct WorkflowStorageType : IEquatable<WorkflowStorageType>
+    {
+        private readonly string _value;
+
+        private WorkflowStorageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkflowStorageType Static { get; } = new WorkflowStorageType("STATIC");
+        public static WorkflowStorageType Dynamic { get; } = new WorkflowStorageType("DYNAMIC");
+
+        public static bool operator ==(WorkflowStorageType left, WorkflowStorageType right) => left.Equals(right);
+        public static bool operator !=(WorkflowStorageType left, WorkflowStorageType right) => !left.Equals(right);
+
+        public static explicit operator string(WorkflowStorageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkflowStorageType other && Equals(other);
+        public bool Equals(WorkflowStorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct WorkflowType : IEquatable<WorkflowType>
     {
         private readonly string _value;
@@ -438,6 +466,150 @@ namespace Pulumi.AwsNative.Omics
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WorkflowType other && Equals(other);
         public bool Equals(WorkflowType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WorkflowVersionAccelerators : IEquatable<WorkflowVersionAccelerators>
+    {
+        private readonly string _value;
+
+        private WorkflowVersionAccelerators(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkflowVersionAccelerators Gpu { get; } = new WorkflowVersionAccelerators("GPU");
+
+        public static bool operator ==(WorkflowVersionAccelerators left, WorkflowVersionAccelerators right) => left.Equals(right);
+        public static bool operator !=(WorkflowVersionAccelerators left, WorkflowVersionAccelerators right) => !left.Equals(right);
+
+        public static explicit operator string(WorkflowVersionAccelerators value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkflowVersionAccelerators other && Equals(other);
+        public bool Equals(WorkflowVersionAccelerators other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WorkflowVersionStorageType : IEquatable<WorkflowVersionStorageType>
+    {
+        private readonly string _value;
+
+        private WorkflowVersionStorageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkflowVersionStorageType Static { get; } = new WorkflowVersionStorageType("STATIC");
+        public static WorkflowVersionStorageType Dynamic { get; } = new WorkflowVersionStorageType("DYNAMIC");
+
+        public static bool operator ==(WorkflowVersionStorageType left, WorkflowVersionStorageType right) => left.Equals(right);
+        public static bool operator !=(WorkflowVersionStorageType left, WorkflowVersionStorageType right) => !left.Equals(right);
+
+        public static explicit operator string(WorkflowVersionStorageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkflowVersionStorageType other && Equals(other);
+        public bool Equals(WorkflowVersionStorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WorkflowVersionWorkflowEngine : IEquatable<WorkflowVersionWorkflowEngine>
+    {
+        private readonly string _value;
+
+        private WorkflowVersionWorkflowEngine(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkflowVersionWorkflowEngine Wdl { get; } = new WorkflowVersionWorkflowEngine("WDL");
+        public static WorkflowVersionWorkflowEngine Nextflow { get; } = new WorkflowVersionWorkflowEngine("NEXTFLOW");
+        public static WorkflowVersionWorkflowEngine Cwl { get; } = new WorkflowVersionWorkflowEngine("CWL");
+
+        public static bool operator ==(WorkflowVersionWorkflowEngine left, WorkflowVersionWorkflowEngine right) => left.Equals(right);
+        public static bool operator !=(WorkflowVersionWorkflowEngine left, WorkflowVersionWorkflowEngine right) => !left.Equals(right);
+
+        public static explicit operator string(WorkflowVersionWorkflowEngine value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkflowVersionWorkflowEngine other && Equals(other);
+        public bool Equals(WorkflowVersionWorkflowEngine other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WorkflowVersionWorkflowStatus : IEquatable<WorkflowVersionWorkflowStatus>
+    {
+        private readonly string _value;
+
+        private WorkflowVersionWorkflowStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkflowVersionWorkflowStatus Creating { get; } = new WorkflowVersionWorkflowStatus("CREATING");
+        public static WorkflowVersionWorkflowStatus Active { get; } = new WorkflowVersionWorkflowStatus("ACTIVE");
+        public static WorkflowVersionWorkflowStatus Updating { get; } = new WorkflowVersionWorkflowStatus("UPDATING");
+        public static WorkflowVersionWorkflowStatus Deleted { get; } = new WorkflowVersionWorkflowStatus("DELETED");
+        public static WorkflowVersionWorkflowStatus Failed { get; } = new WorkflowVersionWorkflowStatus("FAILED");
+        public static WorkflowVersionWorkflowStatus Inactive { get; } = new WorkflowVersionWorkflowStatus("INACTIVE");
+
+        public static bool operator ==(WorkflowVersionWorkflowStatus left, WorkflowVersionWorkflowStatus right) => left.Equals(right);
+        public static bool operator !=(WorkflowVersionWorkflowStatus left, WorkflowVersionWorkflowStatus right) => !left.Equals(right);
+
+        public static explicit operator string(WorkflowVersionWorkflowStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkflowVersionWorkflowStatus other && Equals(other);
+        public bool Equals(WorkflowVersionWorkflowStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WorkflowVersionWorkflowType : IEquatable<WorkflowVersionWorkflowType>
+    {
+        private readonly string _value;
+
+        private WorkflowVersionWorkflowType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkflowVersionWorkflowType Private { get; } = new WorkflowVersionWorkflowType("PRIVATE");
+        public static WorkflowVersionWorkflowType Ready2run { get; } = new WorkflowVersionWorkflowType("READY2RUN");
+
+        public static bool operator ==(WorkflowVersionWorkflowType left, WorkflowVersionWorkflowType right) => left.Equals(right);
+        public static bool operator !=(WorkflowVersionWorkflowType left, WorkflowVersionWorkflowType right) => !left.Equals(right);
+
+        public static explicit operator string(WorkflowVersionWorkflowType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkflowVersionWorkflowType other && Equals(other);
+        public bool Equals(WorkflowVersionWorkflowType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

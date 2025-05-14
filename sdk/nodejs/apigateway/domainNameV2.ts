@@ -64,6 +64,10 @@ export class DomainNameV2 extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<any | undefined>;
     /**
+     * The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+     */
+    public readonly routingMode!: pulumi.Output<enums.apigateway.DomainNameV2RoutingMode | undefined>;
+    /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
      */
     public readonly securityPolicy!: pulumi.Output<string | undefined>;
@@ -87,6 +91,7 @@ export class DomainNameV2 extends pulumi.CustomResource {
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["routingMode"] = args ? args.routingMode : undefined;
             resourceInputs["securityPolicy"] = args ? args.securityPolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["domainNameArn"] = undefined /*out*/;
@@ -98,6 +103,7 @@ export class DomainNameV2 extends pulumi.CustomResource {
             resourceInputs["domainNameId"] = undefined /*out*/;
             resourceInputs["endpointConfiguration"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
+            resourceInputs["routingMode"] = undefined /*out*/;
             resourceInputs["securityPolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -130,6 +136,10 @@ export interface DomainNameV2Args {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
      */
     policy?: any;
+    /**
+     * The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+     */
+    routingMode?: pulumi.Input<enums.apigateway.DomainNameV2RoutingMode>;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
      */

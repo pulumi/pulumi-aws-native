@@ -1448,6 +1448,627 @@ func (o RouteResponseParameterConstraintsMapOutput) MapIndex(k pulumi.StringInpu
 	}).(RouteResponseParameterConstraintsOutput)
 }
 
+type RoutingRuleAction struct {
+	InvokeApi RoutingRuleActionInvokeApi `pulumi:"invokeApi"`
+}
+
+// RoutingRuleActionInput is an input type that accepts RoutingRuleActionArgs and RoutingRuleActionOutput values.
+// You can construct a concrete instance of `RoutingRuleActionInput` via:
+//
+//	RoutingRuleActionArgs{...}
+type RoutingRuleActionInput interface {
+	pulumi.Input
+
+	ToRoutingRuleActionOutput() RoutingRuleActionOutput
+	ToRoutingRuleActionOutputWithContext(context.Context) RoutingRuleActionOutput
+}
+
+type RoutingRuleActionArgs struct {
+	InvokeApi RoutingRuleActionInvokeApiInput `pulumi:"invokeApi"`
+}
+
+func (RoutingRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleAction)(nil)).Elem()
+}
+
+func (i RoutingRuleActionArgs) ToRoutingRuleActionOutput() RoutingRuleActionOutput {
+	return i.ToRoutingRuleActionOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleActionArgs) ToRoutingRuleActionOutputWithContext(ctx context.Context) RoutingRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleActionOutput)
+}
+
+// RoutingRuleActionArrayInput is an input type that accepts RoutingRuleActionArray and RoutingRuleActionArrayOutput values.
+// You can construct a concrete instance of `RoutingRuleActionArrayInput` via:
+//
+//	RoutingRuleActionArray{ RoutingRuleActionArgs{...} }
+type RoutingRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToRoutingRuleActionArrayOutput() RoutingRuleActionArrayOutput
+	ToRoutingRuleActionArrayOutputWithContext(context.Context) RoutingRuleActionArrayOutput
+}
+
+type RoutingRuleActionArray []RoutingRuleActionInput
+
+func (RoutingRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingRuleAction)(nil)).Elem()
+}
+
+func (i RoutingRuleActionArray) ToRoutingRuleActionArrayOutput() RoutingRuleActionArrayOutput {
+	return i.ToRoutingRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleActionArray) ToRoutingRuleActionArrayOutputWithContext(ctx context.Context) RoutingRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleActionArrayOutput)
+}
+
+type RoutingRuleActionOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleAction)(nil)).Elem()
+}
+
+func (o RoutingRuleActionOutput) ToRoutingRuleActionOutput() RoutingRuleActionOutput {
+	return o
+}
+
+func (o RoutingRuleActionOutput) ToRoutingRuleActionOutputWithContext(ctx context.Context) RoutingRuleActionOutput {
+	return o
+}
+
+func (o RoutingRuleActionOutput) InvokeApi() RoutingRuleActionInvokeApiOutput {
+	return o.ApplyT(func(v RoutingRuleAction) RoutingRuleActionInvokeApi { return v.InvokeApi }).(RoutingRuleActionInvokeApiOutput)
+}
+
+type RoutingRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingRuleAction)(nil)).Elem()
+}
+
+func (o RoutingRuleActionArrayOutput) ToRoutingRuleActionArrayOutput() RoutingRuleActionArrayOutput {
+	return o
+}
+
+func (o RoutingRuleActionArrayOutput) ToRoutingRuleActionArrayOutputWithContext(ctx context.Context) RoutingRuleActionArrayOutput {
+	return o
+}
+
+func (o RoutingRuleActionArrayOutput) Index(i pulumi.IntInput) RoutingRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingRuleAction {
+		return vs[0].([]RoutingRuleAction)[vs[1].(int)]
+	}).(RoutingRuleActionOutput)
+}
+
+type RoutingRuleActionInvokeApi struct {
+	ApiId         string `pulumi:"apiId"`
+	Stage         string `pulumi:"stage"`
+	StripBasePath *bool  `pulumi:"stripBasePath"`
+}
+
+// RoutingRuleActionInvokeApiInput is an input type that accepts RoutingRuleActionInvokeApiArgs and RoutingRuleActionInvokeApiOutput values.
+// You can construct a concrete instance of `RoutingRuleActionInvokeApiInput` via:
+//
+//	RoutingRuleActionInvokeApiArgs{...}
+type RoutingRuleActionInvokeApiInput interface {
+	pulumi.Input
+
+	ToRoutingRuleActionInvokeApiOutput() RoutingRuleActionInvokeApiOutput
+	ToRoutingRuleActionInvokeApiOutputWithContext(context.Context) RoutingRuleActionInvokeApiOutput
+}
+
+type RoutingRuleActionInvokeApiArgs struct {
+	ApiId         pulumi.StringInput  `pulumi:"apiId"`
+	Stage         pulumi.StringInput  `pulumi:"stage"`
+	StripBasePath pulumi.BoolPtrInput `pulumi:"stripBasePath"`
+}
+
+func (RoutingRuleActionInvokeApiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleActionInvokeApi)(nil)).Elem()
+}
+
+func (i RoutingRuleActionInvokeApiArgs) ToRoutingRuleActionInvokeApiOutput() RoutingRuleActionInvokeApiOutput {
+	return i.ToRoutingRuleActionInvokeApiOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleActionInvokeApiArgs) ToRoutingRuleActionInvokeApiOutputWithContext(ctx context.Context) RoutingRuleActionInvokeApiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleActionInvokeApiOutput)
+}
+
+type RoutingRuleActionInvokeApiOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleActionInvokeApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleActionInvokeApi)(nil)).Elem()
+}
+
+func (o RoutingRuleActionInvokeApiOutput) ToRoutingRuleActionInvokeApiOutput() RoutingRuleActionInvokeApiOutput {
+	return o
+}
+
+func (o RoutingRuleActionInvokeApiOutput) ToRoutingRuleActionInvokeApiOutputWithContext(ctx context.Context) RoutingRuleActionInvokeApiOutput {
+	return o
+}
+
+func (o RoutingRuleActionInvokeApiOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingRuleActionInvokeApi) string { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o RoutingRuleActionInvokeApiOutput) Stage() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingRuleActionInvokeApi) string { return v.Stage }).(pulumi.StringOutput)
+}
+
+func (o RoutingRuleActionInvokeApiOutput) StripBasePath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RoutingRuleActionInvokeApi) *bool { return v.StripBasePath }).(pulumi.BoolPtrOutput)
+}
+
+type RoutingRuleCondition struct {
+	MatchBasePaths *RoutingRuleMatchBasePaths `pulumi:"matchBasePaths"`
+	MatchHeaders   *RoutingRuleMatchHeaders   `pulumi:"matchHeaders"`
+}
+
+// RoutingRuleConditionInput is an input type that accepts RoutingRuleConditionArgs and RoutingRuleConditionOutput values.
+// You can construct a concrete instance of `RoutingRuleConditionInput` via:
+//
+//	RoutingRuleConditionArgs{...}
+type RoutingRuleConditionInput interface {
+	pulumi.Input
+
+	ToRoutingRuleConditionOutput() RoutingRuleConditionOutput
+	ToRoutingRuleConditionOutputWithContext(context.Context) RoutingRuleConditionOutput
+}
+
+type RoutingRuleConditionArgs struct {
+	MatchBasePaths RoutingRuleMatchBasePathsPtrInput `pulumi:"matchBasePaths"`
+	MatchHeaders   RoutingRuleMatchHeadersPtrInput   `pulumi:"matchHeaders"`
+}
+
+func (RoutingRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleCondition)(nil)).Elem()
+}
+
+func (i RoutingRuleConditionArgs) ToRoutingRuleConditionOutput() RoutingRuleConditionOutput {
+	return i.ToRoutingRuleConditionOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleConditionArgs) ToRoutingRuleConditionOutputWithContext(ctx context.Context) RoutingRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionOutput)
+}
+
+// RoutingRuleConditionArrayInput is an input type that accepts RoutingRuleConditionArray and RoutingRuleConditionArrayOutput values.
+// You can construct a concrete instance of `RoutingRuleConditionArrayInput` via:
+//
+//	RoutingRuleConditionArray{ RoutingRuleConditionArgs{...} }
+type RoutingRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToRoutingRuleConditionArrayOutput() RoutingRuleConditionArrayOutput
+	ToRoutingRuleConditionArrayOutputWithContext(context.Context) RoutingRuleConditionArrayOutput
+}
+
+type RoutingRuleConditionArray []RoutingRuleConditionInput
+
+func (RoutingRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingRuleCondition)(nil)).Elem()
+}
+
+func (i RoutingRuleConditionArray) ToRoutingRuleConditionArrayOutput() RoutingRuleConditionArrayOutput {
+	return i.ToRoutingRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleConditionArray) ToRoutingRuleConditionArrayOutputWithContext(ctx context.Context) RoutingRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionArrayOutput)
+}
+
+type RoutingRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleCondition)(nil)).Elem()
+}
+
+func (o RoutingRuleConditionOutput) ToRoutingRuleConditionOutput() RoutingRuleConditionOutput {
+	return o
+}
+
+func (o RoutingRuleConditionOutput) ToRoutingRuleConditionOutputWithContext(ctx context.Context) RoutingRuleConditionOutput {
+	return o
+}
+
+func (o RoutingRuleConditionOutput) MatchBasePaths() RoutingRuleMatchBasePathsPtrOutput {
+	return o.ApplyT(func(v RoutingRuleCondition) *RoutingRuleMatchBasePaths { return v.MatchBasePaths }).(RoutingRuleMatchBasePathsPtrOutput)
+}
+
+func (o RoutingRuleConditionOutput) MatchHeaders() RoutingRuleMatchHeadersPtrOutput {
+	return o.ApplyT(func(v RoutingRuleCondition) *RoutingRuleMatchHeaders { return v.MatchHeaders }).(RoutingRuleMatchHeadersPtrOutput)
+}
+
+type RoutingRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingRuleCondition)(nil)).Elem()
+}
+
+func (o RoutingRuleConditionArrayOutput) ToRoutingRuleConditionArrayOutput() RoutingRuleConditionArrayOutput {
+	return o
+}
+
+func (o RoutingRuleConditionArrayOutput) ToRoutingRuleConditionArrayOutputWithContext(ctx context.Context) RoutingRuleConditionArrayOutput {
+	return o
+}
+
+func (o RoutingRuleConditionArrayOutput) Index(i pulumi.IntInput) RoutingRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingRuleCondition {
+		return vs[0].([]RoutingRuleCondition)[vs[1].(int)]
+	}).(RoutingRuleConditionOutput)
+}
+
+type RoutingRuleMatchBasePaths struct {
+	AnyOf []string `pulumi:"anyOf"`
+}
+
+// RoutingRuleMatchBasePathsInput is an input type that accepts RoutingRuleMatchBasePathsArgs and RoutingRuleMatchBasePathsOutput values.
+// You can construct a concrete instance of `RoutingRuleMatchBasePathsInput` via:
+//
+//	RoutingRuleMatchBasePathsArgs{...}
+type RoutingRuleMatchBasePathsInput interface {
+	pulumi.Input
+
+	ToRoutingRuleMatchBasePathsOutput() RoutingRuleMatchBasePathsOutput
+	ToRoutingRuleMatchBasePathsOutputWithContext(context.Context) RoutingRuleMatchBasePathsOutput
+}
+
+type RoutingRuleMatchBasePathsArgs struct {
+	AnyOf pulumi.StringArrayInput `pulumi:"anyOf"`
+}
+
+func (RoutingRuleMatchBasePathsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleMatchBasePaths)(nil)).Elem()
+}
+
+func (i RoutingRuleMatchBasePathsArgs) ToRoutingRuleMatchBasePathsOutput() RoutingRuleMatchBasePathsOutput {
+	return i.ToRoutingRuleMatchBasePathsOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleMatchBasePathsArgs) ToRoutingRuleMatchBasePathsOutputWithContext(ctx context.Context) RoutingRuleMatchBasePathsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleMatchBasePathsOutput)
+}
+
+func (i RoutingRuleMatchBasePathsArgs) ToRoutingRuleMatchBasePathsPtrOutput() RoutingRuleMatchBasePathsPtrOutput {
+	return i.ToRoutingRuleMatchBasePathsPtrOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleMatchBasePathsArgs) ToRoutingRuleMatchBasePathsPtrOutputWithContext(ctx context.Context) RoutingRuleMatchBasePathsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleMatchBasePathsOutput).ToRoutingRuleMatchBasePathsPtrOutputWithContext(ctx)
+}
+
+// RoutingRuleMatchBasePathsPtrInput is an input type that accepts RoutingRuleMatchBasePathsArgs, RoutingRuleMatchBasePathsPtr and RoutingRuleMatchBasePathsPtrOutput values.
+// You can construct a concrete instance of `RoutingRuleMatchBasePathsPtrInput` via:
+//
+//	        RoutingRuleMatchBasePathsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoutingRuleMatchBasePathsPtrInput interface {
+	pulumi.Input
+
+	ToRoutingRuleMatchBasePathsPtrOutput() RoutingRuleMatchBasePathsPtrOutput
+	ToRoutingRuleMatchBasePathsPtrOutputWithContext(context.Context) RoutingRuleMatchBasePathsPtrOutput
+}
+
+type routingRuleMatchBasePathsPtrType RoutingRuleMatchBasePathsArgs
+
+func RoutingRuleMatchBasePathsPtr(v *RoutingRuleMatchBasePathsArgs) RoutingRuleMatchBasePathsPtrInput {
+	return (*routingRuleMatchBasePathsPtrType)(v)
+}
+
+func (*routingRuleMatchBasePathsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleMatchBasePaths)(nil)).Elem()
+}
+
+func (i *routingRuleMatchBasePathsPtrType) ToRoutingRuleMatchBasePathsPtrOutput() RoutingRuleMatchBasePathsPtrOutput {
+	return i.ToRoutingRuleMatchBasePathsPtrOutputWithContext(context.Background())
+}
+
+func (i *routingRuleMatchBasePathsPtrType) ToRoutingRuleMatchBasePathsPtrOutputWithContext(ctx context.Context) RoutingRuleMatchBasePathsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleMatchBasePathsPtrOutput)
+}
+
+type RoutingRuleMatchBasePathsOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleMatchBasePathsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleMatchBasePaths)(nil)).Elem()
+}
+
+func (o RoutingRuleMatchBasePathsOutput) ToRoutingRuleMatchBasePathsOutput() RoutingRuleMatchBasePathsOutput {
+	return o
+}
+
+func (o RoutingRuleMatchBasePathsOutput) ToRoutingRuleMatchBasePathsOutputWithContext(ctx context.Context) RoutingRuleMatchBasePathsOutput {
+	return o
+}
+
+func (o RoutingRuleMatchBasePathsOutput) ToRoutingRuleMatchBasePathsPtrOutput() RoutingRuleMatchBasePathsPtrOutput {
+	return o.ToRoutingRuleMatchBasePathsPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingRuleMatchBasePathsOutput) ToRoutingRuleMatchBasePathsPtrOutputWithContext(ctx context.Context) RoutingRuleMatchBasePathsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingRuleMatchBasePaths) *RoutingRuleMatchBasePaths {
+		return &v
+	}).(RoutingRuleMatchBasePathsPtrOutput)
+}
+
+func (o RoutingRuleMatchBasePathsOutput) AnyOf() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoutingRuleMatchBasePaths) []string { return v.AnyOf }).(pulumi.StringArrayOutput)
+}
+
+type RoutingRuleMatchBasePathsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleMatchBasePathsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleMatchBasePaths)(nil)).Elem()
+}
+
+func (o RoutingRuleMatchBasePathsPtrOutput) ToRoutingRuleMatchBasePathsPtrOutput() RoutingRuleMatchBasePathsPtrOutput {
+	return o
+}
+
+func (o RoutingRuleMatchBasePathsPtrOutput) ToRoutingRuleMatchBasePathsPtrOutputWithContext(ctx context.Context) RoutingRuleMatchBasePathsPtrOutput {
+	return o
+}
+
+func (o RoutingRuleMatchBasePathsPtrOutput) Elem() RoutingRuleMatchBasePathsOutput {
+	return o.ApplyT(func(v *RoutingRuleMatchBasePaths) RoutingRuleMatchBasePaths {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingRuleMatchBasePaths
+		return ret
+	}).(RoutingRuleMatchBasePathsOutput)
+}
+
+func (o RoutingRuleMatchBasePathsPtrOutput) AnyOf() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoutingRuleMatchBasePaths) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AnyOf
+	}).(pulumi.StringArrayOutput)
+}
+
+type RoutingRuleMatchHeaderValue struct {
+	Header    string `pulumi:"header"`
+	ValueGlob string `pulumi:"valueGlob"`
+}
+
+// RoutingRuleMatchHeaderValueInput is an input type that accepts RoutingRuleMatchHeaderValueArgs and RoutingRuleMatchHeaderValueOutput values.
+// You can construct a concrete instance of `RoutingRuleMatchHeaderValueInput` via:
+//
+//	RoutingRuleMatchHeaderValueArgs{...}
+type RoutingRuleMatchHeaderValueInput interface {
+	pulumi.Input
+
+	ToRoutingRuleMatchHeaderValueOutput() RoutingRuleMatchHeaderValueOutput
+	ToRoutingRuleMatchHeaderValueOutputWithContext(context.Context) RoutingRuleMatchHeaderValueOutput
+}
+
+type RoutingRuleMatchHeaderValueArgs struct {
+	Header    pulumi.StringInput `pulumi:"header"`
+	ValueGlob pulumi.StringInput `pulumi:"valueGlob"`
+}
+
+func (RoutingRuleMatchHeaderValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleMatchHeaderValue)(nil)).Elem()
+}
+
+func (i RoutingRuleMatchHeaderValueArgs) ToRoutingRuleMatchHeaderValueOutput() RoutingRuleMatchHeaderValueOutput {
+	return i.ToRoutingRuleMatchHeaderValueOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleMatchHeaderValueArgs) ToRoutingRuleMatchHeaderValueOutputWithContext(ctx context.Context) RoutingRuleMatchHeaderValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleMatchHeaderValueOutput)
+}
+
+// RoutingRuleMatchHeaderValueArrayInput is an input type that accepts RoutingRuleMatchHeaderValueArray and RoutingRuleMatchHeaderValueArrayOutput values.
+// You can construct a concrete instance of `RoutingRuleMatchHeaderValueArrayInput` via:
+//
+//	RoutingRuleMatchHeaderValueArray{ RoutingRuleMatchHeaderValueArgs{...} }
+type RoutingRuleMatchHeaderValueArrayInput interface {
+	pulumi.Input
+
+	ToRoutingRuleMatchHeaderValueArrayOutput() RoutingRuleMatchHeaderValueArrayOutput
+	ToRoutingRuleMatchHeaderValueArrayOutputWithContext(context.Context) RoutingRuleMatchHeaderValueArrayOutput
+}
+
+type RoutingRuleMatchHeaderValueArray []RoutingRuleMatchHeaderValueInput
+
+func (RoutingRuleMatchHeaderValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingRuleMatchHeaderValue)(nil)).Elem()
+}
+
+func (i RoutingRuleMatchHeaderValueArray) ToRoutingRuleMatchHeaderValueArrayOutput() RoutingRuleMatchHeaderValueArrayOutput {
+	return i.ToRoutingRuleMatchHeaderValueArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleMatchHeaderValueArray) ToRoutingRuleMatchHeaderValueArrayOutputWithContext(ctx context.Context) RoutingRuleMatchHeaderValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleMatchHeaderValueArrayOutput)
+}
+
+type RoutingRuleMatchHeaderValueOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleMatchHeaderValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleMatchHeaderValue)(nil)).Elem()
+}
+
+func (o RoutingRuleMatchHeaderValueOutput) ToRoutingRuleMatchHeaderValueOutput() RoutingRuleMatchHeaderValueOutput {
+	return o
+}
+
+func (o RoutingRuleMatchHeaderValueOutput) ToRoutingRuleMatchHeaderValueOutputWithContext(ctx context.Context) RoutingRuleMatchHeaderValueOutput {
+	return o
+}
+
+func (o RoutingRuleMatchHeaderValueOutput) Header() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingRuleMatchHeaderValue) string { return v.Header }).(pulumi.StringOutput)
+}
+
+func (o RoutingRuleMatchHeaderValueOutput) ValueGlob() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingRuleMatchHeaderValue) string { return v.ValueGlob }).(pulumi.StringOutput)
+}
+
+type RoutingRuleMatchHeaderValueArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleMatchHeaderValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingRuleMatchHeaderValue)(nil)).Elem()
+}
+
+func (o RoutingRuleMatchHeaderValueArrayOutput) ToRoutingRuleMatchHeaderValueArrayOutput() RoutingRuleMatchHeaderValueArrayOutput {
+	return o
+}
+
+func (o RoutingRuleMatchHeaderValueArrayOutput) ToRoutingRuleMatchHeaderValueArrayOutputWithContext(ctx context.Context) RoutingRuleMatchHeaderValueArrayOutput {
+	return o
+}
+
+func (o RoutingRuleMatchHeaderValueArrayOutput) Index(i pulumi.IntInput) RoutingRuleMatchHeaderValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingRuleMatchHeaderValue {
+		return vs[0].([]RoutingRuleMatchHeaderValue)[vs[1].(int)]
+	}).(RoutingRuleMatchHeaderValueOutput)
+}
+
+type RoutingRuleMatchHeaders struct {
+	AnyOf []RoutingRuleMatchHeaderValue `pulumi:"anyOf"`
+}
+
+// RoutingRuleMatchHeadersInput is an input type that accepts RoutingRuleMatchHeadersArgs and RoutingRuleMatchHeadersOutput values.
+// You can construct a concrete instance of `RoutingRuleMatchHeadersInput` via:
+//
+//	RoutingRuleMatchHeadersArgs{...}
+type RoutingRuleMatchHeadersInput interface {
+	pulumi.Input
+
+	ToRoutingRuleMatchHeadersOutput() RoutingRuleMatchHeadersOutput
+	ToRoutingRuleMatchHeadersOutputWithContext(context.Context) RoutingRuleMatchHeadersOutput
+}
+
+type RoutingRuleMatchHeadersArgs struct {
+	AnyOf RoutingRuleMatchHeaderValueArrayInput `pulumi:"anyOf"`
+}
+
+func (RoutingRuleMatchHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleMatchHeaders)(nil)).Elem()
+}
+
+func (i RoutingRuleMatchHeadersArgs) ToRoutingRuleMatchHeadersOutput() RoutingRuleMatchHeadersOutput {
+	return i.ToRoutingRuleMatchHeadersOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleMatchHeadersArgs) ToRoutingRuleMatchHeadersOutputWithContext(ctx context.Context) RoutingRuleMatchHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleMatchHeadersOutput)
+}
+
+func (i RoutingRuleMatchHeadersArgs) ToRoutingRuleMatchHeadersPtrOutput() RoutingRuleMatchHeadersPtrOutput {
+	return i.ToRoutingRuleMatchHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleMatchHeadersArgs) ToRoutingRuleMatchHeadersPtrOutputWithContext(ctx context.Context) RoutingRuleMatchHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleMatchHeadersOutput).ToRoutingRuleMatchHeadersPtrOutputWithContext(ctx)
+}
+
+// RoutingRuleMatchHeadersPtrInput is an input type that accepts RoutingRuleMatchHeadersArgs, RoutingRuleMatchHeadersPtr and RoutingRuleMatchHeadersPtrOutput values.
+// You can construct a concrete instance of `RoutingRuleMatchHeadersPtrInput` via:
+//
+//	        RoutingRuleMatchHeadersArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoutingRuleMatchHeadersPtrInput interface {
+	pulumi.Input
+
+	ToRoutingRuleMatchHeadersPtrOutput() RoutingRuleMatchHeadersPtrOutput
+	ToRoutingRuleMatchHeadersPtrOutputWithContext(context.Context) RoutingRuleMatchHeadersPtrOutput
+}
+
+type routingRuleMatchHeadersPtrType RoutingRuleMatchHeadersArgs
+
+func RoutingRuleMatchHeadersPtr(v *RoutingRuleMatchHeadersArgs) RoutingRuleMatchHeadersPtrInput {
+	return (*routingRuleMatchHeadersPtrType)(v)
+}
+
+func (*routingRuleMatchHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleMatchHeaders)(nil)).Elem()
+}
+
+func (i *routingRuleMatchHeadersPtrType) ToRoutingRuleMatchHeadersPtrOutput() RoutingRuleMatchHeadersPtrOutput {
+	return i.ToRoutingRuleMatchHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *routingRuleMatchHeadersPtrType) ToRoutingRuleMatchHeadersPtrOutputWithContext(ctx context.Context) RoutingRuleMatchHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleMatchHeadersPtrOutput)
+}
+
+type RoutingRuleMatchHeadersOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleMatchHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleMatchHeaders)(nil)).Elem()
+}
+
+func (o RoutingRuleMatchHeadersOutput) ToRoutingRuleMatchHeadersOutput() RoutingRuleMatchHeadersOutput {
+	return o
+}
+
+func (o RoutingRuleMatchHeadersOutput) ToRoutingRuleMatchHeadersOutputWithContext(ctx context.Context) RoutingRuleMatchHeadersOutput {
+	return o
+}
+
+func (o RoutingRuleMatchHeadersOutput) ToRoutingRuleMatchHeadersPtrOutput() RoutingRuleMatchHeadersPtrOutput {
+	return o.ToRoutingRuleMatchHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingRuleMatchHeadersOutput) ToRoutingRuleMatchHeadersPtrOutputWithContext(ctx context.Context) RoutingRuleMatchHeadersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingRuleMatchHeaders) *RoutingRuleMatchHeaders {
+		return &v
+	}).(RoutingRuleMatchHeadersPtrOutput)
+}
+
+func (o RoutingRuleMatchHeadersOutput) AnyOf() RoutingRuleMatchHeaderValueArrayOutput {
+	return o.ApplyT(func(v RoutingRuleMatchHeaders) []RoutingRuleMatchHeaderValue { return v.AnyOf }).(RoutingRuleMatchHeaderValueArrayOutput)
+}
+
+type RoutingRuleMatchHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleMatchHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleMatchHeaders)(nil)).Elem()
+}
+
+func (o RoutingRuleMatchHeadersPtrOutput) ToRoutingRuleMatchHeadersPtrOutput() RoutingRuleMatchHeadersPtrOutput {
+	return o
+}
+
+func (o RoutingRuleMatchHeadersPtrOutput) ToRoutingRuleMatchHeadersPtrOutputWithContext(ctx context.Context) RoutingRuleMatchHeadersPtrOutput {
+	return o
+}
+
+func (o RoutingRuleMatchHeadersPtrOutput) Elem() RoutingRuleMatchHeadersOutput {
+	return o.ApplyT(func(v *RoutingRuleMatchHeaders) RoutingRuleMatchHeaders {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingRuleMatchHeaders
+		return ret
+	}).(RoutingRuleMatchHeadersOutput)
+}
+
+func (o RoutingRuleMatchHeadersPtrOutput) AnyOf() RoutingRuleMatchHeaderValueArrayOutput {
+	return o.ApplyT(func(v *RoutingRuleMatchHeaders) []RoutingRuleMatchHeaderValue {
+		if v == nil {
+			return nil
+		}
+		return v.AnyOf
+	}).(RoutingRuleMatchHeaderValueArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiBodyS3LocationInput)(nil)).Elem(), ApiBodyS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiBodyS3LocationPtrInput)(nil)).Elem(), ApiBodyS3LocationArgs{})
@@ -1469,6 +2090,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteParameterConstraintsArrayInput)(nil)).Elem(), RouteParameterConstraintsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseParameterConstraintsInput)(nil)).Elem(), RouteResponseParameterConstraintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseParameterConstraintsMapInput)(nil)).Elem(), RouteResponseParameterConstraintsMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleActionInput)(nil)).Elem(), RoutingRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleActionArrayInput)(nil)).Elem(), RoutingRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleActionInvokeApiInput)(nil)).Elem(), RoutingRuleActionInvokeApiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleConditionInput)(nil)).Elem(), RoutingRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleConditionArrayInput)(nil)).Elem(), RoutingRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleMatchBasePathsInput)(nil)).Elem(), RoutingRuleMatchBasePathsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleMatchBasePathsPtrInput)(nil)).Elem(), RoutingRuleMatchBasePathsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleMatchHeaderValueInput)(nil)).Elem(), RoutingRuleMatchHeaderValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleMatchHeaderValueArrayInput)(nil)).Elem(), RoutingRuleMatchHeaderValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleMatchHeadersInput)(nil)).Elem(), RoutingRuleMatchHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleMatchHeadersPtrInput)(nil)).Elem(), RoutingRuleMatchHeadersArgs{})
 	pulumi.RegisterOutputType(ApiBodyS3LocationOutput{})
 	pulumi.RegisterOutputType(ApiBodyS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(ApiCorsOutput{})
@@ -1489,4 +2121,15 @@ func init() {
 	pulumi.RegisterOutputType(RouteParameterConstraintsArrayOutput{})
 	pulumi.RegisterOutputType(RouteResponseParameterConstraintsOutput{})
 	pulumi.RegisterOutputType(RouteResponseParameterConstraintsMapOutput{})
+	pulumi.RegisterOutputType(RoutingRuleActionOutput{})
+	pulumi.RegisterOutputType(RoutingRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(RoutingRuleActionInvokeApiOutput{})
+	pulumi.RegisterOutputType(RoutingRuleConditionOutput{})
+	pulumi.RegisterOutputType(RoutingRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(RoutingRuleMatchBasePathsOutput{})
+	pulumi.RegisterOutputType(RoutingRuleMatchBasePathsPtrOutput{})
+	pulumi.RegisterOutputType(RoutingRuleMatchHeaderValueOutput{})
+	pulumi.RegisterOutputType(RoutingRuleMatchHeaderValueArrayOutput{})
+	pulumi.RegisterOutputType(RoutingRuleMatchHeadersOutput{})
+	pulumi.RegisterOutputType(RoutingRuleMatchHeadersPtrOutput{})
 }

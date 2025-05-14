@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *  For more information about creating a Multi-AZ DB cluster, see [Creating a Multi-AZ DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html) in the *Amazon RDS User Guide*.
  *   You can only create this resource in AWS Regions where Amazon Aurora or Multi-AZ DB clusters are supported.
  *    *Updating DB clusters*
- *  When properties labeled "*Update requires:* [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB cluster, then changes references from other dependent resources to point to the replacement DB cluster, and finally deletes the old DB cluster.
+ *  When properties labeled "*Update requires:*[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB cluster, then changes references from other dependent resources to point to the replacement DB cluster, and finally deletes the old DB cluster.
  *   We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB cluster. To preserve your data, perform the following procedure:
  *   1.  Deactivate any applications that are using the DB cluster so that there's no activity on the DB instance.
  *   2.  Create a snapshot of the DB cluster. For more information, see [Creating a DB cluster snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html).
@@ -77,7 +77,7 @@ export class DbCluster extends pulumi.CustomResource {
     /**
      * The target backtrack window, in seconds. To disable backtracking, set this value to ``0``.
      *  Valid for Cluster Type: Aurora MySQL DB clusters only
-     *  Default: ``0`` 
+     *  Default: ``0``
      *  Constraints:
      *   +  If specified, this value must be set to a number from 0 to 259,200 (72 hours).
      */
@@ -122,7 +122,7 @@ export class DbCluster extends pulumi.CustomResource {
      *   +  First character must be a letter.
      *   +  Can't end with a hyphen or contain two consecutive hyphens.
      *   
-     *  Example: ``my-cluster1`` 
+     *  Example: ``my-cluster1``
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
     public readonly dbClusterIdentifier!: pulumi.Output<string | undefined>;
@@ -186,9 +186,9 @@ export class DbCluster extends pulumi.CustomResource {
     /**
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see [Publishing Database Logs to Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch) in the *Amazon Aurora User Guide*.
      *   *Aurora MySQL* 
-     *  Valid values: ``audit``, ``error``, ``general``, ``slowquery`` 
+     *  Valid values: ``audit``, ``error``, ``general``, ``slowquery``
      *   *Aurora PostgreSQL* 
-     *  Valid values: ``postgresql`` 
+     *  Valid values: ``postgresql``
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
     public readonly enableCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
@@ -207,7 +207,7 @@ export class DbCluster extends pulumi.CustomResource {
     public readonly enableHttpEndpoint!: pulumi.Output<boolean | undefined>;
     /**
      * A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-     *  For more information, see [IAM Database Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon Aurora User Guide.* 
+     *  For more information, see [IAM Database Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon Aurora User Guide.*
      *  Valid for: Aurora DB clusters only
      */
     public readonly enableIamDatabaseAuthentication!: pulumi.Output<boolean | undefined>;
@@ -232,11 +232,11 @@ export class DbCluster extends pulumi.CustomResource {
      * The life cycle type for this DB cluster.
      *   By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.
      *   You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:
-     *   +  Amazon Aurora - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide* 
-     *   +  Amazon RDS - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide* 
+     *   +  Amazon Aurora - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide*
+     *   +  Amazon RDS - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*
      *   
      *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-     *  Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled`` 
+     *  Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``
      *  Default: ``open-source-rds-extended-support``
      */
     public readonly engineLifecycleSupport!: pulumi.Output<string | undefined>;
@@ -298,7 +298,7 @@ export class DbCluster extends pulumi.CustomResource {
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to manage the master user password with AWS Secrets Manager.
-     *  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.* 
+     *  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
      *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      *  Constraints:
      *   +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
@@ -326,7 +326,7 @@ export class DbCluster extends pulumi.CustomResource {
      * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify ``0``.
      *  If ``MonitoringRoleArn`` is specified, also set ``MonitoringInterval`` to a value other than ``0``.
      *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-     *  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60`` 
+     *  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60``
      *  Default: ``0``
      */
     public readonly monitoringInterval!: pulumi.Output<number | undefined>;
@@ -343,7 +343,7 @@ export class DbCluster extends pulumi.CustomResource {
      *   +   ``DUAL`` 
      *   
      *  The network type is determined by the ``DBSubnetGroup`` specified for the DB cluster. A ``DBSubnetGroup`` can support only the IPv4 protocol or the IPv4 and IPv6 protocols (``DUAL``).
-     *  For more information, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon Aurora User Guide.* 
+     *  For more information, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon Aurora User Guide.*
      *  Valid for: Aurora DB clusters only
      */
     public readonly networkType!: pulumi.Output<string | undefined>;
@@ -365,7 +365,7 @@ export class DbCluster extends pulumi.CustomResource {
      *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      *  Valid Values:
      *   +   ``7`` 
-     *   +   *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
+     *   +  *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
      *   +   ``731`` 
      *   
      *  Default: ``7`` days
@@ -377,8 +377,8 @@ export class DbCluster extends pulumi.CustomResource {
      *  Default:
      *   +  When ``EngineMode`` is ``provisioned``, ``3306`` (for both Aurora MySQL and Aurora PostgreSQL)
      *   +  When ``EngineMode`` is ``serverless``:
-     *   +   ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql`` 
-     *   +   ``5432`` when ``Engine`` is ``aurora-postgresql`` 
+     *   +  ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql``
+     *   +  ``5432`` when ``Engine`` is ``aurora-postgresql``
      *   
      *   
      *   The ``No interruption`` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.
@@ -386,7 +386,7 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
-     * The daily time range during which automated backups are created. For more information, see [Backup Window](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow) in the *Amazon Aurora User Guide.* 
+     * The daily time range during which automated backups are created. For more information, see [Backup Window](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow) in the *Amazon Aurora User Guide.*
      *  Constraints:
      *   +  Must be in the format ``hh24:mi-hh24:mi``.
      *   +  Must be in Universal Coordinated Time (UTC).
@@ -398,8 +398,8 @@ export class DbCluster extends pulumi.CustomResource {
     public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     *  Format: ``ddd:hh24:mi-ddd:hh24:mi`` 
-     *  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide.* 
+     *  Format: ``ddd:hh24:mi-ddd:hh24:mi``
+     *  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide.*
      *  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
      *  Constraints: Minimum 30-minute window.
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -433,17 +433,17 @@ export class DbCluster extends pulumi.CustomResource {
      *   +  Must be before the latest restorable time for the DB instance
      *   +  Must be specified if ``UseLatestRestorableTime`` parameter isn't provided
      *   +  Can't be specified if the ``UseLatestRestorableTime`` parameter is enabled
-     *   +  Can't be specified if the ``RestoreType`` parameter is ``copy-on-write`` 
+     *   +  Can't be specified if the ``RestoreType`` parameter is ``copy-on-write``
      *   
      *  This property must be used with ``SourceDBClusterIdentifier`` property. The resulting cluster will have the identifier that matches the value of the ``DBclusterIdentifier`` property.
-     *  Example: ``2015-03-07T23:45:00Z`` 
+     *  Example: ``2015-03-07T23:45:00Z``
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
     public readonly restoreToTime!: pulumi.Output<string | undefined>;
     /**
      * The type of restore to be performed. You can specify one of the following values:
-     *   +   ``full-copy`` - The new DB cluster is restored as a full copy of the source DB cluster.
-     *   +   ``copy-on-write`` - The new DB cluster is restored as a clone of the source DB cluster.
+     *   +  ``full-copy`` - The new DB cluster is restored as a full copy of the source DB cluster.
+     *   +  ``copy-on-write`` - The new DB cluster is restored as a clone of the source DB cluster.
      *   
      *  If you don't specify a ``RestoreType`` value, then the new DB cluster is restored as a full copy of the source DB cluster.
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -473,7 +473,7 @@ export class DbCluster extends pulumi.CustomResource {
      *   +   ``RestoreType`` 
      *   +   ``SourceDBClusterIdentifier`` 
      *   +   ``SourceRegion`` 
-     *   +   ``StorageEncrypted`` (for an encrypted snapshot)
+     *   +  ``StorageEncrypted`` (for an encrypted snapshot)
      *   +   ``UseLatestRestorableTime`` 
      *   
      *  Constraints:
@@ -518,12 +518,12 @@ export class DbCluster extends pulumi.CustomResource {
      *  When specified for a Multi-AZ DB cluster, a value for the ``Iops`` parameter is required.
      *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      *  Valid Values:
-     *   +  Aurora DB clusters - ``aurora | aurora-iopt1`` 
-     *   +  Multi-AZ DB clusters - ``io1 | io2 | gp3`` 
+     *   +  Aurora DB clusters - ``aurora | aurora-iopt1``
+     *   +  Multi-AZ DB clusters - ``io1 | io2 | gp3``
      *   
      *  Default:
-     *   +  Aurora DB clusters - ``aurora`` 
-     *   +  Multi-AZ DB clusters - ``io1`` 
+     *   +  Aurora DB clusters - ``aurora``
+     *   +  Multi-AZ DB clusters - ``io1``
      *   
      *   When you create an Aurora DB cluster with the storage type set to ``aurora-iopt1``, the storage type is returned in the response. The storage type isn't returned when you set it to ``aurora``.
      */
@@ -719,7 +719,7 @@ export interface DbClusterArgs {
     /**
      * The target backtrack window, in seconds. To disable backtracking, set this value to ``0``.
      *  Valid for Cluster Type: Aurora MySQL DB clusters only
-     *  Default: ``0`` 
+     *  Default: ``0``
      *  Constraints:
      *   +  If specified, this value must be set to a number from 0 to 259,200 (72 hours).
      */
@@ -760,7 +760,7 @@ export interface DbClusterArgs {
      *   +  First character must be a letter.
      *   +  Can't end with a hyphen or contain two consecutive hyphens.
      *   
-     *  Example: ``my-cluster1`` 
+     *  Example: ``my-cluster1``
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
     dbClusterIdentifier?: pulumi.Input<string>;
@@ -820,9 +820,9 @@ export interface DbClusterArgs {
     /**
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see [Publishing Database Logs to Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch) in the *Amazon Aurora User Guide*.
      *   *Aurora MySQL* 
-     *  Valid values: ``audit``, ``error``, ``general``, ``slowquery`` 
+     *  Valid values: ``audit``, ``error``, ``general``, ``slowquery``
      *   *Aurora PostgreSQL* 
-     *  Valid values: ``postgresql`` 
+     *  Valid values: ``postgresql``
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
     enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
@@ -841,7 +841,7 @@ export interface DbClusterArgs {
     enableHttpEndpoint?: pulumi.Input<boolean>;
     /**
      * A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-     *  For more information, see [IAM Database Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon Aurora User Guide.* 
+     *  For more information, see [IAM Database Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon Aurora User Guide.*
      *  Valid for: Aurora DB clusters only
      */
     enableIamDatabaseAuthentication?: pulumi.Input<boolean>;
@@ -865,11 +865,11 @@ export interface DbClusterArgs {
      * The life cycle type for this DB cluster.
      *   By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.
      *   You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:
-     *   +  Amazon Aurora - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide* 
-     *   +  Amazon RDS - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide* 
+     *   +  Amazon Aurora - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide*
+     *   +  Amazon RDS - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*
      *   
      *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-     *  Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled`` 
+     *  Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``
      *  Default: ``open-source-rds-extended-support``
      */
     engineLifecycleSupport?: pulumi.Input<string>;
@@ -931,7 +931,7 @@ export interface DbClusterArgs {
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies whether to manage the master user password with AWS Secrets Manager.
-     *  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.* 
+     *  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
      *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      *  Constraints:
      *   +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
@@ -959,7 +959,7 @@ export interface DbClusterArgs {
      * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify ``0``.
      *  If ``MonitoringRoleArn`` is specified, also set ``MonitoringInterval`` to a value other than ``0``.
      *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
-     *  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60`` 
+     *  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60``
      *  Default: ``0``
      */
     monitoringInterval?: pulumi.Input<number>;
@@ -976,7 +976,7 @@ export interface DbClusterArgs {
      *   +   ``DUAL`` 
      *   
      *  The network type is determined by the ``DBSubnetGroup`` specified for the DB cluster. A ``DBSubnetGroup`` can support only the IPv4 protocol or the IPv4 and IPv6 protocols (``DUAL``).
-     *  For more information, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon Aurora User Guide.* 
+     *  For more information, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon Aurora User Guide.*
      *  Valid for: Aurora DB clusters only
      */
     networkType?: pulumi.Input<string>;
@@ -998,7 +998,7 @@ export interface DbClusterArgs {
      *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      *  Valid Values:
      *   +   ``7`` 
-     *   +   *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
+     *   +  *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
      *   +   ``731`` 
      *   
      *  Default: ``7`` days
@@ -1010,8 +1010,8 @@ export interface DbClusterArgs {
      *  Default:
      *   +  When ``EngineMode`` is ``provisioned``, ``3306`` (for both Aurora MySQL and Aurora PostgreSQL)
      *   +  When ``EngineMode`` is ``serverless``:
-     *   +   ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql`` 
-     *   +   ``5432`` when ``Engine`` is ``aurora-postgresql`` 
+     *   +  ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql``
+     *   +  ``5432`` when ``Engine`` is ``aurora-postgresql``
      *   
      *   
      *   The ``No interruption`` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.
@@ -1019,7 +1019,7 @@ export interface DbClusterArgs {
      */
     port?: pulumi.Input<number>;
     /**
-     * The daily time range during which automated backups are created. For more information, see [Backup Window](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow) in the *Amazon Aurora User Guide.* 
+     * The daily time range during which automated backups are created. For more information, see [Backup Window](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow) in the *Amazon Aurora User Guide.*
      *  Constraints:
      *   +  Must be in the format ``hh24:mi-hh24:mi``.
      *   +  Must be in Universal Coordinated Time (UTC).
@@ -1031,8 +1031,8 @@ export interface DbClusterArgs {
     preferredBackupWindow?: pulumi.Input<string>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     *  Format: ``ddd:hh24:mi-ddd:hh24:mi`` 
-     *  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide.* 
+     *  Format: ``ddd:hh24:mi-ddd:hh24:mi``
+     *  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide.*
      *  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
      *  Constraints: Minimum 30-minute window.
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -1065,17 +1065,17 @@ export interface DbClusterArgs {
      *   +  Must be before the latest restorable time for the DB instance
      *   +  Must be specified if ``UseLatestRestorableTime`` parameter isn't provided
      *   +  Can't be specified if the ``UseLatestRestorableTime`` parameter is enabled
-     *   +  Can't be specified if the ``RestoreType`` parameter is ``copy-on-write`` 
+     *   +  Can't be specified if the ``RestoreType`` parameter is ``copy-on-write``
      *   
      *  This property must be used with ``SourceDBClusterIdentifier`` property. The resulting cluster will have the identifier that matches the value of the ``DBclusterIdentifier`` property.
-     *  Example: ``2015-03-07T23:45:00Z`` 
+     *  Example: ``2015-03-07T23:45:00Z``
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
     restoreToTime?: pulumi.Input<string>;
     /**
      * The type of restore to be performed. You can specify one of the following values:
-     *   +   ``full-copy`` - The new DB cluster is restored as a full copy of the source DB cluster.
-     *   +   ``copy-on-write`` - The new DB cluster is restored as a clone of the source DB cluster.
+     *   +  ``full-copy`` - The new DB cluster is restored as a full copy of the source DB cluster.
+     *   +  ``copy-on-write`` - The new DB cluster is restored as a clone of the source DB cluster.
      *   
      *  If you don't specify a ``RestoreType`` value, then the new DB cluster is restored as a full copy of the source DB cluster.
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -1105,7 +1105,7 @@ export interface DbClusterArgs {
      *   +   ``RestoreType`` 
      *   +   ``SourceDBClusterIdentifier`` 
      *   +   ``SourceRegion`` 
-     *   +   ``StorageEncrypted`` (for an encrypted snapshot)
+     *   +  ``StorageEncrypted`` (for an encrypted snapshot)
      *   +   ``UseLatestRestorableTime`` 
      *   
      *  Constraints:
@@ -1144,12 +1144,12 @@ export interface DbClusterArgs {
      *  When specified for a Multi-AZ DB cluster, a value for the ``Iops`` parameter is required.
      *  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      *  Valid Values:
-     *   +  Aurora DB clusters - ``aurora | aurora-iopt1`` 
-     *   +  Multi-AZ DB clusters - ``io1 | io2 | gp3`` 
+     *   +  Aurora DB clusters - ``aurora | aurora-iopt1``
+     *   +  Multi-AZ DB clusters - ``io1 | io2 | gp3``
      *   
      *  Default:
-     *   +  Aurora DB clusters - ``aurora`` 
-     *   +  Multi-AZ DB clusters - ``io1`` 
+     *   +  Aurora DB clusters - ``aurora``
+     *   +  Multi-AZ DB clusters - ``io1``
      *   
      *   When you create an Aurora DB cluster with the storage type set to ``aurora-iopt1``, the storage type is returned in the response. The storage type isn't returned when you set it to ``aurora``.
      */

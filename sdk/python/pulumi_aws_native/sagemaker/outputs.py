@@ -64,6 +64,7 @@ __all__ = [
     'DomainDockerSettings',
     'DomainEfsFileSystemConfig',
     'DomainFSxLustreFileSystemConfig',
+    'DomainHiddenSageMakerImage',
     'DomainIdleSettings',
     'DomainJupyterLabAppSettings',
     'DomainJupyterServerAppSettings',
@@ -285,6 +286,7 @@ __all__ = [
     'UserProfileDefaultSpaceStorageSettings',
     'UserProfileEfsFileSystemConfig',
     'UserProfileFSxLustreFileSystemConfig',
+    'UserProfileHiddenSageMakerImage',
     'UserProfileIdleSettings',
     'UserProfileJupyterLabAppSettings',
     'UserProfileJupyterServerAppSettings',
@@ -2211,6 +2213,8 @@ class DomainCodeEditorAppSettings(dict):
         suggest = None
         if key == "appLifecycleManagement":
             suggest = "app_lifecycle_management"
+        elif key == "builtInLifecycleConfigArn":
+            suggest = "built_in_lifecycle_config_arn"
         elif key == "customImages":
             suggest = "custom_images"
         elif key == "defaultResourceSpec":
@@ -2231,18 +2235,22 @@ class DomainCodeEditorAppSettings(dict):
 
     def __init__(__self__, *,
                  app_lifecycle_management: Optional['outputs.DomainAppLifecycleManagement'] = None,
+                 built_in_lifecycle_config_arn: Optional[builtins.str] = None,
                  custom_images: Optional[Sequence['outputs.DomainCustomImage']] = None,
                  default_resource_spec: Optional['outputs.DomainResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[builtins.str]] = None):
         """
         The CodeEditor app settings.
         :param 'DomainAppLifecycleManagement' app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications.
+        :param builtins.str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param Sequence['DomainCustomImage'] custom_images: A list of custom images for use for CodeEditor apps.
         :param 'DomainResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         :param Sequence[builtins.str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
         """
         if app_lifecycle_management is not None:
             pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
@@ -2257,6 +2265,14 @@ class DomainCodeEditorAppSettings(dict):
         Settings that are used to configure and manage the lifecycle of CodeEditor applications.
         """
         return pulumi.get(self, "app_lifecycle_management")
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[builtins.str]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
 
     @property
     @pulumi.getter(name="customImages")
@@ -2845,6 +2861,52 @@ class DomainFSxLustreFileSystemConfig(dict):
 
 
 @pulumi.output_type
+class DomainHiddenSageMakerImage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sageMakerImageName":
+            suggest = "sage_maker_image_name"
+        elif key == "versionAliases":
+            suggest = "version_aliases"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainHiddenSageMakerImage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainHiddenSageMakerImage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainHiddenSageMakerImage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sage_maker_image_name: Optional['DomainHiddenSageMakerImageSageMakerImageName'] = None,
+                 version_aliases: Optional[Sequence[builtins.str]] = None):
+        """
+        :param 'DomainHiddenSageMakerImageSageMakerImageName' sage_maker_image_name: The SageMaker image name that you are hiding from the Studio user interface.
+        """
+        if sage_maker_image_name is not None:
+            pulumi.set(__self__, "sage_maker_image_name", sage_maker_image_name)
+        if version_aliases is not None:
+            pulumi.set(__self__, "version_aliases", version_aliases)
+
+    @property
+    @pulumi.getter(name="sageMakerImageName")
+    def sage_maker_image_name(self) -> Optional['DomainHiddenSageMakerImageSageMakerImageName']:
+        """
+        The SageMaker image name that you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "sage_maker_image_name")
+
+    @property
+    @pulumi.getter(name="versionAliases")
+    def version_aliases(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "version_aliases")
+
+
+@pulumi.output_type
 class DomainIdleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2932,6 +2994,8 @@ class DomainJupyterLabAppSettings(dict):
         suggest = None
         if key == "appLifecycleManagement":
             suggest = "app_lifecycle_management"
+        elif key == "builtInLifecycleConfigArn":
+            suggest = "built_in_lifecycle_config_arn"
         elif key == "codeRepositories":
             suggest = "code_repositories"
         elif key == "customImages":
@@ -2954,6 +3018,7 @@ class DomainJupyterLabAppSettings(dict):
 
     def __init__(__self__, *,
                  app_lifecycle_management: Optional['outputs.DomainAppLifecycleManagement'] = None,
+                 built_in_lifecycle_config_arn: Optional[builtins.str] = None,
                  code_repositories: Optional[Sequence['outputs.DomainCodeRepository']] = None,
                  custom_images: Optional[Sequence['outputs.DomainCustomImage']] = None,
                  default_resource_spec: Optional['outputs.DomainResourceSpec'] = None,
@@ -2961,6 +3026,7 @@ class DomainJupyterLabAppSettings(dict):
         """
         The JupyterLab app settings.
         :param 'DomainAppLifecycleManagement' app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications.
+        :param builtins.str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param Sequence['DomainCodeRepository'] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
         :param Sequence['DomainCustomImage'] custom_images: A list of custom images for use for JupyterLab apps.
         :param 'DomainResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
@@ -2968,6 +3034,8 @@ class DomainJupyterLabAppSettings(dict):
         """
         if app_lifecycle_management is not None:
             pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if custom_images is not None:
@@ -2984,6 +3052,14 @@ class DomainJupyterLabAppSettings(dict):
         Indicates whether idle shutdown is activated for JupyterLab applications.
         """
         return pulumi.get(self, "app_lifecycle_management")
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[builtins.str]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -3567,8 +3643,12 @@ class DomainStudioWebPortalSettings(dict):
         suggest = None
         if key == "hiddenAppTypes":
             suggest = "hidden_app_types"
+        elif key == "hiddenInstanceTypes":
+            suggest = "hidden_instance_types"
         elif key == "hiddenMlTools":
             suggest = "hidden_ml_tools"
+        elif key == "hiddenSageMakerImageVersionAliases":
+            suggest = "hidden_sage_maker_image_version_aliases"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainStudioWebPortalSettings. Access the value via the '{suggest}' property getter instead.")
@@ -3583,16 +3663,24 @@ class DomainStudioWebPortalSettings(dict):
 
     def __init__(__self__, *,
                  hidden_app_types: Optional[Sequence['DomainAppType']] = None,
-                 hidden_ml_tools: Optional[Sequence['DomainMlTools']] = None):
+                 hidden_instance_types: Optional[Sequence['DomainAppInstanceType']] = None,
+                 hidden_ml_tools: Optional[Sequence['DomainMlTools']] = None,
+                 hidden_sage_maker_image_version_aliases: Optional[Sequence['outputs.DomainHiddenSageMakerImage']] = None):
         """
         Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         :param Sequence['DomainAppType'] hidden_app_types: Applications supported in Studio that are hidden from the Studio left navigation pane.
+        :param Sequence['DomainAppInstanceType'] hidden_instance_types: The instance types you are hiding from the Studio user interface.
         :param Sequence['DomainMlTools'] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
+        :param Sequence['DomainHiddenSageMakerImage'] hidden_sage_maker_image_version_aliases: The version aliases you are hiding from the Studio user interface.
         """
         if hidden_app_types is not None:
             pulumi.set(__self__, "hidden_app_types", hidden_app_types)
+        if hidden_instance_types is not None:
+            pulumi.set(__self__, "hidden_instance_types", hidden_instance_types)
         if hidden_ml_tools is not None:
             pulumi.set(__self__, "hidden_ml_tools", hidden_ml_tools)
+        if hidden_sage_maker_image_version_aliases is not None:
+            pulumi.set(__self__, "hidden_sage_maker_image_version_aliases", hidden_sage_maker_image_version_aliases)
 
     @property
     @pulumi.getter(name="hiddenAppTypes")
@@ -3603,12 +3691,28 @@ class DomainStudioWebPortalSettings(dict):
         return pulumi.get(self, "hidden_app_types")
 
     @property
+    @pulumi.getter(name="hiddenInstanceTypes")
+    def hidden_instance_types(self) -> Optional[Sequence['DomainAppInstanceType']]:
+        """
+        The instance types you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "hidden_instance_types")
+
+    @property
     @pulumi.getter(name="hiddenMlTools")
     def hidden_ml_tools(self) -> Optional[Sequence['DomainMlTools']]:
         """
         The machine learning tools that are hidden from the Studio left navigation pane.
         """
         return pulumi.get(self, "hidden_ml_tools")
+
+    @property
+    @pulumi.getter(name="hiddenSageMakerImageVersionAliases")
+    def hidden_sage_maker_image_version_aliases(self) -> Optional[Sequence['outputs.DomainHiddenSageMakerImage']]:
+        """
+        The version aliases you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "hidden_sage_maker_image_version_aliases")
 
 
 @pulumi.output_type
@@ -3621,6 +3725,8 @@ class DomainUserSettings(dict):
         suggest = None
         if key == "executionRole":
             suggest = "execution_role"
+        elif key == "autoMountHomeEfs":
+            suggest = "auto_mount_home_efs"
         elif key == "codeEditorAppSettings":
             suggest = "code_editor_app_settings"
         elif key == "customFileSystemConfigs":
@@ -3663,6 +3769,7 @@ class DomainUserSettings(dict):
 
     def __init__(__self__, *,
                  execution_role: builtins.str,
+                 auto_mount_home_efs: Optional['DomainUserSettingsAutoMountHomeEfs'] = None,
                  code_editor_app_settings: Optional['outputs.DomainCodeEditorAppSettings'] = None,
                  custom_file_system_configs: Optional[Sequence['outputs.DomainCustomFileSystemConfig']] = None,
                  custom_posix_user_config: Optional['outputs.DomainCustomPosixUserConfig'] = None,
@@ -3680,6 +3787,7 @@ class DomainUserSettings(dict):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
         :param builtins.str execution_role: The execution role for the user.
+        :param 'DomainUserSettingsAutoMountHomeEfs' auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
         :param 'DomainCodeEditorAppSettings' code_editor_app_settings: The Code Editor application settings.
                
                SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -3706,6 +3814,8 @@ class DomainUserSettings(dict):
         :param 'DomainStudioWebPortalSettings' studio_web_portal_settings: Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         """
         pulumi.set(__self__, "execution_role", execution_role)
+        if auto_mount_home_efs is not None:
+            pulumi.set(__self__, "auto_mount_home_efs", auto_mount_home_efs)
         if code_editor_app_settings is not None:
             pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
         if custom_file_system_configs is not None:
@@ -3742,6 +3852,14 @@ class DomainUserSettings(dict):
         The execution role for the user.
         """
         return pulumi.get(self, "execution_role")
+
+    @property
+    @pulumi.getter(name="autoMountHomeEfs")
+    def auto_mount_home_efs(self) -> Optional['DomainUserSettingsAutoMountHomeEfs']:
+        """
+        Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+        """
+        return pulumi.get(self, "auto_mount_home_efs")
 
     @property
     @pulumi.getter(name="codeEditorAppSettings")
@@ -15889,6 +16007,8 @@ class UserProfileCodeEditorAppSettings(dict):
         suggest = None
         if key == "appLifecycleManagement":
             suggest = "app_lifecycle_management"
+        elif key == "builtInLifecycleConfigArn":
+            suggest = "built_in_lifecycle_config_arn"
         elif key == "customImages":
             suggest = "custom_images"
         elif key == "defaultResourceSpec":
@@ -15909,18 +16029,22 @@ class UserProfileCodeEditorAppSettings(dict):
 
     def __init__(__self__, *,
                  app_lifecycle_management: Optional['outputs.UserProfileAppLifecycleManagement'] = None,
+                 built_in_lifecycle_config_arn: Optional[builtins.str] = None,
                  custom_images: Optional[Sequence['outputs.UserProfileCustomImage']] = None,
                  default_resource_spec: Optional['outputs.UserProfileResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[builtins.str]] = None):
         """
         The CodeEditor app settings.
         :param 'UserProfileAppLifecycleManagement' app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications.
+        :param builtins.str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param Sequence['UserProfileCustomImage'] custom_images: A list of custom images for use for CodeEditor apps.
         :param 'UserProfileResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         :param Sequence[builtins.str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
         """
         if app_lifecycle_management is not None:
             pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
@@ -15935,6 +16059,14 @@ class UserProfileCodeEditorAppSettings(dict):
         Settings that are used to configure and manage the lifecycle of CodeEditor applications.
         """
         return pulumi.get(self, "app_lifecycle_management")
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[builtins.str]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
 
     @property
     @pulumi.getter(name="customImages")
@@ -16332,6 +16464,52 @@ class UserProfileFSxLustreFileSystemConfig(dict):
 
 
 @pulumi.output_type
+class UserProfileHiddenSageMakerImage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sageMakerImageName":
+            suggest = "sage_maker_image_name"
+        elif key == "versionAliases":
+            suggest = "version_aliases"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileHiddenSageMakerImage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileHiddenSageMakerImage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileHiddenSageMakerImage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sage_maker_image_name: Optional['UserProfileHiddenSageMakerImageSageMakerImageName'] = None,
+                 version_aliases: Optional[Sequence[builtins.str]] = None):
+        """
+        :param 'UserProfileHiddenSageMakerImageSageMakerImageName' sage_maker_image_name: The SageMaker image name that you are hiding from the Studio user interface.
+        """
+        if sage_maker_image_name is not None:
+            pulumi.set(__self__, "sage_maker_image_name", sage_maker_image_name)
+        if version_aliases is not None:
+            pulumi.set(__self__, "version_aliases", version_aliases)
+
+    @property
+    @pulumi.getter(name="sageMakerImageName")
+    def sage_maker_image_name(self) -> Optional['UserProfileHiddenSageMakerImageSageMakerImageName']:
+        """
+        The SageMaker image name that you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "sage_maker_image_name")
+
+    @property
+    @pulumi.getter(name="versionAliases")
+    def version_aliases(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "version_aliases")
+
+
+@pulumi.output_type
 class UserProfileIdleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -16419,6 +16597,8 @@ class UserProfileJupyterLabAppSettings(dict):
         suggest = None
         if key == "appLifecycleManagement":
             suggest = "app_lifecycle_management"
+        elif key == "builtInLifecycleConfigArn":
+            suggest = "built_in_lifecycle_config_arn"
         elif key == "codeRepositories":
             suggest = "code_repositories"
         elif key == "customImages":
@@ -16441,6 +16621,7 @@ class UserProfileJupyterLabAppSettings(dict):
 
     def __init__(__self__, *,
                  app_lifecycle_management: Optional['outputs.UserProfileAppLifecycleManagement'] = None,
+                 built_in_lifecycle_config_arn: Optional[builtins.str] = None,
                  code_repositories: Optional[Sequence['outputs.UserProfileCodeRepository']] = None,
                  custom_images: Optional[Sequence['outputs.UserProfileCustomImage']] = None,
                  default_resource_spec: Optional['outputs.UserProfileResourceSpec'] = None,
@@ -16448,6 +16629,7 @@ class UserProfileJupyterLabAppSettings(dict):
         """
         The JupyterLab app settings.
         :param 'UserProfileAppLifecycleManagement' app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications.
+        :param builtins.str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param Sequence['UserProfileCodeRepository'] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
         :param Sequence['UserProfileCustomImage'] custom_images: A list of custom images available for use for JupyterLab apps
         :param 'UserProfileResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
@@ -16455,6 +16637,8 @@ class UserProfileJupyterLabAppSettings(dict):
         """
         if app_lifecycle_management is not None:
             pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if custom_images is not None:
@@ -16471,6 +16655,14 @@ class UserProfileJupyterLabAppSettings(dict):
         Indicates whether idle shutdown is activated for JupyterLab applications.
         """
         return pulumi.get(self, "app_lifecycle_management")
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[builtins.str]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -16837,8 +17029,12 @@ class UserProfileStudioWebPortalSettings(dict):
         suggest = None
         if key == "hiddenAppTypes":
             suggest = "hidden_app_types"
+        elif key == "hiddenInstanceTypes":
+            suggest = "hidden_instance_types"
         elif key == "hiddenMlTools":
             suggest = "hidden_ml_tools"
+        elif key == "hiddenSageMakerImageVersionAliases":
+            suggest = "hidden_sage_maker_image_version_aliases"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserProfileStudioWebPortalSettings. Access the value via the '{suggest}' property getter instead.")
@@ -16853,16 +17049,24 @@ class UserProfileStudioWebPortalSettings(dict):
 
     def __init__(__self__, *,
                  hidden_app_types: Optional[Sequence['UserProfileAppType']] = None,
-                 hidden_ml_tools: Optional[Sequence['UserProfileMlTools']] = None):
+                 hidden_instance_types: Optional[Sequence['UserProfileAppInstanceType']] = None,
+                 hidden_ml_tools: Optional[Sequence['UserProfileMlTools']] = None,
+                 hidden_sage_maker_image_version_aliases: Optional[Sequence['outputs.UserProfileHiddenSageMakerImage']] = None):
         """
         Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         :param Sequence['UserProfileAppType'] hidden_app_types: Applications supported in Studio that are hidden from the Studio left navigation pane.
+        :param Sequence['UserProfileAppInstanceType'] hidden_instance_types: The instance types you are hiding from the Studio user interface.
         :param Sequence['UserProfileMlTools'] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
+        :param Sequence['UserProfileHiddenSageMakerImage'] hidden_sage_maker_image_version_aliases: The version aliases you are hiding from the Studio user interface.
         """
         if hidden_app_types is not None:
             pulumi.set(__self__, "hidden_app_types", hidden_app_types)
+        if hidden_instance_types is not None:
+            pulumi.set(__self__, "hidden_instance_types", hidden_instance_types)
         if hidden_ml_tools is not None:
             pulumi.set(__self__, "hidden_ml_tools", hidden_ml_tools)
+        if hidden_sage_maker_image_version_aliases is not None:
+            pulumi.set(__self__, "hidden_sage_maker_image_version_aliases", hidden_sage_maker_image_version_aliases)
 
     @property
     @pulumi.getter(name="hiddenAppTypes")
@@ -16873,12 +17077,28 @@ class UserProfileStudioWebPortalSettings(dict):
         return pulumi.get(self, "hidden_app_types")
 
     @property
+    @pulumi.getter(name="hiddenInstanceTypes")
+    def hidden_instance_types(self) -> Optional[Sequence['UserProfileAppInstanceType']]:
+        """
+        The instance types you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "hidden_instance_types")
+
+    @property
     @pulumi.getter(name="hiddenMlTools")
     def hidden_ml_tools(self) -> Optional[Sequence['UserProfileMlTools']]:
         """
         The machine learning tools that are hidden from the Studio left navigation pane.
         """
         return pulumi.get(self, "hidden_ml_tools")
+
+    @property
+    @pulumi.getter(name="hiddenSageMakerImageVersionAliases")
+    def hidden_sage_maker_image_version_aliases(self) -> Optional[Sequence['outputs.UserProfileHiddenSageMakerImage']]:
+        """
+        The version aliases you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "hidden_sage_maker_image_version_aliases")
 
 
 @pulumi.output_type
@@ -16889,7 +17109,9 @@ class UserProfileUserSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "codeEditorAppSettings":
+        if key == "autoMountHomeEfs":
+            suggest = "auto_mount_home_efs"
+        elif key == "codeEditorAppSettings":
             suggest = "code_editor_app_settings"
         elif key == "customFileSystemConfigs":
             suggest = "custom_file_system_configs"
@@ -16930,6 +17152,7 @@ class UserProfileUserSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 auto_mount_home_efs: Optional['UserProfileUserSettingsAutoMountHomeEfs'] = None,
                  code_editor_app_settings: Optional['outputs.UserProfileCodeEditorAppSettings'] = None,
                  custom_file_system_configs: Optional[Sequence['outputs.UserProfileCustomFileSystemConfig']] = None,
                  custom_posix_user_config: Optional['outputs.UserProfileCustomPosixUserConfig'] = None,
@@ -16946,6 +17169,7 @@ class UserProfileUserSettings(dict):
                  studio_web_portal_settings: Optional['outputs.UserProfileStudioWebPortalSettings'] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
+        :param 'UserProfileUserSettingsAutoMountHomeEfs' auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
         :param 'UserProfileCodeEditorAppSettings' code_editor_app_settings: The Code Editor application settings.
                
                SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -16971,6 +17195,8 @@ class UserProfileUserSettings(dict):
         :param 'UserProfileUserSettingsStudioWebPortal' studio_web_portal: Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
         :param 'UserProfileStudioWebPortalSettings' studio_web_portal_settings: Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         """
+        if auto_mount_home_efs is not None:
+            pulumi.set(__self__, "auto_mount_home_efs", auto_mount_home_efs)
         if code_editor_app_settings is not None:
             pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
         if custom_file_system_configs is not None:
@@ -16999,6 +17225,14 @@ class UserProfileUserSettings(dict):
             pulumi.set(__self__, "studio_web_portal", studio_web_portal)
         if studio_web_portal_settings is not None:
             pulumi.set(__self__, "studio_web_portal_settings", studio_web_portal_settings)
+
+    @property
+    @pulumi.getter(name="autoMountHomeEfs")
+    def auto_mount_home_efs(self) -> Optional['UserProfileUserSettingsAutoMountHomeEfs']:
+        """
+        Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+        """
+        return pulumi.get(self, "auto_mount_home_efs")
 
     @property
     @pulumi.getter(name="codeEditorAppSettings")

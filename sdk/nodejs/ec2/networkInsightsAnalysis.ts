@@ -54,6 +54,10 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
      */
     public readonly filterInArns!: pulumi.Output<string[] | undefined>;
     /**
+     * The Amazon Resource Names (ARN) of the resources that the path must ignore.
+     */
+    public readonly filterOutArns!: pulumi.Output<string[] | undefined>;
+    /**
      * The components in the path from source to destination.
      */
     public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
@@ -114,6 +118,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             }
             resourceInputs["additionalAccounts"] = args ? args.additionalAccounts : undefined;
             resourceInputs["filterInArns"] = args ? args.filterInArns : undefined;
+            resourceInputs["filterOutArns"] = args ? args.filterOutArns : undefined;
             resourceInputs["networkInsightsPathId"] = args ? args.networkInsightsPathId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["alternatePathHints"] = undefined /*out*/;
@@ -132,6 +137,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             resourceInputs["alternatePathHints"] = undefined /*out*/;
             resourceInputs["explanations"] = undefined /*out*/;
             resourceInputs["filterInArns"] = undefined /*out*/;
+            resourceInputs["filterOutArns"] = undefined /*out*/;
             resourceInputs["forwardPathComponents"] = undefined /*out*/;
             resourceInputs["networkInsightsAnalysisArn"] = undefined /*out*/;
             resourceInputs["networkInsightsAnalysisId"] = undefined /*out*/;
@@ -145,7 +151,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["filterInArns[*]", "networkInsightsPathId"] };
+        const replaceOnChanges = { replaceOnChanges: ["filterInArns[*]", "filterOutArns[*]", "networkInsightsPathId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NetworkInsightsAnalysis.__pulumiType, name, resourceInputs, opts);
     }
@@ -163,6 +169,10 @@ export interface NetworkInsightsAnalysisArgs {
      * The Amazon Resource Names (ARN) of the resources that the path must traverse.
      */
     filterInArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Amazon Resource Names (ARN) of the resources that the path must ignore.
+     */
+    filterOutArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the path.
      */

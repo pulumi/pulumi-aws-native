@@ -37,6 +37,11 @@ export interface GetEipResult {
      */
     readonly allocationId?: string;
     /**
+     * The network (``vpc``).
+     *  If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
+     */
+    readonly domain?: string;
+    /**
      * The ID of the instance.
      *   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
      */

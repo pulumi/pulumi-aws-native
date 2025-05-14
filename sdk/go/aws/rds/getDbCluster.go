@@ -18,7 +18,7 @@ import (
 //	For more information about creating a Multi-AZ DB cluster, see [Creating a Multi-AZ DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html) in the *Amazon RDS User Guide*.
 //	 You can only create this resource in AWS Regions where Amazon Aurora or Multi-AZ DB clusters are supported.
 //	  *Updating DB clusters*
-//	When properties labeled "*Update requires:* [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB cluster, then changes references from other dependent resources to point to the replacement DB cluster, and finally deletes the old DB cluster.
+//	When properties labeled "*Update requires:*[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB cluster, then changes references from other dependent resources to point to the replacement DB cluster, and finally deletes the old DB cluster.
 //	 We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB cluster. To preserve your data, perform the following procedure:
 //	 1.  Deactivate any applications that are using the DB cluster so that there's no activity on the DB instance.
 //	 2.  Create a snapshot of the DB cluster. For more information, see [Creating a DB cluster snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html).
@@ -232,7 +232,7 @@ type LookupDbClusterResult struct {
 	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	//  Valid Values:
 	//   +   ``7``
-	//   +   *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
+	//   +  *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
 	//   +   ``731``
 	//
 	//  Default: ``7`` days
@@ -242,8 +242,8 @@ type LookupDbClusterResult struct {
 	//  Default:
 	//   +  When ``EngineMode`` is ``provisioned``, ``3306`` (for both Aurora MySQL and Aurora PostgreSQL)
 	//   +  When ``EngineMode`` is ``serverless``:
-	//   +   ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql``
-	//   +   ``5432`` when ``Engine`` is ``aurora-postgresql``
+	//   +  ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql``
+	//   +  ``5432`` when ``Engine`` is ``aurora-postgresql``
 	//
 	//   The ``No interruption`` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.
 	//   Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -652,7 +652,7 @@ func (o LookupDbClusterResultOutput) PerformanceInsightsKmsKeyId() pulumi.String
 //	Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 //	Valid Values:
 //	 +   ``7``
-//	 +   *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
+//	 +  *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
 //	 +   ``731``
 //
 //	Default: ``7`` days
@@ -666,8 +666,8 @@ func (o LookupDbClusterResultOutput) PerformanceInsightsRetentionPeriod() pulumi
 //	Default:
 //	 +  When ``EngineMode`` is ``provisioned``, ``3306`` (for both Aurora MySQL and Aurora PostgreSQL)
 //	 +  When ``EngineMode`` is ``serverless``:
-//	 +   ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql``
-//	 +   ``5432`` when ``Engine`` is ``aurora-postgresql``
+//	 +  ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql``
+//	 +  ``5432`` when ``Engine`` is ``aurora-postgresql``
 //
 //	 The ``No interruption`` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.
 //	 Valid for: Aurora DB clusters and Multi-AZ DB clusters

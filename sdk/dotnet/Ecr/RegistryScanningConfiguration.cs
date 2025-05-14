@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecr
 {
     /// <summary>
-    /// The AWS::ECR::RegistryScanningConfiguration controls the scanning configuration for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
+    /// The scanning configuration for a private registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:ecr:RegistryScanningConfiguration")]
     public partial class RegistryScanningConfiguration : global::Pulumi.CustomResource

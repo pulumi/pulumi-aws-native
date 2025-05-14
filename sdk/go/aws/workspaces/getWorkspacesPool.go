@@ -44,8 +44,9 @@ type LookupWorkspacesPoolResult struct {
 	// The Amazon Resource Name (ARN) for the pool.
 	PoolArn *string `pulumi:"poolArn"`
 	// The identifier of the pool.
-	PoolId *string   `pulumi:"poolId"`
-	Tags   []aws.Tag `pulumi:"tags"`
+	PoolId      *string                    `pulumi:"poolId"`
+	RunningMode *WorkspacesPoolRunningMode `pulumi:"runningMode"`
+	Tags        []aws.Tag                  `pulumi:"tags"`
 	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
 	TimeoutSettings *WorkspacesPoolTimeoutSettings `pulumi:"timeoutSettings"`
 }
@@ -120,6 +121,10 @@ func (o LookupWorkspacesPoolResultOutput) PoolArn() pulumi.StringPtrOutput {
 // The identifier of the pool.
 func (o LookupWorkspacesPoolResultOutput) PoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspacesPoolResult) *string { return v.PoolId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupWorkspacesPoolResultOutput) RunningMode() WorkspacesPoolRunningModePtrOutput {
+	return o.ApplyT(func(v LookupWorkspacesPoolResult) *WorkspacesPoolRunningMode { return v.RunningMode }).(WorkspacesPoolRunningModePtrOutput)
 }
 
 func (o LookupWorkspacesPoolResultOutput) Tags() aws.TagArrayOutput {

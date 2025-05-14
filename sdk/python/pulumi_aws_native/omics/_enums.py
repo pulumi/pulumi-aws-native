@@ -21,7 +21,13 @@ __all__ = [
     'WorkflowAccelerators',
     'WorkflowEngine',
     'WorkflowStatus',
+    'WorkflowStorageType',
     'WorkflowType',
+    'WorkflowVersionAccelerators',
+    'WorkflowVersionStorageType',
+    'WorkflowVersionWorkflowEngine',
+    'WorkflowVersionWorkflowStatus',
+    'WorkflowVersionWorkflowType',
 ]
 
 
@@ -114,5 +120,39 @@ class WorkflowStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+class WorkflowStorageType(builtins.str, Enum):
+    STATIC = "STATIC"
+    DYNAMIC = "DYNAMIC"
+
+
 class WorkflowType(builtins.str, Enum):
     PRIVATE = "PRIVATE"
+
+
+class WorkflowVersionAccelerators(builtins.str, Enum):
+    GPU = "GPU"
+
+
+class WorkflowVersionStorageType(builtins.str, Enum):
+    STATIC = "STATIC"
+    DYNAMIC = "DYNAMIC"
+
+
+class WorkflowVersionWorkflowEngine(builtins.str, Enum):
+    WDL = "WDL"
+    NEXTFLOW = "NEXTFLOW"
+    CWL = "CWL"
+
+
+class WorkflowVersionWorkflowStatus(builtins.str, Enum):
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETED = "DELETED"
+    FAILED = "FAILED"
+    INACTIVE = "INACTIVE"
+
+
+class WorkflowVersionWorkflowType(builtins.str, Enum):
+    PRIVATE = "PRIVATE"
+    READY2RUN = "READY2RUN"

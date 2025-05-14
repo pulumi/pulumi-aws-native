@@ -256,7 +256,7 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["transfer_address"] = transfer_address
             __props__.__dict__["allocation_id"] = None
             __props__.__dict__["public_ip"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["address", "domain", "ipamPoolId", "networkBorderGroup", "transferAddress"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["address", "ipamPoolId", "networkBorderGroup", "transferAddress"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Eip, __self__).__init__(
             'aws-native:ec2:Eip',

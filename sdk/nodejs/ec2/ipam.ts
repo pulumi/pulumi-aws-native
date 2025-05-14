@@ -66,6 +66,10 @@ export class Ipam extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipamId!: pulumi.Output<string>;
     /**
+     * A metered account is an account that is charged for active IP addresses managed in IPAM
+     */
+    public readonly meteredAccount!: pulumi.Output<enums.ec2.IpamMeteredAccount | undefined>;
+    /**
      * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
      */
     public readonly operatingRegions!: pulumi.Output<outputs.ec2.IpamOperatingRegion[] | undefined>;
@@ -108,6 +112,7 @@ export class Ipam extends pulumi.CustomResource {
             resourceInputs["defaultResourceDiscoveryOrganizationalUnitExclusions"] = args ? args.defaultResourceDiscoveryOrganizationalUnitExclusions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enablePrivateGua"] = args ? args.enablePrivateGua : undefined;
+            resourceInputs["meteredAccount"] = args ? args.meteredAccount : undefined;
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
@@ -127,6 +132,7 @@ export class Ipam extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["enablePrivateGua"] = undefined /*out*/;
             resourceInputs["ipamId"] = undefined /*out*/;
+            resourceInputs["meteredAccount"] = undefined /*out*/;
             resourceInputs["operatingRegions"] = undefined /*out*/;
             resourceInputs["privateDefaultScopeId"] = undefined /*out*/;
             resourceInputs["publicDefaultScopeId"] = undefined /*out*/;
@@ -156,6 +162,10 @@ export interface IpamArgs {
      * Enable provisioning of GUA space in private pools.
      */
     enablePrivateGua?: pulumi.Input<boolean>;
+    /**
+     * A metered account is an account that is charged for active IP addresses managed in IPAM
+     */
+    meteredAccount?: pulumi.Input<enums.ec2.IpamMeteredAccount>;
     /**
      * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
      */

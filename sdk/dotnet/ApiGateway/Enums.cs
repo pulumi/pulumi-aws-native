@@ -78,6 +78,67 @@ namespace Pulumi.AwsNative.ApiGateway
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DomainNameRoutingMode : IEquatable<DomainNameRoutingMode>
+    {
+        private readonly string _value;
+
+        private DomainNameRoutingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainNameRoutingMode BasePathMappingOnly { get; } = new DomainNameRoutingMode("BASE_PATH_MAPPING_ONLY");
+        public static DomainNameRoutingMode RoutingRuleThenBasePathMapping { get; } = new DomainNameRoutingMode("ROUTING_RULE_THEN_BASE_PATH_MAPPING");
+        public static DomainNameRoutingMode RoutingRuleOnly { get; } = new DomainNameRoutingMode("ROUTING_RULE_ONLY");
+
+        public static bool operator ==(DomainNameRoutingMode left, DomainNameRoutingMode right) => left.Equals(right);
+        public static bool operator !=(DomainNameRoutingMode left, DomainNameRoutingMode right) => !left.Equals(right);
+
+        public static explicit operator string(DomainNameRoutingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainNameRoutingMode other && Equals(other);
+        public bool Equals(DomainNameRoutingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainNameV2RoutingMode : IEquatable<DomainNameV2RoutingMode>
+    {
+        private readonly string _value;
+
+        private DomainNameV2RoutingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainNameV2RoutingMode BasePathMappingOnly { get; } = new DomainNameV2RoutingMode("BASE_PATH_MAPPING_ONLY");
+        public static DomainNameV2RoutingMode RoutingRuleThenBasePathMapping { get; } = new DomainNameV2RoutingMode("ROUTING_RULE_THEN_BASE_PATH_MAPPING");
+        public static DomainNameV2RoutingMode RoutingRuleOnly { get; } = new DomainNameV2RoutingMode("ROUTING_RULE_ONLY");
+
+        public static bool operator ==(DomainNameV2RoutingMode left, DomainNameV2RoutingMode right) => left.Equals(right);
+        public static bool operator !=(DomainNameV2RoutingMode left, DomainNameV2RoutingMode right) => !left.Equals(right);
+
+        public static explicit operator string(DomainNameV2RoutingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainNameV2RoutingMode other && Equals(other);
+        public bool Equals(DomainNameV2RoutingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
     /// </summary>

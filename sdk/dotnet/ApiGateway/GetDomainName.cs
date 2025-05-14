@@ -80,6 +80,9 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
         /// </summary>
         public readonly string? DistributionHostedZoneId;
+        /// <summary>
+        /// The ARN of the domain name. Supported only for private custom domain names.
+        /// </summary>
         public readonly string? DomainNameArn;
         /// <summary>
         /// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
@@ -105,6 +108,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
         /// </summary>
         public readonly string? RegionalHostedZoneId;
+        public readonly Pulumi.AwsNative.ApiGateway.DomainNameRoutingMode? RoutingMode;
         /// <summary>
         /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
         /// </summary>
@@ -136,6 +140,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
             string? regionalHostedZoneId,
 
+            Pulumi.AwsNative.ApiGateway.DomainNameRoutingMode? routingMode,
+
             string? securityPolicy,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -150,6 +156,7 @@ namespace Pulumi.AwsNative.ApiGateway
             RegionalCertificateArn = regionalCertificateArn;
             RegionalDomainName = regionalDomainName;
             RegionalHostedZoneId = regionalHostedZoneId;
+            RoutingMode = routingMode;
             SecurityPolicy = securityPolicy;
             Tags = tags;
         }

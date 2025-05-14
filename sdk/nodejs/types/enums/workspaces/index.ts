@@ -32,3 +32,10 @@ export const WorkspacesPoolApplicationSettingsStatus = {
 } as const;
 
 export type WorkspacesPoolApplicationSettingsStatus = (typeof WorkspacesPoolApplicationSettingsStatus)[keyof typeof WorkspacesPoolApplicationSettingsStatus];
+
+export const WorkspacesPoolRunningMode = {
+    AlwaysOn: "ALWAYS_ON",
+    AutoStop: "AUTO_STOP",
+} as const;
+
+export type WorkspacesPoolRunningMode = (typeof WorkspacesPoolRunningMode)[keyof typeof WorkspacesPoolRunningMode];

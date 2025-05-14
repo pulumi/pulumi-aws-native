@@ -26,6 +26,7 @@ __all__ = ['PolicyStoreArgs', 'PolicyStore']
 class PolicyStoreArgs:
     def __init__(__self__, *,
                  validation_settings: pulumi.Input['PolicyStoreValidationSettingsArgs'],
+                 deletion_protection: Optional[pulumi.Input['PolicyStoreDeletionProtectionArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -41,6 +42,8 @@ class PolicyStoreArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the policy store
         """
         pulumi.set(__self__, "validation_settings", validation_settings)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if schema is not None:
@@ -63,6 +66,15 @@ class PolicyStoreArgs:
     @validation_settings.setter
     def validation_settings(self, value: pulumi.Input['PolicyStoreValidationSettingsArgs']):
         pulumi.set(self, "validation_settings", value)
+
+    @property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[pulumi.Input['PolicyStoreDeletionProtectionArgs']]:
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: Optional[pulumi.Input['PolicyStoreDeletionProtectionArgs']]):
+        pulumi.set(self, "deletion_protection", value)
 
     @property
     @pulumi.getter
@@ -109,6 +121,7 @@ class PolicyStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deletion_protection: Optional[pulumi.Input[Union['PolicyStoreDeletionProtectionArgs', 'PolicyStoreDeletionProtectionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -186,6 +199,7 @@ class PolicyStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deletion_protection: Optional[pulumi.Input[Union['PolicyStoreDeletionProtectionArgs', 'PolicyStoreDeletionProtectionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -199,6 +213,7 @@ class PolicyStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyStoreArgs.__new__(PolicyStoreArgs)
 
+            __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["description"] = description
             __props__.__dict__["schema"] = schema
             __props__.__dict__["tags"] = tags
@@ -230,6 +245,7 @@ class PolicyStore(pulumi.CustomResource):
         __props__ = PolicyStoreArgs.__new__(PolicyStoreArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["policy_store_id"] = None
         __props__.__dict__["schema"] = None
@@ -244,6 +260,11 @@ class PolicyStore(pulumi.CustomResource):
         The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> pulumi.Output[Optional['outputs.PolicyStoreDeletionProtection']]:
+        return pulumi.get(self, "deletion_protection")
 
     @property
     @pulumi.getter

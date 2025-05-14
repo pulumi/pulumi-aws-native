@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ApiBodyS3LocationArgs',
@@ -36,6 +37,18 @@ __all__ = [
     'RouteParameterConstraintsArgsDict',
     'RouteResponseParameterConstraintsArgs',
     'RouteResponseParameterConstraintsArgsDict',
+    'RoutingRuleActionInvokeApiArgs',
+    'RoutingRuleActionInvokeApiArgsDict',
+    'RoutingRuleActionArgs',
+    'RoutingRuleActionArgsDict',
+    'RoutingRuleConditionArgs',
+    'RoutingRuleConditionArgsDict',
+    'RoutingRuleMatchBasePathsArgs',
+    'RoutingRuleMatchBasePathsArgsDict',
+    'RoutingRuleMatchHeaderValueArgs',
+    'RoutingRuleMatchHeaderValueArgsDict',
+    'RoutingRuleMatchHeadersArgs',
+    'RoutingRuleMatchHeadersArgsDict',
 ]
 
 MYPY = False
@@ -684,5 +697,188 @@ class RouteResponseParameterConstraintsArgs:
     @required.setter
     def required(self, value: pulumi.Input[builtins.bool]):
         pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class RoutingRuleActionInvokeApiArgsDict(TypedDict):
+        api_id: pulumi.Input[builtins.str]
+        stage: pulumi.Input[builtins.str]
+        strip_base_path: NotRequired[pulumi.Input[builtins.bool]]
+elif False:
+    RoutingRuleActionInvokeApiArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoutingRuleActionInvokeApiArgs:
+    def __init__(__self__, *,
+                 api_id: pulumi.Input[builtins.str],
+                 stage: pulumi.Input[builtins.str],
+                 strip_base_path: Optional[pulumi.Input[builtins.bool]] = None):
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "stage", stage)
+        if strip_base_path is not None:
+            pulumi.set(__self__, "strip_base_path", strip_base_path)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter
+    def stage(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "stage", value)
+
+    @property
+    @pulumi.getter(name="stripBasePath")
+    def strip_base_path(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "strip_base_path")
+
+    @strip_base_path.setter
+    def strip_base_path(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "strip_base_path", value)
+
+
+if not MYPY:
+    class RoutingRuleActionArgsDict(TypedDict):
+        invoke_api: pulumi.Input['RoutingRuleActionInvokeApiArgsDict']
+elif False:
+    RoutingRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoutingRuleActionArgs:
+    def __init__(__self__, *,
+                 invoke_api: pulumi.Input['RoutingRuleActionInvokeApiArgs']):
+        pulumi.set(__self__, "invoke_api", invoke_api)
+
+    @property
+    @pulumi.getter(name="invokeApi")
+    def invoke_api(self) -> pulumi.Input['RoutingRuleActionInvokeApiArgs']:
+        return pulumi.get(self, "invoke_api")
+
+    @invoke_api.setter
+    def invoke_api(self, value: pulumi.Input['RoutingRuleActionInvokeApiArgs']):
+        pulumi.set(self, "invoke_api", value)
+
+
+if not MYPY:
+    class RoutingRuleConditionArgsDict(TypedDict):
+        match_base_paths: NotRequired[pulumi.Input['RoutingRuleMatchBasePathsArgsDict']]
+        match_headers: NotRequired[pulumi.Input['RoutingRuleMatchHeadersArgsDict']]
+elif False:
+    RoutingRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoutingRuleConditionArgs:
+    def __init__(__self__, *,
+                 match_base_paths: Optional[pulumi.Input['RoutingRuleMatchBasePathsArgs']] = None,
+                 match_headers: Optional[pulumi.Input['RoutingRuleMatchHeadersArgs']] = None):
+        if match_base_paths is not None:
+            pulumi.set(__self__, "match_base_paths", match_base_paths)
+        if match_headers is not None:
+            pulumi.set(__self__, "match_headers", match_headers)
+
+    @property
+    @pulumi.getter(name="matchBasePaths")
+    def match_base_paths(self) -> Optional[pulumi.Input['RoutingRuleMatchBasePathsArgs']]:
+        return pulumi.get(self, "match_base_paths")
+
+    @match_base_paths.setter
+    def match_base_paths(self, value: Optional[pulumi.Input['RoutingRuleMatchBasePathsArgs']]):
+        pulumi.set(self, "match_base_paths", value)
+
+    @property
+    @pulumi.getter(name="matchHeaders")
+    def match_headers(self) -> Optional[pulumi.Input['RoutingRuleMatchHeadersArgs']]:
+        return pulumi.get(self, "match_headers")
+
+    @match_headers.setter
+    def match_headers(self, value: Optional[pulumi.Input['RoutingRuleMatchHeadersArgs']]):
+        pulumi.set(self, "match_headers", value)
+
+
+if not MYPY:
+    class RoutingRuleMatchBasePathsArgsDict(TypedDict):
+        any_of: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+elif False:
+    RoutingRuleMatchBasePathsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoutingRuleMatchBasePathsArgs:
+    def __init__(__self__, *,
+                 any_of: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(__self__, "any_of", any_of)
+
+    @property
+    @pulumi.getter(name="anyOf")
+    def any_of(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        return pulumi.get(self, "any_of")
+
+    @any_of.setter
+    def any_of(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "any_of", value)
+
+
+if not MYPY:
+    class RoutingRuleMatchHeaderValueArgsDict(TypedDict):
+        header: pulumi.Input[builtins.str]
+        value_glob: pulumi.Input[builtins.str]
+elif False:
+    RoutingRuleMatchHeaderValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoutingRuleMatchHeaderValueArgs:
+    def __init__(__self__, *,
+                 header: pulumi.Input[builtins.str],
+                 value_glob: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "header", header)
+        pulumi.set(__self__, "value_glob", value_glob)
+
+    @property
+    @pulumi.getter
+    def header(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "header", value)
+
+    @property
+    @pulumi.getter(name="valueGlob")
+    def value_glob(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "value_glob")
+
+    @value_glob.setter
+    def value_glob(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value_glob", value)
+
+
+if not MYPY:
+    class RoutingRuleMatchHeadersArgsDict(TypedDict):
+        any_of: pulumi.Input[Sequence[pulumi.Input['RoutingRuleMatchHeaderValueArgsDict']]]
+elif False:
+    RoutingRuleMatchHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoutingRuleMatchHeadersArgs:
+    def __init__(__self__, *,
+                 any_of: pulumi.Input[Sequence[pulumi.Input['RoutingRuleMatchHeaderValueArgs']]]):
+        pulumi.set(__self__, "any_of", any_of)
+
+    @property
+    @pulumi.getter(name="anyOf")
+    def any_of(self) -> pulumi.Input[Sequence[pulumi.Input['RoutingRuleMatchHeaderValueArgs']]]:
+        return pulumi.get(self, "any_of")
+
+    @any_of.setter
+    def any_of(self, value: pulumi.Input[Sequence[pulumi.Input['RoutingRuleMatchHeaderValueArgs']]]):
+        pulumi.set(self, "any_of", value)
 
 

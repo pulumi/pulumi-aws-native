@@ -50,7 +50,7 @@ export class DeliveryDestination extends pulumi.CustomResource {
      *
      * Length Constraints: Maximum length of 51200
      */
-    public readonly deliveryDestinationPolicy!: pulumi.Output<outputs.logs.DeliveryDestinationDestinationPolicy[] | undefined>;
+    public readonly deliveryDestinationPolicy!: pulumi.Output<outputs.logs.DeliveryDestinationDestinationPolicy | undefined>;
     /**
      * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
      */
@@ -117,7 +117,7 @@ export interface DeliveryDestinationArgs {
      *
      * Length Constraints: Maximum length of 51200
      */
-    deliveryDestinationPolicy?: pulumi.Input<pulumi.Input<inputs.logs.DeliveryDestinationDestinationPolicyArgs>[]>;
+    deliveryDestinationPolicy?: pulumi.Input<inputs.logs.DeliveryDestinationDestinationPolicyArgs>;
     /**
      * The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
      */

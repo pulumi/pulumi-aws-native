@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VariantStore{}
 	case "aws-native:omics:Workflow":
 		r = &Workflow{}
+	case "aws-native:omics:WorkflowVersion":
+		r = &WorkflowVersion{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

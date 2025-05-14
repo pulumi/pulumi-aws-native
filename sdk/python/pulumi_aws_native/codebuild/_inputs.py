@@ -39,6 +39,10 @@ if not MYPY:
         """
         The amount of disk space of the instance type included in your fleet.
         """
+        instance_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The EC2 instance type to be launched in your fleet.
+        """
         machine_type: NotRequired[pulumi.Input['FleetComputeConfigurationmachineType']]
         """
         The machine type of the instance type included in your fleet.
@@ -58,17 +62,21 @@ elif False:
 class FleetComputeConfigurationArgs:
     def __init__(__self__, *,
                  disk: Optional[pulumi.Input[builtins.int]] = None,
+                 instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  machine_type: Optional[pulumi.Input['FleetComputeConfigurationmachineType']] = None,
                  memory: Optional[pulumi.Input[builtins.int]] = None,
                  v_cpu: Optional[pulumi.Input[builtins.int]] = None):
         """
         :param pulumi.Input[builtins.int] disk: The amount of disk space of the instance type included in your fleet.
+        :param pulumi.Input[builtins.str] instance_type: The EC2 instance type to be launched in your fleet.
         :param pulumi.Input['FleetComputeConfigurationmachineType'] machine_type: The machine type of the instance type included in your fleet.
         :param pulumi.Input[builtins.int] memory: The amount of memory of the instance type included in your fleet.
         :param pulumi.Input[builtins.int] v_cpu: The number of vCPUs of the instance type included in your fleet.
         """
         if disk is not None:
             pulumi.set(__self__, "disk", disk)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
         if machine_type is not None:
             pulumi.set(__self__, "machine_type", machine_type)
         if memory is not None:
@@ -87,6 +95,18 @@ class FleetComputeConfigurationArgs:
     @disk.setter
     def disk(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "disk", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The EC2 instance type to be launched in your fleet.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_type", value)
 
     @property
     @pulumi.getter(name="machineType")

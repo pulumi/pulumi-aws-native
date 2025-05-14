@@ -27,12 +27,14 @@ class NetworkInsightsAnalysisArgs:
                  network_insights_path_id: pulumi.Input[builtins.str],
                  additional_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 filter_out_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAnalysis resource.
         :param pulumi.Input[builtins.str] network_insights_path_id: The ID of the path.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_accounts: The member accounts that contain resources that the path can traverse.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] filter_in_arns: The Amazon Resource Names (ARN) of the resources that the path must traverse.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] filter_out_arns: The Amazon Resource Names (ARN) of the resources that the path must ignore.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to apply.
         """
         pulumi.set(__self__, "network_insights_path_id", network_insights_path_id)
@@ -40,6 +42,8 @@ class NetworkInsightsAnalysisArgs:
             pulumi.set(__self__, "additional_accounts", additional_accounts)
         if filter_in_arns is not None:
             pulumi.set(__self__, "filter_in_arns", filter_in_arns)
+        if filter_out_arns is not None:
+            pulumi.set(__self__, "filter_out_arns", filter_out_arns)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -80,6 +84,18 @@ class NetworkInsightsAnalysisArgs:
         pulumi.set(self, "filter_in_arns", value)
 
     @property
+    @pulumi.getter(name="filterOutArns")
+    def filter_out_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The Amazon Resource Names (ARN) of the resources that the path must ignore.
+        """
+        return pulumi.get(self, "filter_out_arns")
+
+    @filter_out_arns.setter
+    def filter_out_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "filter_out_arns", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -102,6 +118,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 filter_out_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -112,6 +129,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_accounts: The member accounts that contain resources that the path can traverse.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] filter_in_arns: The Amazon Resource Names (ARN) of the resources that the path must traverse.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] filter_out_arns: The Amazon Resource Names (ARN) of the resources that the path must ignore.
         :param pulumi.Input[builtins.str] network_insights_path_id: The ID of the path.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply.
         """
@@ -141,6 +159,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 filter_out_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -154,6 +173,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
             __props__.__dict__["additional_accounts"] = additional_accounts
             __props__.__dict__["filter_in_arns"] = filter_in_arns
+            __props__.__dict__["filter_out_arns"] = filter_out_arns
             if network_insights_path_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_insights_path_id'")
             __props__.__dict__["network_insights_path_id"] = network_insights_path_id
@@ -169,7 +189,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
             __props__.__dict__["suggested_accounts"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["filterInArns[*]", "networkInsightsPathId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["filterInArns[*]", "filterOutArns[*]", "networkInsightsPathId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkInsightsAnalysis, __self__).__init__(
             'aws-native:ec2:NetworkInsightsAnalysis',
@@ -197,6 +217,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         __props__.__dict__["alternate_path_hints"] = None
         __props__.__dict__["explanations"] = None
         __props__.__dict__["filter_in_arns"] = None
+        __props__.__dict__["filter_out_arns"] = None
         __props__.__dict__["forward_path_components"] = None
         __props__.__dict__["network_insights_analysis_arn"] = None
         __props__.__dict__["network_insights_analysis_id"] = None
@@ -241,6 +262,14 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         The Amazon Resource Names (ARN) of the resources that the path must traverse.
         """
         return pulumi.get(self, "filter_in_arns")
+
+    @property
+    @pulumi.getter(name="filterOutArns")
+    def filter_out_arns(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+        """
+        The Amazon Resource Names (ARN) of the resources that the path must ignore.
+        """
+        return pulumi.get(self, "filter_out_arns")
 
     @property
     @pulumi.getter(name="forwardPathComponents")

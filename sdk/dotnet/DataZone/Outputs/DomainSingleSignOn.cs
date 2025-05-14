@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class DomainSingleSignOn
     {
+        /// <summary>
+        /// The ARN of the IDC instance.
+        /// </summary>
         public readonly string? IdcInstanceArn;
         /// <summary>
         /// The type of single sign-on in Amazon DataZone.

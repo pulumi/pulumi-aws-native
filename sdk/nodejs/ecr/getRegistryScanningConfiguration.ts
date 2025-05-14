@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::ECR::RegistryScanningConfiguration controls the scanning configuration for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
+ * The scanning configuration for a private registry.
  */
 export function getRegistryScanningConfiguration(args: GetRegistryScanningConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryScanningConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,7 +39,7 @@ export interface GetRegistryScanningConfigurationResult {
     readonly scanType?: enums.ecr.RegistryScanningConfigurationScanType;
 }
 /**
- * The AWS::ECR::RegistryScanningConfiguration controls the scanning configuration for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
+ * The scanning configuration for a private registry.
  */
 export function getRegistryScanningConfigurationOutput(args: GetRegistryScanningConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryScanningConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

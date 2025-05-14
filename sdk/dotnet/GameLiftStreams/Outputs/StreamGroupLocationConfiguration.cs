@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.GameLiftStreams.Outputs
         /// </summary>
         public readonly int? AlwaysOnCapacity;
         /// <summary>
-        /// A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions and quotas](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
+        /// A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
         /// </summary>
         public readonly string LocationName;
         /// <summary>

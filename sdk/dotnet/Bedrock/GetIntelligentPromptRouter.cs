@@ -71,11 +71,17 @@ namespace Pulumi.AwsNative.Bedrock
         /// Arn of the Prompt Router.
         /// </summary>
         public readonly string? PromptRouterArn;
+        /// <summary>
+        /// The router's status.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.IntelligentPromptRouterPromptRouterStatus? Status;
         /// <summary>
         /// List of Tags
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The router's type.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.IntelligentPromptRouterPromptRouterType? Type;
         /// <summary>
         /// Time Stamp

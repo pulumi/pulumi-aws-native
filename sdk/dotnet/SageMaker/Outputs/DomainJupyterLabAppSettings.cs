@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Outputs.DomainAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
+        /// The lifecycle configuration that runs before the default lifecycle configuration.
+        /// </summary>
+        public readonly string? BuiltInLifecycleConfigArn;
+        /// <summary>
         /// A list of CodeRepositories available for use with JupyterLab apps.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainCodeRepository> CodeRepositories;
@@ -41,6 +45,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private DomainJupyterLabAppSettings(
             Outputs.DomainAppLifecycleManagement? appLifecycleManagement,
 
+            string? builtInLifecycleConfigArn,
+
             ImmutableArray<Outputs.DomainCodeRepository> codeRepositories,
 
             ImmutableArray<Outputs.DomainCustomImage> customImages,
@@ -50,6 +56,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             ImmutableArray<string> lifecycleConfigArns)
         {
             AppLifecycleManagement = appLifecycleManagement;
+            BuiltInLifecycleConfigArn = builtInLifecycleConfigArn;
             CodeRepositories = codeRepositories;
             CustomImages = customImages;
             DefaultResourceSpec = defaultResourceSpec;

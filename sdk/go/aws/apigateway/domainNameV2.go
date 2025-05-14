@@ -30,6 +30,8 @@ type DomainNameV2 struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
+	// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+	RoutingMode DomainNameV2RoutingModePtrOutput `pulumi:"routingMode"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
 	SecurityPolicy pulumi.StringPtrOutput `pulumi:"securityPolicy"`
 	// The collection of tags. Each tag element is associated with a given resource.
@@ -92,6 +94,8 @@ type domainNameV2Args struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
+	// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+	RoutingMode *DomainNameV2RoutingMode `pulumi:"routingMode"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// The collection of tags. Each tag element is associated with a given resource.
@@ -110,6 +114,8 @@ type DomainNameV2Args struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 	Policy pulumi.Input
+	// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+	RoutingMode DomainNameV2RoutingModePtrInput
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
 	SecurityPolicy pulumi.StringPtrInput
 	// The collection of tags. Each tag element is associated with a given resource.
@@ -183,6 +189,11 @@ func (o DomainNameV2Output) EndpointConfiguration() DomainNameV2EndpointConfigur
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 func (o DomainNameV2Output) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DomainNameV2) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
+}
+
+// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+func (o DomainNameV2Output) RoutingMode() DomainNameV2RoutingModePtrOutput {
+	return o.ApplyT(func(v *DomainNameV2) DomainNameV2RoutingModePtrOutput { return v.RoutingMode }).(DomainNameV2RoutingModePtrOutput)
 }
 
 // The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.

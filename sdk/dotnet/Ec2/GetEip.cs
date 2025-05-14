@@ -86,6 +86,11 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? AllocationId;
         /// <summary>
+        /// The network (``vpc``).
+        ///  If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
+        /// </summary>
+        public readonly string? Domain;
+        /// <summary>
         /// The ID of the instance.
         ///   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
         /// </summary>
@@ -109,6 +114,8 @@ namespace Pulumi.AwsNative.Ec2
         private GetEipResult(
             string? allocationId,
 
+            string? domain,
+
             string? instanceId,
 
             string? publicIp,
@@ -118,6 +125,7 @@ namespace Pulumi.AwsNative.Ec2
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AllocationId = allocationId;
+            Domain = domain;
             InstanceId = instanceId;
             PublicIp = publicIp;
             PublicIpv4Pool = publicIpv4Pool;

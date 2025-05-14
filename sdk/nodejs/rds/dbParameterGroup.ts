@@ -83,7 +83,7 @@ export class DbParameterGroup extends pulumi.CustomResource {
     /**
      * A mapping of parameter names and values for the parameter update. You must specify at least one parameter name and value.
      *  For more information about parameter groups, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*, or [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
-     *    AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
+     *   AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
      */
@@ -175,7 +175,7 @@ export interface DbParameterGroupArgs {
     /**
      * A mapping of parameter names and values for the parameter update. You must specify at least one parameter name and value.
      *  For more information about parameter groups, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*, or [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
-     *    AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
+     *   AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
      */

@@ -100,6 +100,9 @@ export class DomainName extends pulumi.CustomResource {
      * The custom domain name as an API host name, for example, `my-api.example.com` .
      */
     public readonly domainName!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the domain name. Supported only for private custom domain names.
+     */
     public /*out*/ readonly domainNameArn!: pulumi.Output<string>;
     /**
      * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
@@ -125,6 +128,7 @@ export class DomainName extends pulumi.CustomResource {
      * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
      */
     public /*out*/ readonly regionalHostedZoneId!: pulumi.Output<string>;
+    public readonly routingMode!: pulumi.Output<enums.apigateway.DomainNameRoutingMode | undefined>;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
      */
@@ -151,6 +155,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
             resourceInputs["ownershipVerificationCertificateArn"] = args ? args.ownershipVerificationCertificateArn : undefined;
             resourceInputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
+            resourceInputs["routingMode"] = args ? args.routingMode : undefined;
             resourceInputs["securityPolicy"] = args ? args.securityPolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["distributionDomainName"] = undefined /*out*/;
@@ -170,6 +175,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["regionalCertificateArn"] = undefined /*out*/;
             resourceInputs["regionalDomainName"] = undefined /*out*/;
             resourceInputs["regionalHostedZoneId"] = undefined /*out*/;
+            resourceInputs["routingMode"] = undefined /*out*/;
             resourceInputs["securityPolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -208,6 +214,7 @@ export interface DomainNameArgs {
      * The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
      */
     regionalCertificateArn?: pulumi.Input<string>;
+    routingMode?: pulumi.Input<enums.apigateway.DomainNameRoutingMode>;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
      */

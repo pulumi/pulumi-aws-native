@@ -29,20 +29,10 @@ type LookupDeliveryStreamArgs struct {
 }
 
 type LookupDeliveryStreamResult struct {
-	// Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
-	AmazonOpenSearchServerlessDestinationConfiguration *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration `pulumi:"amazonOpenSearchServerlessDestinationConfiguration"`
-	// The destination in Amazon OpenSearch Service. You can specify only one destination.
-	AmazonopensearchserviceDestinationConfiguration *DeliveryStreamAmazonopensearchserviceDestinationConfiguration `pulumi:"amazonopensearchserviceDestinationConfiguration"`
 	// The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
 	Arn *string `pulumi:"arn"`
 	// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
 	DeliveryStreamEncryptionConfigurationInput *DeliveryStreamEncryptionConfigurationInputType `pulumi:"deliveryStreamEncryptionConfigurationInput"`
-	// An Amazon ES destination for the delivery stream.
-	//
-	// Conditional. You must specify only one destination configuration.
-	//
-	// If you change the delivery stream destination from an Amazon ES destination to an Amazon S3 or Amazon Redshift destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
-	ElasticsearchDestinationConfiguration *DeliveryStreamElasticsearchDestinationConfiguration `pulumi:"elasticsearchDestinationConfiguration"`
 	// An Amazon S3 destination for the delivery stream.
 	//
 	// Conditional. You must specify only one destination configuration.
@@ -51,22 +41,12 @@ type LookupDeliveryStreamResult struct {
 	ExtendedS3DestinationConfiguration *DeliveryStreamExtendedS3DestinationConfiguration `pulumi:"extendedS3DestinationConfiguration"`
 	// Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
 	HttpEndpointDestinationConfiguration *DeliveryStreamHttpEndpointDestinationConfiguration `pulumi:"httpEndpointDestinationConfiguration"`
-	// Specifies the destination configure settings for Apache Iceberg Table.
-	IcebergDestinationConfiguration *DeliveryStreamIcebergDestinationConfiguration `pulumi:"icebergDestinationConfiguration"`
 	// An Amazon Redshift destination for the delivery stream.
 	//
 	// Conditional. You must specify only one destination configuration.
 	//
 	// If you change the delivery stream destination from an Amazon Redshift destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
 	RedshiftDestinationConfiguration *DeliveryStreamRedshiftDestinationConfiguration `pulumi:"redshiftDestinationConfiguration"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-	//
-	// Conditional. You must specify only one destination configuration.
-	//
-	// If you change the delivery stream destination from an Amazon S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
-	S3DestinationConfiguration *DeliveryStreamS3DestinationConfiguration `pulumi:"s3DestinationConfiguration"`
-	// Configure Snowflake destination
-	SnowflakeDestinationConfiguration *DeliveryStreamSnowflakeDestinationConfiguration `pulumi:"snowflakeDestinationConfiguration"`
 	// The configuration of a destination in Splunk for the delivery stream.
 	SplunkDestinationConfiguration *DeliveryStreamSplunkDestinationConfiguration `pulumi:"splunkDestinationConfiguration"`
 	// A set of tags to assign to the Firehose stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the Firehose stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
@@ -115,20 +95,6 @@ func (o LookupDeliveryStreamResultOutput) ToLookupDeliveryStreamResultOutputWith
 	return o
 }
 
-// Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
-func (o LookupDeliveryStreamResultOutput) AmazonOpenSearchServerlessDestinationConfiguration() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration {
-		return v.AmazonOpenSearchServerlessDestinationConfiguration
-	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput)
-}
-
-// The destination in Amazon OpenSearch Service. You can specify only one destination.
-func (o LookupDeliveryStreamResultOutput) AmazonopensearchserviceDestinationConfiguration() DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamAmazonopensearchserviceDestinationConfiguration {
-		return v.AmazonopensearchserviceDestinationConfiguration
-	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput)
-}
-
 // The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
 func (o LookupDeliveryStreamResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliveryStreamResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
@@ -139,17 +105,6 @@ func (o LookupDeliveryStreamResultOutput) DeliveryStreamEncryptionConfigurationI
 	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamEncryptionConfigurationInputType {
 		return v.DeliveryStreamEncryptionConfigurationInput
 	}).(DeliveryStreamEncryptionConfigurationInputTypePtrOutput)
-}
-
-// An Amazon ES destination for the delivery stream.
-//
-// Conditional. You must specify only one destination configuration.
-//
-// If you change the delivery stream destination from an Amazon ES destination to an Amazon S3 or Amazon Redshift destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
-func (o LookupDeliveryStreamResultOutput) ElasticsearchDestinationConfiguration() DeliveryStreamElasticsearchDestinationConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamElasticsearchDestinationConfiguration {
-		return v.ElasticsearchDestinationConfiguration
-	}).(DeliveryStreamElasticsearchDestinationConfigurationPtrOutput)
 }
 
 // An Amazon S3 destination for the delivery stream.
@@ -170,13 +125,6 @@ func (o LookupDeliveryStreamResultOutput) HttpEndpointDestinationConfiguration()
 	}).(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput)
 }
 
-// Specifies the destination configure settings for Apache Iceberg Table.
-func (o LookupDeliveryStreamResultOutput) IcebergDestinationConfiguration() DeliveryStreamIcebergDestinationConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamIcebergDestinationConfiguration {
-		return v.IcebergDestinationConfiguration
-	}).(DeliveryStreamIcebergDestinationConfigurationPtrOutput)
-}
-
 // An Amazon Redshift destination for the delivery stream.
 //
 // Conditional. You must specify only one destination configuration.
@@ -186,24 +134,6 @@ func (o LookupDeliveryStreamResultOutput) RedshiftDestinationConfiguration() Del
 	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamRedshiftDestinationConfiguration {
 		return v.RedshiftDestinationConfiguration
 	}).(DeliveryStreamRedshiftDestinationConfigurationPtrOutput)
-}
-
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-//
-// Conditional. You must specify only one destination configuration.
-//
-// If you change the delivery stream destination from an Amazon S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
-func (o LookupDeliveryStreamResultOutput) S3DestinationConfiguration() DeliveryStreamS3DestinationConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamS3DestinationConfiguration {
-		return v.S3DestinationConfiguration
-	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
-}
-
-// Configure Snowflake destination
-func (o LookupDeliveryStreamResultOutput) SnowflakeDestinationConfiguration() DeliveryStreamSnowflakeDestinationConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamSnowflakeDestinationConfiguration {
-		return v.SnowflakeDestinationConfiguration
-	}).(DeliveryStreamSnowflakeDestinationConfigurationPtrOutput)
 }
 
 // The configuration of a destination in Splunk for the delivery stream.

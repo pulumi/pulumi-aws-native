@@ -54,6 +54,12 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<object?> Policy { get; private set; } = null!;
 
         /// <summary>
+        /// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+        /// </summary>
+        [Output("routingMode")]
+        public Output<Pulumi.AwsNative.ApiGateway.DomainNameV2RoutingMode?> RoutingMode { get; private set; } = null!;
+
+        /// <summary>
         /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
         /// </summary>
         [Output("securityPolicy")]
@@ -141,6 +147,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         [Input("policy")]
         public Input<object>? Policy { get; set; }
+
+        /// <summary>
+        /// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+        /// </summary>
+        [Input("routingMode")]
+        public Input<Pulumi.AwsNative.ApiGateway.DomainNameV2RoutingMode>? RoutingMode { get; set; }
 
         /// <summary>
         /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.

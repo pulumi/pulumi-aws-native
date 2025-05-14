@@ -39,11 +39,13 @@ type LookupWorkflowResult struct {
 	// The workflow's name.
 	Name *string `pulumi:"name"`
 	// The workflow's status.
-	Status *WorkflowStatus `pulumi:"status"`
+	Status      *WorkflowStatus      `pulumi:"status"`
+	StorageType *WorkflowStorageType `pulumi:"storageType"`
 	// Tags for the workflow.
 	Tags map[string]string `pulumi:"tags"`
 	// The workflow's type.
 	Type *WorkflowType `pulumi:"type"`
+	Uuid *string       `pulumi:"uuid"`
 }
 
 func LookupWorkflowOutput(ctx *pulumi.Context, args LookupWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupWorkflowResultOutput {
@@ -108,6 +110,10 @@ func (o LookupWorkflowResultOutput) Status() WorkflowStatusPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *WorkflowStatus { return v.Status }).(WorkflowStatusPtrOutput)
 }
 
+func (o LookupWorkflowResultOutput) StorageType() WorkflowStorageTypePtrOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) *WorkflowStorageType { return v.StorageType }).(WorkflowStorageTypePtrOutput)
+}
+
 // Tags for the workflow.
 func (o LookupWorkflowResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
@@ -116,6 +122,10 @@ func (o LookupWorkflowResultOutput) Tags() pulumi.StringMapOutput {
 // The workflow's type.
 func (o LookupWorkflowResultOutput) Type() WorkflowTypePtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *WorkflowType { return v.Type }).(WorkflowTypePtrOutput)
+}
+
+func (o LookupWorkflowResultOutput) Uuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) *string { return v.Uuid }).(pulumi.StringPtrOutput)
 }
 
 func init() {

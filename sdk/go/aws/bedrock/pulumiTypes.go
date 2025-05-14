@@ -26981,6 +26981,7 @@ func (o IntelligentPromptRouterPromptRouterTargetModelArrayOutput) Index(i pulum
 
 // Represents the criteria used for routing requests.
 type IntelligentPromptRouterRoutingCriteria struct {
+	// The criteria's response quality difference.
 	ResponseQualityDifference float64 `pulumi:"responseQualityDifference"`
 }
 
@@ -26997,6 +26998,7 @@ type IntelligentPromptRouterRoutingCriteriaInput interface {
 
 // Represents the criteria used for routing requests.
 type IntelligentPromptRouterRoutingCriteriaArgs struct {
+	// The criteria's response quality difference.
 	ResponseQualityDifference pulumi.Float64Input `pulumi:"responseQualityDifference"`
 }
 
@@ -27027,6 +27029,7 @@ func (o IntelligentPromptRouterRoutingCriteriaOutput) ToIntelligentPromptRouterR
 	return o
 }
 
+// The criteria's response quality difference.
 func (o IntelligentPromptRouterRoutingCriteriaOutput) ResponseQualityDifference() pulumi.Float64Output {
 	return o.ApplyT(func(v IntelligentPromptRouterRoutingCriteria) float64 { return v.ResponseQualityDifference }).(pulumi.Float64Output)
 }

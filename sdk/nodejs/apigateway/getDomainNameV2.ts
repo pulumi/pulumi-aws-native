@@ -44,6 +44,10 @@ export interface GetDomainNameV2Result {
      */
     readonly policy?: any;
     /**
+     * The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+     */
+    readonly routingMode?: enums.apigateway.DomainNameV2RoutingMode;
+    /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
     readonly tags?: outputs.Tag[];

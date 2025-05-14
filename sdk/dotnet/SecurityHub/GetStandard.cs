@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.SecurityHub
     {
         /// <summary>
         /// Specifies which controls are to be disabled in a standard. 
-        ///   *Maximum*: ``100``
+        ///  *Maximum*: ``100``
         /// </summary>
         public readonly ImmutableArray<Outputs.StandardsControl> DisabledStandardsControls;
         /// <summary>

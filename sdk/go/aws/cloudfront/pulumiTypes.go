@@ -14500,8 +14500,11 @@ type VpcOriginEndpointConfig struct {
 	// The name of the CloudFront VPC origin endpoint configuration.
 	Name string `pulumi:"name"`
 	// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
-	OriginProtocolPolicy *string  `pulumi:"originProtocolPolicy"`
-	OriginSslProtocols   []string `pulumi:"originSslProtocols"`
+	OriginProtocolPolicy *string `pulumi:"originProtocolPolicy"`
+	// Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include `SSLv3` , `TLSv1` , `TLSv1.1` , and `TLSv1.2` .
+	//
+	// For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
+	OriginSslProtocols []string `pulumi:"originSslProtocols"`
 }
 
 // VpcOriginEndpointConfigInput is an input type that accepts VpcOriginEndpointConfigArgs and VpcOriginEndpointConfigOutput values.
@@ -14526,8 +14529,11 @@ type VpcOriginEndpointConfigArgs struct {
 	// The name of the CloudFront VPC origin endpoint configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
-	OriginProtocolPolicy pulumi.StringPtrInput   `pulumi:"originProtocolPolicy"`
-	OriginSslProtocols   pulumi.StringArrayInput `pulumi:"originSslProtocols"`
+	OriginProtocolPolicy pulumi.StringPtrInput `pulumi:"originProtocolPolicy"`
+	// Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include `SSLv3` , `TLSv1` , `TLSv1.1` , and `TLSv1.2` .
+	//
+	// For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
+	OriginSslProtocols pulumi.StringArrayInput `pulumi:"originSslProtocols"`
 }
 
 func (VpcOriginEndpointConfigArgs) ElementType() reflect.Type {
@@ -14582,6 +14588,9 @@ func (o VpcOriginEndpointConfigOutput) OriginProtocolPolicy() pulumi.StringPtrOu
 	return o.ApplyT(func(v VpcOriginEndpointConfig) *string { return v.OriginProtocolPolicy }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include `SSLv3` , `TLSv1` , `TLSv1.1` , and `TLSv1.2` .
+//
+// For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
 func (o VpcOriginEndpointConfigOutput) OriginSslProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VpcOriginEndpointConfig) []string { return v.OriginSslProtocols }).(pulumi.StringArrayOutput)
 }
@@ -14660,6 +14669,9 @@ func (o VpcOriginEndpointConfigPtrOutput) OriginProtocolPolicy() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include `SSLv3` , `TLSv1` , `TLSv1.1` , and `TLSv1.2` .
+//
+// For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
 func (o VpcOriginEndpointConfigPtrOutput) OriginSslProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcOriginEndpointConfig) []string {
 		if v == nil {

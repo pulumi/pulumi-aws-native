@@ -873,9 +873,9 @@ type ClusterExecuteCommandConfiguration struct {
 	// The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When ``logging=OVERRIDE`` is specified, a ``logConfiguration`` must be provided.
 	LogConfiguration *ClusterExecuteCommandLogConfiguration `pulumi:"logConfiguration"`
 	// The log setting to use for redirecting logs for your execute command results. The following log settings are available.
-	//   +   ``NONE``: The execute command session is not logged.
-	//   +   ``DEFAULT``: The ``awslogs`` configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no ``awslogs`` log driver is configured in the task definition, the output won't be logged.
-	//   +   ``OVERRIDE``: Specify the logging details as a part of ``logConfiguration``. If the ``OVERRIDE`` logging option is specified, the ``logConfiguration`` is required.
+	//   +  ``NONE``: The execute command session is not logged.
+	//   +  ``DEFAULT``: The ``awslogs`` configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no ``awslogs`` log driver is configured in the task definition, the output won't be logged.
+	//   +  ``OVERRIDE``: Specify the logging details as a part of ``logConfiguration``. If the ``OVERRIDE`` logging option is specified, the ``logConfiguration`` is required.
 	Logging *string `pulumi:"logging"`
 }
 
@@ -897,9 +897,9 @@ type ClusterExecuteCommandConfigurationArgs struct {
 	// The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When ``logging=OVERRIDE`` is specified, a ``logConfiguration`` must be provided.
 	LogConfiguration ClusterExecuteCommandLogConfigurationPtrInput `pulumi:"logConfiguration"`
 	// The log setting to use for redirecting logs for your execute command results. The following log settings are available.
-	//   +   ``NONE``: The execute command session is not logged.
-	//   +   ``DEFAULT``: The ``awslogs`` configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no ``awslogs`` log driver is configured in the task definition, the output won't be logged.
-	//   +   ``OVERRIDE``: Specify the logging details as a part of ``logConfiguration``. If the ``OVERRIDE`` logging option is specified, the ``logConfiguration`` is required.
+	//   +  ``NONE``: The execute command session is not logged.
+	//   +  ``DEFAULT``: The ``awslogs`` configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no ``awslogs`` log driver is configured in the task definition, the output won't be logged.
+	//   +  ``OVERRIDE``: Specify the logging details as a part of ``logConfiguration``. If the ``OVERRIDE`` logging option is specified, the ``logConfiguration`` is required.
 	Logging pulumi.StringPtrInput `pulumi:"logging"`
 }
 
@@ -4351,7 +4351,8 @@ type ServiceManagedEbsVolumeConfiguration struct {
 	TagSpecifications []ServiceEbsTagSpecification `pulumi:"tagSpecifications"`
 	// The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	//   This parameter is only supported for the ``gp3`` volume type.
-	Throughput *int `pulumi:"throughput"`
+	Throughput               *int `pulumi:"throughput"`
+	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
 	// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
 	//  The following are the supported volume types.
 	//   +  General Purpose SSD: ``gp2``|``gp3``
@@ -4412,7 +4413,8 @@ type ServiceManagedEbsVolumeConfigurationArgs struct {
 	TagSpecifications ServiceEbsTagSpecificationArrayInput `pulumi:"tagSpecifications"`
 	// The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	//   This parameter is only supported for the ``gp3`` volume type.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput               pulumi.IntPtrInput `pulumi:"throughput"`
+	VolumeInitializationRate pulumi.IntPtrInput `pulumi:"volumeInitializationRate"`
 	// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
 	//  The following are the supported volume types.
 	//   +  General Purpose SSD: ``gp2``|``gp3``
@@ -4571,6 +4573,10 @@ func (o ServiceManagedEbsVolumeConfigurationOutput) Throughput() pulumi.IntPtrOu
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+func (o ServiceManagedEbsVolumeConfigurationOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.VolumeInitializationRate }).(pulumi.IntPtrOutput)
+}
+
 // The volume type. This parameter maps 1:1 with the “VolumeType“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
 //
 //	The following are the supported volume types.
@@ -4717,6 +4723,15 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Throughput() pulumi.IntPt
 			return nil
 		}
 		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeInitializationRate
 	}).(pulumi.IntPtrOutput)
 }
 

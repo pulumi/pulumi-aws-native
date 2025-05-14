@@ -30,6 +30,8 @@ type Ipam struct {
 	EnablePrivateGua pulumi.BoolPtrOutput `pulumi:"enablePrivateGua"`
 	// Id of the IPAM.
 	IpamId pulumi.StringOutput `pulumi:"ipamId"`
+	// A metered account is an account that is charged for active IP addresses managed in IPAM
+	MeteredAccount IpamMeteredAccountPtrOutput `pulumi:"meteredAccount"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions IpamOperatingRegionArrayOutput `pulumi:"operatingRegions"`
 	// The Id of the default scope for publicly routable IP space, created with this IPAM.
@@ -92,6 +94,8 @@ type ipamArgs struct {
 	Description *string `pulumi:"description"`
 	// Enable provisioning of GUA space in private pools.
 	EnablePrivateGua *bool `pulumi:"enablePrivateGua"`
+	// A metered account is an account that is charged for active IP addresses managed in IPAM
+	MeteredAccount *IpamMeteredAccount `pulumi:"meteredAccount"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions []IpamOperatingRegion `pulumi:"operatingRegions"`
 	// An array of key-value pairs to apply to this resource.
@@ -108,6 +112,8 @@ type IpamArgs struct {
 	Description pulumi.StringPtrInput
 	// Enable provisioning of GUA space in private pools.
 	EnablePrivateGua pulumi.BoolPtrInput
+	// A metered account is an account that is charged for active IP addresses managed in IPAM
+	MeteredAccount IpamMeteredAccountPtrInput
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions IpamOperatingRegionArrayInput
 	// An array of key-value pairs to apply to this resource.
@@ -188,6 +194,11 @@ func (o IpamOutput) EnablePrivateGua() pulumi.BoolPtrOutput {
 // Id of the IPAM.
 func (o IpamOutput) IpamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ipam) pulumi.StringOutput { return v.IpamId }).(pulumi.StringOutput)
+}
+
+// A metered account is an account that is charged for active IP addresses managed in IPAM
+func (o IpamOutput) MeteredAccount() IpamMeteredAccountPtrOutput {
+	return o.ApplyT(func(v *Ipam) IpamMeteredAccountPtrOutput { return v.MeteredAccount }).(IpamMeteredAccountPtrOutput)
 }
 
 // The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring

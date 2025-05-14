@@ -6,6 +6,7 @@ import builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .api import *
 from .api_mapping import *
 from .authorizer import *
@@ -21,12 +22,14 @@ from .get_integration_response import *
 from .get_model import *
 from .get_route import *
 from .get_route_response import *
+from .get_routing_rule import *
 from .get_vpc_link import *
 from .integration import *
 from .integration_response import *
 from .model import *
 from .route import *
 from .route_response import *
+from .routing_rule import *
 from .vpc_link import *
 from ._inputs import *
 from . import outputs

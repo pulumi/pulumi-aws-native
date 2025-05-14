@@ -2438,6 +2438,9 @@ if not MYPY:
         The single-sign on configuration of the Amazon DataZone domain.
         """
         idc_instance_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ARN of the IDC instance.
+        """
         type: NotRequired[pulumi.Input['DomainAuthType']]
         """
         The type of single sign-on in Amazon DataZone.
@@ -2457,6 +2460,7 @@ class DomainSingleSignOnArgs:
                  user_assignment: Optional[pulumi.Input['DomainUserAssignment']] = None):
         """
         The single-sign on configuration of the Amazon DataZone domain.
+        :param pulumi.Input[builtins.str] idc_instance_arn: The ARN of the IDC instance.
         :param pulumi.Input['DomainAuthType'] type: The type of single sign-on in Amazon DataZone.
         :param pulumi.Input['DomainUserAssignment'] user_assignment: The single sign-on user assignment in Amazon DataZone.
         """
@@ -2470,6 +2474,9 @@ class DomainSingleSignOnArgs:
     @property
     @pulumi.getter(name="idcInstanceArn")
     def idc_instance_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ARN of the IDC instance.
+        """
         return pulumi.get(self, "idc_instance_arn")
 
     @idc_instance_arn.setter

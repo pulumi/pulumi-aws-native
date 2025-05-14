@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     /// <summary>
     /// Specifies the market (purchasing) option for an instance.
-    ///   ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    ///  ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     /// </summary>
     public sealed class LaunchTemplateInstanceMarketOptionsArgs : global::Pulumi.ResourceArgs
     {

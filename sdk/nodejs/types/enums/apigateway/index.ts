@@ -31,6 +31,25 @@ export const DomainNameAccessAssociationAccessAssociationSourceType = {
  */
 export type DomainNameAccessAssociationAccessAssociationSourceType = (typeof DomainNameAccessAssociationAccessAssociationSourceType)[keyof typeof DomainNameAccessAssociationAccessAssociationSourceType];
 
+export const DomainNameRoutingMode = {
+    BasePathMappingOnly: "BASE_PATH_MAPPING_ONLY",
+    RoutingRuleThenBasePathMapping: "ROUTING_RULE_THEN_BASE_PATH_MAPPING",
+    RoutingRuleOnly: "ROUTING_RULE_ONLY",
+} as const;
+
+export type DomainNameRoutingMode = (typeof DomainNameRoutingMode)[keyof typeof DomainNameRoutingMode];
+
+export const DomainNameV2RoutingMode = {
+    BasePathMappingOnly: "BASE_PATH_MAPPING_ONLY",
+    RoutingRuleThenBasePathMapping: "ROUTING_RULE_THEN_BASE_PATH_MAPPING",
+    RoutingRuleOnly: "ROUTING_RULE_ONLY",
+} as const;
+
+/**
+ * The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+ */
+export type DomainNameV2RoutingMode = (typeof DomainNameV2RoutingMode)[keyof typeof DomainNameV2RoutingMode];
+
 export const MethodIntegrationConnectionType = {
     Internet: "INTERNET",
     VpcLink: "VPC_LINK",

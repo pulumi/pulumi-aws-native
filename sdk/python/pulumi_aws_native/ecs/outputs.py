@@ -484,9 +484,9 @@ class ClusterExecuteCommandConfiguration(dict):
         :param builtins.str kms_key_id: Specify an KMSlong key ID to encrypt the data between the local client and the container.
         :param 'ClusterExecuteCommandLogConfiguration' log_configuration: The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When ``logging=OVERRIDE`` is specified, a ``logConfiguration`` must be provided.
         :param builtins.str logging: The log setting to use for redirecting logs for your execute command results. The following log settings are available.
-                 +   ``NONE``: The execute command session is not logged.
-                 +   ``DEFAULT``: The ``awslogs`` configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no ``awslogs`` log driver is configured in the task definition, the output won't be logged.
-                 +   ``OVERRIDE``: Specify the logging details as a part of ``logConfiguration``. If the ``OVERRIDE`` logging option is specified, the ``logConfiguration`` is required.
+                 +  ``NONE``: The execute command session is not logged.
+                 +  ``DEFAULT``: The ``awslogs`` configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no ``awslogs`` log driver is configured in the task definition, the output won't be logged.
+                 +  ``OVERRIDE``: Specify the logging details as a part of ``logConfiguration``. If the ``OVERRIDE`` logging option is specified, the ``logConfiguration`` is required.
         """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -516,9 +516,9 @@ class ClusterExecuteCommandConfiguration(dict):
     def logging(self) -> Optional[builtins.str]:
         """
         The log setting to use for redirecting logs for your execute command results. The following log settings are available.
-          +   ``NONE``: The execute command session is not logged.
-          +   ``DEFAULT``: The ``awslogs`` configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no ``awslogs`` log driver is configured in the task definition, the output won't be logged.
-          +   ``OVERRIDE``: Specify the logging details as a part of ``logConfiguration``. If the ``OVERRIDE`` logging option is specified, the ``logConfiguration`` is required.
+          +  ``NONE``: The execute command session is not logged.
+          +  ``DEFAULT``: The ``awslogs`` configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no ``awslogs`` log driver is configured in the task definition, the output won't be logged.
+          +  ``OVERRIDE``: Specify the logging details as a part of ``logConfiguration``. If the ``OVERRIDE`` logging option is specified, the ``logConfiguration`` is required.
         """
         return pulumi.get(self, "logging")
 
@@ -1844,6 +1844,8 @@ class ServiceManagedEbsVolumeConfiguration(dict):
             suggest = "snapshot_id"
         elif key == "tagSpecifications":
             suggest = "tag_specifications"
+        elif key == "volumeInitializationRate":
+            suggest = "volume_initialization_rate"
         elif key == "volumeType":
             suggest = "volume_type"
 
@@ -1868,6 +1870,7 @@ class ServiceManagedEbsVolumeConfiguration(dict):
                  snapshot_id: Optional[builtins.str] = None,
                  tag_specifications: Optional[Sequence['outputs.ServiceEbsTagSpecification']] = None,
                  throughput: Optional[builtins.int] = None,
+                 volume_initialization_rate: Optional[builtins.int] = None,
                  volume_type: Optional[builtins.str] = None):
         """
         The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. For information about the supported launch types and operating systems, see [Supported operating systems and launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration) in the*Amazon Elastic Container Service Developer Guide*.
@@ -1924,6 +1927,8 @@ class ServiceManagedEbsVolumeConfiguration(dict):
             pulumi.set(__self__, "tag_specifications", tag_specifications)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
+        if volume_initialization_rate is not None:
+            pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         if volume_type is not None:
             pulumi.set(__self__, "volume_type", volume_type)
 
@@ -2015,6 +2020,11 @@ class ServiceManagedEbsVolumeConfiguration(dict):
           This parameter is only supported for the ``gp3`` volume type.
         """
         return pulumi.get(self, "throughput")
+
+    @property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "volume_initialization_rate")
 
     @property
     @pulumi.getter(name="volumeType")

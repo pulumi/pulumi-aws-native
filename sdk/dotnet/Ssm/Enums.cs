@@ -157,10 +157,12 @@ namespace Pulumi.AwsNative.Ssm
         public static DocumentType ApplicationConfigurationSchema { get; } = new DocumentType("ApplicationConfigurationSchema");
         public static DocumentType Automation { get; } = new DocumentType("Automation");
         public static DocumentType AutomationChangeTemplate { get; } = new DocumentType("Automation.ChangeTemplate");
+        public static DocumentType AutoApprovalPolicy { get; } = new DocumentType("AutoApprovalPolicy");
         public static DocumentType ChangeCalendar { get; } = new DocumentType("ChangeCalendar");
         public static DocumentType CloudFormation { get; } = new DocumentType("CloudFormation");
         public static DocumentType Command { get; } = new DocumentType("Command");
         public static DocumentType DeploymentStrategy { get; } = new DocumentType("DeploymentStrategy");
+        public static DocumentType ManualApprovalPolicy { get; } = new DocumentType("ManualApprovalPolicy");
         public static DocumentType Package { get; } = new DocumentType("Package");
         public static DocumentType Policy { get; } = new DocumentType("Policy");
         public static DocumentType ProblemAnalysis { get; } = new DocumentType("ProblemAnalysis");

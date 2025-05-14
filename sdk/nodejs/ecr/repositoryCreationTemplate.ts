@@ -70,7 +70,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
      */
     public readonly prefix!: pulumi.Output<string>;
     /**
-     * he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+     * The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
      */
     public readonly repositoryPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -163,7 +163,7 @@ export interface RepositoryCreationTemplateArgs {
      */
     prefix: pulumi.Input<string>;
     /**
-     * he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+     * The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
      */
     repositoryPolicy?: pulumi.Input<string>;
     /**

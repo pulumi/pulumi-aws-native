@@ -31,7 +31,9 @@ class FleetComputeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "machineType":
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "machineType":
             suggest = "machine_type"
         elif key == "vCpu":
             suggest = "v_cpu"
@@ -49,17 +51,21 @@ class FleetComputeConfiguration(dict):
 
     def __init__(__self__, *,
                  disk: Optional[builtins.int] = None,
+                 instance_type: Optional[builtins.str] = None,
                  machine_type: Optional['FleetComputeConfigurationmachineType'] = None,
                  memory: Optional[builtins.int] = None,
                  v_cpu: Optional[builtins.int] = None):
         """
         :param builtins.int disk: The amount of disk space of the instance type included in your fleet.
+        :param builtins.str instance_type: The EC2 instance type to be launched in your fleet.
         :param 'FleetComputeConfigurationmachineType' machine_type: The machine type of the instance type included in your fleet.
         :param builtins.int memory: The amount of memory of the instance type included in your fleet.
         :param builtins.int v_cpu: The number of vCPUs of the instance type included in your fleet.
         """
         if disk is not None:
             pulumi.set(__self__, "disk", disk)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
         if machine_type is not None:
             pulumi.set(__self__, "machine_type", machine_type)
         if memory is not None:
@@ -74,6 +80,14 @@ class FleetComputeConfiguration(dict):
         The amount of disk space of the instance type included in your fleet.
         """
         return pulumi.get(self, "disk")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[builtins.str]:
+        """
+        The EC2 instance type to be launched in your fleet.
+        """
+        return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="machineType")

@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         /// <summary>
         /// The display mode of the single select question.
-        ///   *Allowed values*: ``DROPDOWN`` | ``RADIO``
+        ///  *Allowed values*: ``DROPDOWN`` | ``RADIO``
         /// </summary>
         [Input("displayAs")]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormSingleSelectQuestionPropertiesDisplayAs>? DisplayAs { get; set; }
@@ -33,8 +33,8 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         /// <summary>
         /// The answer options of the single select question.
-        ///   *Minimum*: 2
-        ///   *Maximum*: 256
+        ///  *Minimum*: 2
+        ///  *Maximum*: 256
         /// </summary>
         public InputList<Inputs.EvaluationFormSingleSelectQuestionOptionArgs> Options
         {

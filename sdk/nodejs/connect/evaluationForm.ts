@@ -39,7 +39,7 @@ export class EvaluationForm extends pulumi.CustomResource {
 
     /**
      * The description of the evaluation form.
-     *   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+     *  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -52,8 +52,8 @@ export class EvaluationForm extends pulumi.CustomResource {
     public readonly instanceArn!: pulumi.Output<string>;
     /**
      * Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
-     *   *Minimum size*: 1
-     *   *Maximum size*: 100
+     *  *Minimum size*: 1
+     *  *Maximum size*: 100
      */
     public readonly items!: pulumi.Output<outputs.connect.EvaluationFormBaseItem[]>;
     /**
@@ -62,7 +62,7 @@ export class EvaluationForm extends pulumi.CustomResource {
     public readonly scoringStrategy!: pulumi.Output<outputs.connect.EvaluationFormScoringStrategy | undefined>;
     /**
      * The status of the evaluation form.
-     *   *Allowed values*: ``DRAFT`` | ``ACTIVE``
+     *  *Allowed values*: ``DRAFT`` | ``ACTIVE``
      */
     public readonly status!: pulumi.Output<enums.connect.EvaluationFormStatus>;
     /**
@@ -126,7 +126,7 @@ export class EvaluationForm extends pulumi.CustomResource {
 export interface EvaluationFormArgs {
     /**
      * The description of the evaluation form.
-     *   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+     *  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
      */
     description?: pulumi.Input<string>;
     /**
@@ -135,8 +135,8 @@ export interface EvaluationFormArgs {
     instanceArn: pulumi.Input<string>;
     /**
      * Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
-     *   *Minimum size*: 1
-     *   *Maximum size*: 100
+     *  *Minimum size*: 1
+     *  *Maximum size*: 100
      */
     items: pulumi.Input<pulumi.Input<inputs.connect.EvaluationFormBaseItemArgs>[]>;
     /**
@@ -145,7 +145,7 @@ export interface EvaluationFormArgs {
     scoringStrategy?: pulumi.Input<inputs.connect.EvaluationFormScoringStrategyArgs>;
     /**
      * The status of the evaluation form.
-     *   *Allowed values*: ``DRAFT`` | ``ACTIVE``
+     *  *Allowed values*: ``DRAFT`` | ``ACTIVE``
      */
     status: pulumi.Input<enums.connect.EvaluationFormStatus>;
     /**

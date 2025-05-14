@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::ECR::RegistryScanningConfiguration controls the scanning configuration for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
+// The scanning configuration for a private registry.
 func LookupRegistryScanningConfiguration(ctx *pulumi.Context, args *LookupRegistryScanningConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupRegistryScanningConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRegistryScanningConfigurationResult

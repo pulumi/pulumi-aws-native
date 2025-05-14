@@ -28,6 +28,10 @@ export interface GetCollaborationArgs {
 
 export interface GetCollaborationResult {
     /**
+     * The analytics engine for the collaboration.
+     */
+    readonly analyticsEngine?: enums.cleanrooms.CollaborationAnalyticsEngine;
+    /**
      * Returns the Amazon Resource Name (ARN) of the specified collaboration.
      *
      * Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`

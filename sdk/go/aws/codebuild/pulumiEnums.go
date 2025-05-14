@@ -214,6 +214,7 @@ const (
 	FleetComputeTypeBuildGeneral1Xlarge   = FleetComputeType("BUILD_GENERAL1_XLARGE")
 	FleetComputeTypeBuildGeneral12xlarge  = FleetComputeType("BUILD_GENERAL1_2XLARGE")
 	FleetComputeTypeAttributeBasedCompute = FleetComputeType("ATTRIBUTE_BASED_COMPUTE")
+	FleetComputeTypeCustomInstanceType    = FleetComputeType("CUSTOM_INSTANCE_TYPE")
 )
 
 func (FleetComputeType) ElementType() reflect.Type {
@@ -344,6 +345,7 @@ func (o FleetComputeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 //	FleetComputeTypeBuildGeneral1Xlarge
 //	FleetComputeTypeBuildGeneral12xlarge
 //	FleetComputeTypeAttributeBasedCompute
+//	FleetComputeTypeCustomInstanceType
 type FleetComputeTypeInput interface {
 	pulumi.Input
 

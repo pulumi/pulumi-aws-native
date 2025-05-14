@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("regionalHostedZoneId")]
         public Output<string> RegionalHostedZoneId { get; private set; } = null!;
 
+        [Output("routingMode")]
+        public Output<Pulumi.AwsNative.ApiGatewayV2.DomainNameRoutingMode?> RoutingMode { get; private set; } = null!;
+
         /// <summary>
         /// The collection of tags associated with a domain name.
         /// </summary>
@@ -130,6 +133,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// </summary>
         [Input("mutualTlsAuthentication")]
         public Input<Inputs.DomainNameMutualTlsAuthenticationArgs>? MutualTlsAuthentication { get; set; }
+
+        [Input("routingMode")]
+        public Input<Pulumi.AwsNative.ApiGatewayV2.DomainNameRoutingMode>? RoutingMode { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

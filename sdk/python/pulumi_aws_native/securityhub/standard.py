@@ -28,7 +28,7 @@ class StandardArgs:
         The set of arguments for constructing a Standard resource.
         :param pulumi.Input[builtins.str] standards_arn: The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
         :param pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]] disabled_standards_controls: Specifies which controls are to be disabled in a standard. 
-                 *Maximum*: ``100``
+                *Maximum*: ``100``
         """
         pulumi.set(__self__, "standards_arn", standards_arn)
         if disabled_standards_controls is not None:
@@ -51,7 +51,7 @@ class StandardArgs:
     def disabled_standards_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]]]:
         """
         Specifies which controls are to be disabled in a standard. 
-          *Maximum*: ``100``
+         *Maximum*: ``100``
         """
         return pulumi.get(self, "disabled_standards_controls")
 
@@ -79,7 +79,7 @@ class Standard(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]] disabled_standards_controls: Specifies which controls are to be disabled in a standard. 
-                 *Maximum*: ``100``
+                *Maximum*: ``100``
         :param pulumi.Input[builtins.str] standards_arn: The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
         """
         ...
@@ -158,7 +158,7 @@ class Standard(pulumi.CustomResource):
     def disabled_standards_controls(self) -> pulumi.Output[Optional[Sequence['outputs.StandardsControl']]]:
         """
         Specifies which controls are to be disabled in a standard. 
-          *Maximum*: ``100``
+         *Maximum*: ``100``
         """
         return pulumi.get(self, "disabled_standards_controls")
 

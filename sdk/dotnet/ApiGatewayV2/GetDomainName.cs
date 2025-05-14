@@ -86,6 +86,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
         /// </summary>
         public readonly string? RegionalHostedZoneId;
+        public readonly Pulumi.AwsNative.ApiGatewayV2.DomainNameRoutingMode? RoutingMode;
         /// <summary>
         /// The collection of tags associated with a domain name.
         /// </summary>
@@ -103,6 +104,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
             string? regionalHostedZoneId,
 
+            Pulumi.AwsNative.ApiGatewayV2.DomainNameRoutingMode? routingMode,
+
             ImmutableDictionary<string, string>? tags)
         {
             DomainNameArn = domainNameArn;
@@ -110,6 +113,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
             MutualTlsAuthentication = mutualTlsAuthentication;
             RegionalDomainName = regionalDomainName;
             RegionalHostedZoneId = regionalHostedZoneId;
+            RoutingMode = routingMode;
             Tags = tags;
         }
     }

@@ -119,8 +119,54 @@ export const WorkflowStatus = {
 
 export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus];
 
+export const WorkflowStorageType = {
+    Static: "STATIC",
+    Dynamic: "DYNAMIC",
+} as const;
+
+export type WorkflowStorageType = (typeof WorkflowStorageType)[keyof typeof WorkflowStorageType];
+
 export const WorkflowType = {
     Private: "PRIVATE",
 } as const;
 
 export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
+
+export const WorkflowVersionAccelerators = {
+    Gpu: "GPU",
+} as const;
+
+export type WorkflowVersionAccelerators = (typeof WorkflowVersionAccelerators)[keyof typeof WorkflowVersionAccelerators];
+
+export const WorkflowVersionStorageType = {
+    Static: "STATIC",
+    Dynamic: "DYNAMIC",
+} as const;
+
+export type WorkflowVersionStorageType = (typeof WorkflowVersionStorageType)[keyof typeof WorkflowVersionStorageType];
+
+export const WorkflowVersionWorkflowEngine = {
+    Wdl: "WDL",
+    Nextflow: "NEXTFLOW",
+    Cwl: "CWL",
+} as const;
+
+export type WorkflowVersionWorkflowEngine = (typeof WorkflowVersionWorkflowEngine)[keyof typeof WorkflowVersionWorkflowEngine];
+
+export const WorkflowVersionWorkflowStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Deleted: "DELETED",
+    Failed: "FAILED",
+    Inactive: "INACTIVE",
+} as const;
+
+export type WorkflowVersionWorkflowStatus = (typeof WorkflowVersionWorkflowStatus)[keyof typeof WorkflowVersionWorkflowStatus];
+
+export const WorkflowVersionWorkflowType = {
+    Private: "PRIVATE",
+    Ready2run: "READY2RUN",
+} as const;
+
+export type WorkflowVersionWorkflowType = (typeof WorkflowVersionWorkflowType)[keyof typeof WorkflowVersionWorkflowType];

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The default model to use when the routing criteria is not met.
+        /// </summary>
         [Output("fallbackModel")]
         public Output<Outputs.IntelligentPromptRouterPromptRouterTargetModel> FallbackModel { get; private set; } = null!;
 
@@ -48,9 +51,15 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("promptRouterName")]
         public Output<string> PromptRouterName { get; private set; } = null!;
 
+        /// <summary>
+        /// Routing criteria for a prompt router.
+        /// </summary>
         [Output("routingCriteria")]
         public Output<Outputs.IntelligentPromptRouterRoutingCriteria> RoutingCriteria { get; private set; } = null!;
 
+        /// <summary>
+        /// The router's status.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Bedrock.IntelligentPromptRouterPromptRouterStatus> Status { get; private set; } = null!;
 
@@ -60,6 +69,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The router's type.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Bedrock.IntelligentPromptRouterPromptRouterType> Type { get; private set; } = null!;
 
@@ -128,6 +140,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The default model to use when the routing criteria is not met.
+        /// </summary>
         [Input("fallbackModel", required: true)]
         public Input<Inputs.IntelligentPromptRouterPromptRouterTargetModelArgs> FallbackModel { get; set; } = null!;
 
@@ -149,6 +164,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("promptRouterName")]
         public Input<string>? PromptRouterName { get; set; }
 
+        /// <summary>
+        /// Routing criteria for a prompt router.
+        /// </summary>
         [Input("routingCriteria", required: true)]
         public Input<Inputs.IntelligentPromptRouterRoutingCriteriaArgs> RoutingCriteria { get; set; } = null!;
 

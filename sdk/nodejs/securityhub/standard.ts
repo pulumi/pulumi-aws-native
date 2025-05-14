@@ -41,7 +41,7 @@ export class Standard extends pulumi.CustomResource {
 
     /**
      * Specifies which controls are to be disabled in a standard. 
-     *   *Maximum*: ``100``
+     *  *Maximum*: ``100``
      */
     public readonly disabledStandardsControls!: pulumi.Output<outputs.securityhub.StandardsControl[] | undefined>;
     /**
@@ -88,7 +88,7 @@ export class Standard extends pulumi.CustomResource {
 export interface StandardArgs {
     /**
      * Specifies which controls are to be disabled in a standard. 
-     *   *Maximum*: ``100``
+     *  *Maximum*: ``100``
      */
     disabledStandardsControls?: pulumi.Input<pulumi.Input<inputs.securityhub.StandardsControlArgs>[]>;
     /**

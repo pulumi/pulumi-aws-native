@@ -108,7 +108,6 @@ namespace Pulumi.AwsNative.Ec2
                 ReplaceOnChanges =
                 {
                     "address",
-                    "domain",
                     "ipamPoolId",
                     "networkBorderGroup",
                     "transferAddress",

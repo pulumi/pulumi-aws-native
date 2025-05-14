@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// The type of IPv4 address assigned to the outside interface of the customer gateway device.
-        ///  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` 
+        ///  Valid values: ``PrivateIpv4`` | ``PublicIpv4``
         ///  Default: ``PublicIpv4``
         /// </summary>
         [Output("outsideIpAddressType")]
@@ -217,7 +217,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// The type of IPv4 address assigned to the outside interface of the customer gateway device.
-        ///  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` 
+        ///  Valid values: ``PrivateIpv4`` | ``PublicIpv4``
         ///  Default: ``PublicIpv4``
         /// </summary>
         [Input("outsideIpAddressType")]

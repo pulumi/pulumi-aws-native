@@ -583,8 +583,8 @@ type EvaluationFormNumericQuestionOption struct {
 	// The minimum answer value of the range option.
 	MinValue int `pulumi:"minValue"`
 	// The score assigned to answer values within the range option.
-	//   *Minimum*: 0
-	//   *Maximum*: 10
+	//  *Minimum*: 0
+	//  *Maximum*: 10
 	Score *int `pulumi:"score"`
 }
 
@@ -608,8 +608,8 @@ type EvaluationFormNumericQuestionOptionArgs struct {
 	// The minimum answer value of the range option.
 	MinValue pulumi.IntInput `pulumi:"minValue"`
 	// The score assigned to answer values within the range option.
-	//   *Minimum*: 0
-	//   *Maximum*: 10
+	//  *Minimum*: 0
+	//  *Maximum*: 10
 	Score pulumi.IntPtrInput `pulumi:"score"`
 }
 
@@ -1054,24 +1054,24 @@ func (o EvaluationFormNumericQuestionPropertyValueAutomationPtrOutput) Label() E
 // Information about a question from an evaluation form.
 type EvaluationFormQuestion struct {
 	// The instructions of the section.
-	//   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
 	Instructions *string `pulumi:"instructions"`
 	// The flag to enable not applicable answers to the question.
 	NotApplicableEnabled *bool `pulumi:"notApplicableEnabled"`
 	// The type of the question.
-	//   *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
+	//  *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
 	QuestionType EvaluationFormQuestionQuestionType `pulumi:"questionType"`
 	// The properties of the type of question. Text questions do not have to define question type properties.
 	QuestionTypeProperties *EvaluationFormQuestionTypeProperties `pulumi:"questionTypeProperties"`
 	// The identifier of the question. An identifier must be unique within the evaluation form.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId string `pulumi:"refId"`
 	// The title of the question.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 350.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 350.
 	Title string `pulumi:"title"`
 	// The scoring weight of the section.
-	//   *Minimum*: 0
-	//   *Maximum*: 100
+	//  *Minimum*: 0
+	//  *Maximum*: 100
 	Weight *float64 `pulumi:"weight"`
 }
 
@@ -1089,24 +1089,24 @@ type EvaluationFormQuestionInput interface {
 // Information about a question from an evaluation form.
 type EvaluationFormQuestionArgs struct {
 	// The instructions of the section.
-	//   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
 	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
 	// The flag to enable not applicable answers to the question.
 	NotApplicableEnabled pulumi.BoolPtrInput `pulumi:"notApplicableEnabled"`
 	// The type of the question.
-	//   *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
+	//  *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
 	QuestionType EvaluationFormQuestionQuestionTypeInput `pulumi:"questionType"`
 	// The properties of the type of question. Text questions do not have to define question type properties.
 	QuestionTypeProperties EvaluationFormQuestionTypePropertiesPtrInput `pulumi:"questionTypeProperties"`
 	// The identifier of the question. An identifier must be unique within the evaluation form.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId pulumi.StringInput `pulumi:"refId"`
 	// The title of the question.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 350.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 350.
 	Title pulumi.StringInput `pulumi:"title"`
 	// The scoring weight of the section.
-	//   *Minimum*: 0
-	//   *Maximum*: 100
+	//  *Minimum*: 0
+	//  *Maximum*: 100
 	Weight pulumi.Float64PtrInput `pulumi:"weight"`
 }
 
@@ -1505,10 +1505,10 @@ func (o EvaluationFormQuestionTypePropertiesPtrOutput) SingleSelect() Evaluation
 // A scoring strategy of the evaluation form.
 type EvaluationFormScoringStrategy struct {
 	// The scoring mode of the evaluation form.
-	//   *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
+	//  *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
 	Mode EvaluationFormScoringStrategyMode `pulumi:"mode"`
 	// The scoring status of the evaluation form.
-	//   *Allowed values*: ``ENABLED`` | ``DISABLED``
+	//  *Allowed values*: ``ENABLED`` | ``DISABLED``
 	Status EvaluationFormScoringStrategyStatus `pulumi:"status"`
 }
 
@@ -1526,10 +1526,10 @@ type EvaluationFormScoringStrategyInput interface {
 // A scoring strategy of the evaluation form.
 type EvaluationFormScoringStrategyArgs struct {
 	// The scoring mode of the evaluation form.
-	//   *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
+	//  *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
 	Mode EvaluationFormScoringStrategyModeInput `pulumi:"mode"`
 	// The scoring status of the evaluation form.
-	//   *Allowed values*: ``ENABLED`` | ``DISABLED``
+	//  *Allowed values*: ``ENABLED`` | ``DISABLED``
 	Status EvaluationFormScoringStrategyStatusInput `pulumi:"status"`
 }
 
@@ -1678,17 +1678,17 @@ type EvaluationFormSection struct {
 	// The instructions of the section.
 	Instructions *string `pulumi:"instructions"`
 	// The items of the section.
-	//   *Minimum*: 1
+	//  *Minimum*: 1
 	Items []EvaluationFormItem `pulumi:"items"`
 	// The identifier of the section. An identifier must be unique within the evaluation form.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId string `pulumi:"refId"`
 	// The title of the section.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 128.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 128.
 	Title string `pulumi:"title"`
 	// The scoring weight of the section.
-	//   *Minimum*: 0
-	//   *Maximum*: 100
+	//  *Minimum*: 0
+	//  *Maximum*: 100
 	Weight *float64 `pulumi:"weight"`
 }
 
@@ -1708,17 +1708,17 @@ type EvaluationFormSectionArgs struct {
 	// The instructions of the section.
 	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
 	// The items of the section.
-	//   *Minimum*: 1
+	//  *Minimum*: 1
 	Items EvaluationFormItemArrayInput `pulumi:"items"`
 	// The identifier of the section. An identifier must be unique within the evaluation form.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId pulumi.StringInput `pulumi:"refId"`
 	// The title of the section.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 128.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 128.
 	Title pulumi.StringInput `pulumi:"title"`
 	// The scoring weight of the section.
-	//   *Minimum*: 0
-	//   *Maximum*: 100
+	//  *Minimum*: 0
+	//  *Maximum*: 100
 	Weight pulumi.Float64PtrInput `pulumi:"weight"`
 }
 
@@ -1920,11 +1920,11 @@ func (o EvaluationFormSectionPtrOutput) Weight() pulumi.Float64PtrOutput {
 // Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
 type EvaluationFormSingleSelectQuestionAutomation struct {
 	// The identifier of the default answer option, when none of the automation options match the criteria.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	DefaultOptionRefId *string `pulumi:"defaultOptionRefId"`
 	// The automation options of the single select question.
-	//   *Minimum*: 1
-	//   *Maximum*: 20
+	//  *Minimum*: 1
+	//  *Maximum*: 20
 	Options []EvaluationFormSingleSelectQuestionAutomationOption `pulumi:"options"`
 }
 
@@ -1942,11 +1942,11 @@ type EvaluationFormSingleSelectQuestionAutomationInput interface {
 // Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
 type EvaluationFormSingleSelectQuestionAutomationArgs struct {
 	// The identifier of the default answer option, when none of the automation options match the criteria.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	DefaultOptionRefId pulumi.StringPtrInput `pulumi:"defaultOptionRefId"`
 	// The automation options of the single select question.
-	//   *Minimum*: 1
-	//   *Maximum*: 20
+	//  *Minimum*: 1
+	//  *Maximum*: 20
 	Options EvaluationFormSingleSelectQuestionAutomationOptionArrayInput `pulumi:"options"`
 }
 
@@ -2201,14 +2201,14 @@ type EvaluationFormSingleSelectQuestionOption struct {
 	// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
 	AutomaticFail *bool `pulumi:"automaticFail"`
 	// The identifier of the answer option. An identifier must be unique within the question.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId string `pulumi:"refId"`
 	// The score assigned to the answer option.
-	//   *Minimum*: 0
-	//   *Maximum*: 10
+	//  *Minimum*: 0
+	//  *Maximum*: 10
 	Score *int `pulumi:"score"`
 	// The title of the answer option.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 128.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 128.
 	Text string `pulumi:"text"`
 }
 
@@ -2228,14 +2228,14 @@ type EvaluationFormSingleSelectQuestionOptionArgs struct {
 	// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
 	AutomaticFail pulumi.BoolPtrInput `pulumi:"automaticFail"`
 	// The identifier of the answer option. An identifier must be unique within the question.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId pulumi.StringInput `pulumi:"refId"`
 	// The score assigned to the answer option.
-	//   *Minimum*: 0
-	//   *Maximum*: 10
+	//  *Minimum*: 0
+	//  *Maximum*: 10
 	Score pulumi.IntPtrInput `pulumi:"score"`
 	// The title of the answer option.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 128.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 128.
 	Text pulumi.StringInput `pulumi:"text"`
 }
 
@@ -2343,11 +2343,11 @@ type EvaluationFormSingleSelectQuestionProperties struct {
 	// The display mode of the single select question.
 	Automation *EvaluationFormSingleSelectQuestionAutomation `pulumi:"automation"`
 	// The display mode of the single select question.
-	//   *Allowed values*: ``DROPDOWN`` | ``RADIO``
+	//  *Allowed values*: ``DROPDOWN`` | ``RADIO``
 	DisplayAs *EvaluationFormSingleSelectQuestionPropertiesDisplayAs `pulumi:"displayAs"`
 	// The answer options of the single select question.
-	//   *Minimum*: 2
-	//   *Maximum*: 256
+	//  *Minimum*: 2
+	//  *Maximum*: 256
 	Options []EvaluationFormSingleSelectQuestionOption `pulumi:"options"`
 }
 
@@ -2367,11 +2367,11 @@ type EvaluationFormSingleSelectQuestionPropertiesArgs struct {
 	// The display mode of the single select question.
 	Automation EvaluationFormSingleSelectQuestionAutomationPtrInput `pulumi:"automation"`
 	// The display mode of the single select question.
-	//   *Allowed values*: ``DROPDOWN`` | ``RADIO``
+	//  *Allowed values*: ``DROPDOWN`` | ``RADIO``
 	DisplayAs EvaluationFormSingleSelectQuestionPropertiesDisplayAsPtrInput `pulumi:"displayAs"`
 	// The answer options of the single select question.
-	//   *Minimum*: 2
-	//   *Maximum*: 256
+	//  *Minimum*: 2
+	//  *Maximum*: 256
 	Options EvaluationFormSingleSelectQuestionOptionArrayInput `pulumi:"options"`
 }
 
@@ -2543,15 +2543,15 @@ func (o EvaluationFormSingleSelectQuestionPropertiesPtrOutput) Options() Evaluat
 //	*Length Constraints*: Minimum length of 1. Maximum length of 50.
 type EvaluationFormSingleSelectQuestionRuleCategoryAutomation struct {
 	// The category name, as defined in Rules.
-	//   *Minimum*: 1
-	//   *Maximum*: 50
+	//  *Minimum*: 1
+	//  *Maximum*: 50
 	Category string `pulumi:"category"`
 	// The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
-	//   *Allowed values*: ``PRESENT`` | ``NOT_PRESENT``
-	//   *Maximum*: 50
+	//  *Allowed values*: ``PRESENT`` | ``NOT_PRESENT``
+	//  *Maximum*: 50
 	Condition EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition `pulumi:"condition"`
 	// The identifier of the answer option. An identifier must be unique within the question.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	OptionRefId string `pulumi:"optionRefId"`
 }
 
@@ -2571,15 +2571,15 @@ type EvaluationFormSingleSelectQuestionRuleCategoryAutomationInput interface {
 //	*Length Constraints*: Minimum length of 1. Maximum length of 50.
 type EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs struct {
 	// The category name, as defined in Rules.
-	//   *Minimum*: 1
-	//   *Maximum*: 50
+	//  *Minimum*: 1
+	//  *Maximum*: 50
 	Category pulumi.StringInput `pulumi:"category"`
 	// The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
-	//   *Allowed values*: ``PRESENT`` | ``NOT_PRESENT``
-	//   *Maximum*: 50
+	//  *Allowed values*: ``PRESENT`` | ``NOT_PRESENT``
+	//  *Maximum*: 50
 	Condition EvaluationFormSingleSelectQuestionRuleCategoryAutomationConditionInput `pulumi:"condition"`
 	// The identifier of the answer option. An identifier must be unique within the question.
-	//   *Length Constraints*: Minimum length of 1. Maximum length of 40.
+	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	OptionRefId pulumi.StringInput `pulumi:"optionRefId"`
 }
 

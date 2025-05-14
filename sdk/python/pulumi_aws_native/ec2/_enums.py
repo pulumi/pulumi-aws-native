@@ -33,6 +33,7 @@ __all__ = [
     'FlowLogTrafficType',
     'InstanceAffinity',
     'InstancePrivateDnsNameOptionsHostnameType',
+    'IpamMeteredAccount',
     'IpamPoolAwsService',
     'IpamPoolIpamScopeType',
     'IpamPoolPublicIpSource',
@@ -399,6 +400,14 @@ class InstancePrivateDnsNameOptionsHostnameType(builtins.str, Enum):
     """
     IP_NAME = "ip-name"
     RESOURCE_NAME = "resource-name"
+
+
+class IpamMeteredAccount(builtins.str, Enum):
+    """
+    A metered account is an account that is charged for active IP addresses managed in IPAM
+    """
+    IPAM_OWNER = "ipam-owner"
+    RESOURCE_OWNER = "resource-owner"
 
 
 class IpamPoolAwsService(builtins.str, Enum):
@@ -916,7 +925,7 @@ class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue(builtins.str, 
 class VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction(builtins.str, Enum):
     """
     The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
-     Valid Values: ``clear`` | ``none`` | ``restart`` 
+     Valid Values: ``clear`` | ``none`` | ``restart``
      Default: ``clear``
     """
     CLEAR = "clear"
@@ -927,7 +936,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction(builtins.str, E
 class VpnConnectionVpnTunnelOptionsSpecificationStartupAction(builtins.str, Enum):
     """
     The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.
-     Valid Values: ``add`` | ``start`` 
+     Valid Values: ``add`` | ``start``
      Default: ``add``
     """
     ADD = "add"

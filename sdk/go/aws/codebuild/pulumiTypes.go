@@ -16,6 +16,8 @@ var _ = internal.GetEnvOrDefault
 type FleetComputeConfiguration struct {
 	// The amount of disk space of the instance type included in your fleet.
 	Disk *int `pulumi:"disk"`
+	// The EC2 instance type to be launched in your fleet.
+	InstanceType *string `pulumi:"instanceType"`
 	// The machine type of the instance type included in your fleet.
 	MachineType *FleetComputeConfigurationmachineType `pulumi:"machineType"`
 	// The amount of memory of the instance type included in your fleet.
@@ -38,6 +40,8 @@ type FleetComputeConfigurationInput interface {
 type FleetComputeConfigurationArgs struct {
 	// The amount of disk space of the instance type included in your fleet.
 	Disk pulumi.IntPtrInput `pulumi:"disk"`
+	// The EC2 instance type to be launched in your fleet.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The machine type of the instance type included in your fleet.
 	MachineType FleetComputeConfigurationmachineTypePtrInput `pulumi:"machineType"`
 	// The amount of memory of the instance type included in your fleet.
@@ -128,6 +132,11 @@ func (o FleetComputeConfigurationOutput) Disk() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeConfiguration) *int { return v.Disk }).(pulumi.IntPtrOutput)
 }
 
+// The EC2 instance type to be launched in your fleet.
+func (o FleetComputeConfigurationOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetComputeConfiguration) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
 // The machine type of the instance type included in your fleet.
 func (o FleetComputeConfigurationOutput) MachineType() FleetComputeConfigurationmachineTypePtrOutput {
 	return o.ApplyT(func(v FleetComputeConfiguration) *FleetComputeConfigurationmachineType { return v.MachineType }).(FleetComputeConfigurationmachineTypePtrOutput)
@@ -175,6 +184,16 @@ func (o FleetComputeConfigurationPtrOutput) Disk() pulumi.IntPtrOutput {
 		}
 		return v.Disk
 	}).(pulumi.IntPtrOutput)
+}
+
+// The EC2 instance type to be launched in your fleet.
+func (o FleetComputeConfigurationPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetComputeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The machine type of the instance type included in your fleet.

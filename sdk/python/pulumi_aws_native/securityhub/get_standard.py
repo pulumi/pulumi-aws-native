@@ -38,7 +38,7 @@ class GetStandardResult:
     def disabled_standards_controls(self) -> Optional[Sequence['outputs.StandardsControl']]:
         """
         Specifies which controls are to be disabled in a standard. 
-          *Maximum*: ``100``
+         *Maximum*: ``100``
         """
         return pulumi.get(self, "disabled_standards_controls")
 

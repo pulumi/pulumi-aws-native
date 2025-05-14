@@ -32,7 +32,7 @@ type LookupStandardArgs struct {
 
 type LookupStandardResult struct {
 	// Specifies which controls are to be disabled in a standard.
-	//   *Maximum*: ``100``
+	//  *Maximum*: ``100``
 	DisabledStandardsControls []StandardsControl `pulumi:"disabledStandardsControls"`
 	// The ARN of a resource that represents your subscription to a supported standard.
 	StandardsSubscriptionArn *string `pulumi:"standardsSubscriptionArn"`

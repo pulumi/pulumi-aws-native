@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     /// <summary>
     /// Specifies an IPv6 prefix for a network interface.
-    ///   ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+    ///  ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
     /// </summary>
     public sealed class LaunchTemplateIpv6PrefixSpecificationArgs : global::Pulumi.ResourceArgs
     {

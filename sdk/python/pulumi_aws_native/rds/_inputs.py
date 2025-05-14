@@ -196,8 +196,8 @@ if not MYPY:
         timeout_action: NotRequired[pulumi.Input[builtins.str]]
         """
         The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
-          ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
-          ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+         ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
+         ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
           If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
           For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
         """
@@ -233,8 +233,8 @@ class DbClusterScalingConfigurationArgs:
         :param pulumi.Input[builtins.int] seconds_until_auto_pause: The time, in seconds, before an Aurora DB cluster in ``serverless`` mode is paused.
                 Specify a value between 300 and 86,400 seconds.
         :param pulumi.Input[builtins.str] timeout_action: The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
-                 ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
-                 ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+                ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
+                ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
                  If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
                  For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
         """
@@ -325,8 +325,8 @@ class DbClusterScalingConfigurationArgs:
     def timeout_action(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
-          ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
-          ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+         ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
+         ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
           If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
           For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
         """

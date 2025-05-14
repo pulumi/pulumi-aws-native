@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkflowResult:
-    def __init__(__self__, arn=None, creation_time=None, description=None, id=None, name=None, status=None, tags=None, type=None):
+    def __init__(__self__, arn=None, creation_time=None, description=None, id=None, name=None, status=None, storage_type=None, tags=None, type=None, uuid=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,12 +44,18 @@ class GetWorkflowResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if storage_type and not isinstance(storage_type, str):
+            raise TypeError("Expected argument 'storage_type' to be a str")
+        pulumi.set(__self__, "storage_type", storage_type)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if uuid and not isinstance(uuid, str):
+            raise TypeError("Expected argument 'uuid' to be a str")
+        pulumi.set(__self__, "uuid", uuid)
 
     @property
     @pulumi.getter
@@ -100,6 +106,11 @@ class GetWorkflowResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional['WorkflowStorageType']:
+        return pulumi.get(self, "storage_type")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
@@ -115,6 +126,11 @@ class GetWorkflowResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter
+    def uuid(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "uuid")
+
 
 class AwaitableGetWorkflowResult(GetWorkflowResult):
     # pylint: disable=using-constant-test
@@ -128,8 +144,10 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             id=self.id,
             name=self.name,
             status=self.status,
+            storage_type=self.storage_type,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            uuid=self.uuid)
 
 
 def get_workflow(id: Optional[builtins.str] = None,
@@ -152,8 +170,10 @@ def get_workflow(id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
+        storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        uuid=pulumi.get(__ret__, 'uuid'))
 def get_workflow_output(id: Optional[pulumi.Input[builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowResult]:
     """
@@ -173,5 +193,7 @@ def get_workflow_output(id: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         status=pulumi.get(__response__, 'status'),
+        storage_type=pulumi.get(__response__, 'storage_type'),
         tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        uuid=pulumi.get(__response__, 'uuid')))

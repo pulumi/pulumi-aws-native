@@ -919,6 +919,37 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// A metered account is an account that is charged for active IP addresses managed in IPAM
+    /// </summary>
+    [EnumType]
+    public readonly struct IpamMeteredAccount : IEquatable<IpamMeteredAccount>
+    {
+        private readonly string _value;
+
+        private IpamMeteredAccount(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpamMeteredAccount IpamOwner { get; } = new IpamMeteredAccount("ipam-owner");
+        public static IpamMeteredAccount ResourceOwner { get; } = new IpamMeteredAccount("resource-owner");
+
+        public static bool operator ==(IpamMeteredAccount left, IpamMeteredAccount right) => left.Equals(right);
+        public static bool operator !=(IpamMeteredAccount left, IpamMeteredAccount right) => !left.Equals(right);
+
+        public static explicit operator string(IpamMeteredAccount value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpamMeteredAccount other && Equals(other);
+        public bool Equals(IpamMeteredAccount other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Limits which service in Amazon Web Services that the pool can be used in.
     /// </summary>
     [EnumType]
@@ -2582,7 +2613,7 @@ namespace Pulumi.AwsNative.Ec2
 
     /// <summary>
     /// The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
-    ///  Valid Values: ``clear`` | ``none`` | ``restart`` 
+    ///  Valid Values: ``clear`` | ``none`` | ``restart``
     ///  Default: ``clear``
     /// </summary>
     [EnumType]
@@ -2616,7 +2647,7 @@ namespace Pulumi.AwsNative.Ec2
 
     /// <summary>
     /// The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.
-    ///  Valid Values: ``add`` | ``start`` 
+    ///  Valid Values: ``add`` | ``start``
     ///  Default: ``add``
     /// </summary>
     [EnumType]

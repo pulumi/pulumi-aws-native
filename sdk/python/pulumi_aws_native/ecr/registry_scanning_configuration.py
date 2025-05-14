@@ -70,7 +70,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
                  scan_type: Optional[pulumi.Input['RegistryScanningConfigurationScanType']] = None,
                  __props__=None):
         """
-        The AWS::ECR::RegistryScanningConfiguration controls the scanning configuration for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
+        The scanning configuration for a private registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,7 +84,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
                  args: RegistryScanningConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::ECR::RegistryScanningConfiguration controls the scanning configuration for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
+        The scanning configuration for a private registry.
 
         :param str resource_name: The name of the resource.
         :param RegistryScanningConfigurationArgs args: The arguments to use to populate this resource's properties.

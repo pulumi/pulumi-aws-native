@@ -31,6 +31,7 @@ class WorkspacesPoolArgs:
                  application_settings: Optional[pulumi.Input['WorkspacesPoolApplicationSettingsArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  pool_name: Optional[pulumi.Input[builtins.str]] = None,
+                 running_mode: Optional[pulumi.Input['WorkspacesPoolRunningMode']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  timeout_settings: Optional[pulumi.Input['WorkspacesPoolTimeoutSettingsArgs']] = None):
         """
@@ -52,6 +53,8 @@ class WorkspacesPoolArgs:
             pulumi.set(__self__, "description", description)
         if pool_name is not None:
             pulumi.set(__self__, "pool_name", pool_name)
+        if running_mode is not None:
+            pulumi.set(__self__, "running_mode", running_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeout_settings is not None:
@@ -130,6 +133,15 @@ class WorkspacesPoolArgs:
         pulumi.set(self, "pool_name", value)
 
     @property
+    @pulumi.getter(name="runningMode")
+    def running_mode(self) -> Optional[pulumi.Input['WorkspacesPoolRunningMode']]:
+        return pulumi.get(self, "running_mode")
+
+    @running_mode.setter
+    def running_mode(self, value: Optional[pulumi.Input['WorkspacesPoolRunningMode']]):
+        pulumi.set(self, "running_mode", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -165,6 +177,7 @@ class WorkspacesPool(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  pool_name: Optional[pulumi.Input[builtins.str]] = None,
+                 running_mode: Optional[pulumi.Input['WorkspacesPoolRunningMode']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  timeout_settings: Optional[pulumi.Input[Union['WorkspacesPoolTimeoutSettingsArgs', 'WorkspacesPoolTimeoutSettingsArgsDict']]] = None,
                  __props__=None):
@@ -211,6 +224,7 @@ class WorkspacesPool(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  pool_name: Optional[pulumi.Input[builtins.str]] = None,
+                 running_mode: Optional[pulumi.Input['WorkspacesPoolRunningMode']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  timeout_settings: Optional[pulumi.Input[Union['WorkspacesPoolTimeoutSettingsArgs', 'WorkspacesPoolTimeoutSettingsArgsDict']]] = None,
                  __props__=None):
@@ -234,6 +248,7 @@ class WorkspacesPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'directory_id'")
             __props__.__dict__["directory_id"] = directory_id
             __props__.__dict__["pool_name"] = pool_name
+            __props__.__dict__["running_mode"] = running_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout_settings"] = timeout_settings
             __props__.__dict__["created_at"] = None
@@ -272,6 +287,7 @@ class WorkspacesPool(pulumi.CustomResource):
         __props__.__dict__["pool_arn"] = None
         __props__.__dict__["pool_id"] = None
         __props__.__dict__["pool_name"] = None
+        __props__.__dict__["running_mode"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["timeout_settings"] = None
         return WorkspacesPool(resource_name, opts=opts, __props__=__props__)
@@ -347,6 +363,11 @@ class WorkspacesPool(pulumi.CustomResource):
         The name of the pool.
         """
         return pulumi.get(self, "pool_name")
+
+    @property
+    @pulumi.getter(name="runningMode")
+    def running_mode(self) -> pulumi.Output[Optional['WorkspacesPoolRunningMode']]:
+        return pulumi.get(self, "running_mode")
 
     @property
     @pulumi.getter

@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> IpamId { get; private set; } = null!;
 
         /// <summary>
+        /// A metered account is an account that is charged for active IP addresses managed in IPAM
+        /// </summary>
+        [Output("meteredAccount")]
+        public Output<Pulumi.AwsNative.Ec2.IpamMeteredAccount?> MeteredAccount { get; private set; } = null!;
+
+        /// <summary>
         /// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         /// </summary>
         [Output("operatingRegions")]
@@ -167,6 +173,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("enablePrivateGua")]
         public Input<bool>? EnablePrivateGua { get; set; }
+
+        /// <summary>
+        /// A metered account is an account that is charged for active IP addresses managed in IPAM
+        /// </summary>
+        [Input("meteredAccount")]
+        public Input<Pulumi.AwsNative.Ec2.IpamMeteredAccount>? MeteredAccount { get; set; }
 
         [Input("operatingRegions")]
         private InputList<Inputs.IpamOperatingRegionArgs>? _operatingRegions;

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SecurityHub
     {
         /// <summary>
         /// Specifies which controls are to be disabled in a standard. 
-        ///   *Maximum*: ``100``
+        ///  *Maximum*: ``100``
         /// </summary>
         [Output("disabledStandardsControls")]
         public Output<ImmutableArray<Outputs.StandardsControl>> DisabledStandardsControls { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.SecurityHub
 
         /// <summary>
         /// Specifies which controls are to be disabled in a standard. 
-        ///   *Maximum*: ``100``
+        ///  *Maximum*: ``100``
         /// </summary>
         public InputList<Inputs.StandardsControlArgs> DisabledStandardsControls
         {

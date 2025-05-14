@@ -73,7 +73,7 @@ def get_option_group(option_group_name: Optional[builtins.str] = None,
              +  First character must be a letter
              +  Can't end with a hyphen or contain two consecutive hyphens
              
-            Example: ``myoptiongroup`` 
+            Example: ``myoptiongroup``
             If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
              This value is stored as a lowercase string.
     """
@@ -97,7 +97,7 @@ def get_option_group_output(option_group_name: Optional[pulumi.Input[builtins.st
              +  First character must be a letter
              +  Can't end with a hyphen or contain two consecutive hyphens
              
-            Example: ``myoptiongroup`` 
+            Example: ``myoptiongroup``
             If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
              This value is stored as a lowercase string.
     """

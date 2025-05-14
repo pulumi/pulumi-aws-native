@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
         /// </summary>
         public readonly int? Disk;
         /// <summary>
+        /// The EC2 instance type to be launched in your fleet.
+        /// </summary>
+        public readonly string? InstanceType;
+        /// <summary>
         /// The machine type of the instance type included in your fleet.
         /// </summary>
         public readonly Pulumi.AwsNative.CodeBuild.FleetComputeConfigurationmachineType? MachineType;
@@ -34,6 +38,8 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
         private FleetComputeConfiguration(
             int? disk,
 
+            string? instanceType,
+
             Pulumi.AwsNative.CodeBuild.FleetComputeConfigurationmachineType? machineType,
 
             int? memory,
@@ -41,6 +47,7 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
             int? vCpu)
         {
             Disk = disk;
+            InstanceType = instanceType;
             MachineType = machineType;
             Memory = memory;
             VCpu = vCpu;

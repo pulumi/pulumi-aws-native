@@ -85,6 +85,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public static FleetComputeType BuildGeneral1Xlarge { get; } = new FleetComputeType("BUILD_GENERAL1_XLARGE");
         public static FleetComputeType BuildGeneral12xlarge { get; } = new FleetComputeType("BUILD_GENERAL1_2XLARGE");
         public static FleetComputeType AttributeBasedCompute { get; } = new FleetComputeType("ATTRIBUTE_BASED_COMPUTE");
+        public static FleetComputeType CustomInstanceType { get; } = new FleetComputeType("CUSTOM_INSTANCE_TYPE");
 
         public static bool operator ==(FleetComputeType left, FleetComputeType right) => left.Equals(right);
         public static bool operator !=(FleetComputeType left, FleetComputeType right) => !left.Equals(right);

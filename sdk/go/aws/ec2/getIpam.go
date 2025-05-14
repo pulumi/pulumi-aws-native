@@ -43,6 +43,8 @@ type LookupIpamResult struct {
 	EnablePrivateGua *bool `pulumi:"enablePrivateGua"`
 	// Id of the IPAM.
 	IpamId *string `pulumi:"ipamId"`
+	// A metered account is an account that is charged for active IP addresses managed in IPAM
+	MeteredAccount *IpamMeteredAccount `pulumi:"meteredAccount"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions []IpamOperatingRegion `pulumi:"operatingRegions"`
 	// The Id of the default scope for publicly routable IP space, created with this IPAM.
@@ -126,6 +128,11 @@ func (o LookupIpamResultOutput) EnablePrivateGua() pulumi.BoolPtrOutput {
 // Id of the IPAM.
 func (o LookupIpamResultOutput) IpamId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpamResult) *string { return v.IpamId }).(pulumi.StringPtrOutput)
+}
+
+// A metered account is an account that is charged for active IP addresses managed in IPAM
+func (o LookupIpamResultOutput) MeteredAccount() IpamMeteredAccountPtrOutput {
+	return o.ApplyT(func(v LookupIpamResult) *IpamMeteredAccount { return v.MeteredAccount }).(IpamMeteredAccountPtrOutput)
 }
 
 // The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring

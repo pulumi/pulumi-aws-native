@@ -84,6 +84,9 @@ namespace Pulumi.AwsNative.Omics
         [Output("storageCapacity")]
         public Output<double?> StorageCapacity { get; private set; } = null!;
 
+        [Output("storageType")]
+        public Output<Pulumi.AwsNative.Omics.WorkflowStorageType?> StorageType { get; private set; } = null!;
+
         /// <summary>
         /// Tags for the workflow.
         /// </summary>
@@ -95,6 +98,9 @@ namespace Pulumi.AwsNative.Omics
         /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Omics.WorkflowType> Type { get; private set; } = null!;
+
+        [Output("uuid")]
+        public Output<string> Uuid { get; private set; } = null!;
 
 
         /// <summary>
@@ -200,6 +206,9 @@ namespace Pulumi.AwsNative.Omics
         /// </summary>
         [Input("storageCapacity")]
         public Input<double>? StorageCapacity { get; set; }
+
+        [Input("storageType")]
+        public Input<Pulumi.AwsNative.Omics.WorkflowStorageType>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

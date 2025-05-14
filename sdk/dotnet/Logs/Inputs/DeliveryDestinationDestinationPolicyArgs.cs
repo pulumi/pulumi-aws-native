@@ -15,14 +15,14 @@ namespace Pulumi.AwsNative.Logs.Inputs
         /// <summary>
         /// The name of the delivery destination to assign this policy to
         /// </summary>
-        [Input("deliveryDestinationName", required: true)]
-        public Input<string> DeliveryDestinationName { get; set; } = null!;
+        [Input("deliveryDestinationName")]
+        public Input<string>? DeliveryDestinationName { get; set; }
 
         /// <summary>
         /// The contents of the policy attached to the delivery destination
         /// </summary>
-        [Input("deliveryDestinationPolicy", required: true)]
-        public Input<string> DeliveryDestinationPolicy { get; set; } = null!;
+        [Input("deliveryDestinationPolicy")]
+        public Input<object>? DeliveryDestinationPolicy { get; set; }
 
         public DeliveryDestinationDestinationPolicyArgs()
         {

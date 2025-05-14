@@ -82,6 +82,7 @@ export class Workflow extends pulumi.CustomResource {
      * The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
      */
     public readonly storageCapacity!: pulumi.Output<number | undefined>;
+    public readonly storageType!: pulumi.Output<enums.omics.WorkflowStorageType | undefined>;
     /**
      * Tags for the workflow.
      */
@@ -90,6 +91,7 @@ export class Workflow extends pulumi.CustomResource {
      * The workflow's type.
      */
     public /*out*/ readonly type!: pulumi.Output<enums.omics.WorkflowType>;
+    public /*out*/ readonly uuid!: pulumi.Output<string>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -110,12 +112,14 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameterTemplate"] = args ? args.parameterTemplate : undefined;
             resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
         } else {
             resourceInputs["accelerators"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -129,8 +133,10 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["parameterTemplate"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["storageCapacity"] = undefined /*out*/;
+            resourceInputs["storageType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["accelerators", "definitionUri", "engine", "main", "parameterTemplate.*", "storageCapacity"] };
@@ -172,6 +178,7 @@ export interface WorkflowArgs {
      * The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
      */
     storageCapacity?: pulumi.Input<number>;
+    storageType?: pulumi.Input<enums.omics.WorkflowStorageType>;
     /**
      * Tags for the workflow.
      */

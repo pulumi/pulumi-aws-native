@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         public readonly string? LifecyclePolicy;
         /// <summary>
-        /// he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+        /// The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
         /// </summary>
         public readonly string? RepositoryPolicy;
         /// <summary>

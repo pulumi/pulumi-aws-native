@@ -27,10 +27,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetPolicyStoreResult:
-    def __init__(__self__, arn=None, description=None, policy_store_id=None, schema=None, tags=None, validation_settings=None):
+    def __init__(__self__, arn=None, deletion_protection=None, description=None, policy_store_id=None, schema=None, tags=None, validation_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if deletion_protection and not isinstance(deletion_protection, dict):
+            raise TypeError("Expected argument 'deletion_protection' to be a dict")
+        pulumi.set(__self__, "deletion_protection", deletion_protection)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -54,6 +57,11 @@ class GetPolicyStoreResult:
         The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional['outputs.PolicyStoreDeletionProtection']:
+        return pulumi.get(self, "deletion_protection")
 
     @property
     @pulumi.getter
@@ -107,6 +115,7 @@ class AwaitableGetPolicyStoreResult(GetPolicyStoreResult):
             yield self
         return GetPolicyStoreResult(
             arn=self.arn,
+            deletion_protection=self.deletion_protection,
             description=self.description,
             policy_store_id=self.policy_store_id,
             schema=self.schema,
@@ -129,6 +138,7 @@ def get_policy_store(policy_store_id: Optional[builtins.str] = None,
 
     return AwaitableGetPolicyStoreResult(
         arn=pulumi.get(__ret__, 'arn'),
+        deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         description=pulumi.get(__ret__, 'description'),
         policy_store_id=pulumi.get(__ret__, 'policy_store_id'),
         schema=pulumi.get(__ret__, 'schema'),
@@ -148,6 +158,7 @@ def get_policy_store_output(policy_store_id: Optional[pulumi.Input[builtins.str]
     __ret__ = pulumi.runtime.invoke_output('aws-native:verifiedpermissions:getPolicyStore', __args__, opts=opts, typ=GetPolicyStoreResult)
     return __ret__.apply(lambda __response__: GetPolicyStoreResult(
         arn=pulumi.get(__response__, 'arn'),
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
         description=pulumi.get(__response__, 'description'),
         policy_store_id=pulumi.get(__response__, 'policy_store_id'),
         schema=pulumi.get(__response__, 'schema'),

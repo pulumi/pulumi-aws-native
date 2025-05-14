@@ -32,7 +32,7 @@ type RepositoryCreationTemplate struct {
 	LifecyclePolicy pulumi.StringPtrOutput `pulumi:"lifecyclePolicy"`
 	// The repository namespace prefix associated with the repository creation template.
 	Prefix pulumi.StringOutput `pulumi:"prefix"`
-	// he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+	// The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
 	RepositoryPolicy pulumi.StringPtrOutput `pulumi:"repositoryPolicy"`
 	// The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 	ResourceTags RepositoryCreationTemplateTagArrayOutput `pulumi:"resourceTags"`
@@ -104,7 +104,7 @@ type repositoryCreationTemplateArgs struct {
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
 	// The repository namespace prefix associated with the repository creation template.
 	Prefix string `pulumi:"prefix"`
-	// he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+	// The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
 	RepositoryPolicy *string `pulumi:"repositoryPolicy"`
 	// The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 	ResourceTags []RepositoryCreationTemplateTag `pulumi:"resourceTags"`
@@ -126,7 +126,7 @@ type RepositoryCreationTemplateArgs struct {
 	LifecyclePolicy pulumi.StringPtrInput
 	// The repository namespace prefix associated with the repository creation template.
 	Prefix pulumi.StringInput
-	// he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+	// The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
 	RepositoryPolicy pulumi.StringPtrInput
 	// The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 	ResourceTags RepositoryCreationTemplateTagArrayInput
@@ -215,7 +215,7 @@ func (o RepositoryCreationTemplateOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringOutput { return v.Prefix }).(pulumi.StringOutput)
 }
 
-// he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
+// The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.
 func (o RepositoryCreationTemplateOutput) RepositoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringPtrOutput { return v.RepositoryPolicy }).(pulumi.StringPtrOutput)
 }

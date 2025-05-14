@@ -82,6 +82,10 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly object? Policy;
         /// <summary>
+        /// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+        /// </summary>
+        public readonly Pulumi.AwsNative.ApiGateway.DomainNameV2RoutingMode? RoutingMode;
+        /// <summary>
         /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -96,12 +100,15 @@ namespace Pulumi.AwsNative.ApiGateway
 
             object? policy,
 
+            Pulumi.AwsNative.ApiGateway.DomainNameV2RoutingMode? routingMode,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CertificateArn = certificateArn;
             DomainNameArn = domainNameArn;
             DomainNameId = domainNameId;
             Policy = policy;
+            RoutingMode = routingMode;
             Tags = tags;
         }
     }

@@ -361,13 +361,182 @@ func (in *workspacesPoolApplicationSettingsStatusPtr) ToWorkspacesPoolApplicatio
 	return pulumi.ToOutputWithContext(ctx, in).(WorkspacesPoolApplicationSettingsStatusPtrOutput)
 }
 
+type WorkspacesPoolRunningMode string
+
+const (
+	WorkspacesPoolRunningModeAlwaysOn = WorkspacesPoolRunningMode("ALWAYS_ON")
+	WorkspacesPoolRunningModeAutoStop = WorkspacesPoolRunningMode("AUTO_STOP")
+)
+
+func (WorkspacesPoolRunningMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacesPoolRunningMode)(nil)).Elem()
+}
+
+func (e WorkspacesPoolRunningMode) ToWorkspacesPoolRunningModeOutput() WorkspacesPoolRunningModeOutput {
+	return pulumi.ToOutput(e).(WorkspacesPoolRunningModeOutput)
+}
+
+func (e WorkspacesPoolRunningMode) ToWorkspacesPoolRunningModeOutputWithContext(ctx context.Context) WorkspacesPoolRunningModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkspacesPoolRunningModeOutput)
+}
+
+func (e WorkspacesPoolRunningMode) ToWorkspacesPoolRunningModePtrOutput() WorkspacesPoolRunningModePtrOutput {
+	return e.ToWorkspacesPoolRunningModePtrOutputWithContext(context.Background())
+}
+
+func (e WorkspacesPoolRunningMode) ToWorkspacesPoolRunningModePtrOutputWithContext(ctx context.Context) WorkspacesPoolRunningModePtrOutput {
+	return WorkspacesPoolRunningMode(e).ToWorkspacesPoolRunningModeOutputWithContext(ctx).ToWorkspacesPoolRunningModePtrOutputWithContext(ctx)
+}
+
+func (e WorkspacesPoolRunningMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkspacesPoolRunningMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkspacesPoolRunningMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkspacesPoolRunningMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkspacesPoolRunningModeOutput struct{ *pulumi.OutputState }
+
+func (WorkspacesPoolRunningModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacesPoolRunningMode)(nil)).Elem()
+}
+
+func (o WorkspacesPoolRunningModeOutput) ToWorkspacesPoolRunningModeOutput() WorkspacesPoolRunningModeOutput {
+	return o
+}
+
+func (o WorkspacesPoolRunningModeOutput) ToWorkspacesPoolRunningModeOutputWithContext(ctx context.Context) WorkspacesPoolRunningModeOutput {
+	return o
+}
+
+func (o WorkspacesPoolRunningModeOutput) ToWorkspacesPoolRunningModePtrOutput() WorkspacesPoolRunningModePtrOutput {
+	return o.ToWorkspacesPoolRunningModePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacesPoolRunningModeOutput) ToWorkspacesPoolRunningModePtrOutputWithContext(ctx context.Context) WorkspacesPoolRunningModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspacesPoolRunningMode) *WorkspacesPoolRunningMode {
+		return &v
+	}).(WorkspacesPoolRunningModePtrOutput)
+}
+
+func (o WorkspacesPoolRunningModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkspacesPoolRunningModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkspacesPoolRunningMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkspacesPoolRunningModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacesPoolRunningModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkspacesPoolRunningMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkspacesPoolRunningModePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspacesPoolRunningModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacesPoolRunningMode)(nil)).Elem()
+}
+
+func (o WorkspacesPoolRunningModePtrOutput) ToWorkspacesPoolRunningModePtrOutput() WorkspacesPoolRunningModePtrOutput {
+	return o
+}
+
+func (o WorkspacesPoolRunningModePtrOutput) ToWorkspacesPoolRunningModePtrOutputWithContext(ctx context.Context) WorkspacesPoolRunningModePtrOutput {
+	return o
+}
+
+func (o WorkspacesPoolRunningModePtrOutput) Elem() WorkspacesPoolRunningModeOutput {
+	return o.ApplyT(func(v *WorkspacesPoolRunningMode) WorkspacesPoolRunningMode {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspacesPoolRunningMode
+		return ret
+	}).(WorkspacesPoolRunningModeOutput)
+}
+
+func (o WorkspacesPoolRunningModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacesPoolRunningModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkspacesPoolRunningMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkspacesPoolRunningModeInput is an input type that accepts values of the WorkspacesPoolRunningMode enum
+// A concrete instance of `WorkspacesPoolRunningModeInput` can be one of the following:
+//
+//	WorkspacesPoolRunningModeAlwaysOn
+//	WorkspacesPoolRunningModeAutoStop
+type WorkspacesPoolRunningModeInput interface {
+	pulumi.Input
+
+	ToWorkspacesPoolRunningModeOutput() WorkspacesPoolRunningModeOutput
+	ToWorkspacesPoolRunningModeOutputWithContext(context.Context) WorkspacesPoolRunningModeOutput
+}
+
+var workspacesPoolRunningModePtrType = reflect.TypeOf((**WorkspacesPoolRunningMode)(nil)).Elem()
+
+type WorkspacesPoolRunningModePtrInput interface {
+	pulumi.Input
+
+	ToWorkspacesPoolRunningModePtrOutput() WorkspacesPoolRunningModePtrOutput
+	ToWorkspacesPoolRunningModePtrOutputWithContext(context.Context) WorkspacesPoolRunningModePtrOutput
+}
+
+type workspacesPoolRunningModePtr string
+
+func WorkspacesPoolRunningModePtr(v string) WorkspacesPoolRunningModePtrInput {
+	return (*workspacesPoolRunningModePtr)(&v)
+}
+
+func (*workspacesPoolRunningModePtr) ElementType() reflect.Type {
+	return workspacesPoolRunningModePtrType
+}
+
+func (in *workspacesPoolRunningModePtr) ToWorkspacesPoolRunningModePtrOutput() WorkspacesPoolRunningModePtrOutput {
+	return pulumi.ToOutput(in).(WorkspacesPoolRunningModePtrOutput)
+}
+
+func (in *workspacesPoolRunningModePtr) ToWorkspacesPoolRunningModePtrOutputWithContext(ctx context.Context) WorkspacesPoolRunningModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkspacesPoolRunningModePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolApplicationSettingsStatusInput)(nil)).Elem(), WorkspacesPoolApplicationSettingsStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolApplicationSettingsStatusPtrInput)(nil)).Elem(), WorkspacesPoolApplicationSettingsStatus("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolRunningModeInput)(nil)).Elem(), WorkspacesPoolRunningMode("ALWAYS_ON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolRunningModePtrInput)(nil)).Elem(), WorkspacesPoolRunningMode("ALWAYS_ON"))
 	pulumi.RegisterOutputType(ConnectionAliasAssociationAssociationStatusOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationAssociationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasStateEnumOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(WorkspacesPoolApplicationSettingsStatusOutput{})
 	pulumi.RegisterOutputType(WorkspacesPoolApplicationSettingsStatusPtrOutput{})
+	pulumi.RegisterOutputType(WorkspacesPoolRunningModeOutput{})
+	pulumi.RegisterOutputType(WorkspacesPoolRunningModePtrOutput{})
 }

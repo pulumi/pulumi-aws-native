@@ -71,15 +71,19 @@ namespace Pulumi.AwsNative.SsmContacts
         /// Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
         /// </summary>
         public readonly string? DisplayName;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetContactResult(
             string? arn,
 
-            string? displayName)
+            string? displayName,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DisplayName = displayName;
+            Tags = tags;
         }
     }
 }

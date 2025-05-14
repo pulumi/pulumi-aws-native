@@ -15,6 +15,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,8 @@ class ContactArgs:
                  alias: pulumi.Input[builtins.str],
                  display_name: pulumi.Input[builtins.str],
                  type: pulumi.Input['ContactType'],
-                 plan: Optional[pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]] = None):
+                 plan: Optional[pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Contact resource.
         :param pulumi.Input[builtins.str] alias: Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
@@ -39,6 +42,8 @@ class ContactArgs:
         pulumi.set(__self__, "type", type)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -88,6 +93,15 @@ class ContactArgs:
     def plan(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]]):
         pulumi.set(self, "plan", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Contact(pulumi.CustomResource):
 
@@ -100,6 +114,7 @@ class Contact(pulumi.CustomResource):
                  alias: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  plan: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['ContactType']] = None,
                  __props__=None):
         """
@@ -139,6 +154,7 @@ class Contact(pulumi.CustomResource):
                  alias: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  plan: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['ContactType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -156,6 +172,7 @@ class Contact(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["plan"] = plan
+            __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -188,6 +205,7 @@ class Contact(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["plan"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Contact(resource_name, opts=opts, __props__=__props__)
 
@@ -222,6 +240,11 @@ class Contact(pulumi.CustomResource):
         The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         """
         return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

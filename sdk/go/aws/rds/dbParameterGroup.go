@@ -57,7 +57,7 @@ type DbParameterGroup struct {
 	Family pulumi.StringOutput `pulumi:"family"`
 	// A mapping of parameter names and values for the parameter update. You must specify at least one parameter name and value.
 	//  For more information about parameter groups, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*, or [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
-	//    AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
+	//   AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
 	Parameters pulumi.AnyOutput `pulumi:"parameters"`
@@ -152,7 +152,7 @@ type dbParameterGroupArgs struct {
 	Family string `pulumi:"family"`
 	// A mapping of parameter names and values for the parameter update. You must specify at least one parameter name and value.
 	//  For more information about parameter groups, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*, or [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
-	//    AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
+	//   AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
 	Parameters interface{} `pulumi:"parameters"`
@@ -197,7 +197,7 @@ type DbParameterGroupArgs struct {
 	Family pulumi.StringInput
 	// A mapping of parameter names and values for the parameter update. You must specify at least one parameter name and value.
 	//  For more information about parameter groups, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*, or [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
-	//    AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
+	//   AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
 	Parameters pulumi.Input
@@ -289,7 +289,7 @@ func (o DbParameterGroupOutput) Family() pulumi.StringOutput {
 // A mapping of parameter names and values for the parameter update. You must specify at least one parameter name and value.
 //
 //	For more information about parameter groups, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*, or [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
-//	  AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
+//	 AWS CloudFormation doesn't support specifying an apply method for each individual parameter. The default apply method for each parameter is used.
 //
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
 func (o DbParameterGroupOutput) Parameters() pulumi.AnyOutput {

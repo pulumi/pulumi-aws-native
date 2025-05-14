@@ -10,6 +10,7 @@ __all__ = [
     'ConnectionAliasAssociationAssociationStatus',
     'ConnectionAliasState',
     'WorkspacesPoolApplicationSettingsStatus',
+    'WorkspacesPoolRunningMode',
 ]
 
 
@@ -36,3 +37,8 @@ class ConnectionAliasState(builtins.str, Enum):
 class WorkspacesPoolApplicationSettingsStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
+
+
+class WorkspacesPoolRunningMode(builtins.str, Enum):
+    ALWAYS_ON = "ALWAYS_ON"
+    AUTO_STOP = "AUTO_STOP"

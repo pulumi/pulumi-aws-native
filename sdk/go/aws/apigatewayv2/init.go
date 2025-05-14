@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Route{}
 	case "aws-native:apigatewayv2:RouteResponse":
 		r = &RouteResponse{}
+	case "aws-native:apigatewayv2:RoutingRule":
+		r = &RoutingRule{}
 	case "aws-native:apigatewayv2:VpcLink":
 		r = &VpcLink{}
 	default:

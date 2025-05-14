@@ -57,13 +57,7 @@ export class StorageSystem extends pulumi.CustomResource {
      * The ARN of a secret stored by AWS Secrets Manager.
      */
     public /*out*/ readonly secretsManagerArn!: pulumi.Output<string>;
-    /**
-     * Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
-     */
     public readonly serverConfiguration!: pulumi.Output<outputs.datasync.StorageSystemServerConfiguration>;
-    /**
-     * Specifies the user name and password for accessing your on-premises storage system's management interface.
-     */
     public readonly serverCredentials!: pulumi.Output<outputs.datasync.StorageSystemServerCredentials | undefined>;
     /**
      * The ARN of the on-premises storage system added to DataSync Discovery.
@@ -141,13 +135,7 @@ export interface StorageSystemArgs {
      * A familiar name for the on-premises storage system.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
-     */
     serverConfiguration: pulumi.Input<inputs.datasync.StorageSystemServerConfigurationArgs>;
-    /**
-     * Specifies the user name and password for accessing your on-premises storage system's management interface.
-     */
     serverCredentials?: pulumi.Input<inputs.datasync.StorageSystemServerCredentialsArgs>;
     /**
      * The type of on-premises storage system that DataSync Discovery will analyze.

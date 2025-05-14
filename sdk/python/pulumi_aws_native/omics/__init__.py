@@ -14,10 +14,12 @@ from .get_run_group import *
 from .get_sequence_store import *
 from .get_variant_store import *
 from .get_workflow import *
+from .get_workflow_version import *
 from .reference_store import *
 from .run_group import *
 from .sequence_store import *
 from .variant_store import *
 from .workflow import *
+from .workflow_version import *
 from ._inputs import *
 from . import outputs

@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetEipResult:
-    def __init__(__self__, allocation_id=None, instance_id=None, public_ip=None, public_ipv4_pool=None, tags=None):
+    def __init__(__self__, allocation_id=None, domain=None, instance_id=None, public_ip=None, public_ipv4_pool=None, tags=None):
         if allocation_id and not isinstance(allocation_id, str):
             raise TypeError("Expected argument 'allocation_id' to be a str")
         pulumi.set(__self__, "allocation_id", allocation_id)
+        if domain and not isinstance(domain, str):
+            raise TypeError("Expected argument 'domain' to be a str")
+        pulumi.set(__self__, "domain", domain)
         if instance_id and not isinstance(instance_id, str):
             raise TypeError("Expected argument 'instance_id' to be a str")
         pulumi.set(__self__, "instance_id", instance_id)
@@ -49,6 +52,15 @@ class GetEipResult:
         The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
         """
         return pulumi.get(self, "allocation_id")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[builtins.str]:
+        """
+        The network (``vpc``).
+         If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
+        """
+        return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="instanceId")
@@ -93,6 +105,7 @@ class AwaitableGetEipResult(GetEipResult):
             yield self
         return GetEipResult(
             allocation_id=self.allocation_id,
+            domain=self.domain,
             instance_id=self.instance_id,
             public_ip=self.public_ip,
             public_ipv4_pool=self.public_ipv4_pool,
@@ -119,6 +132,7 @@ def get_eip(allocation_id: Optional[builtins.str] = None,
 
     return AwaitableGetEipResult(
         allocation_id=pulumi.get(__ret__, 'allocation_id'),
+        domain=pulumi.get(__ret__, 'domain'),
         instance_id=pulumi.get(__ret__, 'instance_id'),
         public_ip=pulumi.get(__ret__, 'public_ip'),
         public_ipv4_pool=pulumi.get(__ret__, 'public_ipv4_pool'),
@@ -142,6 +156,7 @@ def get_eip_output(allocation_id: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getEip', __args__, opts=opts, typ=GetEipResult)
     return __ret__.apply(lambda __response__: GetEipResult(
         allocation_id=pulumi.get(__response__, 'allocation_id'),
+        domain=pulumi.get(__response__, 'domain'),
         instance_id=pulumi.get(__response__, 'instance_id'),
         public_ip=pulumi.get(__response__, 'public_ip'),
         public_ipv4_pool=pulumi.get(__response__, 'public_ipv4_pool'),

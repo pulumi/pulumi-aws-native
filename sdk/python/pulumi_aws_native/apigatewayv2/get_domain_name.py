@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetDomainNameResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainNameResult:
-    def __init__(__self__, domain_name_arn=None, domain_name_configurations=None, mutual_tls_authentication=None, regional_domain_name=None, regional_hosted_zone_id=None, tags=None):
+    def __init__(__self__, domain_name_arn=None, domain_name_configurations=None, mutual_tls_authentication=None, regional_domain_name=None, regional_hosted_zone_id=None, routing_mode=None, tags=None):
         if domain_name_arn and not isinstance(domain_name_arn, str):
             raise TypeError("Expected argument 'domain_name_arn' to be a str")
         pulumi.set(__self__, "domain_name_arn", domain_name_arn)
@@ -41,6 +42,9 @@ class GetDomainNameResult:
         if regional_hosted_zone_id and not isinstance(regional_hosted_zone_id, str):
             raise TypeError("Expected argument 'regional_hosted_zone_id' to be a str")
         pulumi.set(__self__, "regional_hosted_zone_id", regional_hosted_zone_id)
+        if routing_mode and not isinstance(routing_mode, str):
+            raise TypeError("Expected argument 'routing_mode' to be a str")
+        pulumi.set(__self__, "routing_mode", routing_mode)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -86,6 +90,11 @@ class GetDomainNameResult:
         return pulumi.get(self, "regional_hosted_zone_id")
 
     @property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> Optional['DomainNameRoutingMode']:
+        return pulumi.get(self, "routing_mode")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
@@ -105,6 +114,7 @@ class AwaitableGetDomainNameResult(GetDomainNameResult):
             mutual_tls_authentication=self.mutual_tls_authentication,
             regional_domain_name=self.regional_domain_name,
             regional_hosted_zone_id=self.regional_hosted_zone_id,
+            routing_mode=self.routing_mode,
             tags=self.tags)
 
 
@@ -128,6 +138,7 @@ def get_domain_name(domain_name: Optional[builtins.str] = None,
         mutual_tls_authentication=pulumi.get(__ret__, 'mutual_tls_authentication'),
         regional_domain_name=pulumi.get(__ret__, 'regional_domain_name'),
         regional_hosted_zone_id=pulumi.get(__ret__, 'regional_hosted_zone_id'),
+        routing_mode=pulumi.get(__ret__, 'routing_mode'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_domain_name_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameResult]:
@@ -148,4 +159,5 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[builtins.str]] = N
         mutual_tls_authentication=pulumi.get(__response__, 'mutual_tls_authentication'),
         regional_domain_name=pulumi.get(__response__, 'regional_domain_name'),
         regional_hosted_zone_id=pulumi.get(__response__, 'regional_hosted_zone_id'),
+        routing_mode=pulumi.get(__response__, 'routing_mode'),
         tags=pulumi.get(__response__, 'tags')))

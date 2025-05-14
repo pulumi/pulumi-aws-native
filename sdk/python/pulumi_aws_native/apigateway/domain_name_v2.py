@@ -17,6 +17,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DomainNameV2Args', 'DomainNameV2']
@@ -28,6 +29,7 @@ class DomainNameV2Args:
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input['DomainNameV2EndpointConfigurationArgs']] = None,
                  policy: Optional[Any] = None,
+                 routing_mode: Optional[pulumi.Input['DomainNameV2RoutingMode']] = None,
                  security_policy: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -38,6 +40,7 @@ class DomainNameV2Args:
         :param Any policy: A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
+        :param pulumi.Input['DomainNameV2RoutingMode'] routing_mode: The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
         :param pulumi.Input[builtins.str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
         """
@@ -49,6 +52,8 @@ class DomainNameV2Args:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if routing_mode is not None:
+            pulumi.set(__self__, "routing_mode", routing_mode)
         if security_policy is not None:
             pulumi.set(__self__, "security_policy", security_policy)
         if tags is not None:
@@ -105,6 +110,18 @@ class DomainNameV2Args:
         pulumi.set(self, "policy", value)
 
     @property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> Optional[pulumi.Input['DomainNameV2RoutingMode']]:
+        """
+        The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+        """
+        return pulumi.get(self, "routing_mode")
+
+    @routing_mode.setter
+    def routing_mode(self, value: Optional[pulumi.Input['DomainNameV2RoutingMode']]):
+        pulumi.set(self, "routing_mode", value)
+
+    @property
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -141,6 +158,7 @@ class DomainNameV2(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict']]] = None,
                  policy: Optional[Any] = None,
+                 routing_mode: Optional[pulumi.Input['DomainNameV2RoutingMode']] = None,
                  security_policy: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -155,6 +173,7 @@ class DomainNameV2(pulumi.CustomResource):
         :param Any policy: A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
+        :param pulumi.Input['DomainNameV2RoutingMode'] routing_mode: The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
         :param pulumi.Input[builtins.str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The collection of tags. Each tag element is associated with a given resource.
         """
@@ -186,6 +205,7 @@ class DomainNameV2(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict']]] = None,
                  policy: Optional[Any] = None,
+                 routing_mode: Optional[pulumi.Input['DomainNameV2RoutingMode']] = None,
                  security_policy: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -201,6 +221,7 @@ class DomainNameV2(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["routing_mode"] = routing_mode
             __props__.__dict__["security_policy"] = security_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["domain_name_arn"] = None
@@ -235,6 +256,7 @@ class DomainNameV2(pulumi.CustomResource):
         __props__.__dict__["domain_name_id"] = None
         __props__.__dict__["endpoint_configuration"] = None
         __props__.__dict__["policy"] = None
+        __props__.__dict__["routing_mode"] = None
         __props__.__dict__["security_policy"] = None
         __props__.__dict__["tags"] = None
         return DomainNameV2(resource_name, opts=opts, __props__=__props__)
@@ -288,6 +310,14 @@ class DomainNameV2(pulumi.CustomResource):
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> pulumi.Output[Optional['DomainNameV2RoutingMode']]:
+        """
+        The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+        """
+        return pulumi.get(self, "routing_mode")
 
     @property
     @pulumi.getter(name="securityPolicy")

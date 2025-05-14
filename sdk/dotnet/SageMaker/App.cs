@@ -34,10 +34,22 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Pulumi.AwsNative.SageMaker.AppType> AppType { get; private set; } = null!;
 
         /// <summary>
+        /// The lifecycle configuration that runs before the default lifecycle configuration.
+        /// </summary>
+        [Output("builtInLifecycleConfigArn")]
+        public Output<string> BuiltInLifecycleConfigArn { get; private set; } = null!;
+
+        /// <summary>
         /// The domain ID.
         /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the application is launched in recovery mode.
+        /// </summary>
+        [Output("recoveryMode")]
+        public Output<bool?> RecoveryMode { get; private set; } = null!;
 
         /// <summary>
         /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
@@ -128,6 +140,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the application is launched in recovery mode.
+        /// </summary>
+        [Input("recoveryMode")]
+        public Input<bool>? RecoveryMode { get; set; }
 
         /// <summary>
         /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.

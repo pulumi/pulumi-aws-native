@@ -367,6 +367,16 @@ export const InstancePrivateDnsNameOptionsHostnameType = {
  */
 export type InstancePrivateDnsNameOptionsHostnameType = (typeof InstancePrivateDnsNameOptionsHostnameType)[keyof typeof InstancePrivateDnsNameOptionsHostnameType];
 
+export const IpamMeteredAccount = {
+    IpamOwner: "ipam-owner",
+    ResourceOwner: "resource-owner",
+} as const;
+
+/**
+ * A metered account is an account that is charged for active IP addresses managed in IPAM
+ */
+export type IpamMeteredAccount = (typeof IpamMeteredAccount)[keyof typeof IpamMeteredAccount];
+
 export const IpamPoolAwsService = {
     Ec2: "ec2",
 } as const;
@@ -987,7 +997,7 @@ export const VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction = {
 
 /**
  * The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
- *  Valid Values: ``clear`` | ``none`` | ``restart`` 
+ *  Valid Values: ``clear`` | ``none`` | ``restart``
  *  Default: ``clear``
  */
 export type VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction = (typeof VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction)[keyof typeof VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction];
@@ -999,7 +1009,7 @@ export const VpnConnectionVpnTunnelOptionsSpecificationStartupAction = {
 
 /**
  * The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.
- *  Valid Values: ``add`` | ``start`` 
+ *  Valid Values: ``add`` | ``start``
  *  Default: ``add``
  */
 export type VpnConnectionVpnTunnelOptionsSpecificationStartupAction = (typeof VpnConnectionVpnTunnelOptionsSpecificationStartupAction)[keyof typeof VpnConnectionVpnTunnelOptionsSpecificationStartupAction];

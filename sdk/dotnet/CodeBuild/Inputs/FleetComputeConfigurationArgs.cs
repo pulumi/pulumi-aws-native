@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         public Input<int>? Disk { get; set; }
 
         /// <summary>
+        /// The EC2 instance type to be launched in your fleet.
+        /// </summary>
+        [Input("instanceType")]
+        public Input<string>? InstanceType { get; set; }
+
+        /// <summary>
         /// The machine type of the instance type included in your fleet.
         /// </summary>
         [Input("machineType")]

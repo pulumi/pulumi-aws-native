@@ -39,6 +39,8 @@ type LookupDomainNameV2Result struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
+	// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+	RoutingMode *DomainNameV2RoutingMode `pulumi:"routingMode"`
 	// The collection of tags. Each tag element is associated with a given resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -95,6 +97,11 @@ func (o LookupDomainNameV2ResultOutput) DomainNameId() pulumi.StringPtrOutput {
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 func (o LookupDomainNameV2ResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainNameV2Result) interface{} { return v.Policy }).(pulumi.AnyOutput)
+}
+
+// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+func (o LookupDomainNameV2ResultOutput) RoutingMode() DomainNameV2RoutingModePtrOutput {
+	return o.ApplyT(func(v LookupDomainNameV2Result) *DomainNameV2RoutingMode { return v.RoutingMode }).(DomainNameV2RoutingModePtrOutput)
 }
 
 // The collection of tags. Each tag element is associated with a given resource.

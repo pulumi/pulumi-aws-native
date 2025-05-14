@@ -36,6 +36,10 @@ type LookupAppArgs struct {
 type LookupAppResult struct {
 	// The Amazon Resource Name (ARN) of the app.
 	AppArn *string `pulumi:"appArn"`
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
+	// Indicates whether the application is launched in recovery mode.
+	RecoveryMode *bool `pulumi:"recoveryMode"`
 }
 
 func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
@@ -79,6 +83,16 @@ func (o LookupAppResultOutput) ToLookupAppResultOutputWithContext(ctx context.Co
 // The Amazon Resource Name (ARN) of the app.
 func (o LookupAppResultOutput) AppArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.AppArn }).(pulumi.StringPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration.
+func (o LookupAppResultOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *string { return v.BuiltInLifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the application is launched in recovery mode.
+func (o LookupAppResultOutput) RecoveryMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *bool { return v.RecoveryMode }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

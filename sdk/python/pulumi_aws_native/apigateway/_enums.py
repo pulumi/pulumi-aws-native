@@ -9,6 +9,8 @@ from enum import Enum
 __all__ = [
     'DocumentationPartLocationType',
     'DomainNameAccessAssociationAccessAssociationSourceType',
+    'DomainNameRoutingMode',
+    'DomainNameV2RoutingMode',
     'MethodIntegrationConnectionType',
     'MethodIntegrationContentHandling',
     'MethodIntegrationPassthroughBehavior',
@@ -41,6 +43,21 @@ class DomainNameAccessAssociationAccessAssociationSourceType(builtins.str, Enum)
     The source type of the domain name access association resource.
     """
     VPCE = "VPCE"
+
+
+class DomainNameRoutingMode(builtins.str, Enum):
+    BASE_PATH_MAPPING_ONLY = "BASE_PATH_MAPPING_ONLY"
+    ROUTING_RULE_THEN_BASE_PATH_MAPPING = "ROUTING_RULE_THEN_BASE_PATH_MAPPING"
+    ROUTING_RULE_ONLY = "ROUTING_RULE_ONLY"
+
+
+class DomainNameV2RoutingMode(builtins.str, Enum):
+    """
+    The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
+    """
+    BASE_PATH_MAPPING_ONLY = "BASE_PATH_MAPPING_ONLY"
+    ROUTING_RULE_THEN_BASE_PATH_MAPPING = "ROUTING_RULE_THEN_BASE_PATH_MAPPING"
+    ROUTING_RULE_ONLY = "ROUTING_RULE_ONLY"
 
 
 class MethodIntegrationConnectionType(builtins.str, Enum):

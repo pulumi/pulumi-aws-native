@@ -32,10 +32,12 @@ type LookupIntelligentPromptRouterResult struct {
 	// Time Stamp
 	CreatedAt *string `pulumi:"createdAt"`
 	// Arn of the Prompt Router.
-	PromptRouterArn *string                                    `pulumi:"promptRouterArn"`
-	Status          *IntelligentPromptRouterPromptRouterStatus `pulumi:"status"`
+	PromptRouterArn *string `pulumi:"promptRouterArn"`
+	// The router's status.
+	Status *IntelligentPromptRouterPromptRouterStatus `pulumi:"status"`
 	// List of Tags
-	Tags []aws.Tag                                `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The router's type.
 	Type *IntelligentPromptRouterPromptRouterType `pulumi:"type"`
 	// Time Stamp
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -83,6 +85,7 @@ func (o LookupIntelligentPromptRouterResultOutput) PromptRouterArn() pulumi.Stri
 	return o.ApplyT(func(v LookupIntelligentPromptRouterResult) *string { return v.PromptRouterArn }).(pulumi.StringPtrOutput)
 }
 
+// The router's status.
 func (o LookupIntelligentPromptRouterResultOutput) Status() IntelligentPromptRouterPromptRouterStatusPtrOutput {
 	return o.ApplyT(func(v LookupIntelligentPromptRouterResult) *IntelligentPromptRouterPromptRouterStatus {
 		return v.Status
@@ -94,6 +97,7 @@ func (o LookupIntelligentPromptRouterResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupIntelligentPromptRouterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The router's type.
 func (o LookupIntelligentPromptRouterResultOutput) Type() IntelligentPromptRouterPromptRouterTypePtrOutput {
 	return o.ApplyT(func(v LookupIntelligentPromptRouterResult) *IntelligentPromptRouterPromptRouterType { return v.Type }).(IntelligentPromptRouterPromptRouterTypePtrOutput)
 }

@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Connect
     {
         /// <summary>
         /// The description of the evaluation form.
-        ///   *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+        ///  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -78,8 +78,8 @@ namespace Pulumi.AwsNative.Connect
         public readonly string? InstanceArn;
         /// <summary>
         /// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
-        ///   *Minimum size*: 1
-        ///   *Maximum size*: 100
+        ///  *Minimum size*: 1
+        ///  *Maximum size*: 100
         /// </summary>
         public readonly ImmutableArray<Outputs.EvaluationFormBaseItem> Items;
         /// <summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Connect
         public readonly Outputs.EvaluationFormScoringStrategy? ScoringStrategy;
         /// <summary>
         /// The status of the evaluation form.
-        ///   *Allowed values*: ``DRAFT`` | ``ACTIVE``
+        ///  *Allowed values*: ``DRAFT`` | ``ACTIVE``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.EvaluationFormStatus? Status;
         /// <summary>

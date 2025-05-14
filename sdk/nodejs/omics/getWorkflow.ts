@@ -49,6 +49,7 @@ export interface GetWorkflowResult {
      * The workflow's status.
      */
     readonly status?: enums.omics.WorkflowStatus;
+    readonly storageType?: enums.omics.WorkflowStorageType;
     /**
      * Tags for the workflow.
      */
@@ -57,6 +58,7 @@ export interface GetWorkflowResult {
      * The workflow's type.
      */
     readonly type?: enums.omics.WorkflowType;
+    readonly uuid?: string;
 }
 /**
  * Definition of AWS::Omics::Workflow Resource Type

@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     {
         /// <summary>
         /// The severity value of the finding. The allowed values are the following.
-        ///   +   ``INFORMATIONAL`` - No issue was found.
-        ///   +   ``LOW`` - The issue does not require action on its own.
-        ///   +   ``MEDIUM`` - The issue must be addressed but not urgently.
-        ///   +   ``HIGH`` - The issue must be addressed as a priority.
-        ///   +   ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
+        ///   +  ``INFORMATIONAL`` - No issue was found.
+        ///   +  ``LOW`` - The issue does not require action on its own.
+        ///   +  ``MEDIUM`` - The issue must be addressed but not urgently.
+        ///   +  ``HIGH`` - The issue must be addressed as a priority.
+        ///   +  ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
         /// </summary>
         [Input("label")]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRuleSeverityUpdateLabel>? Label { get; set; }
@@ -29,10 +29,10 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         /// <summary>
         /// The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
         ///  If you provide ``Normalized`` and don't provide ``Label``, ``Label`` is set automatically as follows.
-        ///   +  0 - ``INFORMATIONAL`` 
-        ///   +  1–39 - ``LOW`` 
-        ///   +  40–69 - ``MEDIUM`` 
-        ///   +  70–89 - ``HIGH`` 
+        ///   +  0 - ``INFORMATIONAL``
+        ///   +  1–39 - ``LOW``
+        ///   +  40–69 - ``MEDIUM``
+        ///   +  70–89 - ``HIGH``
         ///   +  90–100 - ``CRITICAL``
         /// </summary>
         [Input("normalized")]

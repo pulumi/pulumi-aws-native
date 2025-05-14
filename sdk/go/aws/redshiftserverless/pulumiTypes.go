@@ -820,7 +820,7 @@ func (o WorkgroupTypePtrOutput) WorkgroupName() pulumi.StringPtrOutput {
 }
 
 type WorkgroupConfigParameter struct {
-	// The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
+	// The key of the parameter. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
 	ParameterKey *string `pulumi:"parameterKey"`
 	// The value of the parameter to set.
 	ParameterValue *string `pulumi:"parameterValue"`
@@ -838,7 +838,7 @@ type WorkgroupConfigParameterInput interface {
 }
 
 type WorkgroupConfigParameterArgs struct {
-	// The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
+	// The key of the parameter. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
 	ParameterKey pulumi.StringPtrInput `pulumi:"parameterKey"`
 	// The value of the parameter to set.
 	ParameterValue pulumi.StringPtrInput `pulumi:"parameterValue"`
@@ -895,7 +895,7 @@ func (o WorkgroupConfigParameterOutput) ToWorkgroupConfigParameterOutputWithCont
 	return o
 }
 
-// The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
+// The key of the parameter. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
 func (o WorkgroupConfigParameterOutput) ParameterKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigParameter) *string { return v.ParameterKey }).(pulumi.StringPtrOutput)
 }

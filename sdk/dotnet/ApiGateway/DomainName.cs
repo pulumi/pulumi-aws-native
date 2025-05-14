@@ -114,6 +114,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("domainName")]
         public Output<string?> DomainNameValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the domain name. Supported only for private custom domain names.
+        /// </summary>
         [Output("domainNameArn")]
         public Output<string> DomainNameArn { get; private set; } = null!;
 
@@ -152,6 +155,9 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         [Output("regionalHostedZoneId")]
         public Output<string> RegionalHostedZoneId { get; private set; } = null!;
+
+        [Output("routingMode")]
+        public Output<Pulumi.AwsNative.ApiGateway.DomainNameRoutingMode?> RoutingMode { get; private set; } = null!;
 
         /// <summary>
         /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
@@ -249,6 +255,9 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         [Input("regionalCertificateArn")]
         public Input<string>? RegionalCertificateArn { get; set; }
+
+        [Input("routingMode")]
+        public Input<Pulumi.AwsNative.ApiGateway.DomainNameRoutingMode>? RoutingMode { get; set; }
 
         /// <summary>
         /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .

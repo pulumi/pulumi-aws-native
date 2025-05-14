@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class UserProfileUserSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+        /// </summary>
+        [Input("autoMountHomeEfs")]
+        public Input<Pulumi.AwsNative.SageMaker.UserProfileUserSettingsAutoMountHomeEfs>? AutoMountHomeEfs { get; set; }
+
+        /// <summary>
         /// The Code Editor application settings.
         /// 
         /// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.

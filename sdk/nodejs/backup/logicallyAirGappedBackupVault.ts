@@ -43,6 +43,9 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
      */
     public readonly accessPolicy!: pulumi.Output<any | undefined>;
+    /**
+     * The ARN of the backup vault.
+     */
     public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
     /**
      * The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
@@ -52,6 +55,9 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
      * The tags to assign to the vault.
      */
     public readonly backupVaultTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The ARN of the server-side encryption key.
+     */
     public /*out*/ readonly encryptionKeyArn!: pulumi.Output<string>;
     /**
      * The maximum retention period that the vault retains its recovery points.
@@ -67,7 +73,13 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
      * Returns event notifications for the specified backup vault.
      */
     public readonly notifications!: pulumi.Output<outputs.backup.LogicallyAirGappedBackupVaultNotificationObjectType | undefined>;
+    /**
+     * The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
+     */
     public /*out*/ readonly vaultState!: pulumi.Output<string>;
+    /**
+     * The vault type. The possible values are `BACKUP_VAULT` and `LOGICALLY_AIR_GAPPED_BACKUP_VAULT` .
+     */
     public /*out*/ readonly vaultType!: pulumi.Output<string>;
 
     /**

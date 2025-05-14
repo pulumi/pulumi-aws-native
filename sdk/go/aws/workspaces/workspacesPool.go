@@ -34,8 +34,9 @@ type WorkspacesPool struct {
 	// The identifier of the pool.
 	PoolId pulumi.StringOutput `pulumi:"poolId"`
 	// The name of the pool.
-	PoolName pulumi.StringOutput `pulumi:"poolName"`
-	Tags     aws.TagArrayOutput  `pulumi:"tags"`
+	PoolName    pulumi.StringOutput                `pulumi:"poolName"`
+	RunningMode WorkspacesPoolRunningModePtrOutput `pulumi:"runningMode"`
+	Tags        aws.TagArrayOutput                 `pulumi:"tags"`
 	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
 	TimeoutSettings WorkspacesPoolTimeoutSettingsPtrOutput `pulumi:"timeoutSettings"`
 }
@@ -104,8 +105,9 @@ type workspacesPoolArgs struct {
 	// The identifier of the directory used by the pool.
 	DirectoryId string `pulumi:"directoryId"`
 	// The name of the pool.
-	PoolName *string   `pulumi:"poolName"`
-	Tags     []aws.Tag `pulumi:"tags"`
+	PoolName    *string                    `pulumi:"poolName"`
+	RunningMode *WorkspacesPoolRunningMode `pulumi:"runningMode"`
+	Tags        []aws.Tag                  `pulumi:"tags"`
 	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
 	TimeoutSettings *WorkspacesPoolTimeoutSettings `pulumi:"timeoutSettings"`
 }
@@ -123,8 +125,9 @@ type WorkspacesPoolArgs struct {
 	// The identifier of the directory used by the pool.
 	DirectoryId pulumi.StringInput
 	// The name of the pool.
-	PoolName pulumi.StringPtrInput
-	Tags     aws.TagArrayInput
+	PoolName    pulumi.StringPtrInput
+	RunningMode WorkspacesPoolRunningModePtrInput
+	Tags        aws.TagArrayInput
 	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
 	TimeoutSettings WorkspacesPoolTimeoutSettingsPtrInput
 }
@@ -209,6 +212,10 @@ func (o WorkspacesPoolOutput) PoolId() pulumi.StringOutput {
 // The name of the pool.
 func (o WorkspacesPoolOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspacesPool) pulumi.StringOutput { return v.PoolName }).(pulumi.StringOutput)
+}
+
+func (o WorkspacesPoolOutput) RunningMode() WorkspacesPoolRunningModePtrOutput {
+	return o.ApplyT(func(v *WorkspacesPool) WorkspacesPoolRunningModePtrOutput { return v.RunningMode }).(WorkspacesPoolRunningModePtrOutput)
 }
 
 func (o WorkspacesPoolOutput) Tags() aws.TagArrayOutput {

@@ -77,6 +77,7 @@ namespace Pulumi.AwsNative.QBusiness
         public static ApplicationIdentityType AwsIamIdpOidc { get; } = new ApplicationIdentityType("AWS_IAM_IDP_OIDC");
         public static ApplicationIdentityType AwsIamIdc { get; } = new ApplicationIdentityType("AWS_IAM_IDC");
         public static ApplicationIdentityType AwsQuicksightIdp { get; } = new ApplicationIdentityType("AWS_QUICKSIGHT_IDP");
+        public static ApplicationIdentityType Anonymous { get; } = new ApplicationIdentityType("ANONYMOUS");
 
         public static bool operator ==(ApplicationIdentityType left, ApplicationIdentityType right) => left.Equals(right);
         public static bool operator !=(ApplicationIdentityType left, ApplicationIdentityType right) => !left.Equals(right);

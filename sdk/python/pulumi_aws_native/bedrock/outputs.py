@@ -9371,12 +9371,16 @@ class IntelligentPromptRouterRoutingCriteria(dict):
                  response_quality_difference: builtins.float):
         """
         Represents the criteria used for routing requests.
+        :param builtins.float response_quality_difference: The criteria's response quality difference.
         """
         pulumi.set(__self__, "response_quality_difference", response_quality_difference)
 
     @property
     @pulumi.getter(name="responseQualityDifference")
     def response_quality_difference(self) -> builtins.float:
+        """
+        The criteria's response quality difference.
+        """
         return pulumi.get(self, "response_quality_difference")
 
 

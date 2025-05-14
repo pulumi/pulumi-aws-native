@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIpamResult:
-    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, default_resource_discovery_organizational_unit_exclusions=None, description=None, enable_private_gua=None, ipam_id=None, operating_regions=None, private_default_scope_id=None, public_default_scope_id=None, resource_discovery_association_count=None, scope_count=None, tags=None, tier=None):
+    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, default_resource_discovery_organizational_unit_exclusions=None, description=None, enable_private_gua=None, ipam_id=None, metered_account=None, operating_regions=None, private_default_scope_id=None, public_default_scope_id=None, resource_discovery_association_count=None, scope_count=None, tags=None, tier=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetIpamResult:
         if ipam_id and not isinstance(ipam_id, str):
             raise TypeError("Expected argument 'ipam_id' to be a str")
         pulumi.set(__self__, "ipam_id", ipam_id)
+        if metered_account and not isinstance(metered_account, str):
+            raise TypeError("Expected argument 'metered_account' to be a str")
+        pulumi.set(__self__, "metered_account", metered_account)
         if operating_regions and not isinstance(operating_regions, list):
             raise TypeError("Expected argument 'operating_regions' to be a list")
         pulumi.set(__self__, "operating_regions", operating_regions)
@@ -128,6 +131,14 @@ class GetIpamResult:
         return pulumi.get(self, "ipam_id")
 
     @property
+    @pulumi.getter(name="meteredAccount")
+    def metered_account(self) -> Optional['IpamMeteredAccount']:
+        """
+        A metered account is an account that is charged for active IP addresses managed in IPAM
+        """
+        return pulumi.get(self, "metered_account")
+
+    @property
     @pulumi.getter(name="operatingRegions")
     def operating_regions(self) -> Optional[Sequence['outputs.IpamOperatingRegion']]:
         """
@@ -197,6 +208,7 @@ class AwaitableGetIpamResult(GetIpamResult):
             description=self.description,
             enable_private_gua=self.enable_private_gua,
             ipam_id=self.ipam_id,
+            metered_account=self.metered_account,
             operating_regions=self.operating_regions,
             private_default_scope_id=self.private_default_scope_id,
             public_default_scope_id=self.public_default_scope_id,
@@ -227,6 +239,7 @@ def get_ipam(ipam_id: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         enable_private_gua=pulumi.get(__ret__, 'enable_private_gua'),
         ipam_id=pulumi.get(__ret__, 'ipam_id'),
+        metered_account=pulumi.get(__ret__, 'metered_account'),
         operating_regions=pulumi.get(__ret__, 'operating_regions'),
         private_default_scope_id=pulumi.get(__ret__, 'private_default_scope_id'),
         public_default_scope_id=pulumi.get(__ret__, 'public_default_scope_id'),
@@ -254,6 +267,7 @@ def get_ipam_output(ipam_id: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         enable_private_gua=pulumi.get(__response__, 'enable_private_gua'),
         ipam_id=pulumi.get(__response__, 'ipam_id'),
+        metered_account=pulumi.get(__response__, 'metered_account'),
         operating_regions=pulumi.get(__response__, 'operating_regions'),
         private_default_scope_id=pulumi.get(__response__, 'private_default_scope_id'),
         public_default_scope_id=pulumi.get(__response__, 'public_default_scope_id'),

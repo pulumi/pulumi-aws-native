@@ -105,8 +105,9 @@ type DomainName struct {
 	// The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
 	DistributionHostedZoneId pulumi.StringOutput `pulumi:"distributionHostedZoneId"`
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
-	DomainName    pulumi.StringPtrOutput `pulumi:"domainName"`
-	DomainNameArn pulumi.StringOutput    `pulumi:"domainNameArn"`
+	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
+	// The ARN of the domain name. Supported only for private custom domain names.
+	DomainNameArn pulumi.StringOutput `pulumi:"domainNameArn"`
 	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	EndpointConfiguration DomainNameEndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
@@ -118,7 +119,8 @@ type DomainName struct {
 	// The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
 	RegionalDomainName pulumi.StringOutput `pulumi:"regionalDomainName"`
 	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
-	RegionalHostedZoneId pulumi.StringOutput `pulumi:"regionalHostedZoneId"`
+	RegionalHostedZoneId pulumi.StringOutput            `pulumi:"regionalHostedZoneId"`
+	RoutingMode          DomainNameRoutingModePtrOutput `pulumi:"routingMode"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
 	SecurityPolicy pulumi.StringPtrOutput `pulumi:"securityPolicy"`
 	// The collection of tags. Each tag element is associated with a given resource.
@@ -180,7 +182,8 @@ type domainNameArgs struct {
 	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
 	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
-	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
+	RegionalCertificateArn *string                `pulumi:"regionalCertificateArn"`
+	RoutingMode            *DomainNameRoutingMode `pulumi:"routingMode"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// The collection of tags. Each tag element is associated with a given resource.
@@ -201,6 +204,7 @@ type DomainNameArgs struct {
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput
 	// The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
 	RegionalCertificateArn pulumi.StringPtrInput
+	RoutingMode            DomainNameRoutingModePtrInput
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
 	SecurityPolicy pulumi.StringPtrInput
 	// The collection of tags. Each tag element is associated with a given resource.
@@ -266,6 +270,7 @@ func (o DomainNameOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the domain name. Supported only for private custom domain names.
 func (o DomainNameOutput) DomainNameArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainNameArn }).(pulumi.StringOutput)
 }
@@ -298,6 +303,10 @@ func (o DomainNameOutput) RegionalDomainName() pulumi.StringOutput {
 // The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
 func (o DomainNameOutput) RegionalHostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.RegionalHostedZoneId }).(pulumi.StringOutput)
+}
+
+func (o DomainNameOutput) RoutingMode() DomainNameRoutingModePtrOutput {
+	return o.ApplyT(func(v *DomainName) DomainNameRoutingModePtrOutput { return v.RoutingMode }).(DomainNameRoutingModePtrOutput)
 }
 
 // The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .

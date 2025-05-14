@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
     /// <summary>
     /// Specifies the parameters for a network interface.
-    ///   ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+    ///  ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateNetworkInterface
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly bool? AssociateCarrierIpAddress;
         /// <summary>
         /// Associates a public IPv4 address with eth0 for a new network interface.
-        ///   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+        ///  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         /// </summary>
         public readonly bool? AssociatePublicIpAddress;
         /// <summary>

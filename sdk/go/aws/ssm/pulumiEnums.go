@@ -696,10 +696,12 @@ const (
 	DocumentTypeApplicationConfigurationSchema = DocumentType("ApplicationConfigurationSchema")
 	DocumentTypeAutomation                     = DocumentType("Automation")
 	DocumentTypeAutomationChangeTemplate       = DocumentType("Automation.ChangeTemplate")
+	DocumentTypeAutoApprovalPolicy             = DocumentType("AutoApprovalPolicy")
 	DocumentTypeChangeCalendar                 = DocumentType("ChangeCalendar")
 	DocumentTypeCloudFormation                 = DocumentType("CloudFormation")
 	DocumentTypeCommand                        = DocumentType("Command")
 	DocumentTypeDeploymentStrategy             = DocumentType("DeploymentStrategy")
+	DocumentTypeManualApprovalPolicy           = DocumentType("ManualApprovalPolicy")
 	DocumentTypePackage                        = DocumentType("Package")
 	DocumentTypePolicy                         = DocumentType("Policy")
 	DocumentTypeProblemAnalysis                = DocumentType("ProblemAnalysis")
@@ -833,10 +835,12 @@ func (o DocumentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	DocumentTypeApplicationConfigurationSchema
 //	DocumentTypeAutomation
 //	DocumentTypeAutomationChangeTemplate
+//	DocumentTypeAutoApprovalPolicy
 //	DocumentTypeChangeCalendar
 //	DocumentTypeCloudFormation
 //	DocumentTypeCommand
 //	DocumentTypeDeploymentStrategy
+//	DocumentTypeManualApprovalPolicy
 //	DocumentTypePackage
 //	DocumentTypePolicy
 //	DocumentTypeProblemAnalysis

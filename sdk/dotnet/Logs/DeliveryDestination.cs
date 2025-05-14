@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Logs
         /// Length Constraints: Maximum length of 51200
         /// </summary>
         [Output("deliveryDestinationPolicy")]
-        public Output<ImmutableArray<Outputs.DeliveryDestinationDestinationPolicy>> DeliveryDestinationPolicy { get; private set; } = null!;
+        public Output<Outputs.DeliveryDestinationDestinationPolicy?> DeliveryDestinationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
@@ -114,9 +114,6 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class DeliveryDestinationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("deliveryDestinationPolicy")]
-        private InputList<Inputs.DeliveryDestinationDestinationPolicyArgs>? _deliveryDestinationPolicy;
-
         /// <summary>
         /// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
         /// 
@@ -124,11 +121,8 @@ namespace Pulumi.AwsNative.Logs
         /// 
         /// Length Constraints: Maximum length of 51200
         /// </summary>
-        public InputList<Inputs.DeliveryDestinationDestinationPolicyArgs> DeliveryDestinationPolicy
-        {
-            get => _deliveryDestinationPolicy ?? (_deliveryDestinationPolicy = new InputList<Inputs.DeliveryDestinationDestinationPolicyArgs>());
-            set => _deliveryDestinationPolicy = value;
-        }
+        [Input("deliveryDestinationPolicy")]
+        public Input<Inputs.DeliveryDestinationDestinationPolicyArgs>? DeliveryDestinationPolicy { get; set; }
 
         /// <summary>
         /// The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.

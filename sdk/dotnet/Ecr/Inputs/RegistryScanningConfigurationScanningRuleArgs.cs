@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecr.Inputs
 {
 
     /// <summary>
-    /// A rule representing the details of a scanning configuration.
+    /// The scanning rules associated with the registry.
     /// </summary>
     public sealed class RegistryScanningConfigurationScanningRuleArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ecr.Inputs
         private InputList<Inputs.RegistryScanningConfigurationRepositoryFilterArgs>? _repositoryFilters;
 
         /// <summary>
-        /// The repository filters associated with the scanning configuration for a private registry.
+        /// The details of a scanning repository filter. For more information on how to use filters, see [Using filters](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html#image-scanning-filters) in the *Amazon Elastic Container Registry User Guide*.
         /// </summary>
         public InputList<Inputs.RegistryScanningConfigurationRepositoryFilterArgs> RepositoryFilters
         {
@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ecr.Inputs
             set => _repositoryFilters = value;
         }
 
+        /// <summary>
+        /// The frequency that scans are performed at for a private registry. When the ``ENHANCED`` scan type is specified, the supported scan frequencies are ``CONTINUOUS_SCAN`` and ``SCAN_ON_PUSH``. When the ``BASIC`` scan type is specified, the ``SCAN_ON_PUSH`` scan frequency is supported. If scan on push is not specified, then the ``MANUAL`` scan frequency is set by default.
+        /// </summary>
         [Input("scanFrequency", required: true)]
         public Input<Pulumi.AwsNative.Ecr.RegistryScanningConfigurationScanFrequency> ScanFrequency { get; set; } = null!;
 

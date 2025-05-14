@@ -19,7 +19,7 @@ import (
 //	If you import an existing DB instance, and the template configuration doesn't match the actual configuration of the DB instance, AWS CloudFormation applies the changes in the template during the import operation.
 //	 If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes all automated snapshots. However, it retains manual DB snapshots. During an update that requires replacement, you can apply a stack policy to prevent DB instances from being replaced. For more information, see [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html).
 //	  *Updating DB instances*
-//	When properties labeled "*Update requires:* [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB instance, then changes references from other dependent resources to point to the replacement DB instance, and finally deletes the old DB instance.
+//	When properties labeled "*Update requires:*[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB instance, then changes references from other dependent resources to point to the replacement DB instance, and finally deletes the old DB instance.
 //	 We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB instance. To preserve your data, perform the following procedure:
 //	 1.  Deactivate any applications that are using the DB instance so that there's no activity on the DB instance.
 //	 2.  Create a snapshot of the DB instance. For more information, see [Creating a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html).
@@ -135,8 +135,7 @@ type LookupDbInstanceResult struct {
 	//  This setting doesn't apply to Amazon Aurora DB instances. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// The mode of Database Insights to enable for the DB instance.
-	//
-	// > Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
+	//   Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
 	DatabaseInsightsMode *string `pulumi:"databaseInsightsMode"`
 	// The identifier for the Multi-AZ DB cluster snapshot to restore from.
 	//  For more information on Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide*.
@@ -249,13 +248,13 @@ type LookupDbInstanceResult struct {
 	//  This property is required when creating a DB instance.
 	//   You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.
 	//   Valid Values:
-	//   +   ``aurora-mysql`` (for Aurora MySQL DB instances)
-	//   +   ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)
-	//   +   ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)
-	//   +   ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)
-	//   +   ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)
-	//   +   ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)
-	//   +   ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)
+	//   +  ``aurora-mysql`` (for Aurora MySQL DB instances)
+	//   +  ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)
+	//   +  ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)
+	//   +  ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)
+	//   +  ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)
+	//   +  ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)
+	//   +  ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)
 	//   +   ``db2-ae``
 	//   +   ``db2-se``
 	//   +   ``mariadb``
@@ -364,7 +363,7 @@ type LookupDbInstanceResult struct {
 	//  This setting doesn't apply to RDS Custom DB instances.
 	//  Valid Values:
 	//   +   ``7``
-	//   +   *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
+	//   +  *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
 	//   +   ``731``
 	//
 	//  Default: ``7`` days
@@ -604,7 +603,7 @@ func (o LookupDbInstanceResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput 
 
 // The mode of Database Insights to enable for the DB instance.
 //
-// > Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
+//	Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
 func (o LookupDbInstanceResultOutput) DatabaseInsightsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.DatabaseInsightsMode }).(pulumi.StringPtrOutput)
 }
@@ -788,13 +787,13 @@ func (o LookupDbInstanceResultOutput) Endpoint() DbInstanceEndpointPtrOutput {
 //	This property is required when creating a DB instance.
 //	 You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.
 //	 Valid Values:
-//	 +   ``aurora-mysql`` (for Aurora MySQL DB instances)
-//	 +   ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)
-//	 +   ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)
-//	 +   ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)
-//	 +   ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)
-//	 +   ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)
-//	 +   ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)
+//	 +  ``aurora-mysql`` (for Aurora MySQL DB instances)
+//	 +  ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)
+//	 +  ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)
+//	 +  ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)
+//	 +  ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)
+//	 +  ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)
+//	 +  ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)
 //	 +   ``db2-ae``
 //	 +   ``db2-se``
 //	 +   ``mariadb``
@@ -959,7 +958,7 @@ func (o LookupDbInstanceResultOutput) PerformanceInsightsKmsKeyId() pulumi.Strin
 //	This setting doesn't apply to RDS Custom DB instances.
 //	Valid Values:
 //	 +   ``7``
-//	 +   *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
+//	 +  *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
 //	 +   ``731``
 //
 //	Default: ``7`` days

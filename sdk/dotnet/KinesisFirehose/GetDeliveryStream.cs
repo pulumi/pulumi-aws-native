@@ -64,14 +64,6 @@ namespace Pulumi.AwsNative.KinesisFirehose
     public sealed class GetDeliveryStreamResult
     {
         /// <summary>
-        /// Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
-        /// </summary>
-        public readonly Outputs.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration? AmazonOpenSearchServerlessDestinationConfiguration;
-        /// <summary>
-        /// The destination in Amazon OpenSearch Service. You can specify only one destination.
-        /// </summary>
-        public readonly Outputs.DeliveryStreamAmazonopensearchserviceDestinationConfiguration? AmazonopensearchserviceDestinationConfiguration;
-        /// <summary>
         /// The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
         /// </summary>
         public readonly string? Arn;
@@ -79,14 +71,6 @@ namespace Pulumi.AwsNative.KinesisFirehose
         /// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
         /// </summary>
         public readonly Outputs.DeliveryStreamEncryptionConfigurationInput? DeliveryStreamEncryptionConfigurationInput;
-        /// <summary>
-        /// An Amazon ES destination for the delivery stream.
-        /// 
-        /// Conditional. You must specify only one destination configuration.
-        /// 
-        /// If you change the delivery stream destination from an Amazon ES destination to an Amazon S3 or Amazon Redshift destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
-        /// </summary>
-        public readonly Outputs.DeliveryStreamElasticsearchDestinationConfiguration? ElasticsearchDestinationConfiguration;
         /// <summary>
         /// An Amazon S3 destination for the delivery stream.
         /// 
@@ -100,10 +84,6 @@ namespace Pulumi.AwsNative.KinesisFirehose
         /// </summary>
         public readonly Outputs.DeliveryStreamHttpEndpointDestinationConfiguration? HttpEndpointDestinationConfiguration;
         /// <summary>
-        /// Specifies the destination configure settings for Apache Iceberg Table.
-        /// </summary>
-        public readonly Outputs.DeliveryStreamIcebergDestinationConfiguration? IcebergDestinationConfiguration;
-        /// <summary>
         /// An Amazon Redshift destination for the delivery stream.
         /// 
         /// Conditional. You must specify only one destination configuration.
@@ -111,18 +91,6 @@ namespace Pulumi.AwsNative.KinesisFirehose
         /// If you change the delivery stream destination from an Amazon Redshift destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
         /// </summary>
         public readonly Outputs.DeliveryStreamRedshiftDestinationConfiguration? RedshiftDestinationConfiguration;
-        /// <summary>
-        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-        /// 
-        /// Conditional. You must specify only one destination configuration.
-        /// 
-        /// If you change the delivery stream destination from an Amazon S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
-        /// </summary>
-        public readonly Outputs.DeliveryStreamS3DestinationConfiguration? S3DestinationConfiguration;
-        /// <summary>
-        /// Configure Snowflake destination
-        /// </summary>
-        public readonly Outputs.DeliveryStreamSnowflakeDestinationConfiguration? SnowflakeDestinationConfiguration;
         /// <summary>
         /// The configuration of a destination in Splunk for the delivery stream.
         /// </summary>
@@ -144,43 +112,25 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
         [OutputConstructor]
         private GetDeliveryStreamResult(
-            Outputs.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration? amazonOpenSearchServerlessDestinationConfiguration,
-
-            Outputs.DeliveryStreamAmazonopensearchserviceDestinationConfiguration? amazonopensearchserviceDestinationConfiguration,
-
             string? arn,
 
             Outputs.DeliveryStreamEncryptionConfigurationInput? deliveryStreamEncryptionConfigurationInput,
-
-            Outputs.DeliveryStreamElasticsearchDestinationConfiguration? elasticsearchDestinationConfiguration,
 
             Outputs.DeliveryStreamExtendedS3DestinationConfiguration? extendedS3DestinationConfiguration,
 
             Outputs.DeliveryStreamHttpEndpointDestinationConfiguration? httpEndpointDestinationConfiguration,
 
-            Outputs.DeliveryStreamIcebergDestinationConfiguration? icebergDestinationConfiguration,
-
             Outputs.DeliveryStreamRedshiftDestinationConfiguration? redshiftDestinationConfiguration,
-
-            Outputs.DeliveryStreamS3DestinationConfiguration? s3DestinationConfiguration,
-
-            Outputs.DeliveryStreamSnowflakeDestinationConfiguration? snowflakeDestinationConfiguration,
 
             Outputs.DeliveryStreamSplunkDestinationConfiguration? splunkDestinationConfiguration,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
-            AmazonOpenSearchServerlessDestinationConfiguration = amazonOpenSearchServerlessDestinationConfiguration;
-            AmazonopensearchserviceDestinationConfiguration = amazonopensearchserviceDestinationConfiguration;
             Arn = arn;
             DeliveryStreamEncryptionConfigurationInput = deliveryStreamEncryptionConfigurationInput;
-            ElasticsearchDestinationConfiguration = elasticsearchDestinationConfiguration;
             ExtendedS3DestinationConfiguration = extendedS3DestinationConfiguration;
             HttpEndpointDestinationConfiguration = httpEndpointDestinationConfiguration;
-            IcebergDestinationConfiguration = icebergDestinationConfiguration;
             RedshiftDestinationConfiguration = redshiftDestinationConfiguration;
-            S3DestinationConfiguration = s3DestinationConfiguration;
-            SnowflakeDestinationConfiguration = snowflakeDestinationConfiguration;
             SplunkDestinationConfiguration = splunkDestinationConfiguration;
             Tags = tags;
         }

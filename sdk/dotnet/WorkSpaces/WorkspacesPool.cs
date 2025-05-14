@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.WorkSpaces
         [Output("poolName")]
         public Output<string> PoolName { get; private set; } = null!;
 
+        [Output("runningMode")]
+        public Output<Pulumi.AwsNative.WorkSpaces.WorkspacesPoolRunningMode?> RunningMode { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -162,6 +165,9 @@ namespace Pulumi.AwsNative.WorkSpaces
         /// </summary>
         [Input("poolName")]
         public Input<string>? PoolName { get; set; }
+
+        [Input("runningMode")]
+        public Input<Pulumi.AwsNative.WorkSpaces.WorkspacesPoolRunningMode>? RunningMode { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

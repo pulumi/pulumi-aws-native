@@ -19,6 +19,10 @@
       "type" : "string",
       "enum" : [ "DISABLED", "ENABLED" ]
     },
+    "RunningMode" : {
+      "type" : "string",
+      "enum" : [ "ALWAYS_ON", "AUTO_STOP" ]
+    },
     "Capacity" : {
       "type" : "object",
       "properties" : {
@@ -108,6 +112,9 @@
     },
     "TimeoutSettings" : {
       "$ref" : "#/definitions/TimeoutSettings"
+    },
+    "RunningMode" : {
+      "$ref" : "#/definitions/RunningMode"
     },
     "Tags" : {
       "type" : "array",

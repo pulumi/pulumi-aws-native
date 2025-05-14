@@ -2091,6 +2091,171 @@ func (o WorkflowStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkflowStorageType string
+
+const (
+	WorkflowStorageTypeStatic  = WorkflowStorageType("STATIC")
+	WorkflowStorageTypeDynamic = WorkflowStorageType("DYNAMIC")
+)
+
+func (WorkflowStorageType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStorageType)(nil)).Elem()
+}
+
+func (e WorkflowStorageType) ToWorkflowStorageTypeOutput() WorkflowStorageTypeOutput {
+	return pulumi.ToOutput(e).(WorkflowStorageTypeOutput)
+}
+
+func (e WorkflowStorageType) ToWorkflowStorageTypeOutputWithContext(ctx context.Context) WorkflowStorageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkflowStorageTypeOutput)
+}
+
+func (e WorkflowStorageType) ToWorkflowStorageTypePtrOutput() WorkflowStorageTypePtrOutput {
+	return e.ToWorkflowStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowStorageType) ToWorkflowStorageTypePtrOutputWithContext(ctx context.Context) WorkflowStorageTypePtrOutput {
+	return WorkflowStorageType(e).ToWorkflowStorageTypeOutputWithContext(ctx).ToWorkflowStorageTypePtrOutputWithContext(ctx)
+}
+
+func (e WorkflowStorageType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowStorageType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowStorageType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowStorageType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkflowStorageTypeOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStorageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStorageType)(nil)).Elem()
+}
+
+func (o WorkflowStorageTypeOutput) ToWorkflowStorageTypeOutput() WorkflowStorageTypeOutput {
+	return o
+}
+
+func (o WorkflowStorageTypeOutput) ToWorkflowStorageTypeOutputWithContext(ctx context.Context) WorkflowStorageTypeOutput {
+	return o
+}
+
+func (o WorkflowStorageTypeOutput) ToWorkflowStorageTypePtrOutput() WorkflowStorageTypePtrOutput {
+	return o.ToWorkflowStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStorageTypeOutput) ToWorkflowStorageTypePtrOutputWithContext(ctx context.Context) WorkflowStorageTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStorageType) *WorkflowStorageType {
+		return &v
+	}).(WorkflowStorageTypePtrOutput)
+}
+
+func (o WorkflowStorageTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkflowStorageTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowStorageType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkflowStorageTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStorageTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowStorageType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowStorageTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStorageTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStorageType)(nil)).Elem()
+}
+
+func (o WorkflowStorageTypePtrOutput) ToWorkflowStorageTypePtrOutput() WorkflowStorageTypePtrOutput {
+	return o
+}
+
+func (o WorkflowStorageTypePtrOutput) ToWorkflowStorageTypePtrOutputWithContext(ctx context.Context) WorkflowStorageTypePtrOutput {
+	return o
+}
+
+func (o WorkflowStorageTypePtrOutput) Elem() WorkflowStorageTypeOutput {
+	return o.ApplyT(func(v *WorkflowStorageType) WorkflowStorageType {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowStorageType
+		return ret
+	}).(WorkflowStorageTypeOutput)
+}
+
+func (o WorkflowStorageTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkflowStorageType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkflowStorageTypeInput is an input type that accepts values of the WorkflowStorageType enum
+// A concrete instance of `WorkflowStorageTypeInput` can be one of the following:
+//
+//	WorkflowStorageTypeStatic
+//	WorkflowStorageTypeDynamic
+type WorkflowStorageTypeInput interface {
+	pulumi.Input
+
+	ToWorkflowStorageTypeOutput() WorkflowStorageTypeOutput
+	ToWorkflowStorageTypeOutputWithContext(context.Context) WorkflowStorageTypeOutput
+}
+
+var workflowStorageTypePtrType = reflect.TypeOf((**WorkflowStorageType)(nil)).Elem()
+
+type WorkflowStorageTypePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStorageTypePtrOutput() WorkflowStorageTypePtrOutput
+	ToWorkflowStorageTypePtrOutputWithContext(context.Context) WorkflowStorageTypePtrOutput
+}
+
+type workflowStorageTypePtr string
+
+func WorkflowStorageTypePtr(v string) WorkflowStorageTypePtrInput {
+	return (*workflowStorageTypePtr)(&v)
+}
+
+func (*workflowStorageTypePtr) ElementType() reflect.Type {
+	return workflowStorageTypePtrType
+}
+
+func (in *workflowStorageTypePtr) ToWorkflowStorageTypePtrOutput() WorkflowStorageTypePtrOutput {
+	return pulumi.ToOutput(in).(WorkflowStorageTypePtrOutput)
+}
+
+func (in *workflowStorageTypePtr) ToWorkflowStorageTypePtrOutputWithContext(ctx context.Context) WorkflowStorageTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkflowStorageTypePtrOutput)
+}
+
 type WorkflowType string
 
 const (
@@ -2180,6 +2345,685 @@ func (o WorkflowTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkflowVersionAccelerators string
+
+const (
+	WorkflowVersionAcceleratorsGpu = WorkflowVersionAccelerators("GPU")
+)
+
+func (WorkflowVersionAccelerators) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionAccelerators)(nil)).Elem()
+}
+
+func (e WorkflowVersionAccelerators) ToWorkflowVersionAcceleratorsOutput() WorkflowVersionAcceleratorsOutput {
+	return pulumi.ToOutput(e).(WorkflowVersionAcceleratorsOutput)
+}
+
+func (e WorkflowVersionAccelerators) ToWorkflowVersionAcceleratorsOutputWithContext(ctx context.Context) WorkflowVersionAcceleratorsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkflowVersionAcceleratorsOutput)
+}
+
+func (e WorkflowVersionAccelerators) ToWorkflowVersionAcceleratorsPtrOutput() WorkflowVersionAcceleratorsPtrOutput {
+	return e.ToWorkflowVersionAcceleratorsPtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowVersionAccelerators) ToWorkflowVersionAcceleratorsPtrOutputWithContext(ctx context.Context) WorkflowVersionAcceleratorsPtrOutput {
+	return WorkflowVersionAccelerators(e).ToWorkflowVersionAcceleratorsOutputWithContext(ctx).ToWorkflowVersionAcceleratorsPtrOutputWithContext(ctx)
+}
+
+func (e WorkflowVersionAccelerators) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowVersionAccelerators) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowVersionAccelerators) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowVersionAccelerators) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkflowVersionAcceleratorsOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionAcceleratorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionAccelerators)(nil)).Elem()
+}
+
+func (o WorkflowVersionAcceleratorsOutput) ToWorkflowVersionAcceleratorsOutput() WorkflowVersionAcceleratorsOutput {
+	return o
+}
+
+func (o WorkflowVersionAcceleratorsOutput) ToWorkflowVersionAcceleratorsOutputWithContext(ctx context.Context) WorkflowVersionAcceleratorsOutput {
+	return o
+}
+
+func (o WorkflowVersionAcceleratorsOutput) ToWorkflowVersionAcceleratorsPtrOutput() WorkflowVersionAcceleratorsPtrOutput {
+	return o.ToWorkflowVersionAcceleratorsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionAcceleratorsOutput) ToWorkflowVersionAcceleratorsPtrOutputWithContext(ctx context.Context) WorkflowVersionAcceleratorsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowVersionAccelerators) *WorkflowVersionAccelerators {
+		return &v
+	}).(WorkflowVersionAcceleratorsPtrOutput)
+}
+
+func (o WorkflowVersionAcceleratorsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionAcceleratorsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowVersionAccelerators) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkflowVersionAcceleratorsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionAcceleratorsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowVersionAccelerators) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowVersionAcceleratorsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionAcceleratorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowVersionAccelerators)(nil)).Elem()
+}
+
+func (o WorkflowVersionAcceleratorsPtrOutput) ToWorkflowVersionAcceleratorsPtrOutput() WorkflowVersionAcceleratorsPtrOutput {
+	return o
+}
+
+func (o WorkflowVersionAcceleratorsPtrOutput) ToWorkflowVersionAcceleratorsPtrOutputWithContext(ctx context.Context) WorkflowVersionAcceleratorsPtrOutput {
+	return o
+}
+
+func (o WorkflowVersionAcceleratorsPtrOutput) Elem() WorkflowVersionAcceleratorsOutput {
+	return o.ApplyT(func(v *WorkflowVersionAccelerators) WorkflowVersionAccelerators {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowVersionAccelerators
+		return ret
+	}).(WorkflowVersionAcceleratorsOutput)
+}
+
+func (o WorkflowVersionAcceleratorsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionAcceleratorsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkflowVersionAccelerators) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkflowVersionAcceleratorsInput is an input type that accepts values of the WorkflowVersionAccelerators enum
+// A concrete instance of `WorkflowVersionAcceleratorsInput` can be one of the following:
+//
+//	WorkflowVersionAcceleratorsGpu
+type WorkflowVersionAcceleratorsInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionAcceleratorsOutput() WorkflowVersionAcceleratorsOutput
+	ToWorkflowVersionAcceleratorsOutputWithContext(context.Context) WorkflowVersionAcceleratorsOutput
+}
+
+var workflowVersionAcceleratorsPtrType = reflect.TypeOf((**WorkflowVersionAccelerators)(nil)).Elem()
+
+type WorkflowVersionAcceleratorsPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionAcceleratorsPtrOutput() WorkflowVersionAcceleratorsPtrOutput
+	ToWorkflowVersionAcceleratorsPtrOutputWithContext(context.Context) WorkflowVersionAcceleratorsPtrOutput
+}
+
+type workflowVersionAcceleratorsPtr string
+
+func WorkflowVersionAcceleratorsPtr(v string) WorkflowVersionAcceleratorsPtrInput {
+	return (*workflowVersionAcceleratorsPtr)(&v)
+}
+
+func (*workflowVersionAcceleratorsPtr) ElementType() reflect.Type {
+	return workflowVersionAcceleratorsPtrType
+}
+
+func (in *workflowVersionAcceleratorsPtr) ToWorkflowVersionAcceleratorsPtrOutput() WorkflowVersionAcceleratorsPtrOutput {
+	return pulumi.ToOutput(in).(WorkflowVersionAcceleratorsPtrOutput)
+}
+
+func (in *workflowVersionAcceleratorsPtr) ToWorkflowVersionAcceleratorsPtrOutputWithContext(ctx context.Context) WorkflowVersionAcceleratorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkflowVersionAcceleratorsPtrOutput)
+}
+
+type WorkflowVersionStorageType string
+
+const (
+	WorkflowVersionStorageTypeStatic  = WorkflowVersionStorageType("STATIC")
+	WorkflowVersionStorageTypeDynamic = WorkflowVersionStorageType("DYNAMIC")
+)
+
+func (WorkflowVersionStorageType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionStorageType)(nil)).Elem()
+}
+
+func (e WorkflowVersionStorageType) ToWorkflowVersionStorageTypeOutput() WorkflowVersionStorageTypeOutput {
+	return pulumi.ToOutput(e).(WorkflowVersionStorageTypeOutput)
+}
+
+func (e WorkflowVersionStorageType) ToWorkflowVersionStorageTypeOutputWithContext(ctx context.Context) WorkflowVersionStorageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkflowVersionStorageTypeOutput)
+}
+
+func (e WorkflowVersionStorageType) ToWorkflowVersionStorageTypePtrOutput() WorkflowVersionStorageTypePtrOutput {
+	return e.ToWorkflowVersionStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowVersionStorageType) ToWorkflowVersionStorageTypePtrOutputWithContext(ctx context.Context) WorkflowVersionStorageTypePtrOutput {
+	return WorkflowVersionStorageType(e).ToWorkflowVersionStorageTypeOutputWithContext(ctx).ToWorkflowVersionStorageTypePtrOutputWithContext(ctx)
+}
+
+func (e WorkflowVersionStorageType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowVersionStorageType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowVersionStorageType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowVersionStorageType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkflowVersionStorageTypeOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionStorageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionStorageType)(nil)).Elem()
+}
+
+func (o WorkflowVersionStorageTypeOutput) ToWorkflowVersionStorageTypeOutput() WorkflowVersionStorageTypeOutput {
+	return o
+}
+
+func (o WorkflowVersionStorageTypeOutput) ToWorkflowVersionStorageTypeOutputWithContext(ctx context.Context) WorkflowVersionStorageTypeOutput {
+	return o
+}
+
+func (o WorkflowVersionStorageTypeOutput) ToWorkflowVersionStorageTypePtrOutput() WorkflowVersionStorageTypePtrOutput {
+	return o.ToWorkflowVersionStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionStorageTypeOutput) ToWorkflowVersionStorageTypePtrOutputWithContext(ctx context.Context) WorkflowVersionStorageTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowVersionStorageType) *WorkflowVersionStorageType {
+		return &v
+	}).(WorkflowVersionStorageTypePtrOutput)
+}
+
+func (o WorkflowVersionStorageTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionStorageTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowVersionStorageType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkflowVersionStorageTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionStorageTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowVersionStorageType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowVersionStorageTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionStorageTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowVersionStorageType)(nil)).Elem()
+}
+
+func (o WorkflowVersionStorageTypePtrOutput) ToWorkflowVersionStorageTypePtrOutput() WorkflowVersionStorageTypePtrOutput {
+	return o
+}
+
+func (o WorkflowVersionStorageTypePtrOutput) ToWorkflowVersionStorageTypePtrOutputWithContext(ctx context.Context) WorkflowVersionStorageTypePtrOutput {
+	return o
+}
+
+func (o WorkflowVersionStorageTypePtrOutput) Elem() WorkflowVersionStorageTypeOutput {
+	return o.ApplyT(func(v *WorkflowVersionStorageType) WorkflowVersionStorageType {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowVersionStorageType
+		return ret
+	}).(WorkflowVersionStorageTypeOutput)
+}
+
+func (o WorkflowVersionStorageTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkflowVersionStorageType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkflowVersionStorageTypeInput is an input type that accepts values of the WorkflowVersionStorageType enum
+// A concrete instance of `WorkflowVersionStorageTypeInput` can be one of the following:
+//
+//	WorkflowVersionStorageTypeStatic
+//	WorkflowVersionStorageTypeDynamic
+type WorkflowVersionStorageTypeInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionStorageTypeOutput() WorkflowVersionStorageTypeOutput
+	ToWorkflowVersionStorageTypeOutputWithContext(context.Context) WorkflowVersionStorageTypeOutput
+}
+
+var workflowVersionStorageTypePtrType = reflect.TypeOf((**WorkflowVersionStorageType)(nil)).Elem()
+
+type WorkflowVersionStorageTypePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionStorageTypePtrOutput() WorkflowVersionStorageTypePtrOutput
+	ToWorkflowVersionStorageTypePtrOutputWithContext(context.Context) WorkflowVersionStorageTypePtrOutput
+}
+
+type workflowVersionStorageTypePtr string
+
+func WorkflowVersionStorageTypePtr(v string) WorkflowVersionStorageTypePtrInput {
+	return (*workflowVersionStorageTypePtr)(&v)
+}
+
+func (*workflowVersionStorageTypePtr) ElementType() reflect.Type {
+	return workflowVersionStorageTypePtrType
+}
+
+func (in *workflowVersionStorageTypePtr) ToWorkflowVersionStorageTypePtrOutput() WorkflowVersionStorageTypePtrOutput {
+	return pulumi.ToOutput(in).(WorkflowVersionStorageTypePtrOutput)
+}
+
+func (in *workflowVersionStorageTypePtr) ToWorkflowVersionStorageTypePtrOutputWithContext(ctx context.Context) WorkflowVersionStorageTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkflowVersionStorageTypePtrOutput)
+}
+
+type WorkflowVersionWorkflowEngine string
+
+const (
+	WorkflowVersionWorkflowEngineWdl      = WorkflowVersionWorkflowEngine("WDL")
+	WorkflowVersionWorkflowEngineNextflow = WorkflowVersionWorkflowEngine("NEXTFLOW")
+	WorkflowVersionWorkflowEngineCwl      = WorkflowVersionWorkflowEngine("CWL")
+)
+
+func (WorkflowVersionWorkflowEngine) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionWorkflowEngine)(nil)).Elem()
+}
+
+func (e WorkflowVersionWorkflowEngine) ToWorkflowVersionWorkflowEngineOutput() WorkflowVersionWorkflowEngineOutput {
+	return pulumi.ToOutput(e).(WorkflowVersionWorkflowEngineOutput)
+}
+
+func (e WorkflowVersionWorkflowEngine) ToWorkflowVersionWorkflowEngineOutputWithContext(ctx context.Context) WorkflowVersionWorkflowEngineOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkflowVersionWorkflowEngineOutput)
+}
+
+func (e WorkflowVersionWorkflowEngine) ToWorkflowVersionWorkflowEnginePtrOutput() WorkflowVersionWorkflowEnginePtrOutput {
+	return e.ToWorkflowVersionWorkflowEnginePtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowVersionWorkflowEngine) ToWorkflowVersionWorkflowEnginePtrOutputWithContext(ctx context.Context) WorkflowVersionWorkflowEnginePtrOutput {
+	return WorkflowVersionWorkflowEngine(e).ToWorkflowVersionWorkflowEngineOutputWithContext(ctx).ToWorkflowVersionWorkflowEnginePtrOutputWithContext(ctx)
+}
+
+func (e WorkflowVersionWorkflowEngine) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowVersionWorkflowEngine) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowVersionWorkflowEngine) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowVersionWorkflowEngine) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkflowVersionWorkflowEngineOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionWorkflowEngineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionWorkflowEngine)(nil)).Elem()
+}
+
+func (o WorkflowVersionWorkflowEngineOutput) ToWorkflowVersionWorkflowEngineOutput() WorkflowVersionWorkflowEngineOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowEngineOutput) ToWorkflowVersionWorkflowEngineOutputWithContext(ctx context.Context) WorkflowVersionWorkflowEngineOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowEngineOutput) ToWorkflowVersionWorkflowEnginePtrOutput() WorkflowVersionWorkflowEnginePtrOutput {
+	return o.ToWorkflowVersionWorkflowEnginePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionWorkflowEngineOutput) ToWorkflowVersionWorkflowEnginePtrOutputWithContext(ctx context.Context) WorkflowVersionWorkflowEnginePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowVersionWorkflowEngine) *WorkflowVersionWorkflowEngine {
+		return &v
+	}).(WorkflowVersionWorkflowEnginePtrOutput)
+}
+
+func (o WorkflowVersionWorkflowEngineOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionWorkflowEngineOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowVersionWorkflowEngine) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkflowVersionWorkflowEngineOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionWorkflowEngineOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowVersionWorkflowEngine) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowVersionWorkflowEnginePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionWorkflowEnginePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowVersionWorkflowEngine)(nil)).Elem()
+}
+
+func (o WorkflowVersionWorkflowEnginePtrOutput) ToWorkflowVersionWorkflowEnginePtrOutput() WorkflowVersionWorkflowEnginePtrOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowEnginePtrOutput) ToWorkflowVersionWorkflowEnginePtrOutputWithContext(ctx context.Context) WorkflowVersionWorkflowEnginePtrOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowEnginePtrOutput) Elem() WorkflowVersionWorkflowEngineOutput {
+	return o.ApplyT(func(v *WorkflowVersionWorkflowEngine) WorkflowVersionWorkflowEngine {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowVersionWorkflowEngine
+		return ret
+	}).(WorkflowVersionWorkflowEngineOutput)
+}
+
+func (o WorkflowVersionWorkflowEnginePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionWorkflowEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkflowVersionWorkflowEngine) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkflowVersionWorkflowEngineInput is an input type that accepts values of the WorkflowVersionWorkflowEngine enum
+// A concrete instance of `WorkflowVersionWorkflowEngineInput` can be one of the following:
+//
+//	WorkflowVersionWorkflowEngineWdl
+//	WorkflowVersionWorkflowEngineNextflow
+//	WorkflowVersionWorkflowEngineCwl
+type WorkflowVersionWorkflowEngineInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionWorkflowEngineOutput() WorkflowVersionWorkflowEngineOutput
+	ToWorkflowVersionWorkflowEngineOutputWithContext(context.Context) WorkflowVersionWorkflowEngineOutput
+}
+
+var workflowVersionWorkflowEnginePtrType = reflect.TypeOf((**WorkflowVersionWorkflowEngine)(nil)).Elem()
+
+type WorkflowVersionWorkflowEnginePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowVersionWorkflowEnginePtrOutput() WorkflowVersionWorkflowEnginePtrOutput
+	ToWorkflowVersionWorkflowEnginePtrOutputWithContext(context.Context) WorkflowVersionWorkflowEnginePtrOutput
+}
+
+type workflowVersionWorkflowEnginePtr string
+
+func WorkflowVersionWorkflowEnginePtr(v string) WorkflowVersionWorkflowEnginePtrInput {
+	return (*workflowVersionWorkflowEnginePtr)(&v)
+}
+
+func (*workflowVersionWorkflowEnginePtr) ElementType() reflect.Type {
+	return workflowVersionWorkflowEnginePtrType
+}
+
+func (in *workflowVersionWorkflowEnginePtr) ToWorkflowVersionWorkflowEnginePtrOutput() WorkflowVersionWorkflowEnginePtrOutput {
+	return pulumi.ToOutput(in).(WorkflowVersionWorkflowEnginePtrOutput)
+}
+
+func (in *workflowVersionWorkflowEnginePtr) ToWorkflowVersionWorkflowEnginePtrOutputWithContext(ctx context.Context) WorkflowVersionWorkflowEnginePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkflowVersionWorkflowEnginePtrOutput)
+}
+
+type WorkflowVersionWorkflowStatus string
+
+const (
+	WorkflowVersionWorkflowStatusCreating = WorkflowVersionWorkflowStatus("CREATING")
+	WorkflowVersionWorkflowStatusActive   = WorkflowVersionWorkflowStatus("ACTIVE")
+	WorkflowVersionWorkflowStatusUpdating = WorkflowVersionWorkflowStatus("UPDATING")
+	WorkflowVersionWorkflowStatusDeleted  = WorkflowVersionWorkflowStatus("DELETED")
+	WorkflowVersionWorkflowStatusFailed   = WorkflowVersionWorkflowStatus("FAILED")
+	WorkflowVersionWorkflowStatusInactive = WorkflowVersionWorkflowStatus("INACTIVE")
+)
+
+type WorkflowVersionWorkflowStatusOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionWorkflowStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionWorkflowStatus)(nil)).Elem()
+}
+
+func (o WorkflowVersionWorkflowStatusOutput) ToWorkflowVersionWorkflowStatusOutput() WorkflowVersionWorkflowStatusOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowStatusOutput) ToWorkflowVersionWorkflowStatusOutputWithContext(ctx context.Context) WorkflowVersionWorkflowStatusOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowStatusOutput) ToWorkflowVersionWorkflowStatusPtrOutput() WorkflowVersionWorkflowStatusPtrOutput {
+	return o.ToWorkflowVersionWorkflowStatusPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionWorkflowStatusOutput) ToWorkflowVersionWorkflowStatusPtrOutputWithContext(ctx context.Context) WorkflowVersionWorkflowStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowVersionWorkflowStatus) *WorkflowVersionWorkflowStatus {
+		return &v
+	}).(WorkflowVersionWorkflowStatusPtrOutput)
+}
+
+func (o WorkflowVersionWorkflowStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionWorkflowStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowVersionWorkflowStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkflowVersionWorkflowStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionWorkflowStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowVersionWorkflowStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowVersionWorkflowStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionWorkflowStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowVersionWorkflowStatus)(nil)).Elem()
+}
+
+func (o WorkflowVersionWorkflowStatusPtrOutput) ToWorkflowVersionWorkflowStatusPtrOutput() WorkflowVersionWorkflowStatusPtrOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowStatusPtrOutput) ToWorkflowVersionWorkflowStatusPtrOutputWithContext(ctx context.Context) WorkflowVersionWorkflowStatusPtrOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowStatusPtrOutput) Elem() WorkflowVersionWorkflowStatusOutput {
+	return o.ApplyT(func(v *WorkflowVersionWorkflowStatus) WorkflowVersionWorkflowStatus {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowVersionWorkflowStatus
+		return ret
+	}).(WorkflowVersionWorkflowStatusOutput)
+}
+
+func (o WorkflowVersionWorkflowStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionWorkflowStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkflowVersionWorkflowStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowVersionWorkflowType string
+
+const (
+	WorkflowVersionWorkflowTypePrivate   = WorkflowVersionWorkflowType("PRIVATE")
+	WorkflowVersionWorkflowTypeReady2run = WorkflowVersionWorkflowType("READY2RUN")
+)
+
+type WorkflowVersionWorkflowTypeOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionWorkflowTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowVersionWorkflowType)(nil)).Elem()
+}
+
+func (o WorkflowVersionWorkflowTypeOutput) ToWorkflowVersionWorkflowTypeOutput() WorkflowVersionWorkflowTypeOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowTypeOutput) ToWorkflowVersionWorkflowTypeOutputWithContext(ctx context.Context) WorkflowVersionWorkflowTypeOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowTypeOutput) ToWorkflowVersionWorkflowTypePtrOutput() WorkflowVersionWorkflowTypePtrOutput {
+	return o.ToWorkflowVersionWorkflowTypePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionWorkflowTypeOutput) ToWorkflowVersionWorkflowTypePtrOutputWithContext(ctx context.Context) WorkflowVersionWorkflowTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowVersionWorkflowType) *WorkflowVersionWorkflowType {
+		return &v
+	}).(WorkflowVersionWorkflowTypePtrOutput)
+}
+
+func (o WorkflowVersionWorkflowTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionWorkflowTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowVersionWorkflowType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkflowVersionWorkflowTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionWorkflowTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowVersionWorkflowType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowVersionWorkflowTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowVersionWorkflowTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowVersionWorkflowType)(nil)).Elem()
+}
+
+func (o WorkflowVersionWorkflowTypePtrOutput) ToWorkflowVersionWorkflowTypePtrOutput() WorkflowVersionWorkflowTypePtrOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowTypePtrOutput) ToWorkflowVersionWorkflowTypePtrOutputWithContext(ctx context.Context) WorkflowVersionWorkflowTypePtrOutput {
+	return o
+}
+
+func (o WorkflowVersionWorkflowTypePtrOutput) Elem() WorkflowVersionWorkflowTypeOutput {
+	return o.ApplyT(func(v *WorkflowVersionWorkflowType) WorkflowVersionWorkflowType {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowVersionWorkflowType
+		return ret
+	}).(WorkflowVersionWorkflowTypeOutput)
+}
+
+func (o WorkflowVersionWorkflowTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowVersionWorkflowTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkflowVersionWorkflowType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreAnnotationTypeInput)(nil)).Elem(), AnnotationStoreAnnotationType("GENERIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreAnnotationTypePtrInput)(nil)).Elem(), AnnotationStoreAnnotationType("GENERIC"))
@@ -2202,6 +3046,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAcceleratorsPtrInput)(nil)).Elem(), WorkflowAccelerators("GPU"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEngineInput)(nil)).Elem(), WorkflowEngine("WDL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnginePtrInput)(nil)).Elem(), WorkflowEngine("WDL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStorageTypeInput)(nil)).Elem(), WorkflowStorageType("STATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStorageTypePtrInput)(nil)).Elem(), WorkflowStorageType("STATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionAcceleratorsInput)(nil)).Elem(), WorkflowVersionAccelerators("GPU"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionAcceleratorsPtrInput)(nil)).Elem(), WorkflowVersionAccelerators("GPU"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionStorageTypeInput)(nil)).Elem(), WorkflowVersionStorageType("STATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionStorageTypePtrInput)(nil)).Elem(), WorkflowVersionStorageType("STATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionWorkflowEngineInput)(nil)).Elem(), WorkflowVersionWorkflowEngine("WDL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowVersionWorkflowEnginePtrInput)(nil)).Elem(), WorkflowVersionWorkflowEngine("WDL"))
 	pulumi.RegisterOutputType(AnnotationStoreAnnotationTypeOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreAnnotationTypePtrOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreEncryptionTypeOutput{})
@@ -2231,6 +3083,18 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowEnginePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStatusOutput{})
 	pulumi.RegisterOutputType(WorkflowStatusPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowStorageTypeOutput{})
+	pulumi.RegisterOutputType(WorkflowStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowTypeOutput{})
 	pulumi.RegisterOutputType(WorkflowTypePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionAcceleratorsOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionAcceleratorsPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionStorageTypeOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionStorageTypePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionWorkflowEngineOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionWorkflowEnginePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionWorkflowStatusOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionWorkflowStatusPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionWorkflowTypeOutput{})
+	pulumi.RegisterOutputType(WorkflowVersionWorkflowTypePtrOutput{})
 }

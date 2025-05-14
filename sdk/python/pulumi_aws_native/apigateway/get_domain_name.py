@@ -16,6 +16,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetDomainNameResult',
@@ -26,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainNameResult:
-    def __init__(__self__, certificate_arn=None, distribution_domain_name=None, distribution_hosted_zone_id=None, domain_name_arn=None, endpoint_configuration=None, mutual_tls_authentication=None, ownership_verification_certificate_arn=None, regional_certificate_arn=None, regional_domain_name=None, regional_hosted_zone_id=None, security_policy=None, tags=None):
+    def __init__(__self__, certificate_arn=None, distribution_domain_name=None, distribution_hosted_zone_id=None, domain_name_arn=None, endpoint_configuration=None, mutual_tls_authentication=None, ownership_verification_certificate_arn=None, regional_certificate_arn=None, regional_domain_name=None, regional_hosted_zone_id=None, routing_mode=None, security_policy=None, tags=None):
         if certificate_arn and not isinstance(certificate_arn, str):
             raise TypeError("Expected argument 'certificate_arn' to be a str")
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -57,6 +58,9 @@ class GetDomainNameResult:
         if regional_hosted_zone_id and not isinstance(regional_hosted_zone_id, str):
             raise TypeError("Expected argument 'regional_hosted_zone_id' to be a str")
         pulumi.set(__self__, "regional_hosted_zone_id", regional_hosted_zone_id)
+        if routing_mode and not isinstance(routing_mode, str):
+            raise TypeError("Expected argument 'routing_mode' to be a str")
+        pulumi.set(__self__, "routing_mode", routing_mode)
         if security_policy and not isinstance(security_policy, str):
             raise TypeError("Expected argument 'security_policy' to be a str")
         pulumi.set(__self__, "security_policy", security_policy)
@@ -93,6 +97,9 @@ class GetDomainNameResult:
     @property
     @pulumi.getter(name="domainNameArn")
     def domain_name_arn(self) -> Optional[builtins.str]:
+        """
+        The ARN of the domain name. Supported only for private custom domain names.
+        """
         return pulumi.get(self, "domain_name_arn")
 
     @property
@@ -144,6 +151,11 @@ class GetDomainNameResult:
         return pulumi.get(self, "regional_hosted_zone_id")
 
     @property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> Optional['DomainNameRoutingMode']:
+        return pulumi.get(self, "routing_mode")
+
+    @property
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> Optional[builtins.str]:
         """
@@ -176,6 +188,7 @@ class AwaitableGetDomainNameResult(GetDomainNameResult):
             regional_certificate_arn=self.regional_certificate_arn,
             regional_domain_name=self.regional_domain_name,
             regional_hosted_zone_id=self.regional_hosted_zone_id,
+            routing_mode=self.routing_mode,
             security_policy=self.security_policy,
             tags=self.tags)
 
@@ -205,6 +218,7 @@ def get_domain_name(domain_name: Optional[builtins.str] = None,
         regional_certificate_arn=pulumi.get(__ret__, 'regional_certificate_arn'),
         regional_domain_name=pulumi.get(__ret__, 'regional_domain_name'),
         regional_hosted_zone_id=pulumi.get(__ret__, 'regional_hosted_zone_id'),
+        routing_mode=pulumi.get(__ret__, 'routing_mode'),
         security_policy=pulumi.get(__ret__, 'security_policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_domain_name_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -231,5 +245,6 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[builtins.str]] = N
         regional_certificate_arn=pulumi.get(__response__, 'regional_certificate_arn'),
         regional_domain_name=pulumi.get(__response__, 'regional_domain_name'),
         regional_hosted_zone_id=pulumi.get(__response__, 'regional_hosted_zone_id'),
+        routing_mode=pulumi.get(__response__, 'routing_mode'),
         security_policy=pulumi.get(__response__, 'security_policy'),
         tags=pulumi.get(__response__, 'tags')))

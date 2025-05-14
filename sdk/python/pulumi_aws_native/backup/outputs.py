@@ -165,6 +165,12 @@ class BackupPlanBackupRuleResourceType(dict):
         :param builtins.float completion_window_minutes: A value in minutes after a backup job is successfully started before it must be completed or it is canceled by AWS Backup .
         :param Sequence['BackupPlanCopyActionResourceType'] copy_actions: An array of CopyAction objects, which contains the details of the copy operation.
         :param builtins.bool enable_continuous_backup: Enables continuous backup and point-in-time restores (PITR).
+        :param Sequence['BackupPlanIndexActionsResourceType'] index_actions: There can up to one IndexAction in each BackupRule, as each backup can have 0 or 1 backup index associated with it.
+               
+               Within the array is ResourceTypes. Only 1 resource type will be accepted for each BackupRule. Valid values:
+               
+               - `EBS` for Amazon Elastic Block Store
+               - `S3` for Amazon Simple Storage Service (Amazon S3)
         :param 'BackupPlanLifecycleResourceType' lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
         :param Mapping[str, builtins.str] recovery_point_tags: The tags to assign to the resources.
         :param builtins.str schedule_expression: A CRON expression specifying when AWS Backup initiates a backup job.
@@ -237,6 +243,14 @@ class BackupPlanBackupRuleResourceType(dict):
     @property
     @pulumi.getter(name="indexActions")
     def index_actions(self) -> Optional[Sequence['outputs.BackupPlanIndexActionsResourceType']]:
+        """
+        There can up to one IndexAction in each BackupRule, as each backup can have 0 or 1 backup index associated with it.
+
+        Within the array is ResourceTypes. Only 1 resource type will be accepted for each BackupRule. Valid values:
+
+        - `EBS` for Amazon Elastic Block Store
+        - `S3` for Amazon Simple Storage Service (Amazon S3)
+        """
         return pulumi.get(self, "index_actions")
 
     @property
@@ -354,12 +368,28 @@ class BackupPlanIndexActionsResourceType(dict):
 
     def __init__(__self__, *,
                  resource_types: Optional[Sequence[builtins.str]] = None):
+        """
+        :param Sequence[builtins.str] resource_types: 0 or 1 index action will be accepted for each BackupRule.
+               
+               Valid values:
+               
+               - `EBS` for Amazon Elastic Block Store
+               - `S3` for Amazon Simple Storage Service (Amazon S3)
+        """
         if resource_types is not None:
             pulumi.set(__self__, "resource_types", resource_types)
 
     @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[Sequence[builtins.str]]:
+        """
+        0 or 1 index action will be accepted for each BackupRule.
+
+        Valid values:
+
+        - `EBS` for Amazon Elastic Block Store
+        - `S3` for Amazon Simple Storage Service (Amazon S3)
+        """
         return pulumi.get(self, "resource_types")
 
 
@@ -391,8 +421,8 @@ class BackupPlanLifecycleResourceType(dict):
                  move_to_cold_storage_after_days: Optional[builtins.float] = None,
                  opt_in_to_archive_for_supported_resources: Optional[builtins.bool] = None):
         """
-        :param builtins.float delete_after_days: Specifies the number of days after creation that a recovery point is deleted. Must be greater than `MoveToColdStorageAfterDays` .
-        :param builtins.float move_to_cold_storage_after_days: Specifies the number of days after creation that a recovery point is moved to cold storage.
+        :param builtins.float delete_after_days: The number of days after creation that a recovery point is deleted. This value must be at least 90 days after the number of days specified in `MoveToColdStorageAfterDays` .
+        :param builtins.float move_to_cold_storage_after_days: The number of days after creation that a recovery point is moved to cold storage.
         :param builtins.bool opt_in_to_archive_for_supported_resources: If the value is true, your backup plan transitions supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
         """
         if delete_after_days is not None:
@@ -406,7 +436,7 @@ class BackupPlanLifecycleResourceType(dict):
     @pulumi.getter(name="deleteAfterDays")
     def delete_after_days(self) -> Optional[builtins.float]:
         """
-        Specifies the number of days after creation that a recovery point is deleted. Must be greater than `MoveToColdStorageAfterDays` .
+        The number of days after creation that a recovery point is deleted. This value must be at least 90 days after the number of days specified in `MoveToColdStorageAfterDays` .
         """
         return pulumi.get(self, "delete_after_days")
 
@@ -414,7 +444,7 @@ class BackupPlanLifecycleResourceType(dict):
     @pulumi.getter(name="moveToColdStorageAfterDays")
     def move_to_cold_storage_after_days(self) -> Optional[builtins.float]:
         """
-        Specifies the number of days after creation that a recovery point is moved to cold storage.
+        The number of days after creation that a recovery point is moved to cold storage.
         """
         return pulumi.get(self, "move_to_cold_storage_after_days")
 

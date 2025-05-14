@@ -4843,6 +4843,8 @@ func (o DomainAppLifecycleManagementPtrOutput) IdleSettings() DomainIdleSettings
 type DomainCodeEditorAppSettings struct {
 	// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
 	AppLifecycleManagement *DomainAppLifecycleManagement `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
 	// A list of custom images for use for CodeEditor apps.
 	CustomImages []DomainCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
@@ -4866,6 +4868,8 @@ type DomainCodeEditorAppSettingsInput interface {
 type DomainCodeEditorAppSettingsArgs struct {
 	// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
 	AppLifecycleManagement DomainAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	BuiltInLifecycleConfigArn pulumi.StringPtrInput `pulumi:"builtInLifecycleConfigArn"`
 	// A list of custom images for use for CodeEditor apps.
 	CustomImages DomainCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
@@ -4957,6 +4961,11 @@ func (o DomainCodeEditorAppSettingsOutput) AppLifecycleManagement() DomainAppLif
 	return o.ApplyT(func(v DomainCodeEditorAppSettings) *DomainAppLifecycleManagement { return v.AppLifecycleManagement }).(DomainAppLifecycleManagementPtrOutput)
 }
 
+// The lifecycle configuration that runs before the default lifecycle configuration.
+func (o DomainCodeEditorAppSettingsOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainCodeEditorAppSettings) *string { return v.BuiltInLifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // A list of custom images for use for CodeEditor apps.
 func (o DomainCodeEditorAppSettingsOutput) CustomImages() DomainCustomImageArrayOutput {
 	return o.ApplyT(func(v DomainCodeEditorAppSettings) []DomainCustomImage { return v.CustomImages }).(DomainCustomImageArrayOutput)
@@ -5004,6 +5013,16 @@ func (o DomainCodeEditorAppSettingsPtrOutput) AppLifecycleManagement() DomainApp
 		}
 		return v.AppLifecycleManagement
 	}).(DomainAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration.
+func (o DomainCodeEditorAppSettingsPtrOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainCodeEditorAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuiltInLifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of custom images for use for CodeEditor apps.
@@ -6560,6 +6579,111 @@ func (o DomainFSxLustreFileSystemConfigPtrOutput) FileSystemPath() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainHiddenSageMakerImage struct {
+	// The SageMaker image name that you are hiding from the Studio user interface.
+	SageMakerImageName *DomainHiddenSageMakerImageSageMakerImageName `pulumi:"sageMakerImageName"`
+	VersionAliases     []string                                      `pulumi:"versionAliases"`
+}
+
+// DomainHiddenSageMakerImageInput is an input type that accepts DomainHiddenSageMakerImageArgs and DomainHiddenSageMakerImageOutput values.
+// You can construct a concrete instance of `DomainHiddenSageMakerImageInput` via:
+//
+//	DomainHiddenSageMakerImageArgs{...}
+type DomainHiddenSageMakerImageInput interface {
+	pulumi.Input
+
+	ToDomainHiddenSageMakerImageOutput() DomainHiddenSageMakerImageOutput
+	ToDomainHiddenSageMakerImageOutputWithContext(context.Context) DomainHiddenSageMakerImageOutput
+}
+
+type DomainHiddenSageMakerImageArgs struct {
+	// The SageMaker image name that you are hiding from the Studio user interface.
+	SageMakerImageName DomainHiddenSageMakerImageSageMakerImageNamePtrInput `pulumi:"sageMakerImageName"`
+	VersionAliases     pulumi.StringArrayInput                              `pulumi:"versionAliases"`
+}
+
+func (DomainHiddenSageMakerImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainHiddenSageMakerImage)(nil)).Elem()
+}
+
+func (i DomainHiddenSageMakerImageArgs) ToDomainHiddenSageMakerImageOutput() DomainHiddenSageMakerImageOutput {
+	return i.ToDomainHiddenSageMakerImageOutputWithContext(context.Background())
+}
+
+func (i DomainHiddenSageMakerImageArgs) ToDomainHiddenSageMakerImageOutputWithContext(ctx context.Context) DomainHiddenSageMakerImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainHiddenSageMakerImageOutput)
+}
+
+// DomainHiddenSageMakerImageArrayInput is an input type that accepts DomainHiddenSageMakerImageArray and DomainHiddenSageMakerImageArrayOutput values.
+// You can construct a concrete instance of `DomainHiddenSageMakerImageArrayInput` via:
+//
+//	DomainHiddenSageMakerImageArray{ DomainHiddenSageMakerImageArgs{...} }
+type DomainHiddenSageMakerImageArrayInput interface {
+	pulumi.Input
+
+	ToDomainHiddenSageMakerImageArrayOutput() DomainHiddenSageMakerImageArrayOutput
+	ToDomainHiddenSageMakerImageArrayOutputWithContext(context.Context) DomainHiddenSageMakerImageArrayOutput
+}
+
+type DomainHiddenSageMakerImageArray []DomainHiddenSageMakerImageInput
+
+func (DomainHiddenSageMakerImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainHiddenSageMakerImage)(nil)).Elem()
+}
+
+func (i DomainHiddenSageMakerImageArray) ToDomainHiddenSageMakerImageArrayOutput() DomainHiddenSageMakerImageArrayOutput {
+	return i.ToDomainHiddenSageMakerImageArrayOutputWithContext(context.Background())
+}
+
+func (i DomainHiddenSageMakerImageArray) ToDomainHiddenSageMakerImageArrayOutputWithContext(ctx context.Context) DomainHiddenSageMakerImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainHiddenSageMakerImageArrayOutput)
+}
+
+type DomainHiddenSageMakerImageOutput struct{ *pulumi.OutputState }
+
+func (DomainHiddenSageMakerImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainHiddenSageMakerImage)(nil)).Elem()
+}
+
+func (o DomainHiddenSageMakerImageOutput) ToDomainHiddenSageMakerImageOutput() DomainHiddenSageMakerImageOutput {
+	return o
+}
+
+func (o DomainHiddenSageMakerImageOutput) ToDomainHiddenSageMakerImageOutputWithContext(ctx context.Context) DomainHiddenSageMakerImageOutput {
+	return o
+}
+
+// The SageMaker image name that you are hiding from the Studio user interface.
+func (o DomainHiddenSageMakerImageOutput) SageMakerImageName() DomainHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return o.ApplyT(func(v DomainHiddenSageMakerImage) *DomainHiddenSageMakerImageSageMakerImageName {
+		return v.SageMakerImageName
+	}).(DomainHiddenSageMakerImageSageMakerImageNamePtrOutput)
+}
+
+func (o DomainHiddenSageMakerImageOutput) VersionAliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainHiddenSageMakerImage) []string { return v.VersionAliases }).(pulumi.StringArrayOutput)
+}
+
+type DomainHiddenSageMakerImageArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainHiddenSageMakerImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainHiddenSageMakerImage)(nil)).Elem()
+}
+
+func (o DomainHiddenSageMakerImageArrayOutput) ToDomainHiddenSageMakerImageArrayOutput() DomainHiddenSageMakerImageArrayOutput {
+	return o
+}
+
+func (o DomainHiddenSageMakerImageArrayOutput) ToDomainHiddenSageMakerImageArrayOutputWithContext(ctx context.Context) DomainHiddenSageMakerImageArrayOutput {
+	return o
+}
+
+func (o DomainHiddenSageMakerImageArrayOutput) Index(i pulumi.IntInput) DomainHiddenSageMakerImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainHiddenSageMakerImage {
+		return vs[0].([]DomainHiddenSageMakerImage)[vs[1].(int)]
+	}).(DomainHiddenSageMakerImageOutput)
+}
+
 type DomainIdleSettings struct {
 	// The time that SageMaker waits after the application becomes idle before shutting it down.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
@@ -6758,6 +6882,8 @@ func (o DomainIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutp
 type DomainJupyterLabAppSettings struct {
 	// Indicates whether idle shutdown is activated for JupyterLab applications.
 	AppLifecycleManagement *DomainAppLifecycleManagement `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories []DomainCodeRepository `pulumi:"codeRepositories"`
 	// A list of custom images for use for JupyterLab apps.
@@ -6783,6 +6909,8 @@ type DomainJupyterLabAppSettingsInput interface {
 type DomainJupyterLabAppSettingsArgs struct {
 	// Indicates whether idle shutdown is activated for JupyterLab applications.
 	AppLifecycleManagement DomainAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	BuiltInLifecycleConfigArn pulumi.StringPtrInput `pulumi:"builtInLifecycleConfigArn"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories DomainCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	// A list of custom images for use for JupyterLab apps.
@@ -6876,6 +7004,11 @@ func (o DomainJupyterLabAppSettingsOutput) AppLifecycleManagement() DomainAppLif
 	return o.ApplyT(func(v DomainJupyterLabAppSettings) *DomainAppLifecycleManagement { return v.AppLifecycleManagement }).(DomainAppLifecycleManagementPtrOutput)
 }
 
+// The lifecycle configuration that runs before the default lifecycle configuration.
+func (o DomainJupyterLabAppSettingsOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainJupyterLabAppSettings) *string { return v.BuiltInLifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // A list of CodeRepositories available for use with JupyterLab apps.
 func (o DomainJupyterLabAppSettingsOutput) CodeRepositories() DomainCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v DomainJupyterLabAppSettings) []DomainCodeRepository { return v.CodeRepositories }).(DomainCodeRepositoryArrayOutput)
@@ -6928,6 +7061,16 @@ func (o DomainJupyterLabAppSettingsPtrOutput) AppLifecycleManagement() DomainApp
 		}
 		return v.AppLifecycleManagement
 	}).(DomainAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration.
+func (o DomainJupyterLabAppSettingsPtrOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainJupyterLabAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuiltInLifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of CodeRepositories available for use with JupyterLab apps.
@@ -8403,8 +8546,12 @@ func (o DomainSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 type DomainStudioWebPortalSettings struct {
 	// Applications supported in Studio that are hidden from the Studio left navigation pane.
 	HiddenAppTypes []DomainAppType `pulumi:"hiddenAppTypes"`
+	// The instance types you are hiding from the Studio user interface.
+	HiddenInstanceTypes []DomainAppInstanceType `pulumi:"hiddenInstanceTypes"`
 	// The machine learning tools that are hidden from the Studio left navigation pane.
 	HiddenMlTools []DomainMlTools `pulumi:"hiddenMlTools"`
+	// The version aliases you are hiding from the Studio user interface.
+	HiddenSageMakerImageVersionAliases []DomainHiddenSageMakerImage `pulumi:"hiddenSageMakerImageVersionAliases"`
 }
 
 // DomainStudioWebPortalSettingsInput is an input type that accepts DomainStudioWebPortalSettingsArgs and DomainStudioWebPortalSettingsOutput values.
@@ -8422,8 +8569,12 @@ type DomainStudioWebPortalSettingsInput interface {
 type DomainStudioWebPortalSettingsArgs struct {
 	// Applications supported in Studio that are hidden from the Studio left navigation pane.
 	HiddenAppTypes DomainAppTypeArrayInput `pulumi:"hiddenAppTypes"`
+	// The instance types you are hiding from the Studio user interface.
+	HiddenInstanceTypes DomainAppInstanceTypeArrayInput `pulumi:"hiddenInstanceTypes"`
 	// The machine learning tools that are hidden from the Studio left navigation pane.
 	HiddenMlTools DomainMlToolsArrayInput `pulumi:"hiddenMlTools"`
+	// The version aliases you are hiding from the Studio user interface.
+	HiddenSageMakerImageVersionAliases DomainHiddenSageMakerImageArrayInput `pulumi:"hiddenSageMakerImageVersionAliases"`
 }
 
 func (DomainStudioWebPortalSettingsArgs) ElementType() reflect.Type {
@@ -8509,9 +8660,21 @@ func (o DomainStudioWebPortalSettingsOutput) HiddenAppTypes() DomainAppTypeArray
 	return o.ApplyT(func(v DomainStudioWebPortalSettings) []DomainAppType { return v.HiddenAppTypes }).(DomainAppTypeArrayOutput)
 }
 
+// The instance types you are hiding from the Studio user interface.
+func (o DomainStudioWebPortalSettingsOutput) HiddenInstanceTypes() DomainAppInstanceTypeArrayOutput {
+	return o.ApplyT(func(v DomainStudioWebPortalSettings) []DomainAppInstanceType { return v.HiddenInstanceTypes }).(DomainAppInstanceTypeArrayOutput)
+}
+
 // The machine learning tools that are hidden from the Studio left navigation pane.
 func (o DomainStudioWebPortalSettingsOutput) HiddenMlTools() DomainMlToolsArrayOutput {
 	return o.ApplyT(func(v DomainStudioWebPortalSettings) []DomainMlTools { return v.HiddenMlTools }).(DomainMlToolsArrayOutput)
+}
+
+// The version aliases you are hiding from the Studio user interface.
+func (o DomainStudioWebPortalSettingsOutput) HiddenSageMakerImageVersionAliases() DomainHiddenSageMakerImageArrayOutput {
+	return o.ApplyT(func(v DomainStudioWebPortalSettings) []DomainHiddenSageMakerImage {
+		return v.HiddenSageMakerImageVersionAliases
+	}).(DomainHiddenSageMakerImageArrayOutput)
 }
 
 type DomainStudioWebPortalSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -8548,6 +8711,16 @@ func (o DomainStudioWebPortalSettingsPtrOutput) HiddenAppTypes() DomainAppTypeAr
 	}).(DomainAppTypeArrayOutput)
 }
 
+// The instance types you are hiding from the Studio user interface.
+func (o DomainStudioWebPortalSettingsPtrOutput) HiddenInstanceTypes() DomainAppInstanceTypeArrayOutput {
+	return o.ApplyT(func(v *DomainStudioWebPortalSettings) []DomainAppInstanceType {
+		if v == nil {
+			return nil
+		}
+		return v.HiddenInstanceTypes
+	}).(DomainAppInstanceTypeArrayOutput)
+}
+
 // The machine learning tools that are hidden from the Studio left navigation pane.
 func (o DomainStudioWebPortalSettingsPtrOutput) HiddenMlTools() DomainMlToolsArrayOutput {
 	return o.ApplyT(func(v *DomainStudioWebPortalSettings) []DomainMlTools {
@@ -8556,6 +8729,16 @@ func (o DomainStudioWebPortalSettingsPtrOutput) HiddenMlTools() DomainMlToolsArr
 		}
 		return v.HiddenMlTools
 	}).(DomainMlToolsArrayOutput)
+}
+
+// The version aliases you are hiding from the Studio user interface.
+func (o DomainStudioWebPortalSettingsPtrOutput) HiddenSageMakerImageVersionAliases() DomainHiddenSageMakerImageArrayOutput {
+	return o.ApplyT(func(v *DomainStudioWebPortalSettings) []DomainHiddenSageMakerImage {
+		if v == nil {
+			return nil
+		}
+		return v.HiddenSageMakerImageVersionAliases
+	}).(DomainHiddenSageMakerImageArrayOutput)
 }
 
 type DomainTag struct {
@@ -8567,6 +8750,8 @@ type DomainTag struct {
 
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettings struct {
+	// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
+	AutoMountHomeEfs *DomainUserSettingsAutoMountHomeEfs `pulumi:"autoMountHomeEfs"`
 	// The Code Editor application settings.
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -8622,6 +8807,8 @@ type DomainUserSettingsInput interface {
 
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettingsArgs struct {
+	// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
+	AutoMountHomeEfs DomainUserSettingsAutoMountHomeEfsPtrInput `pulumi:"autoMountHomeEfs"`
 	// The Code Editor application settings.
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -8689,6 +8876,11 @@ func (o DomainUserSettingsOutput) ToDomainUserSettingsOutput() DomainUserSetting
 
 func (o DomainUserSettingsOutput) ToDomainUserSettingsOutputWithContext(ctx context.Context) DomainUserSettingsOutput {
 	return o
+}
+
+// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
+func (o DomainUserSettingsOutput) AutoMountHomeEfs() DomainUserSettingsAutoMountHomeEfsPtrOutput {
+	return o.ApplyT(func(v DomainUserSettings) *DomainUserSettingsAutoMountHomeEfs { return v.AutoMountHomeEfs }).(DomainUserSettingsAutoMountHomeEfsPtrOutput)
 }
 
 // The Code Editor application settings.
@@ -8798,6 +8990,16 @@ func (o DomainUserSettingsPtrOutput) Elem() DomainUserSettingsOutput {
 		var ret DomainUserSettings
 		return ret
 	}).(DomainUserSettingsOutput)
+}
+
+// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
+func (o DomainUserSettingsPtrOutput) AutoMountHomeEfs() DomainUserSettingsAutoMountHomeEfsPtrOutput {
+	return o.ApplyT(func(v *DomainUserSettings) *DomainUserSettingsAutoMountHomeEfs {
+		if v == nil {
+			return nil
+		}
+		return v.AutoMountHomeEfs
+	}).(DomainUserSettingsAutoMountHomeEfsPtrOutput)
 }
 
 // The Code Editor application settings.
@@ -38778,6 +38980,8 @@ func (o UserProfileAppLifecycleManagementPtrOutput) IdleSettings() UserProfileId
 type UserProfileCodeEditorAppSettings struct {
 	// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
 	AppLifecycleManagement *UserProfileAppLifecycleManagement `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
 	// A list of custom images for use for CodeEditor apps.
 	CustomImages []UserProfileCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
@@ -38801,6 +39005,8 @@ type UserProfileCodeEditorAppSettingsInput interface {
 type UserProfileCodeEditorAppSettingsArgs struct {
 	// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
 	AppLifecycleManagement UserProfileAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	BuiltInLifecycleConfigArn pulumi.StringPtrInput `pulumi:"builtInLifecycleConfigArn"`
 	// A list of custom images for use for CodeEditor apps.
 	CustomImages UserProfileCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
@@ -38894,6 +39100,11 @@ func (o UserProfileCodeEditorAppSettingsOutput) AppLifecycleManagement() UserPro
 	}).(UserProfileAppLifecycleManagementPtrOutput)
 }
 
+// The lifecycle configuration that runs before the default lifecycle configuration.
+func (o UserProfileCodeEditorAppSettingsOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileCodeEditorAppSettings) *string { return v.BuiltInLifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // A list of custom images for use for CodeEditor apps.
 func (o UserProfileCodeEditorAppSettingsOutput) CustomImages() UserProfileCustomImageArrayOutput {
 	return o.ApplyT(func(v UserProfileCodeEditorAppSettings) []UserProfileCustomImage { return v.CustomImages }).(UserProfileCustomImageArrayOutput)
@@ -38941,6 +39152,16 @@ func (o UserProfileCodeEditorAppSettingsPtrOutput) AppLifecycleManagement() User
 		}
 		return v.AppLifecycleManagement
 	}).(UserProfileAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration.
+func (o UserProfileCodeEditorAppSettingsPtrOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileCodeEditorAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuiltInLifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of custom images for use for CodeEditor apps.
@@ -40067,6 +40288,111 @@ func (o UserProfileFSxLustreFileSystemConfigPtrOutput) FileSystemPath() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserProfileHiddenSageMakerImage struct {
+	// The SageMaker image name that you are hiding from the Studio user interface.
+	SageMakerImageName *UserProfileHiddenSageMakerImageSageMakerImageName `pulumi:"sageMakerImageName"`
+	VersionAliases     []string                                           `pulumi:"versionAliases"`
+}
+
+// UserProfileHiddenSageMakerImageInput is an input type that accepts UserProfileHiddenSageMakerImageArgs and UserProfileHiddenSageMakerImageOutput values.
+// You can construct a concrete instance of `UserProfileHiddenSageMakerImageInput` via:
+//
+//	UserProfileHiddenSageMakerImageArgs{...}
+type UserProfileHiddenSageMakerImageInput interface {
+	pulumi.Input
+
+	ToUserProfileHiddenSageMakerImageOutput() UserProfileHiddenSageMakerImageOutput
+	ToUserProfileHiddenSageMakerImageOutputWithContext(context.Context) UserProfileHiddenSageMakerImageOutput
+}
+
+type UserProfileHiddenSageMakerImageArgs struct {
+	// The SageMaker image name that you are hiding from the Studio user interface.
+	SageMakerImageName UserProfileHiddenSageMakerImageSageMakerImageNamePtrInput `pulumi:"sageMakerImageName"`
+	VersionAliases     pulumi.StringArrayInput                                   `pulumi:"versionAliases"`
+}
+
+func (UserProfileHiddenSageMakerImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileHiddenSageMakerImage)(nil)).Elem()
+}
+
+func (i UserProfileHiddenSageMakerImageArgs) ToUserProfileHiddenSageMakerImageOutput() UserProfileHiddenSageMakerImageOutput {
+	return i.ToUserProfileHiddenSageMakerImageOutputWithContext(context.Background())
+}
+
+func (i UserProfileHiddenSageMakerImageArgs) ToUserProfileHiddenSageMakerImageOutputWithContext(ctx context.Context) UserProfileHiddenSageMakerImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileHiddenSageMakerImageOutput)
+}
+
+// UserProfileHiddenSageMakerImageArrayInput is an input type that accepts UserProfileHiddenSageMakerImageArray and UserProfileHiddenSageMakerImageArrayOutput values.
+// You can construct a concrete instance of `UserProfileHiddenSageMakerImageArrayInput` via:
+//
+//	UserProfileHiddenSageMakerImageArray{ UserProfileHiddenSageMakerImageArgs{...} }
+type UserProfileHiddenSageMakerImageArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileHiddenSageMakerImageArrayOutput() UserProfileHiddenSageMakerImageArrayOutput
+	ToUserProfileHiddenSageMakerImageArrayOutputWithContext(context.Context) UserProfileHiddenSageMakerImageArrayOutput
+}
+
+type UserProfileHiddenSageMakerImageArray []UserProfileHiddenSageMakerImageInput
+
+func (UserProfileHiddenSageMakerImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileHiddenSageMakerImage)(nil)).Elem()
+}
+
+func (i UserProfileHiddenSageMakerImageArray) ToUserProfileHiddenSageMakerImageArrayOutput() UserProfileHiddenSageMakerImageArrayOutput {
+	return i.ToUserProfileHiddenSageMakerImageArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileHiddenSageMakerImageArray) ToUserProfileHiddenSageMakerImageArrayOutputWithContext(ctx context.Context) UserProfileHiddenSageMakerImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileHiddenSageMakerImageArrayOutput)
+}
+
+type UserProfileHiddenSageMakerImageOutput struct{ *pulumi.OutputState }
+
+func (UserProfileHiddenSageMakerImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileHiddenSageMakerImage)(nil)).Elem()
+}
+
+func (o UserProfileHiddenSageMakerImageOutput) ToUserProfileHiddenSageMakerImageOutput() UserProfileHiddenSageMakerImageOutput {
+	return o
+}
+
+func (o UserProfileHiddenSageMakerImageOutput) ToUserProfileHiddenSageMakerImageOutputWithContext(ctx context.Context) UserProfileHiddenSageMakerImageOutput {
+	return o
+}
+
+// The SageMaker image name that you are hiding from the Studio user interface.
+func (o UserProfileHiddenSageMakerImageOutput) SageMakerImageName() UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput {
+	return o.ApplyT(func(v UserProfileHiddenSageMakerImage) *UserProfileHiddenSageMakerImageSageMakerImageName {
+		return v.SageMakerImageName
+	}).(UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput)
+}
+
+func (o UserProfileHiddenSageMakerImageOutput) VersionAliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserProfileHiddenSageMakerImage) []string { return v.VersionAliases }).(pulumi.StringArrayOutput)
+}
+
+type UserProfileHiddenSageMakerImageArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileHiddenSageMakerImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileHiddenSageMakerImage)(nil)).Elem()
+}
+
+func (o UserProfileHiddenSageMakerImageArrayOutput) ToUserProfileHiddenSageMakerImageArrayOutput() UserProfileHiddenSageMakerImageArrayOutput {
+	return o
+}
+
+func (o UserProfileHiddenSageMakerImageArrayOutput) ToUserProfileHiddenSageMakerImageArrayOutputWithContext(ctx context.Context) UserProfileHiddenSageMakerImageArrayOutput {
+	return o
+}
+
+func (o UserProfileHiddenSageMakerImageArrayOutput) Index(i pulumi.IntInput) UserProfileHiddenSageMakerImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileHiddenSageMakerImage {
+		return vs[0].([]UserProfileHiddenSageMakerImage)[vs[1].(int)]
+	}).(UserProfileHiddenSageMakerImageOutput)
+}
+
 type UserProfileIdleSettings struct {
 	// The time that SageMaker waits after the application becomes idle before shutting it down.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
@@ -40265,6 +40591,8 @@ func (o UserProfileIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPt
 type UserProfileJupyterLabAppSettings struct {
 	// Indicates whether idle shutdown is activated for JupyterLab applications.
 	AppLifecycleManagement *UserProfileAppLifecycleManagement `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories []UserProfileCodeRepository `pulumi:"codeRepositories"`
 	// A list of custom images available for use for JupyterLab apps
@@ -40290,6 +40618,8 @@ type UserProfileJupyterLabAppSettingsInput interface {
 type UserProfileJupyterLabAppSettingsArgs struct {
 	// Indicates whether idle shutdown is activated for JupyterLab applications.
 	AppLifecycleManagement UserProfileAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration.
+	BuiltInLifecycleConfigArn pulumi.StringPtrInput `pulumi:"builtInLifecycleConfigArn"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories UserProfileCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	// A list of custom images available for use for JupyterLab apps
@@ -40385,6 +40715,11 @@ func (o UserProfileJupyterLabAppSettingsOutput) AppLifecycleManagement() UserPro
 	}).(UserProfileAppLifecycleManagementPtrOutput)
 }
 
+// The lifecycle configuration that runs before the default lifecycle configuration.
+func (o UserProfileJupyterLabAppSettingsOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileJupyterLabAppSettings) *string { return v.BuiltInLifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // A list of CodeRepositories available for use with JupyterLab apps.
 func (o UserProfileJupyterLabAppSettingsOutput) CodeRepositories() UserProfileCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v UserProfileJupyterLabAppSettings) []UserProfileCodeRepository { return v.CodeRepositories }).(UserProfileCodeRepositoryArrayOutput)
@@ -40437,6 +40772,16 @@ func (o UserProfileJupyterLabAppSettingsPtrOutput) AppLifecycleManagement() User
 		}
 		return v.AppLifecycleManagement
 	}).(UserProfileAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration.
+func (o UserProfileJupyterLabAppSettingsPtrOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileJupyterLabAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuiltInLifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of CodeRepositories available for use with JupyterLab apps.
@@ -41357,8 +41702,12 @@ func (o UserProfileSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutp
 type UserProfileStudioWebPortalSettings struct {
 	// Applications supported in Studio that are hidden from the Studio left navigation pane.
 	HiddenAppTypes []UserProfileAppType `pulumi:"hiddenAppTypes"`
+	// The instance types you are hiding from the Studio user interface.
+	HiddenInstanceTypes []UserProfileAppInstanceType `pulumi:"hiddenInstanceTypes"`
 	// The machine learning tools that are hidden from the Studio left navigation pane.
 	HiddenMlTools []UserProfileMlTools `pulumi:"hiddenMlTools"`
+	// The version aliases you are hiding from the Studio user interface.
+	HiddenSageMakerImageVersionAliases []UserProfileHiddenSageMakerImage `pulumi:"hiddenSageMakerImageVersionAliases"`
 }
 
 // UserProfileStudioWebPortalSettingsInput is an input type that accepts UserProfileStudioWebPortalSettingsArgs and UserProfileStudioWebPortalSettingsOutput values.
@@ -41376,8 +41725,12 @@ type UserProfileStudioWebPortalSettingsInput interface {
 type UserProfileStudioWebPortalSettingsArgs struct {
 	// Applications supported in Studio that are hidden from the Studio left navigation pane.
 	HiddenAppTypes UserProfileAppTypeArrayInput `pulumi:"hiddenAppTypes"`
+	// The instance types you are hiding from the Studio user interface.
+	HiddenInstanceTypes UserProfileAppInstanceTypeArrayInput `pulumi:"hiddenInstanceTypes"`
 	// The machine learning tools that are hidden from the Studio left navigation pane.
 	HiddenMlTools UserProfileMlToolsArrayInput `pulumi:"hiddenMlTools"`
+	// The version aliases you are hiding from the Studio user interface.
+	HiddenSageMakerImageVersionAliases UserProfileHiddenSageMakerImageArrayInput `pulumi:"hiddenSageMakerImageVersionAliases"`
 }
 
 func (UserProfileStudioWebPortalSettingsArgs) ElementType() reflect.Type {
@@ -41463,9 +41816,21 @@ func (o UserProfileStudioWebPortalSettingsOutput) HiddenAppTypes() UserProfileAp
 	return o.ApplyT(func(v UserProfileStudioWebPortalSettings) []UserProfileAppType { return v.HiddenAppTypes }).(UserProfileAppTypeArrayOutput)
 }
 
+// The instance types you are hiding from the Studio user interface.
+func (o UserProfileStudioWebPortalSettingsOutput) HiddenInstanceTypes() UserProfileAppInstanceTypeArrayOutput {
+	return o.ApplyT(func(v UserProfileStudioWebPortalSettings) []UserProfileAppInstanceType { return v.HiddenInstanceTypes }).(UserProfileAppInstanceTypeArrayOutput)
+}
+
 // The machine learning tools that are hidden from the Studio left navigation pane.
 func (o UserProfileStudioWebPortalSettingsOutput) HiddenMlTools() UserProfileMlToolsArrayOutput {
 	return o.ApplyT(func(v UserProfileStudioWebPortalSettings) []UserProfileMlTools { return v.HiddenMlTools }).(UserProfileMlToolsArrayOutput)
+}
+
+// The version aliases you are hiding from the Studio user interface.
+func (o UserProfileStudioWebPortalSettingsOutput) HiddenSageMakerImageVersionAliases() UserProfileHiddenSageMakerImageArrayOutput {
+	return o.ApplyT(func(v UserProfileStudioWebPortalSettings) []UserProfileHiddenSageMakerImage {
+		return v.HiddenSageMakerImageVersionAliases
+	}).(UserProfileHiddenSageMakerImageArrayOutput)
 }
 
 type UserProfileStudioWebPortalSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -41502,6 +41867,16 @@ func (o UserProfileStudioWebPortalSettingsPtrOutput) HiddenAppTypes() UserProfil
 	}).(UserProfileAppTypeArrayOutput)
 }
 
+// The instance types you are hiding from the Studio user interface.
+func (o UserProfileStudioWebPortalSettingsPtrOutput) HiddenInstanceTypes() UserProfileAppInstanceTypeArrayOutput {
+	return o.ApplyT(func(v *UserProfileStudioWebPortalSettings) []UserProfileAppInstanceType {
+		if v == nil {
+			return nil
+		}
+		return v.HiddenInstanceTypes
+	}).(UserProfileAppInstanceTypeArrayOutput)
+}
+
 // The machine learning tools that are hidden from the Studio left navigation pane.
 func (o UserProfileStudioWebPortalSettingsPtrOutput) HiddenMlTools() UserProfileMlToolsArrayOutput {
 	return o.ApplyT(func(v *UserProfileStudioWebPortalSettings) []UserProfileMlTools {
@@ -41510,6 +41885,16 @@ func (o UserProfileStudioWebPortalSettingsPtrOutput) HiddenMlTools() UserProfile
 		}
 		return v.HiddenMlTools
 	}).(UserProfileMlToolsArrayOutput)
+}
+
+// The version aliases you are hiding from the Studio user interface.
+func (o UserProfileStudioWebPortalSettingsPtrOutput) HiddenSageMakerImageVersionAliases() UserProfileHiddenSageMakerImageArrayOutput {
+	return o.ApplyT(func(v *UserProfileStudioWebPortalSettings) []UserProfileHiddenSageMakerImage {
+		if v == nil {
+			return nil
+		}
+		return v.HiddenSageMakerImageVersionAliases
+	}).(UserProfileHiddenSageMakerImageArrayOutput)
 }
 
 type UserProfileTag struct {
@@ -41521,6 +41906,8 @@ type UserProfileTag struct {
 
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type UserProfileUserSettings struct {
+	// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
+	AutoMountHomeEfs *UserProfileUserSettingsAutoMountHomeEfs `pulumi:"autoMountHomeEfs"`
 	// The Code Editor application settings.
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -41574,6 +41961,8 @@ type UserProfileUserSettingsInput interface {
 
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type UserProfileUserSettingsArgs struct {
+	// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
+	AutoMountHomeEfs UserProfileUserSettingsAutoMountHomeEfsPtrInput `pulumi:"autoMountHomeEfs"`
 	// The Code Editor application settings.
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -41692,6 +42081,11 @@ func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutputWithCon
 	}).(UserProfileUserSettingsPtrOutput)
 }
 
+// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
+func (o UserProfileUserSettingsOutput) AutoMountHomeEfs() UserProfileUserSettingsAutoMountHomeEfsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsAutoMountHomeEfs { return v.AutoMountHomeEfs }).(UserProfileUserSettingsAutoMountHomeEfsPtrOutput)
+}
+
 // The Code Editor application settings.
 //
 // SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -41800,6 +42194,16 @@ func (o UserProfileUserSettingsPtrOutput) Elem() UserProfileUserSettingsOutput {
 		var ret UserProfileUserSettings
 		return ret
 	}).(UserProfileUserSettingsOutput)
+}
+
+// Indicates whether auto-mounting of an EFS volume is supported for the user profile.
+func (o UserProfileUserSettingsPtrOutput) AutoMountHomeEfs() UserProfileUserSettingsAutoMountHomeEfsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsAutoMountHomeEfs {
+		if v == nil {
+			return nil
+		}
+		return v.AutoMountHomeEfs
+	}).(UserProfileUserSettingsAutoMountHomeEfsPtrOutput)
 }
 
 // The Code Editor application settings.
@@ -42037,6 +42441,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEfsFileSystemConfigPtrInput)(nil)).Elem(), DomainEfsFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainFSxLustreFileSystemConfigInput)(nil)).Elem(), DomainFSxLustreFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainFSxLustreFileSystemConfigPtrInput)(nil)).Elem(), DomainFSxLustreFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainHiddenSageMakerImageInput)(nil)).Elem(), DomainHiddenSageMakerImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainHiddenSageMakerImageArrayInput)(nil)).Elem(), DomainHiddenSageMakerImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdleSettingsInput)(nil)).Elem(), DomainIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdleSettingsPtrInput)(nil)).Elem(), DomainIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJupyterLabAppSettingsInput)(nil)).Elem(), DomainJupyterLabAppSettingsArgs{})
@@ -42436,6 +42842,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileEfsFileSystemConfigPtrInput)(nil)).Elem(), UserProfileEfsFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileFSxLustreFileSystemConfigInput)(nil)).Elem(), UserProfileFSxLustreFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileFSxLustreFileSystemConfigPtrInput)(nil)).Elem(), UserProfileFSxLustreFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileHiddenSageMakerImageInput)(nil)).Elem(), UserProfileHiddenSageMakerImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileHiddenSageMakerImageArrayInput)(nil)).Elem(), UserProfileHiddenSageMakerImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileIdleSettingsInput)(nil)).Elem(), UserProfileIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileIdleSettingsPtrInput)(nil)).Elem(), UserProfileIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileJupyterLabAppSettingsInput)(nil)).Elem(), UserProfileJupyterLabAppSettingsArgs{})
@@ -42539,6 +42947,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainEfsFileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainFSxLustreFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(DomainFSxLustreFileSystemConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainHiddenSageMakerImageOutput{})
+	pulumi.RegisterOutputType(DomainHiddenSageMakerImageArrayOutput{})
 	pulumi.RegisterOutputType(DomainIdleSettingsOutput{})
 	pulumi.RegisterOutputType(DomainIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainJupyterLabAppSettingsOutput{})
@@ -42947,6 +43357,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileEfsFileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileFSxLustreFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(UserProfileFSxLustreFileSystemConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileHiddenSageMakerImageOutput{})
+	pulumi.RegisterOutputType(UserProfileHiddenSageMakerImageArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileIdleSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileJupyterLabAppSettingsOutput{})

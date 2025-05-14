@@ -25,6 +25,14 @@ namespace Pulumi.AwsNative.Backup.Outputs
         /// Enables continuous backup and point-in-time restores (PITR).
         /// </summary>
         public readonly bool? EnableContinuousBackup;
+        /// <summary>
+        /// There can up to one IndexAction in each BackupRule, as each backup can have 0 or 1 backup index associated with it.
+        /// 
+        /// Within the array is ResourceTypes. Only 1 resource type will be accepted for each BackupRule. Valid values:
+        /// 
+        /// - `EBS` for Amazon Elastic Block Store
+        /// - `S3` for Amazon Simple Storage Service (Amazon S3)
+        /// </summary>
         public readonly ImmutableArray<Outputs.BackupPlanIndexActionsResourceType> IndexActions;
         /// <summary>
         /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.

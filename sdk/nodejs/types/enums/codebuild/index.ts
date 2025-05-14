@@ -19,6 +19,7 @@ export const FleetComputeType = {
     BuildGeneral1Xlarge: "BUILD_GENERAL1_XLARGE",
     BuildGeneral12xlarge: "BUILD_GENERAL1_2XLARGE",
     AttributeBasedCompute: "ATTRIBUTE_BASED_COMPUTE",
+    CustomInstanceType: "CUSTOM_INSTANCE_TYPE",
 } as const;
 
 /**

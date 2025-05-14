@@ -87,6 +87,7 @@ namespace Pulumi.AwsNative.Omics
         /// The workflow's status.
         /// </summary>
         public readonly Pulumi.AwsNative.Omics.WorkflowStatus? Status;
+        public readonly Pulumi.AwsNative.Omics.WorkflowStorageType? StorageType;
         /// <summary>
         /// Tags for the workflow.
         /// </summary>
@@ -95,6 +96,7 @@ namespace Pulumi.AwsNative.Omics
         /// The workflow's type.
         /// </summary>
         public readonly Pulumi.AwsNative.Omics.WorkflowType? Type;
+        public readonly string? Uuid;
 
         [OutputConstructor]
         private GetWorkflowResult(
@@ -110,9 +112,13 @@ namespace Pulumi.AwsNative.Omics
 
             Pulumi.AwsNative.Omics.WorkflowStatus? status,
 
+            Pulumi.AwsNative.Omics.WorkflowStorageType? storageType,
+
             ImmutableDictionary<string, string>? tags,
 
-            Pulumi.AwsNative.Omics.WorkflowType? type)
+            Pulumi.AwsNative.Omics.WorkflowType? type,
+
+            string? uuid)
         {
             Arn = arn;
             CreationTime = creationTime;
@@ -120,8 +126,10 @@ namespace Pulumi.AwsNative.Omics
             Id = id;
             Name = name;
             Status = status;
+            StorageType = storageType;
             Tags = tags;
             Type = type;
+            Uuid = uuid;
         }
     }
 }

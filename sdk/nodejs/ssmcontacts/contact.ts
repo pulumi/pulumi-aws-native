@@ -53,6 +53,7 @@ export class Contact extends pulumi.CustomResource {
      * The stages that an escalation plan or engagement plan engages contacts and contact methods in.
      */
     public readonly plan!: pulumi.Output<outputs.ssmcontacts.ContactStage[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
      */
@@ -81,6 +82,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["alias"] = args ? args.alias : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
@@ -88,6 +90,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -113,6 +116,7 @@ export interface ContactArgs {
      * The stages that an escalation plan or engagement plan engages contacts and contact methods in.
      */
     plan?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.ContactStageArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
      */

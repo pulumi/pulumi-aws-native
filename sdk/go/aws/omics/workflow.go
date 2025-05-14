@@ -37,11 +37,13 @@ type Workflow struct {
 	// The workflow's status.
 	Status WorkflowStatusOutput `pulumi:"status"`
 	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
-	StorageCapacity pulumi.Float64PtrOutput `pulumi:"storageCapacity"`
+	StorageCapacity pulumi.Float64PtrOutput      `pulumi:"storageCapacity"`
+	StorageType     WorkflowStorageTypePtrOutput `pulumi:"storageType"`
 	// Tags for the workflow.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The workflow's type.
-	Type WorkflowTypeOutput `pulumi:"type"`
+	Type WorkflowTypeOutput  `pulumi:"type"`
+	Uuid pulumi.StringOutput `pulumi:"uuid"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -107,7 +109,8 @@ type workflowArgs struct {
 	// The workflow's parameter template.
 	ParameterTemplate map[string]WorkflowParameter `pulumi:"parameterTemplate"`
 	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
-	StorageCapacity *float64 `pulumi:"storageCapacity"`
+	StorageCapacity *float64             `pulumi:"storageCapacity"`
+	StorageType     *WorkflowStorageType `pulumi:"storageType"`
 	// Tags for the workflow.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -129,6 +132,7 @@ type WorkflowArgs struct {
 	ParameterTemplate WorkflowParameterMapInput
 	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
 	StorageCapacity pulumi.Float64PtrInput
+	StorageType     WorkflowStorageTypePtrInput
 	// Tags for the workflow.
 	Tags pulumi.StringMapInput
 }
@@ -229,6 +233,10 @@ func (o WorkflowOutput) StorageCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.Float64PtrOutput { return v.StorageCapacity }).(pulumi.Float64PtrOutput)
 }
 
+func (o WorkflowOutput) StorageType() WorkflowStorageTypePtrOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowStorageTypePtrOutput { return v.StorageType }).(WorkflowStorageTypePtrOutput)
+}
+
 // Tags for the workflow.
 func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
@@ -237,6 +245,10 @@ func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
 // The workflow's type.
 func (o WorkflowOutput) Type() WorkflowTypeOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowTypeOutput { return v.Type }).(WorkflowTypeOutput)
+}
+
+func (o WorkflowOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
 }
 
 func init() {

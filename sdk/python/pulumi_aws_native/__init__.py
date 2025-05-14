@@ -794,6 +794,7 @@ _utilities.register(
    "aws-native:apigatewayv2:Model": "Model",
    "aws-native:apigatewayv2:Route": "Route",
    "aws-native:apigatewayv2:RouteResponse": "RouteResponse",
+   "aws-native:apigatewayv2:RoutingRule": "RoutingRule",
    "aws-native:apigatewayv2:VpcLink": "VpcLink"
   }
  },
@@ -2580,7 +2581,8 @@ _utilities.register(
    "aws-native:omics:RunGroup": "RunGroup",
    "aws-native:omics:SequenceStore": "SequenceStore",
    "aws-native:omics:VariantStore": "VariantStore",
-   "aws-native:omics:Workflow": "Workflow"
+   "aws-native:omics:Workflow": "Workflow",
+   "aws-native:omics:WorkflowVersion": "WorkflowVersion"
   }
  },
  {

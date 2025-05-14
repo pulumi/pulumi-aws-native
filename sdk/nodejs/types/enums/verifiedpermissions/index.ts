@@ -8,6 +8,13 @@ export const IdentitySourceOpenIdIssuer = {
 
 export type IdentitySourceOpenIdIssuer = (typeof IdentitySourceOpenIdIssuer)[keyof typeof IdentitySourceOpenIdIssuer];
 
+export const PolicyStoreDeletionMode = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type PolicyStoreDeletionMode = (typeof PolicyStoreDeletionMode)[keyof typeof PolicyStoreDeletionMode];
+
 export const PolicyStoreValidationMode = {
     Off: "OFF",
     Strict: "STRICT",

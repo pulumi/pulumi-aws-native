@@ -73,6 +73,7 @@ export class WorkspacesPool extends pulumi.CustomResource {
      * The name of the pool.
      */
     public readonly poolName!: pulumi.Output<string>;
+    public readonly runningMode!: pulumi.Output<enums.workspaces.WorkspacesPoolRunningMode | undefined>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
@@ -105,6 +106,7 @@ export class WorkspacesPool extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["directoryId"] = args ? args.directoryId : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["runningMode"] = args ? args.runningMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeoutSettings"] = args ? args.timeoutSettings : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -120,6 +122,7 @@ export class WorkspacesPool extends pulumi.CustomResource {
             resourceInputs["poolArn"] = undefined /*out*/;
             resourceInputs["poolId"] = undefined /*out*/;
             resourceInputs["poolName"] = undefined /*out*/;
+            resourceInputs["runningMode"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeoutSettings"] = undefined /*out*/;
         }
@@ -158,6 +161,7 @@ export interface WorkspacesPoolArgs {
      * The name of the pool.
      */
     poolName?: pulumi.Input<string>;
+    runningMode?: pulumi.Input<enums.workspaces.WorkspacesPoolRunningMode>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.

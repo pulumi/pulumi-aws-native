@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  *  If you import an existing DB instance, and the template configuration doesn't match the actual configuration of the DB instance, AWS CloudFormation applies the changes in the template during the import operation.
  *   If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes all automated snapshots. However, it retains manual DB snapshots. During an update that requires replacement, you can apply a stack policy to prevent DB instances from being replaced. For more information, see [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html).
  *    *Updating DB instances*
- *  When properties labeled "*Update requires:* [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB instance, then changes references from other dependent resources to point to the replacement DB instance, and finally deletes the old DB instance.
+ *  When properties labeled "*Update requires:*[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB instance, then changes references from other dependent resources to point to the replacement DB instance, and finally deletes the old DB instance.
  *   We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB instance. To preserve your data, perform the following procedure:
  *   1.  Deactivate any applications that are using the DB instance so that there's no activity on the DB instance.
  *   2.  Create a snapshot of the DB instance. For more information, see [Creating a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html).
@@ -172,7 +172,7 @@ export class DbInstance extends pulumi.CustomResource {
      *  By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
      *   Set this parameter only if you are *not* using SSL/TLS to connect to the DB instance.
      *   If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate:
-     *   +  For more information about rotating your SSL/TLS certificate for RDS DB engines, see [Rotating Your SSL/TLS Certificate.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide.* 
+     *   +  For more information about rotating your SSL/TLS certificate for RDS DB engines, see [Rotating Your SSL/TLS Certificate.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide.*
      *   +  For more information about rotating your SSL/TLS certificate for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide*.
      *   
      *  This setting doesn't apply to RDS Custom DB instances.
@@ -202,8 +202,7 @@ export class DbInstance extends pulumi.CustomResource {
     public readonly customIamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
      * The mode of Database Insights to enable for the DB instance.
-     *
-     * > Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
+     *   Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
      */
     public readonly databaseInsightsMode!: pulumi.Output<string | undefined>;
     /**
@@ -269,7 +268,7 @@ export class DbInstance extends pulumi.CustomResource {
      *   
      *   *Oracle* 
      *  The Oracle System ID (SID) of the created DB instance. If you specify ``null``, the default value ``ORCL`` is used. You can't specify the string NULL, or any other reserved word, for ``DBName``. 
-     *  Default: ``ORCL`` 
+     *  Default: ``ORCL``
      *  Constraints:
      *   +  Can't be longer than 8 characters
      *   
@@ -328,7 +327,7 @@ export class DbInstance extends pulumi.CustomResource {
      *   +   ``PromotionTier`` 
      *   +   ``SourceDBInstanceIdentifier`` 
      *   +   ``SourceRegion`` 
-     *   +   ``StorageEncrypted`` (for an unencrypted snapshot)
+     *   +  ``StorageEncrypted`` (for an unencrypted snapshot)
      *   +   ``Timezone`` 
      *   
      *   *Amazon Aurora* 
@@ -412,22 +411,22 @@ export class DbInstance extends pulumi.CustomResource {
      *   *Amazon Aurora* 
      *  Not applicable. CloudWatch Logs exports are managed by the DB cluster. 
      *   *Db2* 
-     *  Valid values: ``diag.log``, ``notify.log`` 
+     *  Valid values: ``diag.log``, ``notify.log``
      *   *MariaDB* 
-     *  Valid values: ``audit``, ``error``, ``general``, ``slowquery`` 
+     *  Valid values: ``audit``, ``error``, ``general``, ``slowquery``
      *   *Microsoft SQL Server* 
-     *  Valid values: ``agent``, ``error`` 
+     *  Valid values: ``agent``, ``error``
      *   *MySQL* 
-     *  Valid values: ``audit``, ``error``, ``general``, ``slowquery`` 
+     *  Valid values: ``audit``, ``error``, ``general``, ``slowquery``
      *   *Oracle* 
-     *  Valid values: ``alert``, ``audit``, ``listener``, ``trace``, ``oemagent`` 
+     *  Valid values: ``alert``, ``audit``, ``listener``, ``trace``, ``oemagent``
      *   *PostgreSQL* 
      *  Valid values: ``postgresql``, ``upgrade``
      */
     public readonly enableCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
      * A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-     *  This property is supported for RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL. For more information, see [IAM Database Authentication for MariaDB, MySQL, and PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon RDS User Guide.* 
+     *  This property is supported for RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL. For more information, see [IAM Database Authentication for MariaDB, MySQL, and PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon RDS User Guide.*
      *   *Amazon Aurora* 
      *  Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster.
      */
@@ -443,13 +442,13 @@ export class DbInstance extends pulumi.CustomResource {
      *  This property is required when creating a DB instance.
      *   You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.
      *   Valid Values:
-     *   +   ``aurora-mysql`` (for Aurora MySQL DB instances)
-     *   +   ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)
-     *   +   ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)
-     *   +   ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)
-     *   +   ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)
-     *   +   ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)
-     *   +   ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)
+     *   +  ``aurora-mysql`` (for Aurora MySQL DB instances)
+     *   +  ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)
+     *   +  ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)
+     *   +  ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)
+     *   +  ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)
+     *   +  ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)
+     *   +  ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)
      *   +   ``db2-ae`` 
      *   +   ``db2-se`` 
      *   +   ``mariadb`` 
@@ -470,7 +469,7 @@ export class DbInstance extends pulumi.CustomResource {
      *   By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.
      *   This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.
      *  You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*.
-     *  Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled`` 
+     *  Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``
      *  Default: ``open-source-rds-extended-support``
      */
     public readonly engineLifecycleSupport!: pulumi.Output<string | undefined>;
@@ -481,15 +480,15 @@ export class DbInstance extends pulumi.CustomResource {
      *   *Amazon Aurora* 
      *  Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.
      *   *Db2* 
-     *  See [Amazon RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Db2.html#Db2.Concepts.VersionMgmt) in the *Amazon RDS User Guide.* 
+     *  See [Amazon RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Db2.html#Db2.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*
      *   *MariaDB* 
-     *  See [MariaDB on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt) in the *Amazon RDS User Guide.* 
+     *  See [MariaDB on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*
      *   *Microsoft SQL Server* 
-     *  See [Microsoft SQL Server Versions on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport) in the *Amazon RDS User Guide.* 
+     *  See [Microsoft SQL Server Versions on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport) in the *Amazon RDS User Guide.*
      *   *MySQL* 
-     *  See [MySQL on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide.* 
+     *  See [MySQL on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*
      *   *Oracle* 
-     *  See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.* 
+     *  See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.*
      *   *PostgreSQL* 
      *  See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*
      */
@@ -517,21 +516,21 @@ export class DbInstance extends pulumi.CustomResource {
     /**
      * License model information for this DB instance.
      *   Valid Values:
-     *   +  Aurora MySQL - ``general-public-license`` 
-     *   +  Aurora PostgreSQL - ``postgresql-license`` 
-     *   +  RDS for Db2 - ``bring-your-own-license``. For more information about RDS for Db2 licensing, see [](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html) in the *Amazon RDS User Guide.* 
-     *   +  RDS for MariaDB - ``general-public-license`` 
-     *   +  RDS for Microsoft SQL Server - ``license-included`` 
-     *   +  RDS for MySQL - ``general-public-license`` 
-     *   +  RDS for Oracle - ``bring-your-own-license`` or ``license-included`` 
-     *   +  RDS for PostgreSQL - ``postgresql-license`` 
+     *   +  Aurora MySQL - ``general-public-license``
+     *   +  Aurora PostgreSQL - ``postgresql-license``
+     *   +  RDS for Db2 - ``bring-your-own-license``. For more information about RDS for Db2 licensing, see [](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html) in the *Amazon RDS User Guide.*
+     *   +  RDS for MariaDB - ``general-public-license``
+     *   +  RDS for Microsoft SQL Server - ``license-included``
+     *   +  RDS for MySQL - ``general-public-license``
+     *   +  RDS for Oracle - ``bring-your-own-license`` or ``license-included``
+     *   +  RDS for PostgreSQL - ``postgresql-license``
      *   
      *   If you've specified ``DBSecurityGroups`` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
      */
     public readonly licenseModel!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to manage the master user password with AWS Secrets Manager.
-     *  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.* 
+     *  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
      *  Constraints:
      *   +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
      */
@@ -613,7 +612,7 @@ export class DbInstance extends pulumi.CustomResource {
      * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify ``0``.
      *  If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than ``0``.
      *  This setting doesn't apply to RDS Custom DB instances.
-     *  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60`` 
+     *  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60``
      *  Default: ``0``
      */
     public readonly monitoringInterval!: pulumi.Output<number | undefined>;
@@ -662,7 +661,7 @@ export class DbInstance extends pulumi.CustomResource {
      *  This setting doesn't apply to RDS Custom DB instances.
      *  Valid Values:
      *   +   ``7`` 
-     *   +   *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
+     *   +  *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
      *   +   ``731`` 
      *   
      *  Default: ``7`` days
@@ -672,21 +671,21 @@ export class DbInstance extends pulumi.CustomResource {
     /**
      * The port number on which the database accepts connections.
      *  This setting doesn't apply to Aurora DB instances. The port number is managed by the cluster.
-     *  Valid Values: ``1150-65535`` 
+     *  Valid Values: ``1150-65535``
      *  Default:
-     *   +  RDS for Db2 - ``50000`` 
-     *   +  RDS for MariaDB - ``3306`` 
-     *   +  RDS for Microsoft SQL Server - ``1433`` 
-     *   +  RDS for MySQL - ``3306`` 
-     *   +  RDS for Oracle - ``1521`` 
-     *   +  RDS for PostgreSQL - ``5432`` 
+     *   +  RDS for Db2 - ``50000``
+     *   +  RDS for MariaDB - ``3306``
+     *   +  RDS for Microsoft SQL Server - ``1433``
+     *   +  RDS for MySQL - ``3306``
+     *   +  RDS for Oracle - ``1521``
+     *   +  RDS for PostgreSQL - ``5432``
      *   
      *  Constraints:
      *   +  For RDS for Microsoft SQL Server, the value can't be ``1234``, ``1434``, ``3260``, ``3343``, ``3389``, ``47001``, or ``49152-49156``.
      */
     public readonly port!: pulumi.Output<string | undefined>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled, using the ``BackupRetentionPeriod`` parameter. For more information, see [Backup Window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow) in the *Amazon RDS User Guide.* 
+     * The daily time range during which automated backups are created if automated backups are enabled, using the ``BackupRetentionPeriod`` parameter. For more information, see [Backup Window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow) in the *Amazon RDS User Guide.*
      *  Constraints:
      *   +  Must be in the format ``hh24:mi-hh24:mi``.
      *   +  Must be in Universal Coordinated Time (UTC).
@@ -699,8 +698,8 @@ export class DbInstance extends pulumi.CustomResource {
     public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     *  Format: ``ddd:hh24:mi-ddd:hh24:mi`` 
-     *  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) in the *Amazon RDS User Guide.* 
+     *  Format: ``ddd:hh24:mi-ddd:hh24:mi``
+     *  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) in the *Amazon RDS User Guide.*
      *   This property applies when AWS CloudFormation initially creates the DB instance. If you use AWS CloudFormation to update the DB instance, those updates are applied immediately.
      *   Constraints: Minimum 30-minute window.
      */
@@ -713,7 +712,7 @@ export class DbInstance extends pulumi.CustomResource {
     /**
      * The order of priority in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see [Fault Tolerance for an Aurora DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.html#Aurora.Managing.FaultTolerance) in the *Amazon Aurora User Guide*.
      *  This setting doesn't apply to RDS Custom DB instances.
-     *  Default: ``1`` 
+     *  Default: ``1``
      *  Valid Values: ``0 - 15``
      */
     public readonly promotionTier!: pulumi.Output<number | undefined>;
@@ -725,7 +724,7 @@ export class DbInstance extends pulumi.CustomResource {
     /**
      * The open mode of an Oracle read replica. For more information, see [Working with Oracle Read Replicas for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) in the *Amazon RDS User Guide*.
      *  This setting is only supported in RDS for Oracle.
-     *  Default: ``open-read-only`` 
+     *  Default: ``open-read-only``
      *  Valid Values: ``open-read-only`` or ``mounted``
      */
     public readonly replicaMode!: pulumi.Output<string | undefined>;
@@ -793,7 +792,7 @@ export class DbInstance extends pulumi.CustomResource {
      * The storage type to associate with the DB instance.
      *  If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.
      *  This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
-     *  Valid Values: ``gp2 | gp3 | io1 | io2 | standard`` 
+     *  Valid Values: ``gp2 | gp3 | io1 | io2 | standard``
      *  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
@@ -1139,7 +1138,7 @@ export interface DbInstanceArgs {
      *  By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
      *   Set this parameter only if you are *not* using SSL/TLS to connect to the DB instance.
      *   If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate:
-     *   +  For more information about rotating your SSL/TLS certificate for RDS DB engines, see [Rotating Your SSL/TLS Certificate.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide.* 
+     *   +  For more information about rotating your SSL/TLS certificate for RDS DB engines, see [Rotating Your SSL/TLS Certificate.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide.*
      *   +  For more information about rotating your SSL/TLS certificate for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide*.
      *   
      *  This setting doesn't apply to RDS Custom DB instances.
@@ -1169,8 +1168,7 @@ export interface DbInstanceArgs {
     customIamInstanceProfile?: pulumi.Input<string>;
     /**
      * The mode of Database Insights to enable for the DB instance.
-     *
-     * > Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
+     *   Aurora DB instances inherit this value from the DB cluster, so you can't change this value.
      */
     databaseInsightsMode?: pulumi.Input<string>;
     /**
@@ -1232,7 +1230,7 @@ export interface DbInstanceArgs {
      *   
      *   *Oracle* 
      *  The Oracle System ID (SID) of the created DB instance. If you specify ``null``, the default value ``ORCL`` is used. You can't specify the string NULL, or any other reserved word, for ``DBName``. 
-     *  Default: ``ORCL`` 
+     *  Default: ``ORCL``
      *  Constraints:
      *   +  Can't be longer than 8 characters
      *   
@@ -1291,7 +1289,7 @@ export interface DbInstanceArgs {
      *   +   ``PromotionTier`` 
      *   +   ``SourceDBInstanceIdentifier`` 
      *   +   ``SourceRegion`` 
-     *   +   ``StorageEncrypted`` (for an unencrypted snapshot)
+     *   +  ``StorageEncrypted`` (for an unencrypted snapshot)
      *   +   ``Timezone`` 
      *   
      *   *Amazon Aurora* 
@@ -1371,22 +1369,22 @@ export interface DbInstanceArgs {
      *   *Amazon Aurora* 
      *  Not applicable. CloudWatch Logs exports are managed by the DB cluster. 
      *   *Db2* 
-     *  Valid values: ``diag.log``, ``notify.log`` 
+     *  Valid values: ``diag.log``, ``notify.log``
      *   *MariaDB* 
-     *  Valid values: ``audit``, ``error``, ``general``, ``slowquery`` 
+     *  Valid values: ``audit``, ``error``, ``general``, ``slowquery``
      *   *Microsoft SQL Server* 
-     *  Valid values: ``agent``, ``error`` 
+     *  Valid values: ``agent``, ``error``
      *   *MySQL* 
-     *  Valid values: ``audit``, ``error``, ``general``, ``slowquery`` 
+     *  Valid values: ``audit``, ``error``, ``general``, ``slowquery``
      *   *Oracle* 
-     *  Valid values: ``alert``, ``audit``, ``listener``, ``trace``, ``oemagent`` 
+     *  Valid values: ``alert``, ``audit``, ``listener``, ``trace``, ``oemagent``
      *   *PostgreSQL* 
      *  Valid values: ``postgresql``, ``upgrade``
      */
     enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-     *  This property is supported for RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL. For more information, see [IAM Database Authentication for MariaDB, MySQL, and PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon RDS User Guide.* 
+     *  This property is supported for RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL. For more information, see [IAM Database Authentication for MariaDB, MySQL, and PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon RDS User Guide.*
      *   *Amazon Aurora* 
      *  Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster.
      */
@@ -1401,13 +1399,13 @@ export interface DbInstanceArgs {
      *  This property is required when creating a DB instance.
      *   You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.
      *   Valid Values:
-     *   +   ``aurora-mysql`` (for Aurora MySQL DB instances)
-     *   +   ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)
-     *   +   ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)
-     *   +   ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)
-     *   +   ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)
-     *   +   ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)
-     *   +   ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)
+     *   +  ``aurora-mysql`` (for Aurora MySQL DB instances)
+     *   +  ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)
+     *   +  ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)
+     *   +  ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)
+     *   +  ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)
+     *   +  ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)
+     *   +  ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)
      *   +   ``db2-ae`` 
      *   +   ``db2-se`` 
      *   +   ``mariadb`` 
@@ -1428,7 +1426,7 @@ export interface DbInstanceArgs {
      *   By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.
      *   This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.
      *  You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*.
-     *  Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled`` 
+     *  Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``
      *  Default: ``open-source-rds-extended-support``
      */
     engineLifecycleSupport?: pulumi.Input<string>;
@@ -1439,15 +1437,15 @@ export interface DbInstanceArgs {
      *   *Amazon Aurora* 
      *  Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.
      *   *Db2* 
-     *  See [Amazon RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Db2.html#Db2.Concepts.VersionMgmt) in the *Amazon RDS User Guide.* 
+     *  See [Amazon RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Db2.html#Db2.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*
      *   *MariaDB* 
-     *  See [MariaDB on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt) in the *Amazon RDS User Guide.* 
+     *  See [MariaDB on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*
      *   *Microsoft SQL Server* 
-     *  See [Microsoft SQL Server Versions on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport) in the *Amazon RDS User Guide.* 
+     *  See [Microsoft SQL Server Versions on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport) in the *Amazon RDS User Guide.*
      *   *MySQL* 
-     *  See [MySQL on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide.* 
+     *  See [MySQL on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*
      *   *Oracle* 
-     *  See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.* 
+     *  See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.*
      *   *PostgreSQL* 
      *  See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*
      */
@@ -1475,21 +1473,21 @@ export interface DbInstanceArgs {
     /**
      * License model information for this DB instance.
      *   Valid Values:
-     *   +  Aurora MySQL - ``general-public-license`` 
-     *   +  Aurora PostgreSQL - ``postgresql-license`` 
-     *   +  RDS for Db2 - ``bring-your-own-license``. For more information about RDS for Db2 licensing, see [](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html) in the *Amazon RDS User Guide.* 
-     *   +  RDS for MariaDB - ``general-public-license`` 
-     *   +  RDS for Microsoft SQL Server - ``license-included`` 
-     *   +  RDS for MySQL - ``general-public-license`` 
-     *   +  RDS for Oracle - ``bring-your-own-license`` or ``license-included`` 
-     *   +  RDS for PostgreSQL - ``postgresql-license`` 
+     *   +  Aurora MySQL - ``general-public-license``
+     *   +  Aurora PostgreSQL - ``postgresql-license``
+     *   +  RDS for Db2 - ``bring-your-own-license``. For more information about RDS for Db2 licensing, see [](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html) in the *Amazon RDS User Guide.*
+     *   +  RDS for MariaDB - ``general-public-license``
+     *   +  RDS for Microsoft SQL Server - ``license-included``
+     *   +  RDS for MySQL - ``general-public-license``
+     *   +  RDS for Oracle - ``bring-your-own-license`` or ``license-included``
+     *   +  RDS for PostgreSQL - ``postgresql-license``
      *   
      *   If you've specified ``DBSecurityGroups`` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
      */
     licenseModel?: pulumi.Input<string>;
     /**
      * Specifies whether to manage the master user password with AWS Secrets Manager.
-     *  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.* 
+     *  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
      *  Constraints:
      *   +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
      */
@@ -1571,7 +1569,7 @@ export interface DbInstanceArgs {
      * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collection of Enhanced Monitoring metrics, specify ``0``.
      *  If ``MonitoringRoleArn`` is specified, then you must set ``MonitoringInterval`` to a value other than ``0``.
      *  This setting doesn't apply to RDS Custom DB instances.
-     *  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60`` 
+     *  Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60``
      *  Default: ``0``
      */
     monitoringInterval?: pulumi.Input<number>;
@@ -1620,7 +1618,7 @@ export interface DbInstanceArgs {
      *  This setting doesn't apply to RDS Custom DB instances.
      *  Valid Values:
      *   +   ``7`` 
-     *   +   *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
+     *   +  *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
      *   +   ``731`` 
      *   
      *  Default: ``7`` days
@@ -1630,21 +1628,21 @@ export interface DbInstanceArgs {
     /**
      * The port number on which the database accepts connections.
      *  This setting doesn't apply to Aurora DB instances. The port number is managed by the cluster.
-     *  Valid Values: ``1150-65535`` 
+     *  Valid Values: ``1150-65535``
      *  Default:
-     *   +  RDS for Db2 - ``50000`` 
-     *   +  RDS for MariaDB - ``3306`` 
-     *   +  RDS for Microsoft SQL Server - ``1433`` 
-     *   +  RDS for MySQL - ``3306`` 
-     *   +  RDS for Oracle - ``1521`` 
-     *   +  RDS for PostgreSQL - ``5432`` 
+     *   +  RDS for Db2 - ``50000``
+     *   +  RDS for MariaDB - ``3306``
+     *   +  RDS for Microsoft SQL Server - ``1433``
+     *   +  RDS for MySQL - ``3306``
+     *   +  RDS for Oracle - ``1521``
+     *   +  RDS for PostgreSQL - ``5432``
      *   
      *  Constraints:
      *   +  For RDS for Microsoft SQL Server, the value can't be ``1234``, ``1434``, ``3260``, ``3343``, ``3389``, ``47001``, or ``49152-49156``.
      */
     port?: pulumi.Input<string>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled, using the ``BackupRetentionPeriod`` parameter. For more information, see [Backup Window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow) in the *Amazon RDS User Guide.* 
+     * The daily time range during which automated backups are created if automated backups are enabled, using the ``BackupRetentionPeriod`` parameter. For more information, see [Backup Window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow) in the *Amazon RDS User Guide.*
      *  Constraints:
      *   +  Must be in the format ``hh24:mi-hh24:mi``.
      *   +  Must be in Universal Coordinated Time (UTC).
@@ -1657,8 +1655,8 @@ export interface DbInstanceArgs {
     preferredBackupWindow?: pulumi.Input<string>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     *  Format: ``ddd:hh24:mi-ddd:hh24:mi`` 
-     *  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) in the *Amazon RDS User Guide.* 
+     *  Format: ``ddd:hh24:mi-ddd:hh24:mi``
+     *  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) in the *Amazon RDS User Guide.*
      *   This property applies when AWS CloudFormation initially creates the DB instance. If you use AWS CloudFormation to update the DB instance, those updates are applied immediately.
      *   Constraints: Minimum 30-minute window.
      */
@@ -1671,7 +1669,7 @@ export interface DbInstanceArgs {
     /**
      * The order of priority in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see [Fault Tolerance for an Aurora DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.html#Aurora.Managing.FaultTolerance) in the *Amazon Aurora User Guide*.
      *  This setting doesn't apply to RDS Custom DB instances.
-     *  Default: ``1`` 
+     *  Default: ``1``
      *  Valid Values: ``0 - 15``
      */
     promotionTier?: pulumi.Input<number>;
@@ -1683,7 +1681,7 @@ export interface DbInstanceArgs {
     /**
      * The open mode of an Oracle read replica. For more information, see [Working with Oracle Read Replicas for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) in the *Amazon RDS User Guide*.
      *  This setting is only supported in RDS for Oracle.
-     *  Default: ``open-read-only`` 
+     *  Default: ``open-read-only``
      *  Valid Values: ``open-read-only`` or ``mounted``
      */
     replicaMode?: pulumi.Input<string>;
@@ -1751,7 +1749,7 @@ export interface DbInstanceArgs {
      * The storage type to associate with the DB instance.
      *  If you specify ``io1``, ``io2``, or ``gp3``, you must also include a value for the ``Iops`` parameter.
      *  This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
-     *  Valid Values: ``gp2 | gp3 | io1 | io2 | standard`` 
+     *  Valid Values: ``gp2 | gp3 | io1 | io2 | standard``
      *  Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
      */
     storageType?: pulumi.Input<string>;
