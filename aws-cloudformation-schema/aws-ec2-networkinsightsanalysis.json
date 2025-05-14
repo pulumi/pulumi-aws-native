@@ -10,7 +10,7 @@
   "typeName" : "AWS::EC2::NetworkInsightsAnalysis",
   "readOnlyProperties" : [ "/properties/NetworkInsightsAnalysisId", "/properties/NetworkInsightsAnalysisArn", "/properties/StartDate", "/properties/Status", "/properties/StatusMessage", "/properties/NetworkPathFound", "/properties/ForwardPathComponents", "/properties/ReturnPathComponents", "/properties/Explanations", "/properties/AlternatePathHints", "/properties/SuggestedAccounts" ],
   "description" : "Resource schema for AWS::EC2::NetworkInsightsAnalysis",
-  "createOnlyProperties" : [ "/properties/NetworkInsightsPathId", "/properties/FilterInArns" ],
+  "createOnlyProperties" : [ "/properties/NetworkInsightsPathId", "/properties/FilterInArns", "/properties/FilterOutArns" ],
   "primaryIdentifier" : [ "/properties/NetworkInsightsAnalysisId" ],
   "required" : [ "NetworkInsightsPathId" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2-ni.git",
@@ -587,6 +587,14 @@
     },
     "NetworkInsightsAnalysisId" : {
       "type" : "string"
+    },
+    "FilterOutArns" : {
+      "uniqueItems" : false,
+      "insertionOrder" : true,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/ResourceArn"
+      }
     },
     "NetworkInsightsPathId" : {
       "type" : "string"

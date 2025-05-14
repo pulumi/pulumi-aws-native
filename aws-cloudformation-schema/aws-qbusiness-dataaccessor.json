@@ -230,7 +230,7 @@
       "permissions" : [ "qbusiness:GetDataAccessor", "qbusiness:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "qbusiness:GetDataAccessor", "qbusiness:ListTagsForResource", "qbusiness:TagResource", "qbusiness:UntagResource", "qbusiness:UpdateDataAccessor" ]
+      "permissions" : [ "qbusiness:GetDataAccessor", "qbusiness:ListTagsForResource", "qbusiness:TagResource", "qbusiness:UntagResource", "qbusiness:UpdateDataAccessor", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationGrant", "sso:PutApplicationAccessScope" ]
     },
     "delete" : {
       "permissions" : [ "qbusiness:DeleteDataAccessor", "qbusiness:GetDataAccessor", "sso:DeleteApplication" ]

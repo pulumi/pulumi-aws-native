@@ -104,6 +104,11 @@
       "description" : "Enable provisioning of GUA space in private pools.",
       "type" : "boolean"
     },
+    "MeteredAccount" : {
+      "description" : "A metered account is an account that is charged for active IP addresses managed in IPAM",
+      "type" : "string",
+      "enum" : [ "ipam-owner", "resource-owner" ]
+    },
     "DefaultResourceDiscoveryOrganizationalUnitExclusions" : {
       "description" : "A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.",
       "type" : "array",

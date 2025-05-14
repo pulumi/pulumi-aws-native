@@ -18,7 +18,7 @@
     },
     "ComputeType" : {
       "type" : "string",
-      "enum" : [ "BUILD_GENERAL1_SMALL", "BUILD_GENERAL1_MEDIUM", "BUILD_GENERAL1_LARGE", "BUILD_GENERAL1_XLARGE", "BUILD_GENERAL1_2XLARGE", "ATTRIBUTE_BASED_COMPUTE" ]
+      "enum" : [ "BUILD_GENERAL1_SMALL", "BUILD_GENERAL1_MEDIUM", "BUILD_GENERAL1_LARGE", "BUILD_GENERAL1_XLARGE", "BUILD_GENERAL1_2XLARGE", "ATTRIBUTE_BASED_COMPUTE", "CUSTOM_INSTANCE_TYPE" ]
     },
     "OverflowBehavior" : {
       "type" : "string",
@@ -188,6 +188,9 @@
         "machineType" : {
           "type" : "string",
           "enum" : [ "GENERAL", "NVME" ]
+        },
+        "instanceType" : {
+          "type" : "string"
         }
       }
     }
@@ -199,7 +202,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "codebuild:CreateFleet", "codebuild:UpdateFleet" ]
   },
   "handlers" : {
     "create" : {

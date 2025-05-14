@@ -47,6 +47,7 @@ AWS::ApiGatewayV2::IntegrationResponse
 AWS::ApiGatewayV2::Model
 AWS::ApiGatewayV2::Route
 AWS::ApiGatewayV2::RouteResponse
+AWS::ApiGatewayV2::RoutingRule
 AWS::ApiGatewayV2::VpcLink
 AWS::AppConfig::Application
 AWS::AppConfig::ConfigurationProfile
@@ -822,6 +823,7 @@ AWS::Omics::RunGroup
 AWS::Omics::SequenceStore
 AWS::Omics::VariantStore
 AWS::Omics::Workflow
+AWS::Omics::WorkflowVersion
 AWS::OpenSearchServerless::AccessPolicy
 AWS::OpenSearchServerless::Collection
 AWS::OpenSearchServerless::Index

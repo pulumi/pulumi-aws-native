@@ -1684,15 +1684,23 @@
       "required" : [ "Key" ]
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "firehose:TagDeliveryStream", "firehose:ListTagsForDeliveryStream", "firehose:UntagDeliveryStream" ]
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "firehose:CreateDeliveryStream", "firehose:DescribeDeliveryStream", "iam:GetRole", "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey" ]
+      "permissions" : [ "firehose:CreateDeliveryStream", "firehose:DescribeDeliveryStream", "iam:GetRole", "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey", "firehose:TagDeliveryStream" ]
     },
     "read" : {
       "permissions" : [ "firehose:DescribeDeliveryStream", "firehose:ListTagsForDeliveryStream" ]
     },
     "update" : {
-      "permissions" : [ "firehose:UpdateDestination", "firehose:DescribeDeliveryStream", "firehose:StartDeliveryStreamEncryption", "firehose:StopDeliveryStreamEncryption", "firehose:ListTagsForDeliveryStream", "firehose:TagDeliveryStream", "firehose:UntagDeliveryStream", "kms:CreateGrant", "kms:RevokeGrant", "kms:DescribeKey" ]
+      "permissions" : [ "firehose:UpdateDestination", "firehose:DescribeDeliveryStream", "firehose:StartDeliveryStreamEncryption", "firehose:StopDeliveryStreamEncryption", "firehose:ListTagsForDeliveryStream", "firehose:TagDeliveryStream", "firehose:UntagDeliveryStream", "kms:CreateGrant", "kms:RevokeGrant", "kms:DescribeKey", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "firehose:DeleteDeliveryStream", "firehose:DescribeDeliveryStream", "kms:RevokeGrant", "kms:DescribeKey" ]
@@ -1702,6 +1710,7 @@
     }
   },
   "readOnlyProperties" : [ "/properties/Arn" ],
+  "writeOnlyProperties" : [ "/properties/HttpEndpointDestinationConfiguration/EndpointConfiguration/AccessKey", "/properties/RedshiftDestinationConfiguration/Password", "/properties/ElasticsearchDestinationConfiguration/CloudWatchLoggingOptions/Enabled", "/properties/AmazonopensearchserviceDestinationConfiguration", "/properties/ElasticsearchDestinationConfiguration", "/properties/SnowflakeDestinationConfiguration", "/properties/AmazonOpenSearchServerlessDestinationConfiguration", "/properties/DatabaseSourceConfiguration", "/properties/IcebergDestinationConfiguration", "/properties/HttpEndpointDestinationConfiguration/SecretsManagerConfiguration", "/properties/RedshiftDestinationConfiguration/ProcessingConfiguration", "/properties/S3DestinationConfiguration", "/properties/MSKSourceConfiguration", "/properties/KinesisStreamSourceConfiguration", "/properties/SnowflakeDestinationConfiguration/SnowflakeVpcConfiguration", "/properties/HttpEndpointDestinationConfiguration/ProcessingConfiguration", "/properties/RedshiftDestinationConfiguration/S3Configuration/EncryptionConfiguration/KMSEncryptionConfig/AWSKMSKeyARN", "/properties/SplunkDestinationConfiguration/BufferingHints", "/properties/SplunkDestinationConfiguration/SecretsManagerConfiguration", "/properties/SplunkDestinationConfiguration/ProcessingConfiguration", "/properties/SplunkDestinationConfiguration/CloudWatchLoggingOptions", "/properties/SplunkDestinationConfiguration/S3Configuration/EncryptionConfiguration/NoEncryptionConfig", "/properties/RedshiftDestinationConfiguration/S3BackupConfiguration/ErrorOutputPrefix", "/properties/RedshiftDestinationConfiguration/S3BackupConfiguration/EncryptionConfiguration/KMSEncryptionConfig/AWSKMSKeyARN", "/properties/ExtendedS3DestinationConfiguration/FileExtension", "/properties/RedshiftDestinationConfiguration/S3Configuration/ErrorOutputPrefix", "/properties/RedshiftDestinationConfiguration/SecretsManagerConfiguration/Enabled", "/properties/RedshiftDestinationConfiguration/SecretsManagerConfiguration/SecretARN", "/properties/HttpEndpointDestinationConfiguration/S3Configuration/EncryptionConfiguration/KMSEncryptionConfig/AWSKMSKeyARN", "/properties/ExtendedS3DestinationConfiguration/CustomTimeZone", "/properties/RedshiftDestinationConfiguration/SecretsManagerConfiguration/RoleARN", "/properties/DirectPutSourceConfiguration/ThroughputHintInMBs" ],
   "createOnlyProperties" : [ "/properties/DeliveryStreamName", "/properties/DeliveryStreamType", "/properties/ElasticsearchDestinationConfiguration/VpcConfiguration", "/properties/AmazonopensearchserviceDestinationConfiguration/VpcConfiguration", "/properties/AmazonOpenSearchServerlessDestinationConfiguration/VpcConfiguration", "/properties/DatabaseSourceConfiguration", "/properties/KinesisStreamSourceConfiguration", "/properties/DirectPutSourceConfiguration", "/properties/MSKSourceConfiguration", "/properties/IcebergDestinationConfiguration/CatalogConfiguration", "/properties/SnowflakeDestinationConfiguration/SnowflakeVpcConfiguration" ],
   "primaryIdentifier" : [ "/properties/DeliveryStreamName" ]
 }
