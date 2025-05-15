@@ -434,7 +434,7 @@ class ContainerFleet(pulumi.CustomResource):
             __props__.__dict__["maximum_game_server_container_groups_per_instance"] = None
             __props__.__dict__["per_instance_container_group_definition_arn"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["billingType", "instanceType", "locations[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["billingType", "instanceType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ContainerFleet, __self__).__init__(
             'aws-native:gamelift:ContainerFleet',

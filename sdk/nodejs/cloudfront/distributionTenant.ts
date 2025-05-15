@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::DistributionTenant
+ * The distribution tenant.
  */
 export class DistributionTenant extends pulumi.CustomResource {
     /**
@@ -54,7 +54,7 @@ export class DistributionTenant extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+     * Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
      */
     public readonly customizations!: pulumi.Output<outputs.cloudfront.DistributionTenantCustomizations | undefined>;
     /**
@@ -95,7 +95,7 @@ export class DistributionTenant extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * A complex type that contains zero or more `Tag` elements.
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -166,7 +166,7 @@ export interface DistributionTenantArgs {
      */
     connectionGroupId?: pulumi.Input<string>;
     /**
-     * Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+     * Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
      */
     customizations?: pulumi.Input<inputs.cloudfront.DistributionTenantCustomizationsArgs>;
     /**
@@ -194,7 +194,7 @@ export interface DistributionTenantArgs {
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantParameterArgs>[]>;
     /**
-     * A complex type that contains zero or more `Tag` elements.
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

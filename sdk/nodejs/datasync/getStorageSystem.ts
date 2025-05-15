@@ -8,70 +8,42 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::StorageSystem.
+ * Resource Type definition for AWS::DataSync::StorageSystem
  */
 export function getStorageSystem(args: GetStorageSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getStorageSystem", {
-        "storageSystemArn": args.storageSystemArn,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetStorageSystemArgs {
-    /**
-     * The ARN of the on-premises storage system added to DataSync Discovery.
-     */
-    storageSystemArn: string;
+    id: string;
 }
 
 export interface GetStorageSystemResult {
-    /**
-     * The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-     */
     readonly agentArns?: string[];
-    /**
-     * The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
-     */
     readonly cloudWatchLogGroupArn?: string;
-    /**
-     * Indicates whether the DataSync agent can access the on-premises storage system.
-     */
-    readonly connectivityStatus?: enums.datasync.StorageSystemConnectivityStatus;
-    /**
-     * A familiar name for the on-premises storage system.
-     */
+    readonly connectivityStatus?: string;
+    readonly id?: string;
     readonly name?: string;
-    /**
-     * The ARN of a secret stored by AWS Secrets Manager.
-     */
     readonly secretsManagerArn?: string;
     readonly serverConfiguration?: outputs.datasync.StorageSystemServerConfiguration;
-    /**
-     * The ARN of the on-premises storage system added to DataSync Discovery.
-     */
+    readonly serverCredentials?: outputs.datasync.StorageSystemServerCredentials;
     readonly storageSystemArn?: string;
-    /**
-     * The type of on-premises storage system that DataSync Discovery will analyze.
-     */
-    readonly systemType?: enums.datasync.StorageSystemSystemType;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     */
+    readonly systemType?: string;
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource schema for AWS::DataSync::StorageSystem.
+ * Resource Type definition for AWS::DataSync::StorageSystem
  */
 export function getStorageSystemOutput(args: GetStorageSystemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageSystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:datasync:getStorageSystem", {
-        "storageSystemArn": args.storageSystemArn,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetStorageSystemOutputArgs {
-    /**
-     * The ARN of the on-premises storage system added to DataSync Discovery.
-     */
-    storageSystemArn: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

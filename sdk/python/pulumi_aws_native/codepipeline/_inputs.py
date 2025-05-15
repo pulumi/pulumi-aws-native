@@ -1100,6 +1100,10 @@ if not MYPY:
         """
         The value of the environment variable.
         """
+        type: NotRequired[pulumi.Input['PipelineEnvironmentVariableType']]
+        """
+        The type of the environment variable.
+        """
 elif False:
     PipelineEnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1107,14 +1111,18 @@ elif False:
 class PipelineEnvironmentVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[builtins.str],
-                 value: pulumi.Input[builtins.str]):
+                 value: pulumi.Input[builtins.str],
+                 type: Optional[pulumi.Input['PipelineEnvironmentVariableType']] = None):
         """
         Represents information about the environment variable of an action.
         :param pulumi.Input[builtins.str] name: The name of the environment variable.
         :param pulumi.Input[builtins.str] value: The value of the environment variable.
+        :param pulumi.Input['PipelineEnvironmentVariableType'] type: The type of the environment variable.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1139,6 +1147,18 @@ class PipelineEnvironmentVariableArgs:
     @value.setter
     def value(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['PipelineEnvironmentVariableType']]:
+        """
+        The type of the environment variable.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['PipelineEnvironmentVariableType']]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

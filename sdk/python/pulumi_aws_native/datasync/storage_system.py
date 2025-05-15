@@ -17,7 +17,6 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['StorageSystemArgs', 'StorageSystem']
@@ -27,18 +26,13 @@ class StorageSystemArgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  server_configuration: pulumi.Input['StorageSystemServerConfigurationArgs'],
-                 system_type: pulumi.Input['StorageSystemSystemType'],
+                 system_type: pulumi.Input[builtins.str],
                  cloud_watch_log_group_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  server_credentials: Optional[pulumi.Input['StorageSystemServerCredentialsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageSystem resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-        :param pulumi.Input['StorageSystemSystemType'] system_type: The type of on-premises storage system that DataSync Discovery will analyze.
-        :param pulumi.Input[builtins.str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
-        :param pulumi.Input[builtins.str] name: A familiar name for the on-premises storage system.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "server_configuration", server_configuration)
@@ -55,9 +49,6 @@ class StorageSystemArgs:
     @property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
-        """
-        The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-        """
         return pulumi.get(self, "agent_arns")
 
     @agent_arns.setter
@@ -75,22 +66,16 @@ class StorageSystemArgs:
 
     @property
     @pulumi.getter(name="systemType")
-    def system_type(self) -> pulumi.Input['StorageSystemSystemType']:
-        """
-        The type of on-premises storage system that DataSync Discovery will analyze.
-        """
+    def system_type(self) -> pulumi.Input[builtins.str]:
         return pulumi.get(self, "system_type")
 
     @system_type.setter
-    def system_type(self, value: pulumi.Input['StorageSystemSystemType']):
+    def system_type(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "system_type", value)
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
     def cloud_watch_log_group_arn(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
-        """
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
     @cloud_watch_log_group_arn.setter
@@ -100,9 +85,6 @@ class StorageSystemArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        A familiar name for the on-premises storage system.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -121,9 +103,6 @@ class StorageSystemArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        An array of key-value pairs to apply to this resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -144,19 +123,14 @@ class StorageSystem(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  server_configuration: Optional[pulumi.Input[Union['StorageSystemServerConfigurationArgs', 'StorageSystemServerConfigurationArgsDict']]] = None,
                  server_credentials: Optional[pulumi.Input[Union['StorageSystemServerCredentialsArgs', 'StorageSystemServerCredentialsArgsDict']]] = None,
-                 system_type: Optional[pulumi.Input['StorageSystemSystemType']] = None,
+                 system_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::DataSync::StorageSystem.
+        Resource Type definition for AWS::DataSync::StorageSystem
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-        :param pulumi.Input[builtins.str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
-        :param pulumi.Input[builtins.str] name: A familiar name for the on-premises storage system.
-        :param pulumi.Input['StorageSystemSystemType'] system_type: The type of on-premises storage system that DataSync Discovery will analyze.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -165,7 +139,7 @@ class StorageSystem(pulumi.CustomResource):
                  args: StorageSystemArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::DataSync::StorageSystem.
+        Resource Type definition for AWS::DataSync::StorageSystem
 
         :param str resource_name: The name of the resource.
         :param StorageSystemArgs args: The arguments to use to populate this resource's properties.
@@ -187,7 +161,7 @@ class StorageSystem(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  server_configuration: Optional[pulumi.Input[Union['StorageSystemServerConfigurationArgs', 'StorageSystemServerConfigurationArgsDict']]] = None,
                  server_credentials: Optional[pulumi.Input[Union['StorageSystemServerCredentialsArgs', 'StorageSystemServerCredentialsArgsDict']]] = None,
-                 system_type: Optional[pulumi.Input['StorageSystemSystemType']] = None,
+                 system_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -211,6 +185,7 @@ class StorageSystem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'system_type'")
             __props__.__dict__["system_type"] = system_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["connectivity_status"] = None
             __props__.__dict__["secrets_manager_arn"] = None
             __props__.__dict__["storage_system_arn"] = None
@@ -237,6 +212,7 @@ class StorageSystem(pulumi.CustomResource):
         __props__ = StorageSystemArgs.__new__(StorageSystemArgs)
 
         __props__.__dict__["agent_arns"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cloud_watch_log_group_arn"] = None
         __props__.__dict__["connectivity_status"] = None
         __props__.__dict__["name"] = None
@@ -251,41 +227,31 @@ class StorageSystem(pulumi.CustomResource):
     @property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Output[Sequence[builtins.str]]:
-        """
-        The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-        """
         return pulumi.get(self, "agent_arns")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
     def cloud_watch_log_group_arn(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
-        """
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
     @property
     @pulumi.getter(name="connectivityStatus")
-    def connectivity_status(self) -> pulumi.Output['StorageSystemConnectivityStatus']:
-        """
-        Indicates whether the DataSync agent can access the on-premises storage system.
-        """
+    def connectivity_status(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "connectivity_status")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        A familiar name for the on-premises storage system.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="secretsManagerArn")
     def secrets_manager_arn(self) -> pulumi.Output[builtins.str]:
-        """
-        The ARN of a secret stored by AWS Secrets Manager.
-        """
         return pulumi.get(self, "secrets_manager_arn")
 
     @property
@@ -301,24 +267,15 @@ class StorageSystem(pulumi.CustomResource):
     @property
     @pulumi.getter(name="storageSystemArn")
     def storage_system_arn(self) -> pulumi.Output[builtins.str]:
-        """
-        The ARN of the on-premises storage system added to DataSync Discovery.
-        """
         return pulumi.get(self, "storage_system_arn")
 
     @property
     @pulumi.getter(name="systemType")
-    def system_type(self) -> pulumi.Output['StorageSystemSystemType']:
-        """
-        The type of on-premises storage system that DataSync Discovery will analyze.
-        """
+    def system_type(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "system_type")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        An array of key-value pairs to apply to this resource.
-        """
         return pulumi.get(self, "tags")
 

@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The type of the environment variable.
+        /// </summary>
+        public readonly Pulumi.AwsNative.CodePipeline.PipelineEnvironmentVariableType? Type;
+        /// <summary>
         /// The value of the environment variable.
         /// </summary>
         public readonly string Value;
@@ -29,9 +33,12 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         private PipelineEnvironmentVariable(
             string name,
 
+            Pulumi.AwsNative.CodePipeline.PipelineEnvironmentVariableType? type,
+
             string value)
         {
             Name = name;
+            Type = type;
             Value = value;
         }
     }

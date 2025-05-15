@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         ///   +   ``PUT`` 
         ///   +   ``ALL`` 
         ///   
-        ///   ``ALL`` is a special value that includes all of the listed HTTP methods.
+        ///  ``ALL`` is a special value that includes all of the listed HTTP methods.
         /// </summary>
         public readonly ImmutableArray<string> Items;
 

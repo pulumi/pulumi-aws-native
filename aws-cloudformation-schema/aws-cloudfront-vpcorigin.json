@@ -61,7 +61,8 @@
   "description" : "An Amazon CloudFront VPC origin.",
   "handlers" : {
     "create" : {
-      "permissions" : [ "cloudfront:CreateVpcOrigin", "cloudfront:GetVpcOrigin", "cloudfront:TagResource", "ec2:DescribeInstances", "elasticloadbalancing:DescribeLoadBalancers", "ec2:DescribeInternetGateways", "iam:CreateServiceLinkedRole", "sts:AssumeRole" ]
+      "permissions" : [ "cloudfront:CreateVpcOrigin", "cloudfront:GetVpcOrigin", "cloudfront:TagResource", "ec2:DescribeInstances", "elasticloadbalancing:DescribeLoadBalancers", "ec2:DescribeInternetGateways", "iam:CreateServiceLinkedRole", "sts:AssumeRole" ],
+      "timeoutInMinutes" : 40
     },
     "delete" : {
       "permissions" : [ "cloudfront:DeleteVpcOrigin", "cloudfront:GetVpcOrigin", "elasticloadbalancing:DescribeLoadBalancers", "ec2:DescribeInstances", "ec2:DescribeInternetGateways", "iam:CreateServiceLinkedRole", "sts:AssumeRole" ]
@@ -73,7 +74,8 @@
       "permissions" : [ "cloudfront:GetVpcOrigin", "cloudfront:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "cloudfront:UpdateVpcOrigin", "cloudfront:GetVpcOrigin", "cloudfront:TagResource", "ec2:DescribeInstances", "cloudfront:UntagResource", "cloudfront:ListTagsForResource", "elasticloadbalancing:DescribeLoadBalancers", "ec2:DescribeInternetGateways", "iam:CreateServiceLinkedRole", "sts:AssumeRole" ]
+      "permissions" : [ "cloudfront:UpdateVpcOrigin", "cloudfront:GetVpcOrigin", "cloudfront:TagResource", "ec2:DescribeInstances", "cloudfront:UntagResource", "cloudfront:ListTagsForResource", "elasticloadbalancing:DescribeLoadBalancers", "ec2:DescribeInternetGateways", "iam:CreateServiceLinkedRole", "sts:AssumeRole" ],
+      "timeoutInMinutes" : 40
     }
   },
   "primaryIdentifier" : [ "/properties/Id" ],

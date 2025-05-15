@@ -13,28 +13,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::DataSync::StorageSystem.
+// Resource Type definition for AWS::DataSync::StorageSystem
 type StorageSystem struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
-	// The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
-	CloudWatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudWatchLogGroupArn"`
-	// Indicates whether the DataSync agent can access the on-premises storage system.
-	ConnectivityStatus StorageSystemConnectivityStatusOutput `pulumi:"connectivityStatus"`
-	// A familiar name for the on-premises storage system.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The ARN of a secret stored by AWS Secrets Manager.
-	SecretsManagerArn   pulumi.StringOutput                     `pulumi:"secretsManagerArn"`
-	ServerConfiguration StorageSystemServerConfigurationOutput  `pulumi:"serverConfiguration"`
-	ServerCredentials   StorageSystemServerCredentialsPtrOutput `pulumi:"serverCredentials"`
-	// The ARN of the on-premises storage system added to DataSync Discovery.
-	StorageSystemArn pulumi.StringOutput `pulumi:"storageSystemArn"`
-	// The type of on-premises storage system that DataSync Discovery will analyze.
-	SystemType StorageSystemSystemTypeOutput `pulumi:"systemType"`
-	// An array of key-value pairs to apply to this resource.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	AgentArns             pulumi.StringArrayOutput                `pulumi:"agentArns"`
+	AwsId                 pulumi.StringOutput                     `pulumi:"awsId"`
+	CloudWatchLogGroupArn pulumi.StringPtrOutput                  `pulumi:"cloudWatchLogGroupArn"`
+	ConnectivityStatus    pulumi.StringOutput                     `pulumi:"connectivityStatus"`
+	Name                  pulumi.StringPtrOutput                  `pulumi:"name"`
+	SecretsManagerArn     pulumi.StringOutput                     `pulumi:"secretsManagerArn"`
+	ServerConfiguration   StorageSystemServerConfigurationOutput  `pulumi:"serverConfiguration"`
+	ServerCredentials     StorageSystemServerCredentialsPtrOutput `pulumi:"serverCredentials"`
+	StorageSystemArn      pulumi.StringOutput                     `pulumi:"storageSystemArn"`
+	SystemType            pulumi.StringOutput                     `pulumi:"systemType"`
+	Tags                  aws.TagArrayOutput                      `pulumi:"tags"`
 }
 
 // NewStorageSystem registers a new resource with the given unique name, arguments, and options.
@@ -86,34 +79,24 @@ func (StorageSystemState) ElementType() reflect.Type {
 }
 
 type storageSystemArgs struct {
-	// The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-	AgentArns []string `pulumi:"agentArns"`
-	// The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
-	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
-	// A familiar name for the on-premises storage system.
-	Name                *string                          `pulumi:"name"`
-	ServerConfiguration StorageSystemServerConfiguration `pulumi:"serverConfiguration"`
-	ServerCredentials   *StorageSystemServerCredentials  `pulumi:"serverCredentials"`
-	// The type of on-premises storage system that DataSync Discovery will analyze.
-	SystemType StorageSystemSystemType `pulumi:"systemType"`
-	// An array of key-value pairs to apply to this resource.
-	Tags []aws.Tag `pulumi:"tags"`
+	AgentArns             []string                         `pulumi:"agentArns"`
+	CloudWatchLogGroupArn *string                          `pulumi:"cloudWatchLogGroupArn"`
+	Name                  *string                          `pulumi:"name"`
+	ServerConfiguration   StorageSystemServerConfiguration `pulumi:"serverConfiguration"`
+	ServerCredentials     *StorageSystemServerCredentials  `pulumi:"serverCredentials"`
+	SystemType            string                           `pulumi:"systemType"`
+	Tags                  []aws.Tag                        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StorageSystem resource.
 type StorageSystemArgs struct {
-	// The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-	AgentArns pulumi.StringArrayInput
-	// The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
+	AgentArns             pulumi.StringArrayInput
 	CloudWatchLogGroupArn pulumi.StringPtrInput
-	// A familiar name for the on-premises storage system.
-	Name                pulumi.StringPtrInput
-	ServerConfiguration StorageSystemServerConfigurationInput
-	ServerCredentials   StorageSystemServerCredentialsPtrInput
-	// The type of on-premises storage system that DataSync Discovery will analyze.
-	SystemType StorageSystemSystemTypeInput
-	// An array of key-value pairs to apply to this resource.
-	Tags aws.TagArrayInput
+	Name                  pulumi.StringPtrInput
+	ServerConfiguration   StorageSystemServerConfigurationInput
+	ServerCredentials     StorageSystemServerCredentialsPtrInput
+	SystemType            pulumi.StringInput
+	Tags                  aws.TagArrayInput
 }
 
 func (StorageSystemArgs) ElementType() reflect.Type {
@@ -153,27 +136,26 @@ func (o StorageSystemOutput) ToStorageSystemOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
 func (o StorageSystemOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StorageSystem) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
 
-// The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
+func (o StorageSystemOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSystem) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
 func (o StorageSystemOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageSystem) pulumi.StringPtrOutput { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the DataSync agent can access the on-premises storage system.
-func (o StorageSystemOutput) ConnectivityStatus() StorageSystemConnectivityStatusOutput {
-	return o.ApplyT(func(v *StorageSystem) StorageSystemConnectivityStatusOutput { return v.ConnectivityStatus }).(StorageSystemConnectivityStatusOutput)
+func (o StorageSystemOutput) ConnectivityStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSystem) pulumi.StringOutput { return v.ConnectivityStatus }).(pulumi.StringOutput)
 }
 
-// A familiar name for the on-premises storage system.
 func (o StorageSystemOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageSystem) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of a secret stored by AWS Secrets Manager.
 func (o StorageSystemOutput) SecretsManagerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageSystem) pulumi.StringOutput { return v.SecretsManagerArn }).(pulumi.StringOutput)
 }
@@ -186,17 +168,14 @@ func (o StorageSystemOutput) ServerCredentials() StorageSystemServerCredentialsP
 	return o.ApplyT(func(v *StorageSystem) StorageSystemServerCredentialsPtrOutput { return v.ServerCredentials }).(StorageSystemServerCredentialsPtrOutput)
 }
 
-// The ARN of the on-premises storage system added to DataSync Discovery.
 func (o StorageSystemOutput) StorageSystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageSystem) pulumi.StringOutput { return v.StorageSystemArn }).(pulumi.StringOutput)
 }
 
-// The type of on-premises storage system that DataSync Discovery will analyze.
-func (o StorageSystemOutput) SystemType() StorageSystemSystemTypeOutput {
-	return o.ApplyT(func(v *StorageSystem) StorageSystemSystemTypeOutput { return v.SystemType }).(StorageSystemSystemTypeOutput)
+func (o StorageSystemOutput) SystemType() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSystem) pulumi.StringOutput { return v.SystemType }).(pulumi.StringOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
 func (o StorageSystemOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *StorageSystem) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

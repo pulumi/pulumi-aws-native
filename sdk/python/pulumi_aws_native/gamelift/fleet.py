@@ -15,6 +15,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -49,7 +51,8 @@ class FleetArgs:
                  scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FleetScalingPolicyArgs']]]] = None,
                  script_id: Optional[pulumi.Input[builtins.str]] = None,
                  server_launch_parameters: Optional[pulumi.Input[builtins.str]] = None,
-                 server_launch_path: Optional[pulumi.Input[builtins.str]] = None):
+                 server_launch_path: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
         :param pulumi.Input['FleetAnywhereConfigurationArgs'] anywhere_configuration: Configuration for Anywhere fleet.
@@ -83,6 +86,7 @@ class FleetArgs:
                Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
         :param pulumi.Input[builtins.str] server_launch_parameters: This parameter is no longer used but is retained for backward compatibility. Instead, specify server launch parameters in the RuntimeConfiguration parameter. A request must specify either a runtime configuration or values for both ServerLaunchParameters and ServerLaunchPath.
         :param pulumi.Input[builtins.str] server_launch_path: This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if anywhere_configuration is not None:
             pulumi.set(__self__, "anywhere_configuration", anywhere_configuration)
@@ -138,6 +142,8 @@ class FleetArgs:
             pulumi.set(__self__, "server_launch_parameters", server_launch_parameters)
         if server_launch_path is not None:
             pulumi.set(__self__, "server_launch_path", server_launch_path)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="anywhereConfiguration")
@@ -467,6 +473,18 @@ class FleetArgs:
     def server_launch_path(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "server_launch_path", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Fleet(pulumi.CustomResource):
 
@@ -503,6 +521,7 @@ class Fleet(pulumi.CustomResource):
                  script_id: Optional[pulumi.Input[builtins.str]] = None,
                  server_launch_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  server_launch_path: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
@@ -540,6 +559,7 @@ class Fleet(pulumi.CustomResource):
                Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
         :param pulumi.Input[builtins.str] server_launch_parameters: This parameter is no longer used but is retained for backward compatibility. Instead, specify server launch parameters in the RuntimeConfiguration parameter. A request must specify either a runtime configuration or values for both ServerLaunchParameters and ServerLaunchPath.
         :param pulumi.Input[builtins.str] server_launch_path: This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -592,6 +612,7 @@ class Fleet(pulumi.CustomResource):
                  script_id: Optional[pulumi.Input[builtins.str]] = None,
                  server_launch_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  server_launch_path: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -628,6 +649,8 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["script_id"] = script_id
             __props__.__dict__["server_launch_parameters"] = server_launch_parameters
             __props__.__dict__["server_launch_path"] = server_launch_path
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["fleet_arn"] = None
             __props__.__dict__["fleet_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applyCapacity", "buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -662,6 +685,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["desired_ec2_instances"] = None
         __props__.__dict__["ec2_inbound_permissions"] = None
         __props__.__dict__["ec2_instance_type"] = None
+        __props__.__dict__["fleet_arn"] = None
         __props__.__dict__["fleet_id"] = None
         __props__.__dict__["fleet_type"] = None
         __props__.__dict__["instance_role_arn"] = None
@@ -681,6 +705,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["script_id"] = None
         __props__.__dict__["server_launch_parameters"] = None
         __props__.__dict__["server_launch_path"] = None
+        __props__.__dict__["tags"] = None
         return Fleet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -754,6 +779,14 @@ class Fleet(pulumi.CustomResource):
         The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         """
         return pulumi.get(self, "ec2_instance_type")
+
+    @property
+    @pulumi.getter(name="fleetArn")
+    def fleet_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Servers Fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Fleet ARN, the resource ID matches the FleetId value.
+        """
+        return pulumi.get(self, "fleet_arn")
 
     @property
     @pulumi.getter(name="fleetId")
@@ -910,4 +943,12 @@ class Fleet(pulumi.CustomResource):
         This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
         """
         return pulumi.get(self, "server_launch_path")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 

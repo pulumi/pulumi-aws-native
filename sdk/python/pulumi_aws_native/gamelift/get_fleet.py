@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -26,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, anywhere_configuration=None, description=None, desired_ec2_instances=None, ec2_inbound_permissions=None, fleet_id=None, locations=None, max_size=None, metric_groups=None, min_size=None, name=None, new_game_session_protection_policy=None, resource_creation_limit_policy=None, runtime_configuration=None, scaling_policies=None):
+    def __init__(__self__, anywhere_configuration=None, description=None, desired_ec2_instances=None, ec2_inbound_permissions=None, fleet_arn=None, fleet_id=None, locations=None, max_size=None, metric_groups=None, min_size=None, name=None, new_game_session_protection_policy=None, resource_creation_limit_policy=None, runtime_configuration=None, scaling_policies=None, tags=None):
         if anywhere_configuration and not isinstance(anywhere_configuration, dict):
             raise TypeError("Expected argument 'anywhere_configuration' to be a dict")
         pulumi.set(__self__, "anywhere_configuration", anywhere_configuration)
@@ -39,6 +40,9 @@ class GetFleetResult:
         if ec2_inbound_permissions and not isinstance(ec2_inbound_permissions, list):
             raise TypeError("Expected argument 'ec2_inbound_permissions' to be a list")
         pulumi.set(__self__, "ec2_inbound_permissions", ec2_inbound_permissions)
+        if fleet_arn and not isinstance(fleet_arn, str):
+            raise TypeError("Expected argument 'fleet_arn' to be a str")
+        pulumi.set(__self__, "fleet_arn", fleet_arn)
         if fleet_id and not isinstance(fleet_id, str):
             raise TypeError("Expected argument 'fleet_id' to be a str")
         pulumi.set(__self__, "fleet_id", fleet_id)
@@ -69,6 +73,9 @@ class GetFleetResult:
         if scaling_policies and not isinstance(scaling_policies, list):
             raise TypeError("Expected argument 'scaling_policies' to be a list")
         pulumi.set(__self__, "scaling_policies", scaling_policies)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="anywhereConfiguration")
@@ -101,6 +108,14 @@ class GetFleetResult:
         A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         """
         return pulumi.get(self, "ec2_inbound_permissions")
+
+    @property
+    @pulumi.getter(name="fleetArn")
+    def fleet_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Servers Fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Fleet ARN, the resource ID matches the FleetId value.
+        """
+        return pulumi.get(self, "fleet_arn")
 
     @property
     @pulumi.getter(name="fleetId")
@@ -184,6 +199,14 @@ class GetFleetResult:
         """
         return pulumi.get(self, "scaling_policies")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetFleetResult(GetFleetResult):
     # pylint: disable=using-constant-test
@@ -195,6 +218,7 @@ class AwaitableGetFleetResult(GetFleetResult):
             description=self.description,
             desired_ec2_instances=self.desired_ec2_instances,
             ec2_inbound_permissions=self.ec2_inbound_permissions,
+            fleet_arn=self.fleet_arn,
             fleet_id=self.fleet_id,
             locations=self.locations,
             max_size=self.max_size,
@@ -204,7 +228,8 @@ class AwaitableGetFleetResult(GetFleetResult):
             new_game_session_protection_policy=self.new_game_session_protection_policy,
             resource_creation_limit_policy=self.resource_creation_limit_policy,
             runtime_configuration=self.runtime_configuration,
-            scaling_policies=self.scaling_policies)
+            scaling_policies=self.scaling_policies,
+            tags=self.tags)
 
 
 def get_fleet(fleet_id: Optional[builtins.str] = None,
@@ -225,6 +250,7 @@ def get_fleet(fleet_id: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         desired_ec2_instances=pulumi.get(__ret__, 'desired_ec2_instances'),
         ec2_inbound_permissions=pulumi.get(__ret__, 'ec2_inbound_permissions'),
+        fleet_arn=pulumi.get(__ret__, 'fleet_arn'),
         fleet_id=pulumi.get(__ret__, 'fleet_id'),
         locations=pulumi.get(__ret__, 'locations'),
         max_size=pulumi.get(__ret__, 'max_size'),
@@ -234,7 +260,8 @@ def get_fleet(fleet_id: Optional[builtins.str] = None,
         new_game_session_protection_policy=pulumi.get(__ret__, 'new_game_session_protection_policy'),
         resource_creation_limit_policy=pulumi.get(__ret__, 'resource_creation_limit_policy'),
         runtime_configuration=pulumi.get(__ret__, 'runtime_configuration'),
-        scaling_policies=pulumi.get(__ret__, 'scaling_policies'))
+        scaling_policies=pulumi.get(__ret__, 'scaling_policies'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_fleet_output(fleet_id: Optional[pulumi.Input[builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
@@ -252,6 +279,7 @@ def get_fleet_output(fleet_id: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         desired_ec2_instances=pulumi.get(__response__, 'desired_ec2_instances'),
         ec2_inbound_permissions=pulumi.get(__response__, 'ec2_inbound_permissions'),
+        fleet_arn=pulumi.get(__response__, 'fleet_arn'),
         fleet_id=pulumi.get(__response__, 'fleet_id'),
         locations=pulumi.get(__response__, 'locations'),
         max_size=pulumi.get(__response__, 'max_size'),
@@ -261,4 +289,5 @@ def get_fleet_output(fleet_id: Optional[pulumi.Input[builtins.str]] = None,
         new_game_session_protection_policy=pulumi.get(__response__, 'new_game_session_protection_policy'),
         resource_creation_limit_policy=pulumi.get(__response__, 'resource_creation_limit_policy'),
         runtime_configuration=pulumi.get(__response__, 'runtime_configuration'),
-        scaling_policies=pulumi.get(__response__, 'scaling_policies')))
+        scaling_policies=pulumi.get(__response__, 'scaling_policies'),
+        tags=pulumi.get(__response__, 'tags')))

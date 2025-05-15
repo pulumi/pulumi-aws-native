@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+    /// </summary>
     [OutputType]
     public sealed class DistributionTenantCustomizations
     {
         /// <summary>
-        /// The AWS Certificate Manager (ACM) certificate.
+        /// The ACMlong (ACM) certificate.
         /// </summary>
         public readonly Outputs.DistributionTenantCertificate? Certificate;
         /// <summary>
@@ -22,7 +25,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionTenantGeoRestrictionCustomization? GeoRestrictions;
         /// <summary>
-        /// The AWS WAF web ACL.
+        /// The WAF web ACL.
         /// </summary>
         public readonly Outputs.DistributionTenantWebAclCustomization? WebAcl;
 

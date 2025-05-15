@@ -90,7 +90,8 @@ class DbClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon Web Services on your behalf.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[builtins.bool] auto_minor_version_upgrade: Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
-                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
+                For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*. 
                 Valid for: Aurora DB clusters only
         :param pulumi.Input[builtins.int] backtrack_window: The target backtrack window, in seconds. To disable backtracking, set this value to ``0``.
@@ -535,7 +536,8 @@ class DbClusterArgs:
     def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
-         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
+         For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
@@ -1537,7 +1539,8 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon Web Services on your behalf.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[builtins.bool] auto_minor_version_upgrade: Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
-                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
+                For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*. 
                 Valid for: Aurora DB clusters only
         :param pulumi.Input[builtins.int] backtrack_window: The target backtrack window, in seconds. To disable backtracking, set this value to ``0``.
@@ -2116,7 +2119,8 @@ class DbCluster(pulumi.CustomResource):
     def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
-         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
+         For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 

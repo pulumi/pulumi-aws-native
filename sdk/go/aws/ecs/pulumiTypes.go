@@ -4351,7 +4351,8 @@ type ServiceManagedEbsVolumeConfiguration struct {
 	TagSpecifications []ServiceEbsTagSpecification `pulumi:"tagSpecifications"`
 	// The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	//   This parameter is only supported for the ``gp3`` volume type.
-	Throughput               *int `pulumi:"throughput"`
+	Throughput *int `pulumi:"throughput"`
+	// The rate, in MiB/s, at which data is fetched from a snapshot of an existing EBS volume to create new volumes for attachment to the tasks maintained by the service. This property can be specified only if you specify a `snapshotId` . For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EBS User Guide* .
 	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
 	// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
 	//  The following are the supported volume types.
@@ -4413,7 +4414,8 @@ type ServiceManagedEbsVolumeConfigurationArgs struct {
 	TagSpecifications ServiceEbsTagSpecificationArrayInput `pulumi:"tagSpecifications"`
 	// The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	//   This parameter is only supported for the ``gp3`` volume type.
-	Throughput               pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// The rate, in MiB/s, at which data is fetched from a snapshot of an existing EBS volume to create new volumes for attachment to the tasks maintained by the service. This property can be specified only if you specify a `snapshotId` . For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EBS User Guide* .
 	VolumeInitializationRate pulumi.IntPtrInput `pulumi:"volumeInitializationRate"`
 	// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
 	//  The following are the supported volume types.
@@ -4573,6 +4575,7 @@ func (o ServiceManagedEbsVolumeConfigurationOutput) Throughput() pulumi.IntPtrOu
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// The rate, in MiB/s, at which data is fetched from a snapshot of an existing EBS volume to create new volumes for attachment to the tasks maintained by the service. This property can be specified only if you specify a `snapshotId` . For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EBS User Guide* .
 func (o ServiceManagedEbsVolumeConfigurationOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.VolumeInitializationRate }).(pulumi.IntPtrOutput)
 }
@@ -4726,6 +4729,7 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Throughput() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// The rate, in MiB/s, at which data is fetched from a snapshot of an existing EBS volume to create new volumes for attachment to the tasks maintained by the service. This property can be specified only if you specify a `snapshotId` . For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EBS User Guide* .
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *int {
 		if v == nil {

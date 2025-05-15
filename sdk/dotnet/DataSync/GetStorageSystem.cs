@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.DataSync
     public static class GetStorageSystem
     {
         /// <summary>
-        /// Resource schema for AWS::DataSync::StorageSystem.
+        /// Resource Type definition for AWS::DataSync::StorageSystem
         /// </summary>
         public static Task<GetStorageSystemResult> InvokeAsync(GetStorageSystemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageSystemResult>("aws-native:datasync:getStorageSystem", args ?? new GetStorageSystemArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::DataSync::StorageSystem.
+        /// Resource Type definition for AWS::DataSync::StorageSystem
         /// </summary>
         public static Output<GetStorageSystemResult> Invoke(GetStorageSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageSystemResult>("aws-native:datasync:getStorageSystem", args ?? new GetStorageSystemInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::DataSync::StorageSystem.
+        /// Resource Type definition for AWS::DataSync::StorageSystem
         /// </summary>
         public static Output<GetStorageSystemResult> Invoke(GetStorageSystemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageSystemResult>("aws-native:datasync:getStorageSystem", args ?? new GetStorageSystemInvokeArgs(), options.WithDefaults());
@@ -33,11 +33,8 @@ namespace Pulumi.AwsNative.DataSync
 
     public sealed class GetStorageSystemArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ARN of the on-premises storage system added to DataSync Discovery.
-        /// </summary>
-        [Input("storageSystemArn", required: true)]
-        public string StorageSystemArn { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetStorageSystemArgs()
         {
@@ -47,11 +44,8 @@ namespace Pulumi.AwsNative.DataSync
 
     public sealed class GetStorageSystemInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ARN of the on-premises storage system added to DataSync Discovery.
-        /// </summary>
-        [Input("storageSystemArn", required: true)]
-        public Input<string> StorageSystemArn { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetStorageSystemInvokeArgs()
         {
@@ -63,38 +57,16 @@ namespace Pulumi.AwsNative.DataSync
     [OutputType]
     public sealed class GetStorageSystemResult
     {
-        /// <summary>
-        /// The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-        /// </summary>
         public readonly ImmutableArray<string> AgentArns;
-        /// <summary>
-        /// The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
-        /// </summary>
         public readonly string? CloudWatchLogGroupArn;
-        /// <summary>
-        /// Indicates whether the DataSync agent can access the on-premises storage system.
-        /// </summary>
-        public readonly Pulumi.AwsNative.DataSync.StorageSystemConnectivityStatus? ConnectivityStatus;
-        /// <summary>
-        /// A familiar name for the on-premises storage system.
-        /// </summary>
+        public readonly string? ConnectivityStatus;
+        public readonly string? Id;
         public readonly string? Name;
-        /// <summary>
-        /// The ARN of a secret stored by AWS Secrets Manager.
-        /// </summary>
         public readonly string? SecretsManagerArn;
         public readonly Outputs.StorageSystemServerConfiguration? ServerConfiguration;
-        /// <summary>
-        /// The ARN of the on-premises storage system added to DataSync Discovery.
-        /// </summary>
+        public readonly Outputs.StorageSystemServerCredentials? ServerCredentials;
         public readonly string? StorageSystemArn;
-        /// <summary>
-        /// The type of on-premises storage system that DataSync Discovery will analyze.
-        /// </summary>
-        public readonly Pulumi.AwsNative.DataSync.StorageSystemSystemType? SystemType;
-        /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// </summary>
+        public readonly string? SystemType;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
@@ -103,7 +75,9 @@ namespace Pulumi.AwsNative.DataSync
 
             string? cloudWatchLogGroupArn,
 
-            Pulumi.AwsNative.DataSync.StorageSystemConnectivityStatus? connectivityStatus,
+            string? connectivityStatus,
+
+            string? id,
 
             string? name,
 
@@ -111,18 +85,22 @@ namespace Pulumi.AwsNative.DataSync
 
             Outputs.StorageSystemServerConfiguration? serverConfiguration,
 
+            Outputs.StorageSystemServerCredentials? serverCredentials,
+
             string? storageSystemArn,
 
-            Pulumi.AwsNative.DataSync.StorageSystemSystemType? systemType,
+            string? systemType,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AgentArns = agentArns;
             CloudWatchLogGroupArn = cloudWatchLogGroupArn;
             ConnectivityStatus = connectivityStatus;
+            Id = id;
             Name = name;
             SecretsManagerArn = secretsManagerArn;
             ServerConfiguration = serverConfiguration;
+            ServerCredentials = serverCredentials;
             StorageSystemArn = storageSystemArn;
             SystemType = systemType;
             Tags = tags;

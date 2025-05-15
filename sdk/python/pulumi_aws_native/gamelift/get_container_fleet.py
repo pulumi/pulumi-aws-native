@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetContainerFleetResult:
-    def __init__(__self__, creation_time=None, deployment_details=None, description=None, fleet_arn=None, fleet_id=None, fleet_role_arn=None, game_server_container_group_definition_arn=None, game_session_creation_limit_policy=None, instance_connection_port_range=None, instance_inbound_permissions=None, log_configuration=None, maximum_game_server_container_groups_per_instance=None, metric_groups=None, new_game_session_protection_policy=None, per_instance_container_group_definition_arn=None, status=None, tags=None):
+    def __init__(__self__, creation_time=None, deployment_details=None, description=None, fleet_arn=None, fleet_id=None, fleet_role_arn=None, game_server_container_group_definition_arn=None, game_session_creation_limit_policy=None, instance_connection_port_range=None, instance_inbound_permissions=None, locations=None, log_configuration=None, maximum_game_server_container_groups_per_instance=None, metric_groups=None, new_game_session_protection_policy=None, per_instance_container_group_definition_arn=None, scaling_policies=None, status=None, tags=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -58,6 +58,9 @@ class GetContainerFleetResult:
         if instance_inbound_permissions and not isinstance(instance_inbound_permissions, list):
             raise TypeError("Expected argument 'instance_inbound_permissions' to be a list")
         pulumi.set(__self__, "instance_inbound_permissions", instance_inbound_permissions)
+        if locations and not isinstance(locations, list):
+            raise TypeError("Expected argument 'locations' to be a list")
+        pulumi.set(__self__, "locations", locations)
         if log_configuration and not isinstance(log_configuration, dict):
             raise TypeError("Expected argument 'log_configuration' to be a dict")
         pulumi.set(__self__, "log_configuration", log_configuration)
@@ -73,6 +76,9 @@ class GetContainerFleetResult:
         if per_instance_container_group_definition_arn and not isinstance(per_instance_container_group_definition_arn, str):
             raise TypeError("Expected argument 'per_instance_container_group_definition_arn' to be a str")
         pulumi.set(__self__, "per_instance_container_group_definition_arn", per_instance_container_group_definition_arn)
+        if scaling_policies and not isinstance(scaling_policies, list):
+            raise TypeError("Expected argument 'scaling_policies' to be a list")
+        pulumi.set(__self__, "scaling_policies", scaling_policies)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -158,6 +164,11 @@ class GetContainerFleetResult:
         return pulumi.get(self, "instance_inbound_permissions")
 
     @property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence['outputs.ContainerFleetLocationConfiguration']]:
+        return pulumi.get(self, "locations")
+
+    @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.ContainerFleetLogConfiguration']:
         """
@@ -202,6 +213,14 @@ class GetContainerFleetResult:
         return pulumi.get(self, "per_instance_container_group_definition_arn")
 
     @property
+    @pulumi.getter(name="scalingPolicies")
+    def scaling_policies(self) -> Optional[Sequence['outputs.ContainerFleetScalingPolicy']]:
+        """
+        A list of rules that control how a fleet is scaled.
+        """
+        return pulumi.get(self, "scaling_policies")
+
+    @property
     @pulumi.getter
     def status(self) -> Optional['ContainerFleetStatus']:
         """
@@ -234,11 +253,13 @@ class AwaitableGetContainerFleetResult(GetContainerFleetResult):
             game_session_creation_limit_policy=self.game_session_creation_limit_policy,
             instance_connection_port_range=self.instance_connection_port_range,
             instance_inbound_permissions=self.instance_inbound_permissions,
+            locations=self.locations,
             log_configuration=self.log_configuration,
             maximum_game_server_container_groups_per_instance=self.maximum_game_server_container_groups_per_instance,
             metric_groups=self.metric_groups,
             new_game_session_protection_policy=self.new_game_session_protection_policy,
             per_instance_container_group_definition_arn=self.per_instance_container_group_definition_arn,
+            scaling_policies=self.scaling_policies,
             status=self.status,
             tags=self.tags)
 
@@ -267,11 +288,13 @@ def get_container_fleet(fleet_id: Optional[builtins.str] = None,
         game_session_creation_limit_policy=pulumi.get(__ret__, 'game_session_creation_limit_policy'),
         instance_connection_port_range=pulumi.get(__ret__, 'instance_connection_port_range'),
         instance_inbound_permissions=pulumi.get(__ret__, 'instance_inbound_permissions'),
+        locations=pulumi.get(__ret__, 'locations'),
         log_configuration=pulumi.get(__ret__, 'log_configuration'),
         maximum_game_server_container_groups_per_instance=pulumi.get(__ret__, 'maximum_game_server_container_groups_per_instance'),
         metric_groups=pulumi.get(__ret__, 'metric_groups'),
         new_game_session_protection_policy=pulumi.get(__ret__, 'new_game_session_protection_policy'),
         per_instance_container_group_definition_arn=pulumi.get(__ret__, 'per_instance_container_group_definition_arn'),
+        scaling_policies=pulumi.get(__ret__, 'scaling_policies'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_container_fleet_output(fleet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -297,10 +320,12 @@ def get_container_fleet_output(fleet_id: Optional[pulumi.Input[builtins.str]] = 
         game_session_creation_limit_policy=pulumi.get(__response__, 'game_session_creation_limit_policy'),
         instance_connection_port_range=pulumi.get(__response__, 'instance_connection_port_range'),
         instance_inbound_permissions=pulumi.get(__response__, 'instance_inbound_permissions'),
+        locations=pulumi.get(__response__, 'locations'),
         log_configuration=pulumi.get(__response__, 'log_configuration'),
         maximum_game_server_container_groups_per_instance=pulumi.get(__response__, 'maximum_game_server_container_groups_per_instance'),
         metric_groups=pulumi.get(__response__, 'metric_groups'),
         new_game_session_protection_policy=pulumi.get(__response__, 'new_game_session_protection_policy'),
         per_instance_container_group_definition_arn=pulumi.get(__response__, 'per_instance_container_group_definition_arn'),
+        scaling_policies=pulumi.get(__response__, 'scaling_policies'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

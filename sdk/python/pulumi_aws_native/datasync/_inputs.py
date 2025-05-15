@@ -791,17 +791,8 @@ class LocationSmbMountOptionsArgs:
 
 if not MYPY:
     class StorageSystemServerConfigurationArgsDict(TypedDict):
-        """
-        The server name and network port required to connect with the management interface of the on-premises storage system.
-        """
         server_hostname: pulumi.Input[builtins.str]
-        """
-        The domain name or IP address of the storage system's management interface.
-        """
         server_port: NotRequired[pulumi.Input[builtins.int]]
-        """
-        The network port needed to access the system's management interface
-        """
 elif False:
     StorageSystemServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -810,11 +801,6 @@ class StorageSystemServerConfigurationArgs:
     def __init__(__self__, *,
                  server_hostname: pulumi.Input[builtins.str],
                  server_port: Optional[pulumi.Input[builtins.int]] = None):
-        """
-        The server name and network port required to connect with the management interface of the on-premises storage system.
-        :param pulumi.Input[builtins.str] server_hostname: The domain name or IP address of the storage system's management interface.
-        :param pulumi.Input[builtins.int] server_port: The network port needed to access the system's management interface
-        """
         pulumi.set(__self__, "server_hostname", server_hostname)
         if server_port is not None:
             pulumi.set(__self__, "server_port", server_port)
@@ -822,9 +808,6 @@ class StorageSystemServerConfigurationArgs:
     @property
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> pulumi.Input[builtins.str]:
-        """
-        The domain name or IP address of the storage system's management interface.
-        """
         return pulumi.get(self, "server_hostname")
 
     @server_hostname.setter
@@ -834,9 +817,6 @@ class StorageSystemServerConfigurationArgs:
     @property
     @pulumi.getter(name="serverPort")
     def server_port(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The network port needed to access the system's management interface
-        """
         return pulumi.get(self, "server_port")
 
     @server_port.setter
@@ -846,17 +826,8 @@ class StorageSystemServerConfigurationArgs:
 
 if not MYPY:
     class StorageSystemServerCredentialsArgsDict(TypedDict):
-        """
-        The username and password for accessing your on-premises storage system's management interface.
-        """
         password: pulumi.Input[builtins.str]
-        """
-        The password for your storage system's management interface
-        """
         username: pulumi.Input[builtins.str]
-        """
-        The username for your storage system's management interface.
-        """
 elif False:
     StorageSystemServerCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -865,20 +836,12 @@ class StorageSystemServerCredentialsArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[builtins.str],
                  username: pulumi.Input[builtins.str]):
-        """
-        The username and password for accessing your on-premises storage system's management interface.
-        :param pulumi.Input[builtins.str] password: The password for your storage system's management interface
-        :param pulumi.Input[builtins.str] username: The username for your storage system's management interface.
-        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
     def password(self) -> pulumi.Input[builtins.str]:
-        """
-        The password for your storage system's management interface
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -888,9 +851,6 @@ class StorageSystemServerCredentialsArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[builtins.str]:
-        """
-        The username for your storage system's management interface.
-        """
         return pulumi.get(self, "username")
 
     @username.setter

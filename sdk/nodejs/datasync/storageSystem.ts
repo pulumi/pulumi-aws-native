@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::StorageSystem.
+ * Resource Type definition for AWS::DataSync::StorageSystem
  */
 export class StorageSystem extends pulumi.CustomResource {
     /**
@@ -37,39 +37,16 @@ export class StorageSystem extends pulumi.CustomResource {
         return obj['__pulumiType'] === StorageSystem.__pulumiType;
     }
 
-    /**
-     * The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-     */
     public readonly agentArns!: pulumi.Output<string[]>;
-    /**
-     * The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
-     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cloudWatchLogGroupArn!: pulumi.Output<string | undefined>;
-    /**
-     * Indicates whether the DataSync agent can access the on-premises storage system.
-     */
-    public /*out*/ readonly connectivityStatus!: pulumi.Output<enums.datasync.StorageSystemConnectivityStatus>;
-    /**
-     * A familiar name for the on-premises storage system.
-     */
+    public /*out*/ readonly connectivityStatus!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
-    /**
-     * The ARN of a secret stored by AWS Secrets Manager.
-     */
     public /*out*/ readonly secretsManagerArn!: pulumi.Output<string>;
     public readonly serverConfiguration!: pulumi.Output<outputs.datasync.StorageSystemServerConfiguration>;
     public readonly serverCredentials!: pulumi.Output<outputs.datasync.StorageSystemServerCredentials | undefined>;
-    /**
-     * The ARN of the on-premises storage system added to DataSync Discovery.
-     */
     public /*out*/ readonly storageSystemArn!: pulumi.Output<string>;
-    /**
-     * The type of on-premises storage system that DataSync Discovery will analyze.
-     */
-    public readonly systemType!: pulumi.Output<enums.datasync.StorageSystemSystemType>;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     */
+    public readonly systemType!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -99,11 +76,13 @@ export class StorageSystem extends pulumi.CustomResource {
             resourceInputs["serverCredentials"] = args ? args.serverCredentials : undefined;
             resourceInputs["systemType"] = args ? args.systemType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["connectivityStatus"] = undefined /*out*/;
             resourceInputs["secretsManagerArn"] = undefined /*out*/;
             resourceInputs["storageSystemArn"] = undefined /*out*/;
         } else {
             resourceInputs["agentArns"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cloudWatchLogGroupArn"] = undefined /*out*/;
             resourceInputs["connectivityStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -123,26 +102,11 @@ export class StorageSystem extends pulumi.CustomResource {
  * The set of arguments for constructing a StorageSystem resource.
  */
 export interface StorageSystemArgs {
-    /**
-     * The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-     */
     agentArns: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
-     */
     cloudWatchLogGroupArn?: pulumi.Input<string>;
-    /**
-     * A familiar name for the on-premises storage system.
-     */
     name?: pulumi.Input<string>;
     serverConfiguration: pulumi.Input<inputs.datasync.StorageSystemServerConfigurationArgs>;
     serverCredentials?: pulumi.Input<inputs.datasync.StorageSystemServerCredentialsArgs>;
-    /**
-     * The type of on-premises storage system that DataSync Discovery will analyze.
-     */
-    systemType: pulumi.Input<enums.datasync.StorageSystemSystemType>;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     */
+    systemType: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

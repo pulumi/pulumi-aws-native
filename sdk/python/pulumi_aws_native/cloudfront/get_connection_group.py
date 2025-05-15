@@ -155,7 +155,7 @@ class GetConnectionGroupResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A complex type that contains zero or more `Tag` elements.
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
@@ -183,7 +183,7 @@ class AwaitableGetConnectionGroupResult(GetConnectionGroupResult):
 def get_connection_group(id: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionGroupResult:
     """
-    Resource Type definition for AWS::CloudFront::ConnectionGroup
+    The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
 
 
     :param builtins.str id: The ID of the connection group.
@@ -209,7 +209,7 @@ def get_connection_group(id: Optional[builtins.str] = None,
 def get_connection_group_output(id: Optional[pulumi.Input[builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionGroupResult]:
     """
-    Resource Type definition for AWS::CloudFront::ConnectionGroup
+    The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
 
 
     :param builtins.str id: The ID of the connection group.

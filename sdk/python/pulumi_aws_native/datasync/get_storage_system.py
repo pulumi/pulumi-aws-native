@@ -16,7 +16,6 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
-from ._enums import *
 
 __all__ = [
     'GetStorageSystemResult',
@@ -27,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetStorageSystemResult:
-    def __init__(__self__, agent_arns=None, cloud_watch_log_group_arn=None, connectivity_status=None, name=None, secrets_manager_arn=None, server_configuration=None, storage_system_arn=None, system_type=None, tags=None):
+    def __init__(__self__, agent_arns=None, cloud_watch_log_group_arn=None, connectivity_status=None, id=None, name=None, secrets_manager_arn=None, server_configuration=None, server_credentials=None, storage_system_arn=None, system_type=None, tags=None):
         if agent_arns and not isinstance(agent_arns, list):
             raise TypeError("Expected argument 'agent_arns' to be a list")
         pulumi.set(__self__, "agent_arns", agent_arns)
@@ -37,6 +36,9 @@ class GetStorageSystemResult:
         if connectivity_status and not isinstance(connectivity_status, str):
             raise TypeError("Expected argument 'connectivity_status' to be a str")
         pulumi.set(__self__, "connectivity_status", connectivity_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -46,6 +48,9 @@ class GetStorageSystemResult:
         if server_configuration and not isinstance(server_configuration, dict):
             raise TypeError("Expected argument 'server_configuration' to be a dict")
         pulumi.set(__self__, "server_configuration", server_configuration)
+        if server_credentials and not isinstance(server_credentials, dict):
+            raise TypeError("Expected argument 'server_credentials' to be a dict")
+        pulumi.set(__self__, "server_credentials", server_credentials)
         if storage_system_arn and not isinstance(storage_system_arn, str):
             raise TypeError("Expected argument 'storage_system_arn' to be a str")
         pulumi.set(__self__, "storage_system_arn", storage_system_arn)
@@ -59,41 +64,31 @@ class GetStorageSystemResult:
     @property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Optional[Sequence[builtins.str]]:
-        """
-        The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-        """
         return pulumi.get(self, "agent_arns")
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
     def cloud_watch_log_group_arn(self) -> Optional[builtins.str]:
-        """
-        The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
-        """
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
     @property
     @pulumi.getter(name="connectivityStatus")
-    def connectivity_status(self) -> Optional['StorageSystemConnectivityStatus']:
-        """
-        Indicates whether the DataSync agent can access the on-premises storage system.
-        """
+    def connectivity_status(self) -> Optional[builtins.str]:
         return pulumi.get(self, "connectivity_status")
 
     @property
     @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[builtins.str]:
-        """
-        A familiar name for the on-premises storage system.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="secretsManagerArn")
     def secrets_manager_arn(self) -> Optional[builtins.str]:
-        """
-        The ARN of a secret stored by AWS Secrets Manager.
-        """
         return pulumi.get(self, "secrets_manager_arn")
 
     @property
@@ -102,27 +97,23 @@ class GetStorageSystemResult:
         return pulumi.get(self, "server_configuration")
 
     @property
+    @pulumi.getter(name="serverCredentials")
+    def server_credentials(self) -> Optional['outputs.StorageSystemServerCredentials']:
+        return pulumi.get(self, "server_credentials")
+
+    @property
     @pulumi.getter(name="storageSystemArn")
     def storage_system_arn(self) -> Optional[builtins.str]:
-        """
-        The ARN of the on-premises storage system added to DataSync Discovery.
-        """
         return pulumi.get(self, "storage_system_arn")
 
     @property
     @pulumi.getter(name="systemType")
-    def system_type(self) -> Optional['StorageSystemSystemType']:
-        """
-        The type of on-premises storage system that DataSync Discovery will analyze.
-        """
+    def system_type(self) -> Optional[builtins.str]:
         return pulumi.get(self, "system_type")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        An array of key-value pairs to apply to this resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -135,24 +126,23 @@ class AwaitableGetStorageSystemResult(GetStorageSystemResult):
             agent_arns=self.agent_arns,
             cloud_watch_log_group_arn=self.cloud_watch_log_group_arn,
             connectivity_status=self.connectivity_status,
+            id=self.id,
             name=self.name,
             secrets_manager_arn=self.secrets_manager_arn,
             server_configuration=self.server_configuration,
+            server_credentials=self.server_credentials,
             storage_system_arn=self.storage_system_arn,
             system_type=self.system_type,
             tags=self.tags)
 
 
-def get_storage_system(storage_system_arn: Optional[builtins.str] = None,
+def get_storage_system(id: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageSystemResult:
     """
-    Resource schema for AWS::DataSync::StorageSystem.
-
-
-    :param builtins.str storage_system_arn: The ARN of the on-premises storage system added to DataSync Discovery.
+    Resource Type definition for AWS::DataSync::StorageSystem
     """
     __args__ = dict()
-    __args__['storageSystemArn'] = storage_system_arn
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getStorageSystem', __args__, opts=opts, typ=GetStorageSystemResult).value
 
@@ -160,31 +150,32 @@ def get_storage_system(storage_system_arn: Optional[builtins.str] = None,
         agent_arns=pulumi.get(__ret__, 'agent_arns'),
         cloud_watch_log_group_arn=pulumi.get(__ret__, 'cloud_watch_log_group_arn'),
         connectivity_status=pulumi.get(__ret__, 'connectivity_status'),
+        id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         secrets_manager_arn=pulumi.get(__ret__, 'secrets_manager_arn'),
         server_configuration=pulumi.get(__ret__, 'server_configuration'),
+        server_credentials=pulumi.get(__ret__, 'server_credentials'),
         storage_system_arn=pulumi.get(__ret__, 'storage_system_arn'),
         system_type=pulumi.get(__ret__, 'system_type'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_storage_system_output(storage_system_arn: Optional[pulumi.Input[builtins.str]] = None,
+def get_storage_system_output(id: Optional[pulumi.Input[builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageSystemResult]:
     """
-    Resource schema for AWS::DataSync::StorageSystem.
-
-
-    :param builtins.str storage_system_arn: The ARN of the on-premises storage system added to DataSync Discovery.
+    Resource Type definition for AWS::DataSync::StorageSystem
     """
     __args__ = dict()
-    __args__['storageSystemArn'] = storage_system_arn
+    __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getStorageSystem', __args__, opts=opts, typ=GetStorageSystemResult)
     return __ret__.apply(lambda __response__: GetStorageSystemResult(
         agent_arns=pulumi.get(__response__, 'agent_arns'),
         cloud_watch_log_group_arn=pulumi.get(__response__, 'cloud_watch_log_group_arn'),
         connectivity_status=pulumi.get(__response__, 'connectivity_status'),
+        id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         secrets_manager_arn=pulumi.get(__response__, 'secrets_manager_arn'),
         server_configuration=pulumi.get(__response__, 'server_configuration'),
+        server_credentials=pulumi.get(__response__, 'server_credentials'),
         storage_system_arn=pulumi.get(__response__, 'storage_system_arn'),
         system_type=pulumi.get(__response__, 'system_type'),
         tags=pulumi.get(__response__, 'tags')))

@@ -70,6 +70,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///   This parameter is only supported for the ``gp3`` volume type.
         /// </summary>
         public readonly int? Throughput;
+        /// <summary>
+        /// The rate, in MiB/s, at which data is fetched from a snapshot of an existing EBS volume to create new volumes for attachment to the tasks maintained by the service. This property can be specified only if you specify a `snapshotId` . For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EBS User Guide* .
+        /// </summary>
         public readonly int? VolumeInitializationRate;
         /// <summary>
         /// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.

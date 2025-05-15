@@ -10,19 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataSync.Outputs
 {
 
-    /// <summary>
-    /// The username and password for accessing your on-premises storage system's management interface.
-    /// </summary>
     [OutputType]
     public sealed class StorageSystemServerCredentials
     {
-        /// <summary>
-        /// The password for your storage system's management interface
-        /// </summary>
         public readonly string Password;
-        /// <summary>
-        /// The username for your storage system's management interface.
-        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

@@ -10,20 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataSync.Inputs
 {
 
-    /// <summary>
-    /// The username and password for accessing your on-premises storage system's management interface.
-    /// </summary>
     public sealed class StorageSystemServerCredentialsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The password for your storage system's management interface
-        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
-        /// <summary>
-        /// The username for your storage system's management interface.
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

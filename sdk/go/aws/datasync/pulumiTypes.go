@@ -2188,12 +2188,9 @@ type LocationSmbTag struct {
 	Value string `pulumi:"value"`
 }
 
-// The server name and network port required to connect with the management interface of the on-premises storage system.
 type StorageSystemServerConfiguration struct {
-	// The domain name or IP address of the storage system's management interface.
 	ServerHostname string `pulumi:"serverHostname"`
-	// The network port needed to access the system's management interface
-	ServerPort *int `pulumi:"serverPort"`
+	ServerPort     *int   `pulumi:"serverPort"`
 }
 
 // StorageSystemServerConfigurationInput is an input type that accepts StorageSystemServerConfigurationArgs and StorageSystemServerConfigurationOutput values.
@@ -2207,12 +2204,9 @@ type StorageSystemServerConfigurationInput interface {
 	ToStorageSystemServerConfigurationOutputWithContext(context.Context) StorageSystemServerConfigurationOutput
 }
 
-// The server name and network port required to connect with the management interface of the on-premises storage system.
 type StorageSystemServerConfigurationArgs struct {
-	// The domain name or IP address of the storage system's management interface.
 	ServerHostname pulumi.StringInput `pulumi:"serverHostname"`
-	// The network port needed to access the system's management interface
-	ServerPort pulumi.IntPtrInput `pulumi:"serverPort"`
+	ServerPort     pulumi.IntPtrInput `pulumi:"serverPort"`
 }
 
 func (StorageSystemServerConfigurationArgs) ElementType() reflect.Type {
@@ -2227,7 +2221,6 @@ func (i StorageSystemServerConfigurationArgs) ToStorageSystemServerConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemServerConfigurationOutput)
 }
 
-// The server name and network port required to connect with the management interface of the on-premises storage system.
 type StorageSystemServerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StorageSystemServerConfigurationOutput) ElementType() reflect.Type {
@@ -2242,12 +2235,10 @@ func (o StorageSystemServerConfigurationOutput) ToStorageSystemServerConfigurati
 	return o
 }
 
-// The domain name or IP address of the storage system's management interface.
 func (o StorageSystemServerConfigurationOutput) ServerHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageSystemServerConfiguration) string { return v.ServerHostname }).(pulumi.StringOutput)
 }
 
-// The network port needed to access the system's management interface
 func (o StorageSystemServerConfigurationOutput) ServerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageSystemServerConfiguration) *int { return v.ServerPort }).(pulumi.IntPtrOutput)
 }
@@ -2276,7 +2267,6 @@ func (o StorageSystemServerConfigurationPtrOutput) Elem() StorageSystemServerCon
 	}).(StorageSystemServerConfigurationOutput)
 }
 
-// The domain name or IP address of the storage system's management interface.
 func (o StorageSystemServerConfigurationPtrOutput) ServerHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageSystemServerConfiguration) *string {
 		if v == nil {
@@ -2286,7 +2276,6 @@ func (o StorageSystemServerConfigurationPtrOutput) ServerHostname() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network port needed to access the system's management interface
 func (o StorageSystemServerConfigurationPtrOutput) ServerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageSystemServerConfiguration) *int {
 		if v == nil {
@@ -2296,11 +2285,8 @@ func (o StorageSystemServerConfigurationPtrOutput) ServerPort() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The username and password for accessing your on-premises storage system's management interface.
 type StorageSystemServerCredentials struct {
-	// The password for your storage system's management interface
 	Password string `pulumi:"password"`
-	// The username for your storage system's management interface.
 	Username string `pulumi:"username"`
 }
 
@@ -2315,11 +2301,8 @@ type StorageSystemServerCredentialsInput interface {
 	ToStorageSystemServerCredentialsOutputWithContext(context.Context) StorageSystemServerCredentialsOutput
 }
 
-// The username and password for accessing your on-premises storage system's management interface.
 type StorageSystemServerCredentialsArgs struct {
-	// The password for your storage system's management interface
 	Password pulumi.StringInput `pulumi:"password"`
-	// The username for your storage system's management interface.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -2376,7 +2359,6 @@ func (i *storageSystemServerCredentialsPtrType) ToStorageSystemServerCredentials
 	return pulumi.ToOutputWithContext(ctx, i).(StorageSystemServerCredentialsPtrOutput)
 }
 
-// The username and password for accessing your on-premises storage system's management interface.
 type StorageSystemServerCredentialsOutput struct{ *pulumi.OutputState }
 
 func (StorageSystemServerCredentialsOutput) ElementType() reflect.Type {
@@ -2401,12 +2383,10 @@ func (o StorageSystemServerCredentialsOutput) ToStorageSystemServerCredentialsPt
 	}).(StorageSystemServerCredentialsPtrOutput)
 }
 
-// The password for your storage system's management interface
 func (o StorageSystemServerCredentialsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageSystemServerCredentials) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The username for your storage system's management interface.
 func (o StorageSystemServerCredentialsOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageSystemServerCredentials) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -2435,7 +2415,6 @@ func (o StorageSystemServerCredentialsPtrOutput) Elem() StorageSystemServerCrede
 	}).(StorageSystemServerCredentialsOutput)
 }
 
-// The password for your storage system's management interface
 func (o StorageSystemServerCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageSystemServerCredentials) *string {
 		if v == nil {
@@ -2445,7 +2424,6 @@ func (o StorageSystemServerCredentialsPtrOutput) Password() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username for your storage system's management interface.
 func (o StorageSystemServerCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageSystemServerCredentials) *string {
 		if v == nil {
@@ -2455,11 +2433,8 @@ func (o StorageSystemServerCredentialsPtrOutput) Username() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair to associate with a resource.
 type StorageSystemTag struct {
-	// The key for an AWS resource tag.
-	Key string `pulumi:"key"`
-	// The value for an AWS resource tag.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 

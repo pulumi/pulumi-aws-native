@@ -634,9 +634,6 @@ class LocationSmbMountOptions(dict):
 
 @pulumi.output_type
 class StorageSystemServerConfiguration(dict):
-    """
-    The server name and network port required to connect with the management interface of the on-premises storage system.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -659,11 +656,6 @@ class StorageSystemServerConfiguration(dict):
     def __init__(__self__, *,
                  server_hostname: builtins.str,
                  server_port: Optional[builtins.int] = None):
-        """
-        The server name and network port required to connect with the management interface of the on-premises storage system.
-        :param builtins.str server_hostname: The domain name or IP address of the storage system's management interface.
-        :param builtins.int server_port: The network port needed to access the system's management interface
-        """
         pulumi.set(__self__, "server_hostname", server_hostname)
         if server_port is not None:
             pulumi.set(__self__, "server_port", server_port)
@@ -671,50 +663,30 @@ class StorageSystemServerConfiguration(dict):
     @property
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> builtins.str:
-        """
-        The domain name or IP address of the storage system's management interface.
-        """
         return pulumi.get(self, "server_hostname")
 
     @property
     @pulumi.getter(name="serverPort")
     def server_port(self) -> Optional[builtins.int]:
-        """
-        The network port needed to access the system's management interface
-        """
         return pulumi.get(self, "server_port")
 
 
 @pulumi.output_type
 class StorageSystemServerCredentials(dict):
-    """
-    The username and password for accessing your on-premises storage system's management interface.
-    """
     def __init__(__self__, *,
                  password: builtins.str,
                  username: builtins.str):
-        """
-        The username and password for accessing your on-premises storage system's management interface.
-        :param builtins.str password: The password for your storage system's management interface
-        :param builtins.str username: The username for your storage system's management interface.
-        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
     def password(self) -> builtins.str:
-        """
-        The password for your storage system's management interface
-        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def username(self) -> builtins.str:
-        """
-        The username for your storage system's management interface.
-        """
         return pulumi.get(self, "username")
 
 
