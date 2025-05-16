@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,6 +43,8 @@ type LookupGameServerGroupResult struct {
 	InstanceDefinitions []GameServerGroupInstanceDefinition `pulumi:"instanceDefinitions"`
 	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn *string `pulumi:"roleArn"`
+	// A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupGameServerGroupOutput(ctx *pulumi.Context, args LookupGameServerGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGameServerGroupResultOutput {
@@ -111,6 +114,11 @@ func (o LookupGameServerGroupResultOutput) InstanceDefinitions() GameServerGroup
 // The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 func (o LookupGameServerGroupResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGameServerGroupResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
+func (o LookupGameServerGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupGameServerGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

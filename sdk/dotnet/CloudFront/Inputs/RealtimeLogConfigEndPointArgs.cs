@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
     /// <summary>
-    /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+    /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
     /// </summary>
     public sealed class RealtimeLogConfigEndPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+        /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
         /// </summary>
         [Input("kinesisStreamConfig", required: true)]
         public Input<Inputs.RealtimeLogConfigKinesisStreamConfigArgs> KinesisStreamConfig { get; set; } = null!;

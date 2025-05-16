@@ -1901,6 +1901,7 @@ class ServiceManagedEbsVolumeConfiguration(dict):
         :param Sequence['ServiceEbsTagSpecification'] tag_specifications: The tags to apply to the volume. Amazon ECS applies service-managed tags by default. This parameter maps 1:1 with the ``TagSpecifications.N`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
         :param builtins.int throughput: The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
                  This parameter is only supported for the ``gp3`` volume type.
+        :param builtins.int volume_initialization_rate: The rate, in MiB/s, at which data is fetched from a snapshot of an existing EBS volume to create new volumes for attachment to the tasks maintained by the service. This property can be specified only if you specify a `snapshotId` . For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EBS User Guide* .
         :param builtins.str volume_type: The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
                 The following are the supported volume types.
                  +  General Purpose SSD: ``gp2``|``gp3``
@@ -2024,6 +2025,9 @@ class ServiceManagedEbsVolumeConfiguration(dict):
     @property
     @pulumi.getter(name="volumeInitializationRate")
     def volume_initialization_rate(self) -> Optional[builtins.int]:
+        """
+        The rate, in MiB/s, at which data is fetched from a snapshot of an existing EBS volume to create new volumes for attachment to the tasks maintained by the service. This property can be specified only if you specify a `snapshotId` . For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EBS User Guide* .
+        """
         return pulumi.get(self, "volume_initialization_rate")
 
     @property

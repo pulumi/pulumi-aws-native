@@ -66,6 +66,7 @@ export class Fleet extends pulumi.CustomResource {
      * The fleet ID.
      */
     public /*out*/ readonly fleetId!: pulumi.Output<string>;
+    public readonly hostConfiguration!: pulumi.Output<outputs.deadline.FleetHostConfiguration | undefined>;
     /**
      * The maximum number of workers specified in the fleet.
      */
@@ -121,6 +122,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["farmId"] = args ? args.farmId : undefined;
+            resourceInputs["hostConfiguration"] = args ? args.hostConfiguration : undefined;
             resourceInputs["maxWorkerCount"] = args ? args.maxWorkerCount : undefined;
             resourceInputs["minWorkerCount"] = args ? args.minWorkerCount : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
@@ -138,6 +140,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["farmId"] = undefined /*out*/;
             resourceInputs["fleetId"] = undefined /*out*/;
+            resourceInputs["hostConfiguration"] = undefined /*out*/;
             resourceInputs["maxWorkerCount"] = undefined /*out*/;
             resourceInputs["minWorkerCount"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
@@ -176,6 +179,7 @@ export interface FleetArgs {
      * The farm ID.
      */
     farmId: pulumi.Input<string>;
+    hostConfiguration?: pulumi.Input<inputs.deadline.FleetHostConfigurationArgs>;
     /**
      * The maximum number of workers specified in the fleet.
      */

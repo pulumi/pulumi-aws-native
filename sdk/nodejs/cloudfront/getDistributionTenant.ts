@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::DistributionTenant
+ * The distribution tenant.
  */
 export function getDistributionTenant(args: GetDistributionTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionTenantResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,7 +38,7 @@ export interface GetDistributionTenantResult {
      */
     readonly createdTime?: string;
     /**
-     * Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+     * Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
      */
     readonly customizations?: outputs.cloudfront.DistributionTenantCustomizations;
     /**
@@ -75,12 +75,12 @@ export interface GetDistributionTenantResult {
      */
     readonly status?: string;
     /**
-     * A complex type that contains zero or more `Tag` elements.
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::CloudFront::DistributionTenant
+ * The distribution tenant.
  */
 export function getDistributionTenantOutput(args: GetDistributionTenantOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDistributionTenantResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

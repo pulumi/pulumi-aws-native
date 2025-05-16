@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::ConnectionGroup
+ * The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
  */
 export function getConnectionGroup(args: GetConnectionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,12 +70,12 @@ export interface GetConnectionGroupResult {
      */
     readonly status?: string;
     /**
-     * A complex type that contains zero or more `Tag` elements.
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::CloudFront::ConnectionGroup
+ * The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
  */
 export function getConnectionGroupOutput(args: GetConnectionGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

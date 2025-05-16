@@ -84,7 +84,6 @@ func NewContainerFleet(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"billingType",
 		"instanceType",
-		"locations[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

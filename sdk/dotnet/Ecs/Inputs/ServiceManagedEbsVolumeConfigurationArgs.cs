@@ -93,6 +93,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
+        /// <summary>
+        /// The rate, in MiB/s, at which data is fetched from a snapshot of an existing EBS volume to create new volumes for attachment to the tasks maintained by the service. This property can be specified only if you specify a `snapshotId` . For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EBS User Guide* .
+        /// </summary>
         [Input("volumeInitializationRate")]
         public Input<int>? VolumeInitializationRate { get; set; }
 

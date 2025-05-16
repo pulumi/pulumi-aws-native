@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
     /// <summary>
-    /// A custom origin. A custom origin is any origin that is *not* an S3 bucket, with one exception. An S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+    /// A custom origin. A custom origin is any origin that is *not* an S3 bucket, with one exception. An S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)*is* a custom origin.
     ///   This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
     /// </summary>
     public sealed class DistributionLegacyCustomOriginArgs : global::Pulumi.ResourceArgs

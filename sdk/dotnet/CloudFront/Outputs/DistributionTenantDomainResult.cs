@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// The details about the domain result.
+    /// </summary>
     [OutputType]
     public sealed class DistributionTenantDomainResult
     {

@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// An object that represents the request for the Amazon CloudFront managed ACM certificate.
+    /// </summary>
     public sealed class DistributionTenantManagedCertificateRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// You can opt out of certificate transparency logging by specifying the `disabled` option. Opt in by specifying `enabled` . For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *AWS Certificate Manager User Guide* .
+        /// You can opt out of certificate transparency logging by specifying the ``disabled`` option. Opt in by specifying ``enabled``. For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *User Guide*.
         /// </summary>
         [Input("certificateTransparencyLoggingPreference")]
         public Input<Pulumi.AwsNative.CloudFront.DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference>? CertificateTransparencyLoggingPreference { get; set; }
@@ -26,9 +29,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
         /// <summary>
         /// Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.
-        /// 
-        /// - For `cloudfront` , CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
-        /// - For `self-hosted` , you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
+        ///   +  For ``cloudfront``, CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
+        ///   +  For ``self-hosted``, you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
         /// </summary>
         [Input("validationTokenHost")]
         public Input<Pulumi.AwsNative.CloudFront.DistributionTenantManagedCertificateRequestValidationTokenHost>? ValidationTokenHost { get; set; }

@@ -99,7 +99,7 @@ class GetDistributionTenantResult:
     @pulumi.getter
     def customizations(self) -> Optional['outputs.DistributionTenantCustomizations']:
         """
-        Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
         """
         return pulumi.get(self, "customizations")
 
@@ -176,7 +176,7 @@ class GetDistributionTenantResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A complex type that contains zero or more `Tag` elements.
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
@@ -206,7 +206,7 @@ class AwaitableGetDistributionTenantResult(GetDistributionTenantResult):
 def get_distribution_tenant(id: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionTenantResult:
     """
-    Resource Type definition for AWS::CloudFront::DistributionTenant
+    The distribution tenant.
 
 
     :param builtins.str id: The ID of the distribution tenant.
@@ -234,7 +234,7 @@ def get_distribution_tenant(id: Optional[builtins.str] = None,
 def get_distribution_tenant_output(id: Optional[pulumi.Input[builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionTenantResult]:
     """
-    Resource Type definition for AWS::CloudFront::DistributionTenant
+    The distribution tenant.
 
 
     :param builtins.str id: The ID of the distribution tenant.

@@ -50,6 +50,7 @@ export interface GetFleetResult {
      * The fleet ID.
      */
     readonly fleetId?: string;
+    readonly hostConfiguration?: outputs.deadline.FleetHostConfiguration;
     /**
      * The maximum number of workers specified in the fleet.
      */

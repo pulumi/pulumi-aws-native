@@ -30,6 +30,7 @@ __all__ = [
     'FleetCustomerManagedFleetConfiguration',
     'FleetCustomerManagedWorkerCapabilities',
     'FleetEc2EbsVolume',
+    'FleetHostConfiguration',
     'FleetMemoryMiBRange',
     'FleetServiceManagedEc2FleetConfiguration',
     'FleetServiceManagedEc2InstanceCapabilities',
@@ -479,6 +480,45 @@ class FleetEc2EbsVolume(dict):
     @pulumi.getter(name="throughputMiB")
     def throughput_mi_b(self) -> Optional[builtins.int]:
         return pulumi.get(self, "throughput_mi_b")
+
+
+@pulumi.output_type
+class FleetHostConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptBody":
+            suggest = "script_body"
+        elif key == "scriptTimeoutSeconds":
+            suggest = "script_timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetHostConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetHostConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetHostConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 script_body: builtins.str,
+                 script_timeout_seconds: Optional[builtins.int] = None):
+        pulumi.set(__self__, "script_body", script_body)
+        if script_timeout_seconds is not None:
+            pulumi.set(__self__, "script_timeout_seconds", script_timeout_seconds)
+
+    @property
+    @pulumi.getter(name="scriptBody")
+    def script_body(self) -> builtins.str:
+        return pulumi.get(self, "script_body")
+
+    @property
+    @pulumi.getter(name="scriptTimeoutSeconds")
+    def script_timeout_seconds(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "script_timeout_seconds")
 
 
 @pulumi.output_type

@@ -1510,6 +1510,154 @@ func (o FleetEc2EbsVolumePtrOutput) ThroughputMiB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type FleetHostConfiguration struct {
+	ScriptBody           string `pulumi:"scriptBody"`
+	ScriptTimeoutSeconds *int   `pulumi:"scriptTimeoutSeconds"`
+}
+
+// FleetHostConfigurationInput is an input type that accepts FleetHostConfigurationArgs and FleetHostConfigurationOutput values.
+// You can construct a concrete instance of `FleetHostConfigurationInput` via:
+//
+//	FleetHostConfigurationArgs{...}
+type FleetHostConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetHostConfigurationOutput() FleetHostConfigurationOutput
+	ToFleetHostConfigurationOutputWithContext(context.Context) FleetHostConfigurationOutput
+}
+
+type FleetHostConfigurationArgs struct {
+	ScriptBody           pulumi.StringInput `pulumi:"scriptBody"`
+	ScriptTimeoutSeconds pulumi.IntPtrInput `pulumi:"scriptTimeoutSeconds"`
+}
+
+func (FleetHostConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetHostConfiguration)(nil)).Elem()
+}
+
+func (i FleetHostConfigurationArgs) ToFleetHostConfigurationOutput() FleetHostConfigurationOutput {
+	return i.ToFleetHostConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetHostConfigurationArgs) ToFleetHostConfigurationOutputWithContext(ctx context.Context) FleetHostConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetHostConfigurationOutput)
+}
+
+func (i FleetHostConfigurationArgs) ToFleetHostConfigurationPtrOutput() FleetHostConfigurationPtrOutput {
+	return i.ToFleetHostConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetHostConfigurationArgs) ToFleetHostConfigurationPtrOutputWithContext(ctx context.Context) FleetHostConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetHostConfigurationOutput).ToFleetHostConfigurationPtrOutputWithContext(ctx)
+}
+
+// FleetHostConfigurationPtrInput is an input type that accepts FleetHostConfigurationArgs, FleetHostConfigurationPtr and FleetHostConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetHostConfigurationPtrInput` via:
+//
+//	        FleetHostConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetHostConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFleetHostConfigurationPtrOutput() FleetHostConfigurationPtrOutput
+	ToFleetHostConfigurationPtrOutputWithContext(context.Context) FleetHostConfigurationPtrOutput
+}
+
+type fleetHostConfigurationPtrType FleetHostConfigurationArgs
+
+func FleetHostConfigurationPtr(v *FleetHostConfigurationArgs) FleetHostConfigurationPtrInput {
+	return (*fleetHostConfigurationPtrType)(v)
+}
+
+func (*fleetHostConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetHostConfiguration)(nil)).Elem()
+}
+
+func (i *fleetHostConfigurationPtrType) ToFleetHostConfigurationPtrOutput() FleetHostConfigurationPtrOutput {
+	return i.ToFleetHostConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetHostConfigurationPtrType) ToFleetHostConfigurationPtrOutputWithContext(ctx context.Context) FleetHostConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetHostConfigurationPtrOutput)
+}
+
+type FleetHostConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetHostConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetHostConfiguration)(nil)).Elem()
+}
+
+func (o FleetHostConfigurationOutput) ToFleetHostConfigurationOutput() FleetHostConfigurationOutput {
+	return o
+}
+
+func (o FleetHostConfigurationOutput) ToFleetHostConfigurationOutputWithContext(ctx context.Context) FleetHostConfigurationOutput {
+	return o
+}
+
+func (o FleetHostConfigurationOutput) ToFleetHostConfigurationPtrOutput() FleetHostConfigurationPtrOutput {
+	return o.ToFleetHostConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetHostConfigurationOutput) ToFleetHostConfigurationPtrOutputWithContext(ctx context.Context) FleetHostConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetHostConfiguration) *FleetHostConfiguration {
+		return &v
+	}).(FleetHostConfigurationPtrOutput)
+}
+
+func (o FleetHostConfigurationOutput) ScriptBody() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetHostConfiguration) string { return v.ScriptBody }).(pulumi.StringOutput)
+}
+
+func (o FleetHostConfigurationOutput) ScriptTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetHostConfiguration) *int { return v.ScriptTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type FleetHostConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetHostConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetHostConfiguration)(nil)).Elem()
+}
+
+func (o FleetHostConfigurationPtrOutput) ToFleetHostConfigurationPtrOutput() FleetHostConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetHostConfigurationPtrOutput) ToFleetHostConfigurationPtrOutputWithContext(ctx context.Context) FleetHostConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetHostConfigurationPtrOutput) Elem() FleetHostConfigurationOutput {
+	return o.ApplyT(func(v *FleetHostConfiguration) FleetHostConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetHostConfiguration
+		return ret
+	}).(FleetHostConfigurationOutput)
+}
+
+func (o FleetHostConfigurationPtrOutput) ScriptBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetHostConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScriptBody
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FleetHostConfigurationPtrOutput) ScriptTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetHostConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 type FleetMemoryMiBRange struct {
 	Max *int `pulumi:"max"`
 	Min int  `pulumi:"min"`
@@ -2913,6 +3061,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCustomerManagedWorkerCapabilitiesInput)(nil)).Elem(), FleetCustomerManagedWorkerCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEc2EbsVolumeInput)(nil)).Elem(), FleetEc2EbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEc2EbsVolumePtrInput)(nil)).Elem(), FleetEc2EbsVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetHostConfigurationInput)(nil)).Elem(), FleetHostConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetHostConfigurationPtrInput)(nil)).Elem(), FleetHostConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMemoryMiBRangeInput)(nil)).Elem(), FleetMemoryMiBRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2FleetConfigurationInput)(nil)).Elem(), FleetServiceManagedEc2FleetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2InstanceCapabilitiesInput)(nil)).Elem(), FleetServiceManagedEc2InstanceCapabilitiesArgs{})
@@ -2952,6 +3102,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetCustomerManagedWorkerCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(FleetEc2EbsVolumeOutput{})
 	pulumi.RegisterOutputType(FleetEc2EbsVolumePtrOutput{})
+	pulumi.RegisterOutputType(FleetHostConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetHostConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetMemoryMiBRangeOutput{})
 	pulumi.RegisterOutputType(FleetMemoryMiBRangePtrOutput{})
 	pulumi.RegisterOutputType(FleetServiceManagedEc2FleetConfigurationOutput{})

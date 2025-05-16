@@ -39,6 +39,8 @@ __all__ = [
     'FleetCustomerManagedWorkerCapabilitiesArgsDict',
     'FleetEc2EbsVolumeArgs',
     'FleetEc2EbsVolumeArgsDict',
+    'FleetHostConfigurationArgs',
+    'FleetHostConfigurationArgsDict',
     'FleetMemoryMiBRangeArgs',
     'FleetMemoryMiBRangeArgsDict',
     'FleetServiceManagedEc2FleetConfigurationArgs',
@@ -584,6 +586,41 @@ class FleetEc2EbsVolumeArgs:
     @throughput_mi_b.setter
     def throughput_mi_b(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "throughput_mi_b", value)
+
+
+if not MYPY:
+    class FleetHostConfigurationArgsDict(TypedDict):
+        script_body: pulumi.Input[builtins.str]
+        script_timeout_seconds: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    FleetHostConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetHostConfigurationArgs:
+    def __init__(__self__, *,
+                 script_body: pulumi.Input[builtins.str],
+                 script_timeout_seconds: Optional[pulumi.Input[builtins.int]] = None):
+        pulumi.set(__self__, "script_body", script_body)
+        if script_timeout_seconds is not None:
+            pulumi.set(__self__, "script_timeout_seconds", script_timeout_seconds)
+
+    @property
+    @pulumi.getter(name="scriptBody")
+    def script_body(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "script_body")
+
+    @script_body.setter
+    def script_body(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "script_body", value)
+
+    @property
+    @pulumi.getter(name="scriptTimeoutSeconds")
+    def script_timeout_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "script_timeout_seconds")
+
+    @script_timeout_seconds.setter
+    def script_timeout_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "script_timeout_seconds", value)
 
 
 if not MYPY:

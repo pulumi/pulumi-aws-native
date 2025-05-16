@@ -88,6 +88,7 @@ namespace Pulumi.AwsNative.Deadline
         /// The fleet ID.
         /// </summary>
         public readonly string? FleetId;
+        public readonly Outputs.FleetHostConfiguration? HostConfiguration;
         /// <summary>
         /// The maximum number of workers specified in the fleet.
         /// </summary>
@@ -127,6 +128,8 @@ namespace Pulumi.AwsNative.Deadline
 
             string? fleetId,
 
+            Outputs.FleetHostConfiguration? hostConfiguration,
+
             int? maxWorkerCount,
 
             int? minWorkerCount,
@@ -145,6 +148,7 @@ namespace Pulumi.AwsNative.Deadline
             Description = description;
             DisplayName = displayName;
             FleetId = fleetId;
+            HostConfiguration = hostConfiguration;
             MaxWorkerCount = maxWorkerCount;
             MinWorkerCount = minWorkerCount;
             RoleArn = roleArn;

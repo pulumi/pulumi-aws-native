@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFront::ConnectionGroup
+// The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
 func LookupConnectionGroup(ctx *pulumi.Context, args *LookupConnectionGroupArgs, opts ...pulumi.InvokeOption) (*LookupConnectionGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectionGroupResult
@@ -51,7 +51,7 @@ type LookupConnectionGroupResult struct {
 	RoutingEndpoint *string `pulumi:"routingEndpoint"`
 	// The status of the connection group.
 	Status *string `pulumi:"status"`
-	// A complex type that contains zero or more `Tag` elements.
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -142,7 +142,7 @@ func (o LookupConnectionGroupResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// A complex type that contains zero or more `Tag` elements.
+// A complex type that contains zero or more “Tag“ elements.
 func (o LookupConnectionGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

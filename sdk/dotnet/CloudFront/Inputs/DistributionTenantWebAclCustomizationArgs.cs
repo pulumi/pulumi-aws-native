@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// The WAF web ACL customization specified for the distribution tenant.
+    /// </summary>
     public sealed class DistributionTenantWebAclCustomizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action for the AWS WAF web ACL customization. You can specify `override` to specify a separate AWS WAF web ACL for the distribution tenant. If you specify `disable` , the distribution tenant won't have AWS WAF web ACL protections and won't inherit from the multi-tenant distribution.
+        /// The action for the WAF web ACL customization. You can specify ``override`` to specify a separate WAF web ACL for the distribution tenant. If you specify ``disable``, the distribution tenant won't have WAF web ACL protections and won't inherit from the multi-tenant distribution.
         /// </summary>
         [Input("action")]
         public Input<Pulumi.AwsNative.CloudFront.DistributionTenantWebAclCustomizationAction>? Action { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS WAF web ACL.
+        /// The Amazon Resource Name (ARN) of the WAF web ACL.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

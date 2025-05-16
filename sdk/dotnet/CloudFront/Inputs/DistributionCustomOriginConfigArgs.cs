@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
     /// <summary>
-    /// A custom origin. A custom origin is any origin that is *not* an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+    /// A custom origin. A custom origin is any origin that is *not* an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)*is* a custom origin.
     /// </summary>
     public sealed class DistributionCustomOriginConfigArgs : global::Pulumi.ResourceArgs
     {
@@ -36,9 +36,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
         /// <summary>
         /// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
-        ///   +   ``http-only`` – CloudFront always uses HTTP to connect to the origin.
-        ///   +   ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
-        ///   +   ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
+        ///   +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
+        ///   +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
+        ///   +  ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
         /// </summary>
         [Input("originProtocolPolicy", required: true)]
         public Input<string> OriginProtocolPolicy { get; set; } = null!;

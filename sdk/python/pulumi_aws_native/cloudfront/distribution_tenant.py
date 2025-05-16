@@ -39,12 +39,12 @@ class DistributionTenantArgs:
         :param pulumi.Input[builtins.str] distribution_id: The ID of the multi-tenant distribution.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] domains: The domains associated with the distribution tenant.
         :param pulumi.Input[builtins.str] connection_group_id: The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
-        :param pulumi.Input['DistributionTenantCustomizationsArgs'] customizations: Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        :param pulumi.Input['DistributionTenantCustomizationsArgs'] customizations: Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
         :param pulumi.Input[builtins.bool] enabled: Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
         :param pulumi.Input['DistributionTenantManagedCertificateRequestArgs'] managed_certificate_request: An object that represents the request for the Amazon CloudFront managed ACM certificate.
         :param pulumi.Input[builtins.str] name: The name of the distribution tenant.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]] parameters: A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more `Tag` elements.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         pulumi.set(__self__, "distribution_id", distribution_id)
         pulumi.set(__self__, "domains", domains)
@@ -103,7 +103,7 @@ class DistributionTenantArgs:
     @pulumi.getter
     def customizations(self) -> Optional[pulumi.Input['DistributionTenantCustomizationsArgs']]:
         """
-        Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
         """
         return pulumi.get(self, "customizations")
 
@@ -163,7 +163,7 @@ class DistributionTenantArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A complex type that contains zero or more `Tag` elements.
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
@@ -191,19 +191,19 @@ class DistributionTenant(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CloudFront::DistributionTenant
+        The distribution tenant.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] connection_group_id: The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
-        :param pulumi.Input[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']] customizations: Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        :param pulumi.Input[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']] customizations: Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
         :param pulumi.Input[builtins.str] distribution_id: The ID of the multi-tenant distribution.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] domains: The domains associated with the distribution tenant.
         :param pulumi.Input[builtins.bool] enabled: Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
         :param pulumi.Input[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']] managed_certificate_request: An object that represents the request for the Amazon CloudFront managed ACM certificate.
         :param pulumi.Input[builtins.str] name: The name of the distribution tenant.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]] parameters: A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more `Tag` elements.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         ...
     @overload
@@ -212,7 +212,7 @@ class DistributionTenant(pulumi.CustomResource):
                  args: DistributionTenantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CloudFront::DistributionTenant
+        The distribution tenant.
 
         :param str resource_name: The name of the resource.
         :param DistributionTenantArgs args: The arguments to use to populate this resource's properties.
@@ -345,7 +345,7 @@ class DistributionTenant(pulumi.CustomResource):
     @pulumi.getter
     def customizations(self) -> pulumi.Output[Optional['outputs.DistributionTenantCustomizations']]:
         """
-        Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
         """
         return pulumi.get(self, "customizations")
 
@@ -430,7 +430,7 @@ class DistributionTenant(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A complex type that contains zero or more `Tag` elements.
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 

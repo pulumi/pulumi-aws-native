@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFront::ConnectionGroup
+// The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
 type ConnectionGroup struct {
 	pulumi.CustomResourceState
 
@@ -40,7 +40,7 @@ type ConnectionGroup struct {
 	RoutingEndpoint pulumi.StringOutput `pulumi:"routingEndpoint"`
 	// The status of the connection group.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A complex type that contains zero or more `Tag` elements.
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -96,7 +96,7 @@ type connectionGroupArgs struct {
 	Ipv6Enabled *bool `pulumi:"ipv6Enabled"`
 	// The name of the connection group.
 	Name *string `pulumi:"name"`
-	// A complex type that contains zero or more `Tag` elements.
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -110,7 +110,7 @@ type ConnectionGroupArgs struct {
 	Ipv6Enabled pulumi.BoolPtrInput
 	// The name of the connection group.
 	Name pulumi.StringPtrInput
-	// A complex type that contains zero or more `Tag` elements.
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags aws.TagArrayInput
 }
 
@@ -211,7 +211,7 @@ func (o ConnectionGroupOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A complex type that contains zero or more `Tag` elements.
+// A complex type that contains zero or more “Tag“ elements.
 func (o ConnectionGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ConnectionGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

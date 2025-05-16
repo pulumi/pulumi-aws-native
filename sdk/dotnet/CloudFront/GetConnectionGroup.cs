@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.CloudFront
     public static class GetConnectionGroup
     {
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::ConnectionGroup
+        /// The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
         /// </summary>
         public static Task<GetConnectionGroupResult> InvokeAsync(GetConnectionGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGroupResult>("aws-native:cloudfront:getConnectionGroup", args ?? new GetConnectionGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::ConnectionGroup
+        /// The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
         /// </summary>
         public static Output<GetConnectionGroupResult> Invoke(GetConnectionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionGroupResult>("aws-native:cloudfront:getConnectionGroup", args ?? new GetConnectionGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::ConnectionGroup
+        /// The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
         /// </summary>
         public static Output<GetConnectionGroupResult> Invoke(GetConnectionGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionGroupResult>("aws-native:cloudfront:getConnectionGroup", args ?? new GetConnectionGroupInvokeArgs(), options.WithDefaults());
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// A complex type that contains zero or more `Tag` elements.
+        /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
