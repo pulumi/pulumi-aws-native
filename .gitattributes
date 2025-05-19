@@ -1,3 +1,0 @@
-# Mark contents under sdk directory as generated to keep PRs manageable
-sdk/** linguist-generated=true
-aws-cloudformation-schema/** liguist-vendored=true
