@@ -915,6 +915,9 @@ class AutoScalingGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoScalingGroupArn")
     def auto_scaling_group_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Auto Scaling group.
+        """
         return pulumi.get(self, "auto_scaling_group_arn")
 
     @property

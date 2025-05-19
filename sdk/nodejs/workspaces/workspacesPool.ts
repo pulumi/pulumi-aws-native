@@ -73,6 +73,9 @@ export class WorkspacesPool extends pulumi.CustomResource {
      * The name of the pool.
      */
     public readonly poolName!: pulumi.Output<string>;
+    /**
+     * The running mode of the pool.
+     */
     public readonly runningMode!: pulumi.Output<enums.workspaces.WorkspacesPoolRunningMode | undefined>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -161,6 +164,9 @@ export interface WorkspacesPoolArgs {
      * The name of the pool.
      */
     poolName?: pulumi.Input<string>;
+    /**
+     * The running mode of the pool.
+     */
     runningMode?: pulumi.Input<enums.workspaces.WorkspacesPoolRunningMode>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

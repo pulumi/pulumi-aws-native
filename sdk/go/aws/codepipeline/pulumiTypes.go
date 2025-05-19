@@ -1545,6 +1545,8 @@ func (o PipelineEncryptionKeyPtrOutput) Type() pulumi.StringPtrOutput {
 type PipelineEnvironmentVariable struct {
 	// The name of the environment variable.
 	Name string `pulumi:"name"`
+	// The type of the environment variable.
+	Type *PipelineEnvironmentVariableType `pulumi:"type"`
 	// The value of the environment variable.
 	Value string `pulumi:"value"`
 }
@@ -1564,6 +1566,8 @@ type PipelineEnvironmentVariableInput interface {
 type PipelineEnvironmentVariableArgs struct {
 	// The name of the environment variable.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the environment variable.
+	Type PipelineEnvironmentVariableTypePtrInput `pulumi:"type"`
 	// The value of the environment variable.
 	Value pulumi.StringInput `pulumi:"value"`
 }
@@ -1623,6 +1627,11 @@ func (o PipelineEnvironmentVariableOutput) ToPipelineEnvironmentVariableOutputWi
 // The name of the environment variable.
 func (o PipelineEnvironmentVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the environment variable.
+func (o PipelineEnvironmentVariableOutput) Type() PipelineEnvironmentVariableTypePtrOutput {
+	return o.ApplyT(func(v PipelineEnvironmentVariable) *PipelineEnvironmentVariableType { return v.Type }).(PipelineEnvironmentVariableTypePtrOutput)
 }
 
 // The value of the environment variable.

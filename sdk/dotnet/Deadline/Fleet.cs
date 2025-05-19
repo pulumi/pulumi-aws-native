@@ -58,6 +58,9 @@ namespace Pulumi.AwsNative.Deadline
         [Output("fleetId")]
         public Output<string> FleetId { get; private set; } = null!;
 
+        [Output("hostConfiguration")]
+        public Output<Outputs.FleetHostConfiguration?> HostConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The maximum number of workers specified in the fleet.
         /// </summary>
@@ -170,6 +173,9 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         [Input("farmId", required: true)]
         public Input<string> FarmId { get; set; } = null!;
+
+        [Input("hostConfiguration")]
+        public Input<Inputs.FleetHostConfigurationArgs>? HostConfiguration { get; set; }
 
         /// <summary>
         /// The maximum number of workers specified in the fleet.

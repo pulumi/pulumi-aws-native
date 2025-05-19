@@ -38,6 +38,7 @@ class ChannelNamespaceArgs:
         :param pulumi.Input[builtins.str] api_id: AppSync Api Id that this Channel Namespace belongs to.
         :param pulumi.Input[builtins.str] code_handlers: The event handler functions that run custom business logic to process published events and subscribe requests.
         :param pulumi.Input[builtins.str] code_s3_location: The Amazon S3 endpoint where the code is located.
+        :param pulumi.Input['ChannelNamespaceHandlerConfigsArgs'] handler_configs: The configuration for the `OnPublish` and `OnSubscribe` handlers.
         :param pulumi.Input[builtins.str] name: The name of the channel namespace. This name must be unique within the `Api` .
         :param pulumi.Input[Sequence[pulumi.Input['ChannelNamespaceAuthModeArgs']]] publish_auth_modes: List of AuthModes supported for Publish operations.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelNamespaceAuthModeArgs']]] subscribe_auth_modes: List of AuthModes supported for Subscribe operations.
@@ -98,6 +99,9 @@ class ChannelNamespaceArgs:
     @property
     @pulumi.getter(name="handlerConfigs")
     def handler_configs(self) -> Optional[pulumi.Input['ChannelNamespaceHandlerConfigsArgs']]:
+        """
+        The configuration for the `OnPublish` and `OnSubscribe` handlers.
+        """
         return pulumi.get(self, "handler_configs")
 
     @handler_configs.setter
@@ -178,6 +182,7 @@ class ChannelNamespace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_id: AppSync Api Id that this Channel Namespace belongs to.
         :param pulumi.Input[builtins.str] code_handlers: The event handler functions that run custom business logic to process published events and subscribe requests.
         :param pulumi.Input[builtins.str] code_s3_location: The Amazon S3 endpoint where the code is located.
+        :param pulumi.Input[Union['ChannelNamespaceHandlerConfigsArgs', 'ChannelNamespaceHandlerConfigsArgsDict']] handler_configs: The configuration for the `OnPublish` and `OnSubscribe` handlers.
         :param pulumi.Input[builtins.str] name: The name of the channel namespace. This name must be unique within the `Api` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]] publish_auth_modes: List of AuthModes supported for Publish operations.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]] subscribe_auth_modes: List of AuthModes supported for Subscribe operations.
@@ -305,6 +310,9 @@ class ChannelNamespace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="handlerConfigs")
     def handler_configs(self) -> pulumi.Output[Optional['outputs.ChannelNamespaceHandlerConfigs']]:
+        """
+        The configuration for the `OnPublish` and `OnSubscribe` handlers.
+        """
         return pulumi.get(self, "handler_configs")
 
     @property

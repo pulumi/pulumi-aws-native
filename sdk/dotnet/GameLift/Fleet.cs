@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.GameLift
         public Output<string?> Ec2InstanceType { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Servers Fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Fleet ARN, the resource ID matches the FleetId value.
+        /// </summary>
+        [Output("fleetArn")]
+        public Output<string> FleetArn { get; private set; } = null!;
+
+        /// <summary>
         /// Unique fleet ID
         /// </summary>
         [Output("fleetId")]
@@ -186,6 +192,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Output("serverLaunchPath")]
         public Output<string?> ServerLaunchPath { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -444,6 +456,18 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("serverLaunchPath")]
         public Input<string>? ServerLaunchPath { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public FleetArgs()
         {

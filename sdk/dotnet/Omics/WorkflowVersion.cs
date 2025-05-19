@@ -18,15 +18,24 @@ namespace Pulumi.AwsNative.Omics
         [Output("accelerators")]
         public Output<Pulumi.AwsNative.Omics.WorkflowVersionAccelerators?> Accelerators { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the workflow version.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The creation time of the workflow version.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
         [Output("definitionUri")]
         public Output<string?> DefinitionUri { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the workflow version.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -39,6 +48,9 @@ namespace Pulumi.AwsNative.Omics
         [Output("parameterTemplate")]
         public Output<ImmutableDictionary<string, Outputs.WorkflowVersionWorkflowParameter>?> ParameterTemplate { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the workflow version.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Omics.WorkflowVersionWorkflowStatus> Status { get; private set; } = null!;
 
@@ -51,18 +63,27 @@ namespace Pulumi.AwsNative.Omics
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the workflow version.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Omics.WorkflowVersionWorkflowType> Type { get; private set; } = null!;
 
         [Output("uuid")]
         public Output<string> Uuid { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the workflow version.
+        /// </summary>
         [Output("versionName")]
         public Output<string> VersionName { get; private set; } = null!;
 
         [Output("workflowBucketOwnerId")]
         public Output<string?> WorkflowBucketOwnerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The workflow's ID.
+        /// </summary>
         [Output("workflowId")]
         public Output<string> WorkflowId { get; private set; } = null!;
 
@@ -128,6 +149,9 @@ namespace Pulumi.AwsNative.Omics
         [Input("definitionUri")]
         public Input<string>? DefinitionUri { get; set; }
 
+        /// <summary>
+        /// The description of the workflow version.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -159,12 +183,18 @@ namespace Pulumi.AwsNative.Omics
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The name of the workflow version.
+        /// </summary>
         [Input("versionName")]
         public Input<string>? VersionName { get; set; }
 
         [Input("workflowBucketOwnerId")]
         public Input<string>? WorkflowBucketOwnerId { get; set; }
 
+        /// <summary>
+        /// The workflow's ID.
+        /// </summary>
         [Input("workflowId", required: true)]
         public Input<string> WorkflowId { get; set; } = null!;
 

@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.WorkSpaces
         [Output("poolName")]
         public Output<string> PoolName { get; private set; } = null!;
 
+        /// <summary>
+        /// The running mode of the pool.
+        /// </summary>
         [Output("runningMode")]
         public Output<Pulumi.AwsNative.WorkSpaces.WorkspacesPoolRunningMode?> RunningMode { get; private set; } = null!;
 
@@ -166,6 +169,9 @@ namespace Pulumi.AwsNative.WorkSpaces
         [Input("poolName")]
         public Input<string>? PoolName { get; set; }
 
+        /// <summary>
+        /// The running mode of the pool.
+        /// </summary>
         [Input("runningMode")]
         public Input<Pulumi.AwsNative.WorkSpaces.WorkspacesPoolRunningMode>? RunningMode { get; set; }
 

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AppSync.Inputs
 
     public sealed class ChannelNamespaceLambdaConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The invocation type for a Lambda data source.
+        /// </summary>
         [Input("invokeType", required: true)]
         public Input<Pulumi.AwsNative.AppSync.ChannelNamespaceInvokeType> InvokeType { get; set; } = null!;
 

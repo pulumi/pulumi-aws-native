@@ -56,7 +56,7 @@
     "Type" : {
       "type" : "string",
       "description" : "Modality Type",
-      "enum" : [ "DOCUMENT", "IMAGE", "AUDIO" ]
+      "enum" : [ "DOCUMENT", "IMAGE", "AUDIO", "VIDEO" ]
     },
     "BlueprintStage" : {
       "type" : "string",

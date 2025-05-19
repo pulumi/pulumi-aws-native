@@ -37,6 +37,9 @@ class WorkflowVersionArgs:
                  workflow_bucket_owner_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a WorkflowVersion resource.
+        :param pulumi.Input[builtins.str] workflow_id: The workflow's ID.
+        :param pulumi.Input[builtins.str] description: The description of the workflow version.
+        :param pulumi.Input[builtins.str] version_name: The name of the workflow version.
         """
         pulumi.set(__self__, "workflow_id", workflow_id)
         if accelerators is not None:
@@ -65,6 +68,9 @@ class WorkflowVersionArgs:
     @property
     @pulumi.getter(name="workflowId")
     def workflow_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The workflow's ID.
+        """
         return pulumi.get(self, "workflow_id")
 
     @workflow_id.setter
@@ -92,6 +98,9 @@ class WorkflowVersionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The description of the workflow version.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -155,6 +164,9 @@ class WorkflowVersionArgs:
     @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the workflow version.
+        """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
@@ -197,6 +209,9 @@ class WorkflowVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] description: The description of the workflow version.
+        :param pulumi.Input[builtins.str] version_name: The name of the workflow version.
+        :param pulumi.Input[builtins.str] workflow_id: The workflow's ID.
         """
         ...
     @overload
@@ -313,11 +328,17 @@ class WorkflowVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
+        """
+        ARN of the workflow version.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[builtins.str]:
+        """
+        The creation time of the workflow version.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
@@ -328,6 +349,9 @@ class WorkflowVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The description of the workflow version.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -348,6 +372,9 @@ class WorkflowVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['WorkflowVersionWorkflowStatus']:
+        """
+        The status of the workflow version.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -368,6 +395,9 @@ class WorkflowVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['WorkflowVersionWorkflowType']:
+        """
+        The type of the workflow version.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -378,6 +408,9 @@ class WorkflowVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name of the workflow version.
+        """
         return pulumi.get(self, "version_name")
 
     @property
@@ -388,5 +421,8 @@ class WorkflowVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="workflowId")
     def workflow_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The workflow's ID.
+        """
         return pulumi.get(self, "workflow_id")
 

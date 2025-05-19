@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.AppSync.Outputs
         /// Data source to invoke for this integration.
         /// </summary>
         public readonly string DataSourceName;
+        /// <summary>
+        /// The configuration for a Lambda data source.
+        /// </summary>
         public readonly Outputs.ChannelNamespaceLambdaConfig? LambdaConfig;
 
         [OutputConstructor]

@@ -42,6 +42,7 @@ class WorkspacesPoolArgs:
         :param pulumi.Input['WorkspacesPoolApplicationSettingsArgs'] application_settings: The persistent application settings for users of the pool.
         :param pulumi.Input[builtins.str] description: The description of the pool.
         :param pulumi.Input[builtins.str] pool_name: The name of the pool.
+        :param pulumi.Input['WorkspacesPoolRunningMode'] running_mode: The running mode of the pool.
         :param pulumi.Input['WorkspacesPoolTimeoutSettingsArgs'] timeout_settings: The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
@@ -135,6 +136,9 @@ class WorkspacesPoolArgs:
     @property
     @pulumi.getter(name="runningMode")
     def running_mode(self) -> Optional[pulumi.Input['WorkspacesPoolRunningMode']]:
+        """
+        The running mode of the pool.
+        """
         return pulumi.get(self, "running_mode")
 
     @running_mode.setter
@@ -192,6 +196,7 @@ class WorkspacesPool(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the pool.
         :param pulumi.Input[builtins.str] directory_id: The identifier of the directory used by the pool.
         :param pulumi.Input[builtins.str] pool_name: The name of the pool.
+        :param pulumi.Input['WorkspacesPoolRunningMode'] running_mode: The running mode of the pool.
         :param pulumi.Input[Union['WorkspacesPoolTimeoutSettingsArgs', 'WorkspacesPoolTimeoutSettingsArgsDict']] timeout_settings: The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
         """
         ...
@@ -367,6 +372,9 @@ class WorkspacesPool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="runningMode")
     def running_mode(self) -> pulumi.Output[Optional['WorkspacesPoolRunningMode']]:
+        """
+        The running mode of the pool.
+        """
         return pulumi.get(self, "running_mode")
 
     @property

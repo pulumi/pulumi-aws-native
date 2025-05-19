@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, arn=None, capabilities=None, configuration=None, description=None, display_name=None, fleet_id=None, max_worker_count=None, min_worker_count=None, role_arn=None, status=None, tags=None, worker_count=None):
+    def __init__(__self__, arn=None, capabilities=None, configuration=None, description=None, display_name=None, fleet_id=None, host_configuration=None, max_worker_count=None, min_worker_count=None, role_arn=None, status=None, tags=None, worker_count=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetFleetResult:
         if fleet_id and not isinstance(fleet_id, str):
             raise TypeError("Expected argument 'fleet_id' to be a str")
         pulumi.set(__self__, "fleet_id", fleet_id)
+        if host_configuration and not isinstance(host_configuration, dict):
+            raise TypeError("Expected argument 'host_configuration' to be a dict")
+        pulumi.set(__self__, "host_configuration", host_configuration)
         if max_worker_count and not isinstance(max_worker_count, int):
             raise TypeError("Expected argument 'max_worker_count' to be a int")
         pulumi.set(__self__, "max_worker_count", max_worker_count)
@@ -115,6 +118,11 @@ class GetFleetResult:
         return pulumi.get(self, "fleet_id")
 
     @property
+    @pulumi.getter(name="hostConfiguration")
+    def host_configuration(self) -> Optional['outputs.FleetHostConfiguration']:
+        return pulumi.get(self, "host_configuration")
+
+    @property
     @pulumi.getter(name="maxWorkerCount")
     def max_worker_count(self) -> Optional[builtins.int]:
         """
@@ -175,6 +183,7 @@ class AwaitableGetFleetResult(GetFleetResult):
             description=self.description,
             display_name=self.display_name,
             fleet_id=self.fleet_id,
+            host_configuration=self.host_configuration,
             max_worker_count=self.max_worker_count,
             min_worker_count=self.min_worker_count,
             role_arn=self.role_arn,
@@ -203,6 +212,7 @@ def get_fleet(arn: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         fleet_id=pulumi.get(__ret__, 'fleet_id'),
+        host_configuration=pulumi.get(__ret__, 'host_configuration'),
         max_worker_count=pulumi.get(__ret__, 'max_worker_count'),
         min_worker_count=pulumi.get(__ret__, 'min_worker_count'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
@@ -228,6 +238,7 @@ def get_fleet_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         fleet_id=pulumi.get(__response__, 'fleet_id'),
+        host_configuration=pulumi.get(__response__, 'host_configuration'),
         max_worker_count=pulumi.get(__response__, 'max_worker_count'),
         min_worker_count=pulumi.get(__response__, 'min_worker_count'),
         role_arn=pulumi.get(__response__, 'role_arn'),

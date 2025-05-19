@@ -553,17 +553,27 @@ class ChannelNamespaceHandlerConfig(dict):
     def __init__(__self__, *,
                  behavior: 'ChannelNamespaceHandlerBehavior',
                  integration: 'outputs.ChannelNamespaceIntegration'):
+        """
+        :param 'ChannelNamespaceHandlerBehavior' behavior: The behavior for the handler.
+        :param 'ChannelNamespaceIntegration' integration: The integration data source configuration for the handler.
+        """
         pulumi.set(__self__, "behavior", behavior)
         pulumi.set(__self__, "integration", integration)
 
     @property
     @pulumi.getter
     def behavior(self) -> 'ChannelNamespaceHandlerBehavior':
+        """
+        The behavior for the handler.
+        """
         return pulumi.get(self, "behavior")
 
     @property
     @pulumi.getter
     def integration(self) -> 'outputs.ChannelNamespaceIntegration':
+        """
+        The integration data source configuration for the handler.
+        """
         return pulumi.get(self, "integration")
 
 
@@ -591,6 +601,10 @@ class ChannelNamespaceHandlerConfigs(dict):
     def __init__(__self__, *,
                  on_publish: Optional['outputs.ChannelNamespaceHandlerConfig'] = None,
                  on_subscribe: Optional['outputs.ChannelNamespaceHandlerConfig'] = None):
+        """
+        :param 'ChannelNamespaceHandlerConfig' on_publish: The configuration for the `OnPublish` handler.
+        :param 'ChannelNamespaceHandlerConfig' on_subscribe: The configuration for the `OnSubscribe` handler.
+        """
         if on_publish is not None:
             pulumi.set(__self__, "on_publish", on_publish)
         if on_subscribe is not None:
@@ -599,11 +613,17 @@ class ChannelNamespaceHandlerConfigs(dict):
     @property
     @pulumi.getter(name="onPublish")
     def on_publish(self) -> Optional['outputs.ChannelNamespaceHandlerConfig']:
+        """
+        The configuration for the `OnPublish` handler.
+        """
         return pulumi.get(self, "on_publish")
 
     @property
     @pulumi.getter(name="onSubscribe")
     def on_subscribe(self) -> Optional['outputs.ChannelNamespaceHandlerConfig']:
+        """
+        The configuration for the `OnSubscribe` handler.
+        """
         return pulumi.get(self, "on_subscribe")
 
 
@@ -633,6 +653,7 @@ class ChannelNamespaceIntegration(dict):
                  lambda_config: Optional['outputs.ChannelNamespaceLambdaConfig'] = None):
         """
         :param builtins.str data_source_name: Data source to invoke for this integration.
+        :param 'ChannelNamespaceLambdaConfig' lambda_config: The configuration for a Lambda data source.
         """
         pulumi.set(__self__, "data_source_name", data_source_name)
         if lambda_config is not None:
@@ -649,6 +670,9 @@ class ChannelNamespaceIntegration(dict):
     @property
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> Optional['outputs.ChannelNamespaceLambdaConfig']:
+        """
+        The configuration for a Lambda data source.
+        """
         return pulumi.get(self, "lambda_config")
 
 
@@ -673,11 +697,17 @@ class ChannelNamespaceLambdaConfig(dict):
 
     def __init__(__self__, *,
                  invoke_type: 'ChannelNamespaceInvokeType'):
+        """
+        :param 'ChannelNamespaceInvokeType' invoke_type: The invocation type for a Lambda data source.
+        """
         pulumi.set(__self__, "invoke_type", invoke_type)
 
     @property
     @pulumi.getter(name="invokeType")
     def invoke_type(self) -> 'ChannelNamespaceInvokeType':
+        """
+        The invocation type for a Lambda data source.
+        """
         return pulumi.get(self, "invoke_type")
 
 

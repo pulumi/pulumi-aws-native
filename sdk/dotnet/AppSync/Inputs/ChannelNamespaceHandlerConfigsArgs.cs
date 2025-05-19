@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppSync.Inputs
 
     public sealed class ChannelNamespaceHandlerConfigsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for the `OnPublish` handler.
+        /// </summary>
         [Input("onPublish")]
         public Input<Inputs.ChannelNamespaceHandlerConfigArgs>? OnPublish { get; set; }
 
+        /// <summary>
+        /// The configuration for the `OnSubscribe` handler.
+        /// </summary>
         [Input("onSubscribe")]
         public Input<Inputs.ChannelNamespaceHandlerConfigArgs>? OnSubscribe { get; set; }
 

@@ -61,7 +61,8 @@ type LookupDbClusterResult struct {
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	AssociatedRoles []DbClusterDbClusterRole `pulumi:"associatedRoles"`
 	// Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
-	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
+	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
+	//  For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The target backtrack window, in seconds. To disable backtracking, set this value to ``0``.
 	//  Valid for Cluster Type: Aurora MySQL DB clusters only
@@ -360,7 +361,8 @@ func (o LookupDbClusterResultOutput) AssociatedRoles() DbClusterDbClusterRoleArr
 
 // Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
 //
-//	Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
+//	Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
+//	For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
 func (o LookupDbClusterResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }

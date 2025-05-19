@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// The type of the environment variable.
+        /// </summary>
+        [Input("type")]
+        public Input<Pulumi.AwsNative.CodePipeline.PipelineEnvironmentVariableType>? Type { get; set; }
+
+        /// <summary>
         /// The value of the environment variable.
         /// </summary>
         [Input("value", required: true)]

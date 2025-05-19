@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,6 +37,8 @@ type LookupFleetResult struct {
 	DesiredEc2Instances *int `pulumi:"desiredEc2Instances"`
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
 	Ec2InboundPermissions []FleetIpPermission `pulumi:"ec2InboundPermissions"`
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Servers Fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Fleet ARN, the resource ID matches the FleetId value.
+	FleetArn *string `pulumi:"fleetArn"`
 	// Unique fleet ID
 	FleetId *string `pulumi:"fleetId"`
 	// A set of remote locations to deploy additional instances to and manage as a multi-location fleet. Use this parameter when creating a fleet in AWS Regions that support multiple locations. You can add any AWS Region or Local Zone that's supported by Amazon GameLift Servers. Provide a list of one or more AWS Region codes, such as `us-west-2` , or Local Zone names. When using this parameter, Amazon GameLift Servers requires you to include your home location in the request. For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
@@ -58,6 +61,8 @@ type LookupFleetResult struct {
 	RuntimeConfiguration *FleetRuntimeConfiguration `pulumi:"runtimeConfiguration"`
 	// A list of rules that control how a fleet is scaled.
 	ScalingPolicies []FleetScalingPolicy `pulumi:"scalingPolicies"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...pulumi.InvokeOption) LookupFleetResultOutput {
@@ -112,6 +117,11 @@ func (o LookupFleetResultOutput) Ec2InboundPermissions() FleetIpPermissionArrayO
 	return o.ApplyT(func(v LookupFleetResult) []FleetIpPermission { return v.Ec2InboundPermissions }).(FleetIpPermissionArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Servers Fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Fleet ARN, the resource ID matches the FleetId value.
+func (o LookupFleetResultOutput) FleetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFleetResult) *string { return v.FleetArn }).(pulumi.StringPtrOutput)
+}
+
 // Unique fleet ID
 func (o LookupFleetResultOutput) FleetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.FleetId }).(pulumi.StringPtrOutput)
@@ -164,6 +174,11 @@ func (o LookupFleetResultOutput) RuntimeConfiguration() FleetRuntimeConfiguratio
 // A list of rules that control how a fleet is scaled.
 func (o LookupFleetResultOutput) ScalingPolicies() FleetScalingPolicyArrayOutput {
 	return o.ApplyT(func(v LookupFleetResult) []FleetScalingPolicy { return v.ScalingPolicies }).(FleetScalingPolicyArrayOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupFleetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFleetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

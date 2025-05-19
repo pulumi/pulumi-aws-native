@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
         /// <summary>
         /// A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-        ///  This field is related to the ``EnableAcceptEncodingGzip`` field. If one or both of these fields is ``true`` *and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
+        ///  This field is related to the ``EnableAcceptEncodingGzip`` field. If one or both of these fields is ``true``*and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
         ///   +  Normalizes the value of the viewer's ``Accept-Encoding`` header
         ///   +  Includes the normalized header in the cache key
         ///   +  Includes the normalized header in the request to the origin, if a request is necessary
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
         /// <summary>
         /// A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-        ///  This field is related to the ``EnableAcceptEncodingBrotli`` field. If one or both of these fields is ``true`` *and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
+        ///  This field is related to the ``EnableAcceptEncodingBrotli`` field. If one or both of these fields is ``true``*and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
         ///   +  Normalizes the value of the viewer's ``Accept-Encoding`` header
         ///   +  Includes the normalized header in the cache key
         ///   +  Includes the normalized header in the request to the origin, if a request is necessary

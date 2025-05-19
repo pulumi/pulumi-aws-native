@@ -100,6 +100,7 @@ namespace Pulumi.AwsNative.GameLift
         /// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerFleetIpPermission> InstanceInboundPermissions;
+        public readonly ImmutableArray<Outputs.ContainerFleetLocationConfiguration> Locations;
         /// <summary>
         /// The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
         /// 
@@ -124,6 +125,10 @@ namespace Pulumi.AwsNative.GameLift
         /// The Amazon Resource Name (ARN) of the per instance container group definition. This field will be empty if PerInstanceContainerGroupDefinitionName is not specified.
         /// </summary>
         public readonly string? PerInstanceContainerGroupDefinitionArn;
+        /// <summary>
+        /// A list of rules that control how a fleet is scaled.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerFleetScalingPolicy> ScalingPolicies;
         /// <summary>
         /// The current status of the container fleet.
         /// </summary>
@@ -155,6 +160,8 @@ namespace Pulumi.AwsNative.GameLift
 
             ImmutableArray<Outputs.ContainerFleetIpPermission> instanceInboundPermissions,
 
+            ImmutableArray<Outputs.ContainerFleetLocationConfiguration> locations,
+
             Outputs.ContainerFleetLogConfiguration? logConfiguration,
 
             int? maximumGameServerContainerGroupsPerInstance,
@@ -164,6 +171,8 @@ namespace Pulumi.AwsNative.GameLift
             Pulumi.AwsNative.GameLift.ContainerFleetNewGameSessionProtectionPolicy? newGameSessionProtectionPolicy,
 
             string? perInstanceContainerGroupDefinitionArn,
+
+            ImmutableArray<Outputs.ContainerFleetScalingPolicy> scalingPolicies,
 
             Pulumi.AwsNative.GameLift.ContainerFleetStatus? status,
 
@@ -179,11 +188,13 @@ namespace Pulumi.AwsNative.GameLift
             GameSessionCreationLimitPolicy = gameSessionCreationLimitPolicy;
             InstanceConnectionPortRange = instanceConnectionPortRange;
             InstanceInboundPermissions = instanceInboundPermissions;
+            Locations = locations;
             LogConfiguration = logConfiguration;
             MaximumGameServerContainerGroupsPerInstance = maximumGameServerContainerGroupsPerInstance;
             MetricGroups = metricGroups;
             NewGameSessionProtectionPolicy = newGameSessionProtectionPolicy;
             PerInstanceContainerGroupDefinitionArn = perInstanceContainerGroupDefinitionArn;
+            ScalingPolicies = scalingPolicies;
             Status = status;
             Tags = tags;
         }

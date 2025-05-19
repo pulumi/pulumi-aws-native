@@ -200,6 +200,7 @@ export const BlueprintType = {
     Document: "DOCUMENT",
     Image: "IMAGE",
     Audio: "AUDIO",
+    Video: "VIDEO",
 } as const;
 
 /**

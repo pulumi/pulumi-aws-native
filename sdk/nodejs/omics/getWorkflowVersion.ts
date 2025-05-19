@@ -18,17 +18,35 @@ export function getWorkflowVersion(args: GetWorkflowVersionArgs, opts?: pulumi.I
 }
 
 export interface GetWorkflowVersionArgs {
+    /**
+     * ARN of the workflow version.
+     */
     arn: string;
 }
 
 export interface GetWorkflowVersionResult {
+    /**
+     * ARN of the workflow version.
+     */
     readonly arn?: string;
+    /**
+     * The creation time of the workflow version.
+     */
     readonly creationTime?: string;
+    /**
+     * The description of the workflow version.
+     */
     readonly description?: string;
+    /**
+     * The status of the workflow version.
+     */
     readonly status?: enums.omics.WorkflowVersionWorkflowStatus;
     readonly storageCapacity?: number;
     readonly storageType?: enums.omics.WorkflowVersionStorageType;
     readonly tags?: {[key: string]: string};
+    /**
+     * The type of the workflow version.
+     */
     readonly type?: enums.omics.WorkflowVersionWorkflowType;
     readonly uuid?: string;
 }
@@ -43,5 +61,8 @@ export function getWorkflowVersionOutput(args: GetWorkflowVersionOutputArgs, opt
 }
 
 export interface GetWorkflowVersionOutputArgs {
+    /**
+     * ARN of the workflow version.
+     */
     arn: pulumi.Input<string>;
 }

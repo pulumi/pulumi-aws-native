@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFront::DistributionTenant
+// The distribution tenant.
 func LookupDistributionTenant(ctx *pulumi.Context, args *LookupDistributionTenantArgs, opts ...pulumi.InvokeOption) (*LookupDistributionTenantResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDistributionTenantResult
@@ -35,7 +35,7 @@ type LookupDistributionTenantResult struct {
 	ConnectionGroupId *string `pulumi:"connectionGroupId"`
 	// The date and time when the distribution tenant was created.
 	CreatedTime *string `pulumi:"createdTime"`
-	// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+	// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
 	Customizations *DistributionTenantCustomizations `pulumi:"customizations"`
 	// The ID of the multi-tenant distribution.
 	DistributionId *string                          `pulumi:"distributionId"`
@@ -54,7 +54,7 @@ type LookupDistributionTenantResult struct {
 	Parameters []DistributionTenantParameter `pulumi:"parameters"`
 	// The status of the distribution tenant.
 	Status *string `pulumi:"status"`
-	// A complex type that contains zero or more `Tag` elements.
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -105,7 +105,7 @@ func (o LookupDistributionTenantResultOutput) CreatedTime() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupDistributionTenantResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
 func (o LookupDistributionTenantResultOutput) Customizations() DistributionTenantCustomizationsPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *DistributionTenantCustomizations { return v.Customizations }).(DistributionTenantCustomizationsPtrOutput)
 }
@@ -154,7 +154,7 @@ func (o LookupDistributionTenantResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// A complex type that contains zero or more `Tag` elements.
+// A complex type that contains zero or more “Tag“ elements.
 func (o LookupDistributionTenantResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

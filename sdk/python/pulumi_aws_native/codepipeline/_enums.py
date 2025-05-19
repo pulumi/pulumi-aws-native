@@ -10,6 +10,7 @@ __all__ = [
     'PipelineActionTypeIdCategory',
     'PipelineArtifactStoreType',
     'PipelineBlockerDeclarationType',
+    'PipelineEnvironmentVariableType',
     'PipelineExecutionMode',
     'PipelineFailureConditionsResult',
     'PipelineFailureConditionsRetryConfigurationPropertiesRetryMode',
@@ -43,6 +44,14 @@ class PipelineBlockerDeclarationType(builtins.str, Enum):
     Reserved for future use.
     """
     SCHEDULE = "Schedule"
+
+
+class PipelineEnvironmentVariableType(builtins.str, Enum):
+    """
+    The type of the environment variable.
+    """
+    PLAINTEXT = "PLAINTEXT"
+    SECRETS_MANAGER = "SECRETS_MANAGER"
 
 
 class PipelineExecutionMode(builtins.str, Enum):

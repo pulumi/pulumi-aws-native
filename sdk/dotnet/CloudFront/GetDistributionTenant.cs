@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.CloudFront
     public static class GetDistributionTenant
     {
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::DistributionTenant
+        /// The distribution tenant.
         /// </summary>
         public static Task<GetDistributionTenantResult> InvokeAsync(GetDistributionTenantArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionTenantResult>("aws-native:cloudfront:getDistributionTenant", args ?? new GetDistributionTenantArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::DistributionTenant
+        /// The distribution tenant.
         /// </summary>
         public static Output<GetDistributionTenantResult> Invoke(GetDistributionTenantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionTenantResult>("aws-native:cloudfront:getDistributionTenant", args ?? new GetDistributionTenantInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::DistributionTenant
+        /// The distribution tenant.
         /// </summary>
         public static Output<GetDistributionTenantResult> Invoke(GetDistributionTenantInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionTenantResult>("aws-native:cloudfront:getDistributionTenant", args ?? new GetDistributionTenantInvokeArgs(), options.WithDefaults());
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public readonly string? CreatedTime;
         /// <summary>
-        /// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and AWS WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        /// Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
         /// </summary>
         public readonly Outputs.DistributionTenantCustomizations? Customizations;
         /// <summary>
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// A complex type that contains zero or more `Tag` elements.
+        /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

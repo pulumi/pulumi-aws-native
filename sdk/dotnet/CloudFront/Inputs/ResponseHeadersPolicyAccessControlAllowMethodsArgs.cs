@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         ///   +   ``PUT`` 
         ///   +   ``ALL`` 
         ///   
-        ///   ``ALL`` is a special value that includes all of the listed HTTP methods.
+        ///  ``ALL`` is a special value that includes all of the listed HTTP methods.
         /// </summary>
         public InputList<string> Items
         {

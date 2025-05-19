@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppSync.Inputs
 
     public sealed class ChannelNamespaceHandlerConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The behavior for the handler.
+        /// </summary>
         [Input("behavior", required: true)]
         public Input<Pulumi.AwsNative.AppSync.ChannelNamespaceHandlerBehavior> Behavior { get; set; } = null!;
 
+        /// <summary>
+        /// The integration data source configuration for the handler.
+        /// </summary>
         [Input("integration", required: true)]
         public Input<Inputs.ChannelNamespaceIntegrationArgs> Integration { get; set; } = null!;
 

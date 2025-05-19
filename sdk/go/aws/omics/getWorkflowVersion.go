@@ -23,19 +23,25 @@ func LookupWorkflowVersion(ctx *pulumi.Context, args *LookupWorkflowVersionArgs,
 }
 
 type LookupWorkflowVersionArgs struct {
+	// ARN of the workflow version.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupWorkflowVersionResult struct {
-	Arn             *string                        `pulumi:"arn"`
-	CreationTime    *string                        `pulumi:"creationTime"`
-	Description     *string                        `pulumi:"description"`
+	// ARN of the workflow version.
+	Arn *string `pulumi:"arn"`
+	// The creation time of the workflow version.
+	CreationTime *string `pulumi:"creationTime"`
+	// The description of the workflow version.
+	Description *string `pulumi:"description"`
+	// The status of the workflow version.
 	Status          *WorkflowVersionWorkflowStatus `pulumi:"status"`
 	StorageCapacity *float64                       `pulumi:"storageCapacity"`
 	StorageType     *WorkflowVersionStorageType    `pulumi:"storageType"`
 	Tags            map[string]string              `pulumi:"tags"`
-	Type            *WorkflowVersionWorkflowType   `pulumi:"type"`
-	Uuid            *string                        `pulumi:"uuid"`
+	// The type of the workflow version.
+	Type *WorkflowVersionWorkflowType `pulumi:"type"`
+	Uuid *string                      `pulumi:"uuid"`
 }
 
 func LookupWorkflowVersionOutput(ctx *pulumi.Context, args LookupWorkflowVersionOutputArgs, opts ...pulumi.InvokeOption) LookupWorkflowVersionResultOutput {
@@ -48,6 +54,7 @@ func LookupWorkflowVersionOutput(ctx *pulumi.Context, args LookupWorkflowVersion
 }
 
 type LookupWorkflowVersionOutputArgs struct {
+	// ARN of the workflow version.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -69,18 +76,22 @@ func (o LookupWorkflowVersionResultOutput) ToLookupWorkflowVersionResultOutputWi
 	return o
 }
 
+// ARN of the workflow version.
 func (o LookupWorkflowVersionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowVersionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The creation time of the workflow version.
 func (o LookupWorkflowVersionResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowVersionResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The description of the workflow version.
 func (o LookupWorkflowVersionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowVersionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The status of the workflow version.
 func (o LookupWorkflowVersionResultOutput) Status() WorkflowVersionWorkflowStatusPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowVersionResult) *WorkflowVersionWorkflowStatus { return v.Status }).(WorkflowVersionWorkflowStatusPtrOutput)
 }
@@ -97,6 +108,7 @@ func (o LookupWorkflowVersionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWorkflowVersionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The type of the workflow version.
 func (o LookupWorkflowVersionResultOutput) Type() WorkflowVersionWorkflowTypePtrOutput {
 	return o.ApplyT(func(v LookupWorkflowVersionResult) *WorkflowVersionWorkflowType { return v.Type }).(WorkflowVersionWorkflowTypePtrOutput)
 }

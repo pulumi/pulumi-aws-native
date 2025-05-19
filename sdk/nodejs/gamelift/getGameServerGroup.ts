@@ -53,6 +53,10 @@ export interface GetGameServerGroupResult {
      * The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      */
     readonly roleArn?: string;
+    /**
+     * A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.

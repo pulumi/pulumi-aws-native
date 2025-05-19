@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -26,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGameServerGroupResult:
-    def __init__(__self__, auto_scaling_group_arn=None, balancing_strategy=None, game_server_group_arn=None, game_server_group_name=None, game_server_protection_policy=None, instance_definitions=None, role_arn=None):
+    def __init__(__self__, auto_scaling_group_arn=None, balancing_strategy=None, game_server_group_arn=None, game_server_group_name=None, game_server_protection_policy=None, instance_definitions=None, role_arn=None, tags=None):
         if auto_scaling_group_arn and not isinstance(auto_scaling_group_arn, str):
             raise TypeError("Expected argument 'auto_scaling_group_arn' to be a str")
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
@@ -48,6 +49,9 @@ class GetGameServerGroupResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="autoScalingGroupArn")
@@ -105,6 +109,14 @@ class GetGameServerGroupResult:
         """
         return pulumi.get(self, "role_arn")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetGameServerGroupResult(GetGameServerGroupResult):
     # pylint: disable=using-constant-test
@@ -118,7 +130,8 @@ class AwaitableGetGameServerGroupResult(GetGameServerGroupResult):
             game_server_group_name=self.game_server_group_name,
             game_server_protection_policy=self.game_server_protection_policy,
             instance_definitions=self.instance_definitions,
-            role_arn=self.role_arn)
+            role_arn=self.role_arn,
+            tags=self.tags)
 
 
 def get_game_server_group(game_server_group_arn: Optional[builtins.str] = None,
@@ -141,7 +154,8 @@ def get_game_server_group(game_server_group_arn: Optional[builtins.str] = None,
         game_server_group_name=pulumi.get(__ret__, 'game_server_group_name'),
         game_server_protection_policy=pulumi.get(__ret__, 'game_server_protection_policy'),
         instance_definitions=pulumi.get(__ret__, 'instance_definitions'),
-        role_arn=pulumi.get(__ret__, 'role_arn'))
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_game_server_group_output(game_server_group_arn: Optional[pulumi.Input[builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGameServerGroupResult]:
     """
@@ -161,4 +175,5 @@ def get_game_server_group_output(game_server_group_arn: Optional[pulumi.Input[bu
         game_server_group_name=pulumi.get(__response__, 'game_server_group_name'),
         game_server_protection_policy=pulumi.get(__response__, 'game_server_protection_policy'),
         instance_definitions=pulumi.get(__response__, 'instance_definitions'),
-        role_arn=pulumi.get(__response__, 'role_arn')))
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -34,6 +34,7 @@ type LookupAutoScalingGroupArgs struct {
 }
 
 type LookupAutoScalingGroupResult struct {
+	// The Amazon Resource Name (ARN) of the Auto Scaling group.
 	AutoScalingGroupArn *string `pulumi:"autoScalingGroupArn"`
 	// The instance capacity distribution across Availability Zones.
 	AvailabilityZoneDistribution *AutoScalingGroupAvailabilityZoneDistribution `pulumi:"availabilityZoneDistribution"`
@@ -156,6 +157,7 @@ func (o LookupAutoScalingGroupResultOutput) ToLookupAutoScalingGroupResultOutput
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the Auto Scaling group.
 func (o LookupAutoScalingGroupResultOutput) AutoScalingGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.AutoScalingGroupArn }).(pulumi.StringPtrOutput)
 }

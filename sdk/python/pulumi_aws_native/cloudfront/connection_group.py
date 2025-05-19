@@ -33,7 +33,7 @@ class ConnectionGroupArgs:
         :param pulumi.Input[builtins.bool] enabled: Whether the connection group is enabled.
         :param pulumi.Input[builtins.bool] ipv6_enabled: IPv6 is enabled for the connection group.
         :param pulumi.Input[builtins.str] name: The name of the connection group.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more `Tag` elements.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         if anycast_ip_list_id is not None:
             pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
@@ -98,7 +98,7 @@ class ConnectionGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A complex type that contains zero or more `Tag` elements.
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
@@ -122,7 +122,7 @@ class ConnectionGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CloudFront::ConnectionGroup
+        The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class ConnectionGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Whether the connection group is enabled.
         :param pulumi.Input[builtins.bool] ipv6_enabled: IPv6 is enabled for the connection group.
         :param pulumi.Input[builtins.str] name: The name of the connection group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more `Tag` elements.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         ...
     @overload
@@ -139,7 +139,7 @@ class ConnectionGroup(pulumi.CustomResource):
                  args: Optional[ConnectionGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CloudFront::ConnectionGroup
+        The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
 
         :param str resource_name: The name of the resource.
         :param ConnectionGroupArgs args: The arguments to use to populate this resource's properties.
@@ -322,7 +322,7 @@ class ConnectionGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A complex type that contains zero or more `Tag` elements.
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 

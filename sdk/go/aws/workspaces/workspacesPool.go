@@ -34,7 +34,8 @@ type WorkspacesPool struct {
 	// The identifier of the pool.
 	PoolId pulumi.StringOutput `pulumi:"poolId"`
 	// The name of the pool.
-	PoolName    pulumi.StringOutput                `pulumi:"poolName"`
+	PoolName pulumi.StringOutput `pulumi:"poolName"`
+	// The running mode of the pool.
 	RunningMode WorkspacesPoolRunningModePtrOutput `pulumi:"runningMode"`
 	Tags        aws.TagArrayOutput                 `pulumi:"tags"`
 	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
@@ -105,7 +106,8 @@ type workspacesPoolArgs struct {
 	// The identifier of the directory used by the pool.
 	DirectoryId string `pulumi:"directoryId"`
 	// The name of the pool.
-	PoolName    *string                    `pulumi:"poolName"`
+	PoolName *string `pulumi:"poolName"`
+	// The running mode of the pool.
 	RunningMode *WorkspacesPoolRunningMode `pulumi:"runningMode"`
 	Tags        []aws.Tag                  `pulumi:"tags"`
 	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
@@ -125,7 +127,8 @@ type WorkspacesPoolArgs struct {
 	// The identifier of the directory used by the pool.
 	DirectoryId pulumi.StringInput
 	// The name of the pool.
-	PoolName    pulumi.StringPtrInput
+	PoolName pulumi.StringPtrInput
+	// The running mode of the pool.
 	RunningMode WorkspacesPoolRunningModePtrInput
 	Tags        aws.TagArrayInput
 	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
@@ -214,6 +217,7 @@ func (o WorkspacesPoolOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspacesPool) pulumi.StringOutput { return v.PoolName }).(pulumi.StringOutput)
 }
 
+// The running mode of the pool.
 func (o WorkspacesPoolOutput) RunningMode() WorkspacesPoolRunningModePtrOutput {
 	return o.ApplyT(func(v *WorkspacesPool) WorkspacesPoolRunningModePtrOutput { return v.RunningMode }).(WorkspacesPoolRunningModePtrOutput)
 }

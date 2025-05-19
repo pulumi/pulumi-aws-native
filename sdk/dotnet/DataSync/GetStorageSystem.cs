@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.DataSync
         /// The ARN of a secret stored by AWS Secrets Manager.
         /// </summary>
         public readonly string? SecretsManagerArn;
+        /// <summary>
+        /// Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
+        /// </summary>
         public readonly Outputs.StorageSystemServerConfiguration? ServerConfiguration;
         /// <summary>
         /// The ARN of the on-premises storage system added to DataSync Discovery.

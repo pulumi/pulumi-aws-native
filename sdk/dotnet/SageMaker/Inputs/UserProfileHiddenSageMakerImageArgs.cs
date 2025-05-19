@@ -20,6 +20,10 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
         [Input("versionAliases")]
         private InputList<string>? _versionAliases;
+
+        /// <summary>
+        /// The version aliases you are hiding from the Studio user interface.
+        /// </summary>
         public InputList<string> VersionAliases
         {
             get => _versionAliases ?? (_versionAliases = new InputList<string>());

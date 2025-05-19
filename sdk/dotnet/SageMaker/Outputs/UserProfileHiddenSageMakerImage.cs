@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The SageMaker image name that you are hiding from the Studio user interface.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.UserProfileHiddenSageMakerImageSageMakerImageName? SageMakerImageName;
+        /// <summary>
+        /// The version aliases you are hiding from the Studio user interface.
+        /// </summary>
         public readonly ImmutableArray<string> VersionAliases;
 
         [OutputConstructor]

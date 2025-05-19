@@ -7,7 +7,7 @@
       "properties" : {
         "KinesisStreamConfig" : {
           "$ref" : "#/definitions/KinesisStreamConfig",
-          "description" : "Contains information about the Amazon Kinesis data stream where you are sending real-time log data."
+          "description" : "Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration."
         },
         "StreamType" : {
           "type" : "string",
@@ -16,7 +16,7 @@
       },
       "required" : [ "KinesisStreamConfig", "StreamType" ],
       "type" : "object",
-      "description" : "Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration."
+      "description" : "Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration."
     },
     "KinesisStreamConfig" : {
       "additionalProperties" : false,

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,6 +34,8 @@ type Fleet struct {
 	Ec2InboundPermissions FleetIpPermissionArrayOutput `pulumi:"ec2InboundPermissions"`
 	// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
 	Ec2InstanceType pulumi.StringPtrOutput `pulumi:"ec2InstanceType"`
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Servers Fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Fleet ARN, the resource ID matches the FleetId value.
+	FleetArn pulumi.StringOutput `pulumi:"fleetArn"`
 	// Unique fleet ID
 	FleetId pulumi.StringOutput `pulumi:"fleetId"`
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
@@ -75,6 +78,8 @@ type Fleet struct {
 	ServerLaunchParameters pulumi.StringPtrOutput `pulumi:"serverLaunchParameters"`
 	// This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
 	ServerLaunchPath pulumi.StringPtrOutput `pulumi:"serverLaunchPath"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
@@ -192,6 +197,8 @@ type fleetArgs struct {
 	ServerLaunchParameters *string `pulumi:"serverLaunchParameters"`
 	// This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
 	ServerLaunchPath *string `pulumi:"serverLaunchPath"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Fleet resource.
@@ -254,6 +261,8 @@ type FleetArgs struct {
 	ServerLaunchParameters pulumi.StringPtrInput
 	// This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
 	ServerLaunchPath pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 }
 
 func (FleetArgs) ElementType() reflect.Type {
@@ -336,6 +345,11 @@ func (o FleetOutput) Ec2InboundPermissions() FleetIpPermissionArrayOutput {
 // The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
 func (o FleetOutput) Ec2InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Ec2InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Servers Fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Fleet ARN, the resource ID matches the FleetId value.
+func (o FleetOutput) FleetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.FleetArn }).(pulumi.StringOutput)
 }
 
 // Unique fleet ID
@@ -435,6 +449,11 @@ func (o FleetOutput) ServerLaunchParameters() pulumi.StringPtrOutput {
 // This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
 func (o FleetOutput) ServerLaunchPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ServerLaunchPath }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o FleetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Fleet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.AutoScaling
     [AwsNativeResourceType("aws-native:autoscaling:AutoScalingGroup")]
     public partial class AutoScalingGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Auto Scaling group.
+        /// </summary>
         [Output("autoScalingGroupArn")]
         public Output<string> AutoScalingGroupArn { get; private set; } = null!;
 

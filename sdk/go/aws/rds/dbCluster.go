@@ -41,7 +41,8 @@ type DbCluster struct {
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	AssociatedRoles DbClusterDbClusterRoleArrayOutput `pulumi:"associatedRoles"`
 	// Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
-	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
+	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
+	//  For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*.
 	//  Valid for: Aurora DB clusters only
@@ -470,7 +471,8 @@ type dbClusterArgs struct {
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	AssociatedRoles []DbClusterDbClusterRole `pulumi:"associatedRoles"`
 	// Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
-	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
+	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
+	//  For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*.
 	//  Valid for: Aurora DB clusters only
@@ -832,7 +834,8 @@ type DbClusterArgs struct {
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	AssociatedRoles DbClusterDbClusterRoleArrayInput
 	// Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
-	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
+	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
+	//  For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*.
 	//  Valid for: Aurora DB clusters only
@@ -1238,7 +1241,8 @@ func (o DbClusterOutput) AssociatedRoles() DbClusterDbClusterRoleArrayOutput {
 
 // Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
 //
-//	Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
+//	Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
+//	For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
 func (o DbClusterOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class GetWorkflowVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the workflow version.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class GetWorkflowVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN of the workflow version.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -57,13 +63,28 @@ namespace Pulumi.AwsNative.Omics
     [OutputType]
     public sealed class GetWorkflowVersionResult
     {
+        /// <summary>
+        /// ARN of the workflow version.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The creation time of the workflow version.
+        /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The description of the workflow version.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The status of the workflow version.
+        /// </summary>
         public readonly Pulumi.AwsNative.Omics.WorkflowVersionWorkflowStatus? Status;
         public readonly double? StorageCapacity;
         public readonly Pulumi.AwsNative.Omics.WorkflowVersionStorageType? StorageType;
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The type of the workflow version.
+        /// </summary>
         public readonly Pulumi.AwsNative.Omics.WorkflowVersionWorkflowType? Type;
         public readonly string? Uuid;
 

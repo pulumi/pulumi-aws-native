@@ -35,6 +35,16 @@ export const PipelineBlockerDeclarationType = {
  */
 export type PipelineBlockerDeclarationType = (typeof PipelineBlockerDeclarationType)[keyof typeof PipelineBlockerDeclarationType];
 
+export const PipelineEnvironmentVariableType = {
+    Plaintext: "PLAINTEXT",
+    SecretsManager: "SECRETS_MANAGER",
+} as const;
+
+/**
+ * The type of the environment variable.
+ */
+export type PipelineEnvironmentVariableType = (typeof PipelineEnvironmentVariableType)[keyof typeof PipelineEnvironmentVariableType];
+
 export const PipelineExecutionMode = {
     Queued: "QUEUED",
     Superseded: "SUPERSEDED",

@@ -24,9 +24,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly ImmutableArray<string> Locations;
         /// <summary>
         /// The method that you want to use to restrict distribution of your content by country:
-        ///   +   ``none``: No geo restriction is enabled, meaning access to content is not restricted by client geo location.
-        ///   +   ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
-        ///   +   ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
+        ///   +  ``none``: No geo restriction is enabled, meaning access to content is not restricted by client geo location.
+        ///   +  ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
+        ///   +  ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
         /// </summary>
         public readonly string RestrictionType;
 

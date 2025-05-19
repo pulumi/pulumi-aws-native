@@ -107,7 +107,7 @@
             },
             "Delimiter" : {
               "type" : "string",
-              "maxLength" : 1
+              "maxLength" : 2
             },
             "Source" : {
               "type" : "string"
@@ -184,7 +184,7 @@
             },
             "Match" : {
               "type" : "string",
-              "maxLength" : 128
+              "maxLength" : 512
             }
           },
           "required" : [ "Match" ],
@@ -499,7 +499,7 @@
         },
         "Delimiter" : {
           "type" : "string",
-          "maxLength" : 1
+          "maxLength" : 128
         }
       },
       "required" : [ "Source", "Delimiter" ],

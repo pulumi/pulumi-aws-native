@@ -74,6 +74,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly ec2InstanceType!: pulumi.Output<string | undefined>;
     /**
+     * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Servers Fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Fleet ARN, the resource ID matches the FleetId value.
+     */
+    public /*out*/ readonly fleetArn!: pulumi.Output<string>;
+    /**
      * Unique fleet ID
      */
     public /*out*/ readonly fleetId!: pulumi.Output<string>;
@@ -153,6 +157,10 @@ export class Fleet extends pulumi.CustomResource {
      * This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
      */
     public readonly serverLaunchPath!: pulumi.Output<string | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -192,6 +200,8 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["scriptId"] = args ? args.scriptId : undefined;
             resourceInputs["serverLaunchParameters"] = args ? args.serverLaunchParameters : undefined;
             resourceInputs["serverLaunchPath"] = args ? args.serverLaunchPath : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["fleetArn"] = undefined /*out*/;
             resourceInputs["fleetId"] = undefined /*out*/;
         } else {
             resourceInputs["anywhereConfiguration"] = undefined /*out*/;
@@ -203,6 +213,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["desiredEc2Instances"] = undefined /*out*/;
             resourceInputs["ec2InboundPermissions"] = undefined /*out*/;
             resourceInputs["ec2InstanceType"] = undefined /*out*/;
+            resourceInputs["fleetArn"] = undefined /*out*/;
             resourceInputs["fleetId"] = undefined /*out*/;
             resourceInputs["fleetType"] = undefined /*out*/;
             resourceInputs["instanceRoleArn"] = undefined /*out*/;
@@ -222,6 +233,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["scriptId"] = undefined /*out*/;
             resourceInputs["serverLaunchParameters"] = undefined /*out*/;
             resourceInputs["serverLaunchPath"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["applyCapacity", "buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
@@ -346,4 +358,8 @@ export interface FleetArgs {
      * This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
      */
     serverLaunchPath?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

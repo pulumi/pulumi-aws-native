@@ -40,6 +40,9 @@ export class AutoScalingGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === AutoScalingGroup.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the Auto Scaling group.
+     */
     public /*out*/ readonly autoScalingGroupArn!: pulumi.Output<string>;
     /**
      * The name of the Auto Scaling group. This name must be unique per Region per account.

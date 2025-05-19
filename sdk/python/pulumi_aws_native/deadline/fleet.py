@@ -31,6 +31,7 @@ class FleetArgs:
                  max_worker_count: pulumi.Input[builtins.int],
                  role_arn: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 host_configuration: Optional[pulumi.Input['FleetHostConfigurationArgs']] = None,
                  min_worker_count: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -55,6 +56,8 @@ class FleetArgs:
         pulumi.set(__self__, "role_arn", role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if host_configuration is not None:
+            pulumi.set(__self__, "host_configuration", host_configuration)
         if min_worker_count is not None:
             pulumi.set(__self__, "min_worker_count", min_worker_count)
         if tags is not None:
@@ -137,6 +140,15 @@ class FleetArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="hostConfiguration")
+    def host_configuration(self) -> Optional[pulumi.Input['FleetHostConfigurationArgs']]:
+        return pulumi.get(self, "host_configuration")
+
+    @host_configuration.setter
+    def host_configuration(self, value: Optional[pulumi.Input['FleetHostConfigurationArgs']]):
+        pulumi.set(self, "host_configuration", value)
+
+    @property
     @pulumi.getter(name="minWorkerCount")
     def min_worker_count(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -173,6 +185,7 @@ class Fleet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  farm_id: Optional[pulumi.Input[builtins.str]] = None,
+                 host_configuration: Optional[pulumi.Input[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict']]] = None,
                  max_worker_count: Optional[pulumi.Input[builtins.int]] = None,
                  min_worker_count: Optional[pulumi.Input[builtins.int]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -224,6 +237,7 @@ class Fleet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  farm_id: Optional[pulumi.Input[builtins.str]] = None,
+                 host_configuration: Optional[pulumi.Input[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict']]] = None,
                  max_worker_count: Optional[pulumi.Input[builtins.int]] = None,
                  min_worker_count: Optional[pulumi.Input[builtins.int]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -247,6 +261,7 @@ class Fleet(pulumi.CustomResource):
             if farm_id is None and not opts.urn:
                 raise TypeError("Missing required property 'farm_id'")
             __props__.__dict__["farm_id"] = farm_id
+            __props__.__dict__["host_configuration"] = host_configuration
             if max_worker_count is None and not opts.urn:
                 raise TypeError("Missing required property 'max_worker_count'")
             __props__.__dict__["max_worker_count"] = max_worker_count
@@ -291,6 +306,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["display_name"] = None
         __props__.__dict__["farm_id"] = None
         __props__.__dict__["fleet_id"] = None
+        __props__.__dict__["host_configuration"] = None
         __props__.__dict__["max_worker_count"] = None
         __props__.__dict__["min_worker_count"] = None
         __props__.__dict__["role_arn"] = None
@@ -355,6 +371,11 @@ class Fleet(pulumi.CustomResource):
         The fleet ID.
         """
         return pulumi.get(self, "fleet_id")
+
+    @property
+    @pulumi.getter(name="hostConfiguration")
+    def host_configuration(self) -> pulumi.Output[Optional['outputs.FleetHostConfiguration']]:
+        return pulumi.get(self, "host_configuration")
 
     @property
     @pulumi.getter(name="maxWorkerCount")

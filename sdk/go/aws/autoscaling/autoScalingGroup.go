@@ -20,6 +20,7 @@ import (
 type AutoScalingGroup struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the Auto Scaling group.
 	AutoScalingGroupArn pulumi.StringOutput `pulumi:"autoScalingGroupArn"`
 	// The name of the Auto Scaling group. This name must be unique per Region per account.
 	//  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
@@ -396,6 +397,7 @@ func (o AutoScalingGroupOutput) ToAutoScalingGroupOutputWithContext(ctx context.
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the Auto Scaling group.
 func (o AutoScalingGroupOutput) AutoScalingGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringOutput { return v.AutoScalingGroupArn }).(pulumi.StringOutput)
 }

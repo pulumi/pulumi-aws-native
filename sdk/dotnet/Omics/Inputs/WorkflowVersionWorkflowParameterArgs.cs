@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Omics.Inputs
 
     public sealed class WorkflowVersionWorkflowParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The parameter's description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Whether the parameter is optional.
+        /// </summary>
         [Input("optional")]
         public Input<bool>? Optional { get; set; }
 

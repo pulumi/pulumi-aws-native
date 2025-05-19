@@ -190,7 +190,6 @@ namespace Pulumi.AwsNative.GameLift
                 {
                     "billingType",
                     "instanceType",
-                    "locations[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

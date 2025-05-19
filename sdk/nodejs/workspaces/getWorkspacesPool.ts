@@ -57,6 +57,9 @@ export interface GetWorkspacesPoolResult {
      * The identifier of the pool.
      */
     readonly poolId?: string;
+    /**
+     * The running mode of the pool.
+     */
     readonly runningMode?: enums.workspaces.WorkspacesPoolRunningMode;
     readonly tags?: outputs.Tag[];
     /**

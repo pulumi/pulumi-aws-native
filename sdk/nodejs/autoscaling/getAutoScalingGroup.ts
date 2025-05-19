@@ -30,6 +30,9 @@ export interface GetAutoScalingGroupArgs {
 }
 
 export interface GetAutoScalingGroupResult {
+    /**
+     * The Amazon Resource Name (ARN) of the Auto Scaling group.
+     */
     readonly autoScalingGroupArn?: string;
     /**
      * The instance capacity distribution across Availability Zones.

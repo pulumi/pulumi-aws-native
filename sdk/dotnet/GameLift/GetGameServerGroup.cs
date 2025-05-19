@@ -91,6 +91,10 @@ namespace Pulumi.AwsNative.GameLift
         /// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetGameServerGroupResult(
@@ -106,7 +110,9 @@ namespace Pulumi.AwsNative.GameLift
 
             ImmutableArray<Outputs.GameServerGroupInstanceDefinition> instanceDefinitions,
 
-            string? roleArn)
+            string? roleArn,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AutoScalingGroupArn = autoScalingGroupArn;
             BalancingStrategy = balancingStrategy;
@@ -115,6 +121,7 @@ namespace Pulumi.AwsNative.GameLift
             GameServerProtectionPolicy = gameServerProtectionPolicy;
             InstanceDefinitions = instanceDefinitions;
             RoleArn = roleArn;
+            Tags = tags;
         }
     }
 }

@@ -776,14 +776,18 @@ class PipelineEnvironmentVariable(dict):
     """
     def __init__(__self__, *,
                  name: builtins.str,
-                 value: builtins.str):
+                 value: builtins.str,
+                 type: Optional['PipelineEnvironmentVariableType'] = None):
         """
         Represents information about the environment variable of an action.
         :param builtins.str name: The name of the environment variable.
         :param builtins.str value: The value of the environment variable.
+        :param 'PipelineEnvironmentVariableType' type: The type of the environment variable.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -800,6 +804,14 @@ class PipelineEnvironmentVariable(dict):
         The value of the environment variable.
         """
         return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['PipelineEnvironmentVariableType']:
+        """
+        The type of the environment variable.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

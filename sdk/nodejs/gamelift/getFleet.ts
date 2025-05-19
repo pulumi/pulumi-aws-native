@@ -42,6 +42,10 @@ export interface GetFleetResult {
      */
     readonly ec2InboundPermissions?: outputs.gamelift.FleetIpPermission[];
     /**
+     * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Servers Fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Fleet ARN, the resource ID matches the FleetId value.
+     */
+    readonly fleetArn?: string;
+    /**
      * Unique fleet ID
      */
     readonly fleetId?: string;
@@ -83,6 +87,10 @@ export interface GetFleetResult {
      * A list of rules that control how a fleet is scaled.
      */
     readonly scalingPolicies?: outputs.gamelift.FleetScalingPolicy[];
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.

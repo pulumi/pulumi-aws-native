@@ -95,6 +95,9 @@ namespace Pulumi.AwsNative.WorkSpaces
         /// The identifier of the pool.
         /// </summary>
         public readonly string? PoolId;
+        /// <summary>
+        /// The running mode of the pool.
+        /// </summary>
         public readonly Pulumi.AwsNative.WorkSpaces.WorkspacesPoolRunningMode? RunningMode;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

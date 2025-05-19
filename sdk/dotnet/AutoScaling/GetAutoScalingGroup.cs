@@ -76,6 +76,9 @@ namespace Pulumi.AwsNative.AutoScaling
     [OutputType]
     public sealed class GetAutoScalingGroupResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Auto Scaling group.
+        /// </summary>
         public readonly string? AutoScalingGroupArn;
         /// <summary>
         /// The instance capacity distribution across Availability Zones.

@@ -62,6 +62,7 @@ export interface GetContainerFleetResult {
      * A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
      */
     readonly instanceInboundPermissions?: outputs.gamelift.ContainerFleetIpPermission[];
+    readonly locations?: outputs.gamelift.ContainerFleetLocationConfiguration[];
     /**
      * The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
      *
@@ -86,6 +87,10 @@ export interface GetContainerFleetResult {
      * The Amazon Resource Name (ARN) of the per instance container group definition. This field will be empty if PerInstanceContainerGroupDefinitionName is not specified.
      */
     readonly perInstanceContainerGroupDefinitionArn?: string;
+    /**
+     * A list of rules that control how a fleet is scaled.
+     */
+    readonly scalingPolicies?: outputs.gamelift.ContainerFleetScalingPolicy[];
     /**
      * The current status of the container fleet.
      */

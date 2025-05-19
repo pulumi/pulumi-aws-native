@@ -595,6 +595,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static BlueprintType Document { get; } = new BlueprintType("DOCUMENT");
         public static BlueprintType Image { get; } = new BlueprintType("IMAGE");
         public static BlueprintType Audio { get; } = new BlueprintType("AUDIO");
+        public static BlueprintType Video { get; } = new BlueprintType("VIDEO");
 
         public static bool operator ==(BlueprintType left, BlueprintType right) => left.Equals(right);
         public static bool operator !=(BlueprintType left, BlueprintType right) => !left.Equals(right);

@@ -16,23 +16,30 @@ import (
 type WorkflowVersion struct {
 	pulumi.CustomResourceState
 
-	Accelerators          WorkflowVersionAcceleratorsPtrOutput      `pulumi:"accelerators"`
-	Arn                   pulumi.StringOutput                       `pulumi:"arn"`
-	CreationTime          pulumi.StringOutput                       `pulumi:"creationTime"`
-	DefinitionUri         pulumi.StringPtrOutput                    `pulumi:"definitionUri"`
-	Description           pulumi.StringPtrOutput                    `pulumi:"description"`
-	Engine                WorkflowVersionWorkflowEnginePtrOutput    `pulumi:"engine"`
-	Main                  pulumi.StringPtrOutput                    `pulumi:"main"`
-	ParameterTemplate     WorkflowVersionWorkflowParameterMapOutput `pulumi:"parameterTemplate"`
-	Status                WorkflowVersionWorkflowStatusOutput       `pulumi:"status"`
-	StorageCapacity       pulumi.Float64PtrOutput                   `pulumi:"storageCapacity"`
-	StorageType           WorkflowVersionStorageTypePtrOutput       `pulumi:"storageType"`
-	Tags                  pulumi.StringMapOutput                    `pulumi:"tags"`
-	Type                  WorkflowVersionWorkflowTypeOutput         `pulumi:"type"`
-	Uuid                  pulumi.StringOutput                       `pulumi:"uuid"`
-	VersionName           pulumi.StringOutput                       `pulumi:"versionName"`
-	WorkflowBucketOwnerId pulumi.StringPtrOutput                    `pulumi:"workflowBucketOwnerId"`
-	WorkflowId            pulumi.StringOutput                       `pulumi:"workflowId"`
+	Accelerators WorkflowVersionAcceleratorsPtrOutput `pulumi:"accelerators"`
+	// ARN of the workflow version.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The creation time of the workflow version.
+	CreationTime  pulumi.StringOutput    `pulumi:"creationTime"`
+	DefinitionUri pulumi.StringPtrOutput `pulumi:"definitionUri"`
+	// The description of the workflow version.
+	Description       pulumi.StringPtrOutput                    `pulumi:"description"`
+	Engine            WorkflowVersionWorkflowEnginePtrOutput    `pulumi:"engine"`
+	Main              pulumi.StringPtrOutput                    `pulumi:"main"`
+	ParameterTemplate WorkflowVersionWorkflowParameterMapOutput `pulumi:"parameterTemplate"`
+	// The status of the workflow version.
+	Status          WorkflowVersionWorkflowStatusOutput `pulumi:"status"`
+	StorageCapacity pulumi.Float64PtrOutput             `pulumi:"storageCapacity"`
+	StorageType     WorkflowVersionStorageTypePtrOutput `pulumi:"storageType"`
+	Tags            pulumi.StringMapOutput              `pulumi:"tags"`
+	// The type of the workflow version.
+	Type WorkflowVersionWorkflowTypeOutput `pulumi:"type"`
+	Uuid pulumi.StringOutput               `pulumi:"uuid"`
+	// The name of the workflow version.
+	VersionName           pulumi.StringOutput    `pulumi:"versionName"`
+	WorkflowBucketOwnerId pulumi.StringPtrOutput `pulumi:"workflowBucketOwnerId"`
+	// The workflow's ID.
+	WorkflowId pulumi.StringOutput `pulumi:"workflowId"`
 }
 
 // NewWorkflowVersion registers a new resource with the given unique name, arguments, and options.
@@ -89,34 +96,40 @@ func (WorkflowVersionState) ElementType() reflect.Type {
 }
 
 type workflowVersionArgs struct {
-	Accelerators          *WorkflowVersionAccelerators                `pulumi:"accelerators"`
-	DefinitionUri         *string                                     `pulumi:"definitionUri"`
-	Description           *string                                     `pulumi:"description"`
-	Engine                *WorkflowVersionWorkflowEngine              `pulumi:"engine"`
-	Main                  *string                                     `pulumi:"main"`
-	ParameterTemplate     map[string]WorkflowVersionWorkflowParameter `pulumi:"parameterTemplate"`
-	StorageCapacity       *float64                                    `pulumi:"storageCapacity"`
-	StorageType           *WorkflowVersionStorageType                 `pulumi:"storageType"`
-	Tags                  map[string]string                           `pulumi:"tags"`
-	VersionName           *string                                     `pulumi:"versionName"`
-	WorkflowBucketOwnerId *string                                     `pulumi:"workflowBucketOwnerId"`
-	WorkflowId            string                                      `pulumi:"workflowId"`
+	Accelerators  *WorkflowVersionAccelerators `pulumi:"accelerators"`
+	DefinitionUri *string                      `pulumi:"definitionUri"`
+	// The description of the workflow version.
+	Description       *string                                     `pulumi:"description"`
+	Engine            *WorkflowVersionWorkflowEngine              `pulumi:"engine"`
+	Main              *string                                     `pulumi:"main"`
+	ParameterTemplate map[string]WorkflowVersionWorkflowParameter `pulumi:"parameterTemplate"`
+	StorageCapacity   *float64                                    `pulumi:"storageCapacity"`
+	StorageType       *WorkflowVersionStorageType                 `pulumi:"storageType"`
+	Tags              map[string]string                           `pulumi:"tags"`
+	// The name of the workflow version.
+	VersionName           *string `pulumi:"versionName"`
+	WorkflowBucketOwnerId *string `pulumi:"workflowBucketOwnerId"`
+	// The workflow's ID.
+	WorkflowId string `pulumi:"workflowId"`
 }
 
 // The set of arguments for constructing a WorkflowVersion resource.
 type WorkflowVersionArgs struct {
-	Accelerators          WorkflowVersionAcceleratorsPtrInput
-	DefinitionUri         pulumi.StringPtrInput
-	Description           pulumi.StringPtrInput
-	Engine                WorkflowVersionWorkflowEnginePtrInput
-	Main                  pulumi.StringPtrInput
-	ParameterTemplate     WorkflowVersionWorkflowParameterMapInput
-	StorageCapacity       pulumi.Float64PtrInput
-	StorageType           WorkflowVersionStorageTypePtrInput
-	Tags                  pulumi.StringMapInput
+	Accelerators  WorkflowVersionAcceleratorsPtrInput
+	DefinitionUri pulumi.StringPtrInput
+	// The description of the workflow version.
+	Description       pulumi.StringPtrInput
+	Engine            WorkflowVersionWorkflowEnginePtrInput
+	Main              pulumi.StringPtrInput
+	ParameterTemplate WorkflowVersionWorkflowParameterMapInput
+	StorageCapacity   pulumi.Float64PtrInput
+	StorageType       WorkflowVersionStorageTypePtrInput
+	Tags              pulumi.StringMapInput
+	// The name of the workflow version.
 	VersionName           pulumi.StringPtrInput
 	WorkflowBucketOwnerId pulumi.StringPtrInput
-	WorkflowId            pulumi.StringInput
+	// The workflow's ID.
+	WorkflowId pulumi.StringInput
 }
 
 func (WorkflowVersionArgs) ElementType() reflect.Type {
@@ -160,10 +173,12 @@ func (o WorkflowVersionOutput) Accelerators() WorkflowVersionAcceleratorsPtrOutp
 	return o.ApplyT(func(v *WorkflowVersion) WorkflowVersionAcceleratorsPtrOutput { return v.Accelerators }).(WorkflowVersionAcceleratorsPtrOutput)
 }
 
+// ARN of the workflow version.
 func (o WorkflowVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkflowVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The creation time of the workflow version.
 func (o WorkflowVersionOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkflowVersion) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
@@ -172,6 +187,7 @@ func (o WorkflowVersionOutput) DefinitionUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowVersion) pulumi.StringPtrOutput { return v.DefinitionUri }).(pulumi.StringPtrOutput)
 }
 
+// The description of the workflow version.
 func (o WorkflowVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -188,6 +204,7 @@ func (o WorkflowVersionOutput) ParameterTemplate() WorkflowVersionWorkflowParame
 	return o.ApplyT(func(v *WorkflowVersion) WorkflowVersionWorkflowParameterMapOutput { return v.ParameterTemplate }).(WorkflowVersionWorkflowParameterMapOutput)
 }
 
+// The status of the workflow version.
 func (o WorkflowVersionOutput) Status() WorkflowVersionWorkflowStatusOutput {
 	return o.ApplyT(func(v *WorkflowVersion) WorkflowVersionWorkflowStatusOutput { return v.Status }).(WorkflowVersionWorkflowStatusOutput)
 }
@@ -204,6 +221,7 @@ func (o WorkflowVersionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WorkflowVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The type of the workflow version.
 func (o WorkflowVersionOutput) Type() WorkflowVersionWorkflowTypeOutput {
 	return o.ApplyT(func(v *WorkflowVersion) WorkflowVersionWorkflowTypeOutput { return v.Type }).(WorkflowVersionWorkflowTypeOutput)
 }
@@ -212,6 +230,7 @@ func (o WorkflowVersionOutput) Uuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkflowVersion) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
 }
 
+// The name of the workflow version.
 func (o WorkflowVersionOutput) VersionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkflowVersion) pulumi.StringOutput { return v.VersionName }).(pulumi.StringOutput)
 }
@@ -220,6 +239,7 @@ func (o WorkflowVersionOutput) WorkflowBucketOwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowVersion) pulumi.StringPtrOutput { return v.WorkflowBucketOwnerId }).(pulumi.StringPtrOutput)
 }
 
+// The workflow's ID.
 func (o WorkflowVersionOutput) WorkflowId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkflowVersion) pulumi.StringOutput { return v.WorkflowId }).(pulumi.StringOutput)
 }

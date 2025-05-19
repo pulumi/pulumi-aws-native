@@ -71,6 +71,9 @@ namespace Pulumi.AwsNative.AppSync
         /// The event handler functions that run custom business logic to process published events and subscribe requests.
         /// </summary>
         public readonly string? CodeHandlers;
+        /// <summary>
+        /// The configuration for the `OnPublish` and `OnSubscribe` handlers.
+        /// </summary>
         public readonly Outputs.ChannelNamespaceHandlerConfigs? HandlerConfigs;
         /// <summary>
         /// List of AuthModes supported for Publish operations.

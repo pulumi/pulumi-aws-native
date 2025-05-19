@@ -57,21 +57,33 @@ class GetWorkflowVersionResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[builtins.str]:
+        """
+        ARN of the workflow version.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[builtins.str]:
+        """
+        The creation time of the workflow version.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[builtins.str]:
+        """
+        The description of the workflow version.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['WorkflowVersionWorkflowStatus']:
+        """
+        The status of the workflow version.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -92,6 +104,9 @@ class GetWorkflowVersionResult:
     @property
     @pulumi.getter
     def type(self) -> Optional['WorkflowVersionWorkflowType']:
+        """
+        The type of the workflow version.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -121,6 +136,9 @@ def get_workflow_version(arn: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkflowVersionResult:
     """
     Definition of AWS::Omics::WorkflowVersion Resource Type.
+
+
+    :param builtins.str arn: ARN of the workflow version.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -141,6 +159,9 @@ def get_workflow_version_output(arn: Optional[pulumi.Input[builtins.str]] = None
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowVersionResult]:
     """
     Definition of AWS::Omics::WorkflowVersion Resource Type.
+
+
+    :param builtins.str arn: ARN of the workflow version.
     """
     __args__ = dict()
     __args__['arn'] = arn

@@ -1296,8 +1296,10 @@ func (o ChannelNamespaceAuthModeArrayOutput) Index(i pulumi.IntInput) ChannelNam
 }
 
 type ChannelNamespaceHandlerConfig struct {
-	Behavior    ChannelNamespaceHandlerBehavior `pulumi:"behavior"`
-	Integration ChannelNamespaceIntegration     `pulumi:"integration"`
+	// The behavior for the handler.
+	Behavior ChannelNamespaceHandlerBehavior `pulumi:"behavior"`
+	// The integration data source configuration for the handler.
+	Integration ChannelNamespaceIntegration `pulumi:"integration"`
 }
 
 // ChannelNamespaceHandlerConfigInput is an input type that accepts ChannelNamespaceHandlerConfigArgs and ChannelNamespaceHandlerConfigOutput values.
@@ -1312,8 +1314,10 @@ type ChannelNamespaceHandlerConfigInput interface {
 }
 
 type ChannelNamespaceHandlerConfigArgs struct {
-	Behavior    ChannelNamespaceHandlerBehaviorInput `pulumi:"behavior"`
-	Integration ChannelNamespaceIntegrationInput     `pulumi:"integration"`
+	// The behavior for the handler.
+	Behavior ChannelNamespaceHandlerBehaviorInput `pulumi:"behavior"`
+	// The integration data source configuration for the handler.
+	Integration ChannelNamespaceIntegrationInput `pulumi:"integration"`
 }
 
 func (ChannelNamespaceHandlerConfigArgs) ElementType() reflect.Type {
@@ -1393,10 +1397,12 @@ func (o ChannelNamespaceHandlerConfigOutput) ToChannelNamespaceHandlerConfigPtrO
 	}).(ChannelNamespaceHandlerConfigPtrOutput)
 }
 
+// The behavior for the handler.
 func (o ChannelNamespaceHandlerConfigOutput) Behavior() ChannelNamespaceHandlerBehaviorOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfig) ChannelNamespaceHandlerBehavior { return v.Behavior }).(ChannelNamespaceHandlerBehaviorOutput)
 }
 
+// The integration data source configuration for the handler.
 func (o ChannelNamespaceHandlerConfigOutput) Integration() ChannelNamespaceIntegrationOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfig) ChannelNamespaceIntegration { return v.Integration }).(ChannelNamespaceIntegrationOutput)
 }
@@ -1425,6 +1431,7 @@ func (o ChannelNamespaceHandlerConfigPtrOutput) Elem() ChannelNamespaceHandlerCo
 	}).(ChannelNamespaceHandlerConfigOutput)
 }
 
+// The behavior for the handler.
 func (o ChannelNamespaceHandlerConfigPtrOutput) Behavior() ChannelNamespaceHandlerBehaviorPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfig) *ChannelNamespaceHandlerBehavior {
 		if v == nil {
@@ -1434,6 +1441,7 @@ func (o ChannelNamespaceHandlerConfigPtrOutput) Behavior() ChannelNamespaceHandl
 	}).(ChannelNamespaceHandlerBehaviorPtrOutput)
 }
 
+// The integration data source configuration for the handler.
 func (o ChannelNamespaceHandlerConfigPtrOutput) Integration() ChannelNamespaceIntegrationPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfig) *ChannelNamespaceIntegration {
 		if v == nil {
@@ -1444,7 +1452,9 @@ func (o ChannelNamespaceHandlerConfigPtrOutput) Integration() ChannelNamespaceIn
 }
 
 type ChannelNamespaceHandlerConfigs struct {
-	OnPublish   *ChannelNamespaceHandlerConfig `pulumi:"onPublish"`
+	// The configuration for the `OnPublish` handler.
+	OnPublish *ChannelNamespaceHandlerConfig `pulumi:"onPublish"`
+	// The configuration for the `OnSubscribe` handler.
 	OnSubscribe *ChannelNamespaceHandlerConfig `pulumi:"onSubscribe"`
 }
 
@@ -1460,7 +1470,9 @@ type ChannelNamespaceHandlerConfigsInput interface {
 }
 
 type ChannelNamespaceHandlerConfigsArgs struct {
-	OnPublish   ChannelNamespaceHandlerConfigPtrInput `pulumi:"onPublish"`
+	// The configuration for the `OnPublish` handler.
+	OnPublish ChannelNamespaceHandlerConfigPtrInput `pulumi:"onPublish"`
+	// The configuration for the `OnSubscribe` handler.
 	OnSubscribe ChannelNamespaceHandlerConfigPtrInput `pulumi:"onSubscribe"`
 }
 
@@ -1541,10 +1553,12 @@ func (o ChannelNamespaceHandlerConfigsOutput) ToChannelNamespaceHandlerConfigsPt
 	}).(ChannelNamespaceHandlerConfigsPtrOutput)
 }
 
+// The configuration for the `OnPublish` handler.
 func (o ChannelNamespaceHandlerConfigsOutput) OnPublish() ChannelNamespaceHandlerConfigPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfig { return v.OnPublish }).(ChannelNamespaceHandlerConfigPtrOutput)
 }
 
+// The configuration for the `OnSubscribe` handler.
 func (o ChannelNamespaceHandlerConfigsOutput) OnSubscribe() ChannelNamespaceHandlerConfigPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfig { return v.OnSubscribe }).(ChannelNamespaceHandlerConfigPtrOutput)
 }
@@ -1573,6 +1587,7 @@ func (o ChannelNamespaceHandlerConfigsPtrOutput) Elem() ChannelNamespaceHandlerC
 	}).(ChannelNamespaceHandlerConfigsOutput)
 }
 
+// The configuration for the `OnPublish` handler.
 func (o ChannelNamespaceHandlerConfigsPtrOutput) OnPublish() ChannelNamespaceHandlerConfigPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfig {
 		if v == nil {
@@ -1582,6 +1597,7 @@ func (o ChannelNamespaceHandlerConfigsPtrOutput) OnPublish() ChannelNamespaceHan
 	}).(ChannelNamespaceHandlerConfigPtrOutput)
 }
 
+// The configuration for the `OnSubscribe` handler.
 func (o ChannelNamespaceHandlerConfigsPtrOutput) OnSubscribe() ChannelNamespaceHandlerConfigPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfig {
 		if v == nil {
@@ -1593,8 +1609,9 @@ func (o ChannelNamespaceHandlerConfigsPtrOutput) OnSubscribe() ChannelNamespaceH
 
 type ChannelNamespaceIntegration struct {
 	// Data source to invoke for this integration.
-	DataSourceName string                        `pulumi:"dataSourceName"`
-	LambdaConfig   *ChannelNamespaceLambdaConfig `pulumi:"lambdaConfig"`
+	DataSourceName string `pulumi:"dataSourceName"`
+	// The configuration for a Lambda data source.
+	LambdaConfig *ChannelNamespaceLambdaConfig `pulumi:"lambdaConfig"`
 }
 
 // ChannelNamespaceIntegrationInput is an input type that accepts ChannelNamespaceIntegrationArgs and ChannelNamespaceIntegrationOutput values.
@@ -1610,8 +1627,9 @@ type ChannelNamespaceIntegrationInput interface {
 
 type ChannelNamespaceIntegrationArgs struct {
 	// Data source to invoke for this integration.
-	DataSourceName pulumi.StringInput                   `pulumi:"dataSourceName"`
-	LambdaConfig   ChannelNamespaceLambdaConfigPtrInput `pulumi:"lambdaConfig"`
+	DataSourceName pulumi.StringInput `pulumi:"dataSourceName"`
+	// The configuration for a Lambda data source.
+	LambdaConfig ChannelNamespaceLambdaConfigPtrInput `pulumi:"lambdaConfig"`
 }
 
 func (ChannelNamespaceIntegrationArgs) ElementType() reflect.Type {
@@ -1696,6 +1714,7 @@ func (o ChannelNamespaceIntegrationOutput) DataSourceName() pulumi.StringOutput 
 	return o.ApplyT(func(v ChannelNamespaceIntegration) string { return v.DataSourceName }).(pulumi.StringOutput)
 }
 
+// The configuration for a Lambda data source.
 func (o ChannelNamespaceIntegrationOutput) LambdaConfig() ChannelNamespaceLambdaConfigPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceIntegration) *ChannelNamespaceLambdaConfig { return v.LambdaConfig }).(ChannelNamespaceLambdaConfigPtrOutput)
 }
@@ -1734,6 +1753,7 @@ func (o ChannelNamespaceIntegrationPtrOutput) DataSourceName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration for a Lambda data source.
 func (o ChannelNamespaceIntegrationPtrOutput) LambdaConfig() ChannelNamespaceLambdaConfigPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceIntegration) *ChannelNamespaceLambdaConfig {
 		if v == nil {
@@ -1744,6 +1764,7 @@ func (o ChannelNamespaceIntegrationPtrOutput) LambdaConfig() ChannelNamespaceLam
 }
 
 type ChannelNamespaceLambdaConfig struct {
+	// The invocation type for a Lambda data source.
 	InvokeType ChannelNamespaceInvokeType `pulumi:"invokeType"`
 }
 
@@ -1759,6 +1780,7 @@ type ChannelNamespaceLambdaConfigInput interface {
 }
 
 type ChannelNamespaceLambdaConfigArgs struct {
+	// The invocation type for a Lambda data source.
 	InvokeType ChannelNamespaceInvokeTypeInput `pulumi:"invokeType"`
 }
 
@@ -1839,6 +1861,7 @@ func (o ChannelNamespaceLambdaConfigOutput) ToChannelNamespaceLambdaConfigPtrOut
 	}).(ChannelNamespaceLambdaConfigPtrOutput)
 }
 
+// The invocation type for a Lambda data source.
 func (o ChannelNamespaceLambdaConfigOutput) InvokeType() ChannelNamespaceInvokeTypeOutput {
 	return o.ApplyT(func(v ChannelNamespaceLambdaConfig) ChannelNamespaceInvokeType { return v.InvokeType }).(ChannelNamespaceInvokeTypeOutput)
 }
@@ -1867,6 +1890,7 @@ func (o ChannelNamespaceLambdaConfigPtrOutput) Elem() ChannelNamespaceLambdaConf
 	}).(ChannelNamespaceLambdaConfigOutput)
 }
 
+// The invocation type for a Lambda data source.
 func (o ChannelNamespaceLambdaConfigPtrOutput) InvokeType() ChannelNamespaceInvokeTypePtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceLambdaConfig) *ChannelNamespaceInvokeType {
 		if v == nil {

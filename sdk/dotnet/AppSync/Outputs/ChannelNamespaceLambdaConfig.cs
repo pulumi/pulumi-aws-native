@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppSync.Outputs
     [OutputType]
     public sealed class ChannelNamespaceLambdaConfig
     {
+        /// <summary>
+        /// The invocation type for a Lambda data source.
+        /// </summary>
         public readonly Pulumi.AwsNative.AppSync.ChannelNamespaceInvokeType InvokeType;
 
         [OutputConstructor]

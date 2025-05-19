@@ -441,7 +441,13 @@ class WorkflowParameterArgs:
 if not MYPY:
     class WorkflowVersionWorkflowParameterArgsDict(TypedDict):
         description: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The parameter's description.
+        """
         optional: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Whether the parameter is optional.
+        """
 elif False:
     WorkflowVersionWorkflowParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -450,6 +456,10 @@ class WorkflowVersionWorkflowParameterArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  optional: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[builtins.str] description: The parameter's description.
+        :param pulumi.Input[builtins.bool] optional: Whether the parameter is optional.
+        """
         if description is not None:
             pulumi.set(__self__, "description", description)
         if optional is not None:
@@ -458,6 +468,9 @@ class WorkflowVersionWorkflowParameterArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The parameter's description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -467,6 +480,9 @@ class WorkflowVersionWorkflowParameterArgs:
     @property
     @pulumi.getter
     def optional(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether the parameter is optional.
+        """
         return pulumi.get(self, "optional")
 
     @optional.setter

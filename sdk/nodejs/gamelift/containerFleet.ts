@@ -203,7 +203,7 @@ export class ContainerFleet extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["billingType", "instanceType", "locations[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["billingType", "instanceType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ContainerFleet.__pulumiType, name, resourceInputs, opts);
     }

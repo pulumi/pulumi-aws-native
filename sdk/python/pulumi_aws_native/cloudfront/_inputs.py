@@ -344,10 +344,10 @@ if not MYPY:
         cookie_behavior: pulumi.Input[builtins.str]
         """
         Determines whether any cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-          +   ``none`` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
-          +   ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
-          +   ``allExcept`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* for those that are listed in the ``CookieNames`` type, which are not included.
-          +   ``all`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+          +  ``none`` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in an ``OriginRequestPolicy``*are* included in origin requests.
+          +  ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
+          +  ``allExcept`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* for those that are listed in the ``CookieNames`` type, which are not included.
+          +  ``all`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
         """
         cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -364,10 +364,10 @@ class CachePolicyCookiesConfigArgs:
         """
         An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
         :param pulumi.Input[builtins.str] cookie_behavior: Determines whether any cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-                 +   ``none`` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
-                 +   ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
-                 +   ``allExcept`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* for those that are listed in the ``CookieNames`` type, which are not included.
-                 +   ``all`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+                 +  ``none`` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in an ``OriginRequestPolicy``*are* included in origin requests.
+                 +  ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
+                 +  ``allExcept`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* for those that are listed in the ``CookieNames`` type, which are not included.
+                 +  ``all`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cookies: Contains a list of cookie names.
         """
         pulumi.set(__self__, "cookie_behavior", cookie_behavior)
@@ -379,10 +379,10 @@ class CachePolicyCookiesConfigArgs:
     def cookie_behavior(self) -> pulumi.Input[builtins.str]:
         """
         Determines whether any cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-          +   ``none`` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
-          +   ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
-          +   ``allExcept`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* for those that are listed in the ``CookieNames`` type, which are not included.
-          +   ``all`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+          +  ``none`` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in an ``OriginRequestPolicy``*are* included in origin requests.
+          +  ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
+          +  ``allExcept`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* for those that are listed in the ``CookieNames`` type, which are not included.
+          +  ``all`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
         """
         return pulumi.get(self, "cookie_behavior")
 
@@ -411,8 +411,8 @@ if not MYPY:
         header_behavior: pulumi.Input[builtins.str]
         """
         Determines whether any HTTP headers are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-          +   ``none`` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
-          +   ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in the cache key and in requests that CloudFront sends to the origin.
+          +  ``none`` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in an ``OriginRequestPolicy``*are* included in origin requests.
+          +  ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in the cache key and in requests that CloudFront sends to the origin.
         """
         headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -429,8 +429,8 @@ class CachePolicyHeadersConfigArgs:
         """
         An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and in requests that CloudFront sends to the origin.
         :param pulumi.Input[builtins.str] header_behavior: Determines whether any HTTP headers are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-                 +   ``none`` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
-                 +   ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in the cache key and in requests that CloudFront sends to the origin.
+                 +  ``none`` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in an ``OriginRequestPolicy``*are* included in origin requests.
+                 +  ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in the cache key and in requests that CloudFront sends to the origin.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] headers: Contains a list of HTTP header names.
         """
         pulumi.set(__self__, "header_behavior", header_behavior)
@@ -442,8 +442,8 @@ class CachePolicyHeadersConfigArgs:
     def header_behavior(self) -> pulumi.Input[builtins.str]:
         """
         Determines whether any HTTP headers are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-          +   ``none`` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
-          +   ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in the cache key and in requests that CloudFront sends to the origin.
+          +  ``none`` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in an ``OriginRequestPolicy``*are* included in origin requests.
+          +  ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in the cache key and in requests that CloudFront sends to the origin.
         """
         return pulumi.get(self, "header_behavior")
 
@@ -477,7 +477,7 @@ if not MYPY:
         enable_accept_encoding_gzip: pulumi.Input[builtins.bool]
         """
         A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-         This field is related to the ``EnableAcceptEncodingBrotli`` field. If one or both of these fields is ``true`` *and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
+         This field is related to the ``EnableAcceptEncodingBrotli`` field. If one or both of these fields is ``true``*and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
           +  Normalizes the value of the viewer's ``Accept-Encoding`` header
           +  Includes the normalized header in the cache key
           +  Includes the normalized header in the request to the origin, if a request is necessary
@@ -497,7 +497,7 @@ if not MYPY:
         enable_accept_encoding_brotli: NotRequired[pulumi.Input[builtins.bool]]
         """
         A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-         This field is related to the ``EnableAcceptEncodingGzip`` field. If one or both of these fields is ``true`` *and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
+         This field is related to the ``EnableAcceptEncodingGzip`` field. If one or both of these fields is ``true``*and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
           +  Normalizes the value of the viewer's ``Accept-Encoding`` header
           +  Includes the normalized header in the cache key
           +  Includes the normalized header in the request to the origin, if a request is necessary
@@ -522,7 +522,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
          The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
         :param pulumi.Input['CachePolicyCookiesConfigArgs'] cookies_config: An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
         :param pulumi.Input[builtins.bool] enable_accept_encoding_gzip: A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-                This field is related to the ``EnableAcceptEncodingBrotli`` field. If one or both of these fields is ``true`` *and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
+                This field is related to the ``EnableAcceptEncodingBrotli`` field. If one or both of these fields is ``true``*and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
                  +  Normalizes the value of the viewer's ``Accept-Encoding`` header
                  +  Includes the normalized header in the cache key
                  +  Includes the normalized header in the request to the origin, if a request is necessary
@@ -533,7 +533,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
         :param pulumi.Input['CachePolicyHeadersConfigArgs'] headers_config: An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and in requests that CloudFront sends to the origin.
         :param pulumi.Input['CachePolicyQueryStringsConfigArgs'] query_strings_config: An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and in requests that CloudFront sends to the origin.
         :param pulumi.Input[builtins.bool] enable_accept_encoding_brotli: A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-                This field is related to the ``EnableAcceptEncodingGzip`` field. If one or both of these fields is ``true`` *and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
+                This field is related to the ``EnableAcceptEncodingGzip`` field. If one or both of these fields is ``true``*and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
                  +  Normalizes the value of the viewer's ``Accept-Encoding`` header
                  +  Includes the normalized header in the cache key
                  +  Includes the normalized header in the request to the origin, if a request is necessary
@@ -566,7 +566,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
     def enable_accept_encoding_gzip(self) -> pulumi.Input[builtins.bool]:
         """
         A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-         This field is related to the ``EnableAcceptEncodingBrotli`` field. If one or both of these fields is ``true`` *and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
+         This field is related to the ``EnableAcceptEncodingBrotli`` field. If one or both of these fields is ``true``*and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
           +  Normalizes the value of the viewer's ``Accept-Encoding`` header
           +  Includes the normalized header in the cache key
           +  Includes the normalized header in the request to the origin, if a request is necessary
@@ -610,7 +610,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
     def enable_accept_encoding_brotli(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-         This field is related to the ``EnableAcceptEncodingGzip`` field. If one or both of these fields is ``true`` *and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
+         This field is related to the ``EnableAcceptEncodingGzip`` field. If one or both of these fields is ``true``*and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
           +  Normalizes the value of the viewer's ``Accept-Encoding`` header
           +  Includes the normalized header in the cache key
           +  Includes the normalized header in the request to the origin, if a request is necessary
@@ -634,10 +634,10 @@ if not MYPY:
         query_string_behavior: pulumi.Input[builtins.str]
         """
         Determines whether any URL query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-          +   ``none`` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
-          +   ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
-          +   ``allExcept`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* those that are listed in the ``QueryStringNames`` type, which are not included.
-          +   ``all`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+          +  ``none`` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in an ``OriginRequestPolicy``*are* included in origin requests.
+          +  ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
+          +  ``allExcept`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* those that are listed in the ``QueryStringNames`` type, which are not included.
+          +  ``all`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
         """
         query_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -654,10 +654,10 @@ class CachePolicyQueryStringsConfigArgs:
         """
         An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and in requests that CloudFront sends to the origin.
         :param pulumi.Input[builtins.str] query_string_behavior: Determines whether any URL query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-                 +   ``none`` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
-                 +   ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
-                 +   ``allExcept`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* those that are listed in the ``QueryStringNames`` type, which are not included.
-                 +   ``all`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+                 +  ``none`` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in an ``OriginRequestPolicy``*are* included in origin requests.
+                 +  ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
+                 +  ``allExcept`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* those that are listed in the ``QueryStringNames`` type, which are not included.
+                 +  ``all`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] query_strings: Contains a list of query string names.
         """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
@@ -669,10 +669,10 @@ class CachePolicyQueryStringsConfigArgs:
     def query_string_behavior(self) -> pulumi.Input[builtins.str]:
         """
         Determines whether any URL query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-          +   ``none`` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
-          +   ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
-          +   ``allExcept`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* those that are listed in the ``QueryStringNames`` type, which are not included.
-          +   ``all`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+          +  ``none`` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in an ``OriginRequestPolicy``*are* included in origin requests.
+          +  ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
+          +  ``allExcept`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* those that are listed in the ``QueryStringNames`` type, which are not included.
+          +  ``all`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
         """
         return pulumi.get(self, "query_string_behavior")
 
@@ -1206,9 +1206,9 @@ if not MYPY:
         viewer_protocol_policy: pulumi.Input[builtins.str]
         """
         The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
-          +   ``allow-all``: Viewers can use HTTP or HTTPS.
-          +   ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
-          +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
+          +  ``allow-all``: Viewers can use HTTP or HTTPS.
+          +  ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
+          +  ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
           
          For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
           The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
@@ -1347,9 +1347,9 @@ class DistributionCacheBehaviorArgs:
                 For more information, see [Path Pattern](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesPathPattern) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input[builtins.str] target_origin_id: The value of ``ID`` for the origin that you want CloudFront to route requests to when they match this cache behavior.
         :param pulumi.Input[builtins.str] viewer_protocol_policy: The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
-                 +   ``allow-all``: Viewers can use HTTP or HTTPS.
-                 +   ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
-                 +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
+                 +  ``allow-all``: Viewers can use HTTP or HTTPS.
+                 +  ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
+                 +  ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
                  
                 For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
                  The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
@@ -1465,9 +1465,9 @@ class DistributionCacheBehaviorArgs:
     def viewer_protocol_policy(self) -> pulumi.Input[builtins.str]:
         """
         The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
-          +   ``allow-all``: Viewers can use HTTP or HTTPS.
-          +   ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
-          +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
+          +  ``allow-all``: Viewers can use HTTP or HTTPS.
+          +  ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
+          +  ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
           
          For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
           The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
@@ -1871,7 +1871,7 @@ if not MYPY:
         web_acl_id: NotRequired[pulumi.Input[builtins.str]]
         """
         A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
-          WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
+         WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
         """
 elif False:
     DistributionConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -1955,7 +1955,7 @@ class DistributionConfigArgs:
         :param pulumi.Input['DistributionConfigTenantConfigPropertiesArgs'] tenant_config: A distribution tenant configuration.
         :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
         :param pulumi.Input[builtins.str] web_acl_id: A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
-                 WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
+                WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
         """
         pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
         pulumi.set(__self__, "enabled", enabled)
@@ -2311,7 +2311,7 @@ class DistributionConfigArgs:
     def web_acl_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
-          WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
+         WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
         """
         return pulumi.get(self, "web_acl_id")
 
@@ -2547,14 +2547,14 @@ class DistributionCustomErrorResponseArgs:
 if not MYPY:
     class DistributionCustomOriginConfigArgsDict(TypedDict):
         """
-        A custom origin. A custom origin is any origin that is *not* an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+        A custom origin. A custom origin is any origin that is *not* an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)*is* a custom origin.
         """
         origin_protocol_policy: pulumi.Input[builtins.str]
         """
         Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
-          +   ``http-only`` – CloudFront always uses HTTP to connect to the origin.
-          +   ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
-          +   ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
+          +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
+          +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
+          +  ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
         """
         http_port: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -2592,11 +2592,11 @@ class DistributionCustomOriginConfigArgs:
                  origin_read_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  origin_ssl_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
-        A custom origin. A custom origin is any origin that is *not* an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+        A custom origin. A custom origin is any origin that is *not* an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)*is* a custom origin.
         :param pulumi.Input[builtins.str] origin_protocol_policy: Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
-                 +   ``http-only`` – CloudFront always uses HTTP to connect to the origin.
-                 +   ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
-                 +   ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
+                 +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
+                 +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
+                 +  ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
         :param pulumi.Input[builtins.int] http_port: The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
         :param pulumi.Input[builtins.int] https_port: The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
         :param pulumi.Input[builtins.int] origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
@@ -2623,9 +2623,9 @@ class DistributionCustomOriginConfigArgs:
     def origin_protocol_policy(self) -> pulumi.Input[builtins.str]:
         """
         Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
-          +   ``http-only`` – CloudFront always uses HTTP to connect to the origin.
-          +   ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
-          +   ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
+          +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
+          +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
+          +  ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
         """
         return pulumi.get(self, "origin_protocol_policy")
 
@@ -2709,9 +2709,9 @@ if not MYPY:
         viewer_protocol_policy: pulumi.Input[builtins.str]
         """
         The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
-          +   ``allow-all``: Viewers can use HTTP or HTTPS.
-          +   ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
-          +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
+          +  ``allow-all``: Viewers can use HTTP or HTTPS.
+          +  ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
+          +  ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
           
          For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
           The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
@@ -2839,9 +2839,9 @@ class DistributionDefaultCacheBehaviorArgs:
         A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if request URLs don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         :param pulumi.Input[builtins.str] target_origin_id: The value of ``ID`` for the origin that you want CloudFront to route requests to when they use the default cache behavior.
         :param pulumi.Input[builtins.str] viewer_protocol_policy: The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
-                 +   ``allow-all``: Viewers can use HTTP or HTTPS.
-                 +   ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
-                 +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
+                 +  ``allow-all``: Viewers can use HTTP or HTTPS.
+                 +  ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
+                 +  ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
                  
                 For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
                  The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
@@ -2941,9 +2941,9 @@ class DistributionDefaultCacheBehaviorArgs:
     def viewer_protocol_policy(self) -> pulumi.Input[builtins.str]:
         """
         The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
-          +   ``allow-all``: Viewers can use HTTP or HTTPS.
-          +   ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
-          +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
+          +  ``allow-all``: Viewers can use HTTP or HTTPS.
+          +  ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
+          +  ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
           
          For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
           The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
@@ -3408,9 +3408,9 @@ if not MYPY:
         restriction_type: pulumi.Input[builtins.str]
         """
         The method that you want to use to restrict distribution of your content by country:
-          +   ``none``: No geo restriction is enabled, meaning access to content is not restricted by client geo location.
-          +   ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
-          +   ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
+          +  ``none``: No geo restriction is enabled, meaning access to content is not restricted by client geo location.
+          +  ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
+          +  ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
         """
         locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -3429,9 +3429,9 @@ class DistributionGeoRestrictionArgs:
         """
         A complex type that controls the countries in which your content is distributed. CF determines the location of your users using ``MaxMind`` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template.
         :param pulumi.Input[builtins.str] restriction_type: The method that you want to use to restrict distribution of your content by country:
-                 +   ``none``: No geo restriction is enabled, meaning access to content is not restricted by client geo location.
-                 +   ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
-                 +   ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
+                 +  ``none``: No geo restriction is enabled, meaning access to content is not restricted by client geo location.
+                 +  ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
+                 +  ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations: A complex type that contains a ``Location`` element for each country in which you want CloudFront either to distribute your content (``whitelist``) or not distribute your content (``blacklist``).
                 The ``Location`` element is a two-letter, uppercase country code for a country that you want to include in your ``blacklist`` or ``whitelist``. Include one ``Location`` element for each country.
                 CloudFront and ``MaxMind`` both use ``ISO 3166`` country codes. For the current list of countries and the corresponding codes, see ``ISO 3166-1-alpha-2`` code on the *International Organization for Standardization* website. You can also refer to the country list on the CloudFront console, which includes both country names and codes.
@@ -3445,9 +3445,9 @@ class DistributionGeoRestrictionArgs:
     def restriction_type(self) -> pulumi.Input[builtins.str]:
         """
         The method that you want to use to restrict distribution of your content by country:
-          +   ``none``: No geo restriction is enabled, meaning access to content is not restricted by client geo location.
-          +   ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
-          +   ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
+          +  ``none``: No geo restriction is enabled, meaning access to content is not restricted by client geo location.
+          +  ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
+          +  ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
         """
         return pulumi.get(self, "restriction_type")
 
@@ -3517,10 +3517,10 @@ if not MYPY:
         event_type: NotRequired[pulumi.Input[builtins.str]]
         """
         Specifies the event type that triggers a Lambda@Edge function invocation. You can specify the following values:
-          +   ``viewer-request``: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
-          +   ``origin-request``: The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
-          +   ``origin-response``: The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.
-          +   ``viewer-response``: The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
+          +  ``viewer-request``: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
+          +  ``origin-request``: The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
+          +  ``origin-response``: The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.
+          +  ``viewer-response``: The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
          If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
         """
         include_body: NotRequired[pulumi.Input[builtins.bool]]
@@ -3543,10 +3543,10 @@ class DistributionLambdaFunctionAssociationArgs:
         """
         A complex type that contains a Lambda@Edge function association.
         :param pulumi.Input[builtins.str] event_type: Specifies the event type that triggers a Lambda@Edge function invocation. You can specify the following values:
-                 +   ``viewer-request``: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
-                 +   ``origin-request``: The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
-                 +   ``origin-response``: The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.
-                 +   ``viewer-response``: The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
+                 +  ``viewer-request``: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
+                 +  ``origin-request``: The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
+                 +  ``origin-response``: The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.
+                 +  ``viewer-response``: The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
                 If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
         :param pulumi.Input[builtins.bool] include_body: A flag that allows a Lambda@Edge function to have read access to the body content. For more information, see [Accessing the Request Body by Choosing the Include Body Option](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html) in the Amazon CloudFront Developer Guide.
         :param pulumi.Input[builtins.str] lambda_function_arn: The ARN of the Lambda@Edge function. You must specify the ARN of a function version; you can't specify an alias or $LATEST.
@@ -3563,10 +3563,10 @@ class DistributionLambdaFunctionAssociationArgs:
     def event_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Specifies the event type that triggers a Lambda@Edge function invocation. You can specify the following values:
-          +   ``viewer-request``: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
-          +   ``origin-request``: The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
-          +   ``origin-response``: The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.
-          +   ``viewer-response``: The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
+          +  ``viewer-request``: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
+          +  ``origin-request``: The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
+          +  ``origin-response``: The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.
+          +  ``viewer-response``: The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
          If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
         """
         return pulumi.get(self, "event_type")
@@ -3603,7 +3603,7 @@ class DistributionLambdaFunctionAssociationArgs:
 if not MYPY:
     class DistributionLegacyCustomOriginArgsDict(TypedDict):
         """
-        A custom origin. A custom origin is any origin that is *not* an S3 bucket, with one exception. An S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+        A custom origin. A custom origin is any origin that is *not* an S3 bucket, with one exception. An S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)*is* a custom origin.
           This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
         """
         dns_name: pulumi.Input[builtins.str]
@@ -3639,7 +3639,7 @@ class DistributionLegacyCustomOriginArgs:
                  http_port: Optional[pulumi.Input[builtins.int]] = None,
                  https_port: Optional[pulumi.Input[builtins.int]] = None):
         """
-        A custom origin. A custom origin is any origin that is *not* an S3 bucket, with one exception. An S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+        A custom origin. A custom origin is any origin that is *not* an S3 bucket, with one exception. An S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)*is* a custom origin.
           This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
         :param pulumi.Input[builtins.str] dns_name: The domain name assigned to your CF distribution.
         :param pulumi.Input[builtins.str] origin_protocol_policy: Specifies the protocol (HTTP or HTTPS) that CF uses to connect to the origin.
@@ -4615,6 +4615,9 @@ class DistributionParameterDefinitionDefinitionPropertiesArgs:
 
 if not MYPY:
     class DistributionParameterDefinitionArgsDict(TypedDict):
+        """
+        A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+        """
         definition: pulumi.Input['DistributionParameterDefinitionDefinitionPropertiesArgsDict']
         """
         The value that you assigned to the parameter.
@@ -4632,6 +4635,7 @@ class DistributionParameterDefinitionArgs:
                  definition: pulumi.Input['DistributionParameterDefinitionDefinitionPropertiesArgs'],
                  name: pulumi.Input[builtins.str]):
         """
+        A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
         :param pulumi.Input['DistributionParameterDefinitionDefinitionPropertiesArgs'] definition: The value that you assigned to the parameter.
         :param pulumi.Input[builtins.str] name: The name of the parameter.
         """
@@ -4811,6 +4815,9 @@ class DistributionStatusCodesArgs:
 
 if not MYPY:
     class DistributionTenantCertificateArgsDict(TypedDict):
+        """
+        The ACMlong (ACM) certificate associated with your distribution.
+        """
         arn: NotRequired[pulumi.Input[builtins.str]]
         """
         The Amazon Resource Name (ARN) of the ACM certificate.
@@ -4823,6 +4830,7 @@ class DistributionTenantCertificateArgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None):
         """
+        The ACMlong (ACM) certificate associated with your distribution.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the ACM certificate.
         """
         if arn is not None:
@@ -4843,9 +4851,12 @@ class DistributionTenantCertificateArgs:
 
 if not MYPY:
     class DistributionTenantCustomizationsArgsDict(TypedDict):
+        """
+        Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        """
         certificate: NotRequired[pulumi.Input['DistributionTenantCertificateArgsDict']]
         """
-        The AWS Certificate Manager (ACM) certificate.
+        The ACMlong (ACM) certificate.
         """
         geo_restrictions: NotRequired[pulumi.Input['DistributionTenantGeoRestrictionCustomizationArgsDict']]
         """
@@ -4853,7 +4864,7 @@ if not MYPY:
         """
         web_acl: NotRequired[pulumi.Input['DistributionTenantWebAclCustomizationArgsDict']]
         """
-        The AWS WAF web ACL.
+        The WAF web ACL.
         """
 elif False:
     DistributionTenantCustomizationsArgsDict: TypeAlias = Mapping[str, Any]
@@ -4865,9 +4876,10 @@ class DistributionTenantCustomizationsArgs:
                  geo_restrictions: Optional[pulumi.Input['DistributionTenantGeoRestrictionCustomizationArgs']] = None,
                  web_acl: Optional[pulumi.Input['DistributionTenantWebAclCustomizationArgs']] = None):
         """
-        :param pulumi.Input['DistributionTenantCertificateArgs'] certificate: The AWS Certificate Manager (ACM) certificate.
+        Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+        :param pulumi.Input['DistributionTenantCertificateArgs'] certificate: The ACMlong (ACM) certificate.
         :param pulumi.Input['DistributionTenantGeoRestrictionCustomizationArgs'] geo_restrictions: The geographic restrictions.
-        :param pulumi.Input['DistributionTenantWebAclCustomizationArgs'] web_acl: The AWS WAF web ACL.
+        :param pulumi.Input['DistributionTenantWebAclCustomizationArgs'] web_acl: The WAF web ACL.
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
@@ -4880,7 +4892,7 @@ class DistributionTenantCustomizationsArgs:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input['DistributionTenantCertificateArgs']]:
         """
-        The AWS Certificate Manager (ACM) certificate.
+        The ACMlong (ACM) certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -4904,7 +4916,7 @@ class DistributionTenantCustomizationsArgs:
     @pulumi.getter(name="webAcl")
     def web_acl(self) -> Optional[pulumi.Input['DistributionTenantWebAclCustomizationArgs']]:
         """
-        The AWS WAF web ACL.
+        The WAF web ACL.
         """
         return pulumi.get(self, "web_acl")
 
@@ -4915,6 +4927,9 @@ class DistributionTenantCustomizationsArgs:
 
 if not MYPY:
     class DistributionTenantGeoRestrictionCustomizationArgsDict(TypedDict):
+        """
+        The customizations that you specified for the distribution tenant for geographic restrictions.
+        """
         locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
         The locations for geographic restrictions.
@@ -4922,10 +4937,9 @@ if not MYPY:
         restriction_type: NotRequired[pulumi.Input['DistributionTenantGeoRestrictionCustomizationRestrictionType']]
         """
         The method that you want to use to restrict distribution of your content by country:
-
-        - `none` : No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
-        - `blacklist` : The `Location` elements specify the countries in which you don't want CloudFront to distribute your content.
-        - `whitelist` : The `Location` elements specify the countries in which you want CloudFront to distribute your content.
+          +  ``none``: No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
+          +  ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
+          +  ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
         """
 elif False:
     DistributionTenantGeoRestrictionCustomizationArgsDict: TypeAlias = Mapping[str, Any]
@@ -4936,12 +4950,12 @@ class DistributionTenantGeoRestrictionCustomizationArgs:
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  restriction_type: Optional[pulumi.Input['DistributionTenantGeoRestrictionCustomizationRestrictionType']] = None):
         """
+        The customizations that you specified for the distribution tenant for geographic restrictions.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] locations: The locations for geographic restrictions.
         :param pulumi.Input['DistributionTenantGeoRestrictionCustomizationRestrictionType'] restriction_type: The method that you want to use to restrict distribution of your content by country:
-               
-               - `none` : No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
-               - `blacklist` : The `Location` elements specify the countries in which you don't want CloudFront to distribute your content.
-               - `whitelist` : The `Location` elements specify the countries in which you want CloudFront to distribute your content.
+                 +  ``none``: No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
+                 +  ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
+                 +  ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -4965,10 +4979,9 @@ class DistributionTenantGeoRestrictionCustomizationArgs:
     def restriction_type(self) -> Optional[pulumi.Input['DistributionTenantGeoRestrictionCustomizationRestrictionType']]:
         """
         The method that you want to use to restrict distribution of your content by country:
-
-        - `none` : No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
-        - `blacklist` : The `Location` elements specify the countries in which you don't want CloudFront to distribute your content.
-        - `whitelist` : The `Location` elements specify the countries in which you want CloudFront to distribute your content.
+          +  ``none``: No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
+          +  ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
+          +  ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
         """
         return pulumi.get(self, "restriction_type")
 
@@ -4979,9 +4992,12 @@ class DistributionTenantGeoRestrictionCustomizationArgs:
 
 if not MYPY:
     class DistributionTenantManagedCertificateRequestArgsDict(TypedDict):
+        """
+        An object that represents the request for the Amazon CloudFront managed ACM certificate.
+        """
         certificate_transparency_logging_preference: NotRequired[pulumi.Input['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference']]
         """
-        You can opt out of certificate transparency logging by specifying the `disabled` option. Opt in by specifying `enabled` . For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *AWS Certificate Manager User Guide* .
+        You can opt out of certificate transparency logging by specifying the ``disabled`` option. Opt in by specifying ``enabled``. For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *User Guide*.
         """
         primary_domain_name: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -4990,9 +5006,8 @@ if not MYPY:
         validation_token_host: NotRequired[pulumi.Input['DistributionTenantManagedCertificateRequestValidationTokenHost']]
         """
         Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.
-
-        - For `cloudfront` , CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
-        - For `self-hosted` , you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
+          +  For ``cloudfront``, CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
+          +  For ``self-hosted``, you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
         """
 elif False:
     DistributionTenantManagedCertificateRequestArgsDict: TypeAlias = Mapping[str, Any]
@@ -5004,12 +5019,12 @@ class DistributionTenantManagedCertificateRequestArgs:
                  primary_domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  validation_token_host: Optional[pulumi.Input['DistributionTenantManagedCertificateRequestValidationTokenHost']] = None):
         """
-        :param pulumi.Input['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference'] certificate_transparency_logging_preference: You can opt out of certificate transparency logging by specifying the `disabled` option. Opt in by specifying `enabled` . For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *AWS Certificate Manager User Guide* .
+        An object that represents the request for the Amazon CloudFront managed ACM certificate.
+        :param pulumi.Input['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference'] certificate_transparency_logging_preference: You can opt out of certificate transparency logging by specifying the ``disabled`` option. Opt in by specifying ``enabled``. For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *User Guide*.
         :param pulumi.Input[builtins.str] primary_domain_name: The primary domain name associated with the CloudFront managed ACM certificate.
         :param pulumi.Input['DistributionTenantManagedCertificateRequestValidationTokenHost'] validation_token_host: Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.
-               
-               - For `cloudfront` , CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
-               - For `self-hosted` , you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
+                 +  For ``cloudfront``, CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
+                 +  For ``self-hosted``, you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
         """
         if certificate_transparency_logging_preference is not None:
             pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
@@ -5022,7 +5037,7 @@ class DistributionTenantManagedCertificateRequestArgs:
     @pulumi.getter(name="certificateTransparencyLoggingPreference")
     def certificate_transparency_logging_preference(self) -> Optional[pulumi.Input['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference']]:
         """
-        You can opt out of certificate transparency logging by specifying the `disabled` option. Opt in by specifying `enabled` . For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *AWS Certificate Manager User Guide* .
+        You can opt out of certificate transparency logging by specifying the ``disabled`` option. Opt in by specifying ``enabled``. For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *User Guide*.
         """
         return pulumi.get(self, "certificate_transparency_logging_preference")
 
@@ -5047,9 +5062,8 @@ class DistributionTenantManagedCertificateRequestArgs:
     def validation_token_host(self) -> Optional[pulumi.Input['DistributionTenantManagedCertificateRequestValidationTokenHost']]:
         """
         Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.
-
-        - For `cloudfront` , CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
-        - For `self-hosted` , you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
+          +  For ``cloudfront``, CloudFront will automatically serve the validation token. Choose this mode if you can point the domain's DNS to CloudFront immediately.
+          +  For ``self-hosted``, you serve the validation token from your existing infrastructure. Choose this mode when you need to maintain current traffic flow while your certificate is being issued. You can place the validation token at the well-known path on your existing web server, wait for ACM to validate and issue the certificate, and then update your DNS to point to CloudFront.
         """
         return pulumi.get(self, "validation_token_host")
 
@@ -5060,6 +5074,9 @@ class DistributionTenantManagedCertificateRequestArgs:
 
 if not MYPY:
     class DistributionTenantParameterArgsDict(TypedDict):
+        """
+        A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+        """
         name: NotRequired[pulumi.Input[builtins.str]]
         """
         The parameter name.
@@ -5077,6 +5094,7 @@ class DistributionTenantParameterArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
+        A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
         :param pulumi.Input[builtins.str] name: The parameter name.
         :param pulumi.Input[builtins.str] value: The parameter value.
         """
@@ -5112,13 +5130,16 @@ class DistributionTenantParameterArgs:
 
 if not MYPY:
     class DistributionTenantWebAclCustomizationArgsDict(TypedDict):
+        """
+        The WAF web ACL customization specified for the distribution tenant.
+        """
         action: NotRequired[pulumi.Input['DistributionTenantWebAclCustomizationAction']]
         """
-        The action for the AWS WAF web ACL customization. You can specify `override` to specify a separate AWS WAF web ACL for the distribution tenant. If you specify `disable` , the distribution tenant won't have AWS WAF web ACL protections and won't inherit from the multi-tenant distribution.
+        The action for the WAF web ACL customization. You can specify ``override`` to specify a separate WAF web ACL for the distribution tenant. If you specify ``disable``, the distribution tenant won't have WAF web ACL protections and won't inherit from the multi-tenant distribution.
         """
         arn: NotRequired[pulumi.Input[builtins.str]]
         """
-        The Amazon Resource Name (ARN) of the AWS WAF web ACL.
+        The Amazon Resource Name (ARN) of the WAF web ACL.
         """
 elif False:
     DistributionTenantWebAclCustomizationArgsDict: TypeAlias = Mapping[str, Any]
@@ -5129,8 +5150,9 @@ class DistributionTenantWebAclCustomizationArgs:
                  action: Optional[pulumi.Input['DistributionTenantWebAclCustomizationAction']] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input['DistributionTenantWebAclCustomizationAction'] action: The action for the AWS WAF web ACL customization. You can specify `override` to specify a separate AWS WAF web ACL for the distribution tenant. If you specify `disable` , the distribution tenant won't have AWS WAF web ACL protections and won't inherit from the multi-tenant distribution.
-        :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the AWS WAF web ACL.
+        The WAF web ACL customization specified for the distribution tenant.
+        :param pulumi.Input['DistributionTenantWebAclCustomizationAction'] action: The action for the WAF web ACL customization. You can specify ``override`` to specify a separate WAF web ACL for the distribution tenant. If you specify ``disable``, the distribution tenant won't have WAF web ACL protections and won't inherit from the multi-tenant distribution.
+        :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the WAF web ACL.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -5141,7 +5163,7 @@ class DistributionTenantWebAclCustomizationArgs:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input['DistributionTenantWebAclCustomizationAction']]:
         """
-        The action for the AWS WAF web ACL customization. You can specify `override` to specify a separate AWS WAF web ACL for the distribution tenant. If you specify `disable` , the distribution tenant won't have AWS WAF web ACL protections and won't inherit from the multi-tenant distribution.
+        The action for the WAF web ACL customization. You can specify ``override`` to specify a separate WAF web ACL for the distribution tenant. If you specify ``disable``, the distribution tenant won't have WAF web ACL protections and won't inherit from the multi-tenant distribution.
         """
         return pulumi.get(self, "action")
 
@@ -5153,7 +5175,7 @@ class DistributionTenantWebAclCustomizationArgs:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the AWS WAF web ACL.
+        The Amazon Resource Name (ARN) of the WAF web ACL.
         """
         return pulumi.get(self, "arn")
 
@@ -5174,8 +5196,8 @@ if not MYPY:
           
           +  The minimum SSL/TLS protocol version that the distribution can use to communicate with viewers. To specify a minimum version, choose a value for ``MinimumProtocolVersion``. For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) in the *Amazon CloudFront Developer Guide*.
           +  The location of the SSL/TLS certificate, [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) (recommended) or [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html). You specify the location by setting a value in one of the following fields (not both):
-          +   ``ACMCertificateArn`` (In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.)
-          +   ``IAMCertificateId`` (In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.)
+          +  ``ACMCertificateArn`` (In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.)
+          +  ``IAMCertificateId`` (In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.)
           
           
          All distributions support HTTPS connections from viewers. To require viewers to use HTTPS only, or to redirect them from HTTP to HTTPS, use ``ViewerProtocolPolicy`` in the ``CacheBehavior`` or ``DefaultCacheBehavior``. To specify how CloudFront should use SSL/TLS to communicate with your custom origin, use ``CustomOriginConfig``.
@@ -5191,7 +5213,7 @@ if not MYPY:
         """
         If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, set this field to ``true``.
          If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), omit this field and specify values for the following fields:
-          +   ``AcmCertificateArn`` or ``IamCertificateId`` (specify a value for one, not both) 
+          +  ``AcmCertificateArn`` or ``IamCertificateId`` (specify a value for one, not both) 
           +   ``MinimumProtocolVersion`` 
           +   ``SslSupportMethod``
         """
@@ -5216,9 +5238,9 @@ if not MYPY:
         """
         In CloudFormation, this field name is ``SslSupportMethod``. Note the different capitalization.
           If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.
-          +   ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.
-          +   ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.
-          +   ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).
+          +  ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.
+          +  ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.
+          +  ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).
           
          If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, don't set a value for this field.
         """
@@ -5243,8 +5265,8 @@ class DistributionViewerCertificateArgs:
           
           +  The minimum SSL/TLS protocol version that the distribution can use to communicate with viewers. To specify a minimum version, choose a value for ``MinimumProtocolVersion``. For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) in the *Amazon CloudFront Developer Guide*.
           +  The location of the SSL/TLS certificate, [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) (recommended) or [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html). You specify the location by setting a value in one of the following fields (not both):
-          +   ``ACMCertificateArn`` (In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.)
-          +   ``IAMCertificateId`` (In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.)
+          +  ``ACMCertificateArn`` (In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.)
+          +  ``IAMCertificateId`` (In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.)
           
           
          All distributions support HTTPS connections from viewers. To require viewers to use HTTPS only, or to redirect them from HTTP to HTTPS, use ``ViewerProtocolPolicy`` in the ``CacheBehavior`` or ``DefaultCacheBehavior``. To specify how CloudFront should use SSL/TLS to communicate with your custom origin, use ``CustomOriginConfig``.
@@ -5254,7 +5276,7 @@ class DistributionViewerCertificateArgs:
                 If you specify an ACM certificate ARN, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
         :param pulumi.Input[builtins.bool] cloud_front_default_certificate: If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, set this field to ``true``.
                 If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), omit this field and specify values for the following fields:
-                 +   ``AcmCertificateArn`` or ``IamCertificateId`` (specify a value for one, not both) 
+                 +  ``AcmCertificateArn`` or ``IamCertificateId`` (specify a value for one, not both) 
                  +   ``MinimumProtocolVersion`` 
                  +   ``SslSupportMethod``
         :param pulumi.Input[builtins.str] iam_certificate_id: In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.
@@ -5270,9 +5292,9 @@ class DistributionViewerCertificateArgs:
                 If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net`` (you set ``CloudFrontDefaultCertificate`` to ``true``), CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you set here.
         :param pulumi.Input[builtins.str] ssl_support_method: In CloudFormation, this field name is ``SslSupportMethod``. Note the different capitalization.
                  If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.
-                 +   ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.
-                 +   ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.
-                 +   ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).
+                 +  ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.
+                 +  ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.
+                 +  ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).
                  
                 If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, don't set a value for this field.
         """
@@ -5307,7 +5329,7 @@ class DistributionViewerCertificateArgs:
         """
         If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, set this field to ``true``.
          If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), omit this field and specify values for the following fields:
-          +   ``AcmCertificateArn`` or ``IamCertificateId`` (specify a value for one, not both) 
+          +  ``AcmCertificateArn`` or ``IamCertificateId`` (specify a value for one, not both) 
           +   ``MinimumProtocolVersion`` 
           +   ``SslSupportMethod``
         """
@@ -5356,9 +5378,9 @@ class DistributionViewerCertificateArgs:
         """
         In CloudFormation, this field name is ``SslSupportMethod``. Note the different capitalization.
           If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.
-          +   ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.
-          +   ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.
-          +   ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).
+          +  ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.
+          +  ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.
+          +  ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).
           
          If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, don't set a value for this field.
         """
@@ -5815,9 +5837,9 @@ if not MYPY:
         """
         Specifies which requests CloudFront signs (adds authentication information to). Specify ``always`` for the most common use case. For more information, see [origin access control advanced settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings) in the *Amazon CloudFront Developer Guide*.
          This field can have one of the following values:
-          +   ``always`` – CloudFront signs all origin requests, overwriting the ``Authorization`` header from the viewer request if one exists.
-          +   ``never`` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
-          +   ``no-override`` – If the viewer request doesn't contain the ``Authorization`` header, then CloudFront signs the origin request. If the viewer request contains the ``Authorization`` header, then CloudFront doesn't sign the origin request and instead passes along the ``Authorization`` header from the viewer request. *WARNING: To pass along the Authorization header from the viewer request, you must add the Authorization header to a cache policy for all cache behaviors that use origins associated with this origin access control.*
+          +  ``always`` – CloudFront signs all origin requests, overwriting the ``Authorization`` header from the viewer request if one exists.
+          +  ``never`` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
+          +  ``no-override`` – If the viewer request doesn't contain the ``Authorization`` header, then CloudFront signs the origin request. If the viewer request contains the ``Authorization`` header, then CloudFront doesn't sign the origin request and instead passes along the ``Authorization`` header from the viewer request. *WARNING: To pass along the Authorization header from the viewer request, you must add the Authorization header to a cache policy for all cache behaviors that use origins associated with this origin access control.*
         """
         signing_protocol: pulumi.Input[builtins.str]
         """
@@ -5846,9 +5868,9 @@ class OriginAccessControlConfigArgs:
         :param pulumi.Input[builtins.str] origin_access_control_origin_type: The type of origin that this origin access control is for.
         :param pulumi.Input[builtins.str] signing_behavior: Specifies which requests CloudFront signs (adds authentication information to). Specify ``always`` for the most common use case. For more information, see [origin access control advanced settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings) in the *Amazon CloudFront Developer Guide*.
                 This field can have one of the following values:
-                 +   ``always`` – CloudFront signs all origin requests, overwriting the ``Authorization`` header from the viewer request if one exists.
-                 +   ``never`` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
-                 +   ``no-override`` – If the viewer request doesn't contain the ``Authorization`` header, then CloudFront signs the origin request. If the viewer request contains the ``Authorization`` header, then CloudFront doesn't sign the origin request and instead passes along the ``Authorization`` header from the viewer request. *WARNING: To pass along the Authorization header from the viewer request, you must add the Authorization header to a cache policy for all cache behaviors that use origins associated with this origin access control.*
+                 +  ``always`` – CloudFront signs all origin requests, overwriting the ``Authorization`` header from the viewer request if one exists.
+                 +  ``never`` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
+                 +  ``no-override`` – If the viewer request doesn't contain the ``Authorization`` header, then CloudFront signs the origin request. If the viewer request contains the ``Authorization`` header, then CloudFront doesn't sign the origin request and instead passes along the ``Authorization`` header from the viewer request. *WARNING: To pass along the Authorization header from the viewer request, you must add the Authorization header to a cache policy for all cache behaviors that use origins associated with this origin access control.*
         :param pulumi.Input[builtins.str] signing_protocol: The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests. The only valid value is ``sigv4``.
         :param pulumi.Input[builtins.str] description: A description of the origin access control.
         """
@@ -5889,9 +5911,9 @@ class OriginAccessControlConfigArgs:
         """
         Specifies which requests CloudFront signs (adds authentication information to). Specify ``always`` for the most common use case. For more information, see [origin access control advanced settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings) in the *Amazon CloudFront Developer Guide*.
          This field can have one of the following values:
-          +   ``always`` – CloudFront signs all origin requests, overwriting the ``Authorization`` header from the viewer request if one exists.
-          +   ``never`` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
-          +   ``no-override`` – If the viewer request doesn't contain the ``Authorization`` header, then CloudFront signs the origin request. If the viewer request contains the ``Authorization`` header, then CloudFront doesn't sign the origin request and instead passes along the ``Authorization`` header from the viewer request. *WARNING: To pass along the Authorization header from the viewer request, you must add the Authorization header to a cache policy for all cache behaviors that use origins associated with this origin access control.*
+          +  ``always`` – CloudFront signs all origin requests, overwriting the ``Authorization`` header from the viewer request if one exists.
+          +  ``never`` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
+          +  ``no-override`` – If the viewer request doesn't contain the ``Authorization`` header, then CloudFront signs the origin request. If the viewer request contains the ``Authorization`` header, then CloudFront doesn't sign the origin request and instead passes along the ``Authorization`` header from the viewer request. *WARNING: To pass along the Authorization header from the viewer request, you must add the Authorization header to a cache policy for all cache behaviors that use origins associated with this origin access control.*
         """
         return pulumi.get(self, "signing_behavior")
 
@@ -6056,10 +6078,10 @@ if not MYPY:
         cookie_behavior: pulumi.Input[builtins.str]
         """
         Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
-          +   ``none`` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in a ``CachePolicy`` *are* included in origin requests.
-          +   ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in requests that CloudFront sends to the origin.
-          +   ``all`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
-          +   ``allExcept`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``CookieNames`` type, which are not included.
+          +  ``none`` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in a ``CachePolicy``*are* included in origin requests.
+          +  ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in requests that CloudFront sends to the origin.
+          +  ``all`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
+          +  ``allExcept`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``CookieNames`` type, which are not included.
         """
         cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -6076,10 +6098,10 @@ class OriginRequestPolicyCookiesConfigArgs:
         """
         An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in requests that CloudFront sends to the origin.
         :param pulumi.Input[builtins.str] cookie_behavior: Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
-                 +   ``none`` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in a ``CachePolicy`` *are* included in origin requests.
-                 +   ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in requests that CloudFront sends to the origin.
-                 +   ``all`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
-                 +   ``allExcept`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``CookieNames`` type, which are not included.
+                 +  ``none`` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in a ``CachePolicy``*are* included in origin requests.
+                 +  ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in requests that CloudFront sends to the origin.
+                 +  ``all`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
+                 +  ``allExcept`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``CookieNames`` type, which are not included.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cookies: Contains a list of cookie names.
         """
         pulumi.set(__self__, "cookie_behavior", cookie_behavior)
@@ -6091,10 +6113,10 @@ class OriginRequestPolicyCookiesConfigArgs:
     def cookie_behavior(self) -> pulumi.Input[builtins.str]:
         """
         Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
-          +   ``none`` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in a ``CachePolicy`` *are* included in origin requests.
-          +   ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in requests that CloudFront sends to the origin.
-          +   ``all`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
-          +   ``allExcept`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``CookieNames`` type, which are not included.
+          +  ``none`` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in a ``CachePolicy``*are* included in origin requests.
+          +  ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in requests that CloudFront sends to the origin.
+          +  ``all`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
+          +  ``allExcept`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``CookieNames`` type, which are not included.
         """
         return pulumi.get(self, "cookie_behavior")
 
@@ -6123,11 +6145,11 @@ if not MYPY:
         header_behavior: pulumi.Input[builtins.str]
         """
         Determines whether any HTTP headers are included in requests that CloudFront sends to the origin. Valid values are:
-          +   ``none`` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in a ``CachePolicy`` *are* included in origin requests.
-          +   ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin.
-          +   ``allViewer`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
-          +   ``allViewerAndWhitelistCloudFront`` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
-          +   ``allExcept`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``Headers`` type, which are not included.
+          +  ``none`` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in a ``CachePolicy``*are* included in origin requests.
+          +  ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin.
+          +  ``allViewer`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
+          +  ``allViewerAndWhitelistCloudFront`` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
+          +  ``allExcept`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``Headers`` type, which are not included.
         """
         headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -6144,11 +6166,11 @@ class OriginRequestPolicyHeadersConfigArgs:
         """
         An object that determines whether any HTTP headers (and if so, which headers) are included in requests that CloudFront sends to the origin.
         :param pulumi.Input[builtins.str] header_behavior: Determines whether any HTTP headers are included in requests that CloudFront sends to the origin. Valid values are:
-                 +   ``none`` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in a ``CachePolicy`` *are* included in origin requests.
-                 +   ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin.
-                 +   ``allViewer`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
-                 +   ``allViewerAndWhitelistCloudFront`` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
-                 +   ``allExcept`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``Headers`` type, which are not included.
+                 +  ``none`` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in a ``CachePolicy``*are* included in origin requests.
+                 +  ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin.
+                 +  ``allViewer`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
+                 +  ``allViewerAndWhitelistCloudFront`` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
+                 +  ``allExcept`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``Headers`` type, which are not included.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] headers: Contains a list of HTTP header names.
         """
         pulumi.set(__self__, "header_behavior", header_behavior)
@@ -6160,11 +6182,11 @@ class OriginRequestPolicyHeadersConfigArgs:
     def header_behavior(self) -> pulumi.Input[builtins.str]:
         """
         Determines whether any HTTP headers are included in requests that CloudFront sends to the origin. Valid values are:
-          +   ``none`` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in a ``CachePolicy`` *are* included in origin requests.
-          +   ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin.
-          +   ``allViewer`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
-          +   ``allViewerAndWhitelistCloudFront`` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
-          +   ``allExcept`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``Headers`` type, which are not included.
+          +  ``none`` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in a ``CachePolicy``*are* included in origin requests.
+          +  ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin.
+          +  ``allViewer`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
+          +  ``allViewerAndWhitelistCloudFront`` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
+          +  ``allExcept`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``Headers`` type, which are not included.
         """
         return pulumi.get(self, "header_behavior")
 
@@ -6193,10 +6215,10 @@ if not MYPY:
         query_string_behavior: pulumi.Input[builtins.str]
         """
         Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
-          +   ``none`` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in a ``CachePolicy`` *are* included in origin requests.
-          +   ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in requests that CloudFront sends to the origin.
-          +   ``all`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
-          +   ``allExcept`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``QueryStringNames`` type, which are not included.
+          +  ``none`` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in a ``CachePolicy``*are* included in origin requests.
+          +  ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in requests that CloudFront sends to the origin.
+          +  ``all`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
+          +  ``allExcept`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``QueryStringNames`` type, which are not included.
         """
         query_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -6213,10 +6235,10 @@ class OriginRequestPolicyQueryStringsConfigArgs:
         """
         An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in requests that CloudFront sends to the origin.
         :param pulumi.Input[builtins.str] query_string_behavior: Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
-                 +   ``none`` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in a ``CachePolicy`` *are* included in origin requests.
-                 +   ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in requests that CloudFront sends to the origin.
-                 +   ``all`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
-                 +   ``allExcept`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``QueryStringNames`` type, which are not included.
+                 +  ``none`` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in a ``CachePolicy``*are* included in origin requests.
+                 +  ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in requests that CloudFront sends to the origin.
+                 +  ``all`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
+                 +  ``allExcept`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``QueryStringNames`` type, which are not included.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] query_strings: Contains a list of query string names.
         """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
@@ -6228,10 +6250,10 @@ class OriginRequestPolicyQueryStringsConfigArgs:
     def query_string_behavior(self) -> pulumi.Input[builtins.str]:
         """
         Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
-          +   ``none`` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in a ``CachePolicy`` *are* included in origin requests.
-          +   ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in requests that CloudFront sends to the origin.
-          +   ``all`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
-          +   ``allExcept`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``QueryStringNames`` type, which are not included.
+          +  ``none`` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in a ``CachePolicy``*are* included in origin requests.
+          +  ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in requests that CloudFront sends to the origin.
+          +  ``all`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
+          +  ``allExcept`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``QueryStringNames`` type, which are not included.
         """
         return pulumi.get(self, "query_string_behavior")
 
@@ -6348,11 +6370,11 @@ class PublicKeyConfigArgs:
 if not MYPY:
     class RealtimeLogConfigEndPointArgsDict(TypedDict):
         """
-        Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+        Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
         """
         kinesis_stream_config: pulumi.Input['RealtimeLogConfigKinesisStreamConfigArgsDict']
         """
-        Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+        Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
         """
         stream_type: pulumi.Input[builtins.str]
         """
@@ -6367,8 +6389,8 @@ class RealtimeLogConfigEndPointArgs:
                  kinesis_stream_config: pulumi.Input['RealtimeLogConfigKinesisStreamConfigArgs'],
                  stream_type: pulumi.Input[builtins.str]):
         """
-        Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
-        :param pulumi.Input['RealtimeLogConfigKinesisStreamConfigArgs'] kinesis_stream_config: Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+        Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
+        :param pulumi.Input['RealtimeLogConfigKinesisStreamConfigArgs'] kinesis_stream_config: Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
         :param pulumi.Input[builtins.str] stream_type: The type of data stream where you are sending real-time log data. The only valid value is ``Kinesis``.
         """
         pulumi.set(__self__, "kinesis_stream_config", kinesis_stream_config)
@@ -6378,7 +6400,7 @@ class RealtimeLogConfigEndPointArgs:
     @pulumi.getter(name="kinesisStreamConfig")
     def kinesis_stream_config(self) -> pulumi.Input['RealtimeLogConfigKinesisStreamConfigArgs']:
         """
-        Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+        Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
         """
         return pulumi.get(self, "kinesis_stream_config")
 
@@ -6511,7 +6533,7 @@ if not MYPY:
           +   ``PUT`` 
           +   ``ALL`` 
           
-          ``ALL`` is a special value that includes all of the listed HTTP methods.
+         ``ALL`` is a special value that includes all of the listed HTTP methods.
         """
 elif False:
     ResponseHeadersPolicyAccessControlAllowMethodsArgsDict: TypeAlias = Mapping[str, Any]
@@ -6533,7 +6555,7 @@ class ResponseHeadersPolicyAccessControlAllowMethodsArgs:
                  +   ``PUT`` 
                  +   ``ALL`` 
                  
-                 ``ALL`` is a special value that includes all of the listed HTTP methods.
+                ``ALL`` is a special value that includes all of the listed HTTP methods.
         """
         pulumi.set(__self__, "items", items)
 
@@ -6551,7 +6573,7 @@ class ResponseHeadersPolicyAccessControlAllowMethodsArgs:
           +   ``PUT`` 
           +   ``ALL`` 
           
-          ``ALL`` is a special value that includes all of the listed HTTP methods.
+         ``ALL`` is a special value that includes all of the listed HTTP methods.
         """
         return pulumi.get(self, "items")
 

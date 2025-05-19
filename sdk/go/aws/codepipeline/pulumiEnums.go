@@ -514,6 +514,172 @@ func (in *pipelineBlockerDeclarationTypePtr) ToPipelineBlockerDeclarationTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(PipelineBlockerDeclarationTypePtrOutput)
 }
 
+// The type of the environment variable.
+type PipelineEnvironmentVariableType string
+
+const (
+	PipelineEnvironmentVariableTypePlaintext      = PipelineEnvironmentVariableType("PLAINTEXT")
+	PipelineEnvironmentVariableTypeSecretsManager = PipelineEnvironmentVariableType("SECRETS_MANAGER")
+)
+
+func (PipelineEnvironmentVariableType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEnvironmentVariableType)(nil)).Elem()
+}
+
+func (e PipelineEnvironmentVariableType) ToPipelineEnvironmentVariableTypeOutput() PipelineEnvironmentVariableTypeOutput {
+	return pulumi.ToOutput(e).(PipelineEnvironmentVariableTypeOutput)
+}
+
+func (e PipelineEnvironmentVariableType) ToPipelineEnvironmentVariableTypeOutputWithContext(ctx context.Context) PipelineEnvironmentVariableTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PipelineEnvironmentVariableTypeOutput)
+}
+
+func (e PipelineEnvironmentVariableType) ToPipelineEnvironmentVariableTypePtrOutput() PipelineEnvironmentVariableTypePtrOutput {
+	return e.ToPipelineEnvironmentVariableTypePtrOutputWithContext(context.Background())
+}
+
+func (e PipelineEnvironmentVariableType) ToPipelineEnvironmentVariableTypePtrOutputWithContext(ctx context.Context) PipelineEnvironmentVariableTypePtrOutput {
+	return PipelineEnvironmentVariableType(e).ToPipelineEnvironmentVariableTypeOutputWithContext(ctx).ToPipelineEnvironmentVariableTypePtrOutputWithContext(ctx)
+}
+
+func (e PipelineEnvironmentVariableType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipelineEnvironmentVariableType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipelineEnvironmentVariableType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PipelineEnvironmentVariableType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PipelineEnvironmentVariableTypeOutput struct{ *pulumi.OutputState }
+
+func (PipelineEnvironmentVariableTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEnvironmentVariableType)(nil)).Elem()
+}
+
+func (o PipelineEnvironmentVariableTypeOutput) ToPipelineEnvironmentVariableTypeOutput() PipelineEnvironmentVariableTypeOutput {
+	return o
+}
+
+func (o PipelineEnvironmentVariableTypeOutput) ToPipelineEnvironmentVariableTypeOutputWithContext(ctx context.Context) PipelineEnvironmentVariableTypeOutput {
+	return o
+}
+
+func (o PipelineEnvironmentVariableTypeOutput) ToPipelineEnvironmentVariableTypePtrOutput() PipelineEnvironmentVariableTypePtrOutput {
+	return o.ToPipelineEnvironmentVariableTypePtrOutputWithContext(context.Background())
+}
+
+func (o PipelineEnvironmentVariableTypeOutput) ToPipelineEnvironmentVariableTypePtrOutputWithContext(ctx context.Context) PipelineEnvironmentVariableTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineEnvironmentVariableType) *PipelineEnvironmentVariableType {
+		return &v
+	}).(PipelineEnvironmentVariableTypePtrOutput)
+}
+
+func (o PipelineEnvironmentVariableTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PipelineEnvironmentVariableTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipelineEnvironmentVariableType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PipelineEnvironmentVariableTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineEnvironmentVariableTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipelineEnvironmentVariableType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineEnvironmentVariableTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineEnvironmentVariableTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineEnvironmentVariableType)(nil)).Elem()
+}
+
+func (o PipelineEnvironmentVariableTypePtrOutput) ToPipelineEnvironmentVariableTypePtrOutput() PipelineEnvironmentVariableTypePtrOutput {
+	return o
+}
+
+func (o PipelineEnvironmentVariableTypePtrOutput) ToPipelineEnvironmentVariableTypePtrOutputWithContext(ctx context.Context) PipelineEnvironmentVariableTypePtrOutput {
+	return o
+}
+
+func (o PipelineEnvironmentVariableTypePtrOutput) Elem() PipelineEnvironmentVariableTypeOutput {
+	return o.ApplyT(func(v *PipelineEnvironmentVariableType) PipelineEnvironmentVariableType {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineEnvironmentVariableType
+		return ret
+	}).(PipelineEnvironmentVariableTypeOutput)
+}
+
+func (o PipelineEnvironmentVariableTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineEnvironmentVariableTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipelineEnvironmentVariableType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PipelineEnvironmentVariableTypeInput is an input type that accepts values of the PipelineEnvironmentVariableType enum
+// A concrete instance of `PipelineEnvironmentVariableTypeInput` can be one of the following:
+//
+//	PipelineEnvironmentVariableTypePlaintext
+//	PipelineEnvironmentVariableTypeSecretsManager
+type PipelineEnvironmentVariableTypeInput interface {
+	pulumi.Input
+
+	ToPipelineEnvironmentVariableTypeOutput() PipelineEnvironmentVariableTypeOutput
+	ToPipelineEnvironmentVariableTypeOutputWithContext(context.Context) PipelineEnvironmentVariableTypeOutput
+}
+
+var pipelineEnvironmentVariableTypePtrType = reflect.TypeOf((**PipelineEnvironmentVariableType)(nil)).Elem()
+
+type PipelineEnvironmentVariableTypePtrInput interface {
+	pulumi.Input
+
+	ToPipelineEnvironmentVariableTypePtrOutput() PipelineEnvironmentVariableTypePtrOutput
+	ToPipelineEnvironmentVariableTypePtrOutputWithContext(context.Context) PipelineEnvironmentVariableTypePtrOutput
+}
+
+type pipelineEnvironmentVariableTypePtr string
+
+func PipelineEnvironmentVariableTypePtr(v string) PipelineEnvironmentVariableTypePtrInput {
+	return (*pipelineEnvironmentVariableTypePtr)(&v)
+}
+
+func (*pipelineEnvironmentVariableTypePtr) ElementType() reflect.Type {
+	return pipelineEnvironmentVariableTypePtrType
+}
+
+func (in *pipelineEnvironmentVariableTypePtr) ToPipelineEnvironmentVariableTypePtrOutput() PipelineEnvironmentVariableTypePtrOutput {
+	return pulumi.ToOutput(in).(PipelineEnvironmentVariableTypePtrOutput)
+}
+
+func (in *pipelineEnvironmentVariableTypePtr) ToPipelineEnvironmentVariableTypePtrOutputWithContext(ctx context.Context) PipelineEnvironmentVariableTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PipelineEnvironmentVariableTypePtrOutput)
+}
+
 // The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.
 type PipelineExecutionMode string
 
@@ -1351,6 +1517,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStoreTypePtrInput)(nil)).Elem(), PipelineArtifactStoreType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineBlockerDeclarationTypeInput)(nil)).Elem(), PipelineBlockerDeclarationType("Schedule"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineBlockerDeclarationTypePtrInput)(nil)).Elem(), PipelineBlockerDeclarationType("Schedule"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEnvironmentVariableTypeInput)(nil)).Elem(), PipelineEnvironmentVariableType("PLAINTEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEnvironmentVariableTypePtrInput)(nil)).Elem(), PipelineEnvironmentVariableType("PLAINTEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineExecutionModeInput)(nil)).Elem(), PipelineExecutionMode("QUEUED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineExecutionModePtrInput)(nil)).Elem(), PipelineExecutionMode("QUEUED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineFailureConditionsResultInput)(nil)).Elem(), PipelineFailureConditionsResult("ROLLBACK"))
@@ -1367,6 +1535,8 @@ func init() {
 	pulumi.RegisterOutputType(PipelineArtifactStoreTypePtrOutput{})
 	pulumi.RegisterOutputType(PipelineBlockerDeclarationTypeOutput{})
 	pulumi.RegisterOutputType(PipelineBlockerDeclarationTypePtrOutput{})
+	pulumi.RegisterOutputType(PipelineEnvironmentVariableTypeOutput{})
+	pulumi.RegisterOutputType(PipelineEnvironmentVariableTypePtrOutput{})
 	pulumi.RegisterOutputType(PipelineExecutionModeOutput{})
 	pulumi.RegisterOutputType(PipelineExecutionModePtrOutput{})
 	pulumi.RegisterOutputType(PipelineFailureConditionsResultOutput{})

@@ -66,6 +66,9 @@ class GetChannelNamespaceResult:
     @property
     @pulumi.getter(name="handlerConfigs")
     def handler_configs(self) -> Optional['outputs.ChannelNamespaceHandlerConfigs']:
+        """
+        The configuration for the `OnPublish` and `OnSubscribe` handlers.
+        """
         return pulumi.get(self, "handler_configs")
 
     @property

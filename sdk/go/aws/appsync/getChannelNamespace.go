@@ -32,7 +32,8 @@ type LookupChannelNamespaceResult struct {
 	// The Amazon Resource Name (ARN) of the channel namespace.
 	ChannelNamespaceArn *string `pulumi:"channelNamespaceArn"`
 	// The event handler functions that run custom business logic to process published events and subscribe requests.
-	CodeHandlers   *string                         `pulumi:"codeHandlers"`
+	CodeHandlers *string `pulumi:"codeHandlers"`
+	// The configuration for the `OnPublish` and `OnSubscribe` handlers.
 	HandlerConfigs *ChannelNamespaceHandlerConfigs `pulumi:"handlerConfigs"`
 	// List of AuthModes supported for Publish operations.
 	PublishAuthModes []ChannelNamespaceAuthMode `pulumi:"publishAuthModes"`
@@ -84,6 +85,7 @@ func (o LookupChannelNamespaceResultOutput) CodeHandlers() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupChannelNamespaceResult) *string { return v.CodeHandlers }).(pulumi.StringPtrOutput)
 }
 
+// The configuration for the `OnPublish` and `OnSubscribe` handlers.
 func (o LookupChannelNamespaceResultOutput) HandlerConfigs() ChannelNamespaceHandlerConfigsPtrOutput {
 	return o.ApplyT(func(v LookupChannelNamespaceResult) *ChannelNamespaceHandlerConfigs { return v.HandlerConfigs }).(ChannelNamespaceHandlerConfigsPtrOutput)
 }

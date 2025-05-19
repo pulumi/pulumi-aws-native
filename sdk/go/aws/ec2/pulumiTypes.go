@@ -6941,7 +6941,13 @@ func (o HibernationOptionsPropertiesPtrOutput) Configured() pulumi.BoolPtrOutput
 }
 
 type HostTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	//
+	// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	//
+	// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
 	Value string `pulumi:"value"`
 }
 
@@ -12200,7 +12206,19 @@ type LaunchTemplateEbs struct {
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The throughput to provision for a ``gp3`` volume, with a maximum of 1,000 MiB/s.
 	//  Valid Range: Minimum value of 125. Maximum value of 1000.
-	Throughput               *int `pulumi:"throughput"`
+	Throughput *int `pulumi:"throughput"`
+	// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+	//
+	// This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+	//
+	// - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+	//
+	// > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+	// - You want to create a volume that is initialized at the default rate.
+	//
+	// For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+	//
+	// Valid range: 100 - 300 MiB/s
 	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
 	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
 	//   +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
@@ -12247,7 +12265,19 @@ type LaunchTemplateEbsArgs struct {
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// The throughput to provision for a ``gp3`` volume, with a maximum of 1,000 MiB/s.
 	//  Valid Range: Minimum value of 125. Maximum value of 1000.
-	Throughput               pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+	//
+	// This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+	//
+	// - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+	//
+	// > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+	// - You want to create a volume that is initialized at the default rate.
+	//
+	// For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+	//
+	// Valid range: 100 - 300 MiB/s
 	VolumeInitializationRate pulumi.IntPtrInput `pulumi:"volumeInitializationRate"`
 	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
 	//   +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
@@ -12380,6 +12410,18 @@ func (o LaunchTemplateEbsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+//
+// This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+//
+// - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+//
+// > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+// - You want to create a volume that is initialized at the default rate.
+//
+// For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+//
+// Valid range: 100 - 300 MiB/s
 func (o LaunchTemplateEbsOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.VolumeInitializationRate }).(pulumi.IntPtrOutput)
 }
@@ -12493,6 +12535,18 @@ func (o LaunchTemplateEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
+//
+// This parameter is supported only for volumes created from snapshots. Omit this parameter if:
+//
+// - You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
+//
+// > If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+// - You want to create a volume that is initialized at the default rate.
+//
+// For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .
+//
+// Valid range: 100 - 300 MiB/s
 func (o LaunchTemplateEbsPtrOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
 		if v == nil {

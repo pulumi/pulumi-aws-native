@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public readonly ImmutableArray<Outputs.FleetIpPermission> Ec2InboundPermissions;
         /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Servers Fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Fleet ARN, the resource ID matches the FleetId value.
+        /// </summary>
+        public readonly string? FleetArn;
+        /// <summary>
         /// Unique fleet ID
         /// </summary>
         public readonly string? FleetId;
@@ -121,6 +125,10 @@ namespace Pulumi.AwsNative.GameLift
         /// A list of rules that control how a fleet is scaled.
         /// </summary>
         public readonly ImmutableArray<Outputs.FleetScalingPolicy> ScalingPolicies;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFleetResult(
@@ -131,6 +139,8 @@ namespace Pulumi.AwsNative.GameLift
             int? desiredEc2Instances,
 
             ImmutableArray<Outputs.FleetIpPermission> ec2InboundPermissions,
+
+            string? fleetArn,
 
             string? fleetId,
 
@@ -150,12 +160,15 @@ namespace Pulumi.AwsNative.GameLift
 
             Outputs.FleetRuntimeConfiguration? runtimeConfiguration,
 
-            ImmutableArray<Outputs.FleetScalingPolicy> scalingPolicies)
+            ImmutableArray<Outputs.FleetScalingPolicy> scalingPolicies,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AnywhereConfiguration = anywhereConfiguration;
             Description = description;
             DesiredEc2Instances = desiredEc2Instances;
             Ec2InboundPermissions = ec2InboundPermissions;
+            FleetArn = fleetArn;
             FleetId = fleetId;
             Locations = locations;
             MaxSize = maxSize;
@@ -166,6 +179,7 @@ namespace Pulumi.AwsNative.GameLift
             ResourceCreationLimitPolicy = resourceCreationLimitPolicy;
             RuntimeConfiguration = runtimeConfiguration;
             ScalingPolicies = scalingPolicies;
+            Tags = tags;
         }
     }
 }

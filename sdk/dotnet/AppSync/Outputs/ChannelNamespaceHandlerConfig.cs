@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AppSync.Outputs
     [OutputType]
     public sealed class ChannelNamespaceHandlerConfig
     {
+        /// <summary>
+        /// The behavior for the handler.
+        /// </summary>
         public readonly Pulumi.AwsNative.AppSync.ChannelNamespaceHandlerBehavior Behavior;
+        /// <summary>
+        /// The integration data source configuration for the handler.
+        /// </summary>
         public readonly Outputs.ChannelNamespaceIntegration Integration;
 
         [OutputConstructor]

@@ -6582,7 +6582,8 @@ func (o DomainFSxLustreFileSystemConfigPtrOutput) FileSystemPath() pulumi.String
 type DomainHiddenSageMakerImage struct {
 	// The SageMaker image name that you are hiding from the Studio user interface.
 	SageMakerImageName *DomainHiddenSageMakerImageSageMakerImageName `pulumi:"sageMakerImageName"`
-	VersionAliases     []string                                      `pulumi:"versionAliases"`
+	// The version aliases you are hiding from the Studio user interface.
+	VersionAliases []string `pulumi:"versionAliases"`
 }
 
 // DomainHiddenSageMakerImageInput is an input type that accepts DomainHiddenSageMakerImageArgs and DomainHiddenSageMakerImageOutput values.
@@ -6599,7 +6600,8 @@ type DomainHiddenSageMakerImageInput interface {
 type DomainHiddenSageMakerImageArgs struct {
 	// The SageMaker image name that you are hiding from the Studio user interface.
 	SageMakerImageName DomainHiddenSageMakerImageSageMakerImageNamePtrInput `pulumi:"sageMakerImageName"`
-	VersionAliases     pulumi.StringArrayInput                              `pulumi:"versionAliases"`
+	// The version aliases you are hiding from the Studio user interface.
+	VersionAliases pulumi.StringArrayInput `pulumi:"versionAliases"`
 }
 
 func (DomainHiddenSageMakerImageArgs) ElementType() reflect.Type {
@@ -6660,6 +6662,7 @@ func (o DomainHiddenSageMakerImageOutput) SageMakerImageName() DomainHiddenSageM
 	}).(DomainHiddenSageMakerImageSageMakerImageNamePtrOutput)
 }
 
+// The version aliases you are hiding from the Studio user interface.
 func (o DomainHiddenSageMakerImageOutput) VersionAliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainHiddenSageMakerImage) []string { return v.VersionAliases }).(pulumi.StringArrayOutput)
 }
@@ -40291,7 +40294,8 @@ func (o UserProfileFSxLustreFileSystemConfigPtrOutput) FileSystemPath() pulumi.S
 type UserProfileHiddenSageMakerImage struct {
 	// The SageMaker image name that you are hiding from the Studio user interface.
 	SageMakerImageName *UserProfileHiddenSageMakerImageSageMakerImageName `pulumi:"sageMakerImageName"`
-	VersionAliases     []string                                           `pulumi:"versionAliases"`
+	// The version aliases you are hiding from the Studio user interface.
+	VersionAliases []string `pulumi:"versionAliases"`
 }
 
 // UserProfileHiddenSageMakerImageInput is an input type that accepts UserProfileHiddenSageMakerImageArgs and UserProfileHiddenSageMakerImageOutput values.
@@ -40308,7 +40312,8 @@ type UserProfileHiddenSageMakerImageInput interface {
 type UserProfileHiddenSageMakerImageArgs struct {
 	// The SageMaker image name that you are hiding from the Studio user interface.
 	SageMakerImageName UserProfileHiddenSageMakerImageSageMakerImageNamePtrInput `pulumi:"sageMakerImageName"`
-	VersionAliases     pulumi.StringArrayInput                                   `pulumi:"versionAliases"`
+	// The version aliases you are hiding from the Studio user interface.
+	VersionAliases pulumi.StringArrayInput `pulumi:"versionAliases"`
 }
 
 func (UserProfileHiddenSageMakerImageArgs) ElementType() reflect.Type {
@@ -40369,6 +40374,7 @@ func (o UserProfileHiddenSageMakerImageOutput) SageMakerImageName() UserProfileH
 	}).(UserProfileHiddenSageMakerImageSageMakerImageNamePtrOutput)
 }
 
+// The version aliases you are hiding from the Studio user interface.
 func (o UserProfileHiddenSageMakerImageOutput) VersionAliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileHiddenSageMakerImage) []string { return v.VersionAliases }).(pulumi.StringArrayOutput)
 }

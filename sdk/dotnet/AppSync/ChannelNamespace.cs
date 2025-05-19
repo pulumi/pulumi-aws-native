@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("codeS3Location")]
         public Output<string?> CodeS3Location { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration for the `OnPublish` and `OnSubscribe` handlers.
+        /// </summary>
         [Output("handlerConfigs")]
         public Output<Outputs.ChannelNamespaceHandlerConfigs?> HandlerConfigs { get; private set; } = null!;
 
@@ -134,6 +137,9 @@ namespace Pulumi.AwsNative.AppSync
         [Input("codeS3Location")]
         public Input<string>? CodeS3Location { get; set; }
 
+        /// <summary>
+        /// The configuration for the `OnPublish` and `OnSubscribe` handlers.
+        /// </summary>
         [Input("handlerConfigs")]
         public Input<Inputs.ChannelNamespaceHandlerConfigsArgs>? HandlerConfigs { get; set; }
 

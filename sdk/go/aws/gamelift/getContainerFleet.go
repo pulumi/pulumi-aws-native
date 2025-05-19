@@ -47,7 +47,8 @@ type LookupContainerFleetResult struct {
 	// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
 	InstanceConnectionPortRange *ContainerFleetConnectionPortRange `pulumi:"instanceConnectionPortRange"`
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
-	InstanceInboundPermissions []ContainerFleetIpPermission `pulumi:"instanceInboundPermissions"`
+	InstanceInboundPermissions []ContainerFleetIpPermission          `pulumi:"instanceInboundPermissions"`
+	Locations                  []ContainerFleetLocationConfiguration `pulumi:"locations"`
 	// The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
 	//
 	// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
@@ -62,6 +63,8 @@ type LookupContainerFleetResult struct {
 	NewGameSessionProtectionPolicy *ContainerFleetNewGameSessionProtectionPolicy `pulumi:"newGameSessionProtectionPolicy"`
 	// The Amazon Resource Name (ARN) of the per instance container group definition. This field will be empty if PerInstanceContainerGroupDefinitionName is not specified.
 	PerInstanceContainerGroupDefinitionArn *string `pulumi:"perInstanceContainerGroupDefinitionArn"`
+	// A list of rules that control how a fleet is scaled.
+	ScalingPolicies []ContainerFleetScalingPolicy `pulumi:"scalingPolicies"`
 	// The current status of the container fleet.
 	Status *ContainerFleetStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
@@ -153,6 +156,10 @@ func (o LookupContainerFleetResultOutput) InstanceInboundPermissions() Container
 	return o.ApplyT(func(v LookupContainerFleetResult) []ContainerFleetIpPermission { return v.InstanceInboundPermissions }).(ContainerFleetIpPermissionArrayOutput)
 }
 
+func (o LookupContainerFleetResultOutput) Locations() ContainerFleetLocationConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupContainerFleetResult) []ContainerFleetLocationConfiguration { return v.Locations }).(ContainerFleetLocationConfigurationArrayOutput)
+}
+
 // The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
 //
 // - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
@@ -182,6 +189,11 @@ func (o LookupContainerFleetResultOutput) NewGameSessionProtectionPolicy() Conta
 // The Amazon Resource Name (ARN) of the per instance container group definition. This field will be empty if PerInstanceContainerGroupDefinitionName is not specified.
 func (o LookupContainerFleetResultOutput) PerInstanceContainerGroupDefinitionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContainerFleetResult) *string { return v.PerInstanceContainerGroupDefinitionArn }).(pulumi.StringPtrOutput)
+}
+
+// A list of rules that control how a fleet is scaled.
+func (o LookupContainerFleetResultOutput) ScalingPolicies() ContainerFleetScalingPolicyArrayOutput {
+	return o.ApplyT(func(v LookupContainerFleetResult) []ContainerFleetScalingPolicy { return v.ScalingPolicies }).(ContainerFleetScalingPolicyArrayOutput)
 }
 
 // The current status of the container fleet.

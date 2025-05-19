@@ -567,7 +567,13 @@ class ChannelNamespaceAuthModeArgs:
 if not MYPY:
     class ChannelNamespaceHandlerConfigsArgsDict(TypedDict):
         on_publish: NotRequired[pulumi.Input['ChannelNamespaceHandlerConfigArgsDict']]
+        """
+        The configuration for the `OnPublish` handler.
+        """
         on_subscribe: NotRequired[pulumi.Input['ChannelNamespaceHandlerConfigArgsDict']]
+        """
+        The configuration for the `OnSubscribe` handler.
+        """
 elif False:
     ChannelNamespaceHandlerConfigsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -576,6 +582,10 @@ class ChannelNamespaceHandlerConfigsArgs:
     def __init__(__self__, *,
                  on_publish: Optional[pulumi.Input['ChannelNamespaceHandlerConfigArgs']] = None,
                  on_subscribe: Optional[pulumi.Input['ChannelNamespaceHandlerConfigArgs']] = None):
+        """
+        :param pulumi.Input['ChannelNamespaceHandlerConfigArgs'] on_publish: The configuration for the `OnPublish` handler.
+        :param pulumi.Input['ChannelNamespaceHandlerConfigArgs'] on_subscribe: The configuration for the `OnSubscribe` handler.
+        """
         if on_publish is not None:
             pulumi.set(__self__, "on_publish", on_publish)
         if on_subscribe is not None:
@@ -584,6 +594,9 @@ class ChannelNamespaceHandlerConfigsArgs:
     @property
     @pulumi.getter(name="onPublish")
     def on_publish(self) -> Optional[pulumi.Input['ChannelNamespaceHandlerConfigArgs']]:
+        """
+        The configuration for the `OnPublish` handler.
+        """
         return pulumi.get(self, "on_publish")
 
     @on_publish.setter
@@ -593,6 +606,9 @@ class ChannelNamespaceHandlerConfigsArgs:
     @property
     @pulumi.getter(name="onSubscribe")
     def on_subscribe(self) -> Optional[pulumi.Input['ChannelNamespaceHandlerConfigArgs']]:
+        """
+        The configuration for the `OnSubscribe` handler.
+        """
         return pulumi.get(self, "on_subscribe")
 
     @on_subscribe.setter
@@ -603,7 +619,13 @@ class ChannelNamespaceHandlerConfigsArgs:
 if not MYPY:
     class ChannelNamespaceHandlerConfigArgsDict(TypedDict):
         behavior: pulumi.Input['ChannelNamespaceHandlerBehavior']
+        """
+        The behavior for the handler.
+        """
         integration: pulumi.Input['ChannelNamespaceIntegrationArgsDict']
+        """
+        The integration data source configuration for the handler.
+        """
 elif False:
     ChannelNamespaceHandlerConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -612,12 +634,19 @@ class ChannelNamespaceHandlerConfigArgs:
     def __init__(__self__, *,
                  behavior: pulumi.Input['ChannelNamespaceHandlerBehavior'],
                  integration: pulumi.Input['ChannelNamespaceIntegrationArgs']):
+        """
+        :param pulumi.Input['ChannelNamespaceHandlerBehavior'] behavior: The behavior for the handler.
+        :param pulumi.Input['ChannelNamespaceIntegrationArgs'] integration: The integration data source configuration for the handler.
+        """
         pulumi.set(__self__, "behavior", behavior)
         pulumi.set(__self__, "integration", integration)
 
     @property
     @pulumi.getter
     def behavior(self) -> pulumi.Input['ChannelNamespaceHandlerBehavior']:
+        """
+        The behavior for the handler.
+        """
         return pulumi.get(self, "behavior")
 
     @behavior.setter
@@ -627,6 +656,9 @@ class ChannelNamespaceHandlerConfigArgs:
     @property
     @pulumi.getter
     def integration(self) -> pulumi.Input['ChannelNamespaceIntegrationArgs']:
+        """
+        The integration data source configuration for the handler.
+        """
         return pulumi.get(self, "integration")
 
     @integration.setter
@@ -641,6 +673,9 @@ if not MYPY:
         Data source to invoke for this integration.
         """
         lambda_config: NotRequired[pulumi.Input['ChannelNamespaceLambdaConfigArgsDict']]
+        """
+        The configuration for a Lambda data source.
+        """
 elif False:
     ChannelNamespaceIntegrationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -651,6 +686,7 @@ class ChannelNamespaceIntegrationArgs:
                  lambda_config: Optional[pulumi.Input['ChannelNamespaceLambdaConfigArgs']] = None):
         """
         :param pulumi.Input[builtins.str] data_source_name: Data source to invoke for this integration.
+        :param pulumi.Input['ChannelNamespaceLambdaConfigArgs'] lambda_config: The configuration for a Lambda data source.
         """
         pulumi.set(__self__, "data_source_name", data_source_name)
         if lambda_config is not None:
@@ -671,6 +707,9 @@ class ChannelNamespaceIntegrationArgs:
     @property
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> Optional[pulumi.Input['ChannelNamespaceLambdaConfigArgs']]:
+        """
+        The configuration for a Lambda data source.
+        """
         return pulumi.get(self, "lambda_config")
 
     @lambda_config.setter
@@ -681,6 +720,9 @@ class ChannelNamespaceIntegrationArgs:
 if not MYPY:
     class ChannelNamespaceLambdaConfigArgsDict(TypedDict):
         invoke_type: pulumi.Input['ChannelNamespaceInvokeType']
+        """
+        The invocation type for a Lambda data source.
+        """
 elif False:
     ChannelNamespaceLambdaConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -688,11 +730,17 @@ elif False:
 class ChannelNamespaceLambdaConfigArgs:
     def __init__(__self__, *,
                  invoke_type: pulumi.Input['ChannelNamespaceInvokeType']):
+        """
+        :param pulumi.Input['ChannelNamespaceInvokeType'] invoke_type: The invocation type for a Lambda data source.
+        """
         pulumi.set(__self__, "invoke_type", invoke_type)
 
     @property
     @pulumi.getter(name="invokeType")
     def invoke_type(self) -> pulumi.Input['ChannelNamespaceInvokeType']:
+        """
+        The invocation type for a Lambda data source.
+        """
         return pulumi.get(self, "invoke_type")
 
     @invoke_type.setter

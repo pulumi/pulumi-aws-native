@@ -38,21 +38,42 @@ export class WorkflowVersion extends pulumi.CustomResource {
     }
 
     public readonly accelerators!: pulumi.Output<enums.omics.WorkflowVersionAccelerators | undefined>;
+    /**
+     * ARN of the workflow version.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The creation time of the workflow version.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public readonly definitionUri!: pulumi.Output<string | undefined>;
+    /**
+     * The description of the workflow version.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly engine!: pulumi.Output<enums.omics.WorkflowVersionWorkflowEngine | undefined>;
     public readonly main!: pulumi.Output<string | undefined>;
     public readonly parameterTemplate!: pulumi.Output<{[key: string]: outputs.omics.WorkflowVersionWorkflowParameter} | undefined>;
+    /**
+     * The status of the workflow version.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.omics.WorkflowVersionWorkflowStatus>;
     public readonly storageCapacity!: pulumi.Output<number | undefined>;
     public readonly storageType!: pulumi.Output<enums.omics.WorkflowVersionStorageType | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The type of the workflow version.
+     */
     public /*out*/ readonly type!: pulumi.Output<enums.omics.WorkflowVersionWorkflowType>;
     public /*out*/ readonly uuid!: pulumi.Output<string>;
+    /**
+     * The name of the workflow version.
+     */
     public readonly versionName!: pulumi.Output<string>;
     public readonly workflowBucketOwnerId!: pulumi.Output<string | undefined>;
+    /**
+     * The workflow's ID.
+     */
     public readonly workflowId!: pulumi.Output<string>;
 
     /**
@@ -118,6 +139,9 @@ export class WorkflowVersion extends pulumi.CustomResource {
 export interface WorkflowVersionArgs {
     accelerators?: pulumi.Input<enums.omics.WorkflowVersionAccelerators>;
     definitionUri?: pulumi.Input<string>;
+    /**
+     * The description of the workflow version.
+     */
     description?: pulumi.Input<string>;
     engine?: pulumi.Input<enums.omics.WorkflowVersionWorkflowEngine>;
     main?: pulumi.Input<string>;
@@ -125,7 +149,13 @@ export interface WorkflowVersionArgs {
     storageCapacity?: pulumi.Input<number>;
     storageType?: pulumi.Input<enums.omics.WorkflowVersionStorageType>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the workflow version.
+     */
     versionName?: pulumi.Input<string>;
     workflowBucketOwnerId?: pulumi.Input<string>;
+    /**
+     * The workflow's ID.
+     */
     workflowId: pulumi.Input<string>;
 }

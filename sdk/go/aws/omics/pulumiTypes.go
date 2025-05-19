@@ -1239,8 +1239,10 @@ func (o WorkflowParameterMapOutput) MapIndex(k pulumi.StringInput) WorkflowParam
 }
 
 type WorkflowVersionWorkflowParameter struct {
+	// The parameter's description.
 	Description *string `pulumi:"description"`
-	Optional    *bool   `pulumi:"optional"`
+	// Whether the parameter is optional.
+	Optional *bool `pulumi:"optional"`
 }
 
 // WorkflowVersionWorkflowParameterInput is an input type that accepts WorkflowVersionWorkflowParameterArgs and WorkflowVersionWorkflowParameterOutput values.
@@ -1255,8 +1257,10 @@ type WorkflowVersionWorkflowParameterInput interface {
 }
 
 type WorkflowVersionWorkflowParameterArgs struct {
+	// The parameter's description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Optional    pulumi.BoolPtrInput   `pulumi:"optional"`
+	// Whether the parameter is optional.
+	Optional pulumi.BoolPtrInput `pulumi:"optional"`
 }
 
 func (WorkflowVersionWorkflowParameterArgs) ElementType() reflect.Type {
@@ -1310,10 +1314,12 @@ func (o WorkflowVersionWorkflowParameterOutput) ToWorkflowVersionWorkflowParamet
 	return o
 }
 
+// The parameter's description.
 func (o WorkflowVersionWorkflowParameterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowVersionWorkflowParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Whether the parameter is optional.
 func (o WorkflowVersionWorkflowParameterOutput) Optional() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkflowVersionWorkflowParameter) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
 }

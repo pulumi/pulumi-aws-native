@@ -53,6 +53,9 @@ export class ChannelNamespace extends pulumi.CustomResource {
      * The Amazon S3 endpoint where the code is located.
      */
     public readonly codeS3Location!: pulumi.Output<string | undefined>;
+    /**
+     * The configuration for the `OnPublish` and `OnSubscribe` handlers.
+     */
     public readonly handlerConfigs!: pulumi.Output<outputs.appsync.ChannelNamespaceHandlerConfigs | undefined>;
     /**
      * The name of the channel namespace. This name must be unique within the `Api` .
@@ -128,6 +131,9 @@ export interface ChannelNamespaceArgs {
      * The Amazon S3 endpoint where the code is located.
      */
     codeS3Location?: pulumi.Input<string>;
+    /**
+     * The configuration for the `OnPublish` and `OnSubscribe` handlers.
+     */
     handlerConfigs?: pulumi.Input<inputs.appsync.ChannelNamespaceHandlerConfigsArgs>;
     /**
      * The name of the channel namespace. This name must be unique within the `Api` .

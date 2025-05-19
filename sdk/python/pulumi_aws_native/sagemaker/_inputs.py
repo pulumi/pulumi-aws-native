@@ -3486,6 +3486,9 @@ if not MYPY:
         The SageMaker image name that you are hiding from the Studio user interface.
         """
         version_aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        The version aliases you are hiding from the Studio user interface.
+        """
 elif False:
     DomainHiddenSageMakerImageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3496,6 +3499,7 @@ class DomainHiddenSageMakerImageArgs:
                  version_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         :param pulumi.Input['DomainHiddenSageMakerImageSageMakerImageName'] sage_maker_image_name: The SageMaker image name that you are hiding from the Studio user interface.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] version_aliases: The version aliases you are hiding from the Studio user interface.
         """
         if sage_maker_image_name is not None:
             pulumi.set(__self__, "sage_maker_image_name", sage_maker_image_name)
@@ -3517,6 +3521,9 @@ class DomainHiddenSageMakerImageArgs:
     @property
     @pulumi.getter(name="versionAliases")
     def version_aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The version aliases you are hiding from the Studio user interface.
+        """
         return pulumi.get(self, "version_aliases")
 
     @version_aliases.setter
@@ -19227,6 +19234,9 @@ if not MYPY:
         The SageMaker image name that you are hiding from the Studio user interface.
         """
         version_aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        The version aliases you are hiding from the Studio user interface.
+        """
 elif False:
     UserProfileHiddenSageMakerImageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -19237,6 +19247,7 @@ class UserProfileHiddenSageMakerImageArgs:
                  version_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         :param pulumi.Input['UserProfileHiddenSageMakerImageSageMakerImageName'] sage_maker_image_name: The SageMaker image name that you are hiding from the Studio user interface.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] version_aliases: The version aliases you are hiding from the Studio user interface.
         """
         if sage_maker_image_name is not None:
             pulumi.set(__self__, "sage_maker_image_name", sage_maker_image_name)
@@ -19258,6 +19269,9 @@ class UserProfileHiddenSageMakerImageArgs:
     @property
     @pulumi.getter(name="versionAliases")
     def version_aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The version aliases you are hiding from the Studio user interface.
+        """
         return pulumi.get(self, "version_aliases")
 
     @version_aliases.setter

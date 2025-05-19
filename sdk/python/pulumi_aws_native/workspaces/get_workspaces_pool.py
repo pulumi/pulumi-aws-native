@@ -129,6 +129,9 @@ class GetWorkspacesPoolResult:
     @property
     @pulumi.getter(name="runningMode")
     def running_mode(self) -> Optional['WorkspacesPoolRunningMode']:
+        """
+        The running mode of the pool.
+        """
         return pulumi.get(self, "running_mode")
 
     @property

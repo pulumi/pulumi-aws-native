@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// The ACMlong (ACM) certificate associated with your distribution.
+    /// </summary>
     [OutputType]
     public sealed class DistributionTenantCertificate
     {
