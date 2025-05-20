@@ -23,6 +23,7 @@ import (
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/maputil"
 )
 
 const packageName = "aws-native"
@@ -869,7 +870,7 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 	irreversibleNames := map[string]string{}
 	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
-	props := codegen.SortedKeys(ctx.resourceSpec.Properties)
+	props := maputil.SortedKeys(ctx.resourceSpec.Properties)
 	for _, prop := range props {
 		spec := ctx.resourceSpec.Properties[prop]
 		sdkName := naming.ToSdkName(prop)
@@ -1093,7 +1094,7 @@ func (ctx *cfSchemaContext) augmentDocumentation(referenceName, propName string,
 				}
 
 				if typeSchema.Type.Contains(jsschema.ObjectType) {
-					for _, name := range codegen.SortedKeys(typeSchema.Properties) {
+					for _, name := range maputil.SortedKeys(typeSchema.Properties) {
 						value := typeSchema.Properties[name]
 						ctx.augmentDocumentation(refName, name, value)
 					}
@@ -1103,7 +1104,7 @@ func (ctx *cfSchemaContext) augmentDocumentation(referenceName, propName string,
 	}
 
 	if len(spec.Properties) > 0 {
-		for _, name := range codegen.SortedKeys(spec.Properties) {
+		for _, name := range maputil.SortedKeys(spec.Properties) {
 			value := spec.Properties[name]
 			refName := referenceName
 			if refName == ctx.cfTypeName {
@@ -1405,7 +1406,7 @@ func (ctx *cfSchemaContext) genProperties(parentName string, typeSchema *jsschem
 	specs := map[string]pschema.PropertySpec{}
 	requiredSpecs := codegen.NewStringSet()
 	irreversibleNames := map[string]string{}
-	for _, name := range codegen.SortedKeys(typeSchema.Properties) {
+	for _, name := range maputil.SortedKeys(typeSchema.Properties) {
 		value := typeSchema.Properties[name]
 		sdkName := naming.ToSdkName(name)
 
