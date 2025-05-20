@@ -88,6 +88,10 @@
       "description" : "Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.",
       "type" : "string",
       "enum" : [ "AUTOMATIC", "OFF" ]
+    },
+    "DryRunAndUpdate" : {
+      "description" : "Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.",
+      "type" : "boolean"
     }
   },
   "definitions" : {
@@ -100,6 +104,10 @@
         },
         "DurationInSeconds" : {
           "type" : "string"
+        },
+        "RetryConfig" : {
+          "$ref" : "#/definitions/RetryConfig",
+          "description" : "Provide canary auto retry configuration"
         }
       },
       "required" : [ "Expression" ]
@@ -272,6 +280,17 @@
       "type" : "string",
       "description" : "Specifies which resources canary tags should be replicated to.",
       "enum" : [ "lambda-function" ]
+    },
+    "RetryConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MaxRetries" : {
+          "type" : "integer",
+          "description" : "maximum times the canary will be retried upon the scheduled run failure"
+        }
+      },
+      "required" : [ "MaxRetries" ]
     }
   },
   "required" : [ "Name", "Code", "ArtifactS3Location", "ExecutionRoleArn", "Schedule", "RuntimeVersion" ],
@@ -288,7 +307,7 @@
       "permissions" : [ "synthetics:CreateCanary", "synthetics:StartCanary", "synthetics:GetCanary", "synthetics:TagResource", "s3:CreateBucket", "s3:GetObject", "s3:GetObjectVersion", "s3:PutBucketEncryption", "s3:PutEncryptionConfiguration", "s3:GetBucketLocation", "lambda:CreateFunction", "lambda:AddPermission", "lambda:PublishVersion", "lambda:UpdateFunctionCode", "lambda:UpdateFunctionConfiguration", "lambda:GetFunctionConfiguration", "lambda:GetLayerVersionByArn", "lambda:GetLayerVersion", "lambda:PublishLayerVersion", "lambda:TagResource", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "iam:PassRole" ]
     },
     "update" : {
-      "permissions" : [ "synthetics:UpdateCanary", "synthetics:StartCanary", "synthetics:StopCanary", "synthetics:GetCanary", "synthetics:TagResource", "synthetics:UntagResource", "s3:GetObject", "s3:GetObjectVersion", "s3:PutBucketEncryption", "s3:PutEncryptionConfiguration", "s3:GetBucketLocation", "lambda:AddPermission", "lambda:PublishVersion", "lambda:UpdateFunctionCode", "lambda:UpdateFunctionConfiguration", "lambda:GetFunctionConfiguration", "lambda:GetLayerVersionByArn", "lambda:GetLayerVersion", "lambda:PublishLayerVersion", "lambda:ListTags", "lambda:TagResource", "lambda:UntagResource", "iam:PassRole", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
+      "permissions" : [ "synthetics:UpdateCanary", "synthetics:StartCanary", "synthetics:StartCanaryDryRun", "synthetics:StopCanary", "synthetics:GetCanary", "synthetics:GetCanaryRuns", "synthetics:TagResource", "synthetics:UntagResource", "s3:GetObject", "s3:GetObjectVersion", "s3:PutBucketEncryption", "s3:PutEncryptionConfiguration", "s3:GetBucketLocation", "lambda:AddPermission", "lambda:PublishVersion", "lambda:UpdateFunctionCode", "lambda:UpdateFunctionConfiguration", "lambda:GetFunctionConfiguration", "lambda:GetLayerVersionByArn", "lambda:GetLayerVersion", "lambda:PublishLayerVersion", "lambda:ListTags", "lambda:TagResource", "lambda:UntagResource", "iam:PassRole", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
     },
     "read" : {
       "permissions" : [ "synthetics:GetCanary", "synthetics:DescribeCanaries", "synthetics:ListTagsForResource", "iam:ListRoles", "s3:ListAllMyBuckets", "s3:GetBucketLocation" ]
@@ -304,6 +323,6 @@
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/State", "/properties/Code/SourceLocationArn" ],
-  "writeOnlyProperties" : [ "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/Script", "/properties/DeleteLambdaResourcesOnCanaryDeletion", "/properties/StartCanaryAfterCreation", "/properties/ResourcesToReplicateTags", "/properties/RunConfig/EnvironmentVariables", "/properties/VisualReference" ],
+  "writeOnlyProperties" : [ "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/Script", "/properties/DeleteLambdaResourcesOnCanaryDeletion", "/properties/StartCanaryAfterCreation", "/properties/ResourcesToReplicateTags", "/properties/RunConfig/EnvironmentVariables", "/properties/VisualReference", "/properties/DryRunAndUpdate" ],
   "deprecatedProperties" : [ "/properties/DeleteLambdaResourcesOnCanaryDeletion" ]
 }

@@ -1500,5 +1500,5 @@
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Id", "/properties/IndexId" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/Type" ]
+  "createOnlyProperties" : [ "/properties/Type", "/properties/IndexId" ]
 }
