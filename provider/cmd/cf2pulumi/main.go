@@ -72,7 +72,7 @@ func main() {
 	}
 
 	hcl2Cache := pcl.Cache(pcl.NewPackageCache())
-	pkg, err := schema.ImportSpec(*pkgSpec, nil)
+	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.ValidationOptions{AllowDanglingReferences: true})
 	if err != nil {
 		log.Fatalf("failed to parse import the spec: %v", err)
 	}
