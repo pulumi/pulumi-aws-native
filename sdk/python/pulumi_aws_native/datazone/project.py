@@ -14,6 +14,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['ProjectArgs', 'Project']
 
@@ -22,22 +25,38 @@ class ProjectArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 domain_unit_id: Optional[pulumi.Input[builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 project_profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                 project_profile_version: Optional[pulumi.Input[builtins.str]] = None,
+                 user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[builtins.str] domain_identifier: The ID of the Amazon DataZone domain in which this project is created.
         :param pulumi.Input[builtins.str] description: The description of the Amazon DataZone project.
+        :param pulumi.Input[builtins.str] domain_unit_id: The ID of the domain unit.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] glossary_terms: The glossary terms that can be used in this Amazon DataZone project.
         :param pulumi.Input[builtins.str] name: The name of the Amazon DataZone project.
+        :param pulumi.Input[builtins.str] project_profile_id: The project profile ID.
+        :param pulumi.Input[builtins.str] project_profile_version: The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]] user_parameters: The user parameters of the project.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if domain_unit_id is not None:
+            pulumi.set(__self__, "domain_unit_id", domain_unit_id)
         if glossary_terms is not None:
             pulumi.set(__self__, "glossary_terms", glossary_terms)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if project_profile_id is not None:
+            pulumi.set(__self__, "project_profile_id", project_profile_id)
+        if project_profile_version is not None:
+            pulumi.set(__self__, "project_profile_version", project_profile_version)
+        if user_parameters is not None:
+            pulumi.set(__self__, "user_parameters", user_parameters)
 
     @property
     @pulumi.getter(name="domainIdentifier")
@@ -64,6 +83,18 @@ class ProjectArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="domainUnitId")
+    def domain_unit_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ID of the domain unit.
+        """
+        return pulumi.get(self, "domain_unit_id")
+
+    @domain_unit_id.setter
+    def domain_unit_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "domain_unit_id", value)
+
+    @property
     @pulumi.getter(name="glossaryTerms")
     def glossary_terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -87,6 +118,42 @@ class ProjectArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="projectProfileId")
+    def project_profile_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The project profile ID.
+        """
+        return pulumi.get(self, "project_profile_id")
+
+    @project_profile_id.setter
+    def project_profile_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "project_profile_id", value)
+
+    @property
+    @pulumi.getter(name="projectProfileVersion")
+    def project_profile_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+        """
+        return pulumi.get(self, "project_profile_version")
+
+    @project_profile_version.setter
+    def project_profile_version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "project_profile_version", value)
+
+    @property
+    @pulumi.getter(name="userParameters")
+    def user_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]]]:
+        """
+        The user parameters of the project.
+        """
+        return pulumi.get(self, "user_parameters")
+
+    @user_parameters.setter
+    def user_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]]]):
+        pulumi.set(self, "user_parameters", value)
+
 
 class Project(pulumi.CustomResource):
 
@@ -98,8 +165,12 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 domain_unit_id: Optional[pulumi.Input[builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 project_profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                 project_profile_version: Optional[pulumi.Input[builtins.str]] = None,
+                 user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]]] = None,
                  __props__=None):
         """
         Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
@@ -108,8 +179,12 @@ class Project(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: The description of the Amazon DataZone project.
         :param pulumi.Input[builtins.str] domain_identifier: The ID of the Amazon DataZone domain in which this project is created.
+        :param pulumi.Input[builtins.str] domain_unit_id: The ID of the domain unit.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] glossary_terms: The glossary terms that can be used in this Amazon DataZone project.
         :param pulumi.Input[builtins.str] name: The name of the Amazon DataZone project.
+        :param pulumi.Input[builtins.str] project_profile_id: The project profile ID.
+        :param pulumi.Input[builtins.str] project_profile_version: The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]] user_parameters: The user parameters of the project.
         """
         ...
     @overload
@@ -137,8 +212,12 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 domain_unit_id: Optional[pulumi.Input[builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 project_profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                 project_profile_version: Optional[pulumi.Input[builtins.str]] = None,
+                 user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -152,14 +231,19 @@ class Project(pulumi.CustomResource):
             if domain_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_identifier'")
             __props__.__dict__["domain_identifier"] = domain_identifier
+            __props__.__dict__["domain_unit_id"] = domain_unit_id
             __props__.__dict__["glossary_terms"] = glossary_terms
             __props__.__dict__["name"] = name
+            __props__.__dict__["project_profile_id"] = project_profile_id
+            __props__.__dict__["project_profile_version"] = project_profile_version
+            __props__.__dict__["user_parameters"] = user_parameters
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["last_updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier"])
+            __props__.__dict__["project_status"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "domainUnitId", "projectProfileId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Project, __self__).__init__(
             'aws-native:datazone:Project',
@@ -189,9 +273,14 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["domain_id"] = None
         __props__.__dict__["domain_identifier"] = None
+        __props__.__dict__["domain_unit_id"] = None
         __props__.__dict__["glossary_terms"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["project_profile_id"] = None
+        __props__.__dict__["project_profile_version"] = None
+        __props__.__dict__["project_status"] = None
+        __props__.__dict__["user_parameters"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -243,6 +332,14 @@ class Project(pulumi.CustomResource):
         return pulumi.get(self, "domain_identifier")
 
     @property
+    @pulumi.getter(name="domainUnitId")
+    def domain_unit_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The ID of the domain unit.
+        """
+        return pulumi.get(self, "domain_unit_id")
+
+    @property
     @pulumi.getter(name="glossaryTerms")
     def glossary_terms(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
@@ -265,4 +362,36 @@ class Project(pulumi.CustomResource):
         The name of the Amazon DataZone project.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="projectProfileId")
+    def project_profile_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The project profile ID.
+        """
+        return pulumi.get(self, "project_profile_id")
+
+    @property
+    @pulumi.getter(name="projectProfileVersion")
+    def project_profile_version(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+        """
+        return pulumi.get(self, "project_profile_version")
+
+    @property
+    @pulumi.getter(name="projectStatus")
+    def project_status(self) -> pulumi.Output['ProjectStatus']:
+        """
+        The status of the project.
+        """
+        return pulumi.get(self, "project_status")
+
+    @property
+    @pulumi.getter(name="userParameters")
+    def user_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectEnvironmentConfigurationUserParameter']]]:
+        """
+        The user parameters of the project.
+        """
+        return pulumi.get(self, "user_parameters")
 

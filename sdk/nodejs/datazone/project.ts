@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -59,6 +62,10 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly domainIdentifier!: pulumi.Output<string>;
     /**
+     * The ID of the domain unit.
+     */
+    public readonly domainUnitId!: pulumi.Output<string | undefined>;
+    /**
      * The glossary terms that can be used in this Amazon DataZone project.
      */
     public readonly glossaryTerms!: pulumi.Output<string[] | undefined>;
@@ -70,6 +77,22 @@ export class Project extends pulumi.CustomResource {
      * The name of the Amazon DataZone project.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The project profile ID.
+     */
+    public readonly projectProfileId!: pulumi.Output<string | undefined>;
+    /**
+     * The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+     */
+    public readonly projectProfileVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the project.
+     */
+    public /*out*/ readonly projectStatus!: pulumi.Output<enums.datazone.ProjectStatus>;
+    /**
+     * The user parameters of the project.
+     */
+    public readonly userParameters!: pulumi.Output<outputs.datazone.ProjectEnvironmentConfigurationUserParameter[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -87,13 +110,18 @@ export class Project extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
+            resourceInputs["domainUnitId"] = args ? args.domainUnitId : undefined;
             resourceInputs["glossaryTerms"] = args ? args.glossaryTerms : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectProfileId"] = args ? args.projectProfileId : undefined;
+            resourceInputs["projectProfileVersion"] = args ? args.projectProfileVersion : undefined;
+            resourceInputs["userParameters"] = args ? args.userParameters : undefined;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["projectStatus"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -101,12 +129,17 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["domainIdentifier"] = undefined /*out*/;
+            resourceInputs["domainUnitId"] = undefined /*out*/;
             resourceInputs["glossaryTerms"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["projectProfileId"] = undefined /*out*/;
+            resourceInputs["projectProfileVersion"] = undefined /*out*/;
+            resourceInputs["projectStatus"] = undefined /*out*/;
+            resourceInputs["userParameters"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "domainUnitId", "projectProfileId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }
@@ -125,6 +158,10 @@ export interface ProjectArgs {
      */
     domainIdentifier: pulumi.Input<string>;
     /**
+     * The ID of the domain unit.
+     */
+    domainUnitId?: pulumi.Input<string>;
+    /**
      * The glossary terms that can be used in this Amazon DataZone project.
      */
     glossaryTerms?: pulumi.Input<pulumi.Input<string>[]>;
@@ -132,4 +169,16 @@ export interface ProjectArgs {
      * The name of the Amazon DataZone project.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The project profile ID.
+     */
+    projectProfileId?: pulumi.Input<string>;
+    /**
+     * The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+     */
+    projectProfileVersion?: pulumi.Input<string>;
+    /**
+     * The user parameters of the project.
+     */
+    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectEnvironmentConfigurationUserParameterArgs>[]>;
 }

@@ -26,11 +26,9 @@ type StorageSystem struct {
 	// A familiar name for the on-premises storage system.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The ARN of a secret stored by AWS Secrets Manager.
-	SecretsManagerArn pulumi.StringOutput `pulumi:"secretsManagerArn"`
-	// Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
-	ServerConfiguration StorageSystemServerConfigurationOutput `pulumi:"serverConfiguration"`
-	// Specifies the user name and password for accessing your on-premises storage system's management interface.
-	ServerCredentials StorageSystemServerCredentialsPtrOutput `pulumi:"serverCredentials"`
+	SecretsManagerArn   pulumi.StringOutput                     `pulumi:"secretsManagerArn"`
+	ServerConfiguration StorageSystemServerConfigurationOutput  `pulumi:"serverConfiguration"`
+	ServerCredentials   StorageSystemServerCredentialsPtrOutput `pulumi:"serverCredentials"`
 	// The ARN of the on-premises storage system added to DataSync Discovery.
 	StorageSystemArn pulumi.StringOutput `pulumi:"storageSystemArn"`
 	// The type of on-premises storage system that DataSync Discovery will analyze.
@@ -93,11 +91,9 @@ type storageSystemArgs struct {
 	// The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
 	// A familiar name for the on-premises storage system.
-	Name *string `pulumi:"name"`
-	// Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
+	Name                *string                          `pulumi:"name"`
 	ServerConfiguration StorageSystemServerConfiguration `pulumi:"serverConfiguration"`
-	// Specifies the user name and password for accessing your on-premises storage system's management interface.
-	ServerCredentials *StorageSystemServerCredentials `pulumi:"serverCredentials"`
+	ServerCredentials   *StorageSystemServerCredentials  `pulumi:"serverCredentials"`
 	// The type of on-premises storage system that DataSync Discovery will analyze.
 	SystemType StorageSystemSystemType `pulumi:"systemType"`
 	// An array of key-value pairs to apply to this resource.
@@ -111,11 +107,9 @@ type StorageSystemArgs struct {
 	// The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
 	CloudWatchLogGroupArn pulumi.StringPtrInput
 	// A familiar name for the on-premises storage system.
-	Name pulumi.StringPtrInput
-	// Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
+	Name                pulumi.StringPtrInput
 	ServerConfiguration StorageSystemServerConfigurationInput
-	// Specifies the user name and password for accessing your on-premises storage system's management interface.
-	ServerCredentials StorageSystemServerCredentialsPtrInput
+	ServerCredentials   StorageSystemServerCredentialsPtrInput
 	// The type of on-premises storage system that DataSync Discovery will analyze.
 	SystemType StorageSystemSystemTypeInput
 	// An array of key-value pairs to apply to this resource.
@@ -184,12 +178,10 @@ func (o StorageSystemOutput) SecretsManagerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageSystem) pulumi.StringOutput { return v.SecretsManagerArn }).(pulumi.StringOutput)
 }
 
-// Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
 func (o StorageSystemOutput) ServerConfiguration() StorageSystemServerConfigurationOutput {
 	return o.ApplyT(func(v *StorageSystem) StorageSystemServerConfigurationOutput { return v.ServerConfiguration }).(StorageSystemServerConfigurationOutput)
 }
 
-// Specifies the user name and password for accessing your on-premises storage system's management interface.
 func (o StorageSystemOutput) ServerCredentials() StorageSystemServerCredentialsPtrOutput {
 	return o.ApplyT(func(v *StorageSystem) StorageSystemServerCredentialsPtrOutput { return v.ServerCredentials }).(StorageSystemServerCredentialsPtrOutput)
 }

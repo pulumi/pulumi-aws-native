@@ -28,12 +28,22 @@ type Project struct {
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The ID of the Amazon DataZone domain in which this project is created.
 	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
+	// The ID of the domain unit.
+	DomainUnitId pulumi.StringPtrOutput `pulumi:"domainUnitId"`
 	// The glossary terms that can be used in this Amazon DataZone project.
 	GlossaryTerms pulumi.StringArrayOutput `pulumi:"glossaryTerms"`
 	// The timestamp of when the project was last updated.
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// The name of the Amazon DataZone project.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The project profile ID.
+	ProjectProfileId pulumi.StringPtrOutput `pulumi:"projectProfileId"`
+	// The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+	ProjectProfileVersion pulumi.StringPtrOutput `pulumi:"projectProfileVersion"`
+	// The status of the project.
+	ProjectStatus ProjectStatusOutput `pulumi:"projectStatus"`
+	// The user parameters of the project.
+	UserParameters ProjectEnvironmentConfigurationUserParameterArrayOutput `pulumi:"userParameters"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -48,6 +58,8 @@ func NewProject(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"domainIdentifier",
+		"domainUnitId",
+		"projectProfileId",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -87,10 +99,18 @@ type projectArgs struct {
 	Description *string `pulumi:"description"`
 	// The ID of the Amazon DataZone domain in which this project is created.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
+	// The ID of the domain unit.
+	DomainUnitId *string `pulumi:"domainUnitId"`
 	// The glossary terms that can be used in this Amazon DataZone project.
 	GlossaryTerms []string `pulumi:"glossaryTerms"`
 	// The name of the Amazon DataZone project.
 	Name *string `pulumi:"name"`
+	// The project profile ID.
+	ProjectProfileId *string `pulumi:"projectProfileId"`
+	// The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+	ProjectProfileVersion *string `pulumi:"projectProfileVersion"`
+	// The user parameters of the project.
+	UserParameters []ProjectEnvironmentConfigurationUserParameter `pulumi:"userParameters"`
 }
 
 // The set of arguments for constructing a Project resource.
@@ -99,10 +119,18 @@ type ProjectArgs struct {
 	Description pulumi.StringPtrInput
 	// The ID of the Amazon DataZone domain in which this project is created.
 	DomainIdentifier pulumi.StringInput
+	// The ID of the domain unit.
+	DomainUnitId pulumi.StringPtrInput
 	// The glossary terms that can be used in this Amazon DataZone project.
 	GlossaryTerms pulumi.StringArrayInput
 	// The name of the Amazon DataZone project.
 	Name pulumi.StringPtrInput
+	// The project profile ID.
+	ProjectProfileId pulumi.StringPtrInput
+	// The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+	ProjectProfileVersion pulumi.StringPtrInput
+	// The user parameters of the project.
+	UserParameters ProjectEnvironmentConfigurationUserParameterArrayInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -172,6 +200,11 @@ func (o ProjectOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
 }
 
+// The ID of the domain unit.
+func (o ProjectOutput) DomainUnitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.DomainUnitId }).(pulumi.StringPtrOutput)
+}
+
 // The glossary terms that can be used in this Amazon DataZone project.
 func (o ProjectOutput) GlossaryTerms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringArrayOutput { return v.GlossaryTerms }).(pulumi.StringArrayOutput)
@@ -185,6 +218,26 @@ func (o ProjectOutput) LastUpdatedAt() pulumi.StringOutput {
 // The name of the Amazon DataZone project.
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The project profile ID.
+func (o ProjectOutput) ProjectProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ProjectProfileId }).(pulumi.StringPtrOutput)
+}
+
+// The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+func (o ProjectOutput) ProjectProfileVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ProjectProfileVersion }).(pulumi.StringPtrOutput)
+}
+
+// The status of the project.
+func (o ProjectOutput) ProjectStatus() ProjectStatusOutput {
+	return o.ApplyT(func(v *Project) ProjectStatusOutput { return v.ProjectStatus }).(ProjectStatusOutput)
+}
+
+// The user parameters of the project.
+func (o ProjectOutput) UserParameters() ProjectEnvironmentConfigurationUserParameterArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectEnvironmentConfigurationUserParameterArrayOutput { return v.UserParameters }).(ProjectEnvironmentConfigurationUserParameterArrayOutput)
 }
 
 func init() {

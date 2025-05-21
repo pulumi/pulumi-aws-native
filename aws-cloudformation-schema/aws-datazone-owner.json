@@ -7,13 +7,13 @@
   },
   "handlers" : {
     "read" : {
-      "permissions" : [ "datazone:ListEntityOwners" ]
+      "permissions" : [ "datazone:ListEntityOwners", "iam:GetRole" ]
     },
     "create" : {
-      "permissions" : [ "datazone:AddEntityOwner", "datazone:ListEntityOwners", "datazone:GetGroupProfile", "datazone:GetUserProfile" ]
+      "permissions" : [ "datazone:AddEntityOwner", "datazone:ListEntityOwners", "datazone:GetGroupProfile", "datazone:GetUserProfile", "iam:GetRole" ]
     },
     "list" : {
-      "permissions" : [ "datazone:ListEntityOwners" ],
+      "permissions" : [ "datazone:ListEntityOwners", "iam:GetRole" ],
       "handlerSchema" : {
         "properties" : {
           "EntityType" : {
@@ -35,7 +35,7 @@
       }
     },
     "delete" : {
-      "permissions" : [ "datazone:RemoveEntityOwner", "datazone:GetUserProfile" ]
+      "permissions" : [ "datazone:RemoveEntityOwner", "datazone:GetUserProfile", "iam:GetRole" ]
     }
   },
   "typeName" : "AWS::DataZone::Owner",

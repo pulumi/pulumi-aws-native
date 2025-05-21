@@ -51,8 +51,6 @@ type LookupDataSourceResult struct {
 	//
 	// `b8cae438-6787-4091-8897-684a652bbb0a` .
 	Id *string `pulumi:"id"`
-	// The identifier of the index you want to use with the data source connector.
-	IndexId *string `pulumi:"indexId"`
 	// The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
 	LanguageCode *string `pulumi:"languageCode"`
 	// The name of the data source.
@@ -138,11 +136,6 @@ func (o LookupDataSourceResultOutput) Description() pulumi.StringPtrOutput {
 // `b8cae438-6787-4091-8897-684a652bbb0a` .
 func (o LookupDataSourceResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// The identifier of the index you want to use with the data source connector.
-func (o LookupDataSourceResultOutput) IndexId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.IndexId }).(pulumi.StringPtrOutput)
 }
 
 // The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .

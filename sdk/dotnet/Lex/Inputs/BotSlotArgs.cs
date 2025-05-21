@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("slotTypeName", required: true)]
         public Input<string> SlotTypeName { get; set; } = null!;
 
+        [Input("subSlotSetting")]
+        public Input<Inputs.BotSubSlotSettingArgs>? SubSlotSetting { get; set; }
+
         /// <summary>
         /// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
         /// 

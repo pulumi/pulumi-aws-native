@@ -61,10 +61,6 @@ export interface GetDataSourceResult {
      */
     readonly id?: string;
     /**
-     * The identifier of the index you want to use with the data source connector.
-     */
-    readonly indexId?: string;
-    /**
      * The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
      */
     readonly languageCode?: string;

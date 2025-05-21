@@ -207,12 +207,18 @@ __all__ = [
     'BotSlotValueArgsDict',
     'BotSlotArgs',
     'BotSlotArgsDict',
+    'BotSpecificationsArgs',
+    'BotSpecificationsArgsDict',
     'BotSsmlMessageArgs',
     'BotSsmlMessageArgsDict',
     'BotStillWaitingResponseSpecificationArgs',
     'BotStillWaitingResponseSpecificationArgsDict',
+    'BotSubSlotSettingArgs',
+    'BotSubSlotSettingArgsDict',
     'BotSubSlotTypeCompositionArgs',
     'BotSubSlotTypeCompositionArgsDict',
+    'BotSubSlotValueElicitationSettingArgs',
+    'BotSubSlotValueElicitationSettingArgsDict',
     'BotTagArgs',
     'BotTagArgsDict',
     'BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs',
@@ -6100,6 +6106,7 @@ if not MYPY:
         """
         Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs. Use obfuscated slots to protect information such as personally identifiable information (PII) in logs.
         """
+        sub_slot_setting: NotRequired[pulumi.Input['BotSubSlotSettingArgsDict']]
 elif False:
     BotSlotArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6111,7 +6118,8 @@ class BotSlotArgs:
                  value_elicitation_setting: pulumi.Input['BotSlotValueElicitationSettingArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  multiple_values_setting: Optional[pulumi.Input['BotMultipleValuesSettingArgs']] = None,
-                 obfuscation_setting: Optional[pulumi.Input['BotObfuscationSettingArgs']] = None):
+                 obfuscation_setting: Optional[pulumi.Input['BotObfuscationSettingArgs']] = None,
+                 sub_slot_setting: Optional[pulumi.Input['BotSubSlotSettingArgs']] = None):
         """
         :param pulumi.Input[builtins.str] name: The name given to the slot.
         :param pulumi.Input[builtins.str] slot_type_name: The name of the slot type that this slot is based on. The slot type defines the acceptable values for the slot.
@@ -6134,6 +6142,8 @@ class BotSlotArgs:
             pulumi.set(__self__, "multiple_values_setting", multiple_values_setting)
         if obfuscation_setting is not None:
             pulumi.set(__self__, "obfuscation_setting", obfuscation_setting)
+        if sub_slot_setting is not None:
+            pulumi.set(__self__, "sub_slot_setting", sub_slot_setting)
 
     @property
     @pulumi.getter
@@ -6211,6 +6221,49 @@ class BotSlotArgs:
     @obfuscation_setting.setter
     def obfuscation_setting(self, value: Optional[pulumi.Input['BotObfuscationSettingArgs']]):
         pulumi.set(self, "obfuscation_setting", value)
+
+    @property
+    @pulumi.getter(name="subSlotSetting")
+    def sub_slot_setting(self) -> Optional[pulumi.Input['BotSubSlotSettingArgs']]:
+        return pulumi.get(self, "sub_slot_setting")
+
+    @sub_slot_setting.setter
+    def sub_slot_setting(self, value: Optional[pulumi.Input['BotSubSlotSettingArgs']]):
+        pulumi.set(self, "sub_slot_setting", value)
+
+
+if not MYPY:
+    class BotSpecificationsArgsDict(TypedDict):
+        slot_type_id: pulumi.Input[builtins.str]
+        value_elicitation_setting: pulumi.Input['BotSubSlotValueElicitationSettingArgsDict']
+elif False:
+    BotSpecificationsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotSpecificationsArgs:
+    def __init__(__self__, *,
+                 slot_type_id: pulumi.Input[builtins.str],
+                 value_elicitation_setting: pulumi.Input['BotSubSlotValueElicitationSettingArgs']):
+        pulumi.set(__self__, "slot_type_id", slot_type_id)
+        pulumi.set(__self__, "value_elicitation_setting", value_elicitation_setting)
+
+    @property
+    @pulumi.getter(name="slotTypeId")
+    def slot_type_id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "slot_type_id")
+
+    @slot_type_id.setter
+    def slot_type_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "slot_type_id", value)
+
+    @property
+    @pulumi.getter(name="valueElicitationSetting")
+    def value_elicitation_setting(self) -> pulumi.Input['BotSubSlotValueElicitationSettingArgs']:
+        return pulumi.get(self, "value_elicitation_setting")
+
+    @value_elicitation_setting.setter
+    def value_elicitation_setting(self, value: pulumi.Input['BotSubSlotValueElicitationSettingArgs']):
+        pulumi.set(self, "value_elicitation_setting", value)
 
 
 if not MYPY:
@@ -6325,6 +6378,42 @@ class BotStillWaitingResponseSpecificationArgs:
 
 
 if not MYPY:
+    class BotSubSlotSettingArgsDict(TypedDict):
+        expression: NotRequired[pulumi.Input[builtins.str]]
+        slot_specifications: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['BotSpecificationsArgsDict']]]]
+elif False:
+    BotSubSlotSettingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotSubSlotSettingArgs:
+    def __init__(__self__, *,
+                 expression: Optional[pulumi.Input[builtins.str]] = None,
+                 slot_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input['BotSpecificationsArgs']]]] = None):
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if slot_specifications is not None:
+            pulumi.set(__self__, "slot_specifications", slot_specifications)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter(name="slotSpecifications")
+    def slot_specifications(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['BotSpecificationsArgs']]]]:
+        return pulumi.get(self, "slot_specifications")
+
+    @slot_specifications.setter
+    def slot_specifications(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['BotSpecificationsArgs']]]]):
+        pulumi.set(self, "slot_specifications", value)
+
+
+if not MYPY:
     class BotSubSlotTypeCompositionArgsDict(TypedDict):
         name: pulumi.Input[builtins.str]
         """
@@ -6372,6 +6461,68 @@ class BotSubSlotTypeCompositionArgs:
     @slot_type_id.setter
     def slot_type_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "slot_type_id", value)
+
+
+if not MYPY:
+    class BotSubSlotValueElicitationSettingArgsDict(TypedDict):
+        default_value_specification: NotRequired[pulumi.Input['BotSlotDefaultValueSpecificationArgsDict']]
+        prompt_specification: NotRequired[pulumi.Input['BotPromptSpecificationArgsDict']]
+        sample_utterances: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgsDict']]]]
+        wait_and_continue_specification: NotRequired[pulumi.Input['BotWaitAndContinueSpecificationArgsDict']]
+elif False:
+    BotSubSlotValueElicitationSettingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotSubSlotValueElicitationSettingArgs:
+    def __init__(__self__, *,
+                 default_value_specification: Optional[pulumi.Input['BotSlotDefaultValueSpecificationArgs']] = None,
+                 prompt_specification: Optional[pulumi.Input['BotPromptSpecificationArgs']] = None,
+                 sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgs']]]] = None,
+                 wait_and_continue_specification: Optional[pulumi.Input['BotWaitAndContinueSpecificationArgs']] = None):
+        if default_value_specification is not None:
+            pulumi.set(__self__, "default_value_specification", default_value_specification)
+        if prompt_specification is not None:
+            pulumi.set(__self__, "prompt_specification", prompt_specification)
+        if sample_utterances is not None:
+            pulumi.set(__self__, "sample_utterances", sample_utterances)
+        if wait_and_continue_specification is not None:
+            pulumi.set(__self__, "wait_and_continue_specification", wait_and_continue_specification)
+
+    @property
+    @pulumi.getter(name="defaultValueSpecification")
+    def default_value_specification(self) -> Optional[pulumi.Input['BotSlotDefaultValueSpecificationArgs']]:
+        return pulumi.get(self, "default_value_specification")
+
+    @default_value_specification.setter
+    def default_value_specification(self, value: Optional[pulumi.Input['BotSlotDefaultValueSpecificationArgs']]):
+        pulumi.set(self, "default_value_specification", value)
+
+    @property
+    @pulumi.getter(name="promptSpecification")
+    def prompt_specification(self) -> Optional[pulumi.Input['BotPromptSpecificationArgs']]:
+        return pulumi.get(self, "prompt_specification")
+
+    @prompt_specification.setter
+    def prompt_specification(self, value: Optional[pulumi.Input['BotPromptSpecificationArgs']]):
+        pulumi.set(self, "prompt_specification", value)
+
+    @property
+    @pulumi.getter(name="sampleUtterances")
+    def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgs']]]]:
+        return pulumi.get(self, "sample_utterances")
+
+    @sample_utterances.setter
+    def sample_utterances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgs']]]]):
+        pulumi.set(self, "sample_utterances", value)
+
+    @property
+    @pulumi.getter(name="waitAndContinueSpecification")
+    def wait_and_continue_specification(self) -> Optional[pulumi.Input['BotWaitAndContinueSpecificationArgs']]:
+        return pulumi.get(self, "wait_and_continue_specification")
+
+    @wait_and_continue_specification.setter
+    def wait_and_continue_specification(self, value: Optional[pulumi.Input['BotWaitAndContinueSpecificationArgs']]):
+        pulumi.set(self, "wait_and_continue_specification", value)
 
 
 if not MYPY:

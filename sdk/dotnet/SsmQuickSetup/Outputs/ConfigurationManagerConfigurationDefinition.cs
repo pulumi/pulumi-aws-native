@@ -19,10 +19,14 @@ namespace Pulumi.AwsNative.SsmQuickSetup.Outputs
         public readonly string? Id;
         /// <summary>
         /// The ARN of the IAM role used to administrate local configuration deployments.
+        /// 
+        /// &gt; Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
         /// </summary>
         public readonly string? LocalDeploymentAdministrationRoleArn;
         /// <summary>
         /// The name of the IAM role used to deploy local configurations.
+        /// 
+        /// &gt; Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
         /// </summary>
         public readonly string? LocalDeploymentExecutionRoleName;
         /// <summary>

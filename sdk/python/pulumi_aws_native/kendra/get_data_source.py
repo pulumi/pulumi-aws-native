@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSourceResult:
-    def __init__(__self__, arn=None, custom_document_enrichment_configuration=None, data_source_configuration=None, description=None, id=None, index_id=None, language_code=None, name=None, role_arn=None, schedule=None, tags=None):
+    def __init__(__self__, arn=None, custom_document_enrichment_configuration=None, data_source_configuration=None, description=None, id=None, language_code=None, name=None, role_arn=None, schedule=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,9 +43,6 @@ class GetDataSourceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if index_id and not isinstance(index_id, str):
-            raise TypeError("Expected argument 'index_id' to be a str")
-        pulumi.set(__self__, "index_id", index_id)
         if language_code and not isinstance(language_code, str):
             raise TypeError("Expected argument 'language_code' to be a str")
         pulumi.set(__self__, "language_code", language_code)
@@ -111,14 +108,6 @@ class GetDataSourceResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="indexId")
-    def index_id(self) -> Optional[builtins.str]:
-        """
-        The identifier of the index you want to use with the data source connector.
-        """
-        return pulumi.get(self, "index_id")
-
-    @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[builtins.str]:
         """
@@ -174,7 +163,6 @@ class AwaitableGetDataSourceResult(GetDataSourceResult):
             data_source_configuration=self.data_source_configuration,
             description=self.description,
             id=self.id,
-            index_id=self.index_id,
             language_code=self.language_code,
             name=self.name,
             role_arn=self.role_arn,
@@ -206,7 +194,6 @@ def get_data_source(id: Optional[builtins.str] = None,
         data_source_configuration=pulumi.get(__ret__, 'data_source_configuration'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
-        index_id=pulumi.get(__ret__, 'index_id'),
         language_code=pulumi.get(__ret__, 'language_code'),
         name=pulumi.get(__ret__, 'name'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
@@ -235,7 +222,6 @@ def get_data_source_output(id: Optional[pulumi.Input[builtins.str]] = None,
         data_source_configuration=pulumi.get(__response__, 'data_source_configuration'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
-        index_id=pulumi.get(__response__, 'index_id'),
         language_code=pulumi.get(__response__, 'language_code'),
         name=pulumi.get(__response__, 'name'),
         role_arn=pulumi.get(__response__, 'role_arn'),

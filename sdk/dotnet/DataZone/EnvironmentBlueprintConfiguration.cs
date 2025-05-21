@@ -53,11 +53,17 @@ namespace Pulumi.AwsNative.DataZone
         [Output("environmentBlueprintIdentifier")]
         public Output<string> EnvironmentBlueprintIdentifier { get; private set; } = null!;
 
+        [Output("environmentRolePermissionBoundary")]
+        public Output<string?> EnvironmentRolePermissionBoundary { get; private set; } = null!;
+
         /// <summary>
         /// The ARN of the manage access role.
         /// </summary>
         [Output("manageAccessRoleArn")]
         public Output<string?> ManageAccessRoleArn { get; private set; } = null!;
+
+        [Output("provisioningConfigurations")]
+        public Output<ImmutableArray<Outputs.EnvironmentBlueprintConfigurationProvisioningConfigurationProperties>> ProvisioningConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the provisioning role.
@@ -153,11 +159,22 @@ namespace Pulumi.AwsNative.DataZone
         [Input("environmentBlueprintIdentifier", required: true)]
         public Input<string> EnvironmentBlueprintIdentifier { get; set; } = null!;
 
+        [Input("environmentRolePermissionBoundary")]
+        public Input<string>? EnvironmentRolePermissionBoundary { get; set; }
+
         /// <summary>
         /// The ARN of the manage access role.
         /// </summary>
         [Input("manageAccessRoleArn")]
         public Input<string>? ManageAccessRoleArn { get; set; }
+
+        [Input("provisioningConfigurations")]
+        private InputList<Inputs.EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs>? _provisioningConfigurations;
+        public InputList<Inputs.EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs> ProvisioningConfigurations
+        {
+            get => _provisioningConfigurations ?? (_provisioningConfigurations = new InputList<Inputs.EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs>());
+            set => _provisioningConfigurations = value;
+        }
 
         /// <summary>
         /// The ARN of the provisioning role.

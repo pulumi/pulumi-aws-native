@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -59,6 +62,10 @@ export interface GetProjectResult {
      * The name of the Amazon DataZone project.
      */
     readonly name?: string;
+    /**
+     * The status of the project.
+     */
+    readonly projectStatus?: enums.datazone.ProjectStatus;
 }
 /**
  * Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.

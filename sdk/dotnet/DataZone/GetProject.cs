@@ -107,6 +107,10 @@ namespace Pulumi.AwsNative.DataZone
         /// The name of the Amazon DataZone project.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The status of the project.
+        /// </summary>
+        public readonly Pulumi.AwsNative.DataZone.ProjectStatus? ProjectStatus;
 
         [OutputConstructor]
         private GetProjectResult(
@@ -124,7 +128,9 @@ namespace Pulumi.AwsNative.DataZone
 
             string? lastUpdatedAt,
 
-            string? name)
+            string? name,
+
+            Pulumi.AwsNative.DataZone.ProjectStatus? projectStatus)
         {
             CreatedAt = createdAt;
             CreatedBy = createdBy;
@@ -134,6 +140,7 @@ namespace Pulumi.AwsNative.DataZone
             Id = id;
             LastUpdatedAt = lastUpdatedAt;
             Name = name;
+            ProjectStatus = projectStatus;
         }
     }
 }

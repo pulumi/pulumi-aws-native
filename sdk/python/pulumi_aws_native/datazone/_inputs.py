@@ -115,6 +115,10 @@ __all__ = [
     'DomainSingleSignOnArgsDict',
     'EnvironmentActionsAwsConsoleLinkParametersArgs',
     'EnvironmentActionsAwsConsoleLinkParametersArgsDict',
+    'EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs',
+    'EnvironmentBlueprintConfigurationLakeFormationConfigurationArgsDict',
+    'EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs',
+    'EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict',
     'EnvironmentBlueprintConfigurationRegionalParameterArgs',
     'EnvironmentBlueprintConfigurationRegionalParameterArgsDict',
     'EnvironmentParameterArgs',
@@ -123,6 +127,10 @@ __all__ = [
     'EnvironmentProfileEnvironmentParameterArgsDict',
     'OwnerPropertiesArgs',
     'OwnerPropertiesArgsDict',
+    'ProjectEnvironmentConfigurationUserParameterArgs',
+    'ProjectEnvironmentConfigurationUserParameterArgsDict',
+    'ProjectEnvironmentParameterArgs',
+    'ProjectEnvironmentParameterArgsDict',
     'ProjectMembershipMember0PropertiesArgs',
     'ProjectMembershipMember0PropertiesArgsDict',
     'ProjectMembershipMember1PropertiesArgs',
@@ -2545,6 +2553,64 @@ class EnvironmentActionsAwsConsoleLinkParametersArgs:
 
 
 if not MYPY:
+    class EnvironmentBlueprintConfigurationLakeFormationConfigurationArgsDict(TypedDict):
+        location_registration_exclude_s3_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        location_registration_role: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    EnvironmentBlueprintConfigurationLakeFormationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs:
+    def __init__(__self__, *,
+                 location_registration_exclude_s3_locations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 location_registration_role: Optional[pulumi.Input[builtins.str]] = None):
+        if location_registration_exclude_s3_locations is not None:
+            pulumi.set(__self__, "location_registration_exclude_s3_locations", location_registration_exclude_s3_locations)
+        if location_registration_role is not None:
+            pulumi.set(__self__, "location_registration_role", location_registration_role)
+
+    @property
+    @pulumi.getter(name="locationRegistrationExcludeS3Locations")
+    def location_registration_exclude_s3_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "location_registration_exclude_s3_locations")
+
+    @location_registration_exclude_s3_locations.setter
+    def location_registration_exclude_s3_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "location_registration_exclude_s3_locations", value)
+
+    @property
+    @pulumi.getter(name="locationRegistrationRole")
+    def location_registration_role(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "location_registration_role")
+
+    @location_registration_role.setter
+    def location_registration_role(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "location_registration_role", value)
+
+
+if not MYPY:
+    class EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict(TypedDict):
+        lake_formation_configuration: pulumi.Input['EnvironmentBlueprintConfigurationLakeFormationConfigurationArgsDict']
+elif False:
+    EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 lake_formation_configuration: pulumi.Input['EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs']):
+        pulumi.set(__self__, "lake_formation_configuration", lake_formation_configuration)
+
+    @property
+    @pulumi.getter(name="lakeFormationConfiguration")
+    def lake_formation_configuration(self) -> pulumi.Input['EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs']:
+        return pulumi.get(self, "lake_formation_configuration")
+
+    @lake_formation_configuration.setter
+    def lake_formation_configuration(self, value: pulumi.Input['EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs']):
+        pulumi.set(self, "lake_formation_configuration", value)
+
+
+if not MYPY:
     class EnvironmentBlueprintConfigurationRegionalParameterArgsDict(TypedDict):
         parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
         """
@@ -2724,6 +2790,91 @@ class OwnerPropertiesArgs:
         The properties of a domain unit's owner.
         """
         pass
+
+
+if not MYPY:
+    class ProjectEnvironmentConfigurationUserParameterArgsDict(TypedDict):
+        environment_configuration_name: NotRequired[pulumi.Input[builtins.str]]
+        environment_id: NotRequired[pulumi.Input[builtins.str]]
+        environment_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgsDict']]]]
+elif False:
+    ProjectEnvironmentConfigurationUserParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectEnvironmentConfigurationUserParameterArgs:
+    def __init__(__self__, *,
+                 environment_configuration_name: Optional[pulumi.Input[builtins.str]] = None,
+                 environment_id: Optional[pulumi.Input[builtins.str]] = None,
+                 environment_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]]] = None):
+        if environment_configuration_name is not None:
+            pulumi.set(__self__, "environment_configuration_name", environment_configuration_name)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if environment_parameters is not None:
+            pulumi.set(__self__, "environment_parameters", environment_parameters)
+
+    @property
+    @pulumi.getter(name="environmentConfigurationName")
+    def environment_configuration_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "environment_configuration_name")
+
+    @environment_configuration_name.setter
+    def environment_configuration_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "environment_configuration_name", value)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter(name="environmentParameters")
+    def environment_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]]]:
+        return pulumi.get(self, "environment_parameters")
+
+    @environment_parameters.setter
+    def environment_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]]]):
+        pulumi.set(self, "environment_parameters", value)
+
+
+if not MYPY:
+    class ProjectEnvironmentParameterArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[builtins.str]]
+        value: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    ProjectEnvironmentParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectEnvironmentParameterArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 value: Optional[pulumi.Input[builtins.str]] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

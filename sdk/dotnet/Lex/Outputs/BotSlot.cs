@@ -33,6 +33,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// The name of the slot type that this slot is based on. The slot type defines the acceptable values for the slot.
         /// </summary>
         public readonly string SlotTypeName;
+        public readonly Outputs.BotSubSlotSetting? SubSlotSetting;
         /// <summary>
         /// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
         /// 
@@ -55,6 +56,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             string slotTypeName,
 
+            Outputs.BotSubSlotSetting? subSlotSetting,
+
             Outputs.BotSlotValueElicitationSetting valueElicitationSetting)
         {
             Description = description;
@@ -62,6 +65,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
             Name = name;
             ObfuscationSetting = obfuscationSetting;
             SlotTypeName = slotTypeName;
+            SubSlotSetting = subSlotSetting;
             ValueElicitationSetting = valueElicitationSetting;
         }
     }

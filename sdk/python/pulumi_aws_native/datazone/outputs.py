@@ -67,10 +67,14 @@ __all__ = [
     'DataSourceScheduleConfiguration',
     'DomainSingleSignOn',
     'EnvironmentActionsAwsConsoleLinkParameters',
+    'EnvironmentBlueprintConfigurationLakeFormationConfiguration',
+    'EnvironmentBlueprintConfigurationProvisioningConfigurationProperties',
     'EnvironmentBlueprintConfigurationRegionalParameter',
     'EnvironmentParameter',
     'EnvironmentProfileEnvironmentParameter',
     'OwnerProperties',
+    'ProjectEnvironmentConfigurationUserParameter',
+    'ProjectEnvironmentParameter',
     'ProjectMembershipMember0Properties',
     'ProjectMembershipMember1Properties',
     'SubscriptionTargetForm',
@@ -2399,6 +2403,75 @@ class EnvironmentActionsAwsConsoleLinkParameters(dict):
 
 
 @pulumi.output_type
+class EnvironmentBlueprintConfigurationLakeFormationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "locationRegistrationExcludeS3Locations":
+            suggest = "location_registration_exclude_s3_locations"
+        elif key == "locationRegistrationRole":
+            suggest = "location_registration_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentBlueprintConfigurationLakeFormationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentBlueprintConfigurationLakeFormationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentBlueprintConfigurationLakeFormationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location_registration_exclude_s3_locations: Optional[Sequence[builtins.str]] = None,
+                 location_registration_role: Optional[builtins.str] = None):
+        if location_registration_exclude_s3_locations is not None:
+            pulumi.set(__self__, "location_registration_exclude_s3_locations", location_registration_exclude_s3_locations)
+        if location_registration_role is not None:
+            pulumi.set(__self__, "location_registration_role", location_registration_role)
+
+    @property
+    @pulumi.getter(name="locationRegistrationExcludeS3Locations")
+    def location_registration_exclude_s3_locations(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "location_registration_exclude_s3_locations")
+
+    @property
+    @pulumi.getter(name="locationRegistrationRole")
+    def location_registration_role(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "location_registration_role")
+
+
+@pulumi.output_type
+class EnvironmentBlueprintConfigurationProvisioningConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lakeFormationConfiguration":
+            suggest = "lake_formation_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentBlueprintConfigurationProvisioningConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentBlueprintConfigurationProvisioningConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentBlueprintConfigurationProvisioningConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lake_formation_configuration: 'outputs.EnvironmentBlueprintConfigurationLakeFormationConfiguration'):
+        pulumi.set(__self__, "lake_formation_configuration", lake_formation_configuration)
+
+    @property
+    @pulumi.getter(name="lakeFormationConfiguration")
+    def lake_formation_configuration(self) -> 'outputs.EnvironmentBlueprintConfigurationLakeFormationConfiguration':
+        return pulumi.get(self, "lake_formation_configuration")
+
+
+@pulumi.output_type
 class EnvironmentBlueprintConfigurationRegionalParameter(dict):
     def __init__(__self__, *,
                  parameters: Optional[Mapping[str, builtins.str]] = None,
@@ -2509,6 +2582,77 @@ class OwnerProperties(dict):
         The properties of a domain unit's owner.
         """
         pass
+
+
+@pulumi.output_type
+class ProjectEnvironmentConfigurationUserParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentConfigurationName":
+            suggest = "environment_configuration_name"
+        elif key == "environmentId":
+            suggest = "environment_id"
+        elif key == "environmentParameters":
+            suggest = "environment_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectEnvironmentConfigurationUserParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectEnvironmentConfigurationUserParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectEnvironmentConfigurationUserParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 environment_configuration_name: Optional[builtins.str] = None,
+                 environment_id: Optional[builtins.str] = None,
+                 environment_parameters: Optional[Sequence['outputs.ProjectEnvironmentParameter']] = None):
+        if environment_configuration_name is not None:
+            pulumi.set(__self__, "environment_configuration_name", environment_configuration_name)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if environment_parameters is not None:
+            pulumi.set(__self__, "environment_parameters", environment_parameters)
+
+    @property
+    @pulumi.getter(name="environmentConfigurationName")
+    def environment_configuration_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "environment_configuration_name")
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "environment_id")
+
+    @property
+    @pulumi.getter(name="environmentParameters")
+    def environment_parameters(self) -> Optional[Sequence['outputs.ProjectEnvironmentParameter']]:
+        return pulumi.get(self, "environment_parameters")
+
+
+@pulumi.output_type
+class ProjectEnvironmentParameter(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -171,20 +171,18 @@ class TrustAnchorSource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 source_data: Optional[Any] = None,
-                 source_type: Optional['TrustAnchorType'] = None):
+                 source_data: Any,
+                 source_type: 'TrustAnchorType'):
         """
         :param Union['TrustAnchorSourceData0Properties', 'TrustAnchorSourceData1Properties'] source_data: A union object representing the data field of the TrustAnchor depending on its type
         :param 'TrustAnchorType' source_type: The type of the TrustAnchor.
         """
-        if source_data is not None:
-            pulumi.set(__self__, "source_data", source_data)
-        if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+        pulumi.set(__self__, "source_data", source_data)
+        pulumi.set(__self__, "source_type", source_type)
 
     @property
     @pulumi.getter(name="sourceData")
-    def source_data(self) -> Optional[Any]:
+    def source_data(self) -> Any:
         """
         A union object representing the data field of the TrustAnchor depending on its type
         """
@@ -192,7 +190,7 @@ class TrustAnchorSource(dict):
 
     @property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional['TrustAnchorType']:
+    def source_type(self) -> 'TrustAnchorType':
         """
         The type of the TrustAnchor.
         """

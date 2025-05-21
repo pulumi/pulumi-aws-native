@@ -154,6 +154,8 @@ type Canary struct {
 	Code CanaryCodeOutput `pulumi:"code"`
 	// Deletes associated lambda resources created by Synthetics if set to True. Default is False
 	DeleteLambdaResourcesOnCanaryDeletion pulumi.BoolPtrOutput `pulumi:"deleteLambdaResourcesOnCanaryDeletion"`
+	// Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
+	DryRunAndUpdate pulumi.BoolPtrOutput `pulumi:"dryRunAndUpdate"`
 	// Lambda Execution role used to run your canaries
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// Retention period of failed canary runs represented in number of days
@@ -251,6 +253,8 @@ type canaryArgs struct {
 	Code CanaryCode `pulumi:"code"`
 	// Deletes associated lambda resources created by Synthetics if set to True. Default is False
 	DeleteLambdaResourcesOnCanaryDeletion *bool `pulumi:"deleteLambdaResourcesOnCanaryDeletion"`
+	// Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
+	DryRunAndUpdate *bool `pulumi:"dryRunAndUpdate"`
 	// Lambda Execution role used to run your canaries
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// Retention period of failed canary runs represented in number of days
@@ -289,6 +293,8 @@ type CanaryArgs struct {
 	Code CanaryCodeInput
 	// Deletes associated lambda resources created by Synthetics if set to True. Default is False
 	DeleteLambdaResourcesOnCanaryDeletion pulumi.BoolPtrInput
+	// Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
+	DryRunAndUpdate pulumi.BoolPtrInput
 	// Lambda Execution role used to run your canaries
 	ExecutionRoleArn pulumi.StringInput
 	// Retention period of failed canary runs represented in number of days
@@ -377,6 +383,11 @@ func (o CanaryOutput) Code() CanaryCodeOutput {
 // Deletes associated lambda resources created by Synthetics if set to True. Default is False
 func (o CanaryOutput) DeleteLambdaResourcesOnCanaryDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Canary) pulumi.BoolPtrOutput { return v.DeleteLambdaResourcesOnCanaryDeletion }).(pulumi.BoolPtrOutput)
+}
+
+// Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
+func (o CanaryOutput) DryRunAndUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Canary) pulumi.BoolPtrOutput { return v.DryRunAndUpdate }).(pulumi.BoolPtrOutput)
 }
 
 // Lambda Execution role used to run your canaries

@@ -154,6 +154,17 @@ export const ProjectMembershipUserDesignation = {
 
 export type ProjectMembershipUserDesignation = (typeof ProjectMembershipUserDesignation)[keyof typeof ProjectMembershipUserDesignation];
 
+export const ProjectStatus = {
+    Active: "ACTIVE",
+    Moving: "MOVING",
+    Deleting: "DELETING",
+    DeleteFailed: "DELETE_FAILED",
+    Updating: "UPDATING",
+    UpdateFailed: "UPDATE_FAILED",
+} as const;
+
+export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
+
 export const UserProfileStatus = {
     Assigned: "ASSIGNED",
     NotAssigned: "NOT_ASSIGNED",

@@ -147,6 +147,10 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly deleteLambdaResourcesOnCanaryDeletion!: pulumi.Output<boolean | undefined>;
     /**
+     * Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
+     */
+    public readonly dryRunAndUpdate!: pulumi.Output<boolean | undefined>;
+    /**
      * Lambda Execution role used to run your canaries
      */
     public readonly executionRoleArn!: pulumi.Output<string>;
@@ -233,6 +237,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
             resourceInputs["code"] = args ? args.code : undefined;
             resourceInputs["deleteLambdaResourcesOnCanaryDeletion"] = args ? args.deleteLambdaResourcesOnCanaryDeletion : undefined;
+            resourceInputs["dryRunAndUpdate"] = args ? args.dryRunAndUpdate : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -254,6 +259,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["code"] = undefined /*out*/;
             resourceInputs["deleteLambdaResourcesOnCanaryDeletion"] = undefined /*out*/;
+            resourceInputs["dryRunAndUpdate"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["failureRetentionPeriod"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -296,6 +302,10 @@ export interface CanaryArgs {
      * Deletes associated lambda resources created by Synthetics if set to True. Default is False
      */
     deleteLambdaResourcesOnCanaryDeletion?: pulumi.Input<boolean>;
+    /**
+     * Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
+     */
+    dryRunAndUpdate?: pulumi.Input<boolean>;
     /**
      * Lambda Execution role used to run your canaries
      */

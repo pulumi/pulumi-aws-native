@@ -7655,6 +7655,165 @@ func (o EnvironmentActionsAwsConsoleLinkParametersPtrOutput) Uri() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type EnvironmentBlueprintConfigurationLakeFormationConfiguration struct {
+	LocationRegistrationExcludeS3Locations []string `pulumi:"locationRegistrationExcludeS3Locations"`
+	LocationRegistrationRole               *string  `pulumi:"locationRegistrationRole"`
+}
+
+// EnvironmentBlueprintConfigurationLakeFormationConfigurationInput is an input type that accepts EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs and EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput values.
+// You can construct a concrete instance of `EnvironmentBlueprintConfigurationLakeFormationConfigurationInput` via:
+//
+//	EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs{...}
+type EnvironmentBlueprintConfigurationLakeFormationConfigurationInput interface {
+	pulumi.Input
+
+	ToEnvironmentBlueprintConfigurationLakeFormationConfigurationOutput() EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput
+	ToEnvironmentBlueprintConfigurationLakeFormationConfigurationOutputWithContext(context.Context) EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput
+}
+
+type EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs struct {
+	LocationRegistrationExcludeS3Locations pulumi.StringArrayInput `pulumi:"locationRegistrationExcludeS3Locations"`
+	LocationRegistrationRole               pulumi.StringPtrInput   `pulumi:"locationRegistrationRole"`
+}
+
+func (EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentBlueprintConfigurationLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (i EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs) ToEnvironmentBlueprintConfigurationLakeFormationConfigurationOutput() EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput {
+	return i.ToEnvironmentBlueprintConfigurationLakeFormationConfigurationOutputWithContext(context.Background())
+}
+
+func (i EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs) ToEnvironmentBlueprintConfigurationLakeFormationConfigurationOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput)
+}
+
+type EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentBlueprintConfigurationLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (o EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput) ToEnvironmentBlueprintConfigurationLakeFormationConfigurationOutput() EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput {
+	return o
+}
+
+func (o EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput) ToEnvironmentBlueprintConfigurationLakeFormationConfigurationOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput {
+	return o
+}
+
+func (o EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput) LocationRegistrationExcludeS3Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EnvironmentBlueprintConfigurationLakeFormationConfiguration) []string {
+		return v.LocationRegistrationExcludeS3Locations
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput) LocationRegistrationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentBlueprintConfigurationLakeFormationConfiguration) *string {
+		return v.LocationRegistrationRole
+	}).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentBlueprintConfigurationProvisioningConfiguration0Properties struct {
+	LakeFormationConfiguration EnvironmentBlueprintConfigurationLakeFormationConfiguration `pulumi:"lakeFormationConfiguration"`
+}
+
+type EnvironmentBlueprintConfigurationProvisioningConfigurationProperties struct {
+	LakeFormationConfiguration EnvironmentBlueprintConfigurationLakeFormationConfiguration `pulumi:"lakeFormationConfiguration"`
+}
+
+// EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesInput is an input type that accepts EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs and EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesInput` via:
+//
+//	EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs{...}
+type EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput() EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput
+	ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutputWithContext(context.Context) EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput
+}
+
+type EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs struct {
+	LakeFormationConfiguration EnvironmentBlueprintConfigurationLakeFormationConfigurationInput `pulumi:"lakeFormationConfiguration"`
+}
+
+func (EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentBlueprintConfigurationProvisioningConfigurationProperties)(nil)).Elem()
+}
+
+func (i EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs) ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput() EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput {
+	return i.ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs) ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput)
+}
+
+// EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayInput is an input type that accepts EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArray and EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput values.
+// You can construct a concrete instance of `EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayInput` via:
+//
+//	EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArray{ EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs{...} }
+type EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput() EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput
+	ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutputWithContext(context.Context) EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput
+}
+
+type EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArray []EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesInput
+
+func (EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentBlueprintConfigurationProvisioningConfigurationProperties)(nil)).Elem()
+}
+
+func (i EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArray) ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput() EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput {
+	return i.ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArray) ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput)
+}
+
+type EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentBlueprintConfigurationProvisioningConfigurationProperties)(nil)).Elem()
+}
+
+func (o EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput) ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput() EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput {
+	return o
+}
+
+func (o EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput) ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput {
+	return o
+}
+
+func (o EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput) LakeFormationConfiguration() EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput {
+	return o.ApplyT(func(v EnvironmentBlueprintConfigurationProvisioningConfigurationProperties) EnvironmentBlueprintConfigurationLakeFormationConfiguration {
+		return v.LakeFormationConfiguration
+	}).(EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput)
+}
+
+type EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentBlueprintConfigurationProvisioningConfigurationProperties)(nil)).Elem()
+}
+
+func (o EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput) ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput() EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput {
+	return o
+}
+
+func (o EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput) ToEnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput {
+	return o
+}
+
+func (o EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput) Index(i pulumi.IntInput) EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentBlueprintConfigurationProvisioningConfigurationProperties {
+		return vs[0].([]EnvironmentBlueprintConfigurationProvisioningConfigurationProperties)[vs[1].(int)]
+	}).(EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput)
+}
+
 type EnvironmentBlueprintConfigurationRegionalParameter struct {
 	// A string to string map containing parameters for the region.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -8023,6 +8182,214 @@ func (o OwnerPropertiesOutput) ToOwnerPropertiesOutput() OwnerPropertiesOutput {
 
 func (o OwnerPropertiesOutput) ToOwnerPropertiesOutputWithContext(ctx context.Context) OwnerPropertiesOutput {
 	return o
+}
+
+type ProjectEnvironmentConfigurationUserParameter struct {
+	EnvironmentConfigurationName *string                       `pulumi:"environmentConfigurationName"`
+	EnvironmentId                *string                       `pulumi:"environmentId"`
+	EnvironmentParameters        []ProjectEnvironmentParameter `pulumi:"environmentParameters"`
+}
+
+// ProjectEnvironmentConfigurationUserParameterInput is an input type that accepts ProjectEnvironmentConfigurationUserParameterArgs and ProjectEnvironmentConfigurationUserParameterOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentConfigurationUserParameterInput` via:
+//
+//	ProjectEnvironmentConfigurationUserParameterArgs{...}
+type ProjectEnvironmentConfigurationUserParameterInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentConfigurationUserParameterOutput() ProjectEnvironmentConfigurationUserParameterOutput
+	ToProjectEnvironmentConfigurationUserParameterOutputWithContext(context.Context) ProjectEnvironmentConfigurationUserParameterOutput
+}
+
+type ProjectEnvironmentConfigurationUserParameterArgs struct {
+	EnvironmentConfigurationName pulumi.StringPtrInput                 `pulumi:"environmentConfigurationName"`
+	EnvironmentId                pulumi.StringPtrInput                 `pulumi:"environmentId"`
+	EnvironmentParameters        ProjectEnvironmentParameterArrayInput `pulumi:"environmentParameters"`
+}
+
+func (ProjectEnvironmentConfigurationUserParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentConfigurationUserParameter)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentConfigurationUserParameterArgs) ToProjectEnvironmentConfigurationUserParameterOutput() ProjectEnvironmentConfigurationUserParameterOutput {
+	return i.ToProjectEnvironmentConfigurationUserParameterOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentConfigurationUserParameterArgs) ToProjectEnvironmentConfigurationUserParameterOutputWithContext(ctx context.Context) ProjectEnvironmentConfigurationUserParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentConfigurationUserParameterOutput)
+}
+
+// ProjectEnvironmentConfigurationUserParameterArrayInput is an input type that accepts ProjectEnvironmentConfigurationUserParameterArray and ProjectEnvironmentConfigurationUserParameterArrayOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentConfigurationUserParameterArrayInput` via:
+//
+//	ProjectEnvironmentConfigurationUserParameterArray{ ProjectEnvironmentConfigurationUserParameterArgs{...} }
+type ProjectEnvironmentConfigurationUserParameterArrayInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentConfigurationUserParameterArrayOutput() ProjectEnvironmentConfigurationUserParameterArrayOutput
+	ToProjectEnvironmentConfigurationUserParameterArrayOutputWithContext(context.Context) ProjectEnvironmentConfigurationUserParameterArrayOutput
+}
+
+type ProjectEnvironmentConfigurationUserParameterArray []ProjectEnvironmentConfigurationUserParameterInput
+
+func (ProjectEnvironmentConfigurationUserParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectEnvironmentConfigurationUserParameter)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentConfigurationUserParameterArray) ToProjectEnvironmentConfigurationUserParameterArrayOutput() ProjectEnvironmentConfigurationUserParameterArrayOutput {
+	return i.ToProjectEnvironmentConfigurationUserParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentConfigurationUserParameterArray) ToProjectEnvironmentConfigurationUserParameterArrayOutputWithContext(ctx context.Context) ProjectEnvironmentConfigurationUserParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentConfigurationUserParameterArrayOutput)
+}
+
+type ProjectEnvironmentConfigurationUserParameterOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentConfigurationUserParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentConfigurationUserParameter)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentConfigurationUserParameterOutput) ToProjectEnvironmentConfigurationUserParameterOutput() ProjectEnvironmentConfigurationUserParameterOutput {
+	return o
+}
+
+func (o ProjectEnvironmentConfigurationUserParameterOutput) ToProjectEnvironmentConfigurationUserParameterOutputWithContext(ctx context.Context) ProjectEnvironmentConfigurationUserParameterOutput {
+	return o
+}
+
+func (o ProjectEnvironmentConfigurationUserParameterOutput) EnvironmentConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironmentConfigurationUserParameter) *string { return v.EnvironmentConfigurationName }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectEnvironmentConfigurationUserParameterOutput) EnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironmentConfigurationUserParameter) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectEnvironmentConfigurationUserParameterOutput) EnvironmentParameters() ProjectEnvironmentParameterArrayOutput {
+	return o.ApplyT(func(v ProjectEnvironmentConfigurationUserParameter) []ProjectEnvironmentParameter {
+		return v.EnvironmentParameters
+	}).(ProjectEnvironmentParameterArrayOutput)
+}
+
+type ProjectEnvironmentConfigurationUserParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentConfigurationUserParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectEnvironmentConfigurationUserParameter)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentConfigurationUserParameterArrayOutput) ToProjectEnvironmentConfigurationUserParameterArrayOutput() ProjectEnvironmentConfigurationUserParameterArrayOutput {
+	return o
+}
+
+func (o ProjectEnvironmentConfigurationUserParameterArrayOutput) ToProjectEnvironmentConfigurationUserParameterArrayOutputWithContext(ctx context.Context) ProjectEnvironmentConfigurationUserParameterArrayOutput {
+	return o
+}
+
+func (o ProjectEnvironmentConfigurationUserParameterArrayOutput) Index(i pulumi.IntInput) ProjectEnvironmentConfigurationUserParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectEnvironmentConfigurationUserParameter {
+		return vs[0].([]ProjectEnvironmentConfigurationUserParameter)[vs[1].(int)]
+	}).(ProjectEnvironmentConfigurationUserParameterOutput)
+}
+
+type ProjectEnvironmentParameter struct {
+	Name  *string `pulumi:"name"`
+	Value *string `pulumi:"value"`
+}
+
+// ProjectEnvironmentParameterInput is an input type that accepts ProjectEnvironmentParameterArgs and ProjectEnvironmentParameterOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentParameterInput` via:
+//
+//	ProjectEnvironmentParameterArgs{...}
+type ProjectEnvironmentParameterInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentParameterOutput() ProjectEnvironmentParameterOutput
+	ToProjectEnvironmentParameterOutputWithContext(context.Context) ProjectEnvironmentParameterOutput
+}
+
+type ProjectEnvironmentParameterArgs struct {
+	Name  pulumi.StringPtrInput `pulumi:"name"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ProjectEnvironmentParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentParameter)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentParameterArgs) ToProjectEnvironmentParameterOutput() ProjectEnvironmentParameterOutput {
+	return i.ToProjectEnvironmentParameterOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentParameterArgs) ToProjectEnvironmentParameterOutputWithContext(ctx context.Context) ProjectEnvironmentParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentParameterOutput)
+}
+
+// ProjectEnvironmentParameterArrayInput is an input type that accepts ProjectEnvironmentParameterArray and ProjectEnvironmentParameterArrayOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentParameterArrayInput` via:
+//
+//	ProjectEnvironmentParameterArray{ ProjectEnvironmentParameterArgs{...} }
+type ProjectEnvironmentParameterArrayInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentParameterArrayOutput() ProjectEnvironmentParameterArrayOutput
+	ToProjectEnvironmentParameterArrayOutputWithContext(context.Context) ProjectEnvironmentParameterArrayOutput
+}
+
+type ProjectEnvironmentParameterArray []ProjectEnvironmentParameterInput
+
+func (ProjectEnvironmentParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectEnvironmentParameter)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentParameterArray) ToProjectEnvironmentParameterArrayOutput() ProjectEnvironmentParameterArrayOutput {
+	return i.ToProjectEnvironmentParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentParameterArray) ToProjectEnvironmentParameterArrayOutputWithContext(ctx context.Context) ProjectEnvironmentParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentParameterArrayOutput)
+}
+
+type ProjectEnvironmentParameterOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentParameter)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentParameterOutput) ToProjectEnvironmentParameterOutput() ProjectEnvironmentParameterOutput {
+	return o
+}
+
+func (o ProjectEnvironmentParameterOutput) ToProjectEnvironmentParameterOutputWithContext(ctx context.Context) ProjectEnvironmentParameterOutput {
+	return o
+}
+
+func (o ProjectEnvironmentParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironmentParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectEnvironmentParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironmentParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ProjectEnvironmentParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectEnvironmentParameter)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentParameterArrayOutput) ToProjectEnvironmentParameterArrayOutput() ProjectEnvironmentParameterArrayOutput {
+	return o
+}
+
+func (o ProjectEnvironmentParameterArrayOutput) ToProjectEnvironmentParameterArrayOutputWithContext(ctx context.Context) ProjectEnvironmentParameterArrayOutput {
+	return o
+}
+
+func (o ProjectEnvironmentParameterArrayOutput) Index(i pulumi.IntInput) ProjectEnvironmentParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectEnvironmentParameter {
+		return vs[0].([]ProjectEnvironmentParameter)[vs[1].(int)]
+	}).(ProjectEnvironmentParameterOutput)
 }
 
 type ProjectMembershipMember0Properties struct {
@@ -8595,6 +8962,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnPtrInput)(nil)).Elem(), DomainSingleSignOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentActionsAwsConsoleLinkParametersInput)(nil)).Elem(), EnvironmentActionsAwsConsoleLinkParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentActionsAwsConsoleLinkParametersPtrInput)(nil)).Elem(), EnvironmentActionsAwsConsoleLinkParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationLakeFormationConfigurationInput)(nil)).Elem(), EnvironmentBlueprintConfigurationLakeFormationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesInput)(nil)).Elem(), EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayInput)(nil)).Elem(), EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationRegionalParameterInput)(nil)).Elem(), EnvironmentBlueprintConfigurationRegionalParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationRegionalParameterArrayInput)(nil)).Elem(), EnvironmentBlueprintConfigurationRegionalParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentParameterInput)(nil)).Elem(), EnvironmentParameterArgs{})
@@ -8602,6 +8972,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileEnvironmentParameterInput)(nil)).Elem(), EnvironmentProfileEnvironmentParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileEnvironmentParameterArrayInput)(nil)).Elem(), EnvironmentProfileEnvironmentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OwnerPropertiesInput)(nil)).Elem(), OwnerPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentConfigurationUserParameterInput)(nil)).Elem(), ProjectEnvironmentConfigurationUserParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentConfigurationUserParameterArrayInput)(nil)).Elem(), ProjectEnvironmentConfigurationUserParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentParameterInput)(nil)).Elem(), ProjectEnvironmentParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentParameterArrayInput)(nil)).Elem(), ProjectEnvironmentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember0PropertiesInput)(nil)).Elem(), ProjectMembershipMember0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember1PropertiesInput)(nil)).Elem(), ProjectMembershipMember1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormInput)(nil)).Elem(), SubscriptionTargetFormArgs{})
@@ -8704,6 +9078,9 @@ func init() {
 	pulumi.RegisterOutputType(DomainSingleSignOnPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentActionsAwsConsoleLinkParametersOutput{})
 	pulumi.RegisterOutputType(EnvironmentActionsAwsConsoleLinkParametersPtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationLakeFormationConfigurationOutput{})
+	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationRegionalParameterOutput{})
 	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationRegionalParameterArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentParameterOutput{})
@@ -8711,6 +9088,10 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentProfileEnvironmentParameterOutput{})
 	pulumi.RegisterOutputType(EnvironmentProfileEnvironmentParameterArrayOutput{})
 	pulumi.RegisterOutputType(OwnerPropertiesOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentConfigurationUserParameterOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentConfigurationUserParameterArrayOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentParameterOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentParameterArrayOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipMember0PropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipMember1PropertiesOutput{})
 	pulumi.RegisterOutputType(SubscriptionTargetFormOutput{})

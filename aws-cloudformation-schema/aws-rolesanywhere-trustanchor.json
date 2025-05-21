@@ -41,6 +41,7 @@
           "$ref" : "#/definitions/SourceData"
         }
       },
+      "required" : [ "SourceType", "SourceData" ],
       "additionalProperties" : false
     },
     "SourceData" : {

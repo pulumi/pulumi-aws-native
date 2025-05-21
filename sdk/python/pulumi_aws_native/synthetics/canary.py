@@ -32,6 +32,7 @@ class CanaryArgs:
                  schedule: pulumi.Input['CanaryScheduleArgs'],
                  artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
                  delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[builtins.bool]] = None,
+                 dry_run_and_update: Optional[pulumi.Input[builtins.bool]] = None,
                  failure_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provisioned_resource_cleanup: Optional[pulumi.Input['CanaryProvisionedResourceCleanup']] = None,
@@ -51,6 +52,7 @@ class CanaryArgs:
         :param pulumi.Input['CanaryScheduleArgs'] schedule: Frequency to run your canaries
         :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: Provide artifact configuration
         :param pulumi.Input[builtins.bool] delete_lambda_resources_on_canary_deletion: Deletes associated lambda resources created by Synthetics if set to True. Default is False
+        :param pulumi.Input[builtins.bool] dry_run_and_update: Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
         :param pulumi.Input[builtins.int] failure_retention_period: Retention period of failed canary runs represented in number of days
         :param pulumi.Input[builtins.str] name: Name of the canary.
         :param pulumi.Input['CanaryProvisionedResourceCleanup'] provisioned_resource_cleanup: Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
@@ -71,6 +73,8 @@ class CanaryArgs:
             pulumi.set(__self__, "artifact_config", artifact_config)
         if delete_lambda_resources_on_canary_deletion is not None:
             pulumi.set(__self__, "delete_lambda_resources_on_canary_deletion", delete_lambda_resources_on_canary_deletion)
+        if dry_run_and_update is not None:
+            pulumi.set(__self__, "dry_run_and_update", dry_run_and_update)
         if failure_retention_period is not None:
             pulumi.set(__self__, "failure_retention_period", failure_retention_period)
         if name is not None:
@@ -175,6 +179,18 @@ class CanaryArgs:
     @delete_lambda_resources_on_canary_deletion.setter
     def delete_lambda_resources_on_canary_deletion(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "delete_lambda_resources_on_canary_deletion", value)
+
+    @property
+    @pulumi.getter(name="dryRunAndUpdate")
+    def dry_run_and_update(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
+        """
+        return pulumi.get(self, "dry_run_and_update")
+
+    @dry_run_and_update.setter
+    def dry_run_and_update(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "dry_run_and_update", value)
 
     @property
     @pulumi.getter(name="failureRetentionPeriod")
@@ -309,6 +325,7 @@ class Canary(pulumi.CustomResource):
                  artifact_s3_location: Optional[pulumi.Input[builtins.str]] = None,
                  code: Optional[pulumi.Input[Union['CanaryCodeArgs', 'CanaryCodeArgsDict']]] = None,
                  delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[builtins.bool]] = None,
+                 dry_run_and_update: Optional[pulumi.Input[builtins.bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  failure_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -419,6 +436,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] artifact_s3_location: Provide the s3 bucket output location for test results
         :param pulumi.Input[Union['CanaryCodeArgs', 'CanaryCodeArgsDict']] code: Provide the canary script source
         :param pulumi.Input[builtins.bool] delete_lambda_resources_on_canary_deletion: Deletes associated lambda resources created by Synthetics if set to True. Default is False
+        :param pulumi.Input[builtins.bool] dry_run_and_update: Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
         :param pulumi.Input[builtins.str] execution_role_arn: Lambda Execution role used to run your canaries
         :param pulumi.Input[builtins.int] failure_retention_period: Retention period of failed canary runs represented in number of days
         :param pulumi.Input[builtins.str] name: Name of the canary.
@@ -548,6 +566,7 @@ class Canary(pulumi.CustomResource):
                  artifact_s3_location: Optional[pulumi.Input[builtins.str]] = None,
                  code: Optional[pulumi.Input[Union['CanaryCodeArgs', 'CanaryCodeArgsDict']]] = None,
                  delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[builtins.bool]] = None,
+                 dry_run_and_update: Optional[pulumi.Input[builtins.bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  failure_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -578,6 +597,7 @@ class Canary(pulumi.CustomResource):
                 raise TypeError("Missing required property 'code'")
             __props__.__dict__["code"] = code
             __props__.__dict__["delete_lambda_resources_on_canary_deletion"] = delete_lambda_resources_on_canary_deletion
+            __props__.__dict__["dry_run_and_update"] = dry_run_and_update
             if execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_role_arn'")
             __props__.__dict__["execution_role_arn"] = execution_role_arn
@@ -628,6 +648,7 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["code"] = None
         __props__.__dict__["delete_lambda_resources_on_canary_deletion"] = None
+        __props__.__dict__["dry_run_and_update"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["failure_retention_period"] = None
         __props__.__dict__["name"] = None
@@ -683,6 +704,14 @@ class Canary(pulumi.CustomResource):
         Deletes associated lambda resources created by Synthetics if set to True. Default is False
         """
         return pulumi.get(self, "delete_lambda_resources_on_canary_deletion")
+
+    @property
+    @pulumi.getter(name="dryRunAndUpdate")
+    def dry_run_and_update(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
+        """
+        return pulumi.get(self, "dry_run_and_update")
 
     @property
     @pulumi.getter(name="executionRoleArn")

@@ -13,6 +13,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The accounting configuration includes configurable settings for Slurm accounting.
+type ClusterAccounting struct {
+	// The default value for all purge settings for `slurmdbd.conf`. For more information, see the [slurmdbd.conf documentation at SchedMD](https://slurm.schedmd.com/slurmdbd.conf.html). The default value is `-1`. A value of `-1` means there is no purge time and records persist as long as the cluster exists.
+	DefaultPurgeTimeInDays *int `pulumi:"defaultPurgeTimeInDays"`
+	// The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.
+	Mode ClusterAccountingMode `pulumi:"mode"`
+}
+
 // The shared Slurm key for authentication, also known as the cluster secret.
 type ClusterAuthKey struct {
 	// The Amazon Resource Name (ARN) of the the shared Slurm key.

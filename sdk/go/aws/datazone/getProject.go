@@ -46,6 +46,8 @@ type LookupProjectResult struct {
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// The name of the Amazon DataZone project.
 	Name *string `pulumi:"name"`
+	// The status of the project.
+	ProjectStatus *ProjectStatus `pulumi:"projectStatus"`
 }
 
 func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts ...pulumi.InvokeOption) LookupProjectResultOutput {
@@ -120,6 +122,11 @@ func (o LookupProjectResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 // The name of the Amazon DataZone project.
 func (o LookupProjectResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The status of the project.
+func (o LookupProjectResultOutput) ProjectStatus() ProjectStatusPtrOutput {
+	return o.ApplyT(func(v LookupProjectResult) *ProjectStatus { return v.ProjectStatus }).(ProjectStatusPtrOutput)
 }
 
 func init() {

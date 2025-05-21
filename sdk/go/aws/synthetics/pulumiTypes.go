@@ -437,6 +437,143 @@ func (o CanaryCodePtrOutput) SourceLocationArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type CanaryRetryConfig struct {
+	// maximum times the canary will be retried upon the scheduled run failure
+	MaxRetries int `pulumi:"maxRetries"`
+}
+
+// CanaryRetryConfigInput is an input type that accepts CanaryRetryConfigArgs and CanaryRetryConfigOutput values.
+// You can construct a concrete instance of `CanaryRetryConfigInput` via:
+//
+//	CanaryRetryConfigArgs{...}
+type CanaryRetryConfigInput interface {
+	pulumi.Input
+
+	ToCanaryRetryConfigOutput() CanaryRetryConfigOutput
+	ToCanaryRetryConfigOutputWithContext(context.Context) CanaryRetryConfigOutput
+}
+
+type CanaryRetryConfigArgs struct {
+	// maximum times the canary will be retried upon the scheduled run failure
+	MaxRetries pulumi.IntInput `pulumi:"maxRetries"`
+}
+
+func (CanaryRetryConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryRetryConfig)(nil)).Elem()
+}
+
+func (i CanaryRetryConfigArgs) ToCanaryRetryConfigOutput() CanaryRetryConfigOutput {
+	return i.ToCanaryRetryConfigOutputWithContext(context.Background())
+}
+
+func (i CanaryRetryConfigArgs) ToCanaryRetryConfigOutputWithContext(ctx context.Context) CanaryRetryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryRetryConfigOutput)
+}
+
+func (i CanaryRetryConfigArgs) ToCanaryRetryConfigPtrOutput() CanaryRetryConfigPtrOutput {
+	return i.ToCanaryRetryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CanaryRetryConfigArgs) ToCanaryRetryConfigPtrOutputWithContext(ctx context.Context) CanaryRetryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryRetryConfigOutput).ToCanaryRetryConfigPtrOutputWithContext(ctx)
+}
+
+// CanaryRetryConfigPtrInput is an input type that accepts CanaryRetryConfigArgs, CanaryRetryConfigPtr and CanaryRetryConfigPtrOutput values.
+// You can construct a concrete instance of `CanaryRetryConfigPtrInput` via:
+//
+//	        CanaryRetryConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CanaryRetryConfigPtrInput interface {
+	pulumi.Input
+
+	ToCanaryRetryConfigPtrOutput() CanaryRetryConfigPtrOutput
+	ToCanaryRetryConfigPtrOutputWithContext(context.Context) CanaryRetryConfigPtrOutput
+}
+
+type canaryRetryConfigPtrType CanaryRetryConfigArgs
+
+func CanaryRetryConfigPtr(v *CanaryRetryConfigArgs) CanaryRetryConfigPtrInput {
+	return (*canaryRetryConfigPtrType)(v)
+}
+
+func (*canaryRetryConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryRetryConfig)(nil)).Elem()
+}
+
+func (i *canaryRetryConfigPtrType) ToCanaryRetryConfigPtrOutput() CanaryRetryConfigPtrOutput {
+	return i.ToCanaryRetryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *canaryRetryConfigPtrType) ToCanaryRetryConfigPtrOutputWithContext(ctx context.Context) CanaryRetryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryRetryConfigPtrOutput)
+}
+
+type CanaryRetryConfigOutput struct{ *pulumi.OutputState }
+
+func (CanaryRetryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryRetryConfig)(nil)).Elem()
+}
+
+func (o CanaryRetryConfigOutput) ToCanaryRetryConfigOutput() CanaryRetryConfigOutput {
+	return o
+}
+
+func (o CanaryRetryConfigOutput) ToCanaryRetryConfigOutputWithContext(ctx context.Context) CanaryRetryConfigOutput {
+	return o
+}
+
+func (o CanaryRetryConfigOutput) ToCanaryRetryConfigPtrOutput() CanaryRetryConfigPtrOutput {
+	return o.ToCanaryRetryConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CanaryRetryConfigOutput) ToCanaryRetryConfigPtrOutputWithContext(ctx context.Context) CanaryRetryConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryRetryConfig) *CanaryRetryConfig {
+		return &v
+	}).(CanaryRetryConfigPtrOutput)
+}
+
+// maximum times the canary will be retried upon the scheduled run failure
+func (o CanaryRetryConfigOutput) MaxRetries() pulumi.IntOutput {
+	return o.ApplyT(func(v CanaryRetryConfig) int { return v.MaxRetries }).(pulumi.IntOutput)
+}
+
+type CanaryRetryConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CanaryRetryConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryRetryConfig)(nil)).Elem()
+}
+
+func (o CanaryRetryConfigPtrOutput) ToCanaryRetryConfigPtrOutput() CanaryRetryConfigPtrOutput {
+	return o
+}
+
+func (o CanaryRetryConfigPtrOutput) ToCanaryRetryConfigPtrOutputWithContext(ctx context.Context) CanaryRetryConfigPtrOutput {
+	return o
+}
+
+func (o CanaryRetryConfigPtrOutput) Elem() CanaryRetryConfigOutput {
+	return o.ApplyT(func(v *CanaryRetryConfig) CanaryRetryConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CanaryRetryConfig
+		return ret
+	}).(CanaryRetryConfigOutput)
+}
+
+// maximum times the canary will be retried upon the scheduled run failure
+func (o CanaryRetryConfigPtrOutput) MaxRetries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CanaryRetryConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRetries
+	}).(pulumi.IntPtrOutput)
+}
+
 type CanaryRunConfig struct {
 	// Enable active tracing if set to true
 	ActiveTracing *bool `pulumi:"activeTracing"`
@@ -800,6 +937,8 @@ type CanarySchedule struct {
 	//
 	// Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
 	Expression string `pulumi:"expression"`
+	// Provide canary auto retry configuration
+	RetryConfig *CanaryRetryConfig `pulumi:"retryConfig"`
 }
 
 // CanaryScheduleInput is an input type that accepts CanaryScheduleArgs and CanaryScheduleOutput values.
@@ -826,6 +965,8 @@ type CanaryScheduleArgs struct {
 	//
 	// Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
 	Expression pulumi.StringInput `pulumi:"expression"`
+	// Provide canary auto retry configuration
+	RetryConfig CanaryRetryConfigPtrInput `pulumi:"retryConfig"`
 }
 
 func (CanaryScheduleArgs) ElementType() reflect.Type {
@@ -870,6 +1011,11 @@ func (o CanaryScheduleOutput) DurationInSeconds() pulumi.StringPtrOutput {
 // Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
 func (o CanaryScheduleOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v CanarySchedule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// Provide canary auto retry configuration
+func (o CanaryScheduleOutput) RetryConfig() CanaryRetryConfigPtrOutput {
+	return o.ApplyT(func(v CanarySchedule) *CanaryRetryConfig { return v.RetryConfig }).(CanaryRetryConfigPtrOutput)
 }
 
 type CanarySchedulePtrOutput struct{ *pulumi.OutputState }
@@ -922,6 +1068,16 @@ func (o CanarySchedulePtrOutput) Expression() pulumi.StringPtrOutput {
 		}
 		return &v.Expression
 	}).(pulumi.StringPtrOutput)
+}
+
+// Provide canary auto retry configuration
+func (o CanarySchedulePtrOutput) RetryConfig() CanaryRetryConfigPtrOutput {
+	return o.ApplyT(func(v *CanarySchedule) *CanaryRetryConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RetryConfig
+	}).(CanaryRetryConfigPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1296,6 +1452,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryBaseScreenshotInput)(nil)).Elem(), CanaryBaseScreenshotArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryBaseScreenshotArrayInput)(nil)).Elem(), CanaryBaseScreenshotArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryCodeInput)(nil)).Elem(), CanaryCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRetryConfigInput)(nil)).Elem(), CanaryRetryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRetryConfigPtrInput)(nil)).Elem(), CanaryRetryConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRunConfigInput)(nil)).Elem(), CanaryRunConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRunConfigPtrInput)(nil)).Elem(), CanaryRunConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryS3EncryptionInput)(nil)).Elem(), CanaryS3EncryptionArgs{})
@@ -1311,6 +1469,8 @@ func init() {
 	pulumi.RegisterOutputType(CanaryBaseScreenshotArrayOutput{})
 	pulumi.RegisterOutputType(CanaryCodeOutput{})
 	pulumi.RegisterOutputType(CanaryCodePtrOutput{})
+	pulumi.RegisterOutputType(CanaryRetryConfigOutput{})
+	pulumi.RegisterOutputType(CanaryRetryConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryS3EncryptionOutput{})

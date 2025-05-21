@@ -16,17 +16,17 @@ namespace Pulumi.AwsNative.RolesAnywhere.Outputs
         /// <summary>
         /// A union object representing the data field of the TrustAnchor depending on its type
         /// </summary>
-        public readonly Union<Outputs.TrustAnchorSourceData0Properties, Outputs.TrustAnchorSourceData1Properties>? SourceData;
+        public readonly Union<Outputs.TrustAnchorSourceData0Properties, Outputs.TrustAnchorSourceData1Properties> SourceData;
         /// <summary>
         /// The type of the TrustAnchor.
         /// </summary>
-        public readonly Pulumi.AwsNative.RolesAnywhere.TrustAnchorType? SourceType;
+        public readonly Pulumi.AwsNative.RolesAnywhere.TrustAnchorType SourceType;
 
         [OutputConstructor]
         private TrustAnchorSource(
-            Union<Outputs.TrustAnchorSourceData0Properties, Outputs.TrustAnchorSourceData1Properties>? sourceData,
+            Union<Outputs.TrustAnchorSourceData0Properties, Outputs.TrustAnchorSourceData1Properties> sourceData,
 
-            Pulumi.AwsNative.RolesAnywhere.TrustAnchorType? sourceType)
+            Pulumi.AwsNative.RolesAnywhere.TrustAnchorType sourceType)
         {
             SourceData = sourceData;
             SourceType = sourceType;

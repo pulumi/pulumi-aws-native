@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         /// <summary>
         /// The namespaced kernel parameter to set a ``value`` for.
         ///  Valid IPC namespace values: ``"kernel.msgmax" | "kernel.msgmnb" | "kernel.msgmni" | "kernel.sem" | "kernel.shmall" | "kernel.shmmax" | "kernel.shmmni" | "kernel.shm_rmid_forced"``, and ``Sysctls`` that start with ``"fs.mqueue.*"``
-        ///  Valid network namespace values: ``Sysctls`` that start with ``"net.*"``
+        ///  Valid network namespace values: ``Sysctls`` that start with ``"net.*"``. Only namespaced ``Sysctls`` that exist within the container starting with "net.* are accepted.
         ///  All of these values are supported by Fargate.
         /// </summary>
         [Input("value")]

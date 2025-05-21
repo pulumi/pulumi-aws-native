@@ -29,15 +29,22 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
         /// Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
         /// </summary>
         public readonly string Expression;
+        /// <summary>
+        /// Provide canary auto retry configuration
+        /// </summary>
+        public readonly Outputs.CanaryRetryConfig? RetryConfig;
 
         [OutputConstructor]
         private CanarySchedule(
             string? durationInSeconds,
 
-            string expression)
+            string expression,
+
+            Outputs.CanaryRetryConfig? retryConfig)
         {
             DurationInSeconds = durationInSeconds;
             Expression = expression;
+            RetryConfig = retryConfig;
         }
     }
 }

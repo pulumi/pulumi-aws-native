@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.Pcs
 {
     /// <summary>
+    /// The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterAccountingMode : IEquatable<ClusterAccountingMode>
+    {
+        private readonly string _value;
+
+        private ClusterAccountingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterAccountingMode Standard { get; } = new ClusterAccountingMode("STANDARD");
+        public static ClusterAccountingMode None { get; } = new ClusterAccountingMode("NONE");
+
+        public static bool operator ==(ClusterAccountingMode left, ClusterAccountingMode right) => left.Equals(right);
+        public static bool operator !=(ClusterAccountingMode left, ClusterAccountingMode right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterAccountingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterAccountingMode other && Equals(other);
+        public bool Equals(ClusterAccountingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates the type of endpoint running at the specific IP address.
     /// </summary>
     [EnumType]

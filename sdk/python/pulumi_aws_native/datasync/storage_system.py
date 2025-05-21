@@ -35,11 +35,9 @@ class StorageSystemArgs:
         """
         The set of arguments for constructing a StorageSystem resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
-        :param pulumi.Input['StorageSystemServerConfigurationArgs'] server_configuration: Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
         :param pulumi.Input['StorageSystemSystemType'] system_type: The type of on-premises storage system that DataSync Discovery will analyze.
         :param pulumi.Input[builtins.str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
         :param pulumi.Input[builtins.str] name: A familiar name for the on-premises storage system.
-        :param pulumi.Input['StorageSystemServerCredentialsArgs'] server_credentials: Specifies the user name and password for accessing your on-premises storage system's management interface.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
@@ -69,9 +67,6 @@ class StorageSystemArgs:
     @property
     @pulumi.getter(name="serverConfiguration")
     def server_configuration(self) -> pulumi.Input['StorageSystemServerConfigurationArgs']:
-        """
-        Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
-        """
         return pulumi.get(self, "server_configuration")
 
     @server_configuration.setter
@@ -117,9 +112,6 @@ class StorageSystemArgs:
     @property
     @pulumi.getter(name="serverCredentials")
     def server_credentials(self) -> Optional[pulumi.Input['StorageSystemServerCredentialsArgs']]:
-        """
-        Specifies the user name and password for accessing your on-premises storage system's management interface.
-        """
         return pulumi.get(self, "server_credentials")
 
     @server_credentials.setter
@@ -163,8 +155,6 @@ class StorageSystem(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
         :param pulumi.Input[builtins.str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
         :param pulumi.Input[builtins.str] name: A familiar name for the on-premises storage system.
-        :param pulumi.Input[Union['StorageSystemServerConfigurationArgs', 'StorageSystemServerConfigurationArgsDict']] server_configuration: Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
-        :param pulumi.Input[Union['StorageSystemServerCredentialsArgs', 'StorageSystemServerCredentialsArgsDict']] server_credentials: Specifies the user name and password for accessing your on-premises storage system's management interface.
         :param pulumi.Input['StorageSystemSystemType'] system_type: The type of on-premises storage system that DataSync Discovery will analyze.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -301,17 +291,11 @@ class StorageSystem(pulumi.CustomResource):
     @property
     @pulumi.getter(name="serverConfiguration")
     def server_configuration(self) -> pulumi.Output['outputs.StorageSystemServerConfiguration']:
-        """
-        Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
-        """
         return pulumi.get(self, "server_configuration")
 
     @property
     @pulumi.getter(name="serverCredentials")
     def server_credentials(self) -> pulumi.Output[Optional['outputs.StorageSystemServerCredentials']]:
-        """
-        Specifies the user name and password for accessing your on-premises storage system's management interface.
-        """
         return pulumi.get(self, "server_credentials")
 
     @property

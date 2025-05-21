@@ -29,9 +29,11 @@ type EnvironmentBlueprintConfiguration struct {
 	// The identifier of the environment blueprint.
 	//
 	// In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
-	EnvironmentBlueprintIdentifier pulumi.StringOutput `pulumi:"environmentBlueprintIdentifier"`
+	EnvironmentBlueprintIdentifier    pulumi.StringOutput    `pulumi:"environmentBlueprintIdentifier"`
+	EnvironmentRolePermissionBoundary pulumi.StringPtrOutput `pulumi:"environmentRolePermissionBoundary"`
 	// The ARN of the manage access role.
-	ManageAccessRoleArn pulumi.StringPtrOutput `pulumi:"manageAccessRoleArn"`
+	ManageAccessRoleArn        pulumi.StringPtrOutput                                                          `pulumi:"manageAccessRoleArn"`
+	ProvisioningConfigurations EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput `pulumi:"provisioningConfigurations"`
 	// The ARN of the provisioning role.
 	ProvisioningRoleArn pulumi.StringPtrOutput `pulumi:"provisioningRoleArn"`
 	// The regional parameters of the environment blueprint.
@@ -101,9 +103,11 @@ type environmentBlueprintConfigurationArgs struct {
 	// The identifier of the environment blueprint.
 	//
 	// In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
-	EnvironmentBlueprintIdentifier string `pulumi:"environmentBlueprintIdentifier"`
+	EnvironmentBlueprintIdentifier    string  `pulumi:"environmentBlueprintIdentifier"`
+	EnvironmentRolePermissionBoundary *string `pulumi:"environmentRolePermissionBoundary"`
 	// The ARN of the manage access role.
-	ManageAccessRoleArn *string `pulumi:"manageAccessRoleArn"`
+	ManageAccessRoleArn        *string                                                                `pulumi:"manageAccessRoleArn"`
+	ProvisioningConfigurations []EnvironmentBlueprintConfigurationProvisioningConfigurationProperties `pulumi:"provisioningConfigurations"`
 	// The ARN of the provisioning role.
 	ProvisioningRoleArn *string `pulumi:"provisioningRoleArn"`
 	// The regional parameters of the environment blueprint.
@@ -119,9 +123,11 @@ type EnvironmentBlueprintConfigurationArgs struct {
 	// The identifier of the environment blueprint.
 	//
 	// In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
-	EnvironmentBlueprintIdentifier pulumi.StringInput
+	EnvironmentBlueprintIdentifier    pulumi.StringInput
+	EnvironmentRolePermissionBoundary pulumi.StringPtrInput
 	// The ARN of the manage access role.
-	ManageAccessRoleArn pulumi.StringPtrInput
+	ManageAccessRoleArn        pulumi.StringPtrInput
+	ProvisioningConfigurations EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayInput
 	// The ARN of the provisioning role.
 	ProvisioningRoleArn pulumi.StringPtrInput
 	// The regional parameters of the environment blueprint.
@@ -199,9 +205,21 @@ func (o EnvironmentBlueprintConfigurationOutput) EnvironmentBlueprintIdentifier(
 	}).(pulumi.StringOutput)
 }
 
+func (o EnvironmentBlueprintConfigurationOutput) EnvironmentRolePermissionBoundary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringPtrOutput {
+		return v.EnvironmentRolePermissionBoundary
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the manage access role.
 func (o EnvironmentBlueprintConfigurationOutput) ManageAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringPtrOutput { return v.ManageAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentBlueprintConfigurationOutput) ProvisioningConfigurations() EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput {
+	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput {
+		return v.ProvisioningConfigurations
+	}).(EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput)
 }
 
 // The ARN of the provisioning role.

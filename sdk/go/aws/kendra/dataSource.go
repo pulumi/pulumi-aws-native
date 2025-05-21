@@ -69,6 +69,7 @@ func NewDataSource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"indexId",
 		"type",
 	})
 	opts = append(opts, replaceOnChanges)

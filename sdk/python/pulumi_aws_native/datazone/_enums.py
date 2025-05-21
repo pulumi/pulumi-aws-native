@@ -20,6 +20,7 @@ __all__ = [
     'GroupProfileStatus',
     'OwnerEntityType',
     'ProjectMembershipUserDesignation',
+    'ProjectStatus',
     'UserProfileStatus',
     'UserProfileType',
     'UserProfileUserType',
@@ -150,6 +151,15 @@ class ProjectMembershipUserDesignation(builtins.str, Enum):
     PROJECT_CATALOG_VIEWER = "PROJECT_CATALOG_VIEWER"
     PROJECT_CATALOG_CONSUMER = "PROJECT_CATALOG_CONSUMER"
     PROJECT_CATALOG_STEWARD = "PROJECT_CATALOG_STEWARD"
+
+
+class ProjectStatus(builtins.str, Enum):
+    ACTIVE = "ACTIVE"
+    MOVING = "MOVING"
+    DELETING = "DELETING"
+    DELETE_FAILED = "DELETE_FAILED"
+    UPDATING = "UPDATING"
+    UPDATE_FAILED = "UPDATE_FAILED"
 
 
 class UserProfileStatus(builtins.str, Enum):

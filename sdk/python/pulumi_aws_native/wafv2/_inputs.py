@@ -2405,7 +2405,7 @@ if not MYPY:
         """
         oversize_handling: pulumi.Input['RuleGroupOversizeHandling']
         """
-        What AWS WAF should do if the headers of the request are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
+        What AWS WAF should do if the headers determined by your match scope are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
 
         The options for oversize handling are the following:
 
@@ -2432,7 +2432,7 @@ class RuleGroupHeadersArgs:
         :param pulumi.Input['RuleGroupMapMatchScope'] match_scope: The parts of the headers to match with the rule inspection criteria. If you specify `ALL` , AWS WAF inspects both keys and values.
                
                `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
-        :param pulumi.Input['RuleGroupOversizeHandling'] oversize_handling: What AWS WAF should do if the headers of the request are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
+        :param pulumi.Input['RuleGroupOversizeHandling'] oversize_handling: What AWS WAF should do if the headers determined by your match scope are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
                
                The options for oversize handling are the following:
                
@@ -2478,7 +2478,7 @@ class RuleGroupHeadersArgs:
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> pulumi.Input['RuleGroupOversizeHandling']:
         """
-        What AWS WAF should do if the headers of the request are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
+        What AWS WAF should do if the headers determined by your match scope are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
 
         The options for oversize handling are the following:
 
@@ -7927,7 +7927,7 @@ if not MYPY:
         """
         oversize_handling: pulumi.Input['WebAclOversizeHandling']
         """
-        What AWS WAF should do if the headers of the request are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
+        What AWS WAF should do if the headers determined by your match scope are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
 
         The options for oversize handling are the following:
 
@@ -7954,7 +7954,7 @@ class WebAclHeadersArgs:
         :param pulumi.Input['WebAclMapMatchScope'] match_scope: The parts of the headers to match with the rule inspection criteria. If you specify `ALL` , AWS WAF inspects both keys and values.
                
                `All` does not require a match to be found in the keys and a match to be found in the values. It requires a match to be found in the keys or the values or both. To require a match in the keys and in the values, use a logical `AND` statement to combine two match rules, one that inspects the keys and another that inspects the values.
-        :param pulumi.Input['WebAclOversizeHandling'] oversize_handling: What AWS WAF should do if the headers of the request are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
+        :param pulumi.Input['WebAclOversizeHandling'] oversize_handling: What AWS WAF should do if the headers determined by your match scope are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
                
                The options for oversize handling are the following:
                
@@ -8000,7 +8000,7 @@ class WebAclHeadersArgs:
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> pulumi.Input['WebAclOversizeHandling']:
         """
-        What AWS WAF should do if the headers of the request are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
+        What AWS WAF should do if the headers determined by your match scope are more numerous or larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request headers when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers and at most 8 KB of header contents to AWS WAF .
 
         The options for oversize handling are the following:
 

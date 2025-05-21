@@ -124,6 +124,7 @@ namespace Pulumi.AwsNative.Kendra
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "indexId",
                     "type",
                 },
             };

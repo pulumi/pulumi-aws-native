@@ -63,10 +63,12 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
      * In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
      */
     public readonly environmentBlueprintIdentifier!: pulumi.Output<string>;
+    public readonly environmentRolePermissionBoundary!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the manage access role.
      */
     public readonly manageAccessRoleArn!: pulumi.Output<string | undefined>;
+    public readonly provisioningConfigurations!: pulumi.Output<outputs.datazone.EnvironmentBlueprintConfigurationProvisioningConfigurationProperties[] | undefined>;
     /**
      * The ARN of the provisioning role.
      */
@@ -103,7 +105,9 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
             resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
             resourceInputs["enabledRegions"] = args ? args.enabledRegions : undefined;
             resourceInputs["environmentBlueprintIdentifier"] = args ? args.environmentBlueprintIdentifier : undefined;
+            resourceInputs["environmentRolePermissionBoundary"] = args ? args.environmentRolePermissionBoundary : undefined;
             resourceInputs["manageAccessRoleArn"] = args ? args.manageAccessRoleArn : undefined;
+            resourceInputs["provisioningConfigurations"] = args ? args.provisioningConfigurations : undefined;
             resourceInputs["provisioningRoleArn"] = args ? args.provisioningRoleArn : undefined;
             resourceInputs["regionalParameters"] = args ? args.regionalParameters : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -117,7 +121,9 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
             resourceInputs["enabledRegions"] = undefined /*out*/;
             resourceInputs["environmentBlueprintId"] = undefined /*out*/;
             resourceInputs["environmentBlueprintIdentifier"] = undefined /*out*/;
+            resourceInputs["environmentRolePermissionBoundary"] = undefined /*out*/;
             resourceInputs["manageAccessRoleArn"] = undefined /*out*/;
+            resourceInputs["provisioningConfigurations"] = undefined /*out*/;
             resourceInputs["provisioningRoleArn"] = undefined /*out*/;
             resourceInputs["regionalParameters"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
@@ -147,10 +153,12 @@ export interface EnvironmentBlueprintConfigurationArgs {
      * In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
      */
     environmentBlueprintIdentifier: pulumi.Input<string>;
+    environmentRolePermissionBoundary?: pulumi.Input<string>;
     /**
      * The ARN of the manage access role.
      */
     manageAccessRoleArn?: pulumi.Input<string>;
+    provisioningConfigurations?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs>[]>;
     /**
      * The ARN of the provisioning role.
      */

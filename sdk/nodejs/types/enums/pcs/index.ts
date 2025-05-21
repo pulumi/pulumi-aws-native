@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ClusterAccountingMode = {
+    Standard: "STANDARD",
+    None: "NONE",
+} as const;
+
+/**
+ * The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.
+ */
+export type ClusterAccountingMode = (typeof ClusterAccountingMode)[keyof typeof ClusterAccountingMode];
+
 export const ClusterEndpointType = {
     Slurmctld: "SLURMCTLD",
     Slurmdbd: "SLURMDBD",

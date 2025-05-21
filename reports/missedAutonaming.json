@@ -3317,9 +3317,18 @@
         "type": "string",
         "description": "The identifier of the environment blueprint.\n\nIn the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` ."
       },
+      "environmentRolePermissionBoundary": {
+        "type": "string"
+      },
       "manageAccessRoleArn": {
         "type": "string",
         "description": "The ARN of the manage access role."
+      },
+      "provisioningConfigurations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:datazone:EnvironmentBlueprintConfigurationProvisioningConfigurationProperties"
+        }
       },
       "provisioningRoleArn": {
         "type": "string",

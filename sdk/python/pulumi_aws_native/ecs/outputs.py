@@ -5174,7 +5174,7 @@ class TaskDefinitionSystemControl(dict):
         :param builtins.str namespace: The namespaced kernel parameter to set a ``value`` for.
         :param builtins.str value: The namespaced kernel parameter to set a ``value`` for.
                 Valid IPC namespace values: ``"kernel.msgmax" | "kernel.msgmnb" | "kernel.msgmni" | "kernel.sem" | "kernel.shmall" | "kernel.shmmax" | "kernel.shmmni" | "kernel.shm_rmid_forced"``, and ``Sysctls`` that start with ``"fs.mqueue.*"``
-                Valid network namespace values: ``Sysctls`` that start with ``"net.*"``
+                Valid network namespace values: ``Sysctls`` that start with ``"net.*"``. Only namespaced ``Sysctls`` that exist within the container starting with "net.* are accepted.
                 All of these values are supported by Fargate.
         """
         if namespace is not None:
@@ -5196,7 +5196,7 @@ class TaskDefinitionSystemControl(dict):
         """
         The namespaced kernel parameter to set a ``value`` for.
          Valid IPC namespace values: ``"kernel.msgmax" | "kernel.msgmnb" | "kernel.msgmni" | "kernel.sem" | "kernel.shmall" | "kernel.shmmax" | "kernel.shmmni" | "kernel.shm_rmid_forced"``, and ``Sysctls`` that start with ``"fs.mqueue.*"``
-         Valid network namespace values: ``Sysctls`` that start with ``"net.*"``
+         Valid network namespace values: ``Sysctls`` that start with ``"net.*"``. Only namespaced ``Sysctls`` that exist within the container starting with "net.* are accepted.
          All of these values are supported by Fargate.
         """
         return pulumi.get(self, "value")

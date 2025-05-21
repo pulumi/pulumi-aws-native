@@ -23,6 +23,8 @@ __all__ = [
     'CanaryBaseScreenshotArgsDict',
     'CanaryCodeArgs',
     'CanaryCodeArgsDict',
+    'CanaryRetryConfigArgs',
+    'CanaryRetryConfigArgsDict',
     'CanaryRunConfigArgs',
     'CanaryRunConfigArgsDict',
     'CanaryS3EncryptionArgs',
@@ -252,6 +254,37 @@ class CanaryCodeArgs:
 
 
 if not MYPY:
+    class CanaryRetryConfigArgsDict(TypedDict):
+        max_retries: pulumi.Input[builtins.int]
+        """
+        maximum times the canary will be retried upon the scheduled run failure
+        """
+elif False:
+    CanaryRetryConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CanaryRetryConfigArgs:
+    def __init__(__self__, *,
+                 max_retries: pulumi.Input[builtins.int]):
+        """
+        :param pulumi.Input[builtins.int] max_retries: maximum times the canary will be retried upon the scheduled run failure
+        """
+        pulumi.set(__self__, "max_retries", max_retries)
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> pulumi.Input[builtins.int]:
+        """
+        maximum times the canary will be retried upon the scheduled run failure
+        """
+        return pulumi.get(self, "max_retries")
+
+    @max_retries.setter
+    def max_retries(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "max_retries", value)
+
+
+if not MYPY:
     class CanaryRunConfigArgsDict(TypedDict):
         active_tracing: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -413,6 +446,10 @@ if not MYPY:
         """
         How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
         """
+        retry_config: NotRequired[pulumi.Input['CanaryRetryConfigArgsDict']]
+        """
+        Provide canary auto retry configuration
+        """
 elif False:
     CanaryScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -420,7 +457,8 @@ elif False:
 class CanaryScheduleArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[builtins.str],
-                 duration_in_seconds: Optional[pulumi.Input[builtins.str]] = None):
+                 duration_in_seconds: Optional[pulumi.Input[builtins.str]] = None,
+                 retry_config: Optional[pulumi.Input['CanaryRetryConfigArgs']] = None):
         """
         :param pulumi.Input[builtins.str] expression: A `rate` expression or a `cron` expression that defines how often the canary is to run.
                
@@ -432,10 +470,13 @@ class CanaryScheduleArgs:
                
                Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
         :param pulumi.Input[builtins.str] duration_in_seconds: How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
+        :param pulumi.Input['CanaryRetryConfigArgs'] retry_config: Provide canary auto retry configuration
         """
         pulumi.set(__self__, "expression", expression)
         if duration_in_seconds is not None:
             pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+        if retry_config is not None:
+            pulumi.set(__self__, "retry_config", retry_config)
 
     @property
     @pulumi.getter
@@ -468,6 +509,18 @@ class CanaryScheduleArgs:
     @duration_in_seconds.setter
     def duration_in_seconds(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "duration_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="retryConfig")
+    def retry_config(self) -> Optional[pulumi.Input['CanaryRetryConfigArgs']]:
+        """
+        Provide canary auto retry configuration
+        """
+        return pulumi.get(self, "retry_config")
+
+    @retry_config.setter
+    def retry_config(self, value: Optional[pulumi.Input['CanaryRetryConfigArgs']]):
+        pulumi.set(self, "retry_config", value)
 
 
 if not MYPY:

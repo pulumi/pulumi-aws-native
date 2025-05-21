@@ -7,6 +7,7 @@ import builtins
 from enum import Enum
 
 __all__ = [
+    'ClusterAccountingMode',
     'ClusterEndpointType',
     'ClusterSchedulerPropertiesType',
     'ClusterSize',
@@ -16,6 +17,14 @@ __all__ = [
     'ComputeNodeGroupStatus',
     'QueueStatus',
 ]
+
+
+class ClusterAccountingMode(builtins.str, Enum):
+    """
+    The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.
+    """
+    STANDARD = "STANDARD"
+    NONE = "NONE"
 
 
 class ClusterEndpointType(builtins.str, Enum):

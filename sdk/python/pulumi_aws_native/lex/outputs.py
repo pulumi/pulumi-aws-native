@@ -113,9 +113,12 @@ __all__ = [
     'BotSlotValueOverrideMap',
     'BotSlotValueRegexFilter',
     'BotSlotValueSelectionSetting',
+    'BotSpecifications',
     'BotSsmlMessage',
     'BotStillWaitingResponseSpecification',
+    'BotSubSlotSetting',
     'BotSubSlotTypeComposition',
+    'BotSubSlotValueElicitationSetting',
     'BotTag',
     'BotTestBotAliasSettings',
     'BotTestBotAliasSettingsSentimentAnalysisSettingsProperties',
@@ -4433,6 +4436,8 @@ class BotSlot(dict):
             suggest = "multiple_values_setting"
         elif key == "obfuscationSetting":
             suggest = "obfuscation_setting"
+        elif key == "subSlotSetting":
+            suggest = "sub_slot_setting"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BotSlot. Access the value via the '{suggest}' property getter instead.")
@@ -4451,7 +4456,8 @@ class BotSlot(dict):
                  value_elicitation_setting: 'outputs.BotSlotValueElicitationSetting',
                  description: Optional[builtins.str] = None,
                  multiple_values_setting: Optional['outputs.BotMultipleValuesSetting'] = None,
-                 obfuscation_setting: Optional['outputs.BotObfuscationSetting'] = None):
+                 obfuscation_setting: Optional['outputs.BotObfuscationSetting'] = None,
+                 sub_slot_setting: Optional['outputs.BotSubSlotSetting'] = None):
         """
         :param builtins.str name: The name given to the slot.
         :param builtins.str slot_type_name: The name of the slot type that this slot is based on. The slot type defines the acceptable values for the slot.
@@ -4474,6 +4480,8 @@ class BotSlot(dict):
             pulumi.set(__self__, "multiple_values_setting", multiple_values_setting)
         if obfuscation_setting is not None:
             pulumi.set(__self__, "obfuscation_setting", obfuscation_setting)
+        if sub_slot_setting is not None:
+            pulumi.set(__self__, "sub_slot_setting", sub_slot_setting)
 
     @property
     @pulumi.getter
@@ -4527,6 +4535,11 @@ class BotSlot(dict):
         Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs. Use obfuscated slots to protect information such as personally identifiable information (PII) in logs.
         """
         return pulumi.get(self, "obfuscation_setting")
+
+    @property
+    @pulumi.getter(name="subSlotSetting")
+    def sub_slot_setting(self) -> Optional['outputs.BotSubSlotSetting']:
+        return pulumi.get(self, "sub_slot_setting")
 
 
 @pulumi.output_type
@@ -5283,6 +5296,44 @@ class BotSlotValueSelectionSetting(dict):
 
 
 @pulumi.output_type
+class BotSpecifications(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "slotTypeId":
+            suggest = "slot_type_id"
+        elif key == "valueElicitationSetting":
+            suggest = "value_elicitation_setting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotSpecifications. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotSpecifications.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotSpecifications.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 slot_type_id: builtins.str,
+                 value_elicitation_setting: 'outputs.BotSubSlotValueElicitationSetting'):
+        pulumi.set(__self__, "slot_type_id", slot_type_id)
+        pulumi.set(__self__, "value_elicitation_setting", value_elicitation_setting)
+
+    @property
+    @pulumi.getter(name="slotTypeId")
+    def slot_type_id(self) -> builtins.str:
+        return pulumi.get(self, "slot_type_id")
+
+    @property
+    @pulumi.getter(name="valueElicitationSetting")
+    def value_elicitation_setting(self) -> 'outputs.BotSubSlotValueElicitationSetting':
+        return pulumi.get(self, "value_elicitation_setting")
+
+
+@pulumi.output_type
 class BotSsmlMessage(dict):
     def __init__(__self__, *,
                  value: builtins.str):
@@ -5370,6 +5421,44 @@ class BotStillWaitingResponseSpecification(dict):
 
 
 @pulumi.output_type
+class BotSubSlotSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "slotSpecifications":
+            suggest = "slot_specifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotSubSlotSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotSubSlotSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotSubSlotSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expression: Optional[builtins.str] = None,
+                 slot_specifications: Optional[Mapping[str, 'outputs.BotSpecifications']] = None):
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if slot_specifications is not None:
+            pulumi.set(__self__, "slot_specifications", slot_specifications)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter(name="slotSpecifications")
+    def slot_specifications(self) -> Optional[Mapping[str, 'outputs.BotSpecifications']]:
+        return pulumi.get(self, "slot_specifications")
+
+
+@pulumi.output_type
 class BotSubSlotTypeComposition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5413,6 +5502,66 @@ class BotSubSlotTypeComposition(dict):
         The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
         """
         return pulumi.get(self, "slot_type_id")
+
+
+@pulumi.output_type
+class BotSubSlotValueElicitationSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValueSpecification":
+            suggest = "default_value_specification"
+        elif key == "promptSpecification":
+            suggest = "prompt_specification"
+        elif key == "sampleUtterances":
+            suggest = "sample_utterances"
+        elif key == "waitAndContinueSpecification":
+            suggest = "wait_and_continue_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotSubSlotValueElicitationSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotSubSlotValueElicitationSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotSubSlotValueElicitationSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_value_specification: Optional['outputs.BotSlotDefaultValueSpecification'] = None,
+                 prompt_specification: Optional['outputs.BotPromptSpecification'] = None,
+                 sample_utterances: Optional[Sequence['outputs.BotSampleUtterance']] = None,
+                 wait_and_continue_specification: Optional['outputs.BotWaitAndContinueSpecification'] = None):
+        if default_value_specification is not None:
+            pulumi.set(__self__, "default_value_specification", default_value_specification)
+        if prompt_specification is not None:
+            pulumi.set(__self__, "prompt_specification", prompt_specification)
+        if sample_utterances is not None:
+            pulumi.set(__self__, "sample_utterances", sample_utterances)
+        if wait_and_continue_specification is not None:
+            pulumi.set(__self__, "wait_and_continue_specification", wait_and_continue_specification)
+
+    @property
+    @pulumi.getter(name="defaultValueSpecification")
+    def default_value_specification(self) -> Optional['outputs.BotSlotDefaultValueSpecification']:
+        return pulumi.get(self, "default_value_specification")
+
+    @property
+    @pulumi.getter(name="promptSpecification")
+    def prompt_specification(self) -> Optional['outputs.BotPromptSpecification']:
+        return pulumi.get(self, "prompt_specification")
+
+    @property
+    @pulumi.getter(name="sampleUtterances")
+    def sample_utterances(self) -> Optional[Sequence['outputs.BotSampleUtterance']]:
+        return pulumi.get(self, "sample_utterances")
+
+    @property
+    @pulumi.getter(name="waitAndContinueSpecification")
+    def wait_and_continue_specification(self) -> Optional['outputs.BotWaitAndContinueSpecification']:
+        return pulumi.get(self, "wait_and_continue_specification")
 
 
 @pulumi.output_type

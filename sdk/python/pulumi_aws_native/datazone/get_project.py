@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GetProjectResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetProjectResult:
-    def __init__(__self__, created_at=None, created_by=None, description=None, domain_id=None, glossary_terms=None, id=None, last_updated_at=None, name=None):
+    def __init__(__self__, created_at=None, created_by=None, description=None, domain_id=None, glossary_terms=None, id=None, last_updated_at=None, name=None, project_status=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -49,6 +50,9 @@ class GetProjectResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if project_status and not isinstance(project_status, str):
+            raise TypeError("Expected argument 'project_status' to be a str")
+        pulumi.set(__self__, "project_status", project_status)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -114,6 +118,14 @@ class GetProjectResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter(name="projectStatus")
+    def project_status(self) -> Optional['ProjectStatus']:
+        """
+        The status of the project.
+        """
+        return pulumi.get(self, "project_status")
+
 
 class AwaitableGetProjectResult(GetProjectResult):
     # pylint: disable=using-constant-test
@@ -128,7 +140,8 @@ class AwaitableGetProjectResult(GetProjectResult):
             glossary_terms=self.glossary_terms,
             id=self.id,
             last_updated_at=self.last_updated_at,
-            name=self.name)
+            name=self.name,
+            project_status=self.project_status)
 
 
 def get_project(domain_id: Optional[builtins.str] = None,
@@ -155,7 +168,8 @@ def get_project(domain_id: Optional[builtins.str] = None,
         glossary_terms=pulumi.get(__ret__, 'glossary_terms'),
         id=pulumi.get(__ret__, 'id'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        project_status=pulumi.get(__ret__, 'project_status'))
 def get_project_output(domain_id: Optional[pulumi.Input[builtins.str]] = None,
                        id: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
@@ -179,4 +193,5 @@ def get_project_output(domain_id: Optional[pulumi.Input[builtins.str]] = None,
         glossary_terms=pulumi.get(__response__, 'glossary_terms'),
         id=pulumi.get(__response__, 'id'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        project_status=pulumi.get(__response__, 'project_status')))

@@ -17,8 +17,12 @@ type ConfigurationManagerConfigurationDefinition struct {
 	// The ID of the configuration definition.
 	Id *string `pulumi:"id"`
 	// The ARN of the IAM role used to administrate local configuration deployments.
+	//
+	// > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
 	LocalDeploymentAdministrationRoleArn *string `pulumi:"localDeploymentAdministrationRoleArn"`
 	// The name of the IAM role used to deploy local configurations.
+	//
+	// > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
 	LocalDeploymentExecutionRoleName *string `pulumi:"localDeploymentExecutionRoleName"`
 	// The parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. The following lists outline the parameters for each configuration type.
 	//
@@ -345,8 +349,12 @@ type ConfigurationManagerConfigurationDefinitionArgs struct {
 	// The ID of the configuration definition.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The ARN of the IAM role used to administrate local configuration deployments.
+	//
+	// > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
 	LocalDeploymentAdministrationRoleArn pulumi.StringPtrInput `pulumi:"localDeploymentAdministrationRoleArn"`
 	// The name of the IAM role used to deploy local configurations.
+	//
+	// > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
 	LocalDeploymentExecutionRoleName pulumi.StringPtrInput `pulumi:"localDeploymentExecutionRoleName"`
 	// The parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. The following lists outline the parameters for each configuration type.
 	//
@@ -715,6 +723,8 @@ func (o ConfigurationManagerConfigurationDefinitionOutput) Id() pulumi.StringPtr
 }
 
 // The ARN of the IAM role used to administrate local configuration deployments.
+//
+// > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
 func (o ConfigurationManagerConfigurationDefinitionOutput) LocalDeploymentAdministrationRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationManagerConfigurationDefinition) *string {
 		return v.LocalDeploymentAdministrationRoleArn
@@ -722,6 +732,8 @@ func (o ConfigurationManagerConfigurationDefinitionOutput) LocalDeploymentAdmini
 }
 
 // The name of the IAM role used to deploy local configurations.
+//
+// > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
 func (o ConfigurationManagerConfigurationDefinitionOutput) LocalDeploymentExecutionRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationManagerConfigurationDefinition) *string { return v.LocalDeploymentExecutionRoleName }).(pulumi.StringPtrOutput)
 }

@@ -163,6 +163,12 @@ namespace Pulumi.AwsNative.Synthetics
         public Output<bool?> DeleteLambdaResourcesOnCanaryDeletion { get; private set; } = null!;
 
         /// <summary>
+        /// Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
+        /// </summary>
+        [Output("dryRunAndUpdate")]
+        public Output<bool?> DryRunAndUpdate { get; private set; } = null!;
+
+        /// <summary>
         /// Lambda Execution role used to run your canaries
         /// </summary>
         [Output("executionRoleArn")]
@@ -318,6 +324,12 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         [Input("deleteLambdaResourcesOnCanaryDeletion")]
         public Input<bool>? DeleteLambdaResourcesOnCanaryDeletion { get; set; }
+
+        /// <summary>
+        /// Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
+        /// </summary>
+        [Input("dryRunAndUpdate")]
+        public Input<bool>? DryRunAndUpdate { get; set; }
 
         /// <summary>
         /// Lambda Execution role used to run your canaries

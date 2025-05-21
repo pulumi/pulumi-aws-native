@@ -15,14 +15,14 @@ namespace Pulumi.AwsNative.RolesAnywhere.Inputs
         /// <summary>
         /// A union object representing the data field of the TrustAnchor depending on its type
         /// </summary>
-        [Input("sourceData")]
-        public InputUnion<Inputs.TrustAnchorSourceData0PropertiesArgs, Inputs.TrustAnchorSourceData1PropertiesArgs>? SourceData { get; set; }
+        [Input("sourceData", required: true)]
+        public InputUnion<Inputs.TrustAnchorSourceData0PropertiesArgs, Inputs.TrustAnchorSourceData1PropertiesArgs> SourceData { get; set; } = null!;
 
         /// <summary>
         /// The type of the TrustAnchor.
         /// </summary>
-        [Input("sourceType")]
-        public Input<Pulumi.AwsNative.RolesAnywhere.TrustAnchorType>? SourceType { get; set; }
+        [Input("sourceType", required: true)]
+        public Input<Pulumi.AwsNative.RolesAnywhere.TrustAnchorType> SourceType { get; set; } = null!;
 
         public TrustAnchorSourceArgs()
         {

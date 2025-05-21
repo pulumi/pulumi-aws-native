@@ -342,10 +342,14 @@ if not MYPY:
         local_deployment_administration_role_arn: NotRequired[pulumi.Input[builtins.str]]
         """
         The ARN of the IAM role used to administrate local configuration deployments.
+
+        > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
         """
         local_deployment_execution_role_name: NotRequired[pulumi.Input[builtins.str]]
         """
         The name of the IAM role used to deploy local configurations.
+
+        > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
         """
         type_version: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -670,7 +674,11 @@ class ConfigurationManagerConfigurationDefinitionArgs:
         :param pulumi.Input[builtins.str] type: The type of the Quick Setup configuration.
         :param pulumi.Input[builtins.str] id: The ID of the configuration definition.
         :param pulumi.Input[builtins.str] local_deployment_administration_role_arn: The ARN of the IAM role used to administrate local configuration deployments.
+               
+               > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
         :param pulumi.Input[builtins.str] local_deployment_execution_role_name: The name of the IAM role used to deploy local configurations.
+               
+               > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
         :param pulumi.Input[builtins.str] type_version: The version of the Quick Setup type used.
         """
         pulumi.set(__self__, "parameters", parameters)
@@ -1027,6 +1035,8 @@ class ConfigurationManagerConfigurationDefinitionArgs:
     def local_deployment_administration_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The ARN of the IAM role used to administrate local configuration deployments.
+
+        > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
         """
         return pulumi.get(self, "local_deployment_administration_role_arn")
 
@@ -1039,6 +1049,8 @@ class ConfigurationManagerConfigurationDefinitionArgs:
     def local_deployment_execution_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The name of the IAM role used to deploy local configurations.
+
+        > Although this element is listed as "Required: No", a value can be omitted only for organizational deployments of types other than `AWSQuickSetupType-PatchPolicy` . A value must be provided when you are running an organizational deployment for a patch policy or running any type of deployment for a single account.
         """
         return pulumi.get(self, "local_deployment_execution_role_name")
 

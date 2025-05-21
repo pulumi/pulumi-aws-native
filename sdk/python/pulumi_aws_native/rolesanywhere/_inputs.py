@@ -256,11 +256,11 @@ class TrustAnchorSourceData1PropertiesArgs:
 
 if not MYPY:
     class TrustAnchorSourceArgsDict(TypedDict):
-        source_data: NotRequired[pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgsDict', 'TrustAnchorSourceData1PropertiesArgsDict']]]
+        source_data: pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgsDict', 'TrustAnchorSourceData1PropertiesArgsDict']]
         """
         A union object representing the data field of the TrustAnchor depending on its type
         """
-        source_type: NotRequired[pulumi.Input['TrustAnchorType']]
+        source_type: pulumi.Input['TrustAnchorType']
         """
         The type of the TrustAnchor.
         """
@@ -270,39 +270,37 @@ elif False:
 @pulumi.input_type
 class TrustAnchorSourceArgs:
     def __init__(__self__, *,
-                 source_data: Optional[pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgs', 'TrustAnchorSourceData1PropertiesArgs']]] = None,
-                 source_type: Optional[pulumi.Input['TrustAnchorType']] = None):
+                 source_data: pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgs', 'TrustAnchorSourceData1PropertiesArgs']],
+                 source_type: pulumi.Input['TrustAnchorType']):
         """
         :param pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgs', 'TrustAnchorSourceData1PropertiesArgs']] source_data: A union object representing the data field of the TrustAnchor depending on its type
         :param pulumi.Input['TrustAnchorType'] source_type: The type of the TrustAnchor.
         """
-        if source_data is not None:
-            pulumi.set(__self__, "source_data", source_data)
-        if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+        pulumi.set(__self__, "source_data", source_data)
+        pulumi.set(__self__, "source_type", source_type)
 
     @property
     @pulumi.getter(name="sourceData")
-    def source_data(self) -> Optional[pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgs', 'TrustAnchorSourceData1PropertiesArgs']]]:
+    def source_data(self) -> pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgs', 'TrustAnchorSourceData1PropertiesArgs']]:
         """
         A union object representing the data field of the TrustAnchor depending on its type
         """
         return pulumi.get(self, "source_data")
 
     @source_data.setter
-    def source_data(self, value: Optional[pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgs', 'TrustAnchorSourceData1PropertiesArgs']]]):
+    def source_data(self, value: pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgs', 'TrustAnchorSourceData1PropertiesArgs']]):
         pulumi.set(self, "source_data", value)
 
     @property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input['TrustAnchorType']]:
+    def source_type(self) -> pulumi.Input['TrustAnchorType']:
         """
         The type of the TrustAnchor.
         """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input['TrustAnchorType']]):
+    def source_type(self, value: pulumi.Input['TrustAnchorType']):
         pulumi.set(self, "source_type", value)
 
 

@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the domain unit.
+        /// </summary>
+        [Output("domainUnitId")]
+        public Output<string?> DomainUnitId { get; private set; } = null!;
+
+        /// <summary>
         /// The glossary terms that can be used in this Amazon DataZone project.
         /// </summary>
         [Output("glossaryTerms")]
@@ -68,6 +74,30 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The project profile ID.
+        /// </summary>
+        [Output("projectProfileId")]
+        public Output<string?> ProjectProfileId { get; private set; } = null!;
+
+        /// <summary>
+        /// The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+        /// </summary>
+        [Output("projectProfileVersion")]
+        public Output<string?> ProjectProfileVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the project.
+        /// </summary>
+        [Output("projectStatus")]
+        public Output<Pulumi.AwsNative.DataZone.ProjectStatus> ProjectStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The user parameters of the project.
+        /// </summary>
+        [Output("userParameters")]
+        public Output<ImmutableArray<Outputs.ProjectEnvironmentConfigurationUserParameter>> UserParameters { get; private set; } = null!;
 
 
         /// <summary>
@@ -95,6 +125,8 @@ namespace Pulumi.AwsNative.DataZone
                 ReplaceOnChanges =
                 {
                     "domainIdentifier",
+                    "domainUnitId",
+                    "projectProfileId",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,6 +162,12 @@ namespace Pulumi.AwsNative.DataZone
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the domain unit.
+        /// </summary>
+        [Input("domainUnitId")]
+        public Input<string>? DomainUnitId { get; set; }
+
         [Input("glossaryTerms")]
         private InputList<string>? _glossaryTerms;
 
@@ -147,6 +185,30 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The project profile ID.
+        /// </summary>
+        [Input("projectProfileId")]
+        public Input<string>? ProjectProfileId { get; set; }
+
+        /// <summary>
+        /// The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+        /// </summary>
+        [Input("projectProfileVersion")]
+        public Input<string>? ProjectProfileVersion { get; set; }
+
+        [Input("userParameters")]
+        private InputList<Inputs.ProjectEnvironmentConfigurationUserParameterArgs>? _userParameters;
+
+        /// <summary>
+        /// The user parameters of the project.
+        /// </summary>
+        public InputList<Inputs.ProjectEnvironmentConfigurationUserParameterArgs> UserParameters
+        {
+            get => _userParameters ?? (_userParameters = new InputList<Inputs.ProjectEnvironmentConfigurationUserParameterArgs>());
+            set => _userParameters = value;
+        }
 
         public ProjectArgs()
         {

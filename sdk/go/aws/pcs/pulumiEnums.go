@@ -10,6 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.
+type ClusterAccountingMode string
+
+const (
+	ClusterAccountingModeStandard = ClusterAccountingMode("STANDARD")
+	ClusterAccountingModeNone     = ClusterAccountingMode("NONE")
+)
+
 // Indicates the type of endpoint running at the specific IP address.
 type ClusterEndpointType string
 

@@ -432,6 +432,38 @@ namespace Pulumi.AwsNative.DataZone
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ProjectStatus : IEquatable<ProjectStatus>
+    {
+        private readonly string _value;
+
+        private ProjectStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProjectStatus Active { get; } = new ProjectStatus("ACTIVE");
+        public static ProjectStatus Moving { get; } = new ProjectStatus("MOVING");
+        public static ProjectStatus Deleting { get; } = new ProjectStatus("DELETING");
+        public static ProjectStatus DeleteFailed { get; } = new ProjectStatus("DELETE_FAILED");
+        public static ProjectStatus Updating { get; } = new ProjectStatus("UPDATING");
+        public static ProjectStatus UpdateFailed { get; } = new ProjectStatus("UPDATE_FAILED");
+
+        public static bool operator ==(ProjectStatus left, ProjectStatus right) => left.Equals(right);
+        public static bool operator !=(ProjectStatus left, ProjectStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ProjectStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProjectStatus other && Equals(other);
+        public bool Equals(ProjectStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The status of the user profile.
     /// </summary>

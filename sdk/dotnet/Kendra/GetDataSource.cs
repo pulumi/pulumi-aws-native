@@ -108,10 +108,6 @@ namespace Pulumi.AwsNative.Kendra
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The identifier of the index you want to use with the data source connector.
-        /// </summary>
-        public readonly string? IndexId;
-        /// <summary>
         /// The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
         /// </summary>
         public readonly string? LanguageCode;
@@ -148,8 +144,6 @@ namespace Pulumi.AwsNative.Kendra
 
             string? id,
 
-            string? indexId,
-
             string? languageCode,
 
             string? name,
@@ -165,7 +159,6 @@ namespace Pulumi.AwsNative.Kendra
             DataSourceConfiguration = dataSourceConfiguration;
             Description = description;
             Id = id;
-            IndexId = indexId;
             LanguageCode = languageCode;
             Name = name;
             RoleArn = roleArn;
