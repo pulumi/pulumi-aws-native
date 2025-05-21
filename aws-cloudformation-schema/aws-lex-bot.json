@@ -1373,13 +1373,70 @@
           "pattern" : "^([0-9a-zA-Z][_-]?){1,100}$"
         },
         "SlotTypeId" : {
-          "type" : "string",
-          "minLength" : 1,
-          "maxLength" : 25,
-          "pattern" : "^((AMAZON\\.)[a-zA-Z_]+?|[0-9a-zA-Z]+)$"
+          "$ref" : "#/definitions/SlotTypeId"
         }
       },
       "required" : [ "Name", "SlotTypeId" ],
+      "additionalProperties" : false
+    },
+    "SubSlotSetting" : {
+      "type" : "object",
+      "properties" : {
+        "Expression" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 1000,
+          "pattern" : "[0-9A-Za-z_\\-\\s\\(\\)]+"
+        },
+        "SlotSpecifications" : {
+          "type" : "object",
+          "minProperties" : 0,
+          "maxProperties" : 6,
+          "patternProperties" : {
+            "^([0-9a-zA-Z][_-]?){1,100}$" : {
+              "$ref" : "#/definitions/Specifications"
+            }
+          },
+          "additionalProperties" : false
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Specifications" : {
+      "type" : "object",
+      "properties" : {
+        "SlotTypeId" : {
+          "$ref" : "#/definitions/SlotTypeId"
+        },
+        "ValueElicitationSetting" : {
+          "$ref" : "#/definitions/SubSlotValueElicitationSetting"
+        }
+      },
+      "required" : [ "SlotTypeId", "ValueElicitationSetting" ],
+      "additionalProperties" : false
+    },
+    "SlotTypeId" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 25,
+      "pattern" : "^((AMAZON\\.)[a-zA-Z_]+?|[0-9a-zA-Z]+)$"
+    },
+    "SubSlotValueElicitationSetting" : {
+      "type" : "object",
+      "properties" : {
+        "PromptSpecification" : {
+          "$ref" : "#/definitions/PromptSpecification"
+        },
+        "DefaultValueSpecification" : {
+          "$ref" : "#/definitions/SlotDefaultValueSpecification"
+        },
+        "SampleUtterances" : {
+          "$ref" : "#/definitions/SampleUtterancesList"
+        },
+        "WaitAndContinueSpecification" : {
+          "$ref" : "#/definitions/WaitAndContinueSpecification"
+        }
+      },
       "additionalProperties" : false
     },
     "SlotType" : {
@@ -1567,6 +1624,9 @@
         },
         "MultipleValuesSetting" : {
           "$ref" : "#/definitions/MultipleValuesSetting"
+        },
+        "SubSlotSetting" : {
+          "$ref" : "#/definitions/SubSlotSetting"
         }
       },
       "required" : [ "Name", "SlotTypeName", "ValueElicitationSetting" ],

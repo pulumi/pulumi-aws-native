@@ -226,11 +226,11 @@
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "xray:TagResource", "xray:UntagResource" ]
+    "permissions" : [ "xray:TagResource", "xray:UntagResource", "xray:ListTagsForResource" ]
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "xray:CreateSamplingRule", "xray:TagResource" ]
+      "permissions" : [ "xray:CreateSamplingRule", "xray:TagResource", "xray:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "xray:GetSamplingRules", "xray:ListTagsForResource" ]
