@@ -37,7 +37,7 @@ func generateExamples(pkgSpec *schema.PackageSpec, metadata *metadata.CloudAPIMe
 
 	// Cache to speed up code generation.
 	hcl2Cache := pcl.Cache(pcl.NewPackageCache())
-	pkg, err := schema.ImportSpec(*pkgSpec, nil)
+	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.ValidationOptions{AllowDanglingReferences: true})
 	if err != nil {
 		return err
 	}
