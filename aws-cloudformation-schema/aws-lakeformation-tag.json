@@ -54,13 +54,13 @@
   "primaryIdentifier" : [ "/properties/TagKey" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "lakeformation:CreateLFTag" ]
+      "permissions" : [ "lakeformation:CreateLFTag", "lakeformation:GetLFTag" ]
     },
     "read" : {
       "permissions" : [ "lakeformation:GetLFTag" ]
     },
     "update" : {
-      "permissions" : [ "lakeformation:UpdateLFTag" ]
+      "permissions" : [ "lakeformation:UpdateLFTag", "lakeformation:GetLFTag" ]
     },
     "delete" : {
       "permissions" : [ "lakeformation:DeleteLFTag" ]

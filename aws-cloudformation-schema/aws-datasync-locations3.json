@@ -107,7 +107,7 @@
       "permissions" : [ "datasync:DescribeLocationS3", "datasync:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "datasync:DescribeLocationS3", "datasync:ListTagsForResource", "datasync:TagResource", "datasync:UntagResource", "datasync:UpdateLocationS3" ]
+      "permissions" : [ "datasync:DescribeLocationS3", "datasync:ListTagsForResource", "datasync:TagResource", "datasync:UntagResource", "datasync:UpdateLocationS3", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "datasync:DeleteLocation" ]
