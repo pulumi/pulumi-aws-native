@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetFlowAliasResult',
@@ -25,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowAliasResult:
-    def __init__(__self__, arn=None, created_at=None, description=None, flow_id=None, id=None, name=None, routing_configuration=None, tags=None, updated_at=None):
+    def __init__(__self__, arn=None, concurrency_configuration=None, created_at=None, description=None, flow_id=None, id=None, name=None, routing_configuration=None, tags=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if concurrency_configuration and not isinstance(concurrency_configuration, dict):
+            raise TypeError("Expected argument 'concurrency_configuration' to be a dict")
+        pulumi.set(__self__, "concurrency_configuration", concurrency_configuration)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -61,6 +65,11 @@ class GetFlowAliasResult:
         Arn of the Flow Alias
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="concurrencyConfiguration")
+    def concurrency_configuration(self) -> Optional['outputs.FlowAliasConcurrencyConfiguration']:
+        return pulumi.get(self, "concurrency_configuration")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -137,6 +146,7 @@ class AwaitableGetFlowAliasResult(GetFlowAliasResult):
             yield self
         return GetFlowAliasResult(
             arn=self.arn,
+            concurrency_configuration=self.concurrency_configuration,
             created_at=self.created_at,
             description=self.description,
             flow_id=self.flow_id,
@@ -165,6 +175,7 @@ def get_flow_alias(arn: Optional[builtins.str] = None,
 
     return AwaitableGetFlowAliasResult(
         arn=pulumi.get(__ret__, 'arn'),
+        concurrency_configuration=pulumi.get(__ret__, 'concurrency_configuration'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         flow_id=pulumi.get(__ret__, 'flow_id'),
@@ -190,6 +201,7 @@ def get_flow_alias_output(arn: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getFlowAlias', __args__, opts=opts, typ=GetFlowAliasResult)
     return __ret__.apply(lambda __response__: GetFlowAliasResult(
         arn=pulumi.get(__response__, 'arn'),
+        concurrency_configuration=pulumi.get(__response__, 'concurrency_configuration'),
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
         flow_id=pulumi.get(__response__, 'flow_id'),

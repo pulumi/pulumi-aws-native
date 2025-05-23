@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.DataSync
     public static class GetLocationObjectStorage
     {
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationObjectStorage.
+        /// Resource Type definition for AWS::DataSync::LocationObjectStorage.
         /// </summary>
         public static Task<GetLocationObjectStorageResult> InvokeAsync(GetLocationObjectStorageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationObjectStorageResult>("aws-native:datasync:getLocationObjectStorage", args ?? new GetLocationObjectStorageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationObjectStorage.
+        /// Resource Type definition for AWS::DataSync::LocationObjectStorage.
         /// </summary>
         public static Output<GetLocationObjectStorageResult> Invoke(GetLocationObjectStorageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationObjectStorageResult>("aws-native:datasync:getLocationObjectStorage", args ?? new GetLocationObjectStorageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationObjectStorage.
+        /// Resource Type definition for AWS::DataSync::LocationObjectStorage.
         /// </summary>
         public static Output<GetLocationObjectStorageResult> Invoke(GetLocationObjectStorageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationObjectStorageResult>("aws-native:datasync:getLocationObjectStorage", args ?? new GetLocationObjectStorageInvokeArgs(), options.WithDefaults());
@@ -68,9 +68,11 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public readonly string? AccessKey;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+        /// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         /// </summary>
         public readonly ImmutableArray<string> AgentArns;
+        public readonly Outputs.LocationObjectStorageCmkSecretConfig? CmkSecretConfig;
+        public readonly Outputs.LocationObjectStorageCustomSecretConfig? CustomSecretConfig;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the location that is created.
         /// </summary>
@@ -79,6 +81,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The URL of the object storage location that was described.
         /// </summary>
         public readonly string? LocationUri;
+        public readonly Outputs.LocationObjectStorageManagedSecretConfig? ManagedSecretConfig;
         /// <summary>
         /// X.509 PEM content containing a certificate authority or chain to trust.
         /// </summary>
@@ -102,9 +105,15 @@ namespace Pulumi.AwsNative.DataSync
 
             ImmutableArray<string> agentArns,
 
+            Outputs.LocationObjectStorageCmkSecretConfig? cmkSecretConfig,
+
+            Outputs.LocationObjectStorageCustomSecretConfig? customSecretConfig,
+
             string? locationArn,
 
             string? locationUri,
+
+            Outputs.LocationObjectStorageManagedSecretConfig? managedSecretConfig,
 
             string? serverCertificate,
 
@@ -116,8 +125,11 @@ namespace Pulumi.AwsNative.DataSync
         {
             AccessKey = accessKey;
             AgentArns = agentArns;
+            CmkSecretConfig = cmkSecretConfig;
+            CustomSecretConfig = customSecretConfig;
             LocationArn = locationArn;
             LocationUri = locationUri;
+            ManagedSecretConfig = managedSecretConfig;
             ServerCertificate = serverCertificate;
             ServerPort = serverPort;
             ServerProtocol = serverProtocol;

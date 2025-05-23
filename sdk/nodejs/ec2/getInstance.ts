@@ -70,6 +70,10 @@ export interface GetInstanceResult {
      */
     readonly kernelId?: string;
     /**
+     * The metadata options for the instance
+     */
+    readonly metadataOptions?: outputs.ec2.InstanceMetadataOptions;
+    /**
      * Specifies whether detailed monitoring is enabled for the instance.
      */
     readonly monitoring?: boolean;

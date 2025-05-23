@@ -374,6 +374,7 @@ if not MYPY:
         mode: pulumi.Input['FleetAutoScalingMode']
         worker_capabilities: pulumi.Input['FleetCustomerManagedWorkerCapabilitiesArgsDict']
         storage_profile_id: NotRequired[pulumi.Input[builtins.str]]
+        tag_propagation_mode: NotRequired[pulumi.Input['FleetTagPropagationMode']]
 elif False:
     FleetCustomerManagedFleetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -382,11 +383,14 @@ class FleetCustomerManagedFleetConfigurationArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input['FleetAutoScalingMode'],
                  worker_capabilities: pulumi.Input['FleetCustomerManagedWorkerCapabilitiesArgs'],
-                 storage_profile_id: Optional[pulumi.Input[builtins.str]] = None):
+                 storage_profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                 tag_propagation_mode: Optional[pulumi.Input['FleetTagPropagationMode']] = None):
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "worker_capabilities", worker_capabilities)
         if storage_profile_id is not None:
             pulumi.set(__self__, "storage_profile_id", storage_profile_id)
+        if tag_propagation_mode is not None:
+            pulumi.set(__self__, "tag_propagation_mode", tag_propagation_mode)
 
     @property
     @pulumi.getter
@@ -414,6 +418,15 @@ class FleetCustomerManagedFleetConfigurationArgs:
     @storage_profile_id.setter
     def storage_profile_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "storage_profile_id", value)
+
+    @property
+    @pulumi.getter(name="tagPropagationMode")
+    def tag_propagation_mode(self) -> Optional[pulumi.Input['FleetTagPropagationMode']]:
+        return pulumi.get(self, "tag_propagation_mode")
+
+    @tag_propagation_mode.setter
+    def tag_propagation_mode(self, value: Optional[pulumi.Input['FleetTagPropagationMode']]):
+        pulumi.set(self, "tag_propagation_mode", value)
 
 
 if not MYPY:

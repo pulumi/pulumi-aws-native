@@ -739,6 +739,61 @@ type ScraperTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Represents a cloudwatch logs destination for query logging
+type WorkspaceCloudWatchLogDestination struct {
+	// The ARN of the CloudWatch Logs log group
+	LogGroupArn string `pulumi:"logGroupArn"`
+}
+
+// WorkspaceCloudWatchLogDestinationInput is an input type that accepts WorkspaceCloudWatchLogDestinationArgs and WorkspaceCloudWatchLogDestinationOutput values.
+// You can construct a concrete instance of `WorkspaceCloudWatchLogDestinationInput` via:
+//
+//	WorkspaceCloudWatchLogDestinationArgs{...}
+type WorkspaceCloudWatchLogDestinationInput interface {
+	pulumi.Input
+
+	ToWorkspaceCloudWatchLogDestinationOutput() WorkspaceCloudWatchLogDestinationOutput
+	ToWorkspaceCloudWatchLogDestinationOutputWithContext(context.Context) WorkspaceCloudWatchLogDestinationOutput
+}
+
+// Represents a cloudwatch logs destination for query logging
+type WorkspaceCloudWatchLogDestinationArgs struct {
+	// The ARN of the CloudWatch Logs log group
+	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
+}
+
+func (WorkspaceCloudWatchLogDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCloudWatchLogDestination)(nil)).Elem()
+}
+
+func (i WorkspaceCloudWatchLogDestinationArgs) ToWorkspaceCloudWatchLogDestinationOutput() WorkspaceCloudWatchLogDestinationOutput {
+	return i.ToWorkspaceCloudWatchLogDestinationOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCloudWatchLogDestinationArgs) ToWorkspaceCloudWatchLogDestinationOutputWithContext(ctx context.Context) WorkspaceCloudWatchLogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCloudWatchLogDestinationOutput)
+}
+
+// Represents a cloudwatch logs destination for query logging
+type WorkspaceCloudWatchLogDestinationOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCloudWatchLogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCloudWatchLogDestination)(nil)).Elem()
+}
+
+func (o WorkspaceCloudWatchLogDestinationOutput) ToWorkspaceCloudWatchLogDestinationOutput() WorkspaceCloudWatchLogDestinationOutput {
+	return o
+}
+
+func (o WorkspaceCloudWatchLogDestinationOutput) ToWorkspaceCloudWatchLogDestinationOutputWithContext(ctx context.Context) WorkspaceCloudWatchLogDestinationOutput {
+	return o
+}
+
+// The ARN of the CloudWatch Logs log group
+func (o WorkspaceCloudWatchLogDestinationOutput) LogGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceCloudWatchLogDestination) string { return v.LogGroupArn }).(pulumi.StringOutput)
+}
+
 // Workspace configuration
 type WorkspaceConfiguration struct {
 	// An array of label set and associated limits
@@ -1311,6 +1366,304 @@ func (o WorkspaceLoggingConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Destinations for query logging
+type WorkspaceLoggingDestination struct {
+	CloudWatchLogs WorkspaceCloudWatchLogDestination `pulumi:"cloudWatchLogs"`
+	Filters        WorkspaceLoggingFilter            `pulumi:"filters"`
+}
+
+// WorkspaceLoggingDestinationInput is an input type that accepts WorkspaceLoggingDestinationArgs and WorkspaceLoggingDestinationOutput values.
+// You can construct a concrete instance of `WorkspaceLoggingDestinationInput` via:
+//
+//	WorkspaceLoggingDestinationArgs{...}
+type WorkspaceLoggingDestinationInput interface {
+	pulumi.Input
+
+	ToWorkspaceLoggingDestinationOutput() WorkspaceLoggingDestinationOutput
+	ToWorkspaceLoggingDestinationOutputWithContext(context.Context) WorkspaceLoggingDestinationOutput
+}
+
+// Destinations for query logging
+type WorkspaceLoggingDestinationArgs struct {
+	CloudWatchLogs WorkspaceCloudWatchLogDestinationInput `pulumi:"cloudWatchLogs"`
+	Filters        WorkspaceLoggingFilterInput            `pulumi:"filters"`
+}
+
+func (WorkspaceLoggingDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceLoggingDestination)(nil)).Elem()
+}
+
+func (i WorkspaceLoggingDestinationArgs) ToWorkspaceLoggingDestinationOutput() WorkspaceLoggingDestinationOutput {
+	return i.ToWorkspaceLoggingDestinationOutputWithContext(context.Background())
+}
+
+func (i WorkspaceLoggingDestinationArgs) ToWorkspaceLoggingDestinationOutputWithContext(ctx context.Context) WorkspaceLoggingDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLoggingDestinationOutput)
+}
+
+// WorkspaceLoggingDestinationArrayInput is an input type that accepts WorkspaceLoggingDestinationArray and WorkspaceLoggingDestinationArrayOutput values.
+// You can construct a concrete instance of `WorkspaceLoggingDestinationArrayInput` via:
+//
+//	WorkspaceLoggingDestinationArray{ WorkspaceLoggingDestinationArgs{...} }
+type WorkspaceLoggingDestinationArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceLoggingDestinationArrayOutput() WorkspaceLoggingDestinationArrayOutput
+	ToWorkspaceLoggingDestinationArrayOutputWithContext(context.Context) WorkspaceLoggingDestinationArrayOutput
+}
+
+type WorkspaceLoggingDestinationArray []WorkspaceLoggingDestinationInput
+
+func (WorkspaceLoggingDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceLoggingDestination)(nil)).Elem()
+}
+
+func (i WorkspaceLoggingDestinationArray) ToWorkspaceLoggingDestinationArrayOutput() WorkspaceLoggingDestinationArrayOutput {
+	return i.ToWorkspaceLoggingDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceLoggingDestinationArray) ToWorkspaceLoggingDestinationArrayOutputWithContext(ctx context.Context) WorkspaceLoggingDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLoggingDestinationArrayOutput)
+}
+
+// Destinations for query logging
+type WorkspaceLoggingDestinationOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceLoggingDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceLoggingDestination)(nil)).Elem()
+}
+
+func (o WorkspaceLoggingDestinationOutput) ToWorkspaceLoggingDestinationOutput() WorkspaceLoggingDestinationOutput {
+	return o
+}
+
+func (o WorkspaceLoggingDestinationOutput) ToWorkspaceLoggingDestinationOutputWithContext(ctx context.Context) WorkspaceLoggingDestinationOutput {
+	return o
+}
+
+func (o WorkspaceLoggingDestinationOutput) CloudWatchLogs() WorkspaceCloudWatchLogDestinationOutput {
+	return o.ApplyT(func(v WorkspaceLoggingDestination) WorkspaceCloudWatchLogDestination { return v.CloudWatchLogs }).(WorkspaceCloudWatchLogDestinationOutput)
+}
+
+func (o WorkspaceLoggingDestinationOutput) Filters() WorkspaceLoggingFilterOutput {
+	return o.ApplyT(func(v WorkspaceLoggingDestination) WorkspaceLoggingFilter { return v.Filters }).(WorkspaceLoggingFilterOutput)
+}
+
+type WorkspaceLoggingDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceLoggingDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceLoggingDestination)(nil)).Elem()
+}
+
+func (o WorkspaceLoggingDestinationArrayOutput) ToWorkspaceLoggingDestinationArrayOutput() WorkspaceLoggingDestinationArrayOutput {
+	return o
+}
+
+func (o WorkspaceLoggingDestinationArrayOutput) ToWorkspaceLoggingDestinationArrayOutputWithContext(ctx context.Context) WorkspaceLoggingDestinationArrayOutput {
+	return o
+}
+
+func (o WorkspaceLoggingDestinationArrayOutput) Index(i pulumi.IntInput) WorkspaceLoggingDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceLoggingDestination {
+		return vs[0].([]WorkspaceLoggingDestination)[vs[1].(int)]
+	}).(WorkspaceLoggingDestinationOutput)
+}
+
+// Filters for logging
+type WorkspaceLoggingFilter struct {
+	// Query logs with QSP above this limit are vended
+	QspThreshold int `pulumi:"qspThreshold"`
+}
+
+// WorkspaceLoggingFilterInput is an input type that accepts WorkspaceLoggingFilterArgs and WorkspaceLoggingFilterOutput values.
+// You can construct a concrete instance of `WorkspaceLoggingFilterInput` via:
+//
+//	WorkspaceLoggingFilterArgs{...}
+type WorkspaceLoggingFilterInput interface {
+	pulumi.Input
+
+	ToWorkspaceLoggingFilterOutput() WorkspaceLoggingFilterOutput
+	ToWorkspaceLoggingFilterOutputWithContext(context.Context) WorkspaceLoggingFilterOutput
+}
+
+// Filters for logging
+type WorkspaceLoggingFilterArgs struct {
+	// Query logs with QSP above this limit are vended
+	QspThreshold pulumi.IntInput `pulumi:"qspThreshold"`
+}
+
+func (WorkspaceLoggingFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceLoggingFilter)(nil)).Elem()
+}
+
+func (i WorkspaceLoggingFilterArgs) ToWorkspaceLoggingFilterOutput() WorkspaceLoggingFilterOutput {
+	return i.ToWorkspaceLoggingFilterOutputWithContext(context.Background())
+}
+
+func (i WorkspaceLoggingFilterArgs) ToWorkspaceLoggingFilterOutputWithContext(ctx context.Context) WorkspaceLoggingFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLoggingFilterOutput)
+}
+
+// Filters for logging
+type WorkspaceLoggingFilterOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceLoggingFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceLoggingFilter)(nil)).Elem()
+}
+
+func (o WorkspaceLoggingFilterOutput) ToWorkspaceLoggingFilterOutput() WorkspaceLoggingFilterOutput {
+	return o
+}
+
+func (o WorkspaceLoggingFilterOutput) ToWorkspaceLoggingFilterOutputWithContext(ctx context.Context) WorkspaceLoggingFilterOutput {
+	return o
+}
+
+// Query logs with QSP above this limit are vended
+func (o WorkspaceLoggingFilterOutput) QspThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkspaceLoggingFilter) int { return v.QspThreshold }).(pulumi.IntOutput)
+}
+
+// Query logging configuration
+type WorkspaceQueryLoggingConfiguration struct {
+	// The destinations configuration for query logging
+	Destinations []WorkspaceLoggingDestination `pulumi:"destinations"`
+}
+
+// WorkspaceQueryLoggingConfigurationInput is an input type that accepts WorkspaceQueryLoggingConfigurationArgs and WorkspaceQueryLoggingConfigurationOutput values.
+// You can construct a concrete instance of `WorkspaceQueryLoggingConfigurationInput` via:
+//
+//	WorkspaceQueryLoggingConfigurationArgs{...}
+type WorkspaceQueryLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkspaceQueryLoggingConfigurationOutput() WorkspaceQueryLoggingConfigurationOutput
+	ToWorkspaceQueryLoggingConfigurationOutputWithContext(context.Context) WorkspaceQueryLoggingConfigurationOutput
+}
+
+// Query logging configuration
+type WorkspaceQueryLoggingConfigurationArgs struct {
+	// The destinations configuration for query logging
+	Destinations WorkspaceLoggingDestinationArrayInput `pulumi:"destinations"`
+}
+
+func (WorkspaceQueryLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceQueryLoggingConfiguration)(nil)).Elem()
+}
+
+func (i WorkspaceQueryLoggingConfigurationArgs) ToWorkspaceQueryLoggingConfigurationOutput() WorkspaceQueryLoggingConfigurationOutput {
+	return i.ToWorkspaceQueryLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkspaceQueryLoggingConfigurationArgs) ToWorkspaceQueryLoggingConfigurationOutputWithContext(ctx context.Context) WorkspaceQueryLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceQueryLoggingConfigurationOutput)
+}
+
+func (i WorkspaceQueryLoggingConfigurationArgs) ToWorkspaceQueryLoggingConfigurationPtrOutput() WorkspaceQueryLoggingConfigurationPtrOutput {
+	return i.ToWorkspaceQueryLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceQueryLoggingConfigurationArgs) ToWorkspaceQueryLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceQueryLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceQueryLoggingConfigurationOutput).ToWorkspaceQueryLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkspaceQueryLoggingConfigurationPtrInput is an input type that accepts WorkspaceQueryLoggingConfigurationArgs, WorkspaceQueryLoggingConfigurationPtr and WorkspaceQueryLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkspaceQueryLoggingConfigurationPtrInput` via:
+//
+//	        WorkspaceQueryLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceQueryLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceQueryLoggingConfigurationPtrOutput() WorkspaceQueryLoggingConfigurationPtrOutput
+	ToWorkspaceQueryLoggingConfigurationPtrOutputWithContext(context.Context) WorkspaceQueryLoggingConfigurationPtrOutput
+}
+
+type workspaceQueryLoggingConfigurationPtrType WorkspaceQueryLoggingConfigurationArgs
+
+func WorkspaceQueryLoggingConfigurationPtr(v *WorkspaceQueryLoggingConfigurationArgs) WorkspaceQueryLoggingConfigurationPtrInput {
+	return (*workspaceQueryLoggingConfigurationPtrType)(v)
+}
+
+func (*workspaceQueryLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceQueryLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *workspaceQueryLoggingConfigurationPtrType) ToWorkspaceQueryLoggingConfigurationPtrOutput() WorkspaceQueryLoggingConfigurationPtrOutput {
+	return i.ToWorkspaceQueryLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceQueryLoggingConfigurationPtrType) ToWorkspaceQueryLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceQueryLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceQueryLoggingConfigurationPtrOutput)
+}
+
+// Query logging configuration
+type WorkspaceQueryLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceQueryLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceQueryLoggingConfiguration)(nil)).Elem()
+}
+
+func (o WorkspaceQueryLoggingConfigurationOutput) ToWorkspaceQueryLoggingConfigurationOutput() WorkspaceQueryLoggingConfigurationOutput {
+	return o
+}
+
+func (o WorkspaceQueryLoggingConfigurationOutput) ToWorkspaceQueryLoggingConfigurationOutputWithContext(ctx context.Context) WorkspaceQueryLoggingConfigurationOutput {
+	return o
+}
+
+func (o WorkspaceQueryLoggingConfigurationOutput) ToWorkspaceQueryLoggingConfigurationPtrOutput() WorkspaceQueryLoggingConfigurationPtrOutput {
+	return o.ToWorkspaceQueryLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceQueryLoggingConfigurationOutput) ToWorkspaceQueryLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceQueryLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceQueryLoggingConfiguration) *WorkspaceQueryLoggingConfiguration {
+		return &v
+	}).(WorkspaceQueryLoggingConfigurationPtrOutput)
+}
+
+// The destinations configuration for query logging
+func (o WorkspaceQueryLoggingConfigurationOutput) Destinations() WorkspaceLoggingDestinationArrayOutput {
+	return o.ApplyT(func(v WorkspaceQueryLoggingConfiguration) []WorkspaceLoggingDestination { return v.Destinations }).(WorkspaceLoggingDestinationArrayOutput)
+}
+
+type WorkspaceQueryLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceQueryLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceQueryLoggingConfiguration)(nil)).Elem()
+}
+
+func (o WorkspaceQueryLoggingConfigurationPtrOutput) ToWorkspaceQueryLoggingConfigurationPtrOutput() WorkspaceQueryLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkspaceQueryLoggingConfigurationPtrOutput) ToWorkspaceQueryLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceQueryLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkspaceQueryLoggingConfigurationPtrOutput) Elem() WorkspaceQueryLoggingConfigurationOutput {
+	return o.ApplyT(func(v *WorkspaceQueryLoggingConfiguration) WorkspaceQueryLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceQueryLoggingConfiguration
+		return ret
+	}).(WorkspaceQueryLoggingConfigurationOutput)
+}
+
+// The destinations configuration for query logging
+func (o WorkspaceQueryLoggingConfigurationPtrOutput) Destinations() WorkspaceLoggingDestinationArrayOutput {
+	return o.ApplyT(func(v *WorkspaceQueryLoggingConfiguration) []WorkspaceLoggingDestination {
+		if v == nil {
+			return nil
+		}
+		return v.Destinations
+	}).(WorkspaceLoggingDestinationArrayOutput)
+}
+
 // A key-value pair to associate with a resource.
 type WorkspaceTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1329,6 +1682,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceInput)(nil)).Elem(), ScraperSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceEksConfigurationPropertiesInput)(nil)).Elem(), ScraperSourceEksConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceEksConfigurationPropertiesPtrInput)(nil)).Elem(), ScraperSourceEksConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCloudWatchLogDestinationInput)(nil)).Elem(), WorkspaceCloudWatchLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationInput)(nil)).Elem(), WorkspaceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationPtrInput)(nil)).Elem(), WorkspaceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLabelInput)(nil)).Elem(), WorkspaceLabelArgs{})
@@ -1338,6 +1692,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLimitsPerLabelSetEntryInput)(nil)).Elem(), WorkspaceLimitsPerLabelSetEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationPtrInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingDestinationInput)(nil)).Elem(), WorkspaceLoggingDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingDestinationArrayInput)(nil)).Elem(), WorkspaceLoggingDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingFilterInput)(nil)).Elem(), WorkspaceLoggingFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceQueryLoggingConfigurationInput)(nil)).Elem(), WorkspaceQueryLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceQueryLoggingConfigurationPtrInput)(nil)).Elem(), WorkspaceQueryLoggingConfigurationArgs{})
 	pulumi.RegisterOutputType(ScraperDestinationOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpConfigurationPropertiesOutput{})
@@ -1349,6 +1708,7 @@ func init() {
 	pulumi.RegisterOutputType(ScraperSourceOutput{})
 	pulumi.RegisterOutputType(ScraperSourceEksConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(ScraperSourceEksConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceCloudWatchLogDestinationOutput{})
 	pulumi.RegisterOutputType(WorkspaceConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkspaceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceLabelOutput{})
@@ -1358,4 +1718,9 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceLimitsPerLabelSetEntryOutput{})
 	pulumi.RegisterOutputType(WorkspaceLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkspaceLoggingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceLoggingDestinationOutput{})
+	pulumi.RegisterOutputType(WorkspaceLoggingDestinationArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceLoggingFilterOutput{})
+	pulumi.RegisterOutputType(WorkspaceQueryLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkspaceQueryLoggingConfigurationPtrOutput{})
 }

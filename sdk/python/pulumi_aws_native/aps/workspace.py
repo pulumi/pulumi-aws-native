@@ -28,6 +28,7 @@ class WorkspaceArgs:
                  alias: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
+                 query_logging_configuration: Optional[pulumi.Input['WorkspaceQueryLoggingConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  workspace_configuration: Optional[pulumi.Input['WorkspaceConfigurationArgs']] = None):
         """
@@ -47,6 +48,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if query_logging_configuration is not None:
+            pulumi.set(__self__, "query_logging_configuration", query_logging_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if workspace_configuration is not None:
@@ -101,6 +104,15 @@ class WorkspaceArgs:
         pulumi.set(self, "logging_configuration", value)
 
     @property
+    @pulumi.getter(name="queryLoggingConfiguration")
+    def query_logging_configuration(self) -> Optional[pulumi.Input['WorkspaceQueryLoggingConfigurationArgs']]:
+        return pulumi.get(self, "query_logging_configuration")
+
+    @query_logging_configuration.setter
+    def query_logging_configuration(self, value: Optional[pulumi.Input['WorkspaceQueryLoggingConfigurationArgs']]):
+        pulumi.set(self, "query_logging_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -137,6 +149,7 @@ class Workspace(pulumi.CustomResource):
                  alias: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
+                 query_logging_configuration: Optional[pulumi.Input[Union['WorkspaceQueryLoggingConfigurationArgs', 'WorkspaceQueryLoggingConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  workspace_configuration: Optional[pulumi.Input[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict']]] = None,
                  __props__=None):
@@ -280,6 +293,7 @@ class Workspace(pulumi.CustomResource):
                  alias: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
+                 query_logging_configuration: Optional[pulumi.Input[Union['WorkspaceQueryLoggingConfigurationArgs', 'WorkspaceQueryLoggingConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  workspace_configuration: Optional[pulumi.Input[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict']]] = None,
                  __props__=None):
@@ -295,6 +309,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["alias"] = alias
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["logging_configuration"] = logging_configuration
+            __props__.__dict__["query_logging_configuration"] = query_logging_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workspace_configuration"] = workspace_configuration
             __props__.__dict__["arn"] = None
@@ -330,6 +345,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["logging_configuration"] = None
         __props__.__dict__["prometheus_endpoint"] = None
+        __props__.__dict__["query_logging_configuration"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["workspace_configuration"] = None
         __props__.__dict__["workspace_id"] = None
@@ -382,6 +398,11 @@ class Workspace(pulumi.CustomResource):
         AMP Workspace prometheus endpoint
         """
         return pulumi.get(self, "prometheus_endpoint")
+
+    @property
+    @pulumi.getter(name="queryLoggingConfiguration")
+    def query_logging_configuration(self) -> pulumi.Output[Optional['outputs.WorkspaceQueryLoggingConfiguration']]:
+        return pulumi.get(self, "query_logging_configuration")
 
     @property
     @pulumi.getter

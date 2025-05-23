@@ -13,11 +13,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::DataSync::LocationAzureBlob.
+// Resource Type definition for AWS::DataSync::LocationAzureBlob.
 type LocationAzureBlob struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
 	AzureAccessTier LocationAzureBlobAzureAccessTierPtrOutput `pulumi:"azureAccessTier"`
@@ -28,11 +28,14 @@ type LocationAzureBlob struct {
 	// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
 	AzureBlobSasConfiguration LocationAzureBlobAzureBlobSasConfigurationPtrOutput `pulumi:"azureBlobSasConfiguration"`
 	// Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
-	AzureBlobType LocationAzureBlobAzureBlobTypePtrOutput `pulumi:"azureBlobType"`
+	AzureBlobType      LocationAzureBlobAzureBlobTypePtrOutput      `pulumi:"azureBlobType"`
+	CmkSecretConfig    LocationAzureBlobCmkSecretConfigPtrOutput    `pulumi:"cmkSecretConfig"`
+	CustomSecretConfig LocationAzureBlobCustomSecretConfigPtrOutput `pulumi:"customSecretConfig"`
 	// The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the Azure Blob Location that was described.
-	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
+	LocationUri         pulumi.StringOutput                        `pulumi:"locationUri"`
+	ManagedSecretConfig LocationAzureBlobManagedSecretConfigOutput `pulumi:"managedSecretConfig"`
 	// The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
@@ -46,9 +49,6 @@ func NewLocationAzureBlob(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AgentArns == nil {
-		return nil, errors.New("invalid value for required argument 'AgentArns'")
-	}
 	if args.AzureBlobAuthenticationType == nil {
 		return nil, errors.New("invalid value for required argument 'AzureBlobAuthenticationType'")
 	}
@@ -89,7 +89,7 @@ func (LocationAzureBlobState) ElementType() reflect.Type {
 }
 
 type locationAzureBlobArgs struct {
-	// The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 	AgentArns []string `pulumi:"agentArns"`
 	// Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
 	AzureAccessTier *LocationAzureBlobAzureAccessTier `pulumi:"azureAccessTier"`
@@ -100,7 +100,9 @@ type locationAzureBlobArgs struct {
 	// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
 	AzureBlobSasConfiguration *LocationAzureBlobAzureBlobSasConfiguration `pulumi:"azureBlobSasConfiguration"`
 	// Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
-	AzureBlobType *LocationAzureBlobAzureBlobType `pulumi:"azureBlobType"`
+	AzureBlobType      *LocationAzureBlobAzureBlobType      `pulumi:"azureBlobType"`
+	CmkSecretConfig    *LocationAzureBlobCmkSecretConfig    `pulumi:"cmkSecretConfig"`
+	CustomSecretConfig *LocationAzureBlobCustomSecretConfig `pulumi:"customSecretConfig"`
 	// The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
@@ -109,7 +111,7 @@ type locationAzureBlobArgs struct {
 
 // The set of arguments for constructing a LocationAzureBlob resource.
 type LocationAzureBlobArgs struct {
-	// The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 	AgentArns pulumi.StringArrayInput
 	// Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
 	AzureAccessTier LocationAzureBlobAzureAccessTierPtrInput
@@ -120,7 +122,9 @@ type LocationAzureBlobArgs struct {
 	// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
 	AzureBlobSasConfiguration LocationAzureBlobAzureBlobSasConfigurationPtrInput
 	// Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
-	AzureBlobType LocationAzureBlobAzureBlobTypePtrInput
+	AzureBlobType      LocationAzureBlobAzureBlobTypePtrInput
+	CmkSecretConfig    LocationAzureBlobCmkSecretConfigPtrInput
+	CustomSecretConfig LocationAzureBlobCustomSecretConfigPtrInput
 	// The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -164,7 +168,7 @@ func (o LocationAzureBlobOutput) ToLocationAzureBlobOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 func (o LocationAzureBlobOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
@@ -198,6 +202,14 @@ func (o LocationAzureBlobOutput) AzureBlobType() LocationAzureBlobAzureBlobTypeP
 	return o.ApplyT(func(v *LocationAzureBlob) LocationAzureBlobAzureBlobTypePtrOutput { return v.AzureBlobType }).(LocationAzureBlobAzureBlobTypePtrOutput)
 }
 
+func (o LocationAzureBlobOutput) CmkSecretConfig() LocationAzureBlobCmkSecretConfigPtrOutput {
+	return o.ApplyT(func(v *LocationAzureBlob) LocationAzureBlobCmkSecretConfigPtrOutput { return v.CmkSecretConfig }).(LocationAzureBlobCmkSecretConfigPtrOutput)
+}
+
+func (o LocationAzureBlobOutput) CustomSecretConfig() LocationAzureBlobCustomSecretConfigPtrOutput {
+	return o.ApplyT(func(v *LocationAzureBlob) LocationAzureBlobCustomSecretConfigPtrOutput { return v.CustomSecretConfig }).(LocationAzureBlobCustomSecretConfigPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
 func (o LocationAzureBlobOutput) LocationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
@@ -206,6 +218,10 @@ func (o LocationAzureBlobOutput) LocationArn() pulumi.StringOutput {
 // The URL of the Azure Blob Location that was described.
 func (o LocationAzureBlobOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+func (o LocationAzureBlobOutput) ManagedSecretConfig() LocationAzureBlobManagedSecretConfigOutput {
+	return o.ApplyT(func(v *LocationAzureBlob) LocationAzureBlobManagedSecretConfigOutput { return v.ManagedSecretConfig }).(LocationAzureBlobManagedSecretConfigOutput)
 }
 
 // The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.

@@ -166,6 +166,7 @@ class KnowledgeBaseType(builtins.str, Enum):
     CUSTOM = "CUSTOM"
     MESSAGE_TEMPLATES = "MESSAGE_TEMPLATES"
     MANAGED = "MANAGED"
+    QUICK_RESPONSES = "QUICK_RESPONSES"
 
 
 class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy(builtins.str, Enum):

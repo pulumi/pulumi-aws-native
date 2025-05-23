@@ -45,6 +45,7 @@ export interface GetWorkspaceResult {
      * AMP Workspace prometheus endpoint
      */
     readonly prometheusEndpoint?: string;
+    readonly queryLoggingConfiguration?: outputs.aps.WorkspaceQueryLoggingConfiguration;
     /**
      * An array of key-value pairs to apply to this resource.
      */

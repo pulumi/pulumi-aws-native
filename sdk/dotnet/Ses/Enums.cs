@@ -601,6 +601,62 @@ namespace Pulumi.AwsNative.Ses
     }
 
     [EnumType]
+    public readonly struct MailManagerRuleSetSnsNotificationEncoding : IEquatable<MailManagerRuleSetSnsNotificationEncoding>
+    {
+        private readonly string _value;
+
+        private MailManagerRuleSetSnsNotificationEncoding(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MailManagerRuleSetSnsNotificationEncoding Utf8 { get; } = new MailManagerRuleSetSnsNotificationEncoding("UTF-8");
+        public static MailManagerRuleSetSnsNotificationEncoding Base64 { get; } = new MailManagerRuleSetSnsNotificationEncoding("BASE64");
+
+        public static bool operator ==(MailManagerRuleSetSnsNotificationEncoding left, MailManagerRuleSetSnsNotificationEncoding right) => left.Equals(right);
+        public static bool operator !=(MailManagerRuleSetSnsNotificationEncoding left, MailManagerRuleSetSnsNotificationEncoding right) => !left.Equals(right);
+
+        public static explicit operator string(MailManagerRuleSetSnsNotificationEncoding value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MailManagerRuleSetSnsNotificationEncoding other && Equals(other);
+        public bool Equals(MailManagerRuleSetSnsNotificationEncoding other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MailManagerRuleSetSnsNotificationPayloadType : IEquatable<MailManagerRuleSetSnsNotificationPayloadType>
+    {
+        private readonly string _value;
+
+        private MailManagerRuleSetSnsNotificationPayloadType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MailManagerRuleSetSnsNotificationPayloadType Content { get; } = new MailManagerRuleSetSnsNotificationPayloadType("CONTENT");
+        public static MailManagerRuleSetSnsNotificationPayloadType Headers { get; } = new MailManagerRuleSetSnsNotificationPayloadType("HEADERS");
+
+        public static bool operator ==(MailManagerRuleSetSnsNotificationPayloadType left, MailManagerRuleSetSnsNotificationPayloadType right) => left.Equals(right);
+        public static bool operator !=(MailManagerRuleSetSnsNotificationPayloadType left, MailManagerRuleSetSnsNotificationPayloadType right) => !left.Equals(right);
+
+        public static explicit operator string(MailManagerRuleSetSnsNotificationPayloadType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MailManagerRuleSetSnsNotificationPayloadType other && Equals(other);
+        public bool Equals(MailManagerRuleSetSnsNotificationPayloadType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct MailManagerTrafficPolicyAcceptAction : IEquatable<MailManagerTrafficPolicyAcceptAction>
     {
         private readonly string _value;

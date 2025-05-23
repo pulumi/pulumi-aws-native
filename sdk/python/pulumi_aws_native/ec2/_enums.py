@@ -32,6 +32,10 @@ __all__ = [
     'FlowLogResourceType',
     'FlowLogTrafficType',
     'InstanceAffinity',
+    'InstanceMetadataOptionsHttpEndpoint',
+    'InstanceMetadataOptionsHttpProtocolIpv6',
+    'InstanceMetadataOptionsHttpTokens',
+    'InstanceMetadataOptionsInstanceMetadataTags',
     'InstancePrivateDnsNameOptionsHostnameType',
     'IpamMeteredAccount',
     'IpamPoolAwsService',
@@ -392,6 +396,38 @@ class InstanceAffinity(builtins.str, Enum):
     """
     DEFAULT = "default"
     HOST = "host"
+
+
+class InstanceMetadataOptionsHttpEndpoint(builtins.str, Enum):
+    """
+    Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+    """
+    DISABLED = "disabled"
+    ENABLED = "enabled"
+
+
+class InstanceMetadataOptionsHttpProtocolIpv6(builtins.str, Enum):
+    """
+    Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+    """
+    DISABLED = "disabled"
+    ENABLED = "enabled"
+
+
+class InstanceMetadataOptionsHttpTokens(builtins.str, Enum):
+    """
+    Indicates whether IMDSv2 is required.
+    """
+    OPTIONAL = "optional"
+    REQUIRED = "required"
+
+
+class InstanceMetadataOptionsInstanceMetadataTags(builtins.str, Enum):
+    """
+    Indicates whether tags from the instance are propagated to the EBS volumes.
+    """
+    DISABLED = "disabled"
+    ENABLED = "enabled"
 
 
 class InstancePrivateDnsNameOptionsHostnameType(builtins.str, Enum):

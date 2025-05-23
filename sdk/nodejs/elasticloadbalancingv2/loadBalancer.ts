@@ -51,6 +51,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     public readonly enablePrefixForIpv6SourceNat!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
+     *  You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
      */
     public readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic!: pulumi.Output<string | undefined>;
     /**
@@ -192,6 +193,7 @@ export interface LoadBalancerArgs {
     enablePrefixForIpv6SourceNat?: pulumi.Input<string>;
     /**
      * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
+     *  You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
      */
     enforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: pulumi.Input<string>;
     /**

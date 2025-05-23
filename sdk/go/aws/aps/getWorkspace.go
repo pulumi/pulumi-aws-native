@@ -38,7 +38,8 @@ type LookupWorkspaceResult struct {
 	// Contains information about the logging configuration for the workspace.
 	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// AMP Workspace prometheus endpoint
-	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
+	PrometheusEndpoint        *string                             `pulumi:"prometheusEndpoint"`
+	QueryLoggingConfiguration *WorkspaceQueryLoggingConfiguration `pulumi:"queryLoggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
@@ -102,6 +103,10 @@ func (o LookupWorkspaceResultOutput) LoggingConfiguration() WorkspaceLoggingConf
 // AMP Workspace prometheus endpoint
 func (o LookupWorkspaceResultOutput) PrometheusEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.PrometheusEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupWorkspaceResultOutput) QueryLoggingConfiguration() WorkspaceQueryLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceQueryLoggingConfiguration { return v.QueryLoggingConfiguration }).(WorkspaceQueryLoggingConfigurationPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

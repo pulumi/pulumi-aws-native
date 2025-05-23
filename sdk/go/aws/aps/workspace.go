@@ -131,7 +131,8 @@ type Workspace struct {
 	// Contains information about the logging configuration for the workspace.
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// AMP Workspace prometheus endpoint
-	PrometheusEndpoint pulumi.StringOutput `pulumi:"prometheusEndpoint"`
+	PrometheusEndpoint        pulumi.StringOutput                         `pulumi:"prometheusEndpoint"`
+	QueryLoggingConfiguration WorkspaceQueryLoggingConfigurationPtrOutput `pulumi:"queryLoggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
@@ -191,7 +192,8 @@ type workspaceArgs struct {
 	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Contains information about the logging configuration for the workspace.
-	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
+	LoggingConfiguration      *WorkspaceLoggingConfiguration      `pulumi:"loggingConfiguration"`
+	QueryLoggingConfiguration *WorkspaceQueryLoggingConfiguration `pulumi:"queryLoggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
@@ -207,7 +209,8 @@ type WorkspaceArgs struct {
 	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
 	KmsKeyArn pulumi.StringPtrInput
 	// Contains information about the logging configuration for the workspace.
-	LoggingConfiguration WorkspaceLoggingConfigurationPtrInput
+	LoggingConfiguration      WorkspaceLoggingConfigurationPtrInput
+	QueryLoggingConfiguration WorkspaceQueryLoggingConfigurationPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 	// Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
@@ -279,6 +282,10 @@ func (o WorkspaceOutput) LoggingConfiguration() WorkspaceLoggingConfigurationPtr
 // AMP Workspace prometheus endpoint
 func (o WorkspaceOutput) PrometheusEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.PrometheusEndpoint }).(pulumi.StringOutput)
+}
+
+func (o WorkspaceOutput) QueryLoggingConfiguration() WorkspaceQueryLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceQueryLoggingConfigurationPtrOutput { return v.QueryLoggingConfiguration }).(WorkspaceQueryLoggingConfigurationPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

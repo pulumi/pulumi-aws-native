@@ -313,7 +313,7 @@ class ScheduledQuery(pulumi.CustomResource):
             __props__.__dict__["sq_schedule_configuration"] = None
             __props__.__dict__["sq_scheduled_query_execution_role_arn"] = None
             __props__.__dict__["sq_target_configuration"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientToken", "errorReportConfiguration", "kmsKeyId", "notificationConfiguration", "queryString", "scheduleConfiguration", "scheduledQueryExecutionRoleArn", "scheduledQueryName", "targetConfiguration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["errorReportConfiguration", "kmsKeyId", "notificationConfiguration", "queryString", "scheduleConfiguration", "scheduledQueryExecutionRoleArn", "scheduledQueryName", "targetConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ScheduledQuery, __self__).__init__(
             'aws-native:timestream:ScheduledQuery',

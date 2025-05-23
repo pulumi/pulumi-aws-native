@@ -114,6 +114,7 @@ export class Workspace extends pulumi.CustomResource {
      * AMP Workspace prometheus endpoint
      */
     public /*out*/ readonly prometheusEndpoint!: pulumi.Output<string>;
+    public readonly queryLoggingConfiguration!: pulumi.Output<outputs.aps.WorkspaceQueryLoggingConfiguration | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -142,6 +143,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["alias"] = args ? args.alias : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["queryLoggingConfiguration"] = args ? args.queryLoggingConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceConfiguration"] = args ? args.workspaceConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -154,6 +156,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["loggingConfiguration"] = undefined /*out*/;
             resourceInputs["prometheusEndpoint"] = undefined /*out*/;
+            resourceInputs["queryLoggingConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["workspaceConfiguration"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
@@ -185,6 +188,7 @@ export interface WorkspaceArgs {
      * Contains information about the logging configuration for the workspace.
      */
     loggingConfiguration?: pulumi.Input<inputs.aps.WorkspaceLoggingConfigurationArgs>;
+    queryLoggingConfiguration?: pulumi.Input<inputs.aps.WorkspaceQueryLoggingConfigurationArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

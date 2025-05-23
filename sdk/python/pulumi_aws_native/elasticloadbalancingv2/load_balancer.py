@@ -41,6 +41,7 @@ class LoadBalancerArgs:
         The set of arguments for constructing a LoadBalancer resource.
         :param pulumi.Input[builtins.str] enable_prefix_for_ipv6_source_nat: [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
         :param pulumi.Input[builtins.str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
+                You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
         :param pulumi.Input[builtins.str] ip_address_type: The IP address type. Internal load balancers must use ``ipv4``.
                 [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
                 Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
@@ -113,6 +114,7 @@ class LoadBalancerArgs:
     def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
+         You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
         """
         return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
 
@@ -298,6 +300,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] enable_prefix_for_ipv6_source_nat: [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
         :param pulumi.Input[builtins.str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
+                You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
         :param pulumi.Input[builtins.str] ip_address_type: The IP address type. Internal load balancers must use ``ipv4``.
                 [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
                 Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
@@ -463,6 +466,7 @@ class LoadBalancer(pulumi.CustomResource):
     def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
+         You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
         """
         return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
 

@@ -85,6 +85,7 @@ namespace Pulumi.AwsNative.DataSync
         }
 
         public static LocationAzureBlobAzureBlobAuthenticationType Sas { get; } = new LocationAzureBlobAzureBlobAuthenticationType("SAS");
+        public static LocationAzureBlobAzureBlobAuthenticationType None { get; } = new LocationAzureBlobAzureBlobAuthenticationType("NONE");
 
         public static bool operator ==(LocationAzureBlobAzureBlobAuthenticationType left, LocationAzureBlobAzureBlobAuthenticationType right) => left.Equals(right);
         public static bool operator !=(LocationAzureBlobAzureBlobAuthenticationType left, LocationAzureBlobAzureBlobAuthenticationType right) => !left.Equals(right);

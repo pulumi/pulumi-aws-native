@@ -431,8 +431,9 @@
   "required" : [ "QueryString", "ScheduleConfiguration", "NotificationConfiguration", "ScheduledQueryExecutionRoleArn", "ErrorReportConfiguration" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/ScheduledQueryName", "/properties/QueryString", "/properties/ScheduleConfiguration", "/properties/NotificationConfiguration", "/properties/ClientToken", "/properties/ScheduledQueryExecutionRoleArn", "/properties/TargetConfiguration", "/properties/ErrorReportConfiguration", "/properties/KmsKeyId" ],
+  "createOnlyProperties" : [ "/properties/ScheduledQueryName", "/properties/QueryString", "/properties/ScheduleConfiguration", "/properties/NotificationConfiguration", "/properties/ScheduledQueryExecutionRoleArn", "/properties/TargetConfiguration", "/properties/ErrorReportConfiguration", "/properties/KmsKeyId" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/SQName", "/properties/SQQueryString", "/properties/SQScheduleConfiguration", "/properties/SQNotificationConfiguration", "/properties/SQScheduledQueryExecutionRoleArn", "/properties/SQTargetConfiguration", "/properties/SQErrorReportConfiguration", "/properties/SQKmsKeyId" ],
+  "writeOnlyProperties" : [ "/properties/ClientToken" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
@@ -443,16 +444,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "timestream:CreateScheduledQuery", "timestream:DescribeEndpoints" ]
+      "permissions" : [ "timestream:CreateScheduledQuery", "timestream:DescribeEndpoints", "timestream:TagResource", "iam:PassRole", "kms:DescribeKey", "kms:GenerateDataKey" ]
     },
     "read" : {
-      "permissions" : [ "timestream:DescribeScheduledQuery", "timestream:ListTagsForResource", "timestream:DescribeEndpoints" ]
+      "permissions" : [ "timestream:DescribeScheduledQuery", "timestream:ListTagsForResource", "timestream:DescribeEndpoints", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "update" : {
       "permissions" : [ "timestream:UpdateScheduledQuery", "timestream:TagResource", "timestream:UntagResource", "timestream:DescribeEndpoints" ]
     },
     "delete" : {
-      "permissions" : [ "timestream:DeleteScheduledQuery", "timestream:DescribeEndpoints" ]
+      "permissions" : [ "timestream:DeleteScheduledQuery", "timestream:DescribeScheduledQuery", "timestream:DescribeEndpoints" ]
     },
     "list" : {
       "permissions" : [ "timestream:ListScheduledQueries", "timestream:DescribeEndpoints" ]

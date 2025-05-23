@@ -147,7 +147,14 @@
     }
   },
   "additionalProperties" : false,
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotsitewise:TagResource", "iotsitewise:UntagResource", "iotsitewise:ListTagsForResource" ]
+  },
   "required" : [ "AssetName", "AssetModelId" ],
   "readOnlyProperties" : [ "/properties/AssetArn", "/properties/AssetId", "/properties/AssetProperties/*/Id", "/properties/AssetHierarchies/*/Id" ],
   "primaryIdentifier" : [ "/properties/AssetId" ],

@@ -14,18 +14,22 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['LocationObjectStorageArgs', 'LocationObjectStorage']
 
 @pulumi.input_type
 class LocationObjectStorageArgs:
     def __init__(__self__, *,
-                 agent_arns: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  access_key: Optional[pulumi.Input[builtins.str]] = None,
+                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  bucket_name: Optional[pulumi.Input[builtins.str]] = None,
+                 cmk_secret_config: Optional[pulumi.Input['LocationObjectStorageCmkSecretConfigArgs']] = None,
+                 custom_secret_config: Optional[pulumi.Input['LocationObjectStorageCustomSecretConfigArgs']] = None,
                  secret_key: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate: Optional[pulumi.Input[builtins.str]] = None,
                  server_hostname: Optional[pulumi.Input[builtins.str]] = None,
@@ -35,8 +39,8 @@ class LocationObjectStorageArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationObjectStorage resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
         :param pulumi.Input[builtins.str] access_key: Optional. The access key is used if credentials are required to access the self-managed object storage server.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         :param pulumi.Input[builtins.str] bucket_name: The name of the bucket on the self-managed object storage server.
         :param pulumi.Input[builtins.str] secret_key: Optional. The secret key is used if credentials are required to access the self-managed object storage server.
         :param pulumi.Input[builtins.str] server_certificate: X.509 PEM content containing a certificate authority or chain to trust.
@@ -46,11 +50,16 @@ class LocationObjectStorageArgs:
         :param pulumi.Input[builtins.str] subdirectory: The subdirectory in the self-managed object storage server that is used to read data from.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "agent_arns", agent_arns)
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
+        if agent_arns is not None:
+            pulumi.set(__self__, "agent_arns", agent_arns)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
+        if cmk_secret_config is not None:
+            pulumi.set(__self__, "cmk_secret_config", cmk_secret_config)
+        if custom_secret_config is not None:
+            pulumi.set(__self__, "custom_secret_config", custom_secret_config)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
         if server_certificate is not None:
@@ -67,18 +76,6 @@ class LocationObjectStorageArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="agentArns")
-    def agent_arns(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
-        """
-        The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
-        """
-        return pulumi.get(self, "agent_arns")
-
-    @agent_arns.setter
-    def agent_arns(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
-        pulumi.set(self, "agent_arns", value)
-
-    @property
     @pulumi.getter(name="accessKey")
     def access_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -91,6 +88,18 @@ class LocationObjectStorageArgs:
         pulumi.set(self, "access_key", value)
 
     @property
+    @pulumi.getter(name="agentArns")
+    def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
+        """
+        return pulumi.get(self, "agent_arns")
+
+    @agent_arns.setter
+    def agent_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "agent_arns", value)
+
+    @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -101,6 +110,24 @@ class LocationObjectStorageArgs:
     @bucket_name.setter
     def bucket_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="cmkSecretConfig")
+    def cmk_secret_config(self) -> Optional[pulumi.Input['LocationObjectStorageCmkSecretConfigArgs']]:
+        return pulumi.get(self, "cmk_secret_config")
+
+    @cmk_secret_config.setter
+    def cmk_secret_config(self, value: Optional[pulumi.Input['LocationObjectStorageCmkSecretConfigArgs']]):
+        pulumi.set(self, "cmk_secret_config", value)
+
+    @property
+    @pulumi.getter(name="customSecretConfig")
+    def custom_secret_config(self) -> Optional[pulumi.Input['LocationObjectStorageCustomSecretConfigArgs']]:
+        return pulumi.get(self, "custom_secret_config")
+
+    @custom_secret_config.setter
+    def custom_secret_config(self, value: Optional[pulumi.Input['LocationObjectStorageCustomSecretConfigArgs']]):
+        pulumi.set(self, "custom_secret_config", value)
 
     @property
     @pulumi.getter(name="secretKey")
@@ -198,6 +225,8 @@ class LocationObjectStorage(pulumi.CustomResource):
                  access_key: Optional[pulumi.Input[builtins.str]] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  bucket_name: Optional[pulumi.Input[builtins.str]] = None,
+                 cmk_secret_config: Optional[pulumi.Input[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict']]] = None,
+                 custom_secret_config: Optional[pulumi.Input[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict']]] = None,
                  secret_key: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate: Optional[pulumi.Input[builtins.str]] = None,
                  server_hostname: Optional[pulumi.Input[builtins.str]] = None,
@@ -207,7 +236,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::DataSync::LocationObjectStorage.
+        Resource Type definition for AWS::DataSync::LocationObjectStorage.
 
         ## Example Usage
         ### Example
@@ -228,7 +257,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access_key: Optional. The access key is used if credentials are required to access the self-managed object storage server.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         :param pulumi.Input[builtins.str] bucket_name: The name of the bucket on the self-managed object storage server.
         :param pulumi.Input[builtins.str] secret_key: Optional. The secret key is used if credentials are required to access the self-managed object storage server.
         :param pulumi.Input[builtins.str] server_certificate: X.509 PEM content containing a certificate authority or chain to trust.
@@ -242,10 +271,10 @@ class LocationObjectStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocationObjectStorageArgs,
+                 args: Optional[LocationObjectStorageArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::DataSync::LocationObjectStorage.
+        Resource Type definition for AWS::DataSync::LocationObjectStorage.
 
         ## Example Usage
         ### Example
@@ -281,6 +310,8 @@ class LocationObjectStorage(pulumi.CustomResource):
                  access_key: Optional[pulumi.Input[builtins.str]] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  bucket_name: Optional[pulumi.Input[builtins.str]] = None,
+                 cmk_secret_config: Optional[pulumi.Input[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict']]] = None,
+                 custom_secret_config: Optional[pulumi.Input[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict']]] = None,
                  secret_key: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate: Optional[pulumi.Input[builtins.str]] = None,
                  server_hostname: Optional[pulumi.Input[builtins.str]] = None,
@@ -298,10 +329,10 @@ class LocationObjectStorage(pulumi.CustomResource):
             __props__ = LocationObjectStorageArgs.__new__(LocationObjectStorageArgs)
 
             __props__.__dict__["access_key"] = access_key
-            if agent_arns is None and not opts.urn:
-                raise TypeError("Missing required property 'agent_arns'")
             __props__.__dict__["agent_arns"] = agent_arns
             __props__.__dict__["bucket_name"] = bucket_name
+            __props__.__dict__["cmk_secret_config"] = cmk_secret_config
+            __props__.__dict__["custom_secret_config"] = custom_secret_config
             __props__.__dict__["secret_key"] = secret_key
             __props__.__dict__["server_certificate"] = server_certificate
             __props__.__dict__["server_hostname"] = server_hostname
@@ -311,6 +342,7 @@ class LocationObjectStorage(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
+            __props__.__dict__["managed_secret_config"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucketName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LocationObjectStorage, __self__).__init__(
@@ -338,8 +370,11 @@ class LocationObjectStorage(pulumi.CustomResource):
         __props__.__dict__["access_key"] = None
         __props__.__dict__["agent_arns"] = None
         __props__.__dict__["bucket_name"] = None
+        __props__.__dict__["cmk_secret_config"] = None
+        __props__.__dict__["custom_secret_config"] = None
         __props__.__dict__["location_arn"] = None
         __props__.__dict__["location_uri"] = None
+        __props__.__dict__["managed_secret_config"] = None
         __props__.__dict__["secret_key"] = None
         __props__.__dict__["server_certificate"] = None
         __props__.__dict__["server_hostname"] = None
@@ -359,9 +394,9 @@ class LocationObjectStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentArns")
-    def agent_arns(self) -> pulumi.Output[Sequence[builtins.str]]:
+    def agent_arns(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+        Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         """
         return pulumi.get(self, "agent_arns")
 
@@ -372,6 +407,16 @@ class LocationObjectStorage(pulumi.CustomResource):
         The name of the bucket on the self-managed object storage server.
         """
         return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="cmkSecretConfig")
+    def cmk_secret_config(self) -> pulumi.Output[Optional['outputs.LocationObjectStorageCmkSecretConfig']]:
+        return pulumi.get(self, "cmk_secret_config")
+
+    @property
+    @pulumi.getter(name="customSecretConfig")
+    def custom_secret_config(self) -> pulumi.Output[Optional['outputs.LocationObjectStorageCustomSecretConfig']]:
+        return pulumi.get(self, "custom_secret_config")
 
     @property
     @pulumi.getter(name="locationArn")
@@ -388,6 +433,11 @@ class LocationObjectStorage(pulumi.CustomResource):
         The URL of the object storage location that was described.
         """
         return pulumi.get(self, "location_uri")
+
+    @property
+    @pulumi.getter(name="managedSecretConfig")
+    def managed_secret_config(self) -> pulumi.Output['outputs.LocationObjectStorageManagedSecretConfig']:
+        return pulumi.get(self, "managed_secret_config")
 
     @property
     @pulumi.getter(name="secretKey")

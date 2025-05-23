@@ -107,6 +107,8 @@ __all__ = [
     'InstanceLaunchTemplateSpecificationArgsDict',
     'InstanceLicenseSpecificationArgs',
     'InstanceLicenseSpecificationArgsDict',
+    'InstanceMetadataOptionsArgs',
+    'InstanceMetadataOptionsArgsDict',
     'InstanceNetworkInterfaceArgs',
     'InstanceNetworkInterfaceArgsDict',
     'InstancePrivateDnsNameOptionsArgs',
@@ -4559,6 +4561,118 @@ class InstanceLicenseSpecificationArgs:
     @license_configuration_arn.setter
     def license_configuration_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "license_configuration_arn", value)
+
+
+if not MYPY:
+    class InstanceMetadataOptionsArgsDict(TypedDict):
+        http_endpoint: NotRequired[pulumi.Input['InstanceMetadataOptionsHttpEndpoint']]
+        """
+        Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+        """
+        http_protocol_ipv6: NotRequired[pulumi.Input['InstanceMetadataOptionsHttpProtocolIpv6']]
+        """
+        Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+        """
+        http_put_response_hop_limit: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The number of network hops that the metadata token can travel. Maximum is 64.
+        """
+        http_tokens: NotRequired[pulumi.Input['InstanceMetadataOptionsHttpTokens']]
+        """
+        Indicates whether IMDSv2 is required.
+        """
+        instance_metadata_tags: NotRequired[pulumi.Input['InstanceMetadataOptionsInstanceMetadataTags']]
+        """
+        Indicates whether tags from the instance are propagated to the EBS volumes.
+        """
+elif False:
+    InstanceMetadataOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InstanceMetadataOptionsArgs:
+    def __init__(__self__, *,
+                 http_endpoint: Optional[pulumi.Input['InstanceMetadataOptionsHttpEndpoint']] = None,
+                 http_protocol_ipv6: Optional[pulumi.Input['InstanceMetadataOptionsHttpProtocolIpv6']] = None,
+                 http_put_response_hop_limit: Optional[pulumi.Input[builtins.int]] = None,
+                 http_tokens: Optional[pulumi.Input['InstanceMetadataOptionsHttpTokens']] = None,
+                 instance_metadata_tags: Optional[pulumi.Input['InstanceMetadataOptionsInstanceMetadataTags']] = None):
+        """
+        :param pulumi.Input['InstanceMetadataOptionsHttpEndpoint'] http_endpoint: Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+        :param pulumi.Input['InstanceMetadataOptionsHttpProtocolIpv6'] http_protocol_ipv6: Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+        :param pulumi.Input[builtins.int] http_put_response_hop_limit: The number of network hops that the metadata token can travel. Maximum is 64.
+        :param pulumi.Input['InstanceMetadataOptionsHttpTokens'] http_tokens: Indicates whether IMDSv2 is required.
+        :param pulumi.Input['InstanceMetadataOptionsInstanceMetadataTags'] instance_metadata_tags: Indicates whether tags from the instance are propagated to the EBS volumes.
+        """
+        if http_endpoint is not None:
+            pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_protocol_ipv6 is not None:
+            pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
+        if http_put_response_hop_limit is not None:
+            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        if http_tokens is not None:
+            pulumi.set(__self__, "http_tokens", http_tokens)
+        if instance_metadata_tags is not None:
+            pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
+
+    @property
+    @pulumi.getter(name="httpEndpoint")
+    def http_endpoint(self) -> Optional[pulumi.Input['InstanceMetadataOptionsHttpEndpoint']]:
+        """
+        Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+        """
+        return pulumi.get(self, "http_endpoint")
+
+    @http_endpoint.setter
+    def http_endpoint(self, value: Optional[pulumi.Input['InstanceMetadataOptionsHttpEndpoint']]):
+        pulumi.set(self, "http_endpoint", value)
+
+    @property
+    @pulumi.getter(name="httpProtocolIpv6")
+    def http_protocol_ipv6(self) -> Optional[pulumi.Input['InstanceMetadataOptionsHttpProtocolIpv6']]:
+        """
+        Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+        """
+        return pulumi.get(self, "http_protocol_ipv6")
+
+    @http_protocol_ipv6.setter
+    def http_protocol_ipv6(self, value: Optional[pulumi.Input['InstanceMetadataOptionsHttpProtocolIpv6']]):
+        pulumi.set(self, "http_protocol_ipv6", value)
+
+    @property
+    @pulumi.getter(name="httpPutResponseHopLimit")
+    def http_put_response_hop_limit(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The number of network hops that the metadata token can travel. Maximum is 64.
+        """
+        return pulumi.get(self, "http_put_response_hop_limit")
+
+    @http_put_response_hop_limit.setter
+    def http_put_response_hop_limit(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "http_put_response_hop_limit", value)
+
+    @property
+    @pulumi.getter(name="httpTokens")
+    def http_tokens(self) -> Optional[pulumi.Input['InstanceMetadataOptionsHttpTokens']]:
+        """
+        Indicates whether IMDSv2 is required.
+        """
+        return pulumi.get(self, "http_tokens")
+
+    @http_tokens.setter
+    def http_tokens(self, value: Optional[pulumi.Input['InstanceMetadataOptionsHttpTokens']]):
+        pulumi.set(self, "http_tokens", value)
+
+    @property
+    @pulumi.getter(name="instanceMetadataTags")
+    def instance_metadata_tags(self) -> Optional[pulumi.Input['InstanceMetadataOptionsInstanceMetadataTags']]:
+        """
+        Indicates whether tags from the instance are propagated to the EBS volumes.
+        """
+        return pulumi.get(self, "instance_metadata_tags")
+
+    @instance_metadata_tags.setter
+    def instance_metadata_tags(self, value: Optional[pulumi.Input['InstanceMetadataOptionsInstanceMetadataTags']]):
+        pulumi.set(self, "instance_metadata_tags", value)
 
 
 if not MYPY:

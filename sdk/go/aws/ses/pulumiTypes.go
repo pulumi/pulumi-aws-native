@@ -3026,6 +3026,11 @@ type MailManagerAddonSubscriptionTag struct {
 	Value string `pulumi:"value"`
 }
 
+type MailManagerAddressListTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type MailManagerArchiveArchiveRetention0Properties struct {
 	RetentionPeriod MailManagerArchiveRetentionPeriod `pulumi:"retentionPeriod"`
 }
@@ -5246,6 +5251,55 @@ func (o MailManagerRuleSetRuleAction8PropertiesOutput) DeliverToQBusiness() Mail
 	}).(MailManagerRuleSetDeliverToQBusinessActionOutput)
 }
 
+type MailManagerRuleSetRuleAction9Properties struct {
+	PublishToSns MailManagerRuleSetSnsAction `pulumi:"publishToSns"`
+}
+
+// MailManagerRuleSetRuleAction9PropertiesInput is an input type that accepts MailManagerRuleSetRuleAction9PropertiesArgs and MailManagerRuleSetRuleAction9PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleAction9PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleAction9PropertiesArgs{...}
+type MailManagerRuleSetRuleAction9PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleAction9PropertiesOutput() MailManagerRuleSetRuleAction9PropertiesOutput
+	ToMailManagerRuleSetRuleAction9PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleAction9PropertiesOutput
+}
+
+type MailManagerRuleSetRuleAction9PropertiesArgs struct {
+	PublishToSns MailManagerRuleSetSnsActionInput `pulumi:"publishToSns"`
+}
+
+func (MailManagerRuleSetRuleAction9PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction9Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleAction9PropertiesArgs) ToMailManagerRuleSetRuleAction9PropertiesOutput() MailManagerRuleSetRuleAction9PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleAction9PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleAction9PropertiesArgs) ToMailManagerRuleSetRuleAction9PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction9PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleAction9PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleAction9PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleAction9PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAction9Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleAction9PropertiesOutput) ToMailManagerRuleSetRuleAction9PropertiesOutput() MailManagerRuleSetRuleAction9PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction9PropertiesOutput) ToMailManagerRuleSetRuleAction9PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAction9PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAction9PropertiesOutput) PublishToSns() MailManagerRuleSetSnsActionOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleAction9Properties) MailManagerRuleSetSnsAction { return v.PublishToSns }).(MailManagerRuleSetSnsActionOutput)
+}
+
 type MailManagerRuleSetRuleBooleanExpression struct {
 	Evaluate interface{}                           `pulumi:"evaluate"`
 	Operator MailManagerRuleSetRuleBooleanOperator `pulumi:"operator"`
@@ -6509,6 +6563,83 @@ func (o MailManagerRuleSetSendActionOutput) ActionFailurePolicy() MailManagerRul
 
 func (o MailManagerRuleSetSendActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v MailManagerRuleSetSendAction) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type MailManagerRuleSetSnsAction struct {
+	ActionFailurePolicy *MailManagerRuleSetActionFailurePolicy        `pulumi:"actionFailurePolicy"`
+	Encoding            *MailManagerRuleSetSnsNotificationEncoding    `pulumi:"encoding"`
+	PayloadType         *MailManagerRuleSetSnsNotificationPayloadType `pulumi:"payloadType"`
+	RoleArn             string                                        `pulumi:"roleArn"`
+	TopicArn            string                                        `pulumi:"topicArn"`
+}
+
+// MailManagerRuleSetSnsActionInput is an input type that accepts MailManagerRuleSetSnsActionArgs and MailManagerRuleSetSnsActionOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetSnsActionInput` via:
+//
+//	MailManagerRuleSetSnsActionArgs{...}
+type MailManagerRuleSetSnsActionInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetSnsActionOutput() MailManagerRuleSetSnsActionOutput
+	ToMailManagerRuleSetSnsActionOutputWithContext(context.Context) MailManagerRuleSetSnsActionOutput
+}
+
+type MailManagerRuleSetSnsActionArgs struct {
+	ActionFailurePolicy MailManagerRuleSetActionFailurePolicyPtrInput        `pulumi:"actionFailurePolicy"`
+	Encoding            MailManagerRuleSetSnsNotificationEncodingPtrInput    `pulumi:"encoding"`
+	PayloadType         MailManagerRuleSetSnsNotificationPayloadTypePtrInput `pulumi:"payloadType"`
+	RoleArn             pulumi.StringInput                                   `pulumi:"roleArn"`
+	TopicArn            pulumi.StringInput                                   `pulumi:"topicArn"`
+}
+
+func (MailManagerRuleSetSnsActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetSnsAction)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetSnsActionArgs) ToMailManagerRuleSetSnsActionOutput() MailManagerRuleSetSnsActionOutput {
+	return i.ToMailManagerRuleSetSnsActionOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetSnsActionArgs) ToMailManagerRuleSetSnsActionOutputWithContext(ctx context.Context) MailManagerRuleSetSnsActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetSnsActionOutput)
+}
+
+type MailManagerRuleSetSnsActionOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetSnsActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetSnsAction)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetSnsActionOutput) ToMailManagerRuleSetSnsActionOutput() MailManagerRuleSetSnsActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetSnsActionOutput) ToMailManagerRuleSetSnsActionOutputWithContext(ctx context.Context) MailManagerRuleSetSnsActionOutput {
+	return o
+}
+
+func (o MailManagerRuleSetSnsActionOutput) ActionFailurePolicy() MailManagerRuleSetActionFailurePolicyPtrOutput {
+	return o.ApplyT(func(v MailManagerRuleSetSnsAction) *MailManagerRuleSetActionFailurePolicy {
+		return v.ActionFailurePolicy
+	}).(MailManagerRuleSetActionFailurePolicyPtrOutput)
+}
+
+func (o MailManagerRuleSetSnsActionOutput) Encoding() MailManagerRuleSetSnsNotificationEncodingPtrOutput {
+	return o.ApplyT(func(v MailManagerRuleSetSnsAction) *MailManagerRuleSetSnsNotificationEncoding { return v.Encoding }).(MailManagerRuleSetSnsNotificationEncodingPtrOutput)
+}
+
+func (o MailManagerRuleSetSnsActionOutput) PayloadType() MailManagerRuleSetSnsNotificationPayloadTypePtrOutput {
+	return o.ApplyT(func(v MailManagerRuleSetSnsAction) *MailManagerRuleSetSnsNotificationPayloadType {
+		return v.PayloadType
+	}).(MailManagerRuleSetSnsNotificationPayloadTypePtrOutput)
+}
+
+func (o MailManagerRuleSetSnsActionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetSnsAction) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o MailManagerRuleSetSnsActionOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetSnsAction) string { return v.TopicArn }).(pulumi.StringOutput)
 }
 
 type MailManagerRuleSetTag struct {
@@ -8135,6 +8266,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction6PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction6PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction7PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction7PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction8PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction8PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAction9PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleAction9PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate0PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs{})
@@ -8158,6 +8290,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictToEvaluate1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetS3ActionInput)(nil)).Elem(), MailManagerRuleSetS3ActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetSendActionInput)(nil)).Elem(), MailManagerRuleSetSendActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetSnsActionInput)(nil)).Elem(), MailManagerRuleSetSnsActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressAnalysisInput)(nil)).Elem(), MailManagerTrafficPolicyIngressAnalysisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressBooleanExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs{})
@@ -8262,6 +8395,7 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction6PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction7PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction8PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleAction9PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput{})
@@ -8285,6 +8419,7 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetS3ActionOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetSendActionOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetSnsActionOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressAnalysisOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressBooleanExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput{})

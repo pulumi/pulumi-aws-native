@@ -166,6 +166,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<Outputs.InstanceLicenseSpecification>> LicenseSpecifications { get; private set; } = null!;
 
         /// <summary>
+        /// The metadata options for the instance
+        /// </summary>
+        [Output("metadataOptions")]
+        public Output<Outputs.InstanceMetadataOptions?> MetadataOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether detailed monitoring is enabled for the instance.
         /// </summary>
         [Output("monitoring")]
@@ -536,6 +542,12 @@ namespace Pulumi.AwsNative.Ec2
             get => _licenseSpecifications ?? (_licenseSpecifications = new InputList<Inputs.InstanceLicenseSpecificationArgs>());
             set => _licenseSpecifications = value;
         }
+
+        /// <summary>
+        /// The metadata options for the instance
+        /// </summary>
+        [Input("metadataOptions")]
+        public Input<Inputs.InstanceMetadataOptionsArgs>? MetadataOptions { get; set; }
 
         /// <summary>
         /// Specifies whether detailed monitoring is enabled for the instance.

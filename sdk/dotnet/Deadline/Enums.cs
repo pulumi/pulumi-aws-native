@@ -237,6 +237,34 @@ namespace Pulumi.AwsNative.Deadline
     }
 
     [EnumType]
+    public readonly struct FleetTagPropagationMode : IEquatable<FleetTagPropagationMode>
+    {
+        private readonly string _value;
+
+        private FleetTagPropagationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetTagPropagationMode NoPropagation { get; } = new FleetTagPropagationMode("NO_PROPAGATION");
+        public static FleetTagPropagationMode PropagateTagsToWorkersAtLaunch { get; } = new FleetTagPropagationMode("PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH");
+
+        public static bool operator ==(FleetTagPropagationMode left, FleetTagPropagationMode right) => left.Equals(right);
+        public static bool operator !=(FleetTagPropagationMode left, FleetTagPropagationMode right) => !left.Equals(right);
+
+        public static explicit operator string(FleetTagPropagationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetTagPropagationMode other && Equals(other);
+        public bool Equals(FleetTagPropagationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct LicenseEndpointStatus : IEquatable<LicenseEndpointStatus>
     {
         private readonly string _value;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -23,7 +24,7 @@ type ResourceConfiguration struct {
 	// The ID of the resource configuration.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The name of the resource configuration.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
 	PortRanges pulumi.StringArrayOutput `pulumi:"portRanges"`
 	// (SINGLE, GROUP) The protocol accepted by the resource configuration.
@@ -44,7 +45,7 @@ type ResourceConfiguration struct {
 	// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
 	// - *CHILD* - A single resource that is part of a group resource configuration.
 	// - *ARN* - An AWS resource.
-	ResourceConfigurationType ResourceConfigurationTypePtrOutput `pulumi:"resourceConfigurationType"`
+	ResourceConfigurationType ResourceConfigurationTypeOutput `pulumi:"resourceConfigurationType"`
 	// The ID of the resource gateway.
 	ResourceGatewayId pulumi.StringPtrOutput `pulumi:"resourceGatewayId"`
 	// The tags for the resource configuration.
@@ -55,9 +56,12 @@ type ResourceConfiguration struct {
 func NewResourceConfiguration(ctx *pulumi.Context,
 	name string, args *ResourceConfigurationArgs, opts ...pulumi.ResourceOption) (*ResourceConfiguration, error) {
 	if args == nil {
-		args = &ResourceConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ResourceConfigurationType == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceConfigurationType'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"protocolType",
 		"resourceConfigurationAuthType",
@@ -122,7 +126,7 @@ type resourceConfigurationArgs struct {
 	// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
 	// - *CHILD* - A single resource that is part of a group resource configuration.
 	// - *ARN* - An AWS resource.
-	ResourceConfigurationType *ResourceConfigurationType `pulumi:"resourceConfigurationType"`
+	ResourceConfigurationType ResourceConfigurationType `pulumi:"resourceConfigurationType"`
 	// The ID of the resource gateway.
 	ResourceGatewayId *string `pulumi:"resourceGatewayId"`
 	// The tags for the resource configuration.
@@ -155,7 +159,7 @@ type ResourceConfigurationArgs struct {
 	// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
 	// - *CHILD* - A single resource that is part of a group resource configuration.
 	// - *ARN* - An AWS resource.
-	ResourceConfigurationType ResourceConfigurationTypePtrInput
+	ResourceConfigurationType ResourceConfigurationTypeInput
 	// The ID of the resource gateway.
 	ResourceGatewayId pulumi.StringPtrInput
 	// The tags for the resource configuration.
@@ -215,8 +219,8 @@ func (o ResourceConfigurationOutput) AwsId() pulumi.StringOutput {
 }
 
 // The name of the resource configuration.
-func (o ResourceConfigurationOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o ResourceConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
@@ -256,8 +260,8 @@ func (o ResourceConfigurationOutput) ResourceConfigurationGroupId() pulumi.Strin
 // - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
 // - *CHILD* - A single resource that is part of a group resource configuration.
 // - *ARN* - An AWS resource.
-func (o ResourceConfigurationOutput) ResourceConfigurationType() ResourceConfigurationTypePtrOutput {
-	return o.ApplyT(func(v *ResourceConfiguration) ResourceConfigurationTypePtrOutput { return v.ResourceConfigurationType }).(ResourceConfigurationTypePtrOutput)
+func (o ResourceConfigurationOutput) ResourceConfigurationType() ResourceConfigurationTypeOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) ResourceConfigurationTypeOutput { return v.ResourceConfigurationType }).(ResourceConfigurationTypeOutput)
 }
 
 // The ID of the resource gateway.

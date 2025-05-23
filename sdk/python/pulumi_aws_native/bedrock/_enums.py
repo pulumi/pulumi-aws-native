@@ -55,16 +55,19 @@ __all__ = [
     'DataSourceTransformationStepToApply',
     'DataSourceType',
     'DataSourceWebScopeType',
+    'FlowAliasConcurrencyType',
     'FlowConnectionType',
     'FlowNodeIoDataType',
     'FlowNodeType',
     'FlowPromptTemplateType',
     'FlowStatus',
+    'FlowSupportedLanguages',
     'FlowVersionFlowConnectionType',
     'FlowVersionFlowNodeIoDataType',
     'FlowVersionFlowNodeType',
     'FlowVersionFlowStatus',
     'FlowVersionPromptTemplateType',
+    'FlowVersionSupportedLanguages',
     'GuardrailContentFilterAction',
     'GuardrailContentFilterType',
     'GuardrailContextualGroundingAction',
@@ -481,6 +484,11 @@ class DataSourceWebScopeType(builtins.str, Enum):
     SUBDOMAINS = "SUBDOMAINS"
 
 
+class FlowAliasConcurrencyType(builtins.str, Enum):
+    AUTOMATIC = "Automatic"
+    MANUAL = "Manual"
+
+
 class FlowConnectionType(builtins.str, Enum):
     """
     Connection type
@@ -516,6 +524,7 @@ class FlowNodeType(builtins.str, Enum):
     RETRIEVAL = "Retrieval"
     ITERATOR = "Iterator"
     COLLECTOR = "Collector"
+    INLINE_CODE = "InlineCode"
 
 
 class FlowPromptTemplateType(builtins.str, Enum):
@@ -533,6 +542,13 @@ class FlowStatus(builtins.str, Enum):
     PREPARED = "Prepared"
     PREPARING = "Preparing"
     NOT_PREPARED = "NotPrepared"
+
+
+class FlowSupportedLanguages(builtins.str, Enum):
+    """
+    Enum encodes the supported language type
+    """
+    PYTHON3 = "Python_3"
 
 
 class FlowVersionFlowConnectionType(builtins.str, Enum):
@@ -570,6 +586,7 @@ class FlowVersionFlowNodeType(builtins.str, Enum):
     COLLECTOR = "Collector"
     STORAGE = "Storage"
     RETRIEVAL = "Retrieval"
+    INLINE_CODE = "InlineCode"
 
 
 class FlowVersionFlowStatus(builtins.str, Enum):
@@ -587,6 +604,13 @@ class FlowVersionPromptTemplateType(builtins.str, Enum):
     Prompt template type
     """
     TEXT = "TEXT"
+
+
+class FlowVersionSupportedLanguages(builtins.str, Enum):
+    """
+    Enum encodes the supported language type
+    """
+    PYTHON3 = "Python_3"
 
 
 class GuardrailContentFilterAction(builtins.str, Enum):

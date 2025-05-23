@@ -175,6 +175,20 @@ export const MailManagerRuleSetRuleVerdictOperator = {
 
 export type MailManagerRuleSetRuleVerdictOperator = (typeof MailManagerRuleSetRuleVerdictOperator)[keyof typeof MailManagerRuleSetRuleVerdictOperator];
 
+export const MailManagerRuleSetSnsNotificationEncoding = {
+    Utf8: "UTF-8",
+    Base64: "BASE64",
+} as const;
+
+export type MailManagerRuleSetSnsNotificationEncoding = (typeof MailManagerRuleSetSnsNotificationEncoding)[keyof typeof MailManagerRuleSetSnsNotificationEncoding];
+
+export const MailManagerRuleSetSnsNotificationPayloadType = {
+    Content: "CONTENT",
+    Headers: "HEADERS",
+} as const;
+
+export type MailManagerRuleSetSnsNotificationPayloadType = (typeof MailManagerRuleSetSnsNotificationPayloadType)[keyof typeof MailManagerRuleSetSnsNotificationPayloadType];
+
 export const MailManagerTrafficPolicyAcceptAction = {
     Allow: "ALLOW",
     Deny: "DENY",

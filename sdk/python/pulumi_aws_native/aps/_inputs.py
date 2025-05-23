@@ -28,6 +28,8 @@ __all__ = [
     'ScraperSourceEksConfigurationPropertiesArgsDict',
     'ScraperSourceArgs',
     'ScraperSourceArgsDict',
+    'WorkspaceCloudWatchLogDestinationArgs',
+    'WorkspaceCloudWatchLogDestinationArgsDict',
     'WorkspaceConfigurationArgs',
     'WorkspaceConfigurationArgsDict',
     'WorkspaceLabelArgs',
@@ -38,6 +40,12 @@ __all__ = [
     'WorkspaceLimitsPerLabelSetArgsDict',
     'WorkspaceLoggingConfigurationArgs',
     'WorkspaceLoggingConfigurationArgsDict',
+    'WorkspaceLoggingDestinationArgs',
+    'WorkspaceLoggingDestinationArgsDict',
+    'WorkspaceLoggingFilterArgs',
+    'WorkspaceLoggingFilterArgsDict',
+    'WorkspaceQueryLoggingConfigurationArgs',
+    'WorkspaceQueryLoggingConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -316,6 +324,41 @@ class ScraperSourceArgs:
 
 
 if not MYPY:
+    class WorkspaceCloudWatchLogDestinationArgsDict(TypedDict):
+        """
+        Represents a cloudwatch logs destination for query logging
+        """
+        log_group_arn: pulumi.Input[builtins.str]
+        """
+        The ARN of the CloudWatch Logs log group
+        """
+elif False:
+    WorkspaceCloudWatchLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceCloudWatchLogDestinationArgs:
+    def __init__(__self__, *,
+                 log_group_arn: pulumi.Input[builtins.str]):
+        """
+        Represents a cloudwatch logs destination for query logging
+        :param pulumi.Input[builtins.str] log_group_arn: The ARN of the CloudWatch Logs log group
+        """
+        pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        The ARN of the CloudWatch Logs log group
+        """
+        return pulumi.get(self, "log_group_arn")
+
+    @log_group_arn.setter
+    def log_group_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "log_group_arn", value)
+
+
+if not MYPY:
     class WorkspaceConfigurationArgsDict(TypedDict):
         """
         Workspace configuration
@@ -549,5 +592,115 @@ class WorkspaceLoggingConfigurationArgs:
     @log_group_arn.setter
     def log_group_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "log_group_arn", value)
+
+
+if not MYPY:
+    class WorkspaceLoggingDestinationArgsDict(TypedDict):
+        """
+        Destinations for query logging
+        """
+        cloud_watch_logs: pulumi.Input['WorkspaceCloudWatchLogDestinationArgsDict']
+        filters: pulumi.Input['WorkspaceLoggingFilterArgsDict']
+elif False:
+    WorkspaceLoggingDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceLoggingDestinationArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs: pulumi.Input['WorkspaceCloudWatchLogDestinationArgs'],
+                 filters: pulumi.Input['WorkspaceLoggingFilterArgs']):
+        """
+        Destinations for query logging
+        """
+        pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+        pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> pulumi.Input['WorkspaceCloudWatchLogDestinationArgs']:
+        return pulumi.get(self, "cloud_watch_logs")
+
+    @cloud_watch_logs.setter
+    def cloud_watch_logs(self, value: pulumi.Input['WorkspaceCloudWatchLogDestinationArgs']):
+        pulumi.set(self, "cloud_watch_logs", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input['WorkspaceLoggingFilterArgs']:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input['WorkspaceLoggingFilterArgs']):
+        pulumi.set(self, "filters", value)
+
+
+if not MYPY:
+    class WorkspaceLoggingFilterArgsDict(TypedDict):
+        """
+        Filters for logging
+        """
+        qsp_threshold: pulumi.Input[builtins.int]
+        """
+        Query logs with QSP above this limit are vended
+        """
+elif False:
+    WorkspaceLoggingFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceLoggingFilterArgs:
+    def __init__(__self__, *,
+                 qsp_threshold: pulumi.Input[builtins.int]):
+        """
+        Filters for logging
+        :param pulumi.Input[builtins.int] qsp_threshold: Query logs with QSP above this limit are vended
+        """
+        pulumi.set(__self__, "qsp_threshold", qsp_threshold)
+
+    @property
+    @pulumi.getter(name="qspThreshold")
+    def qsp_threshold(self) -> pulumi.Input[builtins.int]:
+        """
+        Query logs with QSP above this limit are vended
+        """
+        return pulumi.get(self, "qsp_threshold")
+
+    @qsp_threshold.setter
+    def qsp_threshold(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "qsp_threshold", value)
+
+
+if not MYPY:
+    class WorkspaceQueryLoggingConfigurationArgsDict(TypedDict):
+        """
+        Query logging configuration
+        """
+        destinations: pulumi.Input[Sequence[pulumi.Input['WorkspaceLoggingDestinationArgsDict']]]
+        """
+        The destinations configuration for query logging
+        """
+elif False:
+    WorkspaceQueryLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceQueryLoggingConfigurationArgs:
+    def __init__(__self__, *,
+                 destinations: pulumi.Input[Sequence[pulumi.Input['WorkspaceLoggingDestinationArgs']]]):
+        """
+        Query logging configuration
+        :param pulumi.Input[Sequence[pulumi.Input['WorkspaceLoggingDestinationArgs']]] destinations: The destinations configuration for query logging
+        """
+        pulumi.set(__self__, "destinations", destinations)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['WorkspaceLoggingDestinationArgs']]]:
+        """
+        The destinations configuration for query logging
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[Sequence[pulumi.Input['WorkspaceLoggingDestinationArgs']]]):
+        pulumi.set(self, "destinations", value)
 
 

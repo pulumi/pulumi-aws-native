@@ -31,7 +31,8 @@ type LookupFlowAliasArgs struct {
 
 type LookupFlowAliasResult struct {
 	// Arn of the Flow Alias
-	Arn *string `pulumi:"arn"`
+	Arn                      *string                            `pulumi:"arn"`
+	ConcurrencyConfiguration *FlowAliasConcurrencyConfiguration `pulumi:"concurrencyConfiguration"`
 	// Time Stamp.
 	CreatedAt *string `pulumi:"createdAt"`
 	// Description of the Resource.
@@ -90,6 +91,10 @@ func (o LookupFlowAliasResultOutput) ToLookupFlowAliasResultOutputWithContext(ct
 // Arn of the Flow Alias
 func (o LookupFlowAliasResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowAliasResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFlowAliasResultOutput) ConcurrencyConfiguration() FlowAliasConcurrencyConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupFlowAliasResult) *FlowAliasConcurrencyConfiguration { return v.ConcurrencyConfiguration }).(FlowAliasConcurrencyConfigurationPtrOutput)
 }
 
 // Time Stamp.

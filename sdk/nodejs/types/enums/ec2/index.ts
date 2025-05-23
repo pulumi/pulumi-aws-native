@@ -357,6 +357,46 @@ export const InstanceAffinity = {
  */
 export type InstanceAffinity = (typeof InstanceAffinity)[keyof typeof InstanceAffinity];
 
+export const InstanceMetadataOptionsHttpEndpoint = {
+    Disabled: "disabled",
+    Enabled: "enabled",
+} as const;
+
+/**
+ * Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+ */
+export type InstanceMetadataOptionsHttpEndpoint = (typeof InstanceMetadataOptionsHttpEndpoint)[keyof typeof InstanceMetadataOptionsHttpEndpoint];
+
+export const InstanceMetadataOptionsHttpProtocolIpv6 = {
+    Disabled: "disabled",
+    Enabled: "enabled",
+} as const;
+
+/**
+ * Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+ */
+export type InstanceMetadataOptionsHttpProtocolIpv6 = (typeof InstanceMetadataOptionsHttpProtocolIpv6)[keyof typeof InstanceMetadataOptionsHttpProtocolIpv6];
+
+export const InstanceMetadataOptionsHttpTokens = {
+    Optional: "optional",
+    Required: "required",
+} as const;
+
+/**
+ * Indicates whether IMDSv2 is required.
+ */
+export type InstanceMetadataOptionsHttpTokens = (typeof InstanceMetadataOptionsHttpTokens)[keyof typeof InstanceMetadataOptionsHttpTokens];
+
+export const InstanceMetadataOptionsInstanceMetadataTags = {
+    Disabled: "disabled",
+    Enabled: "enabled",
+} as const;
+
+/**
+ * Indicates whether tags from the instance are propagated to the EBS volumes.
+ */
+export type InstanceMetadataOptionsInstanceMetadataTags = (typeof InstanceMetadataOptionsInstanceMetadataTags)[keyof typeof InstanceMetadataOptionsInstanceMetadataTags];
+
 export const InstancePrivateDnsNameOptionsHostnameType = {
     IpName: "ip-name",
     ResourceName: "resource-name",

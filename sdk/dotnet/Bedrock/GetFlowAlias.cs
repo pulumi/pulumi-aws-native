@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// Arn of the Flow Alias
         /// </summary>
         public readonly string? Arn;
+        public readonly Outputs.FlowAliasConcurrencyConfiguration? ConcurrencyConfiguration;
         /// <summary>
         /// Time Stamp.
         /// </summary>
@@ -119,6 +120,8 @@ namespace Pulumi.AwsNative.Bedrock
         private GetFlowAliasResult(
             string? arn,
 
+            Outputs.FlowAliasConcurrencyConfiguration? concurrencyConfiguration,
+
             string? createdAt,
 
             string? description,
@@ -136,6 +139,7 @@ namespace Pulumi.AwsNative.Bedrock
             string? updatedAt)
         {
             Arn = arn;
+            ConcurrencyConfiguration = concurrencyConfiguration;
             CreatedAt = createdAt;
             Description = description;
             FlowId = flowId;

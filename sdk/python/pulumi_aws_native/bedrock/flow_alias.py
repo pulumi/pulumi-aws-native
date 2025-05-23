@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FlowAliasArgs', 'FlowAlias']
@@ -24,6 +25,7 @@ class FlowAliasArgs:
     def __init__(__self__, *,
                  flow_arn: pulumi.Input[builtins.str],
                  routing_configuration: pulumi.Input[Sequence[pulumi.Input['FlowAliasRoutingConfigurationListItemArgs']]],
+                 concurrency_configuration: Optional[pulumi.Input['FlowAliasConcurrencyConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -40,6 +42,8 @@ class FlowAliasArgs:
         """
         pulumi.set(__self__, "flow_arn", flow_arn)
         pulumi.set(__self__, "routing_configuration", routing_configuration)
+        if concurrency_configuration is not None:
+            pulumi.set(__self__, "concurrency_configuration", concurrency_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -70,6 +74,15 @@ class FlowAliasArgs:
     @routing_configuration.setter
     def routing_configuration(self, value: pulumi.Input[Sequence[pulumi.Input['FlowAliasRoutingConfigurationListItemArgs']]]):
         pulumi.set(self, "routing_configuration", value)
+
+    @property
+    @pulumi.getter(name="concurrencyConfiguration")
+    def concurrency_configuration(self) -> Optional[pulumi.Input['FlowAliasConcurrencyConfigurationArgs']]:
+        return pulumi.get(self, "concurrency_configuration")
+
+    @concurrency_configuration.setter
+    def concurrency_configuration(self, value: Optional[pulumi.Input['FlowAliasConcurrencyConfigurationArgs']]):
+        pulumi.set(self, "concurrency_configuration", value)
 
     @property
     @pulumi.getter
@@ -119,6 +132,7 @@ class FlowAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 concurrency_configuration: Optional[pulumi.Input[Union['FlowAliasConcurrencyConfigurationArgs', 'FlowAliasConcurrencyConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  flow_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -163,6 +177,7 @@ class FlowAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 concurrency_configuration: Optional[pulumi.Input[Union['FlowAliasConcurrencyConfigurationArgs', 'FlowAliasConcurrencyConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  flow_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -177,6 +192,7 @@ class FlowAlias(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FlowAliasArgs.__new__(FlowAliasArgs)
 
+            __props__.__dict__["concurrency_configuration"] = concurrency_configuration
             __props__.__dict__["description"] = description
             if flow_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'flow_arn'")
@@ -217,6 +233,7 @@ class FlowAlias(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["concurrency_configuration"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["flow_arn"] = None
@@ -242,6 +259,11 @@ class FlowAlias(pulumi.CustomResource):
         Id for a Flow Alias generated at the server side.
         """
         return pulumi.get(self, "aws_id")
+
+    @property
+    @pulumi.getter(name="concurrencyConfiguration")
+    def concurrency_configuration(self) -> pulumi.Output[Optional['outputs.FlowAliasConcurrencyConfiguration']]:
+        return pulumi.get(self, "concurrency_configuration")
 
     @property
     @pulumi.getter(name="createdAt")

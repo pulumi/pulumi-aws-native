@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::LocationAzureBlob.
+ * Resource Type definition for AWS::DataSync::LocationAzureBlob.
  */
 export function getLocationAzureBlob(args: GetLocationAzureBlobArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationAzureBlobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -26,7 +26,7 @@ export interface GetLocationAzureBlobArgs {
 
 export interface GetLocationAzureBlobResult {
     /**
-     * The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+     * Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
      */
     readonly agentArns?: string[];
     /**
@@ -41,6 +41,8 @@ export interface GetLocationAzureBlobResult {
      * Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
      */
     readonly azureBlobType?: enums.datasync.LocationAzureBlobAzureBlobType;
+    readonly cmkSecretConfig?: outputs.datasync.LocationAzureBlobCmkSecretConfig;
+    readonly customSecretConfig?: outputs.datasync.LocationAzureBlobCustomSecretConfig;
     /**
      * The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
      */
@@ -49,13 +51,14 @@ export interface GetLocationAzureBlobResult {
      * The URL of the Azure Blob Location that was described.
      */
     readonly locationUri?: string;
+    readonly managedSecretConfig?: outputs.datasync.LocationAzureBlobManagedSecretConfig;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource schema for AWS::DataSync::LocationAzureBlob.
+ * Resource Type definition for AWS::DataSync::LocationAzureBlob.
  */
 export function getLocationAzureBlobOutput(args: GetLocationAzureBlobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationAzureBlobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -4619,6 +4619,670 @@ func (in *instanceAffinityPtr) ToInstanceAffinityPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceAffinityPtrOutput)
 }
 
+// Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+type InstanceMetadataOptionsHttpEndpoint string
+
+const (
+	InstanceMetadataOptionsHttpEndpointDisabled = InstanceMetadataOptionsHttpEndpoint("disabled")
+	InstanceMetadataOptionsHttpEndpointEnabled  = InstanceMetadataOptionsHttpEndpoint("enabled")
+)
+
+func (InstanceMetadataOptionsHttpEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMetadataOptionsHttpEndpoint)(nil)).Elem()
+}
+
+func (e InstanceMetadataOptionsHttpEndpoint) ToInstanceMetadataOptionsHttpEndpointOutput() InstanceMetadataOptionsHttpEndpointOutput {
+	return pulumi.ToOutput(e).(InstanceMetadataOptionsHttpEndpointOutput)
+}
+
+func (e InstanceMetadataOptionsHttpEndpoint) ToInstanceMetadataOptionsHttpEndpointOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceMetadataOptionsHttpEndpointOutput)
+}
+
+func (e InstanceMetadataOptionsHttpEndpoint) ToInstanceMetadataOptionsHttpEndpointPtrOutput() InstanceMetadataOptionsHttpEndpointPtrOutput {
+	return e.ToInstanceMetadataOptionsHttpEndpointPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceMetadataOptionsHttpEndpoint) ToInstanceMetadataOptionsHttpEndpointPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpEndpointPtrOutput {
+	return InstanceMetadataOptionsHttpEndpoint(e).ToInstanceMetadataOptionsHttpEndpointOutputWithContext(ctx).ToInstanceMetadataOptionsHttpEndpointPtrOutputWithContext(ctx)
+}
+
+func (e InstanceMetadataOptionsHttpEndpoint) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceMetadataOptionsHttpEndpoint) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceMetadataOptionsHttpEndpoint) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceMetadataOptionsHttpEndpoint) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstanceMetadataOptionsHttpEndpointOutput struct{ *pulumi.OutputState }
+
+func (InstanceMetadataOptionsHttpEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMetadataOptionsHttpEndpoint)(nil)).Elem()
+}
+
+func (o InstanceMetadataOptionsHttpEndpointOutput) ToInstanceMetadataOptionsHttpEndpointOutput() InstanceMetadataOptionsHttpEndpointOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsHttpEndpointOutput) ToInstanceMetadataOptionsHttpEndpointOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpEndpointOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsHttpEndpointOutput) ToInstanceMetadataOptionsHttpEndpointPtrOutput() InstanceMetadataOptionsHttpEndpointPtrOutput {
+	return o.ToInstanceMetadataOptionsHttpEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsHttpEndpointOutput) ToInstanceMetadataOptionsHttpEndpointPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceMetadataOptionsHttpEndpoint) *InstanceMetadataOptionsHttpEndpoint {
+		return &v
+	}).(InstanceMetadataOptionsHttpEndpointPtrOutput)
+}
+
+func (o InstanceMetadataOptionsHttpEndpointOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsHttpEndpointOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceMetadataOptionsHttpEndpoint) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceMetadataOptionsHttpEndpointOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsHttpEndpointOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceMetadataOptionsHttpEndpoint) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceMetadataOptionsHttpEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceMetadataOptionsHttpEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceMetadataOptionsHttpEndpoint)(nil)).Elem()
+}
+
+func (o InstanceMetadataOptionsHttpEndpointPtrOutput) ToInstanceMetadataOptionsHttpEndpointPtrOutput() InstanceMetadataOptionsHttpEndpointPtrOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsHttpEndpointPtrOutput) ToInstanceMetadataOptionsHttpEndpointPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpEndpointPtrOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsHttpEndpointPtrOutput) Elem() InstanceMetadataOptionsHttpEndpointOutput {
+	return o.ApplyT(func(v *InstanceMetadataOptionsHttpEndpoint) InstanceMetadataOptionsHttpEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceMetadataOptionsHttpEndpoint
+		return ret
+	}).(InstanceMetadataOptionsHttpEndpointOutput)
+}
+
+func (o InstanceMetadataOptionsHttpEndpointPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsHttpEndpointPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceMetadataOptionsHttpEndpoint) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstanceMetadataOptionsHttpEndpointInput is an input type that accepts values of the InstanceMetadataOptionsHttpEndpoint enum
+// A concrete instance of `InstanceMetadataOptionsHttpEndpointInput` can be one of the following:
+//
+//	InstanceMetadataOptionsHttpEndpointDisabled
+//	InstanceMetadataOptionsHttpEndpointEnabled
+type InstanceMetadataOptionsHttpEndpointInput interface {
+	pulumi.Input
+
+	ToInstanceMetadataOptionsHttpEndpointOutput() InstanceMetadataOptionsHttpEndpointOutput
+	ToInstanceMetadataOptionsHttpEndpointOutputWithContext(context.Context) InstanceMetadataOptionsHttpEndpointOutput
+}
+
+var instanceMetadataOptionsHttpEndpointPtrType = reflect.TypeOf((**InstanceMetadataOptionsHttpEndpoint)(nil)).Elem()
+
+type InstanceMetadataOptionsHttpEndpointPtrInput interface {
+	pulumi.Input
+
+	ToInstanceMetadataOptionsHttpEndpointPtrOutput() InstanceMetadataOptionsHttpEndpointPtrOutput
+	ToInstanceMetadataOptionsHttpEndpointPtrOutputWithContext(context.Context) InstanceMetadataOptionsHttpEndpointPtrOutput
+}
+
+type instanceMetadataOptionsHttpEndpointPtr string
+
+func InstanceMetadataOptionsHttpEndpointPtr(v string) InstanceMetadataOptionsHttpEndpointPtrInput {
+	return (*instanceMetadataOptionsHttpEndpointPtr)(&v)
+}
+
+func (*instanceMetadataOptionsHttpEndpointPtr) ElementType() reflect.Type {
+	return instanceMetadataOptionsHttpEndpointPtrType
+}
+
+func (in *instanceMetadataOptionsHttpEndpointPtr) ToInstanceMetadataOptionsHttpEndpointPtrOutput() InstanceMetadataOptionsHttpEndpointPtrOutput {
+	return pulumi.ToOutput(in).(InstanceMetadataOptionsHttpEndpointPtrOutput)
+}
+
+func (in *instanceMetadataOptionsHttpEndpointPtr) ToInstanceMetadataOptionsHttpEndpointPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceMetadataOptionsHttpEndpointPtrOutput)
+}
+
+// Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+type InstanceMetadataOptionsHttpProtocolIpv6 string
+
+const (
+	InstanceMetadataOptionsHttpProtocolIpv6Disabled = InstanceMetadataOptionsHttpProtocolIpv6("disabled")
+	InstanceMetadataOptionsHttpProtocolIpv6Enabled  = InstanceMetadataOptionsHttpProtocolIpv6("enabled")
+)
+
+func (InstanceMetadataOptionsHttpProtocolIpv6) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMetadataOptionsHttpProtocolIpv6)(nil)).Elem()
+}
+
+func (e InstanceMetadataOptionsHttpProtocolIpv6) ToInstanceMetadataOptionsHttpProtocolIpv6Output() InstanceMetadataOptionsHttpProtocolIpv6Output {
+	return pulumi.ToOutput(e).(InstanceMetadataOptionsHttpProtocolIpv6Output)
+}
+
+func (e InstanceMetadataOptionsHttpProtocolIpv6) ToInstanceMetadataOptionsHttpProtocolIpv6OutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpProtocolIpv6Output {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceMetadataOptionsHttpProtocolIpv6Output)
+}
+
+func (e InstanceMetadataOptionsHttpProtocolIpv6) ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutput() InstanceMetadataOptionsHttpProtocolIpv6PtrOutput {
+	return e.ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutputWithContext(context.Background())
+}
+
+func (e InstanceMetadataOptionsHttpProtocolIpv6) ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpProtocolIpv6PtrOutput {
+	return InstanceMetadataOptionsHttpProtocolIpv6(e).ToInstanceMetadataOptionsHttpProtocolIpv6OutputWithContext(ctx).ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutputWithContext(ctx)
+}
+
+func (e InstanceMetadataOptionsHttpProtocolIpv6) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceMetadataOptionsHttpProtocolIpv6) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceMetadataOptionsHttpProtocolIpv6) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceMetadataOptionsHttpProtocolIpv6) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstanceMetadataOptionsHttpProtocolIpv6Output struct{ *pulumi.OutputState }
+
+func (InstanceMetadataOptionsHttpProtocolIpv6Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMetadataOptionsHttpProtocolIpv6)(nil)).Elem()
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6Output) ToInstanceMetadataOptionsHttpProtocolIpv6Output() InstanceMetadataOptionsHttpProtocolIpv6Output {
+	return o
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6Output) ToInstanceMetadataOptionsHttpProtocolIpv6OutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpProtocolIpv6Output {
+	return o
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6Output) ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutput() InstanceMetadataOptionsHttpProtocolIpv6PtrOutput {
+	return o.ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6Output) ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpProtocolIpv6PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceMetadataOptionsHttpProtocolIpv6) *InstanceMetadataOptionsHttpProtocolIpv6 {
+		return &v
+	}).(InstanceMetadataOptionsHttpProtocolIpv6PtrOutput)
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6Output) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6Output) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceMetadataOptionsHttpProtocolIpv6) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6Output) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6Output) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceMetadataOptionsHttpProtocolIpv6) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceMetadataOptionsHttpProtocolIpv6PtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceMetadataOptionsHttpProtocolIpv6PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceMetadataOptionsHttpProtocolIpv6)(nil)).Elem()
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6PtrOutput) ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutput() InstanceMetadataOptionsHttpProtocolIpv6PtrOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6PtrOutput) ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpProtocolIpv6PtrOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6PtrOutput) Elem() InstanceMetadataOptionsHttpProtocolIpv6Output {
+	return o.ApplyT(func(v *InstanceMetadataOptionsHttpProtocolIpv6) InstanceMetadataOptionsHttpProtocolIpv6 {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceMetadataOptionsHttpProtocolIpv6
+		return ret
+	}).(InstanceMetadataOptionsHttpProtocolIpv6Output)
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6PtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsHttpProtocolIpv6PtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceMetadataOptionsHttpProtocolIpv6) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstanceMetadataOptionsHttpProtocolIpv6Input is an input type that accepts values of the InstanceMetadataOptionsHttpProtocolIpv6 enum
+// A concrete instance of `InstanceMetadataOptionsHttpProtocolIpv6Input` can be one of the following:
+//
+//	InstanceMetadataOptionsHttpProtocolIpv6Disabled
+//	InstanceMetadataOptionsHttpProtocolIpv6Enabled
+type InstanceMetadataOptionsHttpProtocolIpv6Input interface {
+	pulumi.Input
+
+	ToInstanceMetadataOptionsHttpProtocolIpv6Output() InstanceMetadataOptionsHttpProtocolIpv6Output
+	ToInstanceMetadataOptionsHttpProtocolIpv6OutputWithContext(context.Context) InstanceMetadataOptionsHttpProtocolIpv6Output
+}
+
+var instanceMetadataOptionsHttpProtocolIpv6PtrType = reflect.TypeOf((**InstanceMetadataOptionsHttpProtocolIpv6)(nil)).Elem()
+
+type InstanceMetadataOptionsHttpProtocolIpv6PtrInput interface {
+	pulumi.Input
+
+	ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutput() InstanceMetadataOptionsHttpProtocolIpv6PtrOutput
+	ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutputWithContext(context.Context) InstanceMetadataOptionsHttpProtocolIpv6PtrOutput
+}
+
+type instanceMetadataOptionsHttpProtocolIpv6Ptr string
+
+func InstanceMetadataOptionsHttpProtocolIpv6Ptr(v string) InstanceMetadataOptionsHttpProtocolIpv6PtrInput {
+	return (*instanceMetadataOptionsHttpProtocolIpv6Ptr)(&v)
+}
+
+func (*instanceMetadataOptionsHttpProtocolIpv6Ptr) ElementType() reflect.Type {
+	return instanceMetadataOptionsHttpProtocolIpv6PtrType
+}
+
+func (in *instanceMetadataOptionsHttpProtocolIpv6Ptr) ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutput() InstanceMetadataOptionsHttpProtocolIpv6PtrOutput {
+	return pulumi.ToOutput(in).(InstanceMetadataOptionsHttpProtocolIpv6PtrOutput)
+}
+
+func (in *instanceMetadataOptionsHttpProtocolIpv6Ptr) ToInstanceMetadataOptionsHttpProtocolIpv6PtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpProtocolIpv6PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceMetadataOptionsHttpProtocolIpv6PtrOutput)
+}
+
+// Indicates whether IMDSv2 is required.
+type InstanceMetadataOptionsHttpTokens string
+
+const (
+	InstanceMetadataOptionsHttpTokensOptional = InstanceMetadataOptionsHttpTokens("optional")
+	InstanceMetadataOptionsHttpTokensRequired = InstanceMetadataOptionsHttpTokens("required")
+)
+
+func (InstanceMetadataOptionsHttpTokens) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMetadataOptionsHttpTokens)(nil)).Elem()
+}
+
+func (e InstanceMetadataOptionsHttpTokens) ToInstanceMetadataOptionsHttpTokensOutput() InstanceMetadataOptionsHttpTokensOutput {
+	return pulumi.ToOutput(e).(InstanceMetadataOptionsHttpTokensOutput)
+}
+
+func (e InstanceMetadataOptionsHttpTokens) ToInstanceMetadataOptionsHttpTokensOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpTokensOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceMetadataOptionsHttpTokensOutput)
+}
+
+func (e InstanceMetadataOptionsHttpTokens) ToInstanceMetadataOptionsHttpTokensPtrOutput() InstanceMetadataOptionsHttpTokensPtrOutput {
+	return e.ToInstanceMetadataOptionsHttpTokensPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceMetadataOptionsHttpTokens) ToInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpTokensPtrOutput {
+	return InstanceMetadataOptionsHttpTokens(e).ToInstanceMetadataOptionsHttpTokensOutputWithContext(ctx).ToInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx)
+}
+
+func (e InstanceMetadataOptionsHttpTokens) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceMetadataOptionsHttpTokens) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceMetadataOptionsHttpTokens) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceMetadataOptionsHttpTokens) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstanceMetadataOptionsHttpTokensOutput struct{ *pulumi.OutputState }
+
+func (InstanceMetadataOptionsHttpTokensOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMetadataOptionsHttpTokens)(nil)).Elem()
+}
+
+func (o InstanceMetadataOptionsHttpTokensOutput) ToInstanceMetadataOptionsHttpTokensOutput() InstanceMetadataOptionsHttpTokensOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsHttpTokensOutput) ToInstanceMetadataOptionsHttpTokensOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpTokensOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsHttpTokensOutput) ToInstanceMetadataOptionsHttpTokensPtrOutput() InstanceMetadataOptionsHttpTokensPtrOutput {
+	return o.ToInstanceMetadataOptionsHttpTokensPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsHttpTokensOutput) ToInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpTokensPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceMetadataOptionsHttpTokens) *InstanceMetadataOptionsHttpTokens {
+		return &v
+	}).(InstanceMetadataOptionsHttpTokensPtrOutput)
+}
+
+func (o InstanceMetadataOptionsHttpTokensOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsHttpTokensOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceMetadataOptionsHttpTokens) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceMetadataOptionsHttpTokensOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsHttpTokensOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceMetadataOptionsHttpTokens) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceMetadataOptionsHttpTokensPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceMetadataOptionsHttpTokensPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceMetadataOptionsHttpTokens)(nil)).Elem()
+}
+
+func (o InstanceMetadataOptionsHttpTokensPtrOutput) ToInstanceMetadataOptionsHttpTokensPtrOutput() InstanceMetadataOptionsHttpTokensPtrOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsHttpTokensPtrOutput) ToInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpTokensPtrOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsHttpTokensPtrOutput) Elem() InstanceMetadataOptionsHttpTokensOutput {
+	return o.ApplyT(func(v *InstanceMetadataOptionsHttpTokens) InstanceMetadataOptionsHttpTokens {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceMetadataOptionsHttpTokens
+		return ret
+	}).(InstanceMetadataOptionsHttpTokensOutput)
+}
+
+func (o InstanceMetadataOptionsHttpTokensPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsHttpTokensPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceMetadataOptionsHttpTokens) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstanceMetadataOptionsHttpTokensInput is an input type that accepts values of the InstanceMetadataOptionsHttpTokens enum
+// A concrete instance of `InstanceMetadataOptionsHttpTokensInput` can be one of the following:
+//
+//	InstanceMetadataOptionsHttpTokensOptional
+//	InstanceMetadataOptionsHttpTokensRequired
+type InstanceMetadataOptionsHttpTokensInput interface {
+	pulumi.Input
+
+	ToInstanceMetadataOptionsHttpTokensOutput() InstanceMetadataOptionsHttpTokensOutput
+	ToInstanceMetadataOptionsHttpTokensOutputWithContext(context.Context) InstanceMetadataOptionsHttpTokensOutput
+}
+
+var instanceMetadataOptionsHttpTokensPtrType = reflect.TypeOf((**InstanceMetadataOptionsHttpTokens)(nil)).Elem()
+
+type InstanceMetadataOptionsHttpTokensPtrInput interface {
+	pulumi.Input
+
+	ToInstanceMetadataOptionsHttpTokensPtrOutput() InstanceMetadataOptionsHttpTokensPtrOutput
+	ToInstanceMetadataOptionsHttpTokensPtrOutputWithContext(context.Context) InstanceMetadataOptionsHttpTokensPtrOutput
+}
+
+type instanceMetadataOptionsHttpTokensPtr string
+
+func InstanceMetadataOptionsHttpTokensPtr(v string) InstanceMetadataOptionsHttpTokensPtrInput {
+	return (*instanceMetadataOptionsHttpTokensPtr)(&v)
+}
+
+func (*instanceMetadataOptionsHttpTokensPtr) ElementType() reflect.Type {
+	return instanceMetadataOptionsHttpTokensPtrType
+}
+
+func (in *instanceMetadataOptionsHttpTokensPtr) ToInstanceMetadataOptionsHttpTokensPtrOutput() InstanceMetadataOptionsHttpTokensPtrOutput {
+	return pulumi.ToOutput(in).(InstanceMetadataOptionsHttpTokensPtrOutput)
+}
+
+func (in *instanceMetadataOptionsHttpTokensPtr) ToInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsHttpTokensPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceMetadataOptionsHttpTokensPtrOutput)
+}
+
+// Indicates whether tags from the instance are propagated to the EBS volumes.
+type InstanceMetadataOptionsInstanceMetadataTags string
+
+const (
+	InstanceMetadataOptionsInstanceMetadataTagsDisabled = InstanceMetadataOptionsInstanceMetadataTags("disabled")
+	InstanceMetadataOptionsInstanceMetadataTagsEnabled  = InstanceMetadataOptionsInstanceMetadataTags("enabled")
+)
+
+func (InstanceMetadataOptionsInstanceMetadataTags) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMetadataOptionsInstanceMetadataTags)(nil)).Elem()
+}
+
+func (e InstanceMetadataOptionsInstanceMetadataTags) ToInstanceMetadataOptionsInstanceMetadataTagsOutput() InstanceMetadataOptionsInstanceMetadataTagsOutput {
+	return pulumi.ToOutput(e).(InstanceMetadataOptionsInstanceMetadataTagsOutput)
+}
+
+func (e InstanceMetadataOptionsInstanceMetadataTags) ToInstanceMetadataOptionsInstanceMetadataTagsOutputWithContext(ctx context.Context) InstanceMetadataOptionsInstanceMetadataTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceMetadataOptionsInstanceMetadataTagsOutput)
+}
+
+func (e InstanceMetadataOptionsInstanceMetadataTags) ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutput() InstanceMetadataOptionsInstanceMetadataTagsPtrOutput {
+	return e.ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceMetadataOptionsInstanceMetadataTags) ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsInstanceMetadataTagsPtrOutput {
+	return InstanceMetadataOptionsInstanceMetadataTags(e).ToInstanceMetadataOptionsInstanceMetadataTagsOutputWithContext(ctx).ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutputWithContext(ctx)
+}
+
+func (e InstanceMetadataOptionsInstanceMetadataTags) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceMetadataOptionsInstanceMetadataTags) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceMetadataOptionsInstanceMetadataTags) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceMetadataOptionsInstanceMetadataTags) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstanceMetadataOptionsInstanceMetadataTagsOutput struct{ *pulumi.OutputState }
+
+func (InstanceMetadataOptionsInstanceMetadataTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMetadataOptionsInstanceMetadataTags)(nil)).Elem()
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsOutput) ToInstanceMetadataOptionsInstanceMetadataTagsOutput() InstanceMetadataOptionsInstanceMetadataTagsOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsOutput) ToInstanceMetadataOptionsInstanceMetadataTagsOutputWithContext(ctx context.Context) InstanceMetadataOptionsInstanceMetadataTagsOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsOutput) ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutput() InstanceMetadataOptionsInstanceMetadataTagsPtrOutput {
+	return o.ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsOutput) ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsInstanceMetadataTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceMetadataOptionsInstanceMetadataTags) *InstanceMetadataOptionsInstanceMetadataTags {
+		return &v
+	}).(InstanceMetadataOptionsInstanceMetadataTagsPtrOutput)
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceMetadataOptionsInstanceMetadataTags) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceMetadataOptionsInstanceMetadataTags) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceMetadataOptionsInstanceMetadataTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceMetadataOptionsInstanceMetadataTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceMetadataOptionsInstanceMetadataTags)(nil)).Elem()
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsPtrOutput) ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutput() InstanceMetadataOptionsInstanceMetadataTagsPtrOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsPtrOutput) ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsInstanceMetadataTagsPtrOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsPtrOutput) Elem() InstanceMetadataOptionsInstanceMetadataTagsOutput {
+	return o.ApplyT(func(v *InstanceMetadataOptionsInstanceMetadataTags) InstanceMetadataOptionsInstanceMetadataTags {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceMetadataOptionsInstanceMetadataTags
+		return ret
+	}).(InstanceMetadataOptionsInstanceMetadataTagsOutput)
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsInstanceMetadataTagsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceMetadataOptionsInstanceMetadataTags) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstanceMetadataOptionsInstanceMetadataTagsInput is an input type that accepts values of the InstanceMetadataOptionsInstanceMetadataTags enum
+// A concrete instance of `InstanceMetadataOptionsInstanceMetadataTagsInput` can be one of the following:
+//
+//	InstanceMetadataOptionsInstanceMetadataTagsDisabled
+//	InstanceMetadataOptionsInstanceMetadataTagsEnabled
+type InstanceMetadataOptionsInstanceMetadataTagsInput interface {
+	pulumi.Input
+
+	ToInstanceMetadataOptionsInstanceMetadataTagsOutput() InstanceMetadataOptionsInstanceMetadataTagsOutput
+	ToInstanceMetadataOptionsInstanceMetadataTagsOutputWithContext(context.Context) InstanceMetadataOptionsInstanceMetadataTagsOutput
+}
+
+var instanceMetadataOptionsInstanceMetadataTagsPtrType = reflect.TypeOf((**InstanceMetadataOptionsInstanceMetadataTags)(nil)).Elem()
+
+type InstanceMetadataOptionsInstanceMetadataTagsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutput() InstanceMetadataOptionsInstanceMetadataTagsPtrOutput
+	ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutputWithContext(context.Context) InstanceMetadataOptionsInstanceMetadataTagsPtrOutput
+}
+
+type instanceMetadataOptionsInstanceMetadataTagsPtr string
+
+func InstanceMetadataOptionsInstanceMetadataTagsPtr(v string) InstanceMetadataOptionsInstanceMetadataTagsPtrInput {
+	return (*instanceMetadataOptionsInstanceMetadataTagsPtr)(&v)
+}
+
+func (*instanceMetadataOptionsInstanceMetadataTagsPtr) ElementType() reflect.Type {
+	return instanceMetadataOptionsInstanceMetadataTagsPtrType
+}
+
+func (in *instanceMetadataOptionsInstanceMetadataTagsPtr) ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutput() InstanceMetadataOptionsInstanceMetadataTagsPtrOutput {
+	return pulumi.ToOutput(in).(InstanceMetadataOptionsInstanceMetadataTagsPtrOutput)
+}
+
+func (in *instanceMetadataOptionsInstanceMetadataTagsPtr) ToInstanceMetadataOptionsInstanceMetadataTagsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsInstanceMetadataTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceMetadataOptionsInstanceMetadataTagsPtrOutput)
+}
+
 // The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
 type InstancePrivateDnsNameOptionsHostnameType string
 
@@ -13710,6 +14374,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTrafficTypePtrInput)(nil)).Elem(), FlowLogTrafficType("ACCEPT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAffinityInput)(nil)).Elem(), InstanceAffinity("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAffinityPtrInput)(nil)).Elem(), InstanceAffinity("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsHttpEndpointInput)(nil)).Elem(), InstanceMetadataOptionsHttpEndpoint("disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsHttpEndpointPtrInput)(nil)).Elem(), InstanceMetadataOptionsHttpEndpoint("disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsHttpProtocolIpv6Input)(nil)).Elem(), InstanceMetadataOptionsHttpProtocolIpv6("disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsHttpProtocolIpv6PtrInput)(nil)).Elem(), InstanceMetadataOptionsHttpProtocolIpv6("disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsHttpTokensInput)(nil)).Elem(), InstanceMetadataOptionsHttpTokens("optional"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsHttpTokensPtrInput)(nil)).Elem(), InstanceMetadataOptionsHttpTokens("optional"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsInstanceMetadataTagsInput)(nil)).Elem(), InstanceMetadataOptionsInstanceMetadataTags("disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsInstanceMetadataTagsPtrInput)(nil)).Elem(), InstanceMetadataOptionsInstanceMetadataTags("disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsHostnameTypeInput)(nil)).Elem(), InstancePrivateDnsNameOptionsHostnameType("ip-name"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsHostnameTypePtrInput)(nil)).Elem(), InstancePrivateDnsNameOptionsHostnameType("ip-name"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamMeteredAccountInput)(nil)).Elem(), IpamMeteredAccount("ipam-owner"))
@@ -13868,6 +14540,14 @@ func init() {
 	pulumi.RegisterOutputType(FlowLogTrafficTypePtrOutput{})
 	pulumi.RegisterOutputType(InstanceAffinityOutput{})
 	pulumi.RegisterOutputType(InstanceAffinityPtrOutput{})
+	pulumi.RegisterOutputType(InstanceMetadataOptionsHttpEndpointOutput{})
+	pulumi.RegisterOutputType(InstanceMetadataOptionsHttpEndpointPtrOutput{})
+	pulumi.RegisterOutputType(InstanceMetadataOptionsHttpProtocolIpv6Output{})
+	pulumi.RegisterOutputType(InstanceMetadataOptionsHttpProtocolIpv6PtrOutput{})
+	pulumi.RegisterOutputType(InstanceMetadataOptionsHttpTokensOutput{})
+	pulumi.RegisterOutputType(InstanceMetadataOptionsHttpTokensPtrOutput{})
+	pulumi.RegisterOutputType(InstanceMetadataOptionsInstanceMetadataTagsOutput{})
+	pulumi.RegisterOutputType(InstanceMetadataOptionsInstanceMetadataTagsPtrOutput{})
 	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsHostnameTypeOutput{})
 	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsHostnameTypePtrOutput{})
 	pulumi.RegisterOutputType(IpamMeteredAccountOutput{})

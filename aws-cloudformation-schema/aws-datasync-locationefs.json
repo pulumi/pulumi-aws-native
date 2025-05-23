@@ -130,7 +130,7 @@
       "permissions" : [ "datasync:DescribeLocationEfs", "datasync:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "datasync:UpdateLocationEfs", "datasync:DescribeLocationEfs", "datasync:ListTagsForResource", "datasync:TagResource", "datasync:UntagResource", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeAccessPoints" ]
+      "permissions" : [ "datasync:UpdateLocationEfs", "datasync:DescribeLocationEfs", "datasync:ListTagsForResource", "datasync:TagResource", "datasync:UntagResource", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeAccessPoints", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "datasync:DeleteLocation" ]

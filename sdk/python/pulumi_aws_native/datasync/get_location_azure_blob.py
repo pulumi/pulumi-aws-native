@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -26,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLocationAzureBlobResult:
-    def __init__(__self__, agent_arns=None, azure_access_tier=None, azure_blob_authentication_type=None, azure_blob_type=None, location_arn=None, location_uri=None, tags=None):
+    def __init__(__self__, agent_arns=None, azure_access_tier=None, azure_blob_authentication_type=None, azure_blob_type=None, cmk_secret_config=None, custom_secret_config=None, location_arn=None, location_uri=None, managed_secret_config=None, tags=None):
         if agent_arns and not isinstance(agent_arns, list):
             raise TypeError("Expected argument 'agent_arns' to be a list")
         pulumi.set(__self__, "agent_arns", agent_arns)
@@ -39,12 +40,21 @@ class GetLocationAzureBlobResult:
         if azure_blob_type and not isinstance(azure_blob_type, str):
             raise TypeError("Expected argument 'azure_blob_type' to be a str")
         pulumi.set(__self__, "azure_blob_type", azure_blob_type)
+        if cmk_secret_config and not isinstance(cmk_secret_config, dict):
+            raise TypeError("Expected argument 'cmk_secret_config' to be a dict")
+        pulumi.set(__self__, "cmk_secret_config", cmk_secret_config)
+        if custom_secret_config and not isinstance(custom_secret_config, dict):
+            raise TypeError("Expected argument 'custom_secret_config' to be a dict")
+        pulumi.set(__self__, "custom_secret_config", custom_secret_config)
         if location_arn and not isinstance(location_arn, str):
             raise TypeError("Expected argument 'location_arn' to be a str")
         pulumi.set(__self__, "location_arn", location_arn)
         if location_uri and not isinstance(location_uri, str):
             raise TypeError("Expected argument 'location_uri' to be a str")
         pulumi.set(__self__, "location_uri", location_uri)
+        if managed_secret_config and not isinstance(managed_secret_config, dict):
+            raise TypeError("Expected argument 'managed_secret_config' to be a dict")
+        pulumi.set(__self__, "managed_secret_config", managed_secret_config)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -53,7 +63,7 @@ class GetLocationAzureBlobResult:
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Optional[Sequence[builtins.str]]:
         """
-        The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+        Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         """
         return pulumi.get(self, "agent_arns")
 
@@ -82,6 +92,16 @@ class GetLocationAzureBlobResult:
         return pulumi.get(self, "azure_blob_type")
 
     @property
+    @pulumi.getter(name="cmkSecretConfig")
+    def cmk_secret_config(self) -> Optional['outputs.LocationAzureBlobCmkSecretConfig']:
+        return pulumi.get(self, "cmk_secret_config")
+
+    @property
+    @pulumi.getter(name="customSecretConfig")
+    def custom_secret_config(self) -> Optional['outputs.LocationAzureBlobCustomSecretConfig']:
+        return pulumi.get(self, "custom_secret_config")
+
+    @property
     @pulumi.getter(name="locationArn")
     def location_arn(self) -> Optional[builtins.str]:
         """
@@ -96,6 +116,11 @@ class GetLocationAzureBlobResult:
         The URL of the Azure Blob Location that was described.
         """
         return pulumi.get(self, "location_uri")
+
+    @property
+    @pulumi.getter(name="managedSecretConfig")
+    def managed_secret_config(self) -> Optional['outputs.LocationAzureBlobManagedSecretConfig']:
+        return pulumi.get(self, "managed_secret_config")
 
     @property
     @pulumi.getter
@@ -116,15 +141,18 @@ class AwaitableGetLocationAzureBlobResult(GetLocationAzureBlobResult):
             azure_access_tier=self.azure_access_tier,
             azure_blob_authentication_type=self.azure_blob_authentication_type,
             azure_blob_type=self.azure_blob_type,
+            cmk_secret_config=self.cmk_secret_config,
+            custom_secret_config=self.custom_secret_config,
             location_arn=self.location_arn,
             location_uri=self.location_uri,
+            managed_secret_config=self.managed_secret_config,
             tags=self.tags)
 
 
 def get_location_azure_blob(location_arn: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationAzureBlobResult:
     """
-    Resource schema for AWS::DataSync::LocationAzureBlob.
+    Resource Type definition for AWS::DataSync::LocationAzureBlob.
 
 
     :param builtins.str location_arn: The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
@@ -139,13 +167,16 @@ def get_location_azure_blob(location_arn: Optional[builtins.str] = None,
         azure_access_tier=pulumi.get(__ret__, 'azure_access_tier'),
         azure_blob_authentication_type=pulumi.get(__ret__, 'azure_blob_authentication_type'),
         azure_blob_type=pulumi.get(__ret__, 'azure_blob_type'),
+        cmk_secret_config=pulumi.get(__ret__, 'cmk_secret_config'),
+        custom_secret_config=pulumi.get(__ret__, 'custom_secret_config'),
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
+        managed_secret_config=pulumi.get(__ret__, 'managed_secret_config'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_location_azure_blob_output(location_arn: Optional[pulumi.Input[builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationAzureBlobResult]:
     """
-    Resource schema for AWS::DataSync::LocationAzureBlob.
+    Resource Type definition for AWS::DataSync::LocationAzureBlob.
 
 
     :param builtins.str location_arn: The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
@@ -159,6 +190,9 @@ def get_location_azure_blob_output(location_arn: Optional[pulumi.Input[builtins.
         azure_access_tier=pulumi.get(__response__, 'azure_access_tier'),
         azure_blob_authentication_type=pulumi.get(__response__, 'azure_blob_authentication_type'),
         azure_blob_type=pulumi.get(__response__, 'azure_blob_type'),
+        cmk_secret_config=pulumi.get(__response__, 'cmk_secret_config'),
+        custom_secret_config=pulumi.get(__response__, 'custom_secret_config'),
         location_arn=pulumi.get(__response__, 'location_arn'),
         location_uri=pulumi.get(__response__, 'location_uri'),
+        managed_secret_config=pulumi.get(__response__, 'managed_secret_config'),
         tags=pulumi.get(__response__, 'tags')))

@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataSync
 {
     /// <summary>
-    /// Resource schema for AWS::DataSync::LocationAzureBlob.
+    /// Resource Type definition for AWS::DataSync::LocationAzureBlob.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationAzureBlob")]
     public partial class LocationAzureBlob : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+        /// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         /// </summary>
         [Output("agentArns")]
         public Output<ImmutableArray<string>> AgentArns { get; private set; } = null!;
@@ -51,6 +51,12 @@ namespace Pulumi.AwsNative.DataSync
         [Output("azureBlobType")]
         public Output<Pulumi.AwsNative.DataSync.LocationAzureBlobAzureBlobType?> AzureBlobType { get; private set; } = null!;
 
+        [Output("cmkSecretConfig")]
+        public Output<Outputs.LocationAzureBlobCmkSecretConfig?> CmkSecretConfig { get; private set; } = null!;
+
+        [Output("customSecretConfig")]
+        public Output<Outputs.LocationAzureBlobCustomSecretConfig?> CustomSecretConfig { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
         /// </summary>
@@ -62,6 +68,9 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Output("locationUri")]
         public Output<string> LocationUri { get; private set; } = null!;
+
+        [Output("managedSecretConfig")]
+        public Output<Outputs.LocationAzureBlobManagedSecretConfig> ManagedSecretConfig { get; private set; } = null!;
 
         /// <summary>
         /// The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
@@ -124,11 +133,11 @@ namespace Pulumi.AwsNative.DataSync
 
     public sealed class LocationAzureBlobArgs : global::Pulumi.ResourceArgs
     {
-        [Input("agentArns", required: true)]
+        [Input("agentArns")]
         private InputList<string>? _agentArns;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+        /// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         /// </summary>
         public InputList<string> AgentArns
         {
@@ -165,6 +174,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Input("azureBlobType")]
         public Input<Pulumi.AwsNative.DataSync.LocationAzureBlobAzureBlobType>? AzureBlobType { get; set; }
+
+        [Input("cmkSecretConfig")]
+        public Input<Inputs.LocationAzureBlobCmkSecretConfigArgs>? CmkSecretConfig { get; set; }
+
+        [Input("customSecretConfig")]
+        public Input<Inputs.LocationAzureBlobCustomSecretConfigArgs>? CustomSecretConfig { get; set; }
 
         /// <summary>
         /// The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.

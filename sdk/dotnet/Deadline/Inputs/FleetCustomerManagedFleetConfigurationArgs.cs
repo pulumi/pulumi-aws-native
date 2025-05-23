@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Deadline.Inputs
         [Input("storageProfileId")]
         public Input<string>? StorageProfileId { get; set; }
 
+        [Input("tagPropagationMode")]
+        public Input<Pulumi.AwsNative.Deadline.FleetTagPropagationMode>? TagPropagationMode { get; set; }
+
         [Input("workerCapabilities", required: true)]
         public Input<Inputs.FleetCustomerManagedWorkerCapabilitiesArgs> WorkerCapabilities { get; set; } = null!;
 

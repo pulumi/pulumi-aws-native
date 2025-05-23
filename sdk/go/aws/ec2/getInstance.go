@@ -51,6 +51,8 @@ type LookupInstanceResult struct {
 	InstanceType *string `pulumi:"instanceType"`
 	// The ID of the kernel.
 	KernelId *string `pulumi:"kernelId"`
+	// The metadata options for the instance
+	MetadataOptions *InstanceMetadataOptions `pulumi:"metadataOptions"`
 	// Specifies whether detailed monitoring is enabled for the instance.
 	Monitoring *bool `pulumi:"monitoring"`
 	// The private DNS name of the specified instance. For example: ip-10-24-34-0.ec2.internal.
@@ -170,6 +172,11 @@ func (o LookupInstanceResultOutput) InstanceType() pulumi.StringPtrOutput {
 // The ID of the kernel.
 func (o LookupInstanceResultOutput) KernelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.KernelId }).(pulumi.StringPtrOutput)
+}
+
+// The metadata options for the instance
+func (o LookupInstanceResultOutput) MetadataOptions() InstanceMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *InstanceMetadataOptions { return v.MetadataOptions }).(InstanceMetadataOptionsPtrOutput)
 }
 
 // Specifies whether detailed monitoring is enabled for the instance.

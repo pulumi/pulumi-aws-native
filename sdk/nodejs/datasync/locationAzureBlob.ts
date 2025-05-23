@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::LocationAzureBlob.
+ * Resource Type definition for AWS::DataSync::LocationAzureBlob.
  */
 export class LocationAzureBlob extends pulumi.CustomResource {
     /**
@@ -38,9 +38,9 @@ export class LocationAzureBlob extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+     * Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
      */
-    public readonly agentArns!: pulumi.Output<string[]>;
+    public readonly agentArns!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
      */
@@ -61,6 +61,8 @@ export class LocationAzureBlob extends pulumi.CustomResource {
      * Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
      */
     public readonly azureBlobType!: pulumi.Output<enums.datasync.LocationAzureBlobAzureBlobType | undefined>;
+    public readonly cmkSecretConfig!: pulumi.Output<outputs.datasync.LocationAzureBlobCmkSecretConfig | undefined>;
+    public readonly customSecretConfig!: pulumi.Output<outputs.datasync.LocationAzureBlobCustomSecretConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
      */
@@ -69,6 +71,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
      * The URL of the Azure Blob Location that was described.
      */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    public /*out*/ readonly managedSecretConfig!: pulumi.Output<outputs.datasync.LocationAzureBlobManagedSecretConfig>;
     /**
      * The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
      */
@@ -89,9 +92,6 @@ export class LocationAzureBlob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentArns === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'agentArns'");
-            }
             if ((!args || args.azureBlobAuthenticationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azureBlobAuthenticationType'");
             }
@@ -101,10 +101,13 @@ export class LocationAzureBlob extends pulumi.CustomResource {
             resourceInputs["azureBlobContainerUrl"] = args ? args.azureBlobContainerUrl : undefined;
             resourceInputs["azureBlobSasConfiguration"] = args ? args.azureBlobSasConfiguration : undefined;
             resourceInputs["azureBlobType"] = args ? args.azureBlobType : undefined;
+            resourceInputs["cmkSecretConfig"] = args ? args.cmkSecretConfig : undefined;
+            resourceInputs["customSecretConfig"] = args ? args.customSecretConfig : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["managedSecretConfig"] = undefined /*out*/;
         } else {
             resourceInputs["agentArns"] = undefined /*out*/;
             resourceInputs["azureAccessTier"] = undefined /*out*/;
@@ -112,8 +115,11 @@ export class LocationAzureBlob extends pulumi.CustomResource {
             resourceInputs["azureBlobContainerUrl"] = undefined /*out*/;
             resourceInputs["azureBlobSasConfiguration"] = undefined /*out*/;
             resourceInputs["azureBlobType"] = undefined /*out*/;
+            resourceInputs["cmkSecretConfig"] = undefined /*out*/;
+            resourceInputs["customSecretConfig"] = undefined /*out*/;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["managedSecretConfig"] = undefined /*out*/;
             resourceInputs["subdirectory"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -129,9 +135,9 @@ export class LocationAzureBlob extends pulumi.CustomResource {
  */
 export interface LocationAzureBlobArgs {
     /**
-     * The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+     * Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
      */
-    agentArns: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
      */
@@ -152,6 +158,8 @@ export interface LocationAzureBlobArgs {
      * Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
      */
     azureBlobType?: pulumi.Input<enums.datasync.LocationAzureBlobAzureBlobType>;
+    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationAzureBlobCmkSecretConfigArgs>;
+    customSecretConfig?: pulumi.Input<inputs.datasync.LocationAzureBlobCustomSecretConfigArgs>;
     /**
      * The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
      */

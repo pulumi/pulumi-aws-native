@@ -117,6 +117,7 @@ __all__ = [
     'DataSourceWebDataSourceConfiguration',
     'DataSourceWebSourceConfiguration',
     'FlowAgentFlowNodeConfiguration',
+    'FlowAliasConcurrencyConfiguration',
     'FlowAliasRoutingConfigurationListItem',
     'FlowCollectorFlowNodeConfiguration',
     'FlowCondition',
@@ -128,6 +129,7 @@ __all__ = [
     'FlowDataConnectionConfiguration',
     'FlowDefinition',
     'FlowGuardrailConfiguration',
+    'FlowInlineCodeFlowNodeConfiguration',
     'FlowInputFlowNodeConfiguration',
     'FlowIteratorFlowNodeConfiguration',
     'FlowKnowledgeBaseFlowNodeConfiguration',
@@ -137,6 +139,7 @@ __all__ = [
     'FlowNodeConfiguration0Properties',
     'FlowNodeConfiguration10Properties',
     'FlowNodeConfiguration11Properties',
+    'FlowNodeConfiguration12Properties',
     'FlowNodeConfiguration1Properties',
     'FlowNodeConfiguration2Properties',
     'FlowNodeConfiguration3Properties',
@@ -181,6 +184,7 @@ __all__ = [
     'FlowVersionFlowNodeConfiguration0Properties',
     'FlowVersionFlowNodeConfiguration10Properties',
     'FlowVersionFlowNodeConfiguration11Properties',
+    'FlowVersionFlowNodeConfiguration12Properties',
     'FlowVersionFlowNodeConfiguration1Properties',
     'FlowVersionFlowNodeConfiguration2Properties',
     'FlowVersionFlowNodeConfiguration3Properties',
@@ -193,6 +197,7 @@ __all__ = [
     'FlowVersionFlowNodeInput',
     'FlowVersionFlowNodeOutput',
     'FlowVersionGuardrailConfiguration',
+    'FlowVersionInlineCodeFlowNodeConfiguration',
     'FlowVersionInputFlowNodeConfiguration',
     'FlowVersionIteratorFlowNodeConfiguration',
     'FlowVersionKnowledgeBaseFlowNodeConfiguration',
@@ -5092,6 +5097,49 @@ class FlowAgentFlowNodeConfiguration(dict):
 
 
 @pulumi.output_type
+class FlowAliasConcurrencyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrency":
+            suggest = "max_concurrency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowAliasConcurrencyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowAliasConcurrencyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowAliasConcurrencyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'FlowAliasConcurrencyType',
+                 max_concurrency: Optional[builtins.float] = None):
+        """
+        :param builtins.float max_concurrency: Number of nodes executed concurrently at a time
+        """
+        pulumi.set(__self__, "type", type)
+        if max_concurrency is not None:
+            pulumi.set(__self__, "max_concurrency", max_concurrency)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'FlowAliasConcurrencyType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> Optional[builtins.float]:
+        """
+        Number of nodes executed concurrently at a time
+        """
+        return pulumi.get(self, "max_concurrency")
+
+
+@pulumi.output_type
 class FlowAliasRoutingConfigurationListItem(dict):
     """
     Details about the routing configuration for a Flow alias.
@@ -5466,6 +5514,35 @@ class FlowGuardrailConfiguration(dict):
 
 
 @pulumi.output_type
+class FlowInlineCodeFlowNodeConfiguration(dict):
+    """
+    Inline code config strucuture, contains code configs
+    """
+    def __init__(__self__, *,
+                 code: builtins.str,
+                 language: 'FlowSupportedLanguages'):
+        """
+        Inline code config strucuture, contains code configs
+        :param builtins.str code: The inline code entered by customers. max size is 5MB.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "language", language)
+
+    @property
+    @pulumi.getter
+    def code(self) -> builtins.str:
+        """
+        The inline code entered by customers. max size is 5MB.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def language(self) -> 'FlowSupportedLanguages':
+        return pulumi.get(self, "language")
+
+
+@pulumi.output_type
 class FlowInputFlowNodeConfiguration(dict):
     """
     Input flow node configuration
@@ -5658,7 +5735,7 @@ class FlowNode(dict):
         Internal mixin for flow node
         :param builtins.str name: Name of a node in a flow
         :param 'FlowNodeType' type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-        :param Union['FlowNodeConfiguration0Properties', 'FlowNodeConfiguration1Properties', 'FlowNodeConfiguration2Properties', 'FlowNodeConfiguration3Properties', 'FlowNodeConfiguration4Properties', 'FlowNodeConfiguration5Properties', 'FlowNodeConfiguration6Properties', 'FlowNodeConfiguration7Properties', 'FlowNodeConfiguration8Properties', 'FlowNodeConfiguration9Properties', 'FlowNodeConfiguration10Properties', 'FlowNodeConfiguration11Properties'] configuration: Contains configurations for the node.
+        :param Union['FlowNodeConfiguration0Properties', 'FlowNodeConfiguration1Properties', 'FlowNodeConfiguration2Properties', 'FlowNodeConfiguration3Properties', 'FlowNodeConfiguration4Properties', 'FlowNodeConfiguration5Properties', 'FlowNodeConfiguration6Properties', 'FlowNodeConfiguration7Properties', 'FlowNodeConfiguration8Properties', 'FlowNodeConfiguration9Properties', 'FlowNodeConfiguration10Properties', 'FlowNodeConfiguration11Properties', 'FlowNodeConfiguration12Properties'] configuration: Contains configurations for the node.
         :param Sequence['FlowNodeInput'] inputs: List of node inputs in a flow
         :param Sequence['FlowNodeOutput'] outputs: List of node outputs in a flow
         """
@@ -5764,6 +5841,41 @@ class FlowNodeConfiguration11Properties(dict):
     @pulumi.getter
     def retrieval(self) -> 'outputs.FlowRetrievalFlowNodeConfiguration':
         return pulumi.get(self, "retrieval")
+
+
+@pulumi.output_type
+class FlowNodeConfiguration12Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlineCode":
+            suggest = "inline_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowNodeConfiguration12Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowNodeConfiguration12Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowNodeConfiguration12Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inline_code: 'outputs.FlowInlineCodeFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "inline_code", inline_code)
+
+    @property
+    @pulumi.getter(name="inlineCode")
+    def inline_code(self) -> 'outputs.FlowInlineCodeFlowNodeConfiguration':
+        return pulumi.get(self, "inline_code")
 
 
 @pulumi.output_type
@@ -7015,7 +7127,7 @@ class FlowVersionFlowNode(dict):
         Internal mixin for flow node
         :param builtins.str name: Name of a node in a flow
         :param 'FlowVersionFlowNodeType' type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-        :param Union['FlowVersionFlowNodeConfiguration0Properties', 'FlowVersionFlowNodeConfiguration1Properties', 'FlowVersionFlowNodeConfiguration2Properties', 'FlowVersionFlowNodeConfiguration3Properties', 'FlowVersionFlowNodeConfiguration4Properties', 'FlowVersionFlowNodeConfiguration5Properties', 'FlowVersionFlowNodeConfiguration6Properties', 'FlowVersionFlowNodeConfiguration7Properties', 'FlowVersionFlowNodeConfiguration8Properties', 'FlowVersionFlowNodeConfiguration9Properties', 'FlowVersionFlowNodeConfiguration10Properties', 'FlowVersionFlowNodeConfiguration11Properties'] configuration: Contains configurations for the node.
+        :param Union['FlowVersionFlowNodeConfiguration0Properties', 'FlowVersionFlowNodeConfiguration1Properties', 'FlowVersionFlowNodeConfiguration2Properties', 'FlowVersionFlowNodeConfiguration3Properties', 'FlowVersionFlowNodeConfiguration4Properties', 'FlowVersionFlowNodeConfiguration5Properties', 'FlowVersionFlowNodeConfiguration6Properties', 'FlowVersionFlowNodeConfiguration7Properties', 'FlowVersionFlowNodeConfiguration8Properties', 'FlowVersionFlowNodeConfiguration9Properties', 'FlowVersionFlowNodeConfiguration10Properties', 'FlowVersionFlowNodeConfiguration11Properties', 'FlowVersionFlowNodeConfiguration12Properties'] configuration: Contains configurations for the node.
         :param Sequence['FlowVersionFlowNodeInput'] inputs: List of node inputs in a flow
         :param Sequence['FlowVersionFlowNodeOutput'] outputs: List of node outputs in a flow
         """
@@ -7121,6 +7233,41 @@ class FlowVersionFlowNodeConfiguration11Properties(dict):
     @pulumi.getter
     def collector(self) -> 'outputs.FlowVersionCollectorFlowNodeConfiguration':
         return pulumi.get(self, "collector")
+
+
+@pulumi.output_type
+class FlowVersionFlowNodeConfiguration12Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlineCode":
+            suggest = "inline_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionFlowNodeConfiguration12Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionFlowNodeConfiguration12Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionFlowNodeConfiguration12Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inline_code: 'outputs.FlowVersionInlineCodeFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "inline_code", inline_code)
+
+    @property
+    @pulumi.getter(name="inlineCode")
+    def inline_code(self) -> 'outputs.FlowVersionInlineCodeFlowNodeConfiguration':
+        return pulumi.get(self, "inline_code")
 
 
 @pulumi.output_type
@@ -7448,6 +7595,35 @@ class FlowVersionGuardrailConfiguration(dict):
         Version of the guardrail
         """
         return pulumi.get(self, "guardrail_version")
+
+
+@pulumi.output_type
+class FlowVersionInlineCodeFlowNodeConfiguration(dict):
+    """
+    Inline code config strucuture, contains code configs
+    """
+    def __init__(__self__, *,
+                 code: builtins.str,
+                 language: 'FlowVersionSupportedLanguages'):
+        """
+        Inline code config strucuture, contains code configs
+        :param builtins.str code: The inline code entered by customers. max size is 5MB.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "language", language)
+
+    @property
+    @pulumi.getter
+    def code(self) -> builtins.str:
+        """
+        The inline code entered by customers. max size is 5MB.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def language(self) -> 'FlowVersionSupportedLanguages':
+        return pulumi.get(self, "language")
 
 
 @pulumi.output_type

@@ -291,6 +291,8 @@ class FleetCustomerManagedFleetConfiguration(dict):
             suggest = "worker_capabilities"
         elif key == "storageProfileId":
             suggest = "storage_profile_id"
+        elif key == "tagPropagationMode":
+            suggest = "tag_propagation_mode"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FleetCustomerManagedFleetConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -306,11 +308,14 @@ class FleetCustomerManagedFleetConfiguration(dict):
     def __init__(__self__, *,
                  mode: 'FleetAutoScalingMode',
                  worker_capabilities: 'outputs.FleetCustomerManagedWorkerCapabilities',
-                 storage_profile_id: Optional[builtins.str] = None):
+                 storage_profile_id: Optional[builtins.str] = None,
+                 tag_propagation_mode: Optional['FleetTagPropagationMode'] = None):
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "worker_capabilities", worker_capabilities)
         if storage_profile_id is not None:
             pulumi.set(__self__, "storage_profile_id", storage_profile_id)
+        if tag_propagation_mode is not None:
+            pulumi.set(__self__, "tag_propagation_mode", tag_propagation_mode)
 
     @property
     @pulumi.getter
@@ -326,6 +331,11 @@ class FleetCustomerManagedFleetConfiguration(dict):
     @pulumi.getter(name="storageProfileId")
     def storage_profile_id(self) -> Optional[builtins.str]:
         return pulumi.get(self, "storage_profile_id")
+
+    @property
+    @pulumi.getter(name="tagPropagationMode")
+    def tag_propagation_mode(self) -> Optional['FleetTagPropagationMode']:
+        return pulumi.get(self, "tag_propagation_mode")
 
 
 @pulumi.output_type

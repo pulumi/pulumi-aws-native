@@ -14878,6 +14878,158 @@ func (o FlowAgentFlowNodeConfigurationPtrOutput) AgentAliasArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlowAliasConcurrencyConfiguration struct {
+	// Number of nodes executed concurrently at a time
+	MaxConcurrency *float64                 `pulumi:"maxConcurrency"`
+	Type           FlowAliasConcurrencyType `pulumi:"type"`
+}
+
+// FlowAliasConcurrencyConfigurationInput is an input type that accepts FlowAliasConcurrencyConfigurationArgs and FlowAliasConcurrencyConfigurationOutput values.
+// You can construct a concrete instance of `FlowAliasConcurrencyConfigurationInput` via:
+//
+//	FlowAliasConcurrencyConfigurationArgs{...}
+type FlowAliasConcurrencyConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowAliasConcurrencyConfigurationOutput() FlowAliasConcurrencyConfigurationOutput
+	ToFlowAliasConcurrencyConfigurationOutputWithContext(context.Context) FlowAliasConcurrencyConfigurationOutput
+}
+
+type FlowAliasConcurrencyConfigurationArgs struct {
+	// Number of nodes executed concurrently at a time
+	MaxConcurrency pulumi.Float64PtrInput        `pulumi:"maxConcurrency"`
+	Type           FlowAliasConcurrencyTypeInput `pulumi:"type"`
+}
+
+func (FlowAliasConcurrencyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAliasConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (i FlowAliasConcurrencyConfigurationArgs) ToFlowAliasConcurrencyConfigurationOutput() FlowAliasConcurrencyConfigurationOutput {
+	return i.ToFlowAliasConcurrencyConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowAliasConcurrencyConfigurationArgs) ToFlowAliasConcurrencyConfigurationOutputWithContext(ctx context.Context) FlowAliasConcurrencyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAliasConcurrencyConfigurationOutput)
+}
+
+func (i FlowAliasConcurrencyConfigurationArgs) ToFlowAliasConcurrencyConfigurationPtrOutput() FlowAliasConcurrencyConfigurationPtrOutput {
+	return i.ToFlowAliasConcurrencyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowAliasConcurrencyConfigurationArgs) ToFlowAliasConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) FlowAliasConcurrencyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAliasConcurrencyConfigurationOutput).ToFlowAliasConcurrencyConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowAliasConcurrencyConfigurationPtrInput is an input type that accepts FlowAliasConcurrencyConfigurationArgs, FlowAliasConcurrencyConfigurationPtr and FlowAliasConcurrencyConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowAliasConcurrencyConfigurationPtrInput` via:
+//
+//	        FlowAliasConcurrencyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowAliasConcurrencyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowAliasConcurrencyConfigurationPtrOutput() FlowAliasConcurrencyConfigurationPtrOutput
+	ToFlowAliasConcurrencyConfigurationPtrOutputWithContext(context.Context) FlowAliasConcurrencyConfigurationPtrOutput
+}
+
+type flowAliasConcurrencyConfigurationPtrType FlowAliasConcurrencyConfigurationArgs
+
+func FlowAliasConcurrencyConfigurationPtr(v *FlowAliasConcurrencyConfigurationArgs) FlowAliasConcurrencyConfigurationPtrInput {
+	return (*flowAliasConcurrencyConfigurationPtrType)(v)
+}
+
+func (*flowAliasConcurrencyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowAliasConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (i *flowAliasConcurrencyConfigurationPtrType) ToFlowAliasConcurrencyConfigurationPtrOutput() FlowAliasConcurrencyConfigurationPtrOutput {
+	return i.ToFlowAliasConcurrencyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowAliasConcurrencyConfigurationPtrType) ToFlowAliasConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) FlowAliasConcurrencyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAliasConcurrencyConfigurationPtrOutput)
+}
+
+type FlowAliasConcurrencyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowAliasConcurrencyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAliasConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (o FlowAliasConcurrencyConfigurationOutput) ToFlowAliasConcurrencyConfigurationOutput() FlowAliasConcurrencyConfigurationOutput {
+	return o
+}
+
+func (o FlowAliasConcurrencyConfigurationOutput) ToFlowAliasConcurrencyConfigurationOutputWithContext(ctx context.Context) FlowAliasConcurrencyConfigurationOutput {
+	return o
+}
+
+func (o FlowAliasConcurrencyConfigurationOutput) ToFlowAliasConcurrencyConfigurationPtrOutput() FlowAliasConcurrencyConfigurationPtrOutput {
+	return o.ToFlowAliasConcurrencyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowAliasConcurrencyConfigurationOutput) ToFlowAliasConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) FlowAliasConcurrencyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowAliasConcurrencyConfiguration) *FlowAliasConcurrencyConfiguration {
+		return &v
+	}).(FlowAliasConcurrencyConfigurationPtrOutput)
+}
+
+// Number of nodes executed concurrently at a time
+func (o FlowAliasConcurrencyConfigurationOutput) MaxConcurrency() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FlowAliasConcurrencyConfiguration) *float64 { return v.MaxConcurrency }).(pulumi.Float64PtrOutput)
+}
+
+func (o FlowAliasConcurrencyConfigurationOutput) Type() FlowAliasConcurrencyTypeOutput {
+	return o.ApplyT(func(v FlowAliasConcurrencyConfiguration) FlowAliasConcurrencyType { return v.Type }).(FlowAliasConcurrencyTypeOutput)
+}
+
+type FlowAliasConcurrencyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowAliasConcurrencyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowAliasConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (o FlowAliasConcurrencyConfigurationPtrOutput) ToFlowAliasConcurrencyConfigurationPtrOutput() FlowAliasConcurrencyConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowAliasConcurrencyConfigurationPtrOutput) ToFlowAliasConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) FlowAliasConcurrencyConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowAliasConcurrencyConfigurationPtrOutput) Elem() FlowAliasConcurrencyConfigurationOutput {
+	return o.ApplyT(func(v *FlowAliasConcurrencyConfiguration) FlowAliasConcurrencyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowAliasConcurrencyConfiguration
+		return ret
+	}).(FlowAliasConcurrencyConfigurationOutput)
+}
+
+// Number of nodes executed concurrently at a time
+func (o FlowAliasConcurrencyConfigurationPtrOutput) MaxConcurrency() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FlowAliasConcurrencyConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrency
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o FlowAliasConcurrencyConfigurationPtrOutput) Type() FlowAliasConcurrencyTypePtrOutput {
+	return o.ApplyT(func(v *FlowAliasConcurrencyConfiguration) *FlowAliasConcurrencyType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(FlowAliasConcurrencyTypePtrOutput)
+}
+
 // Details about the routing configuration for a Flow alias.
 type FlowAliasRoutingConfigurationListItem struct {
 	// Version.
@@ -16375,6 +16527,161 @@ func (o FlowGuardrailConfigurationPtrOutput) GuardrailVersion() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Inline code config strucuture, contains code configs
+type FlowInlineCodeFlowNodeConfiguration struct {
+	// The inline code entered by customers. max size is 5MB.
+	Code     string                 `pulumi:"code"`
+	Language FlowSupportedLanguages `pulumi:"language"`
+}
+
+// FlowInlineCodeFlowNodeConfigurationInput is an input type that accepts FlowInlineCodeFlowNodeConfigurationArgs and FlowInlineCodeFlowNodeConfigurationOutput values.
+// You can construct a concrete instance of `FlowInlineCodeFlowNodeConfigurationInput` via:
+//
+//	FlowInlineCodeFlowNodeConfigurationArgs{...}
+type FlowInlineCodeFlowNodeConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowInlineCodeFlowNodeConfigurationOutput() FlowInlineCodeFlowNodeConfigurationOutput
+	ToFlowInlineCodeFlowNodeConfigurationOutputWithContext(context.Context) FlowInlineCodeFlowNodeConfigurationOutput
+}
+
+// Inline code config strucuture, contains code configs
+type FlowInlineCodeFlowNodeConfigurationArgs struct {
+	// The inline code entered by customers. max size is 5MB.
+	Code     pulumi.StringInput          `pulumi:"code"`
+	Language FlowSupportedLanguagesInput `pulumi:"language"`
+}
+
+func (FlowInlineCodeFlowNodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowInlineCodeFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i FlowInlineCodeFlowNodeConfigurationArgs) ToFlowInlineCodeFlowNodeConfigurationOutput() FlowInlineCodeFlowNodeConfigurationOutput {
+	return i.ToFlowInlineCodeFlowNodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowInlineCodeFlowNodeConfigurationArgs) ToFlowInlineCodeFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowInlineCodeFlowNodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowInlineCodeFlowNodeConfigurationOutput)
+}
+
+func (i FlowInlineCodeFlowNodeConfigurationArgs) ToFlowInlineCodeFlowNodeConfigurationPtrOutput() FlowInlineCodeFlowNodeConfigurationPtrOutput {
+	return i.ToFlowInlineCodeFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowInlineCodeFlowNodeConfigurationArgs) ToFlowInlineCodeFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowInlineCodeFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowInlineCodeFlowNodeConfigurationOutput).ToFlowInlineCodeFlowNodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowInlineCodeFlowNodeConfigurationPtrInput is an input type that accepts FlowInlineCodeFlowNodeConfigurationArgs, FlowInlineCodeFlowNodeConfigurationPtr and FlowInlineCodeFlowNodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowInlineCodeFlowNodeConfigurationPtrInput` via:
+//
+//	        FlowInlineCodeFlowNodeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowInlineCodeFlowNodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowInlineCodeFlowNodeConfigurationPtrOutput() FlowInlineCodeFlowNodeConfigurationPtrOutput
+	ToFlowInlineCodeFlowNodeConfigurationPtrOutputWithContext(context.Context) FlowInlineCodeFlowNodeConfigurationPtrOutput
+}
+
+type flowInlineCodeFlowNodeConfigurationPtrType FlowInlineCodeFlowNodeConfigurationArgs
+
+func FlowInlineCodeFlowNodeConfigurationPtr(v *FlowInlineCodeFlowNodeConfigurationArgs) FlowInlineCodeFlowNodeConfigurationPtrInput {
+	return (*flowInlineCodeFlowNodeConfigurationPtrType)(v)
+}
+
+func (*flowInlineCodeFlowNodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowInlineCodeFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i *flowInlineCodeFlowNodeConfigurationPtrType) ToFlowInlineCodeFlowNodeConfigurationPtrOutput() FlowInlineCodeFlowNodeConfigurationPtrOutput {
+	return i.ToFlowInlineCodeFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowInlineCodeFlowNodeConfigurationPtrType) ToFlowInlineCodeFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowInlineCodeFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowInlineCodeFlowNodeConfigurationPtrOutput)
+}
+
+// Inline code config strucuture, contains code configs
+type FlowInlineCodeFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowInlineCodeFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowInlineCodeFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowInlineCodeFlowNodeConfigurationOutput) ToFlowInlineCodeFlowNodeConfigurationOutput() FlowInlineCodeFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowInlineCodeFlowNodeConfigurationOutput) ToFlowInlineCodeFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowInlineCodeFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowInlineCodeFlowNodeConfigurationOutput) ToFlowInlineCodeFlowNodeConfigurationPtrOutput() FlowInlineCodeFlowNodeConfigurationPtrOutput {
+	return o.ToFlowInlineCodeFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowInlineCodeFlowNodeConfigurationOutput) ToFlowInlineCodeFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowInlineCodeFlowNodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowInlineCodeFlowNodeConfiguration) *FlowInlineCodeFlowNodeConfiguration {
+		return &v
+	}).(FlowInlineCodeFlowNodeConfigurationPtrOutput)
+}
+
+// The inline code entered by customers. max size is 5MB.
+func (o FlowInlineCodeFlowNodeConfigurationOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowInlineCodeFlowNodeConfiguration) string { return v.Code }).(pulumi.StringOutput)
+}
+
+func (o FlowInlineCodeFlowNodeConfigurationOutput) Language() FlowSupportedLanguagesOutput {
+	return o.ApplyT(func(v FlowInlineCodeFlowNodeConfiguration) FlowSupportedLanguages { return v.Language }).(FlowSupportedLanguagesOutput)
+}
+
+type FlowInlineCodeFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowInlineCodeFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowInlineCodeFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowInlineCodeFlowNodeConfigurationPtrOutput) ToFlowInlineCodeFlowNodeConfigurationPtrOutput() FlowInlineCodeFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowInlineCodeFlowNodeConfigurationPtrOutput) ToFlowInlineCodeFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowInlineCodeFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowInlineCodeFlowNodeConfigurationPtrOutput) Elem() FlowInlineCodeFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowInlineCodeFlowNodeConfiguration) FlowInlineCodeFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowInlineCodeFlowNodeConfiguration
+		return ret
+	}).(FlowInlineCodeFlowNodeConfigurationOutput)
+}
+
+// The inline code entered by customers. max size is 5MB.
+func (o FlowInlineCodeFlowNodeConfigurationPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowInlineCodeFlowNodeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FlowInlineCodeFlowNodeConfigurationPtrOutput) Language() FlowSupportedLanguagesPtrOutput {
+	return o.ApplyT(func(v *FlowInlineCodeFlowNodeConfiguration) *FlowSupportedLanguages {
+		if v == nil {
+			return nil
+		}
+		return &v.Language
+	}).(FlowSupportedLanguagesPtrOutput)
+}
+
 // Input flow node configuration
 type FlowInputFlowNodeConfiguration struct {
 }
@@ -17634,6 +17941,142 @@ func (o FlowNodeConfiguration11PropertiesPtrOutput) Retrieval() FlowRetrievalFlo
 		}
 		return &v.Retrieval
 	}).(FlowRetrievalFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration12Properties struct {
+	InlineCode FlowInlineCodeFlowNodeConfiguration `pulumi:"inlineCode"`
+}
+
+// FlowNodeConfiguration12PropertiesInput is an input type that accepts FlowNodeConfiguration12PropertiesArgs and FlowNodeConfiguration12PropertiesOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration12PropertiesInput` via:
+//
+//	FlowNodeConfiguration12PropertiesArgs{...}
+type FlowNodeConfiguration12PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration12PropertiesOutput() FlowNodeConfiguration12PropertiesOutput
+	ToFlowNodeConfiguration12PropertiesOutputWithContext(context.Context) FlowNodeConfiguration12PropertiesOutput
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration12PropertiesArgs struct {
+	InlineCode FlowInlineCodeFlowNodeConfigurationInput `pulumi:"inlineCode"`
+}
+
+func (FlowNodeConfiguration12PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration12Properties)(nil)).Elem()
+}
+
+func (i FlowNodeConfiguration12PropertiesArgs) ToFlowNodeConfiguration12PropertiesOutput() FlowNodeConfiguration12PropertiesOutput {
+	return i.ToFlowNodeConfiguration12PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration12PropertiesArgs) ToFlowNodeConfiguration12PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration12PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration12PropertiesOutput)
+}
+
+func (i FlowNodeConfiguration12PropertiesArgs) ToFlowNodeConfiguration12PropertiesPtrOutput() FlowNodeConfiguration12PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration12PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration12PropertiesArgs) ToFlowNodeConfiguration12PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration12PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration12PropertiesOutput).ToFlowNodeConfiguration12PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowNodeConfiguration12PropertiesPtrInput is an input type that accepts FlowNodeConfiguration12PropertiesArgs, FlowNodeConfiguration12PropertiesPtr and FlowNodeConfiguration12PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration12PropertiesPtrInput` via:
+//
+//	        FlowNodeConfiguration12PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowNodeConfiguration12PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration12PropertiesPtrOutput() FlowNodeConfiguration12PropertiesPtrOutput
+	ToFlowNodeConfiguration12PropertiesPtrOutputWithContext(context.Context) FlowNodeConfiguration12PropertiesPtrOutput
+}
+
+type flowNodeConfiguration12PropertiesPtrType FlowNodeConfiguration12PropertiesArgs
+
+func FlowNodeConfiguration12PropertiesPtr(v *FlowNodeConfiguration12PropertiesArgs) FlowNodeConfiguration12PropertiesPtrInput {
+	return (*flowNodeConfiguration12PropertiesPtrType)(v)
+}
+
+func (*flowNodeConfiguration12PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration12Properties)(nil)).Elem()
+}
+
+func (i *flowNodeConfiguration12PropertiesPtrType) ToFlowNodeConfiguration12PropertiesPtrOutput() FlowNodeConfiguration12PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration12PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowNodeConfiguration12PropertiesPtrType) ToFlowNodeConfiguration12PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration12PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration12PropertiesPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration12PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration12PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration12Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration12PropertiesOutput) ToFlowNodeConfiguration12PropertiesOutput() FlowNodeConfiguration12PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration12PropertiesOutput) ToFlowNodeConfiguration12PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration12PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration12PropertiesOutput) ToFlowNodeConfiguration12PropertiesPtrOutput() FlowNodeConfiguration12PropertiesPtrOutput {
+	return o.ToFlowNodeConfiguration12PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeConfiguration12PropertiesOutput) ToFlowNodeConfiguration12PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration12PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNodeConfiguration12Properties) *FlowNodeConfiguration12Properties {
+		return &v
+	}).(FlowNodeConfiguration12PropertiesPtrOutput)
+}
+
+func (o FlowNodeConfiguration12PropertiesOutput) InlineCode() FlowInlineCodeFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowNodeConfiguration12Properties) FlowInlineCodeFlowNodeConfiguration { return v.InlineCode }).(FlowInlineCodeFlowNodeConfigurationOutput)
+}
+
+type FlowNodeConfiguration12PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration12PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration12Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration12PropertiesPtrOutput) ToFlowNodeConfiguration12PropertiesPtrOutput() FlowNodeConfiguration12PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration12PropertiesPtrOutput) ToFlowNodeConfiguration12PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration12PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration12PropertiesPtrOutput) Elem() FlowNodeConfiguration12PropertiesOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration12Properties) FlowNodeConfiguration12Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNodeConfiguration12Properties
+		return ret
+	}).(FlowNodeConfiguration12PropertiesOutput)
+}
+
+func (o FlowNodeConfiguration12PropertiesPtrOutput) InlineCode() FlowInlineCodeFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration12Properties) *FlowInlineCodeFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.InlineCode
+	}).(FlowInlineCodeFlowNodeConfigurationPtrOutput)
 }
 
 // Node configuration in a flow
@@ -22648,6 +23091,65 @@ func (o FlowVersionFlowNodeConfiguration11PropertiesPtrOutput) Collector() FlowV
 }
 
 // Node configuration in a flow
+type FlowVersionFlowNodeConfiguration12Properties struct {
+	InlineCode FlowVersionInlineCodeFlowNodeConfiguration `pulumi:"inlineCode"`
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration12PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration12PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowNodeConfiguration12Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration12PropertiesOutput) ToFlowVersionFlowNodeConfiguration12PropertiesOutput() FlowVersionFlowNodeConfiguration12PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration12PropertiesOutput) ToFlowVersionFlowNodeConfiguration12PropertiesOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration12PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration12PropertiesOutput) InlineCode() FlowVersionInlineCodeFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowVersionFlowNodeConfiguration12Properties) FlowVersionInlineCodeFlowNodeConfiguration {
+		return v.InlineCode
+	}).(FlowVersionInlineCodeFlowNodeConfigurationOutput)
+}
+
+type FlowVersionFlowNodeConfiguration12PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration12PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowNodeConfiguration12Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration12PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration12PropertiesPtrOutput() FlowVersionFlowNodeConfiguration12PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration12PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration12PropertiesPtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration12PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration12PropertiesPtrOutput) Elem() FlowVersionFlowNodeConfiguration12PropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration12Properties) FlowVersionFlowNodeConfiguration12Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowNodeConfiguration12Properties
+		return ret
+	}).(FlowVersionFlowNodeConfiguration12PropertiesOutput)
+}
+
+func (o FlowVersionFlowNodeConfiguration12PropertiesPtrOutput) InlineCode() FlowVersionInlineCodeFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration12Properties) *FlowVersionInlineCodeFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.InlineCode
+	}).(FlowVersionInlineCodeFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
 type FlowVersionFlowNodeConfiguration1Properties struct {
 	Output FlowVersionOutputFlowNodeConfiguration `pulumi:"output"`
 }
@@ -23364,6 +23866,80 @@ func (o FlowVersionGuardrailConfigurationPtrOutput) GuardrailVersion() pulumi.St
 		}
 		return v.GuardrailVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// Inline code config strucuture, contains code configs
+type FlowVersionInlineCodeFlowNodeConfiguration struct {
+	// The inline code entered by customers. max size is 5MB.
+	Code     string                        `pulumi:"code"`
+	Language FlowVersionSupportedLanguages `pulumi:"language"`
+}
+
+// Inline code config strucuture, contains code configs
+type FlowVersionInlineCodeFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionInlineCodeFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionInlineCodeFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionInlineCodeFlowNodeConfigurationOutput) ToFlowVersionInlineCodeFlowNodeConfigurationOutput() FlowVersionInlineCodeFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionInlineCodeFlowNodeConfigurationOutput) ToFlowVersionInlineCodeFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowVersionInlineCodeFlowNodeConfigurationOutput {
+	return o
+}
+
+// The inline code entered by customers. max size is 5MB.
+func (o FlowVersionInlineCodeFlowNodeConfigurationOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowVersionInlineCodeFlowNodeConfiguration) string { return v.Code }).(pulumi.StringOutput)
+}
+
+func (o FlowVersionInlineCodeFlowNodeConfigurationOutput) Language() FlowVersionSupportedLanguagesOutput {
+	return o.ApplyT(func(v FlowVersionInlineCodeFlowNodeConfiguration) FlowVersionSupportedLanguages { return v.Language }).(FlowVersionSupportedLanguagesOutput)
+}
+
+type FlowVersionInlineCodeFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionInlineCodeFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionInlineCodeFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionInlineCodeFlowNodeConfigurationPtrOutput) ToFlowVersionInlineCodeFlowNodeConfigurationPtrOutput() FlowVersionInlineCodeFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionInlineCodeFlowNodeConfigurationPtrOutput) ToFlowVersionInlineCodeFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionInlineCodeFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionInlineCodeFlowNodeConfigurationPtrOutput) Elem() FlowVersionInlineCodeFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionInlineCodeFlowNodeConfiguration) FlowVersionInlineCodeFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionInlineCodeFlowNodeConfiguration
+		return ret
+	}).(FlowVersionInlineCodeFlowNodeConfigurationOutput)
+}
+
+// The inline code entered by customers. max size is 5MB.
+func (o FlowVersionInlineCodeFlowNodeConfigurationPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVersionInlineCodeFlowNodeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FlowVersionInlineCodeFlowNodeConfigurationPtrOutput) Language() FlowVersionSupportedLanguagesPtrOutput {
+	return o.ApplyT(func(v *FlowVersionInlineCodeFlowNodeConfiguration) *FlowVersionSupportedLanguages {
+		if v == nil {
+			return nil
+		}
+		return &v.Language
+	}).(FlowVersionSupportedLanguagesPtrOutput)
 }
 
 // Input flow node configuration
@@ -37742,6 +38318,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebSourceConfigurationPtrInput)(nil)).Elem(), DataSourceWebSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAgentFlowNodeConfigurationInput)(nil)).Elem(), FlowAgentFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAgentFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowAgentFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasConcurrencyConfigurationInput)(nil)).Elem(), FlowAliasConcurrencyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasConcurrencyConfigurationPtrInput)(nil)).Elem(), FlowAliasConcurrencyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasRoutingConfigurationListItemInput)(nil)).Elem(), FlowAliasRoutingConfigurationListItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasRoutingConfigurationListItemArrayInput)(nil)).Elem(), FlowAliasRoutingConfigurationListItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowCollectorFlowNodeConfigurationInput)(nil)).Elem(), FlowCollectorFlowNodeConfigurationArgs{})
@@ -37764,6 +38342,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionPtrInput)(nil)).Elem(), FlowDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowGuardrailConfigurationInput)(nil)).Elem(), FlowGuardrailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowGuardrailConfigurationPtrInput)(nil)).Elem(), FlowGuardrailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowInlineCodeFlowNodeConfigurationInput)(nil)).Elem(), FlowInlineCodeFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowInlineCodeFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowInlineCodeFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInputFlowNodeConfigurationInput)(nil)).Elem(), FlowInputFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInputFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowInputFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowIteratorFlowNodeConfigurationInput)(nil)).Elem(), FlowIteratorFlowNodeConfigurationArgs{})
@@ -37782,6 +38362,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration10PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration10PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration11PropertiesInput)(nil)).Elem(), FlowNodeConfiguration11PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration11PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration11PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration12PropertiesInput)(nil)).Elem(), FlowNodeConfiguration12PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration12PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration12PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration1PropertiesInput)(nil)).Elem(), FlowNodeConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration1PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration2PropertiesInput)(nil)).Elem(), FlowNodeConfiguration2PropertiesArgs{})
@@ -38181,6 +38763,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceWebSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowAgentFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowAgentFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowAliasConcurrencyConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowAliasConcurrencyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowAliasRoutingConfigurationListItemOutput{})
 	pulumi.RegisterOutputType(FlowAliasRoutingConfigurationListItemArrayOutput{})
 	pulumi.RegisterOutputType(FlowCollectorFlowNodeConfigurationOutput{})
@@ -38203,6 +38787,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(FlowGuardrailConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowGuardrailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowInlineCodeFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowInlineCodeFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowInputFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowInputFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowIteratorFlowNodeConfigurationOutput{})
@@ -38221,6 +38807,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowNodeConfiguration10PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration11PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration11PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration12PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration12PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration2PropertiesOutput{})
@@ -38309,6 +38897,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration10PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration11PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration11PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration12PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration12PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration2PropertiesOutput{})
@@ -38333,6 +38923,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionFlowNodeOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(FlowVersionGuardrailConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionGuardrailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionInlineCodeFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionInlineCodeFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionInputFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionInputFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionIteratorFlowNodeConfigurationOutput{})

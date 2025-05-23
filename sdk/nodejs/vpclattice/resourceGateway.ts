@@ -52,7 +52,7 @@ export class ResourceGateway extends pulumi.CustomResource {
     /**
      * The name of the resource gateway.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of one or more security groups to associate with the endpoint network interface.
      */
@@ -60,7 +60,7 @@ export class ResourceGateway extends pulumi.CustomResource {
     /**
      * The ID of one or more subnets in which to create an endpoint network interface.
      */
-    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * The tags for the resource gateway.
      */
@@ -68,7 +68,7 @@ export class ResourceGateway extends pulumi.CustomResource {
     /**
      * The ID of the VPC for the resource gateway.
      */
-    public readonly vpcIdentifier!: pulumi.Output<string | undefined>;
+    public readonly vpcIdentifier!: pulumi.Output<string>;
 
     /**
      * Create a ResourceGateway resource with the given unique name, arguments, and options.
@@ -77,10 +77,16 @@ export class ResourceGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ResourceGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ResourceGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'subnetIds'");
+            }
+            if ((!args || args.vpcIdentifier === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'vpcIdentifier'");
+            }
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
@@ -125,7 +131,7 @@ export interface ResourceGatewayArgs {
     /**
      * The ID of one or more subnets in which to create an endpoint network interface.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The tags for the resource gateway.
      */
@@ -133,5 +139,5 @@ export interface ResourceGatewayArgs {
     /**
      * The ID of the VPC for the resource gateway.
      */
-    vpcIdentifier?: pulumi.Input<string>;
+    vpcIdentifier: pulumi.Input<string>;
 }

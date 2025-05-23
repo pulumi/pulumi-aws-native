@@ -15,6 +15,7 @@ __all__ = [
     'FleetEc2MarketType',
     'FleetServiceManagedFleetOperatingSystemFamily',
     'FleetStatus',
+    'FleetTagPropagationMode',
     'LicenseEndpointStatus',
     'QueueDefaultQueueBudgetAction',
     'QueueEnvironmentEnvironmentTemplateType',
@@ -67,6 +68,11 @@ class FleetStatus(builtins.str, Enum):
     UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
     CREATE_FAILED = "CREATE_FAILED"
     UPDATE_FAILED = "UPDATE_FAILED"
+
+
+class FleetTagPropagationMode(builtins.str, Enum):
+    NO_PROPAGATION = "NO_PROPAGATION"
+    PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH = "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH"
 
 
 class LicenseEndpointStatus(builtins.str, Enum):

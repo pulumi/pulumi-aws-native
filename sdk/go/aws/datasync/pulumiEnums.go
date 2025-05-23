@@ -274,7 +274,8 @@ func (in *locationAzureBlobAzureAccessTierPtr) ToLocationAzureBlobAzureAccessTie
 type LocationAzureBlobAzureBlobAuthenticationType string
 
 const (
-	LocationAzureBlobAzureBlobAuthenticationTypeSas = LocationAzureBlobAzureBlobAuthenticationType("SAS")
+	LocationAzureBlobAzureBlobAuthenticationTypeSas  = LocationAzureBlobAzureBlobAuthenticationType("SAS")
+	LocationAzureBlobAzureBlobAuthenticationTypeNone = LocationAzureBlobAzureBlobAuthenticationType("NONE")
 )
 
 func (LocationAzureBlobAzureBlobAuthenticationType) ElementType() reflect.Type {
@@ -400,6 +401,7 @@ func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ToStringPtrOutput
 // A concrete instance of `LocationAzureBlobAzureBlobAuthenticationTypeInput` can be one of the following:
 //
 //	LocationAzureBlobAzureBlobAuthenticationTypeSas
+//	LocationAzureBlobAzureBlobAuthenticationTypeNone
 type LocationAzureBlobAzureBlobAuthenticationTypeInput interface {
 	pulumi.Input
 

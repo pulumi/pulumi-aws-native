@@ -23,11 +23,15 @@ __all__ = [
     'ScraperScrapeConfiguration',
     'ScraperSource',
     'ScraperSourceEksConfigurationProperties',
+    'WorkspaceCloudWatchLogDestination',
     'WorkspaceConfiguration',
     'WorkspaceLabel',
     'WorkspaceLimitsPerLabelSet',
     'WorkspaceLimitsPerLabelSetEntry',
     'WorkspaceLoggingConfiguration',
+    'WorkspaceLoggingDestination',
+    'WorkspaceLoggingFilter',
+    'WorkspaceQueryLoggingConfiguration',
 ]
 
 @pulumi.output_type
@@ -310,6 +314,45 @@ class ScraperSourceEksConfigurationProperties(dict):
 
 
 @pulumi.output_type
+class WorkspaceCloudWatchLogDestination(dict):
+    """
+    Represents a cloudwatch logs destination for query logging
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupArn":
+            suggest = "log_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceCloudWatchLogDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceCloudWatchLogDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceCloudWatchLogDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_arn: builtins.str):
+        """
+        Represents a cloudwatch logs destination for query logging
+        :param builtins.str log_group_arn: The ARN of the CloudWatch Logs log group
+        """
+        pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> builtins.str:
+        """
+        The ARN of the CloudWatch Logs log group
+        """
+        return pulumi.get(self, "log_group_arn")
+
+
+@pulumi.output_type
 class WorkspaceConfiguration(dict):
     """
     Workspace configuration
@@ -524,5 +567,108 @@ class WorkspaceLoggingConfiguration(dict):
         CloudWatch log group ARN
         """
         return pulumi.get(self, "log_group_arn")
+
+
+@pulumi.output_type
+class WorkspaceLoggingDestination(dict):
+    """
+    Destinations for query logging
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogs":
+            suggest = "cloud_watch_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceLoggingDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceLoggingDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceLoggingDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_logs: 'outputs.WorkspaceCloudWatchLogDestination',
+                 filters: 'outputs.WorkspaceLoggingFilter'):
+        """
+        Destinations for query logging
+        """
+        pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+        pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> 'outputs.WorkspaceCloudWatchLogDestination':
+        return pulumi.get(self, "cloud_watch_logs")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> 'outputs.WorkspaceLoggingFilter':
+        return pulumi.get(self, "filters")
+
+
+@pulumi.output_type
+class WorkspaceLoggingFilter(dict):
+    """
+    Filters for logging
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "qspThreshold":
+            suggest = "qsp_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceLoggingFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceLoggingFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceLoggingFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 qsp_threshold: builtins.int):
+        """
+        Filters for logging
+        :param builtins.int qsp_threshold: Query logs with QSP above this limit are vended
+        """
+        pulumi.set(__self__, "qsp_threshold", qsp_threshold)
+
+    @property
+    @pulumi.getter(name="qspThreshold")
+    def qsp_threshold(self) -> builtins.int:
+        """
+        Query logs with QSP above this limit are vended
+        """
+        return pulumi.get(self, "qsp_threshold")
+
+
+@pulumi.output_type
+class WorkspaceQueryLoggingConfiguration(dict):
+    """
+    Query logging configuration
+    """
+    def __init__(__self__, *,
+                 destinations: Sequence['outputs.WorkspaceLoggingDestination']):
+        """
+        Query logging configuration
+        :param Sequence['WorkspaceLoggingDestination'] destinations: The destinations configuration for query logging
+        """
+        pulumi.set(__self__, "destinations", destinations)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Sequence['outputs.WorkspaceLoggingDestination']:
+        """
+        The destinations configuration for query logging
+        """
+        return pulumi.get(self, "destinations")
 
 

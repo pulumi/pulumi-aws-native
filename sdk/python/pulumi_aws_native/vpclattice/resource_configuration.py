@@ -25,6 +25,7 @@ __all__ = ['ResourceConfigurationArgs', 'ResourceConfiguration']
 @pulumi.input_type
 class ResourceConfigurationArgs:
     def __init__(__self__, *,
+                 resource_configuration_type: pulumi.Input['ResourceConfigurationType'],
                  allow_association_to_sharable_service_network: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -32,11 +33,16 @@ class ResourceConfigurationArgs:
                  resource_configuration_auth_type: Optional[pulumi.Input['ResourceConfigurationAuthType']] = None,
                  resource_configuration_definition: Optional[pulumi.Input[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgs']]] = None,
                  resource_configuration_group_id: Optional[pulumi.Input[builtins.str]] = None,
-                 resource_configuration_type: Optional[pulumi.Input['ResourceConfigurationType']] = None,
                  resource_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceConfiguration resource.
+        :param pulumi.Input['ResourceConfigurationType'] resource_configuration_type: The type of resource configuration. A resource configuration can be one of the following types:
+               
+               - *SINGLE* - A single resource.
+               - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+               - *CHILD* - A single resource that is part of a group resource configuration.
+               - *ARN* - An AWS resource.
         :param pulumi.Input[builtins.bool] allow_association_to_sharable_service_network: Specifies whether the resource configuration can be associated with a sharable service network.
         :param pulumi.Input[builtins.str] name: The name of the resource configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] port_ranges: (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
@@ -48,15 +54,10 @@ class ResourceConfigurationArgs:
                - *Domain name* - Any domain name that is publicly resolvable.
                - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
         :param pulumi.Input[builtins.str] resource_configuration_group_id: The ID of the group resource configuration.
-        :param pulumi.Input['ResourceConfigurationType'] resource_configuration_type: The type of resource configuration. A resource configuration can be one of the following types:
-               
-               - *SINGLE* - A single resource.
-               - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
-               - *CHILD* - A single resource that is part of a group resource configuration.
-               - *ARN* - An AWS resource.
         :param pulumi.Input[builtins.str] resource_gateway_id: The ID of the resource gateway.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the resource configuration.
         """
+        pulumi.set(__self__, "resource_configuration_type", resource_configuration_type)
         if allow_association_to_sharable_service_network is not None:
             pulumi.set(__self__, "allow_association_to_sharable_service_network", allow_association_to_sharable_service_network)
         if name is not None:
@@ -71,12 +72,27 @@ class ResourceConfigurationArgs:
             pulumi.set(__self__, "resource_configuration_definition", resource_configuration_definition)
         if resource_configuration_group_id is not None:
             pulumi.set(__self__, "resource_configuration_group_id", resource_configuration_group_id)
-        if resource_configuration_type is not None:
-            pulumi.set(__self__, "resource_configuration_type", resource_configuration_type)
         if resource_gateway_id is not None:
             pulumi.set(__self__, "resource_gateway_id", resource_gateway_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceConfigurationType")
+    def resource_configuration_type(self) -> pulumi.Input['ResourceConfigurationType']:
+        """
+        The type of resource configuration. A resource configuration can be one of the following types:
+
+        - *SINGLE* - A single resource.
+        - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+        - *CHILD* - A single resource that is part of a group resource configuration.
+        - *ARN* - An AWS resource.
+        """
+        return pulumi.get(self, "resource_configuration_type")
+
+    @resource_configuration_type.setter
+    def resource_configuration_type(self, value: pulumi.Input['ResourceConfigurationType']):
+        pulumi.set(self, "resource_configuration_type", value)
 
     @property
     @pulumi.getter(name="allowAssociationToSharableServiceNetwork")
@@ -167,23 +183,6 @@ class ResourceConfigurationArgs:
         pulumi.set(self, "resource_configuration_group_id", value)
 
     @property
-    @pulumi.getter(name="resourceConfigurationType")
-    def resource_configuration_type(self) -> Optional[pulumi.Input['ResourceConfigurationType']]:
-        """
-        The type of resource configuration. A resource configuration can be one of the following types:
-
-        - *SINGLE* - A single resource.
-        - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
-        - *CHILD* - A single resource that is part of a group resource configuration.
-        - *ARN* - An AWS resource.
-        """
-        return pulumi.get(self, "resource_configuration_type")
-
-    @resource_configuration_type.setter
-    def resource_configuration_type(self, value: Optional[pulumi.Input['ResourceConfigurationType']]):
-        pulumi.set(self, "resource_configuration_type", value)
-
-    @property
     @pulumi.getter(name="resourceGatewayId")
     def resource_gateway_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -256,7 +255,7 @@ class ResourceConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ResourceConfigurationArgs] = None,
+                 args: ResourceConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpcLattice ResourceConfiguration CFN resource
@@ -302,6 +301,8 @@ class ResourceConfiguration(pulumi.CustomResource):
             __props__.__dict__["resource_configuration_auth_type"] = resource_configuration_auth_type
             __props__.__dict__["resource_configuration_definition"] = resource_configuration_definition
             __props__.__dict__["resource_configuration_group_id"] = resource_configuration_group_id
+            if resource_configuration_type is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_configuration_type'")
             __props__.__dict__["resource_configuration_type"] = resource_configuration_type
             __props__.__dict__["resource_gateway_id"] = resource_gateway_id
             __props__.__dict__["tags"] = tags
@@ -371,7 +372,7 @@ class ResourceConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[builtins.str]]:
+    def name(self) -> pulumi.Output[builtins.str]:
         """
         The name of the resource configuration.
         """
@@ -423,7 +424,7 @@ class ResourceConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceConfigurationType")
-    def resource_configuration_type(self) -> pulumi.Output[Optional['ResourceConfigurationType']]:
+    def resource_configuration_type(self) -> pulumi.Output['ResourceConfigurationType']:
         """
         The type of resource configuration. A resource configuration can be one of the following types:
 

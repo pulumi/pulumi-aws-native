@@ -7,13 +7,12 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::DataSync::LocationObjectStorage.
+// Resource Type definition for AWS::DataSync::LocationObjectStorage.
 //
 // ## Example Usage
 // ### Example
@@ -52,14 +51,17 @@ type LocationObjectStorage struct {
 
 	// Optional. The access key is used if credentials are required to access the self-managed object storage server.
 	AccessKey pulumi.StringPtrOutput `pulumi:"accessKey"`
-	// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// The name of the bucket on the self-managed object storage server.
-	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
+	BucketName         pulumi.StringPtrOutput                           `pulumi:"bucketName"`
+	CmkSecretConfig    LocationObjectStorageCmkSecretConfigPtrOutput    `pulumi:"cmkSecretConfig"`
+	CustomSecretConfig LocationObjectStorageCustomSecretConfigPtrOutput `pulumi:"customSecretConfig"`
 	// The Amazon Resource Name (ARN) of the location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the object storage location that was described.
-	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
+	LocationUri         pulumi.StringOutput                            `pulumi:"locationUri"`
+	ManagedSecretConfig LocationObjectStorageManagedSecretConfigOutput `pulumi:"managedSecretConfig"`
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
 	// X.509 PEM content containing a certificate authority or chain to trust.
@@ -80,12 +82,9 @@ type LocationObjectStorage struct {
 func NewLocationObjectStorage(ctx *pulumi.Context,
 	name string, args *LocationObjectStorageArgs, opts ...pulumi.ResourceOption) (*LocationObjectStorage, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &LocationObjectStorageArgs{}
 	}
 
-	if args.AgentArns == nil {
-		return nil, errors.New("invalid value for required argument 'AgentArns'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"bucketName",
 	})
@@ -125,10 +124,12 @@ func (LocationObjectStorageState) ElementType() reflect.Type {
 type locationObjectStorageArgs struct {
 	// Optional. The access key is used if credentials are required to access the self-managed object storage server.
 	AccessKey *string `pulumi:"accessKey"`
-	// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 	AgentArns []string `pulumi:"agentArns"`
 	// The name of the bucket on the self-managed object storage server.
-	BucketName *string `pulumi:"bucketName"`
+	BucketName         *string                                  `pulumi:"bucketName"`
+	CmkSecretConfig    *LocationObjectStorageCmkSecretConfig    `pulumi:"cmkSecretConfig"`
+	CustomSecretConfig *LocationObjectStorageCustomSecretConfig `pulumi:"customSecretConfig"`
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey *string `pulumi:"secretKey"`
 	// X.509 PEM content containing a certificate authority or chain to trust.
@@ -149,10 +150,12 @@ type locationObjectStorageArgs struct {
 type LocationObjectStorageArgs struct {
 	// Optional. The access key is used if credentials are required to access the self-managed object storage server.
 	AccessKey pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 	AgentArns pulumi.StringArrayInput
 	// The name of the bucket on the self-managed object storage server.
-	BucketName pulumi.StringPtrInput
+	BucketName         pulumi.StringPtrInput
+	CmkSecretConfig    LocationObjectStorageCmkSecretConfigPtrInput
+	CustomSecretConfig LocationObjectStorageCustomSecretConfigPtrInput
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey pulumi.StringPtrInput
 	// X.509 PEM content containing a certificate authority or chain to trust.
@@ -211,7 +214,7 @@ func (o LocationObjectStorageOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 func (o LocationObjectStorageOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
@@ -219,6 +222,16 @@ func (o LocationObjectStorageOutput) AgentArns() pulumi.StringArrayOutput {
 // The name of the bucket on the self-managed object storage server.
 func (o LocationObjectStorageOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+func (o LocationObjectStorageOutput) CmkSecretConfig() LocationObjectStorageCmkSecretConfigPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) LocationObjectStorageCmkSecretConfigPtrOutput { return v.CmkSecretConfig }).(LocationObjectStorageCmkSecretConfigPtrOutput)
+}
+
+func (o LocationObjectStorageOutput) CustomSecretConfig() LocationObjectStorageCustomSecretConfigPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) LocationObjectStorageCustomSecretConfigPtrOutput {
+		return v.CustomSecretConfig
+	}).(LocationObjectStorageCustomSecretConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the location that is created.
@@ -229,6 +242,12 @@ func (o LocationObjectStorageOutput) LocationArn() pulumi.StringOutput {
 // The URL of the object storage location that was described.
 func (o LocationObjectStorageOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+func (o LocationObjectStorageOutput) ManagedSecretConfig() LocationObjectStorageManagedSecretConfigOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) LocationObjectStorageManagedSecretConfigOutput {
+		return v.ManagedSecretConfig
+	}).(LocationObjectStorageManagedSecretConfigOutput)
 }
 
 // Optional. The secret key is used if credentials are required to access the self-managed object storage server.

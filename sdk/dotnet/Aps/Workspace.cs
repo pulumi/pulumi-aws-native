@@ -139,6 +139,9 @@ namespace Pulumi.AwsNative.Aps
         [Output("prometheusEndpoint")]
         public Output<string> PrometheusEndpoint { get; private set; } = null!;
 
+        [Output("queryLoggingConfiguration")]
+        public Output<Outputs.WorkspaceQueryLoggingConfiguration?> QueryLoggingConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -229,6 +232,9 @@ namespace Pulumi.AwsNative.Aps
         /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.WorkspaceLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
+
+        [Input("queryLoggingConfiguration")]
+        public Input<Inputs.WorkspaceQueryLoggingConfigurationArgs>? QueryLoggingConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

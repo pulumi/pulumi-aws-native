@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -23,7 +24,7 @@ type ResourceGateway struct {
 	// The type of IP address used by the resource gateway.
 	IpAddressType ResourceGatewayIpAddressTypePtrOutput `pulumi:"ipAddressType"`
 	// The name of the resource gateway.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of one or more security groups to associate with the endpoint network interface.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The ID of one or more subnets in which to create an endpoint network interface.
@@ -31,16 +32,22 @@ type ResourceGateway struct {
 	// The tags for the resource gateway.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the VPC for the resource gateway.
-	VpcIdentifier pulumi.StringPtrOutput `pulumi:"vpcIdentifier"`
+	VpcIdentifier pulumi.StringOutput `pulumi:"vpcIdentifier"`
 }
 
 // NewResourceGateway registers a new resource with the given unique name, arguments, and options.
 func NewResourceGateway(ctx *pulumi.Context,
 	name string, args *ResourceGatewayArgs, opts ...pulumi.ResourceOption) (*ResourceGateway, error) {
 	if args == nil {
-		args = &ResourceGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.SubnetIds == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetIds'")
+	}
+	if args.VpcIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'VpcIdentifier'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"ipAddressType",
 		"name",
@@ -92,7 +99,7 @@ type resourceGatewayArgs struct {
 	// The tags for the resource gateway.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the VPC for the resource gateway.
-	VpcIdentifier *string `pulumi:"vpcIdentifier"`
+	VpcIdentifier string `pulumi:"vpcIdentifier"`
 }
 
 // The set of arguments for constructing a ResourceGateway resource.
@@ -108,7 +115,7 @@ type ResourceGatewayArgs struct {
 	// The tags for the resource gateway.
 	Tags aws.TagArrayInput
 	// The ID of the VPC for the resource gateway.
-	VpcIdentifier pulumi.StringPtrInput
+	VpcIdentifier pulumi.StringInput
 }
 
 func (ResourceGatewayArgs) ElementType() reflect.Type {
@@ -164,8 +171,8 @@ func (o ResourceGatewayOutput) IpAddressType() ResourceGatewayIpAddressTypePtrOu
 }
 
 // The name of the resource gateway.
-func (o ResourceGatewayOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceGateway) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o ResourceGatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The ID of one or more security groups to associate with the endpoint network interface.
@@ -184,8 +191,8 @@ func (o ResourceGatewayOutput) Tags() aws.TagArrayOutput {
 }
 
 // The ID of the VPC for the resource gateway.
-func (o ResourceGatewayOutput) VpcIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceGateway) pulumi.StringPtrOutput { return v.VpcIdentifier }).(pulumi.StringPtrOutput)
+func (o ResourceGatewayOutput) VpcIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.VpcIdentifier }).(pulumi.StringOutput)
 }
 
 func init() {

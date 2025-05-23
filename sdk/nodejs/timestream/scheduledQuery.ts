@@ -188,7 +188,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
             resourceInputs["targetConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["clientToken", "errorReportConfiguration", "kmsKeyId", "notificationConfiguration", "queryString", "scheduleConfiguration", "scheduledQueryExecutionRoleArn", "scheduledQueryName", "targetConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["errorReportConfiguration", "kmsKeyId", "notificationConfiguration", "queryString", "scheduleConfiguration", "scheduledQueryExecutionRoleArn", "scheduledQueryName", "targetConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ScheduledQuery.__pulumiType, name, resourceInputs, opts);
     }

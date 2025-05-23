@@ -497,6 +497,7 @@ namespace Pulumi.AwsNative.Wisdom
         public static KnowledgeBaseType Custom { get; } = new KnowledgeBaseType("CUSTOM");
         public static KnowledgeBaseType MessageTemplates { get; } = new KnowledgeBaseType("MESSAGE_TEMPLATES");
         public static KnowledgeBaseType Managed { get; } = new KnowledgeBaseType("MANAGED");
+        public static KnowledgeBaseType QuickResponses { get; } = new KnowledgeBaseType("QUICK_RESPONSES");
 
         public static bool operator ==(KnowledgeBaseType left, KnowledgeBaseType right) => left.Equals(right);
         public static bool operator !=(KnowledgeBaseType left, KnowledgeBaseType right) => !left.Equals(right);

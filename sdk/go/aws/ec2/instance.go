@@ -66,6 +66,8 @@ type Instance struct {
 	LaunchTemplate InstanceLaunchTemplateSpecificationPtrOutput `pulumi:"launchTemplate"`
 	// The license configurations.
 	LicenseSpecifications InstanceLicenseSpecificationArrayOutput `pulumi:"licenseSpecifications"`
+	// The metadata options for the instance
+	MetadataOptions InstanceMetadataOptionsPtrOutput `pulumi:"metadataOptions"`
 	// Specifies whether detailed monitoring is enabled for the instance.
 	Monitoring pulumi.BoolPtrOutput `pulumi:"monitoring"`
 	// The network interfaces to associate with the instance.
@@ -221,6 +223,8 @@ type instanceArgs struct {
 	LaunchTemplate *InstanceLaunchTemplateSpecification `pulumi:"launchTemplate"`
 	// The license configurations.
 	LicenseSpecifications []InstanceLicenseSpecification `pulumi:"licenseSpecifications"`
+	// The metadata options for the instance
+	MetadataOptions *InstanceMetadataOptions `pulumi:"metadataOptions"`
 	// Specifies whether detailed monitoring is enabled for the instance.
 	Monitoring *bool `pulumi:"monitoring"`
 	// The network interfaces to associate with the instance.
@@ -305,6 +309,8 @@ type InstanceArgs struct {
 	LaunchTemplate InstanceLaunchTemplateSpecificationPtrInput
 	// The license configurations.
 	LicenseSpecifications InstanceLicenseSpecificationArrayInput
+	// The metadata options for the instance
+	MetadataOptions InstanceMetadataOptionsPtrInput
 	// Specifies whether detailed monitoring is enabled for the instance.
 	Monitoring pulumi.BoolPtrInput
 	// The network interfaces to associate with the instance.
@@ -501,6 +507,11 @@ func (o InstanceOutput) LaunchTemplate() InstanceLaunchTemplateSpecificationPtrO
 // The license configurations.
 func (o InstanceOutput) LicenseSpecifications() InstanceLicenseSpecificationArrayOutput {
 	return o.ApplyT(func(v *Instance) InstanceLicenseSpecificationArrayOutput { return v.LicenseSpecifications }).(InstanceLicenseSpecificationArrayOutput)
+}
+
+// The metadata options for the instance
+func (o InstanceOutput) MetadataOptions() InstanceMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceMetadataOptionsPtrOutput { return v.MetadataOptions }).(InstanceMetadataOptionsPtrOutput)
 }
 
 // Specifies whether detailed monitoring is enabled for the instance.

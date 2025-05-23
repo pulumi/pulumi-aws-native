@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// The name of the resource configuration.
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// - *ARN* - An AWS resource.
         /// </summary>
         [Output("resourceConfigurationType")]
-        public Output<Pulumi.AwsNative.VpcLattice.ResourceConfigurationType?> ResourceConfigurationType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.VpcLattice.ResourceConfigurationType> ResourceConfigurationType { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the resource gateway.
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ResourceConfiguration(string name, ResourceConfigurationArgs? args = null, CustomResourceOptions? options = null)
+        public ResourceConfiguration(string name, ResourceConfigurationArgs args, CustomResourceOptions? options = null)
             : base("aws-native:vpclattice:ResourceConfiguration", name, args ?? new ResourceConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -208,8 +208,8 @@ namespace Pulumi.AwsNative.VpcLattice
         /// - *CHILD* - A single resource that is part of a group resource configuration.
         /// - *ARN* - An AWS resource.
         /// </summary>
-        [Input("resourceConfigurationType")]
-        public Input<Pulumi.AwsNative.VpcLattice.ResourceConfigurationType>? ResourceConfigurationType { get; set; }
+        [Input("resourceConfigurationType", required: true)]
+        public Input<Pulumi.AwsNative.VpcLattice.ResourceConfigurationType> ResourceConfigurationType { get; set; } = null!;
 
         /// <summary>
         /// The ID of the resource gateway.

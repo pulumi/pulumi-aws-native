@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::DataSync::LocationAzureBlob.
+// Resource Type definition for AWS::DataSync::LocationAzureBlob.
 func LookupLocationAzureBlob(ctx *pulumi.Context, args *LookupLocationAzureBlobArgs, opts ...pulumi.InvokeOption) (*LookupLocationAzureBlobResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationAzureBlobResult
@@ -29,18 +29,21 @@ type LookupLocationAzureBlobArgs struct {
 }
 
 type LookupLocationAzureBlobResult struct {
-	// The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 	AgentArns []string `pulumi:"agentArns"`
 	// Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
 	AzureAccessTier *LocationAzureBlobAzureAccessTier `pulumi:"azureAccessTier"`
 	// The specific authentication type that you want DataSync to use to access your Azure Blob Container.
 	AzureBlobAuthenticationType *LocationAzureBlobAzureBlobAuthenticationType `pulumi:"azureBlobAuthenticationType"`
 	// Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
-	AzureBlobType *LocationAzureBlobAzureBlobType `pulumi:"azureBlobType"`
+	AzureBlobType      *LocationAzureBlobAzureBlobType      `pulumi:"azureBlobType"`
+	CmkSecretConfig    *LocationAzureBlobCmkSecretConfig    `pulumi:"cmkSecretConfig"`
+	CustomSecretConfig *LocationAzureBlobCustomSecretConfig `pulumi:"customSecretConfig"`
 	// The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the Azure Blob Location that was described.
-	LocationUri *string `pulumi:"locationUri"`
+	LocationUri         *string                               `pulumi:"locationUri"`
+	ManagedSecretConfig *LocationAzureBlobManagedSecretConfig `pulumi:"managedSecretConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -77,7 +80,7 @@ func (o LookupLocationAzureBlobResultOutput) ToLookupLocationAzureBlobResultOutp
 	return o
 }
 
-// The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 func (o LookupLocationAzureBlobResultOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLocationAzureBlobResult) []string { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
@@ -99,6 +102,16 @@ func (o LookupLocationAzureBlobResultOutput) AzureBlobType() LocationAzureBlobAz
 	return o.ApplyT(func(v LookupLocationAzureBlobResult) *LocationAzureBlobAzureBlobType { return v.AzureBlobType }).(LocationAzureBlobAzureBlobTypePtrOutput)
 }
 
+func (o LookupLocationAzureBlobResultOutput) CmkSecretConfig() LocationAzureBlobCmkSecretConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationAzureBlobResult) *LocationAzureBlobCmkSecretConfig { return v.CmkSecretConfig }).(LocationAzureBlobCmkSecretConfigPtrOutput)
+}
+
+func (o LookupLocationAzureBlobResultOutput) CustomSecretConfig() LocationAzureBlobCustomSecretConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationAzureBlobResult) *LocationAzureBlobCustomSecretConfig {
+		return v.CustomSecretConfig
+	}).(LocationAzureBlobCustomSecretConfigPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
 func (o LookupLocationAzureBlobResultOutput) LocationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationAzureBlobResult) *string { return v.LocationArn }).(pulumi.StringPtrOutput)
@@ -107,6 +120,12 @@ func (o LookupLocationAzureBlobResultOutput) LocationArn() pulumi.StringPtrOutpu
 // The URL of the Azure Blob Location that was described.
 func (o LookupLocationAzureBlobResultOutput) LocationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationAzureBlobResult) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupLocationAzureBlobResultOutput) ManagedSecretConfig() LocationAzureBlobManagedSecretConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationAzureBlobResult) *LocationAzureBlobManagedSecretConfig {
+		return v.ManagedSecretConfig
+	}).(LocationAzureBlobManagedSecretConfigPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

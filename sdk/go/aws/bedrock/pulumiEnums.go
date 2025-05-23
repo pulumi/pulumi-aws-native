@@ -7822,6 +7822,171 @@ func (in *dataSourceWebScopeTypePtr) ToDataSourceWebScopeTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceWebScopeTypePtrOutput)
 }
 
+type FlowAliasConcurrencyType string
+
+const (
+	FlowAliasConcurrencyTypeAutomatic = FlowAliasConcurrencyType("Automatic")
+	FlowAliasConcurrencyTypeManual    = FlowAliasConcurrencyType("Manual")
+)
+
+func (FlowAliasConcurrencyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAliasConcurrencyType)(nil)).Elem()
+}
+
+func (e FlowAliasConcurrencyType) ToFlowAliasConcurrencyTypeOutput() FlowAliasConcurrencyTypeOutput {
+	return pulumi.ToOutput(e).(FlowAliasConcurrencyTypeOutput)
+}
+
+func (e FlowAliasConcurrencyType) ToFlowAliasConcurrencyTypeOutputWithContext(ctx context.Context) FlowAliasConcurrencyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowAliasConcurrencyTypeOutput)
+}
+
+func (e FlowAliasConcurrencyType) ToFlowAliasConcurrencyTypePtrOutput() FlowAliasConcurrencyTypePtrOutput {
+	return e.ToFlowAliasConcurrencyTypePtrOutputWithContext(context.Background())
+}
+
+func (e FlowAliasConcurrencyType) ToFlowAliasConcurrencyTypePtrOutputWithContext(ctx context.Context) FlowAliasConcurrencyTypePtrOutput {
+	return FlowAliasConcurrencyType(e).ToFlowAliasConcurrencyTypeOutputWithContext(ctx).ToFlowAliasConcurrencyTypePtrOutputWithContext(ctx)
+}
+
+func (e FlowAliasConcurrencyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowAliasConcurrencyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowAliasConcurrencyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowAliasConcurrencyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowAliasConcurrencyTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowAliasConcurrencyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAliasConcurrencyType)(nil)).Elem()
+}
+
+func (o FlowAliasConcurrencyTypeOutput) ToFlowAliasConcurrencyTypeOutput() FlowAliasConcurrencyTypeOutput {
+	return o
+}
+
+func (o FlowAliasConcurrencyTypeOutput) ToFlowAliasConcurrencyTypeOutputWithContext(ctx context.Context) FlowAliasConcurrencyTypeOutput {
+	return o
+}
+
+func (o FlowAliasConcurrencyTypeOutput) ToFlowAliasConcurrencyTypePtrOutput() FlowAliasConcurrencyTypePtrOutput {
+	return o.ToFlowAliasConcurrencyTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowAliasConcurrencyTypeOutput) ToFlowAliasConcurrencyTypePtrOutputWithContext(ctx context.Context) FlowAliasConcurrencyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowAliasConcurrencyType) *FlowAliasConcurrencyType {
+		return &v
+	}).(FlowAliasConcurrencyTypePtrOutput)
+}
+
+func (o FlowAliasConcurrencyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowAliasConcurrencyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowAliasConcurrencyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowAliasConcurrencyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowAliasConcurrencyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowAliasConcurrencyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowAliasConcurrencyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowAliasConcurrencyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowAliasConcurrencyType)(nil)).Elem()
+}
+
+func (o FlowAliasConcurrencyTypePtrOutput) ToFlowAliasConcurrencyTypePtrOutput() FlowAliasConcurrencyTypePtrOutput {
+	return o
+}
+
+func (o FlowAliasConcurrencyTypePtrOutput) ToFlowAliasConcurrencyTypePtrOutputWithContext(ctx context.Context) FlowAliasConcurrencyTypePtrOutput {
+	return o
+}
+
+func (o FlowAliasConcurrencyTypePtrOutput) Elem() FlowAliasConcurrencyTypeOutput {
+	return o.ApplyT(func(v *FlowAliasConcurrencyType) FlowAliasConcurrencyType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowAliasConcurrencyType
+		return ret
+	}).(FlowAliasConcurrencyTypeOutput)
+}
+
+func (o FlowAliasConcurrencyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowAliasConcurrencyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowAliasConcurrencyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowAliasConcurrencyTypeInput is an input type that accepts values of the FlowAliasConcurrencyType enum
+// A concrete instance of `FlowAliasConcurrencyTypeInput` can be one of the following:
+//
+//	FlowAliasConcurrencyTypeAutomatic
+//	FlowAliasConcurrencyTypeManual
+type FlowAliasConcurrencyTypeInput interface {
+	pulumi.Input
+
+	ToFlowAliasConcurrencyTypeOutput() FlowAliasConcurrencyTypeOutput
+	ToFlowAliasConcurrencyTypeOutputWithContext(context.Context) FlowAliasConcurrencyTypeOutput
+}
+
+var flowAliasConcurrencyTypePtrType = reflect.TypeOf((**FlowAliasConcurrencyType)(nil)).Elem()
+
+type FlowAliasConcurrencyTypePtrInput interface {
+	pulumi.Input
+
+	ToFlowAliasConcurrencyTypePtrOutput() FlowAliasConcurrencyTypePtrOutput
+	ToFlowAliasConcurrencyTypePtrOutputWithContext(context.Context) FlowAliasConcurrencyTypePtrOutput
+}
+
+type flowAliasConcurrencyTypePtr string
+
+func FlowAliasConcurrencyTypePtr(v string) FlowAliasConcurrencyTypePtrInput {
+	return (*flowAliasConcurrencyTypePtr)(&v)
+}
+
+func (*flowAliasConcurrencyTypePtr) ElementType() reflect.Type {
+	return flowAliasConcurrencyTypePtrType
+}
+
+func (in *flowAliasConcurrencyTypePtr) ToFlowAliasConcurrencyTypePtrOutput() FlowAliasConcurrencyTypePtrOutput {
+	return pulumi.ToOutput(in).(FlowAliasConcurrencyTypePtrOutput)
+}
+
+func (in *flowAliasConcurrencyTypePtr) ToFlowAliasConcurrencyTypePtrOutputWithContext(ctx context.Context) FlowAliasConcurrencyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowAliasConcurrencyTypePtrOutput)
+}
+
 // Connection type
 type FlowConnectionType string
 
@@ -8176,6 +8341,7 @@ const (
 	FlowNodeTypeRetrieval      = FlowNodeType("Retrieval")
 	FlowNodeTypeIterator       = FlowNodeType("Iterator")
 	FlowNodeTypeCollector      = FlowNodeType("Collector")
+	FlowNodeTypeInlineCode     = FlowNodeType("InlineCode")
 )
 
 func (FlowNodeType) ElementType() reflect.Type {
@@ -8312,6 +8478,7 @@ func (o FlowNodeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	FlowNodeTypeRetrieval
 //	FlowNodeTypeIterator
 //	FlowNodeTypeCollector
+//	FlowNodeTypeInlineCode
 type FlowNodeTypeInput interface {
 	pulumi.Input
 
@@ -8603,6 +8770,170 @@ func (o FlowStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Enum encodes the supported language type
+type FlowSupportedLanguages string
+
+const (
+	FlowSupportedLanguagesPython3 = FlowSupportedLanguages("Python_3")
+)
+
+func (FlowSupportedLanguages) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSupportedLanguages)(nil)).Elem()
+}
+
+func (e FlowSupportedLanguages) ToFlowSupportedLanguagesOutput() FlowSupportedLanguagesOutput {
+	return pulumi.ToOutput(e).(FlowSupportedLanguagesOutput)
+}
+
+func (e FlowSupportedLanguages) ToFlowSupportedLanguagesOutputWithContext(ctx context.Context) FlowSupportedLanguagesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowSupportedLanguagesOutput)
+}
+
+func (e FlowSupportedLanguages) ToFlowSupportedLanguagesPtrOutput() FlowSupportedLanguagesPtrOutput {
+	return e.ToFlowSupportedLanguagesPtrOutputWithContext(context.Background())
+}
+
+func (e FlowSupportedLanguages) ToFlowSupportedLanguagesPtrOutputWithContext(ctx context.Context) FlowSupportedLanguagesPtrOutput {
+	return FlowSupportedLanguages(e).ToFlowSupportedLanguagesOutputWithContext(ctx).ToFlowSupportedLanguagesPtrOutputWithContext(ctx)
+}
+
+func (e FlowSupportedLanguages) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowSupportedLanguages) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowSupportedLanguages) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowSupportedLanguages) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowSupportedLanguagesOutput struct{ *pulumi.OutputState }
+
+func (FlowSupportedLanguagesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSupportedLanguages)(nil)).Elem()
+}
+
+func (o FlowSupportedLanguagesOutput) ToFlowSupportedLanguagesOutput() FlowSupportedLanguagesOutput {
+	return o
+}
+
+func (o FlowSupportedLanguagesOutput) ToFlowSupportedLanguagesOutputWithContext(ctx context.Context) FlowSupportedLanguagesOutput {
+	return o
+}
+
+func (o FlowSupportedLanguagesOutput) ToFlowSupportedLanguagesPtrOutput() FlowSupportedLanguagesPtrOutput {
+	return o.ToFlowSupportedLanguagesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSupportedLanguagesOutput) ToFlowSupportedLanguagesPtrOutputWithContext(ctx context.Context) FlowSupportedLanguagesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSupportedLanguages) *FlowSupportedLanguages {
+		return &v
+	}).(FlowSupportedLanguagesPtrOutput)
+}
+
+func (o FlowSupportedLanguagesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowSupportedLanguagesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSupportedLanguages) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowSupportedLanguagesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSupportedLanguagesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSupportedLanguages) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowSupportedLanguagesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSupportedLanguagesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSupportedLanguages)(nil)).Elem()
+}
+
+func (o FlowSupportedLanguagesPtrOutput) ToFlowSupportedLanguagesPtrOutput() FlowSupportedLanguagesPtrOutput {
+	return o
+}
+
+func (o FlowSupportedLanguagesPtrOutput) ToFlowSupportedLanguagesPtrOutputWithContext(ctx context.Context) FlowSupportedLanguagesPtrOutput {
+	return o
+}
+
+func (o FlowSupportedLanguagesPtrOutput) Elem() FlowSupportedLanguagesOutput {
+	return o.ApplyT(func(v *FlowSupportedLanguages) FlowSupportedLanguages {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSupportedLanguages
+		return ret
+	}).(FlowSupportedLanguagesOutput)
+}
+
+func (o FlowSupportedLanguagesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSupportedLanguagesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowSupportedLanguages) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowSupportedLanguagesInput is an input type that accepts values of the FlowSupportedLanguages enum
+// A concrete instance of `FlowSupportedLanguagesInput` can be one of the following:
+//
+//	FlowSupportedLanguagesPython3
+type FlowSupportedLanguagesInput interface {
+	pulumi.Input
+
+	ToFlowSupportedLanguagesOutput() FlowSupportedLanguagesOutput
+	ToFlowSupportedLanguagesOutputWithContext(context.Context) FlowSupportedLanguagesOutput
+}
+
+var flowSupportedLanguagesPtrType = reflect.TypeOf((**FlowSupportedLanguages)(nil)).Elem()
+
+type FlowSupportedLanguagesPtrInput interface {
+	pulumi.Input
+
+	ToFlowSupportedLanguagesPtrOutput() FlowSupportedLanguagesPtrOutput
+	ToFlowSupportedLanguagesPtrOutputWithContext(context.Context) FlowSupportedLanguagesPtrOutput
+}
+
+type flowSupportedLanguagesPtr string
+
+func FlowSupportedLanguagesPtr(v string) FlowSupportedLanguagesPtrInput {
+	return (*flowSupportedLanguagesPtr)(&v)
+}
+
+func (*flowSupportedLanguagesPtr) ElementType() reflect.Type {
+	return flowSupportedLanguagesPtrType
+}
+
+func (in *flowSupportedLanguagesPtr) ToFlowSupportedLanguagesPtrOutput() FlowSupportedLanguagesPtrOutput {
+	return pulumi.ToOutput(in).(FlowSupportedLanguagesPtrOutput)
+}
+
+func (in *flowSupportedLanguagesPtr) ToFlowSupportedLanguagesPtrOutputWithContext(ctx context.Context) FlowSupportedLanguagesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowSupportedLanguagesPtrOutput)
+}
+
 // Connection type
 type FlowVersionFlowConnectionType string
 
@@ -8804,6 +9135,7 @@ const (
 	FlowVersionFlowNodeTypeCollector      = FlowVersionFlowNodeType("Collector")
 	FlowVersionFlowNodeTypeStorage        = FlowVersionFlowNodeType("Storage")
 	FlowVersionFlowNodeTypeRetrieval      = FlowVersionFlowNodeType("Retrieval")
+	FlowVersionFlowNodeTypeInlineCode     = FlowVersionFlowNodeType("InlineCode")
 )
 
 type FlowVersionFlowNodeTypeOutput struct{ *pulumi.OutputState }
@@ -9064,6 +9396,96 @@ func (o FlowVersionPromptTemplateTypePtrOutput) ToStringPtrOutput() pulumi.Strin
 
 func (o FlowVersionPromptTemplateTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVersionPromptTemplateType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enum encodes the supported language type
+type FlowVersionSupportedLanguages string
+
+const (
+	FlowVersionSupportedLanguagesPython3 = FlowVersionSupportedLanguages("Python_3")
+)
+
+type FlowVersionSupportedLanguagesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionSupportedLanguagesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionSupportedLanguages)(nil)).Elem()
+}
+
+func (o FlowVersionSupportedLanguagesOutput) ToFlowVersionSupportedLanguagesOutput() FlowVersionSupportedLanguagesOutput {
+	return o
+}
+
+func (o FlowVersionSupportedLanguagesOutput) ToFlowVersionSupportedLanguagesOutputWithContext(ctx context.Context) FlowVersionSupportedLanguagesOutput {
+	return o
+}
+
+func (o FlowVersionSupportedLanguagesOutput) ToFlowVersionSupportedLanguagesPtrOutput() FlowVersionSupportedLanguagesPtrOutput {
+	return o.ToFlowVersionSupportedLanguagesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionSupportedLanguagesOutput) ToFlowVersionSupportedLanguagesPtrOutputWithContext(ctx context.Context) FlowVersionSupportedLanguagesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVersionSupportedLanguages) *FlowVersionSupportedLanguages {
+		return &v
+	}).(FlowVersionSupportedLanguagesPtrOutput)
+}
+
+func (o FlowVersionSupportedLanguagesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowVersionSupportedLanguagesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionSupportedLanguages) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowVersionSupportedLanguagesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionSupportedLanguagesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionSupportedLanguages) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVersionSupportedLanguagesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionSupportedLanguagesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionSupportedLanguages)(nil)).Elem()
+}
+
+func (o FlowVersionSupportedLanguagesPtrOutput) ToFlowVersionSupportedLanguagesPtrOutput() FlowVersionSupportedLanguagesPtrOutput {
+	return o
+}
+
+func (o FlowVersionSupportedLanguagesPtrOutput) ToFlowVersionSupportedLanguagesPtrOutputWithContext(ctx context.Context) FlowVersionSupportedLanguagesPtrOutput {
+	return o
+}
+
+func (o FlowVersionSupportedLanguagesPtrOutput) Elem() FlowVersionSupportedLanguagesOutput {
+	return o.ApplyT(func(v *FlowVersionSupportedLanguages) FlowVersionSupportedLanguages {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionSupportedLanguages
+		return ret
+	}).(FlowVersionSupportedLanguagesOutput)
+}
+
+func (o FlowVersionSupportedLanguagesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionSupportedLanguagesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVersionSupportedLanguages) *string {
 		if e == nil {
 			return nil
 		}
@@ -14070,6 +14492,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypePtrInput)(nil)).Elem(), DataSourceType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebScopeTypeInput)(nil)).Elem(), DataSourceWebScopeType("HOST_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebScopeTypePtrInput)(nil)).Elem(), DataSourceWebScopeType("HOST_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasConcurrencyTypeInput)(nil)).Elem(), FlowAliasConcurrencyType("Automatic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasConcurrencyTypePtrInput)(nil)).Elem(), FlowAliasConcurrencyType("Automatic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConnectionTypeInput)(nil)).Elem(), FlowConnectionType("Data"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConnectionTypePtrInput)(nil)).Elem(), FlowConnectionType("Data"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeIoDataTypeInput)(nil)).Elem(), FlowNodeIoDataType("String"))
@@ -14078,6 +14502,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeTypePtrInput)(nil)).Elem(), FlowNodeType("Input"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptTemplateTypeInput)(nil)).Elem(), FlowPromptTemplateType("TEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptTemplateTypePtrInput)(nil)).Elem(), FlowPromptTemplateType("TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSupportedLanguagesInput)(nil)).Elem(), FlowSupportedLanguages("Python_3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSupportedLanguagesPtrInput)(nil)).Elem(), FlowSupportedLanguages("Python_3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterActionInput)(nil)).Elem(), GuardrailContentFilterAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterActionPtrInput)(nil)).Elem(), GuardrailContentFilterAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterTypeInput)(nil)).Elem(), GuardrailContentFilterType("SEXUAL"))
@@ -14234,6 +14660,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceWebScopeTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceWebScopeTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowAliasConcurrencyTypeOutput{})
+	pulumi.RegisterOutputType(FlowAliasConcurrencyTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowConnectionTypeOutput{})
 	pulumi.RegisterOutputType(FlowConnectionTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeIoDataTypeOutput{})
@@ -14244,6 +14672,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowPromptTemplateTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowStatusOutput{})
 	pulumi.RegisterOutputType(FlowStatusPtrOutput{})
+	pulumi.RegisterOutputType(FlowSupportedLanguagesOutput{})
+	pulumi.RegisterOutputType(FlowSupportedLanguagesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowConnectionTypeOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowConnectionTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeIoDataTypeOutput{})
@@ -14254,6 +14684,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionFlowStatusPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionPromptTemplateTypeOutput{})
 	pulumi.RegisterOutputType(FlowVersionPromptTemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionSupportedLanguagesOutput{})
+	pulumi.RegisterOutputType(FlowVersionSupportedLanguagesPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterActionOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterActionPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterTypeOutput{})

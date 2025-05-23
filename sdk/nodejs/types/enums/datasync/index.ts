@@ -26,6 +26,7 @@ export type LocationAzureBlobAzureAccessTier = (typeof LocationAzureBlobAzureAcc
 
 export const LocationAzureBlobAzureBlobAuthenticationType = {
     Sas: "SAS",
+    None: "NONE",
 } as const;
 
 /**

@@ -3138,6 +3138,7 @@ _utilities.register(
    "aws-native:ses:EmailIdentity": "EmailIdentity",
    "aws-native:ses:MailManagerAddonInstance": "MailManagerAddonInstance",
    "aws-native:ses:MailManagerAddonSubscription": "MailManagerAddonSubscription",
+   "aws-native:ses:MailManagerAddressList": "MailManagerAddressList",
    "aws-native:ses:MailManagerArchive": "MailManagerArchive",
    "aws-native:ses:MailManagerIngressPoint": "MailManagerIngressPoint",
    "aws-native:ses:MailManagerRelay": "MailManagerRelay",

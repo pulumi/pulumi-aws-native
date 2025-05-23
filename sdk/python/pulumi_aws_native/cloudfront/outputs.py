@@ -6239,9 +6239,8 @@ class VpcOriginEndpointConfig(dict):
         :param builtins.int http_port: The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is ``80``.
         :param builtins.int https_port: The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is ``443``.
         :param builtins.str origin_protocol_policy: The origin protocol policy for the CloudFront VPC origin endpoint configuration.
-        :param Sequence[builtins.str] origin_ssl_protocols: Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include `SSLv3` , `TLSv1` , `TLSv1.1` , and `TLSv1.2` .
-               
-               For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
+        :param Sequence[builtins.str] origin_ssl_protocols: Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
+                For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "name", name)
@@ -6298,9 +6297,8 @@ class VpcOriginEndpointConfig(dict):
     @pulumi.getter(name="originSslProtocols")
     def origin_ssl_protocols(self) -> Optional[Sequence[builtins.str]]:
         """
-        Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include `SSLv3` , `TLSv1` , `TLSv1.1` , and `TLSv1.2` .
-
-        For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
+        Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
+         For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_ssl_protocols")
 

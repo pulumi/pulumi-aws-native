@@ -61,6 +61,9 @@
         "StorageProfileId" : {
           "type" : "string",
           "pattern" : "^sp-[0-9a-f]{32}$"
+        },
+        "TagPropagationMode" : {
+          "$ref" : "#/definitions/TagPropagationMode"
         }
       },
       "required" : [ "Mode", "WorkerCapabilities" ],
@@ -388,6 +391,10 @@
     "ServiceManagedFleetOperatingSystemFamily" : {
       "type" : "string",
       "enum" : [ "LINUX", "WINDOWS" ]
+    },
+    "TagPropagationMode" : {
+      "type" : "string",
+      "enum" : [ "NO_PROPAGATION", "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH" ]
     },
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",

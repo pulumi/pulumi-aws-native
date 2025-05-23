@@ -27,6 +27,8 @@ __all__ = [
     'MailManagerRuleSetRuleVerdict',
     'MailManagerRuleSetRuleVerdictAttribute',
     'MailManagerRuleSetRuleVerdictOperator',
+    'MailManagerRuleSetSnsNotificationEncoding',
+    'MailManagerRuleSetSnsNotificationPayloadType',
     'MailManagerTrafficPolicyAcceptAction',
     'MailManagerTrafficPolicyIngressBooleanOperator',
     'MailManagerTrafficPolicyIngressIpOperator',
@@ -171,6 +173,16 @@ class MailManagerRuleSetRuleVerdictAttribute(builtins.str, Enum):
 class MailManagerRuleSetRuleVerdictOperator(builtins.str, Enum):
     EQUALS = "EQUALS"
     NOT_EQUALS = "NOT_EQUALS"
+
+
+class MailManagerRuleSetSnsNotificationEncoding(builtins.str, Enum):
+    UTF8 = "UTF-8"
+    BASE64 = "BASE64"
+
+
+class MailManagerRuleSetSnsNotificationPayloadType(builtins.str, Enum):
+    CONTENT = "CONTENT"
+    HEADERS = "HEADERS"
 
 
 class MailManagerTrafficPolicyAcceptAction(builtins.str, Enum):

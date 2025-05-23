@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        [Output("concurrencyConfiguration")]
+        public Output<Outputs.FlowAliasConcurrencyConfiguration?> ConcurrencyConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Time Stamp.
         /// </summary>
@@ -127,6 +130,9 @@ namespace Pulumi.AwsNative.Bedrock
 
     public sealed class FlowAliasArgs : global::Pulumi.ResourceArgs
     {
+        [Input("concurrencyConfiguration")]
+        public Input<Inputs.FlowAliasConcurrencyConfigurationArgs>? ConcurrencyConfiguration { get; set; }
+
         /// <summary>
         /// Description of the Resource.
         /// </summary>

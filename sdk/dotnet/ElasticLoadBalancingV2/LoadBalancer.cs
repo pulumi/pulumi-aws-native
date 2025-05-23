@@ -35,6 +35,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         /// <summary>
         /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
+        ///  You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
         /// </summary>
         [Output("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
         public Output<string?> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; private set; } = null!;
@@ -198,6 +199,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         /// <summary>
         /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
+        ///  You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
         /// </summary>
         [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
         public Input<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }

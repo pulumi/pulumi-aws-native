@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.Aps
         /// AMP Workspace prometheus endpoint
         /// </summary>
         public readonly string? PrometheusEndpoint;
+        public readonly Outputs.WorkspaceQueryLoggingConfiguration? QueryLoggingConfiguration;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -108,6 +109,8 @@ namespace Pulumi.AwsNative.Aps
 
             string? prometheusEndpoint,
 
+            Outputs.WorkspaceQueryLoggingConfiguration? queryLoggingConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.WorkspaceConfiguration? workspaceConfiguration,
@@ -119,6 +122,7 @@ namespace Pulumi.AwsNative.Aps
             Arn = arn;
             LoggingConfiguration = loggingConfiguration;
             PrometheusEndpoint = prometheusEndpoint;
+            QueryLoggingConfiguration = queryLoggingConfiguration;
             Tags = tags;
             WorkspaceConfiguration = workspaceConfiguration;
             WorkspaceId = workspaceId;

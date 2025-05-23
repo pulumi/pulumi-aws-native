@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataSync
 {
     /// <summary>
-    /// Resource schema for AWS::DataSync::LocationObjectStorage.
+    /// Resource Type definition for AWS::DataSync::LocationObjectStorage.
     /// 
     /// ## Example Usage
     /// ### Example
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.DataSync
         public Output<string?> AccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+        /// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         /// </summary>
         [Output("agentArns")]
         public Output<ImmutableArray<string>> AgentArns { get; private set; } = null!;
@@ -59,6 +59,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Output("bucketName")]
         public Output<string?> BucketName { get; private set; } = null!;
+
+        [Output("cmkSecretConfig")]
+        public Output<Outputs.LocationObjectStorageCmkSecretConfig?> CmkSecretConfig { get; private set; } = null!;
+
+        [Output("customSecretConfig")]
+        public Output<Outputs.LocationObjectStorageCustomSecretConfig?> CustomSecretConfig { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the location that is created.
@@ -71,6 +77,9 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Output("locationUri")]
         public Output<string> LocationUri { get; private set; } = null!;
+
+        [Output("managedSecretConfig")]
+        public Output<Outputs.LocationObjectStorageManagedSecretConfig> ManagedSecretConfig { get; private set; } = null!;
 
         /// <summary>
         /// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
@@ -122,7 +131,7 @@ namespace Pulumi.AwsNative.DataSync
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public LocationObjectStorage(string name, LocationObjectStorageArgs args, CustomResourceOptions? options = null)
+        public LocationObjectStorage(string name, LocationObjectStorageArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:datasync:LocationObjectStorage", name, args ?? new LocationObjectStorageArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -169,11 +178,11 @@ namespace Pulumi.AwsNative.DataSync
         [Input("accessKey")]
         public Input<string>? AccessKey { get; set; }
 
-        [Input("agentArns", required: true)]
+        [Input("agentArns")]
         private InputList<string>? _agentArns;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+        /// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         /// </summary>
         public InputList<string> AgentArns
         {
@@ -186,6 +195,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
+
+        [Input("cmkSecretConfig")]
+        public Input<Inputs.LocationObjectStorageCmkSecretConfigArgs>? CmkSecretConfig { get; set; }
+
+        [Input("customSecretConfig")]
+        public Input<Inputs.LocationObjectStorageCustomSecretConfigArgs>? CustomSecretConfig { get; set; }
 
         /// <summary>
         /// Optional. The secret key is used if credentials are required to access the self-managed object storage server.

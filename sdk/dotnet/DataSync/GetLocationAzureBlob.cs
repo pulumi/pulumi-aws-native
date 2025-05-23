@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.DataSync
     public static class GetLocationAzureBlob
     {
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationAzureBlob.
+        /// Resource Type definition for AWS::DataSync::LocationAzureBlob.
         /// </summary>
         public static Task<GetLocationAzureBlobResult> InvokeAsync(GetLocationAzureBlobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationAzureBlobResult>("aws-native:datasync:getLocationAzureBlob", args ?? new GetLocationAzureBlobArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationAzureBlob.
+        /// Resource Type definition for AWS::DataSync::LocationAzureBlob.
         /// </summary>
         public static Output<GetLocationAzureBlobResult> Invoke(GetLocationAzureBlobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationAzureBlobResult>("aws-native:datasync:getLocationAzureBlob", args ?? new GetLocationAzureBlobInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationAzureBlob.
+        /// Resource Type definition for AWS::DataSync::LocationAzureBlob.
         /// </summary>
         public static Output<GetLocationAzureBlobResult> Invoke(GetLocationAzureBlobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationAzureBlobResult>("aws-native:datasync:getLocationAzureBlob", args ?? new GetLocationAzureBlobInvokeArgs(), options.WithDefaults());
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.DataSync
     public sealed class GetLocationAzureBlobResult
     {
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+        /// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         /// </summary>
         public readonly ImmutableArray<string> AgentArns;
         /// <summary>
@@ -79,6 +79,8 @@ namespace Pulumi.AwsNative.DataSync
         /// Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
         /// </summary>
         public readonly Pulumi.AwsNative.DataSync.LocationAzureBlobAzureBlobType? AzureBlobType;
+        public readonly Outputs.LocationAzureBlobCmkSecretConfig? CmkSecretConfig;
+        public readonly Outputs.LocationAzureBlobCustomSecretConfig? CustomSecretConfig;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
         /// </summary>
@@ -87,6 +89,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The URL of the Azure Blob Location that was described.
         /// </summary>
         public readonly string? LocationUri;
+        public readonly Outputs.LocationAzureBlobManagedSecretConfig? ManagedSecretConfig;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -102,9 +105,15 @@ namespace Pulumi.AwsNative.DataSync
 
             Pulumi.AwsNative.DataSync.LocationAzureBlobAzureBlobType? azureBlobType,
 
+            Outputs.LocationAzureBlobCmkSecretConfig? cmkSecretConfig,
+
+            Outputs.LocationAzureBlobCustomSecretConfig? customSecretConfig,
+
             string? locationArn,
 
             string? locationUri,
+
+            Outputs.LocationAzureBlobManagedSecretConfig? managedSecretConfig,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
@@ -112,8 +121,11 @@ namespace Pulumi.AwsNative.DataSync
             AzureAccessTier = azureAccessTier;
             AzureBlobAuthenticationType = azureBlobAuthenticationType;
             AzureBlobType = azureBlobType;
+            CmkSecretConfig = cmkSecretConfig;
+            CustomSecretConfig = customSecretConfig;
             LocationArn = locationArn;
             LocationUri = locationUri;
+            ManagedSecretConfig = managedSecretConfig;
             Tags = tags;
         }
     }

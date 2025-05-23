@@ -2569,6 +2569,7 @@ const (
 	KnowledgeBaseTypeCustom           = KnowledgeBaseType("CUSTOM")
 	KnowledgeBaseTypeMessageTemplates = KnowledgeBaseType("MESSAGE_TEMPLATES")
 	KnowledgeBaseTypeManaged          = KnowledgeBaseType("MANAGED")
+	KnowledgeBaseTypeQuickResponses   = KnowledgeBaseType("QUICK_RESPONSES")
 )
 
 func (KnowledgeBaseType) ElementType() reflect.Type {
@@ -2697,6 +2698,7 @@ func (o KnowledgeBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 //	KnowledgeBaseTypeCustom
 //	KnowledgeBaseTypeMessageTemplates
 //	KnowledgeBaseTypeManaged
+//	KnowledgeBaseTypeQuickResponses
 type KnowledgeBaseTypeInput interface {
 	pulumi.Input
 

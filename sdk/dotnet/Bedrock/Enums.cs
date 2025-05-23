@@ -1492,6 +1492,34 @@ namespace Pulumi.AwsNative.Bedrock
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct FlowAliasConcurrencyType : IEquatable<FlowAliasConcurrencyType>
+    {
+        private readonly string _value;
+
+        private FlowAliasConcurrencyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowAliasConcurrencyType Automatic { get; } = new FlowAliasConcurrencyType("Automatic");
+        public static FlowAliasConcurrencyType Manual { get; } = new FlowAliasConcurrencyType("Manual");
+
+        public static bool operator ==(FlowAliasConcurrencyType left, FlowAliasConcurrencyType right) => left.Equals(right);
+        public static bool operator !=(FlowAliasConcurrencyType left, FlowAliasConcurrencyType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowAliasConcurrencyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowAliasConcurrencyType other && Equals(other);
+        public bool Equals(FlowAliasConcurrencyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Connection type
     /// </summary>
@@ -1582,6 +1610,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static FlowNodeType Retrieval { get; } = new FlowNodeType("Retrieval");
         public static FlowNodeType Iterator { get; } = new FlowNodeType("Iterator");
         public static FlowNodeType Collector { get; } = new FlowNodeType("Collector");
+        public static FlowNodeType InlineCode { get; } = new FlowNodeType("InlineCode");
 
         public static bool operator ==(FlowNodeType left, FlowNodeType right) => left.Equals(right);
         public static bool operator !=(FlowNodeType left, FlowNodeType right) => !left.Equals(right);
@@ -1654,6 +1683,36 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowStatus other && Equals(other);
         public bool Equals(FlowStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enum encodes the supported language type
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowSupportedLanguages : IEquatable<FlowSupportedLanguages>
+    {
+        private readonly string _value;
+
+        private FlowSupportedLanguages(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowSupportedLanguages Python3 { get; } = new FlowSupportedLanguages("Python_3");
+
+        public static bool operator ==(FlowSupportedLanguages left, FlowSupportedLanguages right) => left.Equals(right);
+        public static bool operator !=(FlowSupportedLanguages left, FlowSupportedLanguages right) => !left.Equals(right);
+
+        public static explicit operator string(FlowSupportedLanguages value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowSupportedLanguages other && Equals(other);
+        public bool Equals(FlowSupportedLanguages other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1751,6 +1810,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static FlowVersionFlowNodeType Collector { get; } = new FlowVersionFlowNodeType("Collector");
         public static FlowVersionFlowNodeType Storage { get; } = new FlowVersionFlowNodeType("Storage");
         public static FlowVersionFlowNodeType Retrieval { get; } = new FlowVersionFlowNodeType("Retrieval");
+        public static FlowVersionFlowNodeType InlineCode { get; } = new FlowVersionFlowNodeType("InlineCode");
 
         public static bool operator ==(FlowVersionFlowNodeType left, FlowVersionFlowNodeType right) => left.Equals(right);
         public static bool operator !=(FlowVersionFlowNodeType left, FlowVersionFlowNodeType right) => !left.Equals(right);
@@ -1823,6 +1883,36 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowVersionPromptTemplateType other && Equals(other);
         public bool Equals(FlowVersionPromptTemplateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enum encodes the supported language type
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowVersionSupportedLanguages : IEquatable<FlowVersionSupportedLanguages>
+    {
+        private readonly string _value;
+
+        private FlowVersionSupportedLanguages(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowVersionSupportedLanguages Python3 { get; } = new FlowVersionSupportedLanguages("Python_3");
+
+        public static bool operator ==(FlowVersionSupportedLanguages left, FlowVersionSupportedLanguages right) => left.Equals(right);
+        public static bool operator !=(FlowVersionSupportedLanguages left, FlowVersionSupportedLanguages right) => !left.Equals(right);
+
+        public static explicit operator string(FlowVersionSupportedLanguages value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowVersionSupportedLanguages other && Equals(other);
+        public bool Equals(FlowVersionSupportedLanguages other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -23,6 +23,7 @@ type LoadBalancer struct {
 	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
 	EnablePrefixForIpv6SourceNat pulumi.StringPtrOutput `pulumi:"enablePrefixForIpv6SourceNat"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
+	//  You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrOutput `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// The IP address type. Internal load balancers must use ``ipv4``.
 	//  [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
@@ -119,6 +120,7 @@ type loadBalancerArgs struct {
 	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
 	EnablePrefixForIpv6SourceNat *string `pulumi:"enablePrefixForIpv6SourceNat"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
+	//  You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// The IP address type. Internal load balancers must use ``ipv4``.
 	//  [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
@@ -165,6 +167,7 @@ type LoadBalancerArgs struct {
 	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
 	EnablePrefixForIpv6SourceNat pulumi.StringPtrInput
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
+	//  You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrInput
 	// The IP address type. Internal load balancers must use ``ipv4``.
 	//  [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
@@ -259,6 +262,8 @@ func (o LoadBalancerOutput) EnablePrefixForIpv6SourceNat() pulumi.StringPtrOutpu
 }
 
 // Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is “on“.
+//
+//	You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
 func (o LoadBalancerOutput) EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput {
 		return v.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic

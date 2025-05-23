@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// The name of the resource gateway.
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// The ID of one or more security groups to associate with the endpoint network interface.
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// The ID of the VPC for the resource gateway.
         /// </summary>
         [Output("vpcIdentifier")]
-        public Output<string?> VpcIdentifier { get; private set; } = null!;
+        public Output<string> VpcIdentifier { get; private set; } = null!;
 
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ResourceGateway(string name, ResourceGatewayArgs? args = null, CustomResourceOptions? options = null)
+        public ResourceGateway(string name, ResourceGatewayArgs args, CustomResourceOptions? options = null)
             : base("aws-native:vpclattice:ResourceGateway", name, args ?? new ResourceGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.VpcLattice
             set => _securityGroupIds = value;
         }
 
-        [Input("subnetIds")]
+        [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
 
         /// <summary>
@@ -166,8 +166,8 @@ namespace Pulumi.AwsNative.VpcLattice
         /// <summary>
         /// The ID of the VPC for the resource gateway.
         /// </summary>
-        [Input("vpcIdentifier")]
-        public Input<string>? VpcIdentifier { get; set; }
+        [Input("vpcIdentifier", required: true)]
+        public Input<string> VpcIdentifier { get; set; } = null!;
 
         public ResourceGatewayArgs()
         {

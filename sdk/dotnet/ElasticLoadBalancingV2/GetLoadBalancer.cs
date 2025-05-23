@@ -77,6 +77,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public readonly string? EnablePrefixForIpv6SourceNat;
         /// <summary>
         /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
+        ///  You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.
         /// </summary>
         public readonly string? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
         /// <summary>

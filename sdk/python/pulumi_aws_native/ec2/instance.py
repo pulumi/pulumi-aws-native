@@ -49,6 +49,7 @@ class InstanceArgs:
                  key_name: Optional[pulumi.Input[builtins.str]] = None,
                  launch_template: Optional[pulumi.Input['InstanceLaunchTemplateSpecificationArgs']] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceLicenseSpecificationArgs']]]] = None,
+                 metadata_options: Optional[pulumi.Input['InstanceMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input[builtins.bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]] = None,
                  placement_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -91,6 +92,7 @@ class InstanceArgs:
         :param pulumi.Input[builtins.str] key_name: The name of the key pair.
         :param pulumi.Input['InstanceLaunchTemplateSpecificationArgs'] launch_template: The launch template to use to launch the instances.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceLicenseSpecificationArgs']]] license_specifications: The license configurations.
+        :param pulumi.Input['InstanceMetadataOptionsArgs'] metadata_options: The metadata options for the instance
         :param pulumi.Input[builtins.bool] monitoring: Specifies whether detailed monitoring is enabled for the instance.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: The network interfaces to associate with the instance.
         :param pulumi.Input[builtins.str] placement_group_name: The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
@@ -156,6 +158,8 @@ class InstanceArgs:
             pulumi.set(__self__, "launch_template", launch_template)
         if license_specifications is not None:
             pulumi.set(__self__, "license_specifications", license_specifications)
+        if metadata_options is not None:
+            pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
             pulumi.set(__self__, "monitoring", monitoring)
         if network_interfaces is not None:
@@ -478,6 +482,18 @@ class InstanceArgs:
         pulumi.set(self, "license_specifications", value)
 
     @property
+    @pulumi.getter(name="metadataOptions")
+    def metadata_options(self) -> Optional[pulumi.Input['InstanceMetadataOptionsArgs']]:
+        """
+        The metadata options for the instance
+        """
+        return pulumi.get(self, "metadata_options")
+
+    @metadata_options.setter
+    def metadata_options(self, value: Optional[pulumi.Input['InstanceMetadataOptionsArgs']]):
+        pulumi.set(self, "metadata_options", value)
+
+    @property
     @pulumi.getter
     def monitoring(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -702,6 +718,7 @@ class Instance(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[builtins.str]] = None,
                  launch_template: Optional[pulumi.Input[Union['InstanceLaunchTemplateSpecificationArgs', 'InstanceLaunchTemplateSpecificationArgsDict']]] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceLicenseSpecificationArgs', 'InstanceLicenseSpecificationArgsDict']]]]] = None,
+                 metadata_options: Optional[pulumi.Input[Union['InstanceMetadataOptionsArgs', 'InstanceMetadataOptionsArgsDict']]] = None,
                  monitoring: Optional[pulumi.Input[builtins.bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict']]]]] = None,
                  placement_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -748,6 +765,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key_name: The name of the key pair.
         :param pulumi.Input[Union['InstanceLaunchTemplateSpecificationArgs', 'InstanceLaunchTemplateSpecificationArgsDict']] launch_template: The launch template to use to launch the instances.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceLicenseSpecificationArgs', 'InstanceLicenseSpecificationArgsDict']]]] license_specifications: The license configurations.
+        :param pulumi.Input[Union['InstanceMetadataOptionsArgs', 'InstanceMetadataOptionsArgsDict']] metadata_options: The metadata options for the instance
         :param pulumi.Input[builtins.bool] monitoring: Specifies whether detailed monitoring is enabled for the instance.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict']]]] network_interfaces: The network interfaces to associate with the instance.
         :param pulumi.Input[builtins.str] placement_group_name: The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
@@ -813,6 +831,7 @@ class Instance(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[builtins.str]] = None,
                  launch_template: Optional[pulumi.Input[Union['InstanceLaunchTemplateSpecificationArgs', 'InstanceLaunchTemplateSpecificationArgsDict']]] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceLicenseSpecificationArgs', 'InstanceLicenseSpecificationArgsDict']]]]] = None,
+                 metadata_options: Optional[pulumi.Input[Union['InstanceMetadataOptionsArgs', 'InstanceMetadataOptionsArgsDict']]] = None,
                  monitoring: Optional[pulumi.Input[builtins.bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceNetworkInterfaceArgs', 'InstanceNetworkInterfaceArgsDict']]]]] = None,
                  placement_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -862,6 +881,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["license_specifications"] = license_specifications
+            __props__.__dict__["metadata_options"] = metadata_options
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_interfaces"] = network_interfaces
             __props__.__dict__["placement_group_name"] = placement_group_name
@@ -934,6 +954,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["key_name"] = None
         __props__.__dict__["launch_template"] = None
         __props__.__dict__["license_specifications"] = None
+        __props__.__dict__["metadata_options"] = None
         __props__.__dict__["monitoring"] = None
         __props__.__dict__["network_interfaces"] = None
         __props__.__dict__["placement_group_name"] = None
@@ -1157,6 +1178,14 @@ class Instance(pulumi.CustomResource):
         The license configurations.
         """
         return pulumi.get(self, "license_specifications")
+
+    @property
+    @pulumi.getter(name="metadataOptions")
+    def metadata_options(self) -> pulumi.Output[Optional['outputs.InstanceMetadataOptions']]:
+        """
+        The metadata options for the instance
+        """
+        return pulumi.get(self, "metadata_options")
 
     @property
     @pulumi.getter

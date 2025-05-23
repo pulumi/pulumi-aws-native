@@ -3312,6 +3312,336 @@ func (in *mailManagerRuleSetRuleVerdictOperatorPtr) ToMailManagerRuleSetRuleVerd
 	return pulumi.ToOutputWithContext(ctx, in).(MailManagerRuleSetRuleVerdictOperatorPtrOutput)
 }
 
+type MailManagerRuleSetSnsNotificationEncoding string
+
+const (
+	MailManagerRuleSetSnsNotificationEncodingUtf8   = MailManagerRuleSetSnsNotificationEncoding("UTF-8")
+	MailManagerRuleSetSnsNotificationEncodingBase64 = MailManagerRuleSetSnsNotificationEncoding("BASE64")
+)
+
+func (MailManagerRuleSetSnsNotificationEncoding) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetSnsNotificationEncoding)(nil)).Elem()
+}
+
+func (e MailManagerRuleSetSnsNotificationEncoding) ToMailManagerRuleSetSnsNotificationEncodingOutput() MailManagerRuleSetSnsNotificationEncodingOutput {
+	return pulumi.ToOutput(e).(MailManagerRuleSetSnsNotificationEncodingOutput)
+}
+
+func (e MailManagerRuleSetSnsNotificationEncoding) ToMailManagerRuleSetSnsNotificationEncodingOutputWithContext(ctx context.Context) MailManagerRuleSetSnsNotificationEncodingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MailManagerRuleSetSnsNotificationEncodingOutput)
+}
+
+func (e MailManagerRuleSetSnsNotificationEncoding) ToMailManagerRuleSetSnsNotificationEncodingPtrOutput() MailManagerRuleSetSnsNotificationEncodingPtrOutput {
+	return e.ToMailManagerRuleSetSnsNotificationEncodingPtrOutputWithContext(context.Background())
+}
+
+func (e MailManagerRuleSetSnsNotificationEncoding) ToMailManagerRuleSetSnsNotificationEncodingPtrOutputWithContext(ctx context.Context) MailManagerRuleSetSnsNotificationEncodingPtrOutput {
+	return MailManagerRuleSetSnsNotificationEncoding(e).ToMailManagerRuleSetSnsNotificationEncodingOutputWithContext(ctx).ToMailManagerRuleSetSnsNotificationEncodingPtrOutputWithContext(ctx)
+}
+
+func (e MailManagerRuleSetSnsNotificationEncoding) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MailManagerRuleSetSnsNotificationEncoding) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MailManagerRuleSetSnsNotificationEncoding) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MailManagerRuleSetSnsNotificationEncoding) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MailManagerRuleSetSnsNotificationEncodingOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetSnsNotificationEncodingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetSnsNotificationEncoding)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingOutput) ToMailManagerRuleSetSnsNotificationEncodingOutput() MailManagerRuleSetSnsNotificationEncodingOutput {
+	return o
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingOutput) ToMailManagerRuleSetSnsNotificationEncodingOutputWithContext(ctx context.Context) MailManagerRuleSetSnsNotificationEncodingOutput {
+	return o
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingOutput) ToMailManagerRuleSetSnsNotificationEncodingPtrOutput() MailManagerRuleSetSnsNotificationEncodingPtrOutput {
+	return o.ToMailManagerRuleSetSnsNotificationEncodingPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingOutput) ToMailManagerRuleSetSnsNotificationEncodingPtrOutputWithContext(ctx context.Context) MailManagerRuleSetSnsNotificationEncodingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailManagerRuleSetSnsNotificationEncoding) *MailManagerRuleSetSnsNotificationEncoding {
+		return &v
+	}).(MailManagerRuleSetSnsNotificationEncodingPtrOutput)
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MailManagerRuleSetSnsNotificationEncoding) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MailManagerRuleSetSnsNotificationEncoding) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MailManagerRuleSetSnsNotificationEncodingPtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetSnsNotificationEncodingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerRuleSetSnsNotificationEncoding)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingPtrOutput) ToMailManagerRuleSetSnsNotificationEncodingPtrOutput() MailManagerRuleSetSnsNotificationEncodingPtrOutput {
+	return o
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingPtrOutput) ToMailManagerRuleSetSnsNotificationEncodingPtrOutputWithContext(ctx context.Context) MailManagerRuleSetSnsNotificationEncodingPtrOutput {
+	return o
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingPtrOutput) Elem() MailManagerRuleSetSnsNotificationEncodingOutput {
+	return o.ApplyT(func(v *MailManagerRuleSetSnsNotificationEncoding) MailManagerRuleSetSnsNotificationEncoding {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerRuleSetSnsNotificationEncoding
+		return ret
+	}).(MailManagerRuleSetSnsNotificationEncodingOutput)
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerRuleSetSnsNotificationEncodingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MailManagerRuleSetSnsNotificationEncoding) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MailManagerRuleSetSnsNotificationEncodingInput is an input type that accepts values of the MailManagerRuleSetSnsNotificationEncoding enum
+// A concrete instance of `MailManagerRuleSetSnsNotificationEncodingInput` can be one of the following:
+//
+//	MailManagerRuleSetSnsNotificationEncodingUtf8
+//	MailManagerRuleSetSnsNotificationEncodingBase64
+type MailManagerRuleSetSnsNotificationEncodingInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetSnsNotificationEncodingOutput() MailManagerRuleSetSnsNotificationEncodingOutput
+	ToMailManagerRuleSetSnsNotificationEncodingOutputWithContext(context.Context) MailManagerRuleSetSnsNotificationEncodingOutput
+}
+
+var mailManagerRuleSetSnsNotificationEncodingPtrType = reflect.TypeOf((**MailManagerRuleSetSnsNotificationEncoding)(nil)).Elem()
+
+type MailManagerRuleSetSnsNotificationEncodingPtrInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetSnsNotificationEncodingPtrOutput() MailManagerRuleSetSnsNotificationEncodingPtrOutput
+	ToMailManagerRuleSetSnsNotificationEncodingPtrOutputWithContext(context.Context) MailManagerRuleSetSnsNotificationEncodingPtrOutput
+}
+
+type mailManagerRuleSetSnsNotificationEncodingPtr string
+
+func MailManagerRuleSetSnsNotificationEncodingPtr(v string) MailManagerRuleSetSnsNotificationEncodingPtrInput {
+	return (*mailManagerRuleSetSnsNotificationEncodingPtr)(&v)
+}
+
+func (*mailManagerRuleSetSnsNotificationEncodingPtr) ElementType() reflect.Type {
+	return mailManagerRuleSetSnsNotificationEncodingPtrType
+}
+
+func (in *mailManagerRuleSetSnsNotificationEncodingPtr) ToMailManagerRuleSetSnsNotificationEncodingPtrOutput() MailManagerRuleSetSnsNotificationEncodingPtrOutput {
+	return pulumi.ToOutput(in).(MailManagerRuleSetSnsNotificationEncodingPtrOutput)
+}
+
+func (in *mailManagerRuleSetSnsNotificationEncodingPtr) ToMailManagerRuleSetSnsNotificationEncodingPtrOutputWithContext(ctx context.Context) MailManagerRuleSetSnsNotificationEncodingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MailManagerRuleSetSnsNotificationEncodingPtrOutput)
+}
+
+type MailManagerRuleSetSnsNotificationPayloadType string
+
+const (
+	MailManagerRuleSetSnsNotificationPayloadTypeContent = MailManagerRuleSetSnsNotificationPayloadType("CONTENT")
+	MailManagerRuleSetSnsNotificationPayloadTypeHeaders = MailManagerRuleSetSnsNotificationPayloadType("HEADERS")
+)
+
+func (MailManagerRuleSetSnsNotificationPayloadType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetSnsNotificationPayloadType)(nil)).Elem()
+}
+
+func (e MailManagerRuleSetSnsNotificationPayloadType) ToMailManagerRuleSetSnsNotificationPayloadTypeOutput() MailManagerRuleSetSnsNotificationPayloadTypeOutput {
+	return pulumi.ToOutput(e).(MailManagerRuleSetSnsNotificationPayloadTypeOutput)
+}
+
+func (e MailManagerRuleSetSnsNotificationPayloadType) ToMailManagerRuleSetSnsNotificationPayloadTypeOutputWithContext(ctx context.Context) MailManagerRuleSetSnsNotificationPayloadTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MailManagerRuleSetSnsNotificationPayloadTypeOutput)
+}
+
+func (e MailManagerRuleSetSnsNotificationPayloadType) ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutput() MailManagerRuleSetSnsNotificationPayloadTypePtrOutput {
+	return e.ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutputWithContext(context.Background())
+}
+
+func (e MailManagerRuleSetSnsNotificationPayloadType) ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutputWithContext(ctx context.Context) MailManagerRuleSetSnsNotificationPayloadTypePtrOutput {
+	return MailManagerRuleSetSnsNotificationPayloadType(e).ToMailManagerRuleSetSnsNotificationPayloadTypeOutputWithContext(ctx).ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutputWithContext(ctx)
+}
+
+func (e MailManagerRuleSetSnsNotificationPayloadType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MailManagerRuleSetSnsNotificationPayloadType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MailManagerRuleSetSnsNotificationPayloadType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MailManagerRuleSetSnsNotificationPayloadType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MailManagerRuleSetSnsNotificationPayloadTypeOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetSnsNotificationPayloadTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetSnsNotificationPayloadType)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypeOutput) ToMailManagerRuleSetSnsNotificationPayloadTypeOutput() MailManagerRuleSetSnsNotificationPayloadTypeOutput {
+	return o
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypeOutput) ToMailManagerRuleSetSnsNotificationPayloadTypeOutputWithContext(ctx context.Context) MailManagerRuleSetSnsNotificationPayloadTypeOutput {
+	return o
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypeOutput) ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutput() MailManagerRuleSetSnsNotificationPayloadTypePtrOutput {
+	return o.ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypeOutput) ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutputWithContext(ctx context.Context) MailManagerRuleSetSnsNotificationPayloadTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailManagerRuleSetSnsNotificationPayloadType) *MailManagerRuleSetSnsNotificationPayloadType {
+		return &v
+	}).(MailManagerRuleSetSnsNotificationPayloadTypePtrOutput)
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MailManagerRuleSetSnsNotificationPayloadType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MailManagerRuleSetSnsNotificationPayloadType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MailManagerRuleSetSnsNotificationPayloadTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetSnsNotificationPayloadTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerRuleSetSnsNotificationPayloadType)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypePtrOutput) ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutput() MailManagerRuleSetSnsNotificationPayloadTypePtrOutput {
+	return o
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypePtrOutput) ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutputWithContext(ctx context.Context) MailManagerRuleSetSnsNotificationPayloadTypePtrOutput {
+	return o
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypePtrOutput) Elem() MailManagerRuleSetSnsNotificationPayloadTypeOutput {
+	return o.ApplyT(func(v *MailManagerRuleSetSnsNotificationPayloadType) MailManagerRuleSetSnsNotificationPayloadType {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerRuleSetSnsNotificationPayloadType
+		return ret
+	}).(MailManagerRuleSetSnsNotificationPayloadTypeOutput)
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerRuleSetSnsNotificationPayloadTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MailManagerRuleSetSnsNotificationPayloadType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MailManagerRuleSetSnsNotificationPayloadTypeInput is an input type that accepts values of the MailManagerRuleSetSnsNotificationPayloadType enum
+// A concrete instance of `MailManagerRuleSetSnsNotificationPayloadTypeInput` can be one of the following:
+//
+//	MailManagerRuleSetSnsNotificationPayloadTypeContent
+//	MailManagerRuleSetSnsNotificationPayloadTypeHeaders
+type MailManagerRuleSetSnsNotificationPayloadTypeInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetSnsNotificationPayloadTypeOutput() MailManagerRuleSetSnsNotificationPayloadTypeOutput
+	ToMailManagerRuleSetSnsNotificationPayloadTypeOutputWithContext(context.Context) MailManagerRuleSetSnsNotificationPayloadTypeOutput
+}
+
+var mailManagerRuleSetSnsNotificationPayloadTypePtrType = reflect.TypeOf((**MailManagerRuleSetSnsNotificationPayloadType)(nil)).Elem()
+
+type MailManagerRuleSetSnsNotificationPayloadTypePtrInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutput() MailManagerRuleSetSnsNotificationPayloadTypePtrOutput
+	ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutputWithContext(context.Context) MailManagerRuleSetSnsNotificationPayloadTypePtrOutput
+}
+
+type mailManagerRuleSetSnsNotificationPayloadTypePtr string
+
+func MailManagerRuleSetSnsNotificationPayloadTypePtr(v string) MailManagerRuleSetSnsNotificationPayloadTypePtrInput {
+	return (*mailManagerRuleSetSnsNotificationPayloadTypePtr)(&v)
+}
+
+func (*mailManagerRuleSetSnsNotificationPayloadTypePtr) ElementType() reflect.Type {
+	return mailManagerRuleSetSnsNotificationPayloadTypePtrType
+}
+
+func (in *mailManagerRuleSetSnsNotificationPayloadTypePtr) ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutput() MailManagerRuleSetSnsNotificationPayloadTypePtrOutput {
+	return pulumi.ToOutput(in).(MailManagerRuleSetSnsNotificationPayloadTypePtrOutput)
+}
+
+func (in *mailManagerRuleSetSnsNotificationPayloadTypePtr) ToMailManagerRuleSetSnsNotificationPayloadTypePtrOutputWithContext(ctx context.Context) MailManagerRuleSetSnsNotificationPayloadTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MailManagerRuleSetSnsNotificationPayloadTypePtrOutput)
+}
+
 type MailManagerTrafficPolicyAcceptAction string
 
 const (
@@ -4999,6 +5329,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictAttributePtrInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictAttribute("SPF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictOperatorInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictOperator("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictOperatorPtrInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetSnsNotificationEncodingInput)(nil)).Elem(), MailManagerRuleSetSnsNotificationEncoding("UTF-8"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetSnsNotificationEncodingPtrInput)(nil)).Elem(), MailManagerRuleSetSnsNotificationEncoding("UTF-8"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetSnsNotificationPayloadTypeInput)(nil)).Elem(), MailManagerRuleSetSnsNotificationPayloadType("CONTENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetSnsNotificationPayloadTypePtrInput)(nil)).Elem(), MailManagerRuleSetSnsNotificationPayloadType("CONTENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyAcceptActionInput)(nil)).Elem(), MailManagerTrafficPolicyAcceptAction("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyAcceptActionPtrInput)(nil)).Elem(), MailManagerTrafficPolicyAcceptAction("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanOperatorInput)(nil)).Elem(), MailManagerTrafficPolicyIngressBooleanOperator("IS_TRUE"))
@@ -5061,6 +5395,10 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictAttributePtrOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictOperatorOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictOperatorPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetSnsNotificationEncodingOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetSnsNotificationEncodingPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetSnsNotificationPayloadTypeOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetSnsNotificationPayloadTypePtrOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyAcceptActionOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyAcceptActionPtrOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressBooleanOperatorOutput{})

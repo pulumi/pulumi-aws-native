@@ -66,6 +66,7 @@ __all__ = [
     'MailManagerRuleSetRuleAction6Properties',
     'MailManagerRuleSetRuleAction7Properties',
     'MailManagerRuleSetRuleAction8Properties',
+    'MailManagerRuleSetRuleAction9Properties',
     'MailManagerRuleSetRuleBooleanExpression',
     'MailManagerRuleSetRuleBooleanToEvaluate0Properties',
     'MailManagerRuleSetRuleBooleanToEvaluate1Properties',
@@ -89,6 +90,7 @@ __all__ = [
     'MailManagerRuleSetRuleVerdictToEvaluate1Properties',
     'MailManagerRuleSetS3Action',
     'MailManagerRuleSetSendAction',
+    'MailManagerRuleSetSnsAction',
     'MailManagerTrafficPolicyIngressAnalysis',
     'MailManagerTrafficPolicyIngressBooleanExpression',
     'MailManagerTrafficPolicyIngressBooleanToEvaluateProperties',
@@ -1731,7 +1733,7 @@ class MailManagerRuleSetRule(dict):
                  name: Optional[builtins.str] = None,
                  unless: Optional[Sequence[Any]] = None):
         """
-        :param Sequence[Union['MailManagerRuleSetRuleAction0Properties', 'MailManagerRuleSetRuleAction1Properties', 'MailManagerRuleSetRuleAction2Properties', 'MailManagerRuleSetRuleAction3Properties', 'MailManagerRuleSetRuleAction4Properties', 'MailManagerRuleSetRuleAction5Properties', 'MailManagerRuleSetRuleAction6Properties', 'MailManagerRuleSetRuleAction7Properties', 'MailManagerRuleSetRuleAction8Properties']] actions: The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+        :param Sequence[Union['MailManagerRuleSetRuleAction0Properties', 'MailManagerRuleSetRuleAction1Properties', 'MailManagerRuleSetRuleAction2Properties', 'MailManagerRuleSetRuleAction3Properties', 'MailManagerRuleSetRuleAction4Properties', 'MailManagerRuleSetRuleAction5Properties', 'MailManagerRuleSetRuleAction6Properties', 'MailManagerRuleSetRuleAction7Properties', 'MailManagerRuleSetRuleAction8Properties', 'MailManagerRuleSetRuleAction9Properties']] actions: The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
         :param Sequence[Union['MailManagerRuleSetRuleCondition0Properties', 'MailManagerRuleSetRuleCondition1Properties', 'MailManagerRuleSetRuleCondition2Properties', 'MailManagerRuleSetRuleCondition3Properties', 'MailManagerRuleSetRuleCondition4Properties', 'MailManagerRuleSetRuleCondition5Properties']] conditions: The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
         :param builtins.str name: The user-friendly name of the rule.
         :param Sequence[Union['MailManagerRuleSetRuleCondition0Properties', 'MailManagerRuleSetRuleCondition1Properties', 'MailManagerRuleSetRuleCondition2Properties', 'MailManagerRuleSetRuleCondition3Properties', 'MailManagerRuleSetRuleCondition4Properties', 'MailManagerRuleSetRuleCondition5Properties']] unless: The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
@@ -1968,6 +1970,35 @@ class MailManagerRuleSetRuleAction8Properties(dict):
     @pulumi.getter(name="deliverToQBusiness")
     def deliver_to_q_business(self) -> 'outputs.MailManagerRuleSetDeliverToQBusinessAction':
         return pulumi.get(self, "deliver_to_q_business")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleAction9Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishToSns":
+            suggest = "publish_to_sns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleAction9Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleAction9Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleAction9Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 publish_to_sns: 'outputs.MailManagerRuleSetSnsAction'):
+        pulumi.set(__self__, "publish_to_sns", publish_to_sns)
+
+    @property
+    @pulumi.getter(name="publishToSns")
+    def publish_to_sns(self) -> 'outputs.MailManagerRuleSetSnsAction':
+        return pulumi.get(self, "publish_to_sns")
 
 
 @pulumi.output_type
@@ -2516,6 +2547,72 @@ class MailManagerRuleSetSendAction(dict):
     @pulumi.getter(name="actionFailurePolicy")
     def action_failure_policy(self) -> Optional['MailManagerRuleSetActionFailurePolicy']:
         return pulumi.get(self, "action_failure_policy")
+
+
+@pulumi.output_type
+class MailManagerRuleSetSnsAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+        elif key == "payloadType":
+            suggest = "payload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetSnsAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetSnsAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetSnsAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: builtins.str,
+                 topic_arn: builtins.str,
+                 action_failure_policy: Optional['MailManagerRuleSetActionFailurePolicy'] = None,
+                 encoding: Optional['MailManagerRuleSetSnsNotificationEncoding'] = None,
+                 payload_type: Optional['MailManagerRuleSetSnsNotificationPayloadType'] = None):
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "topic_arn", topic_arn)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if payload_type is not None:
+            pulumi.set(__self__, "payload_type", payload_type)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> builtins.str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> builtins.str:
+        return pulumi.get(self, "topic_arn")
+
+    @property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional['MailManagerRuleSetActionFailurePolicy']:
+        return pulumi.get(self, "action_failure_policy")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional['MailManagerRuleSetSnsNotificationEncoding']:
+        return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="payloadType")
+    def payload_type(self) -> Optional['MailManagerRuleSetSnsNotificationPayloadType']:
+        return pulumi.get(self, "payload_type")
 
 
 @pulumi.output_type

@@ -19,6 +19,7 @@ from .get_dedicated_ip_pool import *
 from .get_email_identity import *
 from .get_mail_manager_addon_instance import *
 from .get_mail_manager_addon_subscription import *
+from .get_mail_manager_address_list import *
 from .get_mail_manager_archive import *
 from .get_mail_manager_ingress_point import *
 from .get_mail_manager_relay import *
@@ -28,6 +29,7 @@ from .get_template import *
 from .get_vdm_attributes import *
 from .mail_manager_addon_instance import *
 from .mail_manager_addon_subscription import *
+from .mail_manager_address_list import *
 from .mail_manager_archive import *
 from .mail_manager_ingress_point import *
 from .mail_manager_relay import *

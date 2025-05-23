@@ -65,6 +65,11 @@ export const getMailManagerAddonSubscription: typeof import("./getMailManagerAdd
 export const getMailManagerAddonSubscriptionOutput: typeof import("./getMailManagerAddonSubscription").getMailManagerAddonSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getMailManagerAddonSubscription","getMailManagerAddonSubscriptionOutput"], () => require("./getMailManagerAddonSubscription"));
 
+export { GetMailManagerAddressListArgs, GetMailManagerAddressListResult, GetMailManagerAddressListOutputArgs } from "./getMailManagerAddressList";
+export const getMailManagerAddressList: typeof import("./getMailManagerAddressList").getMailManagerAddressList = null as any;
+export const getMailManagerAddressListOutput: typeof import("./getMailManagerAddressList").getMailManagerAddressListOutput = null as any;
+utilities.lazyLoad(exports, ["getMailManagerAddressList","getMailManagerAddressListOutput"], () => require("./getMailManagerAddressList"));
+
 export { GetMailManagerArchiveArgs, GetMailManagerArchiveResult, GetMailManagerArchiveOutputArgs } from "./getMailManagerArchive";
 export const getMailManagerArchive: typeof import("./getMailManagerArchive").getMailManagerArchive = null as any;
 export const getMailManagerArchiveOutput: typeof import("./getMailManagerArchive").getMailManagerArchiveOutput = null as any;
@@ -109,6 +114,11 @@ export { MailManagerAddonSubscriptionArgs } from "./mailManagerAddonSubscription
 export type MailManagerAddonSubscription = import("./mailManagerAddonSubscription").MailManagerAddonSubscription;
 export const MailManagerAddonSubscription: typeof import("./mailManagerAddonSubscription").MailManagerAddonSubscription = null as any;
 utilities.lazyLoad(exports, ["MailManagerAddonSubscription"], () => require("./mailManagerAddonSubscription"));
+
+export { MailManagerAddressListArgs } from "./mailManagerAddressList";
+export type MailManagerAddressList = import("./mailManagerAddressList").MailManagerAddressList;
+export const MailManagerAddressList: typeof import("./mailManagerAddressList").MailManagerAddressList = null as any;
+utilities.lazyLoad(exports, ["MailManagerAddressList"], () => require("./mailManagerAddressList"));
 
 export { MailManagerArchiveArgs } from "./mailManagerArchive";
 export type MailManagerArchive = import("./mailManagerArchive").MailManagerArchive;
@@ -167,6 +177,8 @@ const _module = {
                 return new MailManagerAddonInstance(name, <any>undefined, { urn })
             case "aws-native:ses:MailManagerAddonSubscription":
                 return new MailManagerAddonSubscription(name, <any>undefined, { urn })
+            case "aws-native:ses:MailManagerAddressList":
+                return new MailManagerAddressList(name, <any>undefined, { urn })
             case "aws-native:ses:MailManagerArchive":
                 return new MailManagerArchive(name, <any>undefined, { urn })
             case "aws-native:ses:MailManagerIngressPoint":

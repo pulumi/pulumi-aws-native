@@ -888,6 +888,130 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceMetadataOptionsHttpEndpoint : IEquatable<InstanceMetadataOptionsHttpEndpoint>
+    {
+        private readonly string _value;
+
+        private InstanceMetadataOptionsHttpEndpoint(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceMetadataOptionsHttpEndpoint Disabled { get; } = new InstanceMetadataOptionsHttpEndpoint("disabled");
+        public static InstanceMetadataOptionsHttpEndpoint Enabled { get; } = new InstanceMetadataOptionsHttpEndpoint("enabled");
+
+        public static bool operator ==(InstanceMetadataOptionsHttpEndpoint left, InstanceMetadataOptionsHttpEndpoint right) => left.Equals(right);
+        public static bool operator !=(InstanceMetadataOptionsHttpEndpoint left, InstanceMetadataOptionsHttpEndpoint right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceMetadataOptionsHttpEndpoint value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceMetadataOptionsHttpEndpoint other && Equals(other);
+        public bool Equals(InstanceMetadataOptionsHttpEndpoint other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceMetadataOptionsHttpProtocolIpv6 : IEquatable<InstanceMetadataOptionsHttpProtocolIpv6>
+    {
+        private readonly string _value;
+
+        private InstanceMetadataOptionsHttpProtocolIpv6(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceMetadataOptionsHttpProtocolIpv6 Disabled { get; } = new InstanceMetadataOptionsHttpProtocolIpv6("disabled");
+        public static InstanceMetadataOptionsHttpProtocolIpv6 Enabled { get; } = new InstanceMetadataOptionsHttpProtocolIpv6("enabled");
+
+        public static bool operator ==(InstanceMetadataOptionsHttpProtocolIpv6 left, InstanceMetadataOptionsHttpProtocolIpv6 right) => left.Equals(right);
+        public static bool operator !=(InstanceMetadataOptionsHttpProtocolIpv6 left, InstanceMetadataOptionsHttpProtocolIpv6 right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceMetadataOptionsHttpProtocolIpv6 value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceMetadataOptionsHttpProtocolIpv6 other && Equals(other);
+        public bool Equals(InstanceMetadataOptionsHttpProtocolIpv6 other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether IMDSv2 is required.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceMetadataOptionsHttpTokens : IEquatable<InstanceMetadataOptionsHttpTokens>
+    {
+        private readonly string _value;
+
+        private InstanceMetadataOptionsHttpTokens(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceMetadataOptionsHttpTokens Optional { get; } = new InstanceMetadataOptionsHttpTokens("optional");
+        public static InstanceMetadataOptionsHttpTokens Required { get; } = new InstanceMetadataOptionsHttpTokens("required");
+
+        public static bool operator ==(InstanceMetadataOptionsHttpTokens left, InstanceMetadataOptionsHttpTokens right) => left.Equals(right);
+        public static bool operator !=(InstanceMetadataOptionsHttpTokens left, InstanceMetadataOptionsHttpTokens right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceMetadataOptionsHttpTokens value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceMetadataOptionsHttpTokens other && Equals(other);
+        public bool Equals(InstanceMetadataOptionsHttpTokens other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether tags from the instance are propagated to the EBS volumes.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceMetadataOptionsInstanceMetadataTags : IEquatable<InstanceMetadataOptionsInstanceMetadataTags>
+    {
+        private readonly string _value;
+
+        private InstanceMetadataOptionsInstanceMetadataTags(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceMetadataOptionsInstanceMetadataTags Disabled { get; } = new InstanceMetadataOptionsInstanceMetadataTags("disabled");
+        public static InstanceMetadataOptionsInstanceMetadataTags Enabled { get; } = new InstanceMetadataOptionsInstanceMetadataTags("enabled");
+
+        public static bool operator ==(InstanceMetadataOptionsInstanceMetadataTags left, InstanceMetadataOptionsInstanceMetadataTags right) => left.Equals(right);
+        public static bool operator !=(InstanceMetadataOptionsInstanceMetadataTags left, InstanceMetadataOptionsInstanceMetadataTags right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceMetadataOptionsInstanceMetadataTags value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceMetadataOptionsInstanceMetadataTags other && Equals(other);
+        public bool Equals(InstanceMetadataOptionsInstanceMetadataTags other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
     /// </summary>
     [EnumType]

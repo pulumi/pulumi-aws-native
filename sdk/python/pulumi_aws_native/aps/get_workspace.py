@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkspaceResult:
-    def __init__(__self__, alert_manager_definition=None, alias=None, arn=None, logging_configuration=None, prometheus_endpoint=None, tags=None, workspace_configuration=None, workspace_id=None):
+    def __init__(__self__, alert_manager_definition=None, alias=None, arn=None, logging_configuration=None, prometheus_endpoint=None, query_logging_configuration=None, tags=None, workspace_configuration=None, workspace_id=None):
         if alert_manager_definition and not isinstance(alert_manager_definition, str):
             raise TypeError("Expected argument 'alert_manager_definition' to be a str")
         pulumi.set(__self__, "alert_manager_definition", alert_manager_definition)
@@ -42,6 +42,9 @@ class GetWorkspaceResult:
         if prometheus_endpoint and not isinstance(prometheus_endpoint, str):
             raise TypeError("Expected argument 'prometheus_endpoint' to be a str")
         pulumi.set(__self__, "prometheus_endpoint", prometheus_endpoint)
+        if query_logging_configuration and not isinstance(query_logging_configuration, dict):
+            raise TypeError("Expected argument 'query_logging_configuration' to be a dict")
+        pulumi.set(__self__, "query_logging_configuration", query_logging_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -93,6 +96,11 @@ class GetWorkspaceResult:
         return pulumi.get(self, "prometheus_endpoint")
 
     @property
+    @pulumi.getter(name="queryLoggingConfiguration")
+    def query_logging_configuration(self) -> Optional['outputs.WorkspaceQueryLoggingConfiguration']:
+        return pulumi.get(self, "query_logging_configuration")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -128,6 +136,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             arn=self.arn,
             logging_configuration=self.logging_configuration,
             prometheus_endpoint=self.prometheus_endpoint,
+            query_logging_configuration=self.query_logging_configuration,
             tags=self.tags,
             workspace_configuration=self.workspace_configuration,
             workspace_id=self.workspace_id)
@@ -152,6 +161,7 @@ def get_workspace(arn: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         logging_configuration=pulumi.get(__ret__, 'logging_configuration'),
         prometheus_endpoint=pulumi.get(__ret__, 'prometheus_endpoint'),
+        query_logging_configuration=pulumi.get(__ret__, 'query_logging_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_configuration=pulumi.get(__ret__, 'workspace_configuration'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
@@ -173,6 +183,7 @@ def get_workspace_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         logging_configuration=pulumi.get(__response__, 'logging_configuration'),
         prometheus_endpoint=pulumi.get(__response__, 'prometheus_endpoint'),
+        query_logging_configuration=pulumi.get(__response__, 'query_logging_configuration'),
         tags=pulumi.get(__response__, 'tags'),
         workspace_configuration=pulumi.get(__response__, 'workspace_configuration'),
         workspace_id=pulumi.get(__response__, 'workspace_id')))

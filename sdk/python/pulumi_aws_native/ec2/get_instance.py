@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInstanceResult:
-    def __init__(__self__, affinity=None, block_device_mappings=None, credit_specification=None, disable_api_termination=None, ebs_optimized=None, host_id=None, iam_instance_profile=None, instance_id=None, instance_initiated_shutdown_behavior=None, instance_type=None, kernel_id=None, monitoring=None, private_dns_name=None, private_dns_name_options=None, private_ip=None, public_dns_name=None, public_ip=None, ramdisk_id=None, security_group_ids=None, source_dest_check=None, ssm_associations=None, state=None, tags=None, tenancy=None, user_data=None, volumes=None, vpc_id=None):
+    def __init__(__self__, affinity=None, block_device_mappings=None, credit_specification=None, disable_api_termination=None, ebs_optimized=None, host_id=None, iam_instance_profile=None, instance_id=None, instance_initiated_shutdown_behavior=None, instance_type=None, kernel_id=None, metadata_options=None, monitoring=None, private_dns_name=None, private_dns_name_options=None, private_ip=None, public_dns_name=None, public_ip=None, ramdisk_id=None, security_group_ids=None, source_dest_check=None, ssm_associations=None, state=None, tags=None, tenancy=None, user_data=None, volumes=None, vpc_id=None):
         if affinity and not isinstance(affinity, str):
             raise TypeError("Expected argument 'affinity' to be a str")
         pulumi.set(__self__, "affinity", affinity)
@@ -61,6 +61,9 @@ class GetInstanceResult:
         if kernel_id and not isinstance(kernel_id, str):
             raise TypeError("Expected argument 'kernel_id' to be a str")
         pulumi.set(__self__, "kernel_id", kernel_id)
+        if metadata_options and not isinstance(metadata_options, dict):
+            raise TypeError("Expected argument 'metadata_options' to be a dict")
+        pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring and not isinstance(monitoring, bool):
             raise TypeError("Expected argument 'monitoring' to be a bool")
         pulumi.set(__self__, "monitoring", monitoring)
@@ -197,6 +200,14 @@ class GetInstanceResult:
         The ID of the kernel.
         """
         return pulumi.get(self, "kernel_id")
+
+    @property
+    @pulumi.getter(name="metadataOptions")
+    def metadata_options(self) -> Optional['outputs.InstanceMetadataOptions']:
+        """
+        The metadata options for the instance
+        """
+        return pulumi.get(self, "metadata_options")
 
     @property
     @pulumi.getter
@@ -344,6 +355,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             instance_initiated_shutdown_behavior=self.instance_initiated_shutdown_behavior,
             instance_type=self.instance_type,
             kernel_id=self.kernel_id,
+            metadata_options=self.metadata_options,
             monitoring=self.monitoring,
             private_dns_name=self.private_dns_name,
             private_dns_name_options=self.private_dns_name_options,
@@ -387,6 +399,7 @@ def get_instance(instance_id: Optional[builtins.str] = None,
         instance_initiated_shutdown_behavior=pulumi.get(__ret__, 'instance_initiated_shutdown_behavior'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
         kernel_id=pulumi.get(__ret__, 'kernel_id'),
+        metadata_options=pulumi.get(__ret__, 'metadata_options'),
         monitoring=pulumi.get(__ret__, 'monitoring'),
         private_dns_name=pulumi.get(__ret__, 'private_dns_name'),
         private_dns_name_options=pulumi.get(__ret__, 'private_dns_name_options'),
@@ -427,6 +440,7 @@ def get_instance_output(instance_id: Optional[pulumi.Input[builtins.str]] = None
         instance_initiated_shutdown_behavior=pulumi.get(__response__, 'instance_initiated_shutdown_behavior'),
         instance_type=pulumi.get(__response__, 'instance_type'),
         kernel_id=pulumi.get(__response__, 'kernel_id'),
+        metadata_options=pulumi.get(__response__, 'metadata_options'),
         monitoring=pulumi.get(__response__, 'monitoring'),
         private_dns_name=pulumi.get(__response__, 'private_dns_name'),
         private_dns_name_options=pulumi.get(__response__, 'private_dns_name_options'),

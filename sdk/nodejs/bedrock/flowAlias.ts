@@ -45,6 +45,7 @@ export class FlowAlias extends pulumi.CustomResource {
      * Id for a Flow Alias generated at the server side.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    public readonly concurrencyConfiguration!: pulumi.Output<outputs.bedrock.FlowAliasConcurrencyConfiguration | undefined>;
     /**
      * Time Stamp.
      */
@@ -98,6 +99,7 @@ export class FlowAlias extends pulumi.CustomResource {
             if ((!args || args.routingConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routingConfiguration'");
             }
+            resourceInputs["concurrencyConfiguration"] = args ? args.concurrencyConfiguration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["flowArn"] = args ? args.flowArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -111,6 +113,7 @@ export class FlowAlias extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["concurrencyConfiguration"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
@@ -131,6 +134,7 @@ export class FlowAlias extends pulumi.CustomResource {
  * The set of arguments for constructing a FlowAlias resource.
  */
 export interface FlowAliasArgs {
+    concurrencyConfiguration?: pulumi.Input<inputs.bedrock.FlowAliasConcurrencyConfigurationArgs>;
     /**
      * Description of the Resource.
      */

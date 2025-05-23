@@ -52,7 +52,7 @@ export class ResourceConfiguration extends pulumi.CustomResource {
     /**
      * The name of the resource configuration.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
      */
@@ -85,7 +85,7 @@ export class ResourceConfiguration extends pulumi.CustomResource {
      * - *CHILD* - A single resource that is part of a group resource configuration.
      * - *ARN* - An AWS resource.
      */
-    public readonly resourceConfigurationType!: pulumi.Output<enums.vpclattice.ResourceConfigurationType | undefined>;
+    public readonly resourceConfigurationType!: pulumi.Output<enums.vpclattice.ResourceConfigurationType>;
     /**
      * The ID of the resource gateway.
      */
@@ -102,10 +102,13 @@ export class ResourceConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ResourceConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ResourceConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.resourceConfigurationType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'resourceConfigurationType'");
+            }
             resourceInputs["allowAssociationToSharableServiceNetwork"] = args ? args.allowAssociationToSharableServiceNetwork : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["portRanges"] = args ? args.portRanges : undefined;
@@ -183,7 +186,7 @@ export interface ResourceConfigurationArgs {
      * - *CHILD* - A single resource that is part of a group resource configuration.
      * - *ARN* - An AWS resource.
      */
-    resourceConfigurationType?: pulumi.Input<enums.vpclattice.ResourceConfigurationType>;
+    resourceConfigurationType: pulumi.Input<enums.vpclattice.ResourceConfigurationType>;
     /**
      * The ID of the resource gateway.
      */

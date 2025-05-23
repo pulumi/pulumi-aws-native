@@ -108,6 +108,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? KernelId;
         /// <summary>
+        /// The metadata options for the instance
+        /// </summary>
+        public readonly Outputs.InstanceMetadataOptions? MetadataOptions;
+        /// <summary>
         /// Specifies whether detailed monitoring is enabled for the instance.
         /// </summary>
         public readonly bool? Monitoring;
@@ -196,6 +200,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? kernelId,
 
+            Outputs.InstanceMetadataOptions? metadataOptions,
+
             bool? monitoring,
 
             string? privateDnsName,
@@ -239,6 +245,7 @@ namespace Pulumi.AwsNative.Ec2
             InstanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
             InstanceType = instanceType;
             KernelId = kernelId;
+            MetadataOptions = metadataOptions;
             Monitoring = monitoring;
             PrivateDnsName = privateDnsName;
             PrivateDnsNameOptions = privateDnsNameOptions;

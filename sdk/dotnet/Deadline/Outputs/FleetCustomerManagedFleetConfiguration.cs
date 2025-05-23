@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     {
         public readonly Pulumi.AwsNative.Deadline.FleetAutoScalingMode Mode;
         public readonly string? StorageProfileId;
+        public readonly Pulumi.AwsNative.Deadline.FleetTagPropagationMode? TagPropagationMode;
         public readonly Outputs.FleetCustomerManagedWorkerCapabilities WorkerCapabilities;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.Deadline.Outputs
 
             string? storageProfileId,
 
+            Pulumi.AwsNative.Deadline.FleetTagPropagationMode? tagPropagationMode,
+
             Outputs.FleetCustomerManagedWorkerCapabilities workerCapabilities)
         {
             Mode = mode;
             StorageProfileId = storageProfileId;
+            TagPropagationMode = tagPropagationMode;
             WorkerCapabilities = workerCapabilities;
         }
     }

@@ -161,7 +161,6 @@ namespace Pulumi.AwsNative.Timestream
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "clientToken",
                     "errorReportConfiguration",
                     "kmsKeyId",
                     "notificationConfiguration",

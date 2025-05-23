@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::LocationObjectStorage.
+ * Resource Type definition for AWS::DataSync::LocationObjectStorage.
  */
 export function getLocationObjectStorage(args: GetLocationObjectStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationObjectStorageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,9 +30,11 @@ export interface GetLocationObjectStorageResult {
      */
     readonly accessKey?: string;
     /**
-     * The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+     * Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
      */
     readonly agentArns?: string[];
+    readonly cmkSecretConfig?: outputs.datasync.LocationObjectStorageCmkSecretConfig;
+    readonly customSecretConfig?: outputs.datasync.LocationObjectStorageCustomSecretConfig;
     /**
      * The Amazon Resource Name (ARN) of the location that is created.
      */
@@ -41,6 +43,7 @@ export interface GetLocationObjectStorageResult {
      * The URL of the object storage location that was described.
      */
     readonly locationUri?: string;
+    readonly managedSecretConfig?: outputs.datasync.LocationObjectStorageManagedSecretConfig;
     /**
      * X.509 PEM content containing a certificate authority or chain to trust.
      */
@@ -59,7 +62,7 @@ export interface GetLocationObjectStorageResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource schema for AWS::DataSync::LocationObjectStorage.
+ * Resource Type definition for AWS::DataSync::LocationObjectStorage.
  */
 export function getLocationObjectStorageOutput(args: GetLocationObjectStorageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationObjectStorageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

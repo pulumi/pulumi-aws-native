@@ -479,6 +479,13 @@ export const DataSourceWebScopeType = {
  */
 export type DataSourceWebScopeType = (typeof DataSourceWebScopeType)[keyof typeof DataSourceWebScopeType];
 
+export const FlowAliasConcurrencyType = {
+    Automatic: "Automatic",
+    Manual: "Manual",
+} as const;
+
+export type FlowAliasConcurrencyType = (typeof FlowAliasConcurrencyType)[keyof typeof FlowAliasConcurrencyType];
+
 export const FlowConnectionType = {
     Data: "Data",
     Conditional: "Conditional",
@@ -515,6 +522,7 @@ export const FlowNodeType = {
     Retrieval: "Retrieval",
     Iterator: "Iterator",
     Collector: "Collector",
+    InlineCode: "InlineCode",
 } as const;
 
 /**
@@ -542,6 +550,15 @@ export const FlowStatus = {
  * Schema Type for Flow APIs
  */
 export type FlowStatus = (typeof FlowStatus)[keyof typeof FlowStatus];
+
+export const FlowSupportedLanguages = {
+    Python3: "Python_3",
+} as const;
+
+/**
+ * Enum encodes the supported language type
+ */
+export type FlowSupportedLanguages = (typeof FlowSupportedLanguages)[keyof typeof FlowSupportedLanguages];
 
 export const FlowVersionFlowConnectionType = {
     Data: "Data",
@@ -579,6 +596,7 @@ export const FlowVersionFlowNodeType = {
     Collector: "Collector",
     Storage: "Storage",
     Retrieval: "Retrieval",
+    InlineCode: "InlineCode",
 } as const;
 
 /**
@@ -606,6 +624,15 @@ export const FlowVersionPromptTemplateType = {
  * Prompt template type
  */
 export type FlowVersionPromptTemplateType = (typeof FlowVersionPromptTemplateType)[keyof typeof FlowVersionPromptTemplateType];
+
+export const FlowVersionSupportedLanguages = {
+    Python3: "Python_3",
+} as const;
+
+/**
+ * Enum encodes the supported language type
+ */
+export type FlowVersionSupportedLanguages = (typeof FlowVersionSupportedLanguages)[keyof typeof FlowVersionSupportedLanguages];
 
 export const GuardrailContentFilterAction = {
     Block: "BLOCK",

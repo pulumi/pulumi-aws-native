@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::LocationObjectStorage.
+ * Resource Type definition for AWS::DataSync::LocationObjectStorage.
  *
  * ## Example Usage
  * ### Example
@@ -59,13 +59,15 @@ export class LocationObjectStorage extends pulumi.CustomResource {
      */
     public readonly accessKey!: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+     * Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
      */
-    public readonly agentArns!: pulumi.Output<string[]>;
+    public readonly agentArns!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the bucket on the self-managed object storage server.
      */
     public readonly bucketName!: pulumi.Output<string | undefined>;
+    public readonly cmkSecretConfig!: pulumi.Output<outputs.datasync.LocationObjectStorageCmkSecretConfig | undefined>;
+    public readonly customSecretConfig!: pulumi.Output<outputs.datasync.LocationObjectStorageCustomSecretConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the location that is created.
      */
@@ -74,6 +76,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
      * The URL of the object storage location that was described.
      */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    public /*out*/ readonly managedSecretConfig!: pulumi.Output<outputs.datasync.LocationObjectStorageManagedSecretConfig>;
     /**
      * Optional. The secret key is used if credentials are required to access the self-managed object storage server.
      */
@@ -110,16 +113,15 @@ export class LocationObjectStorage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LocationObjectStorageArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: LocationObjectStorageArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentArns === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'agentArns'");
-            }
             resourceInputs["accessKey"] = args ? args.accessKey : undefined;
             resourceInputs["agentArns"] = args ? args.agentArns : undefined;
             resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["cmkSecretConfig"] = args ? args.cmkSecretConfig : undefined;
+            resourceInputs["customSecretConfig"] = args ? args.customSecretConfig : undefined;
             resourceInputs["secretKey"] = args ? args.secretKey : undefined;
             resourceInputs["serverCertificate"] = args ? args.serverCertificate : undefined;
             resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
@@ -129,12 +131,16 @@ export class LocationObjectStorage extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["managedSecretConfig"] = undefined /*out*/;
         } else {
             resourceInputs["accessKey"] = undefined /*out*/;
             resourceInputs["agentArns"] = undefined /*out*/;
             resourceInputs["bucketName"] = undefined /*out*/;
+            resourceInputs["cmkSecretConfig"] = undefined /*out*/;
+            resourceInputs["customSecretConfig"] = undefined /*out*/;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["managedSecretConfig"] = undefined /*out*/;
             resourceInputs["secretKey"] = undefined /*out*/;
             resourceInputs["serverCertificate"] = undefined /*out*/;
             resourceInputs["serverHostname"] = undefined /*out*/;
@@ -159,13 +165,15 @@ export interface LocationObjectStorageArgs {
      */
     accessKey?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+     * Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
      */
-    agentArns: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the bucket on the self-managed object storage server.
      */
     bucketName?: pulumi.Input<string>;
+    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationObjectStorageCmkSecretConfigArgs>;
+    customSecretConfig?: pulumi.Input<inputs.datasync.LocationObjectStorageCustomSecretConfigArgs>;
     /**
      * Optional. The secret key is used if credentials are required to access the self-managed object storage server.
      */

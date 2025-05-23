@@ -78,6 +78,7 @@ class LocationAzureBlobAzureBlobAuthenticationType(builtins.str, Enum):
     The specific authentication type that you want DataSync to use to access your Azure Blob Container.
     """
     SAS = "SAS"
+    NONE = "NONE"
 
 
 class LocationAzureBlobAzureBlobType(builtins.str, Enum):

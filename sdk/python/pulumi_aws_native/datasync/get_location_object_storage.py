@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -26,19 +27,28 @@ __all__ = [
 
 @pulumi.output_type
 class GetLocationObjectStorageResult:
-    def __init__(__self__, access_key=None, agent_arns=None, location_arn=None, location_uri=None, server_certificate=None, server_port=None, server_protocol=None, tags=None):
+    def __init__(__self__, access_key=None, agent_arns=None, cmk_secret_config=None, custom_secret_config=None, location_arn=None, location_uri=None, managed_secret_config=None, server_certificate=None, server_port=None, server_protocol=None, tags=None):
         if access_key and not isinstance(access_key, str):
             raise TypeError("Expected argument 'access_key' to be a str")
         pulumi.set(__self__, "access_key", access_key)
         if agent_arns and not isinstance(agent_arns, list):
             raise TypeError("Expected argument 'agent_arns' to be a list")
         pulumi.set(__self__, "agent_arns", agent_arns)
+        if cmk_secret_config and not isinstance(cmk_secret_config, dict):
+            raise TypeError("Expected argument 'cmk_secret_config' to be a dict")
+        pulumi.set(__self__, "cmk_secret_config", cmk_secret_config)
+        if custom_secret_config and not isinstance(custom_secret_config, dict):
+            raise TypeError("Expected argument 'custom_secret_config' to be a dict")
+        pulumi.set(__self__, "custom_secret_config", custom_secret_config)
         if location_arn and not isinstance(location_arn, str):
             raise TypeError("Expected argument 'location_arn' to be a str")
         pulumi.set(__self__, "location_arn", location_arn)
         if location_uri and not isinstance(location_uri, str):
             raise TypeError("Expected argument 'location_uri' to be a str")
         pulumi.set(__self__, "location_uri", location_uri)
+        if managed_secret_config and not isinstance(managed_secret_config, dict):
+            raise TypeError("Expected argument 'managed_secret_config' to be a dict")
+        pulumi.set(__self__, "managed_secret_config", managed_secret_config)
         if server_certificate and not isinstance(server_certificate, str):
             raise TypeError("Expected argument 'server_certificate' to be a str")
         pulumi.set(__self__, "server_certificate", server_certificate)
@@ -64,9 +74,19 @@ class GetLocationObjectStorageResult:
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Optional[Sequence[builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+        Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         """
         return pulumi.get(self, "agent_arns")
+
+    @property
+    @pulumi.getter(name="cmkSecretConfig")
+    def cmk_secret_config(self) -> Optional['outputs.LocationObjectStorageCmkSecretConfig']:
+        return pulumi.get(self, "cmk_secret_config")
+
+    @property
+    @pulumi.getter(name="customSecretConfig")
+    def custom_secret_config(self) -> Optional['outputs.LocationObjectStorageCustomSecretConfig']:
+        return pulumi.get(self, "custom_secret_config")
 
     @property
     @pulumi.getter(name="locationArn")
@@ -83,6 +103,11 @@ class GetLocationObjectStorageResult:
         The URL of the object storage location that was described.
         """
         return pulumi.get(self, "location_uri")
+
+    @property
+    @pulumi.getter(name="managedSecretConfig")
+    def managed_secret_config(self) -> Optional['outputs.LocationObjectStorageManagedSecretConfig']:
+        return pulumi.get(self, "managed_secret_config")
 
     @property
     @pulumi.getter(name="serverCertificate")
@@ -125,8 +150,11 @@ class AwaitableGetLocationObjectStorageResult(GetLocationObjectStorageResult):
         return GetLocationObjectStorageResult(
             access_key=self.access_key,
             agent_arns=self.agent_arns,
+            cmk_secret_config=self.cmk_secret_config,
+            custom_secret_config=self.custom_secret_config,
             location_arn=self.location_arn,
             location_uri=self.location_uri,
+            managed_secret_config=self.managed_secret_config,
             server_certificate=self.server_certificate,
             server_port=self.server_port,
             server_protocol=self.server_protocol,
@@ -136,7 +164,7 @@ class AwaitableGetLocationObjectStorageResult(GetLocationObjectStorageResult):
 def get_location_object_storage(location_arn: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationObjectStorageResult:
     """
-    Resource schema for AWS::DataSync::LocationObjectStorage.
+    Resource Type definition for AWS::DataSync::LocationObjectStorage.
 
 
     :param builtins.str location_arn: The Amazon Resource Name (ARN) of the location that is created.
@@ -149,8 +177,11 @@ def get_location_object_storage(location_arn: Optional[builtins.str] = None,
     return AwaitableGetLocationObjectStorageResult(
         access_key=pulumi.get(__ret__, 'access_key'),
         agent_arns=pulumi.get(__ret__, 'agent_arns'),
+        cmk_secret_config=pulumi.get(__ret__, 'cmk_secret_config'),
+        custom_secret_config=pulumi.get(__ret__, 'custom_secret_config'),
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
+        managed_secret_config=pulumi.get(__ret__, 'managed_secret_config'),
         server_certificate=pulumi.get(__ret__, 'server_certificate'),
         server_port=pulumi.get(__ret__, 'server_port'),
         server_protocol=pulumi.get(__ret__, 'server_protocol'),
@@ -158,7 +189,7 @@ def get_location_object_storage(location_arn: Optional[builtins.str] = None,
 def get_location_object_storage_output(location_arn: Optional[pulumi.Input[builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationObjectStorageResult]:
     """
-    Resource schema for AWS::DataSync::LocationObjectStorage.
+    Resource Type definition for AWS::DataSync::LocationObjectStorage.
 
 
     :param builtins.str location_arn: The Amazon Resource Name (ARN) of the location that is created.
@@ -170,8 +201,11 @@ def get_location_object_storage_output(location_arn: Optional[pulumi.Input[built
     return __ret__.apply(lambda __response__: GetLocationObjectStorageResult(
         access_key=pulumi.get(__response__, 'access_key'),
         agent_arns=pulumi.get(__response__, 'agent_arns'),
+        cmk_secret_config=pulumi.get(__response__, 'cmk_secret_config'),
+        custom_secret_config=pulumi.get(__response__, 'custom_secret_config'),
         location_arn=pulumi.get(__response__, 'location_arn'),
         location_uri=pulumi.get(__response__, 'location_uri'),
+        managed_secret_config=pulumi.get(__response__, 'managed_secret_config'),
         server_certificate=pulumi.get(__response__, 'server_certificate'),
         server_port=pulumi.get(__response__, 'server_port'),
         server_protocol=pulumi.get(__response__, 'server_protocol'),

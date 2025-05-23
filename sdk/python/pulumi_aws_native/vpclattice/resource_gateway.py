@@ -23,33 +23,55 @@ __all__ = ['ResourceGatewayArgs', 'ResourceGateway']
 @pulumi.input_type
 class ResourceGatewayArgs:
     def __init__(__self__, *,
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 vpc_identifier: pulumi.Input[builtins.str],
                  ip_address_type: Optional[pulumi.Input['ResourceGatewayIpAddressType']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_identifier: Optional[pulumi.Input[builtins.str]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceGateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface.
+        :param pulumi.Input[builtins.str] vpc_identifier: The ID of the VPC for the resource gateway.
         :param pulumi.Input['ResourceGatewayIpAddressType'] ip_address_type: The type of IP address used by the resource gateway.
         :param pulumi.Input[builtins.str] name: The name of the resource gateway.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The ID of one or more security groups to associate with the endpoint network interface.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the resource gateway.
-        :param pulumi.Input[builtins.str] vpc_identifier: The ID of the VPC for the resource gateway.
         """
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if vpc_identifier is not None:
-            pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        The ID of one or more subnets in which to create an endpoint network interface.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the VPC for the resource gateway.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @vpc_identifier.setter
+    def vpc_identifier(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "vpc_identifier", value)
 
     @property
     @pulumi.getter(name="ipAddressType")
@@ -88,18 +110,6 @@ class ResourceGatewayArgs:
         pulumi.set(self, "security_group_ids", value)
 
     @property
-    @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        The ID of one or more subnets in which to create an endpoint network interface.
-        """
-        return pulumi.get(self, "subnet_ids")
-
-    @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "subnet_ids", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -110,18 +120,6 @@ class ResourceGatewayArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="vpcIdentifier")
-    def vpc_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The ID of the VPC for the resource gateway.
-        """
-        return pulumi.get(self, "vpc_identifier")
-
-    @vpc_identifier.setter
-    def vpc_identifier(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "vpc_identifier", value)
 
 
 class ResourceGateway(pulumi.CustomResource):
@@ -155,7 +153,7 @@ class ResourceGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ResourceGatewayArgs] = None,
+                 args: ResourceGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a resource gateway for a service.
@@ -193,8 +191,12 @@ class ResourceGateway(pulumi.CustomResource):
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["name"] = name
             __props__.__dict__["security_group_ids"] = security_group_ids
+            if subnet_ids is None and not opts.urn:
+                raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            if vpc_identifier is None and not opts.urn:
+                raise TypeError("Missing required property 'vpc_identifier'")
             __props__.__dict__["vpc_identifier"] = vpc_identifier
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
@@ -258,7 +260,7 @@ class ResourceGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[builtins.str]]:
+    def name(self) -> pulumi.Output[builtins.str]:
         """
         The name of the resource gateway.
         """
@@ -274,7 +276,7 @@ class ResourceGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+    def subnet_ids(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
         The ID of one or more subnets in which to create an endpoint network interface.
         """
@@ -290,7 +292,7 @@ class ResourceGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcIdentifier")
-    def vpc_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
+    def vpc_identifier(self) -> pulumi.Output[builtins.str]:
         """
         The ID of the VPC for the resource gateway.
         """

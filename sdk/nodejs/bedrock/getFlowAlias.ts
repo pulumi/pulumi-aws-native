@@ -34,6 +34,7 @@ export interface GetFlowAliasResult {
      * Arn of the Flow Alias
      */
     readonly arn?: string;
+    readonly concurrencyConfiguration?: outputs.bedrock.FlowAliasConcurrencyConfiguration;
     /**
      * Time Stamp.
      */

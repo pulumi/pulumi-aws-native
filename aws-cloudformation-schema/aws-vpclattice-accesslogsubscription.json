@@ -93,7 +93,7 @@
       "permissions" : [ "vpc-lattice:DeleteAccessLogSubscription", "vpc-lattice:UntagResource", "logs:DeleteLogDelivery", "logs:DeleteLogStream", "logs:GetLogDelivery", "logs:DeleteDestination", "s3:PutBucketLogging", "iam:GetServiceLinkedRoleDeletionStatus", "iam:DeleteServiceLinkedRole", "firehose:DeleteDeliveryStream", "firehose:UntagDeliveryStream" ]
     },
     "list" : {
-      "permissions" : [ "vpc-lattice:ListAccessLogSubscriptions" ],
+      "permissions" : [ "vpc-lattice:ListAccessLogSubscriptions", "logs:GetLogDelivery" ],
       "handlerSchema" : {
         "properties" : {
           "ResourceIdentifier" : {

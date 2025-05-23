@@ -8335,6 +8335,221 @@ func (o InstanceLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) Instan
 	}).(InstanceLicenseSpecificationOutput)
 }
 
+type InstanceMetadataOptions struct {
+	// Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+	HttpEndpoint *InstanceMetadataOptionsHttpEndpoint `pulumi:"httpEndpoint"`
+	// Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+	HttpProtocolIpv6 *InstanceMetadataOptionsHttpProtocolIpv6 `pulumi:"httpProtocolIpv6"`
+	// The number of network hops that the metadata token can travel. Maximum is 64.
+	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
+	// Indicates whether IMDSv2 is required.
+	HttpTokens *InstanceMetadataOptionsHttpTokens `pulumi:"httpTokens"`
+	// Indicates whether tags from the instance are propagated to the EBS volumes.
+	InstanceMetadataTags *InstanceMetadataOptionsInstanceMetadataTags `pulumi:"instanceMetadataTags"`
+}
+
+// InstanceMetadataOptionsInput is an input type that accepts InstanceMetadataOptionsArgs and InstanceMetadataOptionsOutput values.
+// You can construct a concrete instance of `InstanceMetadataOptionsInput` via:
+//
+//	InstanceMetadataOptionsArgs{...}
+type InstanceMetadataOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceMetadataOptionsOutput() InstanceMetadataOptionsOutput
+	ToInstanceMetadataOptionsOutputWithContext(context.Context) InstanceMetadataOptionsOutput
+}
+
+type InstanceMetadataOptionsArgs struct {
+	// Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+	HttpEndpoint InstanceMetadataOptionsHttpEndpointPtrInput `pulumi:"httpEndpoint"`
+	// Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+	HttpProtocolIpv6 InstanceMetadataOptionsHttpProtocolIpv6PtrInput `pulumi:"httpProtocolIpv6"`
+	// The number of network hops that the metadata token can travel. Maximum is 64.
+	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
+	// Indicates whether IMDSv2 is required.
+	HttpTokens InstanceMetadataOptionsHttpTokensPtrInput `pulumi:"httpTokens"`
+	// Indicates whether tags from the instance are propagated to the EBS volumes.
+	InstanceMetadataTags InstanceMetadataOptionsInstanceMetadataTagsPtrInput `pulumi:"instanceMetadataTags"`
+}
+
+func (InstanceMetadataOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMetadataOptions)(nil)).Elem()
+}
+
+func (i InstanceMetadataOptionsArgs) ToInstanceMetadataOptionsOutput() InstanceMetadataOptionsOutput {
+	return i.ToInstanceMetadataOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceMetadataOptionsArgs) ToInstanceMetadataOptionsOutputWithContext(ctx context.Context) InstanceMetadataOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMetadataOptionsOutput)
+}
+
+func (i InstanceMetadataOptionsArgs) ToInstanceMetadataOptionsPtrOutput() InstanceMetadataOptionsPtrOutput {
+	return i.ToInstanceMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceMetadataOptionsArgs) ToInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMetadataOptionsOutput).ToInstanceMetadataOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceMetadataOptionsPtrInput is an input type that accepts InstanceMetadataOptionsArgs, InstanceMetadataOptionsPtr and InstanceMetadataOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceMetadataOptionsPtrInput` via:
+//
+//	        InstanceMetadataOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceMetadataOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceMetadataOptionsPtrOutput() InstanceMetadataOptionsPtrOutput
+	ToInstanceMetadataOptionsPtrOutputWithContext(context.Context) InstanceMetadataOptionsPtrOutput
+}
+
+type instanceMetadataOptionsPtrType InstanceMetadataOptionsArgs
+
+func InstanceMetadataOptionsPtr(v *InstanceMetadataOptionsArgs) InstanceMetadataOptionsPtrInput {
+	return (*instanceMetadataOptionsPtrType)(v)
+}
+
+func (*instanceMetadataOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceMetadataOptions)(nil)).Elem()
+}
+
+func (i *instanceMetadataOptionsPtrType) ToInstanceMetadataOptionsPtrOutput() InstanceMetadataOptionsPtrOutput {
+	return i.ToInstanceMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceMetadataOptionsPtrType) ToInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMetadataOptionsPtrOutput)
+}
+
+type InstanceMetadataOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceMetadataOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMetadataOptions)(nil)).Elem()
+}
+
+func (o InstanceMetadataOptionsOutput) ToInstanceMetadataOptionsOutput() InstanceMetadataOptionsOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsOutput) ToInstanceMetadataOptionsOutputWithContext(ctx context.Context) InstanceMetadataOptionsOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsOutput) ToInstanceMetadataOptionsPtrOutput() InstanceMetadataOptionsPtrOutput {
+	return o.ToInstanceMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsOutput) ToInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceMetadataOptions) *InstanceMetadataOptions {
+		return &v
+	}).(InstanceMetadataOptionsPtrOutput)
+}
+
+// Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+func (o InstanceMetadataOptionsOutput) HttpEndpoint() InstanceMetadataOptionsHttpEndpointPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *InstanceMetadataOptionsHttpEndpoint { return v.HttpEndpoint }).(InstanceMetadataOptionsHttpEndpointPtrOutput)
+}
+
+// Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+func (o InstanceMetadataOptionsOutput) HttpProtocolIpv6() InstanceMetadataOptionsHttpProtocolIpv6PtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *InstanceMetadataOptionsHttpProtocolIpv6 { return v.HttpProtocolIpv6 }).(InstanceMetadataOptionsHttpProtocolIpv6PtrOutput)
+}
+
+// The number of network hops that the metadata token can travel. Maximum is 64.
+func (o InstanceMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether IMDSv2 is required.
+func (o InstanceMetadataOptionsOutput) HttpTokens() InstanceMetadataOptionsHttpTokensPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *InstanceMetadataOptionsHttpTokens { return v.HttpTokens }).(InstanceMetadataOptionsHttpTokensPtrOutput)
+}
+
+// Indicates whether tags from the instance are propagated to the EBS volumes.
+func (o InstanceMetadataOptionsOutput) InstanceMetadataTags() InstanceMetadataOptionsInstanceMetadataTagsPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *InstanceMetadataOptionsInstanceMetadataTags {
+		return v.InstanceMetadataTags
+	}).(InstanceMetadataOptionsInstanceMetadataTagsPtrOutput)
+}
+
+type InstanceMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceMetadataOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceMetadataOptions)(nil)).Elem()
+}
+
+func (o InstanceMetadataOptionsPtrOutput) ToInstanceMetadataOptionsPtrOutput() InstanceMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsPtrOutput) ToInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsPtrOutput) Elem() InstanceMetadataOptionsOutput {
+	return o.ApplyT(func(v *InstanceMetadataOptions) InstanceMetadataOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceMetadataOptions
+		return ret
+	}).(InstanceMetadataOptionsOutput)
+}
+
+// Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+func (o InstanceMetadataOptionsPtrOutput) HttpEndpoint() InstanceMetadataOptionsHttpEndpointPtrOutput {
+	return o.ApplyT(func(v *InstanceMetadataOptions) *InstanceMetadataOptionsHttpEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.HttpEndpoint
+	}).(InstanceMetadataOptionsHttpEndpointPtrOutput)
+}
+
+// Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+func (o InstanceMetadataOptionsPtrOutput) HttpProtocolIpv6() InstanceMetadataOptionsHttpProtocolIpv6PtrOutput {
+	return o.ApplyT(func(v *InstanceMetadataOptions) *InstanceMetadataOptionsHttpProtocolIpv6 {
+		if v == nil {
+			return nil
+		}
+		return v.HttpProtocolIpv6
+	}).(InstanceMetadataOptionsHttpProtocolIpv6PtrOutput)
+}
+
+// The number of network hops that the metadata token can travel. Maximum is 64.
+func (o InstanceMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceMetadataOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPutResponseHopLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether IMDSv2 is required.
+func (o InstanceMetadataOptionsPtrOutput) HttpTokens() InstanceMetadataOptionsHttpTokensPtrOutput {
+	return o.ApplyT(func(v *InstanceMetadataOptions) *InstanceMetadataOptionsHttpTokens {
+		if v == nil {
+			return nil
+		}
+		return v.HttpTokens
+	}).(InstanceMetadataOptionsHttpTokensPtrOutput)
+}
+
+// Indicates whether tags from the instance are propagated to the EBS volumes.
+func (o InstanceMetadataOptionsPtrOutput) InstanceMetadataTags() InstanceMetadataOptionsInstanceMetadataTagsPtrOutput {
+	return o.ApplyT(func(v *InstanceMetadataOptions) *InstanceMetadataOptionsInstanceMetadataTags {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceMetadataTags
+	}).(InstanceMetadataOptionsInstanceMetadataTagsPtrOutput)
+}
+
 type InstanceNetworkInterface struct {
 	// Not currently supported by AWS CloudFormation.
 	AssociateCarrierIpAddress *bool `pulumi:"associateCarrierIpAddress"`
@@ -35695,6 +35910,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLaunchTemplateSpecificationPtrInput)(nil)).Elem(), InstanceLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLicenseSpecificationInput)(nil)).Elem(), InstanceLicenseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLicenseSpecificationArrayInput)(nil)).Elem(), InstanceLicenseSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsInput)(nil)).Elem(), InstanceMetadataOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsPtrInput)(nil)).Elem(), InstanceMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkInterfaceInput)(nil)).Elem(), InstanceNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkInterfaceArrayInput)(nil)).Elem(), InstanceNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsInput)(nil)).Elem(), InstancePrivateDnsNameOptionsArgs{})
@@ -36067,6 +36284,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceLicenseSpecificationOutput{})
 	pulumi.RegisterOutputType(InstanceLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceMetadataOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsOutput{})

@@ -1289,6 +1289,9 @@
         "$ref": "#/types/aws-native:aps:WorkspaceLoggingConfiguration",
         "description": "Contains information about the logging configuration for the workspace."
       },
+      "queryLoggingConfiguration": {
+        "$ref": "#/types/aws-native:aps:WorkspaceQueryLoggingConfiguration"
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -2861,7 +2864,7 @@
         "items": {
           "type": "string"
         },
-        "description": "The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location."
+        "description": "Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter."
       },
       "azureAccessTier": {
         "$ref": "#/types/aws-native:datasync:LocationAzureBlobAzureAccessTier",
@@ -2882,6 +2885,12 @@
       "azureBlobType": {
         "$ref": "#/types/aws-native:datasync:LocationAzureBlobAzureBlobType",
         "description": "Specifies a blob type for the objects you're transferring into your Azure Blob Storage container."
+      },
+      "cmkSecretConfig": {
+        "$ref": "#/types/aws-native:datasync:LocationAzureBlobCmkSecretConfig"
+      },
+      "customSecretConfig": {
+        "$ref": "#/types/aws-native:datasync:LocationAzureBlobCustomSecretConfig"
       },
       "subdirectory": {
         "type": "string",
@@ -3166,11 +3175,17 @@
         "items": {
           "type": "string"
         },
-        "description": "The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location."
+        "description": "Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter."
       },
       "bucketName": {
         "type": "string",
         "description": "The name of the bucket on the self-managed object storage server."
+      },
+      "cmkSecretConfig": {
+        "$ref": "#/types/aws-native:datasync:LocationObjectStorageCmkSecretConfig"
+      },
+      "customSecretConfig": {
+        "$ref": "#/types/aws-native:datasync:LocationObjectStorageCustomSecretConfig"
       },
       "secretKey": {
         "type": "string",
@@ -4454,6 +4469,10 @@
           "$ref": "#/types/aws-native:ec2:InstanceLicenseSpecification"
         },
         "description": "The license configurations."
+      },
+      "metadataOptions": {
+        "$ref": "#/types/aws-native:ec2:InstanceMetadataOptions",
+        "description": "The metadata options for the instance"
       },
       "monitoring": {
         "type": "boolean",
@@ -7477,7 +7496,7 @@
       },
       "sslPolicy": {
         "type": "string",
-        "description": "[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.\n Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.\n For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*."
+        "description": "[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.\n Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation."
       }
     }
   },

@@ -12,7 +12,7 @@
   "description" : "VpcLattice ResourceConfiguration CFN resource",
   "createOnlyProperties" : [ "/properties/ResourceGatewayId", "/properties/ResourceConfigurationType", "/properties/ProtocolType", "/properties/ResourceConfigurationAuthType" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
-  "required" : [ ],
+  "required" : [ "Name", "ResourceConfigurationType" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "handlers" : {
     "read" : {

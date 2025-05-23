@@ -63,6 +63,13 @@ export const FleetStatus = {
 
 export type FleetStatus = (typeof FleetStatus)[keyof typeof FleetStatus];
 
+export const FleetTagPropagationMode = {
+    NoPropagation: "NO_PROPAGATION",
+    PropagateTagsToWorkersAtLaunch: "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH",
+} as const;
+
+export type FleetTagPropagationMode = (typeof FleetTagPropagationMode)[keyof typeof FleetTagPropagationMode];
+
 export const LicenseEndpointStatus = {
     CreateInProgress: "CREATE_IN_PROGRESS",
     DeleteInProgress: "DELETE_IN_PROGRESS",

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::DataSync::LocationObjectStorage.
+// Resource Type definition for AWS::DataSync::LocationObjectStorage.
 func LookupLocationObjectStorage(ctx *pulumi.Context, args *LookupLocationObjectStorageArgs, opts ...pulumi.InvokeOption) (*LookupLocationObjectStorageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationObjectStorageResult
@@ -31,12 +31,15 @@ type LookupLocationObjectStorageArgs struct {
 type LookupLocationObjectStorageResult struct {
 	// Optional. The access key is used if credentials are required to access the self-managed object storage server.
 	AccessKey *string `pulumi:"accessKey"`
-	// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
-	AgentArns []string `pulumi:"agentArns"`
+	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
+	AgentArns          []string                                 `pulumi:"agentArns"`
+	CmkSecretConfig    *LocationObjectStorageCmkSecretConfig    `pulumi:"cmkSecretConfig"`
+	CustomSecretConfig *LocationObjectStorageCustomSecretConfig `pulumi:"customSecretConfig"`
 	// The Amazon Resource Name (ARN) of the location that is created.
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the object storage location that was described.
-	LocationUri *string `pulumi:"locationUri"`
+	LocationUri         *string                                   `pulumi:"locationUri"`
+	ManagedSecretConfig *LocationObjectStorageManagedSecretConfig `pulumi:"managedSecretConfig"`
 	// X.509 PEM content containing a certificate authority or chain to trust.
 	ServerCertificate *string `pulumi:"serverCertificate"`
 	// The port that your self-managed server accepts inbound network traffic on.
@@ -84,9 +87,21 @@ func (o LookupLocationObjectStorageResultOutput) AccessKey() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupLocationObjectStorageResult) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 func (o LookupLocationObjectStorageResultOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLocationObjectStorageResult) []string { return v.AgentArns }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupLocationObjectStorageResultOutput) CmkSecretConfig() LocationObjectStorageCmkSecretConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationObjectStorageResult) *LocationObjectStorageCmkSecretConfig {
+		return v.CmkSecretConfig
+	}).(LocationObjectStorageCmkSecretConfigPtrOutput)
+}
+
+func (o LookupLocationObjectStorageResultOutput) CustomSecretConfig() LocationObjectStorageCustomSecretConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationObjectStorageResult) *LocationObjectStorageCustomSecretConfig {
+		return v.CustomSecretConfig
+	}).(LocationObjectStorageCustomSecretConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the location that is created.
@@ -97,6 +112,12 @@ func (o LookupLocationObjectStorageResultOutput) LocationArn() pulumi.StringPtrO
 // The URL of the object storage location that was described.
 func (o LookupLocationObjectStorageResultOutput) LocationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationObjectStorageResult) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupLocationObjectStorageResultOutput) ManagedSecretConfig() LocationObjectStorageManagedSecretConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationObjectStorageResult) *LocationObjectStorageManagedSecretConfig {
+		return v.ManagedSecretConfig
+	}).(LocationObjectStorageManagedSecretConfigPtrOutput)
 }
 
 // X.509 PEM content containing a certificate authority or chain to trust.

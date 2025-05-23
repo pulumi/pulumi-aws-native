@@ -1030,6 +1030,7 @@ func (o FleetConfiguration1PropertiesPtrOutput) ServiceManagedEc2() FleetService
 type FleetCustomerManagedFleetConfiguration struct {
 	Mode               FleetAutoScalingMode                   `pulumi:"mode"`
 	StorageProfileId   *string                                `pulumi:"storageProfileId"`
+	TagPropagationMode *FleetTagPropagationMode               `pulumi:"tagPropagationMode"`
 	WorkerCapabilities FleetCustomerManagedWorkerCapabilities `pulumi:"workerCapabilities"`
 }
 
@@ -1047,6 +1048,7 @@ type FleetCustomerManagedFleetConfigurationInput interface {
 type FleetCustomerManagedFleetConfigurationArgs struct {
 	Mode               FleetAutoScalingModeInput                   `pulumi:"mode"`
 	StorageProfileId   pulumi.StringPtrInput                       `pulumi:"storageProfileId"`
+	TagPropagationMode FleetTagPropagationModePtrInput             `pulumi:"tagPropagationMode"`
 	WorkerCapabilities FleetCustomerManagedWorkerCapabilitiesInput `pulumi:"workerCapabilities"`
 }
 
@@ -1082,6 +1084,10 @@ func (o FleetCustomerManagedFleetConfigurationOutput) Mode() FleetAutoScalingMod
 
 func (o FleetCustomerManagedFleetConfigurationOutput) StorageProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetCustomerManagedFleetConfiguration) *string { return v.StorageProfileId }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetCustomerManagedFleetConfigurationOutput) TagPropagationMode() FleetTagPropagationModePtrOutput {
+	return o.ApplyT(func(v FleetCustomerManagedFleetConfiguration) *FleetTagPropagationMode { return v.TagPropagationMode }).(FleetTagPropagationModePtrOutput)
 }
 
 func (o FleetCustomerManagedFleetConfigurationOutput) WorkerCapabilities() FleetCustomerManagedWorkerCapabilitiesOutput {
@@ -1130,6 +1136,15 @@ func (o FleetCustomerManagedFleetConfigurationPtrOutput) StorageProfileId() pulu
 		}
 		return v.StorageProfileId
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o FleetCustomerManagedFleetConfigurationPtrOutput) TagPropagationMode() FleetTagPropagationModePtrOutput {
+	return o.ApplyT(func(v *FleetCustomerManagedFleetConfiguration) *FleetTagPropagationMode {
+		if v == nil {
+			return nil
+		}
+		return v.TagPropagationMode
+	}).(FleetTagPropagationModePtrOutput)
 }
 
 func (o FleetCustomerManagedFleetConfigurationPtrOutput) WorkerCapabilities() FleetCustomerManagedWorkerCapabilitiesPtrOutput {

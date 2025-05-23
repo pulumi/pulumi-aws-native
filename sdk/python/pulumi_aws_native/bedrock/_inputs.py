@@ -211,6 +211,8 @@ __all__ = [
     'DataSourceWebSourceConfigurationArgsDict',
     'FlowAgentFlowNodeConfigurationArgs',
     'FlowAgentFlowNodeConfigurationArgsDict',
+    'FlowAliasConcurrencyConfigurationArgs',
+    'FlowAliasConcurrencyConfigurationArgsDict',
     'FlowAliasRoutingConfigurationListItemArgs',
     'FlowAliasRoutingConfigurationListItemArgsDict',
     'FlowCollectorFlowNodeConfigurationArgs',
@@ -233,6 +235,8 @@ __all__ = [
     'FlowDefinitionArgsDict',
     'FlowGuardrailConfigurationArgs',
     'FlowGuardrailConfigurationArgsDict',
+    'FlowInlineCodeFlowNodeConfigurationArgs',
+    'FlowInlineCodeFlowNodeConfigurationArgsDict',
     'FlowInputFlowNodeConfigurationArgs',
     'FlowInputFlowNodeConfigurationArgsDict',
     'FlowIteratorFlowNodeConfigurationArgs',
@@ -249,6 +253,8 @@ __all__ = [
     'FlowNodeConfiguration10PropertiesArgsDict',
     'FlowNodeConfiguration11PropertiesArgs',
     'FlowNodeConfiguration11PropertiesArgsDict',
+    'FlowNodeConfiguration12PropertiesArgs',
+    'FlowNodeConfiguration12PropertiesArgsDict',
     'FlowNodeConfiguration1PropertiesArgs',
     'FlowNodeConfiguration1PropertiesArgsDict',
     'FlowNodeConfiguration2PropertiesArgs',
@@ -5972,6 +5978,50 @@ class FlowAgentFlowNodeConfigurationArgs:
 
 
 if not MYPY:
+    class FlowAliasConcurrencyConfigurationArgsDict(TypedDict):
+        type: pulumi.Input['FlowAliasConcurrencyType']
+        max_concurrency: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Number of nodes executed concurrently at a time
+        """
+elif False:
+    FlowAliasConcurrencyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowAliasConcurrencyConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['FlowAliasConcurrencyType'],
+                 max_concurrency: Optional[pulumi.Input[builtins.float]] = None):
+        """
+        :param pulumi.Input[builtins.float] max_concurrency: Number of nodes executed concurrently at a time
+        """
+        pulumi.set(__self__, "type", type)
+        if max_concurrency is not None:
+            pulumi.set(__self__, "max_concurrency", max_concurrency)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['FlowAliasConcurrencyType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['FlowAliasConcurrencyType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Number of nodes executed concurrently at a time
+        """
+        return pulumi.get(self, "max_concurrency")
+
+    @max_concurrency.setter
+    def max_concurrency(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "max_concurrency", value)
+
+
+if not MYPY:
     class FlowAliasRoutingConfigurationListItemArgsDict(TypedDict):
         """
         Details about the routing configuration for a Flow alias.
@@ -6485,6 +6535,53 @@ class FlowGuardrailConfigurationArgs:
 
 
 if not MYPY:
+    class FlowInlineCodeFlowNodeConfigurationArgsDict(TypedDict):
+        """
+        Inline code config strucuture, contains code configs
+        """
+        code: pulumi.Input[builtins.str]
+        """
+        The inline code entered by customers. max size is 5MB.
+        """
+        language: pulumi.Input['FlowSupportedLanguages']
+elif False:
+    FlowInlineCodeFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowInlineCodeFlowNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 code: pulumi.Input[builtins.str],
+                 language: pulumi.Input['FlowSupportedLanguages']):
+        """
+        Inline code config strucuture, contains code configs
+        :param pulumi.Input[builtins.str] code: The inline code entered by customers. max size is 5MB.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "language", language)
+
+    @property
+    @pulumi.getter
+    def code(self) -> pulumi.Input[builtins.str]:
+        """
+        The inline code entered by customers. max size is 5MB.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def language(self) -> pulumi.Input['FlowSupportedLanguages']:
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: pulumi.Input['FlowSupportedLanguages']):
+        pulumi.set(self, "language", value)
+
+
+if not MYPY:
     class FlowInputFlowNodeConfigurationArgsDict(TypedDict):
         """
         Input flow node configuration
@@ -6759,6 +6856,34 @@ class FlowNodeConfiguration11PropertiesArgs:
     @retrieval.setter
     def retrieval(self, value: pulumi.Input['FlowRetrievalFlowNodeConfigurationArgs']):
         pulumi.set(self, "retrieval", value)
+
+
+if not MYPY:
+    class FlowNodeConfiguration12PropertiesArgsDict(TypedDict):
+        """
+        Node configuration in a flow
+        """
+        inline_code: pulumi.Input['FlowInlineCodeFlowNodeConfigurationArgsDict']
+elif False:
+    FlowNodeConfiguration12PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowNodeConfiguration12PropertiesArgs:
+    def __init__(__self__, *,
+                 inline_code: pulumi.Input['FlowInlineCodeFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "inline_code", inline_code)
+
+    @property
+    @pulumi.getter(name="inlineCode")
+    def inline_code(self) -> pulumi.Input['FlowInlineCodeFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "inline_code")
+
+    @inline_code.setter
+    def inline_code(self, value: pulumi.Input['FlowInlineCodeFlowNodeConfigurationArgs']):
+        pulumi.set(self, "inline_code", value)
 
 
 if not MYPY:
@@ -7153,7 +7278,7 @@ if not MYPY:
         """
         The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
         """
-        configuration: NotRequired[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgsDict', 'FlowNodeConfiguration1PropertiesArgsDict', 'FlowNodeConfiguration2PropertiesArgsDict', 'FlowNodeConfiguration3PropertiesArgsDict', 'FlowNodeConfiguration4PropertiesArgsDict', 'FlowNodeConfiguration5PropertiesArgsDict', 'FlowNodeConfiguration6PropertiesArgsDict', 'FlowNodeConfiguration7PropertiesArgsDict', 'FlowNodeConfiguration8PropertiesArgsDict', 'FlowNodeConfiguration9PropertiesArgsDict', 'FlowNodeConfiguration10PropertiesArgsDict', 'FlowNodeConfiguration11PropertiesArgsDict']]]
+        configuration: NotRequired[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgsDict', 'FlowNodeConfiguration1PropertiesArgsDict', 'FlowNodeConfiguration2PropertiesArgsDict', 'FlowNodeConfiguration3PropertiesArgsDict', 'FlowNodeConfiguration4PropertiesArgsDict', 'FlowNodeConfiguration5PropertiesArgsDict', 'FlowNodeConfiguration6PropertiesArgsDict', 'FlowNodeConfiguration7PropertiesArgsDict', 'FlowNodeConfiguration8PropertiesArgsDict', 'FlowNodeConfiguration9PropertiesArgsDict', 'FlowNodeConfiguration10PropertiesArgsDict', 'FlowNodeConfiguration11PropertiesArgsDict', 'FlowNodeConfiguration12PropertiesArgsDict']]]
         """
         Contains configurations for the node.
         """
@@ -7173,14 +7298,14 @@ class FlowNodeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[builtins.str],
                  type: pulumi.Input['FlowNodeType'],
-                 configuration: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs']]] = None,
                  inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]]] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]]] = None):
         """
         Internal mixin for flow node
         :param pulumi.Input[builtins.str] name: Name of a node in a flow
         :param pulumi.Input['FlowNodeType'] type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-        :param pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs']] configuration: Contains configurations for the node.
+        :param pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs']] configuration: Contains configurations for the node.
         :param pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]] inputs: List of node inputs in a flow
         :param pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]] outputs: List of node outputs in a flow
         """
@@ -7219,14 +7344,14 @@ class FlowNodeArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs']]]:
+    def configuration(self) -> Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs']]]:
         """
         Contains configurations for the node.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs']]]):
+    def configuration(self, value: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs']]]):
         pulumi.set(self, "configuration", value)
 
     @property

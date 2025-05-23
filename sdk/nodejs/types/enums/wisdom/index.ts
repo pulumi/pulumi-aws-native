@@ -168,6 +168,7 @@ export const KnowledgeBaseType = {
     Custom: "CUSTOM",
     MessageTemplates: "MESSAGE_TEMPLATES",
     Managed: "MANAGED",
+    QuickResponses: "QUICK_RESPONSES",
 } as const;
 
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];

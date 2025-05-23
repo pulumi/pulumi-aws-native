@@ -1307,6 +1307,171 @@ func (o FleetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
+type FleetTagPropagationMode string
+
+const (
+	FleetTagPropagationModeNoPropagation                  = FleetTagPropagationMode("NO_PROPAGATION")
+	FleetTagPropagationModePropagateTagsToWorkersAtLaunch = FleetTagPropagationMode("PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH")
+)
+
+func (FleetTagPropagationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetTagPropagationMode)(nil)).Elem()
+}
+
+func (e FleetTagPropagationMode) ToFleetTagPropagationModeOutput() FleetTagPropagationModeOutput {
+	return pulumi.ToOutput(e).(FleetTagPropagationModeOutput)
+}
+
+func (e FleetTagPropagationMode) ToFleetTagPropagationModeOutputWithContext(ctx context.Context) FleetTagPropagationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetTagPropagationModeOutput)
+}
+
+func (e FleetTagPropagationMode) ToFleetTagPropagationModePtrOutput() FleetTagPropagationModePtrOutput {
+	return e.ToFleetTagPropagationModePtrOutputWithContext(context.Background())
+}
+
+func (e FleetTagPropagationMode) ToFleetTagPropagationModePtrOutputWithContext(ctx context.Context) FleetTagPropagationModePtrOutput {
+	return FleetTagPropagationMode(e).ToFleetTagPropagationModeOutputWithContext(ctx).ToFleetTagPropagationModePtrOutputWithContext(ctx)
+}
+
+func (e FleetTagPropagationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetTagPropagationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetTagPropagationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetTagPropagationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetTagPropagationModeOutput struct{ *pulumi.OutputState }
+
+func (FleetTagPropagationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetTagPropagationMode)(nil)).Elem()
+}
+
+func (o FleetTagPropagationModeOutput) ToFleetTagPropagationModeOutput() FleetTagPropagationModeOutput {
+	return o
+}
+
+func (o FleetTagPropagationModeOutput) ToFleetTagPropagationModeOutputWithContext(ctx context.Context) FleetTagPropagationModeOutput {
+	return o
+}
+
+func (o FleetTagPropagationModeOutput) ToFleetTagPropagationModePtrOutput() FleetTagPropagationModePtrOutput {
+	return o.ToFleetTagPropagationModePtrOutputWithContext(context.Background())
+}
+
+func (o FleetTagPropagationModeOutput) ToFleetTagPropagationModePtrOutputWithContext(ctx context.Context) FleetTagPropagationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetTagPropagationMode) *FleetTagPropagationMode {
+		return &v
+	}).(FleetTagPropagationModePtrOutput)
+}
+
+func (o FleetTagPropagationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetTagPropagationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetTagPropagationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetTagPropagationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetTagPropagationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetTagPropagationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetTagPropagationModePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetTagPropagationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetTagPropagationMode)(nil)).Elem()
+}
+
+func (o FleetTagPropagationModePtrOutput) ToFleetTagPropagationModePtrOutput() FleetTagPropagationModePtrOutput {
+	return o
+}
+
+func (o FleetTagPropagationModePtrOutput) ToFleetTagPropagationModePtrOutputWithContext(ctx context.Context) FleetTagPropagationModePtrOutput {
+	return o
+}
+
+func (o FleetTagPropagationModePtrOutput) Elem() FleetTagPropagationModeOutput {
+	return o.ApplyT(func(v *FleetTagPropagationMode) FleetTagPropagationMode {
+		if v != nil {
+			return *v
+		}
+		var ret FleetTagPropagationMode
+		return ret
+	}).(FleetTagPropagationModeOutput)
+}
+
+func (o FleetTagPropagationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetTagPropagationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetTagPropagationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetTagPropagationModeInput is an input type that accepts values of the FleetTagPropagationMode enum
+// A concrete instance of `FleetTagPropagationModeInput` can be one of the following:
+//
+//	FleetTagPropagationModeNoPropagation
+//	FleetTagPropagationModePropagateTagsToWorkersAtLaunch
+type FleetTagPropagationModeInput interface {
+	pulumi.Input
+
+	ToFleetTagPropagationModeOutput() FleetTagPropagationModeOutput
+	ToFleetTagPropagationModeOutputWithContext(context.Context) FleetTagPropagationModeOutput
+}
+
+var fleetTagPropagationModePtrType = reflect.TypeOf((**FleetTagPropagationMode)(nil)).Elem()
+
+type FleetTagPropagationModePtrInput interface {
+	pulumi.Input
+
+	ToFleetTagPropagationModePtrOutput() FleetTagPropagationModePtrOutput
+	ToFleetTagPropagationModePtrOutputWithContext(context.Context) FleetTagPropagationModePtrOutput
+}
+
+type fleetTagPropagationModePtr string
+
+func FleetTagPropagationModePtr(v string) FleetTagPropagationModePtrInput {
+	return (*fleetTagPropagationModePtr)(&v)
+}
+
+func (*fleetTagPropagationModePtr) ElementType() reflect.Type {
+	return fleetTagPropagationModePtrType
+}
+
+func (in *fleetTagPropagationModePtr) ToFleetTagPropagationModePtrOutput() FleetTagPropagationModePtrOutput {
+	return pulumi.ToOutput(in).(FleetTagPropagationModePtrOutput)
+}
+
+func (in *fleetTagPropagationModePtr) ToFleetTagPropagationModePtrOutputWithContext(ctx context.Context) FleetTagPropagationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetTagPropagationModePtrOutput)
+}
+
 type LicenseEndpointStatus string
 
 const (
@@ -2244,6 +2409,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEc2MarketTypePtrInput)(nil)).Elem(), FleetEc2MarketType("on-demand"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedFleetOperatingSystemFamilyInput)(nil)).Elem(), FleetServiceManagedFleetOperatingSystemFamily("LINUX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedFleetOperatingSystemFamilyPtrInput)(nil)).Elem(), FleetServiceManagedFleetOperatingSystemFamily("LINUX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagPropagationModeInput)(nil)).Elem(), FleetTagPropagationMode("NO_PROPAGATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagPropagationModePtrInput)(nil)).Elem(), FleetTagPropagationMode("NO_PROPAGATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueDefaultQueueBudgetActionInput)(nil)).Elem(), QueueDefaultQueueBudgetAction("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueDefaultQueueBudgetActionPtrInput)(nil)).Elem(), QueueDefaultQueueBudgetAction("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueEnvironmentEnvironmentTemplateTypeInput)(nil)).Elem(), QueueEnvironmentEnvironmentTemplateType("JSON"))
@@ -2271,6 +2438,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetServiceManagedFleetOperatingSystemFamilyPtrOutput{})
 	pulumi.RegisterOutputType(FleetStatusOutput{})
 	pulumi.RegisterOutputType(FleetStatusPtrOutput{})
+	pulumi.RegisterOutputType(FleetTagPropagationModeOutput{})
+	pulumi.RegisterOutputType(FleetTagPropagationModePtrOutput{})
 	pulumi.RegisterOutputType(LicenseEndpointStatusOutput{})
 	pulumi.RegisterOutputType(LicenseEndpointStatusPtrOutput{})
 	pulumi.RegisterOutputType(QueueDefaultQueueBudgetActionOutput{})

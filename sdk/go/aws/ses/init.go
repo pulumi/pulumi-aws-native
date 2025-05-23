@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MailManagerAddonInstance{}
 	case "aws-native:ses:MailManagerAddonSubscription":
 		r = &MailManagerAddonSubscription{}
+	case "aws-native:ses:MailManagerAddressList":
+		r = &MailManagerAddressList{}
 	case "aws-native:ses:MailManagerArchive":
 		r = &MailManagerArchive{}
 	case "aws-native:ses:MailManagerIngressPoint":

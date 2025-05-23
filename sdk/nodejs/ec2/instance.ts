@@ -138,6 +138,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly licenseSpecifications!: pulumi.Output<outputs.ec2.InstanceLicenseSpecification[] | undefined>;
     /**
+     * The metadata options for the instance
+     */
+    public readonly metadataOptions!: pulumi.Output<outputs.ec2.InstanceMetadataOptions | undefined>;
+    /**
      * Specifies whether detailed monitoring is enabled for the instance.
      */
     public readonly monitoring!: pulumi.Output<boolean | undefined>;
@@ -261,6 +265,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["keyName"] = args ? args.keyName : undefined;
             resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
             resourceInputs["licenseSpecifications"] = args ? args.licenseSpecifications : undefined;
+            resourceInputs["metadataOptions"] = args ? args.metadataOptions : undefined;
             resourceInputs["monitoring"] = args ? args.monitoring : undefined;
             resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
             resourceInputs["placementGroupName"] = args ? args.placementGroupName : undefined;
@@ -310,6 +315,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["keyName"] = undefined /*out*/;
             resourceInputs["launchTemplate"] = undefined /*out*/;
             resourceInputs["licenseSpecifications"] = undefined /*out*/;
+            resourceInputs["metadataOptions"] = undefined /*out*/;
             resourceInputs["monitoring"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
             resourceInputs["placementGroupName"] = undefined /*out*/;
@@ -440,6 +446,10 @@ export interface InstanceArgs {
      * The license configurations.
      */
     licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceLicenseSpecificationArgs>[]>;
+    /**
+     * The metadata options for the instance
+     */
+    metadataOptions?: pulumi.Input<inputs.ec2.InstanceMetadataOptionsArgs>;
     /**
      * Specifies whether detailed monitoring is enabled for the instance.
      */
