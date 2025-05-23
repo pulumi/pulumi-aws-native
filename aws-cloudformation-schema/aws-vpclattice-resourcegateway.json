@@ -5,7 +5,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "tagProperty" : "/properties/Tags",
-    "cloudFormationSystemTags" : false
+    "cloudFormationSystemTags" : true
   },
   "handlers" : {
     "read" : {
@@ -21,7 +21,7 @@
       "permissions" : [ "vpc-lattice:ListResourceGateways" ]
     },
     "delete" : {
-      "permissions" : [ "vpc-lattice:DeleteResourceGateway", "vpc-lattice:GetResourceGateway" ]
+      "permissions" : [ "vpc-lattice:DeleteResourceGateway", "vpc-lattice:GetResourceGateway", "vpc-lattice:UntagResource" ]
     }
   },
   "typeName" : "AWS::VpcLattice::ResourceGateway",
@@ -126,5 +126,6 @@
       "type" : "string",
       "maxLength" : 40
     }
-  }
+  },
+  "required" : [ "Name", "VpcIdentifier", "SubnetIds" ]
 }

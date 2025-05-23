@@ -987,6 +987,7 @@ AWS::SES::DedicatedIpPool
 AWS::SES::EmailIdentity
 AWS::SES::MailManagerAddonInstance
 AWS::SES::MailManagerAddonSubscription
+AWS::SES::MailManagerAddressList
 AWS::SES::MailManagerArchive
 AWS::SES::MailManagerIngressPoint
 AWS::SES::MailManagerRelay
