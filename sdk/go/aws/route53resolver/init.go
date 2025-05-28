@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResolverConfig{}
 	case "aws-native:route53resolver:ResolverDnssecConfig":
 		r = &ResolverDnssecConfig{}
+	case "aws-native:route53resolver:ResolverEndpoint":
+		r = &ResolverEndpoint{}
 	case "aws-native:route53resolver:ResolverQueryLoggingConfig":
 		r = &ResolverQueryLoggingConfig{}
 	case "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation":

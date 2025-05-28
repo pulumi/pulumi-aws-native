@@ -2953,6 +2953,7 @@ _utilities.register(
    "aws-native:route53resolver:OutpostResolver": "OutpostResolver",
    "aws-native:route53resolver:ResolverConfig": "ResolverConfig",
    "aws-native:route53resolver:ResolverDnssecConfig": "ResolverDnssecConfig",
+   "aws-native:route53resolver:ResolverEndpoint": "ResolverEndpoint",
    "aws-native:route53resolver:ResolverQueryLoggingConfig": "ResolverQueryLoggingConfig",
    "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation": "ResolverQueryLoggingConfigAssociation",
    "aws-native:route53resolver:ResolverRule": "ResolverRule",

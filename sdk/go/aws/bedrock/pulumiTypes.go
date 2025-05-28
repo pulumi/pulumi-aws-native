@@ -14880,8 +14880,12 @@ func (o FlowAgentFlowNodeConfigurationPtrOutput) AgentAliasArn() pulumi.StringPt
 
 type FlowAliasConcurrencyConfiguration struct {
 	// Number of nodes executed concurrently at a time
-	MaxConcurrency *float64                 `pulumi:"maxConcurrency"`
-	Type           FlowAliasConcurrencyType `pulumi:"type"`
+	MaxConcurrency *float64 `pulumi:"maxConcurrency"`
+	// The type of concurrency to use for parallel node execution. Specify one of the following options:
+	//
+	// - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+	// - `Manual` - You specify which nodes can be executed in parallel.
+	Type FlowAliasConcurrencyType `pulumi:"type"`
 }
 
 // FlowAliasConcurrencyConfigurationInput is an input type that accepts FlowAliasConcurrencyConfigurationArgs and FlowAliasConcurrencyConfigurationOutput values.
@@ -14897,8 +14901,12 @@ type FlowAliasConcurrencyConfigurationInput interface {
 
 type FlowAliasConcurrencyConfigurationArgs struct {
 	// Number of nodes executed concurrently at a time
-	MaxConcurrency pulumi.Float64PtrInput        `pulumi:"maxConcurrency"`
-	Type           FlowAliasConcurrencyTypeInput `pulumi:"type"`
+	MaxConcurrency pulumi.Float64PtrInput `pulumi:"maxConcurrency"`
+	// The type of concurrency to use for parallel node execution. Specify one of the following options:
+	//
+	// - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+	// - `Manual` - You specify which nodes can be executed in parallel.
+	Type FlowAliasConcurrencyTypeInput `pulumi:"type"`
 }
 
 func (FlowAliasConcurrencyConfigurationArgs) ElementType() reflect.Type {
@@ -14983,6 +14991,10 @@ func (o FlowAliasConcurrencyConfigurationOutput) MaxConcurrency() pulumi.Float64
 	return o.ApplyT(func(v FlowAliasConcurrencyConfiguration) *float64 { return v.MaxConcurrency }).(pulumi.Float64PtrOutput)
 }
 
+// The type of concurrency to use for parallel node execution. Specify one of the following options:
+//
+// - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+// - `Manual` - You specify which nodes can be executed in parallel.
 func (o FlowAliasConcurrencyConfigurationOutput) Type() FlowAliasConcurrencyTypeOutput {
 	return o.ApplyT(func(v FlowAliasConcurrencyConfiguration) FlowAliasConcurrencyType { return v.Type }).(FlowAliasConcurrencyTypeOutput)
 }
@@ -15021,6 +15033,10 @@ func (o FlowAliasConcurrencyConfigurationPtrOutput) MaxConcurrency() pulumi.Floa
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The type of concurrency to use for parallel node execution. Specify one of the following options:
+//
+// - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+// - `Manual` - You specify which nodes can be executed in parallel.
 func (o FlowAliasConcurrencyConfigurationPtrOutput) Type() FlowAliasConcurrencyTypePtrOutput {
 	return o.ApplyT(func(v *FlowAliasConcurrencyConfiguration) *FlowAliasConcurrencyType {
 		if v == nil {
@@ -19313,7 +19329,7 @@ type FlowNodeInputType struct {
 	Expression string `pulumi:"expression"`
 	// Name of a node input in a flow
 	Name string `pulumi:"name"`
-	// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+	// Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 	Type FlowNodeIoDataType `pulumi:"type"`
 }
 
@@ -19334,7 +19350,7 @@ type FlowNodeInputTypeArgs struct {
 	Expression pulumi.StringInput `pulumi:"expression"`
 	// Name of a node input in a flow
 	Name pulumi.StringInput `pulumi:"name"`
-	// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+	// Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 	Type FlowNodeIoDataTypeInput `pulumi:"type"`
 }
 
@@ -19400,7 +19416,7 @@ func (o FlowNodeInputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowNodeInputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+// Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 func (o FlowNodeInputTypeOutput) Type() FlowNodeIoDataTypeOutput {
 	return o.ApplyT(func(v FlowNodeInputType) FlowNodeIoDataType { return v.Type }).(FlowNodeIoDataTypeOutput)
 }
@@ -23684,7 +23700,7 @@ type FlowVersionFlowNodeInputType struct {
 	Expression string `pulumi:"expression"`
 	// Name of a node input in a flow
 	Name string `pulumi:"name"`
-	// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+	// Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 	Type FlowVersionFlowNodeIoDataType `pulumi:"type"`
 }
 
@@ -23713,7 +23729,7 @@ func (o FlowVersionFlowNodeInputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowVersionFlowNodeInputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+// Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 func (o FlowVersionFlowNodeInputTypeOutput) Type() FlowVersionFlowNodeIoDataTypeOutput {
 	return o.ApplyT(func(v FlowVersionFlowNodeInputType) FlowVersionFlowNodeIoDataType { return v.Type }).(FlowVersionFlowNodeIoDataTypeOutput)
 }

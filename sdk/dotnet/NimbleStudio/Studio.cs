@@ -15,65 +15,33 @@ namespace Pulumi.AwsNative.NimbleStudio
     [AwsNativeResourceType("aws-native:nimblestudio:Studio")]
     public partial class Studio : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-        /// </summary>
         [Output("adminRoleArn")]
         public Output<string> AdminRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// A friendly name for the studio.
-        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// The AWS Region where the studio resource is located. For example, `us-west-2` .
-        /// </summary>
         [Output("homeRegion")]
         public Output<string> HomeRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
-        /// </summary>
         [Output("ssoClientId")]
         public Output<string> SsoClientId { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration of the encryption method that is used for the studio.
-        /// </summary>
         [Output("studioEncryptionConfiguration")]
         public Output<Outputs.StudioEncryptionConfiguration?> StudioEncryptionConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for the studio resource.
-        /// </summary>
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
-        /// </summary>
         [Output("studioName")]
         public Output<string> StudioName { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for the studio resource.
-        /// </summary>
         [Output("studioUrl")]
         public Output<string> StudioUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// 
-        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The IAM role that studio users assume when logging in to the Nimble Studio portal.
-        /// </summary>
         [Output("userRoleArn")]
         public Output<string> UserRoleArn { get; private set; } = null!;
 
@@ -127,47 +95,26 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class StudioArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-        /// </summary>
         [Input("adminRoleArn", required: true)]
         public Input<string> AdminRoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// A friendly name for the studio.
-        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration of the encryption method that is used for the studio.
-        /// </summary>
         [Input("studioEncryptionConfiguration")]
         public Input<Inputs.StudioEncryptionConfigurationArgs>? StudioEncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
-        /// </summary>
         [Input("studioName")]
         public Input<string>? StudioName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// 
-        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The IAM role that studio users assume when logging in to the Nimble Studio portal.
-        /// </summary>
         [Input("userRoleArn", required: true)]
         public Input<string> UserRoleArn { get; set; } = null!;
 

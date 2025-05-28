@@ -14298,7 +14298,9 @@ func (o BotStillWaitingResponseSpecificationPtrOutput) TimeoutInSeconds() pulumi
 }
 
 type BotSubSlotSetting struct {
-	Expression         *string                      `pulumi:"expression"`
+	// The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
+	Expression *string `pulumi:"expression"`
+	// Specifications for the constituent sub slots of a composite slot.
 	SlotSpecifications map[string]BotSpecifications `pulumi:"slotSpecifications"`
 }
 
@@ -14314,7 +14316,9 @@ type BotSubSlotSettingInput interface {
 }
 
 type BotSubSlotSettingArgs struct {
-	Expression         pulumi.StringPtrInput     `pulumi:"expression"`
+	// The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// Specifications for the constituent sub slots of a composite slot.
 	SlotSpecifications BotSpecificationsMapInput `pulumi:"slotSpecifications"`
 }
 
@@ -14395,10 +14399,12 @@ func (o BotSubSlotSettingOutput) ToBotSubSlotSettingPtrOutputWithContext(ctx con
 	}).(BotSubSlotSettingPtrOutput)
 }
 
+// The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
 func (o BotSubSlotSettingOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotSubSlotSetting) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
+// Specifications for the constituent sub slots of a composite slot.
 func (o BotSubSlotSettingOutput) SlotSpecifications() BotSpecificationsMapOutput {
 	return o.ApplyT(func(v BotSubSlotSetting) map[string]BotSpecifications { return v.SlotSpecifications }).(BotSpecificationsMapOutput)
 }
@@ -14427,6 +14433,7 @@ func (o BotSubSlotSettingPtrOutput) Elem() BotSubSlotSettingOutput {
 	}).(BotSubSlotSettingOutput)
 }
 
+// The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
 func (o BotSubSlotSettingPtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotSubSlotSetting) *string {
 		if v == nil {
@@ -14436,6 +14443,7 @@ func (o BotSubSlotSettingPtrOutput) Expression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifications for the constituent sub slots of a composite slot.
 func (o BotSubSlotSettingPtrOutput) SlotSpecifications() BotSpecificationsMapOutput {
 	return o.ApplyT(func(v *BotSubSlotSetting) map[string]BotSpecifications {
 		if v == nil {

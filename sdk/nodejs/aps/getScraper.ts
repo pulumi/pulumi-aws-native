@@ -41,6 +41,9 @@ export interface GetScraperResult {
      * IAM role ARN for the scraper.
      */
     readonly roleArn?: string;
+    /**
+     * The role configuration in an Amazon Managed Service for Prometheus scraper.
+     */
     readonly roleConfiguration?: outputs.aps.ScraperRoleConfiguration;
     /**
      * The configuration in use by the scraper.

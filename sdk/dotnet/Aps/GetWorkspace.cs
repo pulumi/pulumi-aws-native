@@ -76,13 +76,18 @@ namespace Pulumi.AwsNative.Aps
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Contains information about the logging configuration for the workspace.
+        /// Contains information about the current rules and alerting logging configuration for the workspace.
+        /// 
+        /// &gt; These logging configurations are only for rules and alerting logs.
         /// </summary>
         public readonly Outputs.WorkspaceLoggingConfiguration? LoggingConfiguration;
         /// <summary>
         /// AMP Workspace prometheus endpoint
         /// </summary>
         public readonly string? PrometheusEndpoint;
+        /// <summary>
+        /// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+        /// </summary>
         public readonly Outputs.WorkspaceQueryLoggingConfiguration? QueryLoggingConfiguration;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

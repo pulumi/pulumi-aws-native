@@ -87,6 +87,9 @@ class GetScraperResult:
     @property
     @pulumi.getter(name="roleConfiguration")
     def role_configuration(self) -> Optional['outputs.ScraperRoleConfiguration']:
+        """
+        The role configuration in an Amazon Managed Service for Prometheus scraper.
+        """
         return pulumi.get(self, "role_configuration")
 
     @property

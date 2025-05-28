@@ -596,6 +596,8 @@ class WorkspaceLoggingDestination(dict):
                  filters: 'outputs.WorkspaceLoggingFilter'):
         """
         Destinations for query logging
+        :param 'WorkspaceCloudWatchLogDestination' cloud_watch_logs: Configuration details for logging to CloudWatch Logs.
+        :param 'WorkspaceLoggingFilter' filters: Filtering criteria that determine which queries are logged.
         """
         pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
         pulumi.set(__self__, "filters", filters)
@@ -603,11 +605,17 @@ class WorkspaceLoggingDestination(dict):
     @property
     @pulumi.getter(name="cloudWatchLogs")
     def cloud_watch_logs(self) -> 'outputs.WorkspaceCloudWatchLogDestination':
+        """
+        Configuration details for logging to CloudWatch Logs.
+        """
         return pulumi.get(self, "cloud_watch_logs")
 
     @property
     @pulumi.getter
     def filters(self) -> 'outputs.WorkspaceLoggingFilter':
+        """
+        Filtering criteria that determine which queries are logged.
+        """
         return pulumi.get(self, "filters")
 
 

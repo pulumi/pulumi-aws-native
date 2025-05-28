@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
     public sealed class BotSubSlotSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
+        /// </summary>
         [Input("expression")]
         public Input<string>? Expression { get; set; }
 
         [Input("slotSpecifications")]
         private InputMap<Inputs.BotSpecificationsArgs>? _slotSpecifications;
+
+        /// <summary>
+        /// Specifications for the constituent sub slots of a composite slot.
+        /// </summary>
         public InputMap<Inputs.BotSpecificationsArgs> SlotSpecifications
         {
             get => _slotSpecifications ?? (_slotSpecifications = new InputMap<Inputs.BotSpecificationsArgs>());

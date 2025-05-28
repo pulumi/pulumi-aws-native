@@ -171,6 +171,17 @@ export const ResolverDnssecConfigValidationStatus = {
  */
 export type ResolverDnssecConfigValidationStatus = (typeof ResolverDnssecConfigValidationStatus)[keyof typeof ResolverDnssecConfigValidationStatus];
 
+export const ResolverEndpointType = {
+    Ipv6: "IPV6",
+    Ipv4: "IPV4",
+    Dualstack: "DUALSTACK",
+} as const;
+
+/**
+ * The Resolver endpoint IP address type.
+ */
+export type ResolverEndpointType = (typeof ResolverEndpointType)[keyof typeof ResolverEndpointType];
+
 export const ResolverQueryLoggingConfigAssociationError = {
     None: "NONE",
     DestinationNotFound: "DESTINATION_NOT_FOUND",

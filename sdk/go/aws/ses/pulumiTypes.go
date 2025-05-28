@@ -5459,6 +5459,57 @@ func (o MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput) Analysis() Mai
 	}).(MailManagerRuleSetAnalysisOutput)
 }
 
+type MailManagerRuleSetRuleBooleanToEvaluate2Properties struct {
+	IsInAddressList MailManagerRuleSetRuleIsInAddressList `pulumi:"isInAddressList"`
+}
+
+// MailManagerRuleSetRuleBooleanToEvaluate2PropertiesInput is an input type that accepts MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgs and MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleBooleanToEvaluate2PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgs{...}
+type MailManagerRuleSetRuleBooleanToEvaluate2PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput
+	ToMailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput
+}
+
+type MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgs struct {
+	IsInAddressList MailManagerRuleSetRuleIsInAddressListInput `pulumi:"isInAddressList"`
+}
+
+func (MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate2Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgs) ToMailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgs) ToMailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate2Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput) ToMailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput() MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput) ToMailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput) IsInAddressList() MailManagerRuleSetRuleIsInAddressListOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleBooleanToEvaluate2Properties) MailManagerRuleSetRuleIsInAddressList {
+		return v.IsInAddressList
+	}).(MailManagerRuleSetRuleIsInAddressListOutput)
+}
+
 type MailManagerRuleSetRuleCondition0Properties struct {
 	BooleanExpression MailManagerRuleSetRuleBooleanExpression `pulumi:"booleanExpression"`
 }
@@ -5936,6 +5987,63 @@ func (o MailManagerRuleSetRuleIpToEvaluatePropertiesOutput) Attribute() MailMana
 	return o.ApplyT(func(v MailManagerRuleSetRuleIpToEvaluateProperties) MailManagerRuleSetRuleIpEmailAttribute {
 		return v.Attribute
 	}).(MailManagerRuleSetRuleIpEmailAttributeOutput)
+}
+
+type MailManagerRuleSetRuleIsInAddressList struct {
+	AddressLists []string                                        `pulumi:"addressLists"`
+	Attribute    MailManagerRuleSetRuleAddressListEmailAttribute `pulumi:"attribute"`
+}
+
+// MailManagerRuleSetRuleIsInAddressListInput is an input type that accepts MailManagerRuleSetRuleIsInAddressListArgs and MailManagerRuleSetRuleIsInAddressListOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleIsInAddressListInput` via:
+//
+//	MailManagerRuleSetRuleIsInAddressListArgs{...}
+type MailManagerRuleSetRuleIsInAddressListInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleIsInAddressListOutput() MailManagerRuleSetRuleIsInAddressListOutput
+	ToMailManagerRuleSetRuleIsInAddressListOutputWithContext(context.Context) MailManagerRuleSetRuleIsInAddressListOutput
+}
+
+type MailManagerRuleSetRuleIsInAddressListArgs struct {
+	AddressLists pulumi.StringArrayInput                              `pulumi:"addressLists"`
+	Attribute    MailManagerRuleSetRuleAddressListEmailAttributeInput `pulumi:"attribute"`
+}
+
+func (MailManagerRuleSetRuleIsInAddressListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleIsInAddressList)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleIsInAddressListArgs) ToMailManagerRuleSetRuleIsInAddressListOutput() MailManagerRuleSetRuleIsInAddressListOutput {
+	return i.ToMailManagerRuleSetRuleIsInAddressListOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleIsInAddressListArgs) ToMailManagerRuleSetRuleIsInAddressListOutputWithContext(ctx context.Context) MailManagerRuleSetRuleIsInAddressListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleIsInAddressListOutput)
+}
+
+type MailManagerRuleSetRuleIsInAddressListOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleIsInAddressListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleIsInAddressList)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleIsInAddressListOutput) ToMailManagerRuleSetRuleIsInAddressListOutput() MailManagerRuleSetRuleIsInAddressListOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleIsInAddressListOutput) ToMailManagerRuleSetRuleIsInAddressListOutputWithContext(ctx context.Context) MailManagerRuleSetRuleIsInAddressListOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleIsInAddressListOutput) AddressLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleIsInAddressList) []string { return v.AddressLists }).(pulumi.StringArrayOutput)
+}
+
+func (o MailManagerRuleSetRuleIsInAddressListOutput) Attribute() MailManagerRuleSetRuleAddressListEmailAttributeOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleIsInAddressList) MailManagerRuleSetRuleAddressListEmailAttribute {
+		return v.Attribute
+	}).(MailManagerRuleSetRuleAddressListEmailAttributeOutput)
 }
 
 type MailManagerRuleSetRuleNumberExpression struct {
@@ -6705,8 +6813,8 @@ func (o MailManagerTrafficPolicyIngressAnalysisOutput) ResultField() pulumi.Stri
 }
 
 type MailManagerTrafficPolicyIngressBooleanExpression struct {
-	Evaluate MailManagerTrafficPolicyIngressBooleanToEvaluateProperties `pulumi:"evaluate"`
-	Operator MailManagerTrafficPolicyIngressBooleanOperator             `pulumi:"operator"`
+	Evaluate interface{}                                    `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressBooleanOperator `pulumi:"operator"`
 }
 
 // MailManagerTrafficPolicyIngressBooleanExpressionInput is an input type that accepts MailManagerTrafficPolicyIngressBooleanExpressionArgs and MailManagerTrafficPolicyIngressBooleanExpressionOutput values.
@@ -6721,8 +6829,8 @@ type MailManagerTrafficPolicyIngressBooleanExpressionInput interface {
 }
 
 type MailManagerTrafficPolicyIngressBooleanExpressionArgs struct {
-	Evaluate MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesInput `pulumi:"evaluate"`
-	Operator MailManagerTrafficPolicyIngressBooleanOperatorInput             `pulumi:"operator"`
+	Evaluate pulumi.Input                                        `pulumi:"evaluate"`
+	Operator MailManagerTrafficPolicyIngressBooleanOperatorInput `pulumi:"operator"`
 }
 
 func (MailManagerTrafficPolicyIngressBooleanExpressionArgs) ElementType() reflect.Type {
@@ -6751,10 +6859,8 @@ func (o MailManagerTrafficPolicyIngressBooleanExpressionOutput) ToMailManagerTra
 	return o
 }
 
-func (o MailManagerTrafficPolicyIngressBooleanExpressionOutput) Evaluate() MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput {
-	return o.ApplyT(func(v MailManagerTrafficPolicyIngressBooleanExpression) MailManagerTrafficPolicyIngressBooleanToEvaluateProperties {
-		return v.Evaluate
-	}).(MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput)
+func (o MailManagerTrafficPolicyIngressBooleanExpressionOutput) Evaluate() pulumi.AnyOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressBooleanExpression) interface{} { return v.Evaluate }).(pulumi.AnyOutput)
 }
 
 func (o MailManagerTrafficPolicyIngressBooleanExpressionOutput) Operator() MailManagerTrafficPolicyIngressBooleanOperatorOutput {
@@ -6767,55 +6873,102 @@ type MailManagerTrafficPolicyIngressBooleanToEvaluate0Properties struct {
 	Analysis MailManagerTrafficPolicyIngressAnalysis `pulumi:"analysis"`
 }
 
-type MailManagerTrafficPolicyIngressBooleanToEvaluateProperties struct {
-	Analysis MailManagerTrafficPolicyIngressAnalysis `pulumi:"analysis"`
-}
-
-// MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesInput is an input type that accepts MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs and MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput values.
-// You can construct a concrete instance of `MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesInput` via:
+// MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesInput is an input type that accepts MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs and MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesInput` via:
 //
-//	MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs{...}
-type MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesInput interface {
+//	MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs{...}
+type MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesInput interface {
 	pulumi.Input
 
-	ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput
-	ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput
+	ToMailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput() MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput
+	ToMailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput
 }
 
-type MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs struct {
+type MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs struct {
 	Analysis MailManagerTrafficPolicyIngressAnalysisInput `pulumi:"analysis"`
 }
 
-func (MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluateProperties)(nil)).Elem()
+func (MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluate0Properties)(nil)).Elem()
 }
 
-func (i MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput {
-	return i.ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutputWithContext(context.Background())
+func (i MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs) ToMailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput() MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput {
+	return i.ToMailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutputWithContext(context.Background())
 }
 
-func (i MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs) ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput)
+func (i MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs) ToMailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput)
 }
 
-type MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+type MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput struct{ *pulumi.OutputState }
 
-func (MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluateProperties)(nil)).Elem()
+func (MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluate0Properties)(nil)).Elem()
 }
 
-func (o MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput() MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput {
+func (o MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput) ToMailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput() MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput {
 	return o
 }
 
-func (o MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput) ToMailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput {
+func (o MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput) ToMailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput {
 	return o
 }
 
-func (o MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput) Analysis() MailManagerTrafficPolicyIngressAnalysisOutput {
-	return o.ApplyT(func(v MailManagerTrafficPolicyIngressBooleanToEvaluateProperties) MailManagerTrafficPolicyIngressAnalysis {
+func (o MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput) Analysis() MailManagerTrafficPolicyIngressAnalysisOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressBooleanToEvaluate0Properties) MailManagerTrafficPolicyIngressAnalysis {
 		return v.Analysis
 	}).(MailManagerTrafficPolicyIngressAnalysisOutput)
+}
+
+type MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties struct {
+	IsInAddressList MailManagerTrafficPolicyIngressIsInAddressList `pulumi:"isInAddressList"`
+}
+
+// MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesInput is an input type that accepts MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgs and MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesInput` via:
+//
+//	MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgs{...}
+type MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput() MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput
+	ToMailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutputWithContext(context.Context) MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput
+}
+
+type MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgs struct {
+	IsInAddressList MailManagerTrafficPolicyIngressIsInAddressListInput `pulumi:"isInAddressList"`
+}
+
+func (MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgs) ToMailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput() MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput {
+	return i.ToMailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgs) ToMailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput)
+}
+
+type MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput) ToMailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput() MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput) ToMailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput) IsInAddressList() MailManagerTrafficPolicyIngressIsInAddressListOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties) MailManagerTrafficPolicyIngressIsInAddressList {
+		return v.IsInAddressList
+	}).(MailManagerTrafficPolicyIngressIsInAddressListOutput)
 }
 
 type MailManagerTrafficPolicyIngressIpToEvaluate0Properties struct {
@@ -7056,6 +7209,63 @@ func (o MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput) Attribute
 	return o.ApplyT(func(v MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties) MailManagerTrafficPolicyIngressIpv6Attribute {
 		return v.Attribute
 	}).(MailManagerTrafficPolicyIngressIpv6AttributeOutput)
+}
+
+type MailManagerTrafficPolicyIngressIsInAddressList struct {
+	AddressLists []string                                                 `pulumi:"addressLists"`
+	Attribute    MailManagerTrafficPolicyIngressAddressListEmailAttribute `pulumi:"attribute"`
+}
+
+// MailManagerTrafficPolicyIngressIsInAddressListInput is an input type that accepts MailManagerTrafficPolicyIngressIsInAddressListArgs and MailManagerTrafficPolicyIngressIsInAddressListOutput values.
+// You can construct a concrete instance of `MailManagerTrafficPolicyIngressIsInAddressListInput` via:
+//
+//	MailManagerTrafficPolicyIngressIsInAddressListArgs{...}
+type MailManagerTrafficPolicyIngressIsInAddressListInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressIsInAddressListOutput() MailManagerTrafficPolicyIngressIsInAddressListOutput
+	ToMailManagerTrafficPolicyIngressIsInAddressListOutputWithContext(context.Context) MailManagerTrafficPolicyIngressIsInAddressListOutput
+}
+
+type MailManagerTrafficPolicyIngressIsInAddressListArgs struct {
+	AddressLists pulumi.StringArrayInput                                       `pulumi:"addressLists"`
+	Attribute    MailManagerTrafficPolicyIngressAddressListEmailAttributeInput `pulumi:"attribute"`
+}
+
+func (MailManagerTrafficPolicyIngressIsInAddressListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressIsInAddressList)(nil)).Elem()
+}
+
+func (i MailManagerTrafficPolicyIngressIsInAddressListArgs) ToMailManagerTrafficPolicyIngressIsInAddressListOutput() MailManagerTrafficPolicyIngressIsInAddressListOutput {
+	return i.ToMailManagerTrafficPolicyIngressIsInAddressListOutputWithContext(context.Background())
+}
+
+func (i MailManagerTrafficPolicyIngressIsInAddressListArgs) ToMailManagerTrafficPolicyIngressIsInAddressListOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIsInAddressListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerTrafficPolicyIngressIsInAddressListOutput)
+}
+
+type MailManagerTrafficPolicyIngressIsInAddressListOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressIsInAddressListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressIsInAddressList)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressIsInAddressListOutput) ToMailManagerTrafficPolicyIngressIsInAddressListOutput() MailManagerTrafficPolicyIngressIsInAddressListOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIsInAddressListOutput) ToMailManagerTrafficPolicyIngressIsInAddressListOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressIsInAddressListOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressIsInAddressListOutput) AddressLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressIsInAddressList) []string { return v.AddressLists }).(pulumi.StringArrayOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressIsInAddressListOutput) Attribute() MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput {
+	return o.ApplyT(func(v MailManagerTrafficPolicyIngressIsInAddressList) MailManagerTrafficPolicyIngressAddressListEmailAttribute {
+		return v.Attribute
+	}).(MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput)
 }
 
 type MailManagerTrafficPolicyIngressStringExpression struct {
@@ -8270,6 +8480,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate0PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanToEvaluate2PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleCondition0PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleCondition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleCondition1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleCondition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleCondition2PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleCondition2PropertiesArgs{})
@@ -8279,6 +8490,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleDmarcExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleDmarcExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleIpExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleIpExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleIpToEvaluatePropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleIpToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleIsInAddressListInput)(nil)).Elem(), MailManagerRuleSetRuleIsInAddressListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleNumberExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleNumberExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleNumberToEvaluatePropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleStringExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleStringExpressionArgs{})
@@ -8293,11 +8505,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetSnsActionInput)(nil)).Elem(), MailManagerRuleSetSnsActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressAnalysisInput)(nil)).Elem(), MailManagerTrafficPolicyIngressAnalysisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressBooleanExpressionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv4ExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpv4ExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv6ExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpv6ExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIsInAddressListInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIsInAddressListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressStringExpressionInput)(nil)).Elem(), MailManagerTrafficPolicyIngressStringExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesArgs{})
@@ -8399,6 +8613,7 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanToEvaluate0PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanToEvaluate1PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanToEvaluate2PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleCondition0PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleCondition1PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleCondition2PropertiesOutput{})
@@ -8408,6 +8623,7 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleDmarcExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleIpExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleIpToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleIsInAddressListOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleNumberExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleStringExpressionOutput{})
@@ -8422,11 +8638,13 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerRuleSetSnsActionOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressAnalysisOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressBooleanExpressionOutput{})
-	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpToEvaluatePropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpv4ExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpv6ExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIsInAddressListOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressStringExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressStringToEvaluate1PropertiesOutput{})

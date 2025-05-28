@@ -37,46 +37,17 @@ export class StreamingImage extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamingImage.__pulumiType;
     }
 
-    /**
-     * A human-readable description of the streaming image.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The ID of an EC2 machine image with which to create the streaming image.
-     */
     public readonly ec2ImageId!: pulumi.Output<string>;
     public /*out*/ readonly encryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StreamingImageEncryptionConfiguration>;
     public readonly encryptionConfigurationKeyArn!: pulumi.Output<string | undefined>;
     public readonly encryptionConfigurationKeyType!: pulumi.Output<string | undefined>;
-    /**
-     * The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
-     */
     public /*out*/ readonly eulaIds!: pulumi.Output<string[]>;
-    /**
-     * A friendly name for a streaming image resource.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
-     */
     public /*out*/ readonly owner!: pulumi.Output<string>;
-    /**
-     * The platform of the streaming image, either WINDOWS or LINUX.
-     */
     public /*out*/ readonly platform!: pulumi.Output<string>;
-    /**
-     * The unique identifier for the streaming image resource.
-     */
     public /*out*/ readonly streamingImageId!: pulumi.Output<string>;
-    /**
-     * The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-     */
     public readonly studioId!: pulumi.Output<string>;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     *
-     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -133,28 +104,11 @@ export class StreamingImage extends pulumi.CustomResource {
  * The set of arguments for constructing a StreamingImage resource.
  */
 export interface StreamingImageArgs {
-    /**
-     * A human-readable description of the streaming image.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ID of an EC2 machine image with which to create the streaming image.
-     */
     ec2ImageId: pulumi.Input<string>;
     encryptionConfigurationKeyArn?: pulumi.Input<string>;
     encryptionConfigurationKeyType?: pulumi.Input<string>;
-    /**
-     * A friendly name for a streaming image resource.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-     */
     studioId: pulumi.Input<string>;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     *
-     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

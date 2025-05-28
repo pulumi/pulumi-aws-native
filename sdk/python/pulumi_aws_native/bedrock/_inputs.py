@@ -5980,6 +5980,12 @@ class FlowAgentFlowNodeConfigurationArgs:
 if not MYPY:
     class FlowAliasConcurrencyConfigurationArgsDict(TypedDict):
         type: pulumi.Input['FlowAliasConcurrencyType']
+        """
+        The type of concurrency to use for parallel node execution. Specify one of the following options:
+
+        - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+        - `Manual` - You specify which nodes can be executed in parallel.
+        """
         max_concurrency: NotRequired[pulumi.Input[builtins.float]]
         """
         Number of nodes executed concurrently at a time
@@ -5993,6 +5999,10 @@ class FlowAliasConcurrencyConfigurationArgs:
                  type: pulumi.Input['FlowAliasConcurrencyType'],
                  max_concurrency: Optional[pulumi.Input[builtins.float]] = None):
         """
+        :param pulumi.Input['FlowAliasConcurrencyType'] type: The type of concurrency to use for parallel node execution. Specify one of the following options:
+               
+               - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+               - `Manual` - You specify which nodes can be executed in parallel.
         :param pulumi.Input[builtins.float] max_concurrency: Number of nodes executed concurrently at a time
         """
         pulumi.set(__self__, "type", type)
@@ -6002,6 +6012,12 @@ class FlowAliasConcurrencyConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['FlowAliasConcurrencyType']:
+        """
+        The type of concurrency to use for parallel node execution. Specify one of the following options:
+
+        - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+        - `Manual` - You specify which nodes can be executed in parallel.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -7153,7 +7169,7 @@ if not MYPY:
         """
         type: pulumi.Input['FlowNodeIoDataType']
         """
-        The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
 elif False:
     FlowNodeInputArgsDict: TypeAlias = Mapping[str, Any]
@@ -7168,7 +7184,7 @@ class FlowNodeInputArgs:
         Input to a node in a flow
         :param pulumi.Input[builtins.str] expression: Expression for a node input in a flow
         :param pulumi.Input[builtins.str] name: Name of a node input in a flow
-        :param pulumi.Input['FlowNodeIoDataType'] type: The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        :param pulumi.Input['FlowNodeIoDataType'] type: Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
@@ -7202,7 +7218,7 @@ class FlowNodeInputArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input['FlowNodeIoDataType']:
         """
-        The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         return pulumi.get(self, "type")
 
