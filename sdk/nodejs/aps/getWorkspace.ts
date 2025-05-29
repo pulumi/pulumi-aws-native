@@ -38,13 +38,18 @@ export interface GetWorkspaceResult {
      */
     readonly arn?: string;
     /**
-     * Contains information about the logging configuration for the workspace.
+     * Contains information about the current rules and alerting logging configuration for the workspace.
+     *
+     * > These logging configurations are only for rules and alerting logs.
      */
     readonly loggingConfiguration?: outputs.aps.WorkspaceLoggingConfiguration;
     /**
      * AMP Workspace prometheus endpoint
      */
     readonly prometheusEndpoint?: string;
+    /**
+     * The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+     */
     readonly queryLoggingConfiguration?: outputs.aps.WorkspaceQueryLoggingConfiguration;
     /**
      * An array of key-value pairs to apply to this resource.

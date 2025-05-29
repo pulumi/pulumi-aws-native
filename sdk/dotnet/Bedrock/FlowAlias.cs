@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration that specifies how nodes in the flow are executed concurrently.
+        /// </summary>
         [Output("concurrencyConfiguration")]
         public Output<Outputs.FlowAliasConcurrencyConfiguration?> ConcurrencyConfiguration { get; private set; } = null!;
 
@@ -130,6 +133,9 @@ namespace Pulumi.AwsNative.Bedrock
 
     public sealed class FlowAliasArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration that specifies how nodes in the flow are executed concurrently.
+        /// </summary>
         [Input("concurrencyConfiguration")]
         public Input<Inputs.FlowAliasConcurrencyConfigurationArgs>? ConcurrencyConfiguration { get; set; }
 

@@ -33,7 +33,10 @@ type Fleet struct {
 	// The farm ID.
 	FarmId pulumi.StringOutput `pulumi:"farmId"`
 	// The fleet ID.
-	FleetId           pulumi.StringOutput             `pulumi:"fleetId"`
+	FleetId pulumi.StringOutput `pulumi:"fleetId"`
+	// Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+	//
+	// To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
 	HostConfiguration FleetHostConfigurationPtrOutput `pulumi:"hostConfiguration"`
 	// The maximum number of workers specified in the fleet.
 	MaxWorkerCount pulumi.IntOutput `pulumi:"maxWorkerCount"`
@@ -119,7 +122,10 @@ type fleetArgs struct {
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName string `pulumi:"displayName"`
 	// The farm ID.
-	FarmId            string                  `pulumi:"farmId"`
+	FarmId string `pulumi:"farmId"`
+	// Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+	//
+	// To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
 	HostConfiguration *FleetHostConfiguration `pulumi:"hostConfiguration"`
 	// The maximum number of workers specified in the fleet.
 	MaxWorkerCount int `pulumi:"maxWorkerCount"`
@@ -144,7 +150,10 @@ type FleetArgs struct {
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName pulumi.StringInput
 	// The farm ID.
-	FarmId            pulumi.StringInput
+	FarmId pulumi.StringInput
+	// Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+	//
+	// To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
 	HostConfiguration FleetHostConfigurationPtrInput
 	// The maximum number of workers specified in the fleet.
 	MaxWorkerCount pulumi.IntInput
@@ -231,6 +240,9 @@ func (o FleetOutput) FleetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.FleetId }).(pulumi.StringOutput)
 }
 
+// Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+//
+// To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
 func (o FleetOutput) HostConfiguration() FleetHostConfigurationPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetHostConfigurationPtrOutput { return v.HostConfiguration }).(FleetHostConfigurationPtrOutput)
 }

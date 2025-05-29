@@ -13,13 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     [OutputType]
     public sealed class StudioComponentScriptParameterKeyValue
     {
-        /// <summary>
-        /// A script parameter key.
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// A script parameter value.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

@@ -310,6 +310,7 @@ AWS::DataZone::GroupProfile
 AWS::DataZone::Owner
 AWS::DataZone::Project
 AWS::DataZone::ProjectMembership
+AWS::DataZone::ProjectProfile
 AWS::DataZone::SubscriptionTarget
 AWS::DataZone::UserProfile
 AWS::Deadline::Farm
@@ -956,6 +957,7 @@ AWS::Route53Resolver::FirewallRuleGroupAssociation
 AWS::Route53Resolver::OutpostResolver
 AWS::Route53Resolver::ResolverConfig
 AWS::Route53Resolver::ResolverDNSSECConfig
+AWS::Route53Resolver::ResolverEndpoint
 AWS::Route53Resolver::ResolverQueryLoggingConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation
 AWS::Route53Resolver::ResolverRule

@@ -1526,8 +1526,18 @@ func (o FleetEc2EbsVolumePtrOutput) ThroughputMiB() pulumi.IntPtrOutput {
 }
 
 type FleetHostConfiguration struct {
-	ScriptBody           string `pulumi:"scriptBody"`
-	ScriptTimeoutSeconds *int   `pulumi:"scriptTimeoutSeconds"`
+	// The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+	//
+	// For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
+	//
+	// > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
+	ScriptBody string `pulumi:"scriptBody"`
+	// The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+	//
+	// > You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers.
+	//
+	// The default is 300 seconds (5 minutes).
+	ScriptTimeoutSeconds *int `pulumi:"scriptTimeoutSeconds"`
 }
 
 // FleetHostConfigurationInput is an input type that accepts FleetHostConfigurationArgs and FleetHostConfigurationOutput values.
@@ -1542,7 +1552,17 @@ type FleetHostConfigurationInput interface {
 }
 
 type FleetHostConfigurationArgs struct {
-	ScriptBody           pulumi.StringInput `pulumi:"scriptBody"`
+	// The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+	//
+	// For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
+	//
+	// > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
+	ScriptBody pulumi.StringInput `pulumi:"scriptBody"`
+	// The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+	//
+	// > You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers.
+	//
+	// The default is 300 seconds (5 minutes).
 	ScriptTimeoutSeconds pulumi.IntPtrInput `pulumi:"scriptTimeoutSeconds"`
 }
 
@@ -1623,10 +1643,20 @@ func (o FleetHostConfigurationOutput) ToFleetHostConfigurationPtrOutputWithConte
 	}).(FleetHostConfigurationPtrOutput)
 }
 
+// The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+//
+// For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
+//
+// > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
 func (o FleetHostConfigurationOutput) ScriptBody() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetHostConfiguration) string { return v.ScriptBody }).(pulumi.StringOutput)
 }
 
+// The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+//
+// > You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers.
+//
+// The default is 300 seconds (5 minutes).
 func (o FleetHostConfigurationOutput) ScriptTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetHostConfiguration) *int { return v.ScriptTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -1655,6 +1685,11 @@ func (o FleetHostConfigurationPtrOutput) Elem() FleetHostConfigurationOutput {
 	}).(FleetHostConfigurationOutput)
 }
 
+// The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+//
+// For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
+//
+// > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
 func (o FleetHostConfigurationPtrOutput) ScriptBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetHostConfiguration) *string {
 		if v == nil {
@@ -1664,6 +1699,11 @@ func (o FleetHostConfigurationPtrOutput) ScriptBody() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+//
+// > You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers.
+//
+// The default is 300 seconds (5 minutes).
 func (o FleetHostConfigurationPtrOutput) ScriptTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetHostConfiguration) *int {
 		if v == nil {

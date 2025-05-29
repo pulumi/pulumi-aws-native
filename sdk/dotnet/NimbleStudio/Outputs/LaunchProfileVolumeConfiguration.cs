@@ -13,17 +13,8 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     [OutputType]
     public sealed class LaunchProfileVolumeConfiguration
     {
-        /// <summary>
-        /// The number of I/O operations per second for the root volume that is attached to streaming session.
-        /// </summary>
         public readonly double? Iops;
-        /// <summary>
-        /// The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
-        /// </summary>
         public readonly double? Size;
-        /// <summary>
-        /// The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
-        /// </summary>
         public readonly double? Throughput;
 
         [OutputConstructor]

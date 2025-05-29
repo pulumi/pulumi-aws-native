@@ -64,7 +64,6 @@ func NewDistributionTenant(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Domains'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"managedCertificateRequest",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)

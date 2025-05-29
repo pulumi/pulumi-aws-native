@@ -95,6 +95,11 @@ export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
 utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
 
+export { GetProjectProfileArgs, GetProjectProfileResult, GetProjectProfileOutputArgs } from "./getProjectProfile";
+export const getProjectProfile: typeof import("./getProjectProfile").getProjectProfile = null as any;
+export const getProjectProfileOutput: typeof import("./getProjectProfile").getProjectProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getProjectProfile","getProjectProfileOutput"], () => require("./getProjectProfile"));
+
 export { GetSubscriptionTargetArgs, GetSubscriptionTargetResult, GetSubscriptionTargetOutputArgs } from "./getSubscriptionTarget";
 export const getSubscriptionTarget: typeof import("./getSubscriptionTarget").getSubscriptionTarget = null as any;
 export const getSubscriptionTargetOutput: typeof import("./getSubscriptionTarget").getSubscriptionTargetOutput = null as any;
@@ -124,6 +129,11 @@ export { ProjectMembershipArgs } from "./projectMembership";
 export type ProjectMembership = import("./projectMembership").ProjectMembership;
 export const ProjectMembership: typeof import("./projectMembership").ProjectMembership = null as any;
 utilities.lazyLoad(exports, ["ProjectMembership"], () => require("./projectMembership"));
+
+export { ProjectProfileArgs } from "./projectProfile";
+export type ProjectProfile = import("./projectProfile").ProjectProfile;
+export const ProjectProfile: typeof import("./projectProfile").ProjectProfile = null as any;
+utilities.lazyLoad(exports, ["ProjectProfile"], () => require("./projectProfile"));
 
 export { SubscriptionTargetArgs } from "./subscriptionTarget";
 export type SubscriptionTarget = import("./subscriptionTarget").SubscriptionTarget;
@@ -167,6 +177,8 @@ const _module = {
                 return new Project(name, <any>undefined, { urn })
             case "aws-native:datazone:ProjectMembership":
                 return new ProjectMembership(name, <any>undefined, { urn })
+            case "aws-native:datazone:ProjectProfile":
+                return new ProjectProfile(name, <any>undefined, { urn })
             case "aws-native:datazone:SubscriptionTarget":
                 return new SubscriptionTarget(name, <any>undefined, { urn })
             case "aws-native:datazone:UserProfile":

@@ -69,6 +69,9 @@ class GetFlowAliasResult:
     @property
     @pulumi.getter(name="concurrencyConfiguration")
     def concurrency_configuration(self) -> Optional['outputs.FlowAliasConcurrencyConfiguration']:
+        """
+        The configuration that specifies how nodes in the flow are executed concurrently.
+        """
         return pulumi.get(self, "concurrency_configuration")
 
     @property

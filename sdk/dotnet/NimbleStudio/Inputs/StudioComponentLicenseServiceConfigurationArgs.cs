@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
 
     public sealed class StudioComponentLicenseServiceConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The endpoint of the license service that is accessed by the studio component resource.
-        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 

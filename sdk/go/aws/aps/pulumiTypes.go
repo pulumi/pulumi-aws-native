@@ -1368,8 +1368,10 @@ func (o WorkspaceLoggingConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOu
 
 // Destinations for query logging
 type WorkspaceLoggingDestination struct {
+	// Configuration details for logging to CloudWatch Logs.
 	CloudWatchLogs WorkspaceCloudWatchLogDestination `pulumi:"cloudWatchLogs"`
-	Filters        WorkspaceLoggingFilter            `pulumi:"filters"`
+	// Filtering criteria that determine which queries are logged.
+	Filters WorkspaceLoggingFilter `pulumi:"filters"`
 }
 
 // WorkspaceLoggingDestinationInput is an input type that accepts WorkspaceLoggingDestinationArgs and WorkspaceLoggingDestinationOutput values.
@@ -1385,8 +1387,10 @@ type WorkspaceLoggingDestinationInput interface {
 
 // Destinations for query logging
 type WorkspaceLoggingDestinationArgs struct {
+	// Configuration details for logging to CloudWatch Logs.
 	CloudWatchLogs WorkspaceCloudWatchLogDestinationInput `pulumi:"cloudWatchLogs"`
-	Filters        WorkspaceLoggingFilterInput            `pulumi:"filters"`
+	// Filtering criteria that determine which queries are logged.
+	Filters WorkspaceLoggingFilterInput `pulumi:"filters"`
 }
 
 func (WorkspaceLoggingDestinationArgs) ElementType() reflect.Type {
@@ -1441,10 +1445,12 @@ func (o WorkspaceLoggingDestinationOutput) ToWorkspaceLoggingDestinationOutputWi
 	return o
 }
 
+// Configuration details for logging to CloudWatch Logs.
 func (o WorkspaceLoggingDestinationOutput) CloudWatchLogs() WorkspaceCloudWatchLogDestinationOutput {
 	return o.ApplyT(func(v WorkspaceLoggingDestination) WorkspaceCloudWatchLogDestination { return v.CloudWatchLogs }).(WorkspaceCloudWatchLogDestinationOutput)
 }
 
+// Filtering criteria that determine which queries are logged.
 func (o WorkspaceLoggingDestinationOutput) Filters() WorkspaceLoggingFilterOutput {
 	return o.ApplyT(func(v WorkspaceLoggingDestination) WorkspaceLoggingFilter { return v.Filters }).(WorkspaceLoggingFilterOutput)
 }

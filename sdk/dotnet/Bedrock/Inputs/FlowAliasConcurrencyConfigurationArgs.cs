@@ -18,6 +18,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("maxConcurrency")]
         public Input<double>? MaxConcurrency { get; set; }
 
+        /// <summary>
+        /// The type of concurrency to use for parallel node execution. Specify one of the following options:
+        /// 
+        /// - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+        /// - `Manual` - You specify which nodes can be executed in parallel.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.FlowAliasConcurrencyType> Type { get; set; } = null!;
 

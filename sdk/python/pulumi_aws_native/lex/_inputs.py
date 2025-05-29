@@ -6380,7 +6380,13 @@ class BotStillWaitingResponseSpecificationArgs:
 if not MYPY:
     class BotSubSlotSettingArgsDict(TypedDict):
         expression: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
+        """
         slot_specifications: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['BotSpecificationsArgsDict']]]]
+        """
+        Specifications for the constituent sub slots of a composite slot.
+        """
 elif False:
     BotSubSlotSettingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6389,6 +6395,10 @@ class BotSubSlotSettingArgs:
     def __init__(__self__, *,
                  expression: Optional[pulumi.Input[builtins.str]] = None,
                  slot_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input['BotSpecificationsArgs']]]] = None):
+        """
+        :param pulumi.Input[builtins.str] expression: The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
+        :param pulumi.Input[Mapping[str, pulumi.Input['BotSpecificationsArgs']]] slot_specifications: Specifications for the constituent sub slots of a composite slot.
+        """
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
         if slot_specifications is not None:
@@ -6397,6 +6407,9 @@ class BotSubSlotSettingArgs:
     @property
     @pulumi.getter
     def expression(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
+        """
         return pulumi.get(self, "expression")
 
     @expression.setter
@@ -6406,6 +6419,9 @@ class BotSubSlotSettingArgs:
     @property
     @pulumi.getter(name="slotSpecifications")
     def slot_specifications(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['BotSpecificationsArgs']]]]:
+        """
+        Specifications for the constituent sub slots of a composite slot.
+        """
         return pulumi.get(self, "slot_specifications")
 
     @slot_specifications.setter

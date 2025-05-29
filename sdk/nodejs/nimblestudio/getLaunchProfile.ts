@@ -18,36 +18,15 @@ export function getLaunchProfile(args: GetLaunchProfileArgs, opts?: pulumi.Invok
 }
 
 export interface GetLaunchProfileArgs {
-    /**
-     * The unique identifier for the launch profile resource.
-     */
     launchProfileId: string;
 }
 
 export interface GetLaunchProfileResult {
-    /**
-     * A human-readable description of the launch profile.
-     */
     readonly description?: string;
-    /**
-     * The unique identifier for the launch profile resource.
-     */
     readonly launchProfileId?: string;
-    /**
-     * The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
-     */
     readonly launchProfileProtocolVersions?: string[];
-    /**
-     * A friendly name for the launch profile.
-     */
     readonly name?: string;
-    /**
-     * A configuration for a streaming session.
-     */
     readonly streamConfiguration?: outputs.nimblestudio.LaunchProfileStreamConfiguration;
-    /**
-     * Unique identifiers for a collection of studio components that can be used with this launch profile.
-     */
     readonly studioComponentIds?: string[];
 }
 /**
@@ -61,8 +40,5 @@ export function getLaunchProfileOutput(args: GetLaunchProfileOutputArgs, opts?: 
 }
 
 export interface GetLaunchProfileOutputArgs {
-    /**
-     * The unique identifier for the launch profile resource.
-     */
     launchProfileId: pulumi.Input<string>;
 }

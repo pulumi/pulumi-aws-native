@@ -8490,6 +8490,200 @@ func (o ProjectMembershipMember1PropertiesOutput) GroupIdentifier() pulumi.Strin
 	return o.ApplyT(func(v ProjectMembershipMember1Properties) string { return v.GroupIdentifier }).(pulumi.StringOutput)
 }
 
+type ProjectProfileDesignationConfiguration struct {
+	DesignationId string `pulumi:"designationId"`
+}
+
+// ProjectProfileDesignationConfigurationInput is an input type that accepts ProjectProfileDesignationConfigurationArgs and ProjectProfileDesignationConfigurationOutput values.
+// You can construct a concrete instance of `ProjectProfileDesignationConfigurationInput` via:
+//
+//	ProjectProfileDesignationConfigurationArgs{...}
+type ProjectProfileDesignationConfigurationInput interface {
+	pulumi.Input
+
+	ToProjectProfileDesignationConfigurationOutput() ProjectProfileDesignationConfigurationOutput
+	ToProjectProfileDesignationConfigurationOutputWithContext(context.Context) ProjectProfileDesignationConfigurationOutput
+}
+
+type ProjectProfileDesignationConfigurationArgs struct {
+	DesignationId pulumi.StringInput `pulumi:"designationId"`
+}
+
+func (ProjectProfileDesignationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileDesignationConfiguration)(nil)).Elem()
+}
+
+func (i ProjectProfileDesignationConfigurationArgs) ToProjectProfileDesignationConfigurationOutput() ProjectProfileDesignationConfigurationOutput {
+	return i.ToProjectProfileDesignationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileDesignationConfigurationArgs) ToProjectProfileDesignationConfigurationOutputWithContext(ctx context.Context) ProjectProfileDesignationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileDesignationConfigurationOutput)
+}
+
+// ProjectProfileDesignationConfigurationArrayInput is an input type that accepts ProjectProfileDesignationConfigurationArray and ProjectProfileDesignationConfigurationArrayOutput values.
+// You can construct a concrete instance of `ProjectProfileDesignationConfigurationArrayInput` via:
+//
+//	ProjectProfileDesignationConfigurationArray{ ProjectProfileDesignationConfigurationArgs{...} }
+type ProjectProfileDesignationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToProjectProfileDesignationConfigurationArrayOutput() ProjectProfileDesignationConfigurationArrayOutput
+	ToProjectProfileDesignationConfigurationArrayOutputWithContext(context.Context) ProjectProfileDesignationConfigurationArrayOutput
+}
+
+type ProjectProfileDesignationConfigurationArray []ProjectProfileDesignationConfigurationInput
+
+func (ProjectProfileDesignationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectProfileDesignationConfiguration)(nil)).Elem()
+}
+
+func (i ProjectProfileDesignationConfigurationArray) ToProjectProfileDesignationConfigurationArrayOutput() ProjectProfileDesignationConfigurationArrayOutput {
+	return i.ToProjectProfileDesignationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileDesignationConfigurationArray) ToProjectProfileDesignationConfigurationArrayOutputWithContext(ctx context.Context) ProjectProfileDesignationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileDesignationConfigurationArrayOutput)
+}
+
+type ProjectProfileDesignationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileDesignationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileDesignationConfiguration)(nil)).Elem()
+}
+
+func (o ProjectProfileDesignationConfigurationOutput) ToProjectProfileDesignationConfigurationOutput() ProjectProfileDesignationConfigurationOutput {
+	return o
+}
+
+func (o ProjectProfileDesignationConfigurationOutput) ToProjectProfileDesignationConfigurationOutputWithContext(ctx context.Context) ProjectProfileDesignationConfigurationOutput {
+	return o
+}
+
+func (o ProjectProfileDesignationConfigurationOutput) DesignationId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectProfileDesignationConfiguration) string { return v.DesignationId }).(pulumi.StringOutput)
+}
+
+type ProjectProfileDesignationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileDesignationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectProfileDesignationConfiguration)(nil)).Elem()
+}
+
+func (o ProjectProfileDesignationConfigurationArrayOutput) ToProjectProfileDesignationConfigurationArrayOutput() ProjectProfileDesignationConfigurationArrayOutput {
+	return o
+}
+
+func (o ProjectProfileDesignationConfigurationArrayOutput) ToProjectProfileDesignationConfigurationArrayOutputWithContext(ctx context.Context) ProjectProfileDesignationConfigurationArrayOutput {
+	return o
+}
+
+func (o ProjectProfileDesignationConfigurationArrayOutput) Index(i pulumi.IntInput) ProjectProfileDesignationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectProfileDesignationConfiguration {
+		return vs[0].([]ProjectProfileDesignationConfiguration)[vs[1].(int)]
+	}).(ProjectProfileDesignationConfigurationOutput)
+}
+
+type ProjectProfileProjectScope struct {
+	Name   string  `pulumi:"name"`
+	Policy *string `pulumi:"policy"`
+}
+
+// ProjectProfileProjectScopeInput is an input type that accepts ProjectProfileProjectScopeArgs and ProjectProfileProjectScopeOutput values.
+// You can construct a concrete instance of `ProjectProfileProjectScopeInput` via:
+//
+//	ProjectProfileProjectScopeArgs{...}
+type ProjectProfileProjectScopeInput interface {
+	pulumi.Input
+
+	ToProjectProfileProjectScopeOutput() ProjectProfileProjectScopeOutput
+	ToProjectProfileProjectScopeOutputWithContext(context.Context) ProjectProfileProjectScopeOutput
+}
+
+type ProjectProfileProjectScopeArgs struct {
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+}
+
+func (ProjectProfileProjectScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileProjectScope)(nil)).Elem()
+}
+
+func (i ProjectProfileProjectScopeArgs) ToProjectProfileProjectScopeOutput() ProjectProfileProjectScopeOutput {
+	return i.ToProjectProfileProjectScopeOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileProjectScopeArgs) ToProjectProfileProjectScopeOutputWithContext(ctx context.Context) ProjectProfileProjectScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileProjectScopeOutput)
+}
+
+// ProjectProfileProjectScopeArrayInput is an input type that accepts ProjectProfileProjectScopeArray and ProjectProfileProjectScopeArrayOutput values.
+// You can construct a concrete instance of `ProjectProfileProjectScopeArrayInput` via:
+//
+//	ProjectProfileProjectScopeArray{ ProjectProfileProjectScopeArgs{...} }
+type ProjectProfileProjectScopeArrayInput interface {
+	pulumi.Input
+
+	ToProjectProfileProjectScopeArrayOutput() ProjectProfileProjectScopeArrayOutput
+	ToProjectProfileProjectScopeArrayOutputWithContext(context.Context) ProjectProfileProjectScopeArrayOutput
+}
+
+type ProjectProfileProjectScopeArray []ProjectProfileProjectScopeInput
+
+func (ProjectProfileProjectScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectProfileProjectScope)(nil)).Elem()
+}
+
+func (i ProjectProfileProjectScopeArray) ToProjectProfileProjectScopeArrayOutput() ProjectProfileProjectScopeArrayOutput {
+	return i.ToProjectProfileProjectScopeArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileProjectScopeArray) ToProjectProfileProjectScopeArrayOutputWithContext(ctx context.Context) ProjectProfileProjectScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileProjectScopeArrayOutput)
+}
+
+type ProjectProfileProjectScopeOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileProjectScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileProjectScope)(nil)).Elem()
+}
+
+func (o ProjectProfileProjectScopeOutput) ToProjectProfileProjectScopeOutput() ProjectProfileProjectScopeOutput {
+	return o
+}
+
+func (o ProjectProfileProjectScopeOutput) ToProjectProfileProjectScopeOutputWithContext(ctx context.Context) ProjectProfileProjectScopeOutput {
+	return o
+}
+
+func (o ProjectProfileProjectScopeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectProfileProjectScope) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ProjectProfileProjectScopeOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectProfileProjectScope) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+type ProjectProfileProjectScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileProjectScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectProfileProjectScope)(nil)).Elem()
+}
+
+func (o ProjectProfileProjectScopeArrayOutput) ToProjectProfileProjectScopeArrayOutput() ProjectProfileProjectScopeArrayOutput {
+	return o
+}
+
+func (o ProjectProfileProjectScopeArrayOutput) ToProjectProfileProjectScopeArrayOutputWithContext(ctx context.Context) ProjectProfileProjectScopeArrayOutput {
+	return o
+}
+
+func (o ProjectProfileProjectScopeArrayOutput) Index(i pulumi.IntInput) ProjectProfileProjectScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectProfileProjectScope {
+		return vs[0].([]ProjectProfileProjectScope)[vs[1].(int)]
+	}).(ProjectProfileProjectScopeOutput)
+}
+
 // The details of the subscription target configuration.
 type SubscriptionTargetForm struct {
 	// The content of the subscription target configuration.
@@ -8978,6 +9172,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentParameterArrayInput)(nil)).Elem(), ProjectEnvironmentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember0PropertiesInput)(nil)).Elem(), ProjectMembershipMember0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember1PropertiesInput)(nil)).Elem(), ProjectMembershipMember1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileDesignationConfigurationInput)(nil)).Elem(), ProjectProfileDesignationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileDesignationConfigurationArrayInput)(nil)).Elem(), ProjectProfileDesignationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileProjectScopeInput)(nil)).Elem(), ProjectProfileProjectScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileProjectScopeArrayInput)(nil)).Elem(), ProjectProfileProjectScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormInput)(nil)).Elem(), SubscriptionTargetFormArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormArrayInput)(nil)).Elem(), SubscriptionTargetFormArray{})
 	pulumi.RegisterOutputType(ConnectionAthenaPropertiesInputOutput{})
@@ -9094,6 +9292,10 @@ func init() {
 	pulumi.RegisterOutputType(ProjectEnvironmentParameterArrayOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipMember0PropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipMember1PropertiesOutput{})
+	pulumi.RegisterOutputType(ProjectProfileDesignationConfigurationOutput{})
+	pulumi.RegisterOutputType(ProjectProfileDesignationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ProjectProfileProjectScopeOutput{})
+	pulumi.RegisterOutputType(ProjectProfileProjectScopeArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionTargetFormOutput{})
 	pulumi.RegisterOutputType(SubscriptionTargetFormArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileDetails0PropertiesOutput{})

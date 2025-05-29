@@ -128,7 +128,9 @@ namespace Pulumi.AwsNative.Aps
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Contains information about the logging configuration for the workspace.
+        /// Contains information about the current rules and alerting logging configuration for the workspace.
+        /// 
+        /// &gt; These logging configurations are only for rules and alerting logs.
         /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.WorkspaceLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
@@ -139,6 +141,9 @@ namespace Pulumi.AwsNative.Aps
         [Output("prometheusEndpoint")]
         public Output<string> PrometheusEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+        /// </summary>
         [Output("queryLoggingConfiguration")]
         public Output<Outputs.WorkspaceQueryLoggingConfiguration?> QueryLoggingConfiguration { get; private set; } = null!;
 
@@ -228,11 +233,16 @@ namespace Pulumi.AwsNative.Aps
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Contains information about the logging configuration for the workspace.
+        /// Contains information about the current rules and alerting logging configuration for the workspace.
+        /// 
+        /// &gt; These logging configurations are only for rules and alerting logs.
         /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.WorkspaceLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
+        /// <summary>
+        /// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+        /// </summary>
         [Input("queryLoggingConfiguration")]
         public Input<Inputs.WorkspaceQueryLoggingConfigurationArgs>? QueryLoggingConfiguration { get; set; }
 

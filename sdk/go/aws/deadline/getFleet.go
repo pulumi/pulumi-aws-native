@@ -43,7 +43,10 @@ type LookupFleetResult struct {
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName *string `pulumi:"displayName"`
 	// The fleet ID.
-	FleetId           *string                 `pulumi:"fleetId"`
+	FleetId *string `pulumi:"fleetId"`
+	// Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+	//
+	// To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
 	HostConfiguration *FleetHostConfiguration `pulumi:"hostConfiguration"`
 	// The maximum number of workers specified in the fleet.
 	MaxWorkerCount *int `pulumi:"maxWorkerCount"`
@@ -124,6 +127,9 @@ func (o LookupFleetResultOutput) FleetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.FleetId }).(pulumi.StringPtrOutput)
 }
 
+// Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+//
+// To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
 func (o LookupFleetResultOutput) HostConfiguration() FleetHostConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *FleetHostConfiguration { return v.HostConfiguration }).(FleetHostConfigurationPtrOutput)
 }

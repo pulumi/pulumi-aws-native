@@ -13,13 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     [OutputType]
     public sealed class StudioComponentComputeFarmConfiguration
     {
-        /// <summary>
-        /// The name of an Active Directory user that is used on ComputeFarm worker instances.
-        /// </summary>
         public readonly string? ActiveDirectoryUser;
-        /// <summary>
-        /// The endpoint of the ComputeFarm that is accessed by the studio component resource.
-        /// </summary>
         public readonly string? Endpoint;
 
         [OutputConstructor]

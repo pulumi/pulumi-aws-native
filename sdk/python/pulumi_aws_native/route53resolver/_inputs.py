@@ -19,6 +19,8 @@ from ._enums import *
 __all__ = [
     'FirewallRuleGroupFirewallRuleArgs',
     'FirewallRuleGroupFirewallRuleArgsDict',
+    'ResolverEndpointIpAddressRequestArgs',
+    'ResolverEndpointIpAddressRequestArgsDict',
     'ResolverRuleTargetAddressArgs',
     'ResolverRuleTargetAddressArgsDict',
 ]
@@ -277,6 +279,77 @@ class FirewallRuleGroupFirewallRuleArgs:
     @qtype.setter
     def qtype(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "qtype", value)
+
+
+if not MYPY:
+    class ResolverEndpointIpAddressRequestArgsDict(TypedDict):
+        subnet_id: pulumi.Input[builtins.str]
+        """
+        The ID of the subnet that contains the IP address.
+        """
+        ip: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The IPv4 address that you want to use for DNS queries.
+        """
+        ipv6: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The IPv6 address that you want to use for DNS queries.
+        """
+elif False:
+    ResolverEndpointIpAddressRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResolverEndpointIpAddressRequestArgs:
+    def __init__(__self__, *,
+                 subnet_id: pulumi.Input[builtins.str],
+                 ip: Optional[pulumi.Input[builtins.str]] = None,
+                 ipv6: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet that contains the IP address.
+        :param pulumi.Input[builtins.str] ip: The IPv4 address that you want to use for DNS queries.
+        :param pulumi.Input[builtins.str] ipv6: The IPv6 address that you want to use for DNS queries.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if ipv6 is not None:
+            pulumi.set(__self__, "ipv6", ipv6)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the subnet that contains the IP address.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The IPv4 address that you want to use for DNS queries.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The IPv6 address that you want to use for DNS queries.
+        """
+        return pulumi.get(self, "ipv6")
+
+    @ipv6.setter
+    def ipv6(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ipv6", value)
 
 
 if not MYPY:

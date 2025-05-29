@@ -45,6 +45,9 @@ export class FlowAlias extends pulumi.CustomResource {
      * Id for a Flow Alias generated at the server side.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The configuration that specifies how nodes in the flow are executed concurrently.
+     */
     public readonly concurrencyConfiguration!: pulumi.Output<outputs.bedrock.FlowAliasConcurrencyConfiguration | undefined>;
     /**
      * Time Stamp.
@@ -134,6 +137,9 @@ export class FlowAlias extends pulumi.CustomResource {
  * The set of arguments for constructing a FlowAlias resource.
  */
 export interface FlowAliasArgs {
+    /**
+     * The configuration that specifies how nodes in the flow are executed concurrently.
+     */
     concurrencyConfiguration?: pulumi.Input<inputs.bedrock.FlowAliasConcurrencyConfigurationArgs>;
     /**
      * Description of the Resource.

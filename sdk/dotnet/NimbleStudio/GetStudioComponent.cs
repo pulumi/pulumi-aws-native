@@ -33,9 +33,6 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetStudioComponentArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier for the studio component resource.
-        /// </summary>
         [Input("studioComponentId", required: true)]
         public string StudioComponentId { get; set; } = null!;
 
@@ -47,9 +44,6 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetStudioComponentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier for the studio component resource.
-        /// </summary>
         [Input("studioComponentId", required: true)]
         public Input<string> StudioComponentId { get; set; } = null!;
 
@@ -63,37 +57,13 @@ namespace Pulumi.AwsNative.NimbleStudio
     [OutputType]
     public sealed class GetStudioComponentResult
     {
-        /// <summary>
-        /// The configuration of the studio component, based on component type.
-        /// </summary>
         public readonly Outputs.StudioComponentConfiguration? Configuration;
-        /// <summary>
-        /// A human-readable description for the studio component resource.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The EC2 security groups that control access to the studio component.
-        /// </summary>
         public readonly ImmutableArray<string> Ec2SecurityGroupIds;
-        /// <summary>
-        /// Initialization scripts for studio components.
-        /// </summary>
         public readonly ImmutableArray<Outputs.StudioComponentInitializationScript> InitializationScripts;
-        /// <summary>
-        /// A friendly name for the studio component resource.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Parameters for the studio component scripts.
-        /// </summary>
         public readonly ImmutableArray<Outputs.StudioComponentScriptParameterKeyValue> ScriptParameters;
-        /// <summary>
-        /// The unique identifier for the studio component resource.
-        /// </summary>
         public readonly string? StudioComponentId;
-        /// <summary>
-        /// The type of the studio component.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

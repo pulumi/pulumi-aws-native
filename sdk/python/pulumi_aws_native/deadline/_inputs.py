@@ -604,7 +604,21 @@ class FleetEc2EbsVolumeArgs:
 if not MYPY:
     class FleetHostConfigurationArgsDict(TypedDict):
         script_body: pulumi.Input[builtins.str]
+        """
+        The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+
+        For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
+
+        > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
+        """
         script_timeout_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+
+        > You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers. 
+
+        The default is 300 seconds (5 minutes).
+        """
 elif False:
     FleetHostConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -613,6 +627,18 @@ class FleetHostConfigurationArgs:
     def __init__(__self__, *,
                  script_body: pulumi.Input[builtins.str],
                  script_timeout_seconds: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] script_body: The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+               
+               For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
+               
+               > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
+        :param pulumi.Input[builtins.int] script_timeout_seconds: The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+               
+               > You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers. 
+               
+               The default is 300 seconds (5 minutes).
+        """
         pulumi.set(__self__, "script_body", script_body)
         if script_timeout_seconds is not None:
             pulumi.set(__self__, "script_timeout_seconds", script_timeout_seconds)
@@ -620,6 +646,13 @@ class FleetHostConfigurationArgs:
     @property
     @pulumi.getter(name="scriptBody")
     def script_body(self) -> pulumi.Input[builtins.str]:
+        """
+        The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+
+        For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
+
+        > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
+        """
         return pulumi.get(self, "script_body")
 
     @script_body.setter
@@ -629,6 +662,13 @@ class FleetHostConfigurationArgs:
     @property
     @pulumi.getter(name="scriptTimeoutSeconds")
     def script_timeout_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+
+        > You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers. 
+
+        The default is 300 seconds (5 minutes).
+        """
         return pulumi.get(self, "script_timeout_seconds")
 
     @script_timeout_seconds.setter

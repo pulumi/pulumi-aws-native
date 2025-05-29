@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
 
     public sealed class LaunchProfileStreamingSessionStorageRootArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The folder path in Linux workstations where files are uploaded.
-        /// </summary>
         [Input("linux")]
         public Input<string>? Linux { get; set; }
 
-        /// <summary>
-        /// The folder path in Windows workstations where files are uploaded.
-        /// </summary>
         [Input("windows")]
         public Input<string>? Windows { get; set; }
 

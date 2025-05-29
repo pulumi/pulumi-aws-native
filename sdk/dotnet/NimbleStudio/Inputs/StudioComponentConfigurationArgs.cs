@@ -12,27 +12,15 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
 
     public sealed class StudioComponentConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
-        /// </summary>
         [Input("activeDirectoryConfiguration")]
         public Input<Inputs.StudioComponentActiveDirectoryConfigurationArgs>? ActiveDirectoryConfiguration { get; set; }
 
-        /// <summary>
-        /// The configuration for a render farm that is associated with a studio resource.
-        /// </summary>
         [Input("computeFarmConfiguration")]
         public Input<Inputs.StudioComponentComputeFarmConfigurationArgs>? ComputeFarmConfiguration { get; set; }
 
-        /// <summary>
-        /// The configuration for a license service that is associated with a studio resource.
-        /// </summary>
         [Input("licenseServiceConfiguration")]
         public Input<Inputs.StudioComponentLicenseServiceConfigurationArgs>? LicenseServiceConfiguration { get; set; }
 
-        /// <summary>
-        /// The configuration for a shared file storage system that is associated with a studio resource.
-        /// </summary>
         [Input("sharedFileSystemConfiguration")]
         public Input<Inputs.StudioComponentSharedFileSystemConfigurationArgs>? SharedFileSystemConfiguration { get; set; }
 

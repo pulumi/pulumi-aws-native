@@ -77,6 +77,8 @@ __all__ = [
     'ProjectEnvironmentParameter',
     'ProjectMembershipMember0Properties',
     'ProjectMembershipMember1Properties',
+    'ProjectProfileDesignationConfiguration',
+    'ProjectProfileProjectScope',
     'SubscriptionTargetForm',
     'UserProfileDetails0Properties',
     'UserProfileDetails1Properties',
@@ -2711,6 +2713,55 @@ class ProjectMembershipMember1Properties(dict):
     @pulumi.getter(name="groupIdentifier")
     def group_identifier(self) -> builtins.str:
         return pulumi.get(self, "group_identifier")
+
+
+@pulumi.output_type
+class ProjectProfileDesignationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "designationId":
+            suggest = "designation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectProfileDesignationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectProfileDesignationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectProfileDesignationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 designation_id: builtins.str):
+        pulumi.set(__self__, "designation_id", designation_id)
+
+    @property
+    @pulumi.getter(name="designationId")
+    def designation_id(self) -> builtins.str:
+        return pulumi.get(self, "designation_id")
+
+
+@pulumi.output_type
+class ProjectProfileProjectScope(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 policy: Optional[builtins.str] = None):
+        pulumi.set(__self__, "name", name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "policy")
 
 
 @pulumi.output_type

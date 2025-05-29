@@ -33,9 +33,6 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetStreamingImageArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier for the streaming image resource.
-        /// </summary>
         [Input("streamingImageId", required: true)]
         public string StreamingImageId { get; set; } = null!;
 
@@ -47,9 +44,6 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetStreamingImageInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier for the streaming image resource.
-        /// </summary>
         [Input("streamingImageId", required: true)]
         public Input<string> StreamingImageId { get; set; } = null!;
 
@@ -63,32 +57,14 @@ namespace Pulumi.AwsNative.NimbleStudio
     [OutputType]
     public sealed class GetStreamingImageResult
     {
-        /// <summary>
-        /// A human-readable description of the streaming image.
-        /// </summary>
         public readonly string? Description;
         public readonly Outputs.StreamingImageEncryptionConfiguration? EncryptionConfiguration;
         public readonly string? EncryptionConfigurationKeyArn;
         public readonly string? EncryptionConfigurationKeyType;
-        /// <summary>
-        /// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
-        /// </summary>
         public readonly ImmutableArray<string> EulaIds;
-        /// <summary>
-        /// A friendly name for a streaming image resource.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
-        /// </summary>
         public readonly string? Owner;
-        /// <summary>
-        /// The platform of the streaming image, either WINDOWS or LINUX.
-        /// </summary>
         public readonly string? Platform;
-        /// <summary>
-        /// The unique identifier for the streaming image resource.
-        /// </summary>
         public readonly string? StreamingImageId;
 
         [OutputConstructor]

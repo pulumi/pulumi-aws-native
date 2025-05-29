@@ -70,6 +70,7 @@ __all__ = [
     'MailManagerRuleSetRuleBooleanExpression',
     'MailManagerRuleSetRuleBooleanToEvaluate0Properties',
     'MailManagerRuleSetRuleBooleanToEvaluate1Properties',
+    'MailManagerRuleSetRuleBooleanToEvaluate2Properties',
     'MailManagerRuleSetRuleCondition0Properties',
     'MailManagerRuleSetRuleCondition1Properties',
     'MailManagerRuleSetRuleCondition2Properties',
@@ -79,6 +80,7 @@ __all__ = [
     'MailManagerRuleSetRuleDmarcExpression',
     'MailManagerRuleSetRuleIpExpression',
     'MailManagerRuleSetRuleIpToEvaluateProperties',
+    'MailManagerRuleSetRuleIsInAddressList',
     'MailManagerRuleSetRuleNumberExpression',
     'MailManagerRuleSetRuleNumberToEvaluateProperties',
     'MailManagerRuleSetRuleStringExpression',
@@ -93,11 +95,13 @@ __all__ = [
     'MailManagerRuleSetSnsAction',
     'MailManagerTrafficPolicyIngressAnalysis',
     'MailManagerTrafficPolicyIngressBooleanExpression',
-    'MailManagerTrafficPolicyIngressBooleanToEvaluateProperties',
+    'MailManagerTrafficPolicyIngressBooleanToEvaluate0Properties',
+    'MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties',
     'MailManagerTrafficPolicyIngressIpToEvaluateProperties',
     'MailManagerTrafficPolicyIngressIpv4Expression',
     'MailManagerTrafficPolicyIngressIpv6Expression',
     'MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties',
+    'MailManagerTrafficPolicyIngressIsInAddressList',
     'MailManagerTrafficPolicyIngressStringExpression',
     'MailManagerTrafficPolicyIngressStringToEvaluate0Properties',
     'MailManagerTrafficPolicyIngressStringToEvaluate1Properties',
@@ -2045,6 +2049,35 @@ class MailManagerRuleSetRuleBooleanToEvaluate1Properties(dict):
 
 
 @pulumi.output_type
+class MailManagerRuleSetRuleBooleanToEvaluate2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isInAddressList":
+            suggest = "is_in_address_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleBooleanToEvaluate2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleBooleanToEvaluate2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleBooleanToEvaluate2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_in_address_list: 'outputs.MailManagerRuleSetRuleIsInAddressList'):
+        pulumi.set(__self__, "is_in_address_list", is_in_address_list)
+
+    @property
+    @pulumi.getter(name="isInAddressList")
+    def is_in_address_list(self) -> 'outputs.MailManagerRuleSetRuleIsInAddressList':
+        return pulumi.get(self, "is_in_address_list")
+
+
+@pulumi.output_type
 class MailManagerRuleSetRuleCondition0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2272,6 +2305,42 @@ class MailManagerRuleSetRuleIpToEvaluateProperties(dict):
     @property
     @pulumi.getter
     def attribute(self) -> 'MailManagerRuleSetRuleIpEmailAttribute':
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleIsInAddressList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressLists":
+            suggest = "address_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleIsInAddressList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleIsInAddressList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleIsInAddressList.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_lists: Sequence[builtins.str],
+                 attribute: 'MailManagerRuleSetRuleAddressListEmailAttribute'):
+        pulumi.set(__self__, "address_lists", address_lists)
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter(name="addressLists")
+    def address_lists(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "address_lists")
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> 'MailManagerRuleSetRuleAddressListEmailAttribute':
         return pulumi.get(self, "attribute")
 
 
@@ -2654,14 +2723,14 @@ class MailManagerTrafficPolicyIngressAnalysis(dict):
 @pulumi.output_type
 class MailManagerTrafficPolicyIngressBooleanExpression(dict):
     def __init__(__self__, *,
-                 evaluate: 'outputs.MailManagerTrafficPolicyIngressBooleanToEvaluateProperties',
+                 evaluate: Any,
                  operator: 'MailManagerTrafficPolicyIngressBooleanOperator'):
         pulumi.set(__self__, "evaluate", evaluate)
         pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
-    def evaluate(self) -> 'outputs.MailManagerTrafficPolicyIngressBooleanToEvaluateProperties':
+    def evaluate(self) -> Any:
         return pulumi.get(self, "evaluate")
 
     @property
@@ -2671,7 +2740,7 @@ class MailManagerTrafficPolicyIngressBooleanExpression(dict):
 
 
 @pulumi.output_type
-class MailManagerTrafficPolicyIngressBooleanToEvaluateProperties(dict):
+class MailManagerTrafficPolicyIngressBooleanToEvaluate0Properties(dict):
     def __init__(__self__, *,
                  analysis: 'outputs.MailManagerTrafficPolicyIngressAnalysis'):
         pulumi.set(__self__, "analysis", analysis)
@@ -2680,6 +2749,35 @@ class MailManagerTrafficPolicyIngressBooleanToEvaluateProperties(dict):
     @pulumi.getter
     def analysis(self) -> 'outputs.MailManagerTrafficPolicyIngressAnalysis':
         return pulumi.get(self, "analysis")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isInAddressList":
+            suggest = "is_in_address_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_in_address_list: 'outputs.MailManagerTrafficPolicyIngressIsInAddressList'):
+        pulumi.set(__self__, "is_in_address_list", is_in_address_list)
+
+    @property
+    @pulumi.getter(name="isInAddressList")
+    def is_in_address_list(self) -> 'outputs.MailManagerTrafficPolicyIngressIsInAddressList':
+        return pulumi.get(self, "is_in_address_list")
 
 
 @pulumi.output_type
@@ -2755,6 +2853,42 @@ class MailManagerTrafficPolicyIngressIpv6ToEvaluateProperties(dict):
     @property
     @pulumi.getter
     def attribute(self) -> 'MailManagerTrafficPolicyIngressIpv6Attribute':
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerTrafficPolicyIngressIsInAddressList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressLists":
+            suggest = "address_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerTrafficPolicyIngressIsInAddressList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerTrafficPolicyIngressIsInAddressList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerTrafficPolicyIngressIsInAddressList.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_lists: Sequence[builtins.str],
+                 attribute: 'MailManagerTrafficPolicyIngressAddressListEmailAttribute'):
+        pulumi.set(__self__, "address_lists", address_lists)
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter(name="addressLists")
+    def address_lists(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "address_lists")
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> 'MailManagerTrafficPolicyIngressAddressListEmailAttribute':
         return pulumi.get(self, "attribute")
 
 
