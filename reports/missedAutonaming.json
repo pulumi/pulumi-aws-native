@@ -1251,7 +1251,8 @@
         "description": "The Amazon Managed Service for Prometheus workspace the scraper sends metrics to."
       },
       "roleConfiguration": {
-        "$ref": "#/types/aws-native:aps:ScraperRoleConfiguration"
+        "$ref": "#/types/aws-native:aps:ScraperRoleConfiguration",
+        "description": "The role configuration in an Amazon Managed Service for Prometheus scraper."
       },
       "scrapeConfiguration": {
         "$ref": "#/types/aws-native:aps:ScraperScrapeConfiguration",
@@ -1287,10 +1288,11 @@
       },
       "loggingConfiguration": {
         "$ref": "#/types/aws-native:aps:WorkspaceLoggingConfiguration",
-        "description": "Contains information about the logging configuration for the workspace."
+        "description": "Contains information about the current rules and alerting logging configuration for the workspace.\n\n\u003e These logging configurations are only for rules and alerting logs."
       },
       "queryLoggingConfiguration": {
-        "$ref": "#/types/aws-native:aps:WorkspaceQueryLoggingConfiguration"
+        "$ref": "#/types/aws-native:aps:WorkspaceQueryLoggingConfiguration",
+        "description": "The definition of logging configuration in an Amazon Managed Service for Prometheus workspace."
       },
       "tags": {
         "type": "array",
@@ -3333,7 +3335,8 @@
         "description": "The identifier of the environment blueprint.\n\nIn the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` ."
       },
       "environmentRolePermissionBoundary": {
-        "type": "string"
+        "type": "string",
+        "description": "The environment role permission boundary."
       },
       "manageAccessRoleArn": {
         "type": "string",
@@ -3343,7 +3346,8 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:datazone:EnvironmentBlueprintConfigurationProvisioningConfigurationProperties"
-        }
+        },
+        "description": "The provisioning configuration of a blueprint."
       },
       "provisioningRoleArn": {
         "type": "string",
@@ -3501,7 +3505,8 @@
         "description": "The farm ID."
       },
       "hostConfiguration": {
-        "$ref": "#/types/aws-native:deadline:FleetHostConfiguration"
+        "$ref": "#/types/aws-native:deadline:FleetHostConfiguration",
+        "description": "Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.\n\nTo remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string (\"\")."
       },
       "maxWorkerCount": {
         "type": "integer",
@@ -5715,6 +5720,29 @@
       }
     }
   },
+  "aws-native:ec2:TrafficMirrorFilter": {
+    "cfTypeName": "AWS::EC2::TrafficMirrorFilter",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "The description of a traffic mirror filter."
+      },
+      "networkServices": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ec2:TrafficMirrorFilterTrafficMirrorNetworkService"
+        },
+        "description": "The network service that is associated with the traffic mirror filter."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for a traffic mirror filter."
+      }
+    }
+  },
   "aws-native:ec2:TransitGateway": {
     "cfTypeName": "AWS::EC2::TransitGateway",
     "properties": {
@@ -7148,7 +7176,7 @@
         "items": {
           "$ref": "#/types/aws-native:efs:FileSystemLifecyclePolicy"
         },
-        "description": "An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:\n  +  When to move files in the file system from primary storage to IA storage.\n  +  When to move files in the file system from primary storage or IA storage to Archive storage.\n  +  When to move files that are in IA or Archive storage to primary storage.\n  \n   EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information."
+        "description": "An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:\n  +  When to move files in the file system from primary storage to IA storage.\n  +  When to move files in the file system from primary storage or IA storage to Archive storage.\n  +  When to move files that are in IA or Archive storage to primary storage.\n  \n  EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive````TransitionToPrimaryStorageClass``. See the example requests in the following section for more information."
       },
       "performanceMode": {
         "type": "string",
