@@ -14,6 +14,7 @@ __all__ = [
     'MailManagerIngressPointIngressPointType',
     'MailManagerRuleSetActionFailurePolicy',
     'MailManagerRuleSetMailFrom',
+    'MailManagerRuleSetRuleAddressListEmailAttribute',
     'MailManagerRuleSetRuleBooleanEmailAttribute',
     'MailManagerRuleSetRuleBooleanOperator',
     'MailManagerRuleSetRuleDmarcOperator',
@@ -30,6 +31,7 @@ __all__ = [
     'MailManagerRuleSetSnsNotificationEncoding',
     'MailManagerRuleSetSnsNotificationPayloadType',
     'MailManagerTrafficPolicyAcceptAction',
+    'MailManagerTrafficPolicyIngressAddressListEmailAttribute',
     'MailManagerTrafficPolicyIngressBooleanOperator',
     'MailManagerTrafficPolicyIngressIpOperator',
     'MailManagerTrafficPolicyIngressIpv4Attribute',
@@ -93,6 +95,15 @@ class MailManagerRuleSetActionFailurePolicy(builtins.str, Enum):
 class MailManagerRuleSetMailFrom(builtins.str, Enum):
     REPLACE = "REPLACE"
     PRESERVE = "PRESERVE"
+
+
+class MailManagerRuleSetRuleAddressListEmailAttribute(builtins.str, Enum):
+    RECIPIENT = "RECIPIENT"
+    MAIL_FROM = "MAIL_FROM"
+    SENDER = "SENDER"
+    FROM_ = "FROM"
+    TO = "TO"
+    CC = "CC"
 
 
 class MailManagerRuleSetRuleBooleanEmailAttribute(builtins.str, Enum):
@@ -188,6 +199,10 @@ class MailManagerRuleSetSnsNotificationPayloadType(builtins.str, Enum):
 class MailManagerTrafficPolicyAcceptAction(builtins.str, Enum):
     ALLOW = "ALLOW"
     DENY = "DENY"
+
+
+class MailManagerTrafficPolicyIngressAddressListEmailAttribute(builtins.str, Enum):
+    RECIPIENT = "RECIPIENT"
 
 
 class MailManagerTrafficPolicyIngressBooleanOperator(builtins.str, Enum):

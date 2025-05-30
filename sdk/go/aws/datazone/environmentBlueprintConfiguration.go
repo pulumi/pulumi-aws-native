@@ -29,10 +29,12 @@ type EnvironmentBlueprintConfiguration struct {
 	// The identifier of the environment blueprint.
 	//
 	// In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
-	EnvironmentBlueprintIdentifier    pulumi.StringOutput    `pulumi:"environmentBlueprintIdentifier"`
+	EnvironmentBlueprintIdentifier pulumi.StringOutput `pulumi:"environmentBlueprintIdentifier"`
+	// The environment role permission boundary.
 	EnvironmentRolePermissionBoundary pulumi.StringPtrOutput `pulumi:"environmentRolePermissionBoundary"`
 	// The ARN of the manage access role.
-	ManageAccessRoleArn        pulumi.StringPtrOutput                                                          `pulumi:"manageAccessRoleArn"`
+	ManageAccessRoleArn pulumi.StringPtrOutput `pulumi:"manageAccessRoleArn"`
+	// The provisioning configuration of a blueprint.
 	ProvisioningConfigurations EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput `pulumi:"provisioningConfigurations"`
 	// The ARN of the provisioning role.
 	ProvisioningRoleArn pulumi.StringPtrOutput `pulumi:"provisioningRoleArn"`
@@ -103,10 +105,12 @@ type environmentBlueprintConfigurationArgs struct {
 	// The identifier of the environment blueprint.
 	//
 	// In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
-	EnvironmentBlueprintIdentifier    string  `pulumi:"environmentBlueprintIdentifier"`
+	EnvironmentBlueprintIdentifier string `pulumi:"environmentBlueprintIdentifier"`
+	// The environment role permission boundary.
 	EnvironmentRolePermissionBoundary *string `pulumi:"environmentRolePermissionBoundary"`
 	// The ARN of the manage access role.
-	ManageAccessRoleArn        *string                                                                `pulumi:"manageAccessRoleArn"`
+	ManageAccessRoleArn *string `pulumi:"manageAccessRoleArn"`
+	// The provisioning configuration of a blueprint.
 	ProvisioningConfigurations []EnvironmentBlueprintConfigurationProvisioningConfigurationProperties `pulumi:"provisioningConfigurations"`
 	// The ARN of the provisioning role.
 	ProvisioningRoleArn *string `pulumi:"provisioningRoleArn"`
@@ -123,10 +127,12 @@ type EnvironmentBlueprintConfigurationArgs struct {
 	// The identifier of the environment blueprint.
 	//
 	// In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
-	EnvironmentBlueprintIdentifier    pulumi.StringInput
+	EnvironmentBlueprintIdentifier pulumi.StringInput
+	// The environment role permission boundary.
 	EnvironmentRolePermissionBoundary pulumi.StringPtrInput
 	// The ARN of the manage access role.
-	ManageAccessRoleArn        pulumi.StringPtrInput
+	ManageAccessRoleArn pulumi.StringPtrInput
+	// The provisioning configuration of a blueprint.
 	ProvisioningConfigurations EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayInput
 	// The ARN of the provisioning role.
 	ProvisioningRoleArn pulumi.StringPtrInput
@@ -205,6 +211,7 @@ func (o EnvironmentBlueprintConfigurationOutput) EnvironmentBlueprintIdentifier(
 	}).(pulumi.StringOutput)
 }
 
+// The environment role permission boundary.
 func (o EnvironmentBlueprintConfigurationOutput) EnvironmentRolePermissionBoundary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringPtrOutput {
 		return v.EnvironmentRolePermissionBoundary
@@ -216,6 +223,7 @@ func (o EnvironmentBlueprintConfigurationOutput) ManageAccessRoleArn() pulumi.St
 	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringPtrOutput { return v.ManageAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The provisioning configuration of a blueprint.
 func (o EnvironmentBlueprintConfigurationOutput) ProvisioningConfigurations() EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput {
 	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArrayOutput {
 		return v.ProvisioningConfigurations

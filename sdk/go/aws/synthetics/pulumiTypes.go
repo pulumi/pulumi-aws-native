@@ -261,9 +261,9 @@ type CanaryCode struct {
 	Handler string `pulumi:"handler"`
 	// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
 	S3Bucket *string `pulumi:"s3Bucket"`
-	// The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+	// The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
 	S3Key *string `pulumi:"s3Key"`
-	// The S3 version ID of your script.
+	// The Amazon S3 version ID of your script.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
 	// If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
 	Script *string `pulumi:"script"`
@@ -287,9 +287,9 @@ type CanaryCodeArgs struct {
 	Handler pulumi.StringInput `pulumi:"handler"`
 	// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
 	S3Bucket pulumi.StringPtrInput `pulumi:"s3Bucket"`
-	// The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+	// The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
 	S3Key pulumi.StringPtrInput `pulumi:"s3Key"`
-	// The S3 version ID of your script.
+	// The Amazon S3 version ID of your script.
 	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
 	// If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
 	Script pulumi.StringPtrInput `pulumi:"script"`
@@ -333,12 +333,12 @@ func (o CanaryCodeOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.S3Bucket }).(pulumi.StringPtrOutput)
 }
 
-// The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+// The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
 func (o CanaryCodeOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.S3Key }).(pulumi.StringPtrOutput)
 }
 
-// The S3 version ID of your script.
+// The Amazon S3 version ID of your script.
 func (o CanaryCodeOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
 }
@@ -397,7 +397,7 @@ func (o CanaryCodePtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+// The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
 func (o CanaryCodePtrOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
@@ -407,7 +407,7 @@ func (o CanaryCodePtrOutput) S3Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 version ID of your script.
+// The Amazon S3 version ID of your script.
 func (o CanaryCodePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {

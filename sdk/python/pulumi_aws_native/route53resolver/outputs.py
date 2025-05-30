@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'FirewallRuleGroupFirewallRule',
+    'ResolverEndpointIpAddressRequest',
     'ResolverRuleTargetAddress',
 ]
 
@@ -205,6 +206,65 @@ class FirewallRuleGroupFirewallRule(dict):
         Qtype
         """
         return pulumi.get(self, "qtype")
+
+
+@pulumi.output_type
+class ResolverEndpointIpAddressRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResolverEndpointIpAddressRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResolverEndpointIpAddressRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResolverEndpointIpAddressRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_id: builtins.str,
+                 ip: Optional[builtins.str] = None,
+                 ipv6: Optional[builtins.str] = None):
+        """
+        :param builtins.str subnet_id: The ID of the subnet that contains the IP address.
+        :param builtins.str ip: The IPv4 address that you want to use for DNS queries.
+        :param builtins.str ipv6: The IPv6 address that you want to use for DNS queries.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if ipv6 is not None:
+            pulumi.set(__self__, "ipv6", ipv6)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> builtins.str:
+        """
+        The ID of the subnet that contains the IP address.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[builtins.str]:
+        """
+        The IPv4 address that you want to use for DNS queries.
+        """
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> Optional[builtins.str]:
+        """
+        The IPv6 address that you want to use for DNS queries.
+        """
+        return pulumi.get(self, "ipv6")
 
 
 @pulumi.output_type

@@ -222,6 +222,38 @@ namespace Pulumi.AwsNative.Ses
     }
 
     [EnumType]
+    public readonly struct MailManagerRuleSetRuleAddressListEmailAttribute : IEquatable<MailManagerRuleSetRuleAddressListEmailAttribute>
+    {
+        private readonly string _value;
+
+        private MailManagerRuleSetRuleAddressListEmailAttribute(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MailManagerRuleSetRuleAddressListEmailAttribute Recipient { get; } = new MailManagerRuleSetRuleAddressListEmailAttribute("RECIPIENT");
+        public static MailManagerRuleSetRuleAddressListEmailAttribute MailFrom { get; } = new MailManagerRuleSetRuleAddressListEmailAttribute("MAIL_FROM");
+        public static MailManagerRuleSetRuleAddressListEmailAttribute Sender { get; } = new MailManagerRuleSetRuleAddressListEmailAttribute("SENDER");
+        public static MailManagerRuleSetRuleAddressListEmailAttribute From { get; } = new MailManagerRuleSetRuleAddressListEmailAttribute("FROM");
+        public static MailManagerRuleSetRuleAddressListEmailAttribute To { get; } = new MailManagerRuleSetRuleAddressListEmailAttribute("TO");
+        public static MailManagerRuleSetRuleAddressListEmailAttribute Cc { get; } = new MailManagerRuleSetRuleAddressListEmailAttribute("CC");
+
+        public static bool operator ==(MailManagerRuleSetRuleAddressListEmailAttribute left, MailManagerRuleSetRuleAddressListEmailAttribute right) => left.Equals(right);
+        public static bool operator !=(MailManagerRuleSetRuleAddressListEmailAttribute left, MailManagerRuleSetRuleAddressListEmailAttribute right) => !left.Equals(right);
+
+        public static explicit operator string(MailManagerRuleSetRuleAddressListEmailAttribute value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MailManagerRuleSetRuleAddressListEmailAttribute other && Equals(other);
+        public bool Equals(MailManagerRuleSetRuleAddressListEmailAttribute other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct MailManagerRuleSetRuleBooleanEmailAttribute : IEquatable<MailManagerRuleSetRuleBooleanEmailAttribute>
     {
         private readonly string _value;
@@ -677,6 +709,33 @@ namespace Pulumi.AwsNative.Ses
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MailManagerTrafficPolicyAcceptAction other && Equals(other);
         public bool Equals(MailManagerTrafficPolicyAcceptAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MailManagerTrafficPolicyIngressAddressListEmailAttribute : IEquatable<MailManagerTrafficPolicyIngressAddressListEmailAttribute>
+    {
+        private readonly string _value;
+
+        private MailManagerTrafficPolicyIngressAddressListEmailAttribute(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MailManagerTrafficPolicyIngressAddressListEmailAttribute Recipient { get; } = new MailManagerTrafficPolicyIngressAddressListEmailAttribute("RECIPIENT");
+
+        public static bool operator ==(MailManagerTrafficPolicyIngressAddressListEmailAttribute left, MailManagerTrafficPolicyIngressAddressListEmailAttribute right) => left.Equals(right);
+        public static bool operator !=(MailManagerTrafficPolicyIngressAddressListEmailAttribute left, MailManagerTrafficPolicyIngressAddressListEmailAttribute right) => !left.Equals(right);
+
+        public static explicit operator string(MailManagerTrafficPolicyIngressAddressListEmailAttribute value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MailManagerTrafficPolicyIngressAddressListEmailAttribute other && Equals(other);
+        public bool Equals(MailManagerTrafficPolicyIngressAddressListEmailAttribute other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

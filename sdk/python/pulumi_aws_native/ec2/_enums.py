@@ -75,6 +75,7 @@ __all__ = [
     'SpotFleetSpotCapacityRebalanceReplacementStrategy',
     'SpotFleetSpotPlacementTenancy',
     'SpotFleetTagSpecificationResourceType',
+    'TrafficMirrorFilterTrafficMirrorNetworkService',
     'VpcBlockPublicAccessExclusionInternetGatewayExclusionMode',
     'VpcBlockPublicAccessOptionsInternetGatewayBlockMode',
     'VpcEndpointDnsOptionsSpecificationDnsRecordIpType',
@@ -836,6 +837,13 @@ class SpotFleetTagSpecificationResourceType(builtins.str, Enum):
     VPC_PEERING_CONNECTION = "vpc-peering-connection"
     VPN_CONNECTION = "vpn-connection"
     VPN_GATEWAY = "vpn-gateway"
+
+
+class TrafficMirrorFilterTrafficMirrorNetworkService(builtins.str, Enum):
+    """
+    The network service traffic that is associated with the traffic mirror filter.
+    """
+    AMAZON_DNS = "amazon-dns"
 
 
 class VpcBlockPublicAccessExclusionInternetGatewayExclusionMode(builtins.str, Enum):

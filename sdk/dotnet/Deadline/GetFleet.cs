@@ -88,6 +88,11 @@ namespace Pulumi.AwsNative.Deadline
         /// The fleet ID.
         /// </summary>
         public readonly string? FleetId;
+        /// <summary>
+        /// Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+        /// 
+        /// To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
+        /// </summary>
         public readonly Outputs.FleetHostConfiguration? HostConfiguration;
         /// <summary>
         /// The maximum number of workers specified in the fleet.

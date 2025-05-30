@@ -42,6 +42,16 @@
     "Type" : {
       "type" : "string"
     },
+    "Smpte2110ReceiverGroupSettings" : {
+      "$ref" : "#/definitions/Smpte2110ReceiverGroupSettings"
+    },
+    "SdiSources" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
+    },
     "Id" : {
       "type" : "string"
     },
@@ -70,24 +80,12 @@
     }
   },
   "definitions" : {
-    "SrtCallerSourceRequest" : {
+    "Smpte2110ReceiverGroup" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "SrtListenerPort" : {
-          "type" : "string"
-        },
-        "StreamId" : {
-          "type" : "string"
-        },
-        "MinimumLatency" : {
-          "type" : "integer"
-        },
-        "Decryption" : {
-          "$ref" : "#/definitions/SrtCallerDecryptionRequest"
-        },
-        "SrtListenerAddress" : {
-          "type" : "string"
+        "SdpSettings" : {
+          "$ref" : "#/definitions/Smpte2110ReceiverGroupSdpSettings"
         }
       }
     },
@@ -103,21 +101,6 @@
         }
       }
     },
-    "InputSourceRequest" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "PasswordParam" : {
-          "type" : "string"
-        },
-        "Username" : {
-          "type" : "string"
-        },
-        "Url" : {
-          "type" : "string"
-        }
-      }
-    },
     "MulticastSettingsCreateRequest" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -128,37 +111,6 @@
           "items" : {
             "$ref" : "#/definitions/MulticastSourceCreateRequest"
           }
-        }
-      }
-    },
-    "InputDeviceSettings" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Id" : {
-          "type" : "string"
-        }
-      }
-    },
-    "InputDestinationRequest" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "StreamName" : {
-          "type" : "string"
-        },
-        "NetworkRoutes" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "$ref" : "#/definitions/InputRequestDestinationRoute"
-          }
-        },
-        "StaticIpAddress" : {
-          "type" : "string"
-        },
-        "Network" : {
-          "type" : "string"
         }
       }
     },
@@ -224,6 +176,121 @@
           "type" : "string"
         },
         "SourceIp" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Smpte2110ReceiverGroupSdpSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AudioSdps" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/InputSdpLocation"
+          }
+        },
+        "AncillarySdps" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/InputSdpLocation"
+          }
+        },
+        "VideoSdp" : {
+          "$ref" : "#/definitions/InputSdpLocation"
+        }
+      }
+    },
+    "SrtCallerSourceRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SrtListenerPort" : {
+          "type" : "string"
+        },
+        "StreamId" : {
+          "type" : "string"
+        },
+        "MinimumLatency" : {
+          "type" : "integer"
+        },
+        "Decryption" : {
+          "$ref" : "#/definitions/SrtCallerDecryptionRequest"
+        },
+        "SrtListenerAddress" : {
+          "type" : "string"
+        }
+      }
+    },
+    "InputSdpLocation" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MediaIndex" : {
+          "type" : "integer"
+        },
+        "SdpUrl" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Smpte2110ReceiverGroupSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Smpte2110ReceiverGroups" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Smpte2110ReceiverGroup"
+          }
+        }
+      }
+    },
+    "InputSourceRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PasswordParam" : {
+          "type" : "string"
+        },
+        "Username" : {
+          "type" : "string"
+        },
+        "Url" : {
+          "type" : "string"
+        }
+      }
+    },
+    "InputDeviceSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Id" : {
+          "type" : "string"
+        }
+      }
+    },
+    "InputDestinationRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "StreamName" : {
+          "type" : "string"
+        },
+        "NetworkRoutes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/InputRequestDestinationRoute"
+          }
+        },
+        "StaticIpAddress" : {
+          "type" : "string"
+        },
+        "Network" : {
           "type" : "string"
         }
       }

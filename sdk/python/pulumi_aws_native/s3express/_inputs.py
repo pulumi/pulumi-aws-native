@@ -17,6 +17,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AccessPointPublicAccessBlockConfigurationArgs',
+    'AccessPointPublicAccessBlockConfigurationArgsDict',
+    'AccessPointScopeArgs',
+    'AccessPointScopeArgsDict',
+    'AccessPointVpcConfigurationArgs',
+    'AccessPointVpcConfigurationArgsDict',
     'DirectoryBucketAbortIncompleteMultipartUploadArgs',
     'DirectoryBucketAbortIncompleteMultipartUploadArgsDict',
     'DirectoryBucketBucketEncryptionArgs',
@@ -32,6 +38,201 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AccessPointPublicAccessBlockConfigurationArgsDict(TypedDict):
+        block_public_acls: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+        - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+         - PUT Object calls fail if the request includes a public ACL.
+        . - PUT Bucket calls fail if the request includes a public ACL.
+        Enabling this setting doesn't affect existing policies or ACLs.
+        """
+        block_public_policy: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+        """
+        ignore_public_acls: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+        """
+        restrict_public_buckets: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+        Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+        """
+elif False:
+    AccessPointPublicAccessBlockConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessPointPublicAccessBlockConfigurationArgs:
+    def __init__(__self__, *,
+                 block_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
+                 block_public_policy: Optional[pulumi.Input[builtins.bool]] = None,
+                 ignore_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
+                 restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[builtins.bool] block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+               - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+                - PUT Object calls fail if the request includes a public ACL.
+               . - PUT Bucket calls fail if the request includes a public ACL.
+               Enabling this setting doesn't affect existing policies or ACLs.
+        :param pulumi.Input[builtins.bool] block_public_policy: Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+        :param pulumi.Input[builtins.bool] ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+        :param pulumi.Input[builtins.bool] restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+               Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+        """
+        if block_public_acls is not None:
+            pulumi.set(__self__, "block_public_acls", block_public_acls)
+        if block_public_policy is not None:
+            pulumi.set(__self__, "block_public_policy", block_public_policy)
+        if ignore_public_acls is not None:
+            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+        if restrict_public_buckets is not None:
+            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+
+    @property
+    @pulumi.getter(name="blockPublicAcls")
+    def block_public_acls(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+        - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+         - PUT Object calls fail if the request includes a public ACL.
+        . - PUT Bucket calls fail if the request includes a public ACL.
+        Enabling this setting doesn't affect existing policies or ACLs.
+        """
+        return pulumi.get(self, "block_public_acls")
+
+    @block_public_acls.setter
+    def block_public_acls(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "block_public_acls", value)
+
+    @property
+    @pulumi.getter(name="blockPublicPolicy")
+    def block_public_policy(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+        """
+        return pulumi.get(self, "block_public_policy")
+
+    @block_public_policy.setter
+    def block_public_policy(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "block_public_policy", value)
+
+    @property
+    @pulumi.getter(name="ignorePublicAcls")
+    def ignore_public_acls(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+        """
+        return pulumi.get(self, "ignore_public_acls")
+
+    @ignore_public_acls.setter
+    def ignore_public_acls(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "ignore_public_acls", value)
+
+    @property
+    @pulumi.getter(name="restrictPublicBuckets")
+    def restrict_public_buckets(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+        Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+        """
+        return pulumi.get(self, "restrict_public_buckets")
+
+    @restrict_public_buckets.setter
+    def restrict_public_buckets(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "restrict_public_buckets", value)
+
+
+if not MYPY:
+    class AccessPointScopeArgsDict(TypedDict):
+        permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]]
+        """
+        You can include one or more API operations as permissions
+        """
+        prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
+        """
+elif False:
+    AccessPointScopeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessPointScopeArgs:
+    def __init__(__self__, *,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]] = None,
+                 prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]] permissions: You can include one or more API operations as permissions
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] prefixes: You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
+        """
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if prefixes is not None:
+            pulumi.set(__self__, "prefixes", prefixes)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]]:
+        """
+        You can include one or more API operations as permissions
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
+        """
+        return pulumi.get(self, "prefixes")
+
+    @prefixes.setter
+    def prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "prefixes", value)
+
+
+if not MYPY:
+    class AccessPointVpcConfigurationArgsDict(TypedDict):
+        """
+        The Virtual Private Cloud (VPC) configuration for a bucket access point.
+        """
+        vpc_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        If this field is specified, this access point will only allow connections from the specified VPC ID.
+        """
+elif False:
+    AccessPointVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessPointVpcConfigurationArgs:
+    def __init__(__self__, *,
+                 vpc_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        The Virtual Private Cloud (VPC) configuration for a bucket access point.
+        :param pulumi.Input[builtins.str] vpc_id: If this field is specified, this access point will only allow connections from the specified VPC ID.
+        """
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        If this field is specified, this access point will only allow connections from the specified VPC ID.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vpc_id", value)
+
 
 if not MYPY:
     class DirectoryBucketAbortIncompleteMultipartUploadArgsDict(TypedDict):

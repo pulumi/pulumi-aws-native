@@ -8,6 +8,71 @@ using Pulumi;
 namespace Pulumi.AwsNative.S3Express
 {
     /// <summary>
+    /// Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessPointNetworkOrigin : IEquatable<AccessPointNetworkOrigin>
+    {
+        private readonly string _value;
+
+        private AccessPointNetworkOrigin(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessPointNetworkOrigin Internet { get; } = new AccessPointNetworkOrigin("Internet");
+        public static AccessPointNetworkOrigin Vpc { get; } = new AccessPointNetworkOrigin("VPC");
+
+        public static bool operator ==(AccessPointNetworkOrigin left, AccessPointNetworkOrigin right) => left.Equals(right);
+        public static bool operator !=(AccessPointNetworkOrigin left, AccessPointNetworkOrigin right) => !left.Equals(right);
+
+        public static explicit operator string(AccessPointNetworkOrigin value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessPointNetworkOrigin other && Equals(other);
+        public bool Equals(AccessPointNetworkOrigin other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AccessPointScopePermissionsItem : IEquatable<AccessPointScopePermissionsItem>
+    {
+        private readonly string _value;
+
+        private AccessPointScopePermissionsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessPointScopePermissionsItem GetObject { get; } = new AccessPointScopePermissionsItem("GetObject");
+        public static AccessPointScopePermissionsItem GetObjectAttributes { get; } = new AccessPointScopePermissionsItem("GetObjectAttributes");
+        public static AccessPointScopePermissionsItem ListMultipartUploadParts { get; } = new AccessPointScopePermissionsItem("ListMultipartUploadParts");
+        public static AccessPointScopePermissionsItem ListBucket { get; } = new AccessPointScopePermissionsItem("ListBucket");
+        public static AccessPointScopePermissionsItem ListBucketMultipartUploads { get; } = new AccessPointScopePermissionsItem("ListBucketMultipartUploads");
+        public static AccessPointScopePermissionsItem PutObject { get; } = new AccessPointScopePermissionsItem("PutObject");
+        public static AccessPointScopePermissionsItem DeleteObject { get; } = new AccessPointScopePermissionsItem("DeleteObject");
+        public static AccessPointScopePermissionsItem AbortMultipartUpload { get; } = new AccessPointScopePermissionsItem("AbortMultipartUpload");
+
+        public static bool operator ==(AccessPointScopePermissionsItem left, AccessPointScopePermissionsItem right) => left.Equals(right);
+        public static bool operator !=(AccessPointScopePermissionsItem left, AccessPointScopePermissionsItem right) => !left.Equals(right);
+
+        public static explicit operator string(AccessPointScopePermissionsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessPointScopePermissionsItem other && Equals(other);
+        public bool Equals(AccessPointScopePermissionsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
     /// </summary>
     [EnumType]

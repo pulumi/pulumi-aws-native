@@ -22,11 +22,11 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
         /// </summary>
         public readonly string? S3Bucket;
         /// <summary>
-        /// The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+        /// The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
         /// </summary>
         public readonly string? S3Key;
         /// <summary>
-        /// The S3 version ID of your script.
+        /// The Amazon S3 version ID of your script.
         /// </summary>
         public readonly string? S3ObjectVersion;
         /// <summary>

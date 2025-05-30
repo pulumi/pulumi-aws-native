@@ -135,6 +135,10 @@ __all__ = [
     'ProjectMembershipMember0PropertiesArgsDict',
     'ProjectMembershipMember1PropertiesArgs',
     'ProjectMembershipMember1PropertiesArgsDict',
+    'ProjectProfileDesignationConfigurationArgs',
+    'ProjectProfileDesignationConfigurationArgsDict',
+    'ProjectProfileProjectScopeArgs',
+    'ProjectProfileProjectScopeArgsDict',
     'SubscriptionTargetFormArgs',
     'SubscriptionTargetFormArgsDict',
 ]
@@ -2919,6 +2923,63 @@ class ProjectMembershipMember1PropertiesArgs:
     @group_identifier.setter
     def group_identifier(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "group_identifier", value)
+
+
+if not MYPY:
+    class ProjectProfileDesignationConfigurationArgsDict(TypedDict):
+        designation_id: pulumi.Input[builtins.str]
+elif False:
+    ProjectProfileDesignationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectProfileDesignationConfigurationArgs:
+    def __init__(__self__, *,
+                 designation_id: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "designation_id", designation_id)
+
+    @property
+    @pulumi.getter(name="designationId")
+    def designation_id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "designation_id")
+
+    @designation_id.setter
+    def designation_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "designation_id", value)
+
+
+if not MYPY:
+    class ProjectProfileProjectScopeArgsDict(TypedDict):
+        name: pulumi.Input[builtins.str]
+        policy: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    ProjectProfileProjectScopeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectProfileProjectScopeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 policy: Optional[pulumi.Input[builtins.str]] = None):
+        pulumi.set(__self__, "name", name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "policy", value)
 
 
 if not MYPY:

@@ -133,7 +133,6 @@ namespace Pulumi.AwsNative.CloudFront
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "managedCertificateRequest",
                     "name",
                 },
             };

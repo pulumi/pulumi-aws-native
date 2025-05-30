@@ -48,49 +48,31 @@ class GetLaunchProfileResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[builtins.str]:
-        """
-        A human-readable description of the launch profile.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="launchProfileId")
     def launch_profile_id(self) -> Optional[builtins.str]:
-        """
-        The unique identifier for the launch profile resource.
-        """
         return pulumi.get(self, "launch_profile_id")
 
     @property
     @pulumi.getter(name="launchProfileProtocolVersions")
     def launch_profile_protocol_versions(self) -> Optional[Sequence[builtins.str]]:
-        """
-        The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
-        """
         return pulumi.get(self, "launch_profile_protocol_versions")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
-        """
-        A friendly name for the launch profile.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="streamConfiguration")
     def stream_configuration(self) -> Optional['outputs.LaunchProfileStreamConfiguration']:
-        """
-        A configuration for a streaming session.
-        """
         return pulumi.get(self, "stream_configuration")
 
     @property
     @pulumi.getter(name="studioComponentIds")
     def studio_component_ids(self) -> Optional[Sequence[builtins.str]]:
-        """
-        Unique identifiers for a collection of studio components that can be used with this launch profile.
-        """
         return pulumi.get(self, "studio_component_ids")
 
 
@@ -112,9 +94,6 @@ def get_launch_profile(launch_profile_id: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchProfileResult:
     """
     Resource Type definition for AWS::NimbleStudio::LaunchProfile
-
-
-    :param builtins.str launch_profile_id: The unique identifier for the launch profile resource.
     """
     __args__ = dict()
     __args__['launchProfileId'] = launch_profile_id
@@ -132,9 +111,6 @@ def get_launch_profile_output(launch_profile_id: Optional[pulumi.Input[builtins.
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchProfileResult]:
     """
     Resource Type definition for AWS::NimbleStudio::LaunchProfile
-
-
-    :param builtins.str launch_profile_id: The unique identifier for the launch profile resource.
     """
     __args__ = dict()
     __args__['launchProfileId'] = launch_profile_id

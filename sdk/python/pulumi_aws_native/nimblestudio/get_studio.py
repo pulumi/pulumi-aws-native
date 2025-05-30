@@ -54,65 +54,41 @@ class GetStudioResult:
     @property
     @pulumi.getter(name="adminRoleArn")
     def admin_role_arn(self) -> Optional[builtins.str]:
-        """
-        The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-        """
         return pulumi.get(self, "admin_role_arn")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[builtins.str]:
-        """
-        A friendly name for the studio.
-        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="homeRegion")
     def home_region(self) -> Optional[builtins.str]:
-        """
-        The AWS Region where the studio resource is located. For example, `us-west-2` .
-        """
         return pulumi.get(self, "home_region")
 
     @property
     @pulumi.getter(name="ssoClientId")
     def sso_client_id(self) -> Optional[builtins.str]:
-        """
-        The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
-        """
         return pulumi.get(self, "sso_client_id")
 
     @property
     @pulumi.getter(name="studioEncryptionConfiguration")
     def studio_encryption_configuration(self) -> Optional['outputs.StudioEncryptionConfiguration']:
-        """
-        Configuration of the encryption method that is used for the studio.
-        """
         return pulumi.get(self, "studio_encryption_configuration")
 
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> Optional[builtins.str]:
-        """
-        The unique identifier for the studio resource.
-        """
         return pulumi.get(self, "studio_id")
 
     @property
     @pulumi.getter(name="studioUrl")
     def studio_url(self) -> Optional[builtins.str]:
-        """
-        The unique identifier for the studio resource.
-        """
         return pulumi.get(self, "studio_url")
 
     @property
     @pulumi.getter(name="userRoleArn")
     def user_role_arn(self) -> Optional[builtins.str]:
-        """
-        The IAM role that studio users assume when logging in to the Nimble Studio portal.
-        """
         return pulumi.get(self, "user_role_arn")
 
 
@@ -136,9 +112,6 @@ def get_studio(studio_id: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStudioResult:
     """
     Resource Type definition for AWS::NimbleStudio::Studio
-
-
-    :param builtins.str studio_id: The unique identifier for the studio resource.
     """
     __args__ = dict()
     __args__['studioId'] = studio_id
@@ -158,9 +131,6 @@ def get_studio_output(studio_id: Optional[pulumi.Input[builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudioResult]:
     """
     Resource Type definition for AWS::NimbleStudio::Studio
-
-
-    :param builtins.str studio_id: The unique identifier for the studio resource.
     """
     __args__ = dict()
     __args__['studioId'] = studio_id

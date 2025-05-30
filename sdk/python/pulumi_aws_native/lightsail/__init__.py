@@ -20,10 +20,12 @@ from .get_container import *
 from .get_database import *
 from .get_disk import *
 from .get_instance import *
+from .get_instance_snapshot import *
 from .get_load_balancer import *
 from .get_load_balancer_tls_certificate import *
 from .get_static_ip import *
 from .instance import *
+from .instance_snapshot import *
 from .load_balancer import *
 from .load_balancer_tls_certificate import *
 from .static_ip import *

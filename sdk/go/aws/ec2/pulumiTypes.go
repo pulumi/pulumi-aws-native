@@ -31066,6 +31066,13 @@ func (o TagSpecificationArrayOutput) Index(i pulumi.IntInput) TagSpecificationOu
 	}).(TagSpecificationOutput)
 }
 
+type TrafficMirrorFilterTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 type TransitGatewayAttachmentTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`

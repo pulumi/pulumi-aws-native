@@ -13,13 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     [OutputType]
     public sealed class LaunchProfileStreamConfigurationSessionStorage
     {
-        /// <summary>
-        /// Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
-        /// </summary>
         public readonly ImmutableArray<string> Mode;
-        /// <summary>
-        /// The configuration for the upload storage root of the streaming session.
-        /// </summary>
         public readonly Outputs.LaunchProfileStreamingSessionStorageRoot? Root;
 
         [OutputConstructor]

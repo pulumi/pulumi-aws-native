@@ -42,6 +42,25 @@
       "required" : [ "Analyzer", "ResultField" ],
       "additionalProperties" : false
     },
+    "RuleIsInAddressList" : {
+      "type" : "object",
+      "properties" : {
+        "Attribute" : {
+          "$ref" : "#/definitions/RuleAddressListEmailAttribute"
+        },
+        "AddressLists" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "maxItems" : 1,
+          "minItems" : 1,
+          "uniqueItems" : true
+        }
+      },
+      "required" : [ "Attribute", "AddressLists" ],
+      "additionalProperties" : false
+    },
     "ArchiveAction" : {
       "type" : "object",
       "properties" : {
@@ -371,6 +390,16 @@
         },
         "required" : [ "Analysis" ],
         "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "IsInAddressList",
+        "properties" : {
+          "IsInAddressList" : {
+            "$ref" : "#/definitions/RuleIsInAddressList"
+          }
+        },
+        "required" : [ "IsInAddressList" ],
+        "additionalProperties" : false
       } ]
     },
     "RuleCondition" : {
@@ -530,6 +559,10 @@
     "RuleNumberOperator" : {
       "type" : "string",
       "enum" : [ "EQUALS", "NOT_EQUALS", "LESS_THAN", "GREATER_THAN", "LESS_THAN_OR_EQUAL", "GREATER_THAN_OR_EQUAL" ]
+    },
+    "RuleAddressListEmailAttribute" : {
+      "type" : "string",
+      "enum" : [ "RECIPIENT", "MAIL_FROM", "SENDER", "FROM", "TO", "CC" ]
     },
     "RuleNumberToEvaluate" : {
       "oneOf" : [ {

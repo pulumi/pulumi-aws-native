@@ -33,9 +33,6 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetLaunchProfileArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier for the launch profile resource.
-        /// </summary>
         [Input("launchProfileId", required: true)]
         public string LaunchProfileId { get; set; } = null!;
 
@@ -47,9 +44,6 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetLaunchProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier for the launch profile resource.
-        /// </summary>
         [Input("launchProfileId", required: true)]
         public Input<string> LaunchProfileId { get; set; } = null!;
 
@@ -63,29 +57,11 @@ namespace Pulumi.AwsNative.NimbleStudio
     [OutputType]
     public sealed class GetLaunchProfileResult
     {
-        /// <summary>
-        /// A human-readable description of the launch profile.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The unique identifier for the launch profile resource.
-        /// </summary>
         public readonly string? LaunchProfileId;
-        /// <summary>
-        /// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
-        /// </summary>
         public readonly ImmutableArray<string> LaunchProfileProtocolVersions;
-        /// <summary>
-        /// A friendly name for the launch profile.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// A configuration for a streaming session.
-        /// </summary>
         public readonly Outputs.LaunchProfileStreamConfiguration? StreamConfiguration;
-        /// <summary>
-        /// Unique identifiers for a collection of studio components that can be used with this launch profile.
-        /// </summary>
         public readonly ImmutableArray<string> StudioComponentIds;
 
         [OutputConstructor]

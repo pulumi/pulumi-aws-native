@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Aps
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The role configuration in an Amazon Managed Service for Prometheus scraper.
+        /// </summary>
         [Output("roleConfiguration")]
         public Output<Outputs.ScraperRoleConfiguration?> RoleConfiguration { get; private set; } = null!;
 
@@ -127,6 +130,9 @@ namespace Pulumi.AwsNative.Aps
         [Input("destination", required: true)]
         public Input<Inputs.ScraperDestinationArgs> Destination { get; set; } = null!;
 
+        /// <summary>
+        /// The role configuration in an Amazon Managed Service for Prometheus scraper.
+        /// </summary>
         [Input("roleConfiguration")]
         public Input<Inputs.ScraperRoleConfigurationArgs>? RoleConfiguration { get; set; }
 

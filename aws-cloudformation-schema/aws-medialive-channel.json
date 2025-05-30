@@ -484,14 +484,30 @@
         "Scte35Type" : {
           "type" : "string"
         },
+        "TimedMetadataId3Frame" : {
+          "type" : "string"
+        },
+        "TimedMetadataPassthrough" : {
+          "type" : "string"
+        },
         "NielsenId3Behavior" : {
           "type" : "string"
         },
         "Scte35NameModifier" : {
           "type" : "string"
         },
+        "CaptionLanguageMappings" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/CmafIngestCaptionLanguageMapping"
+          }
+        },
         "SegmentLengthUnits" : {
           "type" : "string"
+        },
+        "TimedMetadataId3Period" : {
+          "type" : "integer"
         },
         "NielsenId3NameModifier" : {
           "type" : "string"
@@ -797,11 +813,18 @@
             "$ref" : "#/definitions/SrtOutputDestinationSettings"
           }
         },
-        "Id" : {
-          "type" : "string"
+        "LogicalInterfaceNames" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
         },
         "MultiplexSettings" : {
           "$ref" : "#/definitions/MultiplexProgramChannelDestinationSettings"
+        },
+        "Id" : {
+          "type" : "string"
         },
         "Settings" : {
           "type" : "array",
@@ -3192,8 +3215,14 @@
         "AfdSignaling" : {
           "type" : "string"
         },
+        "Bitrate" : {
+          "type" : "integer"
+        },
         "ParNumerator" : {
           "type" : "integer"
+        },
+        "RateControlMode" : {
+          "type" : "string"
         },
         "BufSize" : {
           "type" : "integer"
@@ -3324,13 +3353,19 @@
         "FontFamily" : {
           "type" : "string"
         },
+        "DefaultFontSize" : {
+          "type" : "integer"
+        },
+        "DefaultLineHeight" : {
+          "type" : "integer"
+        },
+        "FillLineGap" : {
+          "type" : "string"
+        },
         "StyleControl" : {
           "type" : "string"
         },
         "CopyrightHolder" : {
-          "type" : "string"
-        },
-        "FillLineGap" : {
           "type" : "string"
         }
       }
@@ -3383,6 +3418,18 @@
         },
         "MotionGraphicsInsertion" : {
           "type" : "string"
+        }
+      }
+    },
+    "CmafIngestCaptionLanguageMapping" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "LanguageCode" : {
+          "type" : "string"
+        },
+        "CaptionChannel" : {
+          "type" : "integer"
         }
       }
     },
@@ -3553,7 +3600,7 @@
       }
     }
   },
-  "createOnlyProperties" : [ "/properties/Vpc", "/properties/AnywhereSettings" ],
+  "createOnlyProperties" : [ "/properties/Vpc" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Inputs", "/properties/Id", "/properties/Arn" ]
 }

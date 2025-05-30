@@ -5119,6 +5119,10 @@ class FlowAliasConcurrencyConfiguration(dict):
                  type: 'FlowAliasConcurrencyType',
                  max_concurrency: Optional[builtins.float] = None):
         """
+        :param 'FlowAliasConcurrencyType' type: The type of concurrency to use for parallel node execution. Specify one of the following options:
+               
+               - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+               - `Manual` - You specify which nodes can be executed in parallel.
         :param builtins.float max_concurrency: Number of nodes executed concurrently at a time
         """
         pulumi.set(__self__, "type", type)
@@ -5128,6 +5132,12 @@ class FlowAliasConcurrencyConfiguration(dict):
     @property
     @pulumi.getter
     def type(self) -> 'FlowAliasConcurrencyType':
+        """
+        The type of concurrency to use for parallel node execution. Specify one of the following options:
+
+        - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+        - `Manual` - You specify which nodes can be executed in parallel.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -6087,7 +6097,7 @@ class FlowNodeInput(dict):
         Input to a node in a flow
         :param builtins.str expression: Expression for a node input in a flow
         :param builtins.str name: Name of a node input in a flow
-        :param 'FlowNodeIoDataType' type: The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        :param 'FlowNodeIoDataType' type: Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
@@ -6113,7 +6123,7 @@ class FlowNodeInput(dict):
     @pulumi.getter
     def type(self) -> 'FlowNodeIoDataType':
         """
-        The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         return pulumi.get(self, "type")
 
@@ -7479,7 +7489,7 @@ class FlowVersionFlowNodeInput(dict):
         Input to a node in a flow
         :param builtins.str expression: Expression for a node input in a flow
         :param builtins.str name: Name of a node input in a flow
-        :param 'FlowVersionFlowNodeIoDataType' type: The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        :param 'FlowVersionFlowNodeIoDataType' type: Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
@@ -7505,7 +7515,7 @@ class FlowVersionFlowNodeInput(dict):
     @pulumi.getter
     def type(self) -> 'FlowVersionFlowNodeIoDataType':
         """
-        The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         return pulumi.get(self, "type")
 

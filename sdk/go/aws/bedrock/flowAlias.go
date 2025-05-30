@@ -19,7 +19,8 @@ type FlowAlias struct {
 	// Arn of the Flow Alias
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Id for a Flow Alias generated at the server side.
-	AwsId                    pulumi.StringOutput                        `pulumi:"awsId"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The configuration that specifies how nodes in the flow are executed concurrently.
 	ConcurrencyConfiguration FlowAliasConcurrencyConfigurationPtrOutput `pulumi:"concurrencyConfiguration"`
 	// Time Stamp.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -92,6 +93,7 @@ func (FlowAliasState) ElementType() reflect.Type {
 }
 
 type flowAliasArgs struct {
+	// The configuration that specifies how nodes in the flow are executed concurrently.
 	ConcurrencyConfiguration *FlowAliasConcurrencyConfiguration `pulumi:"concurrencyConfiguration"`
 	// Description of the Resource.
 	Description *string `pulumi:"description"`
@@ -110,6 +112,7 @@ type flowAliasArgs struct {
 
 // The set of arguments for constructing a FlowAlias resource.
 type FlowAliasArgs struct {
+	// The configuration that specifies how nodes in the flow are executed concurrently.
 	ConcurrencyConfiguration FlowAliasConcurrencyConfigurationPtrInput
 	// Description of the Resource.
 	Description pulumi.StringPtrInput
@@ -173,6 +176,7 @@ func (o FlowAliasOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowAlias) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The configuration that specifies how nodes in the flow are executed concurrently.
 func (o FlowAliasOutput) ConcurrencyConfiguration() FlowAliasConcurrencyConfigurationPtrOutput {
 	return o.ApplyT(func(v *FlowAlias) FlowAliasConcurrencyConfigurationPtrOutput { return v.ConcurrencyConfiguration }).(FlowAliasConcurrencyConfigurationPtrOutput)
 }

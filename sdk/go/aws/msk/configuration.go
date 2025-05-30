@@ -32,7 +32,7 @@ type Configuration struct {
 	LatestRevision ConfigurationLatestRevisionPtrOutput `pulumi:"latestRevision"`
 	// The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+	// Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
 	ServerProperties pulumi.StringOutput `pulumi:"serverProperties"`
 }
 
@@ -98,7 +98,7 @@ type configurationArgs struct {
 	LatestRevision *ConfigurationLatestRevision `pulumi:"latestRevision"`
 	// The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
 	Name *string `pulumi:"name"`
-	// Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+	// Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
 	ServerProperties string `pulumi:"serverProperties"`
 }
 
@@ -118,7 +118,7 @@ type ConfigurationArgs struct {
 	LatestRevision ConfigurationLatestRevisionPtrInput
 	// The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
 	Name pulumi.StringPtrInput
-	// Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+	// Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
 	ServerProperties pulumi.StringInput
 }
 
@@ -190,7 +190,7 @@ func (o ConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+// Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
 func (o ConfigurationOutput) ServerProperties() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.ServerProperties }).(pulumi.StringOutput)
 }

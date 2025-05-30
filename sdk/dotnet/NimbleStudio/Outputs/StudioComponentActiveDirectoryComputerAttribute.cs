@@ -13,13 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     [OutputType]
     public sealed class StudioComponentActiveDirectoryComputerAttribute
     {
-        /// <summary>
-        /// The name for the LDAP attribute.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// The value for the LDAP attribute.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

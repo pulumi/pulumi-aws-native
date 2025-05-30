@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+        /// The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
         /// </summary>
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
 
         /// <summary>
-        /// The S3 version ID of your script.
+        /// The Amazon S3 version ID of your script.
         /// </summary>
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }

@@ -69,6 +69,17 @@ export const MailManagerRuleSetMailFrom = {
 
 export type MailManagerRuleSetMailFrom = (typeof MailManagerRuleSetMailFrom)[keyof typeof MailManagerRuleSetMailFrom];
 
+export const MailManagerRuleSetRuleAddressListEmailAttribute = {
+    Recipient: "RECIPIENT",
+    MailFrom: "MAIL_FROM",
+    Sender: "SENDER",
+    From: "FROM",
+    To: "TO",
+    Cc: "CC",
+} as const;
+
+export type MailManagerRuleSetRuleAddressListEmailAttribute = (typeof MailManagerRuleSetRuleAddressListEmailAttribute)[keyof typeof MailManagerRuleSetRuleAddressListEmailAttribute];
+
 export const MailManagerRuleSetRuleBooleanEmailAttribute = {
     ReadReceiptRequested: "READ_RECEIPT_REQUESTED",
     Tls: "TLS",
@@ -195,6 +206,12 @@ export const MailManagerTrafficPolicyAcceptAction = {
 } as const;
 
 export type MailManagerTrafficPolicyAcceptAction = (typeof MailManagerTrafficPolicyAcceptAction)[keyof typeof MailManagerTrafficPolicyAcceptAction];
+
+export const MailManagerTrafficPolicyIngressAddressListEmailAttribute = {
+    Recipient: "RECIPIENT",
+} as const;
+
+export type MailManagerTrafficPolicyIngressAddressListEmailAttribute = (typeof MailManagerTrafficPolicyIngressAddressListEmailAttribute)[keyof typeof MailManagerTrafficPolicyIngressAddressListEmailAttribute];
 
 export const MailManagerTrafficPolicyIngressBooleanOperator = {
     IsTrue: "IS_TRUE",

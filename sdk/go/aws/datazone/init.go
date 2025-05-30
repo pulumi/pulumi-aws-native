@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Project{}
 	case "aws-native:datazone:ProjectMembership":
 		r = &ProjectMembership{}
+	case "aws-native:datazone:ProjectProfile":
+		r = &ProjectProfile{}
 	case "aws-native:datazone:SubscriptionTarget":
 		r = &SubscriptionTarget{}
 	case "aws-native:datazone:UserProfile":

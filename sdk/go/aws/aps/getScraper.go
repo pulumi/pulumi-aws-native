@@ -36,7 +36,8 @@ type LookupScraperResult struct {
 	// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
 	Destination *ScraperDestination `pulumi:"destination"`
 	// IAM role ARN for the scraper.
-	RoleArn           *string                   `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
+	// The role configuration in an Amazon Managed Service for Prometheus scraper.
 	RoleConfiguration *ScraperRoleConfiguration `pulumi:"roleConfiguration"`
 	// The configuration in use by the scraper.
 	ScrapeConfiguration *ScraperScrapeConfiguration `pulumi:"scrapeConfiguration"`
@@ -98,6 +99,7 @@ func (o LookupScraperResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScraperResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The role configuration in an Amazon Managed Service for Prometheus scraper.
 func (o LookupScraperResultOutput) RoleConfiguration() ScraperRoleConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupScraperResult) *ScraperRoleConfiguration { return v.RoleConfiguration }).(ScraperRoleConfigurationPtrOutput)
 }

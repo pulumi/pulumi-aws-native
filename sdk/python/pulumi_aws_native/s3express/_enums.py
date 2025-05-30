@@ -7,10 +7,31 @@ import builtins
 from enum import Enum
 
 __all__ = [
+    'AccessPointNetworkOrigin',
+    'AccessPointScopePermissionsItem',
     'DirectoryBucketDataRedundancy',
     'DirectoryBucketRuleStatus',
     'DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm',
 ]
+
+
+class AccessPointNetworkOrigin(builtins.str, Enum):
+    """
+    Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
+    """
+    INTERNET = "Internet"
+    VPC = "VPC"
+
+
+class AccessPointScopePermissionsItem(builtins.str, Enum):
+    GET_OBJECT = "GetObject"
+    GET_OBJECT_ATTRIBUTES = "GetObjectAttributes"
+    LIST_MULTIPART_UPLOAD_PARTS = "ListMultipartUploadParts"
+    LIST_BUCKET = "ListBucket"
+    LIST_BUCKET_MULTIPART_UPLOADS = "ListBucketMultipartUploads"
+    PUT_OBJECT = "PutObject"
+    DELETE_OBJECT = "DeleteObject"
+    ABORT_MULTIPART_UPLOAD = "AbortMultipartUpload"
 
 
 class DirectoryBucketDataRedundancy(builtins.str, Enum):

@@ -18,44 +18,17 @@ export function getStudioComponent(args: GetStudioComponentArgs, opts?: pulumi.I
 }
 
 export interface GetStudioComponentArgs {
-    /**
-     * The unique identifier for the studio component resource.
-     */
     studioComponentId: string;
 }
 
 export interface GetStudioComponentResult {
-    /**
-     * The configuration of the studio component, based on component type.
-     */
     readonly configuration?: outputs.nimblestudio.StudioComponentConfiguration;
-    /**
-     * A human-readable description for the studio component resource.
-     */
     readonly description?: string;
-    /**
-     * The EC2 security groups that control access to the studio component.
-     */
     readonly ec2SecurityGroupIds?: string[];
-    /**
-     * Initialization scripts for studio components.
-     */
     readonly initializationScripts?: outputs.nimblestudio.StudioComponentInitializationScript[];
-    /**
-     * A friendly name for the studio component resource.
-     */
     readonly name?: string;
-    /**
-     * Parameters for the studio component scripts.
-     */
     readonly scriptParameters?: outputs.nimblestudio.StudioComponentScriptParameterKeyValue[];
-    /**
-     * The unique identifier for the studio component resource.
-     */
     readonly studioComponentId?: string;
-    /**
-     * The type of the studio component.
-     */
     readonly type?: string;
 }
 /**
@@ -69,8 +42,5 @@ export function getStudioComponentOutput(args: GetStudioComponentOutputArgs, opt
 }
 
 export interface GetStudioComponentOutputArgs {
-    /**
-     * The unique identifier for the studio component resource.
-     */
     studioComponentId: pulumi.Input<string>;
 }

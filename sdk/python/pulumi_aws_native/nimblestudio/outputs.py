@@ -82,31 +82,6 @@ class LaunchProfileStreamConfiguration(dict):
                  session_persistence_mode: Optional[builtins.str] = None,
                  session_storage: Optional['outputs.LaunchProfileStreamConfigurationSessionStorage'] = None,
                  volume_configuration: Optional['outputs.LaunchProfileVolumeConfiguration'] = None):
-        """
-        :param builtins.str clipboard_mode: Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
-        :param Sequence[builtins.str] ec2_instance_types: The EC2 instance types that users can select from when launching a streaming session with this launch profile.
-        :param Sequence[builtins.str] streaming_image_ids: The streaming images that users can select from when launching a streaming session with this launch profile.
-        :param builtins.str automatic_termination_mode: Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
-               
-               - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
-               - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
-               
-               This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
-        :param builtins.float max_session_length_in_minutes: The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
-        :param builtins.float max_stopped_session_length_in_minutes: Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
-               
-               This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
-               
-               If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
-               
-               If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
-        :param 'LaunchProfileStreamConfigurationSessionBackup' session_backup: Information about the streaming session backup.
-        :param builtins.str session_persistence_mode: Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
-        :param 'LaunchProfileStreamConfigurationSessionStorage' session_storage: The upload storage for a streaming session.
-        :param 'LaunchProfileVolumeConfiguration' volume_configuration: Custom volume configuration for the root volumes that are attached to streaming sessions.
-               
-               This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
-        """
         pulumi.set(__self__, "clipboard_mode", clipboard_mode)
         pulumi.set(__self__, "ec2_instance_types", ec2_instance_types)
         pulumi.set(__self__, "streaming_image_ids", streaming_image_ids)
@@ -128,94 +103,51 @@ class LaunchProfileStreamConfiguration(dict):
     @property
     @pulumi.getter(name="clipboardMode")
     def clipboard_mode(self) -> builtins.str:
-        """
-        Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
-        """
         return pulumi.get(self, "clipboard_mode")
 
     @property
     @pulumi.getter(name="ec2InstanceTypes")
     def ec2_instance_types(self) -> Sequence[builtins.str]:
-        """
-        The EC2 instance types that users can select from when launching a streaming session with this launch profile.
-        """
         return pulumi.get(self, "ec2_instance_types")
 
     @property
     @pulumi.getter(name="streamingImageIds")
     def streaming_image_ids(self) -> Sequence[builtins.str]:
-        """
-        The streaming images that users can select from when launching a streaming session with this launch profile.
-        """
         return pulumi.get(self, "streaming_image_ids")
 
     @property
     @pulumi.getter(name="automaticTerminationMode")
     def automatic_termination_mode(self) -> Optional[builtins.str]:
-        """
-        Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
-
-        - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
-        - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
-
-        This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
-        """
         return pulumi.get(self, "automatic_termination_mode")
 
     @property
     @pulumi.getter(name="maxSessionLengthInMinutes")
     def max_session_length_in_minutes(self) -> Optional[builtins.float]:
-        """
-        The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
-        """
         return pulumi.get(self, "max_session_length_in_minutes")
 
     @property
     @pulumi.getter(name="maxStoppedSessionLengthInMinutes")
     def max_stopped_session_length_in_minutes(self) -> Optional[builtins.float]:
-        """
-        Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
-
-        This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
-
-        If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
-
-        If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
-        """
         return pulumi.get(self, "max_stopped_session_length_in_minutes")
 
     @property
     @pulumi.getter(name="sessionBackup")
     def session_backup(self) -> Optional['outputs.LaunchProfileStreamConfigurationSessionBackup']:
-        """
-        Information about the streaming session backup.
-        """
         return pulumi.get(self, "session_backup")
 
     @property
     @pulumi.getter(name="sessionPersistenceMode")
     def session_persistence_mode(self) -> Optional[builtins.str]:
-        """
-        Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
-        """
         return pulumi.get(self, "session_persistence_mode")
 
     @property
     @pulumi.getter(name="sessionStorage")
     def session_storage(self) -> Optional['outputs.LaunchProfileStreamConfigurationSessionStorage']:
-        """
-        The upload storage for a streaming session.
-        """
         return pulumi.get(self, "session_storage")
 
     @property
     @pulumi.getter(name="volumeConfiguration")
     def volume_configuration(self) -> Optional['outputs.LaunchProfileVolumeConfiguration']:
-        """
-        Custom volume configuration for the root volumes that are attached to streaming sessions.
-
-        This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
-        """
         return pulumi.get(self, "volume_configuration")
 
 
@@ -241,12 +173,6 @@ class LaunchProfileStreamConfigurationSessionBackup(dict):
     def __init__(__self__, *,
                  max_backups_to_retain: Optional[builtins.float] = None,
                  mode: Optional[builtins.str] = None):
-        """
-        :param builtins.float max_backups_to_retain: The maximum number of backups that each streaming session created from this launch profile can have.
-        :param builtins.str mode: Specifies how artists sessions are backed up.
-               
-               Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
-        """
         if max_backups_to_retain is not None:
             pulumi.set(__self__, "max_backups_to_retain", max_backups_to_retain)
         if mode is not None:
@@ -255,19 +181,11 @@ class LaunchProfileStreamConfigurationSessionBackup(dict):
     @property
     @pulumi.getter(name="maxBackupsToRetain")
     def max_backups_to_retain(self) -> Optional[builtins.float]:
-        """
-        The maximum number of backups that each streaming session created from this launch profile can have.
-        """
         return pulumi.get(self, "max_backups_to_retain")
 
     @property
     @pulumi.getter
     def mode(self) -> Optional[builtins.str]:
-        """
-        Specifies how artists sessions are backed up.
-
-        Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
-        """
         return pulumi.get(self, "mode")
 
 
@@ -276,10 +194,6 @@ class LaunchProfileStreamConfigurationSessionStorage(dict):
     def __init__(__self__, *,
                  mode: Sequence[builtins.str],
                  root: Optional['outputs.LaunchProfileStreamingSessionStorageRoot'] = None):
-        """
-        :param Sequence[builtins.str] mode: Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
-        :param 'LaunchProfileStreamingSessionStorageRoot' root: The configuration for the upload storage root of the streaming session.
-        """
         pulumi.set(__self__, "mode", mode)
         if root is not None:
             pulumi.set(__self__, "root", root)
@@ -287,17 +201,11 @@ class LaunchProfileStreamConfigurationSessionStorage(dict):
     @property
     @pulumi.getter
     def mode(self) -> Sequence[builtins.str]:
-        """
-        Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
-        """
         return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter
     def root(self) -> Optional['outputs.LaunchProfileStreamingSessionStorageRoot']:
-        """
-        The configuration for the upload storage root of the streaming session.
-        """
         return pulumi.get(self, "root")
 
 
@@ -306,10 +214,6 @@ class LaunchProfileStreamingSessionStorageRoot(dict):
     def __init__(__self__, *,
                  linux: Optional[builtins.str] = None,
                  windows: Optional[builtins.str] = None):
-        """
-        :param builtins.str linux: The folder path in Linux workstations where files are uploaded.
-        :param builtins.str windows: The folder path in Windows workstations where files are uploaded.
-        """
         if linux is not None:
             pulumi.set(__self__, "linux", linux)
         if windows is not None:
@@ -318,17 +222,11 @@ class LaunchProfileStreamingSessionStorageRoot(dict):
     @property
     @pulumi.getter
     def linux(self) -> Optional[builtins.str]:
-        """
-        The folder path in Linux workstations where files are uploaded.
-        """
         return pulumi.get(self, "linux")
 
     @property
     @pulumi.getter
     def windows(self) -> Optional[builtins.str]:
-        """
-        The folder path in Windows workstations where files are uploaded.
-        """
         return pulumi.get(self, "windows")
 
 
@@ -338,11 +236,6 @@ class LaunchProfileVolumeConfiguration(dict):
                  iops: Optional[builtins.float] = None,
                  size: Optional[builtins.float] = None,
                  throughput: Optional[builtins.float] = None):
-        """
-        :param builtins.float iops: The number of I/O operations per second for the root volume that is attached to streaming session.
-        :param builtins.float size: The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
-        :param builtins.float throughput: The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
-        """
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
         if size is not None:
@@ -353,25 +246,16 @@ class LaunchProfileVolumeConfiguration(dict):
     @property
     @pulumi.getter
     def iops(self) -> Optional[builtins.float]:
-        """
-        The number of I/O operations per second for the root volume that is attached to streaming session.
-        """
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter
     def size(self) -> Optional[builtins.float]:
-        """
-        The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
-        """
         return pulumi.get(self, "size")
 
     @property
     @pulumi.getter
     def throughput(self) -> Optional[builtins.float]:
-        """
-        The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
-        """
         return pulumi.get(self, "throughput")
 
 
@@ -399,10 +283,6 @@ class StreamingImageEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  key_type: builtins.str,
                  key_arn: Optional[builtins.str] = None):
-        """
-        :param builtins.str key_type: The type of KMS key that is used to encrypt studio data.
-        :param builtins.str key_arn: The ARN for a KMS key that is used to encrypt studio data.
-        """
         pulumi.set(__self__, "key_type", key_type)
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
@@ -410,17 +290,11 @@ class StreamingImageEncryptionConfiguration(dict):
     @property
     @pulumi.getter(name="keyType")
     def key_type(self) -> builtins.str:
-        """
-        The type of KMS key that is used to encrypt studio data.
-        """
         return pulumi.get(self, "key_type")
 
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[builtins.str]:
-        """
-        The ARN for a KMS key that is used to encrypt studio data.
-        """
         return pulumi.get(self, "key_arn")
 
 
@@ -429,10 +303,6 @@ class StudioComponentActiveDirectoryComputerAttribute(dict):
     def __init__(__self__, *,
                  name: Optional[builtins.str] = None,
                  value: Optional[builtins.str] = None):
-        """
-        :param builtins.str name: The name for the LDAP attribute.
-        :param builtins.str value: The value for the LDAP attribute.
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -441,17 +311,11 @@ class StudioComponentActiveDirectoryComputerAttribute(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
-        """
-        The name for the LDAP attribute.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[builtins.str]:
-        """
-        The value for the LDAP attribute.
-        """
         return pulumi.get(self, "value")
 
 
@@ -482,11 +346,6 @@ class StudioComponentActiveDirectoryConfiguration(dict):
                  computer_attributes: Optional[Sequence['outputs.StudioComponentActiveDirectoryComputerAttribute']] = None,
                  directory_id: Optional[builtins.str] = None,
                  organizational_unit_distinguished_name: Optional[builtins.str] = None):
-        """
-        :param Sequence['StudioComponentActiveDirectoryComputerAttribute'] computer_attributes: A collection of custom attributes for an Active Directory computer.
-        :param builtins.str directory_id: The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
-        :param builtins.str organizational_unit_distinguished_name: The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
-        """
         if computer_attributes is not None:
             pulumi.set(__self__, "computer_attributes", computer_attributes)
         if directory_id is not None:
@@ -497,25 +356,16 @@ class StudioComponentActiveDirectoryConfiguration(dict):
     @property
     @pulumi.getter(name="computerAttributes")
     def computer_attributes(self) -> Optional[Sequence['outputs.StudioComponentActiveDirectoryComputerAttribute']]:
-        """
-        A collection of custom attributes for an Active Directory computer.
-        """
         return pulumi.get(self, "computer_attributes")
 
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[builtins.str]:
-        """
-        The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
-        """
         return pulumi.get(self, "directory_id")
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[builtins.str]:
-        """
-        The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
-        """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
 
@@ -541,10 +391,6 @@ class StudioComponentComputeFarmConfiguration(dict):
     def __init__(__self__, *,
                  active_directory_user: Optional[builtins.str] = None,
                  endpoint: Optional[builtins.str] = None):
-        """
-        :param builtins.str active_directory_user: The name of an Active Directory user that is used on ComputeFarm worker instances.
-        :param builtins.str endpoint: The endpoint of the ComputeFarm that is accessed by the studio component resource.
-        """
         if active_directory_user is not None:
             pulumi.set(__self__, "active_directory_user", active_directory_user)
         if endpoint is not None:
@@ -553,17 +399,11 @@ class StudioComponentComputeFarmConfiguration(dict):
     @property
     @pulumi.getter(name="activeDirectoryUser")
     def active_directory_user(self) -> Optional[builtins.str]:
-        """
-        The name of an Active Directory user that is used on ComputeFarm worker instances.
-        """
         return pulumi.get(self, "active_directory_user")
 
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[builtins.str]:
-        """
-        The endpoint of the ComputeFarm that is accessed by the studio component resource.
-        """
         return pulumi.get(self, "endpoint")
 
 
@@ -597,12 +437,6 @@ class StudioComponentConfiguration(dict):
                  compute_farm_configuration: Optional['outputs.StudioComponentComputeFarmConfiguration'] = None,
                  license_service_configuration: Optional['outputs.StudioComponentLicenseServiceConfiguration'] = None,
                  shared_file_system_configuration: Optional['outputs.StudioComponentSharedFileSystemConfiguration'] = None):
-        """
-        :param 'StudioComponentActiveDirectoryConfiguration' active_directory_configuration: The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
-        :param 'StudioComponentComputeFarmConfiguration' compute_farm_configuration: The configuration for a render farm that is associated with a studio resource.
-        :param 'StudioComponentLicenseServiceConfiguration' license_service_configuration: The configuration for a license service that is associated with a studio resource.
-        :param 'StudioComponentSharedFileSystemConfiguration' shared_file_system_configuration: The configuration for a shared file storage system that is associated with a studio resource.
-        """
         if active_directory_configuration is not None:
             pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
         if compute_farm_configuration is not None:
@@ -615,33 +449,21 @@ class StudioComponentConfiguration(dict):
     @property
     @pulumi.getter(name="activeDirectoryConfiguration")
     def active_directory_configuration(self) -> Optional['outputs.StudioComponentActiveDirectoryConfiguration']:
-        """
-        The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
-        """
         return pulumi.get(self, "active_directory_configuration")
 
     @property
     @pulumi.getter(name="computeFarmConfiguration")
     def compute_farm_configuration(self) -> Optional['outputs.StudioComponentComputeFarmConfiguration']:
-        """
-        The configuration for a render farm that is associated with a studio resource.
-        """
         return pulumi.get(self, "compute_farm_configuration")
 
     @property
     @pulumi.getter(name="licenseServiceConfiguration")
     def license_service_configuration(self) -> Optional['outputs.StudioComponentLicenseServiceConfiguration']:
-        """
-        The configuration for a license service that is associated with a studio resource.
-        """
         return pulumi.get(self, "license_service_configuration")
 
     @property
     @pulumi.getter(name="sharedFileSystemConfiguration")
     def shared_file_system_configuration(self) -> Optional['outputs.StudioComponentSharedFileSystemConfiguration']:
-        """
-        The configuration for a shared file storage system that is associated with a studio resource.
-        """
         return pulumi.get(self, "shared_file_system_configuration")
 
 
@@ -671,12 +493,6 @@ class StudioComponentInitializationScript(dict):
                  platform: Optional[builtins.str] = None,
                  run_context: Optional[builtins.str] = None,
                  script: Optional[builtins.str] = None):
-        """
-        :param builtins.str launch_profile_protocol_version: The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
-        :param builtins.str platform: The platform of the initialization script, either Windows or Linux.
-        :param builtins.str run_context: The method to use when running the initialization script.
-        :param builtins.str script: The initialization script.
-        """
         if launch_profile_protocol_version is not None:
             pulumi.set(__self__, "launch_profile_protocol_version", launch_profile_protocol_version)
         if platform is not None:
@@ -689,33 +505,21 @@ class StudioComponentInitializationScript(dict):
     @property
     @pulumi.getter(name="launchProfileProtocolVersion")
     def launch_profile_protocol_version(self) -> Optional[builtins.str]:
-        """
-        The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
-        """
         return pulumi.get(self, "launch_profile_protocol_version")
 
     @property
     @pulumi.getter
     def platform(self) -> Optional[builtins.str]:
-        """
-        The platform of the initialization script, either Windows or Linux.
-        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter(name="runContext")
     def run_context(self) -> Optional[builtins.str]:
-        """
-        The method to use when running the initialization script.
-        """
         return pulumi.get(self, "run_context")
 
     @property
     @pulumi.getter
     def script(self) -> Optional[builtins.str]:
-        """
-        The initialization script.
-        """
         return pulumi.get(self, "script")
 
 
@@ -723,18 +527,12 @@ class StudioComponentInitializationScript(dict):
 class StudioComponentLicenseServiceConfiguration(dict):
     def __init__(__self__, *,
                  endpoint: Optional[builtins.str] = None):
-        """
-        :param builtins.str endpoint: The endpoint of the license service that is accessed by the studio component resource.
-        """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
 
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[builtins.str]:
-        """
-        The endpoint of the license service that is accessed by the studio component resource.
-        """
         return pulumi.get(self, "endpoint")
 
 
@@ -743,10 +541,6 @@ class StudioComponentScriptParameterKeyValue(dict):
     def __init__(__self__, *,
                  key: Optional[builtins.str] = None,
                  value: Optional[builtins.str] = None):
-        """
-        :param builtins.str key: A script parameter key.
-        :param builtins.str value: A script parameter value.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -755,17 +549,11 @@ class StudioComponentScriptParameterKeyValue(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[builtins.str]:
-        """
-        A script parameter key.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[builtins.str]:
-        """
-        A script parameter value.
-        """
         return pulumi.get(self, "value")
 
 
@@ -800,13 +588,6 @@ class StudioComponentSharedFileSystemConfiguration(dict):
                  linux_mount_point: Optional[builtins.str] = None,
                  share_name: Optional[builtins.str] = None,
                  windows_mount_drive: Optional[builtins.str] = None):
-        """
-        :param builtins.str endpoint: The endpoint of the shared file system that is accessed by the studio component resource.
-        :param builtins.str file_system_id: The unique identifier for a file system.
-        :param builtins.str linux_mount_point: The mount location for a shared file system on a Linux virtual workstation.
-        :param builtins.str share_name: The name of the file share.
-        :param builtins.str windows_mount_drive: The mount location for a shared file system on a Windows virtual workstation.
-        """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if file_system_id is not None:
@@ -821,41 +602,26 @@ class StudioComponentSharedFileSystemConfiguration(dict):
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[builtins.str]:
-        """
-        The endpoint of the shared file system that is accessed by the studio component resource.
-        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[builtins.str]:
-        """
-        The unique identifier for a file system.
-        """
         return pulumi.get(self, "file_system_id")
 
     @property
     @pulumi.getter(name="linuxMountPoint")
     def linux_mount_point(self) -> Optional[builtins.str]:
-        """
-        The mount location for a shared file system on a Linux virtual workstation.
-        """
         return pulumi.get(self, "linux_mount_point")
 
     @property
     @pulumi.getter(name="shareName")
     def share_name(self) -> Optional[builtins.str]:
-        """
-        The name of the file share.
-        """
         return pulumi.get(self, "share_name")
 
     @property
     @pulumi.getter(name="windowsMountDrive")
     def windows_mount_drive(self) -> Optional[builtins.str]:
-        """
-        The mount location for a shared file system on a Windows virtual workstation.
-        """
         return pulumi.get(self, "windows_mount_drive")
 
 
@@ -883,10 +649,6 @@ class StudioEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  key_type: builtins.str,
                  key_arn: Optional[builtins.str] = None):
-        """
-        :param builtins.str key_type: The type of KMS key that is used to encrypt studio data.
-        :param builtins.str key_arn: The ARN for a KMS key that is used to encrypt studio data.
-        """
         pulumi.set(__self__, "key_type", key_type)
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
@@ -894,17 +656,11 @@ class StudioEncryptionConfiguration(dict):
     @property
     @pulumi.getter(name="keyType")
     def key_type(self) -> builtins.str:
-        """
-        The type of KMS key that is used to encrypt studio data.
-        """
         return pulumi.get(self, "key_type")
 
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[builtins.str]:
-        """
-        The ARN for a KMS key that is used to encrypt studio data.
-        """
         return pulumi.get(self, "key_arn")
 
 
