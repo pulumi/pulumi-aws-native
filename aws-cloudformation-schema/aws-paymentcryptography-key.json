@@ -31,7 +31,7 @@
     },
     "KeyCheckValueAlgorithm" : {
       "type" : "string",
-      "enum" : [ "CMAC", "ANSI_X9_24", "HMAC" ]
+      "enum" : [ "CMAC", "ANSI_X9_24", "HMAC", "SHA_1" ]
     },
     "KeyClass" : {
       "type" : "string",

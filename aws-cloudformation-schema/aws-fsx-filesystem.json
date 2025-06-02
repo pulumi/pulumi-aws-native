@@ -134,8 +134,14 @@
         "DeploymentType" : {
           "type" : "string"
         },
+        "ThroughputCapacity" : {
+          "type" : "integer"
+        },
         "DataCompressionType" : {
           "type" : "string"
+        },
+        "DataReadCacheConfiguration" : {
+          "$ref" : "#/definitions/DataReadCacheConfiguration"
         },
         "ImportPath" : {
           "type" : "string"
@@ -347,6 +353,18 @@
       "required" : [ "DeploymentType" ]
     },
     "ReadCacheConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SizingMode" : {
+          "type" : "string"
+        },
+        "SizeGiB" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "DataReadCacheConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {

@@ -378,6 +378,12 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "UtilizationPerformanceIndex" : {
+          "type" : "integer"
+        },
+        "ScalingStrategy" : {
+          "type" : "string"
+        },
         "ComputeLimits" : {
           "$ref" : "#/definitions/ComputeLimits"
         }
