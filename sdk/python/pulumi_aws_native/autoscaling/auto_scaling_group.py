@@ -628,10 +628,8 @@ class AutoScalingGroupArgs:
         pulumi.set(self, "vpc_zone_identifier", value)
 
 
+@pulumi.type_token("aws-native:autoscaling:AutoScalingGroup")
 class AutoScalingGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:autoscaling:AutoScalingGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

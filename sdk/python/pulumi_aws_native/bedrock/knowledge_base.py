@@ -128,10 +128,8 @@ class KnowledgeBaseArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBase")
 class KnowledgeBase(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:bedrock:KnowledgeBase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

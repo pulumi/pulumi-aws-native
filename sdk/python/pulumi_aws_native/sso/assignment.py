@@ -116,10 +116,8 @@ class AssignmentArgs:
         pulumi.set(self, "target_type", value)
 
 
+@pulumi.type_token("aws-native:sso:Assignment")
 class Assignment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sso:Assignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

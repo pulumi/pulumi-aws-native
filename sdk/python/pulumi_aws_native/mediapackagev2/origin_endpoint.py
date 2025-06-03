@@ -219,10 +219,8 @@ class OriginEndpointArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpoint")
 class OriginEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediapackagev2:OriginEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

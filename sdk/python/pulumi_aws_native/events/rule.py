@@ -162,10 +162,8 @@ class RuleArgs:
         pulumi.set(self, "targets", value)
 
 
+@pulumi.type_token("aws-native:events:Rule")
 class Rule(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:events:Rule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

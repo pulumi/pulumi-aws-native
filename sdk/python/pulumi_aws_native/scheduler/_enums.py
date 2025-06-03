@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -18,6 +18,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:scheduler:ScheduleAssignPublicIp")
 class ScheduleAssignPublicIp(builtins.str, Enum):
     """
     Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE.
@@ -26,6 +27,7 @@ class ScheduleAssignPublicIp(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:scheduler:ScheduleFlexibleTimeWindowMode")
 class ScheduleFlexibleTimeWindowMode(builtins.str, Enum):
     """
     Determines whether the schedule is executed within a flexible time window.
@@ -34,6 +36,7 @@ class ScheduleFlexibleTimeWindowMode(builtins.str, Enum):
     FLEXIBLE = "FLEXIBLE"
 
 
+@pulumi.type_token("aws-native:scheduler:ScheduleGroupState")
 class ScheduleGroupState(builtins.str, Enum):
     """
     Specifies the state of the schedule group.
@@ -42,6 +45,7 @@ class ScheduleGroupState(builtins.str, Enum):
     DELETING = "DELETING"
 
 
+@pulumi.type_token("aws-native:scheduler:ScheduleLaunchType")
 class ScheduleLaunchType(builtins.str, Enum):
     """
     Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see AWS Fargate on Amazon ECS in the Amazon Elastic Container Service Developer Guide.
@@ -51,6 +55,7 @@ class ScheduleLaunchType(builtins.str, Enum):
     EXTERNAL = "EXTERNAL"
 
 
+@pulumi.type_token("aws-native:scheduler:SchedulePlacementConstraintType")
 class SchedulePlacementConstraintType(builtins.str, Enum):
     """
     The type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates.
@@ -59,6 +64,7 @@ class SchedulePlacementConstraintType(builtins.str, Enum):
     MEMBER_OF = "memberOf"
 
 
+@pulumi.type_token("aws-native:scheduler:SchedulePlacementStrategyType")
 class SchedulePlacementStrategyType(builtins.str, Enum):
     """
     The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
@@ -68,6 +74,7 @@ class SchedulePlacementStrategyType(builtins.str, Enum):
     BINPACK = "binpack"
 
 
+@pulumi.type_token("aws-native:scheduler:SchedulePropagateTags")
 class SchedulePropagateTags(builtins.str, Enum):
     """
     Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action.
@@ -75,6 +82,7 @@ class SchedulePropagateTags(builtins.str, Enum):
     TASK_DEFINITION = "TASK_DEFINITION"
 
 
+@pulumi.type_token("aws-native:scheduler:ScheduleState")
 class ScheduleState(builtins.str, Enum):
     """
     Specifies whether the schedule is enabled or disabled.

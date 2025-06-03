@@ -284,10 +284,8 @@ class PlaybackConfigurationArgs:
         pulumi.set(self, "transcode_profile_name", value)
 
 
+@pulumi.type_token("aws-native:mediatailor:PlaybackConfiguration")
 class PlaybackConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediatailor:PlaybackConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

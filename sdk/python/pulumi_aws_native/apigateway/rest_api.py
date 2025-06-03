@@ -287,10 +287,8 @@ class RestApiArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:apigateway:RestApi")
 class RestApi(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigateway:RestApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

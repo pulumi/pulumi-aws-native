@@ -114,10 +114,8 @@ class ActivityArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:stepfunctions:Activity")
 class Activity(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:stepfunctions:Activity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

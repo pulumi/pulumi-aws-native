@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -447,10 +447,12 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisAnchorOption")
 class AnalysisAnchorOption(builtins.str, Enum):
     NOW = "NOW"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisArcThickness")
 class AnalysisArcThickness(builtins.str, Enum):
     SMALL = "SMALL"
     MEDIUM = "MEDIUM"
@@ -458,28 +460,33 @@ class AnalysisArcThickness(builtins.str, Enum):
     WHOLE = "WHOLE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisArcThicknessOptions")
 class AnalysisArcThicknessOptions(builtins.str, Enum):
     SMALL = "SMALL"
     MEDIUM = "MEDIUM"
     LARGE = "LARGE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisAxisBinding")
 class AnalysisAxisBinding(builtins.str, Enum):
     PRIMARY_YAXIS = "PRIMARY_YAXIS"
     SECONDARY_YAXIS = "SECONDARY_YAXIS"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisBarChartOrientation")
 class AnalysisBarChartOrientation(builtins.str, Enum):
     HORIZONTAL = "HORIZONTAL"
     VERTICAL = "VERTICAL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisBarsArrangement")
 class AnalysisBarsArrangement(builtins.str, Enum):
     CLUSTERED = "CLUSTERED"
     STACKED = "STACKED"
     STACKED_PERCENT = "STACKED_PERCENT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisBaseMapStyleType")
 class AnalysisBaseMapStyleType(builtins.str, Enum):
     LIGHT_GRAY = "LIGHT_GRAY"
     DARK_GRAY = "DARK_GRAY"
@@ -487,16 +494,19 @@ class AnalysisBaseMapStyleType(builtins.str, Enum):
     IMAGERY = "IMAGERY"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisBoxPlotFillStyle")
 class AnalysisBoxPlotFillStyle(builtins.str, Enum):
     SOLID = "SOLID"
     TRANSPARENT = "TRANSPARENT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisCategoricalAggregationFunction")
 class AnalysisCategoricalAggregationFunction(builtins.str, Enum):
     COUNT = "COUNT"
     DISTINCT_COUNT = "DISTINCT_COUNT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisCategoryFilterMatchOperator")
 class AnalysisCategoryFilterMatchOperator(builtins.str, Enum):
     EQUALS = "EQUALS"
     DOES_NOT_EQUAL = "DOES_NOT_EQUAL"
@@ -506,35 +516,42 @@ class AnalysisCategoryFilterMatchOperator(builtins.str, Enum):
     ENDS_WITH = "ENDS_WITH"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisCategoryFilterSelectAllOptions")
 class AnalysisCategoryFilterSelectAllOptions(builtins.str, Enum):
     FILTER_ALL_VALUES = "FILTER_ALL_VALUES"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisColorFillType")
 class AnalysisColorFillType(builtins.str, Enum):
     DISCRETE = "DISCRETE"
     GRADIENT = "GRADIENT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisColumnRole")
 class AnalysisColumnRole(builtins.str, Enum):
     DIMENSION = "DIMENSION"
     MEASURE = "MEASURE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisCommitMode")
 class AnalysisCommitMode(builtins.str, Enum):
     AUTO = "AUTO"
     MANUAL = "MANUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisComparisonMethod")
 class AnalysisComparisonMethod(builtins.str, Enum):
     DIFFERENCE = "DIFFERENCE"
     PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE"
     PERCENT = "PERCENT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisConditionalFormattingIconDisplayOption")
 class AnalysisConditionalFormattingIconDisplayOption(builtins.str, Enum):
     ICON_ONLY = "ICON_ONLY"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisConditionalFormattingIconSetType")
 class AnalysisConditionalFormattingIconSetType(builtins.str, Enum):
     PLUS_MINUS = "PLUS_MINUS"
     CHECK_X = "CHECK_X"
@@ -549,11 +566,13 @@ class AnalysisConditionalFormattingIconSetType(builtins.str, Enum):
     FOUR_GRAY_ARROW = "FOUR_GRAY_ARROW"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisCrossDatasetTypes")
 class AnalysisCrossDatasetTypes(builtins.str, Enum):
     ALL_DATASETS = "ALL_DATASETS"
     SINGLE_DATASET = "SINGLE_DATASET"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisCustomContentImageScalingConfiguration")
 class AnalysisCustomContentImageScalingConfiguration(builtins.str, Enum):
     FIT_TO_HEIGHT = "FIT_TO_HEIGHT"
     FIT_TO_WIDTH = "FIT_TO_WIDTH"
@@ -561,27 +580,32 @@ class AnalysisCustomContentImageScalingConfiguration(builtins.str, Enum):
     SCALE_TO_VISUAL = "SCALE_TO_VISUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisCustomContentType")
 class AnalysisCustomContentType(builtins.str, Enum):
     IMAGE = "IMAGE"
     OTHER_EMBEDDED_CONTENT = "OTHER_EMBEDDED_CONTENT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisDashboardBehavior")
 class AnalysisDashboardBehavior(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisDataLabelContent")
 class AnalysisDataLabelContent(builtins.str, Enum):
     VALUE = "VALUE"
     PERCENT = "PERCENT"
     VALUE_AND_PERCENT = "VALUE_AND_PERCENT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisDataLabelOverlap")
 class AnalysisDataLabelOverlap(builtins.str, Enum):
     DISABLE_OVERLAP = "DISABLE_OVERLAP"
     ENABLE_OVERLAP = "ENABLE_OVERLAP"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisDataLabelPosition")
 class AnalysisDataLabelPosition(builtins.str, Enum):
     INSIDE = "INSIDE"
     OUTSIDE = "OUTSIDE"
@@ -591,6 +615,7 @@ class AnalysisDataLabelPosition(builtins.str, Enum):
     RIGHT = "RIGHT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisDateAggregationFunction")
 class AnalysisDateAggregationFunction(builtins.str, Enum):
     COUNT = "COUNT"
     DISTINCT_COUNT = "DISTINCT_COUNT"
@@ -598,6 +623,7 @@ class AnalysisDateAggregationFunction(builtins.str, Enum):
     MAX = "MAX"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisDayOfTheWeek")
 class AnalysisDayOfTheWeek(builtins.str, Enum):
     SUNDAY = "SUNDAY"
     MONDAY = "MONDAY"
@@ -608,11 +634,13 @@ class AnalysisDayOfTheWeek(builtins.str, Enum):
     SATURDAY = "SATURDAY"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisDigitGroupingStyle")
 class AnalysisDigitGroupingStyle(builtins.str, Enum):
     DEFAULT = "DEFAULT"
     LAKHS = "LAKHS"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisErrorType")
 class AnalysisErrorType(builtins.str, Enum):
     ACCESS_DENIED = "ACCESS_DENIED"
     SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND"
@@ -626,37 +654,44 @@ class AnalysisErrorType(builtins.str, Enum):
     COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisFilterNullOption")
 class AnalysisFilterNullOption(builtins.str, Enum):
     ALL_VALUES = "ALL_VALUES"
     NULLS_ONLY = "NULLS_ONLY"
     NON_NULLS_ONLY = "NON_NULLS_ONLY"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisFilterVisualScope")
 class AnalysisFilterVisualScope(builtins.str, Enum):
     ALL_VISUALS = "ALL_VISUALS"
     SELECTED_VISUALS = "SELECTED_VISUALS"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisFontDecoration")
 class AnalysisFontDecoration(builtins.str, Enum):
     UNDERLINE = "UNDERLINE"
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisFontStyle")
 class AnalysisFontStyle(builtins.str, Enum):
     NORMAL = "NORMAL"
     ITALIC = "ITALIC"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisFontWeightName")
 class AnalysisFontWeightName(builtins.str, Enum):
     NORMAL = "NORMAL"
     BOLD = "BOLD"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisForecastComputationSeasonality")
 class AnalysisForecastComputationSeasonality(builtins.str, Enum):
     AUTOMATIC = "AUTOMATIC"
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisFunnelChartMeasureDataLabelStyle")
 class AnalysisFunnelChartMeasureDataLabelStyle(builtins.str, Enum):
     VALUE_ONLY = "VALUE_ONLY"
     PERCENTAGE_BY_FIRST_STAGE = "PERCENTAGE_BY_FIRST_STAGE"
@@ -665,6 +700,7 @@ class AnalysisFunnelChartMeasureDataLabelStyle(builtins.str, Enum):
     VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE = "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisGeospatialColorState")
 class AnalysisGeospatialColorState(builtins.str, Enum):
     """
     Defines view state of the color
@@ -673,28 +709,33 @@ class AnalysisGeospatialColorState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisGeospatialLayerType")
 class AnalysisGeospatialLayerType(builtins.str, Enum):
     POINT = "POINT"
     LINE = "LINE"
     POLYGON = "POLYGON"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisGeospatialMapNavigation")
 class AnalysisGeospatialMapNavigation(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisGeospatialSelectedPointStyle")
 class AnalysisGeospatialSelectedPointStyle(builtins.str, Enum):
     POINT = "POINT"
     CLUSTER = "CLUSTER"
     HEATMAP = "HEATMAP"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisHistogramBinType")
 class AnalysisHistogramBinType(builtins.str, Enum):
     BIN_COUNT = "BIN_COUNT"
     BIN_WIDTH = "BIN_WIDTH"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisHorizontalTextAlignment")
 class AnalysisHorizontalTextAlignment(builtins.str, Enum):
     LEFT = "LEFT"
     CENTER = "CENTER"
@@ -702,6 +743,7 @@ class AnalysisHorizontalTextAlignment(builtins.str, Enum):
     AUTO = "AUTO"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisIcon")
 class AnalysisIcon(builtins.str, Enum):
     CARET_UP = "CARET_UP"
     CARET_DOWN = "CARET_DOWN"
@@ -731,26 +773,31 @@ class AnalysisIcon(builtins.str, Enum):
     X = "X"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisImageCustomActionTrigger")
 class AnalysisImageCustomActionTrigger(builtins.str, Enum):
     CLICK = "CLICK"
     MENU = "MENU"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisKpiSparklineType")
 class AnalysisKpiSparklineType(builtins.str, Enum):
     LINE = "LINE"
     AREA = "AREA"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisKpiVisualStandardLayoutType")
 class AnalysisKpiVisualStandardLayoutType(builtins.str, Enum):
     CLASSIC = "CLASSIC"
     VERTICAL = "VERTICAL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisLayerCustomActionTrigger")
 class AnalysisLayerCustomActionTrigger(builtins.str, Enum):
     DATA_POINT_CLICK = "DATA_POINT_CLICK"
     DATA_POINT_MENU = "DATA_POINT_MENU"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisLayoutElementType")
 class AnalysisLayoutElementType(builtins.str, Enum):
     VISUAL = "VISUAL"
     FILTER_CONTROL = "FILTER_CONTROL"
@@ -759,6 +806,7 @@ class AnalysisLayoutElementType(builtins.str, Enum):
     IMAGE = "IMAGE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisLegendPosition")
 class AnalysisLegendPosition(builtins.str, Enum):
     AUTO = "AUTO"
     RIGHT = "RIGHT"
@@ -766,12 +814,14 @@ class AnalysisLegendPosition(builtins.str, Enum):
     TOP = "TOP"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisLineChartLineStyle")
 class AnalysisLineChartLineStyle(builtins.str, Enum):
     SOLID = "SOLID"
     DOTTED = "DOTTED"
     DASHED = "DASHED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisLineChartMarkerShape")
 class AnalysisLineChartMarkerShape(builtins.str, Enum):
     CIRCLE = "CIRCLE"
     TRIANGLE = "TRIANGLE"
@@ -780,39 +830,46 @@ class AnalysisLineChartMarkerShape(builtins.str, Enum):
     ROUNDED_SQUARE = "ROUNDED_SQUARE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisLineChartType")
 class AnalysisLineChartType(builtins.str, Enum):
     LINE = "LINE"
     AREA = "AREA"
     STACKED_AREA = "STACKED_AREA"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisLineInterpolation")
 class AnalysisLineInterpolation(builtins.str, Enum):
     LINEAR = "LINEAR"
     SMOOTH = "SMOOTH"
     STEPPED = "STEPPED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisMapZoomMode")
 class AnalysisMapZoomMode(builtins.str, Enum):
     AUTO = "AUTO"
     MANUAL = "MANUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisMaximumMinimumComputationType")
 class AnalysisMaximumMinimumComputationType(builtins.str, Enum):
     MAXIMUM = "MAXIMUM"
     MINIMUM = "MINIMUM"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisMissingDataTreatmentOption")
 class AnalysisMissingDataTreatmentOption(builtins.str, Enum):
     INTERPOLATE = "INTERPOLATE"
     SHOW_AS_ZERO = "SHOW_AS_ZERO"
     SHOW_AS_BLANK = "SHOW_AS_BLANK"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisNegativeValueDisplayMode")
 class AnalysisNegativeValueDisplayMode(builtins.str, Enum):
     POSITIVE = "POSITIVE"
     NEGATIVE = "NEGATIVE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisNumberScale")
 class AnalysisNumberScale(builtins.str, Enum):
     NONE = "NONE"
     AUTO = "AUTO"
@@ -824,37 +881,44 @@ class AnalysisNumberScale(builtins.str, Enum):
     CRORES = "CRORES"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisNumericEqualityMatchOperator")
 class AnalysisNumericEqualityMatchOperator(builtins.str, Enum):
     EQUALS = "EQUALS"
     DOES_NOT_EQUAL = "DOES_NOT_EQUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisNumericFilterSelectAllOptions")
 class AnalysisNumericFilterSelectAllOptions(builtins.str, Enum):
     FILTER_ALL_VALUES = "FILTER_ALL_VALUES"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisNumericSeparatorSymbol")
 class AnalysisNumericSeparatorSymbol(builtins.str, Enum):
     COMMA = "COMMA"
     DOT = "DOT"
     SPACE = "SPACE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisOtherCategories")
 class AnalysisOtherCategories(builtins.str, Enum):
     INCLUDE = "INCLUDE"
     EXCLUDE = "EXCLUDE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisPanelBorderStyle")
 class AnalysisPanelBorderStyle(builtins.str, Enum):
     SOLID = "SOLID"
     DASHED = "DASHED"
     DOTTED = "DOTTED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisPaperOrientation")
 class AnalysisPaperOrientation(builtins.str, Enum):
     PORTRAIT = "PORTRAIT"
     LANDSCAPE = "LANDSCAPE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisPaperSize")
 class AnalysisPaperSize(builtins.str, Enum):
     US_LETTER = "US_LETTER"
     US_LEGAL = "US_LEGAL"
@@ -869,17 +933,20 @@ class AnalysisPaperSize(builtins.str, Enum):
     JIS_B5 = "JIS_B5"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisParameterValueType")
 class AnalysisParameterValueType(builtins.str, Enum):
     MULTI_VALUED = "MULTI_VALUED"
     SINGLE_VALUED = "SINGLE_VALUED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisPivotTableConditionalFormattingScopeRole")
 class AnalysisPivotTableConditionalFormattingScopeRole(builtins.str, Enum):
     FIELD = "FIELD"
     FIELD_TOTAL = "FIELD_TOTAL"
     GRAND_TOTAL = "GRAND_TOTAL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisPivotTableDataPathType")
 class AnalysisPivotTableDataPathType(builtins.str, Enum):
     HIERARCHY_ROWS_LAYOUT_COLUMN = "HIERARCHY_ROWS_LAYOUT_COLUMN"
     MULTIPLE_ROW_METRICS_COLUMN = "MULTIPLE_ROW_METRICS_COLUMN"
@@ -887,81 +954,96 @@ class AnalysisPivotTableDataPathType(builtins.str, Enum):
     COUNT_METRIC_COLUMN = "COUNT_METRIC_COLUMN"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisPivotTableFieldCollapseState")
 class AnalysisPivotTableFieldCollapseState(builtins.str, Enum):
     COLLAPSED = "COLLAPSED"
     EXPANDED = "EXPANDED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisPivotTableMetricPlacement")
 class AnalysisPivotTableMetricPlacement(builtins.str, Enum):
     ROW = "ROW"
     COLUMN = "COLUMN"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisPivotTableRowsLayout")
 class AnalysisPivotTableRowsLayout(builtins.str, Enum):
     TABULAR = "TABULAR"
     HIERARCHY = "HIERARCHY"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisPivotTableSubtotalLevel")
 class AnalysisPivotTableSubtotalLevel(builtins.str, Enum):
     ALL = "ALL"
     CUSTOM = "CUSTOM"
     LAST = "LAST"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisPluginVisualAxisName")
 class AnalysisPluginVisualAxisName(builtins.str, Enum):
     GROUP_BY = "GROUP_BY"
     VALUE = "VALUE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisPrimaryValueDisplayType")
 class AnalysisPrimaryValueDisplayType(builtins.str, Enum):
     HIDDEN = "HIDDEN"
     COMPARISON = "COMPARISON"
     ACTUAL = "ACTUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisQueryExecutionMode")
 class AnalysisQueryExecutionMode(builtins.str, Enum):
     AUTO = "AUTO"
     MANUAL = "MANUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisRadarChartAxesRangeScale")
 class AnalysisRadarChartAxesRangeScale(builtins.str, Enum):
     AUTO = "AUTO"
     INDEPENDENT = "INDEPENDENT"
     SHARED = "SHARED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisRadarChartShape")
 class AnalysisRadarChartShape(builtins.str, Enum):
     CIRCLE = "CIRCLE"
     POLYGON = "POLYGON"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisReferenceLineLabelHorizontalPosition")
 class AnalysisReferenceLineLabelHorizontalPosition(builtins.str, Enum):
     LEFT = "LEFT"
     CENTER = "CENTER"
     RIGHT = "RIGHT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisReferenceLineLabelVerticalPosition")
 class AnalysisReferenceLineLabelVerticalPosition(builtins.str, Enum):
     ABOVE = "ABOVE"
     BELOW = "BELOW"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisReferenceLinePatternType")
 class AnalysisReferenceLinePatternType(builtins.str, Enum):
     SOLID = "SOLID"
     DASHED = "DASHED"
     DOTTED = "DOTTED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisReferenceLineSeriesType")
 class AnalysisReferenceLineSeriesType(builtins.str, Enum):
     BAR = "BAR"
     LINE = "LINE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisReferenceLineValueLabelRelativePosition")
 class AnalysisReferenceLineValueLabelRelativePosition(builtins.str, Enum):
     BEFORE_CUSTOM_LABEL = "BEFORE_CUSTOM_LABEL"
     AFTER_CUSTOM_LABEL = "AFTER_CUSTOM_LABEL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisRelativeDateType")
 class AnalysisRelativeDateType(builtins.str, Enum):
     PREVIOUS = "PREVIOUS"
     THIS = "THIS"
@@ -970,6 +1052,7 @@ class AnalysisRelativeDateType(builtins.str, Enum):
     NEXT = "NEXT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisRelativeFontSize")
 class AnalysisRelativeFontSize(builtins.str, Enum):
     EXTRA_SMALL = "EXTRA_SMALL"
     SMALL = "SMALL"
@@ -978,11 +1061,13 @@ class AnalysisRelativeFontSize(builtins.str, Enum):
     EXTRA_LARGE = "EXTRA_LARGE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisResizeOption")
 class AnalysisResizeOption(builtins.str, Enum):
     FIXED = "FIXED"
     RESPONSIVE = "RESPONSIVE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisResourceStatus")
 class AnalysisResourceStatus(builtins.str, Enum):
     CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
     CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL"
@@ -993,44 +1078,53 @@ class AnalysisResourceStatus(builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSectionPageBreakStatus")
 class AnalysisSectionPageBreakStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSelectAllValueOptions")
 class AnalysisSelectAllValueOptions(builtins.str, Enum):
     ALL_VALUES = "ALL_VALUES"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSelectedFieldOptions")
 class AnalysisSelectedFieldOptions(builtins.str, Enum):
     ALL_FIELDS = "ALL_FIELDS"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSelectedTooltipType")
 class AnalysisSelectedTooltipType(builtins.str, Enum):
     BASIC = "BASIC"
     DETAILED = "DETAILED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSheetContentType")
 class AnalysisSheetContentType(builtins.str, Enum):
     PAGINATED = "PAGINATED"
     INTERACTIVE = "INTERACTIVE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSheetControlDateTimePickerType")
 class AnalysisSheetControlDateTimePickerType(builtins.str, Enum):
     SINGLE_VALUED = "SINGLE_VALUED"
     DATE_RANGE = "DATE_RANGE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSheetControlListType")
 class AnalysisSheetControlListType(builtins.str, Enum):
     MULTI_SELECT = "MULTI_SELECT"
     SINGLE_SELECT = "SINGLE_SELECT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSheetControlSliderType")
 class AnalysisSheetControlSliderType(builtins.str, Enum):
     SINGLE_POINT = "SINGLE_POINT"
     RANGE = "RANGE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSheetImageScalingType")
 class AnalysisSheetImageScalingType(builtins.str, Enum):
     SCALE_TO_WIDTH = "SCALE_TO_WIDTH"
     SCALE_TO_HEIGHT = "SCALE_TO_HEIGHT"
@@ -1038,10 +1132,12 @@ class AnalysisSheetImageScalingType(builtins.str, Enum):
     SCALE_NONE = "SCALE_NONE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSimpleAttributeAggregationFunction")
 class AnalysisSimpleAttributeAggregationFunction(builtins.str, Enum):
     UNIQUE_VALUE = "UNIQUE_VALUE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSimpleNumericalAggregationFunction")
 class AnalysisSimpleNumericalAggregationFunction(builtins.str, Enum):
     SUM = "SUM"
     AVERAGE = "AVERAGE"
@@ -1056,6 +1152,7 @@ class AnalysisSimpleNumericalAggregationFunction(builtins.str, Enum):
     MEDIAN = "MEDIAN"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSimpleTotalAggregationFunction")
 class AnalysisSimpleTotalAggregationFunction(builtins.str, Enum):
     DEFAULT = "DEFAULT"
     SUM = "SUM"
@@ -1065,77 +1162,92 @@ class AnalysisSimpleTotalAggregationFunction(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSingleYAxisOption")
 class AnalysisSingleYAxisOption(builtins.str, Enum):
     PRIMARY_Y_AXIS = "PRIMARY_Y_AXIS"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSmallMultiplesAxisPlacement")
 class AnalysisSmallMultiplesAxisPlacement(builtins.str, Enum):
     OUTSIDE = "OUTSIDE"
     INSIDE = "INSIDE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSmallMultiplesAxisScale")
 class AnalysisSmallMultiplesAxisScale(builtins.str, Enum):
     SHARED = "SHARED"
     INDEPENDENT = "INDEPENDENT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSortDirection")
 class AnalysisSortDirection(builtins.str, Enum):
     ASC = "ASC"
     DESC = "DESC"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisSpecialValue")
 class AnalysisSpecialValue(builtins.str, Enum):
     EMPTY = "EMPTY"
     NULL = "NULL"
     OTHER = "OTHER"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisStyledCellType")
 class AnalysisStyledCellType(builtins.str, Enum):
     TOTAL = "TOTAL"
     METRIC_HEADER = "METRIC_HEADER"
     VALUE = "VALUE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTableBorderStyle")
 class AnalysisTableBorderStyle(builtins.str, Enum):
     NONE = "NONE"
     SOLID = "SOLID"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTableCellImageScalingConfiguration")
 class AnalysisTableCellImageScalingConfiguration(builtins.str, Enum):
     FIT_TO_CELL_HEIGHT = "FIT_TO_CELL_HEIGHT"
     FIT_TO_CELL_WIDTH = "FIT_TO_CELL_WIDTH"
     DO_NOT_SCALE = "DO_NOT_SCALE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTableFieldIconSetType")
 class AnalysisTableFieldIconSetType(builtins.str, Enum):
     LINK = "LINK"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTableOrientation")
 class AnalysisTableOrientation(builtins.str, Enum):
     VERTICAL = "VERTICAL"
     HORIZONTAL = "HORIZONTAL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTableTotalsPlacement")
 class AnalysisTableTotalsPlacement(builtins.str, Enum):
     START = "START"
     END = "END"
     AUTO = "AUTO"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTableTotalsScrollStatus")
 class AnalysisTableTotalsScrollStatus(builtins.str, Enum):
     PINNED = "PINNED"
     SCROLLED = "SCROLLED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTargetVisualOptions")
 class AnalysisTargetVisualOptions(builtins.str, Enum):
     ALL_VISUALS = "ALL_VISUALS"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTextWrap")
 class AnalysisTextWrap(builtins.str, Enum):
     NONE = "NONE"
     WRAP = "WRAP"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTimeGranularity")
 class AnalysisTimeGranularity(builtins.str, Enum):
     YEAR = "YEAR"
     QUARTER = "QUARTER"
@@ -1148,48 +1260,57 @@ class AnalysisTimeGranularity(builtins.str, Enum):
     MILLISECOND = "MILLISECOND"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTooltipTarget")
 class AnalysisTooltipTarget(builtins.str, Enum):
     BOTH = "BOTH"
     BAR = "BAR"
     LINE = "LINE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTooltipTitleType")
 class AnalysisTooltipTitleType(builtins.str, Enum):
     NONE = "NONE"
     PRIMARY_VALUE = "PRIMARY_VALUE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTopBottomComputationType")
 class AnalysisTopBottomComputationType(builtins.str, Enum):
     TOP = "TOP"
     BOTTOM = "BOTTOM"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTopBottomSortOrder")
 class AnalysisTopBottomSortOrder(builtins.str, Enum):
     PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE"
     ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisTransposedColumnType")
 class AnalysisTransposedColumnType(builtins.str, Enum):
     ROW_HEADER_COLUMN = "ROW_HEADER_COLUMN"
     VALUE_COLUMN = "VALUE_COLUMN"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisUrlTargetConfiguration")
 class AnalysisUrlTargetConfiguration(builtins.str, Enum):
     NEW_TAB = "NEW_TAB"
     NEW_WINDOW = "NEW_WINDOW"
     SAME_TAB = "SAME_TAB"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisValidationStrategyMode")
 class AnalysisValidationStrategyMode(builtins.str, Enum):
     STRICT = "STRICT"
     LENIENT = "LENIENT"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisValueWhenUnsetOption")
 class AnalysisValueWhenUnsetOption(builtins.str, Enum):
     RECOMMENDED_VALUE = "RECOMMENDED_VALUE"
     NULL = "NULL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisVerticalTextAlignment")
 class AnalysisVerticalTextAlignment(builtins.str, Enum):
     TOP = "TOP"
     MIDDLE = "MIDDLE"
@@ -1197,36 +1318,43 @@ class AnalysisVerticalTextAlignment(builtins.str, Enum):
     AUTO = "AUTO"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisVisibility")
 class AnalysisVisibility(builtins.str, Enum):
     HIDDEN = "HIDDEN"
     VISIBLE = "VISIBLE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisVisualCustomActionTrigger")
 class AnalysisVisualCustomActionTrigger(builtins.str, Enum):
     DATA_POINT_CLICK = "DATA_POINT_CLICK"
     DATA_POINT_MENU = "DATA_POINT_MENU"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisWidgetStatus")
 class AnalysisWidgetStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisWordCloudCloudLayout")
 class AnalysisWordCloudCloudLayout(builtins.str, Enum):
     FLUID = "FLUID"
     NORMAL = "NORMAL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisWordCloudWordCasing")
 class AnalysisWordCloudWordCasing(builtins.str, Enum):
     LOWER_CASE = "LOWER_CASE"
     EXISTING_CASE = "EXISTING_CASE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisWordCloudWordOrientation")
 class AnalysisWordCloudWordOrientation(builtins.str, Enum):
     HORIZONTAL = "HORIZONTAL"
     HORIZONTAL_AND_VERTICAL = "HORIZONTAL_AND_VERTICAL"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisWordCloudWordPadding")
 class AnalysisWordCloudWordPadding(builtins.str, Enum):
     NONE = "NONE"
     SMALL = "SMALL"
@@ -1234,19 +1362,23 @@ class AnalysisWordCloudWordPadding(builtins.str, Enum):
     LARGE = "LARGE"
 
 
+@pulumi.type_token("aws-native:quicksight:AnalysisWordCloudWordScaling")
 class AnalysisWordCloudWordScaling(builtins.str, Enum):
     EMPHASIZE = "EMPHASIZE"
     NORMAL = "NORMAL"
 
 
+@pulumi.type_token("aws-native:quicksight:CustomPermissionsCapabilityState")
 class CustomPermissionsCapabilityState(builtins.str, Enum):
     DENY = "DENY"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardAnchorOption")
 class DashboardAnchorOption(builtins.str, Enum):
     NOW = "NOW"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardArcThickness")
 class DashboardArcThickness(builtins.str, Enum):
     SMALL = "SMALL"
     MEDIUM = "MEDIUM"
@@ -1254,28 +1386,33 @@ class DashboardArcThickness(builtins.str, Enum):
     WHOLE = "WHOLE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardArcThicknessOptions")
 class DashboardArcThicknessOptions(builtins.str, Enum):
     SMALL = "SMALL"
     MEDIUM = "MEDIUM"
     LARGE = "LARGE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardAxisBinding")
 class DashboardAxisBinding(builtins.str, Enum):
     PRIMARY_YAXIS = "PRIMARY_YAXIS"
     SECONDARY_YAXIS = "SECONDARY_YAXIS"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardBarChartOrientation")
 class DashboardBarChartOrientation(builtins.str, Enum):
     HORIZONTAL = "HORIZONTAL"
     VERTICAL = "VERTICAL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardBarsArrangement")
 class DashboardBarsArrangement(builtins.str, Enum):
     CLUSTERED = "CLUSTERED"
     STACKED = "STACKED"
     STACKED_PERCENT = "STACKED_PERCENT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardBaseMapStyleType")
 class DashboardBaseMapStyleType(builtins.str, Enum):
     LIGHT_GRAY = "LIGHT_GRAY"
     DARK_GRAY = "DARK_GRAY"
@@ -1283,21 +1420,25 @@ class DashboardBaseMapStyleType(builtins.str, Enum):
     IMAGERY = "IMAGERY"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardBehavior")
 class DashboardBehavior(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardBoxPlotFillStyle")
 class DashboardBoxPlotFillStyle(builtins.str, Enum):
     SOLID = "SOLID"
     TRANSPARENT = "TRANSPARENT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardCategoricalAggregationFunction")
 class DashboardCategoricalAggregationFunction(builtins.str, Enum):
     COUNT = "COUNT"
     DISTINCT_COUNT = "DISTINCT_COUNT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardCategoryFilterMatchOperator")
 class DashboardCategoryFilterMatchOperator(builtins.str, Enum):
     EQUALS = "EQUALS"
     DOES_NOT_EQUAL = "DOES_NOT_EQUAL"
@@ -1307,35 +1448,42 @@ class DashboardCategoryFilterMatchOperator(builtins.str, Enum):
     ENDS_WITH = "ENDS_WITH"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardCategoryFilterSelectAllOptions")
 class DashboardCategoryFilterSelectAllOptions(builtins.str, Enum):
     FILTER_ALL_VALUES = "FILTER_ALL_VALUES"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardColorFillType")
 class DashboardColorFillType(builtins.str, Enum):
     DISCRETE = "DISCRETE"
     GRADIENT = "GRADIENT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardColumnRole")
 class DashboardColumnRole(builtins.str, Enum):
     DIMENSION = "DIMENSION"
     MEASURE = "MEASURE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardCommitMode")
 class DashboardCommitMode(builtins.str, Enum):
     AUTO = "AUTO"
     MANUAL = "MANUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardComparisonMethod")
 class DashboardComparisonMethod(builtins.str, Enum):
     DIFFERENCE = "DIFFERENCE"
     PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE"
     PERCENT = "PERCENT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardConditionalFormattingIconDisplayOption")
 class DashboardConditionalFormattingIconDisplayOption(builtins.str, Enum):
     ICON_ONLY = "ICON_ONLY"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardConditionalFormattingIconSetType")
 class DashboardConditionalFormattingIconSetType(builtins.str, Enum):
     PLUS_MINUS = "PLUS_MINUS"
     CHECK_X = "CHECK_X"
@@ -1350,11 +1498,13 @@ class DashboardConditionalFormattingIconSetType(builtins.str, Enum):
     FOUR_GRAY_ARROW = "FOUR_GRAY_ARROW"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardCrossDatasetTypes")
 class DashboardCrossDatasetTypes(builtins.str, Enum):
     ALL_DATASETS = "ALL_DATASETS"
     SINGLE_DATASET = "SINGLE_DATASET"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardCustomContentImageScalingConfiguration")
 class DashboardCustomContentImageScalingConfiguration(builtins.str, Enum):
     FIT_TO_HEIGHT = "FIT_TO_HEIGHT"
     FIT_TO_WIDTH = "FIT_TO_WIDTH"
@@ -1362,22 +1512,26 @@ class DashboardCustomContentImageScalingConfiguration(builtins.str, Enum):
     SCALE_TO_VISUAL = "SCALE_TO_VISUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardCustomContentType")
 class DashboardCustomContentType(builtins.str, Enum):
     IMAGE = "IMAGE"
     OTHER_EMBEDDED_CONTENT = "OTHER_EMBEDDED_CONTENT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardDataLabelContent")
 class DashboardDataLabelContent(builtins.str, Enum):
     VALUE = "VALUE"
     PERCENT = "PERCENT"
     VALUE_AND_PERCENT = "VALUE_AND_PERCENT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardDataLabelOverlap")
 class DashboardDataLabelOverlap(builtins.str, Enum):
     DISABLE_OVERLAP = "DISABLE_OVERLAP"
     ENABLE_OVERLAP = "ENABLE_OVERLAP"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardDataLabelPosition")
 class DashboardDataLabelPosition(builtins.str, Enum):
     INSIDE = "INSIDE"
     OUTSIDE = "OUTSIDE"
@@ -1387,6 +1541,7 @@ class DashboardDataLabelPosition(builtins.str, Enum):
     RIGHT = "RIGHT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardDateAggregationFunction")
 class DashboardDateAggregationFunction(builtins.str, Enum):
     COUNT = "COUNT"
     DISTINCT_COUNT = "DISTINCT_COUNT"
@@ -1394,6 +1549,7 @@ class DashboardDateAggregationFunction(builtins.str, Enum):
     MAX = "MAX"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardDayOfTheWeek")
 class DashboardDayOfTheWeek(builtins.str, Enum):
     SUNDAY = "SUNDAY"
     MONDAY = "MONDAY"
@@ -1404,11 +1560,13 @@ class DashboardDayOfTheWeek(builtins.str, Enum):
     SATURDAY = "SATURDAY"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardDigitGroupingStyle")
 class DashboardDigitGroupingStyle(builtins.str, Enum):
     DEFAULT = "DEFAULT"
     LAKHS = "LAKHS"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardErrorType")
 class DashboardErrorType(builtins.str, Enum):
     ACCESS_DENIED = "ACCESS_DENIED"
     SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND"
@@ -1422,37 +1580,44 @@ class DashboardErrorType(builtins.str, Enum):
     COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardFilterNullOption")
 class DashboardFilterNullOption(builtins.str, Enum):
     ALL_VALUES = "ALL_VALUES"
     NULLS_ONLY = "NULLS_ONLY"
     NON_NULLS_ONLY = "NON_NULLS_ONLY"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardFilterVisualScope")
 class DashboardFilterVisualScope(builtins.str, Enum):
     ALL_VISUALS = "ALL_VISUALS"
     SELECTED_VISUALS = "SELECTED_VISUALS"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardFontDecoration")
 class DashboardFontDecoration(builtins.str, Enum):
     UNDERLINE = "UNDERLINE"
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardFontStyle")
 class DashboardFontStyle(builtins.str, Enum):
     NORMAL = "NORMAL"
     ITALIC = "ITALIC"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardFontWeightName")
 class DashboardFontWeightName(builtins.str, Enum):
     NORMAL = "NORMAL"
     BOLD = "BOLD"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardForecastComputationSeasonality")
 class DashboardForecastComputationSeasonality(builtins.str, Enum):
     AUTOMATIC = "AUTOMATIC"
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardFunnelChartMeasureDataLabelStyle")
 class DashboardFunnelChartMeasureDataLabelStyle(builtins.str, Enum):
     VALUE_ONLY = "VALUE_ONLY"
     PERCENTAGE_BY_FIRST_STAGE = "PERCENTAGE_BY_FIRST_STAGE"
@@ -1461,6 +1626,7 @@ class DashboardFunnelChartMeasureDataLabelStyle(builtins.str, Enum):
     VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE = "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardGeospatialColorState")
 class DashboardGeospatialColorState(builtins.str, Enum):
     """
     Defines view state of the color
@@ -1469,28 +1635,33 @@ class DashboardGeospatialColorState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardGeospatialLayerType")
 class DashboardGeospatialLayerType(builtins.str, Enum):
     POINT = "POINT"
     LINE = "LINE"
     POLYGON = "POLYGON"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardGeospatialMapNavigation")
 class DashboardGeospatialMapNavigation(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardGeospatialSelectedPointStyle")
 class DashboardGeospatialSelectedPointStyle(builtins.str, Enum):
     POINT = "POINT"
     CLUSTER = "CLUSTER"
     HEATMAP = "HEATMAP"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardHistogramBinType")
 class DashboardHistogramBinType(builtins.str, Enum):
     BIN_COUNT = "BIN_COUNT"
     BIN_WIDTH = "BIN_WIDTH"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardHorizontalTextAlignment")
 class DashboardHorizontalTextAlignment(builtins.str, Enum):
     LEFT = "LEFT"
     CENTER = "CENTER"
@@ -1498,6 +1669,7 @@ class DashboardHorizontalTextAlignment(builtins.str, Enum):
     AUTO = "AUTO"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardIcon")
 class DashboardIcon(builtins.str, Enum):
     CARET_UP = "CARET_UP"
     CARET_DOWN = "CARET_DOWN"
@@ -1527,26 +1699,31 @@ class DashboardIcon(builtins.str, Enum):
     X = "X"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardImageCustomActionTrigger")
 class DashboardImageCustomActionTrigger(builtins.str, Enum):
     CLICK = "CLICK"
     MENU = "MENU"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardKpiSparklineType")
 class DashboardKpiSparklineType(builtins.str, Enum):
     LINE = "LINE"
     AREA = "AREA"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardKpiVisualStandardLayoutType")
 class DashboardKpiVisualStandardLayoutType(builtins.str, Enum):
     CLASSIC = "CLASSIC"
     VERTICAL = "VERTICAL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardLayerCustomActionTrigger")
 class DashboardLayerCustomActionTrigger(builtins.str, Enum):
     DATA_POINT_CLICK = "DATA_POINT_CLICK"
     DATA_POINT_MENU = "DATA_POINT_MENU"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardLayoutElementType")
 class DashboardLayoutElementType(builtins.str, Enum):
     VISUAL = "VISUAL"
     FILTER_CONTROL = "FILTER_CONTROL"
@@ -1555,6 +1732,7 @@ class DashboardLayoutElementType(builtins.str, Enum):
     IMAGE = "IMAGE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardLegendPosition")
 class DashboardLegendPosition(builtins.str, Enum):
     AUTO = "AUTO"
     RIGHT = "RIGHT"
@@ -1562,12 +1740,14 @@ class DashboardLegendPosition(builtins.str, Enum):
     TOP = "TOP"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardLineChartLineStyle")
 class DashboardLineChartLineStyle(builtins.str, Enum):
     SOLID = "SOLID"
     DOTTED = "DOTTED"
     DASHED = "DASHED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardLineChartMarkerShape")
 class DashboardLineChartMarkerShape(builtins.str, Enum):
     CIRCLE = "CIRCLE"
     TRIANGLE = "TRIANGLE"
@@ -1576,39 +1756,46 @@ class DashboardLineChartMarkerShape(builtins.str, Enum):
     ROUNDED_SQUARE = "ROUNDED_SQUARE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardLineChartType")
 class DashboardLineChartType(builtins.str, Enum):
     LINE = "LINE"
     AREA = "AREA"
     STACKED_AREA = "STACKED_AREA"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardLineInterpolation")
 class DashboardLineInterpolation(builtins.str, Enum):
     LINEAR = "LINEAR"
     SMOOTH = "SMOOTH"
     STEPPED = "STEPPED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardMapZoomMode")
 class DashboardMapZoomMode(builtins.str, Enum):
     AUTO = "AUTO"
     MANUAL = "MANUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardMaximumMinimumComputationType")
 class DashboardMaximumMinimumComputationType(builtins.str, Enum):
     MAXIMUM = "MAXIMUM"
     MINIMUM = "MINIMUM"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardMissingDataTreatmentOption")
 class DashboardMissingDataTreatmentOption(builtins.str, Enum):
     INTERPOLATE = "INTERPOLATE"
     SHOW_AS_ZERO = "SHOW_AS_ZERO"
     SHOW_AS_BLANK = "SHOW_AS_BLANK"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardNegativeValueDisplayMode")
 class DashboardNegativeValueDisplayMode(builtins.str, Enum):
     POSITIVE = "POSITIVE"
     NEGATIVE = "NEGATIVE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardNumberScale")
 class DashboardNumberScale(builtins.str, Enum):
     NONE = "NONE"
     AUTO = "AUTO"
@@ -1620,37 +1807,44 @@ class DashboardNumberScale(builtins.str, Enum):
     CRORES = "CRORES"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardNumericEqualityMatchOperator")
 class DashboardNumericEqualityMatchOperator(builtins.str, Enum):
     EQUALS = "EQUALS"
     DOES_NOT_EQUAL = "DOES_NOT_EQUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardNumericFilterSelectAllOptions")
 class DashboardNumericFilterSelectAllOptions(builtins.str, Enum):
     FILTER_ALL_VALUES = "FILTER_ALL_VALUES"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardNumericSeparatorSymbol")
 class DashboardNumericSeparatorSymbol(builtins.str, Enum):
     COMMA = "COMMA"
     DOT = "DOT"
     SPACE = "SPACE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardOtherCategories")
 class DashboardOtherCategories(builtins.str, Enum):
     INCLUDE = "INCLUDE"
     EXCLUDE = "EXCLUDE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardPanelBorderStyle")
 class DashboardPanelBorderStyle(builtins.str, Enum):
     SOLID = "SOLID"
     DASHED = "DASHED"
     DOTTED = "DOTTED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardPaperOrientation")
 class DashboardPaperOrientation(builtins.str, Enum):
     PORTRAIT = "PORTRAIT"
     LANDSCAPE = "LANDSCAPE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardPaperSize")
 class DashboardPaperSize(builtins.str, Enum):
     US_LETTER = "US_LETTER"
     US_LEGAL = "US_LEGAL"
@@ -1665,17 +1859,20 @@ class DashboardPaperSize(builtins.str, Enum):
     JIS_B5 = "JIS_B5"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardParameterValueType")
 class DashboardParameterValueType(builtins.str, Enum):
     MULTI_VALUED = "MULTI_VALUED"
     SINGLE_VALUED = "SINGLE_VALUED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardPivotTableConditionalFormattingScopeRole")
 class DashboardPivotTableConditionalFormattingScopeRole(builtins.str, Enum):
     FIELD = "FIELD"
     FIELD_TOTAL = "FIELD_TOTAL"
     GRAND_TOTAL = "GRAND_TOTAL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardPivotTableDataPathType")
 class DashboardPivotTableDataPathType(builtins.str, Enum):
     HIERARCHY_ROWS_LAYOUT_COLUMN = "HIERARCHY_ROWS_LAYOUT_COLUMN"
     MULTIPLE_ROW_METRICS_COLUMN = "MULTIPLE_ROW_METRICS_COLUMN"
@@ -1683,76 +1880,90 @@ class DashboardPivotTableDataPathType(builtins.str, Enum):
     COUNT_METRIC_COLUMN = "COUNT_METRIC_COLUMN"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardPivotTableFieldCollapseState")
 class DashboardPivotTableFieldCollapseState(builtins.str, Enum):
     COLLAPSED = "COLLAPSED"
     EXPANDED = "EXPANDED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardPivotTableMetricPlacement")
 class DashboardPivotTableMetricPlacement(builtins.str, Enum):
     ROW = "ROW"
     COLUMN = "COLUMN"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardPivotTableRowsLayout")
 class DashboardPivotTableRowsLayout(builtins.str, Enum):
     TABULAR = "TABULAR"
     HIERARCHY = "HIERARCHY"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardPivotTableSubtotalLevel")
 class DashboardPivotTableSubtotalLevel(builtins.str, Enum):
     ALL = "ALL"
     CUSTOM = "CUSTOM"
     LAST = "LAST"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardPluginVisualAxisName")
 class DashboardPluginVisualAxisName(builtins.str, Enum):
     GROUP_BY = "GROUP_BY"
     VALUE = "VALUE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardPrimaryValueDisplayType")
 class DashboardPrimaryValueDisplayType(builtins.str, Enum):
     HIDDEN = "HIDDEN"
     COMPARISON = "COMPARISON"
     ACTUAL = "ACTUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardRadarChartAxesRangeScale")
 class DashboardRadarChartAxesRangeScale(builtins.str, Enum):
     AUTO = "AUTO"
     INDEPENDENT = "INDEPENDENT"
     SHARED = "SHARED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardRadarChartShape")
 class DashboardRadarChartShape(builtins.str, Enum):
     CIRCLE = "CIRCLE"
     POLYGON = "POLYGON"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardReferenceLineLabelHorizontalPosition")
 class DashboardReferenceLineLabelHorizontalPosition(builtins.str, Enum):
     LEFT = "LEFT"
     CENTER = "CENTER"
     RIGHT = "RIGHT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardReferenceLineLabelVerticalPosition")
 class DashboardReferenceLineLabelVerticalPosition(builtins.str, Enum):
     ABOVE = "ABOVE"
     BELOW = "BELOW"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardReferenceLinePatternType")
 class DashboardReferenceLinePatternType(builtins.str, Enum):
     SOLID = "SOLID"
     DASHED = "DASHED"
     DOTTED = "DOTTED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardReferenceLineSeriesType")
 class DashboardReferenceLineSeriesType(builtins.str, Enum):
     BAR = "BAR"
     LINE = "LINE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardReferenceLineValueLabelRelativePosition")
 class DashboardReferenceLineValueLabelRelativePosition(builtins.str, Enum):
     BEFORE_CUSTOM_LABEL = "BEFORE_CUSTOM_LABEL"
     AFTER_CUSTOM_LABEL = "AFTER_CUSTOM_LABEL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardRelativeDateType")
 class DashboardRelativeDateType(builtins.str, Enum):
     PREVIOUS = "PREVIOUS"
     THIS = "THIS"
@@ -1761,6 +1972,7 @@ class DashboardRelativeDateType(builtins.str, Enum):
     NEXT = "NEXT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardRelativeFontSize")
 class DashboardRelativeFontSize(builtins.str, Enum):
     EXTRA_SMALL = "EXTRA_SMALL"
     SMALL = "SMALL"
@@ -1769,11 +1981,13 @@ class DashboardRelativeFontSize(builtins.str, Enum):
     EXTRA_LARGE = "EXTRA_LARGE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardResizeOption")
 class DashboardResizeOption(builtins.str, Enum):
     FIXED = "FIXED"
     RESPONSIVE = "RESPONSIVE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardResourceStatus")
 class DashboardResourceStatus(builtins.str, Enum):
     CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
     CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL"
@@ -1784,44 +1998,53 @@ class DashboardResourceStatus(builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSectionPageBreakStatus")
 class DashboardSectionPageBreakStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSelectAllValueOptions")
 class DashboardSelectAllValueOptions(builtins.str, Enum):
     ALL_VALUES = "ALL_VALUES"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSelectedFieldOptions")
 class DashboardSelectedFieldOptions(builtins.str, Enum):
     ALL_FIELDS = "ALL_FIELDS"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSelectedTooltipType")
 class DashboardSelectedTooltipType(builtins.str, Enum):
     BASIC = "BASIC"
     DETAILED = "DETAILED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSheetContentType")
 class DashboardSheetContentType(builtins.str, Enum):
     PAGINATED = "PAGINATED"
     INTERACTIVE = "INTERACTIVE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSheetControlDateTimePickerType")
 class DashboardSheetControlDateTimePickerType(builtins.str, Enum):
     SINGLE_VALUED = "SINGLE_VALUED"
     DATE_RANGE = "DATE_RANGE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSheetControlListType")
 class DashboardSheetControlListType(builtins.str, Enum):
     MULTI_SELECT = "MULTI_SELECT"
     SINGLE_SELECT = "SINGLE_SELECT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSheetControlSliderType")
 class DashboardSheetControlSliderType(builtins.str, Enum):
     SINGLE_POINT = "SINGLE_POINT"
     RANGE = "RANGE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSheetImageScalingType")
 class DashboardSheetImageScalingType(builtins.str, Enum):
     SCALE_TO_WIDTH = "SCALE_TO_WIDTH"
     SCALE_TO_HEIGHT = "SCALE_TO_HEIGHT"
@@ -1829,10 +2052,12 @@ class DashboardSheetImageScalingType(builtins.str, Enum):
     SCALE_NONE = "SCALE_NONE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSimpleAttributeAggregationFunction")
 class DashboardSimpleAttributeAggregationFunction(builtins.str, Enum):
     UNIQUE_VALUE = "UNIQUE_VALUE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSimpleNumericalAggregationFunction")
 class DashboardSimpleNumericalAggregationFunction(builtins.str, Enum):
     SUM = "SUM"
     AVERAGE = "AVERAGE"
@@ -1847,6 +2072,7 @@ class DashboardSimpleNumericalAggregationFunction(builtins.str, Enum):
     MEDIAN = "MEDIAN"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSimpleTotalAggregationFunction")
 class DashboardSimpleTotalAggregationFunction(builtins.str, Enum):
     DEFAULT = "DEFAULT"
     SUM = "SUM"
@@ -1856,77 +2082,92 @@ class DashboardSimpleTotalAggregationFunction(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSingleYAxisOption")
 class DashboardSingleYAxisOption(builtins.str, Enum):
     PRIMARY_Y_AXIS = "PRIMARY_Y_AXIS"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSmallMultiplesAxisPlacement")
 class DashboardSmallMultiplesAxisPlacement(builtins.str, Enum):
     OUTSIDE = "OUTSIDE"
     INSIDE = "INSIDE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSmallMultiplesAxisScale")
 class DashboardSmallMultiplesAxisScale(builtins.str, Enum):
     SHARED = "SHARED"
     INDEPENDENT = "INDEPENDENT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSortDirection")
 class DashboardSortDirection(builtins.str, Enum):
     ASC = "ASC"
     DESC = "DESC"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardSpecialValue")
 class DashboardSpecialValue(builtins.str, Enum):
     EMPTY = "EMPTY"
     NULL = "NULL"
     OTHER = "OTHER"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardStyledCellType")
 class DashboardStyledCellType(builtins.str, Enum):
     TOTAL = "TOTAL"
     METRIC_HEADER = "METRIC_HEADER"
     VALUE = "VALUE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTableBorderStyle")
 class DashboardTableBorderStyle(builtins.str, Enum):
     NONE = "NONE"
     SOLID = "SOLID"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTableCellImageScalingConfiguration")
 class DashboardTableCellImageScalingConfiguration(builtins.str, Enum):
     FIT_TO_CELL_HEIGHT = "FIT_TO_CELL_HEIGHT"
     FIT_TO_CELL_WIDTH = "FIT_TO_CELL_WIDTH"
     DO_NOT_SCALE = "DO_NOT_SCALE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTableFieldIconSetType")
 class DashboardTableFieldIconSetType(builtins.str, Enum):
     LINK = "LINK"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTableOrientation")
 class DashboardTableOrientation(builtins.str, Enum):
     VERTICAL = "VERTICAL"
     HORIZONTAL = "HORIZONTAL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTableTotalsPlacement")
 class DashboardTableTotalsPlacement(builtins.str, Enum):
     START = "START"
     END = "END"
     AUTO = "AUTO"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTableTotalsScrollStatus")
 class DashboardTableTotalsScrollStatus(builtins.str, Enum):
     PINNED = "PINNED"
     SCROLLED = "SCROLLED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTargetVisualOptions")
 class DashboardTargetVisualOptions(builtins.str, Enum):
     ALL_VISUALS = "ALL_VISUALS"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTextWrap")
 class DashboardTextWrap(builtins.str, Enum):
     NONE = "NONE"
     WRAP = "WRAP"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTimeGranularity")
 class DashboardTimeGranularity(builtins.str, Enum):
     YEAR = "YEAR"
     QUARTER = "QUARTER"
@@ -1939,53 +2180,63 @@ class DashboardTimeGranularity(builtins.str, Enum):
     MILLISECOND = "MILLISECOND"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTooltipTarget")
 class DashboardTooltipTarget(builtins.str, Enum):
     BOTH = "BOTH"
     BAR = "BAR"
     LINE = "LINE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTooltipTitleType")
 class DashboardTooltipTitleType(builtins.str, Enum):
     NONE = "NONE"
     PRIMARY_VALUE = "PRIMARY_VALUE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTopBottomComputationType")
 class DashboardTopBottomComputationType(builtins.str, Enum):
     TOP = "TOP"
     BOTTOM = "BOTTOM"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTopBottomSortOrder")
 class DashboardTopBottomSortOrder(builtins.str, Enum):
     PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE"
     ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardTransposedColumnType")
 class DashboardTransposedColumnType(builtins.str, Enum):
     ROW_HEADER_COLUMN = "ROW_HEADER_COLUMN"
     VALUE_COLUMN = "VALUE_COLUMN"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardUiState")
 class DashboardUiState(builtins.str, Enum):
     EXPANDED = "EXPANDED"
     COLLAPSED = "COLLAPSED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardUrlTargetConfiguration")
 class DashboardUrlTargetConfiguration(builtins.str, Enum):
     NEW_TAB = "NEW_TAB"
     NEW_WINDOW = "NEW_WINDOW"
     SAME_TAB = "SAME_TAB"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardValidationStrategyMode")
 class DashboardValidationStrategyMode(builtins.str, Enum):
     STRICT = "STRICT"
     LENIENT = "LENIENT"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardValueWhenUnsetOption")
 class DashboardValueWhenUnsetOption(builtins.str, Enum):
     RECOMMENDED_VALUE = "RECOMMENDED_VALUE"
     NULL = "NULL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardVerticalTextAlignment")
 class DashboardVerticalTextAlignment(builtins.str, Enum):
     TOP = "TOP"
     MIDDLE = "MIDDLE"
@@ -1993,36 +2244,43 @@ class DashboardVerticalTextAlignment(builtins.str, Enum):
     AUTO = "AUTO"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardVisibility")
 class DashboardVisibility(builtins.str, Enum):
     HIDDEN = "HIDDEN"
     VISIBLE = "VISIBLE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardVisualCustomActionTrigger")
 class DashboardVisualCustomActionTrigger(builtins.str, Enum):
     DATA_POINT_CLICK = "DATA_POINT_CLICK"
     DATA_POINT_MENU = "DATA_POINT_MENU"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardWidgetStatus")
 class DashboardWidgetStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardWordCloudCloudLayout")
 class DashboardWordCloudCloudLayout(builtins.str, Enum):
     FLUID = "FLUID"
     NORMAL = "NORMAL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardWordCloudWordCasing")
 class DashboardWordCloudWordCasing(builtins.str, Enum):
     LOWER_CASE = "LOWER_CASE"
     EXISTING_CASE = "EXISTING_CASE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardWordCloudWordOrientation")
 class DashboardWordCloudWordOrientation(builtins.str, Enum):
     HORIZONTAL = "HORIZONTAL"
     HORIZONTAL_AND_VERTICAL = "HORIZONTAL_AND_VERTICAL"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardWordCloudWordPadding")
 class DashboardWordCloudWordPadding(builtins.str, Enum):
     NONE = "NONE"
     SMALL = "SMALL"
@@ -2030,16 +2288,19 @@ class DashboardWordCloudWordPadding(builtins.str, Enum):
     LARGE = "LARGE"
 
 
+@pulumi.type_token("aws-native:quicksight:DashboardWordCloudWordScaling")
 class DashboardWordCloudWordScaling(builtins.str, Enum):
     EMPHASIZE = "EMPHASIZE"
     NORMAL = "NORMAL"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetColumnDataSubType")
 class DataSetColumnDataSubType(builtins.str, Enum):
     FLOAT = "FLOAT"
     FIXED = "FIXED"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetColumnDataType")
 class DataSetColumnDataType(builtins.str, Enum):
     STRING = "STRING"
     INTEGER = "INTEGER"
@@ -2047,16 +2308,19 @@ class DataSetColumnDataType(builtins.str, Enum):
     DATETIME = "DATETIME"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetColumnTagName")
 class DataSetColumnTagName(builtins.str, Enum):
     COLUMN_GEOGRAPHIC_ROLE = "COLUMN_GEOGRAPHIC_ROLE"
     COLUMN_DESCRIPTION = "COLUMN_DESCRIPTION"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetDatasetParameterValueType")
 class DataSetDatasetParameterValueType(builtins.str, Enum):
     MULTI_VALUED = "MULTI_VALUED"
     SINGLE_VALUED = "SINGLE_VALUED"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetFileFormat")
 class DataSetFileFormat(builtins.str, Enum):
     CSV = "CSV"
     TSV = "TSV"
@@ -2066,10 +2330,12 @@ class DataSetFileFormat(builtins.str, Enum):
     JSON = "JSON"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetGeoSpatialCountryCode")
 class DataSetGeoSpatialCountryCode(builtins.str, Enum):
     US = "US"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetGeoSpatialDataRole")
 class DataSetGeoSpatialDataRole(builtins.str, Enum):
     COUNTRY = "COUNTRY"
     STATE = "STATE"
@@ -2084,11 +2350,13 @@ class DataSetGeoSpatialDataRole(builtins.str, Enum):
     CENSUS_BLOCK = "CENSUS_BLOCK"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetImportMode")
 class DataSetImportMode(builtins.str, Enum):
     SPICE = "SPICE"
     DIRECT_QUERY = "DIRECT_QUERY"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetInputColumnDataType")
 class DataSetInputColumnDataType(builtins.str, Enum):
     STRING = "STRING"
     INTEGER = "INTEGER"
@@ -2099,6 +2367,7 @@ class DataSetInputColumnDataType(builtins.str, Enum):
     JSON = "JSON"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetJoinType")
 class DataSetJoinType(builtins.str, Enum):
     INNER = "INNER"
     OUTER = "OUTER"
@@ -2106,37 +2375,44 @@ class DataSetJoinType(builtins.str, Enum):
     RIGHT = "RIGHT"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetLookbackWindowSizeUnit")
 class DataSetLookbackWindowSizeUnit(builtins.str, Enum):
     HOUR = "HOUR"
     DAY = "DAY"
     WEEK = "WEEK"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetRefreshFailureAlertStatus")
 class DataSetRefreshFailureAlertStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetRowLevelPermissionFormatVersion")
 class DataSetRowLevelPermissionFormatVersion(builtins.str, Enum):
     VERSION1 = "VERSION_1"
     VERSION2 = "VERSION_2"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetRowLevelPermissionPolicy")
 class DataSetRowLevelPermissionPolicy(builtins.str, Enum):
     GRANT_ACCESS = "GRANT_ACCESS"
     DENY_ACCESS = "DENY_ACCESS"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetStatus")
 class DataSetStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetTextQualifier")
 class DataSetTextQualifier(builtins.str, Enum):
     DOUBLE_QUOTE = "DOUBLE_QUOTE"
     SINGLE_QUOTE = "SINGLE_QUOTE"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetTimeGranularity")
 class DataSetTimeGranularity(builtins.str, Enum):
     YEAR = "YEAR"
     QUARTER = "QUARTER"
@@ -2149,16 +2425,19 @@ class DataSetTimeGranularity(builtins.str, Enum):
     MILLISECOND = "MILLISECOND"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetUseAs")
 class DataSetUseAs(builtins.str, Enum):
     RLS_RULES = "RLS_RULES"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSourceAuthenticationType")
 class DataSourceAuthenticationType(builtins.str, Enum):
     PASSWORD = "PASSWORD"
     TOKEN = "TOKEN"
     X509 = "X509"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSourceErrorInfoType")
 class DataSourceErrorInfoType(builtins.str, Enum):
     ACCESS_DENIED = "ACCESS_DENIED"
     COPY_SOURCE_NOT_FOUND = "COPY_SOURCE_NOT_FOUND"
@@ -2170,6 +2449,7 @@ class DataSourceErrorInfoType(builtins.str, Enum):
     UNKNOWN = "UNKNOWN"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSourceResourceStatus")
 class DataSourceResourceStatus(builtins.str, Enum):
     CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
     CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL"
@@ -2180,11 +2460,13 @@ class DataSourceResourceStatus(builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSourceStarburstProductType")
 class DataSourceStarburstProductType(builtins.str, Enum):
     GALAXY = "GALAXY"
     ENTERPRISE = "ENTERPRISE"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSourceType")
 class DataSourceType(builtins.str, Enum):
     ADOBE_ANALYTICS = "ADOBE_ANALYTICS"
     AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH"
@@ -2231,16 +2513,19 @@ class DataSourceType(builtins.str, Enum):
     GLUE = "GLUE"
 
 
+@pulumi.type_token("aws-native:quicksight:FolderSharingModel")
 class FolderSharingModel(builtins.str, Enum):
     ACCOUNT = "ACCOUNT"
     NAMESPACE = "NAMESPACE"
 
 
+@pulumi.type_token("aws-native:quicksight:FolderType")
 class FolderType(builtins.str, Enum):
     SHARED = "SHARED"
     RESTRICTED = "RESTRICTED"
 
 
+@pulumi.type_token("aws-native:quicksight:RefreshScheduleMapRefreshType")
 class RefreshScheduleMapRefreshType(builtins.str, Enum):
     """
     The type of refresh that a dataset undergoes. Valid values are as follows:
@@ -2254,6 +2539,7 @@ class RefreshScheduleMapRefreshType(builtins.str, Enum):
     INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH"
 
 
+@pulumi.type_token("aws-native:quicksight:RefreshScheduleMapScheduleFrequencyPropertiesInterval")
 class RefreshScheduleMapScheduleFrequencyPropertiesInterval(builtins.str, Enum):
     MINUTE15 = "MINUTE15"
     MINUTE30 = "MINUTE30"
@@ -2263,6 +2549,7 @@ class RefreshScheduleMapScheduleFrequencyPropertiesInterval(builtins.str, Enum):
     MONTHLY = "MONTHLY"
 
 
+@pulumi.type_token("aws-native:quicksight:RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek")
 class RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek(builtins.str, Enum):
     SUNDAY = "SUNDAY"
     MONDAY = "MONDAY"
@@ -2273,10 +2560,12 @@ class RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWe
     SATURDAY = "SATURDAY"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateAnchorOption")
 class TemplateAnchorOption(builtins.str, Enum):
     NOW = "NOW"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateArcThickness")
 class TemplateArcThickness(builtins.str, Enum):
     SMALL = "SMALL"
     MEDIUM = "MEDIUM"
@@ -2284,28 +2573,33 @@ class TemplateArcThickness(builtins.str, Enum):
     WHOLE = "WHOLE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateArcThicknessOptions")
 class TemplateArcThicknessOptions(builtins.str, Enum):
     SMALL = "SMALL"
     MEDIUM = "MEDIUM"
     LARGE = "LARGE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateAxisBinding")
 class TemplateAxisBinding(builtins.str, Enum):
     PRIMARY_YAXIS = "PRIMARY_YAXIS"
     SECONDARY_YAXIS = "SECONDARY_YAXIS"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateBarChartOrientation")
 class TemplateBarChartOrientation(builtins.str, Enum):
     HORIZONTAL = "HORIZONTAL"
     VERTICAL = "VERTICAL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateBarsArrangement")
 class TemplateBarsArrangement(builtins.str, Enum):
     CLUSTERED = "CLUSTERED"
     STACKED = "STACKED"
     STACKED_PERCENT = "STACKED_PERCENT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateBaseMapStyleType")
 class TemplateBaseMapStyleType(builtins.str, Enum):
     LIGHT_GRAY = "LIGHT_GRAY"
     DARK_GRAY = "DARK_GRAY"
@@ -2313,16 +2607,19 @@ class TemplateBaseMapStyleType(builtins.str, Enum):
     IMAGERY = "IMAGERY"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateBoxPlotFillStyle")
 class TemplateBoxPlotFillStyle(builtins.str, Enum):
     SOLID = "SOLID"
     TRANSPARENT = "TRANSPARENT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateCategoricalAggregationFunction")
 class TemplateCategoricalAggregationFunction(builtins.str, Enum):
     COUNT = "COUNT"
     DISTINCT_COUNT = "DISTINCT_COUNT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateCategoryFilterMatchOperator")
 class TemplateCategoryFilterMatchOperator(builtins.str, Enum):
     EQUALS = "EQUALS"
     DOES_NOT_EQUAL = "DOES_NOT_EQUAL"
@@ -2332,35 +2629,42 @@ class TemplateCategoryFilterMatchOperator(builtins.str, Enum):
     ENDS_WITH = "ENDS_WITH"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateCategoryFilterSelectAllOptions")
 class TemplateCategoryFilterSelectAllOptions(builtins.str, Enum):
     FILTER_ALL_VALUES = "FILTER_ALL_VALUES"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateColorFillType")
 class TemplateColorFillType(builtins.str, Enum):
     DISCRETE = "DISCRETE"
     GRADIENT = "GRADIENT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateColumnRole")
 class TemplateColumnRole(builtins.str, Enum):
     DIMENSION = "DIMENSION"
     MEASURE = "MEASURE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateCommitMode")
 class TemplateCommitMode(builtins.str, Enum):
     AUTO = "AUTO"
     MANUAL = "MANUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateComparisonMethod")
 class TemplateComparisonMethod(builtins.str, Enum):
     DIFFERENCE = "DIFFERENCE"
     PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE"
     PERCENT = "PERCENT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateConditionalFormattingIconDisplayOption")
 class TemplateConditionalFormattingIconDisplayOption(builtins.str, Enum):
     ICON_ONLY = "ICON_ONLY"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateConditionalFormattingIconSetType")
 class TemplateConditionalFormattingIconSetType(builtins.str, Enum):
     PLUS_MINUS = "PLUS_MINUS"
     CHECK_X = "CHECK_X"
@@ -2375,11 +2679,13 @@ class TemplateConditionalFormattingIconSetType(builtins.str, Enum):
     FOUR_GRAY_ARROW = "FOUR_GRAY_ARROW"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateCrossDatasetTypes")
 class TemplateCrossDatasetTypes(builtins.str, Enum):
     ALL_DATASETS = "ALL_DATASETS"
     SINGLE_DATASET = "SINGLE_DATASET"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateCustomContentImageScalingConfiguration")
 class TemplateCustomContentImageScalingConfiguration(builtins.str, Enum):
     FIT_TO_HEIGHT = "FIT_TO_HEIGHT"
     FIT_TO_WIDTH = "FIT_TO_WIDTH"
@@ -2387,27 +2693,32 @@ class TemplateCustomContentImageScalingConfiguration(builtins.str, Enum):
     SCALE_TO_VISUAL = "SCALE_TO_VISUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateCustomContentType")
 class TemplateCustomContentType(builtins.str, Enum):
     IMAGE = "IMAGE"
     OTHER_EMBEDDED_CONTENT = "OTHER_EMBEDDED_CONTENT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateDashboardBehavior")
 class TemplateDashboardBehavior(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateDataLabelContent")
 class TemplateDataLabelContent(builtins.str, Enum):
     VALUE = "VALUE"
     PERCENT = "PERCENT"
     VALUE_AND_PERCENT = "VALUE_AND_PERCENT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateDataLabelOverlap")
 class TemplateDataLabelOverlap(builtins.str, Enum):
     DISABLE_OVERLAP = "DISABLE_OVERLAP"
     ENABLE_OVERLAP = "ENABLE_OVERLAP"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateDataLabelPosition")
 class TemplateDataLabelPosition(builtins.str, Enum):
     INSIDE = "INSIDE"
     OUTSIDE = "OUTSIDE"
@@ -2417,6 +2728,7 @@ class TemplateDataLabelPosition(builtins.str, Enum):
     RIGHT = "RIGHT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateDateAggregationFunction")
 class TemplateDateAggregationFunction(builtins.str, Enum):
     COUNT = "COUNT"
     DISTINCT_COUNT = "DISTINCT_COUNT"
@@ -2424,6 +2736,7 @@ class TemplateDateAggregationFunction(builtins.str, Enum):
     MAX = "MAX"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateDayOfTheWeek")
 class TemplateDayOfTheWeek(builtins.str, Enum):
     SUNDAY = "SUNDAY"
     MONDAY = "MONDAY"
@@ -2434,11 +2747,13 @@ class TemplateDayOfTheWeek(builtins.str, Enum):
     SATURDAY = "SATURDAY"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateDigitGroupingStyle")
 class TemplateDigitGroupingStyle(builtins.str, Enum):
     DEFAULT = "DEFAULT"
     LAKHS = "LAKHS"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateErrorType")
 class TemplateErrorType(builtins.str, Enum):
     SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND"
     DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND"
@@ -2446,37 +2761,44 @@ class TemplateErrorType(builtins.str, Enum):
     ACCESS_DENIED = "ACCESS_DENIED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateFilterNullOption")
 class TemplateFilterNullOption(builtins.str, Enum):
     ALL_VALUES = "ALL_VALUES"
     NULLS_ONLY = "NULLS_ONLY"
     NON_NULLS_ONLY = "NON_NULLS_ONLY"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateFilterVisualScope")
 class TemplateFilterVisualScope(builtins.str, Enum):
     ALL_VISUALS = "ALL_VISUALS"
     SELECTED_VISUALS = "SELECTED_VISUALS"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateFontDecoration")
 class TemplateFontDecoration(builtins.str, Enum):
     UNDERLINE = "UNDERLINE"
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateFontStyle")
 class TemplateFontStyle(builtins.str, Enum):
     NORMAL = "NORMAL"
     ITALIC = "ITALIC"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateFontWeightName")
 class TemplateFontWeightName(builtins.str, Enum):
     NORMAL = "NORMAL"
     BOLD = "BOLD"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateForecastComputationSeasonality")
 class TemplateForecastComputationSeasonality(builtins.str, Enum):
     AUTOMATIC = "AUTOMATIC"
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateFunnelChartMeasureDataLabelStyle")
 class TemplateFunnelChartMeasureDataLabelStyle(builtins.str, Enum):
     VALUE_ONLY = "VALUE_ONLY"
     PERCENTAGE_BY_FIRST_STAGE = "PERCENTAGE_BY_FIRST_STAGE"
@@ -2485,17 +2807,20 @@ class TemplateFunnelChartMeasureDataLabelStyle(builtins.str, Enum):
     VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE = "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateGeospatialSelectedPointStyle")
 class TemplateGeospatialSelectedPointStyle(builtins.str, Enum):
     POINT = "POINT"
     CLUSTER = "CLUSTER"
     HEATMAP = "HEATMAP"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateHistogramBinType")
 class TemplateHistogramBinType(builtins.str, Enum):
     BIN_COUNT = "BIN_COUNT"
     BIN_WIDTH = "BIN_WIDTH"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateHorizontalTextAlignment")
 class TemplateHorizontalTextAlignment(builtins.str, Enum):
     LEFT = "LEFT"
     CENTER = "CENTER"
@@ -2503,6 +2828,7 @@ class TemplateHorizontalTextAlignment(builtins.str, Enum):
     AUTO = "AUTO"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateIcon")
 class TemplateIcon(builtins.str, Enum):
     CARET_UP = "CARET_UP"
     CARET_DOWN = "CARET_DOWN"
@@ -2532,21 +2858,25 @@ class TemplateIcon(builtins.str, Enum):
     X = "X"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateImageCustomActionTrigger")
 class TemplateImageCustomActionTrigger(builtins.str, Enum):
     CLICK = "CLICK"
     MENU = "MENU"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateKpiSparklineType")
 class TemplateKpiSparklineType(builtins.str, Enum):
     LINE = "LINE"
     AREA = "AREA"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateKpiVisualStandardLayoutType")
 class TemplateKpiVisualStandardLayoutType(builtins.str, Enum):
     CLASSIC = "CLASSIC"
     VERTICAL = "VERTICAL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateLayoutElementType")
 class TemplateLayoutElementType(builtins.str, Enum):
     VISUAL = "VISUAL"
     FILTER_CONTROL = "FILTER_CONTROL"
@@ -2555,6 +2885,7 @@ class TemplateLayoutElementType(builtins.str, Enum):
     IMAGE = "IMAGE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateLegendPosition")
 class TemplateLegendPosition(builtins.str, Enum):
     AUTO = "AUTO"
     RIGHT = "RIGHT"
@@ -2562,12 +2893,14 @@ class TemplateLegendPosition(builtins.str, Enum):
     TOP = "TOP"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateLineChartLineStyle")
 class TemplateLineChartLineStyle(builtins.str, Enum):
     SOLID = "SOLID"
     DOTTED = "DOTTED"
     DASHED = "DASHED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateLineChartMarkerShape")
 class TemplateLineChartMarkerShape(builtins.str, Enum):
     CIRCLE = "CIRCLE"
     TRIANGLE = "TRIANGLE"
@@ -2576,39 +2909,46 @@ class TemplateLineChartMarkerShape(builtins.str, Enum):
     ROUNDED_SQUARE = "ROUNDED_SQUARE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateLineChartType")
 class TemplateLineChartType(builtins.str, Enum):
     LINE = "LINE"
     AREA = "AREA"
     STACKED_AREA = "STACKED_AREA"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateLineInterpolation")
 class TemplateLineInterpolation(builtins.str, Enum):
     LINEAR = "LINEAR"
     SMOOTH = "SMOOTH"
     STEPPED = "STEPPED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateMapZoomMode")
 class TemplateMapZoomMode(builtins.str, Enum):
     AUTO = "AUTO"
     MANUAL = "MANUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateMaximumMinimumComputationType")
 class TemplateMaximumMinimumComputationType(builtins.str, Enum):
     MAXIMUM = "MAXIMUM"
     MINIMUM = "MINIMUM"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateMissingDataTreatmentOption")
 class TemplateMissingDataTreatmentOption(builtins.str, Enum):
     INTERPOLATE = "INTERPOLATE"
     SHOW_AS_ZERO = "SHOW_AS_ZERO"
     SHOW_AS_BLANK = "SHOW_AS_BLANK"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateNegativeValueDisplayMode")
 class TemplateNegativeValueDisplayMode(builtins.str, Enum):
     POSITIVE = "POSITIVE"
     NEGATIVE = "NEGATIVE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateNumberScale")
 class TemplateNumberScale(builtins.str, Enum):
     NONE = "NONE"
     AUTO = "AUTO"
@@ -2620,37 +2960,44 @@ class TemplateNumberScale(builtins.str, Enum):
     CRORES = "CRORES"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateNumericEqualityMatchOperator")
 class TemplateNumericEqualityMatchOperator(builtins.str, Enum):
     EQUALS = "EQUALS"
     DOES_NOT_EQUAL = "DOES_NOT_EQUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateNumericFilterSelectAllOptions")
 class TemplateNumericFilterSelectAllOptions(builtins.str, Enum):
     FILTER_ALL_VALUES = "FILTER_ALL_VALUES"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateNumericSeparatorSymbol")
 class TemplateNumericSeparatorSymbol(builtins.str, Enum):
     COMMA = "COMMA"
     DOT = "DOT"
     SPACE = "SPACE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateOtherCategories")
 class TemplateOtherCategories(builtins.str, Enum):
     INCLUDE = "INCLUDE"
     EXCLUDE = "EXCLUDE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplatePanelBorderStyle")
 class TemplatePanelBorderStyle(builtins.str, Enum):
     SOLID = "SOLID"
     DASHED = "DASHED"
     DOTTED = "DOTTED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplatePaperOrientation")
 class TemplatePaperOrientation(builtins.str, Enum):
     PORTRAIT = "PORTRAIT"
     LANDSCAPE = "LANDSCAPE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplatePaperSize")
 class TemplatePaperSize(builtins.str, Enum):
     US_LETTER = "US_LETTER"
     US_LEGAL = "US_LEGAL"
@@ -2665,17 +3012,20 @@ class TemplatePaperSize(builtins.str, Enum):
     JIS_B5 = "JIS_B5"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateParameterValueType")
 class TemplateParameterValueType(builtins.str, Enum):
     MULTI_VALUED = "MULTI_VALUED"
     SINGLE_VALUED = "SINGLE_VALUED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplatePivotTableConditionalFormattingScopeRole")
 class TemplatePivotTableConditionalFormattingScopeRole(builtins.str, Enum):
     FIELD = "FIELD"
     FIELD_TOTAL = "FIELD_TOTAL"
     GRAND_TOTAL = "GRAND_TOTAL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplatePivotTableDataPathType")
 class TemplatePivotTableDataPathType(builtins.str, Enum):
     HIERARCHY_ROWS_LAYOUT_COLUMN = "HIERARCHY_ROWS_LAYOUT_COLUMN"
     MULTIPLE_ROW_METRICS_COLUMN = "MULTIPLE_ROW_METRICS_COLUMN"
@@ -2683,81 +3033,96 @@ class TemplatePivotTableDataPathType(builtins.str, Enum):
     COUNT_METRIC_COLUMN = "COUNT_METRIC_COLUMN"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplatePivotTableFieldCollapseState")
 class TemplatePivotTableFieldCollapseState(builtins.str, Enum):
     COLLAPSED = "COLLAPSED"
     EXPANDED = "EXPANDED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplatePivotTableMetricPlacement")
 class TemplatePivotTableMetricPlacement(builtins.str, Enum):
     ROW = "ROW"
     COLUMN = "COLUMN"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplatePivotTableRowsLayout")
 class TemplatePivotTableRowsLayout(builtins.str, Enum):
     TABULAR = "TABULAR"
     HIERARCHY = "HIERARCHY"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplatePivotTableSubtotalLevel")
 class TemplatePivotTableSubtotalLevel(builtins.str, Enum):
     ALL = "ALL"
     CUSTOM = "CUSTOM"
     LAST = "LAST"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplatePluginVisualAxisName")
 class TemplatePluginVisualAxisName(builtins.str, Enum):
     GROUP_BY = "GROUP_BY"
     VALUE = "VALUE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplatePrimaryValueDisplayType")
 class TemplatePrimaryValueDisplayType(builtins.str, Enum):
     HIDDEN = "HIDDEN"
     COMPARISON = "COMPARISON"
     ACTUAL = "ACTUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateQueryExecutionMode")
 class TemplateQueryExecutionMode(builtins.str, Enum):
     AUTO = "AUTO"
     MANUAL = "MANUAL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateRadarChartAxesRangeScale")
 class TemplateRadarChartAxesRangeScale(builtins.str, Enum):
     AUTO = "AUTO"
     INDEPENDENT = "INDEPENDENT"
     SHARED = "SHARED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateRadarChartShape")
 class TemplateRadarChartShape(builtins.str, Enum):
     CIRCLE = "CIRCLE"
     POLYGON = "POLYGON"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateReferenceLineLabelHorizontalPosition")
 class TemplateReferenceLineLabelHorizontalPosition(builtins.str, Enum):
     LEFT = "LEFT"
     CENTER = "CENTER"
     RIGHT = "RIGHT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateReferenceLineLabelVerticalPosition")
 class TemplateReferenceLineLabelVerticalPosition(builtins.str, Enum):
     ABOVE = "ABOVE"
     BELOW = "BELOW"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateReferenceLinePatternType")
 class TemplateReferenceLinePatternType(builtins.str, Enum):
     SOLID = "SOLID"
     DASHED = "DASHED"
     DOTTED = "DOTTED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateReferenceLineSeriesType")
 class TemplateReferenceLineSeriesType(builtins.str, Enum):
     BAR = "BAR"
     LINE = "LINE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateReferenceLineValueLabelRelativePosition")
 class TemplateReferenceLineValueLabelRelativePosition(builtins.str, Enum):
     BEFORE_CUSTOM_LABEL = "BEFORE_CUSTOM_LABEL"
     AFTER_CUSTOM_LABEL = "AFTER_CUSTOM_LABEL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateRelativeDateType")
 class TemplateRelativeDateType(builtins.str, Enum):
     PREVIOUS = "PREVIOUS"
     THIS = "THIS"
@@ -2766,6 +3131,7 @@ class TemplateRelativeDateType(builtins.str, Enum):
     NEXT = "NEXT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateRelativeFontSize")
 class TemplateRelativeFontSize(builtins.str, Enum):
     EXTRA_SMALL = "EXTRA_SMALL"
     SMALL = "SMALL"
@@ -2774,11 +3140,13 @@ class TemplateRelativeFontSize(builtins.str, Enum):
     EXTRA_LARGE = "EXTRA_LARGE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateResizeOption")
 class TemplateResizeOption(builtins.str, Enum):
     FIXED = "FIXED"
     RESPONSIVE = "RESPONSIVE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateResourceStatus")
 class TemplateResourceStatus(builtins.str, Enum):
     CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
     CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL"
@@ -2789,44 +3157,53 @@ class TemplateResourceStatus(builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSectionPageBreakStatus")
 class TemplateSectionPageBreakStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSelectAllValueOptions")
 class TemplateSelectAllValueOptions(builtins.str, Enum):
     ALL_VALUES = "ALL_VALUES"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSelectedFieldOptions")
 class TemplateSelectedFieldOptions(builtins.str, Enum):
     ALL_FIELDS = "ALL_FIELDS"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSelectedTooltipType")
 class TemplateSelectedTooltipType(builtins.str, Enum):
     BASIC = "BASIC"
     DETAILED = "DETAILED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSheetContentType")
 class TemplateSheetContentType(builtins.str, Enum):
     PAGINATED = "PAGINATED"
     INTERACTIVE = "INTERACTIVE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSheetControlDateTimePickerType")
 class TemplateSheetControlDateTimePickerType(builtins.str, Enum):
     SINGLE_VALUED = "SINGLE_VALUED"
     DATE_RANGE = "DATE_RANGE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSheetControlListType")
 class TemplateSheetControlListType(builtins.str, Enum):
     MULTI_SELECT = "MULTI_SELECT"
     SINGLE_SELECT = "SINGLE_SELECT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSheetControlSliderType")
 class TemplateSheetControlSliderType(builtins.str, Enum):
     SINGLE_POINT = "SINGLE_POINT"
     RANGE = "RANGE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSheetImageScalingType")
 class TemplateSheetImageScalingType(builtins.str, Enum):
     SCALE_TO_WIDTH = "SCALE_TO_WIDTH"
     SCALE_TO_HEIGHT = "SCALE_TO_HEIGHT"
@@ -2834,10 +3211,12 @@ class TemplateSheetImageScalingType(builtins.str, Enum):
     SCALE_NONE = "SCALE_NONE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSimpleAttributeAggregationFunction")
 class TemplateSimpleAttributeAggregationFunction(builtins.str, Enum):
     UNIQUE_VALUE = "UNIQUE_VALUE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSimpleNumericalAggregationFunction")
 class TemplateSimpleNumericalAggregationFunction(builtins.str, Enum):
     SUM = "SUM"
     AVERAGE = "AVERAGE"
@@ -2852,6 +3231,7 @@ class TemplateSimpleNumericalAggregationFunction(builtins.str, Enum):
     MEDIAN = "MEDIAN"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSimpleTotalAggregationFunction")
 class TemplateSimpleTotalAggregationFunction(builtins.str, Enum):
     DEFAULT = "DEFAULT"
     SUM = "SUM"
@@ -2861,77 +3241,92 @@ class TemplateSimpleTotalAggregationFunction(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSingleYAxisOption")
 class TemplateSingleYAxisOption(builtins.str, Enum):
     PRIMARY_Y_AXIS = "PRIMARY_Y_AXIS"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSmallMultiplesAxisPlacement")
 class TemplateSmallMultiplesAxisPlacement(builtins.str, Enum):
     OUTSIDE = "OUTSIDE"
     INSIDE = "INSIDE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSmallMultiplesAxisScale")
 class TemplateSmallMultiplesAxisScale(builtins.str, Enum):
     SHARED = "SHARED"
     INDEPENDENT = "INDEPENDENT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSortDirection")
 class TemplateSortDirection(builtins.str, Enum):
     ASC = "ASC"
     DESC = "DESC"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateSpecialValue")
 class TemplateSpecialValue(builtins.str, Enum):
     EMPTY = "EMPTY"
     NULL = "NULL"
     OTHER = "OTHER"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateStyledCellType")
 class TemplateStyledCellType(builtins.str, Enum):
     TOTAL = "TOTAL"
     METRIC_HEADER = "METRIC_HEADER"
     VALUE = "VALUE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTableBorderStyle")
 class TemplateTableBorderStyle(builtins.str, Enum):
     NONE = "NONE"
     SOLID = "SOLID"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTableCellImageScalingConfiguration")
 class TemplateTableCellImageScalingConfiguration(builtins.str, Enum):
     FIT_TO_CELL_HEIGHT = "FIT_TO_CELL_HEIGHT"
     FIT_TO_CELL_WIDTH = "FIT_TO_CELL_WIDTH"
     DO_NOT_SCALE = "DO_NOT_SCALE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTableFieldIconSetType")
 class TemplateTableFieldIconSetType(builtins.str, Enum):
     LINK = "LINK"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTableOrientation")
 class TemplateTableOrientation(builtins.str, Enum):
     VERTICAL = "VERTICAL"
     HORIZONTAL = "HORIZONTAL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTableTotalsPlacement")
 class TemplateTableTotalsPlacement(builtins.str, Enum):
     START = "START"
     END = "END"
     AUTO = "AUTO"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTableTotalsScrollStatus")
 class TemplateTableTotalsScrollStatus(builtins.str, Enum):
     PINNED = "PINNED"
     SCROLLED = "SCROLLED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTargetVisualOptions")
 class TemplateTargetVisualOptions(builtins.str, Enum):
     ALL_VISUALS = "ALL_VISUALS"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTextWrap")
 class TemplateTextWrap(builtins.str, Enum):
     NONE = "NONE"
     WRAP = "WRAP"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTimeGranularity")
 class TemplateTimeGranularity(builtins.str, Enum):
     YEAR = "YEAR"
     QUARTER = "QUARTER"
@@ -2944,48 +3339,57 @@ class TemplateTimeGranularity(builtins.str, Enum):
     MILLISECOND = "MILLISECOND"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTooltipTarget")
 class TemplateTooltipTarget(builtins.str, Enum):
     BOTH = "BOTH"
     BAR = "BAR"
     LINE = "LINE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTooltipTitleType")
 class TemplateTooltipTitleType(builtins.str, Enum):
     NONE = "NONE"
     PRIMARY_VALUE = "PRIMARY_VALUE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTopBottomComputationType")
 class TemplateTopBottomComputationType(builtins.str, Enum):
     TOP = "TOP"
     BOTTOM = "BOTTOM"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTopBottomSortOrder")
 class TemplateTopBottomSortOrder(builtins.str, Enum):
     PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE"
     ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateTransposedColumnType")
 class TemplateTransposedColumnType(builtins.str, Enum):
     ROW_HEADER_COLUMN = "ROW_HEADER_COLUMN"
     VALUE_COLUMN = "VALUE_COLUMN"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateUrlTargetConfiguration")
 class TemplateUrlTargetConfiguration(builtins.str, Enum):
     NEW_TAB = "NEW_TAB"
     NEW_WINDOW = "NEW_WINDOW"
     SAME_TAB = "SAME_TAB"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateValidationStrategyMode")
 class TemplateValidationStrategyMode(builtins.str, Enum):
     STRICT = "STRICT"
     LENIENT = "LENIENT"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateValueWhenUnsetOption")
 class TemplateValueWhenUnsetOption(builtins.str, Enum):
     RECOMMENDED_VALUE = "RECOMMENDED_VALUE"
     NULL = "NULL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateVerticalTextAlignment")
 class TemplateVerticalTextAlignment(builtins.str, Enum):
     TOP = "TOP"
     MIDDLE = "MIDDLE"
@@ -2993,31 +3397,37 @@ class TemplateVerticalTextAlignment(builtins.str, Enum):
     AUTO = "AUTO"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateVisualCustomActionTrigger")
 class TemplateVisualCustomActionTrigger(builtins.str, Enum):
     DATA_POINT_CLICK = "DATA_POINT_CLICK"
     DATA_POINT_MENU = "DATA_POINT_MENU"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateWidgetStatus")
 class TemplateWidgetStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateWordCloudCloudLayout")
 class TemplateWordCloudCloudLayout(builtins.str, Enum):
     FLUID = "FLUID"
     NORMAL = "NORMAL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateWordCloudWordCasing")
 class TemplateWordCloudWordCasing(builtins.str, Enum):
     LOWER_CASE = "LOWER_CASE"
     EXISTING_CASE = "EXISTING_CASE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateWordCloudWordOrientation")
 class TemplateWordCloudWordOrientation(builtins.str, Enum):
     HORIZONTAL = "HORIZONTAL"
     HORIZONTAL_AND_VERTICAL = "HORIZONTAL_AND_VERTICAL"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateWordCloudWordPadding")
 class TemplateWordCloudWordPadding(builtins.str, Enum):
     NONE = "NONE"
     SMALL = "SMALL"
@@ -3025,15 +3435,18 @@ class TemplateWordCloudWordPadding(builtins.str, Enum):
     LARGE = "LARGE"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateWordCloudWordScaling")
 class TemplateWordCloudWordScaling(builtins.str, Enum):
     EMPHASIZE = "EMPHASIZE"
     NORMAL = "NORMAL"
 
 
+@pulumi.type_token("aws-native:quicksight:ThemeErrorType")
 class ThemeErrorType(builtins.str, Enum):
     INTERNAL_FAILURE = "INTERNAL_FAILURE"
 
 
+@pulumi.type_token("aws-native:quicksight:ThemeResourceStatus")
 class ThemeResourceStatus(builtins.str, Enum):
     CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
     CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL"
@@ -3044,12 +3457,14 @@ class ThemeResourceStatus(builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:quicksight:ThemeType")
 class ThemeType(builtins.str, Enum):
     QUICKSIGHT = "QUICKSIGHT"
     CUSTOM = "CUSTOM"
     ALL = "ALL"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicAuthorSpecifiedAggregation")
 class TopicAuthorSpecifiedAggregation(builtins.str, Enum):
     COUNT = "COUNT"
     DISTINCT_COUNT = "DISTINCT_COUNT"
@@ -3065,34 +3480,40 @@ class TopicAuthorSpecifiedAggregation(builtins.str, Enum):
     PERCENTILE = "PERCENTILE"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicCategoryFilterFunction")
 class TopicCategoryFilterFunction(builtins.str, Enum):
     EXACT = "EXACT"
     CONTAINS = "CONTAINS"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicCategoryFilterType")
 class TopicCategoryFilterType(builtins.str, Enum):
     CUSTOM_FILTER = "CUSTOM_FILTER"
     CUSTOM_FILTER_LIST = "CUSTOM_FILTER_LIST"
     FILTER_LIST = "FILTER_LIST"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicColumnDataRole")
 class TopicColumnDataRole(builtins.str, Enum):
     DIMENSION = "DIMENSION"
     MEASURE = "MEASURE"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicColumnOrderingType")
 class TopicColumnOrderingType(builtins.str, Enum):
     GREATER_IS_BETTER = "GREATER_IS_BETTER"
     LESSER_IS_BETTER = "LESSER_IS_BETTER"
     SPECIFIED = "SPECIFIED"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicConstantType")
 class TopicConstantType(builtins.str, Enum):
     SINGULAR = "SINGULAR"
     RANGE = "RANGE"
     COLLECTIVE = "COLLECTIVE"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicDefaultAggregation")
 class TopicDefaultAggregation(builtins.str, Enum):
     SUM = "SUM"
     MAX = "MAX"
@@ -3107,6 +3528,7 @@ class TopicDefaultAggregation(builtins.str, Enum):
     VARP = "VARP"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicDisplayFormat")
 class TopicDisplayFormat(builtins.str, Enum):
     AUTO = "AUTO"
     PERCENT = "PERCENT"
@@ -3116,12 +3538,14 @@ class TopicDisplayFormat(builtins.str, Enum):
     STRING = "STRING"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicFilterClass")
 class TopicFilterClass(builtins.str, Enum):
     ENFORCED_VALUE_FILTER = "ENFORCED_VALUE_FILTER"
     CONDITIONAL_VALUE_FILTER = "CONDITIONAL_VALUE_FILTER"
     NAMED_VALUE_FILTER = "NAMED_VALUE_FILTER"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicNamedEntityAggType")
 class TopicNamedEntityAggType(builtins.str, Enum):
     SUM = "SUM"
     MIN = "MIN"
@@ -3138,6 +3562,7 @@ class TopicNamedEntityAggType(builtins.str, Enum):
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicNamedFilterAggType")
 class TopicNamedFilterAggType(builtins.str, Enum):
     NO_AGGREGATION = "NO_AGGREGATION"
     SUM = "SUM"
@@ -3153,6 +3578,7 @@ class TopicNamedFilterAggType(builtins.str, Enum):
     VARP = "VARP"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicNamedFilterType")
 class TopicNamedFilterType(builtins.str, Enum):
     CATEGORY_FILTER = "CATEGORY_FILTER"
     NUMERIC_EQUALITY_FILTER = "NUMERIC_EQUALITY_FILTER"
@@ -3161,6 +3587,7 @@ class TopicNamedFilterType(builtins.str, Enum):
     RELATIVE_DATE_FILTER = "RELATIVE_DATE_FILTER"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicNumberScale")
 class TopicNumberScale(builtins.str, Enum):
     NONE = "NONE"
     AUTO = "AUTO"
@@ -3172,22 +3599,26 @@ class TopicNumberScale(builtins.str, Enum):
     CRORES = "CRORES"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicNumericSeparatorSymbol")
 class TopicNumericSeparatorSymbol(builtins.str, Enum):
     COMMA = "COMMA"
     DOT = "DOT"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicPropertyRole")
 class TopicPropertyRole(builtins.str, Enum):
     PRIMARY = "PRIMARY"
     ID = "ID"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicPropertyUsage")
 class TopicPropertyUsage(builtins.str, Enum):
     INHERIT = "INHERIT"
     DIMENSION = "DIMENSION"
     MEASURE = "MEASURE"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicRelativeDateFilterFunction")
 class TopicRelativeDateFilterFunction(builtins.str, Enum):
     PREVIOUS = "PREVIOUS"
     THIS = "THIS"
@@ -3196,6 +3627,7 @@ class TopicRelativeDateFilterFunction(builtins.str, Enum):
     NOW = "NOW"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicTimeGranularity")
 class TopicTimeGranularity(builtins.str, Enum):
     SECOND = "SECOND"
     MINUTE = "MINUTE"
@@ -3207,16 +3639,19 @@ class TopicTimeGranularity(builtins.str, Enum):
     YEAR = "YEAR"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicUndefinedSpecifiedValueType")
 class TopicUndefinedSpecifiedValueType(builtins.str, Enum):
     LEAST = "LEAST"
     MOST = "MOST"
 
 
+@pulumi.type_token("aws-native:quicksight:TopicUserExperienceVersion")
 class TopicUserExperienceVersion(builtins.str, Enum):
     LEGACY = "LEGACY"
     NEW_READER_EXPERIENCE = "NEW_READER_EXPERIENCE"
 
 
+@pulumi.type_token("aws-native:quicksight:VpcConnectionNetworkInterfaceStatus")
 class VpcConnectionNetworkInterfaceStatus(builtins.str, Enum):
     CREATING = "CREATING"
     AVAILABLE = "AVAILABLE"
@@ -3230,12 +3665,14 @@ class VpcConnectionNetworkInterfaceStatus(builtins.str, Enum):
     ATTACHMENT_FAILED_ROLLBACK_FAILED = "ATTACHMENT_FAILED_ROLLBACK_FAILED"
 
 
+@pulumi.type_token("aws-native:quicksight:VpcConnectionVpcConnectionAvailabilityStatus")
 class VpcConnectionVpcConnectionAvailabilityStatus(builtins.str, Enum):
     AVAILABLE = "AVAILABLE"
     UNAVAILABLE = "UNAVAILABLE"
     PARTIALLY_AVAILABLE = "PARTIALLY_AVAILABLE"
 
 
+@pulumi.type_token("aws-native:quicksight:VpcConnectionVpcConnectionResourceStatus")
 class VpcConnectionVpcConnectionResourceStatus(builtins.str, Enum):
     CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
     CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL"

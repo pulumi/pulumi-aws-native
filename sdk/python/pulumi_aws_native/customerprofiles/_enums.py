@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -39,6 +39,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:customerprofiles:CalculatedAttributeDefinitionRangeUnit")
 class CalculatedAttributeDefinitionRangeUnit(builtins.str, Enum):
     """
     The unit of time.
@@ -46,6 +47,7 @@ class CalculatedAttributeDefinitionRangeUnit(builtins.str, Enum):
     DAYS = "DAYS"
 
 
+@pulumi.type_token("aws-native:customerprofiles:CalculatedAttributeDefinitionStatistic")
 class CalculatedAttributeDefinitionStatistic(builtins.str, Enum):
     """
     The aggregation operation to perform for the calculated attribute.
@@ -60,6 +62,7 @@ class CalculatedAttributeDefinitionStatistic(builtins.str, Enum):
     MAX_OCCURRENCE = "MAX_OCCURRENCE"
 
 
+@pulumi.type_token("aws-native:customerprofiles:CalculatedAttributeDefinitionThresholdOperator")
 class CalculatedAttributeDefinitionThresholdOperator(builtins.str, Enum):
     """
     The operator of the threshold.
@@ -70,6 +73,7 @@ class CalculatedAttributeDefinitionThresholdOperator(builtins.str, Enum):
     NOT_EQUAL_TO = "NOT_EQUAL_TO"
 
 
+@pulumi.type_token("aws-native:customerprofiles:DomainAttributeTypesSelectorAttributeMatchingModel")
 class DomainAttributeTypesSelectorAttributeMatchingModel(builtins.str, Enum):
     """
     Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
@@ -78,6 +82,7 @@ class DomainAttributeTypesSelectorAttributeMatchingModel(builtins.str, Enum):
     MANY_TO_MANY = "MANY_TO_MANY"
 
 
+@pulumi.type_token("aws-native:customerprofiles:DomainConflictResolutionConflictResolvingModel")
 class DomainConflictResolutionConflictResolvingModel(builtins.str, Enum):
     """
     How the auto-merging process should resolve conflicts between different profiles.
@@ -86,6 +91,7 @@ class DomainConflictResolutionConflictResolvingModel(builtins.str, Enum):
     SOURCE = "SOURCE"
 
 
+@pulumi.type_token("aws-native:customerprofiles:DomainJobScheduleDayOfTheWeek")
 class DomainJobScheduleDayOfTheWeek(builtins.str, Enum):
     """
     The day when the Identity Resolution Job should run every week.
@@ -99,6 +105,7 @@ class DomainJobScheduleDayOfTheWeek(builtins.str, Enum):
     SATURDAY = "SATURDAY"
 
 
+@pulumi.type_token("aws-native:customerprofiles:DomainRuleBasedMatchingStatus")
 class DomainRuleBasedMatchingStatus(builtins.str, Enum):
     """
     The status of rule-based matching rule.
@@ -108,6 +115,7 @@ class DomainRuleBasedMatchingStatus(builtins.str, Enum):
     ACTIVE = "ACTIVE"
 
 
+@pulumi.type_token("aws-native:customerprofiles:EventStreamState")
 class EventStreamState(builtins.str, Enum):
     """
     The operational state of destination stream for export.
@@ -116,6 +124,7 @@ class EventStreamState(builtins.str, Enum):
     STOPPED = "STOPPED"
 
 
+@pulumi.type_token("aws-native:customerprofiles:EventStreamStatus")
 class EventStreamStatus(builtins.str, Enum):
     """
     The status of enabling the Kinesis stream as a destination for export.
@@ -124,6 +133,7 @@ class EventStreamStatus(builtins.str, Enum):
     UNHEALTHY = "UNHEALTHY"
 
 
+@pulumi.type_token("aws-native:customerprofiles:EventTriggerLogicalOperator")
 class EventTriggerLogicalOperator(builtins.str, Enum):
     """
     The operator used to combine multiple dimensions.
@@ -133,6 +143,7 @@ class EventTriggerLogicalOperator(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:customerprofiles:EventTriggerObjectAttributeComparisonOperator")
 class EventTriggerObjectAttributeComparisonOperator(builtins.str, Enum):
     """
     The operator used to compare an attribute against a list of values.
@@ -154,6 +165,7 @@ class EventTriggerObjectAttributeComparisonOperator(builtins.str, Enum):
     NOT_BETWEEN = "NOT_BETWEEN"
 
 
+@pulumi.type_token("aws-native:customerprofiles:EventTriggerPeriodUnit")
 class EventTriggerPeriodUnit(builtins.str, Enum):
     """
     The unit of time.
@@ -164,6 +176,7 @@ class EventTriggerPeriodUnit(builtins.str, Enum):
     MONTHS = "MONTHS"
 
 
+@pulumi.type_token("aws-native:customerprofiles:IntegrationConnectorType")
 class IntegrationConnectorType(builtins.str, Enum):
     SALESFORCE = "Salesforce"
     MARKETO = "Marketo"
@@ -172,6 +185,7 @@ class IntegrationConnectorType(builtins.str, Enum):
     S3 = "S3"
 
 
+@pulumi.type_token("aws-native:customerprofiles:IntegrationMarketoConnectorOperator")
 class IntegrationMarketoConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
@@ -191,6 +205,7 @@ class IntegrationMarketoConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:customerprofiles:IntegrationOperatorPropertiesKeys")
 class IntegrationOperatorPropertiesKeys(builtins.str, Enum):
     VALUE = "VALUE"
     VALUES = "VALUES"
@@ -208,6 +223,7 @@ class IntegrationOperatorPropertiesKeys(builtins.str, Enum):
     SUBFIELD_CATEGORY_MAP = "SUBFIELD_CATEGORY_MAP"
 
 
+@pulumi.type_token("aws-native:customerprofiles:IntegrationS3ConnectorOperator")
 class IntegrationS3ConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
@@ -231,6 +247,7 @@ class IntegrationS3ConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:customerprofiles:IntegrationSalesforceConnectorOperator")
 class IntegrationSalesforceConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
@@ -255,6 +272,7 @@ class IntegrationSalesforceConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:customerprofiles:IntegrationScheduledTriggerPropertiesDataPullMode")
 class IntegrationScheduledTriggerPropertiesDataPullMode(builtins.str, Enum):
     """
     Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
@@ -263,6 +281,7 @@ class IntegrationScheduledTriggerPropertiesDataPullMode(builtins.str, Enum):
     COMPLETE = "Complete"
 
 
+@pulumi.type_token("aws-native:customerprofiles:IntegrationServiceNowConnectorOperator")
 class IntegrationServiceNowConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
@@ -287,6 +306,7 @@ class IntegrationServiceNowConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:customerprofiles:IntegrationTaskType")
 class IntegrationTaskType(builtins.str, Enum):
     ARITHMETIC = "Arithmetic"
     FILTER = "Filter"
@@ -297,12 +317,14 @@ class IntegrationTaskType(builtins.str, Enum):
     VALIDATE = "Validate"
 
 
+@pulumi.type_token("aws-native:customerprofiles:IntegrationTriggerType")
 class IntegrationTriggerType(builtins.str, Enum):
     SCHEDULED = "Scheduled"
     EVENT = "Event"
     ON_DEMAND = "OnDemand"
 
 
+@pulumi.type_token("aws-native:customerprofiles:IntegrationZendeskConnectorOperator")
 class IntegrationZendeskConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     GREATER_THAN = "GREATER_THAN"
@@ -320,6 +342,7 @@ class IntegrationZendeskConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:customerprofiles:ObjectTypeFieldContentType")
 class ObjectTypeFieldContentType(builtins.str, Enum):
     """
     The content type of the field. Used for determining equality when searching.
@@ -331,6 +354,7 @@ class ObjectTypeFieldContentType(builtins.str, Enum):
     NAME = "NAME"
 
 
+@pulumi.type_token("aws-native:customerprofiles:ObjectTypeKeyStandardIdentifiersItem")
 class ObjectTypeKeyStandardIdentifiersItem(builtins.str, Enum):
     PROFILE = "PROFILE"
     UNIQUE = "UNIQUE"
@@ -342,6 +366,7 @@ class ObjectTypeKeyStandardIdentifiersItem(builtins.str, Enum):
     ORDER = "ORDER"
 
 
+@pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionAttributeDimensionType")
 class SegmentDefinitionAttributeDimensionType(builtins.str, Enum):
     """
     The type of segment dimension to use.
@@ -363,6 +388,7 @@ class SegmentDefinitionAttributeDimensionType(builtins.str, Enum):
     EQUAL = "EQUAL"
 
 
+@pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionDateDimensionType")
 class SegmentDefinitionDateDimensionType(builtins.str, Enum):
     """
     The type of segment dimension to use for a date dimension.
@@ -374,6 +400,7 @@ class SegmentDefinitionDateDimensionType(builtins.str, Enum):
     ON = "ON"
 
 
+@pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionIncludeOptions")
 class SegmentDefinitionIncludeOptions(builtins.str, Enum):
     """
     Specifies the operator on how to handle multiple groups within the same segment.
@@ -383,6 +410,7 @@ class SegmentDefinitionIncludeOptions(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionRangeOverrideUnit")
 class SegmentDefinitionRangeOverrideUnit(builtins.str, Enum):
     """
     The unit to be applied to the range.
@@ -390,6 +418,7 @@ class SegmentDefinitionRangeOverrideUnit(builtins.str, Enum):
     DAYS = "DAYS"
 
 
+@pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionStringDimensionType")
 class SegmentDefinitionStringDimensionType(builtins.str, Enum):
     """
     The type of segment dimension to use for a string dimension.

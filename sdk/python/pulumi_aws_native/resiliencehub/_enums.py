@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:resiliencehub:AppAssessmentSchedule")
 class AppAssessmentSchedule(builtins.str, Enum):
     """
     Assessment execution schedule.
@@ -24,6 +25,7 @@ class AppAssessmentSchedule(builtins.str, Enum):
     DAILY = "Daily"
 
 
+@pulumi.type_token("aws-native:resiliencehub:AppDriftStatus")
 class AppDriftStatus(builtins.str, Enum):
     """
     Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
@@ -33,6 +35,7 @@ class AppDriftStatus(builtins.str, Enum):
     DETECTED = "Detected"
 
 
+@pulumi.type_token("aws-native:resiliencehub:AppEventSubscriptionEventType")
 class AppEventSubscriptionEventType(builtins.str, Enum):
     """
     The type of event you would like to subscribe and get notification for.
@@ -41,6 +44,7 @@ class AppEventSubscriptionEventType(builtins.str, Enum):
     DRIFT_DETECTED = "DriftDetected"
 
 
+@pulumi.type_token("aws-native:resiliencehub:AppPermissionModelType")
 class AppPermissionModelType(builtins.str, Enum):
     """
     Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
@@ -49,6 +53,7 @@ class AppPermissionModelType(builtins.str, Enum):
     ROLE_BASED = "RoleBased"
 
 
+@pulumi.type_token("aws-native:resiliencehub:ResiliencyPolicyDataLocationConstraint")
 class ResiliencyPolicyDataLocationConstraint(builtins.str, Enum):
     """
     Data Location Constraint of the Policy.
@@ -58,6 +63,7 @@ class ResiliencyPolicyDataLocationConstraint(builtins.str, Enum):
     SAME_COUNTRY = "SameCountry"
 
 
+@pulumi.type_token("aws-native:resiliencehub:ResiliencyPolicyTier")
 class ResiliencyPolicyTier(builtins.str, Enum):
     """
     Resiliency Policy Tier.

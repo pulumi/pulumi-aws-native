@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -31,6 +31,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:omics:AnnotationStoreAnnotationType")
 class AnnotationStoreAnnotationType(builtins.str, Enum):
     GENERIC = "GENERIC"
     CHR_POS = "CHR_POS"
@@ -41,10 +42,12 @@ class AnnotationStoreAnnotationType(builtins.str, Enum):
     CHR_START_END_REF_ALT_ZERO_BASE = "CHR_START_END_REF_ALT_ZERO_BASE"
 
 
+@pulumi.type_token("aws-native:omics:AnnotationStoreEncryptionType")
 class AnnotationStoreEncryptionType(builtins.str, Enum):
     KMS = "KMS"
 
 
+@pulumi.type_token("aws-native:omics:AnnotationStoreSchemaValueType")
 class AnnotationStoreSchemaValueType(builtins.str, Enum):
     LONG = "LONG"
     INT = "INT"
@@ -54,12 +57,14 @@ class AnnotationStoreSchemaValueType(builtins.str, Enum):
     BOOLEAN = "BOOLEAN"
 
 
+@pulumi.type_token("aws-native:omics:AnnotationStoreStoreFormat")
 class AnnotationStoreStoreFormat(builtins.str, Enum):
     GFF = "GFF"
     TSV = "TSV"
     VCF = "VCF"
 
 
+@pulumi.type_token("aws-native:omics:AnnotationStoreStoreStatus")
 class AnnotationStoreStoreStatus(builtins.str, Enum):
     CREATING = "CREATING"
     UPDATING = "UPDATING"
@@ -68,20 +73,24 @@ class AnnotationStoreStoreStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:omics:ReferenceStoreEncryptionType")
 class ReferenceStoreEncryptionType(builtins.str, Enum):
     KMS = "KMS"
 
 
+@pulumi.type_token("aws-native:omics:SequenceStoreETagAlgorithmFamily")
 class SequenceStoreETagAlgorithmFamily(builtins.str, Enum):
     MD5UP = "MD5up"
     SHA256UP = "SHA256up"
     SHA512UP = "SHA512up"
 
 
+@pulumi.type_token("aws-native:omics:SequenceStoreEncryptionType")
 class SequenceStoreEncryptionType(builtins.str, Enum):
     KMS = "KMS"
 
 
+@pulumi.type_token("aws-native:omics:SequenceStoreStatus")
 class SequenceStoreStatus(builtins.str, Enum):
     CREATING = "CREATING"
     ACTIVE = "ACTIVE"
@@ -90,10 +99,12 @@ class SequenceStoreStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:omics:VariantStoreEncryptionType")
 class VariantStoreEncryptionType(builtins.str, Enum):
     KMS = "KMS"
 
 
+@pulumi.type_token("aws-native:omics:VariantStoreStoreStatus")
 class VariantStoreStoreStatus(builtins.str, Enum):
     CREATING = "CREATING"
     UPDATING = "UPDATING"
@@ -102,16 +113,19 @@ class VariantStoreStoreStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:omics:WorkflowAccelerators")
 class WorkflowAccelerators(builtins.str, Enum):
     GPU = "GPU"
 
 
+@pulumi.type_token("aws-native:omics:WorkflowEngine")
 class WorkflowEngine(builtins.str, Enum):
     WDL = "WDL"
     NEXTFLOW = "NEXTFLOW"
     CWL = "CWL"
 
 
+@pulumi.type_token("aws-native:omics:WorkflowStatus")
 class WorkflowStatus(builtins.str, Enum):
     CREATING = "CREATING"
     ACTIVE = "ACTIVE"
@@ -120,30 +134,36 @@ class WorkflowStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:omics:WorkflowStorageType")
 class WorkflowStorageType(builtins.str, Enum):
     STATIC = "STATIC"
     DYNAMIC = "DYNAMIC"
 
 
+@pulumi.type_token("aws-native:omics:WorkflowType")
 class WorkflowType(builtins.str, Enum):
     PRIVATE = "PRIVATE"
 
 
+@pulumi.type_token("aws-native:omics:WorkflowVersionAccelerators")
 class WorkflowVersionAccelerators(builtins.str, Enum):
     GPU = "GPU"
 
 
+@pulumi.type_token("aws-native:omics:WorkflowVersionStorageType")
 class WorkflowVersionStorageType(builtins.str, Enum):
     STATIC = "STATIC"
     DYNAMIC = "DYNAMIC"
 
 
+@pulumi.type_token("aws-native:omics:WorkflowVersionWorkflowEngine")
 class WorkflowVersionWorkflowEngine(builtins.str, Enum):
     WDL = "WDL"
     NEXTFLOW = "NEXTFLOW"
     CWL = "CWL"
 
 
+@pulumi.type_token("aws-native:omics:WorkflowVersionWorkflowStatus")
 class WorkflowVersionWorkflowStatus(builtins.str, Enum):
     CREATING = "CREATING"
     ACTIVE = "ACTIVE"
@@ -153,6 +173,7 @@ class WorkflowVersionWorkflowStatus(builtins.str, Enum):
     INACTIVE = "INACTIVE"
 
 
+@pulumi.type_token("aws-native:omics:WorkflowVersionWorkflowType")
 class WorkflowVersionWorkflowType(builtins.str, Enum):
     PRIVATE = "PRIVATE"
     READY2RUN = "READY2RUN"

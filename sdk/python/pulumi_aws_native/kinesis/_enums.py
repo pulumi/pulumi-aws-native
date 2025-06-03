@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:kinesis:StreamEncryptionEncryptionType")
 class StreamEncryptionEncryptionType(builtins.str, Enum):
     """
     The encryption type to use. The only valid value is KMS. 
@@ -20,6 +21,7 @@ class StreamEncryptionEncryptionType(builtins.str, Enum):
     KMS = "KMS"
 
 
+@pulumi.type_token("aws-native:kinesis:StreamEnhancedMetric")
 class StreamEnhancedMetric(builtins.str, Enum):
     """
     Value of an enhanced metric
@@ -34,6 +36,7 @@ class StreamEnhancedMetric(builtins.str, Enum):
     ALL = "ALL"
 
 
+@pulumi.type_token("aws-native:kinesis:StreamModeDetailsStreamMode")
 class StreamModeDetailsStreamMode(builtins.str, Enum):
     """
     The mode of the stream

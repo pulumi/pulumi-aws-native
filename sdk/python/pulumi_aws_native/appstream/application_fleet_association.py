@@ -55,10 +55,8 @@ class ApplicationFleetAssociationArgs:
         pulumi.set(self, "fleet_name", value)
 
 
+@pulumi.type_token("aws-native:appstream:ApplicationFleetAssociation")
 class ApplicationFleetAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appstream:ApplicationFleetAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -74,10 +74,8 @@ class LoggingConfigurationInitArgs:
         pulumi.set(self, "firewall_name", value)
 
 
+@pulumi.type_token("aws-native:networkfirewall:LoggingConfiguration")
 class LoggingConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:networkfirewall:LoggingConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

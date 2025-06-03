@@ -75,10 +75,8 @@ class ApplicationArgs:
         pulumi.set(self, "resource_lifecycle_config", value)
 
 
+@pulumi.type_token("aws-native:elasticbeanstalk:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:elasticbeanstalk:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -60,10 +60,8 @@ class StandardArgs:
         pulumi.set(self, "disabled_standards_controls", value)
 
 
+@pulumi.type_token("aws-native:securityhub:Standard")
 class Standard(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:securityhub:Standard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

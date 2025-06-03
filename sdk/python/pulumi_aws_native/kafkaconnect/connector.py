@@ -230,10 +230,8 @@ class ConnectorArgs:
         pulumi.set(self, "worker_configuration", value)
 
 
+@pulumi.type_token("aws-native:kafkaconnect:Connector")
 class Connector(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:kafkaconnect:Connector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -162,10 +162,8 @@ class OptionGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:rds:OptionGroup")
 class OptionGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:rds:OptionGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

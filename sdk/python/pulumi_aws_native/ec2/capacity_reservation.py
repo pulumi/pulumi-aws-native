@@ -330,10 +330,8 @@ class CapacityReservationArgs:
         pulumi.set(self, "unused_reservation_billing_owner_id", value)
 
 
+@pulumi.type_token("aws-native:ec2:CapacityReservation")
 class CapacityReservation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:CapacityReservation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -57,10 +57,8 @@ class ServicePrincipalNameArgs:
         pulumi.set(self, "directory_registration_arn", value)
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:ServicePrincipalName")
 class ServicePrincipalName(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:pcaconnectorad:ServicePrincipalName"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

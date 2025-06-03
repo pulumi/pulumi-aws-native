@@ -73,10 +73,8 @@ class DocumentationPartArgs:
         pulumi.set(self, "rest_api_id", value)
 
 
+@pulumi.type_token("aws-native:apigateway:DocumentationPart")
 class DocumentationPart(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigateway:DocumentationPart"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

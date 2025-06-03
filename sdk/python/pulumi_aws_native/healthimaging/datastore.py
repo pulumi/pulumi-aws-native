@@ -74,10 +74,8 @@ class DatastoreArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:healthimaging:Datastore")
 class Datastore(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:healthimaging:Datastore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

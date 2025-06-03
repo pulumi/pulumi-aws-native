@@ -129,10 +129,8 @@ class LogicallyAirGappedBackupVaultArgs:
         pulumi.set(self, "notifications", value)
 
 
+@pulumi.type_token("aws-native:backup:LogicallyAirGappedBackupVault")
 class LogicallyAirGappedBackupVault(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:backup:LogicallyAirGappedBackupVault"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

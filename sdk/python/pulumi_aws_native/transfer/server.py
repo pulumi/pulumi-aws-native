@@ -426,10 +426,8 @@ class ServerArgs:
         pulumi.set(self, "workflow_details", value)
 
 
+@pulumi.type_token("aws-native:transfer:Server")
 class Server(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:transfer:Server"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

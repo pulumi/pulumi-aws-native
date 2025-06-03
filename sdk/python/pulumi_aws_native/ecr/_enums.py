@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:ecr:RegistryScanningConfigurationFilterType")
 class RegistryScanningConfigurationFilterType(builtins.str, Enum):
     """
     The type associated with the filter.
@@ -26,6 +27,7 @@ class RegistryScanningConfigurationFilterType(builtins.str, Enum):
     WILDCARD = "WILDCARD"
 
 
+@pulumi.type_token("aws-native:ecr:RegistryScanningConfigurationScanFrequency")
 class RegistryScanningConfigurationScanFrequency(builtins.str, Enum):
     """
     The frequency that scans are performed.
@@ -34,6 +36,7 @@ class RegistryScanningConfigurationScanFrequency(builtins.str, Enum):
     CONTINUOUS_SCAN = "CONTINUOUS_SCAN"
 
 
+@pulumi.type_token("aws-native:ecr:RegistryScanningConfigurationScanType")
 class RegistryScanningConfigurationScanType(builtins.str, Enum):
     """
     The type of scanning configured for the registry.
@@ -42,6 +45,7 @@ class RegistryScanningConfigurationScanType(builtins.str, Enum):
     ENHANCED = "ENHANCED"
 
 
+@pulumi.type_token("aws-native:ecr:ReplicationConfigurationFilterType")
 class ReplicationConfigurationFilterType(builtins.str, Enum):
     """
     Type of repository filter
@@ -49,6 +53,7 @@ class ReplicationConfigurationFilterType(builtins.str, Enum):
     PREFIX_MATCH = "PREFIX_MATCH"
 
 
+@pulumi.type_token("aws-native:ecr:RepositoryCreationTemplateAppliedForItem")
 class RepositoryCreationTemplateAppliedForItem(builtins.str, Enum):
     """
     Enumerable Strings representing the repository creation scenarios that the template will apply towards.
@@ -57,6 +62,7 @@ class RepositoryCreationTemplateAppliedForItem(builtins.str, Enum):
     PULL_THROUGH_CACHE = "PULL_THROUGH_CACHE"
 
 
+@pulumi.type_token("aws-native:ecr:RepositoryCreationTemplateEncryptionType")
 class RepositoryCreationTemplateEncryptionType(builtins.str, Enum):
     """
     The encryption type to use.
@@ -66,6 +72,7 @@ class RepositoryCreationTemplateEncryptionType(builtins.str, Enum):
     KMS_DSSE = "KMS_DSSE"
 
 
+@pulumi.type_token("aws-native:ecr:RepositoryCreationTemplateImageTagMutability")
 class RepositoryCreationTemplateImageTagMutability(builtins.str, Enum):
     """
     The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
@@ -74,6 +81,7 @@ class RepositoryCreationTemplateImageTagMutability(builtins.str, Enum):
     IMMUTABLE = "IMMUTABLE"
 
 
+@pulumi.type_token("aws-native:ecr:RepositoryEncryptionType")
 class RepositoryEncryptionType(builtins.str, Enum):
     """
     The encryption type to use.
@@ -83,6 +91,7 @@ class RepositoryEncryptionType(builtins.str, Enum):
     KMS_DSSE = "KMS_DSSE"
 
 
+@pulumi.type_token("aws-native:ecr:RepositoryImageTagMutability")
 class RepositoryImageTagMutability(builtins.str, Enum):
     """
     The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.

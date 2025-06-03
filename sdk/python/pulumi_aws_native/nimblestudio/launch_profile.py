@@ -154,10 +154,8 @@ class LaunchProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:nimblestudio:LaunchProfile")
 class LaunchProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:nimblestudio:LaunchProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

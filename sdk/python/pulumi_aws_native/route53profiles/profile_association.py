@@ -105,10 +105,8 @@ class ProfileAssociationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:route53profiles:ProfileAssociation")
 class ProfileAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:route53profiles:ProfileAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

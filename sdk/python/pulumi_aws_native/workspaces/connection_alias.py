@@ -60,10 +60,8 @@ class ConnectionAliasArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:workspaces:ConnectionAlias")
 class ConnectionAlias(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:workspaces:ConnectionAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

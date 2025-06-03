@@ -58,10 +58,8 @@ class StreamKeyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ivs:StreamKey")
 class StreamKey(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ivs:StreamKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

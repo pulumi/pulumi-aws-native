@@ -264,10 +264,8 @@ class JobDefinitionArgs:
         pulumi.set(self, "timeout", value)
 
 
+@pulumi.type_token("aws-native:batch:JobDefinition")
 class JobDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:batch:JobDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -43,6 +43,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:s3:AccessGrantGranteeGranteeType")
 class AccessGrantGranteeGranteeType(builtins.str, Enum):
     """
     Configures the transfer acceleration state for an Amazon S3 bucket.
@@ -52,6 +53,7 @@ class AccessGrantGranteeGranteeType(builtins.str, Enum):
     DIRECTORY_GROUP = "DIRECTORY_GROUP"
 
 
+@pulumi.type_token("aws-native:s3:AccessGrantPermission")
 class AccessGrantPermission(builtins.str, Enum):
     """
     The level of access to be afforded to the grantee
@@ -61,6 +63,7 @@ class AccessGrantPermission(builtins.str, Enum):
     READWRITE = "READWRITE"
 
 
+@pulumi.type_token("aws-native:s3:AccessGrantS3PrefixType")
 class AccessGrantS3PrefixType(builtins.str, Enum):
     """
     The type of S3SubPrefix.
@@ -68,6 +71,7 @@ class AccessGrantS3PrefixType(builtins.str, Enum):
     OBJECT = "Object"
 
 
+@pulumi.type_token("aws-native:s3:AccessPointNetworkOrigin")
 class AccessPointNetworkOrigin(builtins.str, Enum):
     """
     Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
@@ -76,6 +80,7 @@ class AccessPointNetworkOrigin(builtins.str, Enum):
     VPC = "VPC"
 
 
+@pulumi.type_token("aws-native:s3:BucketAccelerateConfigurationAccelerationStatus")
 class BucketAccelerateConfigurationAccelerationStatus(builtins.str, Enum):
     """
     Specifies the transfer acceleration status of the bucket.
@@ -84,6 +89,7 @@ class BucketAccelerateConfigurationAccelerationStatus(builtins.str, Enum):
     SUSPENDED = "Suspended"
 
 
+@pulumi.type_token("aws-native:s3:BucketAccessControl")
 class BucketAccessControl(builtins.str, Enum):
     """
     This is a legacy property, and it is not recommended for most use cases. A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
@@ -101,6 +107,7 @@ class BucketAccessControl(builtins.str, Enum):
     PUBLIC_READ_WRITE = "PublicReadWrite"
 
 
+@pulumi.type_token("aws-native:s3:BucketCorsRuleAllowedMethodsItem")
 class BucketCorsRuleAllowedMethodsItem(builtins.str, Enum):
     GET = "GET"
     PUT = "PUT"
@@ -109,6 +116,7 @@ class BucketCorsRuleAllowedMethodsItem(builtins.str, Enum):
     DELETE = "DELETE"
 
 
+@pulumi.type_token("aws-native:s3:BucketDefaultRetentionMode")
 class BucketDefaultRetentionMode(builtins.str, Enum):
     """
     The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
@@ -117,6 +125,7 @@ class BucketDefaultRetentionMode(builtins.str, Enum):
     GOVERNANCE = "GOVERNANCE"
 
 
+@pulumi.type_token("aws-native:s3:BucketDeleteMarkerReplicationStatus")
 class BucketDeleteMarkerReplicationStatus(builtins.str, Enum):
     """
     Indicates whether to replicate delete markers. Disabled by default.
@@ -125,6 +134,7 @@ class BucketDeleteMarkerReplicationStatus(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("aws-native:s3:BucketDestinationFormat")
 class BucketDestinationFormat(builtins.str, Enum):
     """
     Specifies the file format used when exporting data to Amazon S3.
@@ -135,6 +145,7 @@ class BucketDestinationFormat(builtins.str, Enum):
     PARQUET = "Parquet"
 
 
+@pulumi.type_token("aws-native:s3:BucketIntelligentTieringConfigurationStatus")
 class BucketIntelligentTieringConfigurationStatus(builtins.str, Enum):
     """
     Specifies the status of the configuration.
@@ -143,6 +154,7 @@ class BucketIntelligentTieringConfigurationStatus(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("aws-native:s3:BucketInventoryConfigurationIncludedObjectVersions")
 class BucketInventoryConfigurationIncludedObjectVersions(builtins.str, Enum):
     """
     Object versions to include in the inventory list. If set to ``All``, the list includes all the object versions, which adds the version-related fields ``VersionId``, ``IsLatest``, and ``DeleteMarker`` to the list. If set to ``Current``, the list does not contain these version-related fields.
@@ -151,6 +163,7 @@ class BucketInventoryConfigurationIncludedObjectVersions(builtins.str, Enum):
     CURRENT = "Current"
 
 
+@pulumi.type_token("aws-native:s3:BucketInventoryConfigurationOptionalFieldsItem")
 class BucketInventoryConfigurationOptionalFieldsItem(builtins.str, Enum):
     SIZE = "Size"
     LAST_MODIFIED_DATE = "LastModifiedDate"
@@ -169,6 +182,7 @@ class BucketInventoryConfigurationOptionalFieldsItem(builtins.str, Enum):
     OBJECT_OWNER = "ObjectOwner"
 
 
+@pulumi.type_token("aws-native:s3:BucketInventoryConfigurationScheduleFrequency")
 class BucketInventoryConfigurationScheduleFrequency(builtins.str, Enum):
     """
     Specifies the schedule for generating inventory results.
@@ -177,6 +191,7 @@ class BucketInventoryConfigurationScheduleFrequency(builtins.str, Enum):
     WEEKLY = "Weekly"
 
 
+@pulumi.type_token("aws-native:s3:BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize")
 class BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize(builtins.str, Enum):
     """
     Indicates which default minimum object size behavior is applied to the lifecycle configuration.
@@ -190,6 +205,7 @@ class BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize(builtins.st
     ALL_STORAGE_CLASSES128K = "all_storage_classes_128K"
 
 
+@pulumi.type_token("aws-native:s3:BucketMetricsStatus")
 class BucketMetricsStatus(builtins.str, Enum):
     """
     Specifies whether the replication metrics are enabled.
@@ -198,6 +214,7 @@ class BucketMetricsStatus(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("aws-native:s3:BucketNoncurrentVersionTransitionStorageClass")
 class BucketNoncurrentVersionTransitionStorageClass(builtins.str, Enum):
     """
     The class of storage used to store the object.
@@ -210,6 +227,7 @@ class BucketNoncurrentVersionTransitionStorageClass(builtins.str, Enum):
     STANDARD_IA = "STANDARD_IA"
 
 
+@pulumi.type_token("aws-native:s3:BucketOwnershipControlsRuleObjectOwnership")
 class BucketOwnershipControlsRuleObjectOwnership(builtins.str, Enum):
     """
     Specifies an object ownership rule.
@@ -219,6 +237,7 @@ class BucketOwnershipControlsRuleObjectOwnership(builtins.str, Enum):
     BUCKET_OWNER_ENFORCED = "BucketOwnerEnforced"
 
 
+@pulumi.type_token("aws-native:s3:BucketRedirectAllRequestsToProtocol")
 class BucketRedirectAllRequestsToProtocol(builtins.str, Enum):
     """
     Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
@@ -227,6 +246,7 @@ class BucketRedirectAllRequestsToProtocol(builtins.str, Enum):
     HTTPS = "https"
 
 
+@pulumi.type_token("aws-native:s3:BucketRedirectRuleProtocol")
 class BucketRedirectRuleProtocol(builtins.str, Enum):
     """
     Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
@@ -235,6 +255,7 @@ class BucketRedirectRuleProtocol(builtins.str, Enum):
     HTTPS = "https"
 
 
+@pulumi.type_token("aws-native:s3:BucketReplicaModificationsStatus")
 class BucketReplicaModificationsStatus(builtins.str, Enum):
     """
     Specifies whether Amazon S3 replicates modifications on replicas.
@@ -244,6 +265,7 @@ class BucketReplicaModificationsStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("aws-native:s3:BucketReplicationDestinationStorageClass")
 class BucketReplicationDestinationStorageClass(builtins.str, Enum):
     """
     The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
@@ -259,6 +281,7 @@ class BucketReplicationDestinationStorageClass(builtins.str, Enum):
     STANDARD_IA = "STANDARD_IA"
 
 
+@pulumi.type_token("aws-native:s3:BucketReplicationRuleStatus")
 class BucketReplicationRuleStatus(builtins.str, Enum):
     """
     Specifies whether the rule is enabled.
@@ -267,6 +290,7 @@ class BucketReplicationRuleStatus(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("aws-native:s3:BucketReplicationTimeStatus")
 class BucketReplicationTimeStatus(builtins.str, Enum):
     """
     Specifies whether the replication time is enabled.
@@ -275,6 +299,7 @@ class BucketReplicationTimeStatus(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("aws-native:s3:BucketRuleStatus")
 class BucketRuleStatus(builtins.str, Enum):
     """
     If ``Enabled``, the rule is currently being applied. If ``Disabled``, the rule is not currently being applied.
@@ -283,6 +308,7 @@ class BucketRuleStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("aws-native:s3:BucketServerSideEncryptionByDefaultSseAlgorithm")
 class BucketServerSideEncryptionByDefaultSseAlgorithm(builtins.str, Enum):
     """
     Server-side encryption algorithm to use for the default encryption.
@@ -293,6 +319,7 @@ class BucketServerSideEncryptionByDefaultSseAlgorithm(builtins.str, Enum):
     AWSKMSDSSE = "aws:kms:dsse"
 
 
+@pulumi.type_token("aws-native:s3:BucketSseKmsEncryptedObjectsStatus")
 class BucketSseKmsEncryptedObjectsStatus(builtins.str, Enum):
     """
     Specifies whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
@@ -301,6 +328,7 @@ class BucketSseKmsEncryptedObjectsStatus(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("aws-native:s3:BucketTieringAccessTier")
 class BucketTieringAccessTier(builtins.str, Enum):
     """
     S3 Intelligent-Tiering access tier. See [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access) for a list of access tiers in the S3 Intelligent-Tiering storage class.
@@ -309,6 +337,7 @@ class BucketTieringAccessTier(builtins.str, Enum):
     DEEP_ARCHIVE_ACCESS = "DEEP_ARCHIVE_ACCESS"
 
 
+@pulumi.type_token("aws-native:s3:BucketTransitionStorageClass")
 class BucketTransitionStorageClass(builtins.str, Enum):
     """
     The storage class to which you want the object to transition.
@@ -321,6 +350,7 @@ class BucketTransitionStorageClass(builtins.str, Enum):
     STANDARD_IA = "STANDARD_IA"
 
 
+@pulumi.type_token("aws-native:s3:BucketVersioningConfigurationStatus")
 class BucketVersioningConfigurationStatus(builtins.str, Enum):
     """
     The versioning state of the bucket.
@@ -329,6 +359,7 @@ class BucketVersioningConfigurationStatus(builtins.str, Enum):
     SUSPENDED = "Suspended"
 
 
+@pulumi.type_token("aws-native:s3:MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic")
 class MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic(builtins.str, Enum):
     """
     Specifies whether the policy is public or not.
@@ -337,6 +368,7 @@ class MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic(builtins.str, E
     FALSE = "false"
 
 
+@pulumi.type_token("aws-native:s3:StorageLensS3BucketDestinationFormat")
 class StorageLensS3BucketDestinationFormat(builtins.str, Enum):
     """
     Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
@@ -345,6 +377,7 @@ class StorageLensS3BucketDestinationFormat(builtins.str, Enum):
     PARQUET = "Parquet"
 
 
+@pulumi.type_token("aws-native:s3:StorageLensS3BucketDestinationOutputSchemaVersion")
 class StorageLensS3BucketDestinationOutputSchemaVersion(builtins.str, Enum):
     """
     The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.

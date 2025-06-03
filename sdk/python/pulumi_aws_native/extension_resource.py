@@ -142,10 +142,8 @@ class ExtensionResourceArgs:
         pulumi.set(self, "write_only", value)
 
 
+@pulumi.type_token("aws-native:index:ExtensionResource")
 class ExtensionResource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:index:ExtensionResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

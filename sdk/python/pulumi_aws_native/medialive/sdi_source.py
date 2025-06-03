@@ -83,10 +83,8 @@ class SdiSourceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:medialive:SdiSource")
 class SdiSource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:medialive:SdiSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

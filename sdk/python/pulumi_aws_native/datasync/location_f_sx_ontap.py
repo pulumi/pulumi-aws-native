@@ -108,10 +108,8 @@ class LocationFSxOntapArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:datasync:LocationFSxOntap")
 class LocationFSxOntap(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datasync:LocationFSxOntap"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

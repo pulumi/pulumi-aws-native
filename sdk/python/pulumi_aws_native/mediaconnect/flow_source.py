@@ -315,10 +315,8 @@ class FlowSourceInitArgs:
         pulumi.set(self, "whitelist_cidr", value)
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowSource")
 class FlowSource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediaconnect:FlowSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

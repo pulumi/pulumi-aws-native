@@ -91,10 +91,8 @@ class AccessLogSubscriptionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:vpclattice:AccessLogSubscription")
 class AccessLogSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:vpclattice:AccessLogSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

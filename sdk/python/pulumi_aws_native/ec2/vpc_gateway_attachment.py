@@ -72,10 +72,8 @@ class VpcGatewayAttachmentArgs:
         pulumi.set(self, "vpn_gateway_id", value)
 
 
+@pulumi.type_token("aws-native:ec2:VpcGatewayAttachment")
 class VpcGatewayAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:VpcGatewayAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

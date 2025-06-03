@@ -96,10 +96,8 @@ class ModelPackageGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageGroup")
 class ModelPackageGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:ModelPackageGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

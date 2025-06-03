@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -42,11 +42,13 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:ses:MailManagerArchiveArchiveState")
 class MailManagerArchiveArchiveState(builtins.str, Enum):
     ACTIVE = "ACTIVE"
     PENDING_DELETION = "PENDING_DELETION"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerArchiveRetentionPeriod")
 class MailManagerArchiveRetentionPeriod(builtins.str, Enum):
     THREE_MONTHS = "THREE_MONTHS"
     SIX_MONTHS = "SIX_MONTHS"
@@ -66,6 +68,7 @@ class MailManagerArchiveRetentionPeriod(builtins.str, Enum):
     PERMANENT = "PERMANENT"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerIngressPointIngressPointStatus")
 class MailManagerIngressPointIngressPointStatus(builtins.str, Enum):
     PROVISIONING = "PROVISIONING"
     DEPROVISIONING = "DEPROVISIONING"
@@ -75,61 +78,73 @@ class MailManagerIngressPointIngressPointStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerIngressPointIngressPointStatusToUpdate")
 class MailManagerIngressPointIngressPointStatusToUpdate(builtins.str, Enum):
     ACTIVE = "ACTIVE"
     CLOSED = "CLOSED"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerIngressPointIngressPointType")
 class MailManagerIngressPointIngressPointType(builtins.str, Enum):
     OPEN = "OPEN"
     AUTH = "AUTH"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetActionFailurePolicy")
 class MailManagerRuleSetActionFailurePolicy(builtins.str, Enum):
     CONTINUE_ = "CONTINUE"
     DROP = "DROP"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetMailFrom")
 class MailManagerRuleSetMailFrom(builtins.str, Enum):
     REPLACE = "REPLACE"
     PRESERVE = "PRESERVE"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleBooleanEmailAttribute")
 class MailManagerRuleSetRuleBooleanEmailAttribute(builtins.str, Enum):
     READ_RECEIPT_REQUESTED = "READ_RECEIPT_REQUESTED"
     TLS = "TLS"
     TLS_WRAPPED = "TLS_WRAPPED"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleBooleanOperator")
 class MailManagerRuleSetRuleBooleanOperator(builtins.str, Enum):
     IS_TRUE = "IS_TRUE"
     IS_FALSE = "IS_FALSE"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleDmarcOperator")
 class MailManagerRuleSetRuleDmarcOperator(builtins.str, Enum):
     EQUALS = "EQUALS"
     NOT_EQUALS = "NOT_EQUALS"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleDmarcPolicy")
 class MailManagerRuleSetRuleDmarcPolicy(builtins.str, Enum):
     NONE = "NONE"
     QUARANTINE = "QUARANTINE"
     REJECT = "REJECT"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleIpEmailAttribute")
 class MailManagerRuleSetRuleIpEmailAttribute(builtins.str, Enum):
     SOURCE_IP = "SOURCE_IP"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleIpOperator")
 class MailManagerRuleSetRuleIpOperator(builtins.str, Enum):
     CIDR_MATCHES = "CIDR_MATCHES"
     NOT_CIDR_MATCHES = "NOT_CIDR_MATCHES"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleNumberEmailAttribute")
 class MailManagerRuleSetRuleNumberEmailAttribute(builtins.str, Enum):
     MESSAGE_SIZE = "MESSAGE_SIZE"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleNumberOperator")
 class MailManagerRuleSetRuleNumberOperator(builtins.str, Enum):
     EQUALS = "EQUALS"
     NOT_EQUALS = "NOT_EQUALS"
@@ -139,6 +154,7 @@ class MailManagerRuleSetRuleNumberOperator(builtins.str, Enum):
     GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleStringEmailAttribute")
 class MailManagerRuleSetRuleStringEmailAttribute(builtins.str, Enum):
     MAIL_FROM = "MAIL_FROM"
     HELO = "HELO"
@@ -150,6 +166,7 @@ class MailManagerRuleSetRuleStringEmailAttribute(builtins.str, Enum):
     CC = "CC"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleStringOperator")
 class MailManagerRuleSetRuleStringOperator(builtins.str, Enum):
     EQUALS = "EQUALS"
     NOT_EQUALS = "NOT_EQUALS"
@@ -158,6 +175,7 @@ class MailManagerRuleSetRuleStringOperator(builtins.str, Enum):
     CONTAINS = "CONTAINS"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleVerdict")
 class MailManagerRuleSetRuleVerdict(builtins.str, Enum):
     PASS_ = "PASS"
     FAIL = "FAIL"
@@ -165,53 +183,64 @@ class MailManagerRuleSetRuleVerdict(builtins.str, Enum):
     PROCESSING_FAILED = "PROCESSING_FAILED"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleVerdictAttribute")
 class MailManagerRuleSetRuleVerdictAttribute(builtins.str, Enum):
     SPF = "SPF"
     DKIM = "DKIM"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleVerdictOperator")
 class MailManagerRuleSetRuleVerdictOperator(builtins.str, Enum):
     EQUALS = "EQUALS"
     NOT_EQUALS = "NOT_EQUALS"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetSnsNotificationEncoding")
 class MailManagerRuleSetSnsNotificationEncoding(builtins.str, Enum):
     UTF8 = "UTF-8"
     BASE64 = "BASE64"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetSnsNotificationPayloadType")
 class MailManagerRuleSetSnsNotificationPayloadType(builtins.str, Enum):
     CONTENT = "CONTENT"
     HEADERS = "HEADERS"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerTrafficPolicyAcceptAction")
 class MailManagerTrafficPolicyAcceptAction(builtins.str, Enum):
     ALLOW = "ALLOW"
     DENY = "DENY"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerTrafficPolicyIngressBooleanOperator")
 class MailManagerTrafficPolicyIngressBooleanOperator(builtins.str, Enum):
     IS_TRUE = "IS_TRUE"
     IS_FALSE = "IS_FALSE"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerTrafficPolicyIngressIpOperator")
 class MailManagerTrafficPolicyIngressIpOperator(builtins.str, Enum):
     CIDR_MATCHES = "CIDR_MATCHES"
     NOT_CIDR_MATCHES = "NOT_CIDR_MATCHES"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerTrafficPolicyIngressIpv4Attribute")
 class MailManagerTrafficPolicyIngressIpv4Attribute(builtins.str, Enum):
     SENDER_IP = "SENDER_IP"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerTrafficPolicyIngressIpv6Attribute")
 class MailManagerTrafficPolicyIngressIpv6Attribute(builtins.str, Enum):
     SENDER_IPV6 = "SENDER_IPV6"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerTrafficPolicyIngressStringEmailAttribute")
 class MailManagerTrafficPolicyIngressStringEmailAttribute(builtins.str, Enum):
     RECIPIENT = "RECIPIENT"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerTrafficPolicyIngressStringOperator")
 class MailManagerTrafficPolicyIngressStringOperator(builtins.str, Enum):
     EQUALS = "EQUALS"
     NOT_EQUALS = "NOT_EQUALS"
@@ -220,15 +249,18 @@ class MailManagerTrafficPolicyIngressStringOperator(builtins.str, Enum):
     CONTAINS = "CONTAINS"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerTrafficPolicyIngressTlsAttribute")
 class MailManagerTrafficPolicyIngressTlsAttribute(builtins.str, Enum):
     TLS_PROTOCOL = "TLS_PROTOCOL"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerTrafficPolicyIngressTlsProtocolAttribute")
 class MailManagerTrafficPolicyIngressTlsProtocolAttribute(builtins.str, Enum):
     TLS12 = "TLS1_2"
     TLS13 = "TLS1_3"
 
 
+@pulumi.type_token("aws-native:ses:MailManagerTrafficPolicyIngressTlsProtocolOperator")
 class MailManagerTrafficPolicyIngressTlsProtocolOperator(builtins.str, Enum):
     MINIMUM_TLS_VERSION = "MINIMUM_TLS_VERSION"
     IS_ = "IS"

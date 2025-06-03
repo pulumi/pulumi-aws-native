@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -31,6 +31,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:ecs:CapacityProviderAutoScalingGroupProviderManagedDraining")
 class CapacityProviderAutoScalingGroupProviderManagedDraining(builtins.str, Enum):
     """
     The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
@@ -39,6 +40,7 @@ class CapacityProviderAutoScalingGroupProviderManagedDraining(builtins.str, Enum
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:ecs:CapacityProviderAutoScalingGroupProviderManagedTerminationProtection")
 class CapacityProviderAutoScalingGroupProviderManagedTerminationProtection(builtins.str, Enum):
     """
     The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection. The default is off.
@@ -53,6 +55,7 @@ class CapacityProviderAutoScalingGroupProviderManagedTerminationProtection(built
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:ecs:CapacityProviderManagedScalingStatus")
 class CapacityProviderManagedScalingStatus(builtins.str, Enum):
     """
     Determines whether to use managed scaling for the capacity provider.
@@ -61,6 +64,7 @@ class CapacityProviderManagedScalingStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:ecs:ClusterCapacityProviderAssociationsCapacityProvider")
 class ClusterCapacityProviderAssociationsCapacityProvider(builtins.str, Enum):
     """
     If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
@@ -69,6 +73,7 @@ class ClusterCapacityProviderAssociationsCapacityProvider(builtins.str, Enum):
     FARGATE_SPOT = "FARGATE_SPOT"
 
 
+@pulumi.type_token("aws-native:ecs:ClusterCapacityProviderAssociationsCapacityProvider0")
 class ClusterCapacityProviderAssociationsCapacityProvider0(builtins.str, Enum):
     """
     If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
@@ -77,6 +82,7 @@ class ClusterCapacityProviderAssociationsCapacityProvider0(builtins.str, Enum):
     FARGATE_SPOT = "FARGATE_SPOT"
 
 
+@pulumi.type_token("aws-native:ecs:ServiceAvailabilityZoneRebalancing")
 class ServiceAvailabilityZoneRebalancing(builtins.str, Enum):
     """
     Indicates whether to use Availability Zone rebalancing for the service.
@@ -86,6 +92,7 @@ class ServiceAvailabilityZoneRebalancing(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:ecs:ServiceAwsVpcConfigurationAssignPublicIp")
 class ServiceAwsVpcConfigurationAssignPublicIp(builtins.str, Enum):
     """
     Whether the task's elastic network interface receives a public IP address. 
@@ -97,6 +104,7 @@ class ServiceAwsVpcConfigurationAssignPublicIp(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:ecs:ServiceDeploymentControllerType")
 class ServiceDeploymentControllerType(builtins.str, Enum):
     """
     The deployment controller type to use. There are three deployment controller types available:
@@ -107,6 +115,7 @@ class ServiceDeploymentControllerType(builtins.str, Enum):
     EXTERNAL = "EXTERNAL"
 
 
+@pulumi.type_token("aws-native:ecs:ServiceEbsTagSpecificationPropagateTags")
 class ServiceEbsTagSpecificationPropagateTags(builtins.str, Enum):
     """
     Determines whether to propagate the tags from the task definition to 
@@ -118,6 +127,7 @@ class ServiceEbsTagSpecificationPropagateTags(builtins.str, Enum):
     TASK_DEFINITION = "TASK_DEFINITION"
 
 
+@pulumi.type_token("aws-native:ecs:ServiceLaunchType")
 class ServiceLaunchType(builtins.str, Enum):
     """
     The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -127,6 +137,7 @@ class ServiceLaunchType(builtins.str, Enum):
     EXTERNAL = "EXTERNAL"
 
 
+@pulumi.type_token("aws-native:ecs:ServicePlacementConstraintType")
 class ServicePlacementConstraintType(builtins.str, Enum):
     """
     The type of constraint. Use ``distinctInstance`` to ensure that each task in a particular group is running on a different container instance. Use ``memberOf`` to restrict the selection to a group of valid candidates.
@@ -135,6 +146,7 @@ class ServicePlacementConstraintType(builtins.str, Enum):
     MEMBER_OF = "memberOf"
 
 
+@pulumi.type_token("aws-native:ecs:ServicePlacementStrategyType")
 class ServicePlacementStrategyType(builtins.str, Enum):
     """
     The type of placement strategy. The ``random`` placement strategy randomly places tasks on available candidates. The ``spread`` placement strategy spreads placement across available candidates evenly based on the ``field`` parameter. The ``binpack`` strategy places tasks on available candidates that have the least available amount of the resource that's specified with the ``field`` parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory but still enough to run the task.
@@ -144,6 +156,7 @@ class ServicePlacementStrategyType(builtins.str, Enum):
     SPREAD = "spread"
 
 
+@pulumi.type_token("aws-native:ecs:ServicePropagateTags")
 class ServicePropagateTags(builtins.str, Enum):
     """
     Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the [TagResource](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
@@ -154,6 +167,7 @@ class ServicePropagateTags(builtins.str, Enum):
     TASK_DEFINITION = "TASK_DEFINITION"
 
 
+@pulumi.type_token("aws-native:ecs:ServiceSchedulingStrategy")
 class ServiceSchedulingStrategy(builtins.str, Enum):
     """
     The scheduling strategy to use for the service. For more information, see [Services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
@@ -166,6 +180,7 @@ class ServiceSchedulingStrategy(builtins.str, Enum):
     REPLICA = "REPLICA"
 
 
+@pulumi.type_token("aws-native:ecs:TaskDefinitionAuthorizationConfigIam")
 class TaskDefinitionAuthorizationConfigIam(builtins.str, Enum):
     """
     Determines whether to use the Amazon ECS task role defined in a task definition when mounting the Amazon EFS file system. If it is turned on, transit encryption must be turned on in the ``EFSVolumeConfiguration``. If this parameter is omitted, the default value of ``DISABLED`` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints) in the *Amazon Elastic Container Service Developer Guide*.
@@ -174,6 +189,7 @@ class TaskDefinitionAuthorizationConfigIam(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:ecs:TaskDefinitionContainerDefinitionVersionConsistency")
 class TaskDefinitionContainerDefinitionVersionConsistency(builtins.str, Enum):
     """
     Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest. By default, the value is ``enabled``. If you set the value for a container as ``disabled``, Amazon ECS will not resolve the provided container image tag to a digest and will use the original image URI specified in the container definition for deployment. For more information about container image resolution, see [Container image resolution](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability) in the *Amazon ECS Developer Guide*.
@@ -182,6 +198,7 @@ class TaskDefinitionContainerDefinitionVersionConsistency(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("aws-native:ecs:TaskDefinitionEfsVolumeConfigurationTransitEncryption")
 class TaskDefinitionEfsVolumeConfigurationTransitEncryption(builtins.str, Enum):
     """
     Determines whether to use encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be turned on if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of ``DISABLED`` is used. For more information, see [Encrypting data in transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html) in the *Amazon Elastic File System User Guide*.
@@ -190,6 +207,7 @@ class TaskDefinitionEfsVolumeConfigurationTransitEncryption(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:ecs:TaskDefinitionPortMappingAppProtocol")
 class TaskDefinitionPortMappingAppProtocol(builtins.str, Enum):
     """
     The application protocol that's used for the port mapping. This parameter only applies to Service Connect. We recommend that you set this parameter to be consistent with the protocol that your application uses. If you set this parameter, Amazon ECS adds protocol-specific connection handling to the Service Connect proxy. If you set this parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch.
@@ -202,6 +220,7 @@ class TaskDefinitionPortMappingAppProtocol(builtins.str, Enum):
     GRPC = "grpc"
 
 
+@pulumi.type_token("aws-native:ecs:TaskSetAwsVpcConfigurationAssignPublicIp")
 class TaskSetAwsVpcConfigurationAssignPublicIp(builtins.str, Enum):
     """
     Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
@@ -210,6 +229,7 @@ class TaskSetAwsVpcConfigurationAssignPublicIp(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:ecs:TaskSetLaunchType")
 class TaskSetLaunchType(builtins.str, Enum):
     """
     The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
@@ -218,6 +238,7 @@ class TaskSetLaunchType(builtins.str, Enum):
     FARGATE = "FARGATE"
 
 
+@pulumi.type_token("aws-native:ecs:TaskSetScaleUnit")
 class TaskSetScaleUnit(builtins.str, Enum):
     """
     The unit of measure for the scale value.

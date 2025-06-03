@@ -59,10 +59,8 @@ class ClusterPolicyArgs:
         pulumi.set(self, "policy", value)
 
 
+@pulumi.type_token("aws-native:msk:ClusterPolicy")
 class ClusterPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:msk:ClusterPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

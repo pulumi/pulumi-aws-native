@@ -90,10 +90,8 @@ class ScheduleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:databrew:Schedule")
 class Schedule(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:databrew:Schedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

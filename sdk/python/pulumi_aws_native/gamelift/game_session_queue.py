@@ -174,10 +174,8 @@ class GameSessionQueueArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
+@pulumi.type_token("aws-native:gamelift:GameSessionQueue")
 class GameSessionQueue(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:gamelift:GameSessionQueue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:connectcampaignsv2:CampaignCommunicationLimitTimeUnit")
 class CampaignCommunicationLimitTimeUnit(builtins.str, Enum):
     """
     The communication limit time unit
@@ -20,6 +21,7 @@ class CampaignCommunicationLimitTimeUnit(builtins.str, Enum):
     DAY = "DAY"
 
 
+@pulumi.type_token("aws-native:connectcampaignsv2:CampaignDayOfWeek")
 class CampaignDayOfWeek(builtins.str, Enum):
     """
     Day of week
@@ -33,6 +35,7 @@ class CampaignDayOfWeek(builtins.str, Enum):
     SUNDAY = "SUNDAY"
 
 
+@pulumi.type_token("aws-native:connectcampaignsv2:CampaignLocalTimeZoneDetectionType")
 class CampaignLocalTimeZoneDetectionType(builtins.str, Enum):
     """
     Local TimeZone Detection method

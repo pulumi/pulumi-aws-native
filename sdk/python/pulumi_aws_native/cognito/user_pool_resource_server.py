@@ -93,10 +93,8 @@ class UserPoolResourceServerArgs:
         pulumi.set(self, "scopes", value)
 
 
+@pulumi.type_token("aws-native:cognito:UserPoolResourceServer")
 class UserPoolResourceServer(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cognito:UserPoolResourceServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

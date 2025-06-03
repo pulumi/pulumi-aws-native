@@ -89,10 +89,8 @@ class LicenseEndpointArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:deadline:LicenseEndpoint")
 class LicenseEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:deadline:LicenseEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

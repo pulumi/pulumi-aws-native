@@ -293,10 +293,8 @@ class StudioArgs:
         pulumi.set(self, "user_role", value)
 
 
+@pulumi.type_token("aws-native:emr:Studio")
 class Studio(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:emr:Studio"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

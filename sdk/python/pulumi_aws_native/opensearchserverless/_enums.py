@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -20,6 +20,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:opensearchserverless:AccessPolicyType")
 class AccessPolicyType(builtins.str, Enum):
     """
     The possible types for the access policy
@@ -27,6 +28,7 @@ class AccessPolicyType(builtins.str, Enum):
     DATA = "data"
 
 
+@pulumi.type_token("aws-native:opensearchserverless:CollectionStandbyReplicas")
 class CollectionStandbyReplicas(builtins.str, Enum):
     """
     The possible standby replicas for the collection
@@ -35,6 +37,7 @@ class CollectionStandbyReplicas(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:opensearchserverless:CollectionType")
 class CollectionType(builtins.str, Enum):
     """
     The possible types for the collection
@@ -44,6 +47,7 @@ class CollectionType(builtins.str, Enum):
     VECTORSEARCH = "VECTORSEARCH"
 
 
+@pulumi.type_token("aws-native:opensearchserverless:IndexPropertyMappingMethodPropertiesEngine")
 class IndexPropertyMappingMethodPropertiesEngine(builtins.str, Enum):
     """
     The k-NN search engine to use
@@ -53,6 +57,7 @@ class IndexPropertyMappingMethodPropertiesEngine(builtins.str, Enum):
     LUCENE = "lucene"
 
 
+@pulumi.type_token("aws-native:opensearchserverless:IndexPropertyMappingMethodPropertiesName")
 class IndexPropertyMappingMethodPropertiesName(builtins.str, Enum):
     """
     The algorithm name for k-NN search
@@ -61,6 +66,7 @@ class IndexPropertyMappingMethodPropertiesName(builtins.str, Enum):
     IVF = "ivf"
 
 
+@pulumi.type_token("aws-native:opensearchserverless:IndexPropertyMappingMethodPropertiesSpaceType")
 class IndexPropertyMappingMethodPropertiesSpaceType(builtins.str, Enum):
     """
     The distance function used for k-NN search
@@ -73,6 +79,7 @@ class IndexPropertyMappingMethodPropertiesSpaceType(builtins.str, Enum):
     HAMMING = "hamming"
 
 
+@pulumi.type_token("aws-native:opensearchserverless:IndexPropertyMappingType")
 class IndexPropertyMappingType(builtins.str, Enum):
     """
     The field data type. Must be a valid OpenSearch field type.
@@ -81,6 +88,7 @@ class IndexPropertyMappingType(builtins.str, Enum):
     KNN_VECTOR = "knn_vector"
 
 
+@pulumi.type_token("aws-native:opensearchserverless:LifecyclePolicyType")
 class LifecyclePolicyType(builtins.str, Enum):
     """
     The type of lifecycle policy
@@ -88,6 +96,7 @@ class LifecyclePolicyType(builtins.str, Enum):
     RETENTION = "retention"
 
 
+@pulumi.type_token("aws-native:opensearchserverless:SecurityConfigType")
 class SecurityConfigType(builtins.str, Enum):
     """
     Config type for security config
@@ -96,6 +105,7 @@ class SecurityConfigType(builtins.str, Enum):
     IAMIDENTITYCENTER = "iamidentitycenter"
 
 
+@pulumi.type_token("aws-native:opensearchserverless:SecurityPolicyType")
 class SecurityPolicyType(builtins.str, Enum):
     """
     The possible types for the network policy

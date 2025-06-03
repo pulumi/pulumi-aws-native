@@ -173,10 +173,8 @@ class AddonArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:eks:Addon")
 class Addon(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:eks:Addon"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

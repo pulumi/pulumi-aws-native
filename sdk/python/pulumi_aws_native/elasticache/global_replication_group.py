@@ -187,10 +187,8 @@ class GlobalReplicationGroupArgs:
         pulumi.set(self, "regional_configurations", value)
 
 
+@pulumi.type_token("aws-native:elasticache:GlobalReplicationGroup")
 class GlobalReplicationGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:elasticache:GlobalReplicationGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -92,10 +92,8 @@ class LiveSourceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:mediatailor:LiveSource")
 class LiveSource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediatailor:LiveSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

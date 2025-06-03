@@ -70,10 +70,8 @@ class ApplicationEntitlementAssociationArgs:
         pulumi.set(self, "stack_name", value)
 
 
+@pulumi.type_token("aws-native:appstream:ApplicationEntitlementAssociation")
 class ApplicationEntitlementAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appstream:ApplicationEntitlementAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

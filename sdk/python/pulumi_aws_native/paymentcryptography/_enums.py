@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,6 +17,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:paymentcryptography:KeyAlgorithm")
 class KeyAlgorithm(builtins.str, Enum):
     TDES2KEY = "TDES_2KEY"
     TDES3KEY = "TDES_3KEY"
@@ -35,12 +36,14 @@ class KeyAlgorithm(builtins.str, Enum):
     ECC_NIST_P521 = "ECC_NIST_P521"
 
 
+@pulumi.type_token("aws-native:paymentcryptography:KeyCheckValueAlgorithm")
 class KeyCheckValueAlgorithm(builtins.str, Enum):
     CMAC = "CMAC"
     ANSI_X924 = "ANSI_X9_24"
     HMAC = "HMAC"
 
 
+@pulumi.type_token("aws-native:paymentcryptography:KeyClass")
 class KeyClass(builtins.str, Enum):
     SYMMETRIC_KEY = "SYMMETRIC_KEY"
     ASYMMETRIC_KEY_PAIR = "ASYMMETRIC_KEY_PAIR"
@@ -48,6 +51,7 @@ class KeyClass(builtins.str, Enum):
     PUBLIC_KEY = "PUBLIC_KEY"
 
 
+@pulumi.type_token("aws-native:paymentcryptography:KeyDeriveKeyUsage")
 class KeyDeriveKeyUsage(builtins.str, Enum):
     TR31B0_BASE_DERIVATION_KEY = "TR31_B0_BASE_DERIVATION_KEY"
     TR31C0_CARD_VERIFICATION_KEY = "TR31_C0_CARD_VERIFICATION_KEY"
@@ -70,6 +74,7 @@ class KeyDeriveKeyUsage(builtins.str, Enum):
     TR31V2_VISA_PIN_VERIFICATION_KEY = "TR31_V2_VISA_PIN_VERIFICATION_KEY"
 
 
+@pulumi.type_token("aws-native:paymentcryptography:KeyOrigin")
 class KeyOrigin(builtins.str, Enum):
     """
     Defines the source of a key
@@ -78,6 +83,7 @@ class KeyOrigin(builtins.str, Enum):
     AWS_PAYMENT_CRYPTOGRAPHY = "AWS_PAYMENT_CRYPTOGRAPHY"
 
 
+@pulumi.type_token("aws-native:paymentcryptography:KeyState")
 class KeyState(builtins.str, Enum):
     """
     Defines the state of a key
@@ -88,6 +94,7 @@ class KeyState(builtins.str, Enum):
     DELETE_COMPLETE = "DELETE_COMPLETE"
 
 
+@pulumi.type_token("aws-native:paymentcryptography:KeyUsage")
 class KeyUsage(builtins.str, Enum):
     TR31B0_BASE_DERIVATION_KEY = "TR31_B0_BASE_DERIVATION_KEY"
     TR31C0_CARD_VERIFICATION_KEY = "TR31_C0_CARD_VERIFICATION_KEY"

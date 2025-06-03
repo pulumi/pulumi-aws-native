@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:workspaces:ConnectionAliasAssociationAssociationStatus")
 class ConnectionAliasAssociationAssociationStatus(builtins.str, Enum):
     """
     The association status of the connection alias.
@@ -25,6 +26,7 @@ class ConnectionAliasAssociationAssociationStatus(builtins.str, Enum):
     PENDING_DISASSOCIATION = "PENDING_DISASSOCIATION"
 
 
+@pulumi.type_token("aws-native:workspaces:ConnectionAliasState")
 class ConnectionAliasState(builtins.str, Enum):
     """
     The current state of the connection alias, returned as a string.
@@ -34,11 +36,13 @@ class ConnectionAliasState(builtins.str, Enum):
     DELETING = "DELETING"
 
 
+@pulumi.type_token("aws-native:workspaces:WorkspacesPoolApplicationSettingsStatus")
 class WorkspacesPoolApplicationSettingsStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:workspaces:WorkspacesPoolRunningMode")
 class WorkspacesPoolRunningMode(builtins.str, Enum):
     ALWAYS_ON = "ALWAYS_ON"
     AUTO_STOP = "AUTO_STOP"

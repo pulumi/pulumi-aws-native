@@ -308,10 +308,8 @@ class ImageBuilderArgs:
         pulumi.set(self, "vpc_config", value)
 
 
+@pulumi.type_token("aws-native:appstream:ImageBuilder")
 class ImageBuilder(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appstream:ImageBuilder"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

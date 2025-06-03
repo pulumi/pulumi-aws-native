@@ -110,10 +110,8 @@ class ProfilingGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:codeguruprofiler:ProfilingGroup")
 class ProfilingGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:codeguruprofiler:ProfilingGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

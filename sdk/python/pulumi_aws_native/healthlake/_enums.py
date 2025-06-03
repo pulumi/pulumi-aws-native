@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:healthlake:FhirDatastoreDatastoreStatus")
 class FhirDatastoreDatastoreStatus(builtins.str, Enum):
     """
     The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.
@@ -25,6 +26,7 @@ class FhirDatastoreDatastoreStatus(builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:healthlake:FhirDatastoreDatastoreTypeVersion")
 class FhirDatastoreDatastoreTypeVersion(builtins.str, Enum):
     """
     The FHIR version. Only R4 version data is supported.
@@ -32,6 +34,7 @@ class FhirDatastoreDatastoreTypeVersion(builtins.str, Enum):
     R4 = "R4"
 
 
+@pulumi.type_token("aws-native:healthlake:FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy")
 class FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy(builtins.str, Enum):
     """
     Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
@@ -41,6 +44,7 @@ class FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy(builtins.s
     SMART_ON_FHIR = "SMART_ON_FHIR"
 
 
+@pulumi.type_token("aws-native:healthlake:FhirDatastoreKmsEncryptionConfigCmkType")
 class FhirDatastoreKmsEncryptionConfigCmkType(builtins.str, Enum):
     """
     The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
@@ -49,6 +53,7 @@ class FhirDatastoreKmsEncryptionConfigCmkType(builtins.str, Enum):
     AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY"
 
 
+@pulumi.type_token("aws-native:healthlake:FhirDatastorePreloadDataConfigPreloadDataType")
 class FhirDatastorePreloadDataConfigPreloadDataType(builtins.str, Enum):
     """
     The type of preloaded data. Only Synthea preloaded data is supported.

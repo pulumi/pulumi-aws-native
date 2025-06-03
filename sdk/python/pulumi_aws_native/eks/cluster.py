@@ -304,10 +304,8 @@ class ClusterArgs:
         pulumi.set(self, "zonal_shift_config", value)
 
 
+@pulumi.type_token("aws-native:eks:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:eks:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -107,10 +107,8 @@ class VariantStoreArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:omics:VariantStore")
 class VariantStore(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:omics:VariantStore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

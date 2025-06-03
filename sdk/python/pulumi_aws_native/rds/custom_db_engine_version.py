@@ -238,10 +238,8 @@ class CustomDbEngineVersionArgs:
         pulumi.set(self, "use_aws_provided_latest_image", value)
 
 
+@pulumi.type_token("aws-native:rds:CustomDbEngineVersion")
 class CustomDbEngineVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:rds:CustomDbEngineVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

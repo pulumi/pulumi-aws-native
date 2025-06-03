@@ -61,10 +61,8 @@ class DistributionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:cloudfront:Distribution")
 class Distribution(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudfront:Distribution"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

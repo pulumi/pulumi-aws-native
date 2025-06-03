@@ -92,10 +92,8 @@ class SourceApiAssociationArgs:
         pulumi.set(self, "source_api_identifier", value)
 
 
+@pulumi.type_token("aws-native:appsync:SourceApiAssociation")
 class SourceApiAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appsync:SourceApiAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

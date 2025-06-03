@@ -94,10 +94,8 @@ class ConsumableResourceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:batch:ConsumableResource")
 class ConsumableResource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:batch:ConsumableResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

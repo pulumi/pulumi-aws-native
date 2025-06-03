@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:systemsmanagersap:ApplicationComponentInfoComponentType")
 class ApplicationComponentInfoComponentType(builtins.str, Enum):
     """
     This string is the type of the component.
@@ -29,6 +30,7 @@ class ApplicationComponentInfoComponentType(builtins.str, Enum):
     ERS = "ERS"
 
 
+@pulumi.type_token("aws-native:systemsmanagersap:ApplicationCredentialCredentialType")
 class ApplicationCredentialCredentialType(builtins.str, Enum):
     """
     The type of the application credentials.
@@ -36,6 +38,7 @@ class ApplicationCredentialCredentialType(builtins.str, Enum):
     ADMIN = "ADMIN"
 
 
+@pulumi.type_token("aws-native:systemsmanagersap:ApplicationType")
 class ApplicationType(builtins.str, Enum):
     """
     The type of the application.

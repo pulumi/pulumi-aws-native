@@ -91,10 +91,8 @@ class ConfigurationManagerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ssmquicksetup:ConfigurationManager")
 class ConfigurationManager(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ssmquicksetup:ConfigurationManager"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

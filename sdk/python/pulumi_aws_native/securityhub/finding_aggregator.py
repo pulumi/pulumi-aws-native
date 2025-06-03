@@ -69,10 +69,8 @@ class FindingAggregatorArgs:
         pulumi.set(self, "regions", value)
 
 
+@pulumi.type_token("aws-native:securityhub:FindingAggregator")
 class FindingAggregator(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:securityhub:FindingAggregator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

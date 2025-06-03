@@ -188,10 +188,8 @@ class SecurityProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:connect:SecurityProfile")
 class SecurityProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:SecurityProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

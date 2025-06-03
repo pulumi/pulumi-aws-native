@@ -124,10 +124,8 @@ class IngestConfigurationArgs:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("aws-native:ivs:IngestConfiguration")
 class IngestConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ivs:IngestConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

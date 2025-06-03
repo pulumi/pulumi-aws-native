@@ -78,10 +78,8 @@ class LandingZoneArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:controltower:LandingZone")
 class LandingZone(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:controltower:LandingZone"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

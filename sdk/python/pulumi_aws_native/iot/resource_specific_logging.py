@@ -71,10 +71,8 @@ class ResourceSpecificLoggingArgs:
         pulumi.set(self, "target_type", value)
 
 
+@pulumi.type_token("aws-native:iot:ResourceSpecificLogging")
 class ResourceSpecificLogging(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:ResourceSpecificLogging"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

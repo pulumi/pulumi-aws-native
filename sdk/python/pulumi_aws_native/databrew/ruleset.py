@@ -112,10 +112,8 @@ class RulesetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:databrew:Ruleset")
 class Ruleset(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:databrew:Ruleset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

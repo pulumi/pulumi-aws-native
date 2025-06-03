@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,6 +21,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:comprehend:DocumentClassifierAugmentedManifestsListItemSplit")
 class DocumentClassifierAugmentedManifestsListItemSplit(builtins.str, Enum):
     """
     The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.
@@ -33,6 +34,7 @@ class DocumentClassifierAugmentedManifestsListItemSplit(builtins.str, Enum):
     TEST = "TEST"
 
 
+@pulumi.type_token("aws-native:comprehend:DocumentClassifierDocumentReaderConfigDocumentReadAction")
 class DocumentClassifierDocumentReaderConfigDocumentReadAction(builtins.str, Enum):
     """
     This field defines the Amazon Textract API operation that Amazon Comprehend uses to extract text from PDF files and image files. Enter one of the following values:
@@ -44,6 +46,7 @@ class DocumentClassifierDocumentReaderConfigDocumentReadAction(builtins.str, Enu
     TEXTRACT_ANALYZE_DOCUMENT = "TEXTRACT_ANALYZE_DOCUMENT"
 
 
+@pulumi.type_token("aws-native:comprehend:DocumentClassifierDocumentReaderConfigDocumentReadMode")
 class DocumentClassifierDocumentReaderConfigDocumentReadMode(builtins.str, Enum):
     """
     Determines the text extraction actions for PDF files. Enter one of the following values:
@@ -55,11 +58,13 @@ class DocumentClassifierDocumentReaderConfigDocumentReadMode(builtins.str, Enum)
     FORCE_DOCUMENT_READ_ACTION = "FORCE_DOCUMENT_READ_ACTION"
 
 
+@pulumi.type_token("aws-native:comprehend:DocumentClassifierDocumentReaderConfigFeatureTypesItem")
 class DocumentClassifierDocumentReaderConfigFeatureTypesItem(builtins.str, Enum):
     TABLES = "TABLES"
     FORMS = "FORMS"
 
 
+@pulumi.type_token("aws-native:comprehend:DocumentClassifierInputDataConfigDataFormat")
 class DocumentClassifierInputDataConfigDataFormat(builtins.str, Enum):
     """
     The format of your training data:
@@ -75,6 +80,7 @@ class DocumentClassifierInputDataConfigDataFormat(builtins.str, Enum):
     AUGMENTED_MANIFEST = "AUGMENTED_MANIFEST"
 
 
+@pulumi.type_token("aws-native:comprehend:DocumentClassifierInputDataConfigDocumentType")
 class DocumentClassifierInputDataConfigDocumentType(builtins.str, Enum):
     """
     The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
@@ -83,6 +89,7 @@ class DocumentClassifierInputDataConfigDocumentType(builtins.str, Enum):
     SEMI_STRUCTURED_DOCUMENT = "SEMI_STRUCTURED_DOCUMENT"
 
 
+@pulumi.type_token("aws-native:comprehend:DocumentClassifierLanguageCode")
 class DocumentClassifierLanguageCode(builtins.str, Enum):
     """
     The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
@@ -95,6 +102,7 @@ class DocumentClassifierLanguageCode(builtins.str, Enum):
     PT = "pt"
 
 
+@pulumi.type_token("aws-native:comprehend:DocumentClassifierMode")
 class DocumentClassifierMode(builtins.str, Enum):
     """
     Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
@@ -103,6 +111,7 @@ class DocumentClassifierMode(builtins.str, Enum):
     MULTI_LABEL = "MULTI_LABEL"
 
 
+@pulumi.type_token("aws-native:comprehend:FlywheelDocumentClassificationConfigMode")
 class FlywheelDocumentClassificationConfigMode(builtins.str, Enum):
     """
     Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
@@ -111,6 +120,7 @@ class FlywheelDocumentClassificationConfigMode(builtins.str, Enum):
     MULTI_LABEL = "MULTI_LABEL"
 
 
+@pulumi.type_token("aws-native:comprehend:FlywheelModelType")
 class FlywheelModelType(builtins.str, Enum):
     """
     Model type of the flywheel's model.
@@ -119,6 +129,7 @@ class FlywheelModelType(builtins.str, Enum):
     ENTITY_RECOGNIZER = "ENTITY_RECOGNIZER"
 
 
+@pulumi.type_token("aws-native:comprehend:FlywheelTaskConfigLanguageCode")
 class FlywheelTaskConfigLanguageCode(builtins.str, Enum):
     """
     Language code for the language that the model supports.

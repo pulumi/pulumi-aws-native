@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -20,6 +20,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:cloudfront:ContinuousDeploymentPolicyConfigType")
 class ContinuousDeploymentPolicyConfigType(builtins.str, Enum):
     """
     The type of traffic configuration.
@@ -28,6 +29,7 @@ class ContinuousDeploymentPolicyConfigType(builtins.str, Enum):
     SINGLE_HEADER = "SingleHeader"
 
 
+@pulumi.type_token("aws-native:cloudfront:ContinuousDeploymentPolicyTrafficConfigType")
 class ContinuousDeploymentPolicyTrafficConfigType(builtins.str, Enum):
     """
     The type of traffic configuration.
@@ -36,16 +38,19 @@ class ContinuousDeploymentPolicyTrafficConfigType(builtins.str, Enum):
     SINGLE_HEADER = "SingleHeader"
 
 
+@pulumi.type_token("aws-native:cloudfront:DistributionConnectionMode")
 class DistributionConnectionMode(builtins.str, Enum):
     DIRECT = "direct"
     TENANT_ONLY = "tenant-only"
 
 
+@pulumi.type_token("aws-native:cloudfront:DistributionOriginGroupSelectionCriteria")
 class DistributionOriginGroupSelectionCriteria(builtins.str, Enum):
     DEFAULT = "default"
     MEDIA_QUALITY_BASED = "media-quality-based"
 
 
+@pulumi.type_token("aws-native:cloudfront:DistributionTenantDomainResultStatus")
 class DistributionTenantDomainResultStatus(builtins.str, Enum):
     """
     Whether the domain is active or inactive.
@@ -54,6 +59,7 @@ class DistributionTenantDomainResultStatus(builtins.str, Enum):
     INACTIVE = "inactive"
 
 
+@pulumi.type_token("aws-native:cloudfront:DistributionTenantGeoRestrictionCustomizationRestrictionType")
 class DistributionTenantGeoRestrictionCustomizationRestrictionType(builtins.str, Enum):
     """
     The method that you want to use to restrict distribution of your content by country:
@@ -66,6 +72,7 @@ class DistributionTenantGeoRestrictionCustomizationRestrictionType(builtins.str,
     NONE = "none"
 
 
+@pulumi.type_token("aws-native:cloudfront:DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference")
 class DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference(builtins.str, Enum):
     """
     You can opt out of certificate transparency logging by specifying the ``disabled`` option. Opt in by specifying ``enabled``. For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *User Guide*.
@@ -74,6 +81,7 @@ class DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingP
     DISABLED = "disabled"
 
 
+@pulumi.type_token("aws-native:cloudfront:DistributionTenantManagedCertificateRequestValidationTokenHost")
 class DistributionTenantManagedCertificateRequestValidationTokenHost(builtins.str, Enum):
     """
     Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.
@@ -84,6 +92,7 @@ class DistributionTenantManagedCertificateRequestValidationTokenHost(builtins.st
     SELF_HOSTED = "self-hosted"
 
 
+@pulumi.type_token("aws-native:cloudfront:DistributionTenantWebAclCustomizationAction")
 class DistributionTenantWebAclCustomizationAction(builtins.str, Enum):
     """
     The action for the WAF web ACL customization. You can specify ``override`` to specify a separate WAF web ACL for the distribution tenant. If you specify ``disable``, the distribution tenant won't have WAF web ACL protections and won't inherit from the multi-tenant distribution.
@@ -92,6 +101,7 @@ class DistributionTenantWebAclCustomizationAction(builtins.str, Enum):
     DISABLE = "disable"
 
 
+@pulumi.type_token("aws-native:cloudfront:MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus")
 class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus(builtins.str, Enum):
     """
     A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.

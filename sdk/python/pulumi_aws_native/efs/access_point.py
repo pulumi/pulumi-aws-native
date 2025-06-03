@@ -110,10 +110,8 @@ class AccessPointArgs:
         pulumi.set(self, "root_directory", value)
 
 
+@pulumi.type_token("aws-native:efs:AccessPoint")
 class AccessPoint(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:efs:AccessPoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

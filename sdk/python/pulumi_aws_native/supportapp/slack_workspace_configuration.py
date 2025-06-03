@@ -56,10 +56,8 @@ class SlackWorkspaceConfigurationArgs:
         pulumi.set(self, "version_id", value)
 
 
+@pulumi.type_token("aws-native:supportapp:SlackWorkspaceConfiguration")
 class SlackWorkspaceConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:supportapp:SlackWorkspaceConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

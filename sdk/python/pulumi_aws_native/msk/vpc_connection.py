@@ -117,10 +117,8 @@ class VpcConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:msk:VpcConnection")
 class VpcConnection(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:msk:VpcConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

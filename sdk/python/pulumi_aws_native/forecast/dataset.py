@@ -143,10 +143,8 @@ class DatasetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:forecast:Dataset")
 class Dataset(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:forecast:Dataset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

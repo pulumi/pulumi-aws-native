@@ -102,10 +102,8 @@ class EndpointAccessArgs:
         pulumi.set(self, "resource_owner", value)
 
 
+@pulumi.type_token("aws-native:redshift:EndpointAccess")
 class EndpointAccess(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:redshift:EndpointAccess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

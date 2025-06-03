@@ -300,10 +300,8 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:NetworkInterface")
 class NetworkInterface(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:NetworkInterface"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

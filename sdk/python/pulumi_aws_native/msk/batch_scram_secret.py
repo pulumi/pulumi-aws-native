@@ -56,10 +56,8 @@ class BatchScramSecretArgs:
         pulumi.set(self, "secret_arn_list", value)
 
 
+@pulumi.type_token("aws-native:msk:BatchScramSecret")
 class BatchScramSecret(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:msk:BatchScramSecret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

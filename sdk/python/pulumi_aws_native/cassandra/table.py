@@ -272,10 +272,8 @@ class TableArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:cassandra:Table")
 class Table(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cassandra:Table"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

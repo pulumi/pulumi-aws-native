@@ -195,10 +195,8 @@ class FirewallArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:networkfirewall:Firewall")
 class Firewall(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:networkfirewall:Firewall"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

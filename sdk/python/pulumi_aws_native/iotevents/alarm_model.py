@@ -174,10 +174,8 @@ class AlarmModelArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iotevents:AlarmModel")
 class AlarmModel(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotevents:AlarmModel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -122,10 +122,8 @@ class ConnectorProfileArgs:
         pulumi.set(self, "kms_arn", value)
 
 
+@pulumi.type_token("aws-native:appflow:ConnectorProfile")
 class ConnectorProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appflow:ConnectorProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -126,10 +126,8 @@ class DataProtectionSettingsArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:workspacesweb:DataProtectionSettings")
 class DataProtectionSettings(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:workspacesweb:DataProtectionSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

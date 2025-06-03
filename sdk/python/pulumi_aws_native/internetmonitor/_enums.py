@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:internetmonitor:MonitorConfigState")
 class MonitorConfigState(builtins.str, Enum):
     PENDING = "PENDING"
     ACTIVE = "ACTIVE"
@@ -21,6 +22,7 @@ class MonitorConfigState(builtins.str, Enum):
     ERROR = "ERROR"
 
 
+@pulumi.type_token("aws-native:internetmonitor:MonitorLocalHealthEventsConfigStatus")
 class MonitorLocalHealthEventsConfigStatus(builtins.str, Enum):
     """
     The status of whether Internet Monitor creates a health event based on a threshold percentage set for a local health score. The status can be `ENABLED` or `DISABLED` .
@@ -29,6 +31,7 @@ class MonitorLocalHealthEventsConfigStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:internetmonitor:MonitorProcessingStatusCode")
 class MonitorProcessingStatusCode(builtins.str, Enum):
     OK = "OK"
     INACTIVE = "INACTIVE"
@@ -38,6 +41,7 @@ class MonitorProcessingStatusCode(builtins.str, Enum):
     FAULT_ACCESS_CLOUDWATCH = "FAULT_ACCESS_CLOUDWATCH"
 
 
+@pulumi.type_token("aws-native:internetmonitor:MonitorS3ConfigLogDeliveryStatus")
 class MonitorS3ConfigLogDeliveryStatus(builtins.str, Enum):
     """
     The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket. The delivery status is `ENABLED` if you choose to deliver internet measurements to an S3 bucket, and `DISABLED` otherwise.

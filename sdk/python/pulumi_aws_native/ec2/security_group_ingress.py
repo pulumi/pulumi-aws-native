@@ -240,10 +240,8 @@ class SecurityGroupIngressInitArgs:
         pulumi.set(self, "to_port", value)
 
 
+@pulumi.type_token("aws-native:ec2:SecurityGroupIngress")
 class SecurityGroupIngress(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:SecurityGroupIngress"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

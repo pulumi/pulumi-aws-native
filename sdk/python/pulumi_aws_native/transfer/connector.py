@@ -140,10 +140,8 @@ class ConnectorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:transfer:Connector")
 class Connector(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:transfer:Connector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

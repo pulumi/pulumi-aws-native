@@ -130,10 +130,8 @@ class PromptArgs:
         pulumi.set(self, "variants", value)
 
 
+@pulumi.type_token("aws-native:bedrock:Prompt")
 class Prompt(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:bedrock:Prompt"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

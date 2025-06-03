@@ -180,10 +180,8 @@ class WorkflowArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:omics:Workflow")
 class Workflow(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:omics:Workflow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -173,10 +173,8 @@ class MetricStreamArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:cloudwatch:MetricStream")
 class MetricStream(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudwatch:MetricStream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

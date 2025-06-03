@@ -113,10 +113,8 @@ class LocationS3Args:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:datasync:LocationS3")
 class LocationS3(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datasync:LocationS3"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

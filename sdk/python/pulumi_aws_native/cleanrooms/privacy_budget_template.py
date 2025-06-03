@@ -110,10 +110,8 @@ class PrivacyBudgetTemplateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:cleanrooms:PrivacyBudgetTemplate")
 class PrivacyBudgetTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cleanrooms:PrivacyBudgetTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

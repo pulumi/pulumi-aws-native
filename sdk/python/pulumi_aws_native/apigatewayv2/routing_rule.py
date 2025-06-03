@@ -75,10 +75,8 @@ class RoutingRuleArgs:
         pulumi.set(self, "priority", value)
 
 
+@pulumi.type_token("aws-native:apigatewayv2:RoutingRule")
 class RoutingRule(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigatewayv2:RoutingRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

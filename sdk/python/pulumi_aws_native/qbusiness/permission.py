@@ -85,10 +85,8 @@ class PermissionArgs:
         pulumi.set(self, "statement_id", value)
 
 
+@pulumi.type_token("aws-native:qbusiness:Permission")
 class Permission(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:qbusiness:Permission"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

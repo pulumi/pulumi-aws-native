@@ -148,10 +148,8 @@ class SyncConfigurationArgs:
         pulumi.set(self, "trigger_resource_update_on", value)
 
 
+@pulumi.type_token("aws-native:codestarconnections:SyncConfiguration")
 class SyncConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:codestarconnections:SyncConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -71,10 +71,8 @@ class AiPromptVersionArgs:
         pulumi.set(self, "modified_time_seconds", value)
 
 
+@pulumi.type_token("aws-native:wisdom:AiPromptVersion")
 class AiPromptVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:wisdom:AiPromptVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

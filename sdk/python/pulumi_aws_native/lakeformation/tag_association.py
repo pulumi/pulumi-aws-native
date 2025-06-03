@@ -57,10 +57,8 @@ class TagAssociationArgs:
         pulumi.set(self, "resource", value)
 
 
+@pulumi.type_token("aws-native:lakeformation:TagAssociation")
 class TagAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lakeformation:TagAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

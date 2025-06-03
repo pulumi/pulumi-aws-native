@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,11 +14,13 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:rum:AppMonitorCustomEventsStatus")
 class AppMonitorCustomEventsStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:rum:AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus")
 class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus(builtins.str, Enum):
     """
     Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
@@ -27,6 +29,7 @@ class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus(b
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:rum:AppMonitorMetricDestinationDestination")
 class AppMonitorMetricDestinationDestination(builtins.str, Enum):
     """
     Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
@@ -35,6 +38,7 @@ class AppMonitorMetricDestinationDestination(builtins.str, Enum):
     EVIDENTLY = "Evidently"
 
 
+@pulumi.type_token("aws-native:rum:AppMonitorTelemetry")
 class AppMonitorTelemetry(builtins.str, Enum):
     ERRORS = "errors"
     PERFORMANCE = "performance"

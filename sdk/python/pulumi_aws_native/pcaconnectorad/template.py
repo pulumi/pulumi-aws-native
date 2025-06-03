@@ -106,10 +106,8 @@ class TemplateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:Template")
 class Template(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:pcaconnectorad:Template"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -78,10 +78,8 @@ class InstanceProfileArgs:
         pulumi.set(self, "path", value)
 
 
+@pulumi.type_token("aws-native:iam:InstanceProfile")
 class InstanceProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iam:InstanceProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

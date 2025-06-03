@@ -170,10 +170,8 @@ class MissionProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:groundstation:MissionProfile")
 class MissionProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:groundstation:MissionProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

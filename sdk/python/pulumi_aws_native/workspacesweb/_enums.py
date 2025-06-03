@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -22,10 +22,12 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:workspacesweb:DataProtectionSettingsRedactionPlaceHolderType")
 class DataProtectionSettingsRedactionPlaceHolderType(builtins.str, Enum):
     CUSTOM_TEXT = "CustomText"
 
 
+@pulumi.type_token("aws-native:workspacesweb:IdentityProviderType")
 class IdentityProviderType(builtins.str, Enum):
     SAML = "SAML"
     FACEBOOK = "Facebook"
@@ -35,36 +37,43 @@ class IdentityProviderType(builtins.str, Enum):
     OIDC = "OIDC"
 
 
+@pulumi.type_token("aws-native:workspacesweb:PortalAuthenticationType")
 class PortalAuthenticationType(builtins.str, Enum):
     STANDARD = "Standard"
     IAM_IDENTITY_CENTER = "IAM_Identity_Center"
 
 
+@pulumi.type_token("aws-native:workspacesweb:PortalBrowserType")
 class PortalBrowserType(builtins.str, Enum):
     CHROME = "Chrome"
 
 
+@pulumi.type_token("aws-native:workspacesweb:PortalInstanceType")
 class PortalInstanceType(builtins.str, Enum):
     STANDARD_REGULAR = "standard.regular"
     STANDARD_LARGE = "standard.large"
     STANDARD_XLARGE = "standard.xlarge"
 
 
+@pulumi.type_token("aws-native:workspacesweb:PortalRendererType")
 class PortalRendererType(builtins.str, Enum):
     APP_STREAM = "AppStream"
 
 
+@pulumi.type_token("aws-native:workspacesweb:PortalStatus")
 class PortalStatus(builtins.str, Enum):
     INCOMPLETE = "Incomplete"
     PENDING = "Pending"
     ACTIVE = "Active"
 
 
+@pulumi.type_token("aws-native:workspacesweb:UserSettingsEnabledType")
 class UserSettingsEnabledType(builtins.str, Enum):
     DISABLED = "Disabled"
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("aws-native:workspacesweb:UserSettingsMaxDisplayResolution")
 class UserSettingsMaxDisplayResolution(builtins.str, Enum):
     SIZE4096X2160 = "size4096X2160"
     SIZE3840X2160 = "size3840X2160"
@@ -76,6 +85,7 @@ class UserSettingsMaxDisplayResolution(builtins.str, Enum):
     SIZE800X600 = "size800X600"
 
 
+@pulumi.type_token("aws-native:workspacesweb:UserSettingsToolbarItem")
 class UserSettingsToolbarItem(builtins.str, Enum):
     WINDOWS = "Windows"
     DUAL_MONITOR = "DualMonitor"
@@ -84,11 +94,13 @@ class UserSettingsToolbarItem(builtins.str, Enum):
     MICROPHONE = "Microphone"
 
 
+@pulumi.type_token("aws-native:workspacesweb:UserSettingsToolbarType")
 class UserSettingsToolbarType(builtins.str, Enum):
     FLOATING = "Floating"
     DOCKED = "Docked"
 
 
+@pulumi.type_token("aws-native:workspacesweb:UserSettingsVisualMode")
 class UserSettingsVisualMode(builtins.str, Enum):
     DARK = "Dark"
     LIGHT = "Light"

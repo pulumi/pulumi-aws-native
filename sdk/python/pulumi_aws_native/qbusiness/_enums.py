@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -37,16 +37,19 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:qbusiness:ApplicationAttachmentsControlMode")
 class ApplicationAttachmentsControlMode(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:qbusiness:ApplicationAutoSubscriptionStatus")
 class ApplicationAutoSubscriptionStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:qbusiness:ApplicationIdentityType")
 class ApplicationIdentityType(builtins.str, Enum):
     AWS_IAM_IDP_SAML = "AWS_IAM_IDP_SAML"
     AWS_IAM_IDP_OIDC = "AWS_IAM_IDP_OIDC"
@@ -55,16 +58,19 @@ class ApplicationIdentityType(builtins.str, Enum):
     ANONYMOUS = "ANONYMOUS"
 
 
+@pulumi.type_token("aws-native:qbusiness:ApplicationPersonalizationControlMode")
 class ApplicationPersonalizationControlMode(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:qbusiness:ApplicationQAppsControlMode")
 class ApplicationQAppsControlMode(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:qbusiness:ApplicationStatus")
 class ApplicationStatus(builtins.str, Enum):
     CREATING = "CREATING"
     ACTIVE = "ACTIVE"
@@ -73,24 +79,29 @@ class ApplicationStatus(builtins.str, Enum):
     UPDATING = "UPDATING"
 
 
+@pulumi.type_token("aws-native:qbusiness:ApplicationSubscriptionType")
 class ApplicationSubscriptionType(builtins.str, Enum):
     Q_LITE = "Q_LITE"
     Q_BUSINESS = "Q_BUSINESS"
 
 
+@pulumi.type_token("aws-native:qbusiness:DataSourceAttributeValueOperator")
 class DataSourceAttributeValueOperator(builtins.str, Enum):
     DELETE = "DELETE"
 
 
+@pulumi.type_token("aws-native:qbusiness:DataSourceAudioExtractionStatus")
 class DataSourceAudioExtractionStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:qbusiness:DataSourceDocumentContentOperator")
 class DataSourceDocumentContentOperator(builtins.str, Enum):
     DELETE = "DELETE"
 
 
+@pulumi.type_token("aws-native:qbusiness:DataSourceDocumentEnrichmentConditionOperator")
 class DataSourceDocumentEnrichmentConditionOperator(builtins.str, Enum):
     GREATER_THAN = "GREATER_THAN"
     GREATER_THAN_OR_EQUALS = "GREATER_THAN_OR_EQUALS"
@@ -105,11 +116,13 @@ class DataSourceDocumentEnrichmentConditionOperator(builtins.str, Enum):
     BEGINS_WITH = "BEGINS_WITH"
 
 
+@pulumi.type_token("aws-native:qbusiness:DataSourceImageExtractionStatus")
 class DataSourceImageExtractionStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:qbusiness:DataSourceStatus")
 class DataSourceStatus(builtins.str, Enum):
     PENDING_CREATION = "PENDING_CREATION"
     CREATING = "CREATING"
@@ -119,11 +132,13 @@ class DataSourceStatus(builtins.str, Enum):
     UPDATING = "UPDATING"
 
 
+@pulumi.type_token("aws-native:qbusiness:DataSourceVideoExtractionStatus")
 class DataSourceVideoExtractionStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:qbusiness:IndexAttributeType")
 class IndexAttributeType(builtins.str, Enum):
     STRING = "STRING"
     STRING_LIST = "STRING_LIST"
@@ -131,6 +146,7 @@ class IndexAttributeType(builtins.str, Enum):
     DATE = "DATE"
 
 
+@pulumi.type_token("aws-native:qbusiness:IndexStatus")
 class IndexStatus(builtins.str, Enum):
     CREATING = "CREATING"
     ACTIVE = "ACTIVE"
@@ -139,15 +155,18 @@ class IndexStatus(builtins.str, Enum):
     UPDATING = "UPDATING"
 
 
+@pulumi.type_token("aws-native:qbusiness:IndexType")
 class IndexType(builtins.str, Enum):
     ENTERPRISE = "ENTERPRISE"
     STARTER = "STARTER"
 
 
+@pulumi.type_token("aws-native:qbusiness:PluginApiSchemaType")
 class PluginApiSchemaType(builtins.str, Enum):
     OPEN_API_V3 = "OPEN_API_V3"
 
 
+@pulumi.type_token("aws-native:qbusiness:PluginBuildStatus")
 class PluginBuildStatus(builtins.str, Enum):
     READY = "READY"
     CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
@@ -158,11 +177,13 @@ class PluginBuildStatus(builtins.str, Enum):
     DELETE_FAILED = "DELETE_FAILED"
 
 
+@pulumi.type_token("aws-native:qbusiness:PluginState")
 class PluginState(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:qbusiness:PluginType")
 class PluginType(builtins.str, Enum):
     SERVICE_NOW = "SERVICE_NOW"
     SALESFORCE = "SALESFORCE"
@@ -183,32 +204,38 @@ class PluginType(builtins.str, Enum):
     ASANA = "ASANA"
 
 
+@pulumi.type_token("aws-native:qbusiness:QBusinessIndexStatus")
 class QBusinessIndexStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:qbusiness:RetrieverStatus")
 class RetrieverStatus(builtins.str, Enum):
     CREATING = "CREATING"
     ACTIVE = "ACTIVE"
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:qbusiness:RetrieverType")
 class RetrieverType(builtins.str, Enum):
     NATIVE_INDEX = "NATIVE_INDEX"
     KENDRA_INDEX = "KENDRA_INDEX"
 
 
+@pulumi.type_token("aws-native:qbusiness:WebExperienceBrowserExtension")
 class WebExperienceBrowserExtension(builtins.str, Enum):
     FIREFOX = "FIREFOX"
     CHROME = "CHROME"
 
 
+@pulumi.type_token("aws-native:qbusiness:WebExperienceSamplePromptsControlMode")
 class WebExperienceSamplePromptsControlMode(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:qbusiness:WebExperienceStatus")
 class WebExperienceStatus(builtins.str, Enum):
     CREATING = "CREATING"
     ACTIVE = "ACTIVE"

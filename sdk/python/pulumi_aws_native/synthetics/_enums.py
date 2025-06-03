@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:synthetics:CanaryProvisionedResourceCleanup")
 class CanaryProvisionedResourceCleanup(builtins.str, Enum):
     """
     Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
@@ -20,6 +21,7 @@ class CanaryProvisionedResourceCleanup(builtins.str, Enum):
     OFF = "OFF"
 
 
+@pulumi.type_token("aws-native:synthetics:CanaryResourceToTag")
 class CanaryResourceToTag(builtins.str, Enum):
     """
     Specifies which resources canary tags should be replicated to.

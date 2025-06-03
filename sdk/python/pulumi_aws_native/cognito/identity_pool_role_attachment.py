@@ -82,10 +82,8 @@ class IdentityPoolRoleAttachmentArgs:
         pulumi.set(self, "roles", value)
 
 
+@pulumi.type_token("aws-native:cognito:IdentityPoolRoleAttachment")
 class IdentityPoolRoleAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cognito:IdentityPoolRoleAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

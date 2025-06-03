@@ -233,10 +233,8 @@ class ClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:msk:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:msk:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

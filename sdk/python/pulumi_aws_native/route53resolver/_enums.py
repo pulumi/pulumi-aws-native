@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -31,6 +31,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:route53resolver:FirewallDomainListStatus")
 class FirewallDomainListStatus(builtins.str, Enum):
     """
     ResolverFirewallDomainList, possible values are COMPLETE, DELETING, UPDATING, COMPLETE_IMPORT_FAILED, IMPORTING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
@@ -43,6 +44,7 @@ class FirewallDomainListStatus(builtins.str, Enum):
     INACTIVE_OWNER_ACCOUNT_CLOSED = "INACTIVE_OWNER_ACCOUNT_CLOSED"
 
 
+@pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupAssociationMutationProtection")
 class FirewallRuleGroupAssociationMutationProtection(builtins.str, Enum):
     """
     MutationProtectionStatus
@@ -51,6 +53,7 @@ class FirewallRuleGroupAssociationMutationProtection(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupAssociationStatus")
 class FirewallRuleGroupAssociationStatus(builtins.str, Enum):
     """
     ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
@@ -61,6 +64,7 @@ class FirewallRuleGroupAssociationStatus(builtins.str, Enum):
     INACTIVE_OWNER_ACCOUNT_CLOSED = "INACTIVE_OWNER_ACCOUNT_CLOSED"
 
 
+@pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupFirewallRuleAction")
 class FirewallRuleGroupFirewallRuleAction(builtins.str, Enum):
     """
     Rule Action
@@ -70,6 +74,7 @@ class FirewallRuleGroupFirewallRuleAction(builtins.str, Enum):
     ALERT = "ALERT"
 
 
+@pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupFirewallRuleBlockOverrideDnsType")
 class FirewallRuleGroupFirewallRuleBlockOverrideDnsType(builtins.str, Enum):
     """
     BlockOverrideDnsType
@@ -77,6 +82,7 @@ class FirewallRuleGroupFirewallRuleBlockOverrideDnsType(builtins.str, Enum):
     CNAME = "CNAME"
 
 
+@pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupFirewallRuleBlockResponse")
 class FirewallRuleGroupFirewallRuleBlockResponse(builtins.str, Enum):
     """
     BlockResponse
@@ -86,6 +92,7 @@ class FirewallRuleGroupFirewallRuleBlockResponse(builtins.str, Enum):
     OVERRIDE = "OVERRIDE"
 
 
+@pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupFirewallRuleConfidenceThreshold")
 class FirewallRuleGroupFirewallRuleConfidenceThreshold(builtins.str, Enum):
     """
     FirewallDomainRedirectionAction
@@ -95,6 +102,7 @@ class FirewallRuleGroupFirewallRuleConfidenceThreshold(builtins.str, Enum):
     HIGH = "HIGH"
 
 
+@pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupFirewallRuleDnsThreatProtection")
 class FirewallRuleGroupFirewallRuleDnsThreatProtection(builtins.str, Enum):
     """
     FirewallDomainRedirectionAction
@@ -103,6 +111,7 @@ class FirewallRuleGroupFirewallRuleDnsThreatProtection(builtins.str, Enum):
     DNS_TUNNELING = "DNS_TUNNELING"
 
 
+@pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction")
 class FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction(builtins.str, Enum):
     """
     FirewallDomainRedirectionAction
@@ -111,6 +120,7 @@ class FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction(builtins.str,
     TRUST_REDIRECTION_DOMAIN = "TRUST_REDIRECTION_DOMAIN"
 
 
+@pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupShareStatus")
 class FirewallRuleGroupShareStatus(builtins.str, Enum):
     """
     ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
@@ -120,6 +130,7 @@ class FirewallRuleGroupShareStatus(builtins.str, Enum):
     SHARED_BY_ME = "SHARED_BY_ME"
 
 
+@pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupStatus")
 class FirewallRuleGroupStatus(builtins.str, Enum):
     """
     ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
@@ -130,6 +141,7 @@ class FirewallRuleGroupStatus(builtins.str, Enum):
     INACTIVE_OWNER_ACCOUNT_CLOSED = "INACTIVE_OWNER_ACCOUNT_CLOSED"
 
 
+@pulumi.type_token("aws-native:route53resolver:OutpostResolverStatus")
 class OutpostResolverStatus(builtins.str, Enum):
     """
     The OutpostResolver status, possible values are CREATING, OPERATIONAL, UPDATING, DELETING, ACTION_NEEDED, FAILED_CREATION and FAILED_DELETION.
@@ -143,6 +155,7 @@ class OutpostResolverStatus(builtins.str, Enum):
     FAILED_DELETION = "FAILED_DELETION"
 
 
+@pulumi.type_token("aws-native:route53resolver:ResolverConfigAutodefinedReverse")
 class ResolverConfigAutodefinedReverse(builtins.str, Enum):
     """
     ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
@@ -153,6 +166,7 @@ class ResolverConfigAutodefinedReverse(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:route53resolver:ResolverConfigAutodefinedReverseFlag")
 class ResolverConfigAutodefinedReverseFlag(builtins.str, Enum):
     """
     Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
@@ -160,6 +174,7 @@ class ResolverConfigAutodefinedReverseFlag(builtins.str, Enum):
     DISABLE = "DISABLE"
 
 
+@pulumi.type_token("aws-native:route53resolver:ResolverDnssecConfigValidationStatus")
 class ResolverDnssecConfigValidationStatus(builtins.str, Enum):
     """
     ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
@@ -170,6 +185,7 @@ class ResolverDnssecConfigValidationStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:route53resolver:ResolverQueryLoggingConfigAssociationError")
 class ResolverQueryLoggingConfigAssociationError(builtins.str, Enum):
     """
     ResolverQueryLogConfigAssociationError
@@ -179,6 +195,7 @@ class ResolverQueryLoggingConfigAssociationError(builtins.str, Enum):
     ACCESS_DENIED = "ACCESS_DENIED"
 
 
+@pulumi.type_token("aws-native:route53resolver:ResolverQueryLoggingConfigAssociationStatus")
 class ResolverQueryLoggingConfigAssociationStatus(builtins.str, Enum):
     """
     ResolverQueryLogConfigAssociationStatus
@@ -191,6 +208,7 @@ class ResolverQueryLoggingConfigAssociationStatus(builtins.str, Enum):
     OVERRIDDEN = "OVERRIDDEN"
 
 
+@pulumi.type_token("aws-native:route53resolver:ResolverQueryLoggingConfigShareStatus")
 class ResolverQueryLoggingConfigShareStatus(builtins.str, Enum):
     """
     ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
@@ -200,6 +218,7 @@ class ResolverQueryLoggingConfigShareStatus(builtins.str, Enum):
     SHARED_BY_ME = "SHARED_BY_ME"
 
 
+@pulumi.type_token("aws-native:route53resolver:ResolverQueryLoggingConfigStatus")
 class ResolverQueryLoggingConfigStatus(builtins.str, Enum):
     """
     ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
@@ -210,6 +229,7 @@ class ResolverQueryLoggingConfigStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:route53resolver:ResolverRuleRuleType")
 class ResolverRuleRuleType(builtins.str, Enum):
     """
     When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
@@ -220,6 +240,7 @@ class ResolverRuleRuleType(builtins.str, Enum):
     DELEGATE = "DELEGATE"
 
 
+@pulumi.type_token("aws-native:route53resolver:ResolverRuleTargetAddressProtocol")
 class ResolverRuleTargetAddressProtocol(builtins.str, Enum):
     """
     The protocol that you want to use to forward DNS queries. 

@@ -177,10 +177,8 @@ class SecretArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:secretsmanager:Secret")
 class Secret(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:secretsmanager:Secret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

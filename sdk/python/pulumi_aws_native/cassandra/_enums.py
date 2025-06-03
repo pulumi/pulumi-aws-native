@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:cassandra:KeyspaceRegionListItem")
 class KeyspaceRegionListItem(builtins.str, Enum):
     AF_SOUTH1 = "af-south-1"
     AP_NORTHEAST1 = "ap-northeast-1"
@@ -35,6 +36,7 @@ class KeyspaceRegionListItem(builtins.str, Enum):
     US_WEST2 = "us-west-2"
 
 
+@pulumi.type_token("aws-native:cassandra:KeyspaceReplicationSpecificationReplicationStrategy")
 class KeyspaceReplicationSpecificationReplicationStrategy(builtins.str, Enum):
     """
     The options are:
@@ -48,6 +50,7 @@ class KeyspaceReplicationSpecificationReplicationStrategy(builtins.str, Enum):
     MULTI_REGION = "MULTI_REGION"
 
 
+@pulumi.type_token("aws-native:cassandra:TableClusteringKeyColumnOrderBy")
 class TableClusteringKeyColumnOrderBy(builtins.str, Enum):
     """
     The order in which this column's data is stored:
@@ -59,6 +62,7 @@ class TableClusteringKeyColumnOrderBy(builtins.str, Enum):
     DESC = "DESC"
 
 
+@pulumi.type_token("aws-native:cassandra:TableEncryptionType")
 class TableEncryptionType(builtins.str, Enum):
     """
     Server-side encryption type
@@ -67,6 +71,7 @@ class TableEncryptionType(builtins.str, Enum):
     CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
 
 
+@pulumi.type_token("aws-native:cassandra:TableMode")
 class TableMode(builtins.str, Enum):
     """
     Capacity mode for the specified table

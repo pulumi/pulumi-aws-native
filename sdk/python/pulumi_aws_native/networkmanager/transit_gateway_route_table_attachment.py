@@ -123,10 +123,8 @@ class TransitGatewayRouteTableAttachmentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:networkmanager:TransitGatewayRouteTableAttachment")
 class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:networkmanager:TransitGatewayRouteTableAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

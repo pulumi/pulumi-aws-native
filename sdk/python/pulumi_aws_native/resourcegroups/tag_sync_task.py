@@ -86,10 +86,8 @@ class TagSyncTaskArgs:
         pulumi.set(self, "tag_value", value)
 
 
+@pulumi.type_token("aws-native:resourcegroups:TagSyncTask")
 class TagSyncTask(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:resourcegroups:TagSyncTask"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

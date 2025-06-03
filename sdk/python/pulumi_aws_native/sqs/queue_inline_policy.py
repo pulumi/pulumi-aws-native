@@ -59,10 +59,8 @@ class QueueInlinePolicyArgs:
         pulumi.set(self, "queue", value)
 
 
+@pulumi.type_token("aws-native:sqs:QueueInlinePolicy")
 class QueueInlinePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sqs:QueueInlinePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

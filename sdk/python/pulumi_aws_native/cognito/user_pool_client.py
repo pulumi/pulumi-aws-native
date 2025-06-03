@@ -561,10 +561,8 @@ class UserPoolClientArgs:
         pulumi.set(self, "write_attributes", value)
 
 
+@pulumi.type_token("aws-native:cognito:UserPoolClient")
 class UserPoolClient(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cognito:UserPoolClient"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:codestarconnections:RepositoryLinkProviderType")
 class RepositoryLinkProviderType(builtins.str, Enum):
     """
     The name of the external provider where your third-party code repository is configured.
@@ -25,6 +26,7 @@ class RepositoryLinkProviderType(builtins.str, Enum):
     GIT_LAB_SELF_MANAGED = "GitLabSelfManaged"
 
 
+@pulumi.type_token("aws-native:codestarconnections:SyncConfigurationProviderType")
 class SyncConfigurationProviderType(builtins.str, Enum):
     """
     The name of the external provider where your third-party code repository is configured.
@@ -36,6 +38,7 @@ class SyncConfigurationProviderType(builtins.str, Enum):
     GIT_LAB_SELF_MANAGED = "GitLabSelfManaged"
 
 
+@pulumi.type_token("aws-native:codestarconnections:SyncConfigurationPublishDeploymentStatus")
 class SyncConfigurationPublishDeploymentStatus(builtins.str, Enum):
     """
     Whether to enable or disable publishing of deployment status to source providers.
@@ -44,6 +47,7 @@ class SyncConfigurationPublishDeploymentStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:codestarconnections:SyncConfigurationTriggerResourceUpdateOn")
 class SyncConfigurationTriggerResourceUpdateOn(builtins.str, Enum):
     """
     When to trigger Git sync to begin the stack update.

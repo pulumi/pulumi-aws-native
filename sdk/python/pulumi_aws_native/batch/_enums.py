@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:batch:ConsumableResourceResourceType")
 class ConsumableResourceResourceType(builtins.str, Enum):
     """
     Type of Consumable Resource.
@@ -22,6 +23,7 @@ class ConsumableResourceResourceType(builtins.str, Enum):
     NON_REPLENISHABLE = "NON_REPLENISHABLE"
 
 
+@pulumi.type_token("aws-native:batch:JobQueueJobStateTimeLimitActionAction")
 class JobQueueJobStateTimeLimitActionAction(builtins.str, Enum):
     """
     The action to take when a job is at the head of the job queue in the specified state for the specified period of time. The only supported value is `CANCEL` , which will cancel the job.
@@ -29,6 +31,7 @@ class JobQueueJobStateTimeLimitActionAction(builtins.str, Enum):
     CANCEL = "CANCEL"
 
 
+@pulumi.type_token("aws-native:batch:JobQueueJobStateTimeLimitActionState")
 class JobQueueJobStateTimeLimitActionState(builtins.str, Enum):
     """
     The state of the job needed to trigger the action. The only supported value is `RUNNABLE` .
@@ -36,6 +39,7 @@ class JobQueueJobStateTimeLimitActionState(builtins.str, Enum):
     RUNNABLE = "RUNNABLE"
 
 
+@pulumi.type_token("aws-native:batch:JobQueueState")
 class JobQueueState(builtins.str, Enum):
     """
     The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.

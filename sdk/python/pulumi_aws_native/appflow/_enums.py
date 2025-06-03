@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -46,6 +46,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:appflow:ConnectorProfileAuthenticationType")
 class ConnectorProfileAuthenticationType(builtins.str, Enum):
     OAUTH2 = "OAUTH2"
     APIKEY = "APIKEY"
@@ -53,6 +54,7 @@ class ConnectorProfileAuthenticationType(builtins.str, Enum):
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:appflow:ConnectorProfileConnectionMode")
 class ConnectorProfileConnectionMode(builtins.str, Enum):
     """
     Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
@@ -61,6 +63,7 @@ class ConnectorProfileConnectionMode(builtins.str, Enum):
     PRIVATE = "Private"
 
 
+@pulumi.type_token("aws-native:appflow:ConnectorProfileConnectorType")
 class ConnectorProfileConnectorType(builtins.str, Enum):
     SALESFORCE = "Salesforce"
     PARDOT = "Pardot"
@@ -82,21 +85,25 @@ class ConnectorProfileConnectorType(builtins.str, Enum):
     CUSTOM_CONNECTOR = "CustomConnector"
 
 
+@pulumi.type_token("aws-native:appflow:ConnectorProfileOAuth2GrantType")
 class ConnectorProfileOAuth2GrantType(builtins.str, Enum):
     CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
     AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
     JWT_BEARER = "JWT_BEARER"
 
 
+@pulumi.type_token("aws-native:appflow:FlowAggregationType")
 class FlowAggregationType(builtins.str, Enum):
     NONE = "None"
     SINGLE_FILE = "SingleFile"
 
 
+@pulumi.type_token("aws-native:appflow:FlowAmplitudeConnectorOperator")
 class FlowAmplitudeConnectorOperator(builtins.str, Enum):
     BETWEEN = "BETWEEN"
 
 
+@pulumi.type_token("aws-native:appflow:FlowConnectorType")
 class FlowConnectorType(builtins.str, Enum):
     SAPO_DATA = "SAPOData"
     SALESFORCE = "Salesforce"
@@ -122,18 +129,21 @@ class FlowConnectorType(builtins.str, Enum):
     LOOKOUT_METRICS = "LookoutMetrics"
 
 
+@pulumi.type_token("aws-native:appflow:FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType")
 class FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType(builtins.str, Enum):
     SYNC = "SYNC"
     ASYNC_ = "ASYNC"
     AUTOMATIC = "AUTOMATIC"
 
 
+@pulumi.type_token("aws-native:appflow:FlowDataTransferApi")
 class FlowDataTransferApi(builtins.str, Enum):
     AUTOMATIC = "AUTOMATIC"
     BULKV2 = "BULKV2"
     REST_SYNC = "REST_SYNC"
 
 
+@pulumi.type_token("aws-native:appflow:FlowDatadogConnectorOperator")
 class FlowDatadogConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     BETWEEN = "BETWEEN"
@@ -152,6 +162,7 @@ class FlowDatadogConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowDynatraceConnectorOperator")
 class FlowDynatraceConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     BETWEEN = "BETWEEN"
@@ -170,17 +181,20 @@ class FlowDynatraceConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowFileType")
 class FlowFileType(builtins.str, Enum):
     CSV = "CSV"
     JSON = "JSON"
     PARQUET = "PARQUET"
 
 
+@pulumi.type_token("aws-native:appflow:FlowGoogleAnalyticsConnectorOperator")
 class FlowGoogleAnalyticsConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     BETWEEN = "BETWEEN"
 
 
+@pulumi.type_token("aws-native:appflow:FlowInforNexusConnectorOperator")
 class FlowInforNexusConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     BETWEEN = "BETWEEN"
@@ -199,6 +213,7 @@ class FlowInforNexusConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowMarketoConnectorOperator")
 class FlowMarketoConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
@@ -218,6 +233,7 @@ class FlowMarketoConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowOperator")
 class FlowOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
@@ -242,6 +258,7 @@ class FlowOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowOperatorPropertiesKeys")
 class FlowOperatorPropertiesKeys(builtins.str, Enum):
     VALUE = "VALUE"
     VALUES = "VALUES"
@@ -262,6 +279,7 @@ class FlowOperatorPropertiesKeys(builtins.str, Enum):
     ORDERED_PARTITION_KEYS_LIST = "ORDERED_PARTITION_KEYS_LIST"
 
 
+@pulumi.type_token("aws-native:appflow:FlowPardotConnectorOperator")
 class FlowPardotConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     EQUAL_TO = "EQUAL_TO"
@@ -279,11 +297,13 @@ class FlowPardotConnectorOperator(builtins.str, Enum):
     VALIDATE_NUMERIC = "VALIDATE_NUMERIC"
 
 
+@pulumi.type_token("aws-native:appflow:FlowPathPrefix")
 class FlowPathPrefix(builtins.str, Enum):
     EXECUTION_ID = "EXECUTION_ID"
     SCHEMA_VERSION = "SCHEMA_VERSION"
 
 
+@pulumi.type_token("aws-native:appflow:FlowPrefixFormat")
 class FlowPrefixFormat(builtins.str, Enum):
     YEAR = "YEAR"
     MONTH = "MONTH"
@@ -292,12 +312,14 @@ class FlowPrefixFormat(builtins.str, Enum):
     MINUTE = "MINUTE"
 
 
+@pulumi.type_token("aws-native:appflow:FlowPrefixType")
 class FlowPrefixType(builtins.str, Enum):
     FILENAME = "FILENAME"
     PATH = "PATH"
     PATH_AND_FILENAME = "PATH_AND_FILENAME"
 
 
+@pulumi.type_token("aws-native:appflow:FlowS3ConnectorOperator")
 class FlowS3ConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
@@ -321,6 +343,7 @@ class FlowS3ConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowS3InputFormatConfigS3InputFileType")
 class FlowS3InputFormatConfigS3InputFileType(builtins.str, Enum):
     """
     The file type that Amazon AppFlow gets from your Amazon S3 bucket.
@@ -329,6 +352,7 @@ class FlowS3InputFormatConfigS3InputFileType(builtins.str, Enum):
     JSON = "JSON"
 
 
+@pulumi.type_token("aws-native:appflow:FlowSalesforceConnectorOperator")
 class FlowSalesforceConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
@@ -353,6 +377,7 @@ class FlowSalesforceConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowSapoDataConnectorOperator")
 class FlowSapoDataConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
@@ -377,6 +402,7 @@ class FlowSapoDataConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowScheduledTriggerPropertiesDataPullMode")
 class FlowScheduledTriggerPropertiesDataPullMode(builtins.str, Enum):
     """
     Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
@@ -385,6 +411,7 @@ class FlowScheduledTriggerPropertiesDataPullMode(builtins.str, Enum):
     COMPLETE = "Complete"
 
 
+@pulumi.type_token("aws-native:appflow:FlowServiceNowConnectorOperator")
 class FlowServiceNowConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
@@ -409,6 +436,7 @@ class FlowServiceNowConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowSingularConnectorOperator")
 class FlowSingularConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     EQUAL_TO = "EQUAL_TO"
@@ -426,6 +454,7 @@ class FlowSingularConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowSlackConnectorOperator")
 class FlowSlackConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     BETWEEN = "BETWEEN"
@@ -444,6 +473,7 @@ class FlowSlackConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowStatus")
 class FlowStatus(builtins.str, Enum):
     """
     Flow activation status for Scheduled- and Event-triggered flows
@@ -453,6 +483,7 @@ class FlowStatus(builtins.str, Enum):
     DRAFT = "Draft"
 
 
+@pulumi.type_token("aws-native:appflow:FlowTaskType")
 class FlowTaskType(builtins.str, Enum):
     ARITHMETIC = "Arithmetic"
     FILTER = "Filter"
@@ -466,6 +497,7 @@ class FlowTaskType(builtins.str, Enum):
     PARTITION = "Partition"
 
 
+@pulumi.type_token("aws-native:appflow:FlowTrendmicroConnectorOperator")
 class FlowTrendmicroConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     EQUAL_TO = "EQUAL_TO"
@@ -483,12 +515,14 @@ class FlowTrendmicroConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowTriggerType")
 class FlowTriggerType(builtins.str, Enum):
     SCHEDULED = "Scheduled"
     EVENT = "Event"
     ON_DEMAND = "OnDemand"
 
 
+@pulumi.type_token("aws-native:appflow:FlowVeevaConnectorOperator")
 class FlowVeevaConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
@@ -512,6 +546,7 @@ class FlowVeevaConnectorOperator(builtins.str, Enum):
     NO_OP = "NO_OP"
 
 
+@pulumi.type_token("aws-native:appflow:FlowWriteOperationType")
 class FlowWriteOperationType(builtins.str, Enum):
     INSERT = "INSERT"
     UPSERT = "UPSERT"
@@ -519,6 +554,7 @@ class FlowWriteOperationType(builtins.str, Enum):
     DELETE = "DELETE"
 
 
+@pulumi.type_token("aws-native:appflow:FlowZendeskConnectorOperator")
 class FlowZendeskConnectorOperator(builtins.str, Enum):
     PROJECTION = "PROJECTION"
     GREATER_THAN = "GREATER_THAN"

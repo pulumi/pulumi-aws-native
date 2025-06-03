@@ -167,10 +167,8 @@ class ConfiguredTableArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTable")
 class ConfiguredTable(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cleanrooms:ConfiguredTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

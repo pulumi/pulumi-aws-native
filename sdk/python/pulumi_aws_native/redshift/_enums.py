@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:redshift:EventSubscriptionEventCategoriesItem")
 class EventSubscriptionEventCategoriesItem(builtins.str, Enum):
     CONFIGURATION = "configuration"
     MANAGEMENT = "management"
@@ -23,6 +24,7 @@ class EventSubscriptionEventCategoriesItem(builtins.str, Enum):
     PENDING = "pending"
 
 
+@pulumi.type_token("aws-native:redshift:EventSubscriptionSeverity")
 class EventSubscriptionSeverity(builtins.str, Enum):
     """
     Specifies the Amazon Redshift event severity to be published by the event notification subscription.
@@ -31,6 +33,7 @@ class EventSubscriptionSeverity(builtins.str, Enum):
     INFO = "INFO"
 
 
+@pulumi.type_token("aws-native:redshift:EventSubscriptionSourceType")
 class EventSubscriptionSourceType(builtins.str, Enum):
     """
     The type of source that will be generating the events.
@@ -42,6 +45,7 @@ class EventSubscriptionSourceType(builtins.str, Enum):
     SCHEDULED_ACTION = "scheduled-action"
 
 
+@pulumi.type_token("aws-native:redshift:EventSubscriptionStatus")
 class EventSubscriptionStatus(builtins.str, Enum):
     """
     The status of the Amazon Redshift event notification subscription.
@@ -51,6 +55,7 @@ class EventSubscriptionStatus(builtins.str, Enum):
     TOPIC_NOT_EXIST = "topic-not-exist"
 
 
+@pulumi.type_token("aws-native:redshift:ScheduledActionState")
 class ScheduledActionState(builtins.str, Enum):
     """
     The state of the scheduled action.

@@ -86,10 +86,8 @@ class CustomerGatewayAssociationArgs:
         pulumi.set(self, "link_id", value)
 
 
+@pulumi.type_token("aws-native:networkmanager:CustomerGatewayAssociation")
 class CustomerGatewayAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:networkmanager:CustomerGatewayAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

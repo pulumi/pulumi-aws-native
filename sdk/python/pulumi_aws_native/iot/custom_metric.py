@@ -91,10 +91,8 @@ class CustomMetricArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iot:CustomMetric")
 class CustomMetric(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:CustomMetric"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -408,10 +408,8 @@ class TaskDefinitionArgs:
         pulumi.set(self, "volumes", value)
 
 
+@pulumi.type_token("aws-native:ecs:TaskDefinition")
 class TaskDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ecs:TaskDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

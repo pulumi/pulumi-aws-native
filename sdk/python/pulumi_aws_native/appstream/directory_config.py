@@ -88,10 +88,8 @@ class DirectoryConfigArgs:
         pulumi.set(self, "certificate_based_auth_properties", value)
 
 
+@pulumi.type_token("aws-native:appstream:DirectoryConfig")
 class DirectoryConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appstream:DirectoryConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

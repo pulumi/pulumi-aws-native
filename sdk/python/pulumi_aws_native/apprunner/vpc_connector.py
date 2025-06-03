@@ -90,10 +90,8 @@ class VpcConnectorArgs:
         pulumi.set(self, "vpc_connector_name", value)
 
 
+@pulumi.type_token("aws-native:apprunner:VpcConnector")
 class VpcConnector(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apprunner:VpcConnector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

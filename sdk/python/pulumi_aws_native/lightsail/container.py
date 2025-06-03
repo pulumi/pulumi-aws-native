@@ -154,10 +154,8 @@ class ContainerInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:lightsail:Container")
 class Container(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lightsail:Container"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

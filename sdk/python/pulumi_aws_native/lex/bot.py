@@ -221,10 +221,8 @@ class BotArgs:
         pulumi.set(self, "test_bot_alias_tags", value)
 
 
+@pulumi.type_token("aws-native:lex:Bot")
 class Bot(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lex:Bot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

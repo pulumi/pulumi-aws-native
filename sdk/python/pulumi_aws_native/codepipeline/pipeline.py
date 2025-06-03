@@ -220,10 +220,8 @@ class PipelineArgs:
         pulumi.set(self, "variables", value)
 
 
+@pulumi.type_token("aws-native:codepipeline:Pipeline")
 class Pipeline(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:codepipeline:Pipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

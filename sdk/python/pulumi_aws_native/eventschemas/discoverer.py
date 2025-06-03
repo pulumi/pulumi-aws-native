@@ -90,10 +90,8 @@ class DiscovererArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:eventschemas:Discoverer")
 class Discoverer(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:eventschemas:Discoverer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

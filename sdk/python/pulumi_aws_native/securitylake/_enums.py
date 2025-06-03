@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,11 +12,13 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:securitylake:SubscriberAccessTypesItem")
 class SubscriberAccessTypesItem(builtins.str, Enum):
     LAKEFORMATION = "LAKEFORMATION"
     S3 = "S3"
 
 
+@pulumi.type_token("aws-native:securitylake:SubscriberNotificationHttpsNotificationConfigurationHttpMethod")
 class SubscriberNotificationHttpsNotificationConfigurationHttpMethod(builtins.str, Enum):
     """
     The HTTPS method used for the notification subscription.

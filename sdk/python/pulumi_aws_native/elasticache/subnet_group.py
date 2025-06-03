@@ -89,10 +89,8 @@ class SubnetGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:elasticache:SubnetGroup")
 class SubnetGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:elasticache:SubnetGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -87,10 +87,8 @@ class KeySigningKeyArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:route53:KeySigningKey")
 class KeySigningKey(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:route53:KeySigningKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

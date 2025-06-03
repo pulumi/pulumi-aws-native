@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -49,15 +49,18 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:mediaconnect:BridgeFailoverConfigStateEnum")
 class BridgeFailoverConfigStateEnum(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:mediaconnect:BridgeFailoverModeEnum")
 class BridgeFailoverModeEnum(builtins.str, Enum):
     FAILOVER = "FAILOVER"
 
 
+@pulumi.type_token("aws-native:mediaconnect:BridgeOutputResourceBridgeNetworkOutputProtocol")
 class BridgeOutputResourceBridgeNetworkOutputProtocol(builtins.str, Enum):
     """
     The network output protocol.
@@ -67,18 +70,21 @@ class BridgeOutputResourceBridgeNetworkOutputProtocol(builtins.str, Enum):
     UDP = "udp"
 
 
+@pulumi.type_token("aws-native:mediaconnect:BridgeProtocolEnum")
 class BridgeProtocolEnum(builtins.str, Enum):
     RTP_FEC = "rtp-fec"
     RTP = "rtp"
     UDP = "udp"
 
 
+@pulumi.type_token("aws-native:mediaconnect:BridgeSourceProtocolEnum")
 class BridgeSourceProtocolEnum(builtins.str, Enum):
     RTP_FEC = "rtp-fec"
     RTP = "rtp"
     UDP = "udp"
 
 
+@pulumi.type_token("aws-native:mediaconnect:BridgeStateEnum")
 class BridgeStateEnum(builtins.str, Enum):
     CREATING = "CREATING"
     STANDBY = "STANDBY"
@@ -93,6 +99,7 @@ class BridgeStateEnum(builtins.str, Enum):
     UPDATING = "UPDATING"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowBlackFramesState")
 class FlowBlackFramesState(builtins.str, Enum):
     """
     Indicates whether the BlackFrames metric is enabled or disabled.
@@ -101,6 +108,7 @@ class FlowBlackFramesState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowEncryptionAlgorithm")
 class FlowEncryptionAlgorithm(builtins.str, Enum):
     """
     The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -110,6 +118,7 @@ class FlowEncryptionAlgorithm(builtins.str, Enum):
     AES256 = "aes256"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowEncryptionKeyType")
 class FlowEncryptionKeyType(builtins.str, Enum):
     """
     The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -119,6 +128,7 @@ class FlowEncryptionKeyType(builtins.str, Enum):
     SRT_PASSWORD = "srt-password"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowEntitlementEncryptionAlgorithm")
 class FlowEntitlementEncryptionAlgorithm(builtins.str, Enum):
     """
     The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -128,6 +138,7 @@ class FlowEntitlementEncryptionAlgorithm(builtins.str, Enum):
     AES256 = "aes256"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowEntitlementEncryptionKeyType")
 class FlowEntitlementEncryptionKeyType(builtins.str, Enum):
     """
     The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -136,6 +147,7 @@ class FlowEntitlementEncryptionKeyType(builtins.str, Enum):
     STATIC_KEY = "static-key"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowEntitlementEntitlementStatus")
 class FlowEntitlementEntitlementStatus(builtins.str, Enum):
     """
      An indication of whether the entitlement is enabled.
@@ -144,6 +156,7 @@ class FlowEntitlementEntitlementStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowFailoverConfigFailoverMode")
 class FlowFailoverConfigFailoverMode(builtins.str, Enum):
     """
     The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
@@ -152,6 +165,7 @@ class FlowFailoverConfigFailoverMode(builtins.str, Enum):
     FAILOVER = "FAILOVER"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowFailoverConfigState")
 class FlowFailoverConfigState(builtins.str, Enum):
     """
     The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
@@ -160,6 +174,7 @@ class FlowFailoverConfigState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowFmtpColorimetry")
 class FlowFmtpColorimetry(builtins.str, Enum):
     """
     The format used for the representation of color.
@@ -173,6 +188,7 @@ class FlowFmtpColorimetry(builtins.str, Enum):
     XYZ = "XYZ"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowFmtpRange")
 class FlowFmtpRange(builtins.str, Enum):
     """
     The encoding range of the video.
@@ -182,6 +198,7 @@ class FlowFmtpRange(builtins.str, Enum):
     FULLPROTECT = "FULLPROTECT"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowFmtpScanMode")
 class FlowFmtpScanMode(builtins.str, Enum):
     """
     The type of compression that was used to smooth the video's appearance.
@@ -191,6 +208,7 @@ class FlowFmtpScanMode(builtins.str, Enum):
     PROGRESSIVE_SEGMENTED_FRAME = "progressive-segmented-frame"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowFmtpTcs")
 class FlowFmtpTcs(builtins.str, Enum):
     """
     The transfer characteristic system (TCS) that is used in the video.
@@ -206,6 +224,7 @@ class FlowFmtpTcs(builtins.str, Enum):
     DENSITY = "DENSITY"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowFrozenFramesState")
 class FlowFrozenFramesState(builtins.str, Enum):
     """
     Indicates whether the FrozenFrames metric is enabled or disabled.
@@ -214,6 +233,7 @@ class FlowFrozenFramesState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowMaintenanceMaintenanceDay")
 class FlowMaintenanceMaintenanceDay(builtins.str, Enum):
     """
     A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
@@ -227,6 +247,7 @@ class FlowMaintenanceMaintenanceDay(builtins.str, Enum):
     SUNDAY = "Sunday"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowMediaStreamMediaStreamType")
 class FlowMediaStreamMediaStreamType(builtins.str, Enum):
     """
     The type of media stream.
@@ -236,6 +257,7 @@ class FlowMediaStreamMediaStreamType(builtins.str, Enum):
     ANCILLARY_DATA = "ancillary-data"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowMediaStreamSourceConfigurationEncodingName")
 class FlowMediaStreamSourceConfigurationEncodingName(builtins.str, Enum):
     """
     The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
@@ -246,6 +268,7 @@ class FlowMediaStreamSourceConfigurationEncodingName(builtins.str, Enum):
     PCM = "pcm"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowMediaStreamVideoFormat")
 class FlowMediaStreamVideoFormat(builtins.str, Enum):
     """
     The resolution of the video.
@@ -257,6 +280,7 @@ class FlowMediaStreamVideoFormat(builtins.str, Enum):
     FLOW_MEDIA_STREAM_VIDEO_FORMAT_480P = "480p"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowNdiConfigNdiState")
 class FlowNdiConfigNdiState(builtins.str, Enum):
     """
     A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
@@ -265,6 +289,7 @@ class FlowNdiConfigNdiState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowOutputEncodingParametersEncoderProfile")
 class FlowOutputEncodingParametersEncoderProfile(builtins.str, Enum):
     """
     A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
@@ -273,6 +298,7 @@ class FlowOutputEncodingParametersEncoderProfile(builtins.str, Enum):
     HIGH = "high"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowOutputEncryptionAlgorithm")
 class FlowOutputEncryptionAlgorithm(builtins.str, Enum):
     """
     The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -282,6 +308,7 @@ class FlowOutputEncryptionAlgorithm(builtins.str, Enum):
     AES256 = "aes256"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowOutputEncryptionKeyType")
 class FlowOutputEncryptionKeyType(builtins.str, Enum):
     """
     The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -290,6 +317,7 @@ class FlowOutputEncryptionKeyType(builtins.str, Enum):
     SRT_PASSWORD = "srt-password"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowOutputMediaStreamOutputConfigurationEncodingName")
 class FlowOutputMediaStreamOutputConfigurationEncodingName(builtins.str, Enum):
     """
     The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
@@ -300,6 +328,7 @@ class FlowOutputMediaStreamOutputConfigurationEncodingName(builtins.str, Enum):
     PCM = "pcm"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowOutputOutputStatus")
 class FlowOutputOutputStatus(builtins.str, Enum):
     """
     An indication of whether the output should transmit data or not.
@@ -308,6 +337,7 @@ class FlowOutputOutputStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowOutputProtocol")
 class FlowOutputProtocol(builtins.str, Enum):
     """
     The protocol that is used by the source or output.
@@ -325,6 +355,7 @@ class FlowOutputProtocol(builtins.str, Enum):
     NDI_SPEED_HQ = "ndi-speed-hq"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowSilentAudioState")
 class FlowSilentAudioState(builtins.str, Enum):
     """
     Indicates whether the SilentAudio metric is enabled or disabled.
@@ -333,6 +364,7 @@ class FlowSilentAudioState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowSize")
 class FlowSize(builtins.str, Enum):
     """
     Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
@@ -341,6 +373,7 @@ class FlowSize(builtins.str, Enum):
     LARGE = "LARGE"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowSourceEncryptionAlgorithm")
 class FlowSourceEncryptionAlgorithm(builtins.str, Enum):
     """
     The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -350,6 +383,7 @@ class FlowSourceEncryptionAlgorithm(builtins.str, Enum):
     AES256 = "aes256"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowSourceEncryptionKeyType")
 class FlowSourceEncryptionKeyType(builtins.str, Enum):
     """
     The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -359,6 +393,7 @@ class FlowSourceEncryptionKeyType(builtins.str, Enum):
     SRT_PASSWORD = "srt-password"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowSourceMonitoringConfigContentQualityAnalysisState")
 class FlowSourceMonitoringConfigContentQualityAnalysisState(builtins.str, Enum):
     """
     Indicates whether content quality analysis is enabled or disabled.
@@ -367,6 +402,7 @@ class FlowSourceMonitoringConfigContentQualityAnalysisState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowSourceMonitoringConfigThumbnailState")
 class FlowSourceMonitoringConfigThumbnailState(builtins.str, Enum):
     """
     The state of thumbnail monitoring.
@@ -375,6 +411,7 @@ class FlowSourceMonitoringConfigThumbnailState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowSourceProtocol")
 class FlowSourceProtocol(builtins.str, Enum):
     """
     The protocol that is used by the source.
@@ -390,6 +427,7 @@ class FlowSourceProtocol(builtins.str, Enum):
     CDI = "cdi"
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowVpcInterfaceNetworkInterfaceType")
 class FlowVpcInterfaceNetworkInterfaceType(builtins.str, Enum):
     """
     The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
@@ -398,6 +436,7 @@ class FlowVpcInterfaceNetworkInterfaceType(builtins.str, Enum):
     EFA = "efa"
 
 
+@pulumi.type_token("aws-native:mediaconnect:GatewayState")
 class GatewayState(builtins.str, Enum):
     """
     The current status of the gateway.

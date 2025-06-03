@@ -90,10 +90,8 @@ class RealtimeLogConfigArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:cloudfront:RealtimeLogConfig")
 class RealtimeLogConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudfront:RealtimeLogConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

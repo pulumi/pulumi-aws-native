@@ -316,10 +316,8 @@ class FleetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:codebuild:Fleet")
 class Fleet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:codebuild:Fleet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -155,10 +155,8 @@ class BotAliasArgs:
         pulumi.set(self, "sentiment_analysis_settings", value)
 
 
+@pulumi.type_token("aws-native:lex:BotAlias")
 class BotAlias(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lex:BotAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

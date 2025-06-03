@@ -90,10 +90,8 @@ class DimensionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iot:Dimension")
 class Dimension(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:Dimension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

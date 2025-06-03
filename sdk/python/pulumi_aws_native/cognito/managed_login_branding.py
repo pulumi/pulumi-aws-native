@@ -131,10 +131,8 @@ class ManagedLoginBrandingArgs:
         pulumi.set(self, "use_cognito_provided_values", value)
 
 
+@pulumi.type_token("aws-native:cognito:ManagedLoginBranding")
 class ManagedLoginBranding(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cognito:ManagedLoginBranding"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -75,10 +75,8 @@ class ResourcePolicyArgs:
         pulumi.set(self, "block_public_policy", value)
 
 
+@pulumi.type_token("aws-native:secretsmanager:ResourcePolicy")
 class ResourcePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:secretsmanager:ResourcePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

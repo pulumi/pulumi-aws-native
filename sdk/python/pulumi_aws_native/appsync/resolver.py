@@ -303,10 +303,8 @@ class ResolverArgs:
         pulumi.set(self, "sync_config", value)
 
 
+@pulumi.type_token("aws-native:appsync:Resolver")
 class Resolver(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appsync:Resolver"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

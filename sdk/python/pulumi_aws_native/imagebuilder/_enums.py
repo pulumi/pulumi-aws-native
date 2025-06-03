@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -31,6 +31,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:imagebuilder:ComponentPlatform")
 class ComponentPlatform(builtins.str, Enum):
     """
     The platform of the component.
@@ -40,6 +41,7 @@ class ComponentPlatform(builtins.str, Enum):
     MAC_OS = "macOS"
 
 
+@pulumi.type_token("aws-native:imagebuilder:ComponentType")
 class ComponentType(builtins.str, Enum):
     """
     The type of the component denotes whether the component is used to build the image or only to test it. 
@@ -48,6 +50,7 @@ class ComponentType(builtins.str, Enum):
     TEST = "TEST"
 
 
+@pulumi.type_token("aws-native:imagebuilder:ContainerRecipeContainerType")
 class ContainerRecipeContainerType(builtins.str, Enum):
     """
     Specifies the type of container, such as Docker.
@@ -55,6 +58,7 @@ class ContainerRecipeContainerType(builtins.str, Enum):
     DOCKER = "DOCKER"
 
 
+@pulumi.type_token("aws-native:imagebuilder:ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType")
 class ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType(builtins.str, Enum):
     """
     Use to override the device's volume type.
@@ -68,6 +72,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType(builtins.str,
     ST1 = "st1"
 
 
+@pulumi.type_token("aws-native:imagebuilder:ContainerRecipePlatformOverride")
 class ContainerRecipePlatformOverride(builtins.str, Enum):
     """
     Specifies the operating system platform when you use a custom source image.
@@ -76,6 +81,7 @@ class ContainerRecipePlatformOverride(builtins.str, Enum):
     LINUX = "Linux"
 
 
+@pulumi.type_token("aws-native:imagebuilder:ContainerRecipeTargetContainerRepositoryService")
 class ContainerRecipeTargetContainerRepositoryService(builtins.str, Enum):
     """
     Specifies the service in which this image was registered.
@@ -83,6 +89,7 @@ class ContainerRecipeTargetContainerRepositoryService(builtins.str, Enum):
     ECR = "ECR"
 
 
+@pulumi.type_token("aws-native:imagebuilder:DistributionConfigurationSsmParameterConfigurationDataType")
 class DistributionConfigurationSsmParameterConfigurationDataType(builtins.str, Enum):
     """
     The data type of the SSM parameter.
@@ -91,6 +98,7 @@ class DistributionConfigurationSsmParameterConfigurationDataType(builtins.str, E
     AWSEC2IMAGE = "aws:ec2:image"
 
 
+@pulumi.type_token("aws-native:imagebuilder:DistributionConfigurationTargetContainerRepositoryService")
 class DistributionConfigurationTargetContainerRepositoryService(builtins.str, Enum):
     """
     The service of target container repository.
@@ -98,6 +106,7 @@ class DistributionConfigurationTargetContainerRepositoryService(builtins.str, En
     ECR = "ECR"
 
 
+@pulumi.type_token("aws-native:imagebuilder:ImagePipelineSchedulePipelineExecutionStartCondition")
 class ImagePipelineSchedulePipelineExecutionStartCondition(builtins.str, Enum):
     """
     The condition configures when the pipeline should trigger a new image build.
@@ -106,6 +115,7 @@ class ImagePipelineSchedulePipelineExecutionStartCondition(builtins.str, Enum):
     EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE = "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE"
 
 
+@pulumi.type_token("aws-native:imagebuilder:ImagePipelineStatus")
 class ImagePipelineStatus(builtins.str, Enum):
     """
     The status of the image pipeline.
@@ -114,6 +124,7 @@ class ImagePipelineStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:imagebuilder:ImagePipelineWorkflowConfigurationOnFailure")
 class ImagePipelineWorkflowConfigurationOnFailure(builtins.str, Enum):
     """
     Define execution decision in case of workflow failure
@@ -122,6 +133,7 @@ class ImagePipelineWorkflowConfigurationOnFailure(builtins.str, Enum):
     ABORT = "ABORT"
 
 
+@pulumi.type_token("aws-native:imagebuilder:ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType")
 class ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType(builtins.str, Enum):
     """
     Use to override the device's volume type.
@@ -135,6 +147,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType(builtins.str, Enu
     ST1 = "st1"
 
 
+@pulumi.type_token("aws-native:imagebuilder:ImageWorkflowConfigurationOnFailure")
 class ImageWorkflowConfigurationOnFailure(builtins.str, Enum):
     """
     Define execution decision in case of workflow failure
@@ -143,6 +156,7 @@ class ImageWorkflowConfigurationOnFailure(builtins.str, Enum):
     ABORT = "ABORT"
 
 
+@pulumi.type_token("aws-native:imagebuilder:InfrastructureConfigurationInstanceMetadataOptionsHttpTokens")
 class InfrastructureConfigurationInstanceMetadataOptionsHttpTokens(builtins.str, Enum):
     """
     Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
@@ -151,6 +165,7 @@ class InfrastructureConfigurationInstanceMetadataOptionsHttpTokens(builtins.str,
     OPTIONAL = "optional"
 
 
+@pulumi.type_token("aws-native:imagebuilder:InfrastructureConfigurationPlacementTenancy")
 class InfrastructureConfigurationPlacementTenancy(builtins.str, Enum):
     """
     Tenancy
@@ -160,6 +175,7 @@ class InfrastructureConfigurationPlacementTenancy(builtins.str, Enum):
     HOST = "host"
 
 
+@pulumi.type_token("aws-native:imagebuilder:LifecyclePolicyActionType")
 class LifecyclePolicyActionType(builtins.str, Enum):
     """
     The action type of the policy detail.
@@ -169,6 +185,7 @@ class LifecyclePolicyActionType(builtins.str, Enum):
     DISABLE = "DISABLE"
 
 
+@pulumi.type_token("aws-native:imagebuilder:LifecyclePolicyFilterType")
 class LifecyclePolicyFilterType(builtins.str, Enum):
     """
     The filter type.
@@ -177,6 +194,7 @@ class LifecyclePolicyFilterType(builtins.str, Enum):
     COUNT = "COUNT"
 
 
+@pulumi.type_token("aws-native:imagebuilder:LifecyclePolicyResourceType")
 class LifecyclePolicyResourceType(builtins.str, Enum):
     """
     The resource type of the lifecycle policy.
@@ -185,6 +203,7 @@ class LifecyclePolicyResourceType(builtins.str, Enum):
     CONTAINER_IMAGE = "CONTAINER_IMAGE"
 
 
+@pulumi.type_token("aws-native:imagebuilder:LifecyclePolicyStatus")
 class LifecyclePolicyStatus(builtins.str, Enum):
     """
     The status of the lifecycle policy.
@@ -193,6 +212,7 @@ class LifecyclePolicyStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:imagebuilder:LifecyclePolicyTimeUnit")
 class LifecyclePolicyTimeUnit(builtins.str, Enum):
     """
     A time unit.
@@ -203,6 +223,7 @@ class LifecyclePolicyTimeUnit(builtins.str, Enum):
     YEARS = "YEARS"
 
 
+@pulumi.type_token("aws-native:imagebuilder:WorkflowType")
 class WorkflowType(builtins.str, Enum):
     """
     The type of the workflow denotes whether the workflow is used to build, test, or distribute.

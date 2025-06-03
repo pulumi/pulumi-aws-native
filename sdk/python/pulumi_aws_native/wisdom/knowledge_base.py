@@ -157,10 +157,8 @@ class KnowledgeBaseArgs:
         pulumi.set(self, "vector_ingestion_configuration", value)
 
 
+@pulumi.type_token("aws-native:wisdom:KnowledgeBase")
 class KnowledgeBase(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:wisdom:KnowledgeBase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

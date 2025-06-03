@@ -139,10 +139,8 @@ class PipelineArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:Pipeline")
 class Pipeline(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:Pipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

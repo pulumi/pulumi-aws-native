@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -118,6 +118,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:sagemaker:AppResourceSpecInstanceType")
 class AppResourceSpecInstanceType(builtins.str, Enum):
     """
     The instance type that the image version runs on.
@@ -187,6 +188,7 @@ class AppResourceSpecInstanceType(builtins.str, Enum):
     ML_TRN1N32XLARGE = "ml.trn1n.32xlarge"
 
 
+@pulumi.type_token("aws-native:sagemaker:AppType")
 class AppType(builtins.str, Enum):
     """
     The type of app.
@@ -198,6 +200,7 @@ class AppType(builtins.str, Enum):
     CANVAS = "Canvas"
 
 
+@pulumi.type_token("aws-native:sagemaker:ClusterDeepHealthCheckType")
 class ClusterDeepHealthCheckType(builtins.str, Enum):
     """
     The type of deep health check(s) to be performed on the instances in the SageMaker HyperPod cluster instance group.
@@ -206,6 +209,7 @@ class ClusterDeepHealthCheckType(builtins.str, Enum):
     INSTANCE_CONNECTIVITY = "InstanceConnectivity"
 
 
+@pulumi.type_token("aws-native:sagemaker:ClusterNodeRecovery")
 class ClusterNodeRecovery(builtins.str, Enum):
     """
     If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
@@ -214,6 +218,7 @@ class ClusterNodeRecovery(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("aws-native:sagemaker:ClusterStatus")
 class ClusterStatus(builtins.str, Enum):
     """
     The status of the HyperPod Cluster.
@@ -227,6 +232,7 @@ class ClusterStatus(builtins.str, Enum):
     UPDATING = "Updating"
 
 
+@pulumi.type_token("aws-native:sagemaker:DataQualityJobDefinitionBatchTransformInputS3DataDistributionType")
 class DataQualityJobDefinitionBatchTransformInputS3DataDistributionType(builtins.str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -235,6 +241,7 @@ class DataQualityJobDefinitionBatchTransformInputS3DataDistributionType(builtins
     SHARDED_BY_S3_KEY = "ShardedByS3Key"
 
 
+@pulumi.type_token("aws-native:sagemaker:DataQualityJobDefinitionBatchTransformInputS3InputMode")
 class DataQualityJobDefinitionBatchTransformInputS3InputMode(builtins.str, Enum):
     """
     Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
@@ -243,6 +250,7 @@ class DataQualityJobDefinitionBatchTransformInputS3InputMode(builtins.str, Enum)
     FILE = "File"
 
 
+@pulumi.type_token("aws-native:sagemaker:DataQualityJobDefinitionEndpointInputS3DataDistributionType")
 class DataQualityJobDefinitionEndpointInputS3DataDistributionType(builtins.str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -251,6 +259,7 @@ class DataQualityJobDefinitionEndpointInputS3DataDistributionType(builtins.str, 
     SHARDED_BY_S3_KEY = "ShardedByS3Key"
 
 
+@pulumi.type_token("aws-native:sagemaker:DataQualityJobDefinitionEndpointInputS3InputMode")
 class DataQualityJobDefinitionEndpointInputS3InputMode(builtins.str, Enum):
     """
     Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
@@ -259,6 +268,7 @@ class DataQualityJobDefinitionEndpointInputS3InputMode(builtins.str, Enum):
     FILE = "File"
 
 
+@pulumi.type_token("aws-native:sagemaker:DataQualityJobDefinitionS3OutputS3UploadMode")
 class DataQualityJobDefinitionS3OutputS3UploadMode(builtins.str, Enum):
     """
     Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -267,6 +277,7 @@ class DataQualityJobDefinitionS3OutputS3UploadMode(builtins.str, Enum):
     END_OF_JOB = "EndOfJob"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainAppInstanceType")
 class DomainAppInstanceType(builtins.str, Enum):
     """
     The instance type that the image version runs on.
@@ -434,6 +445,7 @@ class DomainAppInstanceType(builtins.str, Enum):
     ML_R6ID32XLARGE = "ml.r6id.32xlarge"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainAppNetworkAccessType")
 class DomainAppNetworkAccessType(builtins.str, Enum):
     """
     Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
@@ -442,6 +454,7 @@ class DomainAppNetworkAccessType(builtins.str, Enum):
     VPC_ONLY = "VpcOnly"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainAppSecurityGroupManagement")
 class DomainAppSecurityGroupManagement(builtins.str, Enum):
     """
     The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
@@ -450,6 +463,7 @@ class DomainAppSecurityGroupManagement(builtins.str, Enum):
     CUSTOMER = "Customer"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainAppType")
 class DomainAppType(builtins.str, Enum):
     JUPYTER_SERVER = "JupyterServer"
     TENSOR_BOARD = "TensorBoard"
@@ -460,6 +474,7 @@ class DomainAppType(builtins.str, Enum):
     CANVAS = "Canvas"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainAuthMode")
 class DomainAuthMode(builtins.str, Enum):
     """
     The mode of authentication that members use to access the domain.
@@ -468,6 +483,7 @@ class DomainAuthMode(builtins.str, Enum):
     IAM = "IAM"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainDockerSettingsEnableDockerAccess")
 class DomainDockerSettingsEnableDockerAccess(builtins.str, Enum):
     """
     The flag to enable/disable docker-proxy server
@@ -476,6 +492,7 @@ class DomainDockerSettingsEnableDockerAccess(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainHiddenSageMakerImageSageMakerImageName")
 class DomainHiddenSageMakerImageSageMakerImageName(builtins.str, Enum):
     """
     The SageMaker image name that you are hiding from the Studio user interface.
@@ -483,6 +500,7 @@ class DomainHiddenSageMakerImageSageMakerImageName(builtins.str, Enum):
     SAGEMAKER_DISTRIBUTION = "sagemaker_distribution"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainLifecycleManagement")
 class DomainLifecycleManagement(builtins.str, Enum):
     """
     A flag to enable/disable AppLifecycleManagement settings
@@ -491,6 +509,7 @@ class DomainLifecycleManagement(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainMlTools")
 class DomainMlTools(builtins.str, Enum):
     DATA_WRANGLER = "DataWrangler"
     FEATURE_STORE = "FeatureStore"
@@ -514,6 +533,7 @@ class DomainMlTools(builtins.str, Enum):
     PERFORMANCE_EVALUATION = "PerformanceEvaluation"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainRStudioServerProAppSettingsAccessStatus")
 class DomainRStudioServerProAppSettingsAccessStatus(builtins.str, Enum):
     """
     Indicates whether the current user has access to the RStudioServerPro app.
@@ -522,6 +542,7 @@ class DomainRStudioServerProAppSettingsAccessStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainRStudioServerProAppSettingsUserGroup")
 class DomainRStudioServerProAppSettingsUserGroup(builtins.str, Enum):
     """
     The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
@@ -530,6 +551,7 @@ class DomainRStudioServerProAppSettingsUserGroup(builtins.str, Enum):
     R_STUDIO_USER = "R_STUDIO_USER"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainResourceSpecInstanceType")
 class DomainResourceSpecInstanceType(builtins.str, Enum):
     """
     The instance type that the image version runs on.
@@ -599,6 +621,7 @@ class DomainResourceSpecInstanceType(builtins.str, Enum):
     ML_TRN1N32XLARGE = "ml.trn1n.32xlarge"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainSettingsExecutionRoleIdentityConfig")
 class DomainSettingsExecutionRoleIdentityConfig(builtins.str, Enum):
     """
     The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
@@ -607,6 +630,7 @@ class DomainSettingsExecutionRoleIdentityConfig(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainSharingSettingsNotebookOutputOption")
 class DomainSharingSettingsNotebookOutputOption(builtins.str, Enum):
     """
     Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
@@ -615,6 +639,7 @@ class DomainSharingSettingsNotebookOutputOption(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainTagPropagation")
 class DomainTagPropagation(builtins.str, Enum):
     """
     Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
@@ -623,6 +648,7 @@ class DomainTagPropagation(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainUserSettingsAutoMountHomeEfs")
 class DomainUserSettingsAutoMountHomeEfs(builtins.str, Enum):
     """
     Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
@@ -632,6 +658,7 @@ class DomainUserSettingsAutoMountHomeEfs(builtins.str, Enum):
     DEFAULT_AS_DOMAIN = "DefaultAsDomain"
 
 
+@pulumi.type_token("aws-native:sagemaker:DomainUserSettingsStudioWebPortal")
 class DomainUserSettingsStudioWebPortal(builtins.str, Enum):
     """
     Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
@@ -640,6 +667,7 @@ class DomainUserSettingsStudioWebPortal(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:sagemaker:FeatureGroupFeatureDefinitionFeatureType")
 class FeatureGroupFeatureDefinitionFeatureType(builtins.str, Enum):
     """
     The value type of a feature. Valid values are Integral, Fractional, or String.
@@ -649,11 +677,13 @@ class FeatureGroupFeatureDefinitionFeatureType(builtins.str, Enum):
     STRING = "String"
 
 
+@pulumi.type_token("aws-native:sagemaker:FeatureGroupStorageType")
 class FeatureGroupStorageType(builtins.str, Enum):
     STANDARD = "Standard"
     IN_MEMORY = "InMemory"
 
 
+@pulumi.type_token("aws-native:sagemaker:FeatureGroupTableFormat")
 class FeatureGroupTableFormat(builtins.str, Enum):
     """
     Format for the offline store feature group. Iceberg is the optimal format for feature groups shared between offline and online stores.
@@ -662,6 +692,7 @@ class FeatureGroupTableFormat(builtins.str, Enum):
     GLUE = "Glue"
 
 
+@pulumi.type_token("aws-native:sagemaker:FeatureGroupThroughputMode")
 class FeatureGroupThroughputMode(builtins.str, Enum):
     """
     Throughput mode configuration of the feature group
@@ -670,6 +701,7 @@ class FeatureGroupThroughputMode(builtins.str, Enum):
     PROVISIONED = "Provisioned"
 
 
+@pulumi.type_token("aws-native:sagemaker:FeatureGroupUnit")
 class FeatureGroupUnit(builtins.str, Enum):
     """
     Unit of ttl configuration
@@ -681,6 +713,7 @@ class FeatureGroupUnit(builtins.str, Enum):
     WEEKS = "Weeks"
 
 
+@pulumi.type_token("aws-native:sagemaker:ImageVersionJobType")
 class ImageVersionJobType(builtins.str, Enum):
     """
     Indicates SageMaker job type compatibility.
@@ -690,6 +723,7 @@ class ImageVersionJobType(builtins.str, Enum):
     NOTEBOOK_KERNEL = "NOTEBOOK_KERNEL"
 
 
+@pulumi.type_token("aws-native:sagemaker:ImageVersionProcessor")
 class ImageVersionProcessor(builtins.str, Enum):
     """
     Indicates CPU or GPU compatibility.
@@ -698,6 +732,7 @@ class ImageVersionProcessor(builtins.str, Enum):
     GPU = "GPU"
 
 
+@pulumi.type_token("aws-native:sagemaker:ImageVersionVendorGuidance")
 class ImageVersionVendorGuidance(builtins.str, Enum):
     """
     The availability of the image version specified by the maintainer.
@@ -708,11 +743,13 @@ class ImageVersionVendorGuidance(builtins.str, Enum):
     ARCHIVED = "ARCHIVED"
 
 
+@pulumi.type_token("aws-native:sagemaker:InferenceComponentCapacitySizeType")
 class InferenceComponentCapacitySizeType(builtins.str, Enum):
     COPY_COUNT = "COPY_COUNT"
     CAPACITY_PERCENT = "CAPACITY_PERCENT"
 
 
+@pulumi.type_token("aws-native:sagemaker:InferenceComponentStatus")
 class InferenceComponentStatus(builtins.str, Enum):
     IN_SERVICE = "InService"
     CREATING = "Creating"
@@ -721,6 +758,7 @@ class InferenceComponentStatus(builtins.str, Enum):
     DELETING = "Deleting"
 
 
+@pulumi.type_token("aws-native:sagemaker:InferenceExperimentDesiredState")
 class InferenceExperimentDesiredState(builtins.str, Enum):
     """
     The desired state of the experiment after starting or stopping operation.
@@ -730,6 +768,7 @@ class InferenceExperimentDesiredState(builtins.str, Enum):
     CANCELLED = "Cancelled"
 
 
+@pulumi.type_token("aws-native:sagemaker:InferenceExperimentEndpointMetadataEndpointStatus")
 class InferenceExperimentEndpointMetadataEndpointStatus(builtins.str, Enum):
     """
     The status of the endpoint. For possible values of the status of an endpoint.
@@ -744,6 +783,7 @@ class InferenceExperimentEndpointMetadataEndpointStatus(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("aws-native:sagemaker:InferenceExperimentModelInfrastructureConfigInfrastructureType")
 class InferenceExperimentModelInfrastructureConfigInfrastructureType(builtins.str, Enum):
     """
     The type of the inference experiment that you want to run.
@@ -751,6 +791,7 @@ class InferenceExperimentModelInfrastructureConfigInfrastructureType(builtins.st
     REAL_TIME_INFERENCE = "RealTimeInference"
 
 
+@pulumi.type_token("aws-native:sagemaker:InferenceExperimentStatus")
 class InferenceExperimentStatus(builtins.str, Enum):
     """
     The status of the inference experiment.
@@ -765,6 +806,7 @@ class InferenceExperimentStatus(builtins.str, Enum):
     CANCELLED = "Cancelled"
 
 
+@pulumi.type_token("aws-native:sagemaker:InferenceExperimentType")
 class InferenceExperimentType(builtins.str, Enum):
     """
     The type of the inference experiment that you want to run.
@@ -772,6 +814,7 @@ class InferenceExperimentType(builtins.str, Enum):
     SHADOW_MODE = "ShadowMode"
 
 
+@pulumi.type_token("aws-native:sagemaker:MlflowTrackingServerTrackingServerSize")
 class MlflowTrackingServerTrackingServerSize(builtins.str, Enum):
     """
     The size of the MLFlow Tracking Server.
@@ -781,6 +824,7 @@ class MlflowTrackingServerTrackingServerSize(builtins.str, Enum):
     LARGE = "Large"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType")
 class ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType(builtins.str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -789,6 +833,7 @@ class ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType(builtins.s
     SHARDED_BY_S3_KEY = "ShardedByS3Key"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelBiasJobDefinitionBatchTransformInputS3InputMode")
 class ModelBiasJobDefinitionBatchTransformInputS3InputMode(builtins.str, Enum):
     """
     Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
@@ -797,6 +842,7 @@ class ModelBiasJobDefinitionBatchTransformInputS3InputMode(builtins.str, Enum):
     FILE = "File"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelBiasJobDefinitionEndpointInputS3DataDistributionType")
 class ModelBiasJobDefinitionEndpointInputS3DataDistributionType(builtins.str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -805,6 +851,7 @@ class ModelBiasJobDefinitionEndpointInputS3DataDistributionType(builtins.str, En
     SHARDED_BY_S3_KEY = "ShardedByS3Key"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelBiasJobDefinitionEndpointInputS3InputMode")
 class ModelBiasJobDefinitionEndpointInputS3InputMode(builtins.str, Enum):
     """
     Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
@@ -813,6 +860,7 @@ class ModelBiasJobDefinitionEndpointInputS3InputMode(builtins.str, Enum):
     FILE = "File"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelBiasJobDefinitionS3OutputS3UploadMode")
 class ModelBiasJobDefinitionS3OutputS3UploadMode(builtins.str, Enum):
     """
     Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -821,18 +869,22 @@ class ModelBiasJobDefinitionS3OutputS3UploadMode(builtins.str, Enum):
     END_OF_JOB = "EndOfJob"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelCardBarChartMetricType")
 class ModelCardBarChartMetricType(builtins.str, Enum):
     BAR_CHART = "bar_chart"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelCardLinearGraphMetricType")
 class ModelCardLinearGraphMetricType(builtins.str, Enum):
     LINEAR_GRAPH = "linear_graph"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelCardMatrixMetricType")
 class ModelCardMatrixMetricType(builtins.str, Enum):
     MATRIX = "matrix"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelCardModelPackageDetailsModelApprovalStatus")
 class ModelCardModelPackageDetailsModelApprovalStatus(builtins.str, Enum):
     """
     Current approval status of model package
@@ -842,6 +894,7 @@ class ModelCardModelPackageDetailsModelApprovalStatus(builtins.str, Enum):
     PENDING_MANUAL_APPROVAL = "PendingManualApproval"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelCardModelPackageDetailsModelPackageStatus")
 class ModelCardModelPackageDetailsModelPackageStatus(builtins.str, Enum):
     """
     Current status of model package
@@ -853,11 +906,13 @@ class ModelCardModelPackageDetailsModelPackageStatus(builtins.str, Enum):
     DELETING = "Deleting"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelCardObjectiveFunctionFunctionPropertiesFunction")
 class ModelCardObjectiveFunctionFunctionPropertiesFunction(builtins.str, Enum):
     MAXIMIZE = "Maximize"
     MINIMIZE = "Minimize"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelCardProcessingStatus")
 class ModelCardProcessingStatus(builtins.str, Enum):
     """
     The processing status of model card deletion. The ModelCardProcessingStatus updates throughout the different deletion steps.
@@ -871,6 +926,7 @@ class ModelCardProcessingStatus(builtins.str, Enum):
     DELETE_FAILED = "DeleteFailed"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelCardRiskRating")
 class ModelCardRiskRating(builtins.str, Enum):
     """
     Risk rating of model.
@@ -881,12 +937,14 @@ class ModelCardRiskRating(builtins.str, Enum):
     UNKNOWN = "Unknown"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelCardSimpleMetricType")
 class ModelCardSimpleMetricType(builtins.str, Enum):
     NUMBER = "number"
     STRING = "string"
     BOOLEAN = "boolean"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelCardStatus")
 class ModelCardStatus(builtins.str, Enum):
     """
     The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
@@ -897,6 +955,7 @@ class ModelCardStatus(builtins.str, Enum):
     ARCHIVED = "Archived"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType")
 class ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType(builtins.str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -905,6 +964,7 @@ class ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType(
     SHARDED_BY_S3_KEY = "ShardedByS3Key"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode")
 class ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode(builtins.str, Enum):
     """
     Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
@@ -913,6 +973,7 @@ class ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode(builtins.st
     FILE = "File"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType")
 class ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType(builtins.str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -921,6 +982,7 @@ class ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType(builti
     SHARDED_BY_S3_KEY = "ShardedByS3Key"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelExplainabilityJobDefinitionEndpointInputS3InputMode")
 class ModelExplainabilityJobDefinitionEndpointInputS3InputMode(builtins.str, Enum):
     """
     Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
@@ -929,6 +991,7 @@ class ModelExplainabilityJobDefinitionEndpointInputS3InputMode(builtins.str, Enu
     FILE = "File"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelExplainabilityJobDefinitionS3OutputS3UploadMode")
 class ModelExplainabilityJobDefinitionS3OutputS3UploadMode(builtins.str, Enum):
     """
     Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -937,6 +1000,7 @@ class ModelExplainabilityJobDefinitionS3OutputS3UploadMode(builtins.str, Enum):
     END_OF_JOB = "EndOfJob"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageGroupStatus")
 class ModelPackageGroupStatus(builtins.str, Enum):
     """
     The status of a modelpackage group job.
@@ -949,6 +1013,7 @@ class ModelPackageGroupStatus(builtins.str, Enum):
     DELETE_FAILED = "DeleteFailed"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageModelApprovalStatus")
 class ModelPackageModelApprovalStatus(builtins.str, Enum):
     """
     The approval status of the model package.
@@ -958,6 +1023,7 @@ class ModelPackageModelApprovalStatus(builtins.str, Enum):
     PENDING_MANUAL_APPROVAL = "PendingManualApproval"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageModelCardModelCardStatus")
 class ModelPackageModelCardModelCardStatus(builtins.str, Enum):
     """
     The approval status of the model card within your organization.
@@ -968,6 +1034,7 @@ class ModelPackageModelCardModelCardStatus(builtins.str, Enum):
     ARCHIVED = "Archived"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageS3DataSourceS3DataType")
 class ModelPackageS3DataSourceS3DataType(builtins.str, Enum):
     """
     The S3 Data Source Type
@@ -977,6 +1044,7 @@ class ModelPackageS3DataSourceS3DataType(builtins.str, Enum):
     AUGMENTED_MANIFEST_FILE = "AugmentedManifestFile"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageS3ModelDataSourceCompressionType")
 class ModelPackageS3ModelDataSourceCompressionType(builtins.str, Enum):
     """
     Specifies how the ML model data is prepared.
@@ -985,6 +1053,7 @@ class ModelPackageS3ModelDataSourceCompressionType(builtins.str, Enum):
     GZIP = "Gzip"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageS3ModelDataSourceS3DataType")
 class ModelPackageS3ModelDataSourceS3DataType(builtins.str, Enum):
     """
     Specifies the type of ML model data to deploy.
@@ -993,6 +1062,7 @@ class ModelPackageS3ModelDataSourceS3DataType(builtins.str, Enum):
     S3_OBJECT = "S3Object"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageSkipModelValidation")
 class ModelPackageSkipModelValidation(builtins.str, Enum):
     """
     Indicates if you want to skip model validation.
@@ -1001,6 +1071,7 @@ class ModelPackageSkipModelValidation(builtins.str, Enum):
     ALL = "All"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageStatus")
 class ModelPackageStatus(builtins.str, Enum):
     """
     The current status of the model package.
@@ -1012,6 +1083,7 @@ class ModelPackageStatus(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageStatusItemStatus")
 class ModelPackageStatusItemStatus(builtins.str, Enum):
     """
     The current status.
@@ -1022,6 +1094,7 @@ class ModelPackageStatusItemStatus(builtins.str, Enum):
     COMPLETED = "Completed"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageTransformInputCompressionType")
 class ModelPackageTransformInputCompressionType(builtins.str, Enum):
     """
     If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
@@ -1030,6 +1103,7 @@ class ModelPackageTransformInputCompressionType(builtins.str, Enum):
     GZIP = "Gzip"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageTransformInputSplitType")
 class ModelPackageTransformInputSplitType(builtins.str, Enum):
     """
     The method to use to split the transform job's data files into smaller batches. 
@@ -1040,6 +1114,7 @@ class ModelPackageTransformInputSplitType(builtins.str, Enum):
     RECORD_IO = "RecordIO"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageTransformJobDefinitionBatchStrategy")
 class ModelPackageTransformJobDefinitionBatchStrategy(builtins.str, Enum):
     """
     A string that determines the number of records included in a single mini-batch.
@@ -1048,6 +1123,7 @@ class ModelPackageTransformJobDefinitionBatchStrategy(builtins.str, Enum):
     SINGLE_RECORD = "SingleRecord"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackageTransformOutputAssembleWith")
 class ModelPackageTransformOutputAssembleWith(builtins.str, Enum):
     """
     Defines how to assemble the results of the transform job as a single S3 object.
@@ -1056,6 +1132,7 @@ class ModelPackageTransformOutputAssembleWith(builtins.str, Enum):
     LINE = "Line"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType")
 class ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType(builtins.str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -1064,6 +1141,7 @@ class ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType(builtin
     SHARDED_BY_S3_KEY = "ShardedByS3Key"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelQualityJobDefinitionBatchTransformInputS3InputMode")
 class ModelQualityJobDefinitionBatchTransformInputS3InputMode(builtins.str, Enum):
     """
     Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
@@ -1072,6 +1150,7 @@ class ModelQualityJobDefinitionBatchTransformInputS3InputMode(builtins.str, Enum
     FILE = "File"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelQualityJobDefinitionEndpointInputS3DataDistributionType")
 class ModelQualityJobDefinitionEndpointInputS3DataDistributionType(builtins.str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -1080,6 +1159,7 @@ class ModelQualityJobDefinitionEndpointInputS3DataDistributionType(builtins.str,
     SHARDED_BY_S3_KEY = "ShardedByS3Key"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelQualityJobDefinitionEndpointInputS3InputMode")
 class ModelQualityJobDefinitionEndpointInputS3InputMode(builtins.str, Enum):
     """
     Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
@@ -1088,6 +1168,7 @@ class ModelQualityJobDefinitionEndpointInputS3InputMode(builtins.str, Enum):
     FILE = "File"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelQualityJobDefinitionProblemType")
 class ModelQualityJobDefinitionProblemType(builtins.str, Enum):
     """
     The status of the monitoring job.
@@ -1097,6 +1178,7 @@ class ModelQualityJobDefinitionProblemType(builtins.str, Enum):
     REGRESSION = "Regression"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelQualityJobDefinitionS3OutputS3UploadMode")
 class ModelQualityJobDefinitionS3OutputS3UploadMode(builtins.str, Enum):
     """
     Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -1105,6 +1187,7 @@ class ModelQualityJobDefinitionS3OutputS3UploadMode(builtins.str, Enum):
     END_OF_JOB = "EndOfJob"
 
 
+@pulumi.type_token("aws-native:sagemaker:MonitoringScheduleBatchTransformInputS3DataDistributionType")
 class MonitoringScheduleBatchTransformInputS3DataDistributionType(builtins.str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -1113,6 +1196,7 @@ class MonitoringScheduleBatchTransformInputS3DataDistributionType(builtins.str, 
     SHARDED_BY_S3_KEY = "ShardedByS3Key"
 
 
+@pulumi.type_token("aws-native:sagemaker:MonitoringScheduleBatchTransformInputS3InputMode")
 class MonitoringScheduleBatchTransformInputS3InputMode(builtins.str, Enum):
     """
     Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
@@ -1121,6 +1205,7 @@ class MonitoringScheduleBatchTransformInputS3InputMode(builtins.str, Enum):
     FILE = "File"
 
 
+@pulumi.type_token("aws-native:sagemaker:MonitoringScheduleEndpointInputS3DataDistributionType")
 class MonitoringScheduleEndpointInputS3DataDistributionType(builtins.str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -1129,6 +1214,7 @@ class MonitoringScheduleEndpointInputS3DataDistributionType(builtins.str, Enum):
     SHARDED_BY_S3_KEY = "ShardedByS3Key"
 
 
+@pulumi.type_token("aws-native:sagemaker:MonitoringScheduleEndpointInputS3InputMode")
 class MonitoringScheduleEndpointInputS3InputMode(builtins.str, Enum):
     """
     Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
@@ -1137,6 +1223,7 @@ class MonitoringScheduleEndpointInputS3InputMode(builtins.str, Enum):
     FILE = "File"
 
 
+@pulumi.type_token("aws-native:sagemaker:MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus")
 class MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus(builtins.str, Enum):
     """
     The status of the monitoring job.
@@ -1150,6 +1237,7 @@ class MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus(buil
     STOPPED = "Stopped"
 
 
+@pulumi.type_token("aws-native:sagemaker:MonitoringScheduleMonitoringType")
 class MonitoringScheduleMonitoringType(builtins.str, Enum):
     """
     The type of monitoring job.
@@ -1160,6 +1248,7 @@ class MonitoringScheduleMonitoringType(builtins.str, Enum):
     MODEL_EXPLAINABILITY = "ModelExplainability"
 
 
+@pulumi.type_token("aws-native:sagemaker:MonitoringScheduleS3OutputS3UploadMode")
 class MonitoringScheduleS3OutputS3UploadMode(builtins.str, Enum):
     """
     Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -1168,6 +1257,7 @@ class MonitoringScheduleS3OutputS3UploadMode(builtins.str, Enum):
     END_OF_JOB = "EndOfJob"
 
 
+@pulumi.type_token("aws-native:sagemaker:MonitoringScheduleStatus")
 class MonitoringScheduleStatus(builtins.str, Enum):
     """
     The status of a schedule job.
@@ -1178,6 +1268,7 @@ class MonitoringScheduleStatus(builtins.str, Enum):
     STOPPED = "Stopped"
 
 
+@pulumi.type_token("aws-native:sagemaker:PartnerAppAuthType")
 class PartnerAppAuthType(builtins.str, Enum):
     """
     The Auth type of PartnerApp.
@@ -1185,6 +1276,7 @@ class PartnerAppAuthType(builtins.str, Enum):
     IAM = "IAM"
 
 
+@pulumi.type_token("aws-native:sagemaker:PartnerAppType")
 class PartnerAppType(builtins.str, Enum):
     """
     The type of PartnerApp.
@@ -1195,6 +1287,7 @@ class PartnerAppType(builtins.str, Enum):
     FIDDLER = "fiddler"
 
 
+@pulumi.type_token("aws-native:sagemaker:ProjectStatus")
 class ProjectStatus(builtins.str, Enum):
     """
     The status of a project.
@@ -1208,6 +1301,7 @@ class ProjectStatus(builtins.str, Enum):
     DELETE_COMPLETED = "DeleteCompleted"
 
 
+@pulumi.type_token("aws-native:sagemaker:SpaceAppType")
 class SpaceAppType(builtins.str, Enum):
     JUPYTER_SERVER = "JupyterServer"
     KERNEL_GATEWAY = "KernelGateway"
@@ -1218,6 +1312,7 @@ class SpaceAppType(builtins.str, Enum):
     CODE_EDITOR = "CodeEditor"
 
 
+@pulumi.type_token("aws-native:sagemaker:SpaceResourceSpecInstanceType")
 class SpaceResourceSpecInstanceType(builtins.str, Enum):
     """
     The instance type that the image version runs on.
@@ -1287,6 +1382,7 @@ class SpaceResourceSpecInstanceType(builtins.str, Enum):
     ML_TRN1N32XLARGE = "ml.trn1n.32xlarge"
 
 
+@pulumi.type_token("aws-native:sagemaker:SpaceSharingSettingsSharingType")
 class SpaceSharingSettingsSharingType(builtins.str, Enum):
     """
     Specifies the sharing type of the space.
@@ -1295,6 +1391,7 @@ class SpaceSharingSettingsSharingType(builtins.str, Enum):
     SHARED = "Shared"
 
 
+@pulumi.type_token("aws-native:sagemaker:StudioLifecycleConfigAppType")
 class StudioLifecycleConfigAppType(builtins.str, Enum):
     """
     The App type that the Lifecycle Configuration is attached to.
@@ -1305,6 +1402,7 @@ class StudioLifecycleConfigAppType(builtins.str, Enum):
     JUPYTER_LAB = "JupyterLab"
 
 
+@pulumi.type_token("aws-native:sagemaker:UserProfileAppInstanceType")
 class UserProfileAppInstanceType(builtins.str, Enum):
     """
     The instance type that the image version runs on.
@@ -1472,6 +1570,7 @@ class UserProfileAppInstanceType(builtins.str, Enum):
     ML_R6ID32XLARGE = "ml.r6id.32xlarge"
 
 
+@pulumi.type_token("aws-native:sagemaker:UserProfileAppType")
 class UserProfileAppType(builtins.str, Enum):
     JUPYTER_SERVER = "JupyterServer"
     TENSOR_BOARD = "TensorBoard"
@@ -1482,6 +1581,7 @@ class UserProfileAppType(builtins.str, Enum):
     CANVAS = "Canvas"
 
 
+@pulumi.type_token("aws-native:sagemaker:UserProfileHiddenSageMakerImageSageMakerImageName")
 class UserProfileHiddenSageMakerImageSageMakerImageName(builtins.str, Enum):
     """
     The SageMaker image name that you are hiding from the Studio user interface.
@@ -1489,6 +1589,7 @@ class UserProfileHiddenSageMakerImageSageMakerImageName(builtins.str, Enum):
     SAGEMAKER_DISTRIBUTION = "sagemaker_distribution"
 
 
+@pulumi.type_token("aws-native:sagemaker:UserProfileLifecycleManagement")
 class UserProfileLifecycleManagement(builtins.str, Enum):
     """
     A flag to enable/disable AppLifecycleManagement settings
@@ -1497,6 +1598,7 @@ class UserProfileLifecycleManagement(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:sagemaker:UserProfileMlTools")
 class UserProfileMlTools(builtins.str, Enum):
     DATA_WRANGLER = "DataWrangler"
     FEATURE_STORE = "FeatureStore"
@@ -1520,6 +1622,7 @@ class UserProfileMlTools(builtins.str, Enum):
     PERFORMANCE_EVALUATION = "PerformanceEvaluation"
 
 
+@pulumi.type_token("aws-native:sagemaker:UserProfileRStudioServerProAppSettingsAccessStatus")
 class UserProfileRStudioServerProAppSettingsAccessStatus(builtins.str, Enum):
     """
     Indicates whether the current user has access to the RStudioServerPro app.
@@ -1528,6 +1631,7 @@ class UserProfileRStudioServerProAppSettingsAccessStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:sagemaker:UserProfileRStudioServerProAppSettingsUserGroup")
 class UserProfileRStudioServerProAppSettingsUserGroup(builtins.str, Enum):
     """
     The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
@@ -1536,6 +1640,7 @@ class UserProfileRStudioServerProAppSettingsUserGroup(builtins.str, Enum):
     R_STUDIO_USER = "R_STUDIO_USER"
 
 
+@pulumi.type_token("aws-native:sagemaker:UserProfileResourceSpecInstanceType")
 class UserProfileResourceSpecInstanceType(builtins.str, Enum):
     """
     The instance type that the image version runs on.
@@ -1605,6 +1710,7 @@ class UserProfileResourceSpecInstanceType(builtins.str, Enum):
     ML_TRN1N32XLARGE = "ml.trn1n.32xlarge"
 
 
+@pulumi.type_token("aws-native:sagemaker:UserProfileSharingSettingsNotebookOutputOption")
 class UserProfileSharingSettingsNotebookOutputOption(builtins.str, Enum):
     """
     Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
@@ -1613,6 +1719,7 @@ class UserProfileSharingSettingsNotebookOutputOption(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("aws-native:sagemaker:UserProfileUserSettingsAutoMountHomeEfs")
 class UserProfileUserSettingsAutoMountHomeEfs(builtins.str, Enum):
     """
     Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
@@ -1622,6 +1729,7 @@ class UserProfileUserSettingsAutoMountHomeEfs(builtins.str, Enum):
     DEFAULT_AS_DOMAIN = "DefaultAsDomain"
 
 
+@pulumi.type_token("aws-native:sagemaker:UserProfileUserSettingsStudioWebPortal")
 class UserProfileUserSettingsStudioWebPortal(builtins.str, Enum):
     """
     Indicates whether the Studio experience is available to users. If not, users cannot access Studio.

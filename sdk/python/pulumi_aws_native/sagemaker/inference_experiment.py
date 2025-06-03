@@ -238,10 +238,8 @@ class InferenceExperimentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:InferenceExperiment")
 class InferenceExperiment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:InferenceExperiment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

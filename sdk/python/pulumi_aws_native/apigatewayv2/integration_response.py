@@ -148,10 +148,8 @@ class IntegrationResponseArgs:
         pulumi.set(self, "template_selection_expression", value)
 
 
+@pulumi.type_token("aws-native:apigatewayv2:IntegrationResponse")
 class IntegrationResponse(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigatewayv2:IntegrationResponse"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

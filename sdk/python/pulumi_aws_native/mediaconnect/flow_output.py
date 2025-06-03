@@ -314,10 +314,8 @@ class FlowOutputArgs:
         pulumi.set(self, "vpc_interface_attachment", value)
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowOutput")
 class FlowOutput(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediaconnect:FlowOutput"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -311,10 +311,8 @@ class ClusterArgs:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
+@pulumi.type_token("aws-native:docdbelastic:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:docdbelastic:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

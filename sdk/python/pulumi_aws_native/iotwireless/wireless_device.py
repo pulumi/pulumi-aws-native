@@ -172,10 +172,8 @@ class WirelessDeviceArgs:
         pulumi.set(self, "thing_arn", value)
 
 
+@pulumi.type_token("aws-native:iotwireless:WirelessDevice")
 class WirelessDevice(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotwireless:WirelessDevice"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

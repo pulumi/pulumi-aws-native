@@ -61,10 +61,8 @@ class AliasArgs:
         pulumi.set(self, "key_arn", value)
 
 
+@pulumi.type_token("aws-native:paymentcryptography:Alias")
 class Alias(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:paymentcryptography:Alias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -154,10 +154,8 @@ class MatchingWorkflowArgs:
         pulumi.set(self, "workflow_name", value)
 
 
+@pulumi.type_token("aws-native:entityresolution:MatchingWorkflow")
 class MatchingWorkflow(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:entityresolution:MatchingWorkflow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

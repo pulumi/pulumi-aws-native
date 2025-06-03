@@ -87,10 +87,8 @@ class AwsLogSourceArgs:
         pulumi.set(self, "source_name", value)
 
 
+@pulumi.type_token("aws-native:securitylake:AwsLogSource")
 class AwsLogSource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:securitylake:AwsLogSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

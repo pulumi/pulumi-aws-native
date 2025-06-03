@@ -138,10 +138,8 @@ class DataSourceArgs:
         pulumi.set(self, "vector_ingestion_configuration", value)
 
 
+@pulumi.type_token("aws-native:bedrock:DataSource")
 class DataSource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:bedrock:DataSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -87,10 +87,8 @@ class VpcEndpointArgs:
         pulumi.set(self, "security_group_ids", value)
 
 
+@pulumi.type_token("aws-native:opensearchserverless:VpcEndpoint")
 class VpcEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:opensearchserverless:VpcEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

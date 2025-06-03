@@ -123,10 +123,8 @@ class RobotApplicationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:robomaker:RobotApplication")
 class RobotApplication(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:robomaker:RobotApplication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

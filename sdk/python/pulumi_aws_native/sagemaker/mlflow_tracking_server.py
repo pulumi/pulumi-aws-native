@@ -154,10 +154,8 @@ class MlflowTrackingServerArgs:
         pulumi.set(self, "weekly_maintenance_window_start", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:MlflowTrackingServer")
 class MlflowTrackingServer(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:MlflowTrackingServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

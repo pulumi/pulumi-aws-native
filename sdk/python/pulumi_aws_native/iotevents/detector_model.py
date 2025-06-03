@@ -144,10 +144,8 @@ class DetectorModelArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iotevents:DetectorModel")
 class DetectorModel(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotevents:DetectorModel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

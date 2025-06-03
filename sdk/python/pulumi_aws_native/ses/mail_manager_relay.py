@@ -106,10 +106,8 @@ class MailManagerRelayArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRelay")
 class MailManagerRelay(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ses:MailManagerRelay"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

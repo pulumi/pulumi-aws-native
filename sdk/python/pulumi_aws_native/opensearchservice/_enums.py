@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:opensearchservice:ApplicationAppConfigType")
 class ApplicationAppConfigType(builtins.str, Enum):
     """
     AppConfig type values.
@@ -22,6 +23,7 @@ class ApplicationAppConfigType(builtins.str, Enum):
     OPENSEARCH_DASHBOARDS_DASHBOARD_ADMIN_GROUPS = "opensearchDashboards.dashboardAdmin.groups"
 
 
+@pulumi.type_token("aws-native:opensearchservice:DomainNodeOptionNodeType")
 class DomainNodeOptionNodeType(builtins.str, Enum):
     """
     Defines the type of node, such as coordinating nodes.
@@ -29,6 +31,7 @@ class DomainNodeOptionNodeType(builtins.str, Enum):
     COORDINATOR = "coordinator"
 
 
+@pulumi.type_token("aws-native:opensearchservice:DomainRolesKeyIdcType")
 class DomainRolesKeyIdcType(builtins.str, Enum):
     """
     Roles Key Idc type values.
@@ -37,6 +40,7 @@ class DomainRolesKeyIdcType(builtins.str, Enum):
     GROUP_ID = "GroupId"
 
 
+@pulumi.type_token("aws-native:opensearchservice:DomainSubjectKeyIdcType")
 class DomainSubjectKeyIdcType(builtins.str, Enum):
     """
     Subject Key Idc type values.

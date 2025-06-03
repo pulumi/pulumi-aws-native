@@ -90,10 +90,8 @@ class WorkerConfigurationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:kafkaconnect:WorkerConfiguration")
 class WorkerConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:kafkaconnect:WorkerConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

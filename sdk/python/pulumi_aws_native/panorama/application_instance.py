@@ -156,10 +156,8 @@ class ApplicationInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:panorama:ApplicationInstance")
 class ApplicationInstance(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:panorama:ApplicationInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

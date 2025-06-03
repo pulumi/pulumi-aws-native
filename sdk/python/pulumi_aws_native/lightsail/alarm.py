@@ -196,10 +196,8 @@ class AlarmArgs:
         pulumi.set(self, "treat_missing_data", value)
 
 
+@pulumi.type_token("aws-native:lightsail:Alarm")
 class Alarm(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lightsail:Alarm"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

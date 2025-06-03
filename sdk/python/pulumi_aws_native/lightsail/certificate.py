@@ -90,10 +90,8 @@ class CertificateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:lightsail:Certificate")
 class Certificate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lightsail:Certificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

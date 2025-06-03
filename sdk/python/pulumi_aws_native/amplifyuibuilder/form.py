@@ -220,10 +220,8 @@ class FormArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:amplifyuibuilder:Form")
 class Form(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:amplifyuibuilder:Form"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

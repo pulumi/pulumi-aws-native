@@ -40,10 +40,8 @@ class EgressOnlyInternetGatewayArgs:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws-native:ec2:EgressOnlyInternetGateway")
 class EgressOnlyInternetGateway(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:EgressOnlyInternetGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

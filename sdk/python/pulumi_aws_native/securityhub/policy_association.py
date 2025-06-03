@@ -71,10 +71,8 @@ class PolicyAssociationArgs:
         pulumi.set(self, "target_type", value)
 
 
+@pulumi.type_token("aws-native:securityhub:PolicyAssociation")
 class PolicyAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:securityhub:PolicyAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -118,10 +118,8 @@ class ConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:msk:Configuration")
 class Configuration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:msk:Configuration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -247,10 +247,8 @@ class DocumentClassifierArgs:
         pulumi.set(self, "vpc_config", value)
 
 
+@pulumi.type_token("aws-native:comprehend:DocumentClassifier")
 class DocumentClassifier(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:comprehend:DocumentClassifier"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

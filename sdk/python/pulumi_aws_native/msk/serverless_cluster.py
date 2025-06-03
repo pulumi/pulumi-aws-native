@@ -89,10 +89,8 @@ class ServerlessClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:msk:ServerlessCluster")
 class ServerlessCluster(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:msk:ServerlessCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

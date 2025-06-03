@@ -171,10 +171,8 @@ class PipelineArgs:
         pulumi.set(self, "vpc_options", value)
 
 
+@pulumi.type_token("aws-native:osis:Pipeline")
 class Pipeline(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:osis:Pipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

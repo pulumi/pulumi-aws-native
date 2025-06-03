@@ -116,10 +116,8 @@ class AccountPolicyArgs:
         pulumi.set(self, "selection_criteria", value)
 
 
+@pulumi.type_token("aws-native:logs:AccountPolicy")
 class AccountPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:logs:AccountPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

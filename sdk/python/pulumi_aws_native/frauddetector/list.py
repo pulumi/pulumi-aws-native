@@ -107,10 +107,8 @@ class ListArgs:
         pulumi.set(self, "variable_type", value)
 
 
+@pulumi.type_token("aws-native:frauddetector:List")
 class List(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:frauddetector:List"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

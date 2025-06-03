@@ -232,10 +232,8 @@ class InstanceArgs:
         pulumi.set(self, "user_data", value)
 
 
+@pulumi.type_token("aws-native:lightsail:Instance")
 class Instance(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lightsail:Instance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

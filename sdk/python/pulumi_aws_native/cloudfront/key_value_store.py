@@ -75,10 +75,8 @@ class KeyValueStoreArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:cloudfront:KeyValueStore")
 class KeyValueStore(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudfront:KeyValueStore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

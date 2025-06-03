@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:fis:ExperimentTemplateExperimentOptionsAccountTargeting")
 class ExperimentTemplateExperimentOptionsAccountTargeting(builtins.str, Enum):
     """
     The account targeting setting for the experiment template.
@@ -20,6 +21,7 @@ class ExperimentTemplateExperimentOptionsAccountTargeting(builtins.str, Enum):
     SINGLE_ACCOUNT = "single-account"
 
 
+@pulumi.type_token("aws-native:fis:ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode")
 class ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode(builtins.str, Enum):
     """
     The target resolution failure mode for the experiment template.

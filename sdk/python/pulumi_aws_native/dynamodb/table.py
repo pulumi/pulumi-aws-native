@@ -385,10 +385,8 @@ class TableArgs:
         pulumi.set(self, "warm_throughput", value)
 
 
+@pulumi.type_token("aws-native:dynamodb:Table")
 class Table(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:dynamodb:Table"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,6 +17,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:eks:AccessEntryAccessScopeType")
 class AccessEntryAccessScopeType(builtins.str, Enum):
     """
     The type of the access scope.
@@ -25,6 +26,7 @@ class AccessEntryAccessScopeType(builtins.str, Enum):
     CLUSTER = "cluster"
 
 
+@pulumi.type_token("aws-native:eks:AddonResolveConflicts")
 class AddonResolveConflicts(builtins.str, Enum):
     """
     Resolve parameter value conflicts
@@ -34,6 +36,7 @@ class AddonResolveConflicts(builtins.str, Enum):
     PRESERVE = "PRESERVE"
 
 
+@pulumi.type_token("aws-native:eks:ClusterAccessConfigAuthenticationMode")
 class ClusterAccessConfigAuthenticationMode(builtins.str, Enum):
     """
     Specify the authentication mode that should be used to create your cluster.
@@ -43,6 +46,7 @@ class ClusterAccessConfigAuthenticationMode(builtins.str, Enum):
     API = "API"
 
 
+@pulumi.type_token("aws-native:eks:ClusterKubernetesNetworkConfigIpFamily")
 class ClusterKubernetesNetworkConfigIpFamily(builtins.str, Enum):
     """
     Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
@@ -51,6 +55,7 @@ class ClusterKubernetesNetworkConfigIpFamily(builtins.str, Enum):
     IPV6 = "ipv6"
 
 
+@pulumi.type_token("aws-native:eks:ClusterLoggingTypeConfigType")
 class ClusterLoggingTypeConfigType(builtins.str, Enum):
     """
     name of the log type
@@ -62,6 +67,7 @@ class ClusterLoggingTypeConfigType(builtins.str, Enum):
     SCHEDULER = "scheduler"
 
 
+@pulumi.type_token("aws-native:eks:ClusterUpgradePolicySupportType")
 class ClusterUpgradePolicySupportType(builtins.str, Enum):
     """
     Specify the support type for your cluster.
@@ -70,6 +76,7 @@ class ClusterUpgradePolicySupportType(builtins.str, Enum):
     EXTENDED = "EXTENDED"
 
 
+@pulumi.type_token("aws-native:eks:IdentityProviderConfigType")
 class IdentityProviderConfigType(builtins.str, Enum):
     """
     The type of the identity provider configuration.

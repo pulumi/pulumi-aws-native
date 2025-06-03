@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -24,6 +24,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:ssm:AssociationComplianceSeverity")
 class AssociationComplianceSeverity(builtins.str, Enum):
     """
     The severity level that is assigned to the association.
@@ -35,6 +36,7 @@ class AssociationComplianceSeverity(builtins.str, Enum):
     UNSPECIFIED = "UNSPECIFIED"
 
 
+@pulumi.type_token("aws-native:ssm:AssociationSyncCompliance")
 class AssociationSyncCompliance(builtins.str, Enum):
     """
     The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
@@ -47,6 +49,7 @@ class AssociationSyncCompliance(builtins.str, Enum):
     MANUAL = "MANUAL"
 
 
+@pulumi.type_token("aws-native:ssm:DocumentAttachmentsSourceKey")
 class DocumentAttachmentsSourceKey(builtins.str, Enum):
     """
     The key of a key-value pair that identifies the location of an attachment to a document.
@@ -56,6 +59,7 @@ class DocumentAttachmentsSourceKey(builtins.str, Enum):
     ATTACHMENT_REFERENCE = "AttachmentReference"
 
 
+@pulumi.type_token("aws-native:ssm:DocumentFormat")
 class DocumentFormat(builtins.str, Enum):
     """
     Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
@@ -65,6 +69,7 @@ class DocumentFormat(builtins.str, Enum):
     TEXT = "TEXT"
 
 
+@pulumi.type_token("aws-native:ssm:DocumentType")
 class DocumentType(builtins.str, Enum):
     """
     The type of document to create.
@@ -86,6 +91,7 @@ class DocumentType(builtins.str, Enum):
     SESSION = "Session"
 
 
+@pulumi.type_token("aws-native:ssm:DocumentUpdateMethod")
 class DocumentUpdateMethod(builtins.str, Enum):
     """
     Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
@@ -94,6 +100,7 @@ class DocumentUpdateMethod(builtins.str, Enum):
     NEW_VERSION = "NewVersion"
 
 
+@pulumi.type_token("aws-native:ssm:ParameterDataType")
 class ParameterDataType(builtins.str, Enum):
     """
     The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
@@ -102,6 +109,7 @@ class ParameterDataType(builtins.str, Enum):
     AWSEC2IMAGE = "aws:ec2:image"
 
 
+@pulumi.type_token("aws-native:ssm:ParameterTier")
 class ParameterTier(builtins.str, Enum):
     """
     The parameter tier.
@@ -111,6 +119,7 @@ class ParameterTier(builtins.str, Enum):
     INTELLIGENT_TIERING = "Intelligent-Tiering"
 
 
+@pulumi.type_token("aws-native:ssm:ParameterType")
 class ParameterType(builtins.str, Enum):
     """
     The type of parameter.
@@ -119,6 +128,7 @@ class ParameterType(builtins.str, Enum):
     STRING_LIST = "StringList"
 
 
+@pulumi.type_token("aws-native:ssm:PatchBaselineApprovedPatchesComplianceLevel")
 class PatchBaselineApprovedPatchesComplianceLevel(builtins.str, Enum):
     """
     Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
@@ -131,6 +141,7 @@ class PatchBaselineApprovedPatchesComplianceLevel(builtins.str, Enum):
     UNSPECIFIED = "UNSPECIFIED"
 
 
+@pulumi.type_token("aws-native:ssm:PatchBaselineOperatingSystem")
 class PatchBaselineOperatingSystem(builtins.str, Enum):
     """
     Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
@@ -152,6 +163,7 @@ class PatchBaselineOperatingSystem(builtins.str, Enum):
     ALMA_LINUX = "ALMA_LINUX"
 
 
+@pulumi.type_token("aws-native:ssm:PatchBaselinePatchFilterKey")
 class PatchBaselinePatchFilterKey(builtins.str, Enum):
     """
     The key for the filter.
@@ -179,6 +191,7 @@ class PatchBaselinePatchFilterKey(builtins.str, Enum):
     VERSION = "VERSION"
 
 
+@pulumi.type_token("aws-native:ssm:PatchBaselineRejectedPatchesAction")
 class PatchBaselineRejectedPatchesAction(builtins.str, Enum):
     """
     The action for Patch Manager to take on patches included in the RejectedPackages list.
@@ -187,6 +200,7 @@ class PatchBaselineRejectedPatchesAction(builtins.str, Enum):
     BLOCK = "BLOCK"
 
 
+@pulumi.type_token("aws-native:ssm:PatchBaselineRuleComplianceLevel")
 class PatchBaselineRuleComplianceLevel(builtins.str, Enum):
     """
     A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .

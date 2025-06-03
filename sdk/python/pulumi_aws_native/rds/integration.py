@@ -155,10 +155,8 @@ class IntegrationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:rds:Integration")
 class Integration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:rds:Integration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

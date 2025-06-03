@@ -106,10 +106,8 @@ class VersionArgs:
         pulumi.set(self, "runtime_policy", value)
 
 
+@pulumi.type_token("aws-native:lambda:Version")
 class Version(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lambda:Version"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

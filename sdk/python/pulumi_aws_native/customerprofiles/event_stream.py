@@ -91,10 +91,8 @@ class EventStreamArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:customerprofiles:EventStream")
 class EventStream(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:customerprofiles:EventStream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

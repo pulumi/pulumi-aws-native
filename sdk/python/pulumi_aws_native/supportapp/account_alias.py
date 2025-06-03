@@ -40,10 +40,8 @@ class AccountAliasArgs:
         pulumi.set(self, "account_alias", value)
 
 
+@pulumi.type_token("aws-native:supportapp:AccountAlias")
 class AccountAlias(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:supportapp:AccountAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

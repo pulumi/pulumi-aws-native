@@ -316,10 +316,8 @@ class GraphQlApiArgs:
         pulumi.set(self, "xray_enabled", value)
 
 
+@pulumi.type_token("aws-native:appsync:GraphQlApi")
 class GraphQlApi(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appsync:GraphQlApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

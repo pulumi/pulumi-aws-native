@@ -122,10 +122,8 @@ class ResourceGatewayArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:vpclattice:ResourceGateway")
 class ResourceGateway(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:vpclattice:ResourceGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

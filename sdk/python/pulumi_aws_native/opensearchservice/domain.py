@@ -374,10 +374,8 @@ class DomainArgs:
         pulumi.set(self, "vpc_options", value)
 
 
+@pulumi.type_token("aws-native:opensearchservice:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:opensearchservice:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

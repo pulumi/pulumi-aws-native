@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -25,6 +25,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:deadline:FleetAcceleratorSelectionName")
 class FleetAcceleratorSelectionName(builtins.str, Enum):
     T4 = "t4"
     A10G = "a10g"
@@ -32,36 +33,43 @@ class FleetAcceleratorSelectionName(builtins.str, Enum):
     L40S = "l40s"
 
 
+@pulumi.type_token("aws-native:deadline:FleetAcceleratorType")
 class FleetAcceleratorType(builtins.str, Enum):
     GPU = "gpu"
 
 
+@pulumi.type_token("aws-native:deadline:FleetAutoScalingMode")
 class FleetAutoScalingMode(builtins.str, Enum):
     NO_SCALING = "NO_SCALING"
     EVENT_BASED_AUTO_SCALING = "EVENT_BASED_AUTO_SCALING"
 
 
+@pulumi.type_token("aws-native:deadline:FleetCpuArchitectureType")
 class FleetCpuArchitectureType(builtins.str, Enum):
     X8664 = "x86_64"
     ARM64 = "arm64"
 
 
+@pulumi.type_token("aws-native:deadline:FleetCustomerManagedFleetOperatingSystemFamily")
 class FleetCustomerManagedFleetOperatingSystemFamily(builtins.str, Enum):
     WINDOWS = "WINDOWS"
     LINUX = "LINUX"
     MACOS = "MACOS"
 
 
+@pulumi.type_token("aws-native:deadline:FleetEc2MarketType")
 class FleetEc2MarketType(builtins.str, Enum):
     ON_DEMAND = "on-demand"
     SPOT = "spot"
 
 
+@pulumi.type_token("aws-native:deadline:FleetServiceManagedFleetOperatingSystemFamily")
 class FleetServiceManagedFleetOperatingSystemFamily(builtins.str, Enum):
     LINUX = "LINUX"
     WINDOWS = "WINDOWS"
 
 
+@pulumi.type_token("aws-native:deadline:FleetStatus")
 class FleetStatus(builtins.str, Enum):
     ACTIVE = "ACTIVE"
     CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
@@ -70,11 +78,13 @@ class FleetStatus(builtins.str, Enum):
     UPDATE_FAILED = "UPDATE_FAILED"
 
 
+@pulumi.type_token("aws-native:deadline:FleetTagPropagationMode")
 class FleetTagPropagationMode(builtins.str, Enum):
     NO_PROPAGATION = "NO_PROPAGATION"
     PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH = "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH"
 
 
+@pulumi.type_token("aws-native:deadline:LicenseEndpointStatus")
 class LicenseEndpointStatus(builtins.str, Enum):
     CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
     DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
@@ -82,27 +92,32 @@ class LicenseEndpointStatus(builtins.str, Enum):
     NOT_READY = "NOT_READY"
 
 
+@pulumi.type_token("aws-native:deadline:QueueDefaultQueueBudgetAction")
 class QueueDefaultQueueBudgetAction(builtins.str, Enum):
     NONE = "NONE"
     STOP_SCHEDULING_AND_COMPLETE_TASKS = "STOP_SCHEDULING_AND_COMPLETE_TASKS"
     STOP_SCHEDULING_AND_CANCEL_TASKS = "STOP_SCHEDULING_AND_CANCEL_TASKS"
 
 
+@pulumi.type_token("aws-native:deadline:QueueEnvironmentEnvironmentTemplateType")
 class QueueEnvironmentEnvironmentTemplateType(builtins.str, Enum):
     JSON = "JSON"
     YAML = "YAML"
 
 
+@pulumi.type_token("aws-native:deadline:QueueRunAs")
 class QueueRunAs(builtins.str, Enum):
     QUEUE_CONFIGURED_USER = "QUEUE_CONFIGURED_USER"
     WORKER_AGENT_USER = "WORKER_AGENT_USER"
 
 
+@pulumi.type_token("aws-native:deadline:StorageProfileFileSystemLocationType")
 class StorageProfileFileSystemLocationType(builtins.str, Enum):
     SHARED = "SHARED"
     LOCAL = "LOCAL"
 
 
+@pulumi.type_token("aws-native:deadline:StorageProfileOperatingSystemFamily")
 class StorageProfileOperatingSystemFamily(builtins.str, Enum):
     WINDOWS = "WINDOWS"
     LINUX = "LINUX"

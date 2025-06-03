@@ -175,10 +175,8 @@ class ListenerArgs:
         pulumi.set(self, "ssl_policy", value)
 
 
+@pulumi.type_token("aws-native:elasticloadbalancingv2:Listener")
 class Listener(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:elasticloadbalancingv2:Listener"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -92,10 +92,8 @@ class PackagingGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:mediapackage:PackagingGroup")
 class PackagingGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediapackage:PackagingGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

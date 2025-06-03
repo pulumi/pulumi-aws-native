@@ -55,10 +55,8 @@ class SubnetNetworkAclAssociationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+@pulumi.type_token("aws-native:ec2:SubnetNetworkAclAssociation")
 class SubnetNetworkAclAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:SubnetNetworkAclAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

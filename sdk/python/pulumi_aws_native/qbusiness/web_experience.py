@@ -213,10 +213,8 @@ class WebExperienceArgs:
         pulumi.set(self, "welcome_message", value)
 
 
+@pulumi.type_token("aws-native:qbusiness:WebExperience")
 class WebExperience(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:qbusiness:WebExperience"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

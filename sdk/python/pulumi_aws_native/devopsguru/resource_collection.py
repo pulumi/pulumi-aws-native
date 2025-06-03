@@ -43,10 +43,8 @@ class ResourceCollectionArgs:
         pulumi.set(self, "resource_collection_filter", value)
 
 
+@pulumi.type_token("aws-native:devopsguru:ResourceCollection")
 class ResourceCollection(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:devopsguru:ResourceCollection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -329,10 +329,8 @@ class LaunchConfigurationArgs:
         pulumi.set(self, "user_data", value)
 
 
+@pulumi.type_token("aws-native:autoscaling:LaunchConfiguration")
 class LaunchConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:autoscaling:LaunchConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

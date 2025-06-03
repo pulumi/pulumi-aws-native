@@ -107,10 +107,8 @@ class AutoScalingConfigurationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:apprunner:AutoScalingConfiguration")
 class AutoScalingConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apprunner:AutoScalingConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

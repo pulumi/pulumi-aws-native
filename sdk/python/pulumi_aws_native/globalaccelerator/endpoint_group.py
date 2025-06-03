@@ -186,10 +186,8 @@ class EndpointGroupArgs:
         pulumi.set(self, "traffic_dial_percentage", value)
 
 
+@pulumi.type_token("aws-native:globalaccelerator:EndpointGroup")
 class EndpointGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:globalaccelerator:EndpointGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

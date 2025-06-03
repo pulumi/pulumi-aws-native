@@ -171,10 +171,8 @@ class MessageTemplateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:wisdom:MessageTemplate")
 class MessageTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:wisdom:MessageTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:kafkaconnect:ConnectorKafkaClusterClientAuthenticationType")
 class ConnectorKafkaClusterClientAuthenticationType(builtins.str, Enum):
     """
     The type of client authentication used to connect to the Kafka cluster. Value NONE means that no client authentication is used.
@@ -21,6 +22,7 @@ class ConnectorKafkaClusterClientAuthenticationType(builtins.str, Enum):
     IAM = "IAM"
 
 
+@pulumi.type_token("aws-native:kafkaconnect:ConnectorKafkaClusterEncryptionInTransitType")
 class ConnectorKafkaClusterEncryptionInTransitType(builtins.str, Enum):
     """
     The type of encryption in transit to the Kafka cluster.
@@ -29,6 +31,7 @@ class ConnectorKafkaClusterEncryptionInTransitType(builtins.str, Enum):
     TLS = "TLS"
 
 
+@pulumi.type_token("aws-native:kafkaconnect:CustomPluginContentType")
 class CustomPluginContentType(builtins.str, Enum):
     """
     The type of the plugin file.

@@ -134,10 +134,8 @@ class SignalMapArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:medialive:SignalMap")
 class SignalMap(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:medialive:SignalMap"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

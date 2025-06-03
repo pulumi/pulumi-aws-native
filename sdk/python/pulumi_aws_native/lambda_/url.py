@@ -106,10 +106,8 @@ class UrlArgs:
         pulumi.set(self, "qualifier", value)
 
 
+@pulumi.type_token("aws-native:lambda:Url")
 class Url(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lambda:Url"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

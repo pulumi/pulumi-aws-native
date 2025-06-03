@@ -124,10 +124,8 @@ class VerifiedAccessGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:VerifiedAccessGroup")
 class VerifiedAccessGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:VerifiedAccessGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

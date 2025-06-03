@@ -115,10 +115,8 @@ class ViewArgs:
         pulumi.set(self, "view_name", value)
 
 
+@pulumi.type_token("aws-native:resourceexplorer2:View")
 class View(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:resourceexplorer2:View"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

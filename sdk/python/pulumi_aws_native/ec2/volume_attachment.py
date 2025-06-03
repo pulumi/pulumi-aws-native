@@ -71,10 +71,8 @@ class VolumeAttachmentArgs:
         pulumi.set(self, "device", value)
 
 
+@pulumi.type_token("aws-native:ec2:VolumeAttachment")
 class VolumeAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:VolumeAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

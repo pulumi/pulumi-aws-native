@@ -156,10 +156,8 @@ class FlywheelArgs:
         pulumi.set(self, "task_config", value)
 
 
+@pulumi.type_token("aws-native:comprehend:Flywheel")
 class Flywheel(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:comprehend:Flywheel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

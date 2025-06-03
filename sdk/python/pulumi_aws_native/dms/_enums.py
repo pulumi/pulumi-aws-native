@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:dms:DataMigrationType")
 class DataMigrationType(builtins.str, Enum):
     """
     The property describes the type of migration.
@@ -28,11 +29,13 @@ class DataMigrationType(builtins.str, Enum):
     FULL_LOAD_AND_CDC = "full-load-and-cdc"
 
 
+@pulumi.type_token("aws-native:dms:DataProviderDb2SslModeValue")
 class DataProviderDb2SslModeValue(builtins.str, Enum):
     NONE = "none"
     VERIFY_CA = "verify-ca"
 
 
+@pulumi.type_token("aws-native:dms:DataProviderDmsSslModeValue")
 class DataProviderDmsSslModeValue(builtins.str, Enum):
     NONE = "none"
     REQUIRE = "require"
@@ -40,6 +43,7 @@ class DataProviderDmsSslModeValue(builtins.str, Enum):
     VERIFY_FULL = "verify-full"
 
 
+@pulumi.type_token("aws-native:dms:DataProviderEngine")
 class DataProviderEngine(builtins.str, Enum):
     """
     The property describes a data engine for the data provider.
@@ -58,23 +62,27 @@ class DataProviderEngine(builtins.str, Enum):
     DB2_ZOS = "db2_zos"
 
 
+@pulumi.type_token("aws-native:dms:DataProviderMongoDbAuthMechanism")
 class DataProviderMongoDbAuthMechanism(builtins.str, Enum):
     DEFAULT = "default"
     MONGODB_CR = "mongodb_cr"
     SCRAM_SHA1 = "scram_sha_1"
 
 
+@pulumi.type_token("aws-native:dms:DataProviderMongoDbAuthType")
 class DataProviderMongoDbAuthType(builtins.str, Enum):
     NO = "no"
     PASSWORD = "password"
 
 
+@pulumi.type_token("aws-native:dms:DataProviderMongoDbSslModeValue")
 class DataProviderMongoDbSslModeValue(builtins.str, Enum):
     NONE = "none"
     REQUIRE = "require"
     VERIFY_FULL = "verify-full"
 
 
+@pulumi.type_token("aws-native:dms:InstanceProfileNetworkType")
 class InstanceProfileNetworkType(builtins.str, Enum):
     """
     The property describes a network type for the instance profile.
@@ -83,6 +91,7 @@ class InstanceProfileNetworkType(builtins.str, Enum):
     DUAL = "DUAL"
 
 
+@pulumi.type_token("aws-native:dms:ReplicationConfigReplicationType")
 class ReplicationConfigReplicationType(builtins.str, Enum):
     """
     The type of AWS DMS Serverless replication to provision using this replication configuration

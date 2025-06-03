@@ -105,10 +105,8 @@ class RepositoryLinkArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:codestarconnections:RepositoryLink")
 class RepositoryLink(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:codestarconnections:RepositoryLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

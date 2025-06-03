@@ -93,10 +93,8 @@ class CustomPermissionsArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:quicksight:CustomPermissions")
 class CustomPermissions(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:quicksight:CustomPermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

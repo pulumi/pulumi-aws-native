@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,15 +13,18 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:proton:EnvironmentAccountConnectionStatus")
 class EnvironmentAccountConnectionStatus(builtins.str, Enum):
     PENDING = "PENDING"
     CONNECTED = "CONNECTED"
     REJECTED = "REJECTED"
 
 
+@pulumi.type_token("aws-native:proton:EnvironmentTemplateProvisioning")
 class EnvironmentTemplateProvisioning(builtins.str, Enum):
     CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
 
 
+@pulumi.type_token("aws-native:proton:ServiceTemplateProvisioning")
 class ServiceTemplateProvisioning(builtins.str, Enum):
     CUSTOMER_MANAGED = "CUSTOMER_MANAGED"

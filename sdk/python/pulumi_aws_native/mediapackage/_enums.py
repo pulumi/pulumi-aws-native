@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -39,6 +39,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointAdsOnDeliveryRestrictions")
 class OriginEndpointAdsOnDeliveryRestrictions(builtins.str, Enum):
     """
     This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to determine whether a message signals an ad.  Choosing "NONE" means no SCTE-35 messages become ads.  Choosing "RESTRICTED" means SCTE-35 messages of the types specified in AdTriggers that contain delivery restrictions will be treated as ads.  Choosing "UNRESTRICTED" means SCTE-35 messages of the types specified in AdTriggers that do not contain delivery restrictions will be treated as ads.  Choosing "BOTH" means all SCTE-35 messages of the types specified in AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags and are always treated as ads if specified in AdTriggers.
@@ -49,6 +50,7 @@ class OriginEndpointAdsOnDeliveryRestrictions(builtins.str, Enum):
     BOTH = "BOTH"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointCmafEncryptionEncryptionMethod")
 class OriginEndpointCmafEncryptionEncryptionMethod(builtins.str, Enum):
     """
     The encryption method used
@@ -57,6 +59,7 @@ class OriginEndpointCmafEncryptionEncryptionMethod(builtins.str, Enum):
     AES_CTR = "AES_CTR"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointDashPackageAdTriggersItem")
 class OriginEndpointDashPackageAdTriggersItem(builtins.str, Enum):
     SPLICE_INSERT = "SPLICE_INSERT"
     BREAK_ = "BREAK"
@@ -68,6 +71,7 @@ class OriginEndpointDashPackageAdTriggersItem(builtins.str, Enum):
     DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointDashPackageManifestLayout")
 class OriginEndpointDashPackageManifestLayout(builtins.str, Enum):
     """
     Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
@@ -77,10 +81,12 @@ class OriginEndpointDashPackageManifestLayout(builtins.str, Enum):
     DRM_TOP_LEVEL_COMPACT = "DRM_TOP_LEVEL_COMPACT"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointDashPackagePeriodTriggersItem")
 class OriginEndpointDashPackagePeriodTriggersItem(builtins.str, Enum):
     ADS = "ADS"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointDashPackageProfile")
 class OriginEndpointDashPackageProfile(builtins.str, Enum):
     """
     The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
@@ -91,6 +97,7 @@ class OriginEndpointDashPackageProfile(builtins.str, Enum):
     DVB_DASH2014 = "DVB_DASH_2014"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointDashPackageSegmentTemplateFormat")
 class OriginEndpointDashPackageSegmentTemplateFormat(builtins.str, Enum):
     """
     Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
@@ -100,6 +107,7 @@ class OriginEndpointDashPackageSegmentTemplateFormat(builtins.str, Enum):
     NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointDashPackageUtcTiming")
 class OriginEndpointDashPackageUtcTiming(builtins.str, Enum):
     """
     Determines the type of UTCTiming included in the Media Presentation Description (MPD)
@@ -110,6 +118,7 @@ class OriginEndpointDashPackageUtcTiming(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio")
 class OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio(builtins.str, Enum):
     """
     A collection of audio encryption presets.
@@ -121,6 +130,7 @@ class OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio(builtins.s
     UNENCRYPTED = "UNENCRYPTED"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointEncryptionContractConfigurationPresetSpeke20Video")
 class OriginEndpointEncryptionContractConfigurationPresetSpeke20Video(builtins.str, Enum):
     """
     A collection of video encryption presets.
@@ -137,6 +147,7 @@ class OriginEndpointEncryptionContractConfigurationPresetSpeke20Video(builtins.s
     UNENCRYPTED = "UNENCRYPTED"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointHlsEncryptionEncryptionMethod")
 class OriginEndpointHlsEncryptionEncryptionMethod(builtins.str, Enum):
     """
     The encryption method to use.
@@ -145,6 +156,7 @@ class OriginEndpointHlsEncryptionEncryptionMethod(builtins.str, Enum):
     SAMPLE_AES = "SAMPLE_AES"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointHlsManifestAdMarkers")
 class OriginEndpointHlsManifestAdMarkers(builtins.str, Enum):
     """
     This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
@@ -155,6 +167,7 @@ class OriginEndpointHlsManifestAdMarkers(builtins.str, Enum):
     DATERANGE = "DATERANGE"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointHlsManifestAdTriggersItem")
 class OriginEndpointHlsManifestAdTriggersItem(builtins.str, Enum):
     SPLICE_INSERT = "SPLICE_INSERT"
     BREAK_ = "BREAK"
@@ -166,6 +179,7 @@ class OriginEndpointHlsManifestAdTriggersItem(builtins.str, Enum):
     DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointHlsManifestPlaylistType")
 class OriginEndpointHlsManifestPlaylistType(builtins.str, Enum):
     """
     The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
@@ -175,6 +189,7 @@ class OriginEndpointHlsManifestPlaylistType(builtins.str, Enum):
     VOD = "VOD"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointHlsPackageAdMarkers")
 class OriginEndpointHlsPackageAdMarkers(builtins.str, Enum):
     """
     This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
@@ -185,6 +200,7 @@ class OriginEndpointHlsPackageAdMarkers(builtins.str, Enum):
     DATERANGE = "DATERANGE"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointHlsPackageAdTriggersItem")
 class OriginEndpointHlsPackageAdTriggersItem(builtins.str, Enum):
     SPLICE_INSERT = "SPLICE_INSERT"
     BREAK_ = "BREAK"
@@ -196,6 +212,7 @@ class OriginEndpointHlsPackageAdTriggersItem(builtins.str, Enum):
     DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointHlsPackagePlaylistType")
 class OriginEndpointHlsPackagePlaylistType(builtins.str, Enum):
     """
     The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
@@ -205,6 +222,7 @@ class OriginEndpointHlsPackagePlaylistType(builtins.str, Enum):
     VOD = "VOD"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointOrigination")
 class OriginEndpointOrigination(builtins.str, Enum):
     """
     Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
@@ -213,6 +231,7 @@ class OriginEndpointOrigination(builtins.str, Enum):
     DENY = "DENY"
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpointStreamSelectionStreamOrder")
 class OriginEndpointStreamSelectionStreamOrder(builtins.str, Enum):
     """
     A directive that determines the order of streams in the output.
@@ -222,6 +241,7 @@ class OriginEndpointStreamSelectionStreamOrder(builtins.str, Enum):
     VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING"
 
 
+@pulumi.type_token("aws-native:mediapackage:PackagingConfigurationDashManifestManifestLayout")
 class PackagingConfigurationDashManifestManifestLayout(builtins.str, Enum):
     """
     Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
@@ -230,6 +250,7 @@ class PackagingConfigurationDashManifestManifestLayout(builtins.str, Enum):
     COMPACT = "COMPACT"
 
 
+@pulumi.type_token("aws-native:mediapackage:PackagingConfigurationDashManifestProfile")
 class PackagingConfigurationDashManifestProfile(builtins.str, Enum):
     """
     The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
@@ -238,6 +259,7 @@ class PackagingConfigurationDashManifestProfile(builtins.str, Enum):
     HBBTV15 = "HBBTV_1_5"
 
 
+@pulumi.type_token("aws-native:mediapackage:PackagingConfigurationDashManifestScteMarkersSource")
 class PackagingConfigurationDashManifestScteMarkersSource(builtins.str, Enum):
     """
     The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
@@ -246,10 +268,12 @@ class PackagingConfigurationDashManifestScteMarkersSource(builtins.str, Enum):
     MANIFEST = "MANIFEST"
 
 
+@pulumi.type_token("aws-native:mediapackage:PackagingConfigurationDashPackagePeriodTriggersItem")
 class PackagingConfigurationDashPackagePeriodTriggersItem(builtins.str, Enum):
     ADS = "ADS"
 
 
+@pulumi.type_token("aws-native:mediapackage:PackagingConfigurationDashPackageSegmentTemplateFormat")
 class PackagingConfigurationDashPackageSegmentTemplateFormat(builtins.str, Enum):
     """
     Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
@@ -259,6 +283,7 @@ class PackagingConfigurationDashPackageSegmentTemplateFormat(builtins.str, Enum)
     NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION"
 
 
+@pulumi.type_token("aws-native:mediapackage:PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio")
 class PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio(builtins.str, Enum):
     """
     A collection of audio encryption presets.
@@ -270,6 +295,7 @@ class PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio(bu
     UNENCRYPTED = "UNENCRYPTED"
 
 
+@pulumi.type_token("aws-native:mediapackage:PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video")
 class PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video(builtins.str, Enum):
     """
     A collection of video encryption presets.
@@ -286,6 +312,7 @@ class PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video(bu
     UNENCRYPTED = "UNENCRYPTED"
 
 
+@pulumi.type_token("aws-native:mediapackage:PackagingConfigurationHlsEncryptionEncryptionMethod")
 class PackagingConfigurationHlsEncryptionEncryptionMethod(builtins.str, Enum):
     """
     The encryption method to use.
@@ -294,6 +321,7 @@ class PackagingConfigurationHlsEncryptionEncryptionMethod(builtins.str, Enum):
     SAMPLE_AES = "SAMPLE_AES"
 
 
+@pulumi.type_token("aws-native:mediapackage:PackagingConfigurationHlsManifestAdMarkers")
 class PackagingConfigurationHlsManifestAdMarkers(builtins.str, Enum):
     """
     This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
@@ -303,6 +331,7 @@ class PackagingConfigurationHlsManifestAdMarkers(builtins.str, Enum):
     PASSTHROUGH = "PASSTHROUGH"
 
 
+@pulumi.type_token("aws-native:mediapackage:PackagingConfigurationStreamSelectionStreamOrder")
 class PackagingConfigurationStreamSelectionStreamOrder(builtins.str, Enum):
     """
     A directive that determines the order of streams in the output.

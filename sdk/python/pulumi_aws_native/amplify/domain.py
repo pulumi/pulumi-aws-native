@@ -138,10 +138,8 @@ class DomainArgs:
         pulumi.set(self, "enable_auto_sub_domain", value)
 
 
+@pulumi.type_token("aws-native:amplify:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:amplify:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

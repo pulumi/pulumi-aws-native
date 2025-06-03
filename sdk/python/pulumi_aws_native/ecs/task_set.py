@@ -239,10 +239,8 @@ class TaskSetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ecs:TaskSet")
 class TaskSet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ecs:TaskSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

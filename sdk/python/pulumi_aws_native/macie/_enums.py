@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:macie:AllowListStatus")
 class AllowListStatus(builtins.str, Enum):
     """
     The status for the AllowList
@@ -29,11 +30,13 @@ class AllowListStatus(builtins.str, Enum):
     UNKNOWN_ERROR = "UNKNOWN_ERROR"
 
 
+@pulumi.type_token("aws-native:macie:FindingsFilterFindingFilterAction")
 class FindingsFilterFindingFilterAction(builtins.str, Enum):
     ARCHIVE = "ARCHIVE"
     NOOP = "NOOP"
 
 
+@pulumi.type_token("aws-native:macie:SessionAutomatedDiscoveryStatus")
 class SessionAutomatedDiscoveryStatus(builtins.str, Enum):
     """
     The status of automated sensitive data discovery for the Macie session.
@@ -42,6 +45,7 @@ class SessionAutomatedDiscoveryStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:macie:SessionFindingPublishingFrequency")
 class SessionFindingPublishingFrequency(builtins.str, Enum):
     """
     A enumeration value that specifies how frequently finding updates are published.
@@ -51,6 +55,7 @@ class SessionFindingPublishingFrequency(builtins.str, Enum):
     SIX_HOURS = "SIX_HOURS"
 
 
+@pulumi.type_token("aws-native:macie:SessionStatus")
 class SessionStatus(builtins.str, Enum):
     """
     A enumeration value that specifies the status of the Macie Session.

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,6 +17,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:grafana:WorkspaceAccountAccessType")
 class WorkspaceAccountAccessType(builtins.str, Enum):
     """
     These enums represent valid account access types. Specifically these enums determine whether the workspace can access AWS resources in the AWS account only, or whether it can also access resources in other accounts in the same organization. If the value CURRENT_ACCOUNT is used, a workspace role ARN must be provided. If the value is ORGANIZATION, a list of organizational units must be provided.
@@ -25,6 +26,7 @@ class WorkspaceAccountAccessType(builtins.str, Enum):
     ORGANIZATION = "ORGANIZATION"
 
 
+@pulumi.type_token("aws-native:grafana:WorkspaceAuthenticationProviderTypes")
 class WorkspaceAuthenticationProviderTypes(builtins.str, Enum):
     """
     Valid workspace authentication providers.
@@ -33,6 +35,7 @@ class WorkspaceAuthenticationProviderTypes(builtins.str, Enum):
     SAML = "SAML"
 
 
+@pulumi.type_token("aws-native:grafana:WorkspaceDataSourceType")
 class WorkspaceDataSourceType(builtins.str, Enum):
     """
     These enums represent valid AWS data sources that can be queried via the Grafana workspace. These data sources are primarily used to help customers visualize which data sources have been added to a service managed workspace IAM role.
@@ -47,6 +50,7 @@ class WorkspaceDataSourceType(builtins.str, Enum):
     REDSHIFT = "REDSHIFT"
 
 
+@pulumi.type_token("aws-native:grafana:WorkspaceNotificationDestinationType")
 class WorkspaceNotificationDestinationType(builtins.str, Enum):
     """
     These enums represent valid AWS notification destinations that the Grafana workspace has permission to use. These notification destinations are primarily used to help customers visualize which destinations have been added to a service managed IAM role.
@@ -54,6 +58,7 @@ class WorkspaceNotificationDestinationType(builtins.str, Enum):
     SNS = "SNS"
 
 
+@pulumi.type_token("aws-native:grafana:WorkspacePermissionType")
 class WorkspacePermissionType(builtins.str, Enum):
     """
     These enums represent valid permission types to use when creating or configuring a Grafana workspace. The SERVICE_MANAGED permission type means the Managed Grafana service will create a workspace IAM role on your behalf. The CUSTOMER_MANAGED permission type means that the customer is expected to provide an IAM role that the Grafana workspace can use to query data sources.
@@ -62,6 +67,7 @@ class WorkspacePermissionType(builtins.str, Enum):
     SERVICE_MANAGED = "SERVICE_MANAGED"
 
 
+@pulumi.type_token("aws-native:grafana:WorkspaceSamlConfigurationStatus")
 class WorkspaceSamlConfigurationStatus(builtins.str, Enum):
     """
     Valid SAML configuration statuses.
@@ -70,6 +76,7 @@ class WorkspaceSamlConfigurationStatus(builtins.str, Enum):
     NOT_CONFIGURED = "NOT_CONFIGURED"
 
 
+@pulumi.type_token("aws-native:grafana:WorkspaceStatus")
 class WorkspaceStatus(builtins.str, Enum):
     """
     These enums represent the status of a workspace.

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -31,6 +31,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:securityhub:AutomationRuleDateRangeUnit")
 class AutomationRuleDateRangeUnit(builtins.str, Enum):
     """
     A date range unit for the date filter.
@@ -38,6 +39,7 @@ class AutomationRuleDateRangeUnit(builtins.str, Enum):
     DAYS = "DAYS"
 
 
+@pulumi.type_token("aws-native:securityhub:AutomationRuleMapFilterComparison")
 class AutomationRuleMapFilterComparison(builtins.str, Enum):
     """
     The condition to apply to the key value when filtering Security Hub findings with a map filter.
@@ -61,6 +63,7 @@ class AutomationRuleMapFilterComparison(builtins.str, Enum):
     NOT_CONTAINS = "NOT_CONTAINS"
 
 
+@pulumi.type_token("aws-native:securityhub:AutomationRuleRuleStatus")
 class AutomationRuleRuleStatus(builtins.str, Enum):
     """
     Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
@@ -69,6 +72,7 @@ class AutomationRuleRuleStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:securityhub:AutomationRuleSeverityUpdateLabel")
 class AutomationRuleSeverityUpdateLabel(builtins.str, Enum):
     """
     The severity value of the finding. The allowed values are the following.
@@ -85,6 +89,7 @@ class AutomationRuleSeverityUpdateLabel(builtins.str, Enum):
     CRITICAL = "CRITICAL"
 
 
+@pulumi.type_token("aws-native:securityhub:AutomationRuleStringFilterComparison")
 class AutomationRuleStringFilterComparison(builtins.str, Enum):
     """
     The condition to apply to a string value when filtering Security Hub findings.
@@ -97,6 +102,7 @@ class AutomationRuleStringFilterComparison(builtins.str, Enum):
     NOT_CONTAINS = "NOT_CONTAINS"
 
 
+@pulumi.type_token("aws-native:securityhub:AutomationRuleWorkflowUpdateStatus")
 class AutomationRuleWorkflowUpdateStatus(builtins.str, Enum):
     """
     The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
@@ -116,6 +122,7 @@ class AutomationRuleWorkflowUpdateStatus(builtins.str, Enum):
     SUPPRESSED = "SUPPRESSED"
 
 
+@pulumi.type_token("aws-native:securityhub:AutomationRulesActionType")
 class AutomationRulesActionType(builtins.str, Enum):
     """
     Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
@@ -123,6 +130,7 @@ class AutomationRulesActionType(builtins.str, Enum):
     FINDING_FIELDS_UPDATE = "FINDING_FIELDS_UPDATE"
 
 
+@pulumi.type_token("aws-native:securityhub:AutomationRulesFindingFieldsUpdateVerificationState")
 class AutomationRulesFindingFieldsUpdateVerificationState(builtins.str, Enum):
     """
     The rule action updates the ``VerificationState`` field of a finding.
@@ -133,6 +141,7 @@ class AutomationRulesFindingFieldsUpdateVerificationState(builtins.str, Enum):
     BENIGN_POSITIVE = "BENIGN_POSITIVE"
 
 
+@pulumi.type_token("aws-native:securityhub:ConfigurationPolicyParameterConfigurationValueType")
 class ConfigurationPolicyParameterConfigurationValueType(builtins.str, Enum):
     """
     Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
@@ -141,6 +150,7 @@ class ConfigurationPolicyParameterConfigurationValueType(builtins.str, Enum):
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:securityhub:DelegatedAdminStatus")
 class DelegatedAdminStatus(builtins.str, Enum):
     """
     Whether the delegated Security Hub administrator is set for the organization.
@@ -149,6 +159,7 @@ class DelegatedAdminStatus(builtins.str, Enum):
     DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS"
 
 
+@pulumi.type_token("aws-native:securityhub:FindingAggregatorRegionLinkingMode")
 class FindingAggregatorRegionLinkingMode(builtins.str, Enum):
     """
     Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
@@ -163,6 +174,7 @@ class FindingAggregatorRegionLinkingMode(builtins.str, Enum):
     SPECIFIED_REGIONS = "SPECIFIED_REGIONS"
 
 
+@pulumi.type_token("aws-native:securityhub:InsightDateRangeUnit")
 class InsightDateRangeUnit(builtins.str, Enum):
     """
     A date range unit for the date filter.
@@ -170,6 +182,7 @@ class InsightDateRangeUnit(builtins.str, Enum):
     DAYS = "DAYS"
 
 
+@pulumi.type_token("aws-native:securityhub:InsightMapFilterComparison")
 class InsightMapFilterComparison(builtins.str, Enum):
     """
     The condition to apply to the key value when filtering Security Hub findings with a map filter.
@@ -178,6 +191,7 @@ class InsightMapFilterComparison(builtins.str, Enum):
     NOT_EQUALS = "NOT_EQUALS"
 
 
+@pulumi.type_token("aws-native:securityhub:InsightStringFilterComparison")
 class InsightStringFilterComparison(builtins.str, Enum):
     """
     The condition to apply to a string value when filtering Security Hub findings.
@@ -188,6 +202,7 @@ class InsightStringFilterComparison(builtins.str, Enum):
     PREFIX_NOT_EQUALS = "PREFIX_NOT_EQUALS"
 
 
+@pulumi.type_token("aws-native:securityhub:OrganizationConfigurationAutoEnableStandards")
 class OrganizationConfigurationAutoEnableStandards(builtins.str, Enum):
     """
     Whether to automatically enable Security Hub default standards in new member accounts when they join the organization.
@@ -196,6 +211,7 @@ class OrganizationConfigurationAutoEnableStandards(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:securityhub:OrganizationConfigurationConfigurationType")
 class OrganizationConfigurationConfigurationType(builtins.str, Enum):
     """
     Indicates whether the organization uses local or central configuration.
@@ -204,6 +220,7 @@ class OrganizationConfigurationConfigurationType(builtins.str, Enum):
     LOCAL = "LOCAL"
 
 
+@pulumi.type_token("aws-native:securityhub:OrganizationConfigurationStatus")
 class OrganizationConfigurationStatus(builtins.str, Enum):
     """
     Describes whether central configuration could be enabled as the ConfigurationType for the organization.
@@ -213,6 +230,7 @@ class OrganizationConfigurationStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:securityhub:PolicyAssociationAssociationStatus")
 class PolicyAssociationAssociationStatus(builtins.str, Enum):
     """
     The current status of the association between the specified target and the configuration
@@ -222,6 +240,7 @@ class PolicyAssociationAssociationStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:securityhub:PolicyAssociationAssociationType")
 class PolicyAssociationAssociationType(builtins.str, Enum):
     """
     Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub delegated administrator or inherited from a parent
@@ -230,6 +249,7 @@ class PolicyAssociationAssociationType(builtins.str, Enum):
     INHERITED = "INHERITED"
 
 
+@pulumi.type_token("aws-native:securityhub:PolicyAssociationTargetType")
 class PolicyAssociationTargetType(builtins.str, Enum):
     """
     Indicates whether the target is an AWS account, organizational unit, or the organization root
@@ -239,6 +259,7 @@ class PolicyAssociationTargetType(builtins.str, Enum):
     ROOT = "ROOT"
 
 
+@pulumi.type_token("aws-native:securityhub:SecurityControlParameterConfigurationValueType")
 class SecurityControlParameterConfigurationValueType(builtins.str, Enum):
     """
     Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.

@@ -41,10 +41,8 @@ class SnapshotBlockPublicAccessArgs:
         pulumi.set(self, "state", value)
 
 
+@pulumi.type_token("aws-native:ec2:SnapshotBlockPublicAccess")
 class SnapshotBlockPublicAccess(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:SnapshotBlockPublicAccess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

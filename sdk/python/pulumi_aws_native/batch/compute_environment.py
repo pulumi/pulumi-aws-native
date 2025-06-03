@@ -242,10 +242,8 @@ class ComputeEnvironmentArgs:
         pulumi.set(self, "update_policy", value)
 
 
+@pulumi.type_token("aws-native:batch:ComputeEnvironment")
 class ComputeEnvironment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:batch:ComputeEnvironment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

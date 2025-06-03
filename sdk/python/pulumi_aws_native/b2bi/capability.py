@@ -108,10 +108,8 @@ class CapabilityArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:b2bi:Capability")
 class Capability(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:b2bi:Capability"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

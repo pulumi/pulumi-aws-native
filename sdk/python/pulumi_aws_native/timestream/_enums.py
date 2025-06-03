@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,6 +21,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:timestream:InfluxDbInstanceDbInstanceType")
 class InfluxDbInstanceDbInstanceType(builtins.str, Enum):
     """
     The compute instance of the InfluxDB instance.
@@ -35,6 +36,7 @@ class InfluxDbInstanceDbInstanceType(builtins.str, Enum):
     DB_INFLUX16XLARGE = "db.influx.16xlarge"
 
 
+@pulumi.type_token("aws-native:timestream:InfluxDbInstanceDbStorageType")
 class InfluxDbInstanceDbStorageType(builtins.str, Enum):
     """
     The storage type of the InfluxDB instance.
@@ -44,6 +46,7 @@ class InfluxDbInstanceDbStorageType(builtins.str, Enum):
     INFLUX_IO_INCLUDED_T3 = "InfluxIOIncludedT3"
 
 
+@pulumi.type_token("aws-native:timestream:InfluxDbInstanceDeploymentType")
 class InfluxDbInstanceDeploymentType(builtins.str, Enum):
     """
     Deployment type of the InfluxDB Instance.
@@ -52,6 +55,7 @@ class InfluxDbInstanceDeploymentType(builtins.str, Enum):
     WITH_MULTIAZ_STANDBY = "WITH_MULTIAZ_STANDBY"
 
 
+@pulumi.type_token("aws-native:timestream:InfluxDbInstanceNetworkType")
 class InfluxDbInstanceNetworkType(builtins.str, Enum):
     """
     Network type of the InfluxDB Instance.
@@ -60,6 +64,7 @@ class InfluxDbInstanceNetworkType(builtins.str, Enum):
     DUAL = "DUAL"
 
 
+@pulumi.type_token("aws-native:timestream:InfluxDbInstanceStatus")
 class InfluxDbInstanceStatus(builtins.str, Enum):
     """
     Status of the InfluxDB Instance.
@@ -75,6 +80,7 @@ class InfluxDbInstanceStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:timestream:ScheduledQueryDimensionValueType")
 class ScheduledQueryDimensionValueType(builtins.str, Enum):
     """
     Type for the dimension.
@@ -82,6 +88,7 @@ class ScheduledQueryDimensionValueType(builtins.str, Enum):
     VARCHAR = "VARCHAR"
 
 
+@pulumi.type_token("aws-native:timestream:ScheduledQueryEncryptionOption")
 class ScheduledQueryEncryptionOption(builtins.str, Enum):
     """
     Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
@@ -90,6 +97,7 @@ class ScheduledQueryEncryptionOption(builtins.str, Enum):
     SSE_KMS = "SSE_KMS"
 
 
+@pulumi.type_token("aws-native:timestream:ScheduledQueryMixedMeasureMappingMeasureValueType")
 class ScheduledQueryMixedMeasureMappingMeasureValueType(builtins.str, Enum):
     """
     Type of the value that is to be read from SourceColumn. If the mapping is for MULTI, use MeasureValueType.MULTI.
@@ -101,6 +109,7 @@ class ScheduledQueryMixedMeasureMappingMeasureValueType(builtins.str, Enum):
     MULTI = "MULTI"
 
 
+@pulumi.type_token("aws-native:timestream:ScheduledQueryMultiMeasureAttributeMappingMeasureValueType")
 class ScheduledQueryMultiMeasureAttributeMappingMeasureValueType(builtins.str, Enum):
     """
     Value type of the measure value column to be read from the query result.
@@ -112,6 +121,7 @@ class ScheduledQueryMultiMeasureAttributeMappingMeasureValueType(builtins.str, E
     TIMESTAMP = "TIMESTAMP"
 
 
+@pulumi.type_token("aws-native:timestream:TablePartitionKeyEnforcementLevel")
 class TablePartitionKeyEnforcementLevel(builtins.str, Enum):
     """
     The level of enforcement for the specification of a dimension key in ingested records. Options are REQUIRED (dimension key must be specified) and OPTIONAL (dimension key does not have to be specified).
@@ -120,6 +130,7 @@ class TablePartitionKeyEnforcementLevel(builtins.str, Enum):
     OPTIONAL = "OPTIONAL"
 
 
+@pulumi.type_token("aws-native:timestream:TablePartitionKeyType")
 class TablePartitionKeyType(builtins.str, Enum):
     """
     The type of the partition key. Options are DIMENSION (dimension key) and MEASURE (measure key).

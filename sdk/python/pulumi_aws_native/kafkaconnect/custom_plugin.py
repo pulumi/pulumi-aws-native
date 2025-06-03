@@ -108,10 +108,8 @@ class CustomPluginArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:kafkaconnect:CustomPlugin")
 class CustomPlugin(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:kafkaconnect:CustomPlugin"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

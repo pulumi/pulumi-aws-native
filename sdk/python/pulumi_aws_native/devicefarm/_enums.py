@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:devicefarm:DevicePoolRuleAttribute")
 class DevicePoolRuleAttribute(builtins.str, Enum):
     """
     The rule's stringified attribute.
@@ -31,6 +32,7 @@ class DevicePoolRuleAttribute(builtins.str, Enum):
     AVAILABILITY = "AVAILABILITY"
 
 
+@pulumi.type_token("aws-native:devicefarm:DevicePoolRuleOperator")
 class DevicePoolRuleOperator(builtins.str, Enum):
     """
     Specifies how Device Farm compares the rule's attribute to the value.

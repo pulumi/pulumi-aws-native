@@ -152,10 +152,8 @@ class AutomationRuleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:securityhub:AutomationRule")
 class AutomationRule(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:securityhub:AutomationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

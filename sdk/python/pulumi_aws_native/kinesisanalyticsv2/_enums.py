@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -22,6 +22,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationCheckpointConfigurationConfigurationType")
 class ApplicationCheckpointConfigurationConfigurationType(builtins.str, Enum):
     """
     Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. You must set this property to `CUSTOM` in order to set the `CheckpointingEnabled`, `CheckpointInterval`, or `MinPauseBetweenCheckpoints` parameters.
@@ -30,6 +31,7 @@ class ApplicationCheckpointConfigurationConfigurationType(builtins.str, Enum):
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationCodeConfigurationCodeContentType")
 class ApplicationCodeConfigurationCodeContentType(builtins.str, Enum):
     """
     Specifies whether the code content is in text or zip format.
@@ -38,6 +40,7 @@ class ApplicationCodeConfigurationCodeContentType(builtins.str, Enum):
     ZIPFILE = "ZIPFILE"
 
 
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationCustomArtifactConfigurationArtifactType")
 class ApplicationCustomArtifactConfigurationArtifactType(builtins.str, Enum):
     """
     Set this to either `UDF` or `DEPENDENCY_JAR`. `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
@@ -46,6 +49,7 @@ class ApplicationCustomArtifactConfigurationArtifactType(builtins.str, Enum):
     UDF = "UDF"
 
 
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationInputSchemaRecordEncoding")
 class ApplicationInputSchemaRecordEncoding(builtins.str, Enum):
     """
     Specifies the encoding of the records in the streaming source. For example, UTF-8.
@@ -53,6 +57,7 @@ class ApplicationInputSchemaRecordEncoding(builtins.str, Enum):
     UTF8 = "UTF-8"
 
 
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationMode")
 class ApplicationMode(builtins.str, Enum):
     """
     To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
@@ -61,6 +66,7 @@ class ApplicationMode(builtins.str, Enum):
     STREAMING = "STREAMING"
 
 
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationMonitoringConfigurationConfigurationType")
 class ApplicationMonitoringConfigurationConfigurationType(builtins.str, Enum):
     """
     Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
@@ -69,6 +75,7 @@ class ApplicationMonitoringConfigurationConfigurationType(builtins.str, Enum):
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationMonitoringConfigurationLogLevel")
 class ApplicationMonitoringConfigurationLogLevel(builtins.str, Enum):
     """
     Describes the verbosity of the CloudWatch Logs for an application.
@@ -79,6 +86,7 @@ class ApplicationMonitoringConfigurationLogLevel(builtins.str, Enum):
     ERROR = "ERROR"
 
 
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationMonitoringConfigurationMetricsLevel")
 class ApplicationMonitoringConfigurationMetricsLevel(builtins.str, Enum):
     """
     Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
@@ -89,6 +97,7 @@ class ApplicationMonitoringConfigurationMetricsLevel(builtins.str, Enum):
     TASK = "TASK"
 
 
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationParallelismConfigurationConfigurationType")
 class ApplicationParallelismConfigurationConfigurationType(builtins.str, Enum):
     """
     Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties.
@@ -97,6 +106,7 @@ class ApplicationParallelismConfigurationConfigurationType(builtins.str, Enum):
     DEFAULT = "DEFAULT"
 
 
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationRecordFormatRecordFormatType")
 class ApplicationRecordFormatRecordFormatType(builtins.str, Enum):
     """
     The type of record format.
@@ -105,6 +115,7 @@ class ApplicationRecordFormatRecordFormatType(builtins.str, Enum):
     JSON = "JSON"
 
 
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationRestoreConfigurationApplicationRestoreType")
 class ApplicationRestoreConfigurationApplicationRestoreType(builtins.str, Enum):
     """
     Specifies how the application should be restored.
@@ -114,6 +125,7 @@ class ApplicationRestoreConfigurationApplicationRestoreType(builtins.str, Enum):
     RESTORE_FROM_CUSTOM_SNAPSHOT = "RESTORE_FROM_CUSTOM_SNAPSHOT"
 
 
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationZeppelinMonitoringConfigurationLogLevel")
 class ApplicationZeppelinMonitoringConfigurationLogLevel(builtins.str, Enum):
     """
     The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.

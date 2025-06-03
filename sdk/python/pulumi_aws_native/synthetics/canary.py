@@ -313,10 +313,8 @@ class CanaryArgs:
         pulumi.set(self, "vpc_config", value)
 
 
+@pulumi.type_token("aws-native:synthetics:Canary")
 class Canary(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:synthetics:Canary"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

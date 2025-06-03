@@ -86,10 +86,8 @@ class MountTargetArgs:
         pulumi.set(self, "ip_address", value)
 
 
+@pulumi.type_token("aws-native:efs:MountTarget")
 class MountTarget(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:efs:MountTarget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

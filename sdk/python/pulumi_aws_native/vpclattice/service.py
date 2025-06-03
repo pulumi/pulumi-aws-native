@@ -136,10 +136,8 @@ class ServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:vpclattice:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:vpclattice:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

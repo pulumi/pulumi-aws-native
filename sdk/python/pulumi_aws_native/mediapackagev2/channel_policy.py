@@ -74,10 +74,8 @@ class ChannelPolicyArgs:
         pulumi.set(self, "policy", value)
 
 
+@pulumi.type_token("aws-native:mediapackagev2:ChannelPolicy")
 class ChannelPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediapackagev2:ChannelPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

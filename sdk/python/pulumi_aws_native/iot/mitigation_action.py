@@ -92,10 +92,8 @@ class MitigationActionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iot:MitigationAction")
 class MitigationAction(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:MitigationAction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

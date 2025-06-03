@@ -138,10 +138,8 @@ class BridgeArgs:
         pulumi.set(self, "source_failover_config", value)
 
 
+@pulumi.type_token("aws-native:mediaconnect:Bridge")
 class Bridge(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediaconnect:Bridge"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

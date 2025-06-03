@@ -113,10 +113,8 @@ class ProtectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:shield:Protection")
 class Protection(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:shield:Protection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

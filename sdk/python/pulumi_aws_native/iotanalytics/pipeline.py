@@ -88,10 +88,8 @@ class PipelineArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iotanalytics:Pipeline")
 class Pipeline(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotanalytics:Pipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

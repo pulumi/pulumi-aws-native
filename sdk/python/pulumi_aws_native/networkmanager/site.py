@@ -92,10 +92,8 @@ class SiteArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:networkmanager:Site")
 class Site(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:networkmanager:Site"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

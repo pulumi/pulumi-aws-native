@@ -90,10 +90,8 @@ class ProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:transfer:Profile")
 class Profile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:transfer:Profile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

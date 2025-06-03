@@ -72,10 +72,8 @@ class AccessPolicyArgs:
         pulumi.set(self, "access_policy_resource", value)
 
 
+@pulumi.type_token("aws-native:iotsitewise:AccessPolicy")
 class AccessPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotsitewise:AccessPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

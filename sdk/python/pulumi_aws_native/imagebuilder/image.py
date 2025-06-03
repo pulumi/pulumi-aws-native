@@ -188,10 +188,8 @@ class ImageArgs:
         pulumi.set(self, "workflows", value)
 
 
+@pulumi.type_token("aws-native:imagebuilder:Image")
 class Image(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:imagebuilder:Image"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

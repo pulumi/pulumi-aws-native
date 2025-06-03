@@ -122,10 +122,8 @@ class ConnectionArgs:
         pulumi.set(self, "props", value)
 
 
+@pulumi.type_token("aws-native:datazone:Connection")
 class Connection(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datazone:Connection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

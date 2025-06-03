@@ -56,10 +56,8 @@ class MessageTemplateVersionArgs:
         pulumi.set(self, "message_template_content_sha256", value)
 
 
+@pulumi.type_token("aws-native:wisdom:MessageTemplateVersion")
 class MessageTemplateVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:wisdom:MessageTemplateVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

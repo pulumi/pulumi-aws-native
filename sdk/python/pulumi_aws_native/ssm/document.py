@@ -193,10 +193,8 @@ class DocumentArgs:
         pulumi.set(self, "version_name", value)
 
 
+@pulumi.type_token("aws-native:ssm:Document")
 class Document(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ssm:Document"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

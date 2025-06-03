@@ -94,10 +94,8 @@ class ChannelArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:cloudtrail:Channel")
 class Channel(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudtrail:Channel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

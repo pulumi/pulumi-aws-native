@@ -55,10 +55,8 @@ class AttributeGroupAssociationArgs:
         pulumi.set(self, "attribute_group", value)
 
 
+@pulumi.type_token("aws-native:servicecatalogappregistry:AttributeGroupAssociation")
 class AttributeGroupAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:servicecatalogappregistry:AttributeGroupAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

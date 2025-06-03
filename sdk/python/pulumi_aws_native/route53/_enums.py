@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:route53:HealthCheckConfigPropertiesInsufficientDataHealthStatus")
 class HealthCheckConfigPropertiesInsufficientDataHealthStatus(builtins.str, Enum):
     """
     When CloudWatch has insufficient data about the metric to determine the alarm state, the status that you want Amazon Route 53 to assign to the health check:
@@ -26,6 +27,7 @@ class HealthCheckConfigPropertiesInsufficientDataHealthStatus(builtins.str, Enum
     UNHEALTHY = "Unhealthy"
 
 
+@pulumi.type_token("aws-native:route53:HealthCheckConfigPropertiesType")
 class HealthCheckConfigPropertiesType(builtins.str, Enum):
     """
     The type of health check that you want to create, which indicates how Amazon Route 53 determines whether an endpoint is healthy.
@@ -62,6 +64,7 @@ class HealthCheckConfigPropertiesType(builtins.str, Enum):
     RECOVERY_CONTROL = "RECOVERY_CONTROL"
 
 
+@pulumi.type_token("aws-native:route53:KeySigningKeyStatus")
 class KeySigningKeyStatus(builtins.str, Enum):
     """
     A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.

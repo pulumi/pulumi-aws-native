@@ -123,10 +123,8 @@ class InvoiceUnitArgs:
         pulumi.set(self, "tax_inheritance_disabled", value)
 
 
+@pulumi.type_token("aws-native:invoicing:InvoiceUnit")
 class InvoiceUnit(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:invoicing:InvoiceUnit"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

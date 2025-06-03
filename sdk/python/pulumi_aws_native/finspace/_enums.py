@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:finspace:EnvironmentFederationMode")
 class EnvironmentFederationMode(builtins.str, Enum):
     """
     Federation mode used with the Environment
@@ -20,6 +21,7 @@ class EnvironmentFederationMode(builtins.str, Enum):
     FEDERATED = "FEDERATED"
 
 
+@pulumi.type_token("aws-native:finspace:EnvironmentStatus")
 class EnvironmentStatus(builtins.str, Enum):
     """
     State of the Environment

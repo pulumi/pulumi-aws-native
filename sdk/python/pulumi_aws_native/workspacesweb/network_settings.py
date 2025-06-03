@@ -100,10 +100,8 @@ class NetworkSettingsArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:workspacesweb:NetworkSettings")
 class NetworkSettings(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:workspacesweb:NetworkSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

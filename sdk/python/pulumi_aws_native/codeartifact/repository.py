@@ -158,10 +158,8 @@ class RepositoryArgs:
         pulumi.set(self, "upstreams", value)
 
 
+@pulumi.type_token("aws-native:codeartifact:Repository")
 class Repository(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:codeartifact:Repository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

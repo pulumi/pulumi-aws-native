@@ -159,10 +159,8 @@ class ResourceShareArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ram:ResourceShare")
 class ResourceShare(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ram:ResourceShare"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

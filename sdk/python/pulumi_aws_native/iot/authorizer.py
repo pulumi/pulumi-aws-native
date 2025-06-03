@@ -171,10 +171,8 @@ class AuthorizerArgs:
         pulumi.set(self, "token_signing_public_keys", value)
 
 
+@pulumi.type_token("aws-native:iot:Authorizer")
 class Authorizer(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:Authorizer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

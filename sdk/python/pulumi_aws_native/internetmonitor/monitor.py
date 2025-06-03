@@ -266,10 +266,8 @@ class MonitorArgs:
         pulumi.set(self, "traffic_percentage_to_monitor", value)
 
 
+@pulumi.type_token("aws-native:internetmonitor:Monitor")
 class Monitor(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:internetmonitor:Monitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

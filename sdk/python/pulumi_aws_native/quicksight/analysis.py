@@ -252,10 +252,8 @@ class AnalysisArgs:
         pulumi.set(self, "validation_strategy", value)
 
 
+@pulumi.type_token("aws-native:quicksight:Analysis")
 class Analysis(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:quicksight:Analysis"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

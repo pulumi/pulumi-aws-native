@@ -75,10 +75,8 @@ class RegistryPolicyArgs:
         pulumi.set(self, "revision_id", value)
 
 
+@pulumi.type_token("aws-native:eventschemas:RegistryPolicy")
 class RegistryPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:eventschemas:RegistryPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

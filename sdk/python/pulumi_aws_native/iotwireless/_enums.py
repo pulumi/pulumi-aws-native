@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,6 +17,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:iotwireless:DestinationExpressionType")
 class DestinationExpressionType(builtins.str, Enum):
     """
     Must be RuleName
@@ -26,17 +27,20 @@ class DestinationExpressionType(builtins.str, Enum):
     SNS_TOPIC = "SnsTopic"
 
 
+@pulumi.type_token("aws-native:iotwireless:NetworkAnalyzerConfigurationLogLevel")
 class NetworkAnalyzerConfigurationLogLevel(builtins.str, Enum):
     INFO = "INFO"
     ERROR = "ERROR"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:iotwireless:NetworkAnalyzerConfigurationWirelessDeviceFrameInfo")
 class NetworkAnalyzerConfigurationWirelessDeviceFrameInfo(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:iotwireless:TaskDefinitionType")
 class TaskDefinitionType(builtins.str, Enum):
     """
     A filter to list only the wireless gateway task definitions that use this task definition type
@@ -44,6 +48,7 @@ class TaskDefinitionType(builtins.str, Enum):
     UPDATE = "UPDATE"
 
 
+@pulumi.type_token("aws-native:iotwireless:WirelessDeviceApplicationType")
 class WirelessDeviceApplicationType(builtins.str, Enum):
     """
     Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
@@ -54,6 +59,7 @@ class WirelessDeviceApplicationType(builtins.str, Enum):
     SEMTECH_WI_FI = "SemtechWiFi"
 
 
+@pulumi.type_token("aws-native:iotwireless:WirelessDevicePositioning")
 class WirelessDevicePositioning(builtins.str, Enum):
     """
     FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
@@ -62,6 +68,7 @@ class WirelessDevicePositioning(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("aws-native:iotwireless:WirelessDeviceType")
 class WirelessDeviceType(builtins.str, Enum):
     """
     Wireless device type, currently only Sidewalk and LoRa

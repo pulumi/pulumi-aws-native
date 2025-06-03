@@ -257,10 +257,8 @@ class CrawlerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:glue:Crawler")
 class Crawler(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:glue:Crawler"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -30,21 +30,25 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:wisdom:AiAgentAiAgentAssociationConfigurationType")
 class AiAgentAiAgentAssociationConfigurationType(builtins.str, Enum):
     KNOWLEDGE_BASE = "KNOWLEDGE_BASE"
 
 
+@pulumi.type_token("aws-native:wisdom:AiAgentAiAgentType")
 class AiAgentAiAgentType(builtins.str, Enum):
     MANUAL_SEARCH = "MANUAL_SEARCH"
     ANSWER_RECOMMENDATION = "ANSWER_RECOMMENDATION"
     SELF_SERVICE = "SELF_SERVICE"
 
 
+@pulumi.type_token("aws-native:wisdom:AiAgentKnowledgeBaseSearchType")
 class AiAgentKnowledgeBaseSearchType(builtins.str, Enum):
     HYBRID = "HYBRID"
     SEMANTIC = "SEMANTIC"
 
 
+@pulumi.type_token("aws-native:wisdom:AiGuardrailGuardrailContentFilterType")
 class AiGuardrailGuardrailContentFilterType(builtins.str, Enum):
     """
     Type of text to text filter in content policy
@@ -57,6 +61,7 @@ class AiGuardrailGuardrailContentFilterType(builtins.str, Enum):
     PROMPT_ATTACK = "PROMPT_ATTACK"
 
 
+@pulumi.type_token("aws-native:wisdom:AiGuardrailGuardrailContextualGroundingFilterType")
 class AiGuardrailGuardrailContextualGroundingFilterType(builtins.str, Enum):
     """
     Type of contextual grounding filter
@@ -65,6 +70,7 @@ class AiGuardrailGuardrailContextualGroundingFilterType(builtins.str, Enum):
     RELEVANCE = "RELEVANCE"
 
 
+@pulumi.type_token("aws-native:wisdom:AiGuardrailGuardrailFilterStrength")
 class AiGuardrailGuardrailFilterStrength(builtins.str, Enum):
     """
     Strength for filters
@@ -75,6 +81,7 @@ class AiGuardrailGuardrailFilterStrength(builtins.str, Enum):
     HIGH = "HIGH"
 
 
+@pulumi.type_token("aws-native:wisdom:AiGuardrailGuardrailManagedWordsType")
 class AiGuardrailGuardrailManagedWordsType(builtins.str, Enum):
     """
     Options for managed words.
@@ -82,6 +89,7 @@ class AiGuardrailGuardrailManagedWordsType(builtins.str, Enum):
     PROFANITY = "PROFANITY"
 
 
+@pulumi.type_token("aws-native:wisdom:AiGuardrailGuardrailPiiEntityType")
 class AiGuardrailGuardrailPiiEntityType(builtins.str, Enum):
     """
     The currently supported PII entities
@@ -119,6 +127,7 @@ class AiGuardrailGuardrailPiiEntityType(builtins.str, Enum):
     VEHICLE_IDENTIFICATION_NUMBER = "VEHICLE_IDENTIFICATION_NUMBER"
 
 
+@pulumi.type_token("aws-native:wisdom:AiGuardrailGuardrailSensitiveInformationAction")
 class AiGuardrailGuardrailSensitiveInformationAction(builtins.str, Enum):
     """
     Options for sensitive information action.
@@ -127,6 +136,7 @@ class AiGuardrailGuardrailSensitiveInformationAction(builtins.str, Enum):
     ANONYMIZE = "ANONYMIZE"
 
 
+@pulumi.type_token("aws-native:wisdom:AiGuardrailGuardrailTopicType")
 class AiGuardrailGuardrailTopicType(builtins.str, Enum):
     """
     Type of topic in a policy
@@ -134,6 +144,7 @@ class AiGuardrailGuardrailTopicType(builtins.str, Enum):
     DENY = "DENY"
 
 
+@pulumi.type_token("aws-native:wisdom:AiPromptAiPromptApiFormat")
 class AiPromptAiPromptApiFormat(builtins.str, Enum):
     ANTHROPIC_CLAUDE_MESSAGES = "ANTHROPIC_CLAUDE_MESSAGES"
     ANTHROPIC_CLAUDE_TEXT_COMPLETIONS = "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS"
@@ -141,10 +152,12 @@ class AiPromptAiPromptApiFormat(builtins.str, Enum):
     TEXT_COMPLETIONS = "TEXT_COMPLETIONS"
 
 
+@pulumi.type_token("aws-native:wisdom:AiPromptAiPromptTemplateType")
 class AiPromptAiPromptTemplateType(builtins.str, Enum):
     TEXT = "TEXT"
 
 
+@pulumi.type_token("aws-native:wisdom:AiPromptAiPromptType")
 class AiPromptAiPromptType(builtins.str, Enum):
     ANSWER_GENERATION = "ANSWER_GENERATION"
     INTENT_LABELING_GENERATION = "INTENT_LABELING_GENERATION"
@@ -153,14 +166,17 @@ class AiPromptAiPromptType(builtins.str, Enum):
     SELF_SERVICE_ANSWER_GENERATION = "SELF_SERVICE_ANSWER_GENERATION"
 
 
+@pulumi.type_token("aws-native:wisdom:AssistantAssociationAssociationType")
 class AssistantAssociationAssociationType(builtins.str, Enum):
     KNOWLEDGE_BASE = "KNOWLEDGE_BASE"
 
 
+@pulumi.type_token("aws-native:wisdom:AssistantType")
 class AssistantType(builtins.str, Enum):
     AGENT = "AGENT"
 
 
+@pulumi.type_token("aws-native:wisdom:KnowledgeBaseType")
 class KnowledgeBaseType(builtins.str, Enum):
     EXTERNAL = "EXTERNAL"
     CUSTOM = "CUSTOM"
@@ -169,6 +185,7 @@ class KnowledgeBaseType(builtins.str, Enum):
     QUICK_RESPONSES = "QUICK_RESPONSES"
 
 
+@pulumi.type_token("aws-native:wisdom:KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy")
 class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy(builtins.str, Enum):
     FIXED_SIZE = "FIXED_SIZE"
     NONE = "NONE"
@@ -176,15 +193,18 @@ class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesCh
     SEMANTIC = "SEMANTIC"
 
 
+@pulumi.type_token("aws-native:wisdom:KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy")
 class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy(builtins.str, Enum):
     BEDROCK_FOUNDATION_MODEL = "BEDROCK_FOUNDATION_MODEL"
 
 
+@pulumi.type_token("aws-native:wisdom:KnowledgeBaseWebCrawlerConfigurationScope")
 class KnowledgeBaseWebCrawlerConfigurationScope(builtins.str, Enum):
     HOST_ONLY = "HOST_ONLY"
     SUBDOMAINS = "SUBDOMAINS"
 
 
+@pulumi.type_token("aws-native:wisdom:MessageTemplateChannelSubtype")
 class MessageTemplateChannelSubtype(builtins.str, Enum):
     """
     The channel subtype this message template applies to.

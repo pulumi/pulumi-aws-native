@@ -106,10 +106,8 @@ class PromptArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:connect:Prompt")
 class Prompt(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:Prompt"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

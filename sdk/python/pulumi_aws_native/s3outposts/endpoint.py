@@ -121,10 +121,8 @@ class EndpointArgs:
         pulumi.set(self, "failed_reason", value)
 
 
+@pulumi.type_token("aws-native:s3outposts:Endpoint")
 class Endpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:s3outposts:Endpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

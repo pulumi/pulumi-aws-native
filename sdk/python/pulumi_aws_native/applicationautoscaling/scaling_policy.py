@@ -264,10 +264,8 @@ class ScalingPolicyArgs:
         pulumi.set(self, "target_tracking_scaling_policy_configuration", value)
 
 
+@pulumi.type_token("aws-native:applicationautoscaling:ScalingPolicy")
 class ScalingPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:applicationautoscaling:ScalingPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:organizations:AccountJoinedMethod")
 class AccountJoinedMethod(builtins.str, Enum):
     """
     The method by which the account joined the organization.
@@ -22,6 +23,7 @@ class AccountJoinedMethod(builtins.str, Enum):
     CREATED = "CREATED"
 
 
+@pulumi.type_token("aws-native:organizations:AccountStatus")
 class AccountStatus(builtins.str, Enum):
     """
     The status of the account in the organization.
@@ -31,6 +33,7 @@ class AccountStatus(builtins.str, Enum):
     PENDING_CLOSURE = "PENDING_CLOSURE"
 
 
+@pulumi.type_token("aws-native:organizations:OrganizationFeatureSet")
 class OrganizationFeatureSet(builtins.str, Enum):
     """
     Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
@@ -39,6 +42,7 @@ class OrganizationFeatureSet(builtins.str, Enum):
     CONSOLIDATED_BILLING = "CONSOLIDATED_BILLING"
 
 
+@pulumi.type_token("aws-native:organizations:PolicyType")
 class PolicyType(builtins.str, Enum):
     """
     The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2

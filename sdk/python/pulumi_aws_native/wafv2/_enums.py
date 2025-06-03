@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -64,6 +64,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:wafv2:IpSetIpAddressVersion")
 class IpSetIpAddressVersion(builtins.str, Enum):
     """
     Type of addresses in the IPSet, use IPV4 for IPV4 IP addresses, IPV6 for IPV6 address.
@@ -72,6 +73,7 @@ class IpSetIpAddressVersion(builtins.str, Enum):
     IPV6 = "IPV6"
 
 
+@pulumi.type_token("aws-native:wafv2:IpSetScope")
 class IpSetScope(builtins.str, Enum):
     """
     Use CLOUDFRONT for CloudFront IPSet, use REGIONAL for Application Load Balancer and API Gateway.
@@ -80,6 +82,7 @@ class IpSetScope(builtins.str, Enum):
     REGIONAL = "REGIONAL"
 
 
+@pulumi.type_token("aws-native:wafv2:LoggingConfigurationConditionActionConditionPropertiesAction")
 class LoggingConfigurationConditionActionConditionPropertiesAction(builtins.str, Enum):
     """
     Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
@@ -92,6 +95,7 @@ class LoggingConfigurationConditionActionConditionPropertiesAction(builtins.str,
     EXCLUDED_AS_COUNT = "EXCLUDED_AS_COUNT"
 
 
+@pulumi.type_token("aws-native:wafv2:LoggingConfigurationFilterBehavior")
 class LoggingConfigurationFilterBehavior(builtins.str, Enum):
     """
     How to handle logs that satisfy the filter's conditions and requirement. 
@@ -100,6 +104,7 @@ class LoggingConfigurationFilterBehavior(builtins.str, Enum):
     DROP = "DROP"
 
 
+@pulumi.type_token("aws-native:wafv2:LoggingConfigurationFilterRequirement")
 class LoggingConfigurationFilterRequirement(builtins.str, Enum):
     """
     Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
@@ -108,6 +113,7 @@ class LoggingConfigurationFilterRequirement(builtins.str, Enum):
     MEETS_ANY = "MEETS_ANY"
 
 
+@pulumi.type_token("aws-native:wafv2:LoggingConfigurationLoggingFilterPropertiesDefaultBehavior")
 class LoggingConfigurationLoggingFilterPropertiesDefaultBehavior(builtins.str, Enum):
     """
     Default handling for logs that don't match any of the specified filtering conditions.
@@ -116,6 +122,7 @@ class LoggingConfigurationLoggingFilterPropertiesDefaultBehavior(builtins.str, E
     DROP = "DROP"
 
 
+@pulumi.type_token("aws-native:wafv2:RegexPatternSetScope")
 class RegexPatternSetScope(builtins.str, Enum):
     """
     Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
@@ -124,6 +131,7 @@ class RegexPatternSetScope(builtins.str, Enum):
     REGIONAL = "REGIONAL"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupBodyParsingFallbackBehavior")
 class RuleGroupBodyParsingFallbackBehavior(builtins.str, Enum):
     """
     The inspection behavior to fall back to if the JSON in the request body is invalid.
@@ -133,6 +141,7 @@ class RuleGroupBodyParsingFallbackBehavior(builtins.str, Enum):
     EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupForwardedIpConfigurationFallbackBehavior")
 class RuleGroupForwardedIpConfigurationFallbackBehavior(builtins.str, Enum):
     """
     The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
@@ -148,6 +157,7 @@ class RuleGroupForwardedIpConfigurationFallbackBehavior(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupIpSetForwardedIpConfigurationFallbackBehavior")
 class RuleGroupIpSetForwardedIpConfigurationFallbackBehavior(builtins.str, Enum):
     """
     The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
@@ -163,6 +173,7 @@ class RuleGroupIpSetForwardedIpConfigurationFallbackBehavior(builtins.str, Enum)
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupIpSetForwardedIpConfigurationPosition")
 class RuleGroupIpSetForwardedIpConfigurationPosition(builtins.str, Enum):
     """
     The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
@@ -178,6 +189,7 @@ class RuleGroupIpSetForwardedIpConfigurationPosition(builtins.str, Enum):
     ANY = "ANY"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupJa3FingerprintFallbackBehavior")
 class RuleGroupJa3FingerprintFallbackBehavior(builtins.str, Enum):
     """
     The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
@@ -191,6 +203,7 @@ class RuleGroupJa3FingerprintFallbackBehavior(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupJa4FingerprintFallbackBehavior")
 class RuleGroupJa4FingerprintFallbackBehavior(builtins.str, Enum):
     """
     The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
@@ -204,6 +217,7 @@ class RuleGroupJa4FingerprintFallbackBehavior(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupJsonMatchScope")
 class RuleGroupJsonMatchScope(builtins.str, Enum):
     """
     The parts of the JSON to match against using the MatchPattern.
@@ -213,11 +227,13 @@ class RuleGroupJsonMatchScope(builtins.str, Enum):
     VALUE = "VALUE"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupLabelMatchScope")
 class RuleGroupLabelMatchScope(builtins.str, Enum):
     LABEL = "LABEL"
     NAMESPACE = "NAMESPACE"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupMapMatchScope")
 class RuleGroupMapMatchScope(builtins.str, Enum):
     """
     The parts of the request to match against using the MatchPattern.
@@ -227,6 +243,7 @@ class RuleGroupMapMatchScope(builtins.str, Enum):
     VALUE = "VALUE"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupOversizeHandling")
 class RuleGroupOversizeHandling(builtins.str, Enum):
     """
     Handling of requests containing oversize fields
@@ -236,6 +253,7 @@ class RuleGroupOversizeHandling(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupPositionalConstraint")
 class RuleGroupPositionalConstraint(builtins.str, Enum):
     """
     Position of the evaluation in the FieldToMatch of request.
@@ -247,6 +265,7 @@ class RuleGroupPositionalConstraint(builtins.str, Enum):
     CONTAINS_WORD = "CONTAINS_WORD"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupRateBasedStatementAggregateKeyType")
 class RuleGroupRateBasedStatementAggregateKeyType(builtins.str, Enum):
     """
     Setting that indicates how to aggregate the request counts.
@@ -276,6 +295,7 @@ class RuleGroupRateBasedStatementAggregateKeyType(builtins.str, Enum):
     CUSTOM_KEYS = "CUSTOM_KEYS"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupRateLimitJa3FingerprintFallbackBehavior")
 class RuleGroupRateLimitJa3FingerprintFallbackBehavior(builtins.str, Enum):
     """
     The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
@@ -289,6 +309,7 @@ class RuleGroupRateLimitJa3FingerprintFallbackBehavior(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupRateLimitJa4FingerprintFallbackBehavior")
 class RuleGroupRateLimitJa4FingerprintFallbackBehavior(builtins.str, Enum):
     """
     The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
@@ -302,6 +323,7 @@ class RuleGroupRateLimitJa4FingerprintFallbackBehavior(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupResponseContentType")
 class RuleGroupResponseContentType(builtins.str, Enum):
     """
     Valid values are TEXT_PLAIN, TEXT_HTML, and APPLICATION_JSON.
@@ -311,6 +333,7 @@ class RuleGroupResponseContentType(builtins.str, Enum):
     APPLICATION_JSON = "APPLICATION_JSON"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupScope")
 class RuleGroupScope(builtins.str, Enum):
     """
     Use CLOUDFRONT for CloudFront RuleGroup, use REGIONAL for Application Load Balancer and API Gateway.
@@ -319,6 +342,7 @@ class RuleGroupScope(builtins.str, Enum):
     REGIONAL = "REGIONAL"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupSensitivityLevel")
 class RuleGroupSensitivityLevel(builtins.str, Enum):
     """
     Sensitivity Level current only used for sqli match statements.
@@ -327,6 +351,7 @@ class RuleGroupSensitivityLevel(builtins.str, Enum):
     HIGH = "HIGH"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupSizeConstraintStatementComparisonOperator")
 class RuleGroupSizeConstraintStatementComparisonOperator(builtins.str, Enum):
     """
     The operator to use to compare the request part to the size setting.
@@ -339,6 +364,7 @@ class RuleGroupSizeConstraintStatementComparisonOperator(builtins.str, Enum):
     GT = "GT"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupTextTransformationType")
 class RuleGroupTextTransformationType(builtins.str, Enum):
     """
     Type of text transformation.
@@ -366,6 +392,7 @@ class RuleGroupTextTransformationType(builtins.str, Enum):
     UTF8_TO_UNICODE = "UTF8_TO_UNICODE"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupUriFragmentFallbackBehavior")
 class RuleGroupUriFragmentFallbackBehavior(builtins.str, Enum):
     """
     What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
@@ -384,6 +411,7 @@ class RuleGroupUriFragmentFallbackBehavior(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclAwsManagedRulesBotControlRuleSetInspectionLevel")
 class WebAclAwsManagedRulesBotControlRuleSetInspectionLevel(builtins.str, Enum):
     """
     The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
@@ -392,6 +420,7 @@ class WebAclAwsManagedRulesBotControlRuleSetInspectionLevel(builtins.str, Enum):
     TARGETED = "TARGETED"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclBodyParsingFallbackBehavior")
 class WebAclBodyParsingFallbackBehavior(builtins.str, Enum):
     """
     The inspection behavior to fall back to if the JSON in the request body is invalid.
@@ -401,11 +430,13 @@ class WebAclBodyParsingFallbackBehavior(builtins.str, Enum):
     EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclDataProtectionAction")
 class WebAclDataProtectionAction(builtins.str, Enum):
     SUBSTITUTION = "SUBSTITUTION"
     HASH = "HASH"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclFieldToProtectFieldType")
 class WebAclFieldToProtectFieldType(builtins.str, Enum):
     """
     Field type to protect
@@ -417,6 +448,7 @@ class WebAclFieldToProtectFieldType(builtins.str, Enum):
     BODY = "BODY"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclForwardedIpConfigurationFallbackBehavior")
 class WebAclForwardedIpConfigurationFallbackBehavior(builtins.str, Enum):
     """
     The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
@@ -432,6 +464,7 @@ class WebAclForwardedIpConfigurationFallbackBehavior(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclIpSetForwardedIpConfigurationFallbackBehavior")
 class WebAclIpSetForwardedIpConfigurationFallbackBehavior(builtins.str, Enum):
     """
     The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
@@ -447,6 +480,7 @@ class WebAclIpSetForwardedIpConfigurationFallbackBehavior(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclIpSetForwardedIpConfigurationPosition")
 class WebAclIpSetForwardedIpConfigurationPosition(builtins.str, Enum):
     """
     The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
@@ -462,6 +496,7 @@ class WebAclIpSetForwardedIpConfigurationPosition(builtins.str, Enum):
     ANY = "ANY"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclJa3FingerprintFallbackBehavior")
 class WebAclJa3FingerprintFallbackBehavior(builtins.str, Enum):
     """
     The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
@@ -475,6 +510,7 @@ class WebAclJa3FingerprintFallbackBehavior(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclJa4FingerprintFallbackBehavior")
 class WebAclJa4FingerprintFallbackBehavior(builtins.str, Enum):
     """
     The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
@@ -488,6 +524,7 @@ class WebAclJa4FingerprintFallbackBehavior(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclJsonMatchScope")
 class WebAclJsonMatchScope(builtins.str, Enum):
     """
     The parts of the JSON to match against using the MatchPattern.
@@ -497,11 +534,13 @@ class WebAclJsonMatchScope(builtins.str, Enum):
     VALUE = "VALUE"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclLabelMatchScope")
 class WebAclLabelMatchScope(builtins.str, Enum):
     LABEL = "LABEL"
     NAMESPACE = "NAMESPACE"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclManagedRuleGroupConfigPayloadType")
 class WebAclManagedRuleGroupConfigPayloadType(builtins.str, Enum):
     """
     > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
@@ -510,6 +549,7 @@ class WebAclManagedRuleGroupConfigPayloadType(builtins.str, Enum):
     FORM_ENCODED = "FORM_ENCODED"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclMapMatchScope")
 class WebAclMapMatchScope(builtins.str, Enum):
     """
     The parts of the request to match against using the MatchPattern.
@@ -519,6 +559,7 @@ class WebAclMapMatchScope(builtins.str, Enum):
     VALUE = "VALUE"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclOversizeHandling")
 class WebAclOversizeHandling(builtins.str, Enum):
     """
     Handling of requests containing oversize fields
@@ -528,6 +569,7 @@ class WebAclOversizeHandling(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclPositionalConstraint")
 class WebAclPositionalConstraint(builtins.str, Enum):
     """
     Position of the evaluation in the FieldToMatch of request.
@@ -539,6 +581,7 @@ class WebAclPositionalConstraint(builtins.str, Enum):
     CONTAINS_WORD = "CONTAINS_WORD"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclRateBasedStatementAggregateKeyType")
 class WebAclRateBasedStatementAggregateKeyType(builtins.str, Enum):
     """
     Setting that indicates how to aggregate the request counts.
@@ -568,6 +611,7 @@ class WebAclRateBasedStatementAggregateKeyType(builtins.str, Enum):
     CUSTOM_KEYS = "CUSTOM_KEYS"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclRateLimitJa3FingerprintFallbackBehavior")
 class WebAclRateLimitJa3FingerprintFallbackBehavior(builtins.str, Enum):
     """
     The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
@@ -581,6 +625,7 @@ class WebAclRateLimitJa3FingerprintFallbackBehavior(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclRateLimitJa4FingerprintFallbackBehavior")
 class WebAclRateLimitJa4FingerprintFallbackBehavior(builtins.str, Enum):
     """
     The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
@@ -594,6 +639,7 @@ class WebAclRateLimitJa4FingerprintFallbackBehavior(builtins.str, Enum):
     NO_MATCH = "NO_MATCH"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclRequestInspectionAcfpPayloadType")
 class WebAclRequestInspectionAcfpPayloadType(builtins.str, Enum):
     """
     The payload type for your account creation endpoint, either JSON or form encoded.
@@ -602,6 +648,7 @@ class WebAclRequestInspectionAcfpPayloadType(builtins.str, Enum):
     FORM_ENCODED = "FORM_ENCODED"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclRequestInspectionPayloadType")
 class WebAclRequestInspectionPayloadType(builtins.str, Enum):
     """
     The payload type for your login endpoint, either JSON or form encoded.
@@ -610,6 +657,7 @@ class WebAclRequestInspectionPayloadType(builtins.str, Enum):
     FORM_ENCODED = "FORM_ENCODED"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclResponseContentType")
 class WebAclResponseContentType(builtins.str, Enum):
     """
     Valid values are TEXT_PLAIN, TEXT_HTML, and APPLICATION_JSON.
@@ -619,6 +667,7 @@ class WebAclResponseContentType(builtins.str, Enum):
     APPLICATION_JSON = "APPLICATION_JSON"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclScope")
 class WebAclScope(builtins.str, Enum):
     """
     Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.
@@ -627,6 +676,7 @@ class WebAclScope(builtins.str, Enum):
     REGIONAL = "REGIONAL"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclSensitivityLevel")
 class WebAclSensitivityLevel(builtins.str, Enum):
     """
     Sensitivity Level current only used for sqli match statements.
@@ -635,6 +685,7 @@ class WebAclSensitivityLevel(builtins.str, Enum):
     HIGH = "HIGH"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclSizeConstraintStatementComparisonOperator")
 class WebAclSizeConstraintStatementComparisonOperator(builtins.str, Enum):
     """
     The operator to use to compare the request part to the size setting.
@@ -647,6 +698,7 @@ class WebAclSizeConstraintStatementComparisonOperator(builtins.str, Enum):
     GT = "GT"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclSizeInspectionLimit")
 class WebAclSizeInspectionLimit(builtins.str, Enum):
     KB16 = "KB_16"
     KB32 = "KB_32"
@@ -654,6 +706,7 @@ class WebAclSizeInspectionLimit(builtins.str, Enum):
     KB64 = "KB_64"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclTextTransformationType")
 class WebAclTextTransformationType(builtins.str, Enum):
     """
     Type of text transformation.
@@ -681,6 +734,7 @@ class WebAclTextTransformationType(builtins.str, Enum):
     UTF8_TO_UNICODE = "UTF8_TO_UNICODE"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclUriFragmentFallbackBehavior")
 class WebAclUriFragmentFallbackBehavior(builtins.str, Enum):
     """
     What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:

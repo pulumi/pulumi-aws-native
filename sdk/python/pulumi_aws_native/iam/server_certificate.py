@@ -147,10 +147,8 @@ class ServerCertificateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iam:ServerCertificate")
 class ServerCertificate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iam:ServerCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

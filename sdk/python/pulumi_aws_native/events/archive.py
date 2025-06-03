@@ -140,10 +140,8 @@ class ArchiveArgs:
         pulumi.set(self, "retention_days", value)
 
 
+@pulumi.type_token("aws-native:events:Archive")
 class Archive(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:events:Archive"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -77,10 +77,8 @@ class ServiceProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iotwireless:ServiceProfile")
 class ServiceProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotwireless:ServiceProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

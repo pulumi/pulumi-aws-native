@@ -122,10 +122,8 @@ class SimulationArgs:
         pulumi.set(self, "snapshot_s3_location", value)
 
 
+@pulumi.type_token("aws-native:simspaceweaver:Simulation")
 class Simulation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:simspaceweaver:Simulation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

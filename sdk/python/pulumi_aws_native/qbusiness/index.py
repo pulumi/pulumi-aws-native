@@ -144,10 +144,8 @@ class IndexArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws-native:qbusiness:Index")
 class Index(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:qbusiness:Index"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

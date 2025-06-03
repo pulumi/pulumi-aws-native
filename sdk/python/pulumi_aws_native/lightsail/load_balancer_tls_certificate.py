@@ -119,10 +119,8 @@ class LoadBalancerTlsCertificateArgs:
         pulumi.set(self, "is_attached", value)
 
 
+@pulumi.type_token("aws-native:lightsail:LoadBalancerTlsCertificate")
 class LoadBalancerTlsCertificate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lightsail:LoadBalancerTlsCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

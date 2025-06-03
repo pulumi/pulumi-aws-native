@@ -165,10 +165,8 @@ class EipArgs:
         pulumi.set(self, "transfer_address", value)
 
 
+@pulumi.type_token("aws-native:ec2:Eip")
 class Eip(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:Eip"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

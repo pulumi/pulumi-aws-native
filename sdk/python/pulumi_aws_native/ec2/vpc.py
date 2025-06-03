@@ -153,10 +153,8 @@ class VpcArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:Vpc")
 class Vpc(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:Vpc"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

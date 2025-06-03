@@ -252,10 +252,8 @@ class ComponentArgs:
         pulumi.set(self, "variants", value)
 
 
+@pulumi.type_token("aws-native:amplifyuibuilder:Component")
 class Component(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:amplifyuibuilder:Component"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -122,10 +122,8 @@ class LayerVersionArgs:
         pulumi.set(self, "license_info", value)
 
 
+@pulumi.type_token("aws-native:lambda:LayerVersion")
 class LayerVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lambda:LayerVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

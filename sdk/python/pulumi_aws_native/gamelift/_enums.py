@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -49,6 +49,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:gamelift:AliasRoutingStrategyType")
 class AliasRoutingStrategyType(builtins.str, Enum):
     """
     Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
@@ -57,6 +58,7 @@ class AliasRoutingStrategyType(builtins.str, Enum):
     TERMINAL = "TERMINAL"
 
 
+@pulumi.type_token("aws-native:gamelift:BuildOperatingSystem")
 class BuildOperatingSystem(builtins.str, Enum):
     """
     The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
@@ -68,6 +70,7 @@ class BuildOperatingSystem(builtins.str, Enum):
     WINDOWS2016 = "WINDOWS_2016"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetBillingType")
 class ContainerFleetBillingType(builtins.str, Enum):
     """
     Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
@@ -76,6 +79,7 @@ class ContainerFleetBillingType(builtins.str, Enum):
     SPOT = "SPOT"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetDeploymentConfigurationImpairmentStrategy")
 class ContainerFleetDeploymentConfigurationImpairmentStrategy(builtins.str, Enum):
     """
     The strategy to apply in case of impairment; defaults to MAINTAIN.
@@ -84,6 +88,7 @@ class ContainerFleetDeploymentConfigurationImpairmentStrategy(builtins.str, Enum
     ROLLBACK = "ROLLBACK"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetDeploymentConfigurationProtectionStrategy")
 class ContainerFleetDeploymentConfigurationProtectionStrategy(builtins.str, Enum):
     """
     The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
@@ -92,6 +97,7 @@ class ContainerFleetDeploymentConfigurationProtectionStrategy(builtins.str, Enum
     IGNORE_PROTECTION = "IGNORE_PROTECTION"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetIpPermissionProtocol")
 class ContainerFleetIpPermissionProtocol(builtins.str, Enum):
     """
     The network communication protocol used by the fleet.
@@ -100,6 +106,7 @@ class ContainerFleetIpPermissionProtocol(builtins.str, Enum):
     UDP = "UDP"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetLogDestination")
 class ContainerFleetLogDestination(builtins.str, Enum):
     """
     Configures the service that provides logs.
@@ -109,6 +116,7 @@ class ContainerFleetLogDestination(builtins.str, Enum):
     S3 = "S3"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetNewGameSessionProtectionPolicy")
 class ContainerFleetNewGameSessionProtectionPolicy(builtins.str, Enum):
     """
     A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
@@ -117,6 +125,7 @@ class ContainerFleetNewGameSessionProtectionPolicy(builtins.str, Enum):
     NO_PROTECTION = "NoProtection"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetScalingPolicyComparisonOperator")
 class ContainerFleetScalingPolicyComparisonOperator(builtins.str, Enum):
     """
     Comparison operator to use when measuring a metric against the threshold value.
@@ -127,6 +136,7 @@ class ContainerFleetScalingPolicyComparisonOperator(builtins.str, Enum):
     LESS_THAN_OR_EQUAL_TO_THRESHOLD = "LessThanOrEqualToThreshold"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetScalingPolicyMetricName")
 class ContainerFleetScalingPolicyMetricName(builtins.str, Enum):
     """
     Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
@@ -145,6 +155,7 @@ class ContainerFleetScalingPolicyMetricName(builtins.str, Enum):
     CONCURRENT_ACTIVATABLE_GAME_SESSIONS = "ConcurrentActivatableGameSessions"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetScalingPolicyPolicyType")
 class ContainerFleetScalingPolicyPolicyType(builtins.str, Enum):
     """
     The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
@@ -153,6 +164,7 @@ class ContainerFleetScalingPolicyPolicyType(builtins.str, Enum):
     TARGET_BASED = "TargetBased"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetScalingPolicyScalingAdjustmentType")
 class ContainerFleetScalingPolicyScalingAdjustmentType(builtins.str, Enum):
     """
     The type of adjustment to make to a fleet's instance count.
@@ -162,6 +174,7 @@ class ContainerFleetScalingPolicyScalingAdjustmentType(builtins.str, Enum):
     PERCENT_CHANGE_IN_CAPACITY = "PercentChangeInCapacity"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetStatus")
 class ContainerFleetStatus(builtins.str, Enum):
     """
     The current status of the container fleet.
@@ -175,10 +188,12 @@ class ContainerFleetStatus(builtins.str, Enum):
     DELETING = "DELETING"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetStoppedActionsItem")
 class ContainerFleetStoppedActionsItem(builtins.str, Enum):
     AUTO_SCALING = "AUTO_SCALING"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerGroupDefinitionContainerDependencyCondition")
 class ContainerGroupDefinitionContainerDependencyCondition(builtins.str, Enum):
     """
     The type of dependency.
@@ -189,6 +204,7 @@ class ContainerGroupDefinitionContainerDependencyCondition(builtins.str, Enum):
     HEALTHY = "HEALTHY"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerGroupDefinitionContainerGroupType")
 class ContainerGroupDefinitionContainerGroupType(builtins.str, Enum):
     """
     The scope of the container group
@@ -197,6 +213,7 @@ class ContainerGroupDefinitionContainerGroupType(builtins.str, Enum):
     PER_INSTANCE = "PER_INSTANCE"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerGroupDefinitionContainerMountPointAccessLevel")
 class ContainerGroupDefinitionContainerMountPointAccessLevel(builtins.str, Enum):
     """
     The access permissions for the mounted path.
@@ -205,6 +222,7 @@ class ContainerGroupDefinitionContainerMountPointAccessLevel(builtins.str, Enum)
     READ_AND_WRITE = "READ_AND_WRITE"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerGroupDefinitionContainerPortRangeProtocol")
 class ContainerGroupDefinitionContainerPortRangeProtocol(builtins.str, Enum):
     """
     Defines the protocol of these ports.
@@ -213,6 +231,7 @@ class ContainerGroupDefinitionContainerPortRangeProtocol(builtins.str, Enum):
     UDP = "UDP"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerGroupDefinitionOperatingSystem")
 class ContainerGroupDefinitionOperatingSystem(builtins.str, Enum):
     """
     The operating system of the container group
@@ -220,6 +239,7 @@ class ContainerGroupDefinitionOperatingSystem(builtins.str, Enum):
     AMAZON_LINUX2023 = "AMAZON_LINUX_2023"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerGroupDefinitionStatus")
 class ContainerGroupDefinitionStatus(builtins.str, Enum):
     """
     A string indicating ContainerGroupDefinition status.
@@ -229,6 +249,7 @@ class ContainerGroupDefinitionStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetApplyCapacity")
 class FleetApplyCapacity(builtins.str, Enum):
     """
     Determines whether to apply fleet or location capacities on fleet creation.
@@ -237,6 +258,7 @@ class FleetApplyCapacity(builtins.str, Enum):
     ON_CREATE_AND_UPDATE = "ON_CREATE_AND_UPDATE"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetCertificateConfigurationCertificateType")
 class FleetCertificateConfigurationCertificateType(builtins.str, Enum):
     """
     Indicates whether a TLS/SSL certificate is generated for a fleet.
@@ -250,6 +272,7 @@ class FleetCertificateConfigurationCertificateType(builtins.str, Enum):
     GENERATED = "GENERATED"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetComputeType")
 class FleetComputeType(builtins.str, Enum):
     """
     ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
@@ -258,6 +281,7 @@ class FleetComputeType(builtins.str, Enum):
     ANYWHERE = "ANYWHERE"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetInstanceRoleCredentialsProvider")
 class FleetInstanceRoleCredentialsProvider(builtins.str, Enum):
     """
     Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
@@ -265,6 +289,7 @@ class FleetInstanceRoleCredentialsProvider(builtins.str, Enum):
     SHARED_CREDENTIAL_FILE = "SHARED_CREDENTIAL_FILE"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetIpPermissionProtocol")
 class FleetIpPermissionProtocol(builtins.str, Enum):
     """
     The network communication protocol used by the fleet.
@@ -273,6 +298,7 @@ class FleetIpPermissionProtocol(builtins.str, Enum):
     UDP = "UDP"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetNewGameSessionProtectionPolicy")
 class FleetNewGameSessionProtectionPolicy(builtins.str, Enum):
     """
     A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
@@ -281,6 +307,7 @@ class FleetNewGameSessionProtectionPolicy(builtins.str, Enum):
     NO_PROTECTION = "NoProtection"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetScalingPolicyComparisonOperator")
 class FleetScalingPolicyComparisonOperator(builtins.str, Enum):
     """
     Comparison operator to use when measuring a metric against the threshold value.
@@ -291,6 +318,7 @@ class FleetScalingPolicyComparisonOperator(builtins.str, Enum):
     LESS_THAN_OR_EQUAL_TO_THRESHOLD = "LessThanOrEqualToThreshold"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetScalingPolicyMetricName")
 class FleetScalingPolicyMetricName(builtins.str, Enum):
     """
     Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
@@ -309,6 +337,7 @@ class FleetScalingPolicyMetricName(builtins.str, Enum):
     CONCURRENT_ACTIVATABLE_GAME_SESSIONS = "ConcurrentActivatableGameSessions"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetScalingPolicyPolicyType")
 class FleetScalingPolicyPolicyType(builtins.str, Enum):
     """
     The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
@@ -317,6 +346,7 @@ class FleetScalingPolicyPolicyType(builtins.str, Enum):
     TARGET_BASED = "TargetBased"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetScalingPolicyScalingAdjustmentType")
 class FleetScalingPolicyScalingAdjustmentType(builtins.str, Enum):
     """
     The type of adjustment to make to a fleet's instance count.
@@ -326,6 +356,7 @@ class FleetScalingPolicyScalingAdjustmentType(builtins.str, Enum):
     PERCENT_CHANGE_IN_CAPACITY = "PercentChangeInCapacity"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetScalingPolicyStatus")
 class FleetScalingPolicyStatus(builtins.str, Enum):
     """
     Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
@@ -339,6 +370,7 @@ class FleetScalingPolicyStatus(builtins.str, Enum):
     ERROR = "ERROR"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetScalingPolicyUpdateStatus")
 class FleetScalingPolicyUpdateStatus(builtins.str, Enum):
     """
     The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
@@ -346,6 +378,7 @@ class FleetScalingPolicyUpdateStatus(builtins.str, Enum):
     PENDING_UPDATE = "PENDING_UPDATE"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetType")
 class FleetType(builtins.str, Enum):
     """
     Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
@@ -354,6 +387,7 @@ class FleetType(builtins.str, Enum):
     SPOT = "SPOT"
 
 
+@pulumi.type_token("aws-native:gamelift:GameServerGroupBalancingStrategy")
 class GameServerGroupBalancingStrategy(builtins.str, Enum):
     """
     The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
@@ -363,6 +397,7 @@ class GameServerGroupBalancingStrategy(builtins.str, Enum):
     ON_DEMAND_ONLY = "ON_DEMAND_ONLY"
 
 
+@pulumi.type_token("aws-native:gamelift:GameServerGroupDeleteOption")
 class GameServerGroupDeleteOption(builtins.str, Enum):
     """
     The type of delete to perform.
@@ -372,6 +407,7 @@ class GameServerGroupDeleteOption(builtins.str, Enum):
     RETAIN = "RETAIN"
 
 
+@pulumi.type_token("aws-native:gamelift:GameServerGroupGameServerProtectionPolicy")
 class GameServerGroupGameServerProtectionPolicy(builtins.str, Enum):
     """
     A flag that indicates whether instances in the game server group are protected from early termination.
@@ -380,6 +416,7 @@ class GameServerGroupGameServerProtectionPolicy(builtins.str, Enum):
     FULL_PROTECTION = "FULL_PROTECTION"
 
 
+@pulumi.type_token("aws-native:gamelift:GameSessionQueuePriorityOrderItem")
 class GameSessionQueuePriorityOrderItem(builtins.str, Enum):
     LATENCY = "LATENCY"
     COST = "COST"
@@ -387,6 +424,7 @@ class GameSessionQueuePriorityOrderItem(builtins.str, Enum):
     LOCATION = "LOCATION"
 
 
+@pulumi.type_token("aws-native:gamelift:MatchmakingConfigurationBackfillMode")
 class MatchmakingConfigurationBackfillMode(builtins.str, Enum):
     """
     The method used to backfill game sessions created with this matchmaking configuration.
@@ -395,6 +433,7 @@ class MatchmakingConfigurationBackfillMode(builtins.str, Enum):
     MANUAL = "MANUAL"
 
 
+@pulumi.type_token("aws-native:gamelift:MatchmakingConfigurationFlexMatchMode")
 class MatchmakingConfigurationFlexMatchMode(builtins.str, Enum):
     """
     Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.

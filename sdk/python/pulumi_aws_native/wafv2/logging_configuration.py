@@ -90,10 +90,8 @@ class LoggingConfigurationArgs:
         pulumi.set(self, "redacted_fields", value)
 
 
+@pulumi.type_token("aws-native:wafv2:LoggingConfiguration")
 class LoggingConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:wafv2:LoggingConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

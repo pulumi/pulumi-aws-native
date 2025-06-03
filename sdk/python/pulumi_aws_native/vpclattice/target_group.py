@@ -113,10 +113,8 @@ class TargetGroupArgs:
         pulumi.set(self, "targets", value)
 
 
+@pulumi.type_token("aws-native:vpclattice:TargetGroup")
 class TargetGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:vpclattice:TargetGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

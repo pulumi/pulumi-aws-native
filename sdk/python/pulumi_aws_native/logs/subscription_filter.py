@@ -137,10 +137,8 @@ class SubscriptionFilterArgs:
         pulumi.set(self, "role_arn", value)
 
 
+@pulumi.type_token("aws-native:logs:SubscriptionFilter")
 class SubscriptionFilter(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:logs:SubscriptionFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

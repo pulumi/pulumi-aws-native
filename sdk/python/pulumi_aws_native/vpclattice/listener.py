@@ -128,10 +128,8 @@ class ListenerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:vpclattice:Listener")
 class Listener(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:vpclattice:Listener"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

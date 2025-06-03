@@ -121,10 +121,8 @@ class RunGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:omics:RunGroup")
 class RunGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:omics:RunGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -107,10 +107,8 @@ class ExtensionAssociationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:appconfig:ExtensionAssociation")
 class ExtensionAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appconfig:ExtensionAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

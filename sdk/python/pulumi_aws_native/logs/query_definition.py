@@ -89,10 +89,8 @@ class QueryDefinitionArgs:
         pulumi.set(self, "query_language", value)
 
 
+@pulumi.type_token("aws-native:logs:QueryDefinition")
 class QueryDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:logs:QueryDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

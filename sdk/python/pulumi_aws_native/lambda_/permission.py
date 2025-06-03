@@ -165,10 +165,8 @@ class PermissionArgs:
         pulumi.set(self, "source_arn", value)
 
 
+@pulumi.type_token("aws-native:lambda:Permission")
 class Permission(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lambda:Permission"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

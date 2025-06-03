@@ -92,10 +92,8 @@ class RecipeArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:databrew:Recipe")
 class Recipe(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:databrew:Recipe"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

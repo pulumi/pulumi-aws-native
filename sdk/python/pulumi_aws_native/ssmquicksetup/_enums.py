@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:ssmquicksetup:ConfigurationManagerStatus")
 class ConfigurationManagerStatus(builtins.str, Enum):
     INITIALIZING = "INITIALIZING"
     DEPLOYING = "DEPLOYING"
@@ -25,6 +26,7 @@ class ConfigurationManagerStatus(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:ssmquicksetup:ConfigurationManagerStatusType")
 class ConfigurationManagerStatusType(builtins.str, Enum):
     DEPLOYMENT = "Deployment"
     ASYNC_EXECUTIONS = "AsyncExecutions"

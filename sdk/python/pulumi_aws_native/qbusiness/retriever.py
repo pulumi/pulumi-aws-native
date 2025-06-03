@@ -122,10 +122,8 @@ class RetrieverArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:qbusiness:Retriever")
 class Retriever(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:qbusiness:Retriever"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

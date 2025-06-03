@@ -125,10 +125,8 @@ class SourceLocationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:mediatailor:SourceLocation")
 class SourceLocation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediatailor:SourceLocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -109,10 +109,8 @@ class AppImageConfigArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:AppImageConfig")
 class AppImageConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:AppImageConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

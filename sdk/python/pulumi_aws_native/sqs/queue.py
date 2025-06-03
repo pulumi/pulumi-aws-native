@@ -343,10 +343,8 @@ class QueueArgs:
         pulumi.set(self, "visibility_timeout", value)
 
 
+@pulumi.type_token("aws-native:sqs:Queue")
 class Queue(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sqs:Queue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

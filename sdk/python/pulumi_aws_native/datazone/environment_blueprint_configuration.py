@@ -148,10 +148,8 @@ class EnvironmentBlueprintConfigurationArgs:
         pulumi.set(self, "regional_parameters", value)
 
 
+@pulumi.type_token("aws-native:datazone:EnvironmentBlueprintConfiguration")
 class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datazone:EnvironmentBlueprintConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

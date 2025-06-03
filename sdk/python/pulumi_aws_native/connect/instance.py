@@ -108,10 +108,8 @@ class InstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:connect:Instance")
 class Instance(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:Instance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

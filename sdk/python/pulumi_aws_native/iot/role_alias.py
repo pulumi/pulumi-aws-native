@@ -94,10 +94,8 @@ class RoleAliasArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iot:RoleAlias")
 class RoleAlias(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:RoleAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

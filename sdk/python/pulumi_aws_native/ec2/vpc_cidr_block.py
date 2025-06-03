@@ -184,10 +184,8 @@ class VpcCidrBlockArgs:
         pulumi.set(self, "ipv6_pool", value)
 
 
+@pulumi.type_token("aws-native:ec2:VpcCidrBlock")
 class VpcCidrBlock(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:VpcCidrBlock"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

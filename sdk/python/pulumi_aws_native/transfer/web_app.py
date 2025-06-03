@@ -133,10 +133,8 @@ class WebAppArgs:
         pulumi.set(self, "web_app_units", value)
 
 
+@pulumi.type_token("aws-native:transfer:WebApp")
 class WebApp(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:transfer:WebApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

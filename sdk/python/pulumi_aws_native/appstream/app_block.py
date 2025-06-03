@@ -158,10 +158,8 @@ class AppBlockArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:appstream:AppBlock")
 class AppBlock(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appstream:AppBlock"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

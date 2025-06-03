@@ -138,10 +138,8 @@ class LinkArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws-native:networkmanager:Link")
 class Link(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:networkmanager:Link"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -232,10 +232,8 @@ class UserArgs:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("aws-native:transfer:User")
 class User(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:transfer:User"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

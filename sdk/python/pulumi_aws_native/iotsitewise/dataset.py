@@ -93,10 +93,8 @@ class DatasetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iotsitewise:Dataset")
 class Dataset(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotsitewise:Dataset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

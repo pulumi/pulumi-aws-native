@@ -333,10 +333,8 @@ class TargetGroupArgs:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws-native:elasticloadbalancingv2:TargetGroup")
 class TargetGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:elasticloadbalancingv2:TargetGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

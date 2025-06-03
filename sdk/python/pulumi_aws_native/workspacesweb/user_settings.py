@@ -233,10 +233,8 @@ class UserSettingsArgs:
         pulumi.set(self, "toolbar_configuration", value)
 
 
+@pulumi.type_token("aws-native:workspacesweb:UserSettings")
 class UserSettings(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:workspacesweb:UserSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

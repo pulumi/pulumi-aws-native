@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:lightsail:DiskAddOnStatus")
 class DiskAddOnStatus(builtins.str, Enum):
     """
     Status of the Addon
@@ -25,6 +26,7 @@ class DiskAddOnStatus(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("aws-native:lightsail:InstanceAddOnStatus")
 class InstanceAddOnStatus(builtins.str, Enum):
     """
     Status of the Addon

@@ -106,10 +106,8 @@ class AnomalyDetectorArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
+@pulumi.type_token("aws-native:lookoutmetrics:AnomalyDetector")
 class AnomalyDetector(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lookoutmetrics:AnomalyDetector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

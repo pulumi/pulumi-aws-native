@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:cognito:ManagedLoginBrandingCategoryType")
 class ManagedLoginBrandingCategoryType(builtins.str, Enum):
     FAVICON_ICO = "FAVICON_ICO"
     FAVICON_SVG = "FAVICON_SVG"
@@ -33,12 +34,14 @@ class ManagedLoginBrandingCategoryType(builtins.str, Enum):
     IDP_BUTTON_ICON = "IDP_BUTTON_ICON"
 
 
+@pulumi.type_token("aws-native:cognito:ManagedLoginBrandingColorModeType")
 class ManagedLoginBrandingColorModeType(builtins.str, Enum):
     LIGHT = "LIGHT"
     DARK = "DARK"
     DYNAMIC = "DYNAMIC"
 
 
+@pulumi.type_token("aws-native:cognito:ManagedLoginBrandingExtensionType")
 class ManagedLoginBrandingExtensionType(builtins.str, Enum):
     ICO = "ICO"
     JPEG = "JPEG"
@@ -47,6 +50,7 @@ class ManagedLoginBrandingExtensionType(builtins.str, Enum):
     WEBP = "WEBP"
 
 
+@pulumi.type_token("aws-native:cognito:UserPoolClientRefreshTokenRotationFeature")
 class UserPoolClientRefreshTokenRotationFeature(builtins.str, Enum):
     """
     The state of refresh token rotation for the current app client.
@@ -55,6 +59,7 @@ class UserPoolClientRefreshTokenRotationFeature(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:cognito:UserPoolTier")
 class UserPoolTier(builtins.str, Enum):
     """
     The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .

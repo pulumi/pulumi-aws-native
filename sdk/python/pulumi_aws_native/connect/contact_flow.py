@@ -137,10 +137,8 @@ class ContactFlowArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:connect:ContactFlow")
 class ContactFlow(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:ContactFlow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -126,10 +126,8 @@ class EmailIdentityArgs:
         pulumi.set(self, "mail_from_attributes", value)
 
 
+@pulumi.type_token("aws-native:ses:EmailIdentity")
 class EmailIdentity(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ses:EmailIdentity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

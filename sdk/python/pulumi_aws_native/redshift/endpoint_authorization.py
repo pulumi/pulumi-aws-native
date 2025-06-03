@@ -87,10 +87,8 @@ class EndpointAuthorizationArgs:
         pulumi.set(self, "vpc_ids", value)
 
 
+@pulumi.type_token("aws-native:redshift:EndpointAuthorization")
 class EndpointAuthorization(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:redshift:EndpointAuthorization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

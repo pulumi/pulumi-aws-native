@@ -302,10 +302,8 @@ class InfluxDbInstanceArgs:
         pulumi.set(self, "vpc_subnet_ids", value)
 
 
+@pulumi.type_token("aws-native:timestream:InfluxDbInstance")
 class InfluxDbInstance(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:timestream:InfluxDbInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

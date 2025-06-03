@@ -137,10 +137,8 @@ class AssetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:mediapackage:Asset")
 class Asset(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediapackage:Asset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

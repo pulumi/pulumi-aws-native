@@ -103,10 +103,8 @@ class EipAssociationArgs:
         pulumi.set(self, "private_ip_address", value)
 
 
+@pulumi.type_token("aws-native:ec2:EipAssociation")
 class EipAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:EipAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

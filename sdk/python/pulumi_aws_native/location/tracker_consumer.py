@@ -71,10 +71,8 @@ class TrackerConsumerArgs:
         pulumi.set(self, "tracker_name", value)
 
 
+@pulumi.type_token("aws-native:location:TrackerConsumer")
 class TrackerConsumer(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:location:TrackerConsumer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

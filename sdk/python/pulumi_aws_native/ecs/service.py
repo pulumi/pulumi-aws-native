@@ -498,10 +498,8 @@ class ServiceArgs:
         pulumi.set(self, "vpc_lattice_configurations", value)
 
 
+@pulumi.type_token("aws-native:ecs:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ecs:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

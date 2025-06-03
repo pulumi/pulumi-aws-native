@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:elasticache:GlobalReplicationGroupMemberRole")
 class GlobalReplicationGroupMemberRole(builtins.str, Enum):
     """
     Indicates the role of the member, primary or secondary.
@@ -23,6 +24,7 @@ class GlobalReplicationGroupMemberRole(builtins.str, Enum):
     SECONDARY = "SECONDARY"
 
 
+@pulumi.type_token("aws-native:elasticache:ServerlessCacheDataStorageUnit")
 class ServerlessCacheDataStorageUnit(builtins.str, Enum):
     """
     The unit of cached data capacity of the Serverless Cache.
@@ -30,6 +32,7 @@ class ServerlessCacheDataStorageUnit(builtins.str, Enum):
     GB = "GB"
 
 
+@pulumi.type_token("aws-native:elasticache:UserAuthenticationModePropertiesType")
 class UserAuthenticationModePropertiesType(builtins.str, Enum):
     """
     Authentication Type
@@ -39,6 +42,7 @@ class UserAuthenticationModePropertiesType(builtins.str, Enum):
     IAM = "iam"
 
 
+@pulumi.type_token("aws-native:elasticache:UserEngine")
 class UserEngine(builtins.str, Enum):
     """
     The target cache engine for the user.
@@ -47,6 +51,7 @@ class UserEngine(builtins.str, Enum):
     VALKEY = "valkey"
 
 
+@pulumi.type_token("aws-native:elasticache:UserGroupEngine")
 class UserGroupEngine(builtins.str, Enum):
     """
     The target cache engine for the user group.

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -11,6 +11,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:osis:PipelineVpcOptionsVpcEndpointManagement")
 class PipelineVpcOptionsVpcEndpointManagement(builtins.str, Enum):
     """
     Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.

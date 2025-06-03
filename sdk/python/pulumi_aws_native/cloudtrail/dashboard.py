@@ -110,10 +110,8 @@ class DashboardArgs:
         pulumi.set(self, "widgets", value)
 
 
+@pulumi.type_token("aws-native:cloudtrail:Dashboard")
 class Dashboard(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudtrail:Dashboard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -98,10 +98,8 @@ class ApiArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:appsync:Api")
 class Api(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appsync:Api"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -71,10 +71,8 @@ class MasterArgs:
         pulumi.set(self, "invitation_id", value)
 
 
+@pulumi.type_token("aws-native:guardduty:Master")
 class Master(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:guardduty:Master"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

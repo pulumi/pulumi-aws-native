@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:s3express:DirectoryBucketDataRedundancy")
 class DirectoryBucketDataRedundancy(builtins.str, Enum):
     """
     Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
@@ -21,6 +22,7 @@ class DirectoryBucketDataRedundancy(builtins.str, Enum):
     SINGLE_LOCAL_ZONE = "SingleLocalZone"
 
 
+@pulumi.type_token("aws-native:s3express:DirectoryBucketRuleStatus")
 class DirectoryBucketRuleStatus(builtins.str, Enum):
     """
     If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
@@ -29,6 +31,7 @@ class DirectoryBucketRuleStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("aws-native:s3express:DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm")
 class DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm(builtins.str, Enum):
     """
     Server-side encryption algorithm to use for the default encryption.

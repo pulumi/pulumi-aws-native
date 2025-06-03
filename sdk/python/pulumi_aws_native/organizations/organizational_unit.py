@@ -74,10 +74,8 @@ class OrganizationalUnitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:organizations:OrganizationalUnit")
 class OrganizationalUnit(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:organizations:OrganizationalUnit"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

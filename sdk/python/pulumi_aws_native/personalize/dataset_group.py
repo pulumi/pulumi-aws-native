@@ -90,10 +90,8 @@ class DatasetGroupArgs:
         pulumi.set(self, "role_arn", value)
 
 
+@pulumi.type_token("aws-native:personalize:DatasetGroup")
 class DatasetGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:personalize:DatasetGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

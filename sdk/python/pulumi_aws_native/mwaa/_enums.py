@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:mwaa:EnvironmentEndpointManagement")
 class EnvironmentEndpointManagement(builtins.str, Enum):
     """
     Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA.
@@ -21,6 +22,7 @@ class EnvironmentEndpointManagement(builtins.str, Enum):
     SERVICE = "SERVICE"
 
 
+@pulumi.type_token("aws-native:mwaa:EnvironmentLoggingLevel")
 class EnvironmentLoggingLevel(builtins.str, Enum):
     CRITICAL = "CRITICAL"
     ERROR = "ERROR"
@@ -29,6 +31,7 @@ class EnvironmentLoggingLevel(builtins.str, Enum):
     DEBUG = "DEBUG"
 
 
+@pulumi.type_token("aws-native:mwaa:EnvironmentWebserverAccessMode")
 class EnvironmentWebserverAccessMode(builtins.str, Enum):
     """
     Choice for mode of webserver access including over public internet or via private VPC endpoint.

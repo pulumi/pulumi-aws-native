@@ -438,10 +438,8 @@ class ServerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:opsworkscm:Server")
 class Server(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:opsworkscm:Server"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

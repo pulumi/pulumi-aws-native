@@ -162,10 +162,8 @@ class ServiceLevelObjectiveArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:applicationsignals:ServiceLevelObjective")
 class ServiceLevelObjective(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:applicationsignals:ServiceLevelObjective"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

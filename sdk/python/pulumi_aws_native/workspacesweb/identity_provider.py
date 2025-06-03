@@ -176,10 +176,8 @@ class IdentityProviderArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:workspacesweb:IdentityProvider")
 class IdentityProvider(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:workspacesweb:IdentityProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

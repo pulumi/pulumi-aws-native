@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,12 +13,14 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:panorama:ApplicationInstanceHealthStatus")
 class ApplicationInstanceHealthStatus(builtins.str, Enum):
     RUNNING = "RUNNING"
     ERROR = "ERROR"
     NOT_AVAILABLE = "NOT_AVAILABLE"
 
 
+@pulumi.type_token("aws-native:panorama:ApplicationInstanceStatus")
 class ApplicationInstanceStatus(builtins.str, Enum):
     DEPLOYMENT_PENDING = "DEPLOYMENT_PENDING"
     DEPLOYMENT_REQUESTED = "DEPLOYMENT_REQUESTED"
@@ -32,6 +34,7 @@ class ApplicationInstanceStatus(builtins.str, Enum):
     REMOVAL_SUCCEEDED = "REMOVAL_SUCCEEDED"
 
 
+@pulumi.type_token("aws-native:panorama:PackageVersionStatus")
 class PackageVersionStatus(builtins.str, Enum):
     REGISTER_PENDING = "REGISTER_PENDING"
     REGISTER_COMPLETED = "REGISTER_COMPLETED"

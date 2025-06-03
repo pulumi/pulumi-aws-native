@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -44,6 +44,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:connect:AgentStatusState")
 class AgentStatusState(builtins.str, Enum):
     """
     The state of the status.
@@ -52,6 +53,7 @@ class AgentStatusState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:connect:AgentStatusType")
 class AgentStatusType(builtins.str, Enum):
     """
     The type of agent status.
@@ -61,6 +63,7 @@ class AgentStatusType(builtins.str, Enum):
     OFFLINE = "OFFLINE"
 
 
+@pulumi.type_token("aws-native:connect:ContactFlowState")
 class ContactFlowState(builtins.str, Enum):
     """
     The state of the contact flow.
@@ -69,6 +72,7 @@ class ContactFlowState(builtins.str, Enum):
     ARCHIVED = "ARCHIVED"
 
 
+@pulumi.type_token("aws-native:connect:ContactFlowType")
 class ContactFlowType(builtins.str, Enum):
     """
     The type of the contact flow.
@@ -85,6 +89,7 @@ class ContactFlowType(builtins.str, Enum):
     CAMPAIGN = "CAMPAIGN"
 
 
+@pulumi.type_token("aws-native:connect:EvaluationFormNumericQuestionPropertyValueAutomationLabel")
 class EvaluationFormNumericQuestionPropertyValueAutomationLabel(builtins.str, Enum):
     """
     The property label of the automation.
@@ -99,6 +104,7 @@ class EvaluationFormNumericQuestionPropertyValueAutomationLabel(builtins.str, En
     CUSTOMER_HOLD_TIME = "CUSTOMER_HOLD_TIME"
 
 
+@pulumi.type_token("aws-native:connect:EvaluationFormQuestionQuestionType")
 class EvaluationFormQuestionQuestionType(builtins.str, Enum):
     """
     The type of the question.
@@ -109,6 +115,7 @@ class EvaluationFormQuestionQuestionType(builtins.str, Enum):
     TEXT = "TEXT"
 
 
+@pulumi.type_token("aws-native:connect:EvaluationFormScoringStrategyMode")
 class EvaluationFormScoringStrategyMode(builtins.str, Enum):
     """
     The scoring mode of the evaluation form.
@@ -118,6 +125,7 @@ class EvaluationFormScoringStrategyMode(builtins.str, Enum):
     SECTION_ONLY = "SECTION_ONLY"
 
 
+@pulumi.type_token("aws-native:connect:EvaluationFormScoringStrategyStatus")
 class EvaluationFormScoringStrategyStatus(builtins.str, Enum):
     """
     The scoring status of the evaluation form.
@@ -127,6 +135,7 @@ class EvaluationFormScoringStrategyStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:connect:EvaluationFormSingleSelectQuestionPropertiesDisplayAs")
 class EvaluationFormSingleSelectQuestionPropertiesDisplayAs(builtins.str, Enum):
     """
     The display mode of the single select question.
@@ -136,6 +145,7 @@ class EvaluationFormSingleSelectQuestionPropertiesDisplayAs(builtins.str, Enum):
     RADIO = "RADIO"
 
 
+@pulumi.type_token("aws-native:connect:EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition")
 class EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition(builtins.str, Enum):
     """
     The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
@@ -146,6 +156,7 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition(builtins
     NOT_PRESENT = "NOT_PRESENT"
 
 
+@pulumi.type_token("aws-native:connect:EvaluationFormStatus")
 class EvaluationFormStatus(builtins.str, Enum):
     """
     The status of the evaluation form.
@@ -155,6 +166,7 @@ class EvaluationFormStatus(builtins.str, Enum):
     ACTIVE = "ACTIVE"
 
 
+@pulumi.type_token("aws-native:connect:HoursOfOperationConfigDay")
 class HoursOfOperationConfigDay(builtins.str, Enum):
     """
     The day that the hours of operation applies to.
@@ -168,6 +180,7 @@ class HoursOfOperationConfigDay(builtins.str, Enum):
     SATURDAY = "SATURDAY"
 
 
+@pulumi.type_token("aws-native:connect:HoursOfOperationOverrideConfigDay")
 class HoursOfOperationOverrideConfigDay(builtins.str, Enum):
     """
     The day that the hours of operation override applies to.
@@ -181,6 +194,7 @@ class HoursOfOperationOverrideConfigDay(builtins.str, Enum):
     SATURDAY = "SATURDAY"
 
 
+@pulumi.type_token("aws-native:connect:InstanceIdentityManagementType")
 class InstanceIdentityManagementType(builtins.str, Enum):
     """
     Specifies the type of directory integration for new instance.
@@ -190,6 +204,7 @@ class InstanceIdentityManagementType(builtins.str, Enum):
     EXISTING_DIRECTORY = "EXISTING_DIRECTORY"
 
 
+@pulumi.type_token("aws-native:connect:InstanceStatus")
 class InstanceStatus(builtins.str, Enum):
     """
     Specifies the creation status of new instance.
@@ -199,6 +214,7 @@ class InstanceStatus(builtins.str, Enum):
     ACTIVE = "ACTIVE"
 
 
+@pulumi.type_token("aws-native:connect:InstanceStorageConfigEncryptionType")
 class InstanceStorageConfigEncryptionType(builtins.str, Enum):
     """
     Specifies default encryption using AWS KMS-Managed Keys
@@ -206,6 +222,7 @@ class InstanceStorageConfigEncryptionType(builtins.str, Enum):
     KMS = "KMS"
 
 
+@pulumi.type_token("aws-native:connect:InstanceStorageConfigInstanceStorageResourceType")
 class InstanceStorageConfigInstanceStorageResourceType(builtins.str, Enum):
     """
     Specifies the type of storage resource available for the instance
@@ -218,6 +235,7 @@ class InstanceStorageConfigInstanceStorageResourceType(builtins.str, Enum):
     AGENT_EVENTS = "AGENT_EVENTS"
 
 
+@pulumi.type_token("aws-native:connect:InstanceStorageConfigStorageType")
 class InstanceStorageConfigStorageType(builtins.str, Enum):
     """
     Specifies the storage type to be associated with the instance
@@ -228,6 +246,7 @@ class InstanceStorageConfigStorageType(builtins.str, Enum):
     KINESIS_FIREHOSE = "KINESIS_FIREHOSE"
 
 
+@pulumi.type_token("aws-native:connect:IntegrationAssociationIntegrationType")
 class IntegrationAssociationIntegrationType(builtins.str, Enum):
     """
     Specifies the integration type to be associated with the instance
@@ -237,6 +256,7 @@ class IntegrationAssociationIntegrationType(builtins.str, Enum):
     APPLICATION = "APPLICATION"
 
 
+@pulumi.type_token("aws-native:connect:QueueStatus")
 class QueueStatus(builtins.str, Enum):
     """
     The status of the queue.
@@ -245,6 +265,7 @@ class QueueStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:connect:QueueType")
 class QueueType(builtins.str, Enum):
     """
     The type of queue.
@@ -253,6 +274,7 @@ class QueueType(builtins.str, Enum):
     AGENT = "AGENT"
 
 
+@pulumi.type_token("aws-native:connect:QuickConnectType")
 class QuickConnectType(builtins.str, Enum):
     """
     The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
@@ -262,6 +284,7 @@ class QuickConnectType(builtins.str, Enum):
     USER = "USER"
 
 
+@pulumi.type_token("aws-native:connect:RoutingProfileAgentAvailabilityTimer")
 class RoutingProfileAgentAvailabilityTimer(builtins.str, Enum):
     """
     Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
@@ -270,6 +293,7 @@ class RoutingProfileAgentAvailabilityTimer(builtins.str, Enum):
     TIME_SINCE_LAST_INBOUND = "TIME_SINCE_LAST_INBOUND"
 
 
+@pulumi.type_token("aws-native:connect:RoutingProfileBehaviorType")
 class RoutingProfileBehaviorType(builtins.str, Enum):
     """
     Specifies the other channels that can be routed to an agent handling their current channel.
@@ -278,6 +302,7 @@ class RoutingProfileBehaviorType(builtins.str, Enum):
     ROUTE_ANY_CHANNEL = "ROUTE_ANY_CHANNEL"
 
 
+@pulumi.type_token("aws-native:connect:RoutingProfileChannel")
 class RoutingProfileChannel(builtins.str, Enum):
     """
     The channels that agents can handle in the Contact Control Panel (CCP).
@@ -288,6 +313,7 @@ class RoutingProfileChannel(builtins.str, Enum):
     EMAIL = "EMAIL"
 
 
+@pulumi.type_token("aws-native:connect:RulePublishStatus")
 class RulePublishStatus(builtins.str, Enum):
     """
     The publish status of the rule.
@@ -297,6 +323,7 @@ class RulePublishStatus(builtins.str, Enum):
     PUBLISHED = "PUBLISHED"
 
 
+@pulumi.type_token("aws-native:connect:RuleReferenceType")
 class RuleReferenceType(builtins.str, Enum):
     """
     The type of the reference. ``DATE`` must be of type Epoch timestamp. 
@@ -310,6 +337,7 @@ class RuleReferenceType(builtins.str, Enum):
     EMAIL = "EMAIL"
 
 
+@pulumi.type_token("aws-native:connect:RuleSendNotificationActionContentType")
 class RuleSendNotificationActionContentType(builtins.str, Enum):
     """
     Content type format.
@@ -318,6 +346,7 @@ class RuleSendNotificationActionContentType(builtins.str, Enum):
     PLAIN_TEXT = "PLAIN_TEXT"
 
 
+@pulumi.type_token("aws-native:connect:RuleSendNotificationActionDeliveryMethod")
 class RuleSendNotificationActionDeliveryMethod(builtins.str, Enum):
     """
     Notification delivery method.
@@ -326,6 +355,7 @@ class RuleSendNotificationActionDeliveryMethod(builtins.str, Enum):
     EMAIL = "EMAIL"
 
 
+@pulumi.type_token("aws-native:connect:RuleTriggerEventSourceEventSourceName")
 class RuleTriggerEventSourceEventSourceName(builtins.str, Enum):
     """
     The name of the event source.
@@ -343,6 +373,7 @@ class RuleTriggerEventSourceEventSourceName(builtins.str, Enum):
     ON_CASE_UPDATE = "OnCaseUpdate"
 
 
+@pulumi.type_token("aws-native:connect:TaskTemplateFieldType")
 class TaskTemplateFieldType(builtins.str, Enum):
     """
     The type of the task template's field
@@ -363,6 +394,7 @@ class TaskTemplateFieldType(builtins.str, Enum):
     SELF_ASSIGN = "SELF_ASSIGN"
 
 
+@pulumi.type_token("aws-native:connect:TaskTemplateStatus")
 class TaskTemplateStatus(builtins.str, Enum):
     """
     The status of the task template
@@ -371,6 +403,7 @@ class TaskTemplateStatus(builtins.str, Enum):
     INACTIVE = "INACTIVE"
 
 
+@pulumi.type_token("aws-native:connect:TrafficDistributionGroupStatus")
 class TrafficDistributionGroupStatus(builtins.str, Enum):
     """
     The status of the traffic distribution group.
@@ -383,6 +416,7 @@ class TrafficDistributionGroupStatus(builtins.str, Enum):
     UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
 
 
+@pulumi.type_token("aws-native:connect:UserPhoneType")
 class UserPhoneType(builtins.str, Enum):
     """
     The phone type.

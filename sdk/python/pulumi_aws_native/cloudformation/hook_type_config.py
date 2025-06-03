@@ -94,10 +94,8 @@ class HookTypeConfigArgs:
         pulumi.set(self, "type_name", value)
 
 
+@pulumi.type_token("aws-native:cloudformation:HookTypeConfig")
 class HookTypeConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudformation:HookTypeConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

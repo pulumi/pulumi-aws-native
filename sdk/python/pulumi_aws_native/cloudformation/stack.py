@@ -383,10 +383,8 @@ class StackArgs:
         pulumi.set(self, "timeout_in_minutes", value)
 
 
+@pulumi.type_token("aws-native:cloudformation:Stack")
 class Stack(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudformation:Stack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

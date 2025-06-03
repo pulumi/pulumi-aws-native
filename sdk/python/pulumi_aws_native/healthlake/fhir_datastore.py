@@ -129,10 +129,8 @@ class FhirDatastoreArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:healthlake:FhirDatastore")
 class FhirDatastore(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:healthlake:FhirDatastore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

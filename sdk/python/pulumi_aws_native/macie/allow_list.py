@@ -93,10 +93,8 @@ class AllowListArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:macie:AllowList")
 class AllowList(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:macie:AllowList"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

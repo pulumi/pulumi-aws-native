@@ -142,10 +142,8 @@ class IpamArgs:
         pulumi.set(self, "tier", value)
 
 
+@pulumi.type_token("aws-native:ec2:Ipam")
 class Ipam(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:Ipam"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

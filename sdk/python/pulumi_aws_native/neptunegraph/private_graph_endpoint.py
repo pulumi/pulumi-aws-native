@@ -87,10 +87,8 @@ class PrivateGraphEndpointArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
+@pulumi.type_token("aws-native:neptunegraph:PrivateGraphEndpoint")
 class PrivateGraphEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:neptunegraph:PrivateGraphEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

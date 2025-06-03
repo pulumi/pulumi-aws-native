@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:rds:CustomDbEngineVersionStatus")
 class CustomDbEngineVersionStatus(builtins.str, Enum):
     """
     A value that indicates the status of a custom engine version (CEV).
@@ -28,6 +29,7 @@ class CustomDbEngineVersionStatus(builtins.str, Enum):
     INACTIVE_EXCEPT_RESTORE = "inactive-except-restore"
 
 
+@pulumi.type_token("aws-native:rds:DbInstanceProcessorFeatureName")
 class DbInstanceProcessorFeatureName(builtins.str, Enum):
     """
     The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
@@ -36,6 +38,7 @@ class DbInstanceProcessorFeatureName(builtins.str, Enum):
     THREADS_PER_CORE = "threadsPerCore"
 
 
+@pulumi.type_token("aws-native:rds:DbProxyAuthFormatAuthScheme")
 class DbProxyAuthFormatAuthScheme(builtins.str, Enum):
     """
     The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
@@ -43,6 +46,7 @@ class DbProxyAuthFormatAuthScheme(builtins.str, Enum):
     SECRETS = "SECRETS"
 
 
+@pulumi.type_token("aws-native:rds:DbProxyAuthFormatClientPasswordAuthType")
 class DbProxyAuthFormatClientPasswordAuthType(builtins.str, Enum):
     """
     The type of authentication the proxy uses for connections from clients.
@@ -53,6 +57,7 @@ class DbProxyAuthFormatClientPasswordAuthType(builtins.str, Enum):
     SQL_SERVER_AUTHENTICATION = "SQL_SERVER_AUTHENTICATION"
 
 
+@pulumi.type_token("aws-native:rds:DbProxyAuthFormatIamAuth")
 class DbProxyAuthFormatIamAuth(builtins.str, Enum):
     """
     Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
@@ -62,6 +67,7 @@ class DbProxyAuthFormatIamAuth(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:rds:DbProxyEndpointTargetRole")
 class DbProxyEndpointTargetRole(builtins.str, Enum):
     """
     A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
@@ -70,6 +76,7 @@ class DbProxyEndpointTargetRole(builtins.str, Enum):
     READ_ONLY = "READ_ONLY"
 
 
+@pulumi.type_token("aws-native:rds:DbProxyEngineFamily")
 class DbProxyEngineFamily(builtins.str, Enum):
     """
     The kinds of databases that the proxy can connect to.
@@ -79,6 +86,7 @@ class DbProxyEngineFamily(builtins.str, Enum):
     SQLSERVER = "SQLSERVER"
 
 
+@pulumi.type_token("aws-native:rds:DbProxyTargetGroupTargetGroupName")
 class DbProxyTargetGroupTargetGroupName(builtins.str, Enum):
     """
     The identifier for the DBProxyTargetGroup
@@ -86,6 +94,7 @@ class DbProxyTargetGroupTargetGroupName(builtins.str, Enum):
     DEFAULT = "default"
 
 
+@pulumi.type_token("aws-native:rds:GlobalClusterEngine")
 class GlobalClusterEngine(builtins.str, Enum):
     """
     The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).

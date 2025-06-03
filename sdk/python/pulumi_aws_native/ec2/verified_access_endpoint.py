@@ -282,10 +282,8 @@ class VerifiedAccessEndpointArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:VerifiedAccessEndpoint")
 class VerifiedAccessEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:VerifiedAccessEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

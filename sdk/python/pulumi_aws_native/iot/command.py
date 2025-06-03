@@ -221,10 +221,8 @@ class CommandArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iot:Command")
 class Command(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:Command"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

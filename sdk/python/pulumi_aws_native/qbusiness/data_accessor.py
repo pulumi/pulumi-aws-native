@@ -105,10 +105,8 @@ class DataAccessorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:qbusiness:DataAccessor")
 class DataAccessor(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:qbusiness:DataAccessor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

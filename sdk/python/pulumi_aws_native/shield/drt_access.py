@@ -56,10 +56,8 @@ class DrtAccessArgs:
         pulumi.set(self, "log_bucket_list", value)
 
 
+@pulumi.type_token("aws-native:shield:DrtAccess")
 class DrtAccess(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:shield:DrtAccess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

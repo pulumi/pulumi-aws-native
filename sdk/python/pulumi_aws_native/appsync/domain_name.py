@@ -89,10 +89,8 @@ class DomainNameArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:appsync:DomainName")
 class DomainName(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appsync:DomainName"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

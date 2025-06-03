@@ -104,10 +104,8 @@ class PrincipalPermissionsArgs:
         pulumi.set(self, "catalog", value)
 
 
+@pulumi.type_token("aws-native:lakeformation:PrincipalPermissions")
 class PrincipalPermissions(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lakeformation:PrincipalPermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

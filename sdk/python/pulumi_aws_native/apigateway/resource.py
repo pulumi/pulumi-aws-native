@@ -70,10 +70,8 @@ class ResourceArgs:
         pulumi.set(self, "rest_api_id", value)
 
 
+@pulumi.type_token("aws-native:apigateway:Resource")
 class Resource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigateway:Resource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

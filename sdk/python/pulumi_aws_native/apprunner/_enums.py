@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:apprunner:ObservabilityConfigurationTraceConfigurationVendor")
 class ObservabilityConfigurationTraceConfigurationVendor(builtins.str, Enum):
     """
     The implementation provider chosen for tracing App Runner services.
@@ -26,6 +27,7 @@ class ObservabilityConfigurationTraceConfigurationVendor(builtins.str, Enum):
     AWSXRAY = "AWSXRAY"
 
 
+@pulumi.type_token("aws-native:apprunner:ServiceCodeConfigurationConfigurationSource")
 class ServiceCodeConfigurationConfigurationSource(builtins.str, Enum):
     """
     Configuration Source
@@ -34,6 +36,7 @@ class ServiceCodeConfigurationConfigurationSource(builtins.str, Enum):
     API = "API"
 
 
+@pulumi.type_token("aws-native:apprunner:ServiceCodeConfigurationValuesRuntime")
 class ServiceCodeConfigurationValuesRuntime(builtins.str, Enum):
     """
     Runtime
@@ -53,6 +56,7 @@ class ServiceCodeConfigurationValuesRuntime(builtins.str, Enum):
     NODEJS22 = "NODEJS_22"
 
 
+@pulumi.type_token("aws-native:apprunner:ServiceEgressConfigurationEgressType")
 class ServiceEgressConfigurationEgressType(builtins.str, Enum):
     """
     Network egress type.
@@ -61,6 +65,7 @@ class ServiceEgressConfigurationEgressType(builtins.str, Enum):
     VPC = "VPC"
 
 
+@pulumi.type_token("aws-native:apprunner:ServiceHealthCheckConfigurationProtocol")
 class ServiceHealthCheckConfigurationProtocol(builtins.str, Enum):
     """
     Health Check Protocol
@@ -69,6 +74,7 @@ class ServiceHealthCheckConfigurationProtocol(builtins.str, Enum):
     HTTP = "HTTP"
 
 
+@pulumi.type_token("aws-native:apprunner:ServiceImageRepositoryImageRepositoryType")
 class ServiceImageRepositoryImageRepositoryType(builtins.str, Enum):
     """
     Image Repository Type
@@ -77,6 +83,7 @@ class ServiceImageRepositoryImageRepositoryType(builtins.str, Enum):
     ECR_PUBLIC = "ECR_PUBLIC"
 
 
+@pulumi.type_token("aws-native:apprunner:ServiceNetworkConfigurationIpAddressType")
 class ServiceNetworkConfigurationIpAddressType(builtins.str, Enum):
     """
     App Runner service endpoint IP address type
@@ -85,6 +92,7 @@ class ServiceNetworkConfigurationIpAddressType(builtins.str, Enum):
     DUAL_STACK = "DUAL_STACK"
 
 
+@pulumi.type_token("aws-native:apprunner:ServiceSourceCodeVersionType")
 class ServiceSourceCodeVersionType(builtins.str, Enum):
     """
     Source Code Version Type
@@ -92,6 +100,7 @@ class ServiceSourceCodeVersionType(builtins.str, Enum):
     BRANCH = "BRANCH"
 
 
+@pulumi.type_token("aws-native:apprunner:VpcIngressConnectionStatus")
 class VpcIngressConnectionStatus(builtins.str, Enum):
     """
     The current status of the VpcIngressConnection.

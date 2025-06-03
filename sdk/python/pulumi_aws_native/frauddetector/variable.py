@@ -137,10 +137,8 @@ class VariableArgs:
         pulumi.set(self, "variable_type", value)
 
 
+@pulumi.type_token("aws-native:frauddetector:Variable")
 class Variable(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:frauddetector:Variable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

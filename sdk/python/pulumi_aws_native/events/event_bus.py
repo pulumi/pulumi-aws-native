@@ -145,10 +145,8 @@ class EventBusArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:events:EventBus")
 class EventBus(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:events:EventBus"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

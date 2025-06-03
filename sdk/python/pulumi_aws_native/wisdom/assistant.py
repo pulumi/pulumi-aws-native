@@ -109,10 +109,8 @@ class AssistantArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:wisdom:Assistant")
 class Assistant(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:wisdom:Assistant"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

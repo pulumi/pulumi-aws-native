@@ -139,10 +139,8 @@ class ConformancePackArgs:
         pulumi.set(self, "template_ssm_document_details", value)
 
 
+@pulumi.type_token("aws-native:configuration:ConformancePack")
 class ConformancePack(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:configuration:ConformancePack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -215,10 +215,8 @@ class SubscriptionArgs:
         pulumi.set(self, "subscription_role_arn", value)
 
 
+@pulumi.type_token("aws-native:sns:Subscription")
 class Subscription(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sns:Subscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

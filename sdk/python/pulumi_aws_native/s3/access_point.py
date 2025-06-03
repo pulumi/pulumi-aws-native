@@ -127,10 +127,8 @@ class AccessPointArgs:
         pulumi.set(self, "vpc_configuration", value)
 
 
+@pulumi.type_token("aws-native:s3:AccessPoint")
 class AccessPoint(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:s3:AccessPoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

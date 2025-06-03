@@ -130,10 +130,8 @@ class RuleGroupInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:networkfirewall:RuleGroup")
 class RuleGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:networkfirewall:RuleGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

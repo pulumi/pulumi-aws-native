@@ -328,10 +328,8 @@ class NodegroupArgs:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws-native:eks:Nodegroup")
 class Nodegroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:eks:Nodegroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

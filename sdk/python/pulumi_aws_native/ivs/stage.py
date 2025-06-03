@@ -74,10 +74,8 @@ class StageArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ivs:Stage")
 class Stage(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ivs:Stage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

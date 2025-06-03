@@ -102,10 +102,8 @@ class MemberInvitationArgs:
         pulumi.set(self, "message", value)
 
 
+@pulumi.type_token("aws-native:detective:MemberInvitation")
 class MemberInvitation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:detective:MemberInvitation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

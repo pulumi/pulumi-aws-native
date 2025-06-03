@@ -168,10 +168,8 @@ class CaCertificateArgs:
         pulumi.set(self, "verification_certificate_pem", value)
 
 
+@pulumi.type_token("aws-native:iot:CaCertificate")
 class CaCertificate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:CaCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

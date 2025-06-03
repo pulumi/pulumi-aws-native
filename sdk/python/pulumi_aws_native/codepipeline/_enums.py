@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:codepipeline:PipelineActionTypeIdCategory")
 class PipelineActionTypeIdCategory(builtins.str, Enum):
     """
     A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.
@@ -32,6 +33,7 @@ class PipelineActionTypeIdCategory(builtins.str, Enum):
     COMPUTE = "Compute"
 
 
+@pulumi.type_token("aws-native:codepipeline:PipelineArtifactStoreType")
 class PipelineArtifactStoreType(builtins.str, Enum):
     """
     The type of the artifact store, such as S3.
@@ -39,6 +41,7 @@ class PipelineArtifactStoreType(builtins.str, Enum):
     S3 = "S3"
 
 
+@pulumi.type_token("aws-native:codepipeline:PipelineBlockerDeclarationType")
 class PipelineBlockerDeclarationType(builtins.str, Enum):
     """
     Reserved for future use.
@@ -46,6 +49,7 @@ class PipelineBlockerDeclarationType(builtins.str, Enum):
     SCHEDULE = "Schedule"
 
 
+@pulumi.type_token("aws-native:codepipeline:PipelineEnvironmentVariableType")
 class PipelineEnvironmentVariableType(builtins.str, Enum):
     """
     The type of the environment variable.
@@ -54,6 +58,7 @@ class PipelineEnvironmentVariableType(builtins.str, Enum):
     SECRETS_MANAGER = "SECRETS_MANAGER"
 
 
+@pulumi.type_token("aws-native:codepipeline:PipelineExecutionMode")
 class PipelineExecutionMode(builtins.str, Enum):
     """
     The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.
@@ -63,6 +68,7 @@ class PipelineExecutionMode(builtins.str, Enum):
     PARALLEL = "PARALLEL"
 
 
+@pulumi.type_token("aws-native:codepipeline:PipelineFailureConditionsResult")
 class PipelineFailureConditionsResult(builtins.str, Enum):
     """
     The specified result for when the failure conditions are met, such as rolling back the stage
@@ -71,6 +77,7 @@ class PipelineFailureConditionsResult(builtins.str, Enum):
     RETRY = "RETRY"
 
 
+@pulumi.type_token("aws-native:codepipeline:PipelineFailureConditionsRetryConfigurationPropertiesRetryMode")
 class PipelineFailureConditionsRetryConfigurationPropertiesRetryMode(builtins.str, Enum):
     """
     The specified retry mode type for the given stage. FAILED_ACTIONS will retry only the failed actions. ALL_ACTIONS will retry both failed and successful
@@ -79,6 +86,7 @@ class PipelineFailureConditionsRetryConfigurationPropertiesRetryMode(builtins.st
     FAILED_ACTIONS = "FAILED_ACTIONS"
 
 
+@pulumi.type_token("aws-native:codepipeline:PipelineTriggerDeclarationProviderType")
 class PipelineTriggerDeclarationProviderType(builtins.str, Enum):
     """
     The source provider for the event, such as connections configured for a repository with Git tags, for the specified trigger configuration.
@@ -86,6 +94,7 @@ class PipelineTriggerDeclarationProviderType(builtins.str, Enum):
     CODE_STAR_SOURCE_CONNECTION = "CodeStarSourceConnection"
 
 
+@pulumi.type_token("aws-native:codepipeline:PipelineType")
 class PipelineType(builtins.str, Enum):
     """
     CodePipeline provides the following pipeline types, which differ in characteristics and price, so that you can tailor your pipeline features and cost to the needs of your applications.

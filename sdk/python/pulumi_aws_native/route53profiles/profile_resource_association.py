@@ -87,10 +87,8 @@ class ProfileResourceAssociationArgs:
         pulumi.set(self, "resource_properties", value)
 
 
+@pulumi.type_token("aws-native:route53profiles:ProfileResourceAssociation")
 class ProfileResourceAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:route53profiles:ProfileResourceAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -142,10 +142,8 @@ class GroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:resourcegroups:Group")
 class Group(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:resourcegroups:Group"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -41,10 +41,8 @@ class ProjectArgs:
         pulumi.set(self, "project_name", value)
 
 
+@pulumi.type_token("aws-native:rekognition:Project")
 class Project(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:rekognition:Project"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -249,10 +249,8 @@ class PipeArgs:
         pulumi.set(self, "target_parameters", value)
 
 
+@pulumi.type_token("aws-native:pipes:Pipe")
 class Pipe(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:pipes:Pipe"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

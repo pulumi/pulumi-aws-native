@@ -148,10 +148,8 @@ class MembershipArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:cleanrooms:Membership")
 class Membership(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cleanrooms:Membership"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

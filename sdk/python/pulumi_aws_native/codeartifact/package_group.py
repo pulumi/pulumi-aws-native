@@ -140,10 +140,8 @@ class PackageGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:codeartifact:PackageGroup")
 class PackageGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:codeartifact:PackageGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

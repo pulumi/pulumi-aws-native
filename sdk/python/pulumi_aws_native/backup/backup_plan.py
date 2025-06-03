@@ -58,10 +58,8 @@ class BackupPlanArgs:
         pulumi.set(self, "backup_plan_tags", value)
 
 
+@pulumi.type_token("aws-native:backup:BackupPlan")
 class BackupPlan(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:backup:BackupPlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

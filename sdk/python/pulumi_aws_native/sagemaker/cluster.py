@@ -125,10 +125,8 @@ class ClusterArgs:
         pulumi.set(self, "vpc_config", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

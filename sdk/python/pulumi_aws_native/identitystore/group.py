@@ -71,10 +71,8 @@ class GroupArgs:
         pulumi.set(self, "description", value)
 
 
+@pulumi.type_token("aws-native:identitystore:Group")
 class Group(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:identitystore:Group"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

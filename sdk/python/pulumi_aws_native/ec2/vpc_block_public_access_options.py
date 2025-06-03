@@ -41,10 +41,8 @@ class VpcBlockPublicAccessOptionsArgs:
         pulumi.set(self, "internet_gateway_block_mode", value)
 
 
+@pulumi.type_token("aws-native:ec2:VpcBlockPublicAccessOptions")
 class VpcBlockPublicAccessOptions(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:VpcBlockPublicAccessOptions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

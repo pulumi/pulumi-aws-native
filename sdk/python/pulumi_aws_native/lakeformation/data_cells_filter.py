@@ -136,10 +136,8 @@ class DataCellsFilterArgs:
         pulumi.set(self, "row_filter", value)
 
 
+@pulumi.type_token("aws-native:lakeformation:DataCellsFilter")
 class DataCellsFilter(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lakeformation:DataCellsFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,32 +17,39 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:location:GeofenceCollectionPricingPlan")
 class GeofenceCollectionPricingPlan(builtins.str, Enum):
     REQUEST_BASED_USAGE = "RequestBasedUsage"
 
 
+@pulumi.type_token("aws-native:location:MapPricingPlan")
 class MapPricingPlan(builtins.str, Enum):
     REQUEST_BASED_USAGE = "RequestBasedUsage"
 
 
+@pulumi.type_token("aws-native:location:PlaceIndexIntendedUse")
 class PlaceIndexIntendedUse(builtins.str, Enum):
     SINGLE_USE = "SingleUse"
     STORAGE = "Storage"
 
 
+@pulumi.type_token("aws-native:location:PlaceIndexPricingPlan")
 class PlaceIndexPricingPlan(builtins.str, Enum):
     REQUEST_BASED_USAGE = "RequestBasedUsage"
 
 
+@pulumi.type_token("aws-native:location:RouteCalculatorPricingPlan")
 class RouteCalculatorPricingPlan(builtins.str, Enum):
     REQUEST_BASED_USAGE = "RequestBasedUsage"
 
 
+@pulumi.type_token("aws-native:location:TrackerPositionFiltering")
 class TrackerPositionFiltering(builtins.str, Enum):
     TIME_BASED = "TimeBased"
     DISTANCE_BASED = "DistanceBased"
     ACCURACY_BASED = "AccuracyBased"
 
 
+@pulumi.type_token("aws-native:location:TrackerPricingPlan")
 class TrackerPricingPlan(builtins.str, Enum):
     REQUEST_BASED_USAGE = "RequestBasedUsage"

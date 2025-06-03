@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,20 +14,24 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:verifiedpermissions:IdentitySourceOpenIdIssuer")
 class IdentitySourceOpenIdIssuer(builtins.str, Enum):
     COGNITO = "COGNITO"
 
 
+@pulumi.type_token("aws-native:verifiedpermissions:PolicyStoreDeletionMode")
 class PolicyStoreDeletionMode(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:verifiedpermissions:PolicyStoreValidationMode")
 class PolicyStoreValidationMode(builtins.str, Enum):
     OFF = "OFF"
     STRICT = "STRICT"
 
 
+@pulumi.type_token("aws-native:verifiedpermissions:PolicyType")
 class PolicyType(builtins.str, Enum):
     STATIC = "STATIC"
     TEMPLATE_LINKED = "TEMPLATE_LINKED"

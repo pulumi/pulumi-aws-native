@@ -105,10 +105,8 @@ class EmailAddressArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:connect:EmailAddress")
 class EmailAddress(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:EmailAddress"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

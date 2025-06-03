@@ -159,10 +159,8 @@ class ApiKeyArgs:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("aws-native:apigateway:ApiKey")
 class ApiKey(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigateway:ApiKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -88,10 +88,8 @@ class VpcLinkArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:apigatewayv2:VpcLink")
 class VpcLink(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigatewayv2:VpcLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

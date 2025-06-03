@@ -123,10 +123,8 @@ class ProjectArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:databrew:Project")
 class Project(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:databrew:Project"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

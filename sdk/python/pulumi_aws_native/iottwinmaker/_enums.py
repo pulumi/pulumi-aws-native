@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,6 +21,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:iottwinmaker:ComponentTypeDataTypeType")
 class ComponentTypeDataTypeType(builtins.str, Enum):
     """
     The underlying type of the data type.
@@ -35,6 +36,7 @@ class ComponentTypeDataTypeType(builtins.str, Enum):
     MAP = "MAP"
 
 
+@pulumi.type_token("aws-native:iottwinmaker:ComponentTypeFunctionScope")
 class ComponentTypeFunctionScope(builtins.str, Enum):
     """
     The scope of the function.
@@ -43,6 +45,7 @@ class ComponentTypeFunctionScope(builtins.str, Enum):
     WORKSPACE = "WORKSPACE"
 
 
+@pulumi.type_token("aws-native:iottwinmaker:ComponentTypePropertyGroupGroupType")
 class ComponentTypePropertyGroupGroupType(builtins.str, Enum):
     """
     The type of property group.
@@ -50,16 +53,19 @@ class ComponentTypePropertyGroupGroupType(builtins.str, Enum):
     TABULAR = "TABULAR"
 
 
+@pulumi.type_token("aws-native:iottwinmaker:ComponentTypeStatusError1PropertiesCode")
 class ComponentTypeStatusError1PropertiesCode(builtins.str, Enum):
     VALIDATION_ERROR = "VALIDATION_ERROR"
     INTERNAL_FAILURE = "INTERNAL_FAILURE"
 
 
+@pulumi.type_token("aws-native:iottwinmaker:ComponentTypeStatusErrorPropertiesCode")
 class ComponentTypeStatusErrorPropertiesCode(builtins.str, Enum):
     VALIDATION_ERROR = "VALIDATION_ERROR"
     INTERNAL_FAILURE = "INTERNAL_FAILURE"
 
 
+@pulumi.type_token("aws-native:iottwinmaker:ComponentTypeStatusState")
 class ComponentTypeStatusState(builtins.str, Enum):
     """
     The component type status state.
@@ -71,6 +77,7 @@ class ComponentTypeStatusState(builtins.str, Enum):
     ERROR = "ERROR"
 
 
+@pulumi.type_token("aws-native:iottwinmaker:EntityDataTypeType")
 class EntityDataTypeType(builtins.str, Enum):
     """
     The underlying type of the data type.
@@ -85,6 +92,7 @@ class EntityDataTypeType(builtins.str, Enum):
     MAP = "MAP"
 
 
+@pulumi.type_token("aws-native:iottwinmaker:EntityPropertyGroupGroupType")
 class EntityPropertyGroupGroupType(builtins.str, Enum):
     """
     The type of property group.
@@ -92,16 +100,19 @@ class EntityPropertyGroupGroupType(builtins.str, Enum):
     TABULAR = "TABULAR"
 
 
+@pulumi.type_token("aws-native:iottwinmaker:EntityStatusError1PropertiesCode")
 class EntityStatusError1PropertiesCode(builtins.str, Enum):
     VALIDATION_ERROR = "VALIDATION_ERROR"
     INTERNAL_FAILURE = "INTERNAL_FAILURE"
 
 
+@pulumi.type_token("aws-native:iottwinmaker:EntityStatusErrorPropertiesCode")
 class EntityStatusErrorPropertiesCode(builtins.str, Enum):
     VALIDATION_ERROR = "VALIDATION_ERROR"
     INTERNAL_FAILURE = "INTERNAL_FAILURE"
 
 
+@pulumi.type_token("aws-native:iottwinmaker:EntityStatusState")
 class EntityStatusState(builtins.str, Enum):
     CREATING = "CREATING"
     UPDATING = "UPDATING"

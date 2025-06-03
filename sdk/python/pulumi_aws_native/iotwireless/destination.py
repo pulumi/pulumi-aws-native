@@ -122,10 +122,8 @@ class DestinationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iotwireless:Destination")
 class Destination(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotwireless:Destination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -69,10 +69,8 @@ class CloudWatchAlarmTemplateGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:medialive:CloudWatchAlarmTemplateGroup")
 class CloudWatchAlarmTemplateGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:medialive:CloudWatchAlarmTemplateGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

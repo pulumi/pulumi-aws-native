@@ -71,10 +71,8 @@ class ResolverRuleAssociationArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:route53resolver:ResolverRuleAssociation")
 class ResolverRuleAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:route53resolver:ResolverRuleAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

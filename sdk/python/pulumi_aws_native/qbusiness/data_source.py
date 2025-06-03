@@ -234,10 +234,8 @@ class DataSourceArgs:
         pulumi.set(self, "vpc_configuration", value)
 
 
+@pulumi.type_token("aws-native:qbusiness:DataSource")
 class DataSource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:qbusiness:DataSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

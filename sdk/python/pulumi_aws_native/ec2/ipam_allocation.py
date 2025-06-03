@@ -98,10 +98,8 @@ class IpamAllocationArgs:
         pulumi.set(self, "netmask_length", value)
 
 
+@pulumi.type_token("aws-native:ec2:IpamAllocation")
 class IpamAllocation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:IpamAllocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

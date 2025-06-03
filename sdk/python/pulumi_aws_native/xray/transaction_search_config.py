@@ -37,10 +37,8 @@ class TransactionSearchConfigArgs:
         pulumi.set(self, "indexing_percentage", value)
 
 
+@pulumi.type_token("aws-native:xray:TransactionSearchConfig")
 class TransactionSearchConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:xray:TransactionSearchConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

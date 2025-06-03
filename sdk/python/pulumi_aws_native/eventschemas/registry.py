@@ -75,10 +75,8 @@ class RegistryArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:eventschemas:Registry")
 class Registry(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:eventschemas:Registry"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -240,10 +240,8 @@ class DataSourceArgs:
         pulumi.set(self, "service_role_arn", value)
 
 
+@pulumi.type_token("aws-native:appsync:DataSource")
 class DataSource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appsync:DataSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

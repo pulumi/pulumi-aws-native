@@ -140,10 +140,8 @@ class AccessEntryArgs:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("aws-native:eks:AccessEntry")
 class AccessEntry(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:eks:AccessEntry"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

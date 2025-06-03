@@ -109,10 +109,8 @@ class DataLakeArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:securitylake:DataLake")
 class DataLake(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:securitylake:DataLake"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

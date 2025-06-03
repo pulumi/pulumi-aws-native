@@ -171,10 +171,8 @@ class ResourceDataSyncArgs:
         pulumi.set(self, "sync_type", value)
 
 
+@pulumi.type_token("aws-native:ssm:ResourceDataSync")
 class ResourceDataSync(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ssm:ResourceDataSync"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

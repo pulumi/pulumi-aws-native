@@ -61,10 +61,8 @@ class MultiRegionAccessPointPolicyArgs:
         pulumi.set(self, "policy", value)
 
 
+@pulumi.type_token("aws-native:s3:MultiRegionAccessPointPolicy")
 class MultiRegionAccessPointPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:s3:MultiRegionAccessPointPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

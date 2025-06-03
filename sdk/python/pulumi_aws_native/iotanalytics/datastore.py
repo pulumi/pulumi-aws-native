@@ -137,10 +137,8 @@ class DatastoreArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iotanalytics:Datastore")
 class Datastore(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotanalytics:Datastore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
