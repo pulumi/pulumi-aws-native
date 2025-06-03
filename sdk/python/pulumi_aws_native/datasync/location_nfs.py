@@ -113,10 +113,8 @@ class LocationNfsArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:datasync:LocationNfs")
 class LocationNfs(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datasync:LocationNfs"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

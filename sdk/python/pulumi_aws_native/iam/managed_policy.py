@@ -180,10 +180,8 @@ class ManagedPolicyArgs:
         pulumi.set(self, "users", value)
 
 
+@pulumi.type_token("aws-native:iam:ManagedPolicy")
 class ManagedPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iam:ManagedPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

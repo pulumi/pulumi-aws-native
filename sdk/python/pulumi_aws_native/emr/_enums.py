@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:emr:StudioAuthMode")
 class StudioAuthMode(builtins.str, Enum):
     """
     Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
@@ -21,6 +22,7 @@ class StudioAuthMode(builtins.str, Enum):
     IAM = "IAM"
 
 
+@pulumi.type_token("aws-native:emr:StudioIdcUserAssignment")
 class StudioIdcUserAssignment(builtins.str, Enum):
     """
     Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
@@ -29,6 +31,7 @@ class StudioIdcUserAssignment(builtins.str, Enum):
     OPTIONAL = "OPTIONAL"
 
 
+@pulumi.type_token("aws-native:emr:StudioSessionMappingIdentityType")
 class StudioSessionMappingIdentityType(builtins.str, Enum):
     """
     Specifies whether the identity to map to the Studio is a user or a group.

@@ -139,10 +139,8 @@ class HypervisorArgs:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("aws-native:backupgateway:Hypervisor")
 class Hypervisor(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:backupgateway:Hypervisor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

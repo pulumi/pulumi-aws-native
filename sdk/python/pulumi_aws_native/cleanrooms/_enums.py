@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -34,6 +34,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:cleanrooms:AnalysisTemplateAnalysisParameterType")
 class AnalysisTemplateAnalysisParameterType(builtins.str, Enum):
     """
     The type of parameter.
@@ -68,6 +69,7 @@ class AnalysisTemplateAnalysisParameterType(builtins.str, Enum):
     TINYINT = "TINYINT"
 
 
+@pulumi.type_token("aws-native:cleanrooms:AnalysisTemplateFormat")
 class AnalysisTemplateFormat(builtins.str, Enum):
     """
     The format of the analysis template.
@@ -76,38 +78,45 @@ class AnalysisTemplateFormat(builtins.str, Enum):
     PYSPARK10 = "PYSPARK_1_0"
 
 
+@pulumi.type_token("aws-native:cleanrooms:CollaborationAnalyticsEngine")
 class CollaborationAnalyticsEngine(builtins.str, Enum):
     CLEAN_ROOMS_SQL = "CLEAN_ROOMS_SQL"
     SPARK = "SPARK"
 
 
+@pulumi.type_token("aws-native:cleanrooms:CollaborationCustomMlMemberAbility")
 class CollaborationCustomMlMemberAbility(builtins.str, Enum):
     CAN_RECEIVE_MODEL_OUTPUT = "CAN_RECEIVE_MODEL_OUTPUT"
     CAN_RECEIVE_INFERENCE_OUTPUT = "CAN_RECEIVE_INFERENCE_OUTPUT"
 
 
+@pulumi.type_token("aws-native:cleanrooms:CollaborationJobLogStatus")
 class CollaborationJobLogStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:cleanrooms:CollaborationMemberAbility")
 class CollaborationMemberAbility(builtins.str, Enum):
     CAN_QUERY = "CAN_QUERY"
     CAN_RUN_JOB = "CAN_RUN_JOB"
     CAN_RECEIVE_RESULTS = "CAN_RECEIVE_RESULTS"
 
 
+@pulumi.type_token("aws-native:cleanrooms:CollaborationQueryLogStatus")
 class CollaborationQueryLogStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableAdditionalAnalyses")
 class ConfiguredTableAdditionalAnalyses(builtins.str, Enum):
     ALLOWED = "ALLOWED"
     REQUIRED = "REQUIRED"
     NOT_ALLOWED = "NOT_ALLOWED"
 
 
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableAggregateFunctionName")
 class ConfiguredTableAggregateFunctionName(builtins.str, Enum):
     SUM = "SUM"
     SUM_DISTINCT = "SUM_DISTINCT"
@@ -116,37 +125,44 @@ class ConfiguredTableAggregateFunctionName(builtins.str, Enum):
     AVG = "AVG"
 
 
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableAggregationType")
 class ConfiguredTableAggregationType(builtins.str, Enum):
     COUNT_DISTINCT = "COUNT_DISTINCT"
 
 
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableAnalysisMethod")
 class ConfiguredTableAnalysisMethod(builtins.str, Enum):
     DIRECT_QUERY = "DIRECT_QUERY"
     DIRECT_JOB = "DIRECT_JOB"
     MULTIPLE = "MULTIPLE"
 
 
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableAnalysisRuleType")
 class ConfiguredTableAnalysisRuleType(builtins.str, Enum):
     AGGREGATION = "AGGREGATION"
     LIST = "LIST"
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableAssociationAnalysisRuleType")
 class ConfiguredTableAssociationAnalysisRuleType(builtins.str, Enum):
     AGGREGATION = "AGGREGATION"
     LIST = "LIST"
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableJoinOperator")
 class ConfiguredTableJoinOperator(builtins.str, Enum):
     OR_ = "OR"
     AND_ = "AND"
 
 
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableJoinRequiredOption")
 class ConfiguredTableJoinRequiredOption(builtins.str, Enum):
     QUERY_RUNNER = "QUERY_RUNNER"
 
 
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableScalarFunctions")
 class ConfiguredTableScalarFunctions(builtins.str, Enum):
     TRUNC = "TRUNC"
     ABS = "ABS"
@@ -174,11 +190,13 @@ class ConfiguredTableScalarFunctions(builtins.str, Enum):
     TRIM = "TRIM"
 
 
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableSelectedAnalysisMethod")
 class ConfiguredTableSelectedAnalysisMethod(builtins.str, Enum):
     DIRECT_QUERY = "DIRECT_QUERY"
     DIRECT_JOB = "DIRECT_JOB"
 
 
+@pulumi.type_token("aws-native:cleanrooms:IdMappingTableInputSourceType")
 class IdMappingTableInputSourceType(builtins.str, Enum):
     """
     The type of the input source of the ID mapping table.
@@ -187,6 +205,7 @@ class IdMappingTableInputSourceType(builtins.str, Enum):
     TARGET = "TARGET"
 
 
+@pulumi.type_token("aws-native:cleanrooms:IdNamespaceAssociationInputReferencePropertiesIdNamespaceType")
 class IdNamespaceAssociationInputReferencePropertiesIdNamespaceType(builtins.str, Enum):
     """
     The ID namespace type for this ID namespace association.
@@ -195,21 +214,25 @@ class IdNamespaceAssociationInputReferencePropertiesIdNamespaceType(builtins.str
     TARGET = "TARGET"
 
 
+@pulumi.type_token("aws-native:cleanrooms:MembershipJobLogStatus")
 class MembershipJobLogStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:cleanrooms:MembershipQueryLogStatus")
 class MembershipQueryLogStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:cleanrooms:MembershipResultFormat")
 class MembershipResultFormat(builtins.str, Enum):
     CSV = "CSV"
     PARQUET = "PARQUET"
 
 
+@pulumi.type_token("aws-native:cleanrooms:PrivacyBudgetTemplateAutoRefresh")
 class PrivacyBudgetTemplateAutoRefresh(builtins.str, Enum):
     """
     How often the privacy budget refreshes.
@@ -220,6 +243,7 @@ class PrivacyBudgetTemplateAutoRefresh(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:cleanrooms:PrivacyBudgetTemplatePrivacyBudgetType")
 class PrivacyBudgetTemplatePrivacyBudgetType(builtins.str, Enum):
     """
     Specifies the type of the privacy budget template.

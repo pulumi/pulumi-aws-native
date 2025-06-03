@@ -137,10 +137,8 @@ class WorkspaceArgs:
         pulumi.set(self, "workspace_configuration", value)
 
 
+@pulumi.type_token("aws-native:aps:Workspace")
 class Workspace(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:aps:Workspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

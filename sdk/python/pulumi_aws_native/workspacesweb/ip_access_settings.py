@@ -128,10 +128,8 @@ class IpAccessSettingsArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:workspacesweb:IpAccessSettings")
 class IpAccessSettings(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:workspacesweb:IpAccessSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

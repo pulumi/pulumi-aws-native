@@ -75,10 +75,8 @@ class SecurityKeyArgs:
         pulumi.set(self, "key", value)
 
 
+@pulumi.type_token("aws-native:connect:SecurityKey")
 class SecurityKey(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:SecurityKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

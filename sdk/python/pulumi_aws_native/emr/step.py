@@ -88,10 +88,8 @@ class StepArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:emr:Step")
 class Step(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:emr:Step"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

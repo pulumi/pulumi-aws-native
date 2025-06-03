@@ -73,10 +73,8 @@ class IpamResourceDiscoveryAssociationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:IpamResourceDiscoveryAssociation")
 class IpamResourceDiscoveryAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:IpamResourceDiscoveryAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

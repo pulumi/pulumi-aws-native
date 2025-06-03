@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:shield:ProactiveEngagementStatus")
 class ProactiveEngagementStatus(builtins.str, Enum):
     """
     If `ENABLED`, the Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
@@ -24,6 +25,7 @@ class ProactiveEngagementStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:shield:ProtectionApplicationLayerAutomaticResponseConfigurationStatus")
 class ProtectionApplicationLayerAutomaticResponseConfigurationStatus(builtins.str, Enum):
     """
     Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
@@ -32,6 +34,7 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationStatus(builtins.st
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:shield:ProtectionGroupAggregation")
 class ProtectionGroupAggregation(builtins.str, Enum):
     """
     Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
@@ -44,6 +47,7 @@ class ProtectionGroupAggregation(builtins.str, Enum):
     MAX = "MAX"
 
 
+@pulumi.type_token("aws-native:shield:ProtectionGroupPattern")
 class ProtectionGroupPattern(builtins.str, Enum):
     """
     The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.
@@ -53,6 +57,7 @@ class ProtectionGroupPattern(builtins.str, Enum):
     BY_RESOURCE_TYPE = "BY_RESOURCE_TYPE"
 
 
+@pulumi.type_token("aws-native:shield:ProtectionGroupResourceType")
 class ProtectionGroupResourceType(builtins.str, Enum):
     """
     The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set `Pattern` to `BY_RESOURCE_TYPE` and you must not set it for any other `Pattern` setting.

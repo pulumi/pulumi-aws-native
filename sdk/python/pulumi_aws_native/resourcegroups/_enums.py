@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:resourcegroups:GroupResourceQueryType")
 class GroupResourceQueryType(builtins.str, Enum):
     """
     Specifies the type of resource query that determines this group's membership. There are two valid query types:
@@ -23,6 +24,7 @@ class GroupResourceQueryType(builtins.str, Enum):
     CLOUDFORMATION_STACK10 = "CLOUDFORMATION_STACK_1_0"
 
 
+@pulumi.type_token("aws-native:resourcegroups:TagSyncTaskStatus")
 class TagSyncTaskStatus(builtins.str, Enum):
     """
     The status of the TagSyncTask

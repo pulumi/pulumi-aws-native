@@ -91,10 +91,8 @@ class DistributionConfigurationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:imagebuilder:DistributionConfiguration")
 class DistributionConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:imagebuilder:DistributionConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

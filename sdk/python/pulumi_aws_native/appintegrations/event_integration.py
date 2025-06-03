@@ -107,10 +107,8 @@ class EventIntegrationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:appintegrations:EventIntegration")
 class EventIntegration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appintegrations:EventIntegration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

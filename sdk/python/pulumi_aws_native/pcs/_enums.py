@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:pcs:ClusterAccountingMode")
 class ClusterAccountingMode(builtins.str, Enum):
     """
     The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.
@@ -27,6 +28,7 @@ class ClusterAccountingMode(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:pcs:ClusterEndpointType")
 class ClusterEndpointType(builtins.str, Enum):
     """
     Indicates the type of endpoint running at the specific IP address.
@@ -35,6 +37,7 @@ class ClusterEndpointType(builtins.str, Enum):
     SLURMDBD = "SLURMDBD"
 
 
+@pulumi.type_token("aws-native:pcs:ClusterSchedulerPropertiesType")
 class ClusterSchedulerPropertiesType(builtins.str, Enum):
     """
     The software AWS PCS uses to manage cluster scaling and job scheduling.
@@ -42,6 +45,7 @@ class ClusterSchedulerPropertiesType(builtins.str, Enum):
     SLURM = "SLURM"
 
 
+@pulumi.type_token("aws-native:pcs:ClusterSize")
 class ClusterSize(builtins.str, Enum):
     """
     The size of the cluster.
@@ -51,6 +55,7 @@ class ClusterSize(builtins.str, Enum):
     LARGE = "LARGE"
 
 
+@pulumi.type_token("aws-native:pcs:ClusterStatus")
 class ClusterStatus(builtins.str, Enum):
     """
     The provisioning status of the cluster. The provisioning status doesn't indicate the overall health of the cluster.
@@ -64,6 +69,7 @@ class ClusterStatus(builtins.str, Enum):
     UPDATE_FAILED = "UPDATE_FAILED"
 
 
+@pulumi.type_token("aws-native:pcs:ComputeNodeGroupPurchaseOption")
 class ComputeNodeGroupPurchaseOption(builtins.str, Enum):
     """
     Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
@@ -72,6 +78,7 @@ class ComputeNodeGroupPurchaseOption(builtins.str, Enum):
     SPOT = "SPOT"
 
 
+@pulumi.type_token("aws-native:pcs:ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy")
 class ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy(builtins.str, Enum):
     """
     The Amazon EC2 allocation strategy AWS PCS uses to provision EC2 instances. AWS PCS supports lowest price, capacity optimized, and price capacity optimized. If you don't provide this option, it defaults to price capacity optimized.
@@ -81,6 +88,7 @@ class ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy(builtins.str, Enum
     PRICE_CAPACITY_OPTIMIZED = "price-capacity-optimized"
 
 
+@pulumi.type_token("aws-native:pcs:ComputeNodeGroupStatus")
 class ComputeNodeGroupStatus(builtins.str, Enum):
     """
     The provisioning status of the compute node group. The provisioning status doesn't indicate the overall health of the compute node group.
@@ -94,6 +102,7 @@ class ComputeNodeGroupStatus(builtins.str, Enum):
     UPDATE_FAILED = "UPDATE_FAILED"
 
 
+@pulumi.type_token("aws-native:pcs:QueueStatus")
 class QueueStatus(builtins.str, Enum):
     """
     The provisioning status of the queue. The provisioning status doesn't indicate the overall health of the queue.

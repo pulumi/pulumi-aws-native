@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -20,6 +20,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:lex:BotAliasStatus")
 class BotAliasStatus(builtins.str, Enum):
     CREATING = "Creating"
     AVAILABLE = "Available"
@@ -27,15 +28,18 @@ class BotAliasStatus(builtins.str, Enum):
     FAILED = "Failed"
 
 
+@pulumi.type_token("aws-native:lex:BotAudioRecognitionStrategy")
 class BotAudioRecognitionStrategy(builtins.str, Enum):
     USE_SLOT_VALUES_AS_CUSTOM_VOCABULARY = "UseSlotValuesAsCustomVocabulary"
 
 
+@pulumi.type_token("aws-native:lex:BotBedrockModelSpecificationBedrockTraceStatus")
 class BotBedrockModelSpecificationBedrockTraceStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:lex:BotDialogActionType")
 class BotDialogActionType(builtins.str, Enum):
     CLOSE_INTENT = "CloseIntent"
     CONFIRM_INTENT = "ConfirmIntent"
@@ -48,11 +52,13 @@ class BotDialogActionType(builtins.str, Enum):
     INVOKE_DIALOG_CODE_HOOK = "InvokeDialogCodeHook"
 
 
+@pulumi.type_token("aws-native:lex:BotMessageSelectionStrategy")
 class BotMessageSelectionStrategy(builtins.str, Enum):
     RANDOM = "Random"
     ORDERED = "Ordered"
 
 
+@pulumi.type_token("aws-native:lex:BotObfuscationSettingObfuscationSettingType")
 class BotObfuscationSettingObfuscationSettingType(builtins.str, Enum):
     """
     Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
@@ -61,22 +67,26 @@ class BotObfuscationSettingObfuscationSettingType(builtins.str, Enum):
     DEFAULT_OBFUSCATION = "DefaultObfuscation"
 
 
+@pulumi.type_token("aws-native:lex:BotSlotConstraint")
 class BotSlotConstraint(builtins.str, Enum):
     REQUIRED = "Required"
     OPTIONAL = "Optional"
 
 
+@pulumi.type_token("aws-native:lex:BotSlotShape")
 class BotSlotShape(builtins.str, Enum):
     SCALAR = "Scalar"
     LIST = "List"
 
 
+@pulumi.type_token("aws-native:lex:BotSlotValueResolutionStrategy")
 class BotSlotValueResolutionStrategy(builtins.str, Enum):
     ORIGINAL_VALUE = "ORIGINAL_VALUE"
     TOP_RESOLUTION = "TOP_RESOLUTION"
     CONCATENATION = "CONCATENATION"
 
 
+@pulumi.type_token("aws-native:lex:BotVoiceSettingsEngine")
 class BotVoiceSettingsEngine(builtins.str, Enum):
     """
     Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:lookoutmetrics:AnomalyDetectorCsvFormatDescriptorFileCompression")
 class AnomalyDetectorCsvFormatDescriptorFileCompression(builtins.str, Enum):
     """
     The level of compression of the source CSV file.
@@ -23,6 +24,7 @@ class AnomalyDetectorCsvFormatDescriptorFileCompression(builtins.str, Enum):
     GZIP = "GZIP"
 
 
+@pulumi.type_token("aws-native:lookoutmetrics:AnomalyDetectorFrequency")
 class AnomalyDetectorFrequency(builtins.str, Enum):
     """
     Frequency of anomaly detection
@@ -33,6 +35,7 @@ class AnomalyDetectorFrequency(builtins.str, Enum):
     P1D = "P1D"
 
 
+@pulumi.type_token("aws-native:lookoutmetrics:AnomalyDetectorJsonFormatDescriptorFileCompression")
 class AnomalyDetectorJsonFormatDescriptorFileCompression(builtins.str, Enum):
     """
     The level of compression of the source CSV file.
@@ -41,6 +44,7 @@ class AnomalyDetectorJsonFormatDescriptorFileCompression(builtins.str, Enum):
     GZIP = "GZIP"
 
 
+@pulumi.type_token("aws-native:lookoutmetrics:AnomalyDetectorMetricAggregationFunction")
 class AnomalyDetectorMetricAggregationFunction(builtins.str, Enum):
     """
     Operator used to aggregate metric values
@@ -49,6 +53,7 @@ class AnomalyDetectorMetricAggregationFunction(builtins.str, Enum):
     SUM = "SUM"
 
 
+@pulumi.type_token("aws-native:lookoutmetrics:AnomalyDetectorMetricSetMetricSetFrequency")
 class AnomalyDetectorMetricSetMetricSetFrequency(builtins.str, Enum):
     """
     A frequency period to aggregate the data

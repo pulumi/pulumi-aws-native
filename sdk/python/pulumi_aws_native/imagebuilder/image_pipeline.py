@@ -252,10 +252,8 @@ class ImagePipelineArgs:
         pulumi.set(self, "workflows", value)
 
 
+@pulumi.type_token("aws-native:imagebuilder:ImagePipeline")
 class ImagePipeline(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:imagebuilder:ImagePipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

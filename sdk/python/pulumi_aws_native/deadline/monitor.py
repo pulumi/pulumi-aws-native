@@ -89,10 +89,8 @@ class MonitorArgs:
         pulumi.set(self, "subdomain", value)
 
 
+@pulumi.type_token("aws-native:deadline:Monitor")
 class Monitor(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:deadline:Monitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

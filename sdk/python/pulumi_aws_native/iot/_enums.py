@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -48,6 +48,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:iot:AuthorizerStatus")
 class AuthorizerStatus(builtins.str, Enum):
     """
     The status of the authorizer.
@@ -58,6 +59,7 @@ class AuthorizerStatus(builtins.str, Enum):
     INACTIVE = "INACTIVE"
 
 
+@pulumi.type_token("aws-native:iot:CaCertificateAutoRegistrationStatus")
 class CaCertificateAutoRegistrationStatus(builtins.str, Enum):
     """
     Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
@@ -66,6 +68,7 @@ class CaCertificateAutoRegistrationStatus(builtins.str, Enum):
     DISABLE = "DISABLE"
 
 
+@pulumi.type_token("aws-native:iot:CaCertificateCertificateMode")
 class CaCertificateCertificateMode(builtins.str, Enum):
     """
     The mode of the CA.
@@ -78,6 +81,7 @@ class CaCertificateCertificateMode(builtins.str, Enum):
     SNI_ONLY = "SNI_ONLY"
 
 
+@pulumi.type_token("aws-native:iot:CaCertificateStatus")
 class CaCertificateStatus(builtins.str, Enum):
     """
     The status of the CA certificate.
@@ -88,6 +92,7 @@ class CaCertificateStatus(builtins.str, Enum):
     INACTIVE = "INACTIVE"
 
 
+@pulumi.type_token("aws-native:iot:CertificateMode")
 class CertificateMode(builtins.str, Enum):
     """
     Specifies which mode of certificate registration to use with this resource. Valid options are DEFAULT with CaCertificatePem and CertificatePem, SNI_ONLY with CertificatePem, and Default with CertificateSigningRequest.
@@ -100,10 +105,12 @@ class CertificateMode(builtins.str, Enum):
     SNI_ONLY = "SNI_ONLY"
 
 
+@pulumi.type_token("aws-native:iot:CertificateProviderOperation")
 class CertificateProviderOperation(builtins.str, Enum):
     CREATE_CERTIFICATE_FROM_CSR = "CreateCertificateFromCsr"
 
 
+@pulumi.type_token("aws-native:iot:CertificateStatus")
 class CertificateStatus(builtins.str, Enum):
     """
     The status of the certificate.
@@ -119,6 +126,7 @@ class CertificateStatus(builtins.str, Enum):
     PENDING_ACTIVATION = "PENDING_ACTIVATION"
 
 
+@pulumi.type_token("aws-native:iot:CommandNamespace")
 class CommandNamespace(builtins.str, Enum):
     """
     The namespace to which the command belongs.
@@ -127,6 +135,7 @@ class CommandNamespace(builtins.str, Enum):
     AWS_IO_T_FLEET_WISE = "AWS-IoT-FleetWise"
 
 
+@pulumi.type_token("aws-native:iot:CustomMetricMetricType")
 class CustomMetricMetricType(builtins.str, Enum):
     """
     The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
@@ -137,6 +146,7 @@ class CustomMetricMetricType(builtins.str, Enum):
     NUMBER = "number"
 
 
+@pulumi.type_token("aws-native:iot:DimensionType")
 class DimensionType(builtins.str, Enum):
     """
     Specifies the type of the dimension.
@@ -144,6 +154,7 @@ class DimensionType(builtins.str, Enum):
     TOPIC_FILTER = "TOPIC_FILTER"
 
 
+@pulumi.type_token("aws-native:iot:DomainConfigurationApplicationProtocol")
 class DomainConfigurationApplicationProtocol(builtins.str, Enum):
     """
     An enumerated string that speciﬁes the application-layer protocol.
@@ -154,6 +165,7 @@ class DomainConfigurationApplicationProtocol(builtins.str, Enum):
     DEFAULT = "DEFAULT"
 
 
+@pulumi.type_token("aws-native:iot:DomainConfigurationAuthenticationType")
 class DomainConfigurationAuthenticationType(builtins.str, Enum):
     """
     An enumerated string that speciﬁes the authentication type.
@@ -165,6 +177,7 @@ class DomainConfigurationAuthenticationType(builtins.str, Enum):
     DEFAULT = "DEFAULT"
 
 
+@pulumi.type_token("aws-native:iot:DomainConfigurationDomainType")
 class DomainConfigurationDomainType(builtins.str, Enum):
     """
     The type of service delivered by the domain.
@@ -174,6 +187,7 @@ class DomainConfigurationDomainType(builtins.str, Enum):
     CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
 
 
+@pulumi.type_token("aws-native:iot:DomainConfigurationServerCertificateSummaryServerCertificateStatus")
 class DomainConfigurationServerCertificateSummaryServerCertificateStatus(builtins.str, Enum):
     """
     The status of the server certificate.
@@ -182,6 +196,7 @@ class DomainConfigurationServerCertificateSummaryServerCertificateStatus(builtin
     VALID = "VALID"
 
 
+@pulumi.type_token("aws-native:iot:DomainConfigurationServiceType")
 class DomainConfigurationServiceType(builtins.str, Enum):
     """
     The type of service delivered by the endpoint.
@@ -193,6 +208,7 @@ class DomainConfigurationServiceType(builtins.str, Enum):
     JOBS = "JOBS"
 
 
+@pulumi.type_token("aws-native:iot:DomainConfigurationStatus")
 class DomainConfigurationStatus(builtins.str, Enum):
     """
     The status to which the domain configuration should be updated.
@@ -203,10 +219,12 @@ class DomainConfigurationStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:iot:JobTemplateAction")
 class JobTemplateAction(builtins.str, Enum):
     CANCEL = "CANCEL"
 
 
+@pulumi.type_token("aws-native:iot:JobTemplateFailureType")
 class JobTemplateFailureType(builtins.str, Enum):
     FAILED = "FAILED"
     REJECTED = "REJECTED"
@@ -214,12 +232,14 @@ class JobTemplateFailureType(builtins.str, Enum):
     ALL = "ALL"
 
 
+@pulumi.type_token("aws-native:iot:JobTemplateJobRetryFailureType")
 class JobTemplateJobRetryFailureType(builtins.str, Enum):
     FAILED = "FAILED"
     TIMED_OUT = "TIMED_OUT"
     ALL = "ALL"
 
 
+@pulumi.type_token("aws-native:iot:LoggingDefaultLogLevel")
 class LoggingDefaultLogLevel(builtins.str, Enum):
     """
     The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
@@ -231,6 +251,7 @@ class LoggingDefaultLogLevel(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:iot:MitigationActionEnableIoTLoggingParamsLogLevel")
 class MitigationActionEnableIoTLoggingParamsLogLevel(builtins.str, Enum):
     """
      Specifies which types of information are logged.
@@ -242,6 +263,7 @@ class MitigationActionEnableIoTLoggingParamsLogLevel(builtins.str, Enum):
     UNSET_VALUE = "UNSET_VALUE"
 
 
+@pulumi.type_token("aws-native:iot:MitigationActionReplaceDefaultPolicyVersionParamsTemplateName")
 class MitigationActionReplaceDefaultPolicyVersionParamsTemplateName(builtins.str, Enum):
     """
     The name of the template to be applied. The only supported value is `BLANK_POLICY` .
@@ -250,6 +272,7 @@ class MitigationActionReplaceDefaultPolicyVersionParamsTemplateName(builtins.str
     UNSET_VALUE = "UNSET_VALUE"
 
 
+@pulumi.type_token("aws-native:iot:MitigationActionUpdateCaCertificateParamsAction")
 class MitigationActionUpdateCaCertificateParamsAction(builtins.str, Enum):
     """
     The action that you want to apply to the CA certificate. The only supported value is `DEACTIVATE` .
@@ -258,6 +281,7 @@ class MitigationActionUpdateCaCertificateParamsAction(builtins.str, Enum):
     UNSET_VALUE = "UNSET_VALUE"
 
 
+@pulumi.type_token("aws-native:iot:MitigationActionUpdateDeviceCertificateParamsAction")
 class MitigationActionUpdateDeviceCertificateParamsAction(builtins.str, Enum):
     """
     The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
@@ -266,6 +290,7 @@ class MitigationActionUpdateDeviceCertificateParamsAction(builtins.str, Enum):
     UNSET_VALUE = "UNSET_VALUE"
 
 
+@pulumi.type_token("aws-native:iot:ProvisioningTemplateTemplateType")
 class ProvisioningTemplateTemplateType(builtins.str, Enum):
     """
     The type of the provisioning template.
@@ -274,6 +299,7 @@ class ProvisioningTemplateTemplateType(builtins.str, Enum):
     JITP = "JITP"
 
 
+@pulumi.type_token("aws-native:iot:ResourceSpecificLoggingLogLevel")
 class ResourceSpecificLoggingLogLevel(builtins.str, Enum):
     """
     The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
@@ -285,6 +311,7 @@ class ResourceSpecificLoggingLogLevel(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:iot:ResourceSpecificLoggingTargetType")
 class ResourceSpecificLoggingTargetType(builtins.str, Enum):
     """
     The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID, or EVENT_TYPE.
@@ -296,6 +323,7 @@ class ResourceSpecificLoggingTargetType(builtins.str, Enum):
     EVENT_TYPE = "EVENT_TYPE"
 
 
+@pulumi.type_token("aws-native:iot:ScheduledAuditDayOfWeek")
 class ScheduledAuditDayOfWeek(builtins.str, Enum):
     """
     The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
@@ -310,6 +338,7 @@ class ScheduledAuditDayOfWeek(builtins.str, Enum):
     UNSET_VALUE = "UNSET_VALUE"
 
 
+@pulumi.type_token("aws-native:iot:ScheduledAuditFrequency")
 class ScheduledAuditFrequency(builtins.str, Enum):
     """
     How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
@@ -320,6 +349,7 @@ class ScheduledAuditFrequency(builtins.str, Enum):
     MONTHLY = "MONTHLY"
 
 
+@pulumi.type_token("aws-native:iot:SecurityProfileBehaviorCriteriaComparisonOperator")
 class SecurityProfileBehaviorCriteriaComparisonOperator(builtins.str, Enum):
     """
     The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
@@ -336,6 +366,7 @@ class SecurityProfileBehaviorCriteriaComparisonOperator(builtins.str, Enum):
     NOT_IN_SET = "not-in-set"
 
 
+@pulumi.type_token("aws-native:iot:SecurityProfileMachineLearningDetectionConfigConfidenceLevel")
 class SecurityProfileMachineLearningDetectionConfigConfidenceLevel(builtins.str, Enum):
     """
     The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
@@ -345,6 +376,7 @@ class SecurityProfileMachineLearningDetectionConfigConfidenceLevel(builtins.str,
     HIGH = "HIGH"
 
 
+@pulumi.type_token("aws-native:iot:SecurityProfileMetricDimensionOperator")
 class SecurityProfileMetricDimensionOperator(builtins.str, Enum):
     """
     Defines how the dimensionValues of a dimension are interpreted.
@@ -353,6 +385,7 @@ class SecurityProfileMetricDimensionOperator(builtins.str, Enum):
     NOT_IN = "NOT_IN"
 
 
+@pulumi.type_token("aws-native:iot:SecurityProfileStatisticalThresholdStatistic")
 class SecurityProfileStatisticalThresholdStatistic(builtins.str, Enum):
     """
     The percentile which resolves to a threshold value by which compliance with a behavior is determined
@@ -371,12 +404,14 @@ class SecurityProfileStatisticalThresholdStatistic(builtins.str, Enum):
     P100 = "p100"
 
 
+@pulumi.type_token("aws-native:iot:SoftwarePackageVersionPackageVersionStatus")
 class SoftwarePackageVersionPackageVersionStatus(builtins.str, Enum):
     DRAFT = "DRAFT"
     PUBLISHED = "PUBLISHED"
     DEPRECATED = "DEPRECATED"
 
 
+@pulumi.type_token("aws-native:iot:SoftwarePackageVersionSbomValidationStatus")
 class SoftwarePackageVersionSbomValidationStatus(builtins.str, Enum):
     """
     The validation status of the Sbom file
@@ -387,6 +422,7 @@ class SoftwarePackageVersionSbomValidationStatus(builtins.str, Enum):
     EMPTY = ""
 
 
+@pulumi.type_token("aws-native:iot:ThingTypePropagatingAttributeConnectionAttribute")
 class ThingTypePropagatingAttributeConnectionAttribute(builtins.str, Enum):
     """
     The attribute associated with the connection details.
@@ -395,6 +431,7 @@ class ThingTypePropagatingAttributeConnectionAttribute(builtins.str, Enum):
     IOT_THING_THING_NAME = "iot:Thing.ThingName"
 
 
+@pulumi.type_token("aws-native:iot:TopicRuleCannedAccessControlList")
 class TopicRuleCannedAccessControlList(builtins.str, Enum):
     PRIVATE = "private"
     PUBLIC_READ = "public-read"
@@ -406,6 +443,7 @@ class TopicRuleCannedAccessControlList(builtins.str, Enum):
     LOG_DELIVERY_WRITE = "log-delivery-write"
 
 
+@pulumi.type_token("aws-native:iot:TopicRuleDestinationStatus")
 class TopicRuleDestinationStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     IN_PROGRESS = "IN_PROGRESS"

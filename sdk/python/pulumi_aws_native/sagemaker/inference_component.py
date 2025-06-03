@@ -144,10 +144,8 @@ class InferenceComponentArgs:
         pulumi.set(self, "variant_name", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:InferenceComponent")
 class InferenceComponent(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:InferenceComponent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

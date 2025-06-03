@@ -119,10 +119,8 @@ class EventBridgeRuleTemplateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:medialive:EventBridgeRuleTemplate")
 class EventBridgeRuleTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:medialive:EventBridgeRuleTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

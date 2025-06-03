@@ -181,10 +181,8 @@ class LocationAzureBlobArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:datasync:LocationAzureBlob")
 class LocationAzureBlob(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datasync:LocationAzureBlob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

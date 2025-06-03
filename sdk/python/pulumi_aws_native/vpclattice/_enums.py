@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -32,6 +32,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:vpclattice:AccessLogSubscriptionServiceNetworkLogType")
 class AccessLogSubscriptionServiceNetworkLogType(builtins.str, Enum):
     """
     Log type of the service network.
@@ -40,6 +41,7 @@ class AccessLogSubscriptionServiceNetworkLogType(builtins.str, Enum):
     RESOURCE = "RESOURCE"
 
 
+@pulumi.type_token("aws-native:vpclattice:AuthPolicyState")
 class AuthPolicyState(builtins.str, Enum):
     """
     The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
@@ -48,6 +50,7 @@ class AuthPolicyState(builtins.str, Enum):
     INACTIVE = "INACTIVE"
 
 
+@pulumi.type_token("aws-native:vpclattice:ListenerProtocol")
 class ListenerProtocol(builtins.str, Enum):
     """
     The listener protocol.
@@ -57,6 +60,7 @@ class ListenerProtocol(builtins.str, Enum):
     TLS_PASSTHROUGH = "TLS_PASSTHROUGH"
 
 
+@pulumi.type_token("aws-native:vpclattice:ResourceConfigurationAuthType")
 class ResourceConfigurationAuthType(builtins.str, Enum):
     """
     The auth type for the resource configuration.
@@ -65,12 +69,14 @@ class ResourceConfigurationAuthType(builtins.str, Enum):
     AWS_IAM = "AWS_IAM"
 
 
+@pulumi.type_token("aws-native:vpclattice:ResourceConfigurationDnsResourceIpAddressType")
 class ResourceConfigurationDnsResourceIpAddressType(builtins.str, Enum):
     IPV4 = "IPV4"
     IPV6 = "IPV6"
     DUALSTACK = "DUALSTACK"
 
 
+@pulumi.type_token("aws-native:vpclattice:ResourceConfigurationProtocolType")
 class ResourceConfigurationProtocolType(builtins.str, Enum):
     """
     (SINGLE, GROUP) The protocol accepted by the resource configuration.
@@ -78,6 +84,7 @@ class ResourceConfigurationProtocolType(builtins.str, Enum):
     TCP = "TCP"
 
 
+@pulumi.type_token("aws-native:vpclattice:ResourceConfigurationType")
 class ResourceConfigurationType(builtins.str, Enum):
     """
     The type of resource configuration. A resource configuration can be one of the following types:
@@ -93,6 +100,7 @@ class ResourceConfigurationType(builtins.str, Enum):
     ARN = "ARN"
 
 
+@pulumi.type_token("aws-native:vpclattice:ResourceGatewayIpAddressType")
 class ResourceGatewayIpAddressType(builtins.str, Enum):
     """
     The type of IP address used by the resource gateway.
@@ -102,6 +110,7 @@ class ResourceGatewayIpAddressType(builtins.str, Enum):
     DUALSTACK = "DUALSTACK"
 
 
+@pulumi.type_token("aws-native:vpclattice:RuleHttpMatchMethod")
 class RuleHttpMatchMethod(builtins.str, Enum):
     """
     The HTTP method type.
@@ -116,6 +125,7 @@ class RuleHttpMatchMethod(builtins.str, Enum):
     TRACE = "TRACE"
 
 
+@pulumi.type_token("aws-native:vpclattice:ServiceAuthType")
 class ServiceAuthType(builtins.str, Enum):
     """
     The type of IAM policy.
@@ -127,6 +137,7 @@ class ServiceAuthType(builtins.str, Enum):
     AWS_IAM = "AWS_IAM"
 
 
+@pulumi.type_token("aws-native:vpclattice:ServiceNetworkAuthType")
 class ServiceNetworkAuthType(builtins.str, Enum):
     """
     The type of IAM policy.
@@ -138,6 +149,7 @@ class ServiceNetworkAuthType(builtins.str, Enum):
     AWS_IAM = "AWS_IAM"
 
 
+@pulumi.type_token("aws-native:vpclattice:ServiceNetworkServiceAssociationStatus")
 class ServiceNetworkServiceAssociationStatus(builtins.str, Enum):
     """
     The status of the association between the service network and the service.
@@ -149,6 +161,7 @@ class ServiceNetworkServiceAssociationStatus(builtins.str, Enum):
     DELETE_FAILED = "DELETE_FAILED"
 
 
+@pulumi.type_token("aws-native:vpclattice:ServiceNetworkVpcAssociationStatus")
 class ServiceNetworkVpcAssociationStatus(builtins.str, Enum):
     """
     The status of the association.
@@ -161,6 +174,7 @@ class ServiceNetworkVpcAssociationStatus(builtins.str, Enum):
     DELETE_FAILED = "DELETE_FAILED"
 
 
+@pulumi.type_token("aws-native:vpclattice:ServiceStatus")
 class ServiceStatus(builtins.str, Enum):
     """
     The status of the service.
@@ -172,6 +186,7 @@ class ServiceStatus(builtins.str, Enum):
     DELETE_FAILED = "DELETE_FAILED"
 
 
+@pulumi.type_token("aws-native:vpclattice:TargetGroupConfigIpAddressType")
 class TargetGroupConfigIpAddressType(builtins.str, Enum):
     """
     The type of IP address used for the target group. Supported only if the target group type is `IP` . The default is `IPV4` .
@@ -180,6 +195,7 @@ class TargetGroupConfigIpAddressType(builtins.str, Enum):
     IPV6 = "IPV6"
 
 
+@pulumi.type_token("aws-native:vpclattice:TargetGroupConfigLambdaEventStructureVersion")
 class TargetGroupConfigLambdaEventStructureVersion(builtins.str, Enum):
     """
     The version of the event structure that your Lambda function receives. Supported only if the target group type is `LAMBDA` . The default is `V1` .
@@ -188,6 +204,7 @@ class TargetGroupConfigLambdaEventStructureVersion(builtins.str, Enum):
     V2 = "V2"
 
 
+@pulumi.type_token("aws-native:vpclattice:TargetGroupConfigProtocol")
 class TargetGroupConfigProtocol(builtins.str, Enum):
     """
     The protocol to use for routing traffic to the targets. The default is the protocol of the target group. Not supported if the target group type is `LAMBDA` .
@@ -197,6 +214,7 @@ class TargetGroupConfigProtocol(builtins.str, Enum):
     TCP = "TCP"
 
 
+@pulumi.type_token("aws-native:vpclattice:TargetGroupConfigProtocolVersion")
 class TargetGroupConfigProtocolVersion(builtins.str, Enum):
     """
     The protocol version. The default is `HTTP1` . Not supported if the target group type is `LAMBDA` .
@@ -206,6 +224,7 @@ class TargetGroupConfigProtocolVersion(builtins.str, Enum):
     GRPC = "GRPC"
 
 
+@pulumi.type_token("aws-native:vpclattice:TargetGroupHealthCheckConfigProtocol")
 class TargetGroupHealthCheckConfigProtocol(builtins.str, Enum):
     """
     The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS` . The default is `HTTP` .
@@ -214,6 +233,7 @@ class TargetGroupHealthCheckConfigProtocol(builtins.str, Enum):
     HTTPS = "HTTPS"
 
 
+@pulumi.type_token("aws-native:vpclattice:TargetGroupHealthCheckConfigProtocolVersion")
 class TargetGroupHealthCheckConfigProtocolVersion(builtins.str, Enum):
     """
     The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2` .
@@ -222,6 +242,7 @@ class TargetGroupHealthCheckConfigProtocolVersion(builtins.str, Enum):
     HTTP2 = "HTTP2"
 
 
+@pulumi.type_token("aws-native:vpclattice:TargetGroupStatus")
 class TargetGroupStatus(builtins.str, Enum):
     """
     The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
@@ -233,6 +254,7 @@ class TargetGroupStatus(builtins.str, Enum):
     DELETE_FAILED = "DELETE_FAILED"
 
 
+@pulumi.type_token("aws-native:vpclattice:TargetGroupType")
 class TargetGroupType(builtins.str, Enum):
     """
     The type of target group.

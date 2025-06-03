@@ -93,10 +93,8 @@ class ExecutionPlanArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:kendraranking:ExecutionPlan")
 class ExecutionPlan(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:kendraranking:ExecutionPlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

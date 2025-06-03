@@ -107,10 +107,8 @@ class ConnectionGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:cloudfront:ConnectionGroup")
 class ConnectionGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudfront:ConnectionGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

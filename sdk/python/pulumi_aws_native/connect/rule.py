@@ -139,10 +139,8 @@ class RuleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:connect:Rule")
 class Rule(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:Rule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

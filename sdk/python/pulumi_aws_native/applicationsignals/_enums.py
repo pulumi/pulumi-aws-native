@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:applicationsignals:ServiceLevelObjectiveDurationUnit")
 class ServiceLevelObjectiveDurationUnit(builtins.str, Enum):
     """
     Specifies the interval unit.
@@ -26,6 +27,7 @@ class ServiceLevelObjectiveDurationUnit(builtins.str, Enum):
     MONTH = "MONTH"
 
 
+@pulumi.type_token("aws-native:applicationsignals:ServiceLevelObjectiveEvaluationType")
 class ServiceLevelObjectiveEvaluationType(builtins.str, Enum):
     """
     Displays whether this is a period-based SLO or a request-based SLO.
@@ -34,6 +36,7 @@ class ServiceLevelObjectiveEvaluationType(builtins.str, Enum):
     REQUEST_BASED = "RequestBased"
 
 
+@pulumi.type_token("aws-native:applicationsignals:ServiceLevelObjectiveRequestBasedSliComparisonOperator")
 class ServiceLevelObjectiveRequestBasedSliComparisonOperator(builtins.str, Enum):
     """
     The arithmetic operation used when comparing the specified metric to the threshold.
@@ -44,6 +47,7 @@ class ServiceLevelObjectiveRequestBasedSliComparisonOperator(builtins.str, Enum)
     GREATER_THAN = "GreaterThan"
 
 
+@pulumi.type_token("aws-native:applicationsignals:ServiceLevelObjectiveRequestBasedSliMetricMetricType")
 class ServiceLevelObjectiveRequestBasedSliMetricMetricType(builtins.str, Enum):
     """
     If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
@@ -52,6 +56,7 @@ class ServiceLevelObjectiveRequestBasedSliMetricMetricType(builtins.str, Enum):
     AVAILABILITY = "AVAILABILITY"
 
 
+@pulumi.type_token("aws-native:applicationsignals:ServiceLevelObjectiveSliComparisonOperator")
 class ServiceLevelObjectiveSliComparisonOperator(builtins.str, Enum):
     """
     The arithmetic operation used when comparing the specified metric to the threshold.
@@ -62,6 +67,7 @@ class ServiceLevelObjectiveSliComparisonOperator(builtins.str, Enum):
     GREATER_THAN = "GreaterThan"
 
 
+@pulumi.type_token("aws-native:applicationsignals:ServiceLevelObjectiveSliMetricMetricType")
 class ServiceLevelObjectiveSliMetricMetricType(builtins.str, Enum):
     """
     If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:athena:CapacityReservationStatus")
 class CapacityReservationStatus(builtins.str, Enum):
     PENDING = "PENDING"
     ACTIVE = "ACTIVE"
@@ -25,6 +26,7 @@ class CapacityReservationStatus(builtins.str, Enum):
     UPDATE_PENDING = "UPDATE_PENDING"
 
 
+@pulumi.type_token("aws-native:athena:DataCatalogStatus")
 class DataCatalogStatus(builtins.str, Enum):
     """
     The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
@@ -40,6 +42,7 @@ class DataCatalogStatus(builtins.str, Enum):
     DELETE_FAILED = "DELETE_FAILED"
 
 
+@pulumi.type_token("aws-native:athena:DataCatalogType")
 class DataCatalogType(builtins.str, Enum):
     """
     The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
@@ -50,6 +53,7 @@ class DataCatalogType(builtins.str, Enum):
     FEDERATED = "FEDERATED"
 
 
+@pulumi.type_token("aws-native:athena:WorkGroupEncryptionOption")
 class WorkGroupEncryptionOption(builtins.str, Enum):
     """
     Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used.
@@ -59,6 +63,7 @@ class WorkGroupEncryptionOption(builtins.str, Enum):
     CSE_KMS = "CSE_KMS"
 
 
+@pulumi.type_token("aws-native:athena:WorkGroupS3AclOption")
 class WorkGroupS3AclOption(builtins.str, Enum):
     """
     The Amazon S3 canned ACL that Athena should specify when storing query results. Currently the only supported canned ACL is BUCKET_OWNER_FULL_CONTROL
@@ -66,6 +71,7 @@ class WorkGroupS3AclOption(builtins.str, Enum):
     BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL"
 
 
+@pulumi.type_token("aws-native:athena:WorkGroupState")
 class WorkGroupState(builtins.str, Enum):
     """
     The state of the workgroup: ENABLED or DISABLED.

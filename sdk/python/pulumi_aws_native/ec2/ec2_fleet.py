@@ -242,10 +242,8 @@ class Ec2FleetArgs:
         pulumi.set(self, "valid_until", value)
 
 
+@pulumi.type_token("aws-native:ec2:Ec2Fleet")
 class Ec2Fleet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:Ec2Fleet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

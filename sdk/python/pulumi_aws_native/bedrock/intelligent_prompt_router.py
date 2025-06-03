@@ -123,10 +123,8 @@ class IntelligentPromptRouterArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:bedrock:IntelligentPromptRouter")
 class IntelligentPromptRouter(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:bedrock:IntelligentPromptRouter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

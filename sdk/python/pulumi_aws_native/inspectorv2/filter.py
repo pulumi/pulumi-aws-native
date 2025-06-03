@@ -90,10 +90,8 @@ class FilterArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:inspectorv2:Filter")
 class Filter(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:inspectorv2:Filter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

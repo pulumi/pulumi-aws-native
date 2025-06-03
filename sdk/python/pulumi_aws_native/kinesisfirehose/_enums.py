@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -32,6 +32,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode")
 class DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode(builtins.str, Enum):
     """
     Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix.
@@ -40,6 +41,7 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMo
     ALL_DOCUMENTS = "AllDocuments"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod")
 class DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod(builtins.str, Enum):
     """
     The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data.
@@ -51,6 +53,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotation
     ONE_MONTH = "OneMonth"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode")
 class DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode(builtins.str, Enum):
     """
     Defines how documents should be delivered to Amazon S3.
@@ -59,6 +62,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode(
     ALL_DOCUMENTS = "AllDocuments"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamAuthenticationConfigurationConnectivity")
 class DeliveryStreamAuthenticationConfigurationConnectivity(builtins.str, Enum):
     """
     The type of connectivity used to access the Amazon MSK cluster.
@@ -67,6 +71,7 @@ class DeliveryStreamAuthenticationConfigurationConnectivity(builtins.str, Enum):
     PRIVATE = "PRIVATE"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamDatabaseSourceConfigurationSslMode")
 class DeliveryStreamDatabaseSourceConfigurationSslMode(builtins.str, Enum):
     """
     The mode to enable or disable SSL when Firehose connects to the database endpoint.
@@ -77,6 +82,7 @@ class DeliveryStreamDatabaseSourceConfigurationSslMode(builtins.str, Enum):
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamDatabaseSourceConfigurationType")
 class DeliveryStreamDatabaseSourceConfigurationType(builtins.str, Enum):
     """
     The type of database engine. This can be one of the following values.
@@ -90,6 +96,7 @@ class DeliveryStreamDatabaseSourceConfigurationType(builtins.str, Enum):
     POSTGRE_SQL = "PostgreSQL"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat")
 class DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat(builtins.str, Enum):
     """
     When the `FIREHOSE_DEFAULT` option is chosen, Firehose generates a unique document ID for each record based on a unique internal identifier. The generated document ID is stable across multiple delivery attempts, which helps prevent the same record from being indexed multiple times with different document IDs.
@@ -100,6 +107,7 @@ class DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat(builtins.str, Enum)
     NO_DOCUMENT_ID = "NO_DOCUMENT_ID"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod")
 class DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod(builtins.str, Enum):
     """
     The frequency of Elasticsearch index rotation. If you enable index rotation, Kinesis Data Firehose appends a portion of the UTC arrival timestamp to the specified index name, and rotates the appended timestamp accordingly. For more information, see [Index Rotation for the Amazon ES Destination](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation) in the *Amazon Kinesis Data Firehose Developer Guide* .
@@ -111,6 +119,7 @@ class DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod(bui
     ONE_MONTH = "OneMonth"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode")
 class DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode(builtins.str, Enum):
     """
     The condition under which Kinesis Data Firehose delivers data to Amazon Simple Storage Service (Amazon S3). You can send Amazon S3 all documents (all data) or only the documents that Kinesis Data Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the `S3BackupMode` content for the [ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
@@ -119,6 +128,7 @@ class DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode(builtins.s
     ALL_DOCUMENTS = "AllDocuments"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamEncryptionConfigurationInputKeyType")
 class DeliveryStreamEncryptionConfigurationInputKeyType(builtins.str, Enum):
     """
     Indicates the type of customer master key (CMK) to use for encryption. The default setting is `AWS_OWNED_CMK` . For more information about CMKs, see [Customer Master Keys (CMKs)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys) .
@@ -131,6 +141,7 @@ class DeliveryStreamEncryptionConfigurationInputKeyType(builtins.str, Enum):
     CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamEncryptionConfigurationNoEncryptionConfig")
 class DeliveryStreamEncryptionConfigurationNoEncryptionConfig(builtins.str, Enum):
     """
     Disables encryption. For valid values, see the `NoEncryptionConfig` content for the [EncryptionConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_EncryptionConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
@@ -138,6 +149,7 @@ class DeliveryStreamEncryptionConfigurationNoEncryptionConfig(builtins.str, Enum
     NO_ENCRYPTION = "NoEncryption"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat")
 class DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat(builtins.str, Enum):
     """
     The compression format. If no value is specified, the default is `UNCOMPRESSED` .
@@ -149,6 +161,7 @@ class DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat(builtins
     HADOOP_SNAPPY = "HADOOP_SNAPPY"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode")
 class DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode(builtins.str, Enum):
     """
     The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
@@ -157,6 +170,7 @@ class DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode(builtins.str,
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamHttpEndpointRequestConfigurationContentEncoding")
 class DeliveryStreamHttpEndpointRequestConfigurationContentEncoding(builtins.str, Enum):
     """
     Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. For more information, see Content-Encoding in MDN Web Docs, the official Mozilla documentation.
@@ -165,6 +179,7 @@ class DeliveryStreamHttpEndpointRequestConfigurationContentEncoding(builtins.str
     GZIP = "GZIP"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamIcebergDestinationConfigurations3BackupMode")
 class DeliveryStreamIcebergDestinationConfigurations3BackupMode(builtins.str, Enum):
     """
     Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
@@ -173,6 +188,7 @@ class DeliveryStreamIcebergDestinationConfigurations3BackupMode(builtins.str, En
     FAILED_DATA_ONLY = "FailedDataOnly"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamProcessorType")
 class DeliveryStreamProcessorType(builtins.str, Enum):
     """
     The type of processor. Valid values: `Lambda` .
@@ -185,6 +201,7 @@ class DeliveryStreamProcessorType(builtins.str, Enum):
     APPEND_DELIMITER_TO_RECORD = "AppendDelimiterToRecord"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamRedshiftDestinationConfigurationS3BackupMode")
 class DeliveryStreamRedshiftDestinationConfigurationS3BackupMode(builtins.str, Enum):
     """
     The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
@@ -193,6 +210,7 @@ class DeliveryStreamRedshiftDestinationConfigurationS3BackupMode(builtins.str, E
     ENABLED = "Enabled"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamS3DestinationConfigurationCompressionFormat")
 class DeliveryStreamS3DestinationConfigurationCompressionFormat(builtins.str, Enum):
     """
     The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket. For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
@@ -204,6 +222,7 @@ class DeliveryStreamS3DestinationConfigurationCompressionFormat(builtins.str, En
     HADOOP_SNAPPY = "HADOOP_SNAPPY"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption")
 class DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption(builtins.str, Enum):
     """
     Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.
@@ -213,6 +232,7 @@ class DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption(builtins.
     VARIANT_CONTENT_AND_METADATA_MAPPING = "VARIANT_CONTENT_AND_METADATA_MAPPING"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode")
 class DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode(builtins.str, Enum):
     """
     Choose an S3 backup mode
@@ -221,6 +241,7 @@ class DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode(builtins.str, 
     ALL_DATA = "AllData"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamSplunkDestinationConfigurationHecEndpointType")
 class DeliveryStreamSplunkDestinationConfigurationHecEndpointType(builtins.str, Enum):
     """
     This type can be either `Raw` or `Event` .
@@ -229,6 +250,7 @@ class DeliveryStreamSplunkDestinationConfigurationHecEndpointType(builtins.str, 
     EVENT = "Event"
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStreamType")
 class DeliveryStreamType(builtins.str, Enum):
     """
     The Firehose stream type. This can be one of the following values:

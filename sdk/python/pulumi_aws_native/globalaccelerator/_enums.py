@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:globalaccelerator:AcceleratorIpAddressType")
 class AcceleratorIpAddressType(builtins.str, Enum):
     """
     IP Address type.
@@ -22,6 +23,7 @@ class AcceleratorIpAddressType(builtins.str, Enum):
     DUAL_STACK = "DUAL_STACK"
 
 
+@pulumi.type_token("aws-native:globalaccelerator:EndpointGroupHealthCheckProtocol")
 class EndpointGroupHealthCheckProtocol(builtins.str, Enum):
     """
     The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
@@ -31,6 +33,7 @@ class EndpointGroupHealthCheckProtocol(builtins.str, Enum):
     HTTPS = "HTTPS"
 
 
+@pulumi.type_token("aws-native:globalaccelerator:ListenerClientAffinity")
 class ListenerClientAffinity(builtins.str, Enum):
     """
     Client affinity lets you direct all requests from a user to the same endpoint.
@@ -39,6 +42,7 @@ class ListenerClientAffinity(builtins.str, Enum):
     SOURCE_IP = "SOURCE_IP"
 
 
+@pulumi.type_token("aws-native:globalaccelerator:ListenerProtocol")
 class ListenerProtocol(builtins.str, Enum):
     """
     The protocol for the listener.

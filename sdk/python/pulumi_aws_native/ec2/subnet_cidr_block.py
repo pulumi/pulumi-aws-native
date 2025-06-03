@@ -88,10 +88,8 @@ class SubnetCidrBlockArgs:
         pulumi.set(self, "ipv6_netmask_length", value)
 
 
+@pulumi.type_token("aws-native:ec2:SubnetCidrBlock")
 class SubnetCidrBlock(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:SubnetCidrBlock"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

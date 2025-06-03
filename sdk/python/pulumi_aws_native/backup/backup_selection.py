@@ -61,10 +61,8 @@ class BackupSelectionArgs:
         pulumi.set(self, "backup_selection", value)
 
 
+@pulumi.type_token("aws-native:backup:BackupSelection")
 class BackupSelection(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:backup:BackupSelection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -42,10 +42,8 @@ class ResponseHeadersPolicyArgs:
         pulumi.set(self, "response_headers_policy_config", value)
 
 
+@pulumi.type_token("aws-native:cloudfront:ResponseHeadersPolicy")
 class ResponseHeadersPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudfront:ResponseHeadersPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

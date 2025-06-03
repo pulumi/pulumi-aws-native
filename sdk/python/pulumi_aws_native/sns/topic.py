@@ -282,10 +282,8 @@ class TopicArgs:
         pulumi.set(self, "tracing_config", value)
 
 
+@pulumi.type_token("aws-native:sns:Topic")
 class Topic(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sns:Topic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

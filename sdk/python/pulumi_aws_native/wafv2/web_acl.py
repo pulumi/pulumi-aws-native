@@ -267,10 +267,8 @@ class WebAclArgs:
         pulumi.set(self, "token_domains", value)
 
 
+@pulumi.type_token("aws-native:wafv2:WebAcl")
 class WebAcl(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:wafv2:WebAcl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

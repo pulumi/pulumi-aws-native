@@ -197,10 +197,8 @@ class ModelQualityJobDefinitionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelQualityJobDefinition")
 class ModelQualityJobDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:ModelQualityJobDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

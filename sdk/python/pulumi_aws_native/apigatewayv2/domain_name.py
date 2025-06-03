@@ -103,10 +103,8 @@ class DomainNameArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:apigatewayv2:DomainName")
 class DomainName(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigatewayv2:DomainName"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:dynamodb:GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision")
 class GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision(builtins.str, Enum):
     """
     The precision for the time and date that the stream was created.
@@ -20,6 +21,7 @@ class GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision(
     MILLISECOND = "MILLISECOND"
 
 
+@pulumi.type_token("aws-native:dynamodb:TableKinesisStreamSpecificationApproximateCreationDateTimePrecision")
 class TableKinesisStreamSpecificationApproximateCreationDateTimePrecision(builtins.str, Enum):
     """
     The precision for the time and date that the stream was created.

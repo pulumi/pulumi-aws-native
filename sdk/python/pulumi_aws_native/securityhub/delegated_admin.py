@@ -41,10 +41,8 @@ class DelegatedAdminArgs:
         pulumi.set(self, "admin_account_id", value)
 
 
+@pulumi.type_token("aws-native:securityhub:DelegatedAdmin")
 class DelegatedAdmin(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:securityhub:DelegatedAdmin"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

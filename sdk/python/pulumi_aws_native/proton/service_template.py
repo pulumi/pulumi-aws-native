@@ -128,10 +128,8 @@ class ServiceTemplateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:proton:ServiceTemplate")
 class ServiceTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:proton:ServiceTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

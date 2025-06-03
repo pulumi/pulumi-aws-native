@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:glue:JobWorkerType")
 class JobWorkerType(builtins.str, Enum):
     """
     TThe type of predefined worker that is allocated when a job runs.
@@ -26,6 +27,7 @@ class JobWorkerType(builtins.str, Enum):
     Z2X = "Z.2X"
 
 
+@pulumi.type_token("aws-native:glue:SchemaCompatibility")
 class SchemaCompatibility(builtins.str, Enum):
     """
     Compatibility setting for the schema.
@@ -40,6 +42,7 @@ class SchemaCompatibility(builtins.str, Enum):
     FULL_ALL = "FULL_ALL"
 
 
+@pulumi.type_token("aws-native:glue:SchemaDataFormat")
 class SchemaDataFormat(builtins.str, Enum):
     """
     Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'

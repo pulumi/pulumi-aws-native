@@ -121,10 +121,8 @@ class AliasArgs:
         pulumi.set(self, "routing_config", value)
 
 
+@pulumi.type_token("aws-native:lambda:Alias")
 class Alias(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lambda:Alias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

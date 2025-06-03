@@ -58,10 +58,8 @@ class SessionArgs:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws-native:macie:Session")
 class Session(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:macie:Session"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

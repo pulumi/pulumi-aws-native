@@ -55,10 +55,8 @@ class DomainNameApiAssociationArgs:
         pulumi.set(self, "domain_name", value)
 
 
+@pulumi.type_token("aws-native:appsync:DomainNameApiAssociation")
 class DomainNameApiAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appsync:DomainNameApiAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

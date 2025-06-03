@@ -171,10 +171,8 @@ class ServiceArgs:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws-native:refactorspaces:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:refactorspaces:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

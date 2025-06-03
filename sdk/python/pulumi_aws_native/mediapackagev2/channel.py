@@ -151,10 +151,8 @@ class ChannelArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:mediapackagev2:Channel")
 class Channel(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediapackagev2:Channel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

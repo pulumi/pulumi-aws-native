@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:codebuild:FleetComputeConfigurationmachineType")
 class FleetComputeConfigurationmachineType(builtins.str, Enum):
     """
     The machine type of the instance type included in your fleet.
@@ -27,6 +28,7 @@ class FleetComputeConfigurationmachineType(builtins.str, Enum):
     NVME = "NVME"
 
 
+@pulumi.type_token("aws-native:codebuild:FleetComputeType")
 class FleetComputeType(builtins.str, Enum):
     """
     Information about the compute resources the compute fleet uses. Available values include:
@@ -68,6 +70,7 @@ class FleetComputeType(builtins.str, Enum):
     CUSTOM_INSTANCE_TYPE = "CUSTOM_INSTANCE_TYPE"
 
 
+@pulumi.type_token("aws-native:codebuild:FleetEnvironmentType")
 class FleetEnvironmentType(builtins.str, Enum):
     """
     The environment type of the compute fleet.
@@ -95,6 +98,7 @@ class FleetEnvironmentType(builtins.str, Enum):
     WINDOWS_EC2 = "WINDOWS_EC2"
 
 
+@pulumi.type_token("aws-native:codebuild:FleetOverflowBehavior")
 class FleetOverflowBehavior(builtins.str, Enum):
     """
     The compute fleet overflow behavior.
@@ -108,6 +112,7 @@ class FleetOverflowBehavior(builtins.str, Enum):
     ON_DEMAND = "ON_DEMAND"
 
 
+@pulumi.type_token("aws-native:codebuild:FleetProxyConfigurationDefaultBehavior")
 class FleetProxyConfigurationDefaultBehavior(builtins.str, Enum):
     """
     The default behavior of outgoing traffic.
@@ -116,6 +121,7 @@ class FleetProxyConfigurationDefaultBehavior(builtins.str, Enum):
     DENY_ALL = "DENY_ALL"
 
 
+@pulumi.type_token("aws-native:codebuild:FleetProxyRuleEffect")
 class FleetProxyRuleEffect(builtins.str, Enum):
     """
     The behavior of the proxy rule.
@@ -124,6 +130,7 @@ class FleetProxyRuleEffect(builtins.str, Enum):
     DENY = "DENY"
 
 
+@pulumi.type_token("aws-native:codebuild:FleetProxyRuleType")
 class FleetProxyRuleType(builtins.str, Enum):
     """
     The type of proxy rule.
@@ -132,6 +139,7 @@ class FleetProxyRuleType(builtins.str, Enum):
     IP = "IP"
 
 
+@pulumi.type_token("aws-native:codebuild:FleetScalingConfigurationInputScalingType")
 class FleetScalingConfigurationInputScalingType(builtins.str, Enum):
     """
     The scaling type for a compute fleet.
@@ -139,6 +147,7 @@ class FleetScalingConfigurationInputScalingType(builtins.str, Enum):
     TARGET_TRACKING_SCALING = "TARGET_TRACKING_SCALING"
 
 
+@pulumi.type_token("aws-native:codebuild:FleetTargetTrackingScalingConfigurationMetricType")
 class FleetTargetTrackingScalingConfigurationMetricType(builtins.str, Enum):
     """
     The metric type to determine auto-scaling.

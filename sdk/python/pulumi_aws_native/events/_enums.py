@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:events:ApiDestinationHttpMethod")
 class ApiDestinationHttpMethod(builtins.str, Enum):
     """
     The method to use for the request to the HTTP invocation endpoint.
@@ -29,6 +30,7 @@ class ApiDestinationHttpMethod(builtins.str, Enum):
     PATCH = "PATCH"
 
 
+@pulumi.type_token("aws-native:events:ConnectionAuthorizationType")
 class ConnectionAuthorizationType(builtins.str, Enum):
     """
     The type of authorization to use for the connection.
@@ -40,6 +42,7 @@ class ConnectionAuthorizationType(builtins.str, Enum):
     OAUTH_CLIENT_CREDENTIALS = "OAUTH_CLIENT_CREDENTIALS"
 
 
+@pulumi.type_token("aws-native:events:ConnectionOAuthParametersHttpMethod")
 class ConnectionOAuthParametersHttpMethod(builtins.str, Enum):
     """
     The method to use for the authorization request.
@@ -49,11 +52,13 @@ class ConnectionOAuthParametersHttpMethod(builtins.str, Enum):
     PUT = "PUT"
 
 
+@pulumi.type_token("aws-native:events:EndpointReplicationState")
 class EndpointReplicationState(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:events:EndpointState")
 class EndpointState(builtins.str, Enum):
     """
     The main Region of the endpoint.
@@ -66,6 +71,7 @@ class EndpointState(builtins.str, Enum):
     UPDATE_FAILED = "UPDATE_FAILED"
 
 
+@pulumi.type_token("aws-native:events:RuleState")
 class RuleState(builtins.str, Enum):
     """
     The state of the rule.

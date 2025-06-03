@@ -75,10 +75,8 @@ class EntityTypeArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:frauddetector:EntityType")
 class EntityType(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:frauddetector:EntityType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

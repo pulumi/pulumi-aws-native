@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:forecast:DatasetAttributesItemPropertiesAttributeType")
 class DatasetAttributesItemPropertiesAttributeType(builtins.str, Enum):
     """
     Data type of the field
@@ -25,6 +26,7 @@ class DatasetAttributesItemPropertiesAttributeType(builtins.str, Enum):
     GEOLOCATION = "geolocation"
 
 
+@pulumi.type_token("aws-native:forecast:DatasetDomain")
 class DatasetDomain(builtins.str, Enum):
     """
     The domain associated with the dataset
@@ -38,6 +40,7 @@ class DatasetDomain(builtins.str, Enum):
     METRICS = "METRICS"
 
 
+@pulumi.type_token("aws-native:forecast:DatasetGroupDomain")
 class DatasetGroupDomain(builtins.str, Enum):
     """
     The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
@@ -51,6 +54,7 @@ class DatasetGroupDomain(builtins.str, Enum):
     METRICS = "METRICS"
 
 
+@pulumi.type_token("aws-native:forecast:DatasetType")
 class DatasetType(builtins.str, Enum):
     """
     The dataset type

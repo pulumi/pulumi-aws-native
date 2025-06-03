@@ -70,10 +70,8 @@ class TransitGatewayMulticastGroupMemberArgs:
         pulumi.set(self, "transit_gateway_multicast_domain_id", value)
 
 
+@pulumi.type_token("aws-native:ec2:TransitGatewayMulticastGroupMember")
 class TransitGatewayMulticastGroupMember(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:TransitGatewayMulticastGroupMember"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

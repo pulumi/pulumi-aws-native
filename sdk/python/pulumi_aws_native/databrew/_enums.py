@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -26,6 +26,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:databrew:DatasetFilesLimitOrder")
 class DatasetFilesLimitOrder(builtins.str, Enum):
     """
     Order
@@ -34,6 +35,7 @@ class DatasetFilesLimitOrder(builtins.str, Enum):
     DESCENDING = "DESCENDING"
 
 
+@pulumi.type_token("aws-native:databrew:DatasetFilesLimitOrderedBy")
 class DatasetFilesLimitOrderedBy(builtins.str, Enum):
     """
     Ordered by
@@ -41,6 +43,7 @@ class DatasetFilesLimitOrderedBy(builtins.str, Enum):
     LAST_MODIFIED_DATE = "LAST_MODIFIED_DATE"
 
 
+@pulumi.type_token("aws-native:databrew:DatasetFormat")
 class DatasetFormat(builtins.str, Enum):
     """
     Dataset format
@@ -52,6 +55,7 @@ class DatasetFormat(builtins.str, Enum):
     ORC = "ORC"
 
 
+@pulumi.type_token("aws-native:databrew:DatasetParameterType")
 class DatasetParameterType(builtins.str, Enum):
     """
     Parameter type
@@ -61,6 +65,7 @@ class DatasetParameterType(builtins.str, Enum):
     DATETIME = "Datetime"
 
 
+@pulumi.type_token("aws-native:databrew:DatasetSource")
 class DatasetSource(builtins.str, Enum):
     """
     Source type of the dataset
@@ -70,6 +75,7 @@ class DatasetSource(builtins.str, Enum):
     DATABASE = "DATABASE"
 
 
+@pulumi.type_token("aws-native:databrew:JobDatabaseOutputDatabaseOutputMode")
 class JobDatabaseOutputDatabaseOutputMode(builtins.str, Enum):
     """
     Database table name
@@ -77,6 +83,7 @@ class JobDatabaseOutputDatabaseOutputMode(builtins.str, Enum):
     NEW_TABLE = "NEW_TABLE"
 
 
+@pulumi.type_token("aws-native:databrew:JobEncryptionMode")
 class JobEncryptionMode(builtins.str, Enum):
     """
     Encryption mode
@@ -85,6 +92,7 @@ class JobEncryptionMode(builtins.str, Enum):
     SSE_S3 = "SSE-S3"
 
 
+@pulumi.type_token("aws-native:databrew:JobLogSubscription")
 class JobLogSubscription(builtins.str, Enum):
     """
     Log subscription
@@ -93,6 +101,7 @@ class JobLogSubscription(builtins.str, Enum):
     DISABLE = "DISABLE"
 
 
+@pulumi.type_token("aws-native:databrew:JobOutputCompressionFormat")
 class JobOutputCompressionFormat(builtins.str, Enum):
     """
     The compression algorithm used to compress the output text of the job.
@@ -108,6 +117,7 @@ class JobOutputCompressionFormat(builtins.str, Enum):
     ZLIB = "ZLIB"
 
 
+@pulumi.type_token("aws-native:databrew:JobOutputFormat")
 class JobOutputFormat(builtins.str, Enum):
     """
     The data format of the output of the job.
@@ -122,6 +132,7 @@ class JobOutputFormat(builtins.str, Enum):
     TABLEAUHYPER = "TABLEAUHYPER"
 
 
+@pulumi.type_token("aws-native:databrew:JobSampleMode")
 class JobSampleMode(builtins.str, Enum):
     """
     Sample configuration mode for profile jobs.
@@ -130,6 +141,7 @@ class JobSampleMode(builtins.str, Enum):
     CUSTOM_ROWS = "CUSTOM_ROWS"
 
 
+@pulumi.type_token("aws-native:databrew:JobType")
 class JobType(builtins.str, Enum):
     """
     Job type
@@ -138,10 +150,12 @@ class JobType(builtins.str, Enum):
     RECIPE = "RECIPE"
 
 
+@pulumi.type_token("aws-native:databrew:JobValidationMode")
 class JobValidationMode(builtins.str, Enum):
     CHECK_ALL = "CHECK_ALL"
 
 
+@pulumi.type_token("aws-native:databrew:ProjectSampleType")
 class ProjectSampleType(builtins.str, Enum):
     """
     Sample type
@@ -151,6 +165,7 @@ class ProjectSampleType(builtins.str, Enum):
     RANDOM = "RANDOM"
 
 
+@pulumi.type_token("aws-native:databrew:RulesetThresholdType")
 class RulesetThresholdType(builtins.str, Enum):
     """
     Threshold type for a rule
@@ -161,6 +176,7 @@ class RulesetThresholdType(builtins.str, Enum):
     LESS_THAN = "LESS_THAN"
 
 
+@pulumi.type_token("aws-native:databrew:RulesetThresholdUnit")
 class RulesetThresholdUnit(builtins.str, Enum):
     """
     Threshold unit for a rule

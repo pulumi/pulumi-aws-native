@@ -188,10 +188,8 @@ class DeviceArgs:
         pulumi.set(self, "vendor", value)
 
 
+@pulumi.type_token("aws-native:networkmanager:Device")
 class Device(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:networkmanager:Device"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

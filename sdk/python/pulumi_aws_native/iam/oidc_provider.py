@@ -95,10 +95,8 @@ class OidcProviderArgs:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("aws-native:iam:OidcProvider")
 class OidcProvider(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iam:OidcProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

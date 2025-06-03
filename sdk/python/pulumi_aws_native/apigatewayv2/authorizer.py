@@ -205,10 +205,8 @@ class AuthorizerArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:apigatewayv2:Authorizer")
 class Authorizer(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigatewayv2:Authorizer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

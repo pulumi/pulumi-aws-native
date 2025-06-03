@@ -124,10 +124,8 @@ class FlowAliasArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:bedrock:FlowAlias")
 class FlowAlias(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:bedrock:FlowAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

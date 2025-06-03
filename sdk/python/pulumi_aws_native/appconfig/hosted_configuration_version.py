@@ -133,10 +133,8 @@ class HostedConfigurationVersionArgs:
         pulumi.set(self, "version_label", value)
 
 
+@pulumi.type_token("aws-native:appconfig:HostedConfigurationVersion")
 class HostedConfigurationVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appconfig:HostedConfigurationVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

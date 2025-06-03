@@ -87,10 +87,8 @@ class DomainUnitArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:datazone:DomainUnit")
 class DomainUnit(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datazone:DomainUnit"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

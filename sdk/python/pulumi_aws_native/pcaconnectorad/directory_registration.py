@@ -56,10 +56,8 @@ class DirectoryRegistrationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:DirectoryRegistration")
 class DirectoryRegistration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:pcaconnectorad:DirectoryRegistration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

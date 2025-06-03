@@ -112,10 +112,8 @@ class SuiteDefinitionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iotcoredeviceadvisor:SuiteDefinition")
 class SuiteDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotcoredeviceadvisor:SuiteDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

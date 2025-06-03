@@ -120,10 +120,8 @@ class MemberArgs:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws-native:guardduty:Member")
 class Member(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:guardduty:Member"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

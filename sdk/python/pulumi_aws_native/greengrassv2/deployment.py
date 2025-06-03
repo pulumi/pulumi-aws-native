@@ -153,10 +153,8 @@ class DeploymentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:greengrassv2:Deployment")
 class Deployment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:greengrassv2:Deployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -252,10 +252,8 @@ class StageArgs:
         pulumi.set(self, "variables", value)
 
 
+@pulumi.type_token("aws-native:apigateway:Stage")
 class Stage(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigateway:Stage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

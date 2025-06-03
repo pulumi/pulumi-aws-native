@@ -75,10 +75,8 @@ class PlanArgs:
         pulumi.set(self, "stages", value)
 
 
+@pulumi.type_token("aws-native:ssmcontacts:Plan")
 class Plan(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ssmcontacts:Plan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

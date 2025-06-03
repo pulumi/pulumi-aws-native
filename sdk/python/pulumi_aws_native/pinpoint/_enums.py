@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,18 +13,21 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:pinpoint:InAppTemplateAlignment")
 class InAppTemplateAlignment(builtins.str, Enum):
     LEFT = "LEFT"
     CENTER = "CENTER"
     RIGHT = "RIGHT"
 
 
+@pulumi.type_token("aws-native:pinpoint:InAppTemplateButtonAction")
 class InAppTemplateButtonAction(builtins.str, Enum):
     LINK = "LINK"
     DEEP_LINK = "DEEP_LINK"
     CLOSE = "CLOSE"
 
 
+@pulumi.type_token("aws-native:pinpoint:InAppTemplateLayout")
 class InAppTemplateLayout(builtins.str, Enum):
     """
     A string that determines the appearance of the in-app message. You can specify one of the following:

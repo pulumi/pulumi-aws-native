@@ -62,10 +62,8 @@ class ProactiveEngagementArgs:
         pulumi.set(self, "proactive_engagement_status", value)
 
 
+@pulumi.type_token("aws-native:shield:ProactiveEngagement")
 class ProactiveEngagement(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:shield:ProactiveEngagement"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -106,10 +106,8 @@ class DirectoryBucketArgs:
         pulumi.set(self, "lifecycle_configuration", value)
 
 
+@pulumi.type_token("aws-native:s3express:DirectoryBucket")
 class DirectoryBucket(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:s3express:DirectoryBucket"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

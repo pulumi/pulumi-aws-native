@@ -76,10 +76,8 @@ class ReplicationSetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ssmincidents:ReplicationSet")
 class ReplicationSet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ssmincidents:ReplicationSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -204,10 +204,8 @@ class ObjectTypeArgs:
         pulumi.set(self, "template_id", value)
 
 
+@pulumi.type_token("aws-native:customerprofiles:ObjectType")
 class ObjectType(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:customerprofiles:ObjectType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

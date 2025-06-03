@@ -128,10 +128,8 @@ class StateMachineAliasArgs:
         pulumi.set(self, "routing_configuration", value)
 
 
+@pulumi.type_token("aws-native:stepfunctions:StateMachineAlias")
 class StateMachineAlias(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:stepfunctions:StateMachineAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

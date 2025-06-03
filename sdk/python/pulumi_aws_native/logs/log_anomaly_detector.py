@@ -138,10 +138,8 @@ class LogAnomalyDetectorArgs:
         pulumi.set(self, "log_group_arn_list", value)
 
 
+@pulumi.type_token("aws-native:logs:LogAnomalyDetector")
 class LogAnomalyDetector(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:logs:LogAnomalyDetector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

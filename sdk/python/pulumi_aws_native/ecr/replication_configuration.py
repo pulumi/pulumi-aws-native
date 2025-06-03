@@ -43,10 +43,8 @@ class ReplicationConfigurationInitArgs:
         pulumi.set(self, "replication_configuration", value)
 
 
+@pulumi.type_token("aws-native:ecr:ReplicationConfiguration")
 class ReplicationConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ecr:ReplicationConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

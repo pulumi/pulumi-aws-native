@@ -141,10 +141,8 @@ class DomainArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:customerprofiles:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:customerprofiles:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

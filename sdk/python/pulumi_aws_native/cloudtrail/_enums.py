@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:cloudtrail:ChannelDestinationType")
 class ChannelDestinationType(builtins.str, Enum):
     """
     The type of destination for events arriving from a channel.
@@ -23,6 +24,7 @@ class ChannelDestinationType(builtins.str, Enum):
     EVENT_DATA_STORE = "EVENT_DATA_STORE"
 
 
+@pulumi.type_token("aws-native:cloudtrail:DashboardRefreshScheduleFrequencyPropertiesUnit")
 class DashboardRefreshScheduleFrequencyPropertiesUnit(builtins.str, Enum):
     """
     The frequency unit. Supported values are HOURS and DAYS.
@@ -31,6 +33,7 @@ class DashboardRefreshScheduleFrequencyPropertiesUnit(builtins.str, Enum):
     DAYS = "DAYS"
 
 
+@pulumi.type_token("aws-native:cloudtrail:DashboardRefreshScheduleStatus")
 class DashboardRefreshScheduleStatus(builtins.str, Enum):
     """
     The status of the schedule. Supported values are ENABLED and DISABLED.
@@ -39,6 +42,7 @@ class DashboardRefreshScheduleStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:cloudtrail:DashboardStatus")
 class DashboardStatus(builtins.str, Enum):
     """
     The status of the dashboard. Values are CREATING, CREATED, UPDATING, UPDATED and DELETING.
@@ -50,6 +54,7 @@ class DashboardStatus(builtins.str, Enum):
     DELETING = "DELETING"
 
 
+@pulumi.type_token("aws-native:cloudtrail:DashboardType")
 class DashboardType(builtins.str, Enum):
     """
     The type of the dashboard. Values are CUSTOM and MANAGED.
@@ -58,6 +63,7 @@ class DashboardType(builtins.str, Enum):
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:cloudtrail:TrailEventSelectorReadWriteType")
 class TrailEventSelectorReadWriteType(builtins.str, Enum):
     """
     Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.

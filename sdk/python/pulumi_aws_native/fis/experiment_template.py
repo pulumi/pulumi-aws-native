@@ -167,10 +167,8 @@ class ExperimentTemplateArgs:
         pulumi.set(self, "log_configuration", value)
 
 
+@pulumi.type_token("aws-native:fis:ExperimentTemplate")
 class ExperimentTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:fis:ExperimentTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

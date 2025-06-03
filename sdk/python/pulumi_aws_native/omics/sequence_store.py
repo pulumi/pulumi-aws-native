@@ -176,10 +176,8 @@ class SequenceStoreArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:omics:SequenceStore")
 class SequenceStore(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:omics:SequenceStore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

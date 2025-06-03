@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -26,6 +26,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:entityresolution:IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel")
 class IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel(builtins.str, Enum):
     """
     The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
@@ -38,6 +39,7 @@ class IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel(builti
     MANY_TO_MANY = "MANY_TO_MANY"
 
 
+@pulumi.type_token("aws-native:entityresolution:IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel")
 class IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel(builtins.str, Enum):
     """
     The type of matching record that is allowed to be used in an ID mapping workflow.
@@ -50,6 +52,7 @@ class IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel(builtins.
     MANY_SOURCE_TO_ONE_TARGET = "MANY_SOURCE_TO_ONE_TARGET"
 
 
+@pulumi.type_token("aws-native:entityresolution:IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType")
 class IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType(builtins.str, Enum):
     """
     The set of rules you can use in an ID mapping workflow. The limitations specified for the source or target to define the match rules must be compatible.
@@ -58,6 +61,7 @@ class IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType(builtins.s
     TARGET = "TARGET"
 
 
+@pulumi.type_token("aws-native:entityresolution:IdMappingWorkflowIdMappingTechniquesIdMappingType")
 class IdMappingWorkflowIdMappingTechniquesIdMappingType(builtins.str, Enum):
     """
     The type of ID mapping.
@@ -66,6 +70,7 @@ class IdMappingWorkflowIdMappingTechniquesIdMappingType(builtins.str, Enum):
     RULE_BASED = "RULE_BASED"
 
 
+@pulumi.type_token("aws-native:entityresolution:IdMappingWorkflowInputSourceType")
 class IdMappingWorkflowInputSourceType(builtins.str, Enum):
     """
     The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
@@ -78,6 +83,7 @@ class IdMappingWorkflowInputSourceType(builtins.str, Enum):
     TARGET = "TARGET"
 
 
+@pulumi.type_token("aws-native:entityresolution:IdNamespaceIdMappingWorkflowPropertiesIdMappingType")
 class IdNamespaceIdMappingWorkflowPropertiesIdMappingType(builtins.str, Enum):
     """
     The type of ID mapping.
@@ -86,6 +92,7 @@ class IdNamespaceIdMappingWorkflowPropertiesIdMappingType(builtins.str, Enum):
     RULE_BASED = "RULE_BASED"
 
 
+@pulumi.type_token("aws-native:entityresolution:IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel")
 class IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel(builtins.str, Enum):
     """
     The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
@@ -98,16 +105,19 @@ class IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel(builtins.str
     MANY_TO_MANY = "MANY_TO_MANY"
 
 
+@pulumi.type_token("aws-native:entityresolution:IdNamespaceRecordMatchingModel")
 class IdNamespaceRecordMatchingModel(builtins.str, Enum):
     ONE_SOURCE_TO_ONE_TARGET = "ONE_SOURCE_TO_ONE_TARGET"
     MANY_SOURCE_TO_ONE_TARGET = "MANY_SOURCE_TO_ONE_TARGET"
 
 
+@pulumi.type_token("aws-native:entityresolution:IdNamespaceRuleDefinitionType")
 class IdNamespaceRuleDefinitionType(builtins.str, Enum):
     SOURCE = "SOURCE"
     TARGET = "TARGET"
 
 
+@pulumi.type_token("aws-native:entityresolution:IdNamespaceType")
 class IdNamespaceType(builtins.str, Enum):
     """
     The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
@@ -120,6 +130,7 @@ class IdNamespaceType(builtins.str, Enum):
     TARGET = "TARGET"
 
 
+@pulumi.type_token("aws-native:entityresolution:MatchingWorkflowIncrementalRunConfigIncrementalRunType")
 class MatchingWorkflowIncrementalRunConfigIncrementalRunType(builtins.str, Enum):
     """
     The type of incremental run. It takes only one value: `IMMEDIATE` .
@@ -127,12 +138,14 @@ class MatchingWorkflowIncrementalRunConfigIncrementalRunType(builtins.str, Enum)
     IMMEDIATE = "IMMEDIATE"
 
 
+@pulumi.type_token("aws-native:entityresolution:MatchingWorkflowResolutionType")
 class MatchingWorkflowResolutionType(builtins.str, Enum):
     RULE_MATCHING = "RULE_MATCHING"
     ML_MATCHING = "ML_MATCHING"
     PROVIDER = "PROVIDER"
 
 
+@pulumi.type_token("aws-native:entityresolution:MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel")
 class MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel(builtins.str, Enum):
     """
     The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
@@ -145,6 +158,7 @@ class MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel(builtins.str, En
     MANY_TO_MANY = "MANY_TO_MANY"
 
 
+@pulumi.type_token("aws-native:entityresolution:MatchingWorkflowRuleBasedPropertiesMatchPurpose")
 class MatchingWorkflowRuleBasedPropertiesMatchPurpose(builtins.str, Enum):
     """
     An indicator of whether to generate IDs and index the data or not.
@@ -157,11 +171,13 @@ class MatchingWorkflowRuleBasedPropertiesMatchPurpose(builtins.str, Enum):
     INDEXING = "INDEXING"
 
 
+@pulumi.type_token("aws-native:entityresolution:PolicyStatementStatementEffect")
 class PolicyStatementStatementEffect(builtins.str, Enum):
     ALLOW = "Allow"
     DENY = "Deny"
 
 
+@pulumi.type_token("aws-native:entityresolution:SchemaMappingSchemaAttributeType")
 class SchemaMappingSchemaAttributeType(builtins.str, Enum):
     NAME = "NAME"
     NAME_FIRST = "NAME_FIRST"

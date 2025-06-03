@@ -263,10 +263,8 @@ class GlobalTableArgs:
         pulumi.set(self, "write_provisioned_throughput_settings", value)
 
 
+@pulumi.type_token("aws-native:dynamodb:GlobalTable")
 class GlobalTable(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:dynamodb:GlobalTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

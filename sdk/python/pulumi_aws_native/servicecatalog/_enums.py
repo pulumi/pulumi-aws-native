@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:servicecatalog:CloudFormationProvisionedProductAcceptLanguage")
 class CloudFormationProvisionedProductAcceptLanguage(builtins.str, Enum):
     """
     The language code.
@@ -26,6 +27,7 @@ class CloudFormationProvisionedProductAcceptLanguage(builtins.str, Enum):
     ZH = "zh"
 
 
+@pulumi.type_token("aws-native:servicecatalog:CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType")
 class CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType(builtins.str, Enum):
     """
     Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
@@ -41,6 +43,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTy
     DELETE = "DELETE"
 
 
+@pulumi.type_token("aws-native:servicecatalog:ServiceActionAcceptLanguage")
 class ServiceActionAcceptLanguage(builtins.str, Enum):
     """
     The language code.
@@ -54,6 +57,7 @@ class ServiceActionAcceptLanguage(builtins.str, Enum):
     ZH = "zh"
 
 
+@pulumi.type_token("aws-native:servicecatalog:ServiceActionDefinitionType")
 class ServiceActionDefinitionType(builtins.str, Enum):
     """
     The self-service action definition type. For example, `SSM_AUTOMATION` .

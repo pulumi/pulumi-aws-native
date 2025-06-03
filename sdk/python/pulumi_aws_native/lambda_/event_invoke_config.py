@@ -121,10 +121,8 @@ class EventInvokeConfigArgs:
         pulumi.set(self, "maximum_retry_attempts", value)
 
 
+@pulumi.type_token("aws-native:lambda:EventInvokeConfig")
 class EventInvokeConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lambda:EventInvokeConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

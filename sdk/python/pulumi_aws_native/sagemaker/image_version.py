@@ -172,10 +172,8 @@ class ImageVersionArgs:
         pulumi.set(self, "vendor_guidance", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:ImageVersion")
 class ImageVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:ImageVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

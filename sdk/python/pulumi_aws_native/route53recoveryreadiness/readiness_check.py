@@ -75,10 +75,8 @@ class ReadinessCheckArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:route53recoveryreadiness:ReadinessCheck")
 class ReadinessCheck(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:route53recoveryreadiness:ReadinessCheck"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

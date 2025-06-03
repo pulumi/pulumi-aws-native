@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,23 +14,27 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:redshiftserverless:NamespaceLogExport")
 class NamespaceLogExport(builtins.str, Enum):
     USERACTIVITYLOG = "useractivitylog"
     USERLOG = "userlog"
     CONNECTIONLOG = "connectionlog"
 
 
+@pulumi.type_token("aws-native:redshiftserverless:NamespaceStatus")
 class NamespaceStatus(builtins.str, Enum):
     AVAILABLE = "AVAILABLE"
     MODIFYING = "MODIFYING"
     DELETING = "DELETING"
 
 
+@pulumi.type_token("aws-native:redshiftserverless:WorkgroupPerformanceTargetStatus")
 class WorkgroupPerformanceTargetStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:redshiftserverless:WorkgroupStatus")
 class WorkgroupStatus(builtins.str, Enum):
     CREATING = "CREATING"
     AVAILABLE = "AVAILABLE"

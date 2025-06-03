@@ -113,10 +113,8 @@ class ProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:b2bi:Profile")
 class Profile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:b2bi:Profile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -75,10 +75,8 @@ class CellArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:route53recoveryreadiness:Cell")
 class Cell(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:route53recoveryreadiness:Cell"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

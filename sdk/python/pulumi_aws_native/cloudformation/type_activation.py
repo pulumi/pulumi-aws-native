@@ -192,10 +192,8 @@ class TypeActivationArgs:
         pulumi.set(self, "version_bump", value)
 
 
+@pulumi.type_token("aws-native:cloudformation:TypeActivation")
 class TypeActivation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudformation:TypeActivation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -292,10 +292,8 @@ class VpnConnectionArgs:
         pulumi.set(self, "vpn_tunnel_options_specifications", value)
 
 
+@pulumi.type_token("aws-native:ec2:VpnConnection")
 class VpnConnection(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:VpnConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

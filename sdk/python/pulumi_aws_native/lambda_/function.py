@@ -476,10 +476,8 @@ class FunctionArgs:
         pulumi.set(self, "vpc_config", value)
 
 
+@pulumi.type_token("aws-native:lambda:Function")
 class Function(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lambda:Function"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

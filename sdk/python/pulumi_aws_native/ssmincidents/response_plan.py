@@ -157,10 +157,8 @@ class ResponsePlanArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ssmincidents:ResponsePlan")
 class ResponsePlan(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ssmincidents:ResponsePlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

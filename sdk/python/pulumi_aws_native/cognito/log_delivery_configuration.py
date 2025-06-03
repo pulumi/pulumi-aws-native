@@ -58,10 +58,8 @@ class LogDeliveryConfigurationArgs:
         pulumi.set(self, "log_configurations", value)
 
 
+@pulumi.type_token("aws-native:cognito:LogDeliveryConfiguration")
 class LogDeliveryConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cognito:LogDeliveryConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

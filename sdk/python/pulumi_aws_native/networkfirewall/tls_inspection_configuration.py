@@ -93,10 +93,8 @@ class TlsInspectionConfigurationArgs:
         pulumi.set(self, "tls_inspection_configuration_name", value)
 
 
+@pulumi.type_token("aws-native:networkfirewall:TlsInspectionConfiguration")
 class TlsInspectionConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:networkfirewall:TlsInspectionConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

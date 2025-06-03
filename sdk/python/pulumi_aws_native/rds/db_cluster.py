@@ -1445,10 +1445,8 @@ class DbClusterArgs:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
+@pulumi.type_token("aws-native:rds:DbCluster")
 class DbCluster(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:rds:DbCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

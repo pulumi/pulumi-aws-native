@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,6 +21,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:logs:AccountPolicyPolicyType")
 class AccountPolicyPolicyType(builtins.str, Enum):
     """
     Type of the policy.
@@ -31,6 +32,7 @@ class AccountPolicyPolicyType(builtins.str, Enum):
     TRANSFORMER_POLICY = "TRANSFORMER_POLICY"
 
 
+@pulumi.type_token("aws-native:logs:AccountPolicyScope")
 class AccountPolicyScope(builtins.str, Enum):
     """
     Scope for policy application
@@ -38,6 +40,7 @@ class AccountPolicyScope(builtins.str, Enum):
     ALL = "ALL"
 
 
+@pulumi.type_token("aws-native:logs:IntegrationStatus")
 class IntegrationStatus(builtins.str, Enum):
     """
     Status of creation for the Integration and its resources
@@ -47,6 +50,7 @@ class IntegrationStatus(builtins.str, Enum):
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:logs:IntegrationType")
 class IntegrationType(builtins.str, Enum):
     """
     The type of the Integration.
@@ -54,6 +58,7 @@ class IntegrationType(builtins.str, Enum):
     OPENSEARCH = "OPENSEARCH"
 
 
+@pulumi.type_token("aws-native:logs:LogAnomalyDetectorEvaluationFrequency")
 class LogAnomalyDetectorEvaluationFrequency(builtins.str, Enum):
     """
     How often log group is evaluated
@@ -65,6 +70,7 @@ class LogAnomalyDetectorEvaluationFrequency(builtins.str, Enum):
     ONE_HOUR = "ONE_HOUR"
 
 
+@pulumi.type_token("aws-native:logs:LogGroupClass")
 class LogGroupClass(builtins.str, Enum):
     """
     Specifies the log group class for this log group. There are two classes:
@@ -78,6 +84,7 @@ class LogGroupClass(builtins.str, Enum):
     DELIVERY = "DELIVERY"
 
 
+@pulumi.type_token("aws-native:logs:MetricFilterMetricTransformationUnit")
 class MetricFilterMetricTransformationUnit(builtins.str, Enum):
     """
     The unit to assign to the metric. If you omit this, the unit is set as ``None``.
@@ -111,6 +118,7 @@ class MetricFilterMetricTransformationUnit(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("aws-native:logs:QueryDefinitionQueryLanguage")
 class QueryDefinitionQueryLanguage(builtins.str, Enum):
     """
     Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
@@ -120,6 +128,7 @@ class QueryDefinitionQueryLanguage(builtins.str, Enum):
     PPL = "PPL"
 
 
+@pulumi.type_token("aws-native:logs:SubscriptionFilterDistribution")
 class SubscriptionFilterDistribution(builtins.str, Enum):
     """
     The method used to distribute log data to the destination, which can be either random or grouped by log stream.
@@ -128,11 +137,13 @@ class SubscriptionFilterDistribution(builtins.str, Enum):
     BY_LOG_STREAM = "ByLogStream"
 
 
+@pulumi.type_token("aws-native:logs:TransformerProcessorListToMapPropertiesFlattenedElement")
 class TransformerProcessorListToMapPropertiesFlattenedElement(builtins.str, Enum):
     FIRST = "first"
     LAST = "last"
 
 
+@pulumi.type_token("aws-native:logs:TransformerTypeConverterEntryType")
 class TransformerTypeConverterEntryType(builtins.str, Enum):
     BOOLEAN = "boolean"
     INTEGER = "integer"

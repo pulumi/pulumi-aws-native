@@ -93,10 +93,8 @@ class NetworkArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:medialive:Network")
 class Network(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:medialive:Network"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

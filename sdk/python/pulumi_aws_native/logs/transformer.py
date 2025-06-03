@@ -58,10 +58,8 @@ class TransformerArgs:
         pulumi.set(self, "transformer_config", value)
 
 
+@pulumi.type_token("aws-native:logs:Transformer")
 class Transformer(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:logs:Transformer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

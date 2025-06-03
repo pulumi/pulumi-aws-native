@@ -220,10 +220,8 @@ class EnvironmentArgs:
         pulumi.set(self, "version_label", value)
 
 
+@pulumi.type_token("aws-native:elasticbeanstalk:Environment")
 class Environment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:elasticbeanstalk:Environment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

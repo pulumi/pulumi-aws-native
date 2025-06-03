@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:applicationinsights:ApplicationAlarmSeverity")
 class ApplicationAlarmSeverity(builtins.str, Enum):
     """
     Indicates the degree of outage when the alarm goes off.
@@ -25,6 +26,7 @@ class ApplicationAlarmSeverity(builtins.str, Enum):
     LOW = "LOW"
 
 
+@pulumi.type_token("aws-native:applicationinsights:ApplicationComponentMonitoringSettingComponentConfigurationMode")
 class ApplicationComponentMonitoringSettingComponentConfigurationMode(builtins.str, Enum):
     """
     The component monitoring configuration mode.
@@ -34,6 +36,7 @@ class ApplicationComponentMonitoringSettingComponentConfigurationMode(builtins.s
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:applicationinsights:ApplicationEventLevel")
 class ApplicationEventLevel(builtins.str, Enum):
     """
     The level of event to log.
@@ -45,6 +48,7 @@ class ApplicationEventLevel(builtins.str, Enum):
     VERBOSE = "VERBOSE"
 
 
+@pulumi.type_token("aws-native:applicationinsights:ApplicationGroupingType")
 class ApplicationGroupingType(builtins.str, Enum):
     """
     The grouping type of the application
@@ -52,6 +56,7 @@ class ApplicationGroupingType(builtins.str, Enum):
     ACCOUNT_BASED = "ACCOUNT_BASED"
 
 
+@pulumi.type_token("aws-native:applicationinsights:ApplicationLogEncoding")
 class ApplicationLogEncoding(builtins.str, Enum):
     """
     The type of encoding of the logs to be monitored.
@@ -61,6 +66,7 @@ class ApplicationLogEncoding(builtins.str, Enum):
     ASCII = "ascii"
 
 
+@pulumi.type_token("aws-native:applicationinsights:ApplicationSubComponentTypeConfigurationSubComponentType")
 class ApplicationSubComponentTypeConfigurationSubComponentType(builtins.str, Enum):
     """
     The sub component type.

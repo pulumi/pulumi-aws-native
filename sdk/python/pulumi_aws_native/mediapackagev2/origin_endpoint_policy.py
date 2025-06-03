@@ -89,10 +89,8 @@ class OriginEndpointPolicyArgs:
         pulumi.set(self, "policy", value)
 
 
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointPolicy")
 class OriginEndpointPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediapackagev2:OriginEndpointPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

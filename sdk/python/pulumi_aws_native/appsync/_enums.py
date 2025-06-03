@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,6 +19,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:appsync:ApiAuthenticationType")
 class ApiAuthenticationType(builtins.str, Enum):
     """
     Security configuration for your AppSync API.
@@ -30,6 +31,7 @@ class ApiAuthenticationType(builtins.str, Enum):
     AWS_LAMBDA = "AWS_LAMBDA"
 
 
+@pulumi.type_token("aws-native:appsync:ApiEventLogLevel")
 class ApiEventLogLevel(builtins.str, Enum):
     """
     Logging level for the AppSync API.
@@ -41,6 +43,7 @@ class ApiEventLogLevel(builtins.str, Enum):
     DEBUG = "DEBUG"
 
 
+@pulumi.type_token("aws-native:appsync:ChannelNamespaceAuthenticationType")
 class ChannelNamespaceAuthenticationType(builtins.str, Enum):
     """
     Security configuration for your AppSync API.
@@ -52,6 +55,7 @@ class ChannelNamespaceAuthenticationType(builtins.str, Enum):
     AWS_LAMBDA = "AWS_LAMBDA"
 
 
+@pulumi.type_token("aws-native:appsync:ChannelNamespaceHandlerBehavior")
 class ChannelNamespaceHandlerBehavior(builtins.str, Enum):
     """
     Integration behavior for a handler configuration.
@@ -60,6 +64,7 @@ class ChannelNamespaceHandlerBehavior(builtins.str, Enum):
     DIRECT = "DIRECT"
 
 
+@pulumi.type_token("aws-native:appsync:ChannelNamespaceInvokeType")
 class ChannelNamespaceInvokeType(builtins.str, Enum):
     """
     Invocation type for direct lambda integrations.
@@ -68,6 +73,7 @@ class ChannelNamespaceInvokeType(builtins.str, Enum):
     EVENT = "EVENT"
 
 
+@pulumi.type_token("aws-native:appsync:DataSourceMetricsConfig")
 class DataSourceMetricsConfig(builtins.str, Enum):
     """
     Enables or disables enhanced data source metrics for specified data sources. Note that `MetricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS` . If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
@@ -78,6 +84,7 @@ class DataSourceMetricsConfig(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:appsync:ResolverMetricsConfig")
 class ResolverMetricsConfig(builtins.str, Enum):
     """
     Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
@@ -86,6 +93,7 @@ class ResolverMetricsConfig(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:appsync:SourceApiAssociationConfigMergeType")
 class SourceApiAssociationConfigMergeType(builtins.str, Enum):
     """
     Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
@@ -94,6 +102,7 @@ class SourceApiAssociationConfigMergeType(builtins.str, Enum):
     MANUAL_MERGE = "MANUAL_MERGE"
 
 
+@pulumi.type_token("aws-native:appsync:SourceApiAssociationStatus")
 class SourceApiAssociationStatus(builtins.str, Enum):
     """
     Current status of SourceApiAssociation.

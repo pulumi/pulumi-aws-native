@@ -124,10 +124,8 @@ class ViewArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:connect:View")
 class View(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:View"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -188,10 +188,8 @@ class InstanceProfileArgs:
         pulumi.set(self, "vpc_security_groups", value)
 
 
+@pulumi.type_token("aws-native:dms:InstanceProfile")
 class InstanceProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:dms:InstanceProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

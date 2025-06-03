@@ -122,10 +122,8 @@ class CostCategoryArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ce:CostCategory")
 class CostCategory(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ce:CostCategory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

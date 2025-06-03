@@ -73,10 +73,8 @@ class PredefinedAttributeArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:connect:PredefinedAttribute")
 class PredefinedAttribute(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:PredefinedAttribute"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

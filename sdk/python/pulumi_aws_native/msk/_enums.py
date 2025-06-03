@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,6 +17,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:msk:ClusterEncryptionInTransitClientBroker")
 class ClusterEncryptionInTransitClientBroker(builtins.str, Enum):
     """
     Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
@@ -32,6 +33,7 @@ class ClusterEncryptionInTransitClientBroker(builtins.str, Enum):
     PLAINTEXT = "PLAINTEXT"
 
 
+@pulumi.type_token("aws-native:msk:ClusterEnhancedMonitoring")
 class ClusterEnhancedMonitoring(builtins.str, Enum):
     """
     Specifies the level of monitoring for the MSK cluster.
@@ -42,6 +44,7 @@ class ClusterEnhancedMonitoring(builtins.str, Enum):
     PER_TOPIC_PER_PARTITION = "PER_TOPIC_PER_PARTITION"
 
 
+@pulumi.type_token("aws-native:msk:ClusterStorageMode")
 class ClusterStorageMode(builtins.str, Enum):
     """
     This controls storage mode for supported storage tiers.
@@ -50,6 +53,7 @@ class ClusterStorageMode(builtins.str, Enum):
     TIERED = "TIERED"
 
 
+@pulumi.type_token("aws-native:msk:ReplicatorReplicationInfoTargetCompressionType")
 class ReplicatorReplicationInfoTargetCompressionType(builtins.str, Enum):
     """
     The type of compression to use writing records to target Kafka cluster.
@@ -61,6 +65,7 @@ class ReplicatorReplicationInfoTargetCompressionType(builtins.str, Enum):
     ZSTD = "ZSTD"
 
 
+@pulumi.type_token("aws-native:msk:ReplicatorReplicationStartingPositionType")
 class ReplicatorReplicationStartingPositionType(builtins.str, Enum):
     """
     The type of replication starting position.
@@ -69,6 +74,7 @@ class ReplicatorReplicationStartingPositionType(builtins.str, Enum):
     EARLIEST = "EARLIEST"
 
 
+@pulumi.type_token("aws-native:msk:ReplicatorReplicationTopicNameConfigurationType")
 class ReplicatorReplicationTopicNameConfigurationType(builtins.str, Enum):
     """
     The type of replicated topic name.
@@ -77,6 +83,7 @@ class ReplicatorReplicationTopicNameConfigurationType(builtins.str, Enum):
     IDENTICAL = "IDENTICAL"
 
 
+@pulumi.type_token("aws-native:msk:VpcConnectionAuthentication")
 class VpcConnectionAuthentication(builtins.str, Enum):
     """
     The type of private link authentication

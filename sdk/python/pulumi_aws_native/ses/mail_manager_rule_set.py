@@ -77,10 +77,8 @@ class MailManagerRuleSetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ses:MailManagerRuleSet")
 class MailManagerRuleSet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ses:MailManagerRuleSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

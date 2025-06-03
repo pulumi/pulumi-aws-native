@@ -57,10 +57,8 @@ class PublisherArgs:
         pulumi.set(self, "connection_arn", value)
 
 
+@pulumi.type_token("aws-native:cloudformation:Publisher")
 class Publisher(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudformation:Publisher"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

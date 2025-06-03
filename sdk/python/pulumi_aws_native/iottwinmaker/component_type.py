@@ -186,10 +186,8 @@ class ComponentTypeArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iottwinmaker:ComponentType")
 class ComponentType(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iottwinmaker:ComponentType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -131,10 +131,8 @@ class StorageSystemArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:datasync:StorageSystem")
 class StorageSystem(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datasync:StorageSystem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

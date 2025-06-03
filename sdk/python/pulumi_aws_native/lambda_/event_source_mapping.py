@@ -523,10 +523,8 @@ class EventSourceMappingArgs:
         pulumi.set(self, "tumbling_window_in_seconds", value)
 
 
+@pulumi.type_token("aws-native:lambda:EventSourceMapping")
 class EventSourceMapping(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lambda:EventSourceMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

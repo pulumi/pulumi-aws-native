@@ -182,10 +182,8 @@ class GuardHookArgs:
         pulumi.set(self, "target_filters", value)
 
 
+@pulumi.type_token("aws-native:cloudformation:GuardHook")
 class GuardHook(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudformation:GuardHook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -40,6 +40,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:cloudformation:GuardHookAction")
 class GuardHookAction(builtins.str, Enum):
     """
     Target actions are the type of operation hooks will be executed at.
@@ -49,6 +50,7 @@ class GuardHookAction(builtins.str, Enum):
     DELETE = "DELETE"
 
 
+@pulumi.type_token("aws-native:cloudformation:GuardHookFailureMode")
 class GuardHookFailureMode(builtins.str, Enum):
     """
     Attribute to specify CloudFormation behavior on hook failure.
@@ -57,6 +59,7 @@ class GuardHookFailureMode(builtins.str, Enum):
     WARN = "WARN"
 
 
+@pulumi.type_token("aws-native:cloudformation:GuardHookHookStatus")
 class GuardHookHookStatus(builtins.str, Enum):
     """
     Attribute to specify which stacks this hook applies to or should get invoked for
@@ -65,6 +68,7 @@ class GuardHookHookStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:cloudformation:GuardHookInvocationPoint")
 class GuardHookInvocationPoint(builtins.str, Enum):
     """
     Invocation points are the point in provisioning workflow where hooks will be executed.
@@ -72,6 +76,7 @@ class GuardHookInvocationPoint(builtins.str, Enum):
     PRE_PROVISION = "PRE_PROVISION"
 
 
+@pulumi.type_token("aws-native:cloudformation:GuardHookStackFiltersPropertiesFilteringCriteria")
 class GuardHookStackFiltersPropertiesFilteringCriteria(builtins.str, Enum):
     """
     Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
@@ -80,6 +85,7 @@ class GuardHookStackFiltersPropertiesFilteringCriteria(builtins.str, Enum):
     ANY = "ANY"
 
 
+@pulumi.type_token("aws-native:cloudformation:GuardHookTargetOperation")
 class GuardHookTargetOperation(builtins.str, Enum):
     """
     Which operations should this Hook run against? Resource changes, stacks or change sets.
@@ -90,6 +96,7 @@ class GuardHookTargetOperation(builtins.str, Enum):
     CLOUD_CONTROL = "CLOUD_CONTROL"
 
 
+@pulumi.type_token("aws-native:cloudformation:HookTypeConfigConfigurationAlias")
 class HookTypeConfigConfigurationAlias(builtins.str, Enum):
     """
     An alias by which to refer to this extension configuration data.
@@ -97,6 +104,7 @@ class HookTypeConfigConfigurationAlias(builtins.str, Enum):
     DEFAULT = "default"
 
 
+@pulumi.type_token("aws-native:cloudformation:HookVersionVisibility")
 class HookVersionVisibility(builtins.str, Enum):
     """
     The scope at which the type is visible and usable in CloudFormation operations.
@@ -111,6 +119,7 @@ class HookVersionVisibility(builtins.str, Enum):
     PRIVATE = "PRIVATE"
 
 
+@pulumi.type_token("aws-native:cloudformation:LambdaHookAction")
 class LambdaHookAction(builtins.str, Enum):
     """
     Target actions are the type of operation hooks will be executed at.
@@ -120,6 +129,7 @@ class LambdaHookAction(builtins.str, Enum):
     DELETE = "DELETE"
 
 
+@pulumi.type_token("aws-native:cloudformation:LambdaHookFailureMode")
 class LambdaHookFailureMode(builtins.str, Enum):
     """
     Attribute to specify CloudFormation behavior on hook failure.
@@ -128,6 +138,7 @@ class LambdaHookFailureMode(builtins.str, Enum):
     WARN = "WARN"
 
 
+@pulumi.type_token("aws-native:cloudformation:LambdaHookHookStatus")
 class LambdaHookHookStatus(builtins.str, Enum):
     """
     Attribute to specify which stacks this hook applies to or should get invoked for
@@ -136,6 +147,7 @@ class LambdaHookHookStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:cloudformation:LambdaHookInvocationPoint")
 class LambdaHookInvocationPoint(builtins.str, Enum):
     """
     Invocation points are the point in provisioning workflow where hooks will be executed.
@@ -143,6 +155,7 @@ class LambdaHookInvocationPoint(builtins.str, Enum):
     PRE_PROVISION = "PRE_PROVISION"
 
 
+@pulumi.type_token("aws-native:cloudformation:LambdaHookStackFiltersPropertiesFilteringCriteria")
 class LambdaHookStackFiltersPropertiesFilteringCriteria(builtins.str, Enum):
     """
     Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
@@ -151,6 +164,7 @@ class LambdaHookStackFiltersPropertiesFilteringCriteria(builtins.str, Enum):
     ANY = "ANY"
 
 
+@pulumi.type_token("aws-native:cloudformation:LambdaHookTargetOperation")
 class LambdaHookTargetOperation(builtins.str, Enum):
     """
     Which operations should this Hook run against? Resource changes, stacks or change sets.
@@ -161,6 +175,7 @@ class LambdaHookTargetOperation(builtins.str, Enum):
     CLOUD_CONTROL = "CLOUD_CONTROL"
 
 
+@pulumi.type_token("aws-native:cloudformation:ModuleVersionVisibility")
 class ModuleVersionVisibility(builtins.str, Enum):
     """
     The scope at which the type is visible and usable in CloudFormation operations.
@@ -172,6 +187,7 @@ class ModuleVersionVisibility(builtins.str, Enum):
     PRIVATE = "PRIVATE"
 
 
+@pulumi.type_token("aws-native:cloudformation:PublicTypeVersionType")
 class PublicTypeVersionType(builtins.str, Enum):
     """
     The kind of extension
@@ -181,6 +197,7 @@ class PublicTypeVersionType(builtins.str, Enum):
     HOOK = "HOOK"
 
 
+@pulumi.type_token("aws-native:cloudformation:PublisherIdentityProvider")
 class PublisherIdentityProvider(builtins.str, Enum):
     """
     The type of account used as the identity provider when registering this publisher with CloudFormation.
@@ -190,6 +207,7 @@ class PublisherIdentityProvider(builtins.str, Enum):
     BITBUCKET = "Bitbucket"
 
 
+@pulumi.type_token("aws-native:cloudformation:PublisherStatus")
 class PublisherStatus(builtins.str, Enum):
     """
     Whether the publisher is verified.
@@ -198,6 +216,7 @@ class PublisherStatus(builtins.str, Enum):
     UNVERIFIED = "UNVERIFIED"
 
 
+@pulumi.type_token("aws-native:cloudformation:ResourceVersionProvisioningType")
 class ResourceVersionProvisioningType(builtins.str, Enum):
     """
     The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
@@ -207,6 +226,7 @@ class ResourceVersionProvisioningType(builtins.str, Enum):
     FULLY_MUTABLE = "FULLY_MUTABLE"
 
 
+@pulumi.type_token("aws-native:cloudformation:ResourceVersionVisibility")
 class ResourceVersionVisibility(builtins.str, Enum):
     """
     The scope at which the type is visible and usable in CloudFormation operations.
@@ -221,12 +241,14 @@ class ResourceVersionVisibility(builtins.str, Enum):
     PRIVATE = "PRIVATE"
 
 
+@pulumi.type_token("aws-native:cloudformation:StackCapabilitiesItem")
 class StackCapabilitiesItem(builtins.str, Enum):
     CAPABILITY_IAM = "CAPABILITY_IAM"
     CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM"
     CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND"
 
 
+@pulumi.type_token("aws-native:cloudformation:StackSetCallAs")
 class StackSetCallAs(builtins.str, Enum):
     """
     Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
@@ -235,12 +257,14 @@ class StackSetCallAs(builtins.str, Enum):
     DELEGATED_ADMIN = "DELEGATED_ADMIN"
 
 
+@pulumi.type_token("aws-native:cloudformation:StackSetCapability")
 class StackSetCapability(builtins.str, Enum):
     CAPABILITY_IAM = "CAPABILITY_IAM"
     CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM"
     CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND"
 
 
+@pulumi.type_token("aws-native:cloudformation:StackSetConcurrencyMode")
 class StackSetConcurrencyMode(builtins.str, Enum):
     """
     Specifies how the concurrency level behaves during the operation execution.
@@ -249,6 +273,7 @@ class StackSetConcurrencyMode(builtins.str, Enum):
     SOFT_FAILURE_TOLERANCE = "SOFT_FAILURE_TOLERANCE"
 
 
+@pulumi.type_token("aws-native:cloudformation:StackSetDeploymentTargetsAccountFilterType")
 class StackSetDeploymentTargetsAccountFilterType(builtins.str, Enum):
     """
     The filter type you want to apply on organizational units and accounts.
@@ -259,6 +284,7 @@ class StackSetDeploymentTargetsAccountFilterType(builtins.str, Enum):
     DIFFERENCE = "DIFFERENCE"
 
 
+@pulumi.type_token("aws-native:cloudformation:StackSetPermissionModel")
 class StackSetPermissionModel(builtins.str, Enum):
     """
     Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
@@ -267,6 +293,7 @@ class StackSetPermissionModel(builtins.str, Enum):
     SELF_MANAGED = "SELF_MANAGED"
 
 
+@pulumi.type_token("aws-native:cloudformation:StackSetRegionConcurrencyType")
 class StackSetRegionConcurrencyType(builtins.str, Enum):
     """
     The concurrency type of deploying StackSets operations in regions, could be in parallel or one region at a time
@@ -275,6 +302,7 @@ class StackSetRegionConcurrencyType(builtins.str, Enum):
     PARALLEL = "PARALLEL"
 
 
+@pulumi.type_token("aws-native:cloudformation:StackStatus")
 class StackStatus(builtins.str, Enum):
     """
     Current status of the stack.
@@ -304,6 +332,7 @@ class StackStatus(builtins.str, Enum):
     IMPORT_ROLLBACK_COMPLETE = "IMPORT_ROLLBACK_COMPLETE"
 
 
+@pulumi.type_token("aws-native:cloudformation:TypeActivationType")
 class TypeActivationType(builtins.str, Enum):
     """
     The kind of extension
@@ -313,6 +342,7 @@ class TypeActivationType(builtins.str, Enum):
     HOOK = "HOOK"
 
 
+@pulumi.type_token("aws-native:cloudformation:TypeActivationVersionBump")
 class TypeActivationVersionBump(builtins.str, Enum):
     """
     Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled

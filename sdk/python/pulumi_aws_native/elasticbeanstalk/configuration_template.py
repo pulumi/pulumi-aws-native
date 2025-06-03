@@ -158,10 +158,8 @@ class ConfigurationTemplateArgs:
         pulumi.set(self, "source_configuration", value)
 
 
+@pulumi.type_token("aws-native:elasticbeanstalk:ConfigurationTemplate")
 class ConfigurationTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:elasticbeanstalk:ConfigurationTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:s3tables:TableBucketEncryptionConfigurationSseAlgorithm")
 class TableBucketEncryptionConfigurationSseAlgorithm(builtins.str, Enum):
     """
     Server-side encryption algorithm
@@ -20,6 +21,7 @@ class TableBucketEncryptionConfigurationSseAlgorithm(builtins.str, Enum):
     AWSKMS = "aws:kms"
 
 
+@pulumi.type_token("aws-native:s3tables:TableBucketUnreferencedFileRemovalStatus")
 class TableBucketUnreferencedFileRemovalStatus(builtins.str, Enum):
     """
     Indicates whether the Unreferenced File Removal maintenance action is enabled.

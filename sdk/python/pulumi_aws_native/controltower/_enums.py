@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,11 +12,13 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:controltower:LandingZoneDriftStatus")
 class LandingZoneDriftStatus(builtins.str, Enum):
     DRIFTED = "DRIFTED"
     IN_SYNC = "IN_SYNC"
 
 
+@pulumi.type_token("aws-native:controltower:LandingZoneStatus")
 class LandingZoneStatus(builtins.str, Enum):
     ACTIVE = "ACTIVE"
     PROCESSING = "PROCESSING"

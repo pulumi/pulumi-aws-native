@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -11,6 +11,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:sns:TopicLoggingConfigProtocol")
 class TopicLoggingConfigProtocol(builtins.str, Enum):
     """
     Indicates one of the supported protocols for the Amazon SNS topic.

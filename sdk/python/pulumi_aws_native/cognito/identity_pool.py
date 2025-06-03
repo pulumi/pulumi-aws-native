@@ -248,10 +248,8 @@ class IdentityPoolArgs:
         pulumi.set(self, "supported_login_providers", value)
 
 
+@pulumi.type_token("aws-native:cognito:IdentityPool")
 class IdentityPool(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cognito:IdentityPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -218,10 +218,8 @@ class DomainArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

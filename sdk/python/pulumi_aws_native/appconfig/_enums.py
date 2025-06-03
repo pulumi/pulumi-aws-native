@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:appconfig:ConfigurationProfileDeletionProtectionCheck")
 class ConfigurationProfileDeletionProtectionCheck(builtins.str, Enum):
     """
     On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
@@ -23,6 +24,7 @@ class ConfigurationProfileDeletionProtectionCheck(builtins.str, Enum):
     BYPASS = "BYPASS"
 
 
+@pulumi.type_token("aws-native:appconfig:DeploymentStrategyGrowthType")
 class DeploymentStrategyGrowthType(builtins.str, Enum):
     """
     The algorithm used to define how percentage grows over time. AWS AppConfig supports the following growth types:
@@ -43,6 +45,7 @@ class DeploymentStrategyGrowthType(builtins.str, Enum):
     LINEAR = "LINEAR"
 
 
+@pulumi.type_token("aws-native:appconfig:DeploymentStrategyReplicateTo")
 class DeploymentStrategyReplicateTo(builtins.str, Enum):
     """
     Save the deployment strategy to a Systems Manager (SSM) document.
@@ -51,6 +54,7 @@ class DeploymentStrategyReplicateTo(builtins.str, Enum):
     SSM_DOCUMENT = "SSM_DOCUMENT"
 
 
+@pulumi.type_token("aws-native:appconfig:EnvironmentDeletionProtectionCheck")
 class EnvironmentDeletionProtectionCheck(builtins.str, Enum):
     """
     On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html

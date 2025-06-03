@@ -76,10 +76,8 @@ class TableBucketArgs:
         pulumi.set(self, "unreferenced_file_removal", value)
 
 
+@pulumi.type_token("aws-native:s3tables:TableBucket")
 class TableBucket(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:s3tables:TableBucket"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

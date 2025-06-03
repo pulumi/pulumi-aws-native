@@ -249,10 +249,8 @@ class FunctionConfigurationArgs:
         pulumi.set(self, "sync_config", value)
 
 
+@pulumi.type_token("aws-native:appsync:FunctionConfiguration")
 class FunctionConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appsync:FunctionConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

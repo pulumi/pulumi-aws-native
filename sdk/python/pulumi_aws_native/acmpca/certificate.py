@@ -145,10 +145,8 @@ class CertificateArgs:
         pulumi.set(self, "validity_not_before", value)
 
 
+@pulumi.type_token("aws-native:acmpca:Certificate")
 class Certificate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:acmpca:Certificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

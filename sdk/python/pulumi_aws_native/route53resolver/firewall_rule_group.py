@@ -78,10 +78,8 @@ class FirewallRuleGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:route53resolver:FirewallRuleGroup")
 class FirewallRuleGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:route53resolver:FirewallRuleGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

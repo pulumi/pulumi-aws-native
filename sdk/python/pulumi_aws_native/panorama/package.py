@@ -77,10 +77,8 @@ class PackageArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:panorama:Package")
 class Package(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:panorama:Package"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

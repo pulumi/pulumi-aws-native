@@ -57,10 +57,8 @@ class SchemaVersionInitArgs:
         pulumi.set(self, "schema_definition", value)
 
 
+@pulumi.type_token("aws-native:glue:SchemaVersion")
 class SchemaVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:glue:SchemaVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

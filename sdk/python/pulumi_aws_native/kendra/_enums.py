@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -32,6 +32,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceConditionOperator")
 class DataSourceConditionOperator(builtins.str, Enum):
     GREATER_THAN = "GreaterThan"
     GREATER_THAN_OR_EQUALS = "GreaterThanOrEquals"
@@ -46,6 +47,7 @@ class DataSourceConditionOperator(builtins.str, Enum):
     BEGINS_WITH = "BeginsWith"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceConfluenceAttachmentFieldName")
 class DataSourceConfluenceAttachmentFieldName(builtins.str, Enum):
     AUTHOR = "AUTHOR"
     CONTENT_TYPE = "CONTENT_TYPE"
@@ -60,6 +62,7 @@ class DataSourceConfluenceAttachmentFieldName(builtins.str, Enum):
     VERSION = "VERSION"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceConfluenceBlogFieldName")
 class DataSourceConfluenceBlogFieldName(builtins.str, Enum):
     AUTHOR = "AUTHOR"
     DISPLAY_URL = "DISPLAY_URL"
@@ -72,6 +75,7 @@ class DataSourceConfluenceBlogFieldName(builtins.str, Enum):
     VERSION = "VERSION"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceConfluencePageFieldName")
 class DataSourceConfluencePageFieldName(builtins.str, Enum):
     AUTHOR = "AUTHOR"
     CONTENT_STATUS = "CONTENT_STATUS"
@@ -87,6 +91,7 @@ class DataSourceConfluencePageFieldName(builtins.str, Enum):
     VERSION = "VERSION"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceConfluenceSpaceFieldName")
 class DataSourceConfluenceSpaceFieldName(builtins.str, Enum):
     DISPLAY_URL = "DISPLAY_URL"
     ITEM_TYPE = "ITEM_TYPE"
@@ -94,11 +99,13 @@ class DataSourceConfluenceSpaceFieldName(builtins.str, Enum):
     URL = "URL"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceConfluenceVersion")
 class DataSourceConfluenceVersion(builtins.str, Enum):
     CLOUD = "CLOUD"
     SERVER = "SERVER"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceDatabaseEngineType")
 class DataSourceDatabaseEngineType(builtins.str, Enum):
     RDS_AURORA_MYSQL = "RDS_AURORA_MYSQL"
     RDS_AURORA_POSTGRESQL = "RDS_AURORA_POSTGRESQL"
@@ -106,22 +113,26 @@ class DataSourceDatabaseEngineType(builtins.str, Enum):
     RDS_POSTGRESQL = "RDS_POSTGRESQL"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceQueryIdentifiersEnclosingOption")
 class DataSourceQueryIdentifiersEnclosingOption(builtins.str, Enum):
     DOUBLE_QUOTES = "DOUBLE_QUOTES"
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceSalesforceChatterFeedIncludeFilterType")
 class DataSourceSalesforceChatterFeedIncludeFilterType(builtins.str, Enum):
     ACTIVE_USER = "ACTIVE_USER"
     STANDARD_USER = "STANDARD_USER"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceSalesforceKnowledgeArticleState")
 class DataSourceSalesforceKnowledgeArticleState(builtins.str, Enum):
     DRAFT = "DRAFT"
     PUBLISHED = "PUBLISHED"
     ARCHIVED = "ARCHIVED"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceSalesforceStandardObjectName")
 class DataSourceSalesforceStandardObjectName(builtins.str, Enum):
     ACCOUNT = "ACCOUNT"
     CAMPAIGN = "CAMPAIGN"
@@ -142,16 +153,19 @@ class DataSourceSalesforceStandardObjectName(builtins.str, Enum):
     USER = "USER"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceServiceNowAuthenticationType")
 class DataSourceServiceNowAuthenticationType(builtins.str, Enum):
     HTTP_BASIC = "HTTP_BASIC"
     OAUTH2 = "OAUTH2"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceServiceNowBuildVersionType")
 class DataSourceServiceNowBuildVersionType(builtins.str, Enum):
     LONDON = "LONDON"
     OTHERS = "OTHERS"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceSharePointConfigurationSharePointVersion")
 class DataSourceSharePointConfigurationSharePointVersion(builtins.str, Enum):
     """
     The version of Microsoft SharePoint that you use.
@@ -161,6 +175,7 @@ class DataSourceSharePointConfigurationSharePointVersion(builtins.str, Enum):
     SHAREPOINT2016 = "SHAREPOINT_2016"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceType")
 class DataSourceType(builtins.str, Enum):
     """
     Data source type
@@ -178,6 +193,7 @@ class DataSourceType(builtins.str, Enum):
     WORKDOCS = "WORKDOCS"
 
 
+@pulumi.type_token("aws-native:kendra:DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode")
 class DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode(builtins.str, Enum):
     """
     You can choose one of the following modes:
@@ -193,6 +209,7 @@ class DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode(builtins.str, Enum)
     EVERYTHING = "EVERYTHING"
 
 
+@pulumi.type_token("aws-native:kendra:FaqFileFormat")
 class FaqFileFormat(builtins.str, Enum):
     """
     Format of the input file
@@ -202,6 +219,7 @@ class FaqFileFormat(builtins.str, Enum):
     JSON = "JSON"
 
 
+@pulumi.type_token("aws-native:kendra:IndexDocumentAttributeValueType")
 class IndexDocumentAttributeValueType(builtins.str, Enum):
     STRING_VALUE = "STRING_VALUE"
     STRING_LIST_VALUE = "STRING_LIST_VALUE"
@@ -209,6 +227,7 @@ class IndexDocumentAttributeValueType(builtins.str, Enum):
     DATE_VALUE = "DATE_VALUE"
 
 
+@pulumi.type_token("aws-native:kendra:IndexEdition")
 class IndexEdition(builtins.str, Enum):
     """
     Edition of index
@@ -218,16 +237,19 @@ class IndexEdition(builtins.str, Enum):
     GEN_AI_ENTERPRISE_EDITION = "GEN_AI_ENTERPRISE_EDITION"
 
 
+@pulumi.type_token("aws-native:kendra:IndexKeyLocation")
 class IndexKeyLocation(builtins.str, Enum):
     URL = "URL"
     SECRET_MANAGER = "SECRET_MANAGER"
 
 
+@pulumi.type_token("aws-native:kendra:IndexOrder")
 class IndexOrder(builtins.str, Enum):
     ASCENDING = "ASCENDING"
     DESCENDING = "DESCENDING"
 
 
+@pulumi.type_token("aws-native:kendra:IndexUserContextPolicy")
 class IndexUserContextPolicy(builtins.str, Enum):
     ATTRIBUTE_FILTER = "ATTRIBUTE_FILTER"
     USER_TOKEN = "USER_TOKEN"

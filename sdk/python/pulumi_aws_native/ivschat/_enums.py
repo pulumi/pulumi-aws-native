@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:ivschat:LoggingConfigurationState")
 class LoggingConfigurationState(builtins.str, Enum):
     """
     The state of the logging configuration. When the state is ACTIVE, the configuration is ready to log chat content.
@@ -25,6 +26,7 @@ class LoggingConfigurationState(builtins.str, Enum):
     ACTIVE = "ACTIVE"
 
 
+@pulumi.type_token("aws-native:ivschat:RoomMessageReviewHandlerFallbackResult")
 class RoomMessageReviewHandlerFallbackResult(builtins.str, Enum):
     """
     Specifies the fallback behavior if the handler does not return a valid response, encounters an error, or times out.

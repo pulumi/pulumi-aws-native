@@ -43,10 +43,8 @@ class TemplateInitArgs:
         pulumi.set(self, "template", value)
 
 
+@pulumi.type_token("aws-native:ses:Template")
 class Template(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ses:Template"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

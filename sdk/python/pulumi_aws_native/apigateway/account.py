@@ -41,10 +41,8 @@ class AccountArgs:
         pulumi.set(self, "cloud_watch_role_arn", value)
 
 
+@pulumi.type_token("aws-native:apigateway:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigateway:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

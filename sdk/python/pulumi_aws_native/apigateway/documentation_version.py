@@ -71,10 +71,8 @@ class DocumentationVersionArgs:
         pulumi.set(self, "description", value)
 
 
+@pulumi.type_token("aws-native:apigateway:DocumentationVersion")
 class DocumentationVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigateway:DocumentationVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

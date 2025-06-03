@@ -43,10 +43,8 @@ class NotificationChannelArgs:
         pulumi.set(self, "config", value)
 
 
+@pulumi.type_token("aws-native:devopsguru:NotificationChannel")
 class NotificationChannel(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:devopsguru:NotificationChannel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

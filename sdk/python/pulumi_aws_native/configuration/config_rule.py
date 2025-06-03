@@ -168,10 +168,8 @@ class ConfigRuleArgs:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("aws-native:configuration:ConfigRule")
 class ConfigRule(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:configuration:ConfigRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -123,10 +123,8 @@ class SegmentDefinitionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:customerprofiles:SegmentDefinition")
 class SegmentDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:customerprofiles:SegmentDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

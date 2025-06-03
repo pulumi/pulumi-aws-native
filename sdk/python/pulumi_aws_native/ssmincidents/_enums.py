@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:ssmincidents:ResponsePlanSsmAutomationTargetAccount")
 class ResponsePlanSsmAutomationTargetAccount(builtins.str, Enum):
     """
     The account type to use when starting the SSM automation document.
@@ -20,6 +21,7 @@ class ResponsePlanSsmAutomationTargetAccount(builtins.str, Enum):
     RESPONSE_PLAN_OWNER_ACCOUNT = "RESPONSE_PLAN_OWNER_ACCOUNT"
 
 
+@pulumi.type_token("aws-native:ssmincidents:ResponsePlanVariableType")
 class ResponsePlanVariableType(builtins.str, Enum):
     """
     The variable types used as dynamic parameter value when starting the SSM automation document.

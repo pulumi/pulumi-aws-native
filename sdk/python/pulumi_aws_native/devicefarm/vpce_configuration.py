@@ -113,10 +113,8 @@ class VpceConfigurationArgs:
         pulumi.set(self, "vpce_configuration_name", value)
 
 
+@pulumi.type_token("aws-native:devicefarm:VpceConfiguration")
 class VpceConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:devicefarm:VpceConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

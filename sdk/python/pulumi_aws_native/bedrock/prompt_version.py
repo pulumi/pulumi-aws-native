@@ -74,10 +74,8 @@ class PromptVersionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:bedrock:PromptVersion")
 class PromptVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:bedrock:PromptVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

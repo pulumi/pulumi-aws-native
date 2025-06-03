@@ -91,10 +91,8 @@ class ConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:codeconnections:Connection")
 class Connection(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:codeconnections:Connection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

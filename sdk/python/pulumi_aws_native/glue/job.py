@@ -406,10 +406,8 @@ class JobArgs:
         pulumi.set(self, "worker_type", value)
 
 
+@pulumi.type_token("aws-native:glue:Job")
 class Job(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:glue:Job"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

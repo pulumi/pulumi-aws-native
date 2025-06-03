@@ -93,10 +93,8 @@ class LaunchTemplateArgs:
         pulumi.set(self, "version_description", value)
 
 
+@pulumi.type_token("aws-native:ec2:LaunchTemplate")
 class LaunchTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:LaunchTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

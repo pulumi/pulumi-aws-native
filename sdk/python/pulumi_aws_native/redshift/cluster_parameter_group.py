@@ -107,10 +107,8 @@ class ClusterParameterGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:redshift:ClusterParameterGroup")
 class ClusterParameterGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:redshift:ClusterParameterGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

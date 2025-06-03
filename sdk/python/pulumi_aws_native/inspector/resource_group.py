@@ -46,10 +46,8 @@ class ResourceGroupArgs:
         pulumi.set(self, "resource_group_tags", value)
 
 
+@pulumi.type_token("aws-native:inspector:ResourceGroup")
 class ResourceGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:inspector:ResourceGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

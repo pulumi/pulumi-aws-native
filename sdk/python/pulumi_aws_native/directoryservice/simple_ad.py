@@ -153,10 +153,8 @@ class SimpleAdArgs:
         pulumi.set(self, "short_name", value)
 
 
+@pulumi.type_token("aws-native:directoryservice:SimpleAd")
 class SimpleAd(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:directoryservice:SimpleAd"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

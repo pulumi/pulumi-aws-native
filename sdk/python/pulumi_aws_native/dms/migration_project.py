@@ -221,10 +221,8 @@ class MigrationProjectArgs:
         pulumi.set(self, "transformation_rules", value)
 
 
+@pulumi.type_token("aws-native:dms:MigrationProject")
 class MigrationProject(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:dms:MigrationProject"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

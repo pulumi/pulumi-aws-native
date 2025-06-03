@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,21 +14,25 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:rolesanywhere:ProfileCertificateField")
 class ProfileCertificateField(builtins.str, Enum):
     X509_SUBJECT = "x509Subject"
     X509_ISSUER = "x509Issuer"
     X509SAN = "x509SAN"
 
 
+@pulumi.type_token("aws-native:rolesanywhere:TrustAnchorNotificationChannel")
 class TrustAnchorNotificationChannel(builtins.str, Enum):
     ALL = "ALL"
 
 
+@pulumi.type_token("aws-native:rolesanywhere:TrustAnchorNotificationEvent")
 class TrustAnchorNotificationEvent(builtins.str, Enum):
     CA_CERTIFICATE_EXPIRY = "CA_CERTIFICATE_EXPIRY"
     END_ENTITY_CERTIFICATE_EXPIRY = "END_ENTITY_CERTIFICATE_EXPIRY"
 
 
+@pulumi.type_token("aws-native:rolesanywhere:TrustAnchorType")
 class TrustAnchorType(builtins.str, Enum):
     AWS_ACM_PCA = "AWS_ACM_PCA"
     CERTIFICATE_BUNDLE = "CERTIFICATE_BUNDLE"

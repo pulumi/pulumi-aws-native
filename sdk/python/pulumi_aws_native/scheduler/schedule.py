@@ -205,10 +205,8 @@ class ScheduleArgs:
         pulumi.set(self, "state", value)
 
 
+@pulumi.type_token("aws-native:scheduler:Schedule")
 class Schedule(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:scheduler:Schedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

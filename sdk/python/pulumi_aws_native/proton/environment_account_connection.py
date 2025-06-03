@@ -144,10 +144,8 @@ class EnvironmentAccountConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:proton:EnvironmentAccountConnection")
 class EnvironmentAccountConnection(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:proton:EnvironmentAccountConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

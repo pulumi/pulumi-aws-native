@@ -59,10 +59,8 @@ class ResourcePolicyArgs:
         pulumi.set(self, "resource_policy", value)
 
 
+@pulumi.type_token("aws-native:cloudtrail:ResourcePolicy")
 class ResourcePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudtrail:ResourcePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -74,10 +74,8 @@ class MultiRegionAccessPointArgs:
         pulumi.set(self, "public_access_block_configuration", value)
 
 
+@pulumi.type_token("aws-native:s3:MultiRegionAccessPoint")
 class MultiRegionAccessPoint(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:s3:MultiRegionAccessPoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

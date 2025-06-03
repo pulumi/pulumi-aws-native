@@ -108,10 +108,8 @@ class MultiplexArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:medialive:Multiplex")
 class Multiplex(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:medialive:Multiplex"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

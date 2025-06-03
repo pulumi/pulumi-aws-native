@@ -239,10 +239,8 @@ class TransitGatewayArgs:
         pulumi.set(self, "vpn_ecmp_support", value)
 
 
+@pulumi.type_token("aws-native:ec2:TransitGateway")
 class TransitGateway(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:TransitGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -71,10 +71,8 @@ class UsagePlanKeyArgs:
         pulumi.set(self, "usage_plan_id", value)
 
 
+@pulumi.type_token("aws-native:apigateway:UsagePlanKey")
 class UsagePlanKey(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigateway:UsagePlanKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -34,40 +34,48 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:pipes:PipeAssignPublicIp")
 class PipeAssignPublicIp(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:pipes:PipeBatchJobDependencyType")
 class PipeBatchJobDependencyType(builtins.str, Enum):
     N_TO_N = "N_TO_N"
     SEQUENTIAL = "SEQUENTIAL"
 
 
+@pulumi.type_token("aws-native:pipes:PipeBatchResourceRequirementType")
 class PipeBatchResourceRequirementType(builtins.str, Enum):
     GPU = "GPU"
     MEMORY = "MEMORY"
     VCPU = "VCPU"
 
 
+@pulumi.type_token("aws-native:pipes:PipeDimensionValueType")
 class PipeDimensionValueType(builtins.str, Enum):
     VARCHAR = "VARCHAR"
 
 
+@pulumi.type_token("aws-native:pipes:PipeDynamoDbStreamStartPosition")
 class PipeDynamoDbStreamStartPosition(builtins.str, Enum):
     TRIM_HORIZON = "TRIM_HORIZON"
     LATEST = "LATEST"
 
 
+@pulumi.type_token("aws-native:pipes:PipeEcsEnvironmentFileType")
 class PipeEcsEnvironmentFileType(builtins.str, Enum):
     S3 = "s3"
 
 
+@pulumi.type_token("aws-native:pipes:PipeEcsResourceRequirementType")
 class PipeEcsResourceRequirementType(builtins.str, Enum):
     GPU = "GPU"
     INFERENCE_ACCELERATOR = "InferenceAccelerator"
 
 
+@pulumi.type_token("aws-native:pipes:PipeEpochTimeUnit")
 class PipeEpochTimeUnit(builtins.str, Enum):
     MILLISECONDS = "MILLISECONDS"
     SECONDS = "SECONDS"
@@ -75,22 +83,26 @@ class PipeEpochTimeUnit(builtins.str, Enum):
     NANOSECONDS = "NANOSECONDS"
 
 
+@pulumi.type_token("aws-native:pipes:PipeIncludeExecutionDataOption")
 class PipeIncludeExecutionDataOption(builtins.str, Enum):
     ALL = "ALL"
 
 
+@pulumi.type_token("aws-native:pipes:PipeKinesisStreamStartPosition")
 class PipeKinesisStreamStartPosition(builtins.str, Enum):
     TRIM_HORIZON = "TRIM_HORIZON"
     LATEST = "LATEST"
     AT_TIMESTAMP = "AT_TIMESTAMP"
 
 
+@pulumi.type_token("aws-native:pipes:PipeLaunchType")
 class PipeLaunchType(builtins.str, Enum):
     EC2 = "EC2"
     FARGATE = "FARGATE"
     EXTERNAL = "EXTERNAL"
 
 
+@pulumi.type_token("aws-native:pipes:PipeLogLevel")
 class PipeLogLevel(builtins.str, Enum):
     OFF = "OFF"
     ERROR = "ERROR"
@@ -98,6 +110,7 @@ class PipeLogLevel(builtins.str, Enum):
     TRACE = "TRACE"
 
 
+@pulumi.type_token("aws-native:pipes:PipeMeasureValueType")
 class PipeMeasureValueType(builtins.str, Enum):
     DOUBLE = "DOUBLE"
     BIGINT = "BIGINT"
@@ -106,46 +119,55 @@ class PipeMeasureValueType(builtins.str, Enum):
     TIMESTAMP = "TIMESTAMP"
 
 
+@pulumi.type_token("aws-native:pipes:PipeMskStartPosition")
 class PipeMskStartPosition(builtins.str, Enum):
     TRIM_HORIZON = "TRIM_HORIZON"
     LATEST = "LATEST"
 
 
+@pulumi.type_token("aws-native:pipes:PipeOnPartialBatchItemFailureStreams")
 class PipeOnPartialBatchItemFailureStreams(builtins.str, Enum):
     AUTOMATIC_BISECT = "AUTOMATIC_BISECT"
 
 
+@pulumi.type_token("aws-native:pipes:PipePlacementConstraintType")
 class PipePlacementConstraintType(builtins.str, Enum):
     DISTINCT_INSTANCE = "distinctInstance"
     MEMBER_OF = "memberOf"
 
 
+@pulumi.type_token("aws-native:pipes:PipePlacementStrategyType")
 class PipePlacementStrategyType(builtins.str, Enum):
     RANDOM = "random"
     SPREAD = "spread"
     BINPACK = "binpack"
 
 
+@pulumi.type_token("aws-native:pipes:PipePropagateTags")
 class PipePropagateTags(builtins.str, Enum):
     TASK_DEFINITION = "TASK_DEFINITION"
 
 
+@pulumi.type_token("aws-native:pipes:PipeRequestedPipeState")
 class PipeRequestedPipeState(builtins.str, Enum):
     RUNNING = "RUNNING"
     STOPPED = "STOPPED"
 
 
+@pulumi.type_token("aws-native:pipes:PipeS3OutputFormat")
 class PipeS3OutputFormat(builtins.str, Enum):
     JSON = "json"
     PLAIN = "plain"
     W3C = "w3c"
 
 
+@pulumi.type_token("aws-native:pipes:PipeSelfManagedKafkaStartPosition")
 class PipeSelfManagedKafkaStartPosition(builtins.str, Enum):
     TRIM_HORIZON = "TRIM_HORIZON"
     LATEST = "LATEST"
 
 
+@pulumi.type_token("aws-native:pipes:PipeState")
 class PipeState(builtins.str, Enum):
     RUNNING = "RUNNING"
     STOPPED = "STOPPED"
@@ -164,11 +186,13 @@ class PipeState(builtins.str, Enum):
     UPDATE_ROLLBACK_FAILED = "UPDATE_ROLLBACK_FAILED"
 
 
+@pulumi.type_token("aws-native:pipes:PipeTargetInvocationType")
 class PipeTargetInvocationType(builtins.str, Enum):
     REQUEST_RESPONSE = "REQUEST_RESPONSE"
     FIRE_AND_FORGET = "FIRE_AND_FORGET"
 
 
+@pulumi.type_token("aws-native:pipes:PipeTimeFieldType")
 class PipeTimeFieldType(builtins.str, Enum):
     EPOCH = "EPOCH"
     TIMESTAMP_FORMAT = "TIMESTAMP_FORMAT"

@@ -172,10 +172,8 @@ class DistributionTenantArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:cloudfront:DistributionTenant")
 class DistributionTenant(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudfront:DistributionTenant"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

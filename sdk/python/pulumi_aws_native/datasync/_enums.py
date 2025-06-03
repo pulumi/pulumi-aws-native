@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -55,6 +55,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:datasync:AgentEndpointType")
 class AgentEndpointType(builtins.str, Enum):
     """
     The service endpoints that the agent will connect to.
@@ -64,6 +65,7 @@ class AgentEndpointType(builtins.str, Enum):
     PRIVATE_LINK = "PRIVATE_LINK"
 
 
+@pulumi.type_token("aws-native:datasync:LocationAzureBlobAzureAccessTier")
 class LocationAzureBlobAzureAccessTier(builtins.str, Enum):
     """
     Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
@@ -73,6 +75,7 @@ class LocationAzureBlobAzureAccessTier(builtins.str, Enum):
     ARCHIVE = "ARCHIVE"
 
 
+@pulumi.type_token("aws-native:datasync:LocationAzureBlobAzureBlobAuthenticationType")
 class LocationAzureBlobAzureBlobAuthenticationType(builtins.str, Enum):
     """
     The specific authentication type that you want DataSync to use to access your Azure Blob Container.
@@ -81,6 +84,7 @@ class LocationAzureBlobAzureBlobAuthenticationType(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:datasync:LocationAzureBlobAzureBlobType")
 class LocationAzureBlobAzureBlobType(builtins.str, Enum):
     """
     Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
@@ -88,6 +92,7 @@ class LocationAzureBlobAzureBlobType(builtins.str, Enum):
     BLOCK = "BLOCK"
 
 
+@pulumi.type_token("aws-native:datasync:LocationEfsInTransitEncryption")
 class LocationEfsInTransitEncryption(builtins.str, Enum):
     """
     Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
@@ -96,6 +101,7 @@ class LocationEfsInTransitEncryption(builtins.str, Enum):
     TLS12 = "TLS1_2"
 
 
+@pulumi.type_token("aws-native:datasync:LocationFSxOntapNfsMountOptionsVersion")
 class LocationFSxOntapNfsMountOptionsVersion(builtins.str, Enum):
     """
     The specific NFS version that you want DataSync to use to mount your NFS share.
@@ -106,6 +112,7 @@ class LocationFSxOntapNfsMountOptionsVersion(builtins.str, Enum):
     NFS41 = "NFS4_1"
 
 
+@pulumi.type_token("aws-native:datasync:LocationFSxOntapSmbMountOptionsVersion")
 class LocationFSxOntapSmbMountOptionsVersion(builtins.str, Enum):
     """
     The specific SMB version that you want DataSync to use to mount your SMB share.
@@ -115,6 +122,7 @@ class LocationFSxOntapSmbMountOptionsVersion(builtins.str, Enum):
     SMB3 = "SMB3"
 
 
+@pulumi.type_token("aws-native:datasync:LocationFSxOpenZfsMountOptionsVersion")
 class LocationFSxOpenZfsMountOptionsVersion(builtins.str, Enum):
     """
     The specific NFS version that you want DataSync to use to mount your NFS share.
@@ -125,6 +133,7 @@ class LocationFSxOpenZfsMountOptionsVersion(builtins.str, Enum):
     NFS41 = "NFS4_1"
 
 
+@pulumi.type_token("aws-native:datasync:LocationHdfsAuthenticationType")
 class LocationHdfsAuthenticationType(builtins.str, Enum):
     """
     The authentication mode used to determine identity of user.
@@ -133,6 +142,7 @@ class LocationHdfsAuthenticationType(builtins.str, Enum):
     KERBEROS = "KERBEROS"
 
 
+@pulumi.type_token("aws-native:datasync:LocationHdfsQopConfigurationDataTransferProtection")
 class LocationHdfsQopConfigurationDataTransferProtection(builtins.str, Enum):
     """
     Configuration for Data Transfer Protection.
@@ -143,6 +153,7 @@ class LocationHdfsQopConfigurationDataTransferProtection(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:datasync:LocationHdfsQopConfigurationRpcProtection")
 class LocationHdfsQopConfigurationRpcProtection(builtins.str, Enum):
     """
     Configuration for RPC Protection.
@@ -153,6 +164,7 @@ class LocationHdfsQopConfigurationRpcProtection(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:datasync:LocationNfsMountOptionsVersion")
 class LocationNfsMountOptionsVersion(builtins.str, Enum):
     """
     The specific NFS version that you want DataSync to use to mount your NFS share.
@@ -163,6 +175,7 @@ class LocationNfsMountOptionsVersion(builtins.str, Enum):
     NFS41 = "NFS4_1"
 
 
+@pulumi.type_token("aws-native:datasync:LocationObjectStorageServerProtocol")
 class LocationObjectStorageServerProtocol(builtins.str, Enum):
     """
     The protocol that the object storage server uses to communicate.
@@ -171,6 +184,7 @@ class LocationObjectStorageServerProtocol(builtins.str, Enum):
     HTTP = "HTTP"
 
 
+@pulumi.type_token("aws-native:datasync:LocationS3S3StorageClass")
 class LocationS3S3StorageClass(builtins.str, Enum):
     """
     The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
@@ -184,6 +198,7 @@ class LocationS3S3StorageClass(builtins.str, Enum):
     DEEP_ARCHIVE = "DEEP_ARCHIVE"
 
 
+@pulumi.type_token("aws-native:datasync:LocationSmbAuthenticationType")
 class LocationSmbAuthenticationType(builtins.str, Enum):
     """
     The authentication mode used to determine identity of user.
@@ -192,6 +207,7 @@ class LocationSmbAuthenticationType(builtins.str, Enum):
     KERBEROS = "KERBEROS"
 
 
+@pulumi.type_token("aws-native:datasync:LocationSmbMountOptionsVersion")
 class LocationSmbMountOptionsVersion(builtins.str, Enum):
     """
     The specific SMB version that you want DataSync to use to mount your SMB share.
@@ -203,6 +219,7 @@ class LocationSmbMountOptionsVersion(builtins.str, Enum):
     SMB3 = "SMB3"
 
 
+@pulumi.type_token("aws-native:datasync:StorageSystemConnectivityStatus")
 class StorageSystemConnectivityStatus(builtins.str, Enum):
     """
     Indicates whether the DataSync agent can access the on-premises storage system.
@@ -212,6 +229,7 @@ class StorageSystemConnectivityStatus(builtins.str, Enum):
     UNKNOWN = "UNKNOWN"
 
 
+@pulumi.type_token("aws-native:datasync:StorageSystemSystemType")
 class StorageSystemSystemType(builtins.str, Enum):
     """
     The type of on-premises storage system that DataSync Discovery will analyze.
@@ -219,6 +237,7 @@ class StorageSystemSystemType(builtins.str, Enum):
     NET_APP_ONTAP = "NetAppONTAP"
 
 
+@pulumi.type_token("aws-native:datasync:TaskFilterRuleFilterType")
 class TaskFilterRuleFilterType(builtins.str, Enum):
     """
     The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
@@ -226,6 +245,7 @@ class TaskFilterRuleFilterType(builtins.str, Enum):
     SIMPLE_PATTERN = "SIMPLE_PATTERN"
 
 
+@pulumi.type_token("aws-native:datasync:TaskManifestConfigAction")
 class TaskManifestConfigAction(builtins.str, Enum):
     """
     Specifies what DataSync uses the manifest for.
@@ -233,6 +253,7 @@ class TaskManifestConfigAction(builtins.str, Enum):
     TRANSFER = "TRANSFER"
 
 
+@pulumi.type_token("aws-native:datasync:TaskManifestConfigFormat")
 class TaskManifestConfigFormat(builtins.str, Enum):
     """
     Specifies the file format of your manifest.
@@ -240,6 +261,7 @@ class TaskManifestConfigFormat(builtins.str, Enum):
     CSV = "CSV"
 
 
+@pulumi.type_token("aws-native:datasync:TaskMode")
 class TaskMode(builtins.str, Enum):
     """
     Specifies the task mode for the task.
@@ -248,6 +270,7 @@ class TaskMode(builtins.str, Enum):
     ENHANCED = "ENHANCED"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsAtime")
 class TaskOptionsAtime(builtins.str, Enum):
     """
     A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
@@ -256,6 +279,7 @@ class TaskOptionsAtime(builtins.str, Enum):
     BEST_EFFORT = "BEST_EFFORT"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsGid")
 class TaskOptionsGid(builtins.str, Enum):
     """
     The group ID (GID) of the file's owners.
@@ -266,6 +290,7 @@ class TaskOptionsGid(builtins.str, Enum):
     BOTH = "BOTH"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsLogLevel")
 class TaskOptionsLogLevel(builtins.str, Enum):
     """
     A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
@@ -275,6 +300,7 @@ class TaskOptionsLogLevel(builtins.str, Enum):
     TRANSFER = "TRANSFER"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsMtime")
 class TaskOptionsMtime(builtins.str, Enum):
     """
     A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
@@ -283,6 +309,7 @@ class TaskOptionsMtime(builtins.str, Enum):
     PRESERVE = "PRESERVE"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsObjectTags")
 class TaskOptionsObjectTags(builtins.str, Enum):
     """
     A value that determines whether object tags should be read from the source object store and written to the destination object store.
@@ -291,6 +318,7 @@ class TaskOptionsObjectTags(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsOverwriteMode")
 class TaskOptionsOverwriteMode(builtins.str, Enum):
     """
     A value that determines whether files at the destination should be overwritten or preserved when copying files.
@@ -299,6 +327,7 @@ class TaskOptionsOverwriteMode(builtins.str, Enum):
     NEVER = "NEVER"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsPosixPermissions")
 class TaskOptionsPosixPermissions(builtins.str, Enum):
     """
     A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
@@ -307,6 +336,7 @@ class TaskOptionsPosixPermissions(builtins.str, Enum):
     PRESERVE = "PRESERVE"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsPreserveDeletedFiles")
 class TaskOptionsPreserveDeletedFiles(builtins.str, Enum):
     """
     A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
@@ -315,6 +345,7 @@ class TaskOptionsPreserveDeletedFiles(builtins.str, Enum):
     REMOVE = "REMOVE"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsPreserveDevices")
 class TaskOptionsPreserveDevices(builtins.str, Enum):
     """
     A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
@@ -323,6 +354,7 @@ class TaskOptionsPreserveDevices(builtins.str, Enum):
     PRESERVE = "PRESERVE"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsSecurityDescriptorCopyFlags")
 class TaskOptionsSecurityDescriptorCopyFlags(builtins.str, Enum):
     """
     A value that determines which components of the SMB security descriptor are copied during transfer.
@@ -332,6 +364,7 @@ class TaskOptionsSecurityDescriptorCopyFlags(builtins.str, Enum):
     OWNER_DACL_SACL = "OWNER_DACL_SACL"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsTaskQueueing")
 class TaskOptionsTaskQueueing(builtins.str, Enum):
     """
     A value that determines whether tasks should be queued before executing the tasks.
@@ -340,6 +373,7 @@ class TaskOptionsTaskQueueing(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsTransferMode")
 class TaskOptionsTransferMode(builtins.str, Enum):
     """
     A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
@@ -348,6 +382,7 @@ class TaskOptionsTransferMode(builtins.str, Enum):
     ALL = "ALL"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsUid")
 class TaskOptionsUid(builtins.str, Enum):
     """
     The user ID (UID) of the file's owner.
@@ -358,6 +393,7 @@ class TaskOptionsUid(builtins.str, Enum):
     BOTH = "BOTH"
 
 
+@pulumi.type_token("aws-native:datasync:TaskOptionsVerifyMode")
 class TaskOptionsVerifyMode(builtins.str, Enum):
     """
     A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
@@ -367,6 +403,7 @@ class TaskOptionsVerifyMode(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:datasync:TaskReportConfigObjectVersionIds")
 class TaskReportConfigObjectVersionIds(builtins.str, Enum):
     """
     Specifies whether your task report includes the new version of each object transferred into an S3 bucket, this only applies if you enable versioning on your bucket.
@@ -375,6 +412,7 @@ class TaskReportConfigObjectVersionIds(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:datasync:TaskReportConfigOutputType")
 class TaskReportConfigOutputType(builtins.str, Enum):
     """
     Specifies the type of task report that you want.
@@ -383,6 +421,7 @@ class TaskReportConfigOutputType(builtins.str, Enum):
     STANDARD = "STANDARD"
 
 
+@pulumi.type_token("aws-native:datasync:TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel")
 class TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel(builtins.str, Enum):
     """
     Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
@@ -391,6 +430,7 @@ class TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel(builtins.s
     SUCCESSES_AND_ERRORS = "SUCCESSES_AND_ERRORS"
 
 
+@pulumi.type_token("aws-native:datasync:TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel")
 class TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel(builtins.str, Enum):
     """
     Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
@@ -399,6 +439,7 @@ class TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel(builtins.s
     SUCCESSES_AND_ERRORS = "SUCCESSES_AND_ERRORS"
 
 
+@pulumi.type_token("aws-native:datasync:TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel")
 class TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel(builtins.str, Enum):
     """
     Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
@@ -407,6 +448,7 @@ class TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel(builti
     SUCCESSES_AND_ERRORS = "SUCCESSES_AND_ERRORS"
 
 
+@pulumi.type_token("aws-native:datasync:TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel")
 class TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel(builtins.str, Enum):
     """
     Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
@@ -415,6 +457,7 @@ class TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel(builtins.
     SUCCESSES_AND_ERRORS = "SUCCESSES_AND_ERRORS"
 
 
+@pulumi.type_token("aws-native:datasync:TaskReportConfigReportLevel")
 class TaskReportConfigReportLevel(builtins.str, Enum):
     """
     Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
@@ -423,6 +466,7 @@ class TaskReportConfigReportLevel(builtins.str, Enum):
     SUCCESSES_AND_ERRORS = "SUCCESSES_AND_ERRORS"
 
 
+@pulumi.type_token("aws-native:datasync:TaskScheduleStatus")
 class TaskScheduleStatus(builtins.str, Enum):
     """
     Specifies status of a schedule.
@@ -431,6 +475,7 @@ class TaskScheduleStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:datasync:TaskStatus")
 class TaskStatus(builtins.str, Enum):
     """
     The status of the task that was described.

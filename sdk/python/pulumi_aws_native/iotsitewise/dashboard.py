@@ -105,10 +105,8 @@ class DashboardArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iotsitewise:Dashboard")
 class Dashboard(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotsitewise:Dashboard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -57,10 +57,8 @@ class TableBucketPolicyArgs:
         pulumi.set(self, "table_bucket_arn", value)
 
 
+@pulumi.type_token("aws-native:s3tables:TableBucketPolicy")
 class TableBucketPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:s3tables:TableBucketPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

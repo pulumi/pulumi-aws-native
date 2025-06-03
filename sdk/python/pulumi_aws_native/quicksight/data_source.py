@@ -253,10 +253,8 @@ class DataSourceArgs:
         pulumi.set(self, "vpc_connection_properties", value)
 
 
+@pulumi.type_token("aws-native:quicksight:DataSource")
 class DataSource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:quicksight:DataSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

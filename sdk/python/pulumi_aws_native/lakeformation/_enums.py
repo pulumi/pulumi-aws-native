@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:lakeformation:PrincipalPermissionsPermission")
 class PrincipalPermissionsPermission(builtins.str, Enum):
     ALL = "ALL"
     SELECT = "SELECT"
@@ -28,6 +29,7 @@ class PrincipalPermissionsPermission(builtins.str, Enum):
     GRANT_WITH_LF_TAG_EXPRESSION = "GRANT_WITH_LF_TAG_EXPRESSION"
 
 
+@pulumi.type_token("aws-native:lakeformation:PrincipalPermissionsResourceType")
 class PrincipalPermissionsResourceType(builtins.str, Enum):
     DATABASE = "DATABASE"
     TABLE = "TABLE"

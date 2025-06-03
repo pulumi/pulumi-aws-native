@@ -59,10 +59,8 @@ class AccessGrantsInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:s3:AccessGrantsInstance")
 class AccessGrantsInstance(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:s3:AccessGrantsInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

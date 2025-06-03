@@ -124,10 +124,8 @@ class RouteResponseArgs:
         pulumi.set(self, "response_parameters", value)
 
 
+@pulumi.type_token("aws-native:apigatewayv2:RouteResponse")
 class RouteResponse(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigatewayv2:RouteResponse"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

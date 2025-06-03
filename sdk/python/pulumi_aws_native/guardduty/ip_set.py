@@ -135,10 +135,8 @@ class IpSetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:guardduty:IpSet")
 class IpSet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:guardduty:IpSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

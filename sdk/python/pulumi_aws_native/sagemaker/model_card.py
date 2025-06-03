@@ -140,10 +140,8 @@ class ModelCardArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelCard")
 class ModelCard(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:ModelCard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

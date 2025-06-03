@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -20,6 +20,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:robomaker:RobotApplicationRobotSoftwareSuiteName")
 class RobotApplicationRobotSoftwareSuiteName(builtins.str, Enum):
     """
     The name of robot software suite.
@@ -29,6 +30,7 @@ class RobotApplicationRobotSoftwareSuiteName(builtins.str, Enum):
     GENERAL = "General"
 
 
+@pulumi.type_token("aws-native:robomaker:RobotApplicationRobotSoftwareSuiteVersion")
 class RobotApplicationRobotSoftwareSuiteVersion(builtins.str, Enum):
     """
     The version of robot software suite.
@@ -38,6 +40,7 @@ class RobotApplicationRobotSoftwareSuiteVersion(builtins.str, Enum):
     DASHING = "Dashing"
 
 
+@pulumi.type_token("aws-native:robomaker:RobotApplicationSourceConfigArchitecture")
 class RobotApplicationSourceConfigArchitecture(builtins.str, Enum):
     """
     The architecture of robot application.
@@ -47,6 +50,7 @@ class RobotApplicationSourceConfigArchitecture(builtins.str, Enum):
     ARMHF = "ARMHF"
 
 
+@pulumi.type_token("aws-native:robomaker:RobotArchitecture")
 class RobotArchitecture(builtins.str, Enum):
     """
     The target architecture of the robot.
@@ -56,6 +60,7 @@ class RobotArchitecture(builtins.str, Enum):
     ARMHF = "ARMHF"
 
 
+@pulumi.type_token("aws-native:robomaker:SimulationApplicationRenderingEngineName")
 class SimulationApplicationRenderingEngineName(builtins.str, Enum):
     """
     The name of the rendering engine.
@@ -63,6 +68,7 @@ class SimulationApplicationRenderingEngineName(builtins.str, Enum):
     OGRE = "OGRE"
 
 
+@pulumi.type_token("aws-native:robomaker:SimulationApplicationRobotSoftwareSuiteName")
 class SimulationApplicationRobotSoftwareSuiteName(builtins.str, Enum):
     """
     The name of the robot software suite.
@@ -72,6 +78,7 @@ class SimulationApplicationRobotSoftwareSuiteName(builtins.str, Enum):
     GENERAL = "General"
 
 
+@pulumi.type_token("aws-native:robomaker:SimulationApplicationRobotSoftwareSuiteVersion")
 class SimulationApplicationRobotSoftwareSuiteVersion(builtins.str, Enum):
     """
     The version of the robot software suite.
@@ -82,6 +89,7 @@ class SimulationApplicationRobotSoftwareSuiteVersion(builtins.str, Enum):
     FOXY = "Foxy"
 
 
+@pulumi.type_token("aws-native:robomaker:SimulationApplicationSimulationSoftwareSuiteName")
 class SimulationApplicationSimulationSoftwareSuiteName(builtins.str, Enum):
     """
     The name of the simulation software suite.
@@ -91,6 +99,7 @@ class SimulationApplicationSimulationSoftwareSuiteName(builtins.str, Enum):
     SIMULATION_RUNTIME = "SimulationRuntime"
 
 
+@pulumi.type_token("aws-native:robomaker:SimulationApplicationSimulationSoftwareSuiteVersion")
 class SimulationApplicationSimulationSoftwareSuiteVersion(builtins.str, Enum):
     """
     The version of the simulation software suite.
@@ -104,6 +113,7 @@ class SimulationApplicationSimulationSoftwareSuiteVersion(builtins.str, Enum):
     FOXY = "Foxy"
 
 
+@pulumi.type_token("aws-native:robomaker:SimulationApplicationSourceConfigArchitecture")
 class SimulationApplicationSourceConfigArchitecture(builtins.str, Enum):
     """
     The target processor architecture for the application.

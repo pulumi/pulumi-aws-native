@@ -105,10 +105,8 @@ class UserPoolRiskConfigurationAttachmentArgs:
         pulumi.set(self, "risk_exception_configuration", value)
 
 
+@pulumi.type_token("aws-native:cognito:UserPoolRiskConfigurationAttachment")
 class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cognito:UserPoolRiskConfigurationAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -42,10 +42,8 @@ class PublicKeyArgs:
         pulumi.set(self, "public_key_config", value)
 
 
+@pulumi.type_token("aws-native:cloudfront:PublicKey")
 class PublicKey(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudfront:PublicKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

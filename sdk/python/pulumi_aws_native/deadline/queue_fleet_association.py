@@ -70,10 +70,8 @@ class QueueFleetAssociationArgs:
         pulumi.set(self, "queue_id", value)
 
 
+@pulumi.type_token("aws-native:deadline:QueueFleetAssociation")
 class QueueFleetAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:deadline:QueueFleetAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -73,10 +73,8 @@ class OrganizationConfigurationArgs:
         pulumi.set(self, "configuration_type", value)
 
 
+@pulumi.type_token("aws-native:securityhub:OrganizationConfiguration")
 class OrganizationConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:securityhub:OrganizationConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

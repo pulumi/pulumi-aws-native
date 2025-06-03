@@ -386,10 +386,8 @@ class BucketArgs:
         pulumi.set(self, "website_configuration", value)
 
 
+@pulumi.type_token("aws-native:s3:Bucket")
 class Bucket(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:s3:Bucket"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

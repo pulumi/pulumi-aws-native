@@ -71,10 +71,8 @@ class TagArgs:
         pulumi.set(self, "catalog_id", value)
 
 
+@pulumi.type_token("aws-native:lakeformation:Tag")
 class Tag(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lakeformation:Tag"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

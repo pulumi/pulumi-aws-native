@@ -106,10 +106,8 @@ class CampaignArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:connectcampaigns:Campaign")
 class Campaign(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connectcampaigns:Campaign"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

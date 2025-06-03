@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,6 +21,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:ConnectorVpcInformationIpAddressType")
 class ConnectorVpcInformationIpAddressType(builtins.str, Enum):
     """
     The VPC IP address type.
@@ -29,6 +30,7 @@ class ConnectorVpcInformationIpAddressType(builtins.str, Enum):
     DUALSTACK = "DUALSTACK"
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:TemplateApplicationPolicyType")
 class TemplateApplicationPolicyType(builtins.str, Enum):
     ALL_APPLICATION_POLICIES = "ALL_APPLICATION_POLICIES"
     ANY_PURPOSE = "ANY_PURPOSE"
@@ -99,6 +101,7 @@ class TemplateApplicationPolicyType(builtins.str, Enum):
     WINDOWS_UPDATE = "WINDOWS_UPDATE"
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:TemplateClientCompatibilityV2")
 class TemplateClientCompatibilityV2(builtins.str, Enum):
     WINDOWS_SERVER2003 = "WINDOWS_SERVER_2003"
     WINDOWS_SERVER2008 = "WINDOWS_SERVER_2008"
@@ -108,6 +111,7 @@ class TemplateClientCompatibilityV2(builtins.str, Enum):
     WINDOWS_SERVER2016 = "WINDOWS_SERVER_2016"
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:TemplateClientCompatibilityV3")
 class TemplateClientCompatibilityV3(builtins.str, Enum):
     WINDOWS_SERVER2008 = "WINDOWS_SERVER_2008"
     WINDOWS_SERVER2008R2 = "WINDOWS_SERVER_2008_R2"
@@ -116,32 +120,38 @@ class TemplateClientCompatibilityV3(builtins.str, Enum):
     WINDOWS_SERVER2016 = "WINDOWS_SERVER_2016"
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:TemplateClientCompatibilityV4")
 class TemplateClientCompatibilityV4(builtins.str, Enum):
     WINDOWS_SERVER2012 = "WINDOWS_SERVER_2012"
     WINDOWS_SERVER2012R2 = "WINDOWS_SERVER_2012_R2"
     WINDOWS_SERVER2016 = "WINDOWS_SERVER_2016"
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:TemplateGroupAccessControlEntryAccessRight")
 class TemplateGroupAccessControlEntryAccessRight(builtins.str, Enum):
     ALLOW = "ALLOW"
     DENY = "DENY"
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:TemplateHashAlgorithm")
 class TemplateHashAlgorithm(builtins.str, Enum):
     SHA256 = "SHA256"
     SHA384 = "SHA384"
     SHA512 = "SHA512"
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:TemplateKeySpec")
 class TemplateKeySpec(builtins.str, Enum):
     KEY_EXCHANGE = "KEY_EXCHANGE"
     SIGNATURE = "SIGNATURE"
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:TemplateKeyUsagePropertyType")
 class TemplateKeyUsagePropertyType(builtins.str, Enum):
     ALL = "ALL"
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:TemplatePrivateKeyAlgorithm")
 class TemplatePrivateKeyAlgorithm(builtins.str, Enum):
     RSA = "RSA"
     ECDH_P256 = "ECDH_P256"
@@ -149,6 +159,7 @@ class TemplatePrivateKeyAlgorithm(builtins.str, Enum):
     ECDH_P521 = "ECDH_P521"
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:TemplateValidityPeriodType")
 class TemplateValidityPeriodType(builtins.str, Enum):
     HOURS = "HOURS"
     DAYS = "DAYS"

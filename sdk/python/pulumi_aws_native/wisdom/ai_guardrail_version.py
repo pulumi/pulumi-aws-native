@@ -71,10 +71,8 @@ class AiGuardrailVersionArgs:
         pulumi.set(self, "modified_time_seconds", value)
 
 
+@pulumi.type_token("aws-native:wisdom:AiGuardrailVersion")
 class AiGuardrailVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:wisdom:AiGuardrailVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

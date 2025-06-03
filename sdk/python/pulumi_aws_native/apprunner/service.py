@@ -173,10 +173,8 @@ class ServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:apprunner:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apprunner:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

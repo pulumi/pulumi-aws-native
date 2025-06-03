@@ -42,10 +42,8 @@ class OriginAccessControlArgs:
         pulumi.set(self, "origin_access_control_config", value)
 
 
+@pulumi.type_token("aws-native:cloudfront:OriginAccessControl")
 class OriginAccessControl(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudfront:OriginAccessControl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

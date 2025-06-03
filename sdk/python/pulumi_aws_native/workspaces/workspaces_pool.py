@@ -167,10 +167,8 @@ class WorkspacesPoolArgs:
         pulumi.set(self, "timeout_settings", value)
 
 
+@pulumi.type_token("aws-native:workspaces:WorkspacesPool")
 class WorkspacesPool(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:workspaces:WorkspacesPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

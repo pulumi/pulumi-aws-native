@@ -494,10 +494,8 @@ class EnvironmentArgs:
         pulumi.set(self, "weekly_maintenance_window_start", value)
 
 
+@pulumi.type_token("aws-native:mwaa:Environment")
 class Environment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mwaa:Environment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

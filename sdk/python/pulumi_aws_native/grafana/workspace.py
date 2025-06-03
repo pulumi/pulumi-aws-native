@@ -313,10 +313,8 @@ class WorkspaceArgs:
         pulumi.set(self, "vpc_configuration", value)
 
 
+@pulumi.type_token("aws-native:grafana:Workspace")
 class Workspace(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:grafana:Workspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:amplify:AppAutoBranchCreationConfigStage")
 class AppAutoBranchCreationConfigStage(builtins.str, Enum):
     """
     Stage for the auto created branch.
@@ -27,6 +28,7 @@ class AppAutoBranchCreationConfigStage(builtins.str, Enum):
     DEVELOPMENT = "DEVELOPMENT"
 
 
+@pulumi.type_token("aws-native:amplify:AppCacheConfigType")
 class AppCacheConfigType(builtins.str, Enum):
     """
     The type of cache configuration to use for an Amplify app.
@@ -39,6 +41,7 @@ class AppCacheConfigType(builtins.str, Enum):
     AMPLIFY_MANAGED_NO_COOKIES = "AMPLIFY_MANAGED_NO_COOKIES"
 
 
+@pulumi.type_token("aws-native:amplify:AppPlatform")
 class AppPlatform(builtins.str, Enum):
     """
     The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
@@ -50,6 +53,7 @@ class AppPlatform(builtins.str, Enum):
     WEB_COMPUTE = "WEB_COMPUTE"
 
 
+@pulumi.type_token("aws-native:amplify:BranchStage")
 class BranchStage(builtins.str, Enum):
     """
     Describes the current stage for the branch.
@@ -61,6 +65,7 @@ class BranchStage(builtins.str, Enum):
     DEVELOPMENT = "DEVELOPMENT"
 
 
+@pulumi.type_token("aws-native:amplify:DomainCertificateCertificateType")
 class DomainCertificateCertificateType(builtins.str, Enum):
     """
     The type of SSL/TLS certificate that you want to use.
@@ -73,6 +78,7 @@ class DomainCertificateCertificateType(builtins.str, Enum):
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:amplify:DomainCertificateSettingsCertificateType")
 class DomainCertificateSettingsCertificateType(builtins.str, Enum):
     """
     The certificate type.

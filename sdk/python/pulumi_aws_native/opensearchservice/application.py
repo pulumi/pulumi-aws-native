@@ -126,10 +126,8 @@ class ApplicationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:opensearchservice:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:opensearchservice:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -93,10 +93,8 @@ class ConfigurationAggregatorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:configuration:ConfigurationAggregator")
 class ConfigurationAggregator(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:configuration:ConfigurationAggregator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

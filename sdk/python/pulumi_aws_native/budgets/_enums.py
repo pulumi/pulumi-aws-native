@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:budgets:BudgetsActionActionThresholdType")
 class BudgetsActionActionThresholdType(builtins.str, Enum):
     """
     The type of threshold for a notification.
@@ -24,6 +25,7 @@ class BudgetsActionActionThresholdType(builtins.str, Enum):
     ABSOLUTE_VALUE = "ABSOLUTE_VALUE"
 
 
+@pulumi.type_token("aws-native:budgets:BudgetsActionActionType")
 class BudgetsActionActionType(builtins.str, Enum):
     """
     The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
@@ -33,6 +35,7 @@ class BudgetsActionActionType(builtins.str, Enum):
     RUN_SSM_DOCUMENTS = "RUN_SSM_DOCUMENTS"
 
 
+@pulumi.type_token("aws-native:budgets:BudgetsActionApprovalModel")
 class BudgetsActionApprovalModel(builtins.str, Enum):
     """
     This specifies if the action needs manual or automatic approval.
@@ -41,6 +44,7 @@ class BudgetsActionApprovalModel(builtins.str, Enum):
     MANUAL = "MANUAL"
 
 
+@pulumi.type_token("aws-native:budgets:BudgetsActionNotificationType")
 class BudgetsActionNotificationType(builtins.str, Enum):
     """
     The type of a notification.
@@ -49,6 +53,7 @@ class BudgetsActionNotificationType(builtins.str, Enum):
     FORECASTED = "FORECASTED"
 
 
+@pulumi.type_token("aws-native:budgets:BudgetsActionSsmActionDefinitionSubtype")
 class BudgetsActionSsmActionDefinitionSubtype(builtins.str, Enum):
     """
     The action subType.
@@ -57,6 +62,7 @@ class BudgetsActionSsmActionDefinitionSubtype(builtins.str, Enum):
     STOP_RDS_INSTANCES = "STOP_RDS_INSTANCES"
 
 
+@pulumi.type_token("aws-native:budgets:BudgetsActionSubscriberType")
 class BudgetsActionSubscriberType(builtins.str, Enum):
     """
     The type of notification that AWS sends to a subscriber.

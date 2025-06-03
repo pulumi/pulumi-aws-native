@@ -56,10 +56,8 @@ class SimulationApplicationVersionArgs:
         pulumi.set(self, "current_revision_id", value)
 
 
+@pulumi.type_token("aws-native:robomaker:SimulationApplicationVersion")
 class SimulationApplicationVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:robomaker:SimulationApplicationVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

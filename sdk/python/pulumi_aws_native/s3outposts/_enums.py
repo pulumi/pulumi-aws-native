@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:s3outposts:BucketRuleStatus")
 class BucketRuleStatus(builtins.str, Enum):
     """
     If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
@@ -21,6 +22,7 @@ class BucketRuleStatus(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("aws-native:s3outposts:EndpointAccessType")
 class EndpointAccessType(builtins.str, Enum):
     """
     The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
@@ -29,6 +31,7 @@ class EndpointAccessType(builtins.str, Enum):
     PRIVATE = "Private"
 
 
+@pulumi.type_token("aws-native:s3outposts:EndpointStatus")
 class EndpointStatus(builtins.str, Enum):
     """
     The status of the endpoint.

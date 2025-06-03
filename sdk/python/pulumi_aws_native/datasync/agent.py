@@ -124,10 +124,8 @@ class AgentArgs:
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
+@pulumi.type_token("aws-native:datasync:Agent")
 class Agent(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datasync:Agent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

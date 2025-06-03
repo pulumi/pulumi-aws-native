@@ -114,10 +114,8 @@ class ServiceActionArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:servicecatalog:ServiceAction")
 class ServiceAction(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:servicecatalog:ServiceAction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

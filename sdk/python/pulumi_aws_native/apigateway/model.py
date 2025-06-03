@@ -110,10 +110,8 @@ class ModelArgs:
         pulumi.set(self, "schema", value)
 
 
+@pulumi.type_token("aws-native:apigateway:Model")
 class Model(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigateway:Model"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

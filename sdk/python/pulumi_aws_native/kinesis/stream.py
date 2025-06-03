@@ -142,10 +142,8 @@ class StreamArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:kinesis:Stream")
 class Stream(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:kinesis:Stream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

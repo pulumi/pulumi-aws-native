@@ -186,10 +186,8 @@ class FlowArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:appflow:Flow")
 class Flow(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appflow:Flow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

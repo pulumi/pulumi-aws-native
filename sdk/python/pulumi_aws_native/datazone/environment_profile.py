@@ -150,10 +150,8 @@ class EnvironmentProfileArgs:
         pulumi.set(self, "user_parameters", value)
 
 
+@pulumi.type_token("aws-native:datazone:EnvironmentProfile")
 class EnvironmentProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datazone:EnvironmentProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

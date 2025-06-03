@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -22,15 +22,18 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:b2bi:CapabilityDirection")
 class CapabilityDirection(builtins.str, Enum):
     INBOUND = "INBOUND"
     OUTBOUND = "OUTBOUND"
 
 
+@pulumi.type_token("aws-native:b2bi:CapabilityType")
 class CapabilityType(builtins.str, Enum):
     EDI = "edi"
 
 
+@pulumi.type_token("aws-native:b2bi:CapabilityX12TransactionSet")
 class CapabilityX12TransactionSet(builtins.str, Enum):
     X12100 = "X12_100"
     X12101 = "X12_101"
@@ -376,6 +379,7 @@ class CapabilityX12TransactionSet(builtins.str, Enum):
     X12999X231 = "X12_999_X231"
 
 
+@pulumi.type_token("aws-native:b2bi:CapabilityX12Version")
 class CapabilityX12Version(builtins.str, Enum):
     VERSION4010 = "VERSION_4010"
     VERSION4030 = "VERSION_4030"
@@ -385,35 +389,42 @@ class CapabilityX12Version(builtins.str, Enum):
     VERSION5010_HIPAA = "VERSION_5010_HIPAA"
 
 
+@pulumi.type_token("aws-native:b2bi:ProfileLogging")
 class ProfileLogging(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:b2bi:TransformerFileFormat")
 class TransformerFileFormat(builtins.str, Enum):
     XML = "XML"
     JSON = "JSON"
     NOT_USED = "NOT_USED"
 
 
+@pulumi.type_token("aws-native:b2bi:TransformerFromFormat")
 class TransformerFromFormat(builtins.str, Enum):
     X12 = "X12"
 
 
+@pulumi.type_token("aws-native:b2bi:TransformerMappingTemplateLanguage")
 class TransformerMappingTemplateLanguage(builtins.str, Enum):
     XSLT = "XSLT"
     JSONATA = "JSONATA"
 
 
+@pulumi.type_token("aws-native:b2bi:TransformerStatus")
 class TransformerStatus(builtins.str, Enum):
     ACTIVE = "active"
     INACTIVE = "inactive"
 
 
+@pulumi.type_token("aws-native:b2bi:TransformerToFormat")
 class TransformerToFormat(builtins.str, Enum):
     X12 = "X12"
 
 
+@pulumi.type_token("aws-native:b2bi:TransformerX12TransactionSet")
 class TransformerX12TransactionSet(builtins.str, Enum):
     X12100 = "X12_100"
     X12101 = "X12_101"
@@ -759,6 +770,7 @@ class TransformerX12TransactionSet(builtins.str, Enum):
     X12999X231 = "X12_999_X231"
 
 
+@pulumi.type_token("aws-native:b2bi:TransformerX12Version")
 class TransformerX12Version(builtins.str, Enum):
     VERSION4010 = "VERSION_4010"
     VERSION4030 = "VERSION_4030"

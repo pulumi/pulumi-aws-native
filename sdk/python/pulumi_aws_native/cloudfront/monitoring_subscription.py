@@ -58,10 +58,8 @@ class MonitoringSubscriptionInitArgs:
         pulumi.set(self, "monitoring_subscription", value)
 
 
+@pulumi.type_token("aws-native:cloudfront:MonitoringSubscription")
 class MonitoringSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudfront:MonitoringSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -189,10 +189,8 @@ class FleetMetricArgs:
         pulumi.set(self, "unit", value)
 
 
+@pulumi.type_token("aws-native:iot:FleetMetric")
 class FleetMetric(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:FleetMetric"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

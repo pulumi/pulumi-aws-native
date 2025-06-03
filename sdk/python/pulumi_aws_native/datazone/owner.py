@@ -88,10 +88,8 @@ class OwnerArgs:
         pulumi.set(self, "owner", value)
 
 
+@pulumi.type_token("aws-native:datazone:Owner")
 class Owner(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datazone:Owner"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

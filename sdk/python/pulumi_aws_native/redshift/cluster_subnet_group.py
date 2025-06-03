@@ -73,10 +73,8 @@ class ClusterSubnetGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:redshift:ClusterSubnetGroup")
 class ClusterSubnetGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:redshift:ClusterSubnetGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

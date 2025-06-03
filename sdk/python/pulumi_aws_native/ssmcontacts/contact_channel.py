@@ -106,10 +106,8 @@ class ContactChannelArgs:
         pulumi.set(self, "defer_activation", value)
 
 
+@pulumi.type_token("aws-native:ssmcontacts:ContactChannel")
 class ContactChannel(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ssmcontacts:ContactChannel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

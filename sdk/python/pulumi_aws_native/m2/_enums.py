@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,11 +13,13 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:m2:ApplicationEngineType")
 class ApplicationEngineType(builtins.str, Enum):
     MICROFOCUS = "microfocus"
     BLUAGE = "bluage"
 
 
+@pulumi.type_token("aws-native:m2:EnvironmentEngineType")
 class EnvironmentEngineType(builtins.str, Enum):
     """
     The target platform for the environment.
@@ -26,6 +28,7 @@ class EnvironmentEngineType(builtins.str, Enum):
     BLUAGE = "bluage"
 
 
+@pulumi.type_token("aws-native:m2:EnvironmentNetworkType")
 class EnvironmentNetworkType(builtins.str, Enum):
     IPV4 = "ipv4"
     DUAL = "dual"

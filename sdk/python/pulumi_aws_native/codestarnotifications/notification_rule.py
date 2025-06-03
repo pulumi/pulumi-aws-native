@@ -184,10 +184,8 @@ class NotificationRuleArgs:
         pulumi.set(self, "target_address", value)
 
 
+@pulumi.type_token("aws-native:codestarnotifications:NotificationRule")
 class NotificationRule(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:codestarnotifications:NotificationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

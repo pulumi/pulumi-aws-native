@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -19,11 +19,13 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:greengrassv2:ComponentVersionComponentDependencyRequirementDependencyType")
 class ComponentVersionComponentDependencyRequirementDependencyType(builtins.str, Enum):
     SOFT = "SOFT"
     HARD = "HARD"
 
 
+@pulumi.type_token("aws-native:greengrassv2:ComponentVersionLambdaEventSourceType")
 class ComponentVersionLambdaEventSourceType(builtins.str, Enum):
     """
     The type of event source. Choose from the following options:
@@ -35,6 +37,7 @@ class ComponentVersionLambdaEventSourceType(builtins.str, Enum):
     IOT_CORE = "IOT_CORE"
 
 
+@pulumi.type_token("aws-native:greengrassv2:ComponentVersionLambdaExecutionParametersInputPayloadEncodingType")
 class ComponentVersionLambdaExecutionParametersInputPayloadEncodingType(builtins.str, Enum):
     """
     The encoding type that the Lambda function supports.
@@ -45,11 +48,13 @@ class ComponentVersionLambdaExecutionParametersInputPayloadEncodingType(builtins
     BINARY = "binary"
 
 
+@pulumi.type_token("aws-native:greengrassv2:ComponentVersionLambdaFilesystemPermission")
 class ComponentVersionLambdaFilesystemPermission(builtins.str, Enum):
     RO = "ro"
     RW = "rw"
 
 
+@pulumi.type_token("aws-native:greengrassv2:ComponentVersionLambdaLinuxProcessParamsIsolationMode")
 class ComponentVersionLambdaLinuxProcessParamsIsolationMode(builtins.str, Enum):
     """
     The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
@@ -60,6 +65,7 @@ class ComponentVersionLambdaLinuxProcessParamsIsolationMode(builtins.str, Enum):
     NO_CONTAINER = "NoContainer"
 
 
+@pulumi.type_token("aws-native:greengrassv2:DeploymentComponentUpdatePolicyAction")
 class DeploymentComponentUpdatePolicyAction(builtins.str, Enum):
     """
     Whether or not to notify components and wait for components to become safe to update. Choose from the following options:
@@ -73,6 +79,7 @@ class DeploymentComponentUpdatePolicyAction(builtins.str, Enum):
     SKIP_NOTIFY_COMPONENTS = "SKIP_NOTIFY_COMPONENTS"
 
 
+@pulumi.type_token("aws-native:greengrassv2:DeploymentIoTJobAbortCriteriaAction")
 class DeploymentIoTJobAbortCriteriaAction(builtins.str, Enum):
     """
     The action to perform when the criteria are met.
@@ -80,6 +87,7 @@ class DeploymentIoTJobAbortCriteriaAction(builtins.str, Enum):
     CANCEL = "CANCEL"
 
 
+@pulumi.type_token("aws-native:greengrassv2:DeploymentIoTJobAbortCriteriaFailureType")
 class DeploymentIoTJobAbortCriteriaFailureType(builtins.str, Enum):
     """
     The type of job deployment failure that can cancel a job.
@@ -90,6 +98,7 @@ class DeploymentIoTJobAbortCriteriaFailureType(builtins.str, Enum):
     ALL = "ALL"
 
 
+@pulumi.type_token("aws-native:greengrassv2:DeploymentPoliciesFailureHandlingPolicy")
 class DeploymentPoliciesFailureHandlingPolicy(builtins.str, Enum):
     """
     The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.

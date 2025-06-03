@@ -104,10 +104,8 @@ class AssessmentTemplateArgs:
         pulumi.set(self, "user_attributes_for_findings", value)
 
 
+@pulumi.type_token("aws-native:inspector:AssessmentTemplate")
 class AssessmentTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:inspector:AssessmentTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

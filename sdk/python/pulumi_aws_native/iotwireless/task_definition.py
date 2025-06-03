@@ -125,10 +125,8 @@ class TaskDefinitionArgs:
         pulumi.set(self, "update", value)
 
 
+@pulumi.type_token("aws-native:iotwireless:TaskDefinition")
 class TaskDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotwireless:TaskDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

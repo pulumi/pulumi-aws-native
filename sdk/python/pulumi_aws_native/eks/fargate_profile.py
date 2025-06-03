@@ -122,10 +122,8 @@ class FargateProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:eks:FargateProfile")
 class FargateProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:eks:FargateProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

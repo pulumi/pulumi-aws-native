@@ -42,10 +42,8 @@ class CachePolicyArgs:
         pulumi.set(self, "cache_policy_config", value)
 
 
+@pulumi.type_token("aws-native:cloudfront:CachePolicy")
 class CachePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudfront:CachePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -55,10 +55,8 @@ class TransitGatewayRouteTableAssociationArgs:
         pulumi.set(self, "transit_gateway_route_table_id", value)
 
 
+@pulumi.type_token("aws-native:ec2:TransitGatewayRouteTableAssociation")
 class TransitGatewayRouteTableAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:TransitGatewayRouteTableAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

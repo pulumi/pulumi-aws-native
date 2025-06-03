@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,6 +15,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:stepfunctions:ActivityEncryptionConfigurationType")
 class ActivityEncryptionConfigurationType(builtins.str, Enum):
     """
     Encryption option for an activity.
@@ -23,6 +24,7 @@ class ActivityEncryptionConfigurationType(builtins.str, Enum):
     AWS_OWNED_KEY = "AWS_OWNED_KEY"
 
 
+@pulumi.type_token("aws-native:stepfunctions:StateMachineAliasDeploymentPreferenceType")
 class StateMachineAliasDeploymentPreferenceType(builtins.str, Enum):
     """
     The type of deployment to perform.
@@ -32,6 +34,7 @@ class StateMachineAliasDeploymentPreferenceType(builtins.str, Enum):
     CANARY = "CANARY"
 
 
+@pulumi.type_token("aws-native:stepfunctions:StateMachineEncryptionConfigurationType")
 class StateMachineEncryptionConfigurationType(builtins.str, Enum):
     """
     Encryption option for a state machine.
@@ -40,6 +43,7 @@ class StateMachineEncryptionConfigurationType(builtins.str, Enum):
     AWS_OWNED_KEY = "AWS_OWNED_KEY"
 
 
+@pulumi.type_token("aws-native:stepfunctions:StateMachineLoggingConfigurationLevel")
 class StateMachineLoggingConfigurationLevel(builtins.str, Enum):
     """
     Defines which category of execution history events are logged.
@@ -50,6 +54,7 @@ class StateMachineLoggingConfigurationLevel(builtins.str, Enum):
     OFF = "OFF"
 
 
+@pulumi.type_token("aws-native:stepfunctions:StateMachineType")
 class StateMachineType(builtins.str, Enum):
     """
     Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.

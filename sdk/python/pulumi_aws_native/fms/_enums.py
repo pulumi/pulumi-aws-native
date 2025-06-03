@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:fms:PolicyFirewallDeploymentModel")
 class PolicyFirewallDeploymentModel(builtins.str, Enum):
     """
     Firewall deployment mode.
@@ -22,6 +23,7 @@ class PolicyFirewallDeploymentModel(builtins.str, Enum):
     CENTRALIZED = "CENTRALIZED"
 
 
+@pulumi.type_token("aws-native:fms:PolicyNetworkAclEntryRuleAction")
 class PolicyNetworkAclEntryRuleAction(builtins.str, Enum):
     """
     Rule Action.
@@ -30,6 +32,7 @@ class PolicyNetworkAclEntryRuleAction(builtins.str, Enum):
     DENY = "deny"
 
 
+@pulumi.type_token("aws-native:fms:PolicyResourceTagLogicalOperator")
 class PolicyResourceTagLogicalOperator(builtins.str, Enum):
     """
     Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
@@ -40,6 +43,7 @@ class PolicyResourceTagLogicalOperator(builtins.str, Enum):
     OR_ = "OR"
 
 
+@pulumi.type_token("aws-native:fms:PolicyType")
 class PolicyType(builtins.str, Enum):
     """
     Firewall policy type.

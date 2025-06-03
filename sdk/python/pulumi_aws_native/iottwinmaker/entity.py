@@ -155,10 +155,8 @@ class EntityArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iottwinmaker:Entity")
 class Entity(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iottwinmaker:Entity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -70,10 +70,8 @@ class PrimaryTaskSetArgs:
         pulumi.set(self, "task_set_id", value)
 
 
+@pulumi.type_token("aws-native:ecs:PrimaryTaskSet")
 class PrimaryTaskSet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ecs:PrimaryTaskSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

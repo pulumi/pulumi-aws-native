@@ -88,10 +88,8 @@ class LifecyclePolicyArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:opensearchserverless:LifecyclePolicy")
 class LifecyclePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:opensearchserverless:LifecyclePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

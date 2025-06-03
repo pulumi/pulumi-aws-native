@@ -106,10 +106,8 @@ class DeploymentArgs:
         pulumi.set(self, "stage_name", value)
 
 
+@pulumi.type_token("aws-native:apigateway:Deployment")
 class Deployment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigateway:Deployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

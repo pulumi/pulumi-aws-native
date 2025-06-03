@@ -354,10 +354,8 @@ class DataSetArgs:
         pulumi.set(self, "use_as", value)
 
 
+@pulumi.type_token("aws-native:quicksight:DataSet")
 class DataSet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:quicksight:DataSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -184,10 +184,8 @@ class ComponentArgs:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("aws-native:imagebuilder:Component")
 class Component(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:imagebuilder:Component"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

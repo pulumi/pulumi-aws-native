@@ -42,10 +42,8 @@ class AccountArgs:
         pulumi.set(self, "expiry_events_configuration", value)
 
 
+@pulumi.type_token("aws-native:certificatemanager:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:certificatemanager:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

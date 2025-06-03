@@ -61,10 +61,8 @@ class StorageLensArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:s3:StorageLens")
 class StorageLens(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:s3:StorageLens"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

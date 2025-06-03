@@ -90,10 +90,8 @@ class CertificateProviderArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iot:CertificateProvider")
 class CertificateProvider(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:CertificateProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

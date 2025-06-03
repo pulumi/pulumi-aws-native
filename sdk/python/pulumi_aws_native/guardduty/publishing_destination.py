@@ -90,10 +90,8 @@ class PublishingDestinationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:guardduty:PublishingDestination")
 class PublishingDestination(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:guardduty:PublishingDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

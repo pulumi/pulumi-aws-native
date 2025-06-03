@@ -91,10 +91,8 @@ class BridgeSourceInitArgs:
         pulumi.set(self, "network_source", value)
 
 
+@pulumi.type_token("aws-native:mediaconnect:BridgeSource")
 class BridgeSource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediaconnect:BridgeSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

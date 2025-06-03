@@ -139,10 +139,8 @@ class ConfigurationSetArgs:
         pulumi.set(self, "vdm_options", value)
 
 
+@pulumi.type_token("aws-native:ses:ConfigurationSet")
 class ConfigurationSet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ses:ConfigurationSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

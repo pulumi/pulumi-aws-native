@@ -104,10 +104,8 @@ class AccountAuditConfigurationArgs:
         pulumi.set(self, "audit_notification_target_configurations", value)
 
 
+@pulumi.type_token("aws-native:iot:AccountAuditConfiguration")
 class AccountAuditConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:AccountAuditConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

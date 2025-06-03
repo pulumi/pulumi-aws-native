@@ -40,10 +40,8 @@ class ProductSubscriptionArgs:
         pulumi.set(self, "product_arn", value)
 
 
+@pulumi.type_token("aws-native:securityhub:ProductSubscription")
 class ProductSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:securityhub:ProductSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

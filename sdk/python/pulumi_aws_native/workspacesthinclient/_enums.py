@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,6 +17,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:workspacesthinclient:EnvironmentDayOfWeek")
 class EnvironmentDayOfWeek(builtins.str, Enum):
     MONDAY = "MONDAY"
     TUESDAY = "TUESDAY"
@@ -27,6 +28,7 @@ class EnvironmentDayOfWeek(builtins.str, Enum):
     SUNDAY = "SUNDAY"
 
 
+@pulumi.type_token("aws-native:workspacesthinclient:EnvironmentDesktopType")
 class EnvironmentDesktopType(builtins.str, Enum):
     """
     The type of VDI.
@@ -36,6 +38,7 @@ class EnvironmentDesktopType(builtins.str, Enum):
     WORKSPACES_WEB = "workspaces-web"
 
 
+@pulumi.type_token("aws-native:workspacesthinclient:EnvironmentMaintenanceWindowApplyTimeOf")
 class EnvironmentMaintenanceWindowApplyTimeOf(builtins.str, Enum):
     """
     The desired time zone maintenance window.
@@ -44,6 +47,7 @@ class EnvironmentMaintenanceWindowApplyTimeOf(builtins.str, Enum):
     DEVICE = "DEVICE"
 
 
+@pulumi.type_token("aws-native:workspacesthinclient:EnvironmentMaintenanceWindowType")
 class EnvironmentMaintenanceWindowType(builtins.str, Enum):
     """
     The type of maintenance window.
@@ -52,6 +56,7 @@ class EnvironmentMaintenanceWindowType(builtins.str, Enum):
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:workspacesthinclient:EnvironmentSoftwareSetComplianceStatus")
 class EnvironmentSoftwareSetComplianceStatus(builtins.str, Enum):
     """
     Describes if the software currently installed on all devices in the environment is a supported version.
@@ -61,6 +66,7 @@ class EnvironmentSoftwareSetComplianceStatus(builtins.str, Enum):
     NO_REGISTERED_DEVICES = "NO_REGISTERED_DEVICES"
 
 
+@pulumi.type_token("aws-native:workspacesthinclient:EnvironmentSoftwareSetUpdateMode")
 class EnvironmentSoftwareSetUpdateMode(builtins.str, Enum):
     """
     An option to define which software updates to apply.
@@ -69,6 +75,7 @@ class EnvironmentSoftwareSetUpdateMode(builtins.str, Enum):
     USE_DESIRED = "USE_DESIRED"
 
 
+@pulumi.type_token("aws-native:workspacesthinclient:EnvironmentSoftwareSetUpdateSchedule")
 class EnvironmentSoftwareSetUpdateSchedule(builtins.str, Enum):
     """
     An option to define if software updates should be applied within a maintenance window.

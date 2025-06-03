@@ -59,10 +59,8 @@ class AccessPointPolicyArgs:
         pulumi.set(self, "policy_document", value)
 
 
+@pulumi.type_token("aws-native:s3objectlambda:AccessPointPolicy")
 class AccessPointPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:s3objectlambda:AccessPointPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

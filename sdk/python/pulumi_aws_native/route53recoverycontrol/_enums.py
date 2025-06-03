@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:route53recoverycontrol:ClusterNetworkType")
 class ClusterNetworkType(builtins.str, Enum):
     """
     Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
@@ -24,6 +25,7 @@ class ClusterNetworkType(builtins.str, Enum):
     DUALSTACK = "DUALSTACK"
 
 
+@pulumi.type_token("aws-native:route53recoverycontrol:ClusterStatus")
 class ClusterStatus(builtins.str, Enum):
     """
     Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
@@ -33,6 +35,7 @@ class ClusterStatus(builtins.str, Enum):
     PENDING_DELETION = "PENDING_DELETION"
 
 
+@pulumi.type_token("aws-native:route53recoverycontrol:ControlPanelStatus")
 class ControlPanelStatus(builtins.str, Enum):
     """
     The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
@@ -42,6 +45,7 @@ class ControlPanelStatus(builtins.str, Enum):
     PENDING_DELETION = "PENDING_DELETION"
 
 
+@pulumi.type_token("aws-native:route53recoverycontrol:RoutingControlStatus")
 class RoutingControlStatus(builtins.str, Enum):
     """
     The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
@@ -51,6 +55,7 @@ class RoutingControlStatus(builtins.str, Enum):
     PENDING_DELETION = "PENDING_DELETION"
 
 
+@pulumi.type_token("aws-native:route53recoverycontrol:SafetyRuleRuleType")
 class SafetyRuleRuleType(builtins.str, Enum):
     """
     A rule can be one of the following: ATLEAST, AND, or OR.
@@ -60,6 +65,7 @@ class SafetyRuleRuleType(builtins.str, Enum):
     ATLEAST = "ATLEAST"
 
 
+@pulumi.type_token("aws-native:route53recoverycontrol:SafetyRuleStatus")
 class SafetyRuleStatus(builtins.str, Enum):
     """
     The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.

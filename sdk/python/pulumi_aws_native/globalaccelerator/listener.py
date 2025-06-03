@@ -89,10 +89,8 @@ class ListenerArgs:
         pulumi.set(self, "client_affinity", value)
 
 
+@pulumi.type_token("aws-native:globalaccelerator:Listener")
 class Listener(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:globalaccelerator:Listener"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

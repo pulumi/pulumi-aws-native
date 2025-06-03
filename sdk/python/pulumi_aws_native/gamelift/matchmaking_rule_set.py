@@ -74,10 +74,8 @@ class MatchmakingRuleSetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:gamelift:MatchmakingRuleSet")
 class MatchmakingRuleSet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:gamelift:MatchmakingRuleSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

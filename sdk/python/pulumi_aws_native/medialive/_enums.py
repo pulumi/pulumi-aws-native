@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -26,6 +26,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:medialive:ChannelPlacementGroupState")
 class ChannelPlacementGroupState(builtins.str, Enum):
     """
     The current state of the ChannelPlacementGroupState
@@ -38,6 +39,7 @@ class ChannelPlacementGroupState(builtins.str, Enum):
     UNASSIGNING = "UNASSIGNING"
 
 
+@pulumi.type_token("aws-native:medialive:CloudWatchAlarmTemplateComparisonOperator")
 class CloudWatchAlarmTemplateComparisonOperator(builtins.str, Enum):
     """
     The comparison operator used to compare the specified statistic and the threshold.
@@ -48,6 +50,7 @@ class CloudWatchAlarmTemplateComparisonOperator(builtins.str, Enum):
     LESS_THAN_OR_EQUAL_TO_THRESHOLD = "LessThanOrEqualToThreshold"
 
 
+@pulumi.type_token("aws-native:medialive:CloudWatchAlarmTemplateStatistic")
 class CloudWatchAlarmTemplateStatistic(builtins.str, Enum):
     """
     The statistic to apply to the alarm's metric data.
@@ -59,6 +62,7 @@ class CloudWatchAlarmTemplateStatistic(builtins.str, Enum):
     MAXIMUM = "Maximum"
 
 
+@pulumi.type_token("aws-native:medialive:CloudWatchAlarmTemplateTargetResourceType")
 class CloudWatchAlarmTemplateTargetResourceType(builtins.str, Enum):
     """
     The resource type this template should dynamically generate cloudwatch metric alarms for.
@@ -74,6 +78,7 @@ class CloudWatchAlarmTemplateTargetResourceType(builtins.str, Enum):
     S3_BUCKET = "S3_BUCKET"
 
 
+@pulumi.type_token("aws-native:medialive:CloudWatchAlarmTemplateTreatMissingData")
 class CloudWatchAlarmTemplateTreatMissingData(builtins.str, Enum):
     """
     Specifies how missing data points are treated when evaluating the alarm's condition.
@@ -84,6 +89,7 @@ class CloudWatchAlarmTemplateTreatMissingData(builtins.str, Enum):
     MISSING = "missing"
 
 
+@pulumi.type_token("aws-native:medialive:ClusterState")
 class ClusterState(builtins.str, Enum):
     """
     The current state of the Cluster.
@@ -95,6 +101,7 @@ class ClusterState(builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:medialive:ClusterType")
 class ClusterType(builtins.str, Enum):
     """
     The hardware type for the cluster.
@@ -105,6 +112,7 @@ class ClusterType(builtins.str, Enum):
     EC2 = "EC2"
 
 
+@pulumi.type_token("aws-native:medialive:EventBridgeRuleTemplateEventType")
 class EventBridgeRuleTemplateEventType(builtins.str, Enum):
     """
     The type of event to match with the rule.
@@ -124,6 +132,7 @@ class EventBridgeRuleTemplateEventType(builtins.str, Enum):
     MEDIACONNECT_FLOW_STATUS_CHANGE = "MEDIACONNECT_FLOW_STATUS_CHANGE"
 
 
+@pulumi.type_token("aws-native:medialive:MultiplexState")
 class MultiplexState(builtins.str, Enum):
     """
     The current state of the multiplex.
@@ -139,6 +148,7 @@ class MultiplexState(builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:medialive:MultiplexprogramPreferredChannelPipeline")
 class MultiplexprogramPreferredChannelPipeline(builtins.str, Enum):
     """
     Indicates which pipeline is preferred by the multiplex for program ingest.
@@ -152,6 +162,7 @@ class MultiplexprogramPreferredChannelPipeline(builtins.str, Enum):
     PIPELINE1 = "PIPELINE_1"
 
 
+@pulumi.type_token("aws-native:medialive:NetworkState")
 class NetworkState(builtins.str, Enum):
     CREATING = "CREATING"
     CREATE_FAILED = "CREATE_FAILED"
@@ -164,6 +175,7 @@ class NetworkState(builtins.str, Enum):
     DELETE_FAILED = "DELETE_FAILED"
 
 
+@pulumi.type_token("aws-native:medialive:SdiSourceMode")
 class SdiSourceMode(builtins.str, Enum):
     """
     The current state of the SdiSource.
@@ -172,6 +184,7 @@ class SdiSourceMode(builtins.str, Enum):
     INTERLEAVE = "INTERLEAVE"
 
 
+@pulumi.type_token("aws-native:medialive:SdiSourceState")
 class SdiSourceState(builtins.str, Enum):
     """
     The current state of the SdiSource.
@@ -181,6 +194,7 @@ class SdiSourceState(builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:medialive:SdiSourceType")
 class SdiSourceType(builtins.str, Enum):
     """
     The interface mode of the SdiSource.
@@ -189,6 +203,7 @@ class SdiSourceType(builtins.str, Enum):
     QUAD = "QUAD"
 
 
+@pulumi.type_token("aws-native:medialive:SignalMapMonitorDeploymentStatus")
 class SignalMapMonitorDeploymentStatus(builtins.str, Enum):
     """
     A signal map's monitor deployment status.
@@ -205,6 +220,7 @@ class SignalMapMonitorDeploymentStatus(builtins.str, Enum):
     DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
 
 
+@pulumi.type_token("aws-native:medialive:SignalMapStatus")
 class SignalMapStatus(builtins.str, Enum):
     """
     A signal map's current status which is dependent on its lifecycle actions or associated jobs.

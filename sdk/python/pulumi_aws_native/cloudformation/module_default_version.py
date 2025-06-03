@@ -73,10 +73,8 @@ class ModuleDefaultVersionArgs:
         pulumi.set(self, "version_id", value)
 
 
+@pulumi.type_token("aws-native:cloudformation:ModuleDefaultVersion")
 class ModuleDefaultVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudformation:ModuleDefaultVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

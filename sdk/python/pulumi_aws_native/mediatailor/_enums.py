@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -21,30 +21,36 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:mediatailor:ChannelAdMarkupType")
 class ChannelAdMarkupType(builtins.str, Enum):
     DATERANGE = "DATERANGE"
     SCTE35_ENHANCED = "SCTE35_ENHANCED"
 
 
+@pulumi.type_token("aws-native:mediatailor:ChannelLogType")
 class ChannelLogType(builtins.str, Enum):
     AS_RUN = "AS_RUN"
 
 
+@pulumi.type_token("aws-native:mediatailor:ChannelPlaybackMode")
 class ChannelPlaybackMode(builtins.str, Enum):
     LOOP = "LOOP"
     LINEAR = "LINEAR"
 
 
+@pulumi.type_token("aws-native:mediatailor:ChannelTier")
 class ChannelTier(builtins.str, Enum):
     BASIC = "BASIC"
     STANDARD = "STANDARD"
 
 
+@pulumi.type_token("aws-native:mediatailor:LiveSourceType")
 class LiveSourceType(builtins.str, Enum):
     DASH = "DASH"
     HLS = "HLS"
 
 
+@pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationAvailSuppressionFillPolicy")
 class PlaybackConfigurationAvailSuppressionFillPolicy(builtins.str, Enum):
     """
     Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
@@ -53,6 +59,7 @@ class PlaybackConfigurationAvailSuppressionFillPolicy(builtins.str, Enum):
     FULL_AVAIL_ONLY = "FULL_AVAIL_ONLY"
 
 
+@pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationAvailSuppressionMode")
 class PlaybackConfigurationAvailSuppressionMode(builtins.str, Enum):
     """
     Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to AFTER_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.
@@ -62,6 +69,7 @@ class PlaybackConfigurationAvailSuppressionMode(builtins.str, Enum):
     AFTER_LIVE_EDGE = "AFTER_LIVE_EDGE"
 
 
+@pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationDashConfigurationOriginManifestType")
 class PlaybackConfigurationDashConfigurationOriginManifestType(builtins.str, Enum):
     """
     The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
@@ -70,17 +78,20 @@ class PlaybackConfigurationDashConfigurationOriginManifestType(builtins.str, Enu
     MULTI_PERIOD = "MULTI_PERIOD"
 
 
+@pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationStreamingMediaFileConditioning")
 class PlaybackConfigurationStreamingMediaFileConditioning(builtins.str, Enum):
     TRANSCODE = "TRANSCODE"
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:mediatailor:SourceLocationAccessType")
 class SourceLocationAccessType(builtins.str, Enum):
     S3_SIGV4 = "S3_SIGV4"
     SECRETS_MANAGER_ACCESS_TOKEN = "SECRETS_MANAGER_ACCESS_TOKEN"
     AUTODETECT_SIGV4 = "AUTODETECT_SIGV4"
 
 
+@pulumi.type_token("aws-native:mediatailor:VodSourceType")
 class VodSourceType(builtins.str, Enum):
     DASH = "DASH"
     HLS = "HLS"

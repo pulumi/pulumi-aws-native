@@ -72,10 +72,8 @@ class IpamPoolCidrArgs:
         pulumi.set(self, "netmask_length", value)
 
 
+@pulumi.type_token("aws-native:ec2:IpamPoolCidr")
 class IpamPoolCidr(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:IpamPoolCidr"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

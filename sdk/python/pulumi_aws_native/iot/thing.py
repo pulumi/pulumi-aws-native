@@ -63,10 +63,8 @@ class ThingArgs:
         pulumi.set(self, "thing_name", value)
 
 
+@pulumi.type_token("aws-native:iot:Thing")
 class Thing(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:Thing"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

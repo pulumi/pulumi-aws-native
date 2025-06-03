@@ -42,10 +42,8 @@ class CloudFrontOriginAccessIdentityArgs:
         pulumi.set(self, "cloud_front_origin_access_identity_config", value)
 
 
+@pulumi.type_token("aws-native:cloudfront:CloudFrontOriginAccessIdentity")
 class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudfront:CloudFrontOriginAccessIdentity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

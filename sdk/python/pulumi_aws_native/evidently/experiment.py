@@ -226,10 +226,8 @@ class ExperimentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:evidently:Experiment")
 class Experiment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:evidently:Experiment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

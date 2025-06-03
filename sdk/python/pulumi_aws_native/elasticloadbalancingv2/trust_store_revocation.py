@@ -59,10 +59,8 @@ class TrustStoreRevocationArgs:
         pulumi.set(self, "trust_store_arn", value)
 
 
+@pulumi.type_token("aws-native:elasticloadbalancingv2:TrustStoreRevocation")
 class TrustStoreRevocation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:elasticloadbalancingv2:TrustStoreRevocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

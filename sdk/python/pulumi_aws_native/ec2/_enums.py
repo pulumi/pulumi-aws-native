@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -93,6 +93,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:ec2:CapacityReservationFleetInstanceMatchCriteria")
 class CapacityReservationFleetInstanceMatchCriteria(builtins.str, Enum):
     """
     Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
@@ -102,6 +103,7 @@ class CapacityReservationFleetInstanceMatchCriteria(builtins.str, Enum):
     OPEN = "open"
 
 
+@pulumi.type_token("aws-native:ec2:CapacityReservationFleetTenancy")
 class CapacityReservationFleetTenancy(builtins.str, Enum):
     """
     Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
@@ -112,6 +114,7 @@ class CapacityReservationFleetTenancy(builtins.str, Enum):
     DEFAULT = "default"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetCapacityRebalanceReplacementStrategy")
 class Ec2FleetCapacityRebalanceReplacementStrategy(builtins.str, Enum):
     """
     The replacement strategy to use. Only available for fleets of type `maintain` .
@@ -124,6 +127,7 @@ class Ec2FleetCapacityRebalanceReplacementStrategy(builtins.str, Enum):
     LAUNCH_BEFORE_TERMINATE = "launch-before-terminate"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetCapacityReservationOptionsRequestUsageStrategy")
 class Ec2FleetCapacityReservationOptionsRequestUsageStrategy(builtins.str, Enum):
     """
     Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
@@ -135,6 +139,7 @@ class Ec2FleetCapacityReservationOptionsRequestUsageStrategy(builtins.str, Enum)
     USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetExcessCapacityTerminationPolicy")
 class Ec2FleetExcessCapacityTerminationPolicy(builtins.str, Enum):
     """
     Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
@@ -145,6 +150,7 @@ class Ec2FleetExcessCapacityTerminationPolicy(builtins.str, Enum):
     NO_TERMINATION = "no-termination"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem")
 class Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem(builtins.str, Enum):
     AMAZON_WEB_SERVICES = "amazon-web-services"
     AMD = "amd"
@@ -153,6 +159,7 @@ class Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem(builtins.s
     XILINX = "xilinx"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem")
 class Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem(builtins.str, Enum):
     A10G = "a10g"
     A100 = "a100"
@@ -168,12 +175,14 @@ class Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem(builtins.str, Enum
     V100 = "v100"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem")
 class Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem(builtins.str, Enum):
     GPU = "gpu"
     FPGA = "fpga"
     INFERENCE = "inference"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestBareMetal")
 class Ec2FleetInstanceRequirementsRequestBareMetal(builtins.str, Enum):
     """
     Indicates whether bare metal instance types must be included, excluded, or required.
@@ -189,6 +198,7 @@ class Ec2FleetInstanceRequirementsRequestBareMetal(builtins.str, Enum):
     EXCLUDED = "excluded"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestBurstablePerformance")
 class Ec2FleetInstanceRequirementsRequestBurstablePerformance(builtins.str, Enum):
     """
     Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
@@ -204,6 +214,7 @@ class Ec2FleetInstanceRequirementsRequestBurstablePerformance(builtins.str, Enum
     EXCLUDED = "excluded"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestCpuManufacturersItem")
 class Ec2FleetInstanceRequirementsRequestCpuManufacturersItem(builtins.str, Enum):
     INTEL = "intel"
     AMD = "amd"
@@ -211,11 +222,13 @@ class Ec2FleetInstanceRequirementsRequestCpuManufacturersItem(builtins.str, Enum
     APPLE = "apple"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem")
 class Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem(builtins.str, Enum):
     CURRENT = "current"
     PREVIOUS = "previous"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestLocalStorage")
 class Ec2FleetInstanceRequirementsRequestLocalStorage(builtins.str, Enum):
     """
     Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
@@ -231,11 +244,13 @@ class Ec2FleetInstanceRequirementsRequestLocalStorage(builtins.str, Enum):
     EXCLUDED = "excluded"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem")
 class Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem(builtins.str, Enum):
     HDD = "hdd"
     SSD = "ssd"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetSpotOptionsRequestAllocationStrategy")
 class Ec2FleetSpotOptionsRequestAllocationStrategy(builtins.str, Enum):
     """
     Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.
@@ -255,6 +270,7 @@ class Ec2FleetSpotOptionsRequestAllocationStrategy(builtins.str, Enum):
     PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior")
 class Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior(builtins.str, Enum):
     """
     The behavior when a Spot Instance is interrupted.
@@ -266,6 +282,7 @@ class Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior(builtins.str, Enum)
     TERMINATE = "terminate"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetTagSpecificationResourceType")
 class Ec2FleetTagSpecificationResourceType(builtins.str, Enum):
     """
     The type of resource to tag.
@@ -319,6 +336,7 @@ class Ec2FleetTagSpecificationResourceType(builtins.str, Enum):
     VPN_GATEWAY = "vpn-gateway"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType")
 class Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType(builtins.str, Enum):
     """
     The default target capacity type.
@@ -327,6 +345,7 @@ class Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType(builti
     SPOT = "spot"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType")
 class Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType(builtins.str, Enum):
     """
     The unit for the target capacity. You can specify this parameter only when using attributed-based instance type selection.
@@ -338,6 +357,7 @@ class Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType(builtins.
     UNITS = "units"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetType")
 class Ec2FleetType(builtins.str, Enum):
     """
     The fleet type. The default value is `maintain` .
@@ -353,6 +373,7 @@ class Ec2FleetType(builtins.str, Enum):
     INSTANT = "instant"
 
 
+@pulumi.type_token("aws-native:ec2:FlowLogDestinationOptionsPropertiesFileFormat")
 class FlowLogDestinationOptionsPropertiesFileFormat(builtins.str, Enum):
     """
     The format for the flow log. The default is `plain-text` .
@@ -361,6 +382,7 @@ class FlowLogDestinationOptionsPropertiesFileFormat(builtins.str, Enum):
     PARQUET = "parquet"
 
 
+@pulumi.type_token("aws-native:ec2:FlowLogLogDestinationType")
 class FlowLogLogDestinationType(builtins.str, Enum):
     """
     Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
@@ -370,6 +392,7 @@ class FlowLogLogDestinationType(builtins.str, Enum):
     KINESIS_DATA_FIREHOSE = "kinesis-data-firehose"
 
 
+@pulumi.type_token("aws-native:ec2:FlowLogResourceType")
 class FlowLogResourceType(builtins.str, Enum):
     """
     The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
@@ -381,6 +404,7 @@ class FlowLogResourceType(builtins.str, Enum):
     TRANSIT_GATEWAY_ATTACHMENT = "TransitGatewayAttachment"
 
 
+@pulumi.type_token("aws-native:ec2:FlowLogTrafficType")
 class FlowLogTrafficType(builtins.str, Enum):
     """
     The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
@@ -390,6 +414,7 @@ class FlowLogTrafficType(builtins.str, Enum):
     REJECT = "REJECT"
 
 
+@pulumi.type_token("aws-native:ec2:InstanceAffinity")
 class InstanceAffinity(builtins.str, Enum):
     """
     Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
@@ -398,6 +423,7 @@ class InstanceAffinity(builtins.str, Enum):
     HOST = "host"
 
 
+@pulumi.type_token("aws-native:ec2:InstanceMetadataOptionsHttpEndpoint")
 class InstanceMetadataOptionsHttpEndpoint(builtins.str, Enum):
     """
     Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
@@ -406,6 +432,7 @@ class InstanceMetadataOptionsHttpEndpoint(builtins.str, Enum):
     ENABLED = "enabled"
 
 
+@pulumi.type_token("aws-native:ec2:InstanceMetadataOptionsHttpProtocolIpv6")
 class InstanceMetadataOptionsHttpProtocolIpv6(builtins.str, Enum):
     """
     Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
@@ -414,6 +441,7 @@ class InstanceMetadataOptionsHttpProtocolIpv6(builtins.str, Enum):
     ENABLED = "enabled"
 
 
+@pulumi.type_token("aws-native:ec2:InstanceMetadataOptionsHttpTokens")
 class InstanceMetadataOptionsHttpTokens(builtins.str, Enum):
     """
     Indicates whether IMDSv2 is required.
@@ -422,6 +450,7 @@ class InstanceMetadataOptionsHttpTokens(builtins.str, Enum):
     REQUIRED = "required"
 
 
+@pulumi.type_token("aws-native:ec2:InstanceMetadataOptionsInstanceMetadataTags")
 class InstanceMetadataOptionsInstanceMetadataTags(builtins.str, Enum):
     """
     Indicates whether tags from the instance are propagated to the EBS volumes.
@@ -430,6 +459,7 @@ class InstanceMetadataOptionsInstanceMetadataTags(builtins.str, Enum):
     ENABLED = "enabled"
 
 
+@pulumi.type_token("aws-native:ec2:InstancePrivateDnsNameOptionsHostnameType")
 class InstancePrivateDnsNameOptionsHostnameType(builtins.str, Enum):
     """
     The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
@@ -438,6 +468,7 @@ class InstancePrivateDnsNameOptionsHostnameType(builtins.str, Enum):
     RESOURCE_NAME = "resource-name"
 
 
+@pulumi.type_token("aws-native:ec2:IpamMeteredAccount")
 class IpamMeteredAccount(builtins.str, Enum):
     """
     A metered account is an account that is charged for active IP addresses managed in IPAM
@@ -446,6 +477,7 @@ class IpamMeteredAccount(builtins.str, Enum):
     RESOURCE_OWNER = "resource-owner"
 
 
+@pulumi.type_token("aws-native:ec2:IpamPoolAwsService")
 class IpamPoolAwsService(builtins.str, Enum):
     """
     Limits which service in Amazon Web Services that the pool can be used in.
@@ -453,6 +485,7 @@ class IpamPoolAwsService(builtins.str, Enum):
     EC2 = "ec2"
 
 
+@pulumi.type_token("aws-native:ec2:IpamPoolIpamScopeType")
 class IpamPoolIpamScopeType(builtins.str, Enum):
     """
     Determines whether this scope contains publicly routable space or space for a private network
@@ -461,6 +494,7 @@ class IpamPoolIpamScopeType(builtins.str, Enum):
     PRIVATE = "private"
 
 
+@pulumi.type_token("aws-native:ec2:IpamPoolPublicIpSource")
 class IpamPoolPublicIpSource(builtins.str, Enum):
     """
     The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is `byoip`.
@@ -469,6 +503,7 @@ class IpamPoolPublicIpSource(builtins.str, Enum):
     AMAZON = "amazon"
 
 
+@pulumi.type_token("aws-native:ec2:IpamPoolState")
 class IpamPoolState(builtins.str, Enum):
     """
     The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
@@ -481,6 +516,7 @@ class IpamPoolState(builtins.str, Enum):
     DELETE_COMPLETE = "delete-complete"
 
 
+@pulumi.type_token("aws-native:ec2:IpamScopeType")
 class IpamScopeType(builtins.str, Enum):
     """
     Determines whether this scope contains publicly routable space or space for a private network
@@ -489,6 +525,7 @@ class IpamScopeType(builtins.str, Enum):
     PRIVATE = "private"
 
 
+@pulumi.type_token("aws-native:ec2:IpamTier")
 class IpamTier(builtins.str, Enum):
     """
     The tier of the IPAM.
@@ -497,6 +534,7 @@ class IpamTier(builtins.str, Enum):
     ADVANCED = "advanced"
 
 
+@pulumi.type_token("aws-native:ec2:KeyPairKeyFormat")
 class KeyPairKeyFormat(builtins.str, Enum):
     """
     The format of the key pair.
@@ -506,6 +544,7 @@ class KeyPairKeyFormat(builtins.str, Enum):
     PPK = "ppk"
 
 
+@pulumi.type_token("aws-native:ec2:KeyPairKeyType")
 class KeyPairKeyType(builtins.str, Enum):
     """
     The type of key pair. Note that ED25519 keys are not supported for Windows instances.
@@ -516,6 +555,7 @@ class KeyPairKeyType(builtins.str, Enum):
     ED25519 = "ed25519"
 
 
+@pulumi.type_token("aws-native:ec2:LaunchTemplateCpuOptionsAmdSevSnp")
 class LaunchTemplateCpuOptionsAmdSevSnp(builtins.str, Enum):
     """
     Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
@@ -524,6 +564,7 @@ class LaunchTemplateCpuOptionsAmdSevSnp(builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("aws-native:ec2:NetworkInsightsAccessScopeAnalysisFindingsFound")
 class NetworkInsightsAccessScopeAnalysisFindingsFound(builtins.str, Enum):
     """
     Indicates whether there are findings (true | false | unknown).
@@ -533,6 +574,7 @@ class NetworkInsightsAccessScopeAnalysisFindingsFound(builtins.str, Enum):
     UNKNOWN = "unknown"
 
 
+@pulumi.type_token("aws-native:ec2:NetworkInsightsAccessScopeAnalysisStatus")
 class NetworkInsightsAccessScopeAnalysisStatus(builtins.str, Enum):
     """
     The status of the analysis (running | succeeded | failed).
@@ -542,11 +584,13 @@ class NetworkInsightsAccessScopeAnalysisStatus(builtins.str, Enum):
     SUCCEEDED = "succeeded"
 
 
+@pulumi.type_token("aws-native:ec2:NetworkInsightsAccessScopeProtocol")
 class NetworkInsightsAccessScopeProtocol(builtins.str, Enum):
     TCP = "tcp"
     UDP = "udp"
 
 
+@pulumi.type_token("aws-native:ec2:NetworkInsightsAnalysisStatus")
 class NetworkInsightsAnalysisStatus(builtins.str, Enum):
     """
     The status of the network insights analysis.
@@ -556,11 +600,13 @@ class NetworkInsightsAnalysisStatus(builtins.str, Enum):
     SUCCEEDED = "succeeded"
 
 
+@pulumi.type_token("aws-native:ec2:NetworkInsightsPathProtocol")
 class NetworkInsightsPathProtocol(builtins.str, Enum):
     TCP = "tcp"
     UDP = "udp"
 
 
+@pulumi.type_token("aws-native:ec2:PrefixListAddressFamily")
 class PrefixListAddressFamily(builtins.str, Enum):
     """
     Ip Version of Prefix List.
@@ -569,6 +615,7 @@ class PrefixListAddressFamily(builtins.str, Enum):
     I_PV6 = "IPv6"
 
 
+@pulumi.type_token("aws-native:ec2:RouteServerPeerBgpOptionsPeerLivenessDetection")
 class RouteServerPeerBgpOptionsPeerLivenessDetection(builtins.str, Enum):
     """
     BGP Liveness Detection
@@ -577,6 +624,7 @@ class RouteServerPeerBgpOptionsPeerLivenessDetection(builtins.str, Enum):
     BGP_KEEPALIVE = "bgp-keepalive"
 
 
+@pulumi.type_token("aws-native:ec2:RouteServerPersistRoutes")
 class RouteServerPersistRoutes(builtins.str, Enum):
     """
     Whether to enable persistent routes
@@ -585,6 +633,7 @@ class RouteServerPersistRoutes(builtins.str, Enum):
     DISABLE = "disable"
 
 
+@pulumi.type_token("aws-native:ec2:SecurityGroupVpcAssociationState")
 class SecurityGroupVpcAssociationState(builtins.str, Enum):
     ASSOCIATING = "associating"
     ASSOCIATED = "associated"
@@ -594,6 +643,7 @@ class SecurityGroupVpcAssociationState(builtins.str, Enum):
     DISASSOCIATION_FAILED = "disassociation-failed"
 
 
+@pulumi.type_token("aws-native:ec2:SnapshotBlockPublicAccessState")
 class SnapshotBlockPublicAccessState(builtins.str, Enum):
     """
     The state of EBS Snapshot Block Public Access.
@@ -602,6 +652,7 @@ class SnapshotBlockPublicAccessState(builtins.str, Enum):
     BLOCK_NEW_SHARING = "block-new-sharing"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetEbsBlockDeviceVolumeType")
 class SpotFleetEbsBlockDeviceVolumeType(builtins.str, Enum):
     """
     The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
@@ -615,6 +666,7 @@ class SpotFleetEbsBlockDeviceVolumeType(builtins.str, Enum):
     STANDARD = "standard"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem")
 class SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem(builtins.str, Enum):
     AMAZON_WEB_SERVICES = "amazon-web-services"
     AMD = "amd"
@@ -623,6 +675,7 @@ class SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem(builtins.
     XILINX = "xilinx"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorNamesItem")
 class SpotFleetInstanceRequirementsRequestAcceleratorNamesItem(builtins.str, Enum):
     A10G = "a10g"
     A100 = "a100"
@@ -638,12 +691,14 @@ class SpotFleetInstanceRequirementsRequestAcceleratorNamesItem(builtins.str, Enu
     V100 = "v100"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorTypesItem")
 class SpotFleetInstanceRequirementsRequestAcceleratorTypesItem(builtins.str, Enum):
     GPU = "gpu"
     FPGA = "fpga"
     INFERENCE = "inference"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestBareMetal")
 class SpotFleetInstanceRequirementsRequestBareMetal(builtins.str, Enum):
     """
     Indicates whether bare metal instance types must be included, excluded, or required.
@@ -659,6 +714,7 @@ class SpotFleetInstanceRequirementsRequestBareMetal(builtins.str, Enum):
     EXCLUDED = "excluded"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestBurstablePerformance")
 class SpotFleetInstanceRequirementsRequestBurstablePerformance(builtins.str, Enum):
     """
     Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
@@ -674,6 +730,7 @@ class SpotFleetInstanceRequirementsRequestBurstablePerformance(builtins.str, Enu
     EXCLUDED = "excluded"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestCpuManufacturersItem")
 class SpotFleetInstanceRequirementsRequestCpuManufacturersItem(builtins.str, Enum):
     INTEL = "intel"
     AMD = "amd"
@@ -681,11 +738,13 @@ class SpotFleetInstanceRequirementsRequestCpuManufacturersItem(builtins.str, Enu
     APPLE = "apple"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestInstanceGenerationsItem")
 class SpotFleetInstanceRequirementsRequestInstanceGenerationsItem(builtins.str, Enum):
     CURRENT = "current"
     PREVIOUS = "previous"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestLocalStorage")
 class SpotFleetInstanceRequirementsRequestLocalStorage(builtins.str, Enum):
     """
     Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
@@ -701,11 +760,13 @@ class SpotFleetInstanceRequirementsRequestLocalStorage(builtins.str, Enum):
     EXCLUDED = "excluded"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestLocalStorageTypesItem")
 class SpotFleetInstanceRequirementsRequestLocalStorageTypesItem(builtins.str, Enum):
     HDD = "hdd"
     SSD = "ssd"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetRequestConfigDataAllocationStrategy")
 class SpotFleetRequestConfigDataAllocationStrategy(builtins.str, Enum):
     """
     The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet launch configuration. For more information, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html) in the *Amazon EC2 User Guide* .
@@ -726,6 +787,7 @@ class SpotFleetRequestConfigDataAllocationStrategy(builtins.str, Enum):
     PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetRequestConfigDataExcessCapacityTerminationPolicy")
 class SpotFleetRequestConfigDataExcessCapacityTerminationPolicy(builtins.str, Enum):
     """
     Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.
@@ -736,6 +798,7 @@ class SpotFleetRequestConfigDataExcessCapacityTerminationPolicy(builtins.str, En
     NO_TERMINATION = "NoTermination"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetRequestConfigDataInstanceInterruptionBehavior")
 class SpotFleetRequestConfigDataInstanceInterruptionBehavior(builtins.str, Enum):
     """
     The behavior when a Spot Instance is interrupted. The default is `terminate` .
@@ -745,6 +808,7 @@ class SpotFleetRequestConfigDataInstanceInterruptionBehavior(builtins.str, Enum)
     TERMINATE = "terminate"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetRequestConfigDataTargetCapacityUnitType")
 class SpotFleetRequestConfigDataTargetCapacityUnitType(builtins.str, Enum):
     """
     The unit for the target capacity. You can specify this parameter only when using attribute-based instance type selection.
@@ -756,6 +820,7 @@ class SpotFleetRequestConfigDataTargetCapacityUnitType(builtins.str, Enum):
     UNITS = "units"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetRequestConfigDataType")
 class SpotFleetRequestConfigDataType(builtins.str, Enum):
     """
     The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is `request` , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is `maintain` , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: `maintain` . `instant` is listed but is not used by Spot Fleet.
@@ -764,6 +829,7 @@ class SpotFleetRequestConfigDataType(builtins.str, Enum):
     REQUEST = "request"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetSpotCapacityRebalanceReplacementStrategy")
 class SpotFleetSpotCapacityRebalanceReplacementStrategy(builtins.str, Enum):
     """
     The replacement strategy to use. Only available for fleets of type `maintain` .
@@ -776,6 +842,7 @@ class SpotFleetSpotCapacityRebalanceReplacementStrategy(builtins.str, Enum):
     LAUNCH_BEFORE_TERMINATE = "launch-before-terminate"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetSpotPlacementTenancy")
 class SpotFleetSpotPlacementTenancy(builtins.str, Enum):
     """
     The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for Spot Instances.
@@ -785,6 +852,7 @@ class SpotFleetSpotPlacementTenancy(builtins.str, Enum):
     HOST = "host"
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleetTagSpecificationResourceType")
 class SpotFleetTagSpecificationResourceType(builtins.str, Enum):
     """
     The type of resource. Currently, the only resource type that is supported is `instance` . To tag the Spot Fleet request on creation, use the `TagSpecifications` parameter in `[SpotFleetRequestConfigData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html)` .
@@ -838,6 +906,7 @@ class SpotFleetTagSpecificationResourceType(builtins.str, Enum):
     VPN_GATEWAY = "vpn-gateway"
 
 
+@pulumi.type_token("aws-native:ec2:VpcBlockPublicAccessExclusionInternetGatewayExclusionMode")
 class VpcBlockPublicAccessExclusionInternetGatewayExclusionMode(builtins.str, Enum):
     """
     The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
@@ -846,6 +915,7 @@ class VpcBlockPublicAccessExclusionInternetGatewayExclusionMode(builtins.str, En
     ALLOW_EGRESS = "allow-egress"
 
 
+@pulumi.type_token("aws-native:ec2:VpcBlockPublicAccessOptionsInternetGatewayBlockMode")
 class VpcBlockPublicAccessOptionsInternetGatewayBlockMode(builtins.str, Enum):
     """
     The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value
@@ -854,6 +924,7 @@ class VpcBlockPublicAccessOptionsInternetGatewayBlockMode(builtins.str, Enum):
     BLOCK_INGRESS = "block-ingress"
 
 
+@pulumi.type_token("aws-native:ec2:VpcEndpointDnsOptionsSpecificationDnsRecordIpType")
 class VpcEndpointDnsOptionsSpecificationDnsRecordIpType(builtins.str, Enum):
     """
     The DNS records created for the endpoint.
@@ -865,6 +936,7 @@ class VpcEndpointDnsOptionsSpecificationDnsRecordIpType(builtins.str, Enum):
     NOT_SPECIFIED = "not-specified"
 
 
+@pulumi.type_token("aws-native:ec2:VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint")
 class VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint(builtins.str, Enum):
     """
     Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
@@ -874,6 +946,7 @@ class VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint
     NOT_SPECIFIED = "NotSpecified"
 
 
+@pulumi.type_token("aws-native:ec2:VpcEndpointIpAddressType")
 class VpcEndpointIpAddressType(builtins.str, Enum):
     """
     The supported IP address types.
@@ -884,11 +957,13 @@ class VpcEndpointIpAddressType(builtins.str, Enum):
     NOT_SPECIFIED = "not-specified"
 
 
+@pulumi.type_token("aws-native:ec2:VpcEndpointServiceIpAddressType")
 class VpcEndpointServiceIpAddressType(builtins.str, Enum):
     IPV4 = "ipv4"
     IPV6 = "ipv6"
 
 
+@pulumi.type_token("aws-native:ec2:VpcEndpointType")
 class VpcEndpointType(builtins.str, Enum):
     """
     The type of endpoint.
@@ -901,6 +976,7 @@ class VpcEndpointType(builtins.str, Enum):
     RESOURCE = "Resource"
 
 
+@pulumi.type_token("aws-native:ec2:VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat")
 class VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat(builtins.str, Enum):
     """
     Set log format. Default format is ``json``.
@@ -910,6 +986,7 @@ class VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat(builtins.str
     TEXT = "text"
 
 
+@pulumi.type_token("aws-native:ec2:VpnConnectionIkeVersionsRequestListValueValue")
 class VpnConnectionIkeVersionsRequestListValueValue(builtins.str, Enum):
     """
     The IKE version.
@@ -918,6 +995,7 @@ class VpnConnectionIkeVersionsRequestListValueValue(builtins.str, Enum):
     IKEV2 = "ikev2"
 
 
+@pulumi.type_token("aws-native:ec2:VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue")
 class VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue(builtins.str, Enum):
     """
     The value for the encryption algorithm.
@@ -928,6 +1006,7 @@ class VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue(builtins.str,
     AES256_GCM16 = "AES256-GCM-16"
 
 
+@pulumi.type_token("aws-native:ec2:VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue")
 class VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue(builtins.str, Enum):
     """
     The value for the integrity algorithm.
@@ -938,6 +1017,7 @@ class VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue(builtins.str, 
     SHA2512 = "SHA2-512"
 
 
+@pulumi.type_token("aws-native:ec2:VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue")
 class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue(builtins.str, Enum):
     """
     The encryption algorithm.
@@ -948,6 +1028,7 @@ class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue(builtins.str,
     AES256_GCM16 = "AES256-GCM-16"
 
 
+@pulumi.type_token("aws-native:ec2:VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue")
 class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue(builtins.str, Enum):
     """
     The integrity algorithm.
@@ -958,6 +1039,7 @@ class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue(builtins.str, 
     SHA2512 = "SHA2-512"
 
 
+@pulumi.type_token("aws-native:ec2:VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction")
 class VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction(builtins.str, Enum):
     """
     The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
@@ -969,6 +1051,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction(builtins.str, E
     RESTART = "restart"
 
 
+@pulumi.type_token("aws-native:ec2:VpnConnectionVpnTunnelOptionsSpecificationStartupAction")
 class VpnConnectionVpnTunnelOptionsSpecificationStartupAction(builtins.str, Enum):
     """
     The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.

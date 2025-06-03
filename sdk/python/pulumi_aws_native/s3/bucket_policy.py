@@ -59,10 +59,8 @@ class BucketPolicyArgs:
         pulumi.set(self, "policy_document", value)
 
 
+@pulumi.type_token("aws-native:s3:BucketPolicy")
 class BucketPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:s3:BucketPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

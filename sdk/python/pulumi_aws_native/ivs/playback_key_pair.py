@@ -75,10 +75,8 @@ class PlaybackKeyPairArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ivs:PlaybackKeyPair")
 class PlaybackKeyPair(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ivs:PlaybackKeyPair"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

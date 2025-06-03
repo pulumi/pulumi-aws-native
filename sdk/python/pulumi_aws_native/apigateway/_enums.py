@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -20,6 +20,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:apigateway:DocumentationPartLocationType")
 class DocumentationPartLocationType(builtins.str, Enum):
     """
     The type of API entity to which the documentation content applies. Valid values are `API` , `AUTHORIZER` , `MODEL` , `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . Content inheritance does not apply to any entity of the `API` , `AUTHORIZER` , `METHOD` , `MODEL` , `REQUEST_BODY` , or `RESOURCE` type.
@@ -38,6 +39,7 @@ class DocumentationPartLocationType(builtins.str, Enum):
     RESPONSE_BODY = "RESPONSE_BODY"
 
 
+@pulumi.type_token("aws-native:apigateway:DomainNameAccessAssociationAccessAssociationSourceType")
 class DomainNameAccessAssociationAccessAssociationSourceType(builtins.str, Enum):
     """
     The source type of the domain name access association resource.
@@ -45,12 +47,14 @@ class DomainNameAccessAssociationAccessAssociationSourceType(builtins.str, Enum)
     VPCE = "VPCE"
 
 
+@pulumi.type_token("aws-native:apigateway:DomainNameRoutingMode")
 class DomainNameRoutingMode(builtins.str, Enum):
     BASE_PATH_MAPPING_ONLY = "BASE_PATH_MAPPING_ONLY"
     ROUTING_RULE_THEN_BASE_PATH_MAPPING = "ROUTING_RULE_THEN_BASE_PATH_MAPPING"
     ROUTING_RULE_ONLY = "ROUTING_RULE_ONLY"
 
 
+@pulumi.type_token("aws-native:apigateway:DomainNameV2RoutingMode")
 class DomainNameV2RoutingMode(builtins.str, Enum):
     """
     The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
@@ -60,6 +64,7 @@ class DomainNameV2RoutingMode(builtins.str, Enum):
     ROUTING_RULE_ONLY = "ROUTING_RULE_ONLY"
 
 
+@pulumi.type_token("aws-native:apigateway:MethodIntegrationConnectionType")
 class MethodIntegrationConnectionType(builtins.str, Enum):
     """
     The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
@@ -68,6 +73,7 @@ class MethodIntegrationConnectionType(builtins.str, Enum):
     VPC_LINK = "VPC_LINK"
 
 
+@pulumi.type_token("aws-native:apigateway:MethodIntegrationContentHandling")
 class MethodIntegrationContentHandling(builtins.str, Enum):
     """
     Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
@@ -78,6 +84,7 @@ class MethodIntegrationContentHandling(builtins.str, Enum):
     CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
 
 
+@pulumi.type_token("aws-native:apigateway:MethodIntegrationPassthroughBehavior")
 class MethodIntegrationPassthroughBehavior(builtins.str, Enum):
     """
     Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
@@ -87,6 +94,7 @@ class MethodIntegrationPassthroughBehavior(builtins.str, Enum):
     NEVER = "NEVER"
 
 
+@pulumi.type_token("aws-native:apigateway:MethodIntegrationResponseContentHandling")
 class MethodIntegrationResponseContentHandling(builtins.str, Enum):
     """
     Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
@@ -97,6 +105,7 @@ class MethodIntegrationResponseContentHandling(builtins.str, Enum):
     CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
 
 
+@pulumi.type_token("aws-native:apigateway:MethodIntegrationType")
 class MethodIntegrationType(builtins.str, Enum):
     """
     Specifies an API method integration type. The valid value is one of the following:
@@ -110,6 +119,7 @@ class MethodIntegrationType(builtins.str, Enum):
     MOCK = "MOCK"
 
 
+@pulumi.type_token("aws-native:apigateway:UsagePlanKeyKeyType")
 class UsagePlanKeyKeyType(builtins.str, Enum):
     """
     The type of a UsagePlanKey resource for a plan customer.

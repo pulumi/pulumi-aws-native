@@ -126,10 +126,8 @@ class RoomArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ivschat:Room")
 class Room(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ivschat:Room"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

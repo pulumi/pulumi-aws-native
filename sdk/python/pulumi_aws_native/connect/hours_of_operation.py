@@ -139,10 +139,8 @@ class HoursOfOperationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:connect:HoursOfOperation")
 class HoursOfOperation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:HoursOfOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

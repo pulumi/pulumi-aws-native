@@ -190,10 +190,8 @@ class CapacityReservationFleetArgs:
         pulumi.set(self, "total_target_capacity", value)
 
 
+@pulumi.type_token("aws-native:ec2:CapacityReservationFleet")
 class CapacityReservationFleet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:CapacityReservationFleet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

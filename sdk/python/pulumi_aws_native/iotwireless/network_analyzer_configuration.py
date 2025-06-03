@@ -126,10 +126,8 @@ class NetworkAnalyzerConfigurationArgs:
         pulumi.set(self, "wireless_gateways", value)
 
 
+@pulumi.type_token("aws-native:iotwireless:NetworkAnalyzerConfiguration")
 class NetworkAnalyzerConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotwireless:NetworkAnalyzerConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

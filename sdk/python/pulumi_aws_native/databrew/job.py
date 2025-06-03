@@ -348,10 +348,8 @@ class JobArgs:
         pulumi.set(self, "validation_configurations", value)
 
 
+@pulumi.type_token("aws-native:databrew:Job")
 class Job(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:databrew:Job"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

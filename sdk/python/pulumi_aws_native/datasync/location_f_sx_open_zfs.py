@@ -108,10 +108,8 @@ class LocationFSxOpenZfsArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:datasync:LocationFSxOpenZfs")
 class LocationFSxOpenZfs(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datasync:LocationFSxOpenZfs"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

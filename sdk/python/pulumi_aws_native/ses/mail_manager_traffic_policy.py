@@ -112,10 +112,8 @@ class MailManagerTrafficPolicyArgs:
         pulumi.set(self, "traffic_policy_name", value)
 
 
+@pulumi.type_token("aws-native:ses:MailManagerTrafficPolicy")
 class MailManagerTrafficPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ses:MailManagerTrafficPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

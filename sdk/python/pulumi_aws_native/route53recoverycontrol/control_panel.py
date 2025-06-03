@@ -76,10 +76,8 @@ class ControlPanelArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:route53recoverycontrol:ControlPanel")
 class ControlPanel(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:route53recoverycontrol:ControlPanel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

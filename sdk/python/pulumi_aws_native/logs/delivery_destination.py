@@ -117,10 +117,8 @@ class DeliveryDestinationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:logs:DeliveryDestination")
 class DeliveryDestination(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:logs:DeliveryDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -318,10 +318,8 @@ class VolumeArgs:
         pulumi.set(self, "volume_type", value)
 
 
+@pulumi.type_token("aws-native:ec2:Volume")
 class Volume(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:Volume"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

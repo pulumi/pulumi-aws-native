@@ -155,10 +155,8 @@ class EventTriggerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:customerprofiles:EventTrigger")
 class EventTrigger(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:customerprofiles:EventTrigger"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

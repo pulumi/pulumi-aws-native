@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:personalize:DatasetGroupDomain")
 class DatasetGroupDomain(builtins.str, Enum):
     """
     The domain of a Domain dataset group.
@@ -22,6 +23,7 @@ class DatasetGroupDomain(builtins.str, Enum):
     VIDEO_ON_DEMAND = "VIDEO_ON_DEMAND"
 
 
+@pulumi.type_token("aws-native:personalize:DatasetType")
 class DatasetType(builtins.str, Enum):
     """
     The type of dataset
@@ -31,6 +33,7 @@ class DatasetType(builtins.str, Enum):
     USERS = "Users"
 
 
+@pulumi.type_token("aws-native:personalize:SchemaDomain")
 class SchemaDomain(builtins.str, Enum):
     """
     The domain of a Domain dataset group.
@@ -39,6 +42,7 @@ class SchemaDomain(builtins.str, Enum):
     VIDEO_ON_DEMAND = "VIDEO_ON_DEMAND"
 
 
+@pulumi.type_token("aws-native:personalize:SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType")
 class SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType(builtins.str, Enum):
     """
     The type of the metric. Valid values are Maximize and Minimize.

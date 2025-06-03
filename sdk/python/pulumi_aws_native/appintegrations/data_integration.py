@@ -155,10 +155,8 @@ class DataIntegrationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:appintegrations:DataIntegration")
 class DataIntegration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appintegrations:DataIntegration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

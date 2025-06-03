@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:auditmanager:AssessmentDelegationStatus")
 class AssessmentDelegationStatus(builtins.str, Enum):
     """
     The status of the delegation.
@@ -23,6 +24,7 @@ class AssessmentDelegationStatus(builtins.str, Enum):
     COMPLETE = "COMPLETE"
 
 
+@pulumi.type_token("aws-native:auditmanager:AssessmentReportDestinationType")
 class AssessmentReportDestinationType(builtins.str, Enum):
     """
     The destination type, such as Amazon S3.
@@ -30,6 +32,7 @@ class AssessmentReportDestinationType(builtins.str, Enum):
     S3 = "S3"
 
 
+@pulumi.type_token("aws-native:auditmanager:AssessmentRoleType")
 class AssessmentRoleType(builtins.str, Enum):
     """
      The IAM role type.
@@ -38,6 +41,7 @@ class AssessmentRoleType(builtins.str, Enum):
     RESOURCE_OWNER = "RESOURCE_OWNER"
 
 
+@pulumi.type_token("aws-native:auditmanager:AssessmentStatus")
 class AssessmentStatus(builtins.str, Enum):
     """
     The status of the specified assessment. 

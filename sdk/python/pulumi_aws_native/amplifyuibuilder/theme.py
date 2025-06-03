@@ -123,10 +123,8 @@ class ThemeArgs:
         pulumi.set(self, "values", value)
 
 
+@pulumi.type_token("aws-native:amplifyuibuilder:Theme")
 class Theme(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:amplifyuibuilder:Theme"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

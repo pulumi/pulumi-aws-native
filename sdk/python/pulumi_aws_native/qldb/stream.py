@@ -157,10 +157,8 @@ class StreamArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:qldb:Stream")
 class Stream(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:qldb:Stream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

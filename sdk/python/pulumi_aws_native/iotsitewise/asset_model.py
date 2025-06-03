@@ -158,10 +158,8 @@ class AssetModelArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iotsitewise:AssetModel")
 class AssetModel(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotsitewise:AssetModel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

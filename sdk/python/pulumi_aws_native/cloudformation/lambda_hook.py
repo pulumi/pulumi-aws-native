@@ -150,10 +150,8 @@ class LambdaHookArgs:
         pulumi.set(self, "target_filters", value)
 
 
+@pulumi.type_token("aws-native:cloudformation:LambdaHook")
 class LambdaHook(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudformation:LambdaHook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

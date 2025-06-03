@@ -174,10 +174,8 @@ class NatGatewayArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:NatGateway")
 class NatGateway(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:NatGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

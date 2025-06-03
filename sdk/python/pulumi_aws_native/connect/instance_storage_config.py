@@ -137,10 +137,8 @@ class InstanceStorageConfigArgs:
         pulumi.set(self, "s3_config", value)
 
 
+@pulumi.type_token("aws-native:connect:InstanceStorageConfig")
 class InstanceStorageConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:InstanceStorageConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

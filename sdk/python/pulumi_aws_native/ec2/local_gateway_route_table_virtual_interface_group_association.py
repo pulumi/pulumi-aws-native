@@ -73,10 +73,8 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation")
 class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:LocalGatewayRouteTableVirtualInterfaceGroupAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

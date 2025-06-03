@@ -90,10 +90,8 @@ class UserHierarchyGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:connect:UserHierarchyGroup")
 class UserHierarchyGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:UserHierarchyGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

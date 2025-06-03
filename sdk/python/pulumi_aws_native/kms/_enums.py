@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:kms:KeyOrigin")
 class KeyOrigin(builtins.str, Enum):
     """
     The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material.
@@ -24,6 +25,7 @@ class KeyOrigin(builtins.str, Enum):
     EXTERNAL = "EXTERNAL"
 
 
+@pulumi.type_token("aws-native:kms:KeySpec")
 class KeySpec(builtins.str, Enum):
     """
     Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*.
@@ -71,6 +73,7 @@ class KeySpec(builtins.str, Enum):
     SM2 = "SM2"
 
 
+@pulumi.type_token("aws-native:kms:KeyUsage")
 class KeyUsage(builtins.str, Enum):
     """
     Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.

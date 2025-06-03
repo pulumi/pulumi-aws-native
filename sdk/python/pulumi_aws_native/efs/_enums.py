@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:efs:FileSystemBackupPolicyStatus")
 class FileSystemBackupPolicyStatus(builtins.str, Enum):
     """
     Set the backup policy status for the file system.
@@ -22,6 +23,7 @@ class FileSystemBackupPolicyStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:efs:FileSystemProtectionReplicationOverwriteProtection")
 class FileSystemProtectionReplicationOverwriteProtection(builtins.str, Enum):
     """
     The status of the file system's replication overwrite protection.

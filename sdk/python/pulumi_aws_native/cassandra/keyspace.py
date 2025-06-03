@@ -108,10 +108,8 @@ class KeyspaceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:cassandra:Keyspace")
 class Keyspace(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cassandra:Keyspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -89,10 +89,8 @@ class DomainNameAccessAssociationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:apigateway:DomainNameAccessAssociation")
 class DomainNameAccessAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigateway:DomainNameAccessAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

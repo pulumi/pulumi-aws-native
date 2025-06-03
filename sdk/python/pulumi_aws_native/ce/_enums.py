@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -16,6 +16,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:ce:AnomalyMonitorMonitorDimension")
 class AnomalyMonitorMonitorDimension(builtins.str, Enum):
     """
     The dimensions to evaluate
@@ -23,6 +24,7 @@ class AnomalyMonitorMonitorDimension(builtins.str, Enum):
     SERVICE = "SERVICE"
 
 
+@pulumi.type_token("aws-native:ce:AnomalyMonitorMonitorType")
 class AnomalyMonitorMonitorType(builtins.str, Enum):
     """
     The possible type values.
@@ -31,6 +33,7 @@ class AnomalyMonitorMonitorType(builtins.str, Enum):
     CUSTOM = "CUSTOM"
 
 
+@pulumi.type_token("aws-native:ce:AnomalySubscriptionFrequency")
 class AnomalySubscriptionFrequency(builtins.str, Enum):
     """
     The frequency at which anomaly reports are sent over email. 
@@ -40,6 +43,7 @@ class AnomalySubscriptionFrequency(builtins.str, Enum):
     WEEKLY = "WEEKLY"
 
 
+@pulumi.type_token("aws-native:ce:AnomalySubscriptionSubscriberStatus")
 class AnomalySubscriptionSubscriberStatus(builtins.str, Enum):
     """
     Indicates if the subscriber accepts the notifications.
@@ -48,6 +52,7 @@ class AnomalySubscriptionSubscriberStatus(builtins.str, Enum):
     DECLINED = "DECLINED"
 
 
+@pulumi.type_token("aws-native:ce:AnomalySubscriptionSubscriberType")
 class AnomalySubscriptionSubscriberType(builtins.str, Enum):
     """
     The notification delivery channel.
@@ -56,6 +61,7 @@ class AnomalySubscriptionSubscriberType(builtins.str, Enum):
     SNS = "SNS"
 
 
+@pulumi.type_token("aws-native:ce:CostCategoryRuleVersion")
 class CostCategoryRuleVersion(builtins.str, Enum):
     """
     The rule schema version in this particular Cost Category.

@@ -235,10 +235,8 @@ class MethodArgs:
         pulumi.set(self, "request_validator_id", value)
 
 
+@pulumi.type_token("aws-native:apigateway:Method")
 class Method(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:apigateway:Method"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

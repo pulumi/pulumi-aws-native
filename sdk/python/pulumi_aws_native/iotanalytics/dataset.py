@@ -161,10 +161,8 @@ class DatasetArgs:
         pulumi.set(self, "versioning_configuration", value)
 
 
+@pulumi.type_token("aws-native:iotanalytics:Dataset")
 class Dataset(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iotanalytics:Dataset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

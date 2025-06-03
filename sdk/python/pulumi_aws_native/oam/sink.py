@@ -77,10 +77,8 @@ class SinkArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:oam:Sink")
 class Sink(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:oam:Sink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

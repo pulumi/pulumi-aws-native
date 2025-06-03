@@ -92,10 +92,8 @@ class SchemaMappingArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:entityresolution:SchemaMapping")
 class SchemaMapping(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:entityresolution:SchemaMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

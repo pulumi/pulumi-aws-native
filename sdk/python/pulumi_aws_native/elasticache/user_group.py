@@ -89,10 +89,8 @@ class UserGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:elasticache:UserGroup")
 class UserGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:elasticache:UserGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

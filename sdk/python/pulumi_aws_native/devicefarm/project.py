@@ -93,10 +93,8 @@ class ProjectArgs:
         pulumi.set(self, "vpc_config", value)
 
 
+@pulumi.type_token("aws-native:devicefarm:Project")
 class Project(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:devicefarm:Project"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -290,10 +290,8 @@ class NamespaceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:redshiftserverless:Namespace")
 class Namespace(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:redshiftserverless:Namespace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:rbin:RuleResourceType")
 class RuleResourceType(builtins.str, Enum):
     """
     The resource type retained by the retention rule.
@@ -21,6 +22,7 @@ class RuleResourceType(builtins.str, Enum):
     EC2_IMAGE = "EC2_IMAGE"
 
 
+@pulumi.type_token("aws-native:rbin:RuleRetentionPeriodRetentionPeriodUnit")
 class RuleRetentionPeriodRetentionPeriodUnit(builtins.str, Enum):
     """
     The retention period unit of the rule
@@ -28,6 +30,7 @@ class RuleRetentionPeriodRetentionPeriodUnit(builtins.str, Enum):
     DAYS = "DAYS"
 
 
+@pulumi.type_token("aws-native:rbin:RuleUnlockDelayUnlockDelayUnit")
 class RuleUnlockDelayUnlockDelayUnit(builtins.str, Enum):
     """
     The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.

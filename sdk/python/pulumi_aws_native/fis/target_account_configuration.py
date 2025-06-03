@@ -86,10 +86,8 @@ class TargetAccountConfigurationArgs:
         pulumi.set(self, "description", value)
 
 
+@pulumi.type_token("aws-native:fis:TargetAccountConfiguration")
 class TargetAccountConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:fis:TargetAccountConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

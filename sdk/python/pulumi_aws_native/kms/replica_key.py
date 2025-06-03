@@ -125,10 +125,8 @@ class ReplicaKeyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:kms:ReplicaKey")
 class ReplicaKey(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:kms:ReplicaKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

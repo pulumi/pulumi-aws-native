@@ -105,10 +105,8 @@ class DatasetArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:personalize:Dataset")
 class Dataset(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:personalize:Dataset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

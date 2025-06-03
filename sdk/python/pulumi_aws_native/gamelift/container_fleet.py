@@ -305,10 +305,8 @@ class ContainerFleetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleet")
 class ContainerFleet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:gamelift:ContainerFleet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

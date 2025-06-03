@@ -119,10 +119,8 @@ class PackageVersionArgs:
         pulumi.set(self, "updated_latest_patch_version", value)
 
 
+@pulumi.type_token("aws-native:panorama:PackageVersion")
 class PackageVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:panorama:PackageVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

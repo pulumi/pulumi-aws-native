@@ -89,10 +89,8 @@ class ConnectorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:Connector")
 class Connector(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:pcaconnectorad:Connector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

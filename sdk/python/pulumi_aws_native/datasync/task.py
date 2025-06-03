@@ -224,10 +224,8 @@ class TaskArgs:
         pulumi.set(self, "task_report_config", value)
 
 
+@pulumi.type_token("aws-native:datasync:Task")
 class Task(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datasync:Task"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -99,10 +99,8 @@ class GroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:xray:Group")
 class Group(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:xray:Group"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

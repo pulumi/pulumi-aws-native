@@ -122,10 +122,8 @@ class ResiliencyPolicyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:resiliencehub:ResiliencyPolicy")
 class ResiliencyPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:resiliencehub:ResiliencyPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

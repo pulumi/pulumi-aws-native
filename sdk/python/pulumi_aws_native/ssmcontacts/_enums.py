@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:ssmcontacts:ContactChannelChannelType")
 class ContactChannelChannelType(builtins.str, Enum):
     """
     Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
@@ -22,6 +23,7 @@ class ContactChannelChannelType(builtins.str, Enum):
     EMAIL = "EMAIL"
 
 
+@pulumi.type_token("aws-native:ssmcontacts:ContactType")
 class ContactType(builtins.str, Enum):
     """
     Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
@@ -31,6 +33,7 @@ class ContactType(builtins.str, Enum):
     ONCALL_SCHEDULE = "ONCALL_SCHEDULE"
 
 
+@pulumi.type_token("aws-native:ssmcontacts:RotationDayOfWeek")
 class RotationDayOfWeek(builtins.str, Enum):
     """
     The day of the week when weekly recurring on-call shift rotations begin. 

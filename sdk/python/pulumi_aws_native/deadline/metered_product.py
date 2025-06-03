@@ -57,10 +57,8 @@ class MeteredProductArgs:
         pulumi.set(self, "product_id", value)
 
 
+@pulumi.type_token("aws-native:deadline:MeteredProduct")
 class MeteredProduct(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:deadline:MeteredProduct"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

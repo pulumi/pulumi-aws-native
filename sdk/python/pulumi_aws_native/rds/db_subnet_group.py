@@ -101,10 +101,8 @@ class DbSubnetGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:rds:DbSubnetGroup")
 class DbSubnetGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:rds:DbSubnetGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

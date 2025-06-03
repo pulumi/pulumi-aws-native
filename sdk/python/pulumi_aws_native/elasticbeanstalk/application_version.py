@@ -73,10 +73,8 @@ class ApplicationVersionArgs:
         pulumi.set(self, "description", value)
 
 
+@pulumi.type_token("aws-native:elasticbeanstalk:ApplicationVersion")
 class ApplicationVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:elasticbeanstalk:ApplicationVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

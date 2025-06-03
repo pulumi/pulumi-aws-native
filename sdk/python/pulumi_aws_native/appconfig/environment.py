@@ -125,10 +125,8 @@ class EnvironmentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:appconfig:Environment")
 class Environment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appconfig:Environment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

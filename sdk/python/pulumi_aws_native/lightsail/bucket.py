@@ -140,10 +140,8 @@ class BucketArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:lightsail:Bucket")
 class Bucket(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lightsail:Bucket"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

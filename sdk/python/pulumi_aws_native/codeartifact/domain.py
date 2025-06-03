@@ -95,10 +95,8 @@ class DomainArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:codeartifact:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:codeartifact:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

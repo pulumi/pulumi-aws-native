@@ -92,10 +92,8 @@ class FrameworkArgs:
         pulumi.set(self, "framework_tags", value)
 
 
+@pulumi.type_token("aws-native:backup:Framework")
 class Framework(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:backup:Framework"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

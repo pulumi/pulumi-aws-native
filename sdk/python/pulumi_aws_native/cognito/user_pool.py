@@ -544,10 +544,8 @@ class UserPoolArgs:
         pulumi.set(self, "web_authn_user_verification", value)
 
 
+@pulumi.type_token("aws-native:cognito:UserPool")
 class UserPool(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cognito:UserPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

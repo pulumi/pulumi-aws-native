@@ -59,10 +59,8 @@ class VdmAttributesArgs:
         pulumi.set(self, "guardian_attributes", value)
 
 
+@pulumi.type_token("aws-native:ses:VdmAttributes")
 class VdmAttributes(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ses:VdmAttributes"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

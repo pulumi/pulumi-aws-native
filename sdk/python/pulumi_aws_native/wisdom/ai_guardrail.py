@@ -201,10 +201,8 @@ class AiGuardrailArgs:
         pulumi.set(self, "word_policy_config", value)
 
 
+@pulumi.type_token("aws-native:wisdom:AiGuardrail")
 class AiGuardrail(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:wisdom:AiGuardrail"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -139,10 +139,8 @@ class IdMappingWorkflowArgs:
         pulumi.set(self, "workflow_name", value)
 
 
+@pulumi.type_token("aws-native:entityresolution:IdMappingWorkflow")
 class IdMappingWorkflow(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:entityresolution:IdMappingWorkflow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

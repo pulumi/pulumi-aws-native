@@ -89,10 +89,8 @@ class UserProfileArgs:
         pulumi.set(self, "user_type", value)
 
 
+@pulumi.type_token("aws-native:datazone:UserProfile")
 class UserProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datazone:UserProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

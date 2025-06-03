@@ -143,10 +143,8 @@ class CustomerGatewayArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:CustomerGateway")
 class CustomerGateway(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:CustomerGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

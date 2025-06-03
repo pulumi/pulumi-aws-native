@@ -500,10 +500,8 @@ class ClusterArgs:
         pulumi.set(self, "tls_enabled", value)
 
 
+@pulumi.type_token("aws-native:memorydb:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:memorydb:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

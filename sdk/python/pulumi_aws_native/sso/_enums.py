@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,6 +17,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:sso:ApplicationAssignmentPrincipalType")
 class ApplicationAssignmentPrincipalType(builtins.str, Enum):
     """
     The entity type for which the assignment will be created.
@@ -25,6 +26,7 @@ class ApplicationAssignmentPrincipalType(builtins.str, Enum):
     GROUP = "GROUP"
 
 
+@pulumi.type_token("aws-native:sso:ApplicationPortalOptionsConfigurationVisibility")
 class ApplicationPortalOptionsConfigurationVisibility(builtins.str, Enum):
     """
     Indicates whether this application is visible in the access portal
@@ -33,6 +35,7 @@ class ApplicationPortalOptionsConfigurationVisibility(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:sso:ApplicationSignInOptionsOrigin")
 class ApplicationSignInOptionsOrigin(builtins.str, Enum):
     """
     This determines how IAM Identity Center navigates the user to the target application
@@ -41,6 +44,7 @@ class ApplicationSignInOptionsOrigin(builtins.str, Enum):
     APPLICATION = "APPLICATION"
 
 
+@pulumi.type_token("aws-native:sso:ApplicationStatus")
 class ApplicationStatus(builtins.str, Enum):
     """
     Specifies whether the application is enabled or disabled
@@ -49,6 +53,7 @@ class ApplicationStatus(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:sso:AssignmentPrincipalType")
 class AssignmentPrincipalType(builtins.str, Enum):
     """
     The assignee's type, user/group
@@ -57,6 +62,7 @@ class AssignmentPrincipalType(builtins.str, Enum):
     GROUP = "GROUP"
 
 
+@pulumi.type_token("aws-native:sso:AssignmentTargetType")
 class AssignmentTargetType(builtins.str, Enum):
     """
     The type of resource to be provsioned to, only aws account now
@@ -64,6 +70,7 @@ class AssignmentTargetType(builtins.str, Enum):
     AWS_ACCOUNT = "AWS_ACCOUNT"
 
 
+@pulumi.type_token("aws-native:sso:InstanceStatus")
 class InstanceStatus(builtins.str, Enum):
     """
     The status of the Identity Center (SSO) Instance, create_in_progress/delete_in_progress/active

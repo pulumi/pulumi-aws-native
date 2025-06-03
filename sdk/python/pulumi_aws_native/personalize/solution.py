@@ -139,10 +139,8 @@ class SolutionArgs:
         pulumi.set(self, "solution_config", value)
 
 
+@pulumi.type_token("aws-native:personalize:Solution")
 class Solution(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:personalize:Solution"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

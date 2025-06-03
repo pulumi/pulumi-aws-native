@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -17,25 +17,30 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:refactorspaces:ApplicationApiGatewayEndpointType")
 class ApplicationApiGatewayEndpointType(builtins.str, Enum):
     REGIONAL = "REGIONAL"
     PRIVATE = "PRIVATE"
 
 
+@pulumi.type_token("aws-native:refactorspaces:ApplicationProxyType")
 class ApplicationProxyType(builtins.str, Enum):
     API_GATEWAY = "API_GATEWAY"
 
 
+@pulumi.type_token("aws-native:refactorspaces:EnvironmentNetworkFabricType")
 class EnvironmentNetworkFabricType(builtins.str, Enum):
     TRANSIT_GATEWAY = "TRANSIT_GATEWAY"
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:refactorspaces:RouteActivationState")
 class RouteActivationState(builtins.str, Enum):
     INACTIVE = "INACTIVE"
     ACTIVE = "ACTIVE"
 
 
+@pulumi.type_token("aws-native:refactorspaces:RouteMethod")
 class RouteMethod(builtins.str, Enum):
     DELETE = "DELETE"
     GET = "GET"
@@ -46,11 +51,13 @@ class RouteMethod(builtins.str, Enum):
     PUT = "PUT"
 
 
+@pulumi.type_token("aws-native:refactorspaces:RouteType")
 class RouteType(builtins.str, Enum):
     DEFAULT = "DEFAULT"
     URI_PATH = "URI_PATH"
 
 
+@pulumi.type_token("aws-native:refactorspaces:ServiceEndpointType")
 class ServiceEndpointType(builtins.str, Enum):
     LAMBDA_ = "LAMBDA"
     URL = "URL"

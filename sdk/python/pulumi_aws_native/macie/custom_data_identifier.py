@@ -138,10 +138,8 @@ class CustomDataIdentifierArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:macie:CustomDataIdentifier")
 class CustomDataIdentifier(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:macie:CustomDataIdentifier"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

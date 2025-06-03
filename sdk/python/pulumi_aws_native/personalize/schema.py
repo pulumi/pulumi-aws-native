@@ -73,10 +73,8 @@ class SchemaArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:personalize:Schema")
 class Schema(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:personalize:Schema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

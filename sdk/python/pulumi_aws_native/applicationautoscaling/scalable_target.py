@@ -240,10 +240,8 @@ class ScalableTargetArgs:
         pulumi.set(self, "suspended_state", value)
 
 
+@pulumi.type_token("aws-native:applicationautoscaling:ScalableTarget")
 class ScalableTarget(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:applicationautoscaling:ScalableTarget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

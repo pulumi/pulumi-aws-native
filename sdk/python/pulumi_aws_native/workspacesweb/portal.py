@@ -280,10 +280,8 @@ class PortalArgs:
         pulumi.set(self, "user_settings_arn", value)
 
 
+@pulumi.type_token("aws-native:workspacesweb:Portal")
 class Portal(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:workspacesweb:Portal"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -154,10 +154,8 @@ class ThemeArgs:
         pulumi.set(self, "version_description", value)
 
 
+@pulumi.type_token("aws-native:quicksight:Theme")
 class Theme(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:quicksight:Theme"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -380,10 +380,8 @@ class DeliveryStreamArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:kinesisfirehose:DeliveryStream")
 class DeliveryStream(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:kinesisfirehose:DeliveryStream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

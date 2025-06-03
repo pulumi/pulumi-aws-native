@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:cleanroomsml:TrainingDatasetColumnType")
 class TrainingDatasetColumnType(builtins.str, Enum):
     USER_ID = "USER_ID"
     ITEM_ID = "ITEM_ID"
@@ -21,9 +22,11 @@ class TrainingDatasetColumnType(builtins.str, Enum):
     NUMERICAL_FEATURE = "NUMERICAL_FEATURE"
 
 
+@pulumi.type_token("aws-native:cleanroomsml:TrainingDatasetDatasetType")
 class TrainingDatasetDatasetType(builtins.str, Enum):
     INTERACTIONS = "INTERACTIONS"
 
 
+@pulumi.type_token("aws-native:cleanroomsml:TrainingDatasetStatus")
 class TrainingDatasetStatus(builtins.str, Enum):
     ACTIVE = "ACTIVE"

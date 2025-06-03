@@ -160,10 +160,8 @@ class RestoreTestingSelectionArgs:
         pulumi.set(self, "validation_window_hours", value)
 
 
+@pulumi.type_token("aws-native:backup:RestoreTestingSelection")
 class RestoreTestingSelection(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:backup:RestoreTestingSelection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

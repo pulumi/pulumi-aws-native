@@ -170,10 +170,8 @@ class HostArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:Host")
 class Host(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:Host"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

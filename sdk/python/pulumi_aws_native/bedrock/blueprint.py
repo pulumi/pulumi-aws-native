@@ -126,10 +126,8 @@ class BlueprintArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:bedrock:Blueprint")
 class Blueprint(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:bedrock:Blueprint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

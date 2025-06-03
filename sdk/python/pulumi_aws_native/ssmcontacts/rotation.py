@@ -122,10 +122,8 @@ class RotationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ssmcontacts:Rotation")
 class Rotation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ssmcontacts:Rotation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

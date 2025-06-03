@@ -183,10 +183,8 @@ class WorkflowVersionArgs:
         pulumi.set(self, "workflow_bucket_owner_id", value)
 
 
+@pulumi.type_token("aws-native:omics:WorkflowVersion")
 class WorkflowVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:omics:WorkflowVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

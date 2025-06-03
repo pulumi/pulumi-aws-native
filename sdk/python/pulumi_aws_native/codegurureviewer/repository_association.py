@@ -123,10 +123,8 @@ class RepositoryAssociationArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:codegurureviewer:RepositoryAssociation")
 class RepositoryAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:codegurureviewer:RepositoryAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

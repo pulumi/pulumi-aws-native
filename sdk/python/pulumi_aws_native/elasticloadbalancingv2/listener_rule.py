@@ -94,10 +94,8 @@ class ListenerRuleArgs:
         pulumi.set(self, "listener_arn", value)
 
 
+@pulumi.type_token("aws-native:elasticloadbalancingv2:ListenerRule")
 class ListenerRule(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:elasticloadbalancingv2:ListenerRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

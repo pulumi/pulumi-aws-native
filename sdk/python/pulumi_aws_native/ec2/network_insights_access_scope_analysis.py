@@ -59,10 +59,8 @@ class NetworkInsightsAccessScopeAnalysisArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:NetworkInsightsAccessScopeAnalysis")
 class NetworkInsightsAccessScopeAnalysis(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:NetworkInsightsAccessScopeAnalysis"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

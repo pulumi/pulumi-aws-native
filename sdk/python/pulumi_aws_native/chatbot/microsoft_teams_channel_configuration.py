@@ -215,10 +215,8 @@ class MicrosoftTeamsChannelConfigurationArgs:
         pulumi.set(self, "user_role_required", value)
 
 
+@pulumi.type_token("aws-native:chatbot:MicrosoftTeamsChannelConfiguration")
 class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:chatbot:MicrosoftTeamsChannelConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

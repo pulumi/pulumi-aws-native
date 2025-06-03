@@ -75,10 +75,8 @@ class AclArgs:
         pulumi.set(self, "user_names", value)
 
 
+@pulumi.type_token("aws-native:memorydb:Acl")
 class Acl(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:memorydb:Acl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

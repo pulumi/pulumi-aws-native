@@ -106,10 +106,8 @@ class OutpostResolverArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:route53resolver:OutpostResolver")
 class OutpostResolver(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:route53resolver:OutpostResolver"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

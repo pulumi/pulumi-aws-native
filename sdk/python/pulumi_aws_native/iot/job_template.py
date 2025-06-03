@@ -240,10 +240,8 @@ class JobTemplateArgs:
         pulumi.set(self, "timeout_config", value)
 
 
+@pulumi.type_token("aws-native:iot:JobTemplate")
 class JobTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:JobTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -75,10 +75,8 @@ class SoftwarePackageArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iot:SoftwarePackage")
 class SoftwarePackage(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:SoftwarePackage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

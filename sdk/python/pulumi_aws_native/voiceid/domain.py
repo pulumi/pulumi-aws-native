@@ -92,10 +92,8 @@ class DomainArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:voiceid:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:voiceid:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

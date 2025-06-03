@@ -334,10 +334,8 @@ class AppArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:amplify:App")
 class App(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:amplify:App"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

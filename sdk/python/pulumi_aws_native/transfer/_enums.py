@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -40,6 +40,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:transfer:AgreementEnforceMessageSigning")
 class AgreementEnforceMessageSigning(builtins.str, Enum):
     """
     Specifies whether to enforce an AS2 message is signed for this agreement.
@@ -48,6 +49,7 @@ class AgreementEnforceMessageSigning(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:transfer:AgreementPreserveFilename")
 class AgreementPreserveFilename(builtins.str, Enum):
     """
     Specifies whether to preserve the filename received for this agreement.
@@ -56,6 +58,7 @@ class AgreementPreserveFilename(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:transfer:AgreementStatus")
 class AgreementStatus(builtins.str, Enum):
     """
     Specifies the status of the agreement.
@@ -64,6 +67,7 @@ class AgreementStatus(builtins.str, Enum):
     INACTIVE = "INACTIVE"
 
 
+@pulumi.type_token("aws-native:transfer:CertificateStatus")
 class CertificateStatus(builtins.str, Enum):
     """
     A status description for the certificate.
@@ -73,6 +77,7 @@ class CertificateStatus(builtins.str, Enum):
     INACTIVE = "INACTIVE"
 
 
+@pulumi.type_token("aws-native:transfer:CertificateType")
 class CertificateType(builtins.str, Enum):
     """
     Describing the type of certificate. With or without a private key.
@@ -81,6 +86,7 @@ class CertificateType(builtins.str, Enum):
     CERTIFICATE_WITH_PRIVATE_KEY = "CERTIFICATE_WITH_PRIVATE_KEY"
 
 
+@pulumi.type_token("aws-native:transfer:CertificateUsage")
 class CertificateUsage(builtins.str, Enum):
     """
     Specifies the usage type for the certificate.
@@ -90,6 +96,7 @@ class CertificateUsage(builtins.str, Enum):
     TLS = "TLS"
 
 
+@pulumi.type_token("aws-native:transfer:ConnectorAs2ConfigPropertiesCompression")
 class ConnectorAs2ConfigPropertiesCompression(builtins.str, Enum):
     """
     Compression setting for this AS2 connector configuration.
@@ -98,6 +105,7 @@ class ConnectorAs2ConfigPropertiesCompression(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:transfer:ConnectorAs2ConfigPropertiesEncryptionAlgorithm")
 class ConnectorAs2ConfigPropertiesEncryptionAlgorithm(builtins.str, Enum):
     """
     Encryption algorithm for this AS2 connector configuration.
@@ -109,6 +117,7 @@ class ConnectorAs2ConfigPropertiesEncryptionAlgorithm(builtins.str, Enum):
     DES_EDE3_CBC = "DES_EDE3_CBC"
 
 
+@pulumi.type_token("aws-native:transfer:ConnectorAs2ConfigPropertiesMdnResponse")
 class ConnectorAs2ConfigPropertiesMdnResponse(builtins.str, Enum):
     """
     MDN Response setting for this AS2 connector configuration.
@@ -117,6 +126,7 @@ class ConnectorAs2ConfigPropertiesMdnResponse(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:transfer:ConnectorAs2ConfigPropertiesMdnSigningAlgorithm")
 class ConnectorAs2ConfigPropertiesMdnSigningAlgorithm(builtins.str, Enum):
     """
     MDN Signing algorithm for this AS2 connector configuration.
@@ -129,6 +139,7 @@ class ConnectorAs2ConfigPropertiesMdnSigningAlgorithm(builtins.str, Enum):
     DEFAULT = "DEFAULT"
 
 
+@pulumi.type_token("aws-native:transfer:ConnectorAs2ConfigPropertiesPreserveContentType")
 class ConnectorAs2ConfigPropertiesPreserveContentType(builtins.str, Enum):
     """
     Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
@@ -137,6 +148,7 @@ class ConnectorAs2ConfigPropertiesPreserveContentType(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:transfer:ConnectorAs2ConfigPropertiesSigningAlgorithm")
 class ConnectorAs2ConfigPropertiesSigningAlgorithm(builtins.str, Enum):
     """
     Signing algorithm for this AS2 connector configuration.
@@ -148,6 +160,7 @@ class ConnectorAs2ConfigPropertiesSigningAlgorithm(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:transfer:ProfileType")
 class ProfileType(builtins.str, Enum):
     """
     Enum specifying whether the profile is local or associated with a trading partner.
@@ -156,10 +169,12 @@ class ProfileType(builtins.str, Enum):
     PARTNER = "PARTNER"
 
 
+@pulumi.type_token("aws-native:transfer:ServerAs2Transport")
 class ServerAs2Transport(builtins.str, Enum):
     HTTP = "HTTP"
 
 
+@pulumi.type_token("aws-native:transfer:ServerDirectoryListingOptimization")
 class ServerDirectoryListingOptimization(builtins.str, Enum):
     """
     Indicates whether optimization to directory listing on S3 servers is used. Disabled by default for compatibility.
@@ -168,17 +183,20 @@ class ServerDirectoryListingOptimization(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:transfer:ServerDomain")
 class ServerDomain(builtins.str, Enum):
     S3 = "S3"
     EFS = "EFS"
 
 
+@pulumi.type_token("aws-native:transfer:ServerEndpointType")
 class ServerEndpointType(builtins.str, Enum):
     PUBLIC = "PUBLIC"
     VPC = "VPC"
     VPC_ENDPOINT = "VPC_ENDPOINT"
 
 
+@pulumi.type_token("aws-native:transfer:ServerIdentityProviderType")
 class ServerIdentityProviderType(builtins.str, Enum):
     SERVICE_MANAGED = "SERVICE_MANAGED"
     API_GATEWAY = "API_GATEWAY"
@@ -186,6 +204,7 @@ class ServerIdentityProviderType(builtins.str, Enum):
     AWS_LAMBDA = "AWS_LAMBDA"
 
 
+@pulumi.type_token("aws-native:transfer:ServerProtocol")
 class ServerProtocol(builtins.str, Enum):
     SFTP = "SFTP"
     FTP = "FTP"
@@ -193,11 +212,13 @@ class ServerProtocol(builtins.str, Enum):
     AS2 = "AS2"
 
 
+@pulumi.type_token("aws-native:transfer:ServerSetStatOption")
 class ServerSetStatOption(builtins.str, Enum):
     DEFAULT = "DEFAULT"
     ENABLE_NO_OP = "ENABLE_NO_OP"
 
 
+@pulumi.type_token("aws-native:transfer:ServerSftpAuthenticationMethods")
 class ServerSftpAuthenticationMethods(builtins.str, Enum):
     PASSWORD = "PASSWORD"
     PUBLIC_KEY = "PUBLIC_KEY"
@@ -205,6 +226,7 @@ class ServerSftpAuthenticationMethods(builtins.str, Enum):
     PUBLIC_KEY_AND_PASSWORD = "PUBLIC_KEY_AND_PASSWORD"
 
 
+@pulumi.type_token("aws-native:transfer:ServerState")
 class ServerState(builtins.str, Enum):
     OFFLINE = "OFFLINE"
     ONLINE = "ONLINE"
@@ -214,27 +236,32 @@ class ServerState(builtins.str, Enum):
     STOP_FAILED = "STOP_FAILED"
 
 
+@pulumi.type_token("aws-native:transfer:ServerTlsSessionResumptionMode")
 class ServerTlsSessionResumptionMode(builtins.str, Enum):
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
     ENFORCED = "ENFORCED"
 
 
+@pulumi.type_token("aws-native:transfer:UserHomeDirectoryType")
 class UserHomeDirectoryType(builtins.str, Enum):
     PATH = "PATH"
     LOGICAL = "LOGICAL"
 
 
+@pulumi.type_token("aws-native:transfer:UserMapType")
 class UserMapType(builtins.str, Enum):
     FILE = "FILE"
     DIRECTORY = "DIRECTORY"
 
 
+@pulumi.type_token("aws-native:transfer:WebAppEndpointPolicy")
 class WebAppEndpointPolicy(builtins.str, Enum):
     STANDARD = "STANDARD"
     FIPS = "FIPS"
 
 
+@pulumi.type_token("aws-native:transfer:WorkflowStepCopyStepDetailsPropertiesOverwriteExisting")
 class WorkflowStepCopyStepDetailsPropertiesOverwriteExisting(builtins.str, Enum):
     """
     A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
@@ -243,6 +270,7 @@ class WorkflowStepCopyStepDetailsPropertiesOverwriteExisting(builtins.str, Enum)
     FALSE = "FALSE"
 
 
+@pulumi.type_token("aws-native:transfer:WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting")
 class WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting(builtins.str, Enum):
     """
     A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
@@ -251,6 +279,7 @@ class WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting(builtins.str, En
     FALSE = "FALSE"
 
 
+@pulumi.type_token("aws-native:transfer:WorkflowStepDecryptStepDetailsPropertiesType")
 class WorkflowStepDecryptStepDetailsPropertiesType(builtins.str, Enum):
     """
     Specifies which encryption method to use.
@@ -258,6 +287,7 @@ class WorkflowStepDecryptStepDetailsPropertiesType(builtins.str, Enum):
     PGP = "PGP"
 
 
+@pulumi.type_token("aws-native:transfer:WorkflowStepType")
 class WorkflowStepType(builtins.str, Enum):
     COPY = "COPY"
     CUSTOM = "CUSTOM"

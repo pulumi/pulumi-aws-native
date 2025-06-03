@@ -120,10 +120,8 @@ class SchemaArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:eventschemas:Schema")
 class Schema(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:eventschemas:Schema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

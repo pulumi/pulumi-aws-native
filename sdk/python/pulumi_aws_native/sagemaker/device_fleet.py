@@ -107,10 +107,8 @@ class DeviceFleetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:DeviceFleet")
 class DeviceFleet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:DeviceFleet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

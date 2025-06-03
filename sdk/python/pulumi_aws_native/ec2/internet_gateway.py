@@ -43,10 +43,8 @@ class InternetGatewayArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:InternetGateway")
 class InternetGateway(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:InternetGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

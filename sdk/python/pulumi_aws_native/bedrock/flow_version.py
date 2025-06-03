@@ -58,10 +58,8 @@ class FlowVersionArgs:
         pulumi.set(self, "description", value)
 
 
+@pulumi.type_token("aws-native:bedrock:FlowVersion")
 class FlowVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:bedrock:FlowVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

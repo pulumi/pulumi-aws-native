@@ -58,10 +58,8 @@ class PolicyArgs:
         pulumi.set(self, "policy_store_id", value)
 
 
+@pulumi.type_token("aws-native:verifiedpermissions:Policy")
 class Policy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:verifiedpermissions:Policy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

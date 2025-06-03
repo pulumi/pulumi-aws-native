@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -11,6 +11,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:oam:LinkResourceType")
 class LinkResourceType(builtins.str, Enum):
     AWS_CLOUD_WATCH_METRIC = "AWS::CloudWatch::Metric"
     AWS_LOGS_LOG_GROUP = "AWS::Logs::LogGroup"

@@ -98,10 +98,8 @@ class ResourceVersionArgs:
         pulumi.set(self, "logging_config", value)
 
 
+@pulumi.type_token("aws-native:cloudformation:ResourceVersion")
 class ResourceVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudformation:ResourceVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

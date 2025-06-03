@@ -95,10 +95,8 @@ class CoreNetworkArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:networkmanager:CoreNetwork")
 class CoreNetwork(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:networkmanager:CoreNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

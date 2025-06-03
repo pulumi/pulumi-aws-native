@@ -123,10 +123,8 @@ class ReplicatorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:msk:Replicator")
 class Replicator(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:msk:Replicator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

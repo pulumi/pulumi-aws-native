@@ -104,10 +104,8 @@ class ServiceNetworkArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:vpclattice:ServiceNetwork")
 class ServiceNetwork(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:vpclattice:ServiceNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

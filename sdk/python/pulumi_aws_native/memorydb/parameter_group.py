@@ -110,10 +110,8 @@ class ParameterGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:memorydb:ParameterGroup")
 class ParameterGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:memorydb:ParameterGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

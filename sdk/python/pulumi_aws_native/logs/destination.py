@@ -87,10 +87,8 @@ class DestinationArgs:
         pulumi.set(self, "destination_policy", value)
 
 
+@pulumi.type_token("aws-native:logs:Destination")
 class Destination(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:logs:Destination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -156,10 +156,8 @@ class ProvisioningTemplateArgs:
         pulumi.set(self, "template_type", value)
 
 
+@pulumi.type_token("aws-native:iot:ProvisioningTemplate")
 class ProvisioningTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:ProvisioningTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

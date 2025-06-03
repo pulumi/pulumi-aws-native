@@ -70,10 +70,8 @@ class ServiceActionAssociationArgs:
         pulumi.set(self, "service_action_id", value)
 
 
+@pulumi.type_token("aws-native:servicecatalog:ServiceActionAssociation")
 class ServiceActionAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:servicecatalog:ServiceActionAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

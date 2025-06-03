@@ -168,10 +168,8 @@ class LogGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:logs:LogGroup")
 class LogGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:logs:LogGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -42,10 +42,8 @@ class KeyGroupArgs:
         pulumi.set(self, "key_group_config", value)
 
 
+@pulumi.type_token("aws-native:cloudfront:KeyGroup")
 class KeyGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cloudfront:KeyGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

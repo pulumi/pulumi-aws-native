@@ -57,10 +57,8 @@ class ResourcePolicyArgs:
         pulumi.set(self, "resource_arn", value)
 
 
+@pulumi.type_token("aws-native:lex:ResourcePolicy")
 class ResourcePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:lex:ResourcePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -138,10 +138,8 @@ class TransitGatewayVpcAttachmentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:TransitGatewayVpcAttachment")
 class TransitGatewayVpcAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:TransitGatewayVpcAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

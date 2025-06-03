@@ -108,10 +108,8 @@ class QuickConnectArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:connect:QuickConnect")
 class QuickConnect(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:QuickConnect"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

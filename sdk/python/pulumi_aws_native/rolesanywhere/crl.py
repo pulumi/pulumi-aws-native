@@ -106,10 +106,8 @@ class CrlArgs:
         pulumi.set(self, "trust_anchor_arn", value)
 
 
+@pulumi.type_token("aws-native:rolesanywhere:Crl")
 class Crl(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:rolesanywhere:Crl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

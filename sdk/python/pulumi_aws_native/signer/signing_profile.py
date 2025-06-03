@@ -93,10 +93,8 @@ class SigningProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:signer:SigningProfile")
 class SigningProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:signer:SigningProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

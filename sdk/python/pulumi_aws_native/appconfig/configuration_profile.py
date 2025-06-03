@@ -188,10 +188,8 @@ class ConfigurationProfileArgs:
         pulumi.set(self, "validators", value)
 
 
+@pulumi.type_token("aws-native:appconfig:ConfigurationProfile")
 class ConfigurationProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:appconfig:ConfigurationProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

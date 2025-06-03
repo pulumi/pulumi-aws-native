@@ -252,10 +252,8 @@ class OriginEndpointArgs:
         pulumi.set(self, "whitelist", value)
 
 
+@pulumi.type_token("aws-native:mediapackage:OriginEndpoint")
 class OriginEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediapackage:OriginEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

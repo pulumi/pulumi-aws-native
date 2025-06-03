@@ -60,10 +60,8 @@ class ScheduleGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:scheduler:ScheduleGroup")
 class ScheduleGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:scheduler:ScheduleGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

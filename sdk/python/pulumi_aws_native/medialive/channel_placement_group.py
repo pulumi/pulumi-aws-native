@@ -92,10 +92,8 @@ class ChannelPlacementGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:medialive:ChannelPlacementGroup")
 class ChannelPlacementGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:medialive:ChannelPlacementGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -142,10 +142,8 @@ class WorkGroupArgs:
         pulumi.set(self, "work_group_configuration_updates", value)
 
 
+@pulumi.type_token("aws-native:athena:WorkGroup")
 class WorkGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:athena:WorkGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -40,10 +40,8 @@ class DefaultViewAssociationArgs:
         pulumi.set(self, "view_arn", value)
 
 
+@pulumi.type_token("aws-native:resourceexplorer2:DefaultViewAssociation")
 class DefaultViewAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:resourceexplorer2:DefaultViewAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -55,10 +55,8 @@ class EnclaveCertificateIamRoleAssociationArgs:
         pulumi.set(self, "role_arn", value)
 
 
+@pulumi.type_token("aws-native:ec2:EnclaveCertificateIamRoleAssociation")
 class EnclaveCertificateIamRoleAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:EnclaveCertificateIamRoleAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

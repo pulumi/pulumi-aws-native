@@ -156,10 +156,8 @@ class SchemaArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:glue:Schema")
 class Schema(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:glue:Schema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -218,10 +218,8 @@ class RoleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iam:Role")
 class Role(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iam:Role"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

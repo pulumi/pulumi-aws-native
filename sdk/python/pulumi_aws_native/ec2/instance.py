@@ -686,10 +686,8 @@ class InstanceArgs:
         pulumi.set(self, "volumes", value)
 
 
+@pulumi.type_token("aws-native:ec2:Instance")
 class Instance(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:Instance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

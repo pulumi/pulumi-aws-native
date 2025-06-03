@@ -90,10 +90,8 @@ class TemplateGroupAccessControlEntryArgs:
         pulumi.set(self, "template_arn", value)
 
 
+@pulumi.type_token("aws-native:pcaconnectorad:TemplateGroupAccessControlEntry")
 class TemplateGroupAccessControlEntry(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:pcaconnectorad:TemplateGroupAccessControlEntry"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

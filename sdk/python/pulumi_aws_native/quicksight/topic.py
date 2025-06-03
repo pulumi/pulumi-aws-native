@@ -152,10 +152,8 @@ class TopicArgs:
         pulumi.set(self, "user_experience_version", value)
 
 
+@pulumi.type_token("aws-native:quicksight:Topic")
 class Topic(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:quicksight:Topic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

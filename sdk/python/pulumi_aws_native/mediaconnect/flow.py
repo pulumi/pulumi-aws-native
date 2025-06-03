@@ -187,10 +187,8 @@ class FlowArgs:
         pulumi.set(self, "vpc_interfaces", value)
 
 
+@pulumi.type_token("aws-native:mediaconnect:Flow")
 class Flow(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediaconnect:Flow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

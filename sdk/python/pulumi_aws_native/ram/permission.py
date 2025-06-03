@@ -93,10 +93,8 @@ class PermissionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ram:Permission")
 class Permission(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ram:Permission"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

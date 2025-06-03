@@ -204,10 +204,8 @@ class DataSourceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:kendra:DataSource")
 class DataSource(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:kendra:DataSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

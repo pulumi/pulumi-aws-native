@@ -43,10 +43,8 @@ class PreferencesArgs:
         pulumi.set(self, "connection_recording_preferences", value)
 
 
+@pulumi.type_token("aws-native:ssmguiconnect:Preferences")
 class Preferences(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ssmguiconnect:Preferences"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

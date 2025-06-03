@@ -76,10 +76,8 @@ class DeviceInitArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:Device")
 class Device(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:Device"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -15,22 +15,26 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:memorydb:ClusterDataTieringStatus")
 class ClusterDataTieringStatus(builtins.str, Enum):
     TRUE = "true"
     FALSE = "false"
 
 
+@pulumi.type_token("aws-native:memorydb:ClusterSupportedIpDiscoveryTypes")
 class ClusterSupportedIpDiscoveryTypes(builtins.str, Enum):
     IPV4 = "ipv4"
     IPV6 = "ipv6"
 
 
+@pulumi.type_token("aws-native:memorydb:ClusterSupportedNetworkTypes")
 class ClusterSupportedNetworkTypes(builtins.str, Enum):
     IPV4 = "ipv4"
     IPV6 = "ipv6"
     DUAL_STACK = "dual_stack"
 
 
+@pulumi.type_token("aws-native:memorydb:MultiRegionClusterUpdateStrategy")
 class MultiRegionClusterUpdateStrategy(builtins.str, Enum):
     """
     An enum string value that determines the update strategy for scaling. Possible values are 'COORDINATED' and 'UNCOORDINATED'. Default is 'COORDINATED'.
@@ -39,6 +43,7 @@ class MultiRegionClusterUpdateStrategy(builtins.str, Enum):
     UNCOORDINATED = "UNCOORDINATED"
 
 
+@pulumi.type_token("aws-native:memorydb:UserAuthenticationModePropertiesType")
 class UserAuthenticationModePropertiesType(builtins.str, Enum):
     """
     Type of authentication strategy for this user.

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -13,6 +13,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:devopsguru:NotificationChannelInsightSeverity")
 class NotificationChannelInsightSeverity(builtins.str, Enum):
     """
     DevOps Guru Insight Severity Enum
@@ -22,6 +23,7 @@ class NotificationChannelInsightSeverity(builtins.str, Enum):
     HIGH = "HIGH"
 
 
+@pulumi.type_token("aws-native:devopsguru:NotificationChannelNotificationMessageType")
 class NotificationChannelNotificationMessageType(builtins.str, Enum):
     """
     DevOps Guru NotificationMessageType Enum
@@ -33,6 +35,7 @@ class NotificationChannelNotificationMessageType(builtins.str, Enum):
     NEW_RECOMMENDATION = "NEW_RECOMMENDATION"
 
 
+@pulumi.type_token("aws-native:devopsguru:ResourceCollectionType")
 class ResourceCollectionType(builtins.str, Enum):
     """
     The type of ResourceCollection

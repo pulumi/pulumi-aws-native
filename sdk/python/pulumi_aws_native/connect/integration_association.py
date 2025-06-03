@@ -91,10 +91,8 @@ class IntegrationAssociationArgs:
         pulumi.set(self, "integration_type", value)
 
 
+@pulumi.type_token("aws-native:connect:IntegrationAssociation")
 class IntegrationAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:IntegrationAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -284,10 +284,8 @@ class ApplicationArgs:
         pulumi.set(self, "worker_type_specifications", value)
 
 
+@pulumi.type_token("aws-native:emrserverless:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:emrserverless:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

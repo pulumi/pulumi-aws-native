@@ -150,10 +150,8 @@ class SlackChannelConfigurationArgs:
         pulumi.set(self, "notify_on_resolve_case", value)
 
 
+@pulumi.type_token("aws-native:supportapp:SlackChannelConfiguration")
 class SlackChannelConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:supportapp:SlackChannelConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

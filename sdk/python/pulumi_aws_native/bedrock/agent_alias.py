@@ -113,10 +113,8 @@ class AgentAliasArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:bedrock:AgentAlias")
 class AgentAlias(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:bedrock:AgentAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

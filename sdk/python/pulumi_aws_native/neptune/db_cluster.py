@@ -493,10 +493,8 @@ class DbClusterArgs:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
+@pulumi.type_token("aws-native:neptune:DbCluster")
 class DbCluster(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:neptune:DbCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

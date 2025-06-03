@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -103,6 +103,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:bedrock:AgentActionGroupSignature")
 class AgentActionGroupSignature(builtins.str, Enum):
     """
     Action Group Signature for a BuiltIn Action
@@ -111,6 +112,7 @@ class AgentActionGroupSignature(builtins.str, Enum):
     AMAZON_CODE_INTERPRETER = "AMAZON.CodeInterpreter"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentActionGroupState")
 class AgentActionGroupState(builtins.str, Enum):
     """
     State of the action group
@@ -119,6 +121,7 @@ class AgentActionGroupState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentAliasStatus")
 class AgentAliasStatus(builtins.str, Enum):
     """
     The statuses an Agent Alias can be in.
@@ -130,6 +133,7 @@ class AgentAliasStatus(builtins.str, Enum):
     DELETING = "DELETING"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentCollaboration")
 class AgentCollaboration(builtins.str, Enum):
     """
     Agent collaboration state
@@ -139,6 +143,7 @@ class AgentCollaboration(builtins.str, Enum):
     SUPERVISOR_ROUTER = "SUPERVISOR_ROUTER"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentCreationMode")
 class AgentCreationMode(builtins.str, Enum):
     """
     Creation Mode for Prompt Configuration.
@@ -147,6 +152,7 @@ class AgentCreationMode(builtins.str, Enum):
     OVERRIDDEN = "OVERRIDDEN"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentCustomControlMethod")
 class AgentCustomControlMethod(builtins.str, Enum):
     """
     Custom control of action execution
@@ -154,6 +160,7 @@ class AgentCustomControlMethod(builtins.str, Enum):
     RETURN_CONTROL = "RETURN_CONTROL"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentKnowledgeBaseState")
 class AgentKnowledgeBaseState(builtins.str, Enum):
     """
     State of the knowledge base; whether it is enabled or disabled
@@ -162,6 +169,7 @@ class AgentKnowledgeBaseState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentMemoryType")
 class AgentMemoryType(builtins.str, Enum):
     """
     Memory type
@@ -169,6 +177,7 @@ class AgentMemoryType(builtins.str, Enum):
     SESSION_SUMMARY = "SESSION_SUMMARY"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentOrchestrationType")
 class AgentOrchestrationType(builtins.str, Enum):
     """
     Types of orchestration strategy for agents
@@ -177,6 +186,7 @@ class AgentOrchestrationType(builtins.str, Enum):
     CUSTOM_ORCHESTRATION = "CUSTOM_ORCHESTRATION"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentPromptState")
 class AgentPromptState(builtins.str, Enum):
     """
     Prompt State.
@@ -185,6 +195,7 @@ class AgentPromptState(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentPromptType")
 class AgentPromptType(builtins.str, Enum):
     """
     Prompt Type.
@@ -197,6 +208,7 @@ class AgentPromptType(builtins.str, Enum):
     KNOWLEDGE_BASE_RESPONSE_GENERATION = "KNOWLEDGE_BASE_RESPONSE_GENERATION"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentRelayConversationHistory")
 class AgentRelayConversationHistory(builtins.str, Enum):
     """
     Relay conversation history state
@@ -205,6 +217,7 @@ class AgentRelayConversationHistory(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentRequireConfirmation")
 class AgentRequireConfirmation(builtins.str, Enum):
     """
     ENUM to check if action requires user confirmation
@@ -213,6 +226,7 @@ class AgentRequireConfirmation(builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentStatus")
 class AgentStatus(builtins.str, Enum):
     """
     Schema Type for Action APIs.
@@ -227,6 +241,7 @@ class AgentStatus(builtins.str, Enum):
     UPDATING = "UPDATING"
 
 
+@pulumi.type_token("aws-native:bedrock:AgentType")
 class AgentType(builtins.str, Enum):
     """
     Parameter Type
@@ -238,6 +253,7 @@ class AgentType(builtins.str, Enum):
     ARRAY = "array"
 
 
+@pulumi.type_token("aws-native:bedrock:ApplicationInferenceProfileInferenceProfileStatus")
 class ApplicationInferenceProfileInferenceProfileStatus(builtins.str, Enum):
     """
     Status of the Inference Profile
@@ -245,6 +261,7 @@ class ApplicationInferenceProfileInferenceProfileStatus(builtins.str, Enum):
     ACTIVE = "ACTIVE"
 
 
+@pulumi.type_token("aws-native:bedrock:ApplicationInferenceProfileInferenceProfileType")
 class ApplicationInferenceProfileInferenceProfileType(builtins.str, Enum):
     """
     Type of the Inference Profile
@@ -253,6 +270,7 @@ class ApplicationInferenceProfileInferenceProfileType(builtins.str, Enum):
     SYSTEM_DEFINED = "SYSTEM_DEFINED"
 
 
+@pulumi.type_token("aws-native:bedrock:BlueprintStage")
 class BlueprintStage(builtins.str, Enum):
     """
     Stage of the Blueprint
@@ -261,6 +279,7 @@ class BlueprintStage(builtins.str, Enum):
     LIVE = "LIVE"
 
 
+@pulumi.type_token("aws-native:bedrock:BlueprintType")
 class BlueprintType(builtins.str, Enum):
     """
     Modality Type
@@ -271,18 +290,21 @@ class BlueprintType(builtins.str, Enum):
     VIDEO = "VIDEO"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectAudioExtractionCategoryType")
 class DataAutomationProjectAudioExtractionCategoryType(builtins.str, Enum):
     AUDIO_CONTENT_MODERATION = "AUDIO_CONTENT_MODERATION"
     TRANSCRIPT = "TRANSCRIPT"
     TOPIC_CONTENT_MODERATION = "TOPIC_CONTENT_MODERATION"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectAudioStandardGenerativeFieldType")
 class DataAutomationProjectAudioStandardGenerativeFieldType(builtins.str, Enum):
     AUDIO_SUMMARY = "AUDIO_SUMMARY"
     IAB = "IAB"
     TOPIC_SUMMARY = "TOPIC_SUMMARY"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectBlueprintStage")
 class DataAutomationProjectBlueprintStage(builtins.str, Enum):
     """
     Stage of the Blueprint
@@ -291,6 +313,7 @@ class DataAutomationProjectBlueprintStage(builtins.str, Enum):
     LIVE = "LIVE"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectDesiredModality")
 class DataAutomationProjectDesiredModality(builtins.str, Enum):
     DOCUMENT = "DOCUMENT"
     IMAGE = "IMAGE"
@@ -298,6 +321,7 @@ class DataAutomationProjectDesiredModality(builtins.str, Enum):
     AUDIO = "AUDIO"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectDocumentExtractionGranularityType")
 class DataAutomationProjectDocumentExtractionGranularityType(builtins.str, Enum):
     DOCUMENT = "DOCUMENT"
     PAGE = "PAGE"
@@ -306,6 +330,7 @@ class DataAutomationProjectDocumentExtractionGranularityType(builtins.str, Enum)
     LINE = "LINE"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectDocumentOutputTextFormatType")
 class DataAutomationProjectDocumentOutputTextFormatType(builtins.str, Enum):
     PLAIN_TEXT = "PLAIN_TEXT"
     MARKDOWN = "MARKDOWN"
@@ -313,17 +338,20 @@ class DataAutomationProjectDocumentOutputTextFormatType(builtins.str, Enum):
     CSV = "CSV"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectImageExtractionCategoryType")
 class DataAutomationProjectImageExtractionCategoryType(builtins.str, Enum):
     CONTENT_MODERATION = "CONTENT_MODERATION"
     TEXT_DETECTION = "TEXT_DETECTION"
     LOGOS = "LOGOS"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectImageStandardGenerativeFieldType")
 class DataAutomationProjectImageStandardGenerativeFieldType(builtins.str, Enum):
     IMAGE_SUMMARY = "IMAGE_SUMMARY"
     IAB = "IAB"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectStage")
 class DataAutomationProjectStage(builtins.str, Enum):
     """
     Stage of the Project
@@ -332,17 +360,20 @@ class DataAutomationProjectStage(builtins.str, Enum):
     LIVE = "LIVE"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectState")
 class DataAutomationProjectState(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectStatus")
 class DataAutomationProjectStatus(builtins.str, Enum):
     COMPLETED = "COMPLETED"
     IN_PROGRESS = "IN_PROGRESS"
     FAILED = "FAILED"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectVideoExtractionCategoryType")
 class DataAutomationProjectVideoExtractionCategoryType(builtins.str, Enum):
     CONTENT_MODERATION = "CONTENT_MODERATION"
     TEXT_DETECTION = "TEXT_DETECTION"
@@ -350,12 +381,14 @@ class DataAutomationProjectVideoExtractionCategoryType(builtins.str, Enum):
     LOGOS = "LOGOS"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectVideoStandardGenerativeFieldType")
 class DataAutomationProjectVideoStandardGenerativeFieldType(builtins.str, Enum):
     VIDEO_SUMMARY = "VIDEO_SUMMARY"
     IAB = "IAB"
     CHAPTER_SUMMARY = "CHAPTER_SUMMARY"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceChunkingStrategy")
 class DataSourceChunkingStrategy(builtins.str, Enum):
     """
     Knowledge base can split your source data into chunks. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for NONE, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
@@ -366,6 +399,7 @@ class DataSourceChunkingStrategy(builtins.str, Enum):
     SEMANTIC = "SEMANTIC"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceConfluenceSourceConfigurationAuthType")
 class DataSourceConfluenceSourceConfigurationAuthType(builtins.str, Enum):
     """
     The supported authentication type to authenticate and connect to your Confluence instance.
@@ -374,6 +408,7 @@ class DataSourceConfluenceSourceConfigurationAuthType(builtins.str, Enum):
     OAUTH2_CLIENT_CREDENTIALS = "OAUTH2_CLIENT_CREDENTIALS"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceConfluenceSourceConfigurationHostType")
 class DataSourceConfluenceSourceConfigurationHostType(builtins.str, Enum):
     """
     The supported host type, whether online/cloud or server/on-premises.
@@ -381,6 +416,7 @@ class DataSourceConfluenceSourceConfigurationHostType(builtins.str, Enum):
     SAAS = "SAAS"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceContextEnrichmentType")
 class DataSourceContextEnrichmentType(builtins.str, Enum):
     """
     Enrichment type to be used for the vector database.
@@ -388,6 +424,7 @@ class DataSourceContextEnrichmentType(builtins.str, Enum):
     BEDROCK_FOUNDATION_MODEL = "BEDROCK_FOUNDATION_MODEL"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceCrawlFilterConfigurationType")
 class DataSourceCrawlFilterConfigurationType(builtins.str, Enum):
     """
     The crawl filter type.
@@ -395,6 +432,7 @@ class DataSourceCrawlFilterConfigurationType(builtins.str, Enum):
     PATTERN = "PATTERN"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceDataDeletionPolicy")
 class DataSourceDataDeletionPolicy(builtins.str, Enum):
     """
     The deletion policy for the data source.
@@ -403,6 +441,7 @@ class DataSourceDataDeletionPolicy(builtins.str, Enum):
     DELETE = "DELETE"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceEnrichmentStrategyMethod")
 class DataSourceEnrichmentStrategyMethod(builtins.str, Enum):
     """
     Enrichment Strategy method.
@@ -410,6 +449,7 @@ class DataSourceEnrichmentStrategyMethod(builtins.str, Enum):
     CHUNK_ENTITY_EXTRACTION = "CHUNK_ENTITY_EXTRACTION"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceParsingModality")
 class DataSourceParsingModality(builtins.str, Enum):
     """
     Determine how will parsed content be stored.
@@ -417,6 +457,7 @@ class DataSourceParsingModality(builtins.str, Enum):
     MULTIMODAL = "MULTIMODAL"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceParsingStrategy")
 class DataSourceParsingStrategy(builtins.str, Enum):
     """
     The parsing strategy for the data source.
@@ -425,6 +466,7 @@ class DataSourceParsingStrategy(builtins.str, Enum):
     BEDROCK_DATA_AUTOMATION = "BEDROCK_DATA_AUTOMATION"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceSalesforceSourceConfigurationAuthType")
 class DataSourceSalesforceSourceConfigurationAuthType(builtins.str, Enum):
     """
     The supported authentication type to authenticate and connect to your Salesforce instance.
@@ -432,6 +474,7 @@ class DataSourceSalesforceSourceConfigurationAuthType(builtins.str, Enum):
     OAUTH2_CLIENT_CREDENTIALS = "OAUTH2_CLIENT_CREDENTIALS"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceSharePointSourceConfigurationAuthType")
 class DataSourceSharePointSourceConfigurationAuthType(builtins.str, Enum):
     """
     The supported authentication type to authenticate and connect to your SharePoint site/sites.
@@ -440,6 +483,7 @@ class DataSourceSharePointSourceConfigurationAuthType(builtins.str, Enum):
     OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS = "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceSharePointSourceConfigurationHostType")
 class DataSourceSharePointSourceConfigurationHostType(builtins.str, Enum):
     """
     The supported host type, whether online/cloud or server/on-premises.
@@ -447,6 +491,7 @@ class DataSourceSharePointSourceConfigurationHostType(builtins.str, Enum):
     ONLINE = "ONLINE"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceStatus")
 class DataSourceStatus(builtins.str, Enum):
     """
     The status of a data source.
@@ -456,6 +501,7 @@ class DataSourceStatus(builtins.str, Enum):
     DELETE_UNSUCCESSFUL = "DELETE_UNSUCCESSFUL"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceTransformationStepToApply")
 class DataSourceTransformationStepToApply(builtins.str, Enum):
     """
     When the service applies the transformation.
@@ -463,6 +509,7 @@ class DataSourceTransformationStepToApply(builtins.str, Enum):
     POST_CHUNKING = "POST_CHUNKING"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceType")
 class DataSourceType(builtins.str, Enum):
     """
     The type of the data source location.
@@ -476,6 +523,7 @@ class DataSourceType(builtins.str, Enum):
     REDSHIFT_METADATA = "REDSHIFT_METADATA"
 
 
+@pulumi.type_token("aws-native:bedrock:DataSourceWebScopeType")
 class DataSourceWebScopeType(builtins.str, Enum):
     """
     The scope that a web crawl job will be restricted to.
@@ -484,11 +532,13 @@ class DataSourceWebScopeType(builtins.str, Enum):
     SUBDOMAINS = "SUBDOMAINS"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowAliasConcurrencyType")
 class FlowAliasConcurrencyType(builtins.str, Enum):
     AUTOMATIC = "Automatic"
     MANUAL = "Manual"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowConnectionType")
 class FlowConnectionType(builtins.str, Enum):
     """
     Connection type
@@ -497,6 +547,7 @@ class FlowConnectionType(builtins.str, Enum):
     CONDITIONAL = "Conditional"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowNodeIoDataType")
 class FlowNodeIoDataType(builtins.str, Enum):
     """
     Type of input/output for a node in a flow
@@ -508,6 +559,7 @@ class FlowNodeIoDataType(builtins.str, Enum):
     ARRAY = "Array"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowNodeType")
 class FlowNodeType(builtins.str, Enum):
     """
     Flow node types
@@ -527,6 +579,7 @@ class FlowNodeType(builtins.str, Enum):
     INLINE_CODE = "InlineCode"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowPromptTemplateType")
 class FlowPromptTemplateType(builtins.str, Enum):
     """
     Prompt template type
@@ -534,6 +587,7 @@ class FlowPromptTemplateType(builtins.str, Enum):
     TEXT = "TEXT"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowStatus")
 class FlowStatus(builtins.str, Enum):
     """
     Schema Type for Flow APIs
@@ -544,6 +598,7 @@ class FlowStatus(builtins.str, Enum):
     NOT_PREPARED = "NotPrepared"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowSupportedLanguages")
 class FlowSupportedLanguages(builtins.str, Enum):
     """
     Enum encodes the supported language type
@@ -551,6 +606,7 @@ class FlowSupportedLanguages(builtins.str, Enum):
     PYTHON3 = "Python_3"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowVersionFlowConnectionType")
 class FlowVersionFlowConnectionType(builtins.str, Enum):
     """
     Connection type
@@ -559,6 +615,7 @@ class FlowVersionFlowConnectionType(builtins.str, Enum):
     CONDITIONAL = "Conditional"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowVersionFlowNodeIoDataType")
 class FlowVersionFlowNodeIoDataType(builtins.str, Enum):
     """
     Type of input/output for a node in a flow
@@ -570,6 +627,7 @@ class FlowVersionFlowNodeIoDataType(builtins.str, Enum):
     ARRAY = "Array"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowVersionFlowNodeType")
 class FlowVersionFlowNodeType(builtins.str, Enum):
     """
     Flow node types
@@ -589,6 +647,7 @@ class FlowVersionFlowNodeType(builtins.str, Enum):
     INLINE_CODE = "InlineCode"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowVersionFlowStatus")
 class FlowVersionFlowStatus(builtins.str, Enum):
     """
     Schema Type for Flow APIs
@@ -599,6 +658,7 @@ class FlowVersionFlowStatus(builtins.str, Enum):
     NOT_PREPARED = "NotPrepared"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowVersionPromptTemplateType")
 class FlowVersionPromptTemplateType(builtins.str, Enum):
     """
     Prompt template type
@@ -606,6 +666,7 @@ class FlowVersionPromptTemplateType(builtins.str, Enum):
     TEXT = "TEXT"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowVersionSupportedLanguages")
 class FlowVersionSupportedLanguages(builtins.str, Enum):
     """
     Enum encodes the supported language type
@@ -613,11 +674,13 @@ class FlowVersionSupportedLanguages(builtins.str, Enum):
     PYTHON3 = "Python_3"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailContentFilterAction")
 class GuardrailContentFilterAction(builtins.str, Enum):
     BLOCK = "BLOCK"
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailContentFilterType")
 class GuardrailContentFilterType(builtins.str, Enum):
     """
     Type of filter in content policy
@@ -630,11 +693,13 @@ class GuardrailContentFilterType(builtins.str, Enum):
     PROMPT_ATTACK = "PROMPT_ATTACK"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailContextualGroundingAction")
 class GuardrailContextualGroundingAction(builtins.str, Enum):
     BLOCK = "BLOCK"
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailContextualGroundingFilterType")
 class GuardrailContextualGroundingFilterType(builtins.str, Enum):
     """
     Type of contextual grounding filter
@@ -643,6 +708,7 @@ class GuardrailContextualGroundingFilterType(builtins.str, Enum):
     RELEVANCE = "RELEVANCE"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailFilterStrength")
 class GuardrailFilterStrength(builtins.str, Enum):
     """
     Strength for filters
@@ -653,6 +719,7 @@ class GuardrailFilterStrength(builtins.str, Enum):
     HIGH = "HIGH"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailManagedWordsType")
 class GuardrailManagedWordsType(builtins.str, Enum):
     """
     Options for managed words.
@@ -660,6 +727,7 @@ class GuardrailManagedWordsType(builtins.str, Enum):
     PROFANITY = "PROFANITY"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailModality")
 class GuardrailModality(builtins.str, Enum):
     """
     Modality for filters
@@ -668,6 +736,7 @@ class GuardrailModality(builtins.str, Enum):
     IMAGE = "IMAGE"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailPiiEntityType")
 class GuardrailPiiEntityType(builtins.str, Enum):
     """
     The currently supported PII entities
@@ -705,6 +774,7 @@ class GuardrailPiiEntityType(builtins.str, Enum):
     VEHICLE_IDENTIFICATION_NUMBER = "VEHICLE_IDENTIFICATION_NUMBER"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailSensitiveInformationAction")
 class GuardrailSensitiveInformationAction(builtins.str, Enum):
     """
     Options for sensitive information action.
@@ -714,6 +784,7 @@ class GuardrailSensitiveInformationAction(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailStatus")
 class GuardrailStatus(builtins.str, Enum):
     """
     Status of the guardrail
@@ -726,11 +797,13 @@ class GuardrailStatus(builtins.str, Enum):
     DELETING = "DELETING"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailTopicAction")
 class GuardrailTopicAction(builtins.str, Enum):
     BLOCK = "BLOCK"
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailTopicType")
 class GuardrailTopicType(builtins.str, Enum):
     """
     Type of topic in a policy
@@ -738,11 +811,13 @@ class GuardrailTopicType(builtins.str, Enum):
     DENY = "DENY"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailWordAction")
 class GuardrailWordAction(builtins.str, Enum):
     BLOCK = "BLOCK"
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:bedrock:IntelligentPromptRouterPromptRouterStatus")
 class IntelligentPromptRouterPromptRouterStatus(builtins.str, Enum):
     """
     Status of a PromptRouter
@@ -750,6 +825,7 @@ class IntelligentPromptRouterPromptRouterStatus(builtins.str, Enum):
     AVAILABLE = "AVAILABLE"
 
 
+@pulumi.type_token("aws-native:bedrock:IntelligentPromptRouterPromptRouterType")
 class IntelligentPromptRouterPromptRouterType(builtins.str, Enum):
     """
     Type of a Prompt Router
@@ -758,6 +834,7 @@ class IntelligentPromptRouterPromptRouterType(builtins.str, Enum):
     DEFAULT = "default"
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType")
 class KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType(builtins.str, Enum):
     """
     The data type for the vectors when using a model to convert text into vector embeddings.
@@ -766,6 +843,7 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType(builtins.
     BINARY = "BINARY"
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBaseInclusionType")
 class KnowledgeBaseInclusionType(builtins.str, Enum):
     """
     Include or Exclude status for an entity
@@ -774,6 +852,7 @@ class KnowledgeBaseInclusionType(builtins.str, Enum):
     EXCLUDE = "EXCLUDE"
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBaseQueryEngineType")
 class KnowledgeBaseQueryEngineType(builtins.str, Enum):
     """
     SQL query engine type
@@ -781,6 +860,7 @@ class KnowledgeBaseQueryEngineType(builtins.str, Enum):
     REDSHIFT = "REDSHIFT"
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBaseRedshiftProvisionedAuthType")
 class KnowledgeBaseRedshiftProvisionedAuthType(builtins.str, Enum):
     """
     Provisioned Redshift auth type
@@ -790,6 +870,7 @@ class KnowledgeBaseRedshiftProvisionedAuthType(builtins.str, Enum):
     USERNAME = "USERNAME"
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBaseRedshiftQueryEngineStorageType")
 class KnowledgeBaseRedshiftQueryEngineStorageType(builtins.str, Enum):
     """
     Redshift query engine storage type
@@ -798,6 +879,7 @@ class KnowledgeBaseRedshiftQueryEngineStorageType(builtins.str, Enum):
     AWS_DATA_CATALOG = "AWS_DATA_CATALOG"
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBaseRedshiftQueryEngineType")
 class KnowledgeBaseRedshiftQueryEngineType(builtins.str, Enum):
     """
     Redshift query engine type
@@ -806,6 +888,7 @@ class KnowledgeBaseRedshiftQueryEngineType(builtins.str, Enum):
     PROVISIONED = "PROVISIONED"
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBaseRedshiftServerlessAuthType")
 class KnowledgeBaseRedshiftServerlessAuthType(builtins.str, Enum):
     """
     Serverless Redshift auth type
@@ -814,6 +897,7 @@ class KnowledgeBaseRedshiftServerlessAuthType(builtins.str, Enum):
     USERNAME_PASSWORD = "USERNAME_PASSWORD"
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBaseStatus")
 class KnowledgeBaseStatus(builtins.str, Enum):
     """
     The status of a knowledge base.
@@ -826,6 +910,7 @@ class KnowledgeBaseStatus(builtins.str, Enum):
     DELETE_UNSUCCESSFUL = "DELETE_UNSUCCESSFUL"
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBaseStorageType")
 class KnowledgeBaseStorageType(builtins.str, Enum):
     """
     The storage type of a knowledge base.
@@ -838,6 +923,7 @@ class KnowledgeBaseStorageType(builtins.str, Enum):
     OPENSEARCH_MANAGED_CLUSTER = "OPENSEARCH_MANAGED_CLUSTER"
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBaseSupplementalDataStorageLocationType")
 class KnowledgeBaseSupplementalDataStorageLocationType(builtins.str, Enum):
     """
     Supplemental data storage location type.
@@ -845,6 +931,7 @@ class KnowledgeBaseSupplementalDataStorageLocationType(builtins.str, Enum):
     S3 = "S3"
 
 
+@pulumi.type_token("aws-native:bedrock:KnowledgeBaseType")
 class KnowledgeBaseType(builtins.str, Enum):
     """
     The type of a knowledge base.
@@ -854,6 +941,7 @@ class KnowledgeBaseType(builtins.str, Enum):
     SQL = "SQL"
 
 
+@pulumi.type_token("aws-native:bedrock:PromptCachePointType")
 class PromptCachePointType(builtins.str, Enum):
     """
     CachePoint types for CachePointBlock
@@ -861,6 +949,7 @@ class PromptCachePointType(builtins.str, Enum):
     DEFAULT = "default"
 
 
+@pulumi.type_token("aws-native:bedrock:PromptConversationRole")
 class PromptConversationRole(builtins.str, Enum):
     """
     Conversation roles for the chat prompt
@@ -869,6 +958,7 @@ class PromptConversationRole(builtins.str, Enum):
     ASSISTANT = "assistant"
 
 
+@pulumi.type_token("aws-native:bedrock:PromptTemplateType")
 class PromptTemplateType(builtins.str, Enum):
     """
     Prompt template type
@@ -877,6 +967,7 @@ class PromptTemplateType(builtins.str, Enum):
     CHAT = "CHAT"
 
 
+@pulumi.type_token("aws-native:bedrock:PromptVersionCachePointType")
 class PromptVersionCachePointType(builtins.str, Enum):
     """
     CachePoint types for CachePointBlock
@@ -884,6 +975,7 @@ class PromptVersionCachePointType(builtins.str, Enum):
     DEFAULT = "default"
 
 
+@pulumi.type_token("aws-native:bedrock:PromptVersionConversationRole")
 class PromptVersionConversationRole(builtins.str, Enum):
     """
     Conversation roles for the chat prompt
@@ -892,6 +984,7 @@ class PromptVersionConversationRole(builtins.str, Enum):
     ASSISTANT = "assistant"
 
 
+@pulumi.type_token("aws-native:bedrock:PromptVersionPromptTemplateType")
 class PromptVersionPromptTemplateType(builtins.str, Enum):
     """
     Prompt template type

@@ -43,10 +43,8 @@ class SpotFleetArgs:
         pulumi.set(self, "spot_fleet_request_config_data", value)
 
 
+@pulumi.type_token("aws-native:ec2:SpotFleet")
 class SpotFleet(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:SpotFleet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -190,10 +190,8 @@ class ChannelArgs:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws-native:ivs:Channel")
 class Channel(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ivs:Channel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

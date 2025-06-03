@@ -40,10 +40,8 @@ class DnssecArgs:
         pulumi.set(self, "hosted_zone_id", value)
 
 
+@pulumi.type_token("aws-native:route53:Dnssec")
 class Dnssec(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:route53:Dnssec"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

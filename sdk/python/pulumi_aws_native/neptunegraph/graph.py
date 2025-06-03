@@ -172,10 +172,8 @@ class GraphArgs:
         pulumi.set(self, "vector_search_configuration", value)
 
 
+@pulumi.type_token("aws-native:neptunegraph:Graph")
 class Graph(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:neptunegraph:Graph"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

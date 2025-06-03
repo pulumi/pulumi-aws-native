@@ -214,10 +214,8 @@ class ComputeNodeGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:pcs:ComputeNodeGroup")
 class ComputeNodeGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:pcs:ComputeNodeGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

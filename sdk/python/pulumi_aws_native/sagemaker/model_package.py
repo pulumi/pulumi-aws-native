@@ -472,10 +472,8 @@ class ModelPackageArgs:
         pulumi.set(self, "validation_specification", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelPackage")
 class ModelPackage(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:ModelPackage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

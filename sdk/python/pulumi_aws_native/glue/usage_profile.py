@@ -93,10 +93,8 @@ class UsageProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:glue:UsageProfile")
 class UsageProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:glue:UsageProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

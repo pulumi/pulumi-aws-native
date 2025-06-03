@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -30,6 +30,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:lambda:CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment")
 class CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment(builtins.str, Enum):
     """
     Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
@@ -38,6 +39,7 @@ class CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment(builtins
     ENFORCE = "Enforce"
 
 
+@pulumi.type_token("aws-native:lambda:EventSourceMappingDocumentDbEventSourceConfigFullDocument")
 class EventSourceMappingDocumentDbEventSourceConfigFullDocument(builtins.str, Enum):
     """
     Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
@@ -46,14 +48,17 @@ class EventSourceMappingDocumentDbEventSourceConfigFullDocument(builtins.str, En
     DEFAULT = "Default"
 
 
+@pulumi.type_token("aws-native:lambda:EventSourceMappingFunctionResponseTypesItem")
 class EventSourceMappingFunctionResponseTypesItem(builtins.str, Enum):
     REPORT_BATCH_ITEM_FAILURES = "ReportBatchItemFailures"
 
 
+@pulumi.type_token("aws-native:lambda:EventSourceMappingMetricsConfigMetricsItem")
 class EventSourceMappingMetricsConfigMetricsItem(builtins.str, Enum):
     EVENT_COUNT = "EventCount"
 
 
+@pulumi.type_token("aws-native:lambda:EventSourceMappingSourceAccessConfigurationType")
 class EventSourceMappingSourceAccessConfigurationType(builtins.str, Enum):
     """
     The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
@@ -77,11 +82,13 @@ class EventSourceMappingSourceAccessConfigurationType(builtins.str, Enum):
     SERVER_ROOT_CA_CERTIFICATE = "SERVER_ROOT_CA_CERTIFICATE"
 
 
+@pulumi.type_token("aws-native:lambda:FunctionArchitecturesItem")
 class FunctionArchitecturesItem(builtins.str, Enum):
     X8664 = "x86_64"
     ARM64 = "arm64"
 
 
+@pulumi.type_token("aws-native:lambda:FunctionLoggingConfigApplicationLogLevel")
 class FunctionLoggingConfigApplicationLogLevel(builtins.str, Enum):
     """
     Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
@@ -94,6 +101,7 @@ class FunctionLoggingConfigApplicationLogLevel(builtins.str, Enum):
     FATAL = "FATAL"
 
 
+@pulumi.type_token("aws-native:lambda:FunctionLoggingConfigLogFormat")
 class FunctionLoggingConfigLogFormat(builtins.str, Enum):
     """
     The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
@@ -102,6 +110,7 @@ class FunctionLoggingConfigLogFormat(builtins.str, Enum):
     JSON = "JSON"
 
 
+@pulumi.type_token("aws-native:lambda:FunctionLoggingConfigSystemLogLevel")
 class FunctionLoggingConfigSystemLogLevel(builtins.str, Enum):
     """
     Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
@@ -111,6 +120,7 @@ class FunctionLoggingConfigSystemLogLevel(builtins.str, Enum):
     WARN = "WARN"
 
 
+@pulumi.type_token("aws-native:lambda:FunctionPackageType")
 class FunctionPackageType(builtins.str, Enum):
     """
     The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
@@ -119,6 +129,7 @@ class FunctionPackageType(builtins.str, Enum):
     ZIP = "Zip"
 
 
+@pulumi.type_token("aws-native:lambda:FunctionRecursiveLoop")
 class FunctionRecursiveLoop(builtins.str, Enum):
     """
     The function recursion configuration.
@@ -127,6 +138,7 @@ class FunctionRecursiveLoop(builtins.str, Enum):
     TERMINATE = "Terminate"
 
 
+@pulumi.type_token("aws-native:lambda:FunctionRuntimeManagementConfigUpdateRuntimeOn")
 class FunctionRuntimeManagementConfigUpdateRuntimeOn(builtins.str, Enum):
     """
     Specify the runtime update mode.
@@ -141,6 +153,7 @@ class FunctionRuntimeManagementConfigUpdateRuntimeOn(builtins.str, Enum):
     MANUAL = "Manual"
 
 
+@pulumi.type_token("aws-native:lambda:FunctionSnapStartApplyOn")
 class FunctionSnapStartApplyOn(builtins.str, Enum):
     """
     Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
@@ -149,6 +162,7 @@ class FunctionSnapStartApplyOn(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("aws-native:lambda:FunctionSnapStartResponseApplyOn")
 class FunctionSnapStartResponseApplyOn(builtins.str, Enum):
     """
     When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
@@ -157,6 +171,7 @@ class FunctionSnapStartResponseApplyOn(builtins.str, Enum):
     NONE = "None"
 
 
+@pulumi.type_token("aws-native:lambda:FunctionSnapStartResponseOptimizationStatus")
 class FunctionSnapStartResponseOptimizationStatus(builtins.str, Enum):
     """
     When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
@@ -165,6 +180,7 @@ class FunctionSnapStartResponseOptimizationStatus(builtins.str, Enum):
     OFF = "Off"
 
 
+@pulumi.type_token("aws-native:lambda:FunctionTracingConfigMode")
 class FunctionTracingConfigMode(builtins.str, Enum):
     """
     The tracing mode.
@@ -173,6 +189,7 @@ class FunctionTracingConfigMode(builtins.str, Enum):
     PASS_THROUGH = "PassThrough"
 
 
+@pulumi.type_token("aws-native:lambda:PermissionFunctionUrlAuthType")
 class PermissionFunctionUrlAuthType(builtins.str, Enum):
     """
     The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
@@ -181,6 +198,7 @@ class PermissionFunctionUrlAuthType(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:lambda:UrlAllowMethodsItem")
 class UrlAllowMethodsItem(builtins.str, Enum):
     GET = "GET"
     PUT = "PUT"
@@ -191,6 +209,7 @@ class UrlAllowMethodsItem(builtins.str, Enum):
     ASTERISK = "*"
 
 
+@pulumi.type_token("aws-native:lambda:UrlAuthType")
 class UrlAuthType(builtins.str, Enum):
     """
     Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
@@ -199,6 +218,7 @@ class UrlAuthType(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:lambda:UrlInvokeMode")
 class UrlInvokeMode(builtins.str, Enum):
     """
     The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.

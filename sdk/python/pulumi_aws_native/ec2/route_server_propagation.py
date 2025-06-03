@@ -55,10 +55,8 @@ class RouteServerPropagationArgs:
         pulumi.set(self, "route_table_id", value)
 
 
+@pulumi.type_token("aws-native:ec2:RouteServerPropagation")
 class RouteServerPropagation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:RouteServerPropagation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

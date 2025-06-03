@@ -132,10 +132,8 @@ class StreamingImageArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:nimblestudio:StreamingImage")
 class StreamingImage(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:nimblestudio:StreamingImage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

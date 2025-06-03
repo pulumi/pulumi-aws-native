@@ -155,10 +155,8 @@ class ProjectArgs:
         pulumi.set(self, "user_parameters", value)
 
 
+@pulumi.type_token("aws-native:datazone:Project")
 class Project(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:datazone:Project"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:iotevents:AlarmModelSimpleRuleComparisonOperator")
 class AlarmModelSimpleRuleComparisonOperator(builtins.str, Enum):
     """
     The comparison operator.
@@ -24,6 +25,7 @@ class AlarmModelSimpleRuleComparisonOperator(builtins.str, Enum):
     NOT_EQUAL = "NOT_EQUAL"
 
 
+@pulumi.type_token("aws-native:iotevents:DetectorModelEvaluationMethod")
 class DetectorModelEvaluationMethod(builtins.str, Enum):
     """
     Information about the order in which events are evaluated and how actions are executed.

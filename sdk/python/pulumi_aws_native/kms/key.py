@@ -374,10 +374,8 @@ class KeyArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:kms:Key")
 class Key(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:kms:Key"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

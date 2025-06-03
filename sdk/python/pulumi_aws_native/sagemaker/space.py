@@ -141,10 +141,8 @@ class SpaceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:Space")
 class Space(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:Space"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

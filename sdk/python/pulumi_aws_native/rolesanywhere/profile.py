@@ -189,10 +189,8 @@ class ProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:rolesanywhere:Profile")
 class Profile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:rolesanywhere:Profile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

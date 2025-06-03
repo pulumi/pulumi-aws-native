@@ -131,10 +131,8 @@ class BackupVaultArgs:
         pulumi.set(self, "notifications", value)
 
 
+@pulumi.type_token("aws-native:backup:BackupVault")
 class BackupVault(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:backup:BackupVault"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

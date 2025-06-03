@@ -73,10 +73,8 @@ class RouteServerEndpointArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:ec2:RouteServerEndpoint")
 class RouteServerEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:RouteServerEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

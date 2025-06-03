@@ -89,10 +89,8 @@ class LocalGatewayRouteArgs:
         pulumi.set(self, "network_interface_id", value)
 
 
+@pulumi.type_token("aws-native:ec2:LocalGatewayRoute")
 class LocalGatewayRoute(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:ec2:LocalGatewayRoute"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

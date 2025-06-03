@@ -91,10 +91,8 @@ class TrafficDistributionGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:connect:TrafficDistributionGroup")
 class TrafficDistributionGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:connect:TrafficDistributionGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

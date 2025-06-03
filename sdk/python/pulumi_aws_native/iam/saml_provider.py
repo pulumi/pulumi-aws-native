@@ -154,10 +154,8 @@ class SamlProviderArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iam:SamlProvider")
 class SamlProvider(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iam:SamlProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -112,10 +112,8 @@ class AcceleratorArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:globalaccelerator:Accelerator")
 class Accelerator(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:globalaccelerator:Accelerator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

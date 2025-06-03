@@ -197,10 +197,8 @@ class ModelExplainabilityJobDefinitionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelExplainabilityJobDefinition")
 class ModelExplainabilityJobDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:sagemaker:ModelExplainabilityJobDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -93,10 +93,8 @@ class UserPoolDomainArgs:
         pulumi.set(self, "managed_login_version", value)
 
 
+@pulumi.type_token("aws-native:cognito:UserPoolDomain")
 class UserPoolDomain(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:cognito:UserPoolDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

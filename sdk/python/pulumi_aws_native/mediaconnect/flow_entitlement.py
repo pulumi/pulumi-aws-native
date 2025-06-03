@@ -137,10 +137,8 @@ class FlowEntitlementArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("aws-native:mediaconnect:FlowEntitlement")
 class FlowEntitlement(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:mediaconnect:FlowEntitlement"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

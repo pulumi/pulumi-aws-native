@@ -2202,10 +2202,8 @@ class DbInstanceArgs:
         pulumi.set(self, "vpc_security_groups", value)
 
 
+@pulumi.type_token("aws-native:rds:DbInstance")
 class DbInstance(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:rds:DbInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

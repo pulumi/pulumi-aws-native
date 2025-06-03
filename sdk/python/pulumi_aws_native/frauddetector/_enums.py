@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -22,6 +22,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:frauddetector:DetectorEventVariableDataSource")
 class DetectorEventVariableDataSource(builtins.str, Enum):
     """
     The data source of the event variable.
@@ -33,6 +34,7 @@ class DetectorEventVariableDataSource(builtins.str, Enum):
     EVENT = "EVENT"
 
 
+@pulumi.type_token("aws-native:frauddetector:DetectorEventVariableDataType")
 class DetectorEventVariableDataType(builtins.str, Enum):
     """
     The data type of the event variable.
@@ -45,6 +47,7 @@ class DetectorEventVariableDataType(builtins.str, Enum):
     BOOLEAN = "BOOLEAN"
 
 
+@pulumi.type_token("aws-native:frauddetector:DetectorEventVariableVariableType")
 class DetectorEventVariableVariableType(builtins.str, Enum):
     """
     The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
@@ -84,6 +87,7 @@ class DetectorEventVariableVariableType(builtins.str, Enum):
     USERAGENT = "USERAGENT"
 
 
+@pulumi.type_token("aws-native:frauddetector:DetectorRuleExecutionMode")
 class DetectorRuleExecutionMode(builtins.str, Enum):
     """
     The rule execution mode for the rules included in the detector version.
@@ -100,6 +104,7 @@ class DetectorRuleExecutionMode(builtins.str, Enum):
     ALL_MATCHED = "ALL_MATCHED"
 
 
+@pulumi.type_token("aws-native:frauddetector:DetectorRuleLanguage")
 class DetectorRuleLanguage(builtins.str, Enum):
     """
     The rule language.
@@ -109,6 +114,7 @@ class DetectorRuleLanguage(builtins.str, Enum):
     DETECTORPL = "DETECTORPL"
 
 
+@pulumi.type_token("aws-native:frauddetector:DetectorVersionStatus")
 class DetectorVersionStatus(builtins.str, Enum):
     """
     The desired detector version status for the detector
@@ -117,6 +123,7 @@ class DetectorVersionStatus(builtins.str, Enum):
     ACTIVE = "ACTIVE"
 
 
+@pulumi.type_token("aws-native:frauddetector:EventTypeEventVariableDataSource")
 class EventTypeEventVariableDataSource(builtins.str, Enum):
     """
     The source of the event variable.
@@ -128,6 +135,7 @@ class EventTypeEventVariableDataSource(builtins.str, Enum):
     EVENT = "EVENT"
 
 
+@pulumi.type_token("aws-native:frauddetector:EventTypeEventVariableDataType")
 class EventTypeEventVariableDataType(builtins.str, Enum):
     """
     The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
@@ -138,6 +146,7 @@ class EventTypeEventVariableDataType(builtins.str, Enum):
     BOOLEAN = "BOOLEAN"
 
 
+@pulumi.type_token("aws-native:frauddetector:EventTypeEventVariableVariableType")
 class EventTypeEventVariableVariableType(builtins.str, Enum):
     """
     The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
@@ -177,6 +186,7 @@ class EventTypeEventVariableVariableType(builtins.str, Enum):
     USERAGENT = "USERAGENT"
 
 
+@pulumi.type_token("aws-native:frauddetector:VariableDataSource")
 class VariableDataSource(builtins.str, Enum):
     """
     The source of the data.
@@ -185,6 +195,7 @@ class VariableDataSource(builtins.str, Enum):
     EXTERNAL_MODEL_SCORE = "EXTERNAL_MODEL_SCORE"
 
 
+@pulumi.type_token("aws-native:frauddetector:VariableDataType")
 class VariableDataType(builtins.str, Enum):
     """
     The data type.
@@ -195,6 +206,7 @@ class VariableDataType(builtins.str, Enum):
     BOOLEAN = "BOOLEAN"
 
 
+@pulumi.type_token("aws-native:frauddetector:VariableType")
 class VariableType(builtins.str, Enum):
     """
     The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types

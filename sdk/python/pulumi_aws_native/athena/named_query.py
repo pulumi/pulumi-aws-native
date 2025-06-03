@@ -103,10 +103,8 @@ class NamedQueryArgs:
         pulumi.set(self, "work_group", value)
 
 
+@pulumi.type_token("aws-native:athena:NamedQuery")
 class NamedQuery(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:athena:NamedQuery"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

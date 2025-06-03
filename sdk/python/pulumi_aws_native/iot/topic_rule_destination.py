@@ -76,10 +76,8 @@ class TopicRuleDestinationArgs:
         pulumi.set(self, "vpc_properties", value)
 
 
+@pulumi.type_token("aws-native:iot:TopicRuleDestination")
 class TopicRuleDestination(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:TopicRuleDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -92,10 +92,8 @@ class ServiceNetworkVpcAssociationArgs:
         pulumi.set(self, "vpc_identifier", value)
 
 
+@pulumi.type_token("aws-native:vpclattice:ServiceNetworkVpcAssociation")
 class ServiceNetworkVpcAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:vpclattice:ServiceNetworkVpcAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

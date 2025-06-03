@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:resourceexplorer2:IndexState")
 class IndexState(builtins.str, Enum):
     ACTIVE = "ACTIVE"
     CREATING = "CREATING"
@@ -20,6 +21,7 @@ class IndexState(builtins.str, Enum):
     UPDATING = "UPDATING"
 
 
+@pulumi.type_token("aws-native:resourceexplorer2:IndexType")
 class IndexType(builtins.str, Enum):
     LOCAL = "LOCAL"
     AGGREGATOR = "AGGREGATOR"

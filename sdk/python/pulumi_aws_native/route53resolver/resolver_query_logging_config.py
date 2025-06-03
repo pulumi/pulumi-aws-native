@@ -76,10 +76,8 @@ class ResolverQueryLoggingConfigArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:route53resolver:ResolverQueryLoggingConfig")
 class ResolverQueryLoggingConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:route53resolver:ResolverQueryLoggingConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

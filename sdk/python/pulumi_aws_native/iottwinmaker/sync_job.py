@@ -86,10 +86,8 @@ class SyncJobArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iottwinmaker:SyncJob")
 class SyncJob(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iottwinmaker:SyncJob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

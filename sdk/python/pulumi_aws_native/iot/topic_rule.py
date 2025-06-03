@@ -89,10 +89,8 @@ class TopicRuleArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:iot:TopicRule")
 class TopicRule(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:TopicRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

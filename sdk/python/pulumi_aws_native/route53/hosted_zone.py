@@ -131,10 +131,8 @@ class HostedZoneArgs:
         pulumi.set(self, "vpcs", value)
 
 
+@pulumi.type_token("aws-native:route53:HostedZone")
 class HostedZone(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:route53:HostedZone"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

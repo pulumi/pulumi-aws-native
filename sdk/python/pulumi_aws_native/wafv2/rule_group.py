@@ -211,10 +211,8 @@ class RuleGroupArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroup")
 class RuleGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:wafv2:RuleGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

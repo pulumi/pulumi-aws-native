@@ -91,10 +91,8 @@ class QueueArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("aws-native:pcs:Queue")
 class Queue(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:pcs:Queue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

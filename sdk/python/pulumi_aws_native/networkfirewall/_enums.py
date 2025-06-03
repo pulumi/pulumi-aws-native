@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -26,6 +26,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:networkfirewall:FirewallEnabledAnalysisType")
 class FirewallEnabledAnalysisType(builtins.str, Enum):
     """
     An analysis type.
@@ -34,21 +35,25 @@ class FirewallEnabledAnalysisType(builtins.str, Enum):
     HTTP_HOST = "HTTP_HOST"
 
 
+@pulumi.type_token("aws-native:networkfirewall:FirewallPolicyOverrideAction")
 class FirewallPolicyOverrideAction(builtins.str, Enum):
     DROP_TO_ALERT = "DROP_TO_ALERT"
 
 
+@pulumi.type_token("aws-native:networkfirewall:FirewallPolicyRuleOrder")
 class FirewallPolicyRuleOrder(builtins.str, Enum):
     DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER"
     STRICT_ORDER = "STRICT_ORDER"
 
 
+@pulumi.type_token("aws-native:networkfirewall:FirewallPolicyStreamExceptionPolicy")
 class FirewallPolicyStreamExceptionPolicy(builtins.str, Enum):
     DROP = "DROP"
     CONTINUE_ = "CONTINUE"
     REJECT = "REJECT"
 
 
+@pulumi.type_token("aws-native:networkfirewall:LoggingConfigurationLogDestinationConfigLogDestinationType")
 class LoggingConfigurationLogDestinationConfigLogDestinationType(builtins.str, Enum):
     """
     The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Firehose delivery stream.
@@ -58,6 +63,7 @@ class LoggingConfigurationLogDestinationConfigLogDestinationType(builtins.str, E
     KINESIS_DATA_FIREHOSE = "KinesisDataFirehose"
 
 
+@pulumi.type_token("aws-native:networkfirewall:LoggingConfigurationLogDestinationConfigLogType")
 class LoggingConfigurationLogDestinationConfigLogType(builtins.str, Enum):
     """
     The type of log to record. You can record the following types of logs from your Network Firewall stateful engine.
@@ -71,11 +77,13 @@ class LoggingConfigurationLogDestinationConfigLogType(builtins.str, Enum):
     TLS = "TLS"
 
 
+@pulumi.type_token("aws-native:networkfirewall:RuleGroupGeneratedRulesType")
 class RuleGroupGeneratedRulesType(builtins.str, Enum):
     ALLOWLIST = "ALLOWLIST"
     DENYLIST = "DENYLIST"
 
 
+@pulumi.type_token("aws-native:networkfirewall:RuleGroupHeaderDirection")
 class RuleGroupHeaderDirection(builtins.str, Enum):
     """
     The direction of traffic flow to inspect. If set to `ANY` , the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to `FORWARD` , the inspection only matches traffic going from the source to the destination.
@@ -84,6 +92,7 @@ class RuleGroupHeaderDirection(builtins.str, Enum):
     ANY = "ANY"
 
 
+@pulumi.type_token("aws-native:networkfirewall:RuleGroupHeaderProtocol")
 class RuleGroupHeaderProtocol(builtins.str, Enum):
     """
     The protocol to inspect for. To specify all, you can use `IP` , because all traffic on AWS and on the internet is IP.
@@ -109,11 +118,13 @@ class RuleGroupHeaderProtocol(builtins.str, Enum):
     DHCP = "DHCP"
 
 
+@pulumi.type_token("aws-native:networkfirewall:RuleGroupRuleOrder")
 class RuleGroupRuleOrder(builtins.str, Enum):
     DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER"
     STRICT_ORDER = "STRICT_ORDER"
 
 
+@pulumi.type_token("aws-native:networkfirewall:RuleGroupStatefulRuleAction")
 class RuleGroupStatefulRuleAction(builtins.str, Enum):
     """
     Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow.
@@ -136,11 +147,13 @@ class RuleGroupStatefulRuleAction(builtins.str, Enum):
     REJECT = "REJECT"
 
 
+@pulumi.type_token("aws-native:networkfirewall:RuleGroupTargetType")
 class RuleGroupTargetType(builtins.str, Enum):
     TLS_SNI = "TLS_SNI"
     HTTP_HOST = "HTTP_HOST"
 
 
+@pulumi.type_token("aws-native:networkfirewall:RuleGroupTcpFlag")
 class RuleGroupTcpFlag(builtins.str, Enum):
     FIN = "FIN"
     SYN = "SYN"
@@ -152,6 +165,7 @@ class RuleGroupTcpFlag(builtins.str, Enum):
     CWR = "CWR"
 
 
+@pulumi.type_token("aws-native:networkfirewall:RuleGroupTypeEnum")
 class RuleGroupTypeEnum(builtins.str, Enum):
     """
     Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
@@ -161,12 +175,14 @@ class RuleGroupTypeEnum(builtins.str, Enum):
     STATEFUL = "STATEFUL"
 
 
+@pulumi.type_token("aws-native:networkfirewall:TlsInspectionConfigurationRevokedStatusAction")
 class TlsInspectionConfigurationRevokedStatusAction(builtins.str, Enum):
     PASS_ = "PASS"
     DROP = "DROP"
     REJECT = "REJECT"
 
 
+@pulumi.type_token("aws-native:networkfirewall:TlsInspectionConfigurationUnknownStatusAction")
 class TlsInspectionConfigurationUnknownStatusAction(builtins.str, Enum):
     PASS_ = "PASS"
     DROP = "DROP"

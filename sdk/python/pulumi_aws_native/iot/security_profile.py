@@ -158,10 +158,8 @@ class SecurityProfileArgs:
         pulumi.set(self, "target_arns", value)
 
 
+@pulumi.type_token("aws-native:iot:SecurityProfile")
 class SecurityProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:iot:SecurityProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

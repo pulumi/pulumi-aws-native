@@ -88,10 +88,8 @@ class ZonalAutoshiftConfigurationArgs:
         pulumi.set(self, "zonal_autoshift_status", value)
 
 
+@pulumi.type_token("aws-native:arczonalshift:ZonalAutoshiftConfiguration")
 class ZonalAutoshiftConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws-native:arczonalshift:ZonalAutoshiftConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
