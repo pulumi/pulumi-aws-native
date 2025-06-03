@@ -1251,7 +1251,8 @@
         "description": "The Amazon Managed Service for Prometheus workspace the scraper sends metrics to."
       },
       "roleConfiguration": {
-        "$ref": "#/types/aws-native:aps:ScraperRoleConfiguration"
+        "$ref": "#/types/aws-native:aps:ScraperRoleConfiguration",
+        "description": "The role configuration in an Amazon Managed Service for Prometheus scraper."
       },
       "scrapeConfiguration": {
         "$ref": "#/types/aws-native:aps:ScraperScrapeConfiguration",
@@ -1287,10 +1288,11 @@
       },
       "loggingConfiguration": {
         "$ref": "#/types/aws-native:aps:WorkspaceLoggingConfiguration",
-        "description": "Contains information about the logging configuration for the workspace."
+        "description": "Contains information about the current rules and alerting logging configuration for the workspace.\n\n\u003e These logging configurations are only for rules and alerting logs."
       },
       "queryLoggingConfiguration": {
-        "$ref": "#/types/aws-native:aps:WorkspaceQueryLoggingConfiguration"
+        "$ref": "#/types/aws-native:aps:WorkspaceQueryLoggingConfiguration",
+        "description": "The definition of logging configuration in an Amazon Managed Service for Prometheus workspace."
       },
       "tags": {
         "type": "array",
@@ -2880,17 +2882,19 @@
       },
       "azureBlobSasConfiguration": {
         "$ref": "#/types/aws-native:datasync:LocationAzureBlobAzureBlobSasConfiguration",
-        "description": "Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage."
+        "description": "Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.\n\n\u003e If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret."
       },
       "azureBlobType": {
         "$ref": "#/types/aws-native:datasync:LocationAzureBlobAzureBlobType",
         "description": "Specifies a blob type for the objects you're transferring into your Azure Blob Storage container."
       },
       "cmkSecretConfig": {
-        "$ref": "#/types/aws-native:datasync:LocationAzureBlobCmkSecretConfig"
+        "$ref": "#/types/aws-native:datasync:LocationAzureBlobCmkSecretConfig",
+        "description": "Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
       },
       "customSecretConfig": {
-        "$ref": "#/types/aws-native:datasync:LocationAzureBlobCustomSecretConfig"
+        "$ref": "#/types/aws-native:datasync:LocationAzureBlobCustomSecretConfig",
+        "description": "Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
       },
       "subdirectory": {
         "type": "string",
@@ -3182,10 +3186,12 @@
         "description": "The name of the bucket on the self-managed object storage server."
       },
       "cmkSecretConfig": {
-        "$ref": "#/types/aws-native:datasync:LocationObjectStorageCmkSecretConfig"
+        "$ref": "#/types/aws-native:datasync:LocationObjectStorageCmkSecretConfig",
+        "description": "Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .\n\nWhen you include this paramater as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.\n\nMake sure the DataSync has permission to access the KMS key that you specify.\n\n\u003e You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request."
       },
       "customSecretConfig": {
-        "$ref": "#/types/aws-native:datasync:LocationObjectStorageCustomSecretConfig"
+        "$ref": "#/types/aws-native:datasync:LocationObjectStorageCustomSecretConfig",
+        "description": "Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.\n\n\u003e You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request."
       },
       "secretKey": {
         "type": "string",
@@ -3333,7 +3339,8 @@
         "description": "The identifier of the environment blueprint.\n\nIn the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` ."
       },
       "environmentRolePermissionBoundary": {
-        "type": "string"
+        "type": "string",
+        "description": "The environment role permission boundary."
       },
       "manageAccessRoleArn": {
         "type": "string",
@@ -3343,7 +3350,8 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:datazone:EnvironmentBlueprintConfigurationProvisioningConfigurationProperties"
-        }
+        },
+        "description": "The provisioning configuration of a blueprint."
       },
       "provisioningRoleArn": {
         "type": "string",
@@ -3501,7 +3509,8 @@
         "description": "The farm ID."
       },
       "hostConfiguration": {
-        "$ref": "#/types/aws-native:deadline:FleetHostConfiguration"
+        "$ref": "#/types/aws-native:deadline:FleetHostConfiguration",
+        "description": "Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.\n\nTo remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string (\"\")."
       },
       "maxWorkerCount": {
         "type": "integer",
@@ -3876,6 +3885,10 @@
       "deletionProtectionEnabled": {
         "type": "boolean",
         "description": "Whether deletion protection is enabled in this cluster."
+      },
+      "multiRegionProperties": {
+        "$ref": "#/types/aws-native:dsql:MultiRegionPropertiesProperties",
+        "description": "The Multi-region properties associated to this cluster."
       },
       "tags": {
         "type": "array",
@@ -7148,7 +7161,7 @@
         "items": {
           "$ref": "#/types/aws-native:efs:FileSystemLifecyclePolicy"
         },
-        "description": "An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:\n  +  When to move files in the file system from primary storage to IA storage.\n  +  When to move files in the file system from primary storage or IA storage to Archive storage.\n  +  When to move files that are in IA or Archive storage to primary storage.\n  \n   EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information."
+        "description": "An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:\n  +  When to move files in the file system from primary storage to IA storage.\n  +  When to move files in the file system from primary storage or IA storage to Archive storage.\n  +  When to move files that are in IA or Archive storage to primary storage.\n  \n  EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive````TransitionToPrimaryStorageClass``. See the example requests in the following section for more information."
       },
       "performanceMode": {
         "type": "string",

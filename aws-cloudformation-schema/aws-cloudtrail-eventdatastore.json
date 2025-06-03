@@ -147,6 +147,33 @@
         }
       }
     },
+    "ContextKeySelector" : {
+      "description" : "An object that contains information types to be included in CloudTrail enriched events.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Type" : {
+          "description" : "Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.",
+          "type" : "string",
+          "enum" : [ "RequestContext", "TagContext" ]
+        },
+        "Equals" : {
+          "description" : "An operator that includes events that match the exact value of the event record field specified in Type.",
+          "type" : "array",
+          "uniqueItems" : true,
+          "insertionOrder" : false,
+          "minItems" : 1,
+          "maxItems" : 50,
+          "items" : {
+            "type" : "string",
+            "pattern" : "(.+)",
+            "minLength" : 1,
+            "maxLength" : 128
+          }
+        }
+      },
+      "required" : [ "Type", "Equals" ]
+    },
     "Timestamp" : {
       "type" : "string"
     }
@@ -234,6 +261,21 @@
       "description" : "Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store",
       "type" : "string"
     },
+    "MaxEventSize" : {
+      "description" : "Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.",
+      "type" : "string",
+      "enum" : [ "Standard", "Large" ]
+    },
+    "ContextKeySelectors" : {
+      "description" : "An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/ContextKeySelector"
+      },
+      "maxItems" : 2,
+      "uniqueItems" : true,
+      "insertionOrder" : false
+    },
     "IngestionEnabled" : {
       "description" : "Indicates whether the event data store is ingesting events.",
       "type" : "boolean"
@@ -247,13 +289,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "CloudTrail:CreateEventDataStore", "CloudTrail:AddTags", "CloudTrail:PutInsightSelectors", "CloudTrail:EnableFederation", "CloudTrail:GetEventDataStore", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole", "organizations:DescribeOrganization", "organizations:ListAWSServiceAccessForOrganization", "kms:GenerateDataKey", "kms:Decrypt", "glue:CreateDatabase", "glue:CreateTable", "glue:PassConnection", "lakeformation:RegisterResource" ]
+      "permissions" : [ "CloudTrail:CreateEventDataStore", "CloudTrail:AddTags", "CloudTrail:PutInsightSelectors", "CloudTrail:EnableFederation", "CloudTrail:GetEventDataStore", "CloudTrail:PutEventConfiguration", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole", "organizations:DescribeOrganization", "organizations:ListAWSServiceAccessForOrganization", "kms:GenerateDataKey", "kms:Decrypt", "glue:CreateDatabase", "glue:CreateTable", "glue:PassConnection", "lakeformation:RegisterResource" ]
     },
     "read" : {
-      "permissions" : [ "CloudTrail:GetEventDataStore", "CloudTrail:ListEventDataStores", "CloudTrail:GetInsightSelectors", "CloudTrail:ListTags" ]
+      "permissions" : [ "CloudTrail:GetEventDataStore", "CloudTrail:ListEventDataStores", "CloudTrail:GetInsightSelectors", "CloudTrail:GetEventConfiguration", "CloudTrail:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "CloudTrail:UpdateEventDataStore", "CloudTrail:RestoreEventDataStore", "CloudTrail:AddTags", "CloudTrail:RemoveTags", "CloudTrail:StartEventDataStoreIngestion", "CloudTrail:StopEventDataStoreIngestion", "CloudTrail:GetEventDataStore", "CloudTrail:PutInsightSelectors", "CloudTrail:GetInsightSelectors", "CloudTrail:EnableFederation", "CloudTrail:DisableFederation", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole", "organizations:DescribeOrganization", "organizations:ListAWSServiceAccessForOrganization", "glue:CreateDatabase", "glue:CreateTable", "glue:PassConnection", "lakeformation:RegisterResource", "glue:DeleteTable", "lakeformation:DeregisterResource", "kms:DescribeKey" ]
+      "permissions" : [ "CloudTrail:UpdateEventDataStore", "CloudTrail:RestoreEventDataStore", "CloudTrail:AddTags", "CloudTrail:RemoveTags", "CloudTrail:StartEventDataStoreIngestion", "CloudTrail:StopEventDataStoreIngestion", "CloudTrail:GetEventDataStore", "CloudTrail:PutInsightSelectors", "CloudTrail:GetInsightSelectors", "CloudTrail:EnableFederation", "CloudTrail:DisableFederation", "CloudTrail:PutEventConfiguration", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole", "organizations:DescribeOrganization", "organizations:ListAWSServiceAccessForOrganization", "glue:CreateDatabase", "glue:CreateTable", "glue:PassConnection", "lakeformation:RegisterResource", "glue:DeleteTable", "lakeformation:DeregisterResource", "kms:DescribeKey" ]
     },
     "delete" : {
       "permissions" : [ "CloudTrail:DeleteEventDataStore", "CloudTrail:GetEventDataStore", "CloudTrail:DisableFederation", "glue:DeleteTable", "lakeformation:DeregisterResource" ]
