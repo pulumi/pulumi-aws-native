@@ -15,6 +15,9 @@
     "RuleBody" : {
       "type" : "string"
     },
+    "ApplyOnTransformedLogs" : {
+      "type" : "boolean"
+    },
     "RuleName" : {
       "type" : "string"
     },
