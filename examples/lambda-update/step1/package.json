@@ -5,7 +5,7 @@
   },
   "dependencies": {
     "@pulumi/pulumi": "3.174.0",
-    "@pulumi/aws": "6.81.0"
+    "@pulumi/aws": "6.82.1"
   },
   "peerDependencies": {
     "@pulumi/aws-native": "dev"
