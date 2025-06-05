@@ -35,36 +35,40 @@
       },
       "required" : [ "BudgetAdjustmentPeriod" ]
     },
-    "ResourceTag" : {
+    "CostCategoryValues" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Value" : {
-          "type" : "string"
+        "Values" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
         },
         "Key" : {
           "type" : "string"
-        }
-      },
-      "required" : [ "Key" ]
-    },
-    "Subscriber" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Address" : {
-          "type" : "string"
         },
-        "SubscriptionType" : {
-          "type" : "string"
+        "MatchOptions" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
         }
-      },
-      "required" : [ "SubscriptionType", "Address" ]
+      }
     },
     "BudgetData" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "Metrics" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
         "BudgetLimit" : {
           "$ref" : "#/definitions/Spend"
         },
@@ -82,6 +86,9 @@
         },
         "CostFilters" : {
           "type" : "object"
+        },
+        "FilterExpression" : {
+          "$ref" : "#/definitions/Expression"
         },
         "BudgetName" : {
           "type" : "string"
@@ -107,19 +114,6 @@
         }
       }
     },
-    "Spend" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Unit" : {
-          "type" : "string"
-        },
-        "Amount" : {
-          "type" : "number"
-        }
-      },
-      "required" : [ "Amount", "Unit" ]
-    },
     "NotificationWithSubscribers" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -136,19 +130,6 @@
         }
       },
       "required" : [ "Subscribers", "Notification" ]
-    },
-    "AutoAdjustData" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "AutoAdjustType" : {
-          "type" : "string"
-        },
-        "HistoricalOptions" : {
-          "$ref" : "#/definitions/HistoricalOptions"
-        }
-      },
-      "required" : [ "AutoAdjustType" ]
     },
     "Notification" : {
       "type" : "object",
@@ -205,6 +186,136 @@
         },
         "IncludeRefund" : {
           "type" : "boolean"
+        }
+      }
+    },
+    "TagValues" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Values" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Key" : {
+          "type" : "string"
+        },
+        "MatchOptions" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "ResourceTag" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Key" ]
+    },
+    "Subscriber" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Address" : {
+          "type" : "string"
+        },
+        "SubscriptionType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "SubscriptionType", "Address" ]
+    },
+    "Expression" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Not" : {
+          "$ref" : "#/definitions/Expression"
+        },
+        "Or" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Expression"
+          }
+        },
+        "And" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Expression"
+          }
+        },
+        "Dimensions" : {
+          "$ref" : "#/definitions/ExpressionDimensionValues"
+        },
+        "CostCategories" : {
+          "$ref" : "#/definitions/CostCategoryValues"
+        },
+        "Tags" : {
+          "$ref" : "#/definitions/TagValues"
+        }
+      }
+    },
+    "Spend" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Unit" : {
+          "type" : "string"
+        },
+        "Amount" : {
+          "type" : "number"
+        }
+      },
+      "required" : [ "Amount", "Unit" ]
+    },
+    "AutoAdjustData" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AutoAdjustType" : {
+          "type" : "string"
+        },
+        "HistoricalOptions" : {
+          "$ref" : "#/definitions/HistoricalOptions"
+        }
+      },
+      "required" : [ "AutoAdjustType" ]
+    },
+    "ExpressionDimensionValues" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Values" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Key" : {
+          "type" : "string"
+        },
+        "MatchOptions" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
         }
       }
     }

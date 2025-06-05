@@ -310,6 +310,7 @@ AWS::DataZone::GroupProfile
 AWS::DataZone::Owner
 AWS::DataZone::Project
 AWS::DataZone::ProjectMembership
+AWS::DataZone::ProjectProfile
 AWS::DataZone::SubscriptionTarget
 AWS::DataZone::UserProfile
 AWS::Deadline::Farm
@@ -459,6 +460,7 @@ AWS::EMR::StudioSessionMapping
 AWS::EMR::WALWorkspace
 AWS::EMRContainers::VirtualCluster
 AWS::EMRServerless::Application
+AWS::EVS::Environment
 AWS::ElastiCache::GlobalReplicationGroup
 AWS::ElastiCache::ParameterGroup
 AWS::ElastiCache::ServerlessCache
@@ -700,6 +702,7 @@ AWS::Lightsail::Container
 AWS::Lightsail::Database
 AWS::Lightsail::Disk
 AWS::Lightsail::Instance
+AWS::Lightsail::InstanceSnapshot
 AWS::Lightsail::LoadBalancer
 AWS::Lightsail::LoadBalancerTlsCertificate
 AWS::Lightsail::StaticIp
@@ -956,6 +959,7 @@ AWS::Route53Resolver::FirewallRuleGroupAssociation
 AWS::Route53Resolver::OutpostResolver
 AWS::Route53Resolver::ResolverConfig
 AWS::Route53Resolver::ResolverDNSSECConfig
+AWS::Route53Resolver::ResolverEndpoint
 AWS::Route53Resolver::ResolverQueryLoggingConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation
 AWS::Route53Resolver::ResolverRule
@@ -970,6 +974,7 @@ AWS::S3::MultiRegionAccessPoint
 AWS::S3::MultiRegionAccessPointPolicy
 AWS::S3::StorageLens
 AWS::S3::StorageLensGroup
+AWS::S3Express::AccessPoint
 AWS::S3Express::BucketPolicy
 AWS::S3Express::DirectoryBucket
 AWS::S3ObjectLambda::AccessPoint

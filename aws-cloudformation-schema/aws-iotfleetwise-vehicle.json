@@ -169,7 +169,7 @@
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotfleetwise:GetVehicle", "iotfleetwise:CreateVehicle", "iot:CreateThing", "iot:DescribeThing", "iotfleetwise:ListTagsForResource", "iotfleetwise:ListVehicles", "iotfleetwise:TagResource" ]
+      "permissions" : [ "iotfleetwise:GetVehicle", "iotfleetwise:CreateVehicle", "iot:CreateThing", "iot:DeleteThing", "iot:DescribeThing", "iotfleetwise:ListTagsForResource", "iotfleetwise:ListVehicles", "iotfleetwise:TagResource" ]
     },
     "read" : {
       "permissions" : [ "iotfleetwise:GetVehicle", "iotfleetwise:ListTagsForResource" ]

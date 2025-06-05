@@ -379,6 +379,9 @@
         "ComputeType" : {
           "type" : "string"
         },
+        "DockerServer" : {
+          "$ref" : "#/definitions/DockerServer"
+        },
         "Certificate" : {
           "type" : "string"
         }
@@ -479,6 +482,23 @@
         }
       },
       "required" : [ "FetchSubmodules" ]
+    },
+    "DockerServer" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ComputeType" : {
+          "type" : "string"
+        },
+        "SecurityGroupIds" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "ComputeType" ]
     },
     "S3LogsConfig" : {
       "type" : "object",
