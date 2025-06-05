@@ -37,7 +37,9 @@ class EnvironmentBlueprintConfigurationArgs:
         :param pulumi.Input[builtins.str] environment_blueprint_identifier: The identifier of the environment blueprint.
                
                In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
+        :param pulumi.Input[builtins.str] environment_role_permission_boundary: The environment role permission boundary.
         :param pulumi.Input[builtins.str] manage_access_role_arn: The ARN of the manage access role.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs']]] provisioning_configurations: The provisioning configuration of a blueprint.
         :param pulumi.Input[builtins.str] provisioning_role_arn: The ARN of the provisioning role.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentBlueprintConfigurationRegionalParameterArgs']]] regional_parameters: The regional parameters of the environment blueprint.
         """
@@ -96,6 +98,9 @@ class EnvironmentBlueprintConfigurationArgs:
     @property
     @pulumi.getter(name="environmentRolePermissionBoundary")
     def environment_role_permission_boundary(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The environment role permission boundary.
+        """
         return pulumi.get(self, "environment_role_permission_boundary")
 
     @environment_role_permission_boundary.setter
@@ -117,6 +122,9 @@ class EnvironmentBlueprintConfigurationArgs:
     @property
     @pulumi.getter(name="provisioningConfigurations")
     def provisioning_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs']]]]:
+        """
+        The provisioning configuration of a blueprint.
+        """
         return pulumi.get(self, "provisioning_configurations")
 
     @provisioning_configurations.setter
@@ -173,7 +181,9 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] environment_blueprint_identifier: The identifier of the environment blueprint.
                
                In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
+        :param pulumi.Input[builtins.str] environment_role_permission_boundary: The environment role permission boundary.
         :param pulumi.Input[builtins.str] manage_access_role_arn: The ARN of the manage access role.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs', 'EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict']]]] provisioning_configurations: The provisioning configuration of a blueprint.
         :param pulumi.Input[builtins.str] provisioning_role_arn: The ARN of the provisioning role.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationRegionalParameterArgs', 'EnvironmentBlueprintConfigurationRegionalParameterArgsDict']]]] regional_parameters: The regional parameters of the environment blueprint.
         """
@@ -327,6 +337,9 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="environmentRolePermissionBoundary")
     def environment_role_permission_boundary(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The environment role permission boundary.
+        """
         return pulumi.get(self, "environment_role_permission_boundary")
 
     @property
@@ -340,6 +353,9 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="provisioningConfigurations")
     def provisioning_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentBlueprintConfigurationProvisioningConfigurationProperties']]]:
+        """
+        The provisioning configuration of a blueprint.
+        """
         return pulumi.get(self, "provisioning_configurations")
 
     @property

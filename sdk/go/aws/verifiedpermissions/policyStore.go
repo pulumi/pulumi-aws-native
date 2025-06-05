@@ -50,7 +50,10 @@ type PolicyStore struct {
 	pulumi.CustomResourceState
 
 	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
-	Arn                pulumi.StringOutput                    `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+	//
+	// The default state is `DISABLED` .
 	DeletionProtection PolicyStoreDeletionProtectionPtrOutput `pulumi:"deletionProtection"`
 	// Descriptive text that you can provide to help with identification of the current policy store.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -111,6 +114,9 @@ func (PolicyStoreState) ElementType() reflect.Type {
 }
 
 type policyStoreArgs struct {
+	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+	//
+	// The default state is `DISABLED` .
 	DeletionProtection *PolicyStoreDeletionProtection `pulumi:"deletionProtection"`
 	// Descriptive text that you can provide to help with identification of the current policy store.
 	Description *string `pulumi:"description"`
@@ -128,6 +134,9 @@ type policyStoreArgs struct {
 
 // The set of arguments for constructing a PolicyStore resource.
 type PolicyStoreArgs struct {
+	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+	//
+	// The default state is `DISABLED` .
 	DeletionProtection PolicyStoreDeletionProtectionPtrInput
 	// Descriptive text that you can provide to help with identification of the current policy store.
 	Description pulumi.StringPtrInput
@@ -185,6 +194,9 @@ func (o PolicyStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+//
+// The default state is `DISABLED` .
 func (o PolicyStoreOutput) DeletionProtection() PolicyStoreDeletionProtectionPtrOutput {
 	return o.ApplyT(func(v *PolicyStore) PolicyStoreDeletionProtectionPtrOutput { return v.DeletionProtection }).(PolicyStoreDeletionProtectionPtrOutput)
 }

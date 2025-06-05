@@ -17,6 +17,12 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Number of nodes executed concurrently at a time
         /// </summary>
         public readonly double? MaxConcurrency;
+        /// <summary>
+        /// The type of concurrency to use for parallel node execution. Specify one of the following options:
+        /// 
+        /// - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+        /// - `Manual` - You specify which nodes can be executed in parallel.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.FlowAliasConcurrencyType Type;
 
         [OutputConstructor]

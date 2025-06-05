@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
 
     public sealed class StudioEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN for a KMS key that is used to encrypt studio data.
-        /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
 
-        /// <summary>
-        /// The type of KMS key that is used to encrypt studio data.
-        /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;
 

@@ -74,7 +74,7 @@ class GetUserResult:
 
         A `HomeDirectory` example is `/bucket_name/home/mydirectory` .
 
-        > The `HomeDirectory` parameter is only used if `HomeDirectoryType` is set to `PATH` .
+        > You can use the `HomeDirectory` parameter for `HomeDirectoryType` when it is set to either `PATH` or `LOGICAL` .
         """
         return pulumi.get(self, "home_directory")
 

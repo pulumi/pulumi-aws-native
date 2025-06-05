@@ -46,6 +46,9 @@ class FleetArgs:
         :param pulumi.Input[builtins.str] description: A description that helps identify what the fleet is used for.
                
                > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+        :param pulumi.Input['FleetHostConfigurationArgs'] host_configuration: Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+               
+               To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
         :param pulumi.Input[builtins.int] min_worker_count: The minimum number of workers in the fleet.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -142,6 +145,11 @@ class FleetArgs:
     @property
     @pulumi.getter(name="hostConfiguration")
     def host_configuration(self) -> Optional[pulumi.Input['FleetHostConfigurationArgs']]:
+        """
+        Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+
+        To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
+        """
         return pulumi.get(self, "host_configuration")
 
     @host_configuration.setter
@@ -202,6 +210,9 @@ class Fleet(pulumi.CustomResource):
                
                > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[builtins.str] farm_id: The farm ID.
+        :param pulumi.Input[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict']] host_configuration: Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+               
+               To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
         :param pulumi.Input[builtins.int] max_worker_count: The maximum number of workers specified in the fleet.
         :param pulumi.Input[builtins.int] min_worker_count: The minimum number of workers in the fleet.
         :param pulumi.Input[builtins.str] role_arn: The IAM role that workers in the fleet use when processing jobs.
@@ -373,6 +384,11 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="hostConfiguration")
     def host_configuration(self) -> pulumi.Output[Optional['outputs.FleetHostConfiguration']]:
+        """
+        Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+
+        To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
+        """
         return pulumi.get(self, "host_configuration")
 
     @property

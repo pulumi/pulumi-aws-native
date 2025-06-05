@@ -128,10 +128,13 @@ type Workspace struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// Contains information about the logging configuration for the workspace.
+	// Contains information about the current rules and alerting logging configuration for the workspace.
+	//
+	// > These logging configurations are only for rules and alerting logs.
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// AMP Workspace prometheus endpoint
-	PrometheusEndpoint        pulumi.StringOutput                         `pulumi:"prometheusEndpoint"`
+	PrometheusEndpoint pulumi.StringOutput `pulumi:"prometheusEndpoint"`
+	// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
 	QueryLoggingConfiguration WorkspaceQueryLoggingConfigurationPtrOutput `pulumi:"queryLoggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -191,8 +194,11 @@ type workspaceArgs struct {
 	Alias *string `pulumi:"alias"`
 	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Contains information about the logging configuration for the workspace.
-	LoggingConfiguration      *WorkspaceLoggingConfiguration      `pulumi:"loggingConfiguration"`
+	// Contains information about the current rules and alerting logging configuration for the workspace.
+	//
+	// > These logging configurations are only for rules and alerting logs.
+	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
+	// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
 	QueryLoggingConfiguration *WorkspaceQueryLoggingConfiguration `pulumi:"queryLoggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -208,8 +214,11 @@ type WorkspaceArgs struct {
 	Alias pulumi.StringPtrInput
 	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
 	KmsKeyArn pulumi.StringPtrInput
-	// Contains information about the logging configuration for the workspace.
-	LoggingConfiguration      WorkspaceLoggingConfigurationPtrInput
+	// Contains information about the current rules and alerting logging configuration for the workspace.
+	//
+	// > These logging configurations are only for rules and alerting logs.
+	LoggingConfiguration WorkspaceLoggingConfigurationPtrInput
+	// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
 	QueryLoggingConfiguration WorkspaceQueryLoggingConfigurationPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -274,7 +283,9 @@ func (o WorkspaceOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the logging configuration for the workspace.
+// Contains information about the current rules and alerting logging configuration for the workspace.
+//
+// > These logging configurations are only for rules and alerting logs.
 func (o WorkspaceOutput) LoggingConfiguration() WorkspaceLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(WorkspaceLoggingConfigurationPtrOutput)
 }
@@ -284,6 +295,7 @@ func (o WorkspaceOutput) PrometheusEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.PrometheusEndpoint }).(pulumi.StringOutput)
 }
 
+// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
 func (o WorkspaceOutput) QueryLoggingConfiguration() WorkspaceQueryLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceQueryLoggingConfigurationPtrOutput { return v.QueryLoggingConfiguration }).(WorkspaceQueryLoggingConfigurationPtrOutput)
 }

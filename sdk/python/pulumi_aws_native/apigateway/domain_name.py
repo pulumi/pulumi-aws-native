@@ -42,6 +42,7 @@ class DomainNameArgs:
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
         :param pulumi.Input[builtins.str] ownership_verification_certificate_arn: The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
         :param pulumi.Input[builtins.str] regional_certificate_arn: The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+        :param pulumi.Input['DomainNameRoutingMode'] routing_mode: The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
         :param pulumi.Input[builtins.str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
         """
@@ -139,6 +140,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter(name="routingMode")
     def routing_mode(self) -> Optional[pulumi.Input['DomainNameRoutingMode']]:
+        """
+        The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+        """
         return pulumi.get(self, "routing_mode")
 
     @routing_mode.setter
@@ -240,6 +244,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
         :param pulumi.Input[builtins.str] ownership_verification_certificate_arn: The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
         :param pulumi.Input[builtins.str] regional_certificate_arn: The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+        :param pulumi.Input['DomainNameRoutingMode'] routing_mode: The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
         :param pulumi.Input[builtins.str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The collection of tags. Each tag element is associated with a given resource.
         """
@@ -420,7 +425,7 @@ class DomainName(pulumi.CustomResource):
     @pulumi.getter(name="domainNameArn")
     def domain_name_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN of the domain name. Supported only for private custom domain names.
+        The ARN of the domain name.
         """
         return pulumi.get(self, "domain_name_arn")
 
@@ -475,6 +480,9 @@ class DomainName(pulumi.CustomResource):
     @property
     @pulumi.getter(name="routingMode")
     def routing_mode(self) -> pulumi.Output[Optional['DomainNameRoutingMode']]:
+        """
+        The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+        """
         return pulumi.get(self, "routing_mode")
 
     @property

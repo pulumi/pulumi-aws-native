@@ -102,6 +102,10 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+     */
+    public readonly onSourceDDoSProtectionConfig!: pulumi.Output<any | undefined>;
+    /**
      * Collection of Rules.
      */
     public readonly rules!: pulumi.Output<outputs.wafv2.WebAclRule[] | undefined>;
@@ -156,6 +160,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["onSourceDDoSProtectionConfig"] = args ? args.onSourceDDoSProtectionConfig : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -178,6 +183,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["labelNamespace"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["onSourceDDoSProtectionConfig"] = undefined /*out*/;
             resourceInputs["rules"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -237,6 +243,10 @@ export interface WebAclArgs {
      * The name of the web ACL. You cannot change the name of a web ACL after you create it.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+     */
+    onSourceDDoSProtectionConfig?: any;
     /**
      * Collection of Rules.
      */

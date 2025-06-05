@@ -24,6 +24,7 @@ __all__ = [
     'DashboardWidget',
     'EventDataStoreAdvancedEventSelector',
     'EventDataStoreAdvancedFieldSelector',
+    'EventDataStoreContextKeySelector',
     'EventDataStoreInsightSelector',
     'TrailAdvancedEventSelector',
     'TrailAdvancedFieldSelector',
@@ -397,6 +398,39 @@ class EventDataStoreAdvancedFieldSelector(dict):
         An operator that includes events that match the first few characters of the event record field specified as the value of Field.
         """
         return pulumi.get(self, "starts_with")
+
+
+@pulumi.output_type
+class EventDataStoreContextKeySelector(dict):
+    """
+    An object that contains information types to be included in CloudTrail enriched events.
+    """
+    def __init__(__self__, *,
+                 equals: Sequence[builtins.str],
+                 type: 'EventDataStoreContextKeySelectorType'):
+        """
+        An object that contains information types to be included in CloudTrail enriched events.
+        :param Sequence[builtins.str] equals: An operator that includes events that match the exact value of the event record field specified in Type.
+        :param 'EventDataStoreContextKeySelectorType' type: Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+        """
+        pulumi.set(__self__, "equals", equals)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def equals(self) -> Sequence[builtins.str]:
+        """
+        An operator that includes events that match the exact value of the event record field specified in Type.
+        """
+        return pulumi.get(self, "equals")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'EventDataStoreContextKeySelectorType':
+        """
+        Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

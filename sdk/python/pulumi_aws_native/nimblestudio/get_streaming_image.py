@@ -57,9 +57,6 @@ class GetStreamingImageResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[builtins.str]:
-        """
-        A human-readable description of the streaming image.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -80,41 +77,26 @@ class GetStreamingImageResult:
     @property
     @pulumi.getter(name="eulaIds")
     def eula_ids(self) -> Optional[Sequence[builtins.str]]:
-        """
-        The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
-        """
         return pulumi.get(self, "eula_ids")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
-        """
-        A friendly name for a streaming image resource.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> Optional[builtins.str]:
-        """
-        The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
-        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def platform(self) -> Optional[builtins.str]:
-        """
-        The platform of the streaming image, either WINDOWS or LINUX.
-        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter(name="streamingImageId")
     def streaming_image_id(self) -> Optional[builtins.str]:
-        """
-        The unique identifier for the streaming image resource.
-        """
         return pulumi.get(self, "streaming_image_id")
 
 
@@ -139,9 +121,6 @@ def get_streaming_image(streaming_image_id: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingImageResult:
     """
     Resource Type definition for AWS::NimbleStudio::StreamingImage
-
-
-    :param builtins.str streaming_image_id: The unique identifier for the streaming image resource.
     """
     __args__ = dict()
     __args__['streamingImageId'] = streaming_image_id
@@ -162,9 +141,6 @@ def get_streaming_image_output(streaming_image_id: Optional[pulumi.Input[builtin
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamingImageResult]:
     """
     Resource Type definition for AWS::NimbleStudio::StreamingImage
-
-
-    :param builtins.str streaming_image_id: The unique identifier for the streaming image resource.
     """
     __args__ = dict()
     __args__['streamingImageId'] = streaming_image_id

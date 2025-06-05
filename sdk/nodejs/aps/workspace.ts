@@ -107,13 +107,18 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
-     * Contains information about the logging configuration for the workspace.
+     * Contains information about the current rules and alerting logging configuration for the workspace.
+     *
+     * > These logging configurations are only for rules and alerting logs.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.aps.WorkspaceLoggingConfiguration | undefined>;
     /**
      * AMP Workspace prometheus endpoint
      */
     public /*out*/ readonly prometheusEndpoint!: pulumi.Output<string>;
+    /**
+     * The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+     */
     public readonly queryLoggingConfiguration!: pulumi.Output<outputs.aps.WorkspaceQueryLoggingConfiguration | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -185,9 +190,14 @@ export interface WorkspaceArgs {
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Contains information about the logging configuration for the workspace.
+     * Contains information about the current rules and alerting logging configuration for the workspace.
+     *
+     * > These logging configurations are only for rules and alerting logs.
      */
     loggingConfiguration?: pulumi.Input<inputs.aps.WorkspaceLoggingConfigurationArgs>;
+    /**
+     * The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+     */
     queryLoggingConfiguration?: pulumi.Input<inputs.aps.WorkspaceQueryLoggingConfigurationArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

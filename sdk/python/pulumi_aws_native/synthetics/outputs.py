@@ -149,8 +149,8 @@ class CanaryCode(dict):
         """
         :param builtins.str handler: The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
         :param builtins.str s3_bucket: If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
-        :param builtins.str s3_key: The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
-        :param builtins.str s3_object_version: The S3 version ID of your script.
+        :param builtins.str s3_key: The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+        :param builtins.str s3_object_version: The Amazon S3 version ID of your script.
         :param builtins.str script: If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
         :param builtins.str source_location_arn: The ARN of the Lambda layer where Synthetics stores the canary script code.
         """
@@ -186,7 +186,7 @@ class CanaryCode(dict):
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> Optional[builtins.str]:
         """
-        The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+        The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
         """
         return pulumi.get(self, "s3_key")
 
@@ -194,7 +194,7 @@ class CanaryCode(dict):
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[builtins.str]:
         """
-        The S3 version ID of your script.
+        The Amazon S3 version ID of your script.
         """
         return pulumi.get(self, "s3_object_version")
 

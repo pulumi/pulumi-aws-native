@@ -29,6 +29,8 @@ __all__ = [
     'EventDataStoreAdvancedEventSelectorArgsDict',
     'EventDataStoreAdvancedFieldSelectorArgs',
     'EventDataStoreAdvancedFieldSelectorArgsDict',
+    'EventDataStoreContextKeySelectorArgs',
+    'EventDataStoreContextKeySelectorArgsDict',
     'EventDataStoreInsightSelectorArgs',
     'EventDataStoreInsightSelectorArgsDict',
     'TrailAdvancedEventSelectorArgs',
@@ -512,6 +514,60 @@ class EventDataStoreAdvancedFieldSelectorArgs:
     @starts_with.setter
     def starts_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "starts_with", value)
+
+
+if not MYPY:
+    class EventDataStoreContextKeySelectorArgsDict(TypedDict):
+        """
+        An object that contains information types to be included in CloudTrail enriched events.
+        """
+        equals: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        """
+        An operator that includes events that match the exact value of the event record field specified in Type.
+        """
+        type: pulumi.Input['EventDataStoreContextKeySelectorType']
+        """
+        Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+        """
+elif False:
+    EventDataStoreContextKeySelectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventDataStoreContextKeySelectorArgs:
+    def __init__(__self__, *,
+                 equals: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 type: pulumi.Input['EventDataStoreContextKeySelectorType']):
+        """
+        An object that contains information types to be included in CloudTrail enriched events.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] equals: An operator that includes events that match the exact value of the event record field specified in Type.
+        :param pulumi.Input['EventDataStoreContextKeySelectorType'] type: Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+        """
+        pulumi.set(__self__, "equals", equals)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def equals(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        An operator that includes events that match the exact value of the event record field specified in Type.
+        """
+        return pulumi.get(self, "equals")
+
+    @equals.setter
+    def equals(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "equals", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['EventDataStoreContextKeySelectorType']:
+        """
+        Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['EventDataStoreContextKeySelectorType']):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

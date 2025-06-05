@@ -14,39 +14,16 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type LaunchProfileStreamConfiguration struct {
-	// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
-	//
-	// - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
-	// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
-	//
-	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
-	AutomaticTerminationMode *string `pulumi:"automaticTerminationMode"`
-	// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
-	ClipboardMode string `pulumi:"clipboardMode"`
-	// The EC2 instance types that users can select from when launching a streaming session with this launch profile.
-	Ec2InstanceTypes []string `pulumi:"ec2InstanceTypes"`
-	// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
-	MaxSessionLengthInMinutes *float64 `pulumi:"maxSessionLengthInMinutes"`
-	// Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
-	//
-	// This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
-	//
-	// If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
-	//
-	// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
-	MaxStoppedSessionLengthInMinutes *float64 `pulumi:"maxStoppedSessionLengthInMinutes"`
-	// Information about the streaming session backup.
-	SessionBackup *LaunchProfileStreamConfigurationSessionBackup `pulumi:"sessionBackup"`
-	// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
-	SessionPersistenceMode *string `pulumi:"sessionPersistenceMode"`
-	// The upload storage for a streaming session.
-	SessionStorage *LaunchProfileStreamConfigurationSessionStorage `pulumi:"sessionStorage"`
-	// The streaming images that users can select from when launching a streaming session with this launch profile.
-	StreamingImageIds []string `pulumi:"streamingImageIds"`
-	// Custom volume configuration for the root volumes that are attached to streaming sessions.
-	//
-	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
-	VolumeConfiguration *LaunchProfileVolumeConfiguration `pulumi:"volumeConfiguration"`
+	AutomaticTerminationMode         *string                                         `pulumi:"automaticTerminationMode"`
+	ClipboardMode                    string                                          `pulumi:"clipboardMode"`
+	Ec2InstanceTypes                 []string                                        `pulumi:"ec2InstanceTypes"`
+	MaxSessionLengthInMinutes        *float64                                        `pulumi:"maxSessionLengthInMinutes"`
+	MaxStoppedSessionLengthInMinutes *float64                                        `pulumi:"maxStoppedSessionLengthInMinutes"`
+	SessionBackup                    *LaunchProfileStreamConfigurationSessionBackup  `pulumi:"sessionBackup"`
+	SessionPersistenceMode           *string                                         `pulumi:"sessionPersistenceMode"`
+	SessionStorage                   *LaunchProfileStreamConfigurationSessionStorage `pulumi:"sessionStorage"`
+	StreamingImageIds                []string                                        `pulumi:"streamingImageIds"`
+	VolumeConfiguration              *LaunchProfileVolumeConfiguration               `pulumi:"volumeConfiguration"`
 }
 
 // LaunchProfileStreamConfigurationInput is an input type that accepts LaunchProfileStreamConfigurationArgs and LaunchProfileStreamConfigurationOutput values.
@@ -61,39 +38,16 @@ type LaunchProfileStreamConfigurationInput interface {
 }
 
 type LaunchProfileStreamConfigurationArgs struct {
-	// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
-	//
-	// - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
-	// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
-	//
-	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
-	AutomaticTerminationMode pulumi.StringPtrInput `pulumi:"automaticTerminationMode"`
-	// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
-	ClipboardMode pulumi.StringInput `pulumi:"clipboardMode"`
-	// The EC2 instance types that users can select from when launching a streaming session with this launch profile.
-	Ec2InstanceTypes pulumi.StringArrayInput `pulumi:"ec2InstanceTypes"`
-	// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
-	MaxSessionLengthInMinutes pulumi.Float64PtrInput `pulumi:"maxSessionLengthInMinutes"`
-	// Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
-	//
-	// This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
-	//
-	// If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
-	//
-	// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
-	MaxStoppedSessionLengthInMinutes pulumi.Float64PtrInput `pulumi:"maxStoppedSessionLengthInMinutes"`
-	// Information about the streaming session backup.
-	SessionBackup LaunchProfileStreamConfigurationSessionBackupPtrInput `pulumi:"sessionBackup"`
-	// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
-	SessionPersistenceMode pulumi.StringPtrInput `pulumi:"sessionPersistenceMode"`
-	// The upload storage for a streaming session.
-	SessionStorage LaunchProfileStreamConfigurationSessionStoragePtrInput `pulumi:"sessionStorage"`
-	// The streaming images that users can select from when launching a streaming session with this launch profile.
-	StreamingImageIds pulumi.StringArrayInput `pulumi:"streamingImageIds"`
-	// Custom volume configuration for the root volumes that are attached to streaming sessions.
-	//
-	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
-	VolumeConfiguration LaunchProfileVolumeConfigurationPtrInput `pulumi:"volumeConfiguration"`
+	AutomaticTerminationMode         pulumi.StringPtrInput                                  `pulumi:"automaticTerminationMode"`
+	ClipboardMode                    pulumi.StringInput                                     `pulumi:"clipboardMode"`
+	Ec2InstanceTypes                 pulumi.StringArrayInput                                `pulumi:"ec2InstanceTypes"`
+	MaxSessionLengthInMinutes        pulumi.Float64PtrInput                                 `pulumi:"maxSessionLengthInMinutes"`
+	MaxStoppedSessionLengthInMinutes pulumi.Float64PtrInput                                 `pulumi:"maxStoppedSessionLengthInMinutes"`
+	SessionBackup                    LaunchProfileStreamConfigurationSessionBackupPtrInput  `pulumi:"sessionBackup"`
+	SessionPersistenceMode           pulumi.StringPtrInput                                  `pulumi:"sessionPersistenceMode"`
+	SessionStorage                   LaunchProfileStreamConfigurationSessionStoragePtrInput `pulumi:"sessionStorage"`
+	StreamingImageIds                pulumi.StringArrayInput                                `pulumi:"streamingImageIds"`
+	VolumeConfiguration              LaunchProfileVolumeConfigurationPtrInput               `pulumi:"volumeConfiguration"`
 }
 
 func (LaunchProfileStreamConfigurationArgs) ElementType() reflect.Type {
@@ -122,69 +76,46 @@ func (o LaunchProfileStreamConfigurationOutput) ToLaunchProfileStreamConfigurati
 	return o
 }
 
-// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
-//
-// - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
-// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
-//
-// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
 func (o LaunchProfileStreamConfigurationOutput) AutomaticTerminationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *string { return v.AutomaticTerminationMode }).(pulumi.StringPtrOutput)
 }
 
-// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
 func (o LaunchProfileStreamConfigurationOutput) ClipboardMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) string { return v.ClipboardMode }).(pulumi.StringOutput)
 }
 
-// The EC2 instance types that users can select from when launching a streaming session with this launch profile.
 func (o LaunchProfileStreamConfigurationOutput) Ec2InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []string { return v.Ec2InstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
 func (o LaunchProfileStreamConfigurationOutput) MaxSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *float64 { return v.MaxSessionLengthInMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
-//
-// This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
-//
-// If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
-//
-// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
 func (o LaunchProfileStreamConfigurationOutput) MaxStoppedSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *float64 { return v.MaxStoppedSessionLengthInMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// Information about the streaming session backup.
 func (o LaunchProfileStreamConfigurationOutput) SessionBackup() LaunchProfileStreamConfigurationSessionBackupPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionBackup {
 		return v.SessionBackup
 	}).(LaunchProfileStreamConfigurationSessionBackupPtrOutput)
 }
 
-// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
 func (o LaunchProfileStreamConfigurationOutput) SessionPersistenceMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *string { return v.SessionPersistenceMode }).(pulumi.StringPtrOutput)
 }
 
-// The upload storage for a streaming session.
 func (o LaunchProfileStreamConfigurationOutput) SessionStorage() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionStorage {
 		return v.SessionStorage
 	}).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
 }
 
-// The streaming images that users can select from when launching a streaming session with this launch profile.
 func (o LaunchProfileStreamConfigurationOutput) StreamingImageIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []string { return v.StreamingImageIds }).(pulumi.StringArrayOutput)
 }
 
-// Custom volume configuration for the root volumes that are attached to streaming sessions.
-//
-// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
 func (o LaunchProfileStreamConfigurationOutput) VolumeConfiguration() LaunchProfileVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileVolumeConfiguration {
 		return v.VolumeConfiguration
@@ -215,12 +146,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) Elem() LaunchProfileStreamCon
 	}).(LaunchProfileStreamConfigurationOutput)
 }
 
-// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
-//
-// - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
-// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
-//
-// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
 func (o LaunchProfileStreamConfigurationPtrOutput) AutomaticTerminationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *string {
 		if v == nil {
@@ -230,7 +155,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) AutomaticTerminationMode() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
 func (o LaunchProfileStreamConfigurationPtrOutput) ClipboardMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *string {
 		if v == nil {
@@ -240,7 +164,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) ClipboardMode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The EC2 instance types that users can select from when launching a streaming session with this launch profile.
 func (o LaunchProfileStreamConfigurationPtrOutput) Ec2InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []string {
 		if v == nil {
@@ -250,7 +173,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) Ec2InstanceTypes() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
 func (o LaunchProfileStreamConfigurationPtrOutput) MaxSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *float64 {
 		if v == nil {
@@ -260,13 +182,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) MaxSessionLengthInMinutes() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
-//
-// This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
-//
-// If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
-//
-// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
 func (o LaunchProfileStreamConfigurationPtrOutput) MaxStoppedSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *float64 {
 		if v == nil {
@@ -276,7 +191,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) MaxStoppedSessionLengthInMinu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Information about the streaming session backup.
 func (o LaunchProfileStreamConfigurationPtrOutput) SessionBackup() LaunchProfileStreamConfigurationSessionBackupPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionBackup {
 		if v == nil {
@@ -286,7 +200,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) SessionBackup() LaunchProfile
 	}).(LaunchProfileStreamConfigurationSessionBackupPtrOutput)
 }
 
-// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
 func (o LaunchProfileStreamConfigurationPtrOutput) SessionPersistenceMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *string {
 		if v == nil {
@@ -296,7 +209,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) SessionPersistenceMode() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The upload storage for a streaming session.
 func (o LaunchProfileStreamConfigurationPtrOutput) SessionStorage() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionStorage {
 		if v == nil {
@@ -306,7 +218,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) SessionStorage() LaunchProfil
 	}).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
 }
 
-// The streaming images that users can select from when launching a streaming session with this launch profile.
 func (o LaunchProfileStreamConfigurationPtrOutput) StreamingImageIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []string {
 		if v == nil {
@@ -316,9 +227,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) StreamingImageIds() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// Custom volume configuration for the root volumes that are attached to streaming sessions.
-//
-// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
 func (o LaunchProfileStreamConfigurationPtrOutput) VolumeConfiguration() LaunchProfileVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileVolumeConfiguration {
 		if v == nil {
@@ -329,12 +237,8 @@ func (o LaunchProfileStreamConfigurationPtrOutput) VolumeConfiguration() LaunchP
 }
 
 type LaunchProfileStreamConfigurationSessionBackup struct {
-	// The maximum number of backups that each streaming session created from this launch profile can have.
 	MaxBackupsToRetain *float64 `pulumi:"maxBackupsToRetain"`
-	// Specifies how artists sessions are backed up.
-	//
-	// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
-	Mode *string `pulumi:"mode"`
+	Mode               *string  `pulumi:"mode"`
 }
 
 // LaunchProfileStreamConfigurationSessionBackupInput is an input type that accepts LaunchProfileStreamConfigurationSessionBackupArgs and LaunchProfileStreamConfigurationSessionBackupOutput values.
@@ -349,12 +253,8 @@ type LaunchProfileStreamConfigurationSessionBackupInput interface {
 }
 
 type LaunchProfileStreamConfigurationSessionBackupArgs struct {
-	// The maximum number of backups that each streaming session created from this launch profile can have.
 	MaxBackupsToRetain pulumi.Float64PtrInput `pulumi:"maxBackupsToRetain"`
-	// Specifies how artists sessions are backed up.
-	//
-	// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	Mode               pulumi.StringPtrInput  `pulumi:"mode"`
 }
 
 func (LaunchProfileStreamConfigurationSessionBackupArgs) ElementType() reflect.Type {
@@ -434,14 +334,10 @@ func (o LaunchProfileStreamConfigurationSessionBackupOutput) ToLaunchProfileStre
 	}).(LaunchProfileStreamConfigurationSessionBackupPtrOutput)
 }
 
-// The maximum number of backups that each streaming session created from this launch profile can have.
 func (o LaunchProfileStreamConfigurationSessionBackupOutput) MaxBackupsToRetain() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionBackup) *float64 { return v.MaxBackupsToRetain }).(pulumi.Float64PtrOutput)
 }
 
-// Specifies how artists sessions are backed up.
-//
-// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
 func (o LaunchProfileStreamConfigurationSessionBackupOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionBackup) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -470,7 +366,6 @@ func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) Elem() LaunchPro
 	}).(LaunchProfileStreamConfigurationSessionBackupOutput)
 }
 
-// The maximum number of backups that each streaming session created from this launch profile can have.
 func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) MaxBackupsToRetain() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionBackup) *float64 {
 		if v == nil {
@@ -480,9 +375,6 @@ func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) MaxBackupsToReta
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Specifies how artists sessions are backed up.
-//
-// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
 func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionBackup) *string {
 		if v == nil {
@@ -493,9 +385,7 @@ func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) Mode() pulumi.St
 }
 
 type LaunchProfileStreamConfigurationSessionStorage struct {
-	// Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
-	Mode []string `pulumi:"mode"`
-	// The configuration for the upload storage root of the streaming session.
+	Mode []string                                  `pulumi:"mode"`
 	Root *LaunchProfileStreamingSessionStorageRoot `pulumi:"root"`
 }
 
@@ -511,9 +401,7 @@ type LaunchProfileStreamConfigurationSessionStorageInput interface {
 }
 
 type LaunchProfileStreamConfigurationSessionStorageArgs struct {
-	// Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
-	Mode pulumi.StringArrayInput `pulumi:"mode"`
-	// The configuration for the upload storage root of the streaming session.
+	Mode pulumi.StringArrayInput                          `pulumi:"mode"`
 	Root LaunchProfileStreamingSessionStorageRootPtrInput `pulumi:"root"`
 }
 
@@ -594,12 +482,10 @@ func (o LaunchProfileStreamConfigurationSessionStorageOutput) ToLaunchProfileStr
 	}).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
 }
 
-// Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
 func (o LaunchProfileStreamConfigurationSessionStorageOutput) Mode() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionStorage) []string { return v.Mode }).(pulumi.StringArrayOutput)
 }
 
-// The configuration for the upload storage root of the streaming session.
 func (o LaunchProfileStreamConfigurationSessionStorageOutput) Root() LaunchProfileStreamingSessionStorageRootPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionStorage) *LaunchProfileStreamingSessionStorageRoot {
 		return v.Root
@@ -630,7 +516,6 @@ func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Elem() LaunchPr
 	}).(LaunchProfileStreamConfigurationSessionStorageOutput)
 }
 
-// Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
 func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Mode() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionStorage) []string {
 		if v == nil {
@@ -640,7 +525,6 @@ func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Mode() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// The configuration for the upload storage root of the streaming session.
 func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Root() LaunchProfileStreamingSessionStorageRootPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionStorage) *LaunchProfileStreamingSessionStorageRoot {
 		if v == nil {
@@ -651,9 +535,7 @@ func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Root() LaunchPr
 }
 
 type LaunchProfileStreamingSessionStorageRoot struct {
-	// The folder path in Linux workstations where files are uploaded.
-	Linux *string `pulumi:"linux"`
-	// The folder path in Windows workstations where files are uploaded.
+	Linux   *string `pulumi:"linux"`
 	Windows *string `pulumi:"windows"`
 }
 
@@ -669,9 +551,7 @@ type LaunchProfileStreamingSessionStorageRootInput interface {
 }
 
 type LaunchProfileStreamingSessionStorageRootArgs struct {
-	// The folder path in Linux workstations where files are uploaded.
-	Linux pulumi.StringPtrInput `pulumi:"linux"`
-	// The folder path in Windows workstations where files are uploaded.
+	Linux   pulumi.StringPtrInput `pulumi:"linux"`
 	Windows pulumi.StringPtrInput `pulumi:"windows"`
 }
 
@@ -752,12 +632,10 @@ func (o LaunchProfileStreamingSessionStorageRootOutput) ToLaunchProfileStreaming
 	}).(LaunchProfileStreamingSessionStorageRootPtrOutput)
 }
 
-// The folder path in Linux workstations where files are uploaded.
 func (o LaunchProfileStreamingSessionStorageRootOutput) Linux() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamingSessionStorageRoot) *string { return v.Linux }).(pulumi.StringPtrOutput)
 }
 
-// The folder path in Windows workstations where files are uploaded.
 func (o LaunchProfileStreamingSessionStorageRootOutput) Windows() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamingSessionStorageRoot) *string { return v.Windows }).(pulumi.StringPtrOutput)
 }
@@ -786,7 +664,6 @@ func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Elem() LaunchProfileS
 	}).(LaunchProfileStreamingSessionStorageRootOutput)
 }
 
-// The folder path in Linux workstations where files are uploaded.
 func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Linux() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamingSessionStorageRoot) *string {
 		if v == nil {
@@ -796,7 +673,6 @@ func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Linux() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The folder path in Windows workstations where files are uploaded.
 func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Windows() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamingSessionStorageRoot) *string {
 		if v == nil {
@@ -807,11 +683,8 @@ func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Windows() pulumi.Stri
 }
 
 type LaunchProfileVolumeConfiguration struct {
-	// The number of I/O operations per second for the root volume that is attached to streaming session.
-	Iops *float64 `pulumi:"iops"`
-	// The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
-	Size *float64 `pulumi:"size"`
-	// The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
+	Iops       *float64 `pulumi:"iops"`
+	Size       *float64 `pulumi:"size"`
 	Throughput *float64 `pulumi:"throughput"`
 }
 
@@ -827,11 +700,8 @@ type LaunchProfileVolumeConfigurationInput interface {
 }
 
 type LaunchProfileVolumeConfigurationArgs struct {
-	// The number of I/O operations per second for the root volume that is attached to streaming session.
-	Iops pulumi.Float64PtrInput `pulumi:"iops"`
-	// The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
-	Size pulumi.Float64PtrInput `pulumi:"size"`
-	// The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
+	Iops       pulumi.Float64PtrInput `pulumi:"iops"`
+	Size       pulumi.Float64PtrInput `pulumi:"size"`
 	Throughput pulumi.Float64PtrInput `pulumi:"throughput"`
 }
 
@@ -912,17 +782,14 @@ func (o LaunchProfileVolumeConfigurationOutput) ToLaunchProfileVolumeConfigurati
 	}).(LaunchProfileVolumeConfigurationPtrOutput)
 }
 
-// The number of I/O operations per second for the root volume that is attached to streaming session.
 func (o LaunchProfileVolumeConfigurationOutput) Iops() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileVolumeConfiguration) *float64 { return v.Iops }).(pulumi.Float64PtrOutput)
 }
 
-// The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
 func (o LaunchProfileVolumeConfigurationOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileVolumeConfiguration) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
 }
 
-// The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
 func (o LaunchProfileVolumeConfigurationOutput) Throughput() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileVolumeConfiguration) *float64 { return v.Throughput }).(pulumi.Float64PtrOutput)
 }
@@ -951,7 +818,6 @@ func (o LaunchProfileVolumeConfigurationPtrOutput) Elem() LaunchProfileVolumeCon
 	}).(LaunchProfileVolumeConfigurationOutput)
 }
 
-// The number of I/O operations per second for the root volume that is attached to streaming session.
 func (o LaunchProfileVolumeConfigurationPtrOutput) Iops() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileVolumeConfiguration) *float64 {
 		if v == nil {
@@ -961,7 +827,6 @@ func (o LaunchProfileVolumeConfigurationPtrOutput) Iops() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
 func (o LaunchProfileVolumeConfigurationPtrOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileVolumeConfiguration) *float64 {
 		if v == nil {
@@ -971,7 +836,6 @@ func (o LaunchProfileVolumeConfigurationPtrOutput) Size() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
 func (o LaunchProfileVolumeConfigurationPtrOutput) Throughput() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileVolumeConfiguration) *float64 {
 		if v == nil {
@@ -982,10 +846,8 @@ func (o LaunchProfileVolumeConfigurationPtrOutput) Throughput() pulumi.Float64Pt
 }
 
 type StreamingImageEncryptionConfiguration struct {
-	// The ARN for a KMS key that is used to encrypt studio data.
-	KeyArn *string `pulumi:"keyArn"`
-	// The type of KMS key that is used to encrypt studio data.
-	KeyType string `pulumi:"keyType"`
+	KeyArn  *string `pulumi:"keyArn"`
+	KeyType string  `pulumi:"keyType"`
 }
 
 type StreamingImageEncryptionConfigurationOutput struct{ *pulumi.OutputState }
@@ -1002,12 +864,10 @@ func (o StreamingImageEncryptionConfigurationOutput) ToStreamingImageEncryptionC
 	return o
 }
 
-// The ARN for a KMS key that is used to encrypt studio data.
 func (o StreamingImageEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingImageEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The type of KMS key that is used to encrypt studio data.
 func (o StreamingImageEncryptionConfigurationOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamingImageEncryptionConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
 }
@@ -1036,7 +896,6 @@ func (o StreamingImageEncryptionConfigurationPtrOutput) Elem() StreamingImageEnc
 	}).(StreamingImageEncryptionConfigurationOutput)
 }
 
-// The ARN for a KMS key that is used to encrypt studio data.
 func (o StreamingImageEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingImageEncryptionConfiguration) *string {
 		if v == nil {
@@ -1046,7 +905,6 @@ func (o StreamingImageEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of KMS key that is used to encrypt studio data.
 func (o StreamingImageEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingImageEncryptionConfiguration) *string {
 		if v == nil {
@@ -1057,9 +915,7 @@ func (o StreamingImageEncryptionConfigurationPtrOutput) KeyType() pulumi.StringP
 }
 
 type StudioComponentActiveDirectoryComputerAttribute struct {
-	// The name for the LDAP attribute.
-	Name *string `pulumi:"name"`
-	// The value for the LDAP attribute.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -1075,9 +931,7 @@ type StudioComponentActiveDirectoryComputerAttributeInput interface {
 }
 
 type StudioComponentActiveDirectoryComputerAttributeArgs struct {
-	// The name for the LDAP attribute.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value for the LDAP attribute.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1132,12 +986,10 @@ func (o StudioComponentActiveDirectoryComputerAttributeOutput) ToStudioComponent
 	return o
 }
 
-// The name for the LDAP attribute.
 func (o StudioComponentActiveDirectoryComputerAttributeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryComputerAttribute) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value for the LDAP attribute.
 func (o StudioComponentActiveDirectoryComputerAttributeOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryComputerAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1163,12 +1015,9 @@ func (o StudioComponentActiveDirectoryComputerAttributeArrayOutput) Index(i pulu
 }
 
 type StudioComponentActiveDirectoryConfiguration struct {
-	// A collection of custom attributes for an Active Directory computer.
-	ComputerAttributes []StudioComponentActiveDirectoryComputerAttribute `pulumi:"computerAttributes"`
-	// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
-	DirectoryId *string `pulumi:"directoryId"`
-	// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
-	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
+	ComputerAttributes                  []StudioComponentActiveDirectoryComputerAttribute `pulumi:"computerAttributes"`
+	DirectoryId                         *string                                           `pulumi:"directoryId"`
+	OrganizationalUnitDistinguishedName *string                                           `pulumi:"organizationalUnitDistinguishedName"`
 }
 
 // StudioComponentActiveDirectoryConfigurationInput is an input type that accepts StudioComponentActiveDirectoryConfigurationArgs and StudioComponentActiveDirectoryConfigurationOutput values.
@@ -1183,12 +1032,9 @@ type StudioComponentActiveDirectoryConfigurationInput interface {
 }
 
 type StudioComponentActiveDirectoryConfigurationArgs struct {
-	// A collection of custom attributes for an Active Directory computer.
-	ComputerAttributes StudioComponentActiveDirectoryComputerAttributeArrayInput `pulumi:"computerAttributes"`
-	// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
-	DirectoryId pulumi.StringPtrInput `pulumi:"directoryId"`
-	// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
-	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
+	ComputerAttributes                  StudioComponentActiveDirectoryComputerAttributeArrayInput `pulumi:"computerAttributes"`
+	DirectoryId                         pulumi.StringPtrInput                                     `pulumi:"directoryId"`
+	OrganizationalUnitDistinguishedName pulumi.StringPtrInput                                     `pulumi:"organizationalUnitDistinguishedName"`
 }
 
 func (StudioComponentActiveDirectoryConfigurationArgs) ElementType() reflect.Type {
@@ -1268,19 +1114,16 @@ func (o StudioComponentActiveDirectoryConfigurationOutput) ToStudioComponentActi
 	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
 }
 
-// A collection of custom attributes for an Active Directory computer.
 func (o StudioComponentActiveDirectoryConfigurationOutput) ComputerAttributes() StudioComponentActiveDirectoryComputerAttributeArrayOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryConfiguration) []StudioComponentActiveDirectoryComputerAttribute {
 		return v.ComputerAttributes
 	}).(StudioComponentActiveDirectoryComputerAttributeArrayOutput)
 }
 
-// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
 func (o StudioComponentActiveDirectoryConfigurationOutput) DirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryConfiguration) *string { return v.DirectoryId }).(pulumi.StringPtrOutput)
 }
 
-// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
 func (o StudioComponentActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryConfiguration) *string {
 		return v.OrganizationalUnitDistinguishedName
@@ -1311,7 +1154,6 @@ func (o StudioComponentActiveDirectoryConfigurationPtrOutput) Elem() StudioCompo
 	}).(StudioComponentActiveDirectoryConfigurationOutput)
 }
 
-// A collection of custom attributes for an Active Directory computer.
 func (o StudioComponentActiveDirectoryConfigurationPtrOutput) ComputerAttributes() StudioComponentActiveDirectoryComputerAttributeArrayOutput {
 	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) []StudioComponentActiveDirectoryComputerAttribute {
 		if v == nil {
@@ -1321,7 +1163,6 @@ func (o StudioComponentActiveDirectoryConfigurationPtrOutput) ComputerAttributes
 	}).(StudioComponentActiveDirectoryComputerAttributeArrayOutput)
 }
 
-// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
 func (o StudioComponentActiveDirectoryConfigurationPtrOutput) DirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -1331,7 +1172,6 @@ func (o StudioComponentActiveDirectoryConfigurationPtrOutput) DirectoryId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
 func (o StudioComponentActiveDirectoryConfigurationPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -1342,10 +1182,8 @@ func (o StudioComponentActiveDirectoryConfigurationPtrOutput) OrganizationalUnit
 }
 
 type StudioComponentComputeFarmConfiguration struct {
-	// The name of an Active Directory user that is used on ComputeFarm worker instances.
 	ActiveDirectoryUser *string `pulumi:"activeDirectoryUser"`
-	// The endpoint of the ComputeFarm that is accessed by the studio component resource.
-	Endpoint *string `pulumi:"endpoint"`
+	Endpoint            *string `pulumi:"endpoint"`
 }
 
 // StudioComponentComputeFarmConfigurationInput is an input type that accepts StudioComponentComputeFarmConfigurationArgs and StudioComponentComputeFarmConfigurationOutput values.
@@ -1360,10 +1198,8 @@ type StudioComponentComputeFarmConfigurationInput interface {
 }
 
 type StudioComponentComputeFarmConfigurationArgs struct {
-	// The name of an Active Directory user that is used on ComputeFarm worker instances.
 	ActiveDirectoryUser pulumi.StringPtrInput `pulumi:"activeDirectoryUser"`
-	// The endpoint of the ComputeFarm that is accessed by the studio component resource.
-	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	Endpoint            pulumi.StringPtrInput `pulumi:"endpoint"`
 }
 
 func (StudioComponentComputeFarmConfigurationArgs) ElementType() reflect.Type {
@@ -1443,12 +1279,10 @@ func (o StudioComponentComputeFarmConfigurationOutput) ToStudioComponentComputeF
 	}).(StudioComponentComputeFarmConfigurationPtrOutput)
 }
 
-// The name of an Active Directory user that is used on ComputeFarm worker instances.
 func (o StudioComponentComputeFarmConfigurationOutput) ActiveDirectoryUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentComputeFarmConfiguration) *string { return v.ActiveDirectoryUser }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint of the ComputeFarm that is accessed by the studio component resource.
 func (o StudioComponentComputeFarmConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentComputeFarmConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
@@ -1477,7 +1311,6 @@ func (o StudioComponentComputeFarmConfigurationPtrOutput) Elem() StudioComponent
 	}).(StudioComponentComputeFarmConfigurationOutput)
 }
 
-// The name of an Active Directory user that is used on ComputeFarm worker instances.
 func (o StudioComponentComputeFarmConfigurationPtrOutput) ActiveDirectoryUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentComputeFarmConfiguration) *string {
 		if v == nil {
@@ -1487,7 +1320,6 @@ func (o StudioComponentComputeFarmConfigurationPtrOutput) ActiveDirectoryUser() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The endpoint of the ComputeFarm that is accessed by the studio component resource.
 func (o StudioComponentComputeFarmConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentComputeFarmConfiguration) *string {
 		if v == nil {
@@ -1498,13 +1330,9 @@ func (o StudioComponentComputeFarmConfigurationPtrOutput) Endpoint() pulumi.Stri
 }
 
 type StudioComponentConfiguration struct {
-	// The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
-	ActiveDirectoryConfiguration *StudioComponentActiveDirectoryConfiguration `pulumi:"activeDirectoryConfiguration"`
-	// The configuration for a render farm that is associated with a studio resource.
-	ComputeFarmConfiguration *StudioComponentComputeFarmConfiguration `pulumi:"computeFarmConfiguration"`
-	// The configuration for a license service that is associated with a studio resource.
-	LicenseServiceConfiguration *StudioComponentLicenseServiceConfiguration `pulumi:"licenseServiceConfiguration"`
-	// The configuration for a shared file storage system that is associated with a studio resource.
+	ActiveDirectoryConfiguration  *StudioComponentActiveDirectoryConfiguration  `pulumi:"activeDirectoryConfiguration"`
+	ComputeFarmConfiguration      *StudioComponentComputeFarmConfiguration      `pulumi:"computeFarmConfiguration"`
+	LicenseServiceConfiguration   *StudioComponentLicenseServiceConfiguration   `pulumi:"licenseServiceConfiguration"`
 	SharedFileSystemConfiguration *StudioComponentSharedFileSystemConfiguration `pulumi:"sharedFileSystemConfiguration"`
 }
 
@@ -1520,13 +1348,9 @@ type StudioComponentConfigurationInput interface {
 }
 
 type StudioComponentConfigurationArgs struct {
-	// The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
-	ActiveDirectoryConfiguration StudioComponentActiveDirectoryConfigurationPtrInput `pulumi:"activeDirectoryConfiguration"`
-	// The configuration for a render farm that is associated with a studio resource.
-	ComputeFarmConfiguration StudioComponentComputeFarmConfigurationPtrInput `pulumi:"computeFarmConfiguration"`
-	// The configuration for a license service that is associated with a studio resource.
-	LicenseServiceConfiguration StudioComponentLicenseServiceConfigurationPtrInput `pulumi:"licenseServiceConfiguration"`
-	// The configuration for a shared file storage system that is associated with a studio resource.
+	ActiveDirectoryConfiguration  StudioComponentActiveDirectoryConfigurationPtrInput  `pulumi:"activeDirectoryConfiguration"`
+	ComputeFarmConfiguration      StudioComponentComputeFarmConfigurationPtrInput      `pulumi:"computeFarmConfiguration"`
+	LicenseServiceConfiguration   StudioComponentLicenseServiceConfigurationPtrInput   `pulumi:"licenseServiceConfiguration"`
 	SharedFileSystemConfiguration StudioComponentSharedFileSystemConfigurationPtrInput `pulumi:"sharedFileSystemConfiguration"`
 }
 
@@ -1607,28 +1431,24 @@ func (o StudioComponentConfigurationOutput) ToStudioComponentConfigurationPtrOut
 	}).(StudioComponentConfigurationPtrOutput)
 }
 
-// The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
 func (o StudioComponentConfigurationOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationPtrOutput {
 	return o.ApplyT(func(v StudioComponentConfiguration) *StudioComponentActiveDirectoryConfiguration {
 		return v.ActiveDirectoryConfiguration
 	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
 }
 
-// The configuration for a render farm that is associated with a studio resource.
 func (o StudioComponentConfigurationOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationPtrOutput {
 	return o.ApplyT(func(v StudioComponentConfiguration) *StudioComponentComputeFarmConfiguration {
 		return v.ComputeFarmConfiguration
 	}).(StudioComponentComputeFarmConfigurationPtrOutput)
 }
 
-// The configuration for a license service that is associated with a studio resource.
 func (o StudioComponentConfigurationOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationPtrOutput {
 	return o.ApplyT(func(v StudioComponentConfiguration) *StudioComponentLicenseServiceConfiguration {
 		return v.LicenseServiceConfiguration
 	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
 }
 
-// The configuration for a shared file storage system that is associated with a studio resource.
 func (o StudioComponentConfigurationOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationPtrOutput {
 	return o.ApplyT(func(v StudioComponentConfiguration) *StudioComponentSharedFileSystemConfiguration {
 		return v.SharedFileSystemConfiguration
@@ -1659,7 +1479,6 @@ func (o StudioComponentConfigurationPtrOutput) Elem() StudioComponentConfigurati
 	}).(StudioComponentConfigurationOutput)
 }
 
-// The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
 func (o StudioComponentConfigurationPtrOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationPtrOutput {
 	return o.ApplyT(func(v *StudioComponentConfiguration) *StudioComponentActiveDirectoryConfiguration {
 		if v == nil {
@@ -1669,7 +1488,6 @@ func (o StudioComponentConfigurationPtrOutput) ActiveDirectoryConfiguration() St
 	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
 }
 
-// The configuration for a render farm that is associated with a studio resource.
 func (o StudioComponentConfigurationPtrOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationPtrOutput {
 	return o.ApplyT(func(v *StudioComponentConfiguration) *StudioComponentComputeFarmConfiguration {
 		if v == nil {
@@ -1679,7 +1497,6 @@ func (o StudioComponentConfigurationPtrOutput) ComputeFarmConfiguration() Studio
 	}).(StudioComponentComputeFarmConfigurationPtrOutput)
 }
 
-// The configuration for a license service that is associated with a studio resource.
 func (o StudioComponentConfigurationPtrOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationPtrOutput {
 	return o.ApplyT(func(v *StudioComponentConfiguration) *StudioComponentLicenseServiceConfiguration {
 		if v == nil {
@@ -1689,7 +1506,6 @@ func (o StudioComponentConfigurationPtrOutput) LicenseServiceConfiguration() Stu
 	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
 }
 
-// The configuration for a shared file storage system that is associated with a studio resource.
 func (o StudioComponentConfigurationPtrOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationPtrOutput {
 	return o.ApplyT(func(v *StudioComponentConfiguration) *StudioComponentSharedFileSystemConfiguration {
 		if v == nil {
@@ -1700,14 +1516,10 @@ func (o StudioComponentConfigurationPtrOutput) SharedFileSystemConfiguration() S
 }
 
 type StudioComponentInitializationScript struct {
-	// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
 	LaunchProfileProtocolVersion *string `pulumi:"launchProfileProtocolVersion"`
-	// The platform of the initialization script, either Windows or Linux.
-	Platform *string `pulumi:"platform"`
-	// The method to use when running the initialization script.
-	RunContext *string `pulumi:"runContext"`
-	// The initialization script.
-	Script *string `pulumi:"script"`
+	Platform                     *string `pulumi:"platform"`
+	RunContext                   *string `pulumi:"runContext"`
+	Script                       *string `pulumi:"script"`
 }
 
 // StudioComponentInitializationScriptInput is an input type that accepts StudioComponentInitializationScriptArgs and StudioComponentInitializationScriptOutput values.
@@ -1722,14 +1534,10 @@ type StudioComponentInitializationScriptInput interface {
 }
 
 type StudioComponentInitializationScriptArgs struct {
-	// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
 	LaunchProfileProtocolVersion pulumi.StringPtrInput `pulumi:"launchProfileProtocolVersion"`
-	// The platform of the initialization script, either Windows or Linux.
-	Platform pulumi.StringPtrInput `pulumi:"platform"`
-	// The method to use when running the initialization script.
-	RunContext pulumi.StringPtrInput `pulumi:"runContext"`
-	// The initialization script.
-	Script pulumi.StringPtrInput `pulumi:"script"`
+	Platform                     pulumi.StringPtrInput `pulumi:"platform"`
+	RunContext                   pulumi.StringPtrInput `pulumi:"runContext"`
+	Script                       pulumi.StringPtrInput `pulumi:"script"`
 }
 
 func (StudioComponentInitializationScriptArgs) ElementType() reflect.Type {
@@ -1783,22 +1591,18 @@ func (o StudioComponentInitializationScriptOutput) ToStudioComponentInitializati
 	return o
 }
 
-// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
 func (o StudioComponentInitializationScriptOutput) LaunchProfileProtocolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.LaunchProfileProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
-// The platform of the initialization script, either Windows or Linux.
 func (o StudioComponentInitializationScriptOutput) Platform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
-// The method to use when running the initialization script.
 func (o StudioComponentInitializationScriptOutput) RunContext() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.RunContext }).(pulumi.StringPtrOutput)
 }
 
-// The initialization script.
 func (o StudioComponentInitializationScriptOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.Script }).(pulumi.StringPtrOutput)
 }
@@ -1824,7 +1628,6 @@ func (o StudioComponentInitializationScriptArrayOutput) Index(i pulumi.IntInput)
 }
 
 type StudioComponentLicenseServiceConfiguration struct {
-	// The endpoint of the license service that is accessed by the studio component resource.
 	Endpoint *string `pulumi:"endpoint"`
 }
 
@@ -1840,7 +1643,6 @@ type StudioComponentLicenseServiceConfigurationInput interface {
 }
 
 type StudioComponentLicenseServiceConfigurationArgs struct {
-	// The endpoint of the license service that is accessed by the studio component resource.
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
 }
 
@@ -1921,7 +1723,6 @@ func (o StudioComponentLicenseServiceConfigurationOutput) ToStudioComponentLicen
 	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
 }
 
-// The endpoint of the license service that is accessed by the studio component resource.
 func (o StudioComponentLicenseServiceConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentLicenseServiceConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
@@ -1950,7 +1751,6 @@ func (o StudioComponentLicenseServiceConfigurationPtrOutput) Elem() StudioCompon
 	}).(StudioComponentLicenseServiceConfigurationOutput)
 }
 
-// The endpoint of the license service that is accessed by the studio component resource.
 func (o StudioComponentLicenseServiceConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentLicenseServiceConfiguration) *string {
 		if v == nil {
@@ -1961,9 +1761,7 @@ func (o StudioComponentLicenseServiceConfigurationPtrOutput) Endpoint() pulumi.S
 }
 
 type StudioComponentScriptParameterKeyValue struct {
-	// A script parameter key.
-	Key *string `pulumi:"key"`
-	// A script parameter value.
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -1979,9 +1777,7 @@ type StudioComponentScriptParameterKeyValueInput interface {
 }
 
 type StudioComponentScriptParameterKeyValueArgs struct {
-	// A script parameter key.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// A script parameter value.
+	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -2036,12 +1832,10 @@ func (o StudioComponentScriptParameterKeyValueOutput) ToStudioComponentScriptPar
 	return o
 }
 
-// A script parameter key.
 func (o StudioComponentScriptParameterKeyValueOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentScriptParameterKeyValue) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// A script parameter value.
 func (o StudioComponentScriptParameterKeyValueOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentScriptParameterKeyValue) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2067,15 +1861,10 @@ func (o StudioComponentScriptParameterKeyValueArrayOutput) Index(i pulumi.IntInp
 }
 
 type StudioComponentSharedFileSystemConfiguration struct {
-	// The endpoint of the shared file system that is accessed by the studio component resource.
-	Endpoint *string `pulumi:"endpoint"`
-	// The unique identifier for a file system.
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// The mount location for a shared file system on a Linux virtual workstation.
-	LinuxMountPoint *string `pulumi:"linuxMountPoint"`
-	// The name of the file share.
-	ShareName *string `pulumi:"shareName"`
-	// The mount location for a shared file system on a Windows virtual workstation.
+	Endpoint          *string `pulumi:"endpoint"`
+	FileSystemId      *string `pulumi:"fileSystemId"`
+	LinuxMountPoint   *string `pulumi:"linuxMountPoint"`
+	ShareName         *string `pulumi:"shareName"`
 	WindowsMountDrive *string `pulumi:"windowsMountDrive"`
 }
 
@@ -2091,15 +1880,10 @@ type StudioComponentSharedFileSystemConfigurationInput interface {
 }
 
 type StudioComponentSharedFileSystemConfigurationArgs struct {
-	// The endpoint of the shared file system that is accessed by the studio component resource.
-	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// The unique identifier for a file system.
-	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
-	// The mount location for a shared file system on a Linux virtual workstation.
-	LinuxMountPoint pulumi.StringPtrInput `pulumi:"linuxMountPoint"`
-	// The name of the file share.
-	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
-	// The mount location for a shared file system on a Windows virtual workstation.
+	Endpoint          pulumi.StringPtrInput `pulumi:"endpoint"`
+	FileSystemId      pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	LinuxMountPoint   pulumi.StringPtrInput `pulumi:"linuxMountPoint"`
+	ShareName         pulumi.StringPtrInput `pulumi:"shareName"`
 	WindowsMountDrive pulumi.StringPtrInput `pulumi:"windowsMountDrive"`
 }
 
@@ -2180,27 +1964,22 @@ func (o StudioComponentSharedFileSystemConfigurationOutput) ToStudioComponentSha
 	}).(StudioComponentSharedFileSystemConfigurationPtrOutput)
 }
 
-// The endpoint of the shared file system that is accessed by the studio component resource.
 func (o StudioComponentSharedFileSystemConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for a file system.
 func (o StudioComponentSharedFileSystemConfigurationOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
-// The mount location for a shared file system on a Linux virtual workstation.
 func (o StudioComponentSharedFileSystemConfigurationOutput) LinuxMountPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.LinuxMountPoint }).(pulumi.StringPtrOutput)
 }
 
-// The name of the file share.
 func (o StudioComponentSharedFileSystemConfigurationOutput) ShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.ShareName }).(pulumi.StringPtrOutput)
 }
 
-// The mount location for a shared file system on a Windows virtual workstation.
 func (o StudioComponentSharedFileSystemConfigurationOutput) WindowsMountDrive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.WindowsMountDrive }).(pulumi.StringPtrOutput)
 }
@@ -2229,7 +2008,6 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) Elem() StudioComp
 	}).(StudioComponentSharedFileSystemConfigurationOutput)
 }
 
-// The endpoint of the shared file system that is accessed by the studio component resource.
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -2239,7 +2017,6 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) Endpoint() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for a file system.
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -2249,7 +2026,6 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) FileSystemId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The mount location for a shared file system on a Linux virtual workstation.
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) LinuxMountPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -2259,7 +2035,6 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) LinuxMountPoint()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the file share.
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) ShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -2269,7 +2044,6 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) ShareName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The mount location for a shared file system on a Windows virtual workstation.
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) WindowsMountDrive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -2280,10 +2054,8 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) WindowsMountDrive
 }
 
 type StudioEncryptionConfiguration struct {
-	// The ARN for a KMS key that is used to encrypt studio data.
-	KeyArn *string `pulumi:"keyArn"`
-	// The type of KMS key that is used to encrypt studio data.
-	KeyType string `pulumi:"keyType"`
+	KeyArn  *string `pulumi:"keyArn"`
+	KeyType string  `pulumi:"keyType"`
 }
 
 // StudioEncryptionConfigurationInput is an input type that accepts StudioEncryptionConfigurationArgs and StudioEncryptionConfigurationOutput values.
@@ -2298,10 +2070,8 @@ type StudioEncryptionConfigurationInput interface {
 }
 
 type StudioEncryptionConfigurationArgs struct {
-	// The ARN for a KMS key that is used to encrypt studio data.
-	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
-	// The type of KMS key that is used to encrypt studio data.
-	KeyType pulumi.StringInput `pulumi:"keyType"`
+	KeyArn  pulumi.StringPtrInput `pulumi:"keyArn"`
+	KeyType pulumi.StringInput    `pulumi:"keyType"`
 }
 
 func (StudioEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -2381,12 +2151,10 @@ func (o StudioEncryptionConfigurationOutput) ToStudioEncryptionConfigurationPtrO
 	}).(StudioEncryptionConfigurationPtrOutput)
 }
 
-// The ARN for a KMS key that is used to encrypt studio data.
 func (o StudioEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The type of KMS key that is used to encrypt studio data.
 func (o StudioEncryptionConfigurationOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v StudioEncryptionConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
 }
@@ -2415,7 +2183,6 @@ func (o StudioEncryptionConfigurationPtrOutput) Elem() StudioEncryptionConfigura
 	}).(StudioEncryptionConfigurationOutput)
 }
 
-// The ARN for a KMS key that is used to encrypt studio data.
 func (o StudioEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioEncryptionConfiguration) *string {
 		if v == nil {
@@ -2425,7 +2192,6 @@ func (o StudioEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of KMS key that is used to encrypt studio data.
 func (o StudioEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioEncryptionConfiguration) *string {
 		if v == nil {

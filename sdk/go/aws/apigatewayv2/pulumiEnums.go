@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The routing mode API Gateway uses to route traffic to your APIs.
 type DomainNameRoutingMode string
 
 const (

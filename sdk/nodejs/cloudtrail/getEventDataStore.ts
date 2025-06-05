@@ -34,6 +34,10 @@ export interface GetEventDataStoreResult {
      */
     readonly billingMode?: string;
     /**
+     * An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+     */
+    readonly contextKeySelectors?: outputs.cloudtrail.EventDataStoreContextKeySelector[];
+    /**
      * The timestamp of the event data store's creation.
      */
     readonly createdTimestamp?: string;
@@ -65,6 +69,10 @@ export interface GetEventDataStoreResult {
      * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
     readonly kmsKeyId?: string;
+    /**
+     * Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+     */
+    readonly maxEventSize?: enums.cloudtrail.EventDataStoreMaxEventSize;
     /**
      * Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
      */

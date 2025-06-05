@@ -29,8 +29,9 @@ type DomainName struct {
 	// The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
 	RegionalDomainName pulumi.StringOutput `pulumi:"regionalDomainName"`
 	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
-	RegionalHostedZoneId pulumi.StringOutput            `pulumi:"regionalHostedZoneId"`
-	RoutingMode          DomainNameRoutingModePtrOutput `pulumi:"routingMode"`
+	RegionalHostedZoneId pulumi.StringOutput `pulumi:"regionalHostedZoneId"`
+	// The routing mode API Gateway uses to route traffic to your APIs.
+	RoutingMode DomainNameRoutingModePtrOutput `pulumi:"routingMode"`
 	// The collection of tags associated with a domain name.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -88,7 +89,8 @@ type domainNameArgs struct {
 	DomainNameConfigurations []DomainNameConfiguration `pulumi:"domainNameConfigurations"`
 	// The mutual TLS authentication configuration for a custom domain name.
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
-	RoutingMode             *DomainNameRoutingMode             `pulumi:"routingMode"`
+	// The routing mode API Gateway uses to route traffic to your APIs.
+	RoutingMode *DomainNameRoutingMode `pulumi:"routingMode"`
 	// The collection of tags associated with a domain name.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -101,7 +103,8 @@ type DomainNameArgs struct {
 	DomainNameConfigurations DomainNameConfigurationArrayInput
 	// The mutual TLS authentication configuration for a custom domain name.
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
-	RoutingMode             DomainNameRoutingModePtrInput
+	// The routing mode API Gateway uses to route traffic to your APIs.
+	RoutingMode DomainNameRoutingModePtrInput
 	// The collection of tags associated with a domain name.
 	Tags pulumi.StringMapInput
 }
@@ -173,6 +176,7 @@ func (o DomainNameOutput) RegionalHostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.RegionalHostedZoneId }).(pulumi.StringOutput)
 }
 
+// The routing mode API Gateway uses to route traffic to your APIs.
 func (o DomainNameOutput) RoutingMode() DomainNameRoutingModePtrOutput {
 	return o.ApplyT(func(v *DomainName) DomainNameRoutingModePtrOutput { return v.RoutingMode }).(DomainNameRoutingModePtrOutput)
 }

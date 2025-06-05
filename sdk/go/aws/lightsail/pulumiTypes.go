@@ -3390,6 +3390,91 @@ func (o InstancePortArrayOutput) Index(i pulumi.IntInput) InstancePortOutput {
 	}).(InstancePortOutput)
 }
 
+// The region name and Availability Zone where you created the snapshot.
+type InstanceSnapshotLocation struct {
+	// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The AWS Region name.
+	RegionName *string `pulumi:"regionName"`
+}
+
+// The region name and Availability Zone where you created the snapshot.
+type InstanceSnapshotLocationOutput struct{ *pulumi.OutputState }
+
+func (InstanceSnapshotLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceSnapshotLocation)(nil)).Elem()
+}
+
+func (o InstanceSnapshotLocationOutput) ToInstanceSnapshotLocationOutput() InstanceSnapshotLocationOutput {
+	return o
+}
+
+func (o InstanceSnapshotLocationOutput) ToInstanceSnapshotLocationOutputWithContext(ctx context.Context) InstanceSnapshotLocationOutput {
+	return o
+}
+
+// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+func (o InstanceSnapshotLocationOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceSnapshotLocation) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region name.
+func (o InstanceSnapshotLocationOutput) RegionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceSnapshotLocation) *string { return v.RegionName }).(pulumi.StringPtrOutput)
+}
+
+type InstanceSnapshotLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceSnapshotLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceSnapshotLocation)(nil)).Elem()
+}
+
+func (o InstanceSnapshotLocationPtrOutput) ToInstanceSnapshotLocationPtrOutput() InstanceSnapshotLocationPtrOutput {
+	return o
+}
+
+func (o InstanceSnapshotLocationPtrOutput) ToInstanceSnapshotLocationPtrOutputWithContext(ctx context.Context) InstanceSnapshotLocationPtrOutput {
+	return o
+}
+
+func (o InstanceSnapshotLocationPtrOutput) Elem() InstanceSnapshotLocationOutput {
+	return o.ApplyT(func(v *InstanceSnapshotLocation) InstanceSnapshotLocation {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceSnapshotLocation
+		return ret
+	}).(InstanceSnapshotLocationOutput)
+}
+
+// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+func (o InstanceSnapshotLocationPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceSnapshotLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region name.
+func (o InstanceSnapshotLocationPtrOutput) RegionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceSnapshotLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type InstanceSnapshotTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
 // Current State of the Instance.
 type InstanceStateType struct {
 	// Status code of the Instance.
@@ -3656,6 +3741,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceNetworkingPtrOutput{})
 	pulumi.RegisterOutputType(InstancePortOutput{})
 	pulumi.RegisterOutputType(InstancePortArrayOutput{})
+	pulumi.RegisterOutputType(InstanceSnapshotLocationOutput{})
+	pulumi.RegisterOutputType(InstanceSnapshotLocationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceStateTypeOutput{})
 	pulumi.RegisterOutputType(InstanceStateTypePtrOutput{})
 }

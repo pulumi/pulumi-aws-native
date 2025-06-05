@@ -29,7 +29,7 @@ class ConfigurationArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Configuration resource.
-        :param pulumi.Input[builtins.str] server_properties: Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+        :param pulumi.Input[builtins.str] server_properties: Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
         :param pulumi.Input[builtins.str] description: The description of the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] kafka_versions_list: The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
                
@@ -55,7 +55,7 @@ class ConfigurationArgs:
     @pulumi.getter(name="serverProperties")
     def server_properties(self) -> pulumi.Input[builtins.str]:
         """
-        Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+        Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
         """
         return pulumi.get(self, "server_properties")
 
@@ -145,7 +145,7 @@ class Configuration(pulumi.CustomResource):
                For more information, see [Can’t update KafkaVersionsList in MSK configuration](https://docs.aws.amazon.com/msk/latest/developerguide/troubleshooting.html#troubleshoot-kafkaversionslist-cfn-update-failure) in the *Amazon MSK Developer Guide* .
         :param pulumi.Input[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict']] latest_revision: Latest revision of the MSK configuration.
         :param pulumi.Input[builtins.str] name: The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
-        :param pulumi.Input[builtins.str] server_properties: Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+        :param pulumi.Input[builtins.str] server_properties: Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
         """
         ...
     @overload
@@ -275,7 +275,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="serverProperties")
     def server_properties(self) -> pulumi.Output[builtins.str]:
         """
-        Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+        Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
         """
         return pulumi.get(self, "server_properties")
 

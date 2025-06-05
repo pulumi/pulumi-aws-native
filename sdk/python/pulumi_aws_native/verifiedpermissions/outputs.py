@@ -568,11 +568,21 @@ class PolicyStaticPolicyDefinition(dict):
 class PolicyStoreDeletionProtection(dict):
     def __init__(__self__, *,
                  mode: 'PolicyStoreDeletionMode'):
+        """
+        :param 'PolicyStoreDeletionMode' mode: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+               
+               The default state is `DISABLED` .
+        """
         pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
     def mode(self) -> 'PolicyStoreDeletionMode':
+        """
+        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+
+        The default state is `DISABLED` .
+        """
         return pulumi.get(self, "mode")
 
 

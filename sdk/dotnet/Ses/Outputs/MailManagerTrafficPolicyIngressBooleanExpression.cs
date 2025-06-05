@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.Ses.Outputs
     [OutputType]
     public sealed class MailManagerTrafficPolicyIngressBooleanExpression
     {
-        public readonly Outputs.MailManagerTrafficPolicyIngressBooleanToEvaluateProperties Evaluate;
+        public readonly Union<Outputs.MailManagerTrafficPolicyIngressBooleanToEvaluate0Properties, Outputs.MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties> Evaluate;
         public readonly Pulumi.AwsNative.Ses.MailManagerTrafficPolicyIngressBooleanOperator Operator;
 
         [OutputConstructor]
         private MailManagerTrafficPolicyIngressBooleanExpression(
-            Outputs.MailManagerTrafficPolicyIngressBooleanToEvaluateProperties evaluate,
+            Union<Outputs.MailManagerTrafficPolicyIngressBooleanToEvaluate0Properties, Outputs.MailManagerTrafficPolicyIngressBooleanToEvaluate1Properties> evaluate,
 
             Pulumi.AwsNative.Ses.MailManagerTrafficPolicyIngressBooleanOperator @operator)
         {

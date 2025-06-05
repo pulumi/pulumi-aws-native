@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Dsql
         public Output<string> Identifier { get; private set; } = null!;
 
         /// <summary>
+        /// The Multi-region properties associated to this cluster.
+        /// </summary>
+        [Output("multiRegionProperties")]
+        public Output<Outputs.MultiRegionPropertiesProperties?> MultiRegionProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the cluster.
         /// </summary>
         [Output("resourceArn")]
@@ -107,6 +113,12 @@ namespace Pulumi.AwsNative.Dsql
         /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
+
+        /// <summary>
+        /// The Multi-region properties associated to this cluster.
+        /// </summary>
+        [Input("multiRegionProperties")]
+        public Input<Inputs.MultiRegionPropertiesPropertiesArgs>? MultiRegionProperties { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

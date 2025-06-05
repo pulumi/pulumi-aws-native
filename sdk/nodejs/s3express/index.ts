@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessPointArgs } from "./accessPoint";
+export type AccessPoint = import("./accessPoint").AccessPoint;
+export const AccessPoint: typeof import("./accessPoint").AccessPoint = null as any;
+utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
+
 export { BucketPolicyArgs } from "./bucketPolicy";
 export type BucketPolicy = import("./bucketPolicy").BucketPolicy;
 export const BucketPolicy: typeof import("./bucketPolicy").BucketPolicy = null as any;
@@ -14,6 +19,11 @@ export { DirectoryBucketArgs } from "./directoryBucket";
 export type DirectoryBucket = import("./directoryBucket").DirectoryBucket;
 export const DirectoryBucket: typeof import("./directoryBucket").DirectoryBucket = null as any;
 utilities.lazyLoad(exports, ["DirectoryBucket"], () => require("./directoryBucket"));
+
+export { GetAccessPointArgs, GetAccessPointResult, GetAccessPointOutputArgs } from "./getAccessPoint";
+export const getAccessPoint: typeof import("./getAccessPoint").getAccessPoint = null as any;
+export const getAccessPointOutput: typeof import("./getAccessPoint").getAccessPointOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPoint","getAccessPointOutput"], () => require("./getAccessPoint"));
 
 export { GetBucketPolicyArgs, GetBucketPolicyResult, GetBucketPolicyOutputArgs } from "./getBucketPolicy";
 export const getBucketPolicy: typeof import("./getBucketPolicy").getBucketPolicy = null as any;
@@ -33,6 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:s3express:AccessPoint":
+                return new AccessPoint(name, <any>undefined, { urn })
             case "aws-native:s3express:BucketPolicy":
                 return new BucketPolicy(name, <any>undefined, { urn })
             case "aws-native:s3express:DirectoryBucket":

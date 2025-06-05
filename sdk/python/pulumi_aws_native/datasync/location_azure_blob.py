@@ -42,7 +42,15 @@ class LocationAzureBlobArgs:
         :param pulumi.Input['LocationAzureBlobAzureAccessTier'] azure_access_tier: Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
         :param pulumi.Input[builtins.str] azure_blob_container_url: The URL of the Azure Blob container that was described.
         :param pulumi.Input['LocationAzureBlobAzureBlobSasConfigurationArgs'] azure_blob_sas_configuration: Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+               
+               > If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret.
         :param pulumi.Input['LocationAzureBlobAzureBlobType'] azure_blob_type: Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
+        :param pulumi.Input['LocationAzureBlobCmkSecretConfigArgs'] cmk_secret_config: Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+               
+               > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        :param pulumi.Input['LocationAzureBlobCustomSecretConfigArgs'] custom_secret_config: Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+               
+               > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         :param pulumi.Input[builtins.str] subdirectory: The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -119,6 +127,8 @@ class LocationAzureBlobArgs:
     def azure_blob_sas_configuration(self) -> Optional[pulumi.Input['LocationAzureBlobAzureBlobSasConfigurationArgs']]:
         """
         Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+
+        > If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret.
         """
         return pulumi.get(self, "azure_blob_sas_configuration")
 
@@ -141,6 +151,11 @@ class LocationAzureBlobArgs:
     @property
     @pulumi.getter(name="cmkSecretConfig")
     def cmk_secret_config(self) -> Optional[pulumi.Input['LocationAzureBlobCmkSecretConfigArgs']]:
+        """
+        Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+
+        > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        """
         return pulumi.get(self, "cmk_secret_config")
 
     @cmk_secret_config.setter
@@ -150,6 +165,11 @@ class LocationAzureBlobArgs:
     @property
     @pulumi.getter(name="customSecretConfig")
     def custom_secret_config(self) -> Optional[pulumi.Input['LocationAzureBlobCustomSecretConfigArgs']]:
+        """
+        Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+
+        > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        """
         return pulumi.get(self, "custom_secret_config")
 
     @custom_secret_config.setter
@@ -208,7 +228,15 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input['LocationAzureBlobAzureBlobAuthenticationType'] azure_blob_authentication_type: The specific authentication type that you want DataSync to use to access your Azure Blob Container.
         :param pulumi.Input[builtins.str] azure_blob_container_url: The URL of the Azure Blob container that was described.
         :param pulumi.Input[Union['LocationAzureBlobAzureBlobSasConfigurationArgs', 'LocationAzureBlobAzureBlobSasConfigurationArgsDict']] azure_blob_sas_configuration: Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+               
+               > If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret.
         :param pulumi.Input['LocationAzureBlobAzureBlobType'] azure_blob_type: Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
+        :param pulumi.Input[Union['LocationAzureBlobCmkSecretConfigArgs', 'LocationAzureBlobCmkSecretConfigArgsDict']] cmk_secret_config: Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+               
+               > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        :param pulumi.Input[Union['LocationAzureBlobCustomSecretConfigArgs', 'LocationAzureBlobCustomSecretConfigArgsDict']] custom_secret_config: Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+               
+               > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         :param pulumi.Input[builtins.str] subdirectory: The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -346,6 +374,8 @@ class LocationAzureBlob(pulumi.CustomResource):
     def azure_blob_sas_configuration(self) -> pulumi.Output[Optional['outputs.LocationAzureBlobAzureBlobSasConfiguration']]:
         """
         Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+
+        > If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret.
         """
         return pulumi.get(self, "azure_blob_sas_configuration")
 
@@ -360,11 +390,21 @@ class LocationAzureBlob(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cmkSecretConfig")
     def cmk_secret_config(self) -> pulumi.Output[Optional['outputs.LocationAzureBlobCmkSecretConfig']]:
+        """
+        Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+
+        > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        """
         return pulumi.get(self, "cmk_secret_config")
 
     @property
     @pulumi.getter(name="customSecretConfig")
     def custom_secret_config(self) -> pulumi.Output[Optional['outputs.LocationAzureBlobCustomSecretConfig']]:
+        """
+        Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+
+        > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        """
         return pulumi.get(self, "custom_secret_config")
 
     @property

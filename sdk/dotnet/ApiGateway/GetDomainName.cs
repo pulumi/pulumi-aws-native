@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? DistributionHostedZoneId;
         /// <summary>
-        /// The ARN of the domain name. Supported only for private custom domain names.
+        /// The ARN of the domain name.
         /// </summary>
         public readonly string? DomainNameArn;
         /// <summary>
@@ -108,6 +108,9 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
         /// </summary>
         public readonly string? RegionalHostedZoneId;
+        /// <summary>
+        /// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+        /// </summary>
         public readonly Pulumi.AwsNative.ApiGateway.DomainNameRoutingMode? RoutingMode;
         /// <summary>
         /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .

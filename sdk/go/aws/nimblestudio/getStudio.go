@@ -23,27 +23,18 @@ func LookupStudio(ctx *pulumi.Context, args *LookupStudioArgs, opts ...pulumi.In
 }
 
 type LookupStudioArgs struct {
-	// The unique identifier for the studio resource.
 	StudioId string `pulumi:"studioId"`
 }
 
 type LookupStudioResult struct {
-	// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-	AdminRoleArn *string `pulumi:"adminRoleArn"`
-	// A friendly name for the studio.
-	DisplayName *string `pulumi:"displayName"`
-	// The AWS Region where the studio resource is located. For example, `us-west-2` .
-	HomeRegion *string `pulumi:"homeRegion"`
-	// The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
-	SsoClientId *string `pulumi:"ssoClientId"`
-	// Configuration of the encryption method that is used for the studio.
+	AdminRoleArn                  *string                        `pulumi:"adminRoleArn"`
+	DisplayName                   *string                        `pulumi:"displayName"`
+	HomeRegion                    *string                        `pulumi:"homeRegion"`
+	SsoClientId                   *string                        `pulumi:"ssoClientId"`
 	StudioEncryptionConfiguration *StudioEncryptionConfiguration `pulumi:"studioEncryptionConfiguration"`
-	// The unique identifier for the studio resource.
-	StudioId *string `pulumi:"studioId"`
-	// The unique identifier for the studio resource.
-	StudioUrl *string `pulumi:"studioUrl"`
-	// The IAM role that studio users assume when logging in to the Nimble Studio portal.
-	UserRoleArn *string `pulumi:"userRoleArn"`
+	StudioId                      *string                        `pulumi:"studioId"`
+	StudioUrl                     *string                        `pulumi:"studioUrl"`
+	UserRoleArn                   *string                        `pulumi:"userRoleArn"`
 }
 
 func LookupStudioOutput(ctx *pulumi.Context, args LookupStudioOutputArgs, opts ...pulumi.InvokeOption) LookupStudioResultOutput {
@@ -56,7 +47,6 @@ func LookupStudioOutput(ctx *pulumi.Context, args LookupStudioOutputArgs, opts .
 }
 
 type LookupStudioOutputArgs struct {
-	// The unique identifier for the studio resource.
 	StudioId pulumi.StringInput `pulumi:"studioId"`
 }
 
@@ -78,42 +68,34 @@ func (o LookupStudioResultOutput) ToLookupStudioResultOutputWithContext(ctx cont
 	return o
 }
 
-// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
 func (o LookupStudioResultOutput) AdminRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.AdminRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// A friendly name for the studio.
 func (o LookupStudioResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region where the studio resource is located. For example, `us-west-2` .
 func (o LookupStudioResultOutput) HomeRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.HomeRegion }).(pulumi.StringPtrOutput)
 }
 
-// The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
 func (o LookupStudioResultOutput) SsoClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.SsoClientId }).(pulumi.StringPtrOutput)
 }
 
-// Configuration of the encryption method that is used for the studio.
 func (o LookupStudioResultOutput) StudioEncryptionConfiguration() StudioEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *StudioEncryptionConfiguration { return v.StudioEncryptionConfiguration }).(StudioEncryptionConfigurationPtrOutput)
 }
 
-// The unique identifier for the studio resource.
 func (o LookupStudioResultOutput) StudioId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.StudioId }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for the studio resource.
 func (o LookupStudioResultOutput) StudioUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.StudioUrl }).(pulumi.StringPtrOutput)
 }
 
-// The IAM role that studio users assume when logging in to the Nimble Studio portal.
 func (o LookupStudioResultOutput) UserRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.UserRoleArn }).(pulumi.StringPtrOutput)
 }

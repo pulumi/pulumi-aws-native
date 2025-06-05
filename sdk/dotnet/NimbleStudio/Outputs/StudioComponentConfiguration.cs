@@ -13,21 +13,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     [OutputType]
     public sealed class StudioComponentConfiguration
     {
-        /// <summary>
-        /// The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
-        /// </summary>
         public readonly Outputs.StudioComponentActiveDirectoryConfiguration? ActiveDirectoryConfiguration;
-        /// <summary>
-        /// The configuration for a render farm that is associated with a studio resource.
-        /// </summary>
         public readonly Outputs.StudioComponentComputeFarmConfiguration? ComputeFarmConfiguration;
-        /// <summary>
-        /// The configuration for a license service that is associated with a studio resource.
-        /// </summary>
         public readonly Outputs.StudioComponentLicenseServiceConfiguration? LicenseServiceConfiguration;
-        /// <summary>
-        /// The configuration for a shared file storage system that is associated with a studio resource.
-        /// </summary>
         public readonly Outputs.StudioComponentSharedFileSystemConfiguration? SharedFileSystemConfiguration;
 
         [OutputConstructor]

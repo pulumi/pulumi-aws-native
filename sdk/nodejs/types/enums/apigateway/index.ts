@@ -37,6 +37,9 @@ export const DomainNameRoutingMode = {
     RoutingRuleOnly: "ROUTING_RULE_ONLY",
 } as const;
 
+/**
+ * The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+ */
 export type DomainNameRoutingMode = (typeof DomainNameRoutingMode)[keyof typeof DomainNameRoutingMode];
 
 export const DomainNameV2RoutingMode = {

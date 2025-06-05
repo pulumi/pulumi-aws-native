@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Outputs
     [OutputType]
     public sealed class RoutingRuleMatchHeaders
     {
+        /// <summary>
+        /// The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RoutingRuleMatchHeaderValue> AnyOf;
 
         [OutputConstructor]

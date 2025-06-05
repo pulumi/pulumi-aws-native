@@ -189,6 +189,8 @@ if typing.TYPE_CHECKING:
     eventschemas = __eventschemas
     import pulumi_aws_native.evidently as __evidently
     evidently = __evidently
+    import pulumi_aws_native.evs as __evs
+    evs = __evs
     import pulumi_aws_native.finspace as __finspace
     finspace = __finspace
     import pulumi_aws_native.fis as __fis
@@ -557,6 +559,7 @@ else:
     events = _utilities.lazy_import('pulumi_aws_native.events')
     eventschemas = _utilities.lazy_import('pulumi_aws_native.eventschemas')
     evidently = _utilities.lazy_import('pulumi_aws_native.evidently')
+    evs = _utilities.lazy_import('pulumi_aws_native.evs')
     finspace = _utilities.lazy_import('pulumi_aws_native.finspace')
     fis = _utilities.lazy_import('pulumi_aws_native.fis')
     fms = _utilities.lazy_import('pulumi_aws_native.fms')
@@ -1414,6 +1417,7 @@ _utilities.register(
    "aws-native:datazone:Owner": "Owner",
    "aws-native:datazone:Project": "Project",
    "aws-native:datazone:ProjectMembership": "ProjectMembership",
+   "aws-native:datazone:ProjectProfile": "ProjectProfile",
    "aws-native:datazone:SubscriptionTarget": "SubscriptionTarget",
    "aws-native:datazone:UserProfile": "UserProfile"
   }
@@ -1773,6 +1777,14 @@ _utilities.register(
    "aws-native:evidently:Launch": "Launch",
    "aws-native:evidently:Project": "Project",
    "aws-native:evidently:Segment": "Segment"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "evs",
+  "fqn": "pulumi_aws_native.evs",
+  "classes": {
+   "aws-native:evs:Environment": "Environment"
   }
  },
  {
@@ -2313,6 +2325,7 @@ _utilities.register(
    "aws-native:lightsail:Database": "Database",
    "aws-native:lightsail:Disk": "Disk",
    "aws-native:lightsail:Instance": "Instance",
+   "aws-native:lightsail:InstanceSnapshot": "InstanceSnapshot",
    "aws-native:lightsail:LoadBalancer": "LoadBalancer",
    "aws-native:lightsail:LoadBalancerTlsCertificate": "LoadBalancerTlsCertificate",
    "aws-native:lightsail:StaticIp": "StaticIp"
@@ -2953,6 +2966,7 @@ _utilities.register(
    "aws-native:route53resolver:OutpostResolver": "OutpostResolver",
    "aws-native:route53resolver:ResolverConfig": "ResolverConfig",
    "aws-native:route53resolver:ResolverDnssecConfig": "ResolverDnssecConfig",
+   "aws-native:route53resolver:ResolverEndpoint": "ResolverEndpoint",
    "aws-native:route53resolver:ResolverQueryLoggingConfig": "ResolverQueryLoggingConfig",
    "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation": "ResolverQueryLoggingConfigAssociation",
    "aws-native:route53resolver:ResolverRule": "ResolverRule",
@@ -2989,6 +3003,7 @@ _utilities.register(
   "mod": "s3express",
   "fqn": "pulumi_aws_native.s3express",
   "classes": {
+   "aws-native:s3express:AccessPoint": "AccessPoint",
    "aws-native:s3express:BucketPolicy": "BucketPolicy",
    "aws-native:s3express:DirectoryBucket": "DirectoryBucket"
   }

@@ -148,6 +148,7 @@ import * as entityresolution from "./entityresolution";
 import * as events from "./events";
 import * as eventschemas from "./eventschemas";
 import * as evidently from "./evidently";
+import * as evs from "./evs";
 import * as finspace from "./finspace";
 import * as fis from "./fis";
 import * as fms from "./fms";
@@ -376,6 +377,7 @@ export {
     events,
     eventschemas,
     evidently,
+    evs,
     finspace,
     fis,
     fms,

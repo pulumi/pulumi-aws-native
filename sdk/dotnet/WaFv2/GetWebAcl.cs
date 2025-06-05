@@ -156,6 +156,10 @@ namespace Pulumi.AwsNative.WaFv2
         /// </summary>
         public readonly string? LabelNamespace;
         /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        /// </summary>
+        public readonly object? OnSourceDDoSProtectionConfig;
+        /// <summary>
         /// Collection of Rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRule> Rules;
@@ -198,6 +202,8 @@ namespace Pulumi.AwsNative.WaFv2
 
             string? labelNamespace,
 
+            object? onSourceDDoSProtectionConfig,
+
             ImmutableArray<Outputs.WebAclRule> rules,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -217,6 +223,7 @@ namespace Pulumi.AwsNative.WaFv2
             Description = description;
             Id = id;
             LabelNamespace = labelNamespace;
+            OnSourceDDoSProtectionConfig = onSourceDDoSProtectionConfig;
             Rules = rules;
             Tags = tags;
             TokenDomains = tokenDomains;

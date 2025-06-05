@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Deadline.Inputs
         [Input("instanceMarketOptions", required: true)]
         public Input<Inputs.FleetServiceManagedEc2InstanceMarketOptionsArgs> InstanceMarketOptions { get; set; } = null!;
 
+        [Input("storageProfileId")]
+        public Input<string>? StorageProfileId { get; set; }
+
         public FleetServiceManagedEc2FleetConfigurationArgs()
         {
         }

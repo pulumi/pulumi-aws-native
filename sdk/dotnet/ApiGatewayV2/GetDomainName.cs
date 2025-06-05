@@ -86,6 +86,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
         /// </summary>
         public readonly string? RegionalHostedZoneId;
+        /// <summary>
+        /// The routing mode API Gateway uses to route traffic to your APIs.
+        /// </summary>
         public readonly Pulumi.AwsNative.ApiGatewayV2.DomainNameRoutingMode? RoutingMode;
         /// <summary>
         /// The collection of tags associated with a domain name.

@@ -54,6 +54,26 @@ export const DashboardType = {
  */
 export type DashboardType = (typeof DashboardType)[keyof typeof DashboardType];
 
+export const EventDataStoreContextKeySelectorType = {
+    RequestContext: "RequestContext",
+    TagContext: "TagContext",
+} as const;
+
+/**
+ * Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+ */
+export type EventDataStoreContextKeySelectorType = (typeof EventDataStoreContextKeySelectorType)[keyof typeof EventDataStoreContextKeySelectorType];
+
+export const EventDataStoreMaxEventSize = {
+    Standard: "Standard",
+    Large: "Large",
+} as const;
+
+/**
+ * Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+ */
+export type EventDataStoreMaxEventSize = (typeof EventDataStoreMaxEventSize)[keyof typeof EventDataStoreMaxEventSize];
+
 export const TrailEventSelectorReadWriteType = {
     All: "All",
     ReadOnly: "ReadOnly",

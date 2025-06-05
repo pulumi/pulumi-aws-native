@@ -10,6 +10,319 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
+type AccessPointNetworkOrigin string
+
+const (
+	AccessPointNetworkOriginInternet = AccessPointNetworkOrigin("Internet")
+	AccessPointNetworkOriginVpc      = AccessPointNetworkOrigin("VPC")
+)
+
+type AccessPointNetworkOriginOutput struct{ *pulumi.OutputState }
+
+func (AccessPointNetworkOriginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointNetworkOrigin)(nil)).Elem()
+}
+
+func (o AccessPointNetworkOriginOutput) ToAccessPointNetworkOriginOutput() AccessPointNetworkOriginOutput {
+	return o
+}
+
+func (o AccessPointNetworkOriginOutput) ToAccessPointNetworkOriginOutputWithContext(ctx context.Context) AccessPointNetworkOriginOutput {
+	return o
+}
+
+func (o AccessPointNetworkOriginOutput) ToAccessPointNetworkOriginPtrOutput() AccessPointNetworkOriginPtrOutput {
+	return o.ToAccessPointNetworkOriginPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointNetworkOriginOutput) ToAccessPointNetworkOriginPtrOutputWithContext(ctx context.Context) AccessPointNetworkOriginPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointNetworkOrigin) *AccessPointNetworkOrigin {
+		return &v
+	}).(AccessPointNetworkOriginPtrOutput)
+}
+
+func (o AccessPointNetworkOriginOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessPointNetworkOriginOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessPointNetworkOrigin) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessPointNetworkOriginOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointNetworkOriginOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessPointNetworkOrigin) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessPointNetworkOriginPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointNetworkOriginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointNetworkOrigin)(nil)).Elem()
+}
+
+func (o AccessPointNetworkOriginPtrOutput) ToAccessPointNetworkOriginPtrOutput() AccessPointNetworkOriginPtrOutput {
+	return o
+}
+
+func (o AccessPointNetworkOriginPtrOutput) ToAccessPointNetworkOriginPtrOutputWithContext(ctx context.Context) AccessPointNetworkOriginPtrOutput {
+	return o
+}
+
+func (o AccessPointNetworkOriginPtrOutput) Elem() AccessPointNetworkOriginOutput {
+	return o.ApplyT(func(v *AccessPointNetworkOrigin) AccessPointNetworkOrigin {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointNetworkOrigin
+		return ret
+	}).(AccessPointNetworkOriginOutput)
+}
+
+func (o AccessPointNetworkOriginPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointNetworkOriginPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessPointNetworkOrigin) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessPointScopePermissionsItem string
+
+const (
+	AccessPointScopePermissionsItemGetObject                  = AccessPointScopePermissionsItem("GetObject")
+	AccessPointScopePermissionsItemGetObjectAttributes        = AccessPointScopePermissionsItem("GetObjectAttributes")
+	AccessPointScopePermissionsItemListMultipartUploadParts   = AccessPointScopePermissionsItem("ListMultipartUploadParts")
+	AccessPointScopePermissionsItemListBucket                 = AccessPointScopePermissionsItem("ListBucket")
+	AccessPointScopePermissionsItemListBucketMultipartUploads = AccessPointScopePermissionsItem("ListBucketMultipartUploads")
+	AccessPointScopePermissionsItemPutObject                  = AccessPointScopePermissionsItem("PutObject")
+	AccessPointScopePermissionsItemDeleteObject               = AccessPointScopePermissionsItem("DeleteObject")
+	AccessPointScopePermissionsItemAbortMultipartUpload       = AccessPointScopePermissionsItem("AbortMultipartUpload")
+)
+
+func (AccessPointScopePermissionsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointScopePermissionsItem)(nil)).Elem()
+}
+
+func (e AccessPointScopePermissionsItem) ToAccessPointScopePermissionsItemOutput() AccessPointScopePermissionsItemOutput {
+	return pulumi.ToOutput(e).(AccessPointScopePermissionsItemOutput)
+}
+
+func (e AccessPointScopePermissionsItem) ToAccessPointScopePermissionsItemOutputWithContext(ctx context.Context) AccessPointScopePermissionsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessPointScopePermissionsItemOutput)
+}
+
+func (e AccessPointScopePermissionsItem) ToAccessPointScopePermissionsItemPtrOutput() AccessPointScopePermissionsItemPtrOutput {
+	return e.ToAccessPointScopePermissionsItemPtrOutputWithContext(context.Background())
+}
+
+func (e AccessPointScopePermissionsItem) ToAccessPointScopePermissionsItemPtrOutputWithContext(ctx context.Context) AccessPointScopePermissionsItemPtrOutput {
+	return AccessPointScopePermissionsItem(e).ToAccessPointScopePermissionsItemOutputWithContext(ctx).ToAccessPointScopePermissionsItemPtrOutputWithContext(ctx)
+}
+
+func (e AccessPointScopePermissionsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessPointScopePermissionsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessPointScopePermissionsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccessPointScopePermissionsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccessPointScopePermissionsItemOutput struct{ *pulumi.OutputState }
+
+func (AccessPointScopePermissionsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointScopePermissionsItem)(nil)).Elem()
+}
+
+func (o AccessPointScopePermissionsItemOutput) ToAccessPointScopePermissionsItemOutput() AccessPointScopePermissionsItemOutput {
+	return o
+}
+
+func (o AccessPointScopePermissionsItemOutput) ToAccessPointScopePermissionsItemOutputWithContext(ctx context.Context) AccessPointScopePermissionsItemOutput {
+	return o
+}
+
+func (o AccessPointScopePermissionsItemOutput) ToAccessPointScopePermissionsItemPtrOutput() AccessPointScopePermissionsItemPtrOutput {
+	return o.ToAccessPointScopePermissionsItemPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointScopePermissionsItemOutput) ToAccessPointScopePermissionsItemPtrOutputWithContext(ctx context.Context) AccessPointScopePermissionsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointScopePermissionsItem) *AccessPointScopePermissionsItem {
+		return &v
+	}).(AccessPointScopePermissionsItemPtrOutput)
+}
+
+func (o AccessPointScopePermissionsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessPointScopePermissionsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessPointScopePermissionsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessPointScopePermissionsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointScopePermissionsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessPointScopePermissionsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessPointScopePermissionsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointScopePermissionsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointScopePermissionsItem)(nil)).Elem()
+}
+
+func (o AccessPointScopePermissionsItemPtrOutput) ToAccessPointScopePermissionsItemPtrOutput() AccessPointScopePermissionsItemPtrOutput {
+	return o
+}
+
+func (o AccessPointScopePermissionsItemPtrOutput) ToAccessPointScopePermissionsItemPtrOutputWithContext(ctx context.Context) AccessPointScopePermissionsItemPtrOutput {
+	return o
+}
+
+func (o AccessPointScopePermissionsItemPtrOutput) Elem() AccessPointScopePermissionsItemOutput {
+	return o.ApplyT(func(v *AccessPointScopePermissionsItem) AccessPointScopePermissionsItem {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointScopePermissionsItem
+		return ret
+	}).(AccessPointScopePermissionsItemOutput)
+}
+
+func (o AccessPointScopePermissionsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointScopePermissionsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessPointScopePermissionsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessPointScopePermissionsItemInput is an input type that accepts values of the AccessPointScopePermissionsItem enum
+// A concrete instance of `AccessPointScopePermissionsItemInput` can be one of the following:
+//
+//	AccessPointScopePermissionsItemGetObject
+//	AccessPointScopePermissionsItemGetObjectAttributes
+//	AccessPointScopePermissionsItemListMultipartUploadParts
+//	AccessPointScopePermissionsItemListBucket
+//	AccessPointScopePermissionsItemListBucketMultipartUploads
+//	AccessPointScopePermissionsItemPutObject
+//	AccessPointScopePermissionsItemDeleteObject
+//	AccessPointScopePermissionsItemAbortMultipartUpload
+type AccessPointScopePermissionsItemInput interface {
+	pulumi.Input
+
+	ToAccessPointScopePermissionsItemOutput() AccessPointScopePermissionsItemOutput
+	ToAccessPointScopePermissionsItemOutputWithContext(context.Context) AccessPointScopePermissionsItemOutput
+}
+
+var accessPointScopePermissionsItemPtrType = reflect.TypeOf((**AccessPointScopePermissionsItem)(nil)).Elem()
+
+type AccessPointScopePermissionsItemPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointScopePermissionsItemPtrOutput() AccessPointScopePermissionsItemPtrOutput
+	ToAccessPointScopePermissionsItemPtrOutputWithContext(context.Context) AccessPointScopePermissionsItemPtrOutput
+}
+
+type accessPointScopePermissionsItemPtr string
+
+func AccessPointScopePermissionsItemPtr(v string) AccessPointScopePermissionsItemPtrInput {
+	return (*accessPointScopePermissionsItemPtr)(&v)
+}
+
+func (*accessPointScopePermissionsItemPtr) ElementType() reflect.Type {
+	return accessPointScopePermissionsItemPtrType
+}
+
+func (in *accessPointScopePermissionsItemPtr) ToAccessPointScopePermissionsItemPtrOutput() AccessPointScopePermissionsItemPtrOutput {
+	return pulumi.ToOutput(in).(AccessPointScopePermissionsItemPtrOutput)
+}
+
+func (in *accessPointScopePermissionsItemPtr) ToAccessPointScopePermissionsItemPtrOutputWithContext(ctx context.Context) AccessPointScopePermissionsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessPointScopePermissionsItemPtrOutput)
+}
+
+// AccessPointScopePermissionsItemArrayInput is an input type that accepts AccessPointScopePermissionsItemArray and AccessPointScopePermissionsItemArrayOutput values.
+// You can construct a concrete instance of `AccessPointScopePermissionsItemArrayInput` via:
+//
+//	AccessPointScopePermissionsItemArray{ AccessPointScopePermissionsItemArgs{...} }
+type AccessPointScopePermissionsItemArrayInput interface {
+	pulumi.Input
+
+	ToAccessPointScopePermissionsItemArrayOutput() AccessPointScopePermissionsItemArrayOutput
+	ToAccessPointScopePermissionsItemArrayOutputWithContext(context.Context) AccessPointScopePermissionsItemArrayOutput
+}
+
+type AccessPointScopePermissionsItemArray []AccessPointScopePermissionsItem
+
+func (AccessPointScopePermissionsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessPointScopePermissionsItem)(nil)).Elem()
+}
+
+func (i AccessPointScopePermissionsItemArray) ToAccessPointScopePermissionsItemArrayOutput() AccessPointScopePermissionsItemArrayOutput {
+	return i.ToAccessPointScopePermissionsItemArrayOutputWithContext(context.Background())
+}
+
+func (i AccessPointScopePermissionsItemArray) ToAccessPointScopePermissionsItemArrayOutputWithContext(ctx context.Context) AccessPointScopePermissionsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointScopePermissionsItemArrayOutput)
+}
+
+type AccessPointScopePermissionsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessPointScopePermissionsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessPointScopePermissionsItem)(nil)).Elem()
+}
+
+func (o AccessPointScopePermissionsItemArrayOutput) ToAccessPointScopePermissionsItemArrayOutput() AccessPointScopePermissionsItemArrayOutput {
+	return o
+}
+
+func (o AccessPointScopePermissionsItemArrayOutput) ToAccessPointScopePermissionsItemArrayOutputWithContext(ctx context.Context) AccessPointScopePermissionsItemArrayOutput {
+	return o
+}
+
+func (o AccessPointScopePermissionsItemArrayOutput) Index(i pulumi.IntInput) AccessPointScopePermissionsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessPointScopePermissionsItem {
+		return vs[0].([]AccessPointScopePermissionsItem)[vs[1].(int)]
+	}).(AccessPointScopePermissionsItemOutput)
+}
+
 // Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
 type DirectoryBucketDataRedundancy string
 
@@ -511,12 +824,20 @@ func (in *directoryBucketServerSideEncryptionByDefaultSseAlgorithmPtr) ToDirecto
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointScopePermissionsItemInput)(nil)).Elem(), AccessPointScopePermissionsItem("GetObject"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointScopePermissionsItemPtrInput)(nil)).Elem(), AccessPointScopePermissionsItem("GetObject"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointScopePermissionsItemArrayInput)(nil)).Elem(), AccessPointScopePermissionsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketDataRedundancyInput)(nil)).Elem(), DirectoryBucketDataRedundancy("SingleAvailabilityZone"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketDataRedundancyPtrInput)(nil)).Elem(), DirectoryBucketDataRedundancy("SingleAvailabilityZone"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketRuleStatusInput)(nil)).Elem(), DirectoryBucketRuleStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketRuleStatusPtrInput)(nil)).Elem(), DirectoryBucketRuleStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms"))
+	pulumi.RegisterOutputType(AccessPointNetworkOriginOutput{})
+	pulumi.RegisterOutputType(AccessPointNetworkOriginPtrOutput{})
+	pulumi.RegisterOutputType(AccessPointScopePermissionsItemOutput{})
+	pulumi.RegisterOutputType(AccessPointScopePermissionsItemPtrOutput{})
+	pulumi.RegisterOutputType(AccessPointScopePermissionsItemArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketDataRedundancyOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketDataRedundancyPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketRuleStatusOutput{})

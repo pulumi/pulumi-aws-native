@@ -33,9 +33,6 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetStudioArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier for the studio resource.
-        /// </summary>
         [Input("studioId", required: true)]
         public string StudioId { get; set; } = null!;
 
@@ -47,9 +44,6 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetStudioInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier for the studio resource.
-        /// </summary>
         [Input("studioId", required: true)]
         public Input<string> StudioId { get; set; } = null!;
 
@@ -63,37 +57,13 @@ namespace Pulumi.AwsNative.NimbleStudio
     [OutputType]
     public sealed class GetStudioResult
     {
-        /// <summary>
-        /// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-        /// </summary>
         public readonly string? AdminRoleArn;
-        /// <summary>
-        /// A friendly name for the studio.
-        /// </summary>
         public readonly string? DisplayName;
-        /// <summary>
-        /// The AWS Region where the studio resource is located. For example, `us-west-2` .
-        /// </summary>
         public readonly string? HomeRegion;
-        /// <summary>
-        /// The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
-        /// </summary>
         public readonly string? SsoClientId;
-        /// <summary>
-        /// Configuration of the encryption method that is used for the studio.
-        /// </summary>
         public readonly Outputs.StudioEncryptionConfiguration? StudioEncryptionConfiguration;
-        /// <summary>
-        /// The unique identifier for the studio resource.
-        /// </summary>
         public readonly string? StudioId;
-        /// <summary>
-        /// The unique identifier for the studio resource.
-        /// </summary>
         public readonly string? StudioUrl;
-        /// <summary>
-        /// The IAM role that studio users assume when logging in to the Nimble Studio portal.
-        /// </summary>
         public readonly string? UserRoleArn;
 
         [OutputConstructor]

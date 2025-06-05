@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         public readonly string? BillingMode;
         /// <summary>
+        /// An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventDataStoreContextKeySelector> ContextKeySelectors;
+        /// <summary>
         /// The timestamp of the event data store's creation.
         /// </summary>
         public readonly string? CreatedTimestamp;
@@ -103,6 +107,10 @@ namespace Pulumi.AwsNative.CloudTrail
         /// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         /// </summary>
         public readonly string? KmsKeyId;
+        /// <summary>
+        /// Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+        /// </summary>
+        public readonly Pulumi.AwsNative.CloudTrail.EventDataStoreMaxEventSize? MaxEventSize;
         /// <summary>
         /// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
         /// </summary>
@@ -142,6 +150,8 @@ namespace Pulumi.AwsNative.CloudTrail
 
             string? billingMode,
 
+            ImmutableArray<Outputs.EventDataStoreContextKeySelector> contextKeySelectors,
+
             string? createdTimestamp,
 
             string? eventDataStoreArn,
@@ -157,6 +167,8 @@ namespace Pulumi.AwsNative.CloudTrail
             string? insightsDestination,
 
             string? kmsKeyId,
+
+            Pulumi.AwsNative.CloudTrail.EventDataStoreMaxEventSize? maxEventSize,
 
             bool? multiRegionEnabled,
 
@@ -176,6 +188,7 @@ namespace Pulumi.AwsNative.CloudTrail
         {
             AdvancedEventSelectors = advancedEventSelectors;
             BillingMode = billingMode;
+            ContextKeySelectors = contextKeySelectors;
             CreatedTimestamp = createdTimestamp;
             EventDataStoreArn = eventDataStoreArn;
             FederationEnabled = federationEnabled;
@@ -184,6 +197,7 @@ namespace Pulumi.AwsNative.CloudTrail
             InsightSelectors = insightSelectors;
             InsightsDestination = insightsDestination;
             KmsKeyId = kmsKeyId;
+            MaxEventSize = maxEventSize;
             MultiRegionEnabled = multiRegionEnabled;
             Name = name;
             OrganizationEnabled = organizationEnabled;

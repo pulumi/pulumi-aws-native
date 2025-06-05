@@ -62,6 +62,9 @@ export class DomainName extends pulumi.CustomResource {
      * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
      */
     public /*out*/ readonly regionalHostedZoneId!: pulumi.Output<string>;
+    /**
+     * The routing mode API Gateway uses to route traffic to your APIs.
+     */
     public readonly routingMode!: pulumi.Output<enums.apigatewayv2.DomainNameRoutingMode | undefined>;
     /**
      * The collection of tags associated with a domain name.
@@ -123,6 +126,9 @@ export interface DomainNameArgs {
      * The mutual TLS authentication configuration for a custom domain name.
      */
     mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthenticationArgs>;
+    /**
+     * The routing mode API Gateway uses to route traffic to your APIs.
+     */
     routingMode?: pulumi.Input<enums.apigatewayv2.DomainNameRoutingMode>;
     /**
      * The collection of tags associated with a domain name.

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Outputs
     [OutputType]
     public sealed class RoutingRuleMatchBasePaths
     {
+        /// <summary>
+        /// The string of the case sensitive base path to be matched.
+        /// </summary>
         public readonly ImmutableArray<string> AnyOf;
 
         [OutputConstructor]

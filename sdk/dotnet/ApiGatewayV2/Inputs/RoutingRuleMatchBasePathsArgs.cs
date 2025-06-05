@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
     {
         [Input("anyOf", required: true)]
         private InputList<string>? _anyOf;
+
+        /// <summary>
+        /// The string of the case sensitive base path to be matched.
+        /// </summary>
         public InputList<string> AnyOf
         {
             get => _anyOf ?? (_anyOf = new InputList<string>());

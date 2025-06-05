@@ -52,7 +52,7 @@ type FileSystem struct {
 	//   +  When to move files in the file system from primary storage or IA storage to Archive storage.
 	//   +  When to move files that are in IA or Archive storage to primary storage.
 	//
-	//    EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+	//   EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive````TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
 	LifecyclePolicies FileSystemLifecyclePolicyArrayOutput `pulumi:"lifecyclePolicies"`
 	// The performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
 	//   Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.
@@ -144,7 +144,7 @@ type fileSystemArgs struct {
 	//   +  When to move files in the file system from primary storage or IA storage to Archive storage.
 	//   +  When to move files that are in IA or Archive storage to primary storage.
 	//
-	//    EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+	//   EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive````TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
 	LifecyclePolicies []FileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
 	// The performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
 	//   Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.
@@ -191,7 +191,7 @@ type FileSystemArgs struct {
 	//   +  When to move files in the file system from primary storage or IA storage to Archive storage.
 	//   +  When to move files that are in IA or Archive storage to primary storage.
 	//
-	//    EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+	//   EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive````TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
 	LifecyclePolicies FileSystemLifecyclePolicyArrayInput
 	// The performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
 	//   Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.
@@ -317,7 +317,7 @@ func (o FileSystemOutput) KmsKeyId() pulumi.StringPtrOutput {
 //
 //   - When to move files that are in IA or Archive storage to primary storage.
 //
-//     EFS requires that each “LifecyclePolicy“ object have only a single transition. This means that in a request body, “LifecyclePolicies“ needs to be structured as an array of “LifecyclePolicy“ objects, one object for each transition, “TransitionToIA“, “TransitionToArchive“ “TransitionToPrimaryStorageClass“. See the example requests in the following section for more information.
+//     EFS requires that each “LifecyclePolicy“ object have only a single transition. This means that in a request body, “LifecyclePolicies“ needs to be structured as an array of “LifecyclePolicy“ objects, one object for each transition, “TransitionToIA“, “TransitionToArchive````TransitionToPrimaryStorageClass“. See the example requests in the following section for more information.
 func (o FileSystemOutput) LifecyclePolicies() FileSystemLifecyclePolicyArrayOutput {
 	return o.ApplyT(func(v *FileSystem) FileSystemLifecyclePolicyArrayOutput { return v.LifecyclePolicies }).(FileSystemLifecyclePolicyArrayOutput)
 }

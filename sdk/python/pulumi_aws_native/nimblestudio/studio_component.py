@@ -34,18 +34,6 @@ class StudioComponentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a StudioComponent resource.
-        :param pulumi.Input[builtins.str] studio_id: The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        :param pulumi.Input[builtins.str] type: The type of the studio component.
-        :param pulumi.Input['StudioComponentConfigurationArgs'] configuration: The configuration of the studio component, based on component type.
-        :param pulumi.Input[builtins.str] description: A human-readable description for the studio component resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ec2_security_group_ids: The EC2 security groups that control access to the studio component.
-        :param pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]] initialization_scripts: Initialization scripts for studio components.
-        :param pulumi.Input[builtins.str] name: A friendly name for the studio component resource.
-        :param pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]] script_parameters: Parameters for the studio component scripts.
-        :param pulumi.Input[builtins.str] subtype: The specific subtype of a studio component.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key-value pairs to apply to this resource.
-               
-               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "studio_id", studio_id)
         pulumi.set(__self__, "type", type)
@@ -69,9 +57,6 @@ class StudioComponentArgs:
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[builtins.str]:
-        """
-        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        """
         return pulumi.get(self, "studio_id")
 
     @studio_id.setter
@@ -81,9 +66,6 @@ class StudioComponentArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[builtins.str]:
-        """
-        The type of the studio component.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -93,9 +75,6 @@ class StudioComponentArgs:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['StudioComponentConfigurationArgs']]:
-        """
-        The configuration of the studio component, based on component type.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -105,9 +84,6 @@ class StudioComponentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        A human-readable description for the studio component resource.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -117,9 +93,6 @@ class StudioComponentArgs:
     @property
     @pulumi.getter(name="ec2SecurityGroupIds")
     def ec2_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        The EC2 security groups that control access to the studio component.
-        """
         return pulumi.get(self, "ec2_security_group_ids")
 
     @ec2_security_group_ids.setter
@@ -129,9 +102,6 @@ class StudioComponentArgs:
     @property
     @pulumi.getter(name="initializationScripts")
     def initialization_scripts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]]]:
-        """
-        Initialization scripts for studio components.
-        """
         return pulumi.get(self, "initialization_scripts")
 
     @initialization_scripts.setter
@@ -141,9 +111,6 @@ class StudioComponentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        A friendly name for the studio component resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -153,9 +120,6 @@ class StudioComponentArgs:
     @property
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]]]:
-        """
-        Parameters for the studio component scripts.
-        """
         return pulumi.get(self, "script_parameters")
 
     @script_parameters.setter
@@ -165,9 +129,6 @@ class StudioComponentArgs:
     @property
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The specific subtype of a studio component.
-        """
         return pulumi.get(self, "subtype")
 
     @subtype.setter
@@ -177,11 +138,6 @@ class StudioComponentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        An array of key-value pairs to apply to this resource.
-
-        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -211,18 +167,6 @@ class StudioComponent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StudioComponentConfigurationArgs', 'StudioComponentConfigurationArgsDict']] configuration: The configuration of the studio component, based on component type.
-        :param pulumi.Input[builtins.str] description: A human-readable description for the studio component resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ec2_security_group_ids: The EC2 security groups that control access to the studio component.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentInitializationScriptArgs', 'StudioComponentInitializationScriptArgsDict']]]] initialization_scripts: Initialization scripts for studio components.
-        :param pulumi.Input[builtins.str] name: A friendly name for the studio component resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentScriptParameterKeyValueArgs', 'StudioComponentScriptParameterKeyValueArgsDict']]]] script_parameters: Parameters for the studio component scripts.
-        :param pulumi.Input[builtins.str] studio_id: The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        :param pulumi.Input[builtins.str] subtype: The specific subtype of a studio component.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key-value pairs to apply to this resource.
-               
-               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        :param pulumi.Input[builtins.str] type: The type of the studio component.
         """
         ...
     @overload
@@ -322,90 +266,55 @@ class StudioComponent(pulumi.CustomResource):
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.StudioComponentConfiguration']]:
-        """
-        The configuration of the studio component, based on component type.
-        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        A human-readable description for the studio component resource.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ec2SecurityGroupIds")
     def ec2_security_group_ids(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
-        """
-        The EC2 security groups that control access to the studio component.
-        """
         return pulumi.get(self, "ec2_security_group_ids")
 
     @property
     @pulumi.getter(name="initializationScripts")
     def initialization_scripts(self) -> pulumi.Output[Optional[Sequence['outputs.StudioComponentInitializationScript']]]:
-        """
-        Initialization scripts for studio components.
-        """
         return pulumi.get(self, "initialization_scripts")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
-        """
-        A friendly name for the studio component resource.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.StudioComponentScriptParameterKeyValue']]]:
-        """
-        Parameters for the studio component scripts.
-        """
         return pulumi.get(self, "script_parameters")
 
     @property
     @pulumi.getter(name="studioComponentId")
     def studio_component_id(self) -> pulumi.Output[builtins.str]:
-        """
-        The unique identifier for the studio component resource.
-        """
         return pulumi.get(self, "studio_component_id")
 
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[builtins.str]:
-        """
-        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        """
         return pulumi.get(self, "studio_id")
 
     @property
     @pulumi.getter
     def subtype(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        The specific subtype of a studio component.
-        """
         return pulumi.get(self, "subtype")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
-        """
-        An array of key-value pairs to apply to this resource.
-
-        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
-        """
-        The type of the studio component.
-        """
         return pulumi.get(self, "type")
 

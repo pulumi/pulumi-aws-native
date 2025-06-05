@@ -23,26 +23,19 @@ func LookupStreamingImage(ctx *pulumi.Context, args *LookupStreamingImageArgs, o
 }
 
 type LookupStreamingImageArgs struct {
-	// The unique identifier for the streaming image resource.
 	StreamingImageId string `pulumi:"streamingImageId"`
 }
 
 type LookupStreamingImageResult struct {
-	// A human-readable description of the streaming image.
 	Description                    *string                                `pulumi:"description"`
 	EncryptionConfiguration        *StreamingImageEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	EncryptionConfigurationKeyArn  *string                                `pulumi:"encryptionConfigurationKeyArn"`
 	EncryptionConfigurationKeyType *string                                `pulumi:"encryptionConfigurationKeyType"`
-	// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
-	EulaIds []string `pulumi:"eulaIds"`
-	// A friendly name for a streaming image resource.
-	Name *string `pulumi:"name"`
-	// The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
-	Owner *string `pulumi:"owner"`
-	// The platform of the streaming image, either WINDOWS or LINUX.
-	Platform *string `pulumi:"platform"`
-	// The unique identifier for the streaming image resource.
-	StreamingImageId *string `pulumi:"streamingImageId"`
+	EulaIds                        []string                               `pulumi:"eulaIds"`
+	Name                           *string                                `pulumi:"name"`
+	Owner                          *string                                `pulumi:"owner"`
+	Platform                       *string                                `pulumi:"platform"`
+	StreamingImageId               *string                                `pulumi:"streamingImageId"`
 }
 
 func LookupStreamingImageOutput(ctx *pulumi.Context, args LookupStreamingImageOutputArgs, opts ...pulumi.InvokeOption) LookupStreamingImageResultOutput {
@@ -55,7 +48,6 @@ func LookupStreamingImageOutput(ctx *pulumi.Context, args LookupStreamingImageOu
 }
 
 type LookupStreamingImageOutputArgs struct {
-	// The unique identifier for the streaming image resource.
 	StreamingImageId pulumi.StringInput `pulumi:"streamingImageId"`
 }
 
@@ -77,7 +69,6 @@ func (o LookupStreamingImageResultOutput) ToLookupStreamingImageResultOutputWith
 	return o
 }
 
-// A human-readable description of the streaming image.
 func (o LookupStreamingImageResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -96,27 +87,22 @@ func (o LookupStreamingImageResultOutput) EncryptionConfigurationKeyType() pulum
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.EncryptionConfigurationKeyType }).(pulumi.StringPtrOutput)
 }
 
-// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
 func (o LookupStreamingImageResultOutput) EulaIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) []string { return v.EulaIds }).(pulumi.StringArrayOutput)
 }
 
-// A friendly name for a streaming image resource.
 func (o LookupStreamingImageResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
 func (o LookupStreamingImageResultOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
-// The platform of the streaming image, either WINDOWS or LINUX.
 func (o LookupStreamingImageResultOutput) Platform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for the streaming image resource.
 func (o LookupStreamingImageResultOutput) StreamingImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.StreamingImageId }).(pulumi.StringPtrOutput)
 }

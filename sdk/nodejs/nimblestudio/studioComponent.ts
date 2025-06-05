@@ -37,51 +37,16 @@ export class StudioComponent extends pulumi.CustomResource {
         return obj['__pulumiType'] === StudioComponent.__pulumiType;
     }
 
-    /**
-     * The configuration of the studio component, based on component type.
-     */
     public readonly configuration!: pulumi.Output<outputs.nimblestudio.StudioComponentConfiguration | undefined>;
-    /**
-     * A human-readable description for the studio component resource.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The EC2 security groups that control access to the studio component.
-     */
     public readonly ec2SecurityGroupIds!: pulumi.Output<string[] | undefined>;
-    /**
-     * Initialization scripts for studio components.
-     */
     public readonly initializationScripts!: pulumi.Output<outputs.nimblestudio.StudioComponentInitializationScript[] | undefined>;
-    /**
-     * A friendly name for the studio component resource.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Parameters for the studio component scripts.
-     */
     public readonly scriptParameters!: pulumi.Output<outputs.nimblestudio.StudioComponentScriptParameterKeyValue[] | undefined>;
-    /**
-     * The unique identifier for the studio component resource.
-     */
     public /*out*/ readonly studioComponentId!: pulumi.Output<string>;
-    /**
-     * The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-     */
     public readonly studioId!: pulumi.Output<string>;
-    /**
-     * The specific subtype of a studio component.
-     */
     public readonly subtype!: pulumi.Output<string | undefined>;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     *
-     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The type of the studio component.
-     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -136,46 +101,14 @@ export class StudioComponent extends pulumi.CustomResource {
  * The set of arguments for constructing a StudioComponent resource.
  */
 export interface StudioComponentArgs {
-    /**
-     * The configuration of the studio component, based on component type.
-     */
     configuration?: pulumi.Input<inputs.nimblestudio.StudioComponentConfigurationArgs>;
-    /**
-     * A human-readable description for the studio component resource.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The EC2 security groups that control access to the studio component.
-     */
     ec2SecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Initialization scripts for studio components.
-     */
     initializationScripts?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentInitializationScriptArgs>[]>;
-    /**
-     * A friendly name for the studio component resource.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Parameters for the studio component scripts.
-     */
     scriptParameters?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentScriptParameterKeyValueArgs>[]>;
-    /**
-     * The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-     */
     studioId: pulumi.Input<string>;
-    /**
-     * The specific subtype of a studio component.
-     */
     subtype?: pulumi.Input<string>;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     *
-     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of the studio component.
-     */
     type: pulumi.Input<string>;
 }

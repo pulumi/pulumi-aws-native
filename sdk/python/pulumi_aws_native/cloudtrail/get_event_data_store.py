@@ -16,6 +16,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetEventDataStoreResult',
@@ -26,13 +27,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventDataStoreResult:
-    def __init__(__self__, advanced_event_selectors=None, billing_mode=None, created_timestamp=None, event_data_store_arn=None, federation_enabled=None, federation_role_arn=None, ingestion_enabled=None, insight_selectors=None, insights_destination=None, kms_key_id=None, multi_region_enabled=None, name=None, organization_enabled=None, retention_period=None, status=None, tags=None, termination_protection_enabled=None, updated_timestamp=None):
+    def __init__(__self__, advanced_event_selectors=None, billing_mode=None, context_key_selectors=None, created_timestamp=None, event_data_store_arn=None, federation_enabled=None, federation_role_arn=None, ingestion_enabled=None, insight_selectors=None, insights_destination=None, kms_key_id=None, max_event_size=None, multi_region_enabled=None, name=None, organization_enabled=None, retention_period=None, status=None, tags=None, termination_protection_enabled=None, updated_timestamp=None):
         if advanced_event_selectors and not isinstance(advanced_event_selectors, list):
             raise TypeError("Expected argument 'advanced_event_selectors' to be a list")
         pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
         if billing_mode and not isinstance(billing_mode, str):
             raise TypeError("Expected argument 'billing_mode' to be a str")
         pulumi.set(__self__, "billing_mode", billing_mode)
+        if context_key_selectors and not isinstance(context_key_selectors, list):
+            raise TypeError("Expected argument 'context_key_selectors' to be a list")
+        pulumi.set(__self__, "context_key_selectors", context_key_selectors)
         if created_timestamp and not isinstance(created_timestamp, str):
             raise TypeError("Expected argument 'created_timestamp' to be a str")
         pulumi.set(__self__, "created_timestamp", created_timestamp)
@@ -57,6 +61,9 @@ class GetEventDataStoreResult:
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if max_event_size and not isinstance(max_event_size, str):
+            raise TypeError("Expected argument 'max_event_size' to be a str")
+        pulumi.set(__self__, "max_event_size", max_event_size)
         if multi_region_enabled and not isinstance(multi_region_enabled, bool):
             raise TypeError("Expected argument 'multi_region_enabled' to be a bool")
         pulumi.set(__self__, "multi_region_enabled", multi_region_enabled)
@@ -97,6 +104,14 @@ class GetEventDataStoreResult:
         The mode that the event data store will use to charge for event storage.
         """
         return pulumi.get(self, "billing_mode")
+
+    @property
+    @pulumi.getter(name="contextKeySelectors")
+    def context_key_selectors(self) -> Optional[Sequence['outputs.EventDataStoreContextKeySelector']]:
+        """
+        An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+        """
+        return pulumi.get(self, "context_key_selectors")
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -161,6 +176,14 @@ class GetEventDataStoreResult:
         Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="maxEventSize")
+    def max_event_size(self) -> Optional['EventDataStoreMaxEventSize']:
+        """
+        Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+        """
+        return pulumi.get(self, "max_event_size")
 
     @property
     @pulumi.getter(name="multiRegionEnabled")
@@ -235,6 +258,7 @@ class AwaitableGetEventDataStoreResult(GetEventDataStoreResult):
         return GetEventDataStoreResult(
             advanced_event_selectors=self.advanced_event_selectors,
             billing_mode=self.billing_mode,
+            context_key_selectors=self.context_key_selectors,
             created_timestamp=self.created_timestamp,
             event_data_store_arn=self.event_data_store_arn,
             federation_enabled=self.federation_enabled,
@@ -243,6 +267,7 @@ class AwaitableGetEventDataStoreResult(GetEventDataStoreResult):
             insight_selectors=self.insight_selectors,
             insights_destination=self.insights_destination,
             kms_key_id=self.kms_key_id,
+            max_event_size=self.max_event_size,
             multi_region_enabled=self.multi_region_enabled,
             name=self.name,
             organization_enabled=self.organization_enabled,
@@ -269,6 +294,7 @@ def get_event_data_store(event_data_store_arn: Optional[builtins.str] = None,
     return AwaitableGetEventDataStoreResult(
         advanced_event_selectors=pulumi.get(__ret__, 'advanced_event_selectors'),
         billing_mode=pulumi.get(__ret__, 'billing_mode'),
+        context_key_selectors=pulumi.get(__ret__, 'context_key_selectors'),
         created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
         event_data_store_arn=pulumi.get(__ret__, 'event_data_store_arn'),
         federation_enabled=pulumi.get(__ret__, 'federation_enabled'),
@@ -277,6 +303,7 @@ def get_event_data_store(event_data_store_arn: Optional[builtins.str] = None,
         insight_selectors=pulumi.get(__ret__, 'insight_selectors'),
         insights_destination=pulumi.get(__ret__, 'insights_destination'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        max_event_size=pulumi.get(__ret__, 'max_event_size'),
         multi_region_enabled=pulumi.get(__ret__, 'multi_region_enabled'),
         name=pulumi.get(__ret__, 'name'),
         organization_enabled=pulumi.get(__ret__, 'organization_enabled'),
@@ -300,6 +327,7 @@ def get_event_data_store_output(event_data_store_arn: Optional[pulumi.Input[buil
     return __ret__.apply(lambda __response__: GetEventDataStoreResult(
         advanced_event_selectors=pulumi.get(__response__, 'advanced_event_selectors'),
         billing_mode=pulumi.get(__response__, 'billing_mode'),
+        context_key_selectors=pulumi.get(__response__, 'context_key_selectors'),
         created_timestamp=pulumi.get(__response__, 'created_timestamp'),
         event_data_store_arn=pulumi.get(__response__, 'event_data_store_arn'),
         federation_enabled=pulumi.get(__response__, 'federation_enabled'),
@@ -308,6 +336,7 @@ def get_event_data_store_output(event_data_store_arn: Optional[pulumi.Input[buil
         insight_selectors=pulumi.get(__response__, 'insight_selectors'),
         insights_destination=pulumi.get(__response__, 'insights_destination'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        max_event_size=pulumi.get(__response__, 'max_event_size'),
         multi_region_enabled=pulumi.get(__response__, 'multi_region_enabled'),
         name=pulumi.get(__response__, 'name'),
         organization_enabled=pulumi.get(__response__, 'organization_enabled'),

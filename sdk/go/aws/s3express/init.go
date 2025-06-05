@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:s3express:AccessPoint":
+		r = &AccessPoint{}
 	case "aws-native:s3express:BucketPolicy":
 		r = &BucketPolicy{}
 	case "aws-native:s3express:DirectoryBucket":

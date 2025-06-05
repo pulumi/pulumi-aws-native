@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Aps.Outputs
     [OutputType]
     public sealed class WorkspaceLoggingDestination
     {
+        /// <summary>
+        /// Configuration details for logging to CloudWatch Logs.
+        /// </summary>
         public readonly Outputs.WorkspaceCloudWatchLogDestination CloudWatchLogs;
+        /// <summary>
+        /// Filtering criteria that determine which queries are logged.
+        /// </summary>
         public readonly Outputs.WorkspaceLoggingFilter Filters;
 
         [OutputConstructor]

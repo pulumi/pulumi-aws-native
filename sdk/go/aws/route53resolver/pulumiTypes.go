@@ -254,6 +254,128 @@ type OutpostResolverTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ResolverEndpointIpAddressRequest struct {
+	// The IPv4 address that you want to use for DNS queries.
+	Ip *string `pulumi:"ip"`
+	// The IPv6 address that you want to use for DNS queries.
+	Ipv6 *string `pulumi:"ipv6"`
+	// The ID of the subnet that contains the IP address.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// ResolverEndpointIpAddressRequestInput is an input type that accepts ResolverEndpointIpAddressRequestArgs and ResolverEndpointIpAddressRequestOutput values.
+// You can construct a concrete instance of `ResolverEndpointIpAddressRequestInput` via:
+//
+//	ResolverEndpointIpAddressRequestArgs{...}
+type ResolverEndpointIpAddressRequestInput interface {
+	pulumi.Input
+
+	ToResolverEndpointIpAddressRequestOutput() ResolverEndpointIpAddressRequestOutput
+	ToResolverEndpointIpAddressRequestOutputWithContext(context.Context) ResolverEndpointIpAddressRequestOutput
+}
+
+type ResolverEndpointIpAddressRequestArgs struct {
+	// The IPv4 address that you want to use for DNS queries.
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// The IPv6 address that you want to use for DNS queries.
+	Ipv6 pulumi.StringPtrInput `pulumi:"ipv6"`
+	// The ID of the subnet that contains the IP address.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ResolverEndpointIpAddressRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpointIpAddressRequest)(nil)).Elem()
+}
+
+func (i ResolverEndpointIpAddressRequestArgs) ToResolverEndpointIpAddressRequestOutput() ResolverEndpointIpAddressRequestOutput {
+	return i.ToResolverEndpointIpAddressRequestOutputWithContext(context.Background())
+}
+
+func (i ResolverEndpointIpAddressRequestArgs) ToResolverEndpointIpAddressRequestOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointIpAddressRequestOutput)
+}
+
+// ResolverEndpointIpAddressRequestArrayInput is an input type that accepts ResolverEndpointIpAddressRequestArray and ResolverEndpointIpAddressRequestArrayOutput values.
+// You can construct a concrete instance of `ResolverEndpointIpAddressRequestArrayInput` via:
+//
+//	ResolverEndpointIpAddressRequestArray{ ResolverEndpointIpAddressRequestArgs{...} }
+type ResolverEndpointIpAddressRequestArrayInput interface {
+	pulumi.Input
+
+	ToResolverEndpointIpAddressRequestArrayOutput() ResolverEndpointIpAddressRequestArrayOutput
+	ToResolverEndpointIpAddressRequestArrayOutputWithContext(context.Context) ResolverEndpointIpAddressRequestArrayOutput
+}
+
+type ResolverEndpointIpAddressRequestArray []ResolverEndpointIpAddressRequestInput
+
+func (ResolverEndpointIpAddressRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverEndpointIpAddressRequest)(nil)).Elem()
+}
+
+func (i ResolverEndpointIpAddressRequestArray) ToResolverEndpointIpAddressRequestArrayOutput() ResolverEndpointIpAddressRequestArrayOutput {
+	return i.ToResolverEndpointIpAddressRequestArrayOutputWithContext(context.Background())
+}
+
+func (i ResolverEndpointIpAddressRequestArray) ToResolverEndpointIpAddressRequestArrayOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointIpAddressRequestArrayOutput)
+}
+
+type ResolverEndpointIpAddressRequestOutput struct{ *pulumi.OutputState }
+
+func (ResolverEndpointIpAddressRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpointIpAddressRequest)(nil)).Elem()
+}
+
+func (o ResolverEndpointIpAddressRequestOutput) ToResolverEndpointIpAddressRequestOutput() ResolverEndpointIpAddressRequestOutput {
+	return o
+}
+
+func (o ResolverEndpointIpAddressRequestOutput) ToResolverEndpointIpAddressRequestOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestOutput {
+	return o
+}
+
+// The IPv4 address that you want to use for DNS queries.
+func (o ResolverEndpointIpAddressRequestOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverEndpointIpAddressRequest) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// The IPv6 address that you want to use for DNS queries.
+func (o ResolverEndpointIpAddressRequestOutput) Ipv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverEndpointIpAddressRequest) *string { return v.Ipv6 }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the subnet that contains the IP address.
+func (o ResolverEndpointIpAddressRequestOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverEndpointIpAddressRequest) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type ResolverEndpointIpAddressRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (ResolverEndpointIpAddressRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverEndpointIpAddressRequest)(nil)).Elem()
+}
+
+func (o ResolverEndpointIpAddressRequestArrayOutput) ToResolverEndpointIpAddressRequestArrayOutput() ResolverEndpointIpAddressRequestArrayOutput {
+	return o
+}
+
+func (o ResolverEndpointIpAddressRequestArrayOutput) ToResolverEndpointIpAddressRequestArrayOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestArrayOutput {
+	return o
+}
+
+func (o ResolverEndpointIpAddressRequestArrayOutput) Index(i pulumi.IntInput) ResolverEndpointIpAddressRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverEndpointIpAddressRequest {
+		return vs[0].([]ResolverEndpointIpAddressRequest)[vs[1].(int)]
+	}).(ResolverEndpointIpAddressRequestOutput)
+}
+
+type ResolverEndpointTag struct {
+	// The name for the tag. For example, if you want to associate Resolver resources with the account IDs of your customers for billing purposes, the value of Key might be account-id.
+	Key string `pulumi:"key"`
+	// The value for the tag. For example, if Key is account-id, then Value might be the ID of the customer account that you're creating the resource for.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type ResolverQueryLoggingConfigTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -405,10 +527,14 @@ func (o ResolverRuleTargetAddressArrayOutput) Index(i pulumi.IntInput) ResolverR
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleArrayInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressRequestInput)(nil)).Elem(), ResolverEndpointIpAddressRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressRequestArrayInput)(nil)).Elem(), ResolverEndpointIpAddressRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetAddressInput)(nil)).Elem(), ResolverRuleTargetAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetAddressArrayInput)(nil)).Elem(), ResolverRuleTargetAddressArray{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleArrayOutput{})
+	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestOutput{})
+	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestArrayOutput{})
 	pulumi.RegisterOutputType(ResolverRuleTargetAddressOutput{})
 	pulumi.RegisterOutputType(ResolverRuleTargetAddressArrayOutput{})
 }

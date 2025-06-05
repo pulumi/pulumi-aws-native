@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Outputs
     [OutputType]
     public sealed class RoutingRuleActionInvokeApi
     {
+        /// <summary>
+        /// The API identifier of the target API.
+        /// </summary>
         public readonly string ApiId;
+        /// <summary>
+        /// The name of the target stage.
+        /// </summary>
         public readonly string Stage;
+        /// <summary>
+        /// The strip base path setting. When true, API Gateway strips the incoming matched base path when forwarding the request to the target API.
+        /// </summary>
         public readonly bool? StripBasePath;
 
         [OutputConstructor]

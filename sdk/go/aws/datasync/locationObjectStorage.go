@@ -54,8 +54,18 @@ type LocationObjectStorage struct {
 	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// The name of the bucket on the self-managed object storage server.
-	BucketName         pulumi.StringPtrOutput                           `pulumi:"bucketName"`
-	CmkSecretConfig    LocationObjectStorageCmkSecretConfigPtrOutput    `pulumi:"cmkSecretConfig"`
+	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
+	// Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
+	//
+	// When you include this paramater as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
+	//
+	// Make sure the DataSync has permission to access the KMS key that you specify.
+	//
+	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
+	CmkSecretConfig LocationObjectStorageCmkSecretConfigPtrOutput `pulumi:"cmkSecretConfig"`
+	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+	//
+	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
 	CustomSecretConfig LocationObjectStorageCustomSecretConfigPtrOutput `pulumi:"customSecretConfig"`
 	// The Amazon Resource Name (ARN) of the location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
@@ -127,8 +137,18 @@ type locationObjectStorageArgs struct {
 	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 	AgentArns []string `pulumi:"agentArns"`
 	// The name of the bucket on the self-managed object storage server.
-	BucketName         *string                                  `pulumi:"bucketName"`
-	CmkSecretConfig    *LocationObjectStorageCmkSecretConfig    `pulumi:"cmkSecretConfig"`
+	BucketName *string `pulumi:"bucketName"`
+	// Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
+	//
+	// When you include this paramater as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
+	//
+	// Make sure the DataSync has permission to access the KMS key that you specify.
+	//
+	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
+	CmkSecretConfig *LocationObjectStorageCmkSecretConfig `pulumi:"cmkSecretConfig"`
+	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+	//
+	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
 	CustomSecretConfig *LocationObjectStorageCustomSecretConfig `pulumi:"customSecretConfig"`
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey *string `pulumi:"secretKey"`
@@ -153,8 +173,18 @@ type LocationObjectStorageArgs struct {
 	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
 	AgentArns pulumi.StringArrayInput
 	// The name of the bucket on the self-managed object storage server.
-	BucketName         pulumi.StringPtrInput
-	CmkSecretConfig    LocationObjectStorageCmkSecretConfigPtrInput
+	BucketName pulumi.StringPtrInput
+	// Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
+	//
+	// When you include this paramater as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
+	//
+	// Make sure the DataSync has permission to access the KMS key that you specify.
+	//
+	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
+	CmkSecretConfig LocationObjectStorageCmkSecretConfigPtrInput
+	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+	//
+	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
 	CustomSecretConfig LocationObjectStorageCustomSecretConfigPtrInput
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey pulumi.StringPtrInput
@@ -224,10 +254,20 @@ func (o LocationObjectStorageOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
+// Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
+//
+// When you include this paramater as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
+//
+// Make sure the DataSync has permission to access the KMS key that you specify.
+//
+// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
 func (o LocationObjectStorageOutput) CmkSecretConfig() LocationObjectStorageCmkSecretConfigPtrOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) LocationObjectStorageCmkSecretConfigPtrOutput { return v.CmkSecretConfig }).(LocationObjectStorageCmkSecretConfigPtrOutput)
 }
 
+// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+//
+// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
 func (o LocationObjectStorageOutput) CustomSecretConfig() LocationObjectStorageCustomSecretConfigPtrOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) LocationObjectStorageCustomSecretConfigPtrOutput {
 		return v.CustomSecretConfig

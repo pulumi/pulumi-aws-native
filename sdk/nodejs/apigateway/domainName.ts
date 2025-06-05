@@ -101,7 +101,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the domain name. Supported only for private custom domain names.
+     * The ARN of the domain name.
      */
     public /*out*/ readonly domainNameArn!: pulumi.Output<string>;
     /**
@@ -128,6 +128,9 @@ export class DomainName extends pulumi.CustomResource {
      * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
      */
     public /*out*/ readonly regionalHostedZoneId!: pulumi.Output<string>;
+    /**
+     * The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+     */
     public readonly routingMode!: pulumi.Output<enums.apigateway.DomainNameRoutingMode | undefined>;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
@@ -214,6 +217,9 @@ export interface DomainNameArgs {
      * The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
      */
     regionalCertificateArn?: pulumi.Input<string>;
+    /**
+     * The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+     */
     routingMode?: pulumi.Input<enums.apigateway.DomainNameRoutingMode>;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .

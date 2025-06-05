@@ -119,6 +119,8 @@ __all__ = [
     'MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgsDict',
     'MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs',
     'MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgsDict',
+    'MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgs',
+    'MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgsDict',
     'MailManagerRuleSetRuleCondition0PropertiesArgs',
     'MailManagerRuleSetRuleCondition0PropertiesArgsDict',
     'MailManagerRuleSetRuleCondition1PropertiesArgs',
@@ -137,6 +139,8 @@ __all__ = [
     'MailManagerRuleSetRuleIpExpressionArgsDict',
     'MailManagerRuleSetRuleIpToEvaluatePropertiesArgs',
     'MailManagerRuleSetRuleIpToEvaluatePropertiesArgsDict',
+    'MailManagerRuleSetRuleIsInAddressListArgs',
+    'MailManagerRuleSetRuleIsInAddressListArgsDict',
     'MailManagerRuleSetRuleNumberExpressionArgs',
     'MailManagerRuleSetRuleNumberExpressionArgsDict',
     'MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs',
@@ -167,8 +171,10 @@ __all__ = [
     'MailManagerTrafficPolicyIngressAnalysisArgsDict',
     'MailManagerTrafficPolicyIngressBooleanExpressionArgs',
     'MailManagerTrafficPolicyIngressBooleanExpressionArgsDict',
-    'MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs',
-    'MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgsDict',
+    'MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs',
+    'MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgsDict',
+    'MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgs',
+    'MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgsDict',
     'MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs',
     'MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgsDict',
     'MailManagerTrafficPolicyIngressIpv4ExpressionArgs',
@@ -177,6 +183,8 @@ __all__ = [
     'MailManagerTrafficPolicyIngressIpv6ExpressionArgsDict',
     'MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesArgs',
     'MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesArgsDict',
+    'MailManagerTrafficPolicyIngressIsInAddressListArgs',
+    'MailManagerTrafficPolicyIngressIsInAddressListArgsDict',
     'MailManagerTrafficPolicyIngressStringExpressionArgs',
     'MailManagerTrafficPolicyIngressStringExpressionArgsDict',
     'MailManagerTrafficPolicyIngressStringToEvaluate0PropertiesArgs',
@@ -2018,7 +2026,7 @@ class MailManagerRuleSetRuleAction9PropertiesArgs:
 
 if not MYPY:
     class MailManagerRuleSetRuleBooleanExpressionArgsDict(TypedDict):
-        evaluate: pulumi.Input[Union['MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgsDict', 'MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgsDict']]
+        evaluate: pulumi.Input[Union['MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgsDict', 'MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgsDict', 'MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgsDict']]
         operator: pulumi.Input['MailManagerRuleSetRuleBooleanOperator']
 elif False:
     MailManagerRuleSetRuleBooleanExpressionArgsDict: TypeAlias = Mapping[str, Any]
@@ -2026,18 +2034,18 @@ elif False:
 @pulumi.input_type
 class MailManagerRuleSetRuleBooleanExpressionArgs:
     def __init__(__self__, *,
-                 evaluate: pulumi.Input[Union['MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs', 'MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs']],
+                 evaluate: pulumi.Input[Union['MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs', 'MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs', 'MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgs']],
                  operator: pulumi.Input['MailManagerRuleSetRuleBooleanOperator']):
         pulumi.set(__self__, "evaluate", evaluate)
         pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
-    def evaluate(self) -> pulumi.Input[Union['MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs', 'MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs']]:
+    def evaluate(self) -> pulumi.Input[Union['MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs', 'MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs', 'MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgs']]:
         return pulumi.get(self, "evaluate")
 
     @evaluate.setter
-    def evaluate(self, value: pulumi.Input[Union['MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs', 'MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs']]):
+    def evaluate(self, value: pulumi.Input[Union['MailManagerRuleSetRuleBooleanToEvaluate0PropertiesArgs', 'MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs', 'MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgs']]):
         pulumi.set(self, "evaluate", value)
 
     @property
@@ -2092,6 +2100,28 @@ class MailManagerRuleSetRuleBooleanToEvaluate1PropertiesArgs:
     @analysis.setter
     def analysis(self, value: pulumi.Input['MailManagerRuleSetAnalysisArgs']):
         pulumi.set(self, "analysis", value)
+
+
+if not MYPY:
+    class MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgsDict(TypedDict):
+        is_in_address_list: pulumi.Input['MailManagerRuleSetRuleIsInAddressListArgsDict']
+elif False:
+    MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MailManagerRuleSetRuleBooleanToEvaluate2PropertiesArgs:
+    def __init__(__self__, *,
+                 is_in_address_list: pulumi.Input['MailManagerRuleSetRuleIsInAddressListArgs']):
+        pulumi.set(__self__, "is_in_address_list", is_in_address_list)
+
+    @property
+    @pulumi.getter(name="isInAddressList")
+    def is_in_address_list(self) -> pulumi.Input['MailManagerRuleSetRuleIsInAddressListArgs']:
+        return pulumi.get(self, "is_in_address_list")
+
+    @is_in_address_list.setter
+    def is_in_address_list(self, value: pulumi.Input['MailManagerRuleSetRuleIsInAddressListArgs']):
+        pulumi.set(self, "is_in_address_list", value)
 
 
 if not MYPY:
@@ -2325,6 +2355,40 @@ class MailManagerRuleSetRuleIpToEvaluatePropertiesArgs:
 
     @attribute.setter
     def attribute(self, value: pulumi.Input['MailManagerRuleSetRuleIpEmailAttribute']):
+        pulumi.set(self, "attribute", value)
+
+
+if not MYPY:
+    class MailManagerRuleSetRuleIsInAddressListArgsDict(TypedDict):
+        address_lists: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        attribute: pulumi.Input['MailManagerRuleSetRuleAddressListEmailAttribute']
+elif False:
+    MailManagerRuleSetRuleIsInAddressListArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MailManagerRuleSetRuleIsInAddressListArgs:
+    def __init__(__self__, *,
+                 address_lists: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 attribute: pulumi.Input['MailManagerRuleSetRuleAddressListEmailAttribute']):
+        pulumi.set(__self__, "address_lists", address_lists)
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter(name="addressLists")
+    def address_lists(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        return pulumi.get(self, "address_lists")
+
+    @address_lists.setter
+    def address_lists(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "address_lists", value)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> pulumi.Input['MailManagerRuleSetRuleAddressListEmailAttribute']:
+        return pulumi.get(self, "attribute")
+
+    @attribute.setter
+    def attribute(self, value: pulumi.Input['MailManagerRuleSetRuleAddressListEmailAttribute']):
         pulumi.set(self, "attribute", value)
 
 
@@ -2906,7 +2970,7 @@ class MailManagerTrafficPolicyIngressAnalysisArgs:
 
 if not MYPY:
     class MailManagerTrafficPolicyIngressBooleanExpressionArgsDict(TypedDict):
-        evaluate: pulumi.Input['MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgsDict']
+        evaluate: pulumi.Input[Union['MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgsDict', 'MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgsDict']]
         operator: pulumi.Input['MailManagerTrafficPolicyIngressBooleanOperator']
 elif False:
     MailManagerTrafficPolicyIngressBooleanExpressionArgsDict: TypeAlias = Mapping[str, Any]
@@ -2914,18 +2978,18 @@ elif False:
 @pulumi.input_type
 class MailManagerTrafficPolicyIngressBooleanExpressionArgs:
     def __init__(__self__, *,
-                 evaluate: pulumi.Input['MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs'],
+                 evaluate: pulumi.Input[Union['MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs', 'MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgs']],
                  operator: pulumi.Input['MailManagerTrafficPolicyIngressBooleanOperator']):
         pulumi.set(__self__, "evaluate", evaluate)
         pulumi.set(__self__, "operator", operator)
 
     @property
     @pulumi.getter
-    def evaluate(self) -> pulumi.Input['MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs']:
+    def evaluate(self) -> pulumi.Input[Union['MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs', 'MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgs']]:
         return pulumi.get(self, "evaluate")
 
     @evaluate.setter
-    def evaluate(self, value: pulumi.Input['MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs']):
+    def evaluate(self, value: pulumi.Input[Union['MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs', 'MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgs']]):
         pulumi.set(self, "evaluate", value)
 
     @property
@@ -2939,13 +3003,13 @@ class MailManagerTrafficPolicyIngressBooleanExpressionArgs:
 
 
 if not MYPY:
-    class MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgsDict(TypedDict):
+    class MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgsDict(TypedDict):
         analysis: pulumi.Input['MailManagerTrafficPolicyIngressAnalysisArgsDict']
 elif False:
-    MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs:
+class MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs:
     def __init__(__self__, *,
                  analysis: pulumi.Input['MailManagerTrafficPolicyIngressAnalysisArgs']):
         pulumi.set(__self__, "analysis", analysis)
@@ -2958,6 +3022,28 @@ class MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs:
     @analysis.setter
     def analysis(self, value: pulumi.Input['MailManagerTrafficPolicyIngressAnalysisArgs']):
         pulumi.set(self, "analysis", value)
+
+
+if not MYPY:
+    class MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgsDict(TypedDict):
+        is_in_address_list: pulumi.Input['MailManagerTrafficPolicyIngressIsInAddressListArgsDict']
+elif False:
+    MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MailManagerTrafficPolicyIngressBooleanToEvaluate1PropertiesArgs:
+    def __init__(__self__, *,
+                 is_in_address_list: pulumi.Input['MailManagerTrafficPolicyIngressIsInAddressListArgs']):
+        pulumi.set(__self__, "is_in_address_list", is_in_address_list)
+
+    @property
+    @pulumi.getter(name="isInAddressList")
+    def is_in_address_list(self) -> pulumi.Input['MailManagerTrafficPolicyIngressIsInAddressListArgs']:
+        return pulumi.get(self, "is_in_address_list")
+
+    @is_in_address_list.setter
+    def is_in_address_list(self, value: pulumi.Input['MailManagerTrafficPolicyIngressIsInAddressListArgs']):
+        pulumi.set(self, "is_in_address_list", value)
 
 
 if not MYPY:
@@ -3093,6 +3179,40 @@ class MailManagerTrafficPolicyIngressIpv6ToEvaluatePropertiesArgs:
 
     @attribute.setter
     def attribute(self, value: pulumi.Input['MailManagerTrafficPolicyIngressIpv6Attribute']):
+        pulumi.set(self, "attribute", value)
+
+
+if not MYPY:
+    class MailManagerTrafficPolicyIngressIsInAddressListArgsDict(TypedDict):
+        address_lists: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        attribute: pulumi.Input['MailManagerTrafficPolicyIngressAddressListEmailAttribute']
+elif False:
+    MailManagerTrafficPolicyIngressIsInAddressListArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MailManagerTrafficPolicyIngressIsInAddressListArgs:
+    def __init__(__self__, *,
+                 address_lists: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 attribute: pulumi.Input['MailManagerTrafficPolicyIngressAddressListEmailAttribute']):
+        pulumi.set(__self__, "address_lists", address_lists)
+        pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter(name="addressLists")
+    def address_lists(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        return pulumi.get(self, "address_lists")
+
+    @address_lists.setter
+    def address_lists(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "address_lists", value)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> pulumi.Input['MailManagerTrafficPolicyIngressAddressListEmailAttribute']:
+        return pulumi.get(self, "attribute")
+
+    @attribute.setter
+    def attribute(self, value: pulumi.Input['MailManagerTrafficPolicyIngressAddressListEmailAttribute']):
         pulumi.set(self, "attribute", value)
 
 

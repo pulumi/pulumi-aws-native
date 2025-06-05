@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.ApiGatewayV2
 {
+    /// <summary>
+    /// The routing mode API Gateway uses to route traffic to your APIs.
+    /// </summary>
     [EnumType]
     public readonly struct DomainNameRoutingMode : IEquatable<DomainNameRoutingMode>
     {

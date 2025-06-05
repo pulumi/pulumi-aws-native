@@ -100,6 +100,10 @@ export interface GetWebAclResult {
      */
     readonly labelNamespace?: string;
     /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+     */
+    readonly onSourceDDoSProtectionConfig?: any;
+    /**
      * Collection of Rules.
      */
     readonly rules?: outputs.wafv2.WebAclRule[];

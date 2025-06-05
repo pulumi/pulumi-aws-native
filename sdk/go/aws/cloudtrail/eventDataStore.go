@@ -20,6 +20,8 @@ type EventDataStore struct {
 	AdvancedEventSelectors EventDataStoreAdvancedEventSelectorArrayOutput `pulumi:"advancedEventSelectors"`
 	// The mode that the event data store will use to charge for event storage.
 	BillingMode pulumi.StringPtrOutput `pulumi:"billingMode"`
+	// An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+	ContextKeySelectors EventDataStoreContextKeySelectorArrayOutput `pulumi:"contextKeySelectors"`
 	// The timestamp of the event data store's creation.
 	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
 	// The ARN of the event data store.
@@ -36,6 +38,8 @@ type EventDataStore struct {
 	InsightsDestination pulumi.StringPtrOutput `pulumi:"insightsDestination"`
 	// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+	MaxEventSize EventDataStoreMaxEventSizePtrOutput `pulumi:"maxEventSize"`
 	// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
 	MultiRegionEnabled pulumi.BoolPtrOutput `pulumi:"multiRegionEnabled"`
 	// The name of the event data store.
@@ -98,6 +102,8 @@ type eventDataStoreArgs struct {
 	AdvancedEventSelectors []EventDataStoreAdvancedEventSelector `pulumi:"advancedEventSelectors"`
 	// The mode that the event data store will use to charge for event storage.
 	BillingMode *string `pulumi:"billingMode"`
+	// An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+	ContextKeySelectors []EventDataStoreContextKeySelector `pulumi:"contextKeySelectors"`
 	// Indicates whether federation is enabled on an event data store.
 	FederationEnabled *bool `pulumi:"federationEnabled"`
 	// The ARN of the role used for event data store federation.
@@ -110,6 +116,8 @@ type eventDataStoreArgs struct {
 	InsightsDestination *string `pulumi:"insightsDestination"`
 	// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+	MaxEventSize *EventDataStoreMaxEventSize `pulumi:"maxEventSize"`
 	// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
 	MultiRegionEnabled *bool `pulumi:"multiRegionEnabled"`
 	// The name of the event data store.
@@ -130,6 +138,8 @@ type EventDataStoreArgs struct {
 	AdvancedEventSelectors EventDataStoreAdvancedEventSelectorArrayInput
 	// The mode that the event data store will use to charge for event storage.
 	BillingMode pulumi.StringPtrInput
+	// An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+	ContextKeySelectors EventDataStoreContextKeySelectorArrayInput
 	// Indicates whether federation is enabled on an event data store.
 	FederationEnabled pulumi.BoolPtrInput
 	// The ARN of the role used for event data store federation.
@@ -142,6 +152,8 @@ type EventDataStoreArgs struct {
 	InsightsDestination pulumi.StringPtrInput
 	// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId pulumi.StringPtrInput
+	// Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+	MaxEventSize EventDataStoreMaxEventSizePtrInput
 	// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
 	MultiRegionEnabled pulumi.BoolPtrInput
 	// The name of the event data store.
@@ -205,6 +217,11 @@ func (o EventDataStoreOutput) BillingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringPtrOutput { return v.BillingMode }).(pulumi.StringPtrOutput)
 }
 
+// An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+func (o EventDataStoreOutput) ContextKeySelectors() EventDataStoreContextKeySelectorArrayOutput {
+	return o.ApplyT(func(v *EventDataStore) EventDataStoreContextKeySelectorArrayOutput { return v.ContextKeySelectors }).(EventDataStoreContextKeySelectorArrayOutput)
+}
+
 // The timestamp of the event data store's creation.
 func (o EventDataStoreOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
@@ -243,6 +260,11 @@ func (o EventDataStoreOutput) InsightsDestination() pulumi.StringPtrOutput {
 // Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 func (o EventDataStoreOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+func (o EventDataStoreOutput) MaxEventSize() EventDataStoreMaxEventSizePtrOutput {
+	return o.ApplyT(func(v *EventDataStore) EventDataStoreMaxEventSizePtrOutput { return v.MaxEventSize }).(EventDataStoreMaxEventSizePtrOutput)
 }
 
 // Indicates whether the event data store includes events from all regions, or only from the region in which it was created.

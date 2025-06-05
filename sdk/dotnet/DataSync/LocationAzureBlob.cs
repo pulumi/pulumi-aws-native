@@ -41,6 +41,8 @@ namespace Pulumi.AwsNative.DataSync
 
         /// <summary>
         /// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+        /// 
+        /// &gt; If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret.
         /// </summary>
         [Output("azureBlobSasConfiguration")]
         public Output<Outputs.LocationAzureBlobAzureBlobSasConfiguration?> AzureBlobSasConfiguration { get; private set; } = null!;
@@ -51,9 +53,19 @@ namespace Pulumi.AwsNative.DataSync
         [Output("azureBlobType")]
         public Output<Pulumi.AwsNative.DataSync.LocationAzureBlobAzureBlobType?> AzureBlobType { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+        /// 
+        /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        /// </summary>
         [Output("cmkSecretConfig")]
         public Output<Outputs.LocationAzureBlobCmkSecretConfig?> CmkSecretConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        /// 
+        /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        /// </summary>
         [Output("customSecretConfig")]
         public Output<Outputs.LocationAzureBlobCustomSecretConfig?> CustomSecretConfig { get; private set; } = null!;
 
@@ -165,6 +177,8 @@ namespace Pulumi.AwsNative.DataSync
 
         /// <summary>
         /// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+        /// 
+        /// &gt; If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret.
         /// </summary>
         [Input("azureBlobSasConfiguration")]
         public Input<Inputs.LocationAzureBlobAzureBlobSasConfigurationArgs>? AzureBlobSasConfiguration { get; set; }
@@ -175,9 +189,19 @@ namespace Pulumi.AwsNative.DataSync
         [Input("azureBlobType")]
         public Input<Pulumi.AwsNative.DataSync.LocationAzureBlobAzureBlobType>? AzureBlobType { get; set; }
 
+        /// <summary>
+        /// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+        /// 
+        /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        /// </summary>
         [Input("cmkSecretConfig")]
         public Input<Inputs.LocationAzureBlobCmkSecretConfigArgs>? CmkSecretConfig { get; set; }
 
+        /// <summary>
+        /// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        /// 
+        /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        /// </summary>
         [Input("customSecretConfig")]
         public Input<Inputs.LocationAzureBlobCustomSecretConfigArgs>? CustomSecretConfig { get; set; }
 

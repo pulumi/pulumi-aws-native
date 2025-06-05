@@ -2,6 +2,29 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccessPointNetworkOrigin = {
+    Internet: "Internet",
+    Vpc: "VPC",
+} as const;
+
+/**
+ * Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
+ */
+export type AccessPointNetworkOrigin = (typeof AccessPointNetworkOrigin)[keyof typeof AccessPointNetworkOrigin];
+
+export const AccessPointScopePermissionsItem = {
+    GetObject: "GetObject",
+    GetObjectAttributes: "GetObjectAttributes",
+    ListMultipartUploadParts: "ListMultipartUploadParts",
+    ListBucket: "ListBucket",
+    ListBucketMultipartUploads: "ListBucketMultipartUploads",
+    PutObject: "PutObject",
+    DeleteObject: "DeleteObject",
+    AbortMultipartUpload: "AbortMultipartUpload",
+} as const;
+
+export type AccessPointScopePermissionsItem = (typeof AccessPointScopePermissionsItem)[keyof typeof AccessPointScopePermissionsItem];
+
 export const DirectoryBucketDataRedundancy = {
     SingleAvailabilityZone: "SingleAvailabilityZone",
     SingleLocalZone: "SingleLocalZone",

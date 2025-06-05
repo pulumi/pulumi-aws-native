@@ -104,6 +104,12 @@ namespace Pulumi.AwsNative.WaFv2
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        /// </summary>
+        [Output("onSourceDDoSProtectionConfig")]
+        public Output<object?> OnSourceDDoSProtectionConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Collection of Rules.
         /// </summary>
         [Output("rules")]
@@ -252,6 +258,12 @@ namespace Pulumi.AwsNative.WaFv2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        /// </summary>
+        [Input("onSourceDDoSProtectionConfig")]
+        public Input<object>? OnSourceDDoSProtectionConfig { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.WebAclRuleArgs>? _rules;

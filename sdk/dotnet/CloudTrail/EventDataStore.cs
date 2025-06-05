@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.CloudTrail
         public Output<string?> BillingMode { get; private set; } = null!;
 
         /// <summary>
+        /// An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+        /// </summary>
+        [Output("contextKeySelectors")]
+        public Output<ImmutableArray<Outputs.EventDataStoreContextKeySelector>> ContextKeySelectors { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp of the event data store's creation.
         /// </summary>
         [Output("createdTimestamp")]
@@ -74,6 +80,12 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+        /// </summary>
+        [Output("maxEventSize")]
+        public Output<Pulumi.AwsNative.CloudTrail.EventDataStoreMaxEventSize?> MaxEventSize { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
@@ -186,6 +198,18 @@ namespace Pulumi.AwsNative.CloudTrail
         [Input("billingMode")]
         public Input<string>? BillingMode { get; set; }
 
+        [Input("contextKeySelectors")]
+        private InputList<Inputs.EventDataStoreContextKeySelectorArgs>? _contextKeySelectors;
+
+        /// <summary>
+        /// An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+        /// </summary>
+        public InputList<Inputs.EventDataStoreContextKeySelectorArgs> ContextKeySelectors
+        {
+            get => _contextKeySelectors ?? (_contextKeySelectors = new InputList<Inputs.EventDataStoreContextKeySelectorArgs>());
+            set => _contextKeySelectors = value;
+        }
+
         /// <summary>
         /// Indicates whether federation is enabled on an event data store.
         /// </summary>
@@ -227,6 +251,12 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+        /// </summary>
+        [Input("maxEventSize")]
+        public Input<Pulumi.AwsNative.CloudTrail.EventDataStoreMaxEventSize>? MaxEventSize { get; set; }
 
         /// <summary>
         /// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.

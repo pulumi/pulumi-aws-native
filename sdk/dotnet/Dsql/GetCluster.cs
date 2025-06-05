@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Dsql
         /// </summary>
         public readonly string? Identifier;
         /// <summary>
+        /// The Multi-region properties associated to this cluster.
+        /// </summary>
+        public readonly Outputs.MultiRegionPropertiesProperties? MultiRegionProperties;
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the cluster.
         /// </summary>
         public readonly string? ResourceArn;
@@ -100,6 +104,8 @@ namespace Pulumi.AwsNative.Dsql
 
             string? identifier,
 
+            Outputs.MultiRegionPropertiesProperties? multiRegionProperties,
+
             string? resourceArn,
 
             string? status,
@@ -111,6 +117,7 @@ namespace Pulumi.AwsNative.Dsql
             CreationTime = creationTime;
             DeletionProtectionEnabled = deletionProtectionEnabled;
             Identifier = identifier;
+            MultiRegionProperties = multiRegionProperties;
             ResourceArn = resourceArn;
             Status = status;
             Tags = tags;

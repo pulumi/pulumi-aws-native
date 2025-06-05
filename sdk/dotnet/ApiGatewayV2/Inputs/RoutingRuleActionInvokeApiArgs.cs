@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 
     public sealed class RoutingRuleActionInvokeApiArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The API identifier of the target API.
+        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the target stage.
+        /// </summary>
         [Input("stage", required: true)]
         public Input<string> Stage { get; set; } = null!;
 
+        /// <summary>
+        /// The strip base path setting. When true, API Gateway strips the incoming matched base path when forwarding the request to the target API.
+        /// </summary>
         [Input("stripBasePath")]
         public Input<bool>? StripBasePath { get; set; }
 

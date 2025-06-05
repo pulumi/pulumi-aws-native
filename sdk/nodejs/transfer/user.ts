@@ -48,7 +48,7 @@ export class User extends pulumi.CustomResource {
      *
      * A `HomeDirectory` example is `/bucket_name/home/mydirectory` .
      *
-     * > The `HomeDirectory` parameter is only used if `HomeDirectoryType` is set to `PATH` .
+     * > You can use the `HomeDirectory` parameter for `HomeDirectoryType` when it is set to either `PATH` or `LOGICAL` .
      */
     public readonly homeDirectory!: pulumi.Output<string | undefined>;
     /**
@@ -163,7 +163,7 @@ export interface UserArgs {
      *
      * A `HomeDirectory` example is `/bucket_name/home/mydirectory` .
      *
-     * > The `HomeDirectory` parameter is only used if `HomeDirectoryType` is set to `PATH` .
+     * > You can use the `HomeDirectory` parameter for `HomeDirectoryType` when it is set to either `PATH` or `LOGICAL` .
      */
     homeDirectory?: pulumi.Input<string>;
     /**

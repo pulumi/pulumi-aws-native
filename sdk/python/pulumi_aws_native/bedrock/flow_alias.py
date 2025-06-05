@@ -33,6 +33,7 @@ class FlowAliasArgs:
         The set of arguments for constructing a FlowAlias resource.
         :param pulumi.Input[builtins.str] flow_arn: Arn representation of the Flow
         :param pulumi.Input[Sequence[pulumi.Input['FlowAliasRoutingConfigurationListItemArgs']]] routing_configuration: Routing configuration for a Flow alias.
+        :param pulumi.Input['FlowAliasConcurrencyConfigurationArgs'] concurrency_configuration: The configuration that specifies how nodes in the flow are executed concurrently.
         :param pulumi.Input[builtins.str] description: Description of the Resource.
         :param pulumi.Input[builtins.str] name: Name for a resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
@@ -78,6 +79,9 @@ class FlowAliasArgs:
     @property
     @pulumi.getter(name="concurrencyConfiguration")
     def concurrency_configuration(self) -> Optional[pulumi.Input['FlowAliasConcurrencyConfigurationArgs']]:
+        """
+        The configuration that specifies how nodes in the flow are executed concurrently.
+        """
         return pulumi.get(self, "concurrency_configuration")
 
     @concurrency_configuration.setter
@@ -142,6 +146,7 @@ class FlowAlias(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['FlowAliasConcurrencyConfigurationArgs', 'FlowAliasConcurrencyConfigurationArgsDict']] concurrency_configuration: The configuration that specifies how nodes in the flow are executed concurrently.
         :param pulumi.Input[builtins.str] description: Description of the Resource.
         :param pulumi.Input[builtins.str] flow_arn: Arn representation of the Flow
         :param pulumi.Input[builtins.str] name: Name for a resource.
@@ -261,6 +266,9 @@ class FlowAlias(pulumi.CustomResource):
     @property
     @pulumi.getter(name="concurrencyConfiguration")
     def concurrency_configuration(self) -> pulumi.Output[Optional['outputs.FlowAliasConcurrencyConfiguration']]:
+        """
+        The configuration that specifies how nodes in the flow are executed concurrently.
+        """
         return pulumi.get(self, "concurrency_configuration")
 
     @property

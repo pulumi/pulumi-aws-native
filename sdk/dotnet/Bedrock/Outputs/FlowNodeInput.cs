@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class FlowNodeInput
     {
+        public readonly Pulumi.AwsNative.Bedrock.FlowNodeInputCategory? Category;
         /// <summary>
         /// Expression for a node input in a flow
         /// </summary>
@@ -25,18 +26,21 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        /// Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.FlowNodeIoDataType Type;
 
         [OutputConstructor]
         private FlowNodeInput(
+            Pulumi.AwsNative.Bedrock.FlowNodeInputCategory? category,
+
             string expression,
 
             string name,
 
             Pulumi.AwsNative.Bedrock.FlowNodeIoDataType type)
         {
+            Category = category;
             Expression = expression;
             Name = name;
             Type = type;

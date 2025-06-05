@@ -50,6 +50,11 @@ export const getResolverDnssecConfig: typeof import("./getResolverDnssecConfig")
 export const getResolverDnssecConfigOutput: typeof import("./getResolverDnssecConfig").getResolverDnssecConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getResolverDnssecConfig","getResolverDnssecConfigOutput"], () => require("./getResolverDnssecConfig"));
 
+export { GetResolverEndpointArgs, GetResolverEndpointResult, GetResolverEndpointOutputArgs } from "./getResolverEndpoint";
+export const getResolverEndpoint: typeof import("./getResolverEndpoint").getResolverEndpoint = null as any;
+export const getResolverEndpointOutput: typeof import("./getResolverEndpoint").getResolverEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverEndpoint","getResolverEndpointOutput"], () => require("./getResolverEndpoint"));
+
 export { GetResolverQueryLoggingConfigArgs, GetResolverQueryLoggingConfigResult, GetResolverQueryLoggingConfigOutputArgs } from "./getResolverQueryLoggingConfig";
 export const getResolverQueryLoggingConfig: typeof import("./getResolverQueryLoggingConfig").getResolverQueryLoggingConfig = null as any;
 export const getResolverQueryLoggingConfigOutput: typeof import("./getResolverQueryLoggingConfig").getResolverQueryLoggingConfigOutput = null as any;
@@ -84,6 +89,11 @@ export { ResolverDnssecConfigArgs } from "./resolverDnssecConfig";
 export type ResolverDnssecConfig = import("./resolverDnssecConfig").ResolverDnssecConfig;
 export const ResolverDnssecConfig: typeof import("./resolverDnssecConfig").ResolverDnssecConfig = null as any;
 utilities.lazyLoad(exports, ["ResolverDnssecConfig"], () => require("./resolverDnssecConfig"));
+
+export { ResolverEndpointArgs } from "./resolverEndpoint";
+export type ResolverEndpoint = import("./resolverEndpoint").ResolverEndpoint;
+export const ResolverEndpoint: typeof import("./resolverEndpoint").ResolverEndpoint = null as any;
+utilities.lazyLoad(exports, ["ResolverEndpoint"], () => require("./resolverEndpoint"));
 
 export { ResolverQueryLoggingConfigArgs } from "./resolverQueryLoggingConfig";
 export type ResolverQueryLoggingConfig = import("./resolverQueryLoggingConfig").ResolverQueryLoggingConfig;
@@ -125,6 +135,8 @@ const _module = {
                 return new ResolverConfig(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverDnssecConfig":
                 return new ResolverDnssecConfig(name, <any>undefined, { urn })
+            case "aws-native:route53resolver:ResolverEndpoint":
+                return new ResolverEndpoint(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverQueryLoggingConfig":
                 return new ResolverQueryLoggingConfig(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation":

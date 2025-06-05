@@ -14,6 +14,7 @@ __all__ = [
     'MailManagerIngressPointIngressPointType',
     'MailManagerRuleSetActionFailurePolicy',
     'MailManagerRuleSetMailFrom',
+    'MailManagerRuleSetRuleAddressListEmailAttribute',
     'MailManagerRuleSetRuleBooleanEmailAttribute',
     'MailManagerRuleSetRuleBooleanOperator',
     'MailManagerRuleSetRuleDmarcOperator',
@@ -30,6 +31,7 @@ __all__ = [
     'MailManagerRuleSetSnsNotificationEncoding',
     'MailManagerRuleSetSnsNotificationPayloadType',
     'MailManagerTrafficPolicyAcceptAction',
+    'MailManagerTrafficPolicyIngressAddressListEmailAttribute',
     'MailManagerTrafficPolicyIngressBooleanOperator',
     'MailManagerTrafficPolicyIngressIpOperator',
     'MailManagerTrafficPolicyIngressIpv4Attribute',
@@ -100,6 +102,16 @@ class MailManagerRuleSetActionFailurePolicy(builtins.str, Enum):
 class MailManagerRuleSetMailFrom(builtins.str, Enum):
     REPLACE = "REPLACE"
     PRESERVE = "PRESERVE"
+
+
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleAddressListEmailAttribute")
+class MailManagerRuleSetRuleAddressListEmailAttribute(builtins.str, Enum):
+    RECIPIENT = "RECIPIENT"
+    MAIL_FROM = "MAIL_FROM"
+    SENDER = "SENDER"
+    FROM_ = "FROM"
+    TO = "TO"
+    CC = "CC"
 
 
 @pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleBooleanEmailAttribute")
@@ -211,6 +223,11 @@ class MailManagerRuleSetSnsNotificationPayloadType(builtins.str, Enum):
 class MailManagerTrafficPolicyAcceptAction(builtins.str, Enum):
     ALLOW = "ALLOW"
     DENY = "DENY"
+
+
+@pulumi.type_token("aws-native:ses:MailManagerTrafficPolicyIngressAddressListEmailAttribute")
+class MailManagerTrafficPolicyIngressAddressListEmailAttribute(builtins.str, Enum):
+    RECIPIENT = "RECIPIENT"
 
 
 @pulumi.type_token("aws-native:ses:MailManagerTrafficPolicyIngressBooleanOperator")

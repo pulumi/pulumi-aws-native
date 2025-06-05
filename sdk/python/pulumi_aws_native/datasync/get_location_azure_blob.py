@@ -94,11 +94,21 @@ class GetLocationAzureBlobResult:
     @property
     @pulumi.getter(name="cmkSecretConfig")
     def cmk_secret_config(self) -> Optional['outputs.LocationAzureBlobCmkSecretConfig']:
+        """
+        Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+
+        > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        """
         return pulumi.get(self, "cmk_secret_config")
 
     @property
     @pulumi.getter(name="customSecretConfig")
     def custom_secret_config(self) -> Optional['outputs.LocationAzureBlobCustomSecretConfig']:
+        """
+        Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+
+        > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+        """
         return pulumi.get(self, "custom_secret_config")
 
     @property

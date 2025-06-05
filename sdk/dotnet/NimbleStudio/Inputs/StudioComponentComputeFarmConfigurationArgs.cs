@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
 
     public sealed class StudioComponentComputeFarmConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of an Active Directory user that is used on ComputeFarm worker instances.
-        /// </summary>
         [Input("activeDirectoryUser")]
         public Input<string>? ActiveDirectoryUser { get; set; }
 
-        /// <summary>
-        /// The endpoint of the ComputeFarm that is accessed by the studio component resource.
-        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 

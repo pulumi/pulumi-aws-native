@@ -32,16 +32,6 @@ class LaunchProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a LaunchProfile resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ec2_subnet_ids: Unique identifiers for a collection of EC2 subnets.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] launch_profile_protocol_versions: The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
-        :param pulumi.Input['LaunchProfileStreamConfigurationArgs'] stream_configuration: A configuration for a streaming session.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] studio_component_ids: Unique identifiers for a collection of studio components that can be used with this launch profile.
-        :param pulumi.Input[builtins.str] studio_id: The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        :param pulumi.Input[builtins.str] description: A human-readable description of the launch profile.
-        :param pulumi.Input[builtins.str] name: A friendly name for the launch profile.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key-value pairs to apply to this resource.
-               
-               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "ec2_subnet_ids", ec2_subnet_ids)
         pulumi.set(__self__, "launch_profile_protocol_versions", launch_profile_protocol_versions)
@@ -58,9 +48,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="ec2SubnetIds")
     def ec2_subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
-        """
-        Unique identifiers for a collection of EC2 subnets.
-        """
         return pulumi.get(self, "ec2_subnet_ids")
 
     @ec2_subnet_ids.setter
@@ -70,9 +57,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="launchProfileProtocolVersions")
     def launch_profile_protocol_versions(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
-        """
-        The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
-        """
         return pulumi.get(self, "launch_profile_protocol_versions")
 
     @launch_profile_protocol_versions.setter
@@ -82,9 +66,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="streamConfiguration")
     def stream_configuration(self) -> pulumi.Input['LaunchProfileStreamConfigurationArgs']:
-        """
-        A configuration for a streaming session.
-        """
         return pulumi.get(self, "stream_configuration")
 
     @stream_configuration.setter
@@ -94,9 +75,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="studioComponentIds")
     def studio_component_ids(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
-        """
-        Unique identifiers for a collection of studio components that can be used with this launch profile.
-        """
         return pulumi.get(self, "studio_component_ids")
 
     @studio_component_ids.setter
@@ -106,9 +84,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[builtins.str]:
-        """
-        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        """
         return pulumi.get(self, "studio_id")
 
     @studio_id.setter
@@ -118,9 +93,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        A human-readable description of the launch profile.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -130,9 +102,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        A friendly name for the launch profile.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -142,11 +111,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        An array of key-value pairs to apply to this resource.
-
-        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -174,16 +138,6 @@ class LaunchProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] description: A human-readable description of the launch profile.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ec2_subnet_ids: Unique identifiers for a collection of EC2 subnets.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] launch_profile_protocol_versions: The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
-        :param pulumi.Input[builtins.str] name: A friendly name for the launch profile.
-        :param pulumi.Input[Union['LaunchProfileStreamConfigurationArgs', 'LaunchProfileStreamConfigurationArgsDict']] stream_configuration: A configuration for a streaming session.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] studio_component_ids: Unique identifiers for a collection of studio components that can be used with this launch profile.
-        :param pulumi.Input[builtins.str] studio_id: The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key-value pairs to apply to this resource.
-               
-               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -283,74 +237,45 @@ class LaunchProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        A human-readable description of the launch profile.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ec2SubnetIds")
     def ec2_subnet_ids(self) -> pulumi.Output[Sequence[builtins.str]]:
-        """
-        Unique identifiers for a collection of EC2 subnets.
-        """
         return pulumi.get(self, "ec2_subnet_ids")
 
     @property
     @pulumi.getter(name="launchProfileId")
     def launch_profile_id(self) -> pulumi.Output[builtins.str]:
-        """
-        The unique identifier for the launch profile resource.
-        """
         return pulumi.get(self, "launch_profile_id")
 
     @property
     @pulumi.getter(name="launchProfileProtocolVersions")
     def launch_profile_protocol_versions(self) -> pulumi.Output[Sequence[builtins.str]]:
-        """
-        The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
-        """
         return pulumi.get(self, "launch_profile_protocol_versions")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
-        """
-        A friendly name for the launch profile.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="streamConfiguration")
     def stream_configuration(self) -> pulumi.Output['outputs.LaunchProfileStreamConfiguration']:
-        """
-        A configuration for a streaming session.
-        """
         return pulumi.get(self, "stream_configuration")
 
     @property
     @pulumi.getter(name="studioComponentIds")
     def studio_component_ids(self) -> pulumi.Output[Sequence[builtins.str]]:
-        """
-        Unique identifiers for a collection of studio components that can be used with this launch profile.
-        """
         return pulumi.get(self, "studio_component_ids")
 
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[builtins.str]:
-        """
-        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        """
         return pulumi.get(self, "studio_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
-        """
-        An array of key-value pairs to apply to this resource.
-
-        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        """
         return pulumi.get(self, "tags")
 

@@ -33,6 +33,7 @@ class DomainNameArgs:
         :param pulumi.Input[builtins.str] domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
         :param pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]] domain_name_configurations: The domain name configurations.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name.
+        :param pulumi.Input['DomainNameRoutingMode'] routing_mode: The routing mode API Gateway uses to route traffic to your APIs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The collection of tags associated with a domain name.
         """
         pulumi.set(__self__, "domain_name", domain_name)
@@ -84,6 +85,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter(name="routingMode")
     def routing_mode(self) -> Optional[pulumi.Input['DomainNameRoutingMode']]:
+        """
+        The routing mode API Gateway uses to route traffic to your APIs.
+        """
         return pulumi.get(self, "routing_mode")
 
     @routing_mode.setter
@@ -124,6 +128,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainNameConfigurationArgs', 'DomainNameConfigurationArgsDict']]]] domain_name_configurations: The domain name configurations.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name.
+        :param pulumi.Input['DomainNameRoutingMode'] routing_mode: The routing mode API Gateway uses to route traffic to your APIs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The collection of tags associated with a domain name.
         """
         ...
@@ -260,6 +265,9 @@ class DomainName(pulumi.CustomResource):
     @property
     @pulumi.getter(name="routingMode")
     def routing_mode(self) -> pulumi.Output[Optional['DomainNameRoutingMode']]:
+        """
+        The routing mode API Gateway uses to route traffic to your APIs.
+        """
         return pulumi.get(self, "routing_mode")
 
     @property

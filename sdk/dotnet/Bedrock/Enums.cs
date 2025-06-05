@@ -1552,6 +1552,38 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Optional tag to classify input type, currently exclusive to LoopNode
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowNodeInputCategory : IEquatable<FlowNodeInputCategory>
+    {
+        private readonly string _value;
+
+        private FlowNodeInputCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowNodeInputCategory LoopCondition { get; } = new FlowNodeInputCategory("LoopCondition");
+        public static FlowNodeInputCategory ReturnValueToLoopStart { get; } = new FlowNodeInputCategory("ReturnValueToLoopStart");
+        public static FlowNodeInputCategory ExitLoop { get; } = new FlowNodeInputCategory("ExitLoop");
+
+        public static bool operator ==(FlowNodeInputCategory left, FlowNodeInputCategory right) => left.Equals(right);
+        public static bool operator !=(FlowNodeInputCategory left, FlowNodeInputCategory right) => !left.Equals(right);
+
+        public static explicit operator string(FlowNodeInputCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowNodeInputCategory other && Equals(other);
+        public bool Equals(FlowNodeInputCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of input/output for a node in a flow
     /// </summary>
     [EnumType]
@@ -1611,6 +1643,9 @@ namespace Pulumi.AwsNative.Bedrock
         public static FlowNodeType Iterator { get; } = new FlowNodeType("Iterator");
         public static FlowNodeType Collector { get; } = new FlowNodeType("Collector");
         public static FlowNodeType InlineCode { get; } = new FlowNodeType("InlineCode");
+        public static FlowNodeType Loop { get; } = new FlowNodeType("Loop");
+        public static FlowNodeType LoopInput { get; } = new FlowNodeType("LoopInput");
+        public static FlowNodeType LoopController { get; } = new FlowNodeType("LoopController");
 
         public static bool operator ==(FlowNodeType left, FlowNodeType right) => left.Equals(right);
         public static bool operator !=(FlowNodeType left, FlowNodeType right) => !left.Equals(right);
@@ -1620,6 +1655,37 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowNodeType other && Equals(other);
         public bool Equals(FlowNodeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Performance Configuration Latency
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowPerformanceConfigurationLatency : IEquatable<FlowPerformanceConfigurationLatency>
+    {
+        private readonly string _value;
+
+        private FlowPerformanceConfigurationLatency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowPerformanceConfigurationLatency Standard { get; } = new FlowPerformanceConfigurationLatency("standard");
+        public static FlowPerformanceConfigurationLatency Optimized { get; } = new FlowPerformanceConfigurationLatency("optimized");
+
+        public static bool operator ==(FlowPerformanceConfigurationLatency left, FlowPerformanceConfigurationLatency right) => left.Equals(right);
+        public static bool operator !=(FlowPerformanceConfigurationLatency left, FlowPerformanceConfigurationLatency right) => !left.Equals(right);
+
+        public static explicit operator string(FlowPerformanceConfigurationLatency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowPerformanceConfigurationLatency other && Equals(other);
+        public bool Equals(FlowPerformanceConfigurationLatency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1650,6 +1716,37 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowPromptTemplateType other && Equals(other);
         public bool Equals(FlowPromptTemplateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Reranking Metadata Selection Mode
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowRerankingMetadataSelectionMode : IEquatable<FlowRerankingMetadataSelectionMode>
+    {
+        private readonly string _value;
+
+        private FlowRerankingMetadataSelectionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowRerankingMetadataSelectionMode Selective { get; } = new FlowRerankingMetadataSelectionMode("SELECTIVE");
+        public static FlowRerankingMetadataSelectionMode All { get; } = new FlowRerankingMetadataSelectionMode("ALL");
+
+        public static bool operator ==(FlowRerankingMetadataSelectionMode left, FlowRerankingMetadataSelectionMode right) => left.Equals(right);
+        public static bool operator !=(FlowRerankingMetadataSelectionMode left, FlowRerankingMetadataSelectionMode right) => !left.Equals(right);
+
+        public static explicit operator string(FlowRerankingMetadataSelectionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowRerankingMetadataSelectionMode other && Equals(other);
+        public bool Equals(FlowRerankingMetadataSelectionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1713,6 +1810,36 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowSupportedLanguages other && Equals(other);
         public bool Equals(FlowSupportedLanguages other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enum of Rerank Configuration Types
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowVectorSearchRerankingConfigurationType : IEquatable<FlowVectorSearchRerankingConfigurationType>
+    {
+        private readonly string _value;
+
+        private FlowVectorSearchRerankingConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowVectorSearchRerankingConfigurationType BedrockRerankingModel { get; } = new FlowVectorSearchRerankingConfigurationType("BEDROCK_RERANKING_MODEL");
+
+        public static bool operator ==(FlowVectorSearchRerankingConfigurationType left, FlowVectorSearchRerankingConfigurationType right) => left.Equals(right);
+        public static bool operator !=(FlowVectorSearchRerankingConfigurationType left, FlowVectorSearchRerankingConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowVectorSearchRerankingConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowVectorSearchRerankingConfigurationType other && Equals(other);
+        public bool Equals(FlowVectorSearchRerankingConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1811,6 +1938,9 @@ namespace Pulumi.AwsNative.Bedrock
         public static FlowVersionFlowNodeType Storage { get; } = new FlowVersionFlowNodeType("Storage");
         public static FlowVersionFlowNodeType Retrieval { get; } = new FlowVersionFlowNodeType("Retrieval");
         public static FlowVersionFlowNodeType InlineCode { get; } = new FlowVersionFlowNodeType("InlineCode");
+        public static FlowVersionFlowNodeType Loop { get; } = new FlowVersionFlowNodeType("Loop");
+        public static FlowVersionFlowNodeType LoopInput { get; } = new FlowVersionFlowNodeType("LoopInput");
+        public static FlowVersionFlowNodeType LoopController { get; } = new FlowVersionFlowNodeType("LoopController");
 
         public static bool operator ==(FlowVersionFlowNodeType left, FlowVersionFlowNodeType right) => left.Equals(right);
         public static bool operator !=(FlowVersionFlowNodeType left, FlowVersionFlowNodeType right) => !left.Equals(right);
@@ -1861,6 +1991,37 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Performance Configuration Latency
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowVersionPerformanceConfigurationLatency : IEquatable<FlowVersionPerformanceConfigurationLatency>
+    {
+        private readonly string _value;
+
+        private FlowVersionPerformanceConfigurationLatency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowVersionPerformanceConfigurationLatency Standard { get; } = new FlowVersionPerformanceConfigurationLatency("standard");
+        public static FlowVersionPerformanceConfigurationLatency Optimized { get; } = new FlowVersionPerformanceConfigurationLatency("optimized");
+
+        public static bool operator ==(FlowVersionPerformanceConfigurationLatency left, FlowVersionPerformanceConfigurationLatency right) => left.Equals(right);
+        public static bool operator !=(FlowVersionPerformanceConfigurationLatency left, FlowVersionPerformanceConfigurationLatency right) => !left.Equals(right);
+
+        public static explicit operator string(FlowVersionPerformanceConfigurationLatency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowVersionPerformanceConfigurationLatency other && Equals(other);
+        public bool Equals(FlowVersionPerformanceConfigurationLatency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Prompt template type
     /// </summary>
     [EnumType]
@@ -1891,6 +2052,37 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Reranking Metadata Selection Mode
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowVersionRerankingMetadataSelectionMode : IEquatable<FlowVersionRerankingMetadataSelectionMode>
+    {
+        private readonly string _value;
+
+        private FlowVersionRerankingMetadataSelectionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowVersionRerankingMetadataSelectionMode Selective { get; } = new FlowVersionRerankingMetadataSelectionMode("SELECTIVE");
+        public static FlowVersionRerankingMetadataSelectionMode All { get; } = new FlowVersionRerankingMetadataSelectionMode("ALL");
+
+        public static bool operator ==(FlowVersionRerankingMetadataSelectionMode left, FlowVersionRerankingMetadataSelectionMode right) => left.Equals(right);
+        public static bool operator !=(FlowVersionRerankingMetadataSelectionMode left, FlowVersionRerankingMetadataSelectionMode right) => !left.Equals(right);
+
+        public static explicit operator string(FlowVersionRerankingMetadataSelectionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowVersionRerankingMetadataSelectionMode other && Equals(other);
+        public bool Equals(FlowVersionRerankingMetadataSelectionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enum encodes the supported language type
     /// </summary>
     [EnumType]
@@ -1913,6 +2105,36 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowVersionSupportedLanguages other && Equals(other);
         public bool Equals(FlowVersionSupportedLanguages other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enum of Rerank Configuration Types
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowVersionVectorSearchRerankingConfigurationType : IEquatable<FlowVersionVectorSearchRerankingConfigurationType>
+    {
+        private readonly string _value;
+
+        private FlowVersionVectorSearchRerankingConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowVersionVectorSearchRerankingConfigurationType BedrockRerankingModel { get; } = new FlowVersionVectorSearchRerankingConfigurationType("BEDROCK_RERANKING_MODEL");
+
+        public static bool operator ==(FlowVersionVectorSearchRerankingConfigurationType left, FlowVersionVectorSearchRerankingConfigurationType right) => left.Equals(right);
+        public static bool operator !=(FlowVersionVectorSearchRerankingConfigurationType left, FlowVersionVectorSearchRerankingConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowVersionVectorSearchRerankingConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowVersionVectorSearchRerankingConfigurationType other && Equals(other);
+        public bool Equals(FlowVersionVectorSearchRerankingConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

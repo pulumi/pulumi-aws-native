@@ -691,6 +691,338 @@ func (o DashboardTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+type EventDataStoreContextKeySelectorType string
+
+const (
+	EventDataStoreContextKeySelectorTypeRequestContext = EventDataStoreContextKeySelectorType("RequestContext")
+	EventDataStoreContextKeySelectorTypeTagContext     = EventDataStoreContextKeySelectorType("TagContext")
+)
+
+func (EventDataStoreContextKeySelectorType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDataStoreContextKeySelectorType)(nil)).Elem()
+}
+
+func (e EventDataStoreContextKeySelectorType) ToEventDataStoreContextKeySelectorTypeOutput() EventDataStoreContextKeySelectorTypeOutput {
+	return pulumi.ToOutput(e).(EventDataStoreContextKeySelectorTypeOutput)
+}
+
+func (e EventDataStoreContextKeySelectorType) ToEventDataStoreContextKeySelectorTypeOutputWithContext(ctx context.Context) EventDataStoreContextKeySelectorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventDataStoreContextKeySelectorTypeOutput)
+}
+
+func (e EventDataStoreContextKeySelectorType) ToEventDataStoreContextKeySelectorTypePtrOutput() EventDataStoreContextKeySelectorTypePtrOutput {
+	return e.ToEventDataStoreContextKeySelectorTypePtrOutputWithContext(context.Background())
+}
+
+func (e EventDataStoreContextKeySelectorType) ToEventDataStoreContextKeySelectorTypePtrOutputWithContext(ctx context.Context) EventDataStoreContextKeySelectorTypePtrOutput {
+	return EventDataStoreContextKeySelectorType(e).ToEventDataStoreContextKeySelectorTypeOutputWithContext(ctx).ToEventDataStoreContextKeySelectorTypePtrOutputWithContext(ctx)
+}
+
+func (e EventDataStoreContextKeySelectorType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventDataStoreContextKeySelectorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventDataStoreContextKeySelectorType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventDataStoreContextKeySelectorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventDataStoreContextKeySelectorTypeOutput struct{ *pulumi.OutputState }
+
+func (EventDataStoreContextKeySelectorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDataStoreContextKeySelectorType)(nil)).Elem()
+}
+
+func (o EventDataStoreContextKeySelectorTypeOutput) ToEventDataStoreContextKeySelectorTypeOutput() EventDataStoreContextKeySelectorTypeOutput {
+	return o
+}
+
+func (o EventDataStoreContextKeySelectorTypeOutput) ToEventDataStoreContextKeySelectorTypeOutputWithContext(ctx context.Context) EventDataStoreContextKeySelectorTypeOutput {
+	return o
+}
+
+func (o EventDataStoreContextKeySelectorTypeOutput) ToEventDataStoreContextKeySelectorTypePtrOutput() EventDataStoreContextKeySelectorTypePtrOutput {
+	return o.ToEventDataStoreContextKeySelectorTypePtrOutputWithContext(context.Background())
+}
+
+func (o EventDataStoreContextKeySelectorTypeOutput) ToEventDataStoreContextKeySelectorTypePtrOutputWithContext(ctx context.Context) EventDataStoreContextKeySelectorTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventDataStoreContextKeySelectorType) *EventDataStoreContextKeySelectorType {
+		return &v
+	}).(EventDataStoreContextKeySelectorTypePtrOutput)
+}
+
+func (o EventDataStoreContextKeySelectorTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventDataStoreContextKeySelectorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventDataStoreContextKeySelectorType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventDataStoreContextKeySelectorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventDataStoreContextKeySelectorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventDataStoreContextKeySelectorType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventDataStoreContextKeySelectorTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EventDataStoreContextKeySelectorTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventDataStoreContextKeySelectorType)(nil)).Elem()
+}
+
+func (o EventDataStoreContextKeySelectorTypePtrOutput) ToEventDataStoreContextKeySelectorTypePtrOutput() EventDataStoreContextKeySelectorTypePtrOutput {
+	return o
+}
+
+func (o EventDataStoreContextKeySelectorTypePtrOutput) ToEventDataStoreContextKeySelectorTypePtrOutputWithContext(ctx context.Context) EventDataStoreContextKeySelectorTypePtrOutput {
+	return o
+}
+
+func (o EventDataStoreContextKeySelectorTypePtrOutput) Elem() EventDataStoreContextKeySelectorTypeOutput {
+	return o.ApplyT(func(v *EventDataStoreContextKeySelectorType) EventDataStoreContextKeySelectorType {
+		if v != nil {
+			return *v
+		}
+		var ret EventDataStoreContextKeySelectorType
+		return ret
+	}).(EventDataStoreContextKeySelectorTypeOutput)
+}
+
+func (o EventDataStoreContextKeySelectorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventDataStoreContextKeySelectorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventDataStoreContextKeySelectorType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventDataStoreContextKeySelectorTypeInput is an input type that accepts values of the EventDataStoreContextKeySelectorType enum
+// A concrete instance of `EventDataStoreContextKeySelectorTypeInput` can be one of the following:
+//
+//	EventDataStoreContextKeySelectorTypeRequestContext
+//	EventDataStoreContextKeySelectorTypeTagContext
+type EventDataStoreContextKeySelectorTypeInput interface {
+	pulumi.Input
+
+	ToEventDataStoreContextKeySelectorTypeOutput() EventDataStoreContextKeySelectorTypeOutput
+	ToEventDataStoreContextKeySelectorTypeOutputWithContext(context.Context) EventDataStoreContextKeySelectorTypeOutput
+}
+
+var eventDataStoreContextKeySelectorTypePtrType = reflect.TypeOf((**EventDataStoreContextKeySelectorType)(nil)).Elem()
+
+type EventDataStoreContextKeySelectorTypePtrInput interface {
+	pulumi.Input
+
+	ToEventDataStoreContextKeySelectorTypePtrOutput() EventDataStoreContextKeySelectorTypePtrOutput
+	ToEventDataStoreContextKeySelectorTypePtrOutputWithContext(context.Context) EventDataStoreContextKeySelectorTypePtrOutput
+}
+
+type eventDataStoreContextKeySelectorTypePtr string
+
+func EventDataStoreContextKeySelectorTypePtr(v string) EventDataStoreContextKeySelectorTypePtrInput {
+	return (*eventDataStoreContextKeySelectorTypePtr)(&v)
+}
+
+func (*eventDataStoreContextKeySelectorTypePtr) ElementType() reflect.Type {
+	return eventDataStoreContextKeySelectorTypePtrType
+}
+
+func (in *eventDataStoreContextKeySelectorTypePtr) ToEventDataStoreContextKeySelectorTypePtrOutput() EventDataStoreContextKeySelectorTypePtrOutput {
+	return pulumi.ToOutput(in).(EventDataStoreContextKeySelectorTypePtrOutput)
+}
+
+func (in *eventDataStoreContextKeySelectorTypePtr) ToEventDataStoreContextKeySelectorTypePtrOutputWithContext(ctx context.Context) EventDataStoreContextKeySelectorTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventDataStoreContextKeySelectorTypePtrOutput)
+}
+
+// Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+type EventDataStoreMaxEventSize string
+
+const (
+	EventDataStoreMaxEventSizeStandard = EventDataStoreMaxEventSize("Standard")
+	EventDataStoreMaxEventSizeLarge    = EventDataStoreMaxEventSize("Large")
+)
+
+func (EventDataStoreMaxEventSize) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDataStoreMaxEventSize)(nil)).Elem()
+}
+
+func (e EventDataStoreMaxEventSize) ToEventDataStoreMaxEventSizeOutput() EventDataStoreMaxEventSizeOutput {
+	return pulumi.ToOutput(e).(EventDataStoreMaxEventSizeOutput)
+}
+
+func (e EventDataStoreMaxEventSize) ToEventDataStoreMaxEventSizeOutputWithContext(ctx context.Context) EventDataStoreMaxEventSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventDataStoreMaxEventSizeOutput)
+}
+
+func (e EventDataStoreMaxEventSize) ToEventDataStoreMaxEventSizePtrOutput() EventDataStoreMaxEventSizePtrOutput {
+	return e.ToEventDataStoreMaxEventSizePtrOutputWithContext(context.Background())
+}
+
+func (e EventDataStoreMaxEventSize) ToEventDataStoreMaxEventSizePtrOutputWithContext(ctx context.Context) EventDataStoreMaxEventSizePtrOutput {
+	return EventDataStoreMaxEventSize(e).ToEventDataStoreMaxEventSizeOutputWithContext(ctx).ToEventDataStoreMaxEventSizePtrOutputWithContext(ctx)
+}
+
+func (e EventDataStoreMaxEventSize) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventDataStoreMaxEventSize) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventDataStoreMaxEventSize) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventDataStoreMaxEventSize) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventDataStoreMaxEventSizeOutput struct{ *pulumi.OutputState }
+
+func (EventDataStoreMaxEventSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDataStoreMaxEventSize)(nil)).Elem()
+}
+
+func (o EventDataStoreMaxEventSizeOutput) ToEventDataStoreMaxEventSizeOutput() EventDataStoreMaxEventSizeOutput {
+	return o
+}
+
+func (o EventDataStoreMaxEventSizeOutput) ToEventDataStoreMaxEventSizeOutputWithContext(ctx context.Context) EventDataStoreMaxEventSizeOutput {
+	return o
+}
+
+func (o EventDataStoreMaxEventSizeOutput) ToEventDataStoreMaxEventSizePtrOutput() EventDataStoreMaxEventSizePtrOutput {
+	return o.ToEventDataStoreMaxEventSizePtrOutputWithContext(context.Background())
+}
+
+func (o EventDataStoreMaxEventSizeOutput) ToEventDataStoreMaxEventSizePtrOutputWithContext(ctx context.Context) EventDataStoreMaxEventSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventDataStoreMaxEventSize) *EventDataStoreMaxEventSize {
+		return &v
+	}).(EventDataStoreMaxEventSizePtrOutput)
+}
+
+func (o EventDataStoreMaxEventSizeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventDataStoreMaxEventSizeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventDataStoreMaxEventSize) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventDataStoreMaxEventSizeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventDataStoreMaxEventSizeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventDataStoreMaxEventSize) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventDataStoreMaxEventSizePtrOutput struct{ *pulumi.OutputState }
+
+func (EventDataStoreMaxEventSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventDataStoreMaxEventSize)(nil)).Elem()
+}
+
+func (o EventDataStoreMaxEventSizePtrOutput) ToEventDataStoreMaxEventSizePtrOutput() EventDataStoreMaxEventSizePtrOutput {
+	return o
+}
+
+func (o EventDataStoreMaxEventSizePtrOutput) ToEventDataStoreMaxEventSizePtrOutputWithContext(ctx context.Context) EventDataStoreMaxEventSizePtrOutput {
+	return o
+}
+
+func (o EventDataStoreMaxEventSizePtrOutput) Elem() EventDataStoreMaxEventSizeOutput {
+	return o.ApplyT(func(v *EventDataStoreMaxEventSize) EventDataStoreMaxEventSize {
+		if v != nil {
+			return *v
+		}
+		var ret EventDataStoreMaxEventSize
+		return ret
+	}).(EventDataStoreMaxEventSizeOutput)
+}
+
+func (o EventDataStoreMaxEventSizePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventDataStoreMaxEventSizePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventDataStoreMaxEventSize) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventDataStoreMaxEventSizeInput is an input type that accepts values of the EventDataStoreMaxEventSize enum
+// A concrete instance of `EventDataStoreMaxEventSizeInput` can be one of the following:
+//
+//	EventDataStoreMaxEventSizeStandard
+//	EventDataStoreMaxEventSizeLarge
+type EventDataStoreMaxEventSizeInput interface {
+	pulumi.Input
+
+	ToEventDataStoreMaxEventSizeOutput() EventDataStoreMaxEventSizeOutput
+	ToEventDataStoreMaxEventSizeOutputWithContext(context.Context) EventDataStoreMaxEventSizeOutput
+}
+
+var eventDataStoreMaxEventSizePtrType = reflect.TypeOf((**EventDataStoreMaxEventSize)(nil)).Elem()
+
+type EventDataStoreMaxEventSizePtrInput interface {
+	pulumi.Input
+
+	ToEventDataStoreMaxEventSizePtrOutput() EventDataStoreMaxEventSizePtrOutput
+	ToEventDataStoreMaxEventSizePtrOutputWithContext(context.Context) EventDataStoreMaxEventSizePtrOutput
+}
+
+type eventDataStoreMaxEventSizePtr string
+
+func EventDataStoreMaxEventSizePtr(v string) EventDataStoreMaxEventSizePtrInput {
+	return (*eventDataStoreMaxEventSizePtr)(&v)
+}
+
+func (*eventDataStoreMaxEventSizePtr) ElementType() reflect.Type {
+	return eventDataStoreMaxEventSizePtrType
+}
+
+func (in *eventDataStoreMaxEventSizePtr) ToEventDataStoreMaxEventSizePtrOutput() EventDataStoreMaxEventSizePtrOutput {
+	return pulumi.ToOutput(in).(EventDataStoreMaxEventSizePtrOutput)
+}
+
+func (in *eventDataStoreMaxEventSizePtr) ToEventDataStoreMaxEventSizePtrOutputWithContext(ctx context.Context) EventDataStoreMaxEventSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventDataStoreMaxEventSizePtrOutput)
+}
+
 // Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
 type TrailEventSelectorReadWriteType string
 
@@ -866,6 +1198,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRefreshScheduleFrequencyPropertiesUnitPtrInput)(nil)).Elem(), DashboardRefreshScheduleFrequencyPropertiesUnit("HOURS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRefreshScheduleStatusInput)(nil)).Elem(), DashboardRefreshScheduleStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRefreshScheduleStatusPtrInput)(nil)).Elem(), DashboardRefreshScheduleStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreContextKeySelectorTypeInput)(nil)).Elem(), EventDataStoreContextKeySelectorType("RequestContext"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreContextKeySelectorTypePtrInput)(nil)).Elem(), EventDataStoreContextKeySelectorType("RequestContext"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreMaxEventSizeInput)(nil)).Elem(), EventDataStoreMaxEventSize("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreMaxEventSizePtrInput)(nil)).Elem(), EventDataStoreMaxEventSize("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorReadWriteTypeInput)(nil)).Elem(), TrailEventSelectorReadWriteType("All"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorReadWriteTypePtrInput)(nil)).Elem(), TrailEventSelectorReadWriteType("All"))
 	pulumi.RegisterOutputType(ChannelDestinationTypeOutput{})
@@ -878,6 +1214,10 @@ func init() {
 	pulumi.RegisterOutputType(DashboardStatusPtrOutput{})
 	pulumi.RegisterOutputType(DashboardTypeOutput{})
 	pulumi.RegisterOutputType(DashboardTypePtrOutput{})
+	pulumi.RegisterOutputType(EventDataStoreContextKeySelectorTypeOutput{})
+	pulumi.RegisterOutputType(EventDataStoreContextKeySelectorTypePtrOutput{})
+	pulumi.RegisterOutputType(EventDataStoreMaxEventSizeOutput{})
+	pulumi.RegisterOutputType(EventDataStoreMaxEventSizePtrOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorReadWriteTypeOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorReadWriteTypePtrOutput{})
 }

@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [AwsNativeResourceType("aws-native:apigatewayv2:RoutingRule")]
     public partial class RoutingRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
+        /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.RoutingRuleAction>> Actions { get; private set; } = null!;
 
+        /// <summary>
+        /// The conditions of the routing rule.
+        /// </summary>
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.RoutingRuleCondition>> Conditions { get; private set; } = null!;
 
@@ -27,6 +33,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("domainNameArn")]
         public Output<string> DomainNameArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Priority values 1-1,000,000 are supported.
+        /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
@@ -93,6 +102,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     {
         [Input("actions", required: true)]
         private InputList<Inputs.RoutingRuleActionArgs>? _actions;
+
+        /// <summary>
+        /// The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
+        /// </summary>
         public InputList<Inputs.RoutingRuleActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.RoutingRuleActionArgs>());
@@ -101,6 +114,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         [Input("conditions", required: true)]
         private InputList<Inputs.RoutingRuleConditionArgs>? _conditions;
+
+        /// <summary>
+        /// The conditions of the routing rule.
+        /// </summary>
         public InputList<Inputs.RoutingRuleConditionArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.RoutingRuleConditionArgs>());
@@ -113,6 +130,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("domainNameArn", required: true)]
         public Input<string> DomainNameArn { get; set; } = null!;
 
+        /// <summary>
+        /// The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Priority values 1-1,000,000 are supported.
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 

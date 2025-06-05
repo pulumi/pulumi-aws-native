@@ -8,4 +8,7 @@ export const DomainNameRoutingMode = {
     RoutingRuleOnly: "ROUTING_RULE_ONLY",
 } as const;
 
+/**
+ * The routing mode API Gateway uses to route traffic to your APIs.
+ */
 export type DomainNameRoutingMode = (typeof DomainNameRoutingMode)[keyof typeof DomainNameRoutingMode];

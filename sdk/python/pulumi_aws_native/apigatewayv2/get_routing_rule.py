@@ -45,16 +45,25 @@ class GetRoutingRuleResult:
     @property
     @pulumi.getter
     def actions(self) -> Optional[Sequence['outputs.RoutingRuleAction']]:
+        """
+        The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def conditions(self) -> Optional[Sequence['outputs.RoutingRuleCondition']]:
+        """
+        The conditions of the routing rule.
+        """
         return pulumi.get(self, "conditions")
 
     @property
     @pulumi.getter
     def priority(self) -> Optional[builtins.int]:
+        """
+        The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Priority values 1-1,000,000 are supported.
+        """
         return pulumi.get(self, "priority")
 
     @property

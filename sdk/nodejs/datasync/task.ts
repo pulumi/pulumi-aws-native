@@ -124,9 +124,7 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly taskMode!: pulumi.Output<enums.datasync.TaskMode | undefined>;
     /**
-     * Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
-     *
-     * When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+     * The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
      */
     public readonly taskReportConfig!: pulumi.Output<outputs.datasync.TaskReportConfig | undefined>;
 
@@ -237,9 +235,7 @@ export interface TaskArgs {
      */
     taskMode?: pulumi.Input<enums.datasync.TaskMode>;
     /**
-     * Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
-     *
-     * When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+     * The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
      */
     taskReportConfig?: pulumi.Input<inputs.datasync.TaskReportConfigArgs>;
 }

@@ -98,7 +98,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="domainNameArn")
     def domain_name_arn(self) -> Optional[builtins.str]:
         """
-        The ARN of the domain name. Supported only for private custom domain names.
+        The ARN of the domain name.
         """
         return pulumi.get(self, "domain_name_arn")
 
@@ -153,6 +153,9 @@ class GetDomainNameResult:
     @property
     @pulumi.getter(name="routingMode")
     def routing_mode(self) -> Optional['DomainNameRoutingMode']:
+        """
+        The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+        """
         return pulumi.get(self, "routing_mode")
 
     @property

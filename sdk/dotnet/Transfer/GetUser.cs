@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Transfer
         /// 
         /// A `HomeDirectory` example is `/bucket_name/home/mydirectory` .
         /// 
-        /// &gt; The `HomeDirectory` parameter is only used if `HomeDirectoryType` is set to `PATH` .
+        /// &gt; You can use the `HomeDirectory` parameter for `HomeDirectoryType` when it is set to either `PATH` or `LOGICAL` .
         /// </summary>
         public readonly string? HomeDirectory;
         /// <summary>

@@ -120,6 +120,11 @@ class GetFleetResult:
     @property
     @pulumi.getter(name="hostConfiguration")
     def host_configuration(self) -> Optional['outputs.FleetHostConfiguration']:
+        """
+        Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+
+        To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
+        """
         return pulumi.get(self, "host_configuration")
 
     @property

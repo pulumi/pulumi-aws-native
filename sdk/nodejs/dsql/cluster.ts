@@ -50,6 +50,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly identifier!: pulumi.Output<string>;
     /**
+     * The Multi-region properties associated to this cluster.
+     */
+    public readonly multiRegionProperties!: pulumi.Output<outputs.dsql.MultiRegionPropertiesProperties | undefined>;
+    /**
      * The Amazon Resource Name (ARN) for the cluster.
      */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
@@ -78,6 +82,7 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
+            resourceInputs["multiRegionProperties"] = args ? args.multiRegionProperties : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
@@ -88,6 +93,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deletionProtectionEnabled"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
+            resourceInputs["multiRegionProperties"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -106,6 +112,10 @@ export interface ClusterArgs {
      * Whether deletion protection is enabled in this cluster.
      */
     deletionProtectionEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Multi-region properties associated to this cluster.
+     */
+    multiRegionProperties?: pulumi.Input<inputs.dsql.MultiRegionPropertiesPropertiesArgs>;
     /**
      * A map of key and value pairs this cluster is tagged with.
      */

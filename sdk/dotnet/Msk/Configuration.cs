@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Msk
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+        /// Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
         /// </summary>
         [Output("serverProperties")]
         public Output<string> ServerProperties { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.AwsNative.Msk
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+        /// Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
         /// </summary>
         [Input("serverProperties", required: true)]
         public Input<string> ServerProperties { get; set; } = null!;

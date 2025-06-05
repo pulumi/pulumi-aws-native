@@ -36,6 +36,7 @@ class ScraperArgs:
         :param pulumi.Input['ScraperScrapeConfigurationArgs'] scrape_configuration: The configuration in use by the scraper.
         :param pulumi.Input['ScraperSourceArgs'] source: The Amazon EKS cluster from which the scraper collects metrics.
         :param pulumi.Input[builtins.str] alias: Scraper alias.
+        :param pulumi.Input['ScraperRoleConfigurationArgs'] role_configuration: The role configuration in an Amazon Managed Service for Prometheus scraper.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "destination", destination)
@@ -99,6 +100,9 @@ class ScraperArgs:
     @property
     @pulumi.getter(name="roleConfiguration")
     def role_configuration(self) -> Optional[pulumi.Input['ScraperRoleConfigurationArgs']]:
+        """
+        The role configuration in an Amazon Managed Service for Prometheus scraper.
+        """
         return pulumi.get(self, "role_configuration")
 
     @role_configuration.setter
@@ -138,6 +142,7 @@ class Scraper(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] alias: Scraper alias.
         :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+        :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']] role_configuration: The role configuration in an Amazon Managed Service for Prometheus scraper.
         :param pulumi.Input[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict']] scrape_configuration: The configuration in use by the scraper.
         :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']] source: The Amazon EKS cluster from which the scraper collects metrics.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
@@ -266,6 +271,9 @@ class Scraper(pulumi.CustomResource):
     @property
     @pulumi.getter(name="roleConfiguration")
     def role_configuration(self) -> pulumi.Output[Optional['outputs.ScraperRoleConfiguration']]:
+        """
+        The role configuration in an Amazon Managed Service for Prometheus scraper.
+        """
         return pulumi.get(self, "role_configuration")
 
     @property

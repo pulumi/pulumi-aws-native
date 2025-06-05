@@ -75,6 +75,8 @@ type LookupWebAclResult struct {
 	//
 	// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 	LabelNamespace *string `pulumi:"labelNamespace"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+	OnSourceDDoSProtectionConfig interface{} `pulumi:"onSourceDDoSProtectionConfig"`
 	// Collection of Rules.
 	Rules []WebAclRule `pulumi:"rules"`
 	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
@@ -196,6 +198,11 @@ func (o LookupWebAclResultOutput) Id() pulumi.StringPtrOutput {
 // When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 func (o LookupWebAclResultOutput) LabelNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWebAclResult) *string { return v.LabelNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+func (o LookupWebAclResultOutput) OnSourceDDoSProtectionConfig() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupWebAclResult) interface{} { return v.OnSourceDDoSProtectionConfig }).(pulumi.AnyOutput)
 }
 
 // Collection of Rules.

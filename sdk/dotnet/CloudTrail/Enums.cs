@@ -165,6 +165,68 @@ namespace Pulumi.AwsNative.CloudTrail
     }
 
     /// <summary>
+    /// Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventDataStoreContextKeySelectorType : IEquatable<EventDataStoreContextKeySelectorType>
+    {
+        private readonly string _value;
+
+        private EventDataStoreContextKeySelectorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventDataStoreContextKeySelectorType RequestContext { get; } = new EventDataStoreContextKeySelectorType("RequestContext");
+        public static EventDataStoreContextKeySelectorType TagContext { get; } = new EventDataStoreContextKeySelectorType("TagContext");
+
+        public static bool operator ==(EventDataStoreContextKeySelectorType left, EventDataStoreContextKeySelectorType right) => left.Equals(right);
+        public static bool operator !=(EventDataStoreContextKeySelectorType left, EventDataStoreContextKeySelectorType right) => !left.Equals(right);
+
+        public static explicit operator string(EventDataStoreContextKeySelectorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventDataStoreContextKeySelectorType other && Equals(other);
+        public bool Equals(EventDataStoreContextKeySelectorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventDataStoreMaxEventSize : IEquatable<EventDataStoreMaxEventSize>
+    {
+        private readonly string _value;
+
+        private EventDataStoreMaxEventSize(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventDataStoreMaxEventSize Standard { get; } = new EventDataStoreMaxEventSize("Standard");
+        public static EventDataStoreMaxEventSize Large { get; } = new EventDataStoreMaxEventSize("Large");
+
+        public static bool operator ==(EventDataStoreMaxEventSize left, EventDataStoreMaxEventSize right) => left.Equals(right);
+        public static bool operator !=(EventDataStoreMaxEventSize left, EventDataStoreMaxEventSize right) => !left.Equals(right);
+
+        public static explicit operator string(EventDataStoreMaxEventSize value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventDataStoreMaxEventSize other && Equals(other);
+        public bool Equals(EventDataStoreMaxEventSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
     /// </summary>
     [EnumType]

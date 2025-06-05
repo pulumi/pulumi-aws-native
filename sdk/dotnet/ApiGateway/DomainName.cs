@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string?> DomainNameValue { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the domain name. Supported only for private custom domain names.
+        /// The ARN of the domain name.
         /// </summary>
         [Output("domainNameArn")]
         public Output<string> DomainNameArn { get; private set; } = null!;
@@ -156,6 +156,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("regionalHostedZoneId")]
         public Output<string> RegionalHostedZoneId { get; private set; } = null!;
 
+        /// <summary>
+        /// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+        /// </summary>
         [Output("routingMode")]
         public Output<Pulumi.AwsNative.ApiGateway.DomainNameRoutingMode?> RoutingMode { get; private set; } = null!;
 
@@ -256,6 +259,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Input("regionalCertificateArn")]
         public Input<string>? RegionalCertificateArn { get; set; }
 
+        /// <summary>
+        /// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+        /// </summary>
         [Input("routingMode")]
         public Input<Pulumi.AwsNative.ApiGateway.DomainNameRoutingMode>? RoutingMode { get; set; }
 

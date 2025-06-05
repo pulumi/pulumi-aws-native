@@ -10,14 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ses.Inputs
 {
 
-    public sealed class MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("analysis", required: true)]
         public Input<Inputs.MailManagerTrafficPolicyIngressAnalysisArgs> Analysis { get; set; } = null!;
 
-        public MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs()
+        public MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs()
         {
         }
-        public static new MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs Empty => new MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs();
+        public static new MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs Empty => new MailManagerTrafficPolicyIngressBooleanToEvaluate0PropertiesArgs();
     }
 }

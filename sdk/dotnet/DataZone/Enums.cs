@@ -433,6 +433,34 @@ namespace Pulumi.AwsNative.DataZone
     }
 
     [EnumType]
+    public readonly struct ProjectProfileStatus : IEquatable<ProjectProfileStatus>
+    {
+        private readonly string _value;
+
+        private ProjectProfileStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProjectProfileStatus Enabled { get; } = new ProjectProfileStatus("ENABLED");
+        public static ProjectProfileStatus Disabled { get; } = new ProjectProfileStatus("DISABLED");
+
+        public static bool operator ==(ProjectProfileStatus left, ProjectProfileStatus right) => left.Equals(right);
+        public static bool operator !=(ProjectProfileStatus left, ProjectProfileStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ProjectProfileStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProjectProfileStatus other && Equals(other);
+        public bool Equals(ProjectProfileStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ProjectStatus : IEquatable<ProjectStatus>
     {
         private readonly string _value;

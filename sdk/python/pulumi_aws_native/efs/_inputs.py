@@ -255,8 +255,8 @@ if not MYPY:
         status: pulumi.Input['FileSystemBackupPolicyStatus']
         """
         Set the backup policy status for the file system.
-          +   *ENABLED* - Turns automatic backups on for the file system. 
-          +   *DISABLED* - Turns automatic backups off for the file system.
+          +  *ENABLED* - Turns automatic backups on for the file system. 
+          +  *DISABLED* - Turns automatic backups off for the file system.
         """
 elif False:
     FileSystemBackupPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -268,8 +268,8 @@ class FileSystemBackupPolicyArgs:
         """
         The backup policy turns automatic backups for the file system on or off.
         :param pulumi.Input['FileSystemBackupPolicyStatus'] status: Set the backup policy status for the file system.
-                 +   *ENABLED* - Turns automatic backups on for the file system. 
-                 +   *DISABLED* - Turns automatic backups off for the file system.
+                 +  *ENABLED* - Turns automatic backups on for the file system. 
+                 +  *DISABLED* - Turns automatic backups off for the file system.
         """
         pulumi.set(__self__, "status", status)
 
@@ -278,8 +278,8 @@ class FileSystemBackupPolicyArgs:
     def status(self) -> pulumi.Input['FileSystemBackupPolicyStatus']:
         """
         Set the backup policy status for the file system.
-          +   *ENABLED* - Turns automatic backups on for the file system. 
-          +   *DISABLED* - Turns automatic backups off for the file system.
+          +  *ENABLED* - Turns automatic backups on for the file system. 
+          +  *DISABLED* - Turns automatic backups off for the file system.
         """
         return pulumi.get(self, "status")
 
@@ -376,9 +376,9 @@ if not MYPY:
         replication_overwrite_protection: NotRequired[pulumi.Input['FileSystemProtectionReplicationOverwriteProtection']]
         """
         The status of the file system's replication overwrite protection.
-          +   ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
-          +   ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
-          +   ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is modified only by EFS replication.
+          +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
+          +  ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
+          +  ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is modified only by EFS replication.
           
          If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
         """
@@ -392,9 +392,9 @@ class FileSystemProtectionArgs:
         """
         Describes the protection on the file system.
         :param pulumi.Input['FileSystemProtectionReplicationOverwriteProtection'] replication_overwrite_protection: The status of the file system's replication overwrite protection.
-                 +   ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
-                 +   ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
-                 +   ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is modified only by EFS replication.
+                 +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
+                 +  ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
+                 +  ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is modified only by EFS replication.
                  
                 If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
         """
@@ -406,9 +406,9 @@ class FileSystemProtectionArgs:
     def replication_overwrite_protection(self) -> Optional[pulumi.Input['FileSystemProtectionReplicationOverwriteProtection']]:
         """
         The status of the file system's replication overwrite protection.
-          +   ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
-          +   ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
-          +   ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is modified only by EFS replication.
+          +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
+          +  ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
+          +  ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is modified only by EFS replication.
           
          If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
         """

@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWebAclResult:
-    def __init__(__self__, arn=None, association_config=None, capacity=None, captcha_config=None, challenge_config=None, custom_response_bodies=None, data_protection_config=None, default_action=None, description=None, id=None, label_namespace=None, rules=None, tags=None, token_domains=None, visibility_config=None):
+    def __init__(__self__, arn=None, association_config=None, capacity=None, captcha_config=None, challenge_config=None, custom_response_bodies=None, data_protection_config=None, default_action=None, description=None, id=None, label_namespace=None, on_source_d_do_s_protection_config=None, rules=None, tags=None, token_domains=None, visibility_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -61,6 +61,9 @@ class GetWebAclResult:
         if label_namespace and not isinstance(label_namespace, str):
             raise TypeError("Expected argument 'label_namespace' to be a str")
         pulumi.set(__self__, "label_namespace", label_namespace)
+        if on_source_d_do_s_protection_config and not isinstance(on_source_d_do_s_protection_config, dict):
+            raise TypeError("Expected argument 'on_source_d_do_s_protection_config' to be a dict")
+        pulumi.set(__self__, "on_source_d_do_s_protection_config", on_source_d_do_s_protection_config)
         if rules and not isinstance(rules, list):
             raise TypeError("Expected argument 'rules' to be a list")
         pulumi.set(__self__, "rules", rules)
@@ -179,6 +182,14 @@ class GetWebAclResult:
         return pulumi.get(self, "label_namespace")
 
     @property
+    @pulumi.getter(name="onSourceDDoSProtectionConfig")
+    def on_source_d_do_s_protection_config(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "on_source_d_do_s_protection_config")
+
+    @property
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.WebAclRule']]:
         """
@@ -230,6 +241,7 @@ class AwaitableGetWebAclResult(GetWebAclResult):
             description=self.description,
             id=self.id,
             label_namespace=self.label_namespace,
+            on_source_d_do_s_protection_config=self.on_source_d_do_s_protection_config,
             rules=self.rules,
             tags=self.tags,
             token_domains=self.token_domains,
@@ -271,6 +283,7 @@ def get_web_acl(id: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         label_namespace=pulumi.get(__ret__, 'label_namespace'),
+        on_source_d_do_s_protection_config=pulumi.get(__ret__, 'on_source_d_do_s_protection_config'),
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'),
         token_domains=pulumi.get(__ret__, 'token_domains'),
@@ -309,6 +322,7 @@ def get_web_acl_output(id: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         label_namespace=pulumi.get(__response__, 'label_namespace'),
+        on_source_d_do_s_protection_config=pulumi.get(__response__, 'on_source_d_do_s_protection_config'),
         rules=pulumi.get(__response__, 'rules'),
         tags=pulumi.get(__response__, 'tags'),
         token_domains=pulumi.get(__response__, 'token_domains'),

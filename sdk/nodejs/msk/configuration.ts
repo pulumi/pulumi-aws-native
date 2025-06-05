@@ -64,7 +64,7 @@ export class Configuration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+     * Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
      */
     public readonly serverProperties!: pulumi.Output<string>;
 
@@ -130,7 +130,7 @@ export interface ConfigurationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Contents of the `server.properties` file. When using this property, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
+     * Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
      */
     serverProperties: pulumi.Input<string>;
 }

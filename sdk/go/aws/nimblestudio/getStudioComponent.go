@@ -23,27 +23,18 @@ func LookupStudioComponent(ctx *pulumi.Context, args *LookupStudioComponentArgs,
 }
 
 type LookupStudioComponentArgs struct {
-	// The unique identifier for the studio component resource.
 	StudioComponentId string `pulumi:"studioComponentId"`
 }
 
 type LookupStudioComponentResult struct {
-	// The configuration of the studio component, based on component type.
-	Configuration *StudioComponentConfiguration `pulumi:"configuration"`
-	// A human-readable description for the studio component resource.
-	Description *string `pulumi:"description"`
-	// The EC2 security groups that control access to the studio component.
-	Ec2SecurityGroupIds []string `pulumi:"ec2SecurityGroupIds"`
-	// Initialization scripts for studio components.
-	InitializationScripts []StudioComponentInitializationScript `pulumi:"initializationScripts"`
-	// A friendly name for the studio component resource.
-	Name *string `pulumi:"name"`
-	// Parameters for the studio component scripts.
-	ScriptParameters []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
-	// The unique identifier for the studio component resource.
-	StudioComponentId *string `pulumi:"studioComponentId"`
-	// The type of the studio component.
-	Type *string `pulumi:"type"`
+	Configuration         *StudioComponentConfiguration            `pulumi:"configuration"`
+	Description           *string                                  `pulumi:"description"`
+	Ec2SecurityGroupIds   []string                                 `pulumi:"ec2SecurityGroupIds"`
+	InitializationScripts []StudioComponentInitializationScript    `pulumi:"initializationScripts"`
+	Name                  *string                                  `pulumi:"name"`
+	ScriptParameters      []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
+	StudioComponentId     *string                                  `pulumi:"studioComponentId"`
+	Type                  *string                                  `pulumi:"type"`
 }
 
 func LookupStudioComponentOutput(ctx *pulumi.Context, args LookupStudioComponentOutputArgs, opts ...pulumi.InvokeOption) LookupStudioComponentResultOutput {
@@ -56,7 +47,6 @@ func LookupStudioComponentOutput(ctx *pulumi.Context, args LookupStudioComponent
 }
 
 type LookupStudioComponentOutputArgs struct {
-	// The unique identifier for the studio component resource.
 	StudioComponentId pulumi.StringInput `pulumi:"studioComponentId"`
 }
 
@@ -78,46 +68,38 @@ func (o LookupStudioComponentResultOutput) ToLookupStudioComponentResultOutputWi
 	return o
 }
 
-// The configuration of the studio component, based on component type.
 func (o LookupStudioComponentResultOutput) Configuration() StudioComponentConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) *StudioComponentConfiguration { return v.Configuration }).(StudioComponentConfigurationPtrOutput)
 }
 
-// A human-readable description for the studio component resource.
 func (o LookupStudioComponentResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The EC2 security groups that control access to the studio component.
 func (o LookupStudioComponentResultOutput) Ec2SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) []string { return v.Ec2SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Initialization scripts for studio components.
 func (o LookupStudioComponentResultOutput) InitializationScripts() StudioComponentInitializationScriptArrayOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) []StudioComponentInitializationScript {
 		return v.InitializationScripts
 	}).(StudioComponentInitializationScriptArrayOutput)
 }
 
-// A friendly name for the studio component resource.
 func (o LookupStudioComponentResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Parameters for the studio component scripts.
 func (o LookupStudioComponentResultOutput) ScriptParameters() StudioComponentScriptParameterKeyValueArrayOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) []StudioComponentScriptParameterKeyValue {
 		return v.ScriptParameters
 	}).(StudioComponentScriptParameterKeyValueArrayOutput)
 }
 
-// The unique identifier for the studio component resource.
 func (o LookupStudioComponentResultOutput) StudioComponentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) *string { return v.StudioComponentId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the studio component.
 func (o LookupStudioComponentResultOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

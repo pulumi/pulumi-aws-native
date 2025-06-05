@@ -7,8 +7,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .access_point import *
 from .bucket_policy import *
 from .directory_bucket import *
+from .get_access_point import *
 from .get_bucket_policy import *
 from .get_directory_bucket import *
 from ._inputs import *

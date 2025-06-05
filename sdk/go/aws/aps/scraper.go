@@ -24,7 +24,8 @@ type Scraper struct {
 	// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
 	Destination ScraperDestinationOutput `pulumi:"destination"`
 	// IAM role ARN for the scraper.
-	RoleArn           pulumi.StringOutput               `pulumi:"roleArn"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The role configuration in an Amazon Managed Service for Prometheus scraper.
 	RoleConfiguration ScraperRoleConfigurationPtrOutput `pulumi:"roleConfiguration"`
 	// The configuration in use by the scraper.
 	ScrapeConfiguration ScraperScrapeConfigurationOutput `pulumi:"scrapeConfiguration"`
@@ -92,7 +93,8 @@ type scraperArgs struct {
 	// Scraper alias.
 	Alias *string `pulumi:"alias"`
 	// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
-	Destination       ScraperDestination        `pulumi:"destination"`
+	Destination ScraperDestination `pulumi:"destination"`
+	// The role configuration in an Amazon Managed Service for Prometheus scraper.
 	RoleConfiguration *ScraperRoleConfiguration `pulumi:"roleConfiguration"`
 	// The configuration in use by the scraper.
 	ScrapeConfiguration ScraperScrapeConfiguration `pulumi:"scrapeConfiguration"`
@@ -107,7 +109,8 @@ type ScraperArgs struct {
 	// Scraper alias.
 	Alias pulumi.StringPtrInput
 	// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
-	Destination       ScraperDestinationInput
+	Destination ScraperDestinationInput
+	// The role configuration in an Amazon Managed Service for Prometheus scraper.
 	RoleConfiguration ScraperRoleConfigurationPtrInput
 	// The configuration in use by the scraper.
 	ScrapeConfiguration ScraperScrapeConfigurationInput
@@ -174,6 +177,7 @@ func (o ScraperOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The role configuration in an Amazon Managed Service for Prometheus scraper.
 func (o ScraperOutput) RoleConfiguration() ScraperRoleConfigurationPtrOutput {
 	return o.ApplyT(func(v *Scraper) ScraperRoleConfigurationPtrOutput { return v.RoleConfiguration }).(ScraperRoleConfigurationPtrOutput)
 }

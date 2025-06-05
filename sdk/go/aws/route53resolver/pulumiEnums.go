@@ -1995,6 +1995,174 @@ func (o ResolverDnssecConfigValidationStatusPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Resolver endpoint IP address type.
+type ResolverEndpointType string
+
+const (
+	ResolverEndpointTypeIpv6      = ResolverEndpointType("IPV6")
+	ResolverEndpointTypeIpv4      = ResolverEndpointType("IPV4")
+	ResolverEndpointTypeDualstack = ResolverEndpointType("DUALSTACK")
+)
+
+func (ResolverEndpointType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpointType)(nil)).Elem()
+}
+
+func (e ResolverEndpointType) ToResolverEndpointTypeOutput() ResolverEndpointTypeOutput {
+	return pulumi.ToOutput(e).(ResolverEndpointTypeOutput)
+}
+
+func (e ResolverEndpointType) ToResolverEndpointTypeOutputWithContext(ctx context.Context) ResolverEndpointTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResolverEndpointTypeOutput)
+}
+
+func (e ResolverEndpointType) ToResolverEndpointTypePtrOutput() ResolverEndpointTypePtrOutput {
+	return e.ToResolverEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResolverEndpointType) ToResolverEndpointTypePtrOutputWithContext(ctx context.Context) ResolverEndpointTypePtrOutput {
+	return ResolverEndpointType(e).ToResolverEndpointTypeOutputWithContext(ctx).ToResolverEndpointTypePtrOutputWithContext(ctx)
+}
+
+func (e ResolverEndpointType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverEndpointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverEndpointType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResolverEndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResolverEndpointTypeOutput struct{ *pulumi.OutputState }
+
+func (ResolverEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpointType)(nil)).Elem()
+}
+
+func (o ResolverEndpointTypeOutput) ToResolverEndpointTypeOutput() ResolverEndpointTypeOutput {
+	return o
+}
+
+func (o ResolverEndpointTypeOutput) ToResolverEndpointTypeOutputWithContext(ctx context.Context) ResolverEndpointTypeOutput {
+	return o
+}
+
+func (o ResolverEndpointTypeOutput) ToResolverEndpointTypePtrOutput() ResolverEndpointTypePtrOutput {
+	return o.ToResolverEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResolverEndpointTypeOutput) ToResolverEndpointTypePtrOutputWithContext(ctx context.Context) ResolverEndpointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverEndpointType) *ResolverEndpointType {
+		return &v
+	}).(ResolverEndpointTypePtrOutput)
+}
+
+func (o ResolverEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResolverEndpointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverEndpointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResolverEndpointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverEndpointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverEndpointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResolverEndpointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverEndpointType)(nil)).Elem()
+}
+
+func (o ResolverEndpointTypePtrOutput) ToResolverEndpointTypePtrOutput() ResolverEndpointTypePtrOutput {
+	return o
+}
+
+func (o ResolverEndpointTypePtrOutput) ToResolverEndpointTypePtrOutputWithContext(ctx context.Context) ResolverEndpointTypePtrOutput {
+	return o
+}
+
+func (o ResolverEndpointTypePtrOutput) Elem() ResolverEndpointTypeOutput {
+	return o.ApplyT(func(v *ResolverEndpointType) ResolverEndpointType {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverEndpointType
+		return ret
+	}).(ResolverEndpointTypeOutput)
+}
+
+func (o ResolverEndpointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResolverEndpointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResolverEndpointTypeInput is an input type that accepts values of the ResolverEndpointType enum
+// A concrete instance of `ResolverEndpointTypeInput` can be one of the following:
+//
+//	ResolverEndpointTypeIpv6
+//	ResolverEndpointTypeIpv4
+//	ResolverEndpointTypeDualstack
+type ResolverEndpointTypeInput interface {
+	pulumi.Input
+
+	ToResolverEndpointTypeOutput() ResolverEndpointTypeOutput
+	ToResolverEndpointTypeOutputWithContext(context.Context) ResolverEndpointTypeOutput
+}
+
+var resolverEndpointTypePtrType = reflect.TypeOf((**ResolverEndpointType)(nil)).Elem()
+
+type ResolverEndpointTypePtrInput interface {
+	pulumi.Input
+
+	ToResolverEndpointTypePtrOutput() ResolverEndpointTypePtrOutput
+	ToResolverEndpointTypePtrOutputWithContext(context.Context) ResolverEndpointTypePtrOutput
+}
+
+type resolverEndpointTypePtr string
+
+func ResolverEndpointTypePtr(v string) ResolverEndpointTypePtrInput {
+	return (*resolverEndpointTypePtr)(&v)
+}
+
+func (*resolverEndpointTypePtr) ElementType() reflect.Type {
+	return resolverEndpointTypePtrType
+}
+
+func (in *resolverEndpointTypePtr) ToResolverEndpointTypePtrOutput() ResolverEndpointTypePtrOutput {
+	return pulumi.ToOutput(in).(ResolverEndpointTypePtrOutput)
+}
+
+func (in *resolverEndpointTypePtr) ToResolverEndpointTypePtrOutputWithContext(ctx context.Context) ResolverEndpointTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResolverEndpointTypePtrOutput)
+}
+
 // ResolverQueryLogConfigAssociationError
 type ResolverQueryLoggingConfigAssociationError string
 
@@ -2720,6 +2888,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction("INSPECT_REDIRECTION_DOMAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseFlagInput)(nil)).Elem(), ResolverConfigAutodefinedReverseFlag("DISABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseFlagPtrInput)(nil)).Elem(), ResolverConfigAutodefinedReverseFlag("DISABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointTypeInput)(nil)).Elem(), ResolverEndpointType("IPV6"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointTypePtrInput)(nil)).Elem(), ResolverEndpointType("IPV6"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleRuleTypeInput)(nil)).Elem(), ResolverRuleRuleType("FORWARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleRuleTypePtrInput)(nil)).Elem(), ResolverRuleRuleType("FORWARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetAddressProtocolInput)(nil)).Elem(), ResolverRuleTargetAddressProtocol("Do53"))
@@ -2754,6 +2924,8 @@ func init() {
 	pulumi.RegisterOutputType(ResolverConfigAutodefinedReverseFlagPtrOutput{})
 	pulumi.RegisterOutputType(ResolverDnssecConfigValidationStatusOutput{})
 	pulumi.RegisterOutputType(ResolverDnssecConfigValidationStatusPtrOutput{})
+	pulumi.RegisterOutputType(ResolverEndpointTypeOutput{})
+	pulumi.RegisterOutputType(ResolverEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAssociationErrorOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAssociationErrorPtrOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAssociationStatusOutput{})

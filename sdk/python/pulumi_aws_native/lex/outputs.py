@@ -5442,6 +5442,10 @@ class BotSubSlotSetting(dict):
     def __init__(__self__, *,
                  expression: Optional[builtins.str] = None,
                  slot_specifications: Optional[Mapping[str, 'outputs.BotSpecifications']] = None):
+        """
+        :param builtins.str expression: The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
+        :param Mapping[str, 'BotSpecifications'] slot_specifications: Specifications for the constituent sub slots of a composite slot.
+        """
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
         if slot_specifications is not None:
@@ -5450,11 +5454,17 @@ class BotSubSlotSetting(dict):
     @property
     @pulumi.getter
     def expression(self) -> Optional[builtins.str]:
+        """
+        The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
+        """
         return pulumi.get(self, "expression")
 
     @property
     @pulumi.getter(name="slotSpecifications")
     def slot_specifications(self) -> Optional[Mapping[str, 'outputs.BotSpecifications']]:
+        """
+        Specifications for the constituent sub slots of a composite slot.
+        """
         return pulumi.get(self, "slot_specifications")
 
 

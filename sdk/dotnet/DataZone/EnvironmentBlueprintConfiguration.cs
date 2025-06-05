@@ -53,6 +53,9 @@ namespace Pulumi.AwsNative.DataZone
         [Output("environmentBlueprintIdentifier")]
         public Output<string> EnvironmentBlueprintIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The environment role permission boundary.
+        /// </summary>
         [Output("environmentRolePermissionBoundary")]
         public Output<string?> EnvironmentRolePermissionBoundary { get; private set; } = null!;
 
@@ -62,6 +65,9 @@ namespace Pulumi.AwsNative.DataZone
         [Output("manageAccessRoleArn")]
         public Output<string?> ManageAccessRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The provisioning configuration of a blueprint.
+        /// </summary>
         [Output("provisioningConfigurations")]
         public Output<ImmutableArray<Outputs.EnvironmentBlueprintConfigurationProvisioningConfigurationProperties>> ProvisioningConfigurations { get; private set; } = null!;
 
@@ -159,6 +165,9 @@ namespace Pulumi.AwsNative.DataZone
         [Input("environmentBlueprintIdentifier", required: true)]
         public Input<string> EnvironmentBlueprintIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The environment role permission boundary.
+        /// </summary>
         [Input("environmentRolePermissionBoundary")]
         public Input<string>? EnvironmentRolePermissionBoundary { get; set; }
 
@@ -170,6 +179,10 @@ namespace Pulumi.AwsNative.DataZone
 
         [Input("provisioningConfigurations")]
         private InputList<Inputs.EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs>? _provisioningConfigurations;
+
+        /// <summary>
+        /// The provisioning configuration of a blueprint.
+        /// </summary>
         public InputList<Inputs.EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs> ProvisioningConfigurations
         {
             get => _provisioningConfigurations ?? (_provisioningConfigurations = new InputList<Inputs.EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs>());

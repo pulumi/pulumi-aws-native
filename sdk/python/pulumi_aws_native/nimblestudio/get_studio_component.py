@@ -54,65 +54,41 @@ class GetStudioComponentResult:
     @property
     @pulumi.getter
     def configuration(self) -> Optional['outputs.StudioComponentConfiguration']:
-        """
-        The configuration of the studio component, based on component type.
-        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[builtins.str]:
-        """
-        A human-readable description for the studio component resource.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ec2SecurityGroupIds")
     def ec2_security_group_ids(self) -> Optional[Sequence[builtins.str]]:
-        """
-        The EC2 security groups that control access to the studio component.
-        """
         return pulumi.get(self, "ec2_security_group_ids")
 
     @property
     @pulumi.getter(name="initializationScripts")
     def initialization_scripts(self) -> Optional[Sequence['outputs.StudioComponentInitializationScript']]:
-        """
-        Initialization scripts for studio components.
-        """
         return pulumi.get(self, "initialization_scripts")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
-        """
-        A friendly name for the studio component resource.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> Optional[Sequence['outputs.StudioComponentScriptParameterKeyValue']]:
-        """
-        Parameters for the studio component scripts.
-        """
         return pulumi.get(self, "script_parameters")
 
     @property
     @pulumi.getter(name="studioComponentId")
     def studio_component_id(self) -> Optional[builtins.str]:
-        """
-        The unique identifier for the studio component resource.
-        """
         return pulumi.get(self, "studio_component_id")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[builtins.str]:
-        """
-        The type of the studio component.
-        """
         return pulumi.get(self, "type")
 
 
@@ -136,9 +112,6 @@ def get_studio_component(studio_component_id: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStudioComponentResult:
     """
     Resource Type definition for AWS::NimbleStudio::StudioComponent
-
-
-    :param builtins.str studio_component_id: The unique identifier for the studio component resource.
     """
     __args__ = dict()
     __args__['studioComponentId'] = studio_component_id
@@ -158,9 +131,6 @@ def get_studio_component_output(studio_component_id: Optional[pulumi.Input[built
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudioComponentResult]:
     """
     Resource Type definition for AWS::NimbleStudio::StudioComponent
-
-
-    :param builtins.str studio_component_id: The unique identifier for the studio component resource.
     """
     __args__ = dict()
     __args__['studioComponentId'] = studio_component_id

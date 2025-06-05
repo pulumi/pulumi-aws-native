@@ -13,6 +13,516 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AccessPointPublicAccessBlockConfiguration struct {
+	// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+	// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	//  - PUT Object calls fail if the request includes a public ACL.
+	//    . - PUT Bucket calls fail if the request includes a public ACL.
+	//    Enabling this setting doesn't affect existing policies or ACLs.
+	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
+	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
+	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
+	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
+}
+
+// AccessPointPublicAccessBlockConfigurationInput is an input type that accepts AccessPointPublicAccessBlockConfigurationArgs and AccessPointPublicAccessBlockConfigurationOutput values.
+// You can construct a concrete instance of `AccessPointPublicAccessBlockConfigurationInput` via:
+//
+//	AccessPointPublicAccessBlockConfigurationArgs{...}
+type AccessPointPublicAccessBlockConfigurationInput interface {
+	pulumi.Input
+
+	ToAccessPointPublicAccessBlockConfigurationOutput() AccessPointPublicAccessBlockConfigurationOutput
+	ToAccessPointPublicAccessBlockConfigurationOutputWithContext(context.Context) AccessPointPublicAccessBlockConfigurationOutput
+}
+
+type AccessPointPublicAccessBlockConfigurationArgs struct {
+	// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+	// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	//  - PUT Object calls fail if the request includes a public ACL.
+	//    . - PUT Bucket calls fail if the request includes a public ACL.
+	//    Enabling this setting doesn't affect existing policies or ACLs.
+	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
+	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
+	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+	IgnorePublicAcls pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
+	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+	RestrictPublicBuckets pulumi.BoolPtrInput `pulumi:"restrictPublicBuckets"`
+}
+
+func (AccessPointPublicAccessBlockConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationOutput() AccessPointPublicAccessBlockConfigurationOutput {
+	return i.ToAccessPointPublicAccessBlockConfigurationOutputWithContext(context.Background())
+}
+
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationOutput)
+}
+
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return i.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationOutput).ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx)
+}
+
+// AccessPointPublicAccessBlockConfigurationPtrInput is an input type that accepts AccessPointPublicAccessBlockConfigurationArgs, AccessPointPublicAccessBlockConfigurationPtr and AccessPointPublicAccessBlockConfigurationPtrOutput values.
+// You can construct a concrete instance of `AccessPointPublicAccessBlockConfigurationPtrInput` via:
+//
+//	        AccessPointPublicAccessBlockConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessPointPublicAccessBlockConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput
+	ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput
+}
+
+type accessPointPublicAccessBlockConfigurationPtrType AccessPointPublicAccessBlockConfigurationArgs
+
+func AccessPointPublicAccessBlockConfigurationPtr(v *AccessPointPublicAccessBlockConfigurationArgs) AccessPointPublicAccessBlockConfigurationPtrInput {
+	return (*accessPointPublicAccessBlockConfigurationPtrType)(v)
+}
+
+func (*accessPointPublicAccessBlockConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (i *accessPointPublicAccessBlockConfigurationPtrType) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return i.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointPublicAccessBlockConfigurationPtrType) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+
+type AccessPointPublicAccessBlockConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AccessPointPublicAccessBlockConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationOutput() AccessPointPublicAccessBlockConfigurationOutput {
+	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationOutput {
+	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointPublicAccessBlockConfiguration) *AccessPointPublicAccessBlockConfiguration {
+		return &v
+	}).(AccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+
+// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+//   - PUT Object calls fail if the request includes a public ACL.
+//     . - PUT Bucket calls fail if the request includes a public ACL.
+//     Enabling this setting doesn't affect existing policies or ACLs.
+func (o AccessPointPublicAccessBlockConfigurationOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+func (o AccessPointPublicAccessBlockConfigurationOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+func (o AccessPointPublicAccessBlockConfigurationOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+func (o AccessPointPublicAccessBlockConfigurationOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
+}
+
+type AccessPointPublicAccessBlockConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointPublicAccessBlockConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) Elem() AccessPointPublicAccessBlockConfigurationOutput {
+	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) AccessPointPublicAccessBlockConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointPublicAccessBlockConfiguration
+		return ret
+	}).(AccessPointPublicAccessBlockConfigurationOutput)
+}
+
+// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+//   - PUT Object calls fail if the request includes a public ACL.
+//     . - PUT Bucket calls fail if the request includes a public ACL.
+//     Enabling this setting doesn't affect existing policies or ACLs.
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BlockPublicAcls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BlockPublicPolicy
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnorePublicAcls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictPublicBuckets
+	}).(pulumi.BoolPtrOutput)
+}
+
+type AccessPointScope struct {
+	// You can include one or more API operations as permissions
+	Permissions []AccessPointScopePermissionsItem `pulumi:"permissions"`
+	// You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
+	Prefixes []string `pulumi:"prefixes"`
+}
+
+// AccessPointScopeInput is an input type that accepts AccessPointScopeArgs and AccessPointScopeOutput values.
+// You can construct a concrete instance of `AccessPointScopeInput` via:
+//
+//	AccessPointScopeArgs{...}
+type AccessPointScopeInput interface {
+	pulumi.Input
+
+	ToAccessPointScopeOutput() AccessPointScopeOutput
+	ToAccessPointScopeOutputWithContext(context.Context) AccessPointScopeOutput
+}
+
+type AccessPointScopeArgs struct {
+	// You can include one or more API operations as permissions
+	Permissions AccessPointScopePermissionsItemArrayInput `pulumi:"permissions"`
+	// You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
+	Prefixes pulumi.StringArrayInput `pulumi:"prefixes"`
+}
+
+func (AccessPointScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointScope)(nil)).Elem()
+}
+
+func (i AccessPointScopeArgs) ToAccessPointScopeOutput() AccessPointScopeOutput {
+	return i.ToAccessPointScopeOutputWithContext(context.Background())
+}
+
+func (i AccessPointScopeArgs) ToAccessPointScopeOutputWithContext(ctx context.Context) AccessPointScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointScopeOutput)
+}
+
+func (i AccessPointScopeArgs) ToAccessPointScopePtrOutput() AccessPointScopePtrOutput {
+	return i.ToAccessPointScopePtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointScopeArgs) ToAccessPointScopePtrOutputWithContext(ctx context.Context) AccessPointScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointScopeOutput).ToAccessPointScopePtrOutputWithContext(ctx)
+}
+
+// AccessPointScopePtrInput is an input type that accepts AccessPointScopeArgs, AccessPointScopePtr and AccessPointScopePtrOutput values.
+// You can construct a concrete instance of `AccessPointScopePtrInput` via:
+//
+//	        AccessPointScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessPointScopePtrInput interface {
+	pulumi.Input
+
+	ToAccessPointScopePtrOutput() AccessPointScopePtrOutput
+	ToAccessPointScopePtrOutputWithContext(context.Context) AccessPointScopePtrOutput
+}
+
+type accessPointScopePtrType AccessPointScopeArgs
+
+func AccessPointScopePtr(v *AccessPointScopeArgs) AccessPointScopePtrInput {
+	return (*accessPointScopePtrType)(v)
+}
+
+func (*accessPointScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointScope)(nil)).Elem()
+}
+
+func (i *accessPointScopePtrType) ToAccessPointScopePtrOutput() AccessPointScopePtrOutput {
+	return i.ToAccessPointScopePtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointScopePtrType) ToAccessPointScopePtrOutputWithContext(ctx context.Context) AccessPointScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointScopePtrOutput)
+}
+
+type AccessPointScopeOutput struct{ *pulumi.OutputState }
+
+func (AccessPointScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointScope)(nil)).Elem()
+}
+
+func (o AccessPointScopeOutput) ToAccessPointScopeOutput() AccessPointScopeOutput {
+	return o
+}
+
+func (o AccessPointScopeOutput) ToAccessPointScopeOutputWithContext(ctx context.Context) AccessPointScopeOutput {
+	return o
+}
+
+func (o AccessPointScopeOutput) ToAccessPointScopePtrOutput() AccessPointScopePtrOutput {
+	return o.ToAccessPointScopePtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointScopeOutput) ToAccessPointScopePtrOutputWithContext(ctx context.Context) AccessPointScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointScope) *AccessPointScope {
+		return &v
+	}).(AccessPointScopePtrOutput)
+}
+
+// You can include one or more API operations as permissions
+func (o AccessPointScopeOutput) Permissions() AccessPointScopePermissionsItemArrayOutput {
+	return o.ApplyT(func(v AccessPointScope) []AccessPointScopePermissionsItem { return v.Permissions }).(AccessPointScopePermissionsItemArrayOutput)
+}
+
+// You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
+func (o AccessPointScopeOutput) Prefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessPointScope) []string { return v.Prefixes }).(pulumi.StringArrayOutput)
+}
+
+type AccessPointScopePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointScope)(nil)).Elem()
+}
+
+func (o AccessPointScopePtrOutput) ToAccessPointScopePtrOutput() AccessPointScopePtrOutput {
+	return o
+}
+
+func (o AccessPointScopePtrOutput) ToAccessPointScopePtrOutputWithContext(ctx context.Context) AccessPointScopePtrOutput {
+	return o
+}
+
+func (o AccessPointScopePtrOutput) Elem() AccessPointScopeOutput {
+	return o.ApplyT(func(v *AccessPointScope) AccessPointScope {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointScope
+		return ret
+	}).(AccessPointScopeOutput)
+}
+
+// You can include one or more API operations as permissions
+func (o AccessPointScopePtrOutput) Permissions() AccessPointScopePermissionsItemArrayOutput {
+	return o.ApplyT(func(v *AccessPointScope) []AccessPointScopePermissionsItem {
+		if v == nil {
+			return nil
+		}
+		return v.Permissions
+	}).(AccessPointScopePermissionsItemArrayOutput)
+}
+
+// You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
+func (o AccessPointScopePtrOutput) Prefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccessPointScope) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefixes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Virtual Private Cloud (VPC) configuration for a bucket access point.
+type AccessPointVpcConfiguration struct {
+	// If this field is specified, this access point will only allow connections from the specified VPC ID.
+	VpcId *string `pulumi:"vpcId"`
+}
+
+// AccessPointVpcConfigurationInput is an input type that accepts AccessPointVpcConfigurationArgs and AccessPointVpcConfigurationOutput values.
+// You can construct a concrete instance of `AccessPointVpcConfigurationInput` via:
+//
+//	AccessPointVpcConfigurationArgs{...}
+type AccessPointVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToAccessPointVpcConfigurationOutput() AccessPointVpcConfigurationOutput
+	ToAccessPointVpcConfigurationOutputWithContext(context.Context) AccessPointVpcConfigurationOutput
+}
+
+// The Virtual Private Cloud (VPC) configuration for a bucket access point.
+type AccessPointVpcConfigurationArgs struct {
+	// If this field is specified, this access point will only allow connections from the specified VPC ID.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (AccessPointVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationOutput() AccessPointVpcConfigurationOutput {
+	return i.ToAccessPointVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationOutputWithContext(ctx context.Context) AccessPointVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationOutput)
+}
+
+func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
+	return i.ToAccessPointVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationOutput).ToAccessPointVpcConfigurationPtrOutputWithContext(ctx)
+}
+
+// AccessPointVpcConfigurationPtrInput is an input type that accepts AccessPointVpcConfigurationArgs, AccessPointVpcConfigurationPtr and AccessPointVpcConfigurationPtrOutput values.
+// You can construct a concrete instance of `AccessPointVpcConfigurationPtrInput` via:
+//
+//	        AccessPointVpcConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessPointVpcConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput
+	ToAccessPointVpcConfigurationPtrOutputWithContext(context.Context) AccessPointVpcConfigurationPtrOutput
+}
+
+type accessPointVpcConfigurationPtrType AccessPointVpcConfigurationArgs
+
+func AccessPointVpcConfigurationPtr(v *AccessPointVpcConfigurationArgs) AccessPointVpcConfigurationPtrInput {
+	return (*accessPointVpcConfigurationPtrType)(v)
+}
+
+func (*accessPointVpcConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (i *accessPointVpcConfigurationPtrType) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
+	return i.ToAccessPointVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointVpcConfigurationPtrType) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationPtrOutput)
+}
+
+// The Virtual Private Cloud (VPC) configuration for a bucket access point.
+type AccessPointVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AccessPointVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationOutput() AccessPointVpcConfigurationOutput {
+	return o
+}
+
+func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationOutputWithContext(ctx context.Context) AccessPointVpcConfigurationOutput {
+	return o
+}
+
+func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
+	return o.ToAccessPointVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointVpcConfiguration) *AccessPointVpcConfiguration {
+		return &v
+	}).(AccessPointVpcConfigurationPtrOutput)
+}
+
+// If this field is specified, this access point will only allow connections from the specified VPC ID.
+func (o AccessPointVpcConfigurationOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPointVpcConfiguration) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type AccessPointVpcConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointVpcConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (o AccessPointVpcConfigurationPtrOutput) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o AccessPointVpcConfigurationPtrOutput) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o AccessPointVpcConfigurationPtrOutput) Elem() AccessPointVpcConfigurationOutput {
+	return o.ApplyT(func(v *AccessPointVpcConfiguration) AccessPointVpcConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointVpcConfiguration
+		return ret
+	}).(AccessPointVpcConfigurationOutput)
+}
+
+// If this field is specified, this access point will only allow connections from the specified VPC ID.
+func (o AccessPointVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointVpcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
 type DirectoryBucketAbortIncompleteMultipartUpload struct {
 	// Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
@@ -875,6 +1385,12 @@ func (o DirectoryBucketServerSideEncryptionRuleArrayOutput) Index(i pulumi.IntIn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationPtrInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointScopeInput)(nil)).Elem(), AccessPointScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointScopePtrInput)(nil)).Elem(), AccessPointScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointVpcConfigurationInput)(nil)).Elem(), AccessPointVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointVpcConfigurationPtrInput)(nil)).Elem(), AccessPointVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketAbortIncompleteMultipartUploadInput)(nil)).Elem(), DirectoryBucketAbortIncompleteMultipartUploadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketAbortIncompleteMultipartUploadPtrInput)(nil)).Elem(), DirectoryBucketAbortIncompleteMultipartUploadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketBucketEncryptionInput)(nil)).Elem(), DirectoryBucketBucketEncryptionArgs{})
@@ -887,6 +1403,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultPtrInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionByDefaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionRuleInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionRuleArrayInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionRuleArray{})
+	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
+	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AccessPointScopeOutput{})
+	pulumi.RegisterOutputType(AccessPointScopePtrOutput{})
+	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(AccessPointVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketAbortIncompleteMultipartUploadOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketAbortIncompleteMultipartUploadPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketBucketEncryptionOutput{})

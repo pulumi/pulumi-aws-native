@@ -14738,6 +14738,124 @@ func (o DataSourceWebSourceConfigurationPtrOutput) UrlConfiguration() DataSource
 	}).(DataSourceUrlConfigurationPtrOutput)
 }
 
+type FlowAdditionalModelRequestFields struct {
+}
+
+// FlowAdditionalModelRequestFieldsInput is an input type that accepts FlowAdditionalModelRequestFieldsArgs and FlowAdditionalModelRequestFieldsOutput values.
+// You can construct a concrete instance of `FlowAdditionalModelRequestFieldsInput` via:
+//
+//	FlowAdditionalModelRequestFieldsArgs{...}
+type FlowAdditionalModelRequestFieldsInput interface {
+	pulumi.Input
+
+	ToFlowAdditionalModelRequestFieldsOutput() FlowAdditionalModelRequestFieldsOutput
+	ToFlowAdditionalModelRequestFieldsOutputWithContext(context.Context) FlowAdditionalModelRequestFieldsOutput
+}
+
+type FlowAdditionalModelRequestFieldsArgs struct {
+}
+
+func (FlowAdditionalModelRequestFieldsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAdditionalModelRequestFields)(nil)).Elem()
+}
+
+func (i FlowAdditionalModelRequestFieldsArgs) ToFlowAdditionalModelRequestFieldsOutput() FlowAdditionalModelRequestFieldsOutput {
+	return i.ToFlowAdditionalModelRequestFieldsOutputWithContext(context.Background())
+}
+
+func (i FlowAdditionalModelRequestFieldsArgs) ToFlowAdditionalModelRequestFieldsOutputWithContext(ctx context.Context) FlowAdditionalModelRequestFieldsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAdditionalModelRequestFieldsOutput)
+}
+
+func (i FlowAdditionalModelRequestFieldsArgs) ToFlowAdditionalModelRequestFieldsPtrOutput() FlowAdditionalModelRequestFieldsPtrOutput {
+	return i.ToFlowAdditionalModelRequestFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i FlowAdditionalModelRequestFieldsArgs) ToFlowAdditionalModelRequestFieldsPtrOutputWithContext(ctx context.Context) FlowAdditionalModelRequestFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAdditionalModelRequestFieldsOutput).ToFlowAdditionalModelRequestFieldsPtrOutputWithContext(ctx)
+}
+
+// FlowAdditionalModelRequestFieldsPtrInput is an input type that accepts FlowAdditionalModelRequestFieldsArgs, FlowAdditionalModelRequestFieldsPtr and FlowAdditionalModelRequestFieldsPtrOutput values.
+// You can construct a concrete instance of `FlowAdditionalModelRequestFieldsPtrInput` via:
+//
+//	        FlowAdditionalModelRequestFieldsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowAdditionalModelRequestFieldsPtrInput interface {
+	pulumi.Input
+
+	ToFlowAdditionalModelRequestFieldsPtrOutput() FlowAdditionalModelRequestFieldsPtrOutput
+	ToFlowAdditionalModelRequestFieldsPtrOutputWithContext(context.Context) FlowAdditionalModelRequestFieldsPtrOutput
+}
+
+type flowAdditionalModelRequestFieldsPtrType FlowAdditionalModelRequestFieldsArgs
+
+func FlowAdditionalModelRequestFieldsPtr(v *FlowAdditionalModelRequestFieldsArgs) FlowAdditionalModelRequestFieldsPtrInput {
+	return (*flowAdditionalModelRequestFieldsPtrType)(v)
+}
+
+func (*flowAdditionalModelRequestFieldsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowAdditionalModelRequestFields)(nil)).Elem()
+}
+
+func (i *flowAdditionalModelRequestFieldsPtrType) ToFlowAdditionalModelRequestFieldsPtrOutput() FlowAdditionalModelRequestFieldsPtrOutput {
+	return i.ToFlowAdditionalModelRequestFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i *flowAdditionalModelRequestFieldsPtrType) ToFlowAdditionalModelRequestFieldsPtrOutputWithContext(ctx context.Context) FlowAdditionalModelRequestFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAdditionalModelRequestFieldsPtrOutput)
+}
+
+type FlowAdditionalModelRequestFieldsOutput struct{ *pulumi.OutputState }
+
+func (FlowAdditionalModelRequestFieldsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAdditionalModelRequestFields)(nil)).Elem()
+}
+
+func (o FlowAdditionalModelRequestFieldsOutput) ToFlowAdditionalModelRequestFieldsOutput() FlowAdditionalModelRequestFieldsOutput {
+	return o
+}
+
+func (o FlowAdditionalModelRequestFieldsOutput) ToFlowAdditionalModelRequestFieldsOutputWithContext(ctx context.Context) FlowAdditionalModelRequestFieldsOutput {
+	return o
+}
+
+func (o FlowAdditionalModelRequestFieldsOutput) ToFlowAdditionalModelRequestFieldsPtrOutput() FlowAdditionalModelRequestFieldsPtrOutput {
+	return o.ToFlowAdditionalModelRequestFieldsPtrOutputWithContext(context.Background())
+}
+
+func (o FlowAdditionalModelRequestFieldsOutput) ToFlowAdditionalModelRequestFieldsPtrOutputWithContext(ctx context.Context) FlowAdditionalModelRequestFieldsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowAdditionalModelRequestFields) *FlowAdditionalModelRequestFields {
+		return &v
+	}).(FlowAdditionalModelRequestFieldsPtrOutput)
+}
+
+type FlowAdditionalModelRequestFieldsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowAdditionalModelRequestFieldsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowAdditionalModelRequestFields)(nil)).Elem()
+}
+
+func (o FlowAdditionalModelRequestFieldsPtrOutput) ToFlowAdditionalModelRequestFieldsPtrOutput() FlowAdditionalModelRequestFieldsPtrOutput {
+	return o
+}
+
+func (o FlowAdditionalModelRequestFieldsPtrOutput) ToFlowAdditionalModelRequestFieldsPtrOutputWithContext(ctx context.Context) FlowAdditionalModelRequestFieldsPtrOutput {
+	return o
+}
+
+func (o FlowAdditionalModelRequestFieldsPtrOutput) Elem() FlowAdditionalModelRequestFieldsOutput {
+	return o.ApplyT(func(v *FlowAdditionalModelRequestFields) FlowAdditionalModelRequestFields {
+		if v != nil {
+			return *v
+		}
+		var ret FlowAdditionalModelRequestFields
+		return ret
+	}).(FlowAdditionalModelRequestFieldsOutput)
+}
+
 // Agent flow node configuration
 type FlowAgentFlowNodeConfiguration struct {
 	// Arn representation of the Agent Alias.
@@ -14880,8 +14998,12 @@ func (o FlowAgentFlowNodeConfigurationPtrOutput) AgentAliasArn() pulumi.StringPt
 
 type FlowAliasConcurrencyConfiguration struct {
 	// Number of nodes executed concurrently at a time
-	MaxConcurrency *float64                 `pulumi:"maxConcurrency"`
-	Type           FlowAliasConcurrencyType `pulumi:"type"`
+	MaxConcurrency *float64 `pulumi:"maxConcurrency"`
+	// The type of concurrency to use for parallel node execution. Specify one of the following options:
+	//
+	// - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+	// - `Manual` - You specify which nodes can be executed in parallel.
+	Type FlowAliasConcurrencyType `pulumi:"type"`
 }
 
 // FlowAliasConcurrencyConfigurationInput is an input type that accepts FlowAliasConcurrencyConfigurationArgs and FlowAliasConcurrencyConfigurationOutput values.
@@ -14897,8 +15019,12 @@ type FlowAliasConcurrencyConfigurationInput interface {
 
 type FlowAliasConcurrencyConfigurationArgs struct {
 	// Number of nodes executed concurrently at a time
-	MaxConcurrency pulumi.Float64PtrInput        `pulumi:"maxConcurrency"`
-	Type           FlowAliasConcurrencyTypeInput `pulumi:"type"`
+	MaxConcurrency pulumi.Float64PtrInput `pulumi:"maxConcurrency"`
+	// The type of concurrency to use for parallel node execution. Specify one of the following options:
+	//
+	// - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+	// - `Manual` - You specify which nodes can be executed in parallel.
+	Type FlowAliasConcurrencyTypeInput `pulumi:"type"`
 }
 
 func (FlowAliasConcurrencyConfigurationArgs) ElementType() reflect.Type {
@@ -14983,6 +15109,10 @@ func (o FlowAliasConcurrencyConfigurationOutput) MaxConcurrency() pulumi.Float64
 	return o.ApplyT(func(v FlowAliasConcurrencyConfiguration) *float64 { return v.MaxConcurrency }).(pulumi.Float64PtrOutput)
 }
 
+// The type of concurrency to use for parallel node execution. Specify one of the following options:
+//
+// - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+// - `Manual` - You specify which nodes can be executed in parallel.
 func (o FlowAliasConcurrencyConfigurationOutput) Type() FlowAliasConcurrencyTypeOutput {
 	return o.ApplyT(func(v FlowAliasConcurrencyConfiguration) FlowAliasConcurrencyType { return v.Type }).(FlowAliasConcurrencyTypeOutput)
 }
@@ -15021,6 +15151,10 @@ func (o FlowAliasConcurrencyConfigurationPtrOutput) MaxConcurrency() pulumi.Floa
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The type of concurrency to use for parallel node execution. Specify one of the following options:
+//
+// - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+// - `Manual` - You specify which nodes can be executed in parallel.
 func (o FlowAliasConcurrencyConfigurationPtrOutput) Type() FlowAliasConcurrencyTypePtrOutput {
 	return o.ApplyT(func(v *FlowAliasConcurrencyConfiguration) *FlowAliasConcurrencyType {
 		if v == nil {
@@ -15290,6 +15424,47 @@ func (i FlowConditionArgs) ToFlowConditionOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(FlowConditionOutput)
 }
 
+func (i FlowConditionArgs) ToFlowConditionPtrOutput() FlowConditionPtrOutput {
+	return i.ToFlowConditionPtrOutputWithContext(context.Background())
+}
+
+func (i FlowConditionArgs) ToFlowConditionPtrOutputWithContext(ctx context.Context) FlowConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowConditionOutput).ToFlowConditionPtrOutputWithContext(ctx)
+}
+
+// FlowConditionPtrInput is an input type that accepts FlowConditionArgs, FlowConditionPtr and FlowConditionPtrOutput values.
+// You can construct a concrete instance of `FlowConditionPtrInput` via:
+//
+//	        FlowConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowConditionPtrInput interface {
+	pulumi.Input
+
+	ToFlowConditionPtrOutput() FlowConditionPtrOutput
+	ToFlowConditionPtrOutputWithContext(context.Context) FlowConditionPtrOutput
+}
+
+type flowConditionPtrType FlowConditionArgs
+
+func FlowConditionPtr(v *FlowConditionArgs) FlowConditionPtrInput {
+	return (*flowConditionPtrType)(v)
+}
+
+func (*flowConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowCondition)(nil)).Elem()
+}
+
+func (i *flowConditionPtrType) ToFlowConditionPtrOutput() FlowConditionPtrOutput {
+	return i.ToFlowConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *flowConditionPtrType) ToFlowConditionPtrOutputWithContext(ctx context.Context) FlowConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowConditionPtrOutput)
+}
+
 // FlowConditionArrayInput is an input type that accepts FlowConditionArray and FlowConditionArrayOutput values.
 // You can construct a concrete instance of `FlowConditionArrayInput` via:
 //
@@ -15330,6 +15505,16 @@ func (o FlowConditionOutput) ToFlowConditionOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o FlowConditionOutput) ToFlowConditionPtrOutput() FlowConditionPtrOutput {
+	return o.ToFlowConditionPtrOutputWithContext(context.Background())
+}
+
+func (o FlowConditionOutput) ToFlowConditionPtrOutputWithContext(ctx context.Context) FlowConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowCondition) *FlowCondition {
+		return &v
+	}).(FlowConditionPtrOutput)
+}
+
 // Expression for a condition in a flow
 func (o FlowConditionOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowCondition) *string { return v.Expression }).(pulumi.StringPtrOutput)
@@ -15338,6 +15523,50 @@ func (o FlowConditionOutput) Expression() pulumi.StringPtrOutput {
 // Name of a condition in a flow
 func (o FlowConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type FlowConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowCondition)(nil)).Elem()
+}
+
+func (o FlowConditionPtrOutput) ToFlowConditionPtrOutput() FlowConditionPtrOutput {
+	return o
+}
+
+func (o FlowConditionPtrOutput) ToFlowConditionPtrOutputWithContext(ctx context.Context) FlowConditionPtrOutput {
+	return o
+}
+
+func (o FlowConditionPtrOutput) Elem() FlowConditionOutput {
+	return o.ApplyT(func(v *FlowCondition) FlowCondition {
+		if v != nil {
+			return *v
+		}
+		var ret FlowCondition
+		return ret
+	}).(FlowConditionOutput)
+}
+
+// Expression for a condition in a flow
+func (o FlowConditionPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of a condition in a flow
+func (o FlowConditionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type FlowConditionArrayOutput struct{ *pulumi.OutputState }
@@ -16368,6 +16597,106 @@ func (o FlowDefinitionPtrOutput) Nodes() FlowNodeArrayOutput {
 	}).(FlowNodeArrayOutput)
 }
 
+// Field name for reranking
+type FlowFieldForReranking struct {
+	// Field name for reranking
+	FieldName string `pulumi:"fieldName"`
+}
+
+// FlowFieldForRerankingInput is an input type that accepts FlowFieldForRerankingArgs and FlowFieldForRerankingOutput values.
+// You can construct a concrete instance of `FlowFieldForRerankingInput` via:
+//
+//	FlowFieldForRerankingArgs{...}
+type FlowFieldForRerankingInput interface {
+	pulumi.Input
+
+	ToFlowFieldForRerankingOutput() FlowFieldForRerankingOutput
+	ToFlowFieldForRerankingOutputWithContext(context.Context) FlowFieldForRerankingOutput
+}
+
+// Field name for reranking
+type FlowFieldForRerankingArgs struct {
+	// Field name for reranking
+	FieldName pulumi.StringInput `pulumi:"fieldName"`
+}
+
+func (FlowFieldForRerankingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFieldForReranking)(nil)).Elem()
+}
+
+func (i FlowFieldForRerankingArgs) ToFlowFieldForRerankingOutput() FlowFieldForRerankingOutput {
+	return i.ToFlowFieldForRerankingOutputWithContext(context.Background())
+}
+
+func (i FlowFieldForRerankingArgs) ToFlowFieldForRerankingOutputWithContext(ctx context.Context) FlowFieldForRerankingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowFieldForRerankingOutput)
+}
+
+// FlowFieldForRerankingArrayInput is an input type that accepts FlowFieldForRerankingArray and FlowFieldForRerankingArrayOutput values.
+// You can construct a concrete instance of `FlowFieldForRerankingArrayInput` via:
+//
+//	FlowFieldForRerankingArray{ FlowFieldForRerankingArgs{...} }
+type FlowFieldForRerankingArrayInput interface {
+	pulumi.Input
+
+	ToFlowFieldForRerankingArrayOutput() FlowFieldForRerankingArrayOutput
+	ToFlowFieldForRerankingArrayOutputWithContext(context.Context) FlowFieldForRerankingArrayOutput
+}
+
+type FlowFieldForRerankingArray []FlowFieldForRerankingInput
+
+func (FlowFieldForRerankingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowFieldForReranking)(nil)).Elem()
+}
+
+func (i FlowFieldForRerankingArray) ToFlowFieldForRerankingArrayOutput() FlowFieldForRerankingArrayOutput {
+	return i.ToFlowFieldForRerankingArrayOutputWithContext(context.Background())
+}
+
+func (i FlowFieldForRerankingArray) ToFlowFieldForRerankingArrayOutputWithContext(ctx context.Context) FlowFieldForRerankingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowFieldForRerankingArrayOutput)
+}
+
+// Field name for reranking
+type FlowFieldForRerankingOutput struct{ *pulumi.OutputState }
+
+func (FlowFieldForRerankingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFieldForReranking)(nil)).Elem()
+}
+
+func (o FlowFieldForRerankingOutput) ToFlowFieldForRerankingOutput() FlowFieldForRerankingOutput {
+	return o
+}
+
+func (o FlowFieldForRerankingOutput) ToFlowFieldForRerankingOutputWithContext(ctx context.Context) FlowFieldForRerankingOutput {
+	return o
+}
+
+// Field name for reranking
+func (o FlowFieldForRerankingOutput) FieldName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowFieldForReranking) string { return v.FieldName }).(pulumi.StringOutput)
+}
+
+type FlowFieldForRerankingArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowFieldForRerankingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowFieldForReranking)(nil)).Elem()
+}
+
+func (o FlowFieldForRerankingArrayOutput) ToFlowFieldForRerankingArrayOutput() FlowFieldForRerankingArrayOutput {
+	return o
+}
+
+func (o FlowFieldForRerankingArrayOutput) ToFlowFieldForRerankingArrayOutputWithContext(ctx context.Context) FlowFieldForRerankingArrayOutput {
+	return o
+}
+
+func (o FlowFieldForRerankingArrayOutput) Index(i pulumi.IntInput) FlowFieldForRerankingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowFieldForReranking {
+		return vs[0].([]FlowFieldForReranking)[vs[1].(int)]
+	}).(FlowFieldForRerankingOutput)
+}
+
 // Configuration for a guardrail
 type FlowGuardrailConfiguration struct {
 	// Identifier for the guardrail, could be the id or the arn
@@ -16926,11 +17255,17 @@ func (o FlowIteratorFlowNodeConfigurationPtrOutput) Elem() FlowIteratorFlowNodeC
 
 // Knowledge base flow node configuration
 type FlowKnowledgeBaseFlowNodeConfiguration struct {
-	GuardrailConfiguration *FlowGuardrailConfiguration `pulumi:"guardrailConfiguration"`
+	GuardrailConfiguration *FlowGuardrailConfiguration                 `pulumi:"guardrailConfiguration"`
+	InferenceConfiguration *FlowPromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
 	// Identifier of the KnowledgeBase
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
 	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId *string `pulumi:"modelId"`
+	// Number Of Results to Retrieve
+	NumberOfResults            *float64                                     `pulumi:"numberOfResults"`
+	OrchestrationConfiguration *FlowKnowledgeBaseOrchestrationConfiguration `pulumi:"orchestrationConfiguration"`
+	PromptTemplate             *FlowKnowledgeBasePromptTemplateProperties   `pulumi:"promptTemplate"`
+	RerankingConfiguration     *FlowVectorSearchRerankingConfiguration      `pulumi:"rerankingConfiguration"`
 }
 
 // FlowKnowledgeBaseFlowNodeConfigurationInput is an input type that accepts FlowKnowledgeBaseFlowNodeConfigurationArgs and FlowKnowledgeBaseFlowNodeConfigurationOutput values.
@@ -16946,11 +17281,17 @@ type FlowKnowledgeBaseFlowNodeConfigurationInput interface {
 
 // Knowledge base flow node configuration
 type FlowKnowledgeBaseFlowNodeConfigurationArgs struct {
-	GuardrailConfiguration FlowGuardrailConfigurationPtrInput `pulumi:"guardrailConfiguration"`
+	GuardrailConfiguration FlowGuardrailConfigurationPtrInput                 `pulumi:"guardrailConfiguration"`
+	InferenceConfiguration FlowPromptInferenceConfigurationPropertiesPtrInput `pulumi:"inferenceConfiguration"`
 	// Identifier of the KnowledgeBase
 	KnowledgeBaseId pulumi.StringInput `pulumi:"knowledgeBaseId"`
 	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId pulumi.StringPtrInput `pulumi:"modelId"`
+	// Number Of Results to Retrieve
+	NumberOfResults            pulumi.Float64PtrInput                              `pulumi:"numberOfResults"`
+	OrchestrationConfiguration FlowKnowledgeBaseOrchestrationConfigurationPtrInput `pulumi:"orchestrationConfiguration"`
+	PromptTemplate             FlowKnowledgeBasePromptTemplatePropertiesPtrInput   `pulumi:"promptTemplate"`
+	RerankingConfiguration     FlowVectorSearchRerankingConfigurationPtrInput      `pulumi:"rerankingConfiguration"`
 }
 
 func (FlowKnowledgeBaseFlowNodeConfigurationArgs) ElementType() reflect.Type {
@@ -17037,6 +17378,12 @@ func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) GuardrailConfiguration() F
 	}).(FlowGuardrailConfigurationPtrOutput)
 }
 
+func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) InferenceConfiguration() FlowPromptInferenceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v FlowKnowledgeBaseFlowNodeConfiguration) *FlowPromptInferenceConfigurationProperties {
+		return v.InferenceConfiguration
+	}).(FlowPromptInferenceConfigurationPropertiesPtrOutput)
+}
+
 // Identifier of the KnowledgeBase
 func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) KnowledgeBaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowKnowledgeBaseFlowNodeConfiguration) string { return v.KnowledgeBaseId }).(pulumi.StringOutput)
@@ -17045,6 +17392,29 @@ func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) KnowledgeBaseId() pulumi.S
 // ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowKnowledgeBaseFlowNodeConfiguration) *string { return v.ModelId }).(pulumi.StringPtrOutput)
+}
+
+// Number Of Results to Retrieve
+func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) NumberOfResults() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FlowKnowledgeBaseFlowNodeConfiguration) *float64 { return v.NumberOfResults }).(pulumi.Float64PtrOutput)
+}
+
+func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) OrchestrationConfiguration() FlowKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowKnowledgeBaseFlowNodeConfiguration) *FlowKnowledgeBaseOrchestrationConfiguration {
+		return v.OrchestrationConfiguration
+	}).(FlowKnowledgeBaseOrchestrationConfigurationPtrOutput)
+}
+
+func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) PromptTemplate() FlowKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o.ApplyT(func(v FlowKnowledgeBaseFlowNodeConfiguration) *FlowKnowledgeBasePromptTemplateProperties {
+		return v.PromptTemplate
+	}).(FlowKnowledgeBasePromptTemplatePropertiesPtrOutput)
+}
+
+func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) RerankingConfiguration() FlowVectorSearchRerankingConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowKnowledgeBaseFlowNodeConfiguration) *FlowVectorSearchRerankingConfiguration {
+		return v.RerankingConfiguration
+	}).(FlowVectorSearchRerankingConfigurationPtrOutput)
 }
 
 type FlowKnowledgeBaseFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -17080,6 +17450,15 @@ func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) GuardrailConfiguration(
 	}).(FlowGuardrailConfigurationPtrOutput)
 }
 
+func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) InferenceConfiguration() FlowPromptInferenceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBaseFlowNodeConfiguration) *FlowPromptInferenceConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceConfiguration
+	}).(FlowPromptInferenceConfigurationPropertiesPtrOutput)
+}
+
 // Identifier of the KnowledgeBase
 func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) KnowledgeBaseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowKnowledgeBaseFlowNodeConfiguration) *string {
@@ -17097,6 +17476,370 @@ func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) ModelId() pulumi.String
 			return nil
 		}
 		return v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number Of Results to Retrieve
+func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) NumberOfResults() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBaseFlowNodeConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfResults
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) OrchestrationConfiguration() FlowKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBaseFlowNodeConfiguration) *FlowKnowledgeBaseOrchestrationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OrchestrationConfiguration
+	}).(FlowKnowledgeBaseOrchestrationConfigurationPtrOutput)
+}
+
+func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) PromptTemplate() FlowKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBaseFlowNodeConfiguration) *FlowKnowledgeBasePromptTemplateProperties {
+		if v == nil {
+			return nil
+		}
+		return v.PromptTemplate
+	}).(FlowKnowledgeBasePromptTemplatePropertiesPtrOutput)
+}
+
+func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) RerankingConfiguration() FlowVectorSearchRerankingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBaseFlowNodeConfiguration) *FlowVectorSearchRerankingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RerankingConfiguration
+	}).(FlowVectorSearchRerankingConfigurationPtrOutput)
+}
+
+type FlowKnowledgeBaseOrchestrationConfiguration struct {
+	AdditionalModelRequestFields *FlowAdditionalModelRequestFields           `pulumi:"additionalModelRequestFields"`
+	InferenceConfig              *FlowPromptInferenceConfigurationProperties `pulumi:"inferenceConfig"`
+	PerformanceConfig            *FlowPerformanceConfiguration               `pulumi:"performanceConfig"`
+	PromptTemplate               *FlowKnowledgeBasePromptTemplateProperties  `pulumi:"promptTemplate"`
+}
+
+// FlowKnowledgeBaseOrchestrationConfigurationInput is an input type that accepts FlowKnowledgeBaseOrchestrationConfigurationArgs and FlowKnowledgeBaseOrchestrationConfigurationOutput values.
+// You can construct a concrete instance of `FlowKnowledgeBaseOrchestrationConfigurationInput` via:
+//
+//	FlowKnowledgeBaseOrchestrationConfigurationArgs{...}
+type FlowKnowledgeBaseOrchestrationConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowKnowledgeBaseOrchestrationConfigurationOutput() FlowKnowledgeBaseOrchestrationConfigurationOutput
+	ToFlowKnowledgeBaseOrchestrationConfigurationOutputWithContext(context.Context) FlowKnowledgeBaseOrchestrationConfigurationOutput
+}
+
+type FlowKnowledgeBaseOrchestrationConfigurationArgs struct {
+	AdditionalModelRequestFields FlowAdditionalModelRequestFieldsPtrInput           `pulumi:"additionalModelRequestFields"`
+	InferenceConfig              FlowPromptInferenceConfigurationPropertiesPtrInput `pulumi:"inferenceConfig"`
+	PerformanceConfig            FlowPerformanceConfigurationPtrInput               `pulumi:"performanceConfig"`
+	PromptTemplate               FlowKnowledgeBasePromptTemplatePropertiesPtrInput  `pulumi:"promptTemplate"`
+}
+
+func (FlowKnowledgeBaseOrchestrationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowKnowledgeBaseOrchestrationConfiguration)(nil)).Elem()
+}
+
+func (i FlowKnowledgeBaseOrchestrationConfigurationArgs) ToFlowKnowledgeBaseOrchestrationConfigurationOutput() FlowKnowledgeBaseOrchestrationConfigurationOutput {
+	return i.ToFlowKnowledgeBaseOrchestrationConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowKnowledgeBaseOrchestrationConfigurationArgs) ToFlowKnowledgeBaseOrchestrationConfigurationOutputWithContext(ctx context.Context) FlowKnowledgeBaseOrchestrationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowKnowledgeBaseOrchestrationConfigurationOutput)
+}
+
+func (i FlowKnowledgeBaseOrchestrationConfigurationArgs) ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutput() FlowKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return i.ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowKnowledgeBaseOrchestrationConfigurationArgs) ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutputWithContext(ctx context.Context) FlowKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowKnowledgeBaseOrchestrationConfigurationOutput).ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowKnowledgeBaseOrchestrationConfigurationPtrInput is an input type that accepts FlowKnowledgeBaseOrchestrationConfigurationArgs, FlowKnowledgeBaseOrchestrationConfigurationPtr and FlowKnowledgeBaseOrchestrationConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowKnowledgeBaseOrchestrationConfigurationPtrInput` via:
+//
+//	        FlowKnowledgeBaseOrchestrationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowKnowledgeBaseOrchestrationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutput() FlowKnowledgeBaseOrchestrationConfigurationPtrOutput
+	ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutputWithContext(context.Context) FlowKnowledgeBaseOrchestrationConfigurationPtrOutput
+}
+
+type flowKnowledgeBaseOrchestrationConfigurationPtrType FlowKnowledgeBaseOrchestrationConfigurationArgs
+
+func FlowKnowledgeBaseOrchestrationConfigurationPtr(v *FlowKnowledgeBaseOrchestrationConfigurationArgs) FlowKnowledgeBaseOrchestrationConfigurationPtrInput {
+	return (*flowKnowledgeBaseOrchestrationConfigurationPtrType)(v)
+}
+
+func (*flowKnowledgeBaseOrchestrationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowKnowledgeBaseOrchestrationConfiguration)(nil)).Elem()
+}
+
+func (i *flowKnowledgeBaseOrchestrationConfigurationPtrType) ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutput() FlowKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return i.ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowKnowledgeBaseOrchestrationConfigurationPtrType) ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutputWithContext(ctx context.Context) FlowKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowKnowledgeBaseOrchestrationConfigurationPtrOutput)
+}
+
+type FlowKnowledgeBaseOrchestrationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowKnowledgeBaseOrchestrationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowKnowledgeBaseOrchestrationConfiguration)(nil)).Elem()
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationOutput) ToFlowKnowledgeBaseOrchestrationConfigurationOutput() FlowKnowledgeBaseOrchestrationConfigurationOutput {
+	return o
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationOutput) ToFlowKnowledgeBaseOrchestrationConfigurationOutputWithContext(ctx context.Context) FlowKnowledgeBaseOrchestrationConfigurationOutput {
+	return o
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationOutput) ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutput() FlowKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return o.ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationOutput) ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutputWithContext(ctx context.Context) FlowKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowKnowledgeBaseOrchestrationConfiguration) *FlowKnowledgeBaseOrchestrationConfiguration {
+		return &v
+	}).(FlowKnowledgeBaseOrchestrationConfigurationPtrOutput)
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationOutput) AdditionalModelRequestFields() FlowAdditionalModelRequestFieldsPtrOutput {
+	return o.ApplyT(func(v FlowKnowledgeBaseOrchestrationConfiguration) *FlowAdditionalModelRequestFields {
+		return v.AdditionalModelRequestFields
+	}).(FlowAdditionalModelRequestFieldsPtrOutput)
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationOutput) InferenceConfig() FlowPromptInferenceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v FlowKnowledgeBaseOrchestrationConfiguration) *FlowPromptInferenceConfigurationProperties {
+		return v.InferenceConfig
+	}).(FlowPromptInferenceConfigurationPropertiesPtrOutput)
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationOutput) PerformanceConfig() FlowPerformanceConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowKnowledgeBaseOrchestrationConfiguration) *FlowPerformanceConfiguration {
+		return v.PerformanceConfig
+	}).(FlowPerformanceConfigurationPtrOutput)
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationOutput) PromptTemplate() FlowKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o.ApplyT(func(v FlowKnowledgeBaseOrchestrationConfiguration) *FlowKnowledgeBasePromptTemplateProperties {
+		return v.PromptTemplate
+	}).(FlowKnowledgeBasePromptTemplatePropertiesPtrOutput)
+}
+
+type FlowKnowledgeBaseOrchestrationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowKnowledgeBaseOrchestrationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowKnowledgeBaseOrchestrationConfiguration)(nil)).Elem()
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationPtrOutput) ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutput() FlowKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationPtrOutput) ToFlowKnowledgeBaseOrchestrationConfigurationPtrOutputWithContext(ctx context.Context) FlowKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationPtrOutput) Elem() FlowKnowledgeBaseOrchestrationConfigurationOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBaseOrchestrationConfiguration) FlowKnowledgeBaseOrchestrationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowKnowledgeBaseOrchestrationConfiguration
+		return ret
+	}).(FlowKnowledgeBaseOrchestrationConfigurationOutput)
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationPtrOutput) AdditionalModelRequestFields() FlowAdditionalModelRequestFieldsPtrOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBaseOrchestrationConfiguration) *FlowAdditionalModelRequestFields {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalModelRequestFields
+	}).(FlowAdditionalModelRequestFieldsPtrOutput)
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationPtrOutput) InferenceConfig() FlowPromptInferenceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBaseOrchestrationConfiguration) *FlowPromptInferenceConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceConfig
+	}).(FlowPromptInferenceConfigurationPropertiesPtrOutput)
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationPtrOutput) PerformanceConfig() FlowPerformanceConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBaseOrchestrationConfiguration) *FlowPerformanceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PerformanceConfig
+	}).(FlowPerformanceConfigurationPtrOutput)
+}
+
+func (o FlowKnowledgeBaseOrchestrationConfigurationPtrOutput) PromptTemplate() FlowKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBaseOrchestrationConfiguration) *FlowKnowledgeBasePromptTemplateProperties {
+		if v == nil {
+			return nil
+		}
+		return v.PromptTemplate
+	}).(FlowKnowledgeBasePromptTemplatePropertiesPtrOutput)
+}
+
+// Knowledge Base Prompt template
+type FlowKnowledgeBasePromptTemplate0Properties struct {
+	TextPromptTemplate string `pulumi:"textPromptTemplate"`
+}
+
+// Knowledge Base Prompt template
+type FlowKnowledgeBasePromptTemplateProperties struct {
+	TextPromptTemplate string `pulumi:"textPromptTemplate"`
+}
+
+// FlowKnowledgeBasePromptTemplatePropertiesInput is an input type that accepts FlowKnowledgeBasePromptTemplatePropertiesArgs and FlowKnowledgeBasePromptTemplatePropertiesOutput values.
+// You can construct a concrete instance of `FlowKnowledgeBasePromptTemplatePropertiesInput` via:
+//
+//	FlowKnowledgeBasePromptTemplatePropertiesArgs{...}
+type FlowKnowledgeBasePromptTemplatePropertiesInput interface {
+	pulumi.Input
+
+	ToFlowKnowledgeBasePromptTemplatePropertiesOutput() FlowKnowledgeBasePromptTemplatePropertiesOutput
+	ToFlowKnowledgeBasePromptTemplatePropertiesOutputWithContext(context.Context) FlowKnowledgeBasePromptTemplatePropertiesOutput
+}
+
+// Knowledge Base Prompt template
+type FlowKnowledgeBasePromptTemplatePropertiesArgs struct {
+	TextPromptTemplate pulumi.StringInput `pulumi:"textPromptTemplate"`
+}
+
+func (FlowKnowledgeBasePromptTemplatePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowKnowledgeBasePromptTemplateProperties)(nil)).Elem()
+}
+
+func (i FlowKnowledgeBasePromptTemplatePropertiesArgs) ToFlowKnowledgeBasePromptTemplatePropertiesOutput() FlowKnowledgeBasePromptTemplatePropertiesOutput {
+	return i.ToFlowKnowledgeBasePromptTemplatePropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowKnowledgeBasePromptTemplatePropertiesArgs) ToFlowKnowledgeBasePromptTemplatePropertiesOutputWithContext(ctx context.Context) FlowKnowledgeBasePromptTemplatePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowKnowledgeBasePromptTemplatePropertiesOutput)
+}
+
+func (i FlowKnowledgeBasePromptTemplatePropertiesArgs) ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutput() FlowKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return i.ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowKnowledgeBasePromptTemplatePropertiesArgs) ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutputWithContext(ctx context.Context) FlowKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowKnowledgeBasePromptTemplatePropertiesOutput).ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowKnowledgeBasePromptTemplatePropertiesPtrInput is an input type that accepts FlowKnowledgeBasePromptTemplatePropertiesArgs, FlowKnowledgeBasePromptTemplatePropertiesPtr and FlowKnowledgeBasePromptTemplatePropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowKnowledgeBasePromptTemplatePropertiesPtrInput` via:
+//
+//	        FlowKnowledgeBasePromptTemplatePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowKnowledgeBasePromptTemplatePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutput() FlowKnowledgeBasePromptTemplatePropertiesPtrOutput
+	ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutputWithContext(context.Context) FlowKnowledgeBasePromptTemplatePropertiesPtrOutput
+}
+
+type flowKnowledgeBasePromptTemplatePropertiesPtrType FlowKnowledgeBasePromptTemplatePropertiesArgs
+
+func FlowKnowledgeBasePromptTemplatePropertiesPtr(v *FlowKnowledgeBasePromptTemplatePropertiesArgs) FlowKnowledgeBasePromptTemplatePropertiesPtrInput {
+	return (*flowKnowledgeBasePromptTemplatePropertiesPtrType)(v)
+}
+
+func (*flowKnowledgeBasePromptTemplatePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowKnowledgeBasePromptTemplateProperties)(nil)).Elem()
+}
+
+func (i *flowKnowledgeBasePromptTemplatePropertiesPtrType) ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutput() FlowKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return i.ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowKnowledgeBasePromptTemplatePropertiesPtrType) ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutputWithContext(ctx context.Context) FlowKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowKnowledgeBasePromptTemplatePropertiesPtrOutput)
+}
+
+// Knowledge Base Prompt template
+type FlowKnowledgeBasePromptTemplatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowKnowledgeBasePromptTemplatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowKnowledgeBasePromptTemplateProperties)(nil)).Elem()
+}
+
+func (o FlowKnowledgeBasePromptTemplatePropertiesOutput) ToFlowKnowledgeBasePromptTemplatePropertiesOutput() FlowKnowledgeBasePromptTemplatePropertiesOutput {
+	return o
+}
+
+func (o FlowKnowledgeBasePromptTemplatePropertiesOutput) ToFlowKnowledgeBasePromptTemplatePropertiesOutputWithContext(ctx context.Context) FlowKnowledgeBasePromptTemplatePropertiesOutput {
+	return o
+}
+
+func (o FlowKnowledgeBasePromptTemplatePropertiesOutput) ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutput() FlowKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o.ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowKnowledgeBasePromptTemplatePropertiesOutput) ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutputWithContext(ctx context.Context) FlowKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowKnowledgeBasePromptTemplateProperties) *FlowKnowledgeBasePromptTemplateProperties {
+		return &v
+	}).(FlowKnowledgeBasePromptTemplatePropertiesPtrOutput)
+}
+
+func (o FlowKnowledgeBasePromptTemplatePropertiesOutput) TextPromptTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowKnowledgeBasePromptTemplateProperties) string { return v.TextPromptTemplate }).(pulumi.StringOutput)
+}
+
+type FlowKnowledgeBasePromptTemplatePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowKnowledgeBasePromptTemplatePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowKnowledgeBasePromptTemplateProperties)(nil)).Elem()
+}
+
+func (o FlowKnowledgeBasePromptTemplatePropertiesPtrOutput) ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutput() FlowKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o
+}
+
+func (o FlowKnowledgeBasePromptTemplatePropertiesPtrOutput) ToFlowKnowledgeBasePromptTemplatePropertiesPtrOutputWithContext(ctx context.Context) FlowKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o
+}
+
+func (o FlowKnowledgeBasePromptTemplatePropertiesPtrOutput) Elem() FlowKnowledgeBasePromptTemplatePropertiesOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBasePromptTemplateProperties) FlowKnowledgeBasePromptTemplateProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowKnowledgeBasePromptTemplateProperties
+		return ret
+	}).(FlowKnowledgeBasePromptTemplatePropertiesOutput)
+}
+
+func (o FlowKnowledgeBasePromptTemplatePropertiesPtrOutput) TextPromptTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBasePromptTemplateProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TextPromptTemplate
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -17397,6 +18140,568 @@ func (o FlowLexFlowNodeConfigurationPtrOutput) LocaleId() pulumi.StringPtrOutput
 		}
 		return &v.LocaleId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for the LoopController node, which manages loop execution
+type FlowLoopControllerFlowNodeConfiguration struct {
+	ContinueCondition FlowCondition `pulumi:"continueCondition"`
+	// Maximum number of iterations the loop can perform
+	MaxIterations *float64 `pulumi:"maxIterations"`
+}
+
+// FlowLoopControllerFlowNodeConfigurationInput is an input type that accepts FlowLoopControllerFlowNodeConfigurationArgs and FlowLoopControllerFlowNodeConfigurationOutput values.
+// You can construct a concrete instance of `FlowLoopControllerFlowNodeConfigurationInput` via:
+//
+//	FlowLoopControllerFlowNodeConfigurationArgs{...}
+type FlowLoopControllerFlowNodeConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowLoopControllerFlowNodeConfigurationOutput() FlowLoopControllerFlowNodeConfigurationOutput
+	ToFlowLoopControllerFlowNodeConfigurationOutputWithContext(context.Context) FlowLoopControllerFlowNodeConfigurationOutput
+}
+
+// Configuration for the LoopController node, which manages loop execution
+type FlowLoopControllerFlowNodeConfigurationArgs struct {
+	ContinueCondition FlowConditionInput `pulumi:"continueCondition"`
+	// Maximum number of iterations the loop can perform
+	MaxIterations pulumi.Float64PtrInput `pulumi:"maxIterations"`
+}
+
+func (FlowLoopControllerFlowNodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLoopControllerFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i FlowLoopControllerFlowNodeConfigurationArgs) ToFlowLoopControllerFlowNodeConfigurationOutput() FlowLoopControllerFlowNodeConfigurationOutput {
+	return i.ToFlowLoopControllerFlowNodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowLoopControllerFlowNodeConfigurationArgs) ToFlowLoopControllerFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowLoopControllerFlowNodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLoopControllerFlowNodeConfigurationOutput)
+}
+
+func (i FlowLoopControllerFlowNodeConfigurationArgs) ToFlowLoopControllerFlowNodeConfigurationPtrOutput() FlowLoopControllerFlowNodeConfigurationPtrOutput {
+	return i.ToFlowLoopControllerFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowLoopControllerFlowNodeConfigurationArgs) ToFlowLoopControllerFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowLoopControllerFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLoopControllerFlowNodeConfigurationOutput).ToFlowLoopControllerFlowNodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowLoopControllerFlowNodeConfigurationPtrInput is an input type that accepts FlowLoopControllerFlowNodeConfigurationArgs, FlowLoopControllerFlowNodeConfigurationPtr and FlowLoopControllerFlowNodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowLoopControllerFlowNodeConfigurationPtrInput` via:
+//
+//	        FlowLoopControllerFlowNodeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowLoopControllerFlowNodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowLoopControllerFlowNodeConfigurationPtrOutput() FlowLoopControllerFlowNodeConfigurationPtrOutput
+	ToFlowLoopControllerFlowNodeConfigurationPtrOutputWithContext(context.Context) FlowLoopControllerFlowNodeConfigurationPtrOutput
+}
+
+type flowLoopControllerFlowNodeConfigurationPtrType FlowLoopControllerFlowNodeConfigurationArgs
+
+func FlowLoopControllerFlowNodeConfigurationPtr(v *FlowLoopControllerFlowNodeConfigurationArgs) FlowLoopControllerFlowNodeConfigurationPtrInput {
+	return (*flowLoopControllerFlowNodeConfigurationPtrType)(v)
+}
+
+func (*flowLoopControllerFlowNodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLoopControllerFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i *flowLoopControllerFlowNodeConfigurationPtrType) ToFlowLoopControllerFlowNodeConfigurationPtrOutput() FlowLoopControllerFlowNodeConfigurationPtrOutput {
+	return i.ToFlowLoopControllerFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowLoopControllerFlowNodeConfigurationPtrType) ToFlowLoopControllerFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowLoopControllerFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLoopControllerFlowNodeConfigurationPtrOutput)
+}
+
+// Configuration for the LoopController node, which manages loop execution
+type FlowLoopControllerFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowLoopControllerFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLoopControllerFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowLoopControllerFlowNodeConfigurationOutput) ToFlowLoopControllerFlowNodeConfigurationOutput() FlowLoopControllerFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowLoopControllerFlowNodeConfigurationOutput) ToFlowLoopControllerFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowLoopControllerFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowLoopControllerFlowNodeConfigurationOutput) ToFlowLoopControllerFlowNodeConfigurationPtrOutput() FlowLoopControllerFlowNodeConfigurationPtrOutput {
+	return o.ToFlowLoopControllerFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowLoopControllerFlowNodeConfigurationOutput) ToFlowLoopControllerFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowLoopControllerFlowNodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowLoopControllerFlowNodeConfiguration) *FlowLoopControllerFlowNodeConfiguration {
+		return &v
+	}).(FlowLoopControllerFlowNodeConfigurationPtrOutput)
+}
+
+func (o FlowLoopControllerFlowNodeConfigurationOutput) ContinueCondition() FlowConditionOutput {
+	return o.ApplyT(func(v FlowLoopControllerFlowNodeConfiguration) FlowCondition { return v.ContinueCondition }).(FlowConditionOutput)
+}
+
+// Maximum number of iterations the loop can perform
+func (o FlowLoopControllerFlowNodeConfigurationOutput) MaxIterations() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FlowLoopControllerFlowNodeConfiguration) *float64 { return v.MaxIterations }).(pulumi.Float64PtrOutput)
+}
+
+type FlowLoopControllerFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowLoopControllerFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLoopControllerFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowLoopControllerFlowNodeConfigurationPtrOutput) ToFlowLoopControllerFlowNodeConfigurationPtrOutput() FlowLoopControllerFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowLoopControllerFlowNodeConfigurationPtrOutput) ToFlowLoopControllerFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowLoopControllerFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowLoopControllerFlowNodeConfigurationPtrOutput) Elem() FlowLoopControllerFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowLoopControllerFlowNodeConfiguration) FlowLoopControllerFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowLoopControllerFlowNodeConfiguration
+		return ret
+	}).(FlowLoopControllerFlowNodeConfigurationOutput)
+}
+
+func (o FlowLoopControllerFlowNodeConfigurationPtrOutput) ContinueCondition() FlowConditionPtrOutput {
+	return o.ApplyT(func(v *FlowLoopControllerFlowNodeConfiguration) *FlowCondition {
+		if v == nil {
+			return nil
+		}
+		return &v.ContinueCondition
+	}).(FlowConditionPtrOutput)
+}
+
+// Maximum number of iterations the loop can perform
+func (o FlowLoopControllerFlowNodeConfigurationPtrOutput) MaxIterations() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FlowLoopControllerFlowNodeConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIterations
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Loop node config, contains loop's internal definition
+type FlowLoopFlowNodeConfiguration struct {
+	Definition FlowDefinition `pulumi:"definition"`
+}
+
+// FlowLoopFlowNodeConfigurationInput is an input type that accepts FlowLoopFlowNodeConfigurationArgs and FlowLoopFlowNodeConfigurationOutput values.
+// You can construct a concrete instance of `FlowLoopFlowNodeConfigurationInput` via:
+//
+//	FlowLoopFlowNodeConfigurationArgs{...}
+type FlowLoopFlowNodeConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowLoopFlowNodeConfigurationOutput() FlowLoopFlowNodeConfigurationOutput
+	ToFlowLoopFlowNodeConfigurationOutputWithContext(context.Context) FlowLoopFlowNodeConfigurationOutput
+}
+
+// Loop node config, contains loop's internal definition
+type FlowLoopFlowNodeConfigurationArgs struct {
+	Definition FlowDefinitionInput `pulumi:"definition"`
+}
+
+func (FlowLoopFlowNodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLoopFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i FlowLoopFlowNodeConfigurationArgs) ToFlowLoopFlowNodeConfigurationOutput() FlowLoopFlowNodeConfigurationOutput {
+	return i.ToFlowLoopFlowNodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowLoopFlowNodeConfigurationArgs) ToFlowLoopFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowLoopFlowNodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLoopFlowNodeConfigurationOutput)
+}
+
+func (i FlowLoopFlowNodeConfigurationArgs) ToFlowLoopFlowNodeConfigurationPtrOutput() FlowLoopFlowNodeConfigurationPtrOutput {
+	return i.ToFlowLoopFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowLoopFlowNodeConfigurationArgs) ToFlowLoopFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowLoopFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLoopFlowNodeConfigurationOutput).ToFlowLoopFlowNodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowLoopFlowNodeConfigurationPtrInput is an input type that accepts FlowLoopFlowNodeConfigurationArgs, FlowLoopFlowNodeConfigurationPtr and FlowLoopFlowNodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowLoopFlowNodeConfigurationPtrInput` via:
+//
+//	        FlowLoopFlowNodeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowLoopFlowNodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowLoopFlowNodeConfigurationPtrOutput() FlowLoopFlowNodeConfigurationPtrOutput
+	ToFlowLoopFlowNodeConfigurationPtrOutputWithContext(context.Context) FlowLoopFlowNodeConfigurationPtrOutput
+}
+
+type flowLoopFlowNodeConfigurationPtrType FlowLoopFlowNodeConfigurationArgs
+
+func FlowLoopFlowNodeConfigurationPtr(v *FlowLoopFlowNodeConfigurationArgs) FlowLoopFlowNodeConfigurationPtrInput {
+	return (*flowLoopFlowNodeConfigurationPtrType)(v)
+}
+
+func (*flowLoopFlowNodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLoopFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i *flowLoopFlowNodeConfigurationPtrType) ToFlowLoopFlowNodeConfigurationPtrOutput() FlowLoopFlowNodeConfigurationPtrOutput {
+	return i.ToFlowLoopFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowLoopFlowNodeConfigurationPtrType) ToFlowLoopFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowLoopFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLoopFlowNodeConfigurationPtrOutput)
+}
+
+// Loop node config, contains loop's internal definition
+type FlowLoopFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowLoopFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLoopFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowLoopFlowNodeConfigurationOutput) ToFlowLoopFlowNodeConfigurationOutput() FlowLoopFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowLoopFlowNodeConfigurationOutput) ToFlowLoopFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowLoopFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowLoopFlowNodeConfigurationOutput) ToFlowLoopFlowNodeConfigurationPtrOutput() FlowLoopFlowNodeConfigurationPtrOutput {
+	return o.ToFlowLoopFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowLoopFlowNodeConfigurationOutput) ToFlowLoopFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowLoopFlowNodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowLoopFlowNodeConfiguration) *FlowLoopFlowNodeConfiguration {
+		return &v
+	}).(FlowLoopFlowNodeConfigurationPtrOutput)
+}
+
+func (o FlowLoopFlowNodeConfigurationOutput) Definition() FlowDefinitionOutput {
+	return o.ApplyT(func(v FlowLoopFlowNodeConfiguration) FlowDefinition { return v.Definition }).(FlowDefinitionOutput)
+}
+
+type FlowLoopFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowLoopFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLoopFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowLoopFlowNodeConfigurationPtrOutput) ToFlowLoopFlowNodeConfigurationPtrOutput() FlowLoopFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowLoopFlowNodeConfigurationPtrOutput) ToFlowLoopFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowLoopFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowLoopFlowNodeConfigurationPtrOutput) Elem() FlowLoopFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowLoopFlowNodeConfiguration) FlowLoopFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowLoopFlowNodeConfiguration
+		return ret
+	}).(FlowLoopFlowNodeConfigurationOutput)
+}
+
+func (o FlowLoopFlowNodeConfigurationPtrOutput) Definition() FlowDefinitionPtrOutput {
+	return o.ApplyT(func(v *FlowLoopFlowNodeConfiguration) *FlowDefinition {
+		if v == nil {
+			return nil
+		}
+		return &v.Definition
+	}).(FlowDefinitionPtrOutput)
+}
+
+// Configuration for the LoopInput node
+type FlowLoopInputFlowNodeConfiguration struct {
+}
+
+// FlowLoopInputFlowNodeConfigurationInput is an input type that accepts FlowLoopInputFlowNodeConfigurationArgs and FlowLoopInputFlowNodeConfigurationOutput values.
+// You can construct a concrete instance of `FlowLoopInputFlowNodeConfigurationInput` via:
+//
+//	FlowLoopInputFlowNodeConfigurationArgs{...}
+type FlowLoopInputFlowNodeConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowLoopInputFlowNodeConfigurationOutput() FlowLoopInputFlowNodeConfigurationOutput
+	ToFlowLoopInputFlowNodeConfigurationOutputWithContext(context.Context) FlowLoopInputFlowNodeConfigurationOutput
+}
+
+// Configuration for the LoopInput node
+type FlowLoopInputFlowNodeConfigurationArgs struct {
+}
+
+func (FlowLoopInputFlowNodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLoopInputFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i FlowLoopInputFlowNodeConfigurationArgs) ToFlowLoopInputFlowNodeConfigurationOutput() FlowLoopInputFlowNodeConfigurationOutput {
+	return i.ToFlowLoopInputFlowNodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowLoopInputFlowNodeConfigurationArgs) ToFlowLoopInputFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowLoopInputFlowNodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLoopInputFlowNodeConfigurationOutput)
+}
+
+func (i FlowLoopInputFlowNodeConfigurationArgs) ToFlowLoopInputFlowNodeConfigurationPtrOutput() FlowLoopInputFlowNodeConfigurationPtrOutput {
+	return i.ToFlowLoopInputFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowLoopInputFlowNodeConfigurationArgs) ToFlowLoopInputFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowLoopInputFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLoopInputFlowNodeConfigurationOutput).ToFlowLoopInputFlowNodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowLoopInputFlowNodeConfigurationPtrInput is an input type that accepts FlowLoopInputFlowNodeConfigurationArgs, FlowLoopInputFlowNodeConfigurationPtr and FlowLoopInputFlowNodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowLoopInputFlowNodeConfigurationPtrInput` via:
+//
+//	        FlowLoopInputFlowNodeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowLoopInputFlowNodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowLoopInputFlowNodeConfigurationPtrOutput() FlowLoopInputFlowNodeConfigurationPtrOutput
+	ToFlowLoopInputFlowNodeConfigurationPtrOutputWithContext(context.Context) FlowLoopInputFlowNodeConfigurationPtrOutput
+}
+
+type flowLoopInputFlowNodeConfigurationPtrType FlowLoopInputFlowNodeConfigurationArgs
+
+func FlowLoopInputFlowNodeConfigurationPtr(v *FlowLoopInputFlowNodeConfigurationArgs) FlowLoopInputFlowNodeConfigurationPtrInput {
+	return (*flowLoopInputFlowNodeConfigurationPtrType)(v)
+}
+
+func (*flowLoopInputFlowNodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLoopInputFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i *flowLoopInputFlowNodeConfigurationPtrType) ToFlowLoopInputFlowNodeConfigurationPtrOutput() FlowLoopInputFlowNodeConfigurationPtrOutput {
+	return i.ToFlowLoopInputFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowLoopInputFlowNodeConfigurationPtrType) ToFlowLoopInputFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowLoopInputFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLoopInputFlowNodeConfigurationPtrOutput)
+}
+
+// Configuration for the LoopInput node
+type FlowLoopInputFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowLoopInputFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLoopInputFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowLoopInputFlowNodeConfigurationOutput) ToFlowLoopInputFlowNodeConfigurationOutput() FlowLoopInputFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowLoopInputFlowNodeConfigurationOutput) ToFlowLoopInputFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowLoopInputFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowLoopInputFlowNodeConfigurationOutput) ToFlowLoopInputFlowNodeConfigurationPtrOutput() FlowLoopInputFlowNodeConfigurationPtrOutput {
+	return o.ToFlowLoopInputFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowLoopInputFlowNodeConfigurationOutput) ToFlowLoopInputFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowLoopInputFlowNodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowLoopInputFlowNodeConfiguration) *FlowLoopInputFlowNodeConfiguration {
+		return &v
+	}).(FlowLoopInputFlowNodeConfigurationPtrOutput)
+}
+
+type FlowLoopInputFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowLoopInputFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLoopInputFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowLoopInputFlowNodeConfigurationPtrOutput) ToFlowLoopInputFlowNodeConfigurationPtrOutput() FlowLoopInputFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowLoopInputFlowNodeConfigurationPtrOutput) ToFlowLoopInputFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowLoopInputFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowLoopInputFlowNodeConfigurationPtrOutput) Elem() FlowLoopInputFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowLoopInputFlowNodeConfiguration) FlowLoopInputFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowLoopInputFlowNodeConfiguration
+		return ret
+	}).(FlowLoopInputFlowNodeConfigurationOutput)
+}
+
+type FlowMetadataConfigurationForReranking struct {
+	SelectionMode              FlowRerankingMetadataSelectionMode `pulumi:"selectionMode"`
+	SelectiveModeConfiguration interface{}                        `pulumi:"selectiveModeConfiguration"`
+}
+
+// FlowMetadataConfigurationForRerankingInput is an input type that accepts FlowMetadataConfigurationForRerankingArgs and FlowMetadataConfigurationForRerankingOutput values.
+// You can construct a concrete instance of `FlowMetadataConfigurationForRerankingInput` via:
+//
+//	FlowMetadataConfigurationForRerankingArgs{...}
+type FlowMetadataConfigurationForRerankingInput interface {
+	pulumi.Input
+
+	ToFlowMetadataConfigurationForRerankingOutput() FlowMetadataConfigurationForRerankingOutput
+	ToFlowMetadataConfigurationForRerankingOutputWithContext(context.Context) FlowMetadataConfigurationForRerankingOutput
+}
+
+type FlowMetadataConfigurationForRerankingArgs struct {
+	SelectionMode              FlowRerankingMetadataSelectionModeInput `pulumi:"selectionMode"`
+	SelectiveModeConfiguration pulumi.Input                            `pulumi:"selectiveModeConfiguration"`
+}
+
+func (FlowMetadataConfigurationForRerankingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMetadataConfigurationForReranking)(nil)).Elem()
+}
+
+func (i FlowMetadataConfigurationForRerankingArgs) ToFlowMetadataConfigurationForRerankingOutput() FlowMetadataConfigurationForRerankingOutput {
+	return i.ToFlowMetadataConfigurationForRerankingOutputWithContext(context.Background())
+}
+
+func (i FlowMetadataConfigurationForRerankingArgs) ToFlowMetadataConfigurationForRerankingOutputWithContext(ctx context.Context) FlowMetadataConfigurationForRerankingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataConfigurationForRerankingOutput)
+}
+
+func (i FlowMetadataConfigurationForRerankingArgs) ToFlowMetadataConfigurationForRerankingPtrOutput() FlowMetadataConfigurationForRerankingPtrOutput {
+	return i.ToFlowMetadataConfigurationForRerankingPtrOutputWithContext(context.Background())
+}
+
+func (i FlowMetadataConfigurationForRerankingArgs) ToFlowMetadataConfigurationForRerankingPtrOutputWithContext(ctx context.Context) FlowMetadataConfigurationForRerankingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataConfigurationForRerankingOutput).ToFlowMetadataConfigurationForRerankingPtrOutputWithContext(ctx)
+}
+
+// FlowMetadataConfigurationForRerankingPtrInput is an input type that accepts FlowMetadataConfigurationForRerankingArgs, FlowMetadataConfigurationForRerankingPtr and FlowMetadataConfigurationForRerankingPtrOutput values.
+// You can construct a concrete instance of `FlowMetadataConfigurationForRerankingPtrInput` via:
+//
+//	        FlowMetadataConfigurationForRerankingArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowMetadataConfigurationForRerankingPtrInput interface {
+	pulumi.Input
+
+	ToFlowMetadataConfigurationForRerankingPtrOutput() FlowMetadataConfigurationForRerankingPtrOutput
+	ToFlowMetadataConfigurationForRerankingPtrOutputWithContext(context.Context) FlowMetadataConfigurationForRerankingPtrOutput
+}
+
+type flowMetadataConfigurationForRerankingPtrType FlowMetadataConfigurationForRerankingArgs
+
+func FlowMetadataConfigurationForRerankingPtr(v *FlowMetadataConfigurationForRerankingArgs) FlowMetadataConfigurationForRerankingPtrInput {
+	return (*flowMetadataConfigurationForRerankingPtrType)(v)
+}
+
+func (*flowMetadataConfigurationForRerankingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMetadataConfigurationForReranking)(nil)).Elem()
+}
+
+func (i *flowMetadataConfigurationForRerankingPtrType) ToFlowMetadataConfigurationForRerankingPtrOutput() FlowMetadataConfigurationForRerankingPtrOutput {
+	return i.ToFlowMetadataConfigurationForRerankingPtrOutputWithContext(context.Background())
+}
+
+func (i *flowMetadataConfigurationForRerankingPtrType) ToFlowMetadataConfigurationForRerankingPtrOutputWithContext(ctx context.Context) FlowMetadataConfigurationForRerankingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataConfigurationForRerankingPtrOutput)
+}
+
+type FlowMetadataConfigurationForRerankingOutput struct{ *pulumi.OutputState }
+
+func (FlowMetadataConfigurationForRerankingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMetadataConfigurationForReranking)(nil)).Elem()
+}
+
+func (o FlowMetadataConfigurationForRerankingOutput) ToFlowMetadataConfigurationForRerankingOutput() FlowMetadataConfigurationForRerankingOutput {
+	return o
+}
+
+func (o FlowMetadataConfigurationForRerankingOutput) ToFlowMetadataConfigurationForRerankingOutputWithContext(ctx context.Context) FlowMetadataConfigurationForRerankingOutput {
+	return o
+}
+
+func (o FlowMetadataConfigurationForRerankingOutput) ToFlowMetadataConfigurationForRerankingPtrOutput() FlowMetadataConfigurationForRerankingPtrOutput {
+	return o.ToFlowMetadataConfigurationForRerankingPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMetadataConfigurationForRerankingOutput) ToFlowMetadataConfigurationForRerankingPtrOutputWithContext(ctx context.Context) FlowMetadataConfigurationForRerankingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMetadataConfigurationForReranking) *FlowMetadataConfigurationForReranking {
+		return &v
+	}).(FlowMetadataConfigurationForRerankingPtrOutput)
+}
+
+func (o FlowMetadataConfigurationForRerankingOutput) SelectionMode() FlowRerankingMetadataSelectionModeOutput {
+	return o.ApplyT(func(v FlowMetadataConfigurationForReranking) FlowRerankingMetadataSelectionMode {
+		return v.SelectionMode
+	}).(FlowRerankingMetadataSelectionModeOutput)
+}
+
+func (o FlowMetadataConfigurationForRerankingOutput) SelectiveModeConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v FlowMetadataConfigurationForReranking) interface{} { return v.SelectiveModeConfiguration }).(pulumi.AnyOutput)
+}
+
+type FlowMetadataConfigurationForRerankingPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMetadataConfigurationForRerankingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMetadataConfigurationForReranking)(nil)).Elem()
+}
+
+func (o FlowMetadataConfigurationForRerankingPtrOutput) ToFlowMetadataConfigurationForRerankingPtrOutput() FlowMetadataConfigurationForRerankingPtrOutput {
+	return o
+}
+
+func (o FlowMetadataConfigurationForRerankingPtrOutput) ToFlowMetadataConfigurationForRerankingPtrOutputWithContext(ctx context.Context) FlowMetadataConfigurationForRerankingPtrOutput {
+	return o
+}
+
+func (o FlowMetadataConfigurationForRerankingPtrOutput) Elem() FlowMetadataConfigurationForRerankingOutput {
+	return o.ApplyT(func(v *FlowMetadataConfigurationForReranking) FlowMetadataConfigurationForReranking {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMetadataConfigurationForReranking
+		return ret
+	}).(FlowMetadataConfigurationForRerankingOutput)
+}
+
+func (o FlowMetadataConfigurationForRerankingPtrOutput) SelectionMode() FlowRerankingMetadataSelectionModePtrOutput {
+	return o.ApplyT(func(v *FlowMetadataConfigurationForReranking) *FlowRerankingMetadataSelectionMode {
+		if v == nil {
+			return nil
+		}
+		return &v.SelectionMode
+	}).(FlowRerankingMetadataSelectionModePtrOutput)
+}
+
+func (o FlowMetadataConfigurationForRerankingPtrOutput) SelectiveModeConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *FlowMetadataConfigurationForReranking) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SelectiveModeConfiguration
+	}).(pulumi.AnyOutput)
 }
 
 // Internal mixin for flow node
@@ -18077,6 +19382,416 @@ func (o FlowNodeConfiguration12PropertiesPtrOutput) InlineCode() FlowInlineCodeF
 		}
 		return &v.InlineCode
 	}).(FlowInlineCodeFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration13Properties struct {
+	Loop FlowLoopFlowNodeConfiguration `pulumi:"loop"`
+}
+
+// FlowNodeConfiguration13PropertiesInput is an input type that accepts FlowNodeConfiguration13PropertiesArgs and FlowNodeConfiguration13PropertiesOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration13PropertiesInput` via:
+//
+//	FlowNodeConfiguration13PropertiesArgs{...}
+type FlowNodeConfiguration13PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration13PropertiesOutput() FlowNodeConfiguration13PropertiesOutput
+	ToFlowNodeConfiguration13PropertiesOutputWithContext(context.Context) FlowNodeConfiguration13PropertiesOutput
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration13PropertiesArgs struct {
+	Loop FlowLoopFlowNodeConfigurationInput `pulumi:"loop"`
+}
+
+func (FlowNodeConfiguration13PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration13Properties)(nil)).Elem()
+}
+
+func (i FlowNodeConfiguration13PropertiesArgs) ToFlowNodeConfiguration13PropertiesOutput() FlowNodeConfiguration13PropertiesOutput {
+	return i.ToFlowNodeConfiguration13PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration13PropertiesArgs) ToFlowNodeConfiguration13PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration13PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration13PropertiesOutput)
+}
+
+func (i FlowNodeConfiguration13PropertiesArgs) ToFlowNodeConfiguration13PropertiesPtrOutput() FlowNodeConfiguration13PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration13PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration13PropertiesArgs) ToFlowNodeConfiguration13PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration13PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration13PropertiesOutput).ToFlowNodeConfiguration13PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowNodeConfiguration13PropertiesPtrInput is an input type that accepts FlowNodeConfiguration13PropertiesArgs, FlowNodeConfiguration13PropertiesPtr and FlowNodeConfiguration13PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration13PropertiesPtrInput` via:
+//
+//	        FlowNodeConfiguration13PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowNodeConfiguration13PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration13PropertiesPtrOutput() FlowNodeConfiguration13PropertiesPtrOutput
+	ToFlowNodeConfiguration13PropertiesPtrOutputWithContext(context.Context) FlowNodeConfiguration13PropertiesPtrOutput
+}
+
+type flowNodeConfiguration13PropertiesPtrType FlowNodeConfiguration13PropertiesArgs
+
+func FlowNodeConfiguration13PropertiesPtr(v *FlowNodeConfiguration13PropertiesArgs) FlowNodeConfiguration13PropertiesPtrInput {
+	return (*flowNodeConfiguration13PropertiesPtrType)(v)
+}
+
+func (*flowNodeConfiguration13PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration13Properties)(nil)).Elem()
+}
+
+func (i *flowNodeConfiguration13PropertiesPtrType) ToFlowNodeConfiguration13PropertiesPtrOutput() FlowNodeConfiguration13PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration13PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowNodeConfiguration13PropertiesPtrType) ToFlowNodeConfiguration13PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration13PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration13PropertiesPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration13PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration13PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration13Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration13PropertiesOutput) ToFlowNodeConfiguration13PropertiesOutput() FlowNodeConfiguration13PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration13PropertiesOutput) ToFlowNodeConfiguration13PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration13PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration13PropertiesOutput) ToFlowNodeConfiguration13PropertiesPtrOutput() FlowNodeConfiguration13PropertiesPtrOutput {
+	return o.ToFlowNodeConfiguration13PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeConfiguration13PropertiesOutput) ToFlowNodeConfiguration13PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration13PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNodeConfiguration13Properties) *FlowNodeConfiguration13Properties {
+		return &v
+	}).(FlowNodeConfiguration13PropertiesPtrOutput)
+}
+
+func (o FlowNodeConfiguration13PropertiesOutput) Loop() FlowLoopFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowNodeConfiguration13Properties) FlowLoopFlowNodeConfiguration { return v.Loop }).(FlowLoopFlowNodeConfigurationOutput)
+}
+
+type FlowNodeConfiguration13PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration13PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration13Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration13PropertiesPtrOutput) ToFlowNodeConfiguration13PropertiesPtrOutput() FlowNodeConfiguration13PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration13PropertiesPtrOutput) ToFlowNodeConfiguration13PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration13PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration13PropertiesPtrOutput) Elem() FlowNodeConfiguration13PropertiesOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration13Properties) FlowNodeConfiguration13Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNodeConfiguration13Properties
+		return ret
+	}).(FlowNodeConfiguration13PropertiesOutput)
+}
+
+func (o FlowNodeConfiguration13PropertiesPtrOutput) Loop() FlowLoopFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration13Properties) *FlowLoopFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Loop
+	}).(FlowLoopFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration14Properties struct {
+	LoopInput FlowLoopInputFlowNodeConfiguration `pulumi:"loopInput"`
+}
+
+// FlowNodeConfiguration14PropertiesInput is an input type that accepts FlowNodeConfiguration14PropertiesArgs and FlowNodeConfiguration14PropertiesOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration14PropertiesInput` via:
+//
+//	FlowNodeConfiguration14PropertiesArgs{...}
+type FlowNodeConfiguration14PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration14PropertiesOutput() FlowNodeConfiguration14PropertiesOutput
+	ToFlowNodeConfiguration14PropertiesOutputWithContext(context.Context) FlowNodeConfiguration14PropertiesOutput
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration14PropertiesArgs struct {
+	LoopInput FlowLoopInputFlowNodeConfigurationInput `pulumi:"loopInput"`
+}
+
+func (FlowNodeConfiguration14PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration14Properties)(nil)).Elem()
+}
+
+func (i FlowNodeConfiguration14PropertiesArgs) ToFlowNodeConfiguration14PropertiesOutput() FlowNodeConfiguration14PropertiesOutput {
+	return i.ToFlowNodeConfiguration14PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration14PropertiesArgs) ToFlowNodeConfiguration14PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration14PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration14PropertiesOutput)
+}
+
+func (i FlowNodeConfiguration14PropertiesArgs) ToFlowNodeConfiguration14PropertiesPtrOutput() FlowNodeConfiguration14PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration14PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration14PropertiesArgs) ToFlowNodeConfiguration14PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration14PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration14PropertiesOutput).ToFlowNodeConfiguration14PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowNodeConfiguration14PropertiesPtrInput is an input type that accepts FlowNodeConfiguration14PropertiesArgs, FlowNodeConfiguration14PropertiesPtr and FlowNodeConfiguration14PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration14PropertiesPtrInput` via:
+//
+//	        FlowNodeConfiguration14PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowNodeConfiguration14PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration14PropertiesPtrOutput() FlowNodeConfiguration14PropertiesPtrOutput
+	ToFlowNodeConfiguration14PropertiesPtrOutputWithContext(context.Context) FlowNodeConfiguration14PropertiesPtrOutput
+}
+
+type flowNodeConfiguration14PropertiesPtrType FlowNodeConfiguration14PropertiesArgs
+
+func FlowNodeConfiguration14PropertiesPtr(v *FlowNodeConfiguration14PropertiesArgs) FlowNodeConfiguration14PropertiesPtrInput {
+	return (*flowNodeConfiguration14PropertiesPtrType)(v)
+}
+
+func (*flowNodeConfiguration14PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration14Properties)(nil)).Elem()
+}
+
+func (i *flowNodeConfiguration14PropertiesPtrType) ToFlowNodeConfiguration14PropertiesPtrOutput() FlowNodeConfiguration14PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration14PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowNodeConfiguration14PropertiesPtrType) ToFlowNodeConfiguration14PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration14PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration14PropertiesPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration14PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration14PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration14Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration14PropertiesOutput) ToFlowNodeConfiguration14PropertiesOutput() FlowNodeConfiguration14PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration14PropertiesOutput) ToFlowNodeConfiguration14PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration14PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration14PropertiesOutput) ToFlowNodeConfiguration14PropertiesPtrOutput() FlowNodeConfiguration14PropertiesPtrOutput {
+	return o.ToFlowNodeConfiguration14PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeConfiguration14PropertiesOutput) ToFlowNodeConfiguration14PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration14PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNodeConfiguration14Properties) *FlowNodeConfiguration14Properties {
+		return &v
+	}).(FlowNodeConfiguration14PropertiesPtrOutput)
+}
+
+func (o FlowNodeConfiguration14PropertiesOutput) LoopInput() FlowLoopInputFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowNodeConfiguration14Properties) FlowLoopInputFlowNodeConfiguration { return v.LoopInput }).(FlowLoopInputFlowNodeConfigurationOutput)
+}
+
+type FlowNodeConfiguration14PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration14PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration14Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration14PropertiesPtrOutput) ToFlowNodeConfiguration14PropertiesPtrOutput() FlowNodeConfiguration14PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration14PropertiesPtrOutput) ToFlowNodeConfiguration14PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration14PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration14PropertiesPtrOutput) Elem() FlowNodeConfiguration14PropertiesOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration14Properties) FlowNodeConfiguration14Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNodeConfiguration14Properties
+		return ret
+	}).(FlowNodeConfiguration14PropertiesOutput)
+}
+
+func (o FlowNodeConfiguration14PropertiesPtrOutput) LoopInput() FlowLoopInputFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration14Properties) *FlowLoopInputFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.LoopInput
+	}).(FlowLoopInputFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration15Properties struct {
+	LoopController FlowLoopControllerFlowNodeConfiguration `pulumi:"loopController"`
+}
+
+// FlowNodeConfiguration15PropertiesInput is an input type that accepts FlowNodeConfiguration15PropertiesArgs and FlowNodeConfiguration15PropertiesOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration15PropertiesInput` via:
+//
+//	FlowNodeConfiguration15PropertiesArgs{...}
+type FlowNodeConfiguration15PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration15PropertiesOutput() FlowNodeConfiguration15PropertiesOutput
+	ToFlowNodeConfiguration15PropertiesOutputWithContext(context.Context) FlowNodeConfiguration15PropertiesOutput
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration15PropertiesArgs struct {
+	LoopController FlowLoopControllerFlowNodeConfigurationInput `pulumi:"loopController"`
+}
+
+func (FlowNodeConfiguration15PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration15Properties)(nil)).Elem()
+}
+
+func (i FlowNodeConfiguration15PropertiesArgs) ToFlowNodeConfiguration15PropertiesOutput() FlowNodeConfiguration15PropertiesOutput {
+	return i.ToFlowNodeConfiguration15PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration15PropertiesArgs) ToFlowNodeConfiguration15PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration15PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration15PropertiesOutput)
+}
+
+func (i FlowNodeConfiguration15PropertiesArgs) ToFlowNodeConfiguration15PropertiesPtrOutput() FlowNodeConfiguration15PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration15PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration15PropertiesArgs) ToFlowNodeConfiguration15PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration15PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration15PropertiesOutput).ToFlowNodeConfiguration15PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowNodeConfiguration15PropertiesPtrInput is an input type that accepts FlowNodeConfiguration15PropertiesArgs, FlowNodeConfiguration15PropertiesPtr and FlowNodeConfiguration15PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration15PropertiesPtrInput` via:
+//
+//	        FlowNodeConfiguration15PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowNodeConfiguration15PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration15PropertiesPtrOutput() FlowNodeConfiguration15PropertiesPtrOutput
+	ToFlowNodeConfiguration15PropertiesPtrOutputWithContext(context.Context) FlowNodeConfiguration15PropertiesPtrOutput
+}
+
+type flowNodeConfiguration15PropertiesPtrType FlowNodeConfiguration15PropertiesArgs
+
+func FlowNodeConfiguration15PropertiesPtr(v *FlowNodeConfiguration15PropertiesArgs) FlowNodeConfiguration15PropertiesPtrInput {
+	return (*flowNodeConfiguration15PropertiesPtrType)(v)
+}
+
+func (*flowNodeConfiguration15PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration15Properties)(nil)).Elem()
+}
+
+func (i *flowNodeConfiguration15PropertiesPtrType) ToFlowNodeConfiguration15PropertiesPtrOutput() FlowNodeConfiguration15PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration15PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowNodeConfiguration15PropertiesPtrType) ToFlowNodeConfiguration15PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration15PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration15PropertiesPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration15PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration15PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration15Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration15PropertiesOutput) ToFlowNodeConfiguration15PropertiesOutput() FlowNodeConfiguration15PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration15PropertiesOutput) ToFlowNodeConfiguration15PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration15PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration15PropertiesOutput) ToFlowNodeConfiguration15PropertiesPtrOutput() FlowNodeConfiguration15PropertiesPtrOutput {
+	return o.ToFlowNodeConfiguration15PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeConfiguration15PropertiesOutput) ToFlowNodeConfiguration15PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration15PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNodeConfiguration15Properties) *FlowNodeConfiguration15Properties {
+		return &v
+	}).(FlowNodeConfiguration15PropertiesPtrOutput)
+}
+
+func (o FlowNodeConfiguration15PropertiesOutput) LoopController() FlowLoopControllerFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowNodeConfiguration15Properties) FlowLoopControllerFlowNodeConfiguration {
+		return v.LoopController
+	}).(FlowLoopControllerFlowNodeConfigurationOutput)
+}
+
+type FlowNodeConfiguration15PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration15PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration15Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration15PropertiesPtrOutput) ToFlowNodeConfiguration15PropertiesPtrOutput() FlowNodeConfiguration15PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration15PropertiesPtrOutput) ToFlowNodeConfiguration15PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration15PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration15PropertiesPtrOutput) Elem() FlowNodeConfiguration15PropertiesOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration15Properties) FlowNodeConfiguration15Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNodeConfiguration15Properties
+		return ret
+	}).(FlowNodeConfiguration15PropertiesOutput)
+}
+
+func (o FlowNodeConfiguration15PropertiesPtrOutput) LoopController() FlowLoopControllerFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration15Properties) *FlowLoopControllerFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.LoopController
+	}).(FlowLoopControllerFlowNodeConfigurationPtrOutput)
 }
 
 // Node configuration in a flow
@@ -19309,11 +21024,12 @@ func (o FlowNodeConfiguration9PropertiesPtrOutput) Iterator() FlowIteratorFlowNo
 
 // Input to a node in a flow
 type FlowNodeInputType struct {
+	Category *FlowNodeInputCategory `pulumi:"category"`
 	// Expression for a node input in a flow
 	Expression string `pulumi:"expression"`
 	// Name of a node input in a flow
 	Name string `pulumi:"name"`
-	// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+	// Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 	Type FlowNodeIoDataType `pulumi:"type"`
 }
 
@@ -19330,11 +21046,12 @@ type FlowNodeInputTypeInput interface {
 
 // Input to a node in a flow
 type FlowNodeInputTypeArgs struct {
+	Category FlowNodeInputCategoryPtrInput `pulumi:"category"`
 	// Expression for a node input in a flow
 	Expression pulumi.StringInput `pulumi:"expression"`
 	// Name of a node input in a flow
 	Name pulumi.StringInput `pulumi:"name"`
-	// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+	// Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 	Type FlowNodeIoDataTypeInput `pulumi:"type"`
 }
 
@@ -19390,6 +21107,10 @@ func (o FlowNodeInputTypeOutput) ToFlowNodeInputTypeOutputWithContext(ctx contex
 	return o
 }
 
+func (o FlowNodeInputTypeOutput) Category() FlowNodeInputCategoryPtrOutput {
+	return o.ApplyT(func(v FlowNodeInputType) *FlowNodeInputCategory { return v.Category }).(FlowNodeInputCategoryPtrOutput)
+}
+
 // Expression for a node input in a flow
 func (o FlowNodeInputTypeOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowNodeInputType) string { return v.Expression }).(pulumi.StringOutput)
@@ -19400,7 +21121,7 @@ func (o FlowNodeInputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowNodeInputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+// Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 func (o FlowNodeInputTypeOutput) Type() FlowNodeIoDataTypeOutput {
 	return o.ApplyT(func(v FlowNodeInputType) FlowNodeIoDataType { return v.Type }).(FlowNodeIoDataTypeOutput)
 }
@@ -19653,6 +21374,139 @@ func (o FlowOutputFlowNodeConfigurationPtrOutput) Elem() FlowOutputFlowNodeConfi
 		var ret FlowOutputFlowNodeConfiguration
 		return ret
 	}).(FlowOutputFlowNodeConfigurationOutput)
+}
+
+type FlowPerformanceConfiguration struct {
+	Latency *FlowPerformanceConfigurationLatency `pulumi:"latency"`
+}
+
+// FlowPerformanceConfigurationInput is an input type that accepts FlowPerformanceConfigurationArgs and FlowPerformanceConfigurationOutput values.
+// You can construct a concrete instance of `FlowPerformanceConfigurationInput` via:
+//
+//	FlowPerformanceConfigurationArgs{...}
+type FlowPerformanceConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowPerformanceConfigurationOutput() FlowPerformanceConfigurationOutput
+	ToFlowPerformanceConfigurationOutputWithContext(context.Context) FlowPerformanceConfigurationOutput
+}
+
+type FlowPerformanceConfigurationArgs struct {
+	Latency FlowPerformanceConfigurationLatencyPtrInput `pulumi:"latency"`
+}
+
+func (FlowPerformanceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPerformanceConfiguration)(nil)).Elem()
+}
+
+func (i FlowPerformanceConfigurationArgs) ToFlowPerformanceConfigurationOutput() FlowPerformanceConfigurationOutput {
+	return i.ToFlowPerformanceConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowPerformanceConfigurationArgs) ToFlowPerformanceConfigurationOutputWithContext(ctx context.Context) FlowPerformanceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowPerformanceConfigurationOutput)
+}
+
+func (i FlowPerformanceConfigurationArgs) ToFlowPerformanceConfigurationPtrOutput() FlowPerformanceConfigurationPtrOutput {
+	return i.ToFlowPerformanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowPerformanceConfigurationArgs) ToFlowPerformanceConfigurationPtrOutputWithContext(ctx context.Context) FlowPerformanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowPerformanceConfigurationOutput).ToFlowPerformanceConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowPerformanceConfigurationPtrInput is an input type that accepts FlowPerformanceConfigurationArgs, FlowPerformanceConfigurationPtr and FlowPerformanceConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowPerformanceConfigurationPtrInput` via:
+//
+//	        FlowPerformanceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowPerformanceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowPerformanceConfigurationPtrOutput() FlowPerformanceConfigurationPtrOutput
+	ToFlowPerformanceConfigurationPtrOutputWithContext(context.Context) FlowPerformanceConfigurationPtrOutput
+}
+
+type flowPerformanceConfigurationPtrType FlowPerformanceConfigurationArgs
+
+func FlowPerformanceConfigurationPtr(v *FlowPerformanceConfigurationArgs) FlowPerformanceConfigurationPtrInput {
+	return (*flowPerformanceConfigurationPtrType)(v)
+}
+
+func (*flowPerformanceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowPerformanceConfiguration)(nil)).Elem()
+}
+
+func (i *flowPerformanceConfigurationPtrType) ToFlowPerformanceConfigurationPtrOutput() FlowPerformanceConfigurationPtrOutput {
+	return i.ToFlowPerformanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowPerformanceConfigurationPtrType) ToFlowPerformanceConfigurationPtrOutputWithContext(ctx context.Context) FlowPerformanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowPerformanceConfigurationPtrOutput)
+}
+
+type FlowPerformanceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowPerformanceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPerformanceConfiguration)(nil)).Elem()
+}
+
+func (o FlowPerformanceConfigurationOutput) ToFlowPerformanceConfigurationOutput() FlowPerformanceConfigurationOutput {
+	return o
+}
+
+func (o FlowPerformanceConfigurationOutput) ToFlowPerformanceConfigurationOutputWithContext(ctx context.Context) FlowPerformanceConfigurationOutput {
+	return o
+}
+
+func (o FlowPerformanceConfigurationOutput) ToFlowPerformanceConfigurationPtrOutput() FlowPerformanceConfigurationPtrOutput {
+	return o.ToFlowPerformanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPerformanceConfigurationOutput) ToFlowPerformanceConfigurationPtrOutputWithContext(ctx context.Context) FlowPerformanceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowPerformanceConfiguration) *FlowPerformanceConfiguration {
+		return &v
+	}).(FlowPerformanceConfigurationPtrOutput)
+}
+
+func (o FlowPerformanceConfigurationOutput) Latency() FlowPerformanceConfigurationLatencyPtrOutput {
+	return o.ApplyT(func(v FlowPerformanceConfiguration) *FlowPerformanceConfigurationLatency { return v.Latency }).(FlowPerformanceConfigurationLatencyPtrOutput)
+}
+
+type FlowPerformanceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowPerformanceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowPerformanceConfiguration)(nil)).Elem()
+}
+
+func (o FlowPerformanceConfigurationPtrOutput) ToFlowPerformanceConfigurationPtrOutput() FlowPerformanceConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowPerformanceConfigurationPtrOutput) ToFlowPerformanceConfigurationPtrOutputWithContext(ctx context.Context) FlowPerformanceConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowPerformanceConfigurationPtrOutput) Elem() FlowPerformanceConfigurationOutput {
+	return o.ApplyT(func(v *FlowPerformanceConfiguration) FlowPerformanceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowPerformanceConfiguration
+		return ret
+	}).(FlowPerformanceConfigurationOutput)
+}
+
+func (o FlowPerformanceConfigurationPtrOutput) Latency() FlowPerformanceConfigurationLatencyPtrOutput {
+	return o.ApplyT(func(v *FlowPerformanceConfiguration) *FlowPerformanceConfigurationLatency {
+		if v == nil {
+			return nil
+		}
+		return v.Latency
+	}).(FlowPerformanceConfigurationLatencyPtrOutput)
 }
 
 // Prompt flow node configuration
@@ -20992,6 +22846,282 @@ func (o FlowPromptTemplateConfigurationPropertiesPtrOutput) Text() FlowTextPromp
 	}).(FlowTextPromptTemplateConfigurationPtrOutput)
 }
 
+// Reranking Metadata Selective Mode Configuration
+type FlowRerankingMetadataSelectiveModeConfiguration0Properties struct {
+	FieldsToInclude []FlowFieldForReranking `pulumi:"fieldsToInclude"`
+}
+
+// FlowRerankingMetadataSelectiveModeConfiguration0PropertiesInput is an input type that accepts FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs and FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `FlowRerankingMetadataSelectiveModeConfiguration0PropertiesInput` via:
+//
+//	FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs{...}
+type FlowRerankingMetadataSelectiveModeConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput() FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput
+	ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutputWithContext(context.Context) FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput
+}
+
+// Reranking Metadata Selective Mode Configuration
+type FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs struct {
+	FieldsToInclude FlowFieldForRerankingArrayInput `pulumi:"fieldsToInclude"`
+}
+
+func (FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRerankingMetadataSelectiveModeConfiguration0Properties)(nil)).Elem()
+}
+
+func (i FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs) ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput() FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput {
+	return i.ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs) ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput)
+}
+
+func (i FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs) ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput() FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput {
+	return i.ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs) ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput).ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrInput is an input type that accepts FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs, FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtr and FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrInput` via:
+//
+//	        FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput() FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput
+	ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutputWithContext(context.Context) FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput
+}
+
+type flowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrType FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs
+
+func FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtr(v *FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs) FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrInput {
+	return (*flowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrType)(v)
+}
+
+func (*flowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRerankingMetadataSelectiveModeConfiguration0Properties)(nil)).Elem()
+}
+
+func (i *flowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrType) ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput() FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput {
+	return i.ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrType) ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput)
+}
+
+// Reranking Metadata Selective Mode Configuration
+type FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRerankingMetadataSelectiveModeConfiguration0Properties)(nil)).Elem()
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput) ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput() FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput) ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput) ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput() FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput {
+	return o.ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput) ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowRerankingMetadataSelectiveModeConfiguration0Properties) *FlowRerankingMetadataSelectiveModeConfiguration0Properties {
+		return &v
+	}).(FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput)
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput) FieldsToInclude() FlowFieldForRerankingArrayOutput {
+	return o.ApplyT(func(v FlowRerankingMetadataSelectiveModeConfiguration0Properties) []FlowFieldForReranking {
+		return v.FieldsToInclude
+	}).(FlowFieldForRerankingArrayOutput)
+}
+
+type FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRerankingMetadataSelectiveModeConfiguration0Properties)(nil)).Elem()
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput) ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput() FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput) ToFlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput) Elem() FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *FlowRerankingMetadataSelectiveModeConfiguration0Properties) FlowRerankingMetadataSelectiveModeConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowRerankingMetadataSelectiveModeConfiguration0Properties
+		return ret
+	}).(FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput)
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput) FieldsToInclude() FlowFieldForRerankingArrayOutput {
+	return o.ApplyT(func(v *FlowRerankingMetadataSelectiveModeConfiguration0Properties) []FlowFieldForReranking {
+		if v == nil {
+			return nil
+		}
+		return v.FieldsToInclude
+	}).(FlowFieldForRerankingArrayOutput)
+}
+
+// Reranking Metadata Selective Mode Configuration
+type FlowRerankingMetadataSelectiveModeConfiguration1Properties struct {
+	FieldsToExclude []FlowFieldForReranking `pulumi:"fieldsToExclude"`
+}
+
+// FlowRerankingMetadataSelectiveModeConfiguration1PropertiesInput is an input type that accepts FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs and FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `FlowRerankingMetadataSelectiveModeConfiguration1PropertiesInput` via:
+//
+//	FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs{...}
+type FlowRerankingMetadataSelectiveModeConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput() FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput
+	ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutputWithContext(context.Context) FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput
+}
+
+// Reranking Metadata Selective Mode Configuration
+type FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs struct {
+	FieldsToExclude FlowFieldForRerankingArrayInput `pulumi:"fieldsToExclude"`
+}
+
+func (FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRerankingMetadataSelectiveModeConfiguration1Properties)(nil)).Elem()
+}
+
+func (i FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs) ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput() FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput {
+	return i.ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs) ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput)
+}
+
+func (i FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs) ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput() FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput {
+	return i.ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs) ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput).ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrInput is an input type that accepts FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs, FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtr and FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrInput` via:
+//
+//	        FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput() FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput
+	ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutputWithContext(context.Context) FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput
+}
+
+type flowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrType FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs
+
+func FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtr(v *FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs) FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrInput {
+	return (*flowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrType)(v)
+}
+
+func (*flowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRerankingMetadataSelectiveModeConfiguration1Properties)(nil)).Elem()
+}
+
+func (i *flowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrType) ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput() FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput {
+	return i.ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrType) ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput)
+}
+
+// Reranking Metadata Selective Mode Configuration
+type FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRerankingMetadataSelectiveModeConfiguration1Properties)(nil)).Elem()
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput) ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput() FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput) ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput) ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput() FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput {
+	return o.ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput) ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowRerankingMetadataSelectiveModeConfiguration1Properties) *FlowRerankingMetadataSelectiveModeConfiguration1Properties {
+		return &v
+	}).(FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput)
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput) FieldsToExclude() FlowFieldForRerankingArrayOutput {
+	return o.ApplyT(func(v FlowRerankingMetadataSelectiveModeConfiguration1Properties) []FlowFieldForReranking {
+		return v.FieldsToExclude
+	}).(FlowFieldForRerankingArrayOutput)
+}
+
+type FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRerankingMetadataSelectiveModeConfiguration1Properties)(nil)).Elem()
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput) ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput() FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput) ToFlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput) Elem() FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *FlowRerankingMetadataSelectiveModeConfiguration1Properties) FlowRerankingMetadataSelectiveModeConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowRerankingMetadataSelectiveModeConfiguration1Properties
+		return ret
+	}).(FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput)
+}
+
+func (o FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput) FieldsToExclude() FlowFieldForRerankingArrayOutput {
+	return o.ApplyT(func(v *FlowRerankingMetadataSelectiveModeConfiguration1Properties) []FlowFieldForReranking {
+		if v == nil {
+			return nil
+		}
+		return v.FieldsToExclude
+	}).(FlowFieldForRerankingArrayOutput)
+}
+
 // Retrieval flow node configuration
 type FlowRetrievalFlowNodeConfiguration struct {
 	ServiceConfiguration FlowRetrievalFlowNodeServiceConfigurationProperties `pulumi:"serviceConfiguration"`
@@ -22217,6 +24347,520 @@ func (o FlowValidationArrayOutput) Index(i pulumi.IntInput) FlowValidationOutput
 	}).(FlowValidationOutput)
 }
 
+type FlowVectorSearchBedrockRerankingConfiguration struct {
+	MetadataConfiguration *FlowMetadataConfigurationForReranking             `pulumi:"metadataConfiguration"`
+	ModelConfiguration    FlowVectorSearchBedrockRerankingModelConfiguration `pulumi:"modelConfiguration"`
+	// Number Of Results For Reranking
+	NumberOfRerankedResults *float64 `pulumi:"numberOfRerankedResults"`
+}
+
+// FlowVectorSearchBedrockRerankingConfigurationInput is an input type that accepts FlowVectorSearchBedrockRerankingConfigurationArgs and FlowVectorSearchBedrockRerankingConfigurationOutput values.
+// You can construct a concrete instance of `FlowVectorSearchBedrockRerankingConfigurationInput` via:
+//
+//	FlowVectorSearchBedrockRerankingConfigurationArgs{...}
+type FlowVectorSearchBedrockRerankingConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowVectorSearchBedrockRerankingConfigurationOutput() FlowVectorSearchBedrockRerankingConfigurationOutput
+	ToFlowVectorSearchBedrockRerankingConfigurationOutputWithContext(context.Context) FlowVectorSearchBedrockRerankingConfigurationOutput
+}
+
+type FlowVectorSearchBedrockRerankingConfigurationArgs struct {
+	MetadataConfiguration FlowMetadataConfigurationForRerankingPtrInput           `pulumi:"metadataConfiguration"`
+	ModelConfiguration    FlowVectorSearchBedrockRerankingModelConfigurationInput `pulumi:"modelConfiguration"`
+	// Number Of Results For Reranking
+	NumberOfRerankedResults pulumi.Float64PtrInput `pulumi:"numberOfRerankedResults"`
+}
+
+func (FlowVectorSearchBedrockRerankingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVectorSearchBedrockRerankingConfiguration)(nil)).Elem()
+}
+
+func (i FlowVectorSearchBedrockRerankingConfigurationArgs) ToFlowVectorSearchBedrockRerankingConfigurationOutput() FlowVectorSearchBedrockRerankingConfigurationOutput {
+	return i.ToFlowVectorSearchBedrockRerankingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowVectorSearchBedrockRerankingConfigurationArgs) ToFlowVectorSearchBedrockRerankingConfigurationOutputWithContext(ctx context.Context) FlowVectorSearchBedrockRerankingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVectorSearchBedrockRerankingConfigurationOutput)
+}
+
+func (i FlowVectorSearchBedrockRerankingConfigurationArgs) ToFlowVectorSearchBedrockRerankingConfigurationPtrOutput() FlowVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return i.ToFlowVectorSearchBedrockRerankingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowVectorSearchBedrockRerankingConfigurationArgs) ToFlowVectorSearchBedrockRerankingConfigurationPtrOutputWithContext(ctx context.Context) FlowVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVectorSearchBedrockRerankingConfigurationOutput).ToFlowVectorSearchBedrockRerankingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowVectorSearchBedrockRerankingConfigurationPtrInput is an input type that accepts FlowVectorSearchBedrockRerankingConfigurationArgs, FlowVectorSearchBedrockRerankingConfigurationPtr and FlowVectorSearchBedrockRerankingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowVectorSearchBedrockRerankingConfigurationPtrInput` via:
+//
+//	        FlowVectorSearchBedrockRerankingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowVectorSearchBedrockRerankingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowVectorSearchBedrockRerankingConfigurationPtrOutput() FlowVectorSearchBedrockRerankingConfigurationPtrOutput
+	ToFlowVectorSearchBedrockRerankingConfigurationPtrOutputWithContext(context.Context) FlowVectorSearchBedrockRerankingConfigurationPtrOutput
+}
+
+type flowVectorSearchBedrockRerankingConfigurationPtrType FlowVectorSearchBedrockRerankingConfigurationArgs
+
+func FlowVectorSearchBedrockRerankingConfigurationPtr(v *FlowVectorSearchBedrockRerankingConfigurationArgs) FlowVectorSearchBedrockRerankingConfigurationPtrInput {
+	return (*flowVectorSearchBedrockRerankingConfigurationPtrType)(v)
+}
+
+func (*flowVectorSearchBedrockRerankingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVectorSearchBedrockRerankingConfiguration)(nil)).Elem()
+}
+
+func (i *flowVectorSearchBedrockRerankingConfigurationPtrType) ToFlowVectorSearchBedrockRerankingConfigurationPtrOutput() FlowVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return i.ToFlowVectorSearchBedrockRerankingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowVectorSearchBedrockRerankingConfigurationPtrType) ToFlowVectorSearchBedrockRerankingConfigurationPtrOutputWithContext(ctx context.Context) FlowVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVectorSearchBedrockRerankingConfigurationPtrOutput)
+}
+
+type FlowVectorSearchBedrockRerankingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVectorSearchBedrockRerankingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVectorSearchBedrockRerankingConfiguration)(nil)).Elem()
+}
+
+func (o FlowVectorSearchBedrockRerankingConfigurationOutput) ToFlowVectorSearchBedrockRerankingConfigurationOutput() FlowVectorSearchBedrockRerankingConfigurationOutput {
+	return o
+}
+
+func (o FlowVectorSearchBedrockRerankingConfigurationOutput) ToFlowVectorSearchBedrockRerankingConfigurationOutputWithContext(ctx context.Context) FlowVectorSearchBedrockRerankingConfigurationOutput {
+	return o
+}
+
+func (o FlowVectorSearchBedrockRerankingConfigurationOutput) ToFlowVectorSearchBedrockRerankingConfigurationPtrOutput() FlowVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return o.ToFlowVectorSearchBedrockRerankingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVectorSearchBedrockRerankingConfigurationOutput) ToFlowVectorSearchBedrockRerankingConfigurationPtrOutputWithContext(ctx context.Context) FlowVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVectorSearchBedrockRerankingConfiguration) *FlowVectorSearchBedrockRerankingConfiguration {
+		return &v
+	}).(FlowVectorSearchBedrockRerankingConfigurationPtrOutput)
+}
+
+func (o FlowVectorSearchBedrockRerankingConfigurationOutput) MetadataConfiguration() FlowMetadataConfigurationForRerankingPtrOutput {
+	return o.ApplyT(func(v FlowVectorSearchBedrockRerankingConfiguration) *FlowMetadataConfigurationForReranking {
+		return v.MetadataConfiguration
+	}).(FlowMetadataConfigurationForRerankingPtrOutput)
+}
+
+func (o FlowVectorSearchBedrockRerankingConfigurationOutput) ModelConfiguration() FlowVectorSearchBedrockRerankingModelConfigurationOutput {
+	return o.ApplyT(func(v FlowVectorSearchBedrockRerankingConfiguration) FlowVectorSearchBedrockRerankingModelConfiguration {
+		return v.ModelConfiguration
+	}).(FlowVectorSearchBedrockRerankingModelConfigurationOutput)
+}
+
+// Number Of Results For Reranking
+func (o FlowVectorSearchBedrockRerankingConfigurationOutput) NumberOfRerankedResults() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FlowVectorSearchBedrockRerankingConfiguration) *float64 { return v.NumberOfRerankedResults }).(pulumi.Float64PtrOutput)
+}
+
+type FlowVectorSearchBedrockRerankingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVectorSearchBedrockRerankingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVectorSearchBedrockRerankingConfiguration)(nil)).Elem()
+}
+
+func (o FlowVectorSearchBedrockRerankingConfigurationPtrOutput) ToFlowVectorSearchBedrockRerankingConfigurationPtrOutput() FlowVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVectorSearchBedrockRerankingConfigurationPtrOutput) ToFlowVectorSearchBedrockRerankingConfigurationPtrOutputWithContext(ctx context.Context) FlowVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVectorSearchBedrockRerankingConfigurationPtrOutput) Elem() FlowVectorSearchBedrockRerankingConfigurationOutput {
+	return o.ApplyT(func(v *FlowVectorSearchBedrockRerankingConfiguration) FlowVectorSearchBedrockRerankingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVectorSearchBedrockRerankingConfiguration
+		return ret
+	}).(FlowVectorSearchBedrockRerankingConfigurationOutput)
+}
+
+func (o FlowVectorSearchBedrockRerankingConfigurationPtrOutput) MetadataConfiguration() FlowMetadataConfigurationForRerankingPtrOutput {
+	return o.ApplyT(func(v *FlowVectorSearchBedrockRerankingConfiguration) *FlowMetadataConfigurationForReranking {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataConfiguration
+	}).(FlowMetadataConfigurationForRerankingPtrOutput)
+}
+
+func (o FlowVectorSearchBedrockRerankingConfigurationPtrOutput) ModelConfiguration() FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVectorSearchBedrockRerankingConfiguration) *FlowVectorSearchBedrockRerankingModelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelConfiguration
+	}).(FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput)
+}
+
+// Number Of Results For Reranking
+func (o FlowVectorSearchBedrockRerankingConfigurationPtrOutput) NumberOfRerankedResults() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FlowVectorSearchBedrockRerankingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfRerankedResults
+	}).(pulumi.Float64PtrOutput)
+}
+
+type FlowVectorSearchBedrockRerankingModelConfiguration struct {
+	AdditionalModelRequestFields *FlowAdditionalModelRequestFields `pulumi:"additionalModelRequestFields"`
+	ModelArn                     string                            `pulumi:"modelArn"`
+}
+
+// FlowVectorSearchBedrockRerankingModelConfigurationInput is an input type that accepts FlowVectorSearchBedrockRerankingModelConfigurationArgs and FlowVectorSearchBedrockRerankingModelConfigurationOutput values.
+// You can construct a concrete instance of `FlowVectorSearchBedrockRerankingModelConfigurationInput` via:
+//
+//	FlowVectorSearchBedrockRerankingModelConfigurationArgs{...}
+type FlowVectorSearchBedrockRerankingModelConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowVectorSearchBedrockRerankingModelConfigurationOutput() FlowVectorSearchBedrockRerankingModelConfigurationOutput
+	ToFlowVectorSearchBedrockRerankingModelConfigurationOutputWithContext(context.Context) FlowVectorSearchBedrockRerankingModelConfigurationOutput
+}
+
+type FlowVectorSearchBedrockRerankingModelConfigurationArgs struct {
+	AdditionalModelRequestFields FlowAdditionalModelRequestFieldsPtrInput `pulumi:"additionalModelRequestFields"`
+	ModelArn                     pulumi.StringInput                       `pulumi:"modelArn"`
+}
+
+func (FlowVectorSearchBedrockRerankingModelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVectorSearchBedrockRerankingModelConfiguration)(nil)).Elem()
+}
+
+func (i FlowVectorSearchBedrockRerankingModelConfigurationArgs) ToFlowVectorSearchBedrockRerankingModelConfigurationOutput() FlowVectorSearchBedrockRerankingModelConfigurationOutput {
+	return i.ToFlowVectorSearchBedrockRerankingModelConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowVectorSearchBedrockRerankingModelConfigurationArgs) ToFlowVectorSearchBedrockRerankingModelConfigurationOutputWithContext(ctx context.Context) FlowVectorSearchBedrockRerankingModelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVectorSearchBedrockRerankingModelConfigurationOutput)
+}
+
+func (i FlowVectorSearchBedrockRerankingModelConfigurationArgs) ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutput() FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput {
+	return i.ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowVectorSearchBedrockRerankingModelConfigurationArgs) ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutputWithContext(ctx context.Context) FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVectorSearchBedrockRerankingModelConfigurationOutput).ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowVectorSearchBedrockRerankingModelConfigurationPtrInput is an input type that accepts FlowVectorSearchBedrockRerankingModelConfigurationArgs, FlowVectorSearchBedrockRerankingModelConfigurationPtr and FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowVectorSearchBedrockRerankingModelConfigurationPtrInput` via:
+//
+//	        FlowVectorSearchBedrockRerankingModelConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowVectorSearchBedrockRerankingModelConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutput() FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput
+	ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutputWithContext(context.Context) FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput
+}
+
+type flowVectorSearchBedrockRerankingModelConfigurationPtrType FlowVectorSearchBedrockRerankingModelConfigurationArgs
+
+func FlowVectorSearchBedrockRerankingModelConfigurationPtr(v *FlowVectorSearchBedrockRerankingModelConfigurationArgs) FlowVectorSearchBedrockRerankingModelConfigurationPtrInput {
+	return (*flowVectorSearchBedrockRerankingModelConfigurationPtrType)(v)
+}
+
+func (*flowVectorSearchBedrockRerankingModelConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVectorSearchBedrockRerankingModelConfiguration)(nil)).Elem()
+}
+
+func (i *flowVectorSearchBedrockRerankingModelConfigurationPtrType) ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutput() FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput {
+	return i.ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowVectorSearchBedrockRerankingModelConfigurationPtrType) ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutputWithContext(ctx context.Context) FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput)
+}
+
+type FlowVectorSearchBedrockRerankingModelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVectorSearchBedrockRerankingModelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVectorSearchBedrockRerankingModelConfiguration)(nil)).Elem()
+}
+
+func (o FlowVectorSearchBedrockRerankingModelConfigurationOutput) ToFlowVectorSearchBedrockRerankingModelConfigurationOutput() FlowVectorSearchBedrockRerankingModelConfigurationOutput {
+	return o
+}
+
+func (o FlowVectorSearchBedrockRerankingModelConfigurationOutput) ToFlowVectorSearchBedrockRerankingModelConfigurationOutputWithContext(ctx context.Context) FlowVectorSearchBedrockRerankingModelConfigurationOutput {
+	return o
+}
+
+func (o FlowVectorSearchBedrockRerankingModelConfigurationOutput) ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutput() FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput {
+	return o.ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVectorSearchBedrockRerankingModelConfigurationOutput) ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutputWithContext(ctx context.Context) FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVectorSearchBedrockRerankingModelConfiguration) *FlowVectorSearchBedrockRerankingModelConfiguration {
+		return &v
+	}).(FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput)
+}
+
+func (o FlowVectorSearchBedrockRerankingModelConfigurationOutput) AdditionalModelRequestFields() FlowAdditionalModelRequestFieldsPtrOutput {
+	return o.ApplyT(func(v FlowVectorSearchBedrockRerankingModelConfiguration) *FlowAdditionalModelRequestFields {
+		return v.AdditionalModelRequestFields
+	}).(FlowAdditionalModelRequestFieldsPtrOutput)
+}
+
+func (o FlowVectorSearchBedrockRerankingModelConfigurationOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowVectorSearchBedrockRerankingModelConfiguration) string { return v.ModelArn }).(pulumi.StringOutput)
+}
+
+type FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVectorSearchBedrockRerankingModelConfiguration)(nil)).Elem()
+}
+
+func (o FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput) ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutput() FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput) ToFlowVectorSearchBedrockRerankingModelConfigurationPtrOutputWithContext(ctx context.Context) FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput) Elem() FlowVectorSearchBedrockRerankingModelConfigurationOutput {
+	return o.ApplyT(func(v *FlowVectorSearchBedrockRerankingModelConfiguration) FlowVectorSearchBedrockRerankingModelConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVectorSearchBedrockRerankingModelConfiguration
+		return ret
+	}).(FlowVectorSearchBedrockRerankingModelConfigurationOutput)
+}
+
+func (o FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput) AdditionalModelRequestFields() FlowAdditionalModelRequestFieldsPtrOutput {
+	return o.ApplyT(func(v *FlowVectorSearchBedrockRerankingModelConfiguration) *FlowAdditionalModelRequestFields {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalModelRequestFields
+	}).(FlowAdditionalModelRequestFieldsPtrOutput)
+}
+
+func (o FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput) ModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVectorSearchBedrockRerankingModelConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVectorSearchRerankingConfiguration struct {
+	BedrockRerankingConfiguration *FlowVectorSearchBedrockRerankingConfiguration `pulumi:"bedrockRerankingConfiguration"`
+	Type                          FlowVectorSearchRerankingConfigurationType     `pulumi:"type"`
+}
+
+// FlowVectorSearchRerankingConfigurationInput is an input type that accepts FlowVectorSearchRerankingConfigurationArgs and FlowVectorSearchRerankingConfigurationOutput values.
+// You can construct a concrete instance of `FlowVectorSearchRerankingConfigurationInput` via:
+//
+//	FlowVectorSearchRerankingConfigurationArgs{...}
+type FlowVectorSearchRerankingConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowVectorSearchRerankingConfigurationOutput() FlowVectorSearchRerankingConfigurationOutput
+	ToFlowVectorSearchRerankingConfigurationOutputWithContext(context.Context) FlowVectorSearchRerankingConfigurationOutput
+}
+
+type FlowVectorSearchRerankingConfigurationArgs struct {
+	BedrockRerankingConfiguration FlowVectorSearchBedrockRerankingConfigurationPtrInput `pulumi:"bedrockRerankingConfiguration"`
+	Type                          FlowVectorSearchRerankingConfigurationTypeInput       `pulumi:"type"`
+}
+
+func (FlowVectorSearchRerankingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVectorSearchRerankingConfiguration)(nil)).Elem()
+}
+
+func (i FlowVectorSearchRerankingConfigurationArgs) ToFlowVectorSearchRerankingConfigurationOutput() FlowVectorSearchRerankingConfigurationOutput {
+	return i.ToFlowVectorSearchRerankingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowVectorSearchRerankingConfigurationArgs) ToFlowVectorSearchRerankingConfigurationOutputWithContext(ctx context.Context) FlowVectorSearchRerankingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVectorSearchRerankingConfigurationOutput)
+}
+
+func (i FlowVectorSearchRerankingConfigurationArgs) ToFlowVectorSearchRerankingConfigurationPtrOutput() FlowVectorSearchRerankingConfigurationPtrOutput {
+	return i.ToFlowVectorSearchRerankingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowVectorSearchRerankingConfigurationArgs) ToFlowVectorSearchRerankingConfigurationPtrOutputWithContext(ctx context.Context) FlowVectorSearchRerankingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVectorSearchRerankingConfigurationOutput).ToFlowVectorSearchRerankingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowVectorSearchRerankingConfigurationPtrInput is an input type that accepts FlowVectorSearchRerankingConfigurationArgs, FlowVectorSearchRerankingConfigurationPtr and FlowVectorSearchRerankingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowVectorSearchRerankingConfigurationPtrInput` via:
+//
+//	        FlowVectorSearchRerankingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowVectorSearchRerankingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowVectorSearchRerankingConfigurationPtrOutput() FlowVectorSearchRerankingConfigurationPtrOutput
+	ToFlowVectorSearchRerankingConfigurationPtrOutputWithContext(context.Context) FlowVectorSearchRerankingConfigurationPtrOutput
+}
+
+type flowVectorSearchRerankingConfigurationPtrType FlowVectorSearchRerankingConfigurationArgs
+
+func FlowVectorSearchRerankingConfigurationPtr(v *FlowVectorSearchRerankingConfigurationArgs) FlowVectorSearchRerankingConfigurationPtrInput {
+	return (*flowVectorSearchRerankingConfigurationPtrType)(v)
+}
+
+func (*flowVectorSearchRerankingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVectorSearchRerankingConfiguration)(nil)).Elem()
+}
+
+func (i *flowVectorSearchRerankingConfigurationPtrType) ToFlowVectorSearchRerankingConfigurationPtrOutput() FlowVectorSearchRerankingConfigurationPtrOutput {
+	return i.ToFlowVectorSearchRerankingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowVectorSearchRerankingConfigurationPtrType) ToFlowVectorSearchRerankingConfigurationPtrOutputWithContext(ctx context.Context) FlowVectorSearchRerankingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVectorSearchRerankingConfigurationPtrOutput)
+}
+
+type FlowVectorSearchRerankingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVectorSearchRerankingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVectorSearchRerankingConfiguration)(nil)).Elem()
+}
+
+func (o FlowVectorSearchRerankingConfigurationOutput) ToFlowVectorSearchRerankingConfigurationOutput() FlowVectorSearchRerankingConfigurationOutput {
+	return o
+}
+
+func (o FlowVectorSearchRerankingConfigurationOutput) ToFlowVectorSearchRerankingConfigurationOutputWithContext(ctx context.Context) FlowVectorSearchRerankingConfigurationOutput {
+	return o
+}
+
+func (o FlowVectorSearchRerankingConfigurationOutput) ToFlowVectorSearchRerankingConfigurationPtrOutput() FlowVectorSearchRerankingConfigurationPtrOutput {
+	return o.ToFlowVectorSearchRerankingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVectorSearchRerankingConfigurationOutput) ToFlowVectorSearchRerankingConfigurationPtrOutputWithContext(ctx context.Context) FlowVectorSearchRerankingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVectorSearchRerankingConfiguration) *FlowVectorSearchRerankingConfiguration {
+		return &v
+	}).(FlowVectorSearchRerankingConfigurationPtrOutput)
+}
+
+func (o FlowVectorSearchRerankingConfigurationOutput) BedrockRerankingConfiguration() FlowVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowVectorSearchRerankingConfiguration) *FlowVectorSearchBedrockRerankingConfiguration {
+		return v.BedrockRerankingConfiguration
+	}).(FlowVectorSearchBedrockRerankingConfigurationPtrOutput)
+}
+
+func (o FlowVectorSearchRerankingConfigurationOutput) Type() FlowVectorSearchRerankingConfigurationTypeOutput {
+	return o.ApplyT(func(v FlowVectorSearchRerankingConfiguration) FlowVectorSearchRerankingConfigurationType {
+		return v.Type
+	}).(FlowVectorSearchRerankingConfigurationTypeOutput)
+}
+
+type FlowVectorSearchRerankingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVectorSearchRerankingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVectorSearchRerankingConfiguration)(nil)).Elem()
+}
+
+func (o FlowVectorSearchRerankingConfigurationPtrOutput) ToFlowVectorSearchRerankingConfigurationPtrOutput() FlowVectorSearchRerankingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVectorSearchRerankingConfigurationPtrOutput) ToFlowVectorSearchRerankingConfigurationPtrOutputWithContext(ctx context.Context) FlowVectorSearchRerankingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVectorSearchRerankingConfigurationPtrOutput) Elem() FlowVectorSearchRerankingConfigurationOutput {
+	return o.ApplyT(func(v *FlowVectorSearchRerankingConfiguration) FlowVectorSearchRerankingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVectorSearchRerankingConfiguration
+		return ret
+	}).(FlowVectorSearchRerankingConfigurationOutput)
+}
+
+func (o FlowVectorSearchRerankingConfigurationPtrOutput) BedrockRerankingConfiguration() FlowVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVectorSearchRerankingConfiguration) *FlowVectorSearchBedrockRerankingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockRerankingConfiguration
+	}).(FlowVectorSearchBedrockRerankingConfigurationPtrOutput)
+}
+
+func (o FlowVectorSearchRerankingConfigurationPtrOutput) Type() FlowVectorSearchRerankingConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *FlowVectorSearchRerankingConfiguration) *FlowVectorSearchRerankingConfigurationType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(FlowVectorSearchRerankingConfigurationTypePtrOutput)
+}
+
+type FlowVersionAdditionalModelRequestFields struct {
+}
+
+type FlowVersionAdditionalModelRequestFieldsOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionAdditionalModelRequestFieldsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionAdditionalModelRequestFields)(nil)).Elem()
+}
+
+func (o FlowVersionAdditionalModelRequestFieldsOutput) ToFlowVersionAdditionalModelRequestFieldsOutput() FlowVersionAdditionalModelRequestFieldsOutput {
+	return o
+}
+
+func (o FlowVersionAdditionalModelRequestFieldsOutput) ToFlowVersionAdditionalModelRequestFieldsOutputWithContext(ctx context.Context) FlowVersionAdditionalModelRequestFieldsOutput {
+	return o
+}
+
+type FlowVersionAdditionalModelRequestFieldsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionAdditionalModelRequestFieldsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionAdditionalModelRequestFields)(nil)).Elem()
+}
+
+func (o FlowVersionAdditionalModelRequestFieldsPtrOutput) ToFlowVersionAdditionalModelRequestFieldsPtrOutput() FlowVersionAdditionalModelRequestFieldsPtrOutput {
+	return o
+}
+
+func (o FlowVersionAdditionalModelRequestFieldsPtrOutput) ToFlowVersionAdditionalModelRequestFieldsPtrOutputWithContext(ctx context.Context) FlowVersionAdditionalModelRequestFieldsPtrOutput {
+	return o
+}
+
+func (o FlowVersionAdditionalModelRequestFieldsPtrOutput) Elem() FlowVersionAdditionalModelRequestFieldsOutput {
+	return o.ApplyT(func(v *FlowVersionAdditionalModelRequestFields) FlowVersionAdditionalModelRequestFields {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionAdditionalModelRequestFields
+		return ret
+	}).(FlowVersionAdditionalModelRequestFieldsOutput)
+}
+
 // Agent flow node configuration
 type FlowVersionAgentFlowNodeConfiguration struct {
 	// Arn representation of the Agent Alias.
@@ -22380,6 +25024,52 @@ func (o FlowVersionConditionFlowNodeConfigurationPtrOutput) Conditions() FlowVer
 	}).(FlowVersionFlowConditionArrayOutput)
 }
 
+// Field name for reranking
+type FlowVersionFieldForReranking struct {
+	// Field name for reranking
+	FieldName string `pulumi:"fieldName"`
+}
+
+// Field name for reranking
+type FlowVersionFieldForRerankingOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFieldForRerankingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFieldForReranking)(nil)).Elem()
+}
+
+func (o FlowVersionFieldForRerankingOutput) ToFlowVersionFieldForRerankingOutput() FlowVersionFieldForRerankingOutput {
+	return o
+}
+
+func (o FlowVersionFieldForRerankingOutput) ToFlowVersionFieldForRerankingOutputWithContext(ctx context.Context) FlowVersionFieldForRerankingOutput {
+	return o
+}
+
+// Field name for reranking
+func (o FlowVersionFieldForRerankingOutput) FieldName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowVersionFieldForReranking) string { return v.FieldName }).(pulumi.StringOutput)
+}
+
+type FlowVersionFieldForRerankingArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFieldForRerankingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowVersionFieldForReranking)(nil)).Elem()
+}
+
+func (o FlowVersionFieldForRerankingArrayOutput) ToFlowVersionFieldForRerankingArrayOutput() FlowVersionFieldForRerankingArrayOutput {
+	return o
+}
+
+func (o FlowVersionFieldForRerankingArrayOutput) ToFlowVersionFieldForRerankingArrayOutputWithContext(ctx context.Context) FlowVersionFieldForRerankingArrayOutput {
+	return o
+}
+
+func (o FlowVersionFieldForRerankingArrayOutput) Index(i pulumi.IntInput) FlowVersionFieldForRerankingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowVersionFieldForReranking {
+		return vs[0].([]FlowVersionFieldForReranking)[vs[1].(int)]
+	}).(FlowVersionFieldForRerankingOutput)
+}
+
 // Condition branch for a condition node
 type FlowVersionFlowCondition struct {
 	// Expression for a condition in a flow
@@ -22411,6 +25101,50 @@ func (o FlowVersionFlowConditionOutput) Expression() pulumi.StringPtrOutput {
 // Name of a condition in a flow
 func (o FlowVersionFlowConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowVersionFlowCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type FlowVersionFlowConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowCondition)(nil)).Elem()
+}
+
+func (o FlowVersionFlowConditionPtrOutput) ToFlowVersionFlowConditionPtrOutput() FlowVersionFlowConditionPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowConditionPtrOutput) ToFlowVersionFlowConditionPtrOutputWithContext(ctx context.Context) FlowVersionFlowConditionPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowConditionPtrOutput) Elem() FlowVersionFlowConditionOutput {
+	return o.ApplyT(func(v *FlowVersionFlowCondition) FlowVersionFlowCondition {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowCondition
+		return ret
+	}).(FlowVersionFlowConditionOutput)
+}
+
+// Expression for a condition in a flow
+func (o FlowVersionFlowConditionPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVersionFlowCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of a condition in a flow
+func (o FlowVersionFlowConditionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVersionFlowCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type FlowVersionFlowConditionArrayOutput struct{ *pulumi.OutputState }
@@ -23150,6 +25884,183 @@ func (o FlowVersionFlowNodeConfiguration12PropertiesPtrOutput) InlineCode() Flow
 }
 
 // Node configuration in a flow
+type FlowVersionFlowNodeConfiguration13Properties struct {
+	Loop FlowVersionLoopFlowNodeConfiguration `pulumi:"loop"`
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration13PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration13PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowNodeConfiguration13Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration13PropertiesOutput) ToFlowVersionFlowNodeConfiguration13PropertiesOutput() FlowVersionFlowNodeConfiguration13PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration13PropertiesOutput) ToFlowVersionFlowNodeConfiguration13PropertiesOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration13PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration13PropertiesOutput) Loop() FlowVersionLoopFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowVersionFlowNodeConfiguration13Properties) FlowVersionLoopFlowNodeConfiguration {
+		return v.Loop
+	}).(FlowVersionLoopFlowNodeConfigurationOutput)
+}
+
+type FlowVersionFlowNodeConfiguration13PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration13PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowNodeConfiguration13Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration13PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration13PropertiesPtrOutput() FlowVersionFlowNodeConfiguration13PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration13PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration13PropertiesPtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration13PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration13PropertiesPtrOutput) Elem() FlowVersionFlowNodeConfiguration13PropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration13Properties) FlowVersionFlowNodeConfiguration13Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowNodeConfiguration13Properties
+		return ret
+	}).(FlowVersionFlowNodeConfiguration13PropertiesOutput)
+}
+
+func (o FlowVersionFlowNodeConfiguration13PropertiesPtrOutput) Loop() FlowVersionLoopFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration13Properties) *FlowVersionLoopFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Loop
+	}).(FlowVersionLoopFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration14Properties struct {
+	LoopInput FlowVersionLoopInputFlowNodeConfiguration `pulumi:"loopInput"`
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration14PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration14PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowNodeConfiguration14Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration14PropertiesOutput) ToFlowVersionFlowNodeConfiguration14PropertiesOutput() FlowVersionFlowNodeConfiguration14PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration14PropertiesOutput) ToFlowVersionFlowNodeConfiguration14PropertiesOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration14PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration14PropertiesOutput) LoopInput() FlowVersionLoopInputFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowVersionFlowNodeConfiguration14Properties) FlowVersionLoopInputFlowNodeConfiguration {
+		return v.LoopInput
+	}).(FlowVersionLoopInputFlowNodeConfigurationOutput)
+}
+
+type FlowVersionFlowNodeConfiguration14PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration14PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowNodeConfiguration14Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration14PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration14PropertiesPtrOutput() FlowVersionFlowNodeConfiguration14PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration14PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration14PropertiesPtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration14PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration14PropertiesPtrOutput) Elem() FlowVersionFlowNodeConfiguration14PropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration14Properties) FlowVersionFlowNodeConfiguration14Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowNodeConfiguration14Properties
+		return ret
+	}).(FlowVersionFlowNodeConfiguration14PropertiesOutput)
+}
+
+func (o FlowVersionFlowNodeConfiguration14PropertiesPtrOutput) LoopInput() FlowVersionLoopInputFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration14Properties) *FlowVersionLoopInputFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.LoopInput
+	}).(FlowVersionLoopInputFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration15Properties struct {
+	LoopController FlowVersionLoopControllerFlowNodeConfiguration `pulumi:"loopController"`
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration15PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration15PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowNodeConfiguration15Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration15PropertiesOutput) ToFlowVersionFlowNodeConfiguration15PropertiesOutput() FlowVersionFlowNodeConfiguration15PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration15PropertiesOutput) ToFlowVersionFlowNodeConfiguration15PropertiesOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration15PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration15PropertiesOutput) LoopController() FlowVersionLoopControllerFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowVersionFlowNodeConfiguration15Properties) FlowVersionLoopControllerFlowNodeConfiguration {
+		return v.LoopController
+	}).(FlowVersionLoopControllerFlowNodeConfigurationOutput)
+}
+
+type FlowVersionFlowNodeConfiguration15PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration15PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowNodeConfiguration15Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration15PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration15PropertiesPtrOutput() FlowVersionFlowNodeConfiguration15PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration15PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration15PropertiesPtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration15PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration15PropertiesPtrOutput) Elem() FlowVersionFlowNodeConfiguration15PropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration15Properties) FlowVersionFlowNodeConfiguration15Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowNodeConfiguration15Properties
+		return ret
+	}).(FlowVersionFlowNodeConfiguration15PropertiesOutput)
+}
+
+func (o FlowVersionFlowNodeConfiguration15PropertiesPtrOutput) LoopController() FlowVersionLoopControllerFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration15Properties) *FlowVersionLoopControllerFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.LoopController
+	}).(FlowVersionLoopControllerFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
 type FlowVersionFlowNodeConfiguration1Properties struct {
 	Output FlowVersionOutputFlowNodeConfiguration `pulumi:"output"`
 }
@@ -23684,7 +26595,7 @@ type FlowVersionFlowNodeInputType struct {
 	Expression string `pulumi:"expression"`
 	// Name of a node input in a flow
 	Name string `pulumi:"name"`
-	// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+	// Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 	Type FlowVersionFlowNodeIoDataType `pulumi:"type"`
 }
 
@@ -23713,7 +26624,7 @@ func (o FlowVersionFlowNodeInputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowVersionFlowNodeInputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+// Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
 func (o FlowVersionFlowNodeInputTypeOutput) Type() FlowVersionFlowNodeIoDataTypeOutput {
 	return o.ApplyT(func(v FlowVersionFlowNodeInputType) FlowVersionFlowNodeIoDataType { return v.Type }).(FlowVersionFlowNodeIoDataTypeOutput)
 }
@@ -24030,11 +26941,17 @@ func (o FlowVersionIteratorFlowNodeConfigurationPtrOutput) Elem() FlowVersionIte
 
 // Knowledge base flow node configuration
 type FlowVersionKnowledgeBaseFlowNodeConfiguration struct {
-	GuardrailConfiguration *FlowVersionGuardrailConfiguration `pulumi:"guardrailConfiguration"`
+	GuardrailConfiguration *FlowVersionGuardrailConfiguration                 `pulumi:"guardrailConfiguration"`
+	InferenceConfiguration *FlowVersionPromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
 	// Identifier of the KnowledgeBase
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
 	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId *string `pulumi:"modelId"`
+	// Number Of Results to Retrieve
+	NumberOfResults            *float64                                            `pulumi:"numberOfResults"`
+	OrchestrationConfiguration *FlowVersionKnowledgeBaseOrchestrationConfiguration `pulumi:"orchestrationConfiguration"`
+	PromptTemplate             *FlowVersionKnowledgeBasePromptTemplateProperties   `pulumi:"promptTemplate"`
+	RerankingConfiguration     *FlowVersionVectorSearchRerankingConfiguration      `pulumi:"rerankingConfiguration"`
 }
 
 // Knowledge base flow node configuration
@@ -24058,6 +26975,12 @@ func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) GuardrailConfigurat
 	}).(FlowVersionGuardrailConfigurationPtrOutput)
 }
 
+func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) InferenceConfiguration() FlowVersionPromptInferenceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v FlowVersionKnowledgeBaseFlowNodeConfiguration) *FlowVersionPromptInferenceConfigurationProperties {
+		return v.InferenceConfiguration
+	}).(FlowVersionPromptInferenceConfigurationPropertiesPtrOutput)
+}
+
 // Identifier of the KnowledgeBase
 func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) KnowledgeBaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowVersionKnowledgeBaseFlowNodeConfiguration) string { return v.KnowledgeBaseId }).(pulumi.StringOutput)
@@ -24066,6 +26989,29 @@ func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) KnowledgeBaseId() p
 // ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowVersionKnowledgeBaseFlowNodeConfiguration) *string { return v.ModelId }).(pulumi.StringPtrOutput)
+}
+
+// Number Of Results to Retrieve
+func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) NumberOfResults() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FlowVersionKnowledgeBaseFlowNodeConfiguration) *float64 { return v.NumberOfResults }).(pulumi.Float64PtrOutput)
+}
+
+func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) OrchestrationConfiguration() FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowVersionKnowledgeBaseFlowNodeConfiguration) *FlowVersionKnowledgeBaseOrchestrationConfiguration {
+		return v.OrchestrationConfiguration
+	}).(FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput)
+}
+
+func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) PromptTemplate() FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o.ApplyT(func(v FlowVersionKnowledgeBaseFlowNodeConfiguration) *FlowVersionKnowledgeBasePromptTemplateProperties {
+		return v.PromptTemplate
+	}).(FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput)
+}
+
+func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) RerankingConfiguration() FlowVersionVectorSearchRerankingConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowVersionKnowledgeBaseFlowNodeConfiguration) *FlowVersionVectorSearchRerankingConfiguration {
+		return v.RerankingConfiguration
+	}).(FlowVersionVectorSearchRerankingConfigurationPtrOutput)
 }
 
 type FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -24101,6 +27047,15 @@ func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) GuardrailConfigu
 	}).(FlowVersionGuardrailConfigurationPtrOutput)
 }
 
+func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) InferenceConfiguration() FlowVersionPromptInferenceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBaseFlowNodeConfiguration) *FlowVersionPromptInferenceConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceConfiguration
+	}).(FlowVersionPromptInferenceConfigurationPropertiesPtrOutput)
+}
+
 // Identifier of the KnowledgeBase
 func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) KnowledgeBaseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowVersionKnowledgeBaseFlowNodeConfiguration) *string {
@@ -24118,6 +27073,210 @@ func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) ModelId() pulumi
 			return nil
 		}
 		return v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number Of Results to Retrieve
+func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) NumberOfResults() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBaseFlowNodeConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfResults
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) OrchestrationConfiguration() FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBaseFlowNodeConfiguration) *FlowVersionKnowledgeBaseOrchestrationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OrchestrationConfiguration
+	}).(FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput)
+}
+
+func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) PromptTemplate() FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBaseFlowNodeConfiguration) *FlowVersionKnowledgeBasePromptTemplateProperties {
+		if v == nil {
+			return nil
+		}
+		return v.PromptTemplate
+	}).(FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput)
+}
+
+func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) RerankingConfiguration() FlowVersionVectorSearchRerankingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBaseFlowNodeConfiguration) *FlowVersionVectorSearchRerankingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RerankingConfiguration
+	}).(FlowVersionVectorSearchRerankingConfigurationPtrOutput)
+}
+
+type FlowVersionKnowledgeBaseOrchestrationConfiguration struct {
+	AdditionalModelRequestFields *FlowVersionAdditionalModelRequestFields           `pulumi:"additionalModelRequestFields"`
+	InferenceConfig              *FlowVersionPromptInferenceConfigurationProperties `pulumi:"inferenceConfig"`
+	PerformanceConfig            *FlowVersionPerformanceConfiguration               `pulumi:"performanceConfig"`
+	PromptTemplate               *FlowVersionKnowledgeBasePromptTemplateProperties  `pulumi:"promptTemplate"`
+}
+
+type FlowVersionKnowledgeBaseOrchestrationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionKnowledgeBaseOrchestrationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionKnowledgeBaseOrchestrationConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationOutput) ToFlowVersionKnowledgeBaseOrchestrationConfigurationOutput() FlowVersionKnowledgeBaseOrchestrationConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationOutput) ToFlowVersionKnowledgeBaseOrchestrationConfigurationOutputWithContext(ctx context.Context) FlowVersionKnowledgeBaseOrchestrationConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationOutput) AdditionalModelRequestFields() FlowVersionAdditionalModelRequestFieldsPtrOutput {
+	return o.ApplyT(func(v FlowVersionKnowledgeBaseOrchestrationConfiguration) *FlowVersionAdditionalModelRequestFields {
+		return v.AdditionalModelRequestFields
+	}).(FlowVersionAdditionalModelRequestFieldsPtrOutput)
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationOutput) InferenceConfig() FlowVersionPromptInferenceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v FlowVersionKnowledgeBaseOrchestrationConfiguration) *FlowVersionPromptInferenceConfigurationProperties {
+		return v.InferenceConfig
+	}).(FlowVersionPromptInferenceConfigurationPropertiesPtrOutput)
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationOutput) PerformanceConfig() FlowVersionPerformanceConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowVersionKnowledgeBaseOrchestrationConfiguration) *FlowVersionPerformanceConfiguration {
+		return v.PerformanceConfig
+	}).(FlowVersionPerformanceConfigurationPtrOutput)
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationOutput) PromptTemplate() FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o.ApplyT(func(v FlowVersionKnowledgeBaseOrchestrationConfiguration) *FlowVersionKnowledgeBasePromptTemplateProperties {
+		return v.PromptTemplate
+	}).(FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput)
+}
+
+type FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionKnowledgeBaseOrchestrationConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput) ToFlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput() FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput) ToFlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput) Elem() FlowVersionKnowledgeBaseOrchestrationConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBaseOrchestrationConfiguration) FlowVersionKnowledgeBaseOrchestrationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionKnowledgeBaseOrchestrationConfiguration
+		return ret
+	}).(FlowVersionKnowledgeBaseOrchestrationConfigurationOutput)
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput) AdditionalModelRequestFields() FlowVersionAdditionalModelRequestFieldsPtrOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBaseOrchestrationConfiguration) *FlowVersionAdditionalModelRequestFields {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalModelRequestFields
+	}).(FlowVersionAdditionalModelRequestFieldsPtrOutput)
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput) InferenceConfig() FlowVersionPromptInferenceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBaseOrchestrationConfiguration) *FlowVersionPromptInferenceConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceConfig
+	}).(FlowVersionPromptInferenceConfigurationPropertiesPtrOutput)
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput) PerformanceConfig() FlowVersionPerformanceConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBaseOrchestrationConfiguration) *FlowVersionPerformanceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PerformanceConfig
+	}).(FlowVersionPerformanceConfigurationPtrOutput)
+}
+
+func (o FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput) PromptTemplate() FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBaseOrchestrationConfiguration) *FlowVersionKnowledgeBasePromptTemplateProperties {
+		if v == nil {
+			return nil
+		}
+		return v.PromptTemplate
+	}).(FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput)
+}
+
+// Knowledge Base Prompt template
+type FlowVersionKnowledgeBasePromptTemplate0Properties struct {
+	TextPromptTemplate string `pulumi:"textPromptTemplate"`
+}
+
+// Knowledge Base Prompt template
+type FlowVersionKnowledgeBasePromptTemplateProperties struct {
+	TextPromptTemplate string `pulumi:"textPromptTemplate"`
+}
+
+// Knowledge Base Prompt template
+type FlowVersionKnowledgeBasePromptTemplatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionKnowledgeBasePromptTemplatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionKnowledgeBasePromptTemplateProperties)(nil)).Elem()
+}
+
+func (o FlowVersionKnowledgeBasePromptTemplatePropertiesOutput) ToFlowVersionKnowledgeBasePromptTemplatePropertiesOutput() FlowVersionKnowledgeBasePromptTemplatePropertiesOutput {
+	return o
+}
+
+func (o FlowVersionKnowledgeBasePromptTemplatePropertiesOutput) ToFlowVersionKnowledgeBasePromptTemplatePropertiesOutputWithContext(ctx context.Context) FlowVersionKnowledgeBasePromptTemplatePropertiesOutput {
+	return o
+}
+
+func (o FlowVersionKnowledgeBasePromptTemplatePropertiesOutput) TextPromptTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowVersionKnowledgeBasePromptTemplateProperties) string { return v.TextPromptTemplate }).(pulumi.StringOutput)
+}
+
+type FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionKnowledgeBasePromptTemplateProperties)(nil)).Elem()
+}
+
+func (o FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput) ToFlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput() FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput) ToFlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutputWithContext(ctx context.Context) FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput) Elem() FlowVersionKnowledgeBasePromptTemplatePropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBasePromptTemplateProperties) FlowVersionKnowledgeBasePromptTemplateProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionKnowledgeBasePromptTemplateProperties
+		return ret
+	}).(FlowVersionKnowledgeBasePromptTemplatePropertiesOutput)
+}
+
+func (o FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput) TextPromptTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBasePromptTemplateProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TextPromptTemplate
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -24258,6 +27417,253 @@ func (o FlowVersionLexFlowNodeConfigurationPtrOutput) LocaleId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration for the LoopController node, which manages loop execution
+type FlowVersionLoopControllerFlowNodeConfiguration struct {
+	ContinueCondition FlowVersionFlowCondition `pulumi:"continueCondition"`
+	// Maximum number of iterations the loop can perform
+	MaxIterations *float64 `pulumi:"maxIterations"`
+}
+
+// Configuration for the LoopController node, which manages loop execution
+type FlowVersionLoopControllerFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionLoopControllerFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionLoopControllerFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionLoopControllerFlowNodeConfigurationOutput) ToFlowVersionLoopControllerFlowNodeConfigurationOutput() FlowVersionLoopControllerFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionLoopControllerFlowNodeConfigurationOutput) ToFlowVersionLoopControllerFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowVersionLoopControllerFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionLoopControllerFlowNodeConfigurationOutput) ContinueCondition() FlowVersionFlowConditionOutput {
+	return o.ApplyT(func(v FlowVersionLoopControllerFlowNodeConfiguration) FlowVersionFlowCondition {
+		return v.ContinueCondition
+	}).(FlowVersionFlowConditionOutput)
+}
+
+// Maximum number of iterations the loop can perform
+func (o FlowVersionLoopControllerFlowNodeConfigurationOutput) MaxIterations() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FlowVersionLoopControllerFlowNodeConfiguration) *float64 { return v.MaxIterations }).(pulumi.Float64PtrOutput)
+}
+
+type FlowVersionLoopControllerFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionLoopControllerFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionLoopControllerFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionLoopControllerFlowNodeConfigurationPtrOutput) ToFlowVersionLoopControllerFlowNodeConfigurationPtrOutput() FlowVersionLoopControllerFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionLoopControllerFlowNodeConfigurationPtrOutput) ToFlowVersionLoopControllerFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionLoopControllerFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionLoopControllerFlowNodeConfigurationPtrOutput) Elem() FlowVersionLoopControllerFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionLoopControllerFlowNodeConfiguration) FlowVersionLoopControllerFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionLoopControllerFlowNodeConfiguration
+		return ret
+	}).(FlowVersionLoopControllerFlowNodeConfigurationOutput)
+}
+
+func (o FlowVersionLoopControllerFlowNodeConfigurationPtrOutput) ContinueCondition() FlowVersionFlowConditionPtrOutput {
+	return o.ApplyT(func(v *FlowVersionLoopControllerFlowNodeConfiguration) *FlowVersionFlowCondition {
+		if v == nil {
+			return nil
+		}
+		return &v.ContinueCondition
+	}).(FlowVersionFlowConditionPtrOutput)
+}
+
+// Maximum number of iterations the loop can perform
+func (o FlowVersionLoopControllerFlowNodeConfigurationPtrOutput) MaxIterations() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FlowVersionLoopControllerFlowNodeConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIterations
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Loop node config, contains loop's internal definition
+type FlowVersionLoopFlowNodeConfiguration struct {
+	Definition FlowVersionFlowDefinition `pulumi:"definition"`
+}
+
+// Loop node config, contains loop's internal definition
+type FlowVersionLoopFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionLoopFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionLoopFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionLoopFlowNodeConfigurationOutput) ToFlowVersionLoopFlowNodeConfigurationOutput() FlowVersionLoopFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionLoopFlowNodeConfigurationOutput) ToFlowVersionLoopFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowVersionLoopFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionLoopFlowNodeConfigurationOutput) Definition() FlowVersionFlowDefinitionOutput {
+	return o.ApplyT(func(v FlowVersionLoopFlowNodeConfiguration) FlowVersionFlowDefinition { return v.Definition }).(FlowVersionFlowDefinitionOutput)
+}
+
+type FlowVersionLoopFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionLoopFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionLoopFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionLoopFlowNodeConfigurationPtrOutput) ToFlowVersionLoopFlowNodeConfigurationPtrOutput() FlowVersionLoopFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionLoopFlowNodeConfigurationPtrOutput) ToFlowVersionLoopFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionLoopFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionLoopFlowNodeConfigurationPtrOutput) Elem() FlowVersionLoopFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionLoopFlowNodeConfiguration) FlowVersionLoopFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionLoopFlowNodeConfiguration
+		return ret
+	}).(FlowVersionLoopFlowNodeConfigurationOutput)
+}
+
+func (o FlowVersionLoopFlowNodeConfigurationPtrOutput) Definition() FlowVersionFlowDefinitionPtrOutput {
+	return o.ApplyT(func(v *FlowVersionLoopFlowNodeConfiguration) *FlowVersionFlowDefinition {
+		if v == nil {
+			return nil
+		}
+		return &v.Definition
+	}).(FlowVersionFlowDefinitionPtrOutput)
+}
+
+// Configuration for the LoopInput node
+type FlowVersionLoopInputFlowNodeConfiguration struct {
+}
+
+// Configuration for the LoopInput node
+type FlowVersionLoopInputFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionLoopInputFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionLoopInputFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionLoopInputFlowNodeConfigurationOutput) ToFlowVersionLoopInputFlowNodeConfigurationOutput() FlowVersionLoopInputFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionLoopInputFlowNodeConfigurationOutput) ToFlowVersionLoopInputFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowVersionLoopInputFlowNodeConfigurationOutput {
+	return o
+}
+
+type FlowVersionLoopInputFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionLoopInputFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionLoopInputFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionLoopInputFlowNodeConfigurationPtrOutput) ToFlowVersionLoopInputFlowNodeConfigurationPtrOutput() FlowVersionLoopInputFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionLoopInputFlowNodeConfigurationPtrOutput) ToFlowVersionLoopInputFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionLoopInputFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionLoopInputFlowNodeConfigurationPtrOutput) Elem() FlowVersionLoopInputFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionLoopInputFlowNodeConfiguration) FlowVersionLoopInputFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionLoopInputFlowNodeConfiguration
+		return ret
+	}).(FlowVersionLoopInputFlowNodeConfigurationOutput)
+}
+
+type FlowVersionMetadataConfigurationForReranking struct {
+	SelectionMode              FlowVersionRerankingMetadataSelectionMode `pulumi:"selectionMode"`
+	SelectiveModeConfiguration interface{}                               `pulumi:"selectiveModeConfiguration"`
+}
+
+type FlowVersionMetadataConfigurationForRerankingOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionMetadataConfigurationForRerankingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionMetadataConfigurationForReranking)(nil)).Elem()
+}
+
+func (o FlowVersionMetadataConfigurationForRerankingOutput) ToFlowVersionMetadataConfigurationForRerankingOutput() FlowVersionMetadataConfigurationForRerankingOutput {
+	return o
+}
+
+func (o FlowVersionMetadataConfigurationForRerankingOutput) ToFlowVersionMetadataConfigurationForRerankingOutputWithContext(ctx context.Context) FlowVersionMetadataConfigurationForRerankingOutput {
+	return o
+}
+
+func (o FlowVersionMetadataConfigurationForRerankingOutput) SelectionMode() FlowVersionRerankingMetadataSelectionModeOutput {
+	return o.ApplyT(func(v FlowVersionMetadataConfigurationForReranking) FlowVersionRerankingMetadataSelectionMode {
+		return v.SelectionMode
+	}).(FlowVersionRerankingMetadataSelectionModeOutput)
+}
+
+func (o FlowVersionMetadataConfigurationForRerankingOutput) SelectiveModeConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v FlowVersionMetadataConfigurationForReranking) interface{} { return v.SelectiveModeConfiguration }).(pulumi.AnyOutput)
+}
+
+type FlowVersionMetadataConfigurationForRerankingPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionMetadataConfigurationForRerankingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionMetadataConfigurationForReranking)(nil)).Elem()
+}
+
+func (o FlowVersionMetadataConfigurationForRerankingPtrOutput) ToFlowVersionMetadataConfigurationForRerankingPtrOutput() FlowVersionMetadataConfigurationForRerankingPtrOutput {
+	return o
+}
+
+func (o FlowVersionMetadataConfigurationForRerankingPtrOutput) ToFlowVersionMetadataConfigurationForRerankingPtrOutputWithContext(ctx context.Context) FlowVersionMetadataConfigurationForRerankingPtrOutput {
+	return o
+}
+
+func (o FlowVersionMetadataConfigurationForRerankingPtrOutput) Elem() FlowVersionMetadataConfigurationForRerankingOutput {
+	return o.ApplyT(func(v *FlowVersionMetadataConfigurationForReranking) FlowVersionMetadataConfigurationForReranking {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionMetadataConfigurationForReranking
+		return ret
+	}).(FlowVersionMetadataConfigurationForRerankingOutput)
+}
+
+func (o FlowVersionMetadataConfigurationForRerankingPtrOutput) SelectionMode() FlowVersionRerankingMetadataSelectionModePtrOutput {
+	return o.ApplyT(func(v *FlowVersionMetadataConfigurationForReranking) *FlowVersionRerankingMetadataSelectionMode {
+		if v == nil {
+			return nil
+		}
+		return &v.SelectionMode
+	}).(FlowVersionRerankingMetadataSelectionModePtrOutput)
+}
+
+func (o FlowVersionMetadataConfigurationForRerankingPtrOutput) SelectiveModeConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *FlowVersionMetadataConfigurationForReranking) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SelectiveModeConfiguration
+	}).(pulumi.AnyOutput)
+}
+
 // Output flow node configuration
 type FlowVersionOutputFlowNodeConfiguration struct {
 }
@@ -24299,6 +27705,63 @@ func (o FlowVersionOutputFlowNodeConfigurationPtrOutput) Elem() FlowVersionOutpu
 		var ret FlowVersionOutputFlowNodeConfiguration
 		return ret
 	}).(FlowVersionOutputFlowNodeConfigurationOutput)
+}
+
+type FlowVersionPerformanceConfiguration struct {
+	Latency *FlowVersionPerformanceConfigurationLatency `pulumi:"latency"`
+}
+
+type FlowVersionPerformanceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionPerformanceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionPerformanceConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionPerformanceConfigurationOutput) ToFlowVersionPerformanceConfigurationOutput() FlowVersionPerformanceConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionPerformanceConfigurationOutput) ToFlowVersionPerformanceConfigurationOutputWithContext(ctx context.Context) FlowVersionPerformanceConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionPerformanceConfigurationOutput) Latency() FlowVersionPerformanceConfigurationLatencyPtrOutput {
+	return o.ApplyT(func(v FlowVersionPerformanceConfiguration) *FlowVersionPerformanceConfigurationLatency {
+		return v.Latency
+	}).(FlowVersionPerformanceConfigurationLatencyPtrOutput)
+}
+
+type FlowVersionPerformanceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionPerformanceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionPerformanceConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionPerformanceConfigurationPtrOutput) ToFlowVersionPerformanceConfigurationPtrOutput() FlowVersionPerformanceConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionPerformanceConfigurationPtrOutput) ToFlowVersionPerformanceConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionPerformanceConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionPerformanceConfigurationPtrOutput) Elem() FlowVersionPerformanceConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionPerformanceConfiguration) FlowVersionPerformanceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionPerformanceConfiguration
+		return ret
+	}).(FlowVersionPerformanceConfigurationOutput)
+}
+
+func (o FlowVersionPerformanceConfigurationPtrOutput) Latency() FlowVersionPerformanceConfigurationLatencyPtrOutput {
+	return o.ApplyT(func(v *FlowVersionPerformanceConfiguration) *FlowVersionPerformanceConfigurationLatency {
+		if v == nil {
+			return nil
+		}
+		return v.Latency
+	}).(FlowVersionPerformanceConfigurationLatencyPtrOutput)
 }
 
 // Prompt flow node configuration
@@ -24945,6 +28408,124 @@ func (o FlowVersionPromptTemplateConfigurationPropertiesPtrOutput) Text() FlowVe
 	}).(FlowVersionTextPromptTemplateConfigurationPtrOutput)
 }
 
+// Reranking Metadata Selective Mode Configuration
+type FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties struct {
+	FieldsToInclude []FlowVersionFieldForReranking `pulumi:"fieldsToInclude"`
+}
+
+// Reranking Metadata Selective Mode Configuration
+type FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties)(nil)).Elem()
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesOutput) ToFlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesOutput() FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesOutput) ToFlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesOutputWithContext(ctx context.Context) FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesOutput) FieldsToInclude() FlowVersionFieldForRerankingArrayOutput {
+	return o.ApplyT(func(v FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties) []FlowVersionFieldForReranking {
+		return v.FieldsToInclude
+	}).(FlowVersionFieldForRerankingArrayOutput)
+}
+
+type FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties)(nil)).Elem()
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput) ToFlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput() FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput) ToFlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput) Elem() FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties) FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties
+		return ret
+	}).(FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesOutput)
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput) FieldsToInclude() FlowVersionFieldForRerankingArrayOutput {
+	return o.ApplyT(func(v *FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties) []FlowVersionFieldForReranking {
+		if v == nil {
+			return nil
+		}
+		return v.FieldsToInclude
+	}).(FlowVersionFieldForRerankingArrayOutput)
+}
+
+// Reranking Metadata Selective Mode Configuration
+type FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties struct {
+	FieldsToExclude []FlowVersionFieldForReranking `pulumi:"fieldsToExclude"`
+}
+
+// Reranking Metadata Selective Mode Configuration
+type FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties)(nil)).Elem()
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesOutput) ToFlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesOutput() FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesOutput) ToFlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesOutputWithContext(ctx context.Context) FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesOutput) FieldsToExclude() FlowVersionFieldForRerankingArrayOutput {
+	return o.ApplyT(func(v FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties) []FlowVersionFieldForReranking {
+		return v.FieldsToExclude
+	}).(FlowVersionFieldForRerankingArrayOutput)
+}
+
+type FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties)(nil)).Elem()
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput) ToFlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput() FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput) ToFlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput) Elem() FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties) FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties
+		return ret
+	}).(FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesOutput)
+}
+
+func (o FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput) FieldsToExclude() FlowVersionFieldForRerankingArrayOutput {
+	return o.ApplyT(func(v *FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties) []FlowVersionFieldForReranking {
+		if v == nil {
+			return nil
+		}
+		return v.FieldsToExclude
+	}).(FlowVersionFieldForRerankingArrayOutput)
+}
+
 // Retrieval flow node configuration
 type FlowVersionRetrievalFlowNodeConfiguration struct {
 	ServiceConfiguration FlowVersionRetrievalFlowNodeServiceConfigurationProperties `pulumi:"serviceConfiguration"`
@@ -25388,6 +28969,242 @@ func (o FlowVersionTextPromptTemplateConfigurationPtrOutput) Text() pulumi.Strin
 		}
 		return &v.Text
 	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVersionVectorSearchBedrockRerankingConfiguration struct {
+	MetadataConfiguration *FlowVersionMetadataConfigurationForReranking             `pulumi:"metadataConfiguration"`
+	ModelConfiguration    FlowVersionVectorSearchBedrockRerankingModelConfiguration `pulumi:"modelConfiguration"`
+	// Number Of Results For Reranking
+	NumberOfRerankedResults *float64 `pulumi:"numberOfRerankedResults"`
+}
+
+type FlowVersionVectorSearchBedrockRerankingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionVectorSearchBedrockRerankingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionVectorSearchBedrockRerankingConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingConfigurationOutput) ToFlowVersionVectorSearchBedrockRerankingConfigurationOutput() FlowVersionVectorSearchBedrockRerankingConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingConfigurationOutput) ToFlowVersionVectorSearchBedrockRerankingConfigurationOutputWithContext(ctx context.Context) FlowVersionVectorSearchBedrockRerankingConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingConfigurationOutput) MetadataConfiguration() FlowVersionMetadataConfigurationForRerankingPtrOutput {
+	return o.ApplyT(func(v FlowVersionVectorSearchBedrockRerankingConfiguration) *FlowVersionMetadataConfigurationForReranking {
+		return v.MetadataConfiguration
+	}).(FlowVersionMetadataConfigurationForRerankingPtrOutput)
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingConfigurationOutput) ModelConfiguration() FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput {
+	return o.ApplyT(func(v FlowVersionVectorSearchBedrockRerankingConfiguration) FlowVersionVectorSearchBedrockRerankingModelConfiguration {
+		return v.ModelConfiguration
+	}).(FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput)
+}
+
+// Number Of Results For Reranking
+func (o FlowVersionVectorSearchBedrockRerankingConfigurationOutput) NumberOfRerankedResults() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FlowVersionVectorSearchBedrockRerankingConfiguration) *float64 {
+		return v.NumberOfRerankedResults
+	}).(pulumi.Float64PtrOutput)
+}
+
+type FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionVectorSearchBedrockRerankingConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput) ToFlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput() FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput) ToFlowVersionVectorSearchBedrockRerankingConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput) Elem() FlowVersionVectorSearchBedrockRerankingConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionVectorSearchBedrockRerankingConfiguration) FlowVersionVectorSearchBedrockRerankingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionVectorSearchBedrockRerankingConfiguration
+		return ret
+	}).(FlowVersionVectorSearchBedrockRerankingConfigurationOutput)
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput) MetadataConfiguration() FlowVersionMetadataConfigurationForRerankingPtrOutput {
+	return o.ApplyT(func(v *FlowVersionVectorSearchBedrockRerankingConfiguration) *FlowVersionMetadataConfigurationForReranking {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataConfiguration
+	}).(FlowVersionMetadataConfigurationForRerankingPtrOutput)
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput) ModelConfiguration() FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionVectorSearchBedrockRerankingConfiguration) *FlowVersionVectorSearchBedrockRerankingModelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelConfiguration
+	}).(FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput)
+}
+
+// Number Of Results For Reranking
+func (o FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput) NumberOfRerankedResults() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FlowVersionVectorSearchBedrockRerankingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfRerankedResults
+	}).(pulumi.Float64PtrOutput)
+}
+
+type FlowVersionVectorSearchBedrockRerankingModelConfiguration struct {
+	AdditionalModelRequestFields *FlowVersionAdditionalModelRequestFields `pulumi:"additionalModelRequestFields"`
+	ModelArn                     string                                   `pulumi:"modelArn"`
+}
+
+type FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionVectorSearchBedrockRerankingModelConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput) ToFlowVersionVectorSearchBedrockRerankingModelConfigurationOutput() FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput) ToFlowVersionVectorSearchBedrockRerankingModelConfigurationOutputWithContext(ctx context.Context) FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput) AdditionalModelRequestFields() FlowVersionAdditionalModelRequestFieldsPtrOutput {
+	return o.ApplyT(func(v FlowVersionVectorSearchBedrockRerankingModelConfiguration) *FlowVersionAdditionalModelRequestFields {
+		return v.AdditionalModelRequestFields
+	}).(FlowVersionAdditionalModelRequestFieldsPtrOutput)
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowVersionVectorSearchBedrockRerankingModelConfiguration) string { return v.ModelArn }).(pulumi.StringOutput)
+}
+
+type FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionVectorSearchBedrockRerankingModelConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput) ToFlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput() FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput) ToFlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput) Elem() FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionVectorSearchBedrockRerankingModelConfiguration) FlowVersionVectorSearchBedrockRerankingModelConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionVectorSearchBedrockRerankingModelConfiguration
+		return ret
+	}).(FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput)
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput) AdditionalModelRequestFields() FlowVersionAdditionalModelRequestFieldsPtrOutput {
+	return o.ApplyT(func(v *FlowVersionVectorSearchBedrockRerankingModelConfiguration) *FlowVersionAdditionalModelRequestFields {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalModelRequestFields
+	}).(FlowVersionAdditionalModelRequestFieldsPtrOutput)
+}
+
+func (o FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput) ModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVersionVectorSearchBedrockRerankingModelConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVersionVectorSearchRerankingConfiguration struct {
+	BedrockRerankingConfiguration *FlowVersionVectorSearchBedrockRerankingConfiguration `pulumi:"bedrockRerankingConfiguration"`
+	Type                          FlowVersionVectorSearchRerankingConfigurationType     `pulumi:"type"`
+}
+
+type FlowVersionVectorSearchRerankingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionVectorSearchRerankingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionVectorSearchRerankingConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationOutput) ToFlowVersionVectorSearchRerankingConfigurationOutput() FlowVersionVectorSearchRerankingConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationOutput) ToFlowVersionVectorSearchRerankingConfigurationOutputWithContext(ctx context.Context) FlowVersionVectorSearchRerankingConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationOutput) BedrockRerankingConfiguration() FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowVersionVectorSearchRerankingConfiguration) *FlowVersionVectorSearchBedrockRerankingConfiguration {
+		return v.BedrockRerankingConfiguration
+	}).(FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput)
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationOutput) Type() FlowVersionVectorSearchRerankingConfigurationTypeOutput {
+	return o.ApplyT(func(v FlowVersionVectorSearchRerankingConfiguration) FlowVersionVectorSearchRerankingConfigurationType {
+		return v.Type
+	}).(FlowVersionVectorSearchRerankingConfigurationTypeOutput)
+}
+
+type FlowVersionVectorSearchRerankingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionVectorSearchRerankingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionVectorSearchRerankingConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationPtrOutput) ToFlowVersionVectorSearchRerankingConfigurationPtrOutput() FlowVersionVectorSearchRerankingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationPtrOutput) ToFlowVersionVectorSearchRerankingConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionVectorSearchRerankingConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationPtrOutput) Elem() FlowVersionVectorSearchRerankingConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionVectorSearchRerankingConfiguration) FlowVersionVectorSearchRerankingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionVectorSearchRerankingConfiguration
+		return ret
+	}).(FlowVersionVectorSearchRerankingConfigurationOutput)
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationPtrOutput) BedrockRerankingConfiguration() FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionVectorSearchRerankingConfiguration) *FlowVersionVectorSearchBedrockRerankingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockRerankingConfiguration
+	}).(FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput)
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationPtrOutput) Type() FlowVersionVectorSearchRerankingConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *FlowVersionVectorSearchRerankingConfiguration) *FlowVersionVectorSearchRerankingConfigurationType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(FlowVersionVectorSearchRerankingConfigurationTypePtrOutput)
 }
 
 // Content filter config in content policy.
@@ -38316,6 +42133,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebDataSourceConfigurationPtrInput)(nil)).Elem(), DataSourceWebDataSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebSourceConfigurationInput)(nil)).Elem(), DataSourceWebSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebSourceConfigurationPtrInput)(nil)).Elem(), DataSourceWebSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowAdditionalModelRequestFieldsInput)(nil)).Elem(), FlowAdditionalModelRequestFieldsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowAdditionalModelRequestFieldsPtrInput)(nil)).Elem(), FlowAdditionalModelRequestFieldsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAgentFlowNodeConfigurationInput)(nil)).Elem(), FlowAgentFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAgentFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowAgentFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasConcurrencyConfigurationInput)(nil)).Elem(), FlowAliasConcurrencyConfigurationArgs{})
@@ -38325,6 +42144,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowCollectorFlowNodeConfigurationInput)(nil)).Elem(), FlowCollectorFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowCollectorFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowCollectorFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConditionInput)(nil)).Elem(), FlowConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowConditionPtrInput)(nil)).Elem(), FlowConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConditionArrayInput)(nil)).Elem(), FlowConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConditionFlowNodeConfigurationInput)(nil)).Elem(), FlowConditionFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConditionFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowConditionFlowNodeConfigurationArgs{})
@@ -38340,6 +42160,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDataConnectionConfigurationPtrInput)(nil)).Elem(), FlowDataConnectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionInput)(nil)).Elem(), FlowDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionPtrInput)(nil)).Elem(), FlowDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFieldForRerankingInput)(nil)).Elem(), FlowFieldForRerankingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFieldForRerankingArrayInput)(nil)).Elem(), FlowFieldForRerankingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowGuardrailConfigurationInput)(nil)).Elem(), FlowGuardrailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowGuardrailConfigurationPtrInput)(nil)).Elem(), FlowGuardrailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInlineCodeFlowNodeConfigurationInput)(nil)).Elem(), FlowInlineCodeFlowNodeConfigurationArgs{})
@@ -38350,10 +42172,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowIteratorFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowIteratorFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowKnowledgeBaseFlowNodeConfigurationInput)(nil)).Elem(), FlowKnowledgeBaseFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowKnowledgeBaseFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowKnowledgeBaseFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowKnowledgeBaseOrchestrationConfigurationInput)(nil)).Elem(), FlowKnowledgeBaseOrchestrationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowKnowledgeBaseOrchestrationConfigurationPtrInput)(nil)).Elem(), FlowKnowledgeBaseOrchestrationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowKnowledgeBasePromptTemplatePropertiesInput)(nil)).Elem(), FlowKnowledgeBasePromptTemplatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowKnowledgeBasePromptTemplatePropertiesPtrInput)(nil)).Elem(), FlowKnowledgeBasePromptTemplatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLambdaFunctionFlowNodeConfigurationInput)(nil)).Elem(), FlowLambdaFunctionFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLambdaFunctionFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowLambdaFunctionFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLexFlowNodeConfigurationInput)(nil)).Elem(), FlowLexFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLexFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowLexFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLoopControllerFlowNodeConfigurationInput)(nil)).Elem(), FlowLoopControllerFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLoopControllerFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowLoopControllerFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLoopFlowNodeConfigurationInput)(nil)).Elem(), FlowLoopFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLoopFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowLoopFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLoopInputFlowNodeConfigurationInput)(nil)).Elem(), FlowLoopInputFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLoopInputFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowLoopInputFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataConfigurationForRerankingInput)(nil)).Elem(), FlowMetadataConfigurationForRerankingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataConfigurationForRerankingPtrInput)(nil)).Elem(), FlowMetadataConfigurationForRerankingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeInput)(nil)).Elem(), FlowNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeArrayInput)(nil)).Elem(), FlowNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration0PropertiesInput)(nil)).Elem(), FlowNodeConfiguration0PropertiesArgs{})
@@ -38364,6 +42198,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration11PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration11PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration12PropertiesInput)(nil)).Elem(), FlowNodeConfiguration12PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration12PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration12PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration13PropertiesInput)(nil)).Elem(), FlowNodeConfiguration13PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration13PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration13PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration14PropertiesInput)(nil)).Elem(), FlowNodeConfiguration14PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration14PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration14PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration15PropertiesInput)(nil)).Elem(), FlowNodeConfiguration15PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration15PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration15PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration1PropertiesInput)(nil)).Elem(), FlowNodeConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration1PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration2PropertiesInput)(nil)).Elem(), FlowNodeConfiguration2PropertiesArgs{})
@@ -38388,6 +42228,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeOutputTypeArrayInput)(nil)).Elem(), FlowNodeOutputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputFlowNodeConfigurationInput)(nil)).Elem(), FlowOutputFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowOutputFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPerformanceConfigurationInput)(nil)).Elem(), FlowPerformanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPerformanceConfigurationPtrInput)(nil)).Elem(), FlowPerformanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptFlowNodeConfigurationInput)(nil)).Elem(), FlowPromptFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowPromptFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptFlowNodeInlineConfigurationInput)(nil)).Elem(), FlowPromptFlowNodeInlineConfigurationArgs{})
@@ -38406,6 +42248,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptModelInferenceConfigurationPtrInput)(nil)).Elem(), FlowPromptModelInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptTemplateConfigurationPropertiesInput)(nil)).Elem(), FlowPromptTemplateConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptTemplateConfigurationPropertiesPtrInput)(nil)).Elem(), FlowPromptTemplateConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRerankingMetadataSelectiveModeConfiguration0PropertiesInput)(nil)).Elem(), FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrInput)(nil)).Elem(), FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRerankingMetadataSelectiveModeConfiguration1PropertiesInput)(nil)).Elem(), FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrInput)(nil)).Elem(), FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowRetrievalFlowNodeConfigurationInput)(nil)).Elem(), FlowRetrievalFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowRetrievalFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowRetrievalFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowRetrievalFlowNodeS3ConfigurationInput)(nil)).Elem(), FlowRetrievalFlowNodeS3ConfigurationArgs{})
@@ -38422,6 +42268,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowStorageFlowNodeServiceConfigurationPropertiesPtrInput)(nil)).Elem(), FlowStorageFlowNodeServiceConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTextPromptTemplateConfigurationInput)(nil)).Elem(), FlowTextPromptTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTextPromptTemplateConfigurationPtrInput)(nil)).Elem(), FlowTextPromptTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVectorSearchBedrockRerankingConfigurationInput)(nil)).Elem(), FlowVectorSearchBedrockRerankingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVectorSearchBedrockRerankingConfigurationPtrInput)(nil)).Elem(), FlowVectorSearchBedrockRerankingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVectorSearchBedrockRerankingModelConfigurationInput)(nil)).Elem(), FlowVectorSearchBedrockRerankingModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVectorSearchBedrockRerankingModelConfigurationPtrInput)(nil)).Elem(), FlowVectorSearchBedrockRerankingModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVectorSearchRerankingConfigurationInput)(nil)).Elem(), FlowVectorSearchRerankingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVectorSearchRerankingConfigurationPtrInput)(nil)).Elem(), FlowVectorSearchRerankingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterConfigInput)(nil)).Elem(), GuardrailContentFilterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterConfigArrayInput)(nil)).Elem(), GuardrailContentFilterConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentPolicyConfigInput)(nil)).Elem(), GuardrailContentPolicyConfigArgs{})
@@ -38761,6 +42613,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceWebDataSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceWebSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceWebSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowAdditionalModelRequestFieldsOutput{})
+	pulumi.RegisterOutputType(FlowAdditionalModelRequestFieldsPtrOutput{})
 	pulumi.RegisterOutputType(FlowAgentFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowAgentFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowAliasConcurrencyConfigurationOutput{})
@@ -38770,6 +42624,7 @@ func init() {
 	pulumi.RegisterOutputType(FlowCollectorFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowCollectorFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowConditionOutput{})
+	pulumi.RegisterOutputType(FlowConditionPtrOutput{})
 	pulumi.RegisterOutputType(FlowConditionArrayOutput{})
 	pulumi.RegisterOutputType(FlowConditionFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowConditionFlowNodeConfigurationPtrOutput{})
@@ -38785,6 +42640,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowDataConnectionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(FlowFieldForRerankingOutput{})
+	pulumi.RegisterOutputType(FlowFieldForRerankingArrayOutput{})
 	pulumi.RegisterOutputType(FlowGuardrailConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowGuardrailConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowInlineCodeFlowNodeConfigurationOutput{})
@@ -38795,10 +42652,22 @@ func init() {
 	pulumi.RegisterOutputType(FlowIteratorFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowKnowledgeBaseFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowKnowledgeBaseFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowKnowledgeBaseOrchestrationConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowKnowledgeBaseOrchestrationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowKnowledgeBasePromptTemplatePropertiesOutput{})
+	pulumi.RegisterOutputType(FlowKnowledgeBasePromptTemplatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowLambdaFunctionFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowLambdaFunctionFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowLexFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowLexFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowLoopControllerFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowLoopControllerFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowLoopFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowLoopFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowLoopInputFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowLoopInputFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowMetadataConfigurationForRerankingOutput{})
+	pulumi.RegisterOutputType(FlowMetadataConfigurationForRerankingPtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeOutput{})
 	pulumi.RegisterOutputType(FlowNodeArrayOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration0PropertiesOutput{})
@@ -38809,6 +42678,12 @@ func init() {
 	pulumi.RegisterOutputType(FlowNodeConfiguration11PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration12PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration12PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration13PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration13PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration14PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration14PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration15PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration15PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration2PropertiesOutput{})
@@ -38833,6 +42708,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowNodeOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(FlowOutputFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowOutputFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowPerformanceConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowPerformanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowPromptFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowPromptFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowPromptFlowNodeInlineConfigurationOutput{})
@@ -38851,6 +42728,10 @@ func init() {
 	pulumi.RegisterOutputType(FlowPromptModelInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowPromptTemplateConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowPromptTemplateConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowRerankingMetadataSelectiveModeConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowRerankingMetadataSelectiveModeConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowRetrievalFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowRetrievalFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowRetrievalFlowNodeS3ConfigurationOutput{})
@@ -38869,13 +42750,24 @@ func init() {
 	pulumi.RegisterOutputType(FlowTextPromptTemplateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowValidationOutput{})
 	pulumi.RegisterOutputType(FlowValidationArrayOutput{})
+	pulumi.RegisterOutputType(FlowVectorSearchBedrockRerankingConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVectorSearchBedrockRerankingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVectorSearchBedrockRerankingModelConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVectorSearchBedrockRerankingModelConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVectorSearchRerankingConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVectorSearchRerankingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionAdditionalModelRequestFieldsOutput{})
+	pulumi.RegisterOutputType(FlowVersionAdditionalModelRequestFieldsPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionAgentFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionAgentFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionCollectorFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionCollectorFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionConditionFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionConditionFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFieldForRerankingOutput{})
+	pulumi.RegisterOutputType(FlowVersionFieldForRerankingArrayOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowConditionOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowConditionPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowConditionArrayOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowConditionalConnectionConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowConditionalConnectionConfigurationPtrOutput{})
@@ -38899,6 +42791,12 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration11PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration12PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration12PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration13PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration13PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration14PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration14PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration15PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration15PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration2PropertiesOutput{})
@@ -38931,12 +42829,26 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionIteratorFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionKnowledgeBaseFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionKnowledgeBaseOrchestrationConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionKnowledgeBaseOrchestrationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionKnowledgeBasePromptTemplatePropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionKnowledgeBasePromptTemplatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionLambdaFunctionFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionLambdaFunctionFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionLexFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionLexFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionLoopControllerFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionLoopControllerFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionLoopFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionLoopFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionLoopInputFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionLoopInputFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionMetadataConfigurationForRerankingOutput{})
+	pulumi.RegisterOutputType(FlowVersionMetadataConfigurationForRerankingPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionOutputFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionOutputFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionPerformanceConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionPerformanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionPromptFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionPromptFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionPromptFlowNodeInlineConfigurationOutput{})
@@ -38955,6 +42867,10 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionPromptModelInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionPromptTemplateConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowVersionPromptTemplateConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionRerankingMetadataSelectiveModeConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionRerankingMetadataSelectiveModeConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionRetrievalFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionRetrievalFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionRetrievalFlowNodeS3ConfigurationOutput{})
@@ -38969,6 +42885,12 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionTextPromptTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionTextPromptTemplateConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionVectorSearchBedrockRerankingConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionVectorSearchBedrockRerankingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionVectorSearchBedrockRerankingModelConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionVectorSearchBedrockRerankingModelConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionVectorSearchRerankingConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionVectorSearchRerankingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterConfigOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterConfigArrayOutput{})
 	pulumi.RegisterOutputType(GuardrailContentPolicyConfigOutput{})

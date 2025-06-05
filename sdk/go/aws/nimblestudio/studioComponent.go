@@ -16,30 +16,17 @@ import (
 type StudioComponent struct {
 	pulumi.CustomResourceState
 
-	// The configuration of the studio component, based on component type.
-	Configuration StudioComponentConfigurationPtrOutput `pulumi:"configuration"`
-	// A human-readable description for the studio component resource.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The EC2 security groups that control access to the studio component.
-	Ec2SecurityGroupIds pulumi.StringArrayOutput `pulumi:"ec2SecurityGroupIds"`
-	// Initialization scripts for studio components.
-	InitializationScripts StudioComponentInitializationScriptArrayOutput `pulumi:"initializationScripts"`
-	// A friendly name for the studio component resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Parameters for the studio component scripts.
-	ScriptParameters StudioComponentScriptParameterKeyValueArrayOutput `pulumi:"scriptParameters"`
-	// The unique identifier for the studio component resource.
-	StudioComponentId pulumi.StringOutput `pulumi:"studioComponentId"`
-	// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-	StudioId pulumi.StringOutput `pulumi:"studioId"`
-	// The specific subtype of a studio component.
-	Subtype pulumi.StringPtrOutput `pulumi:"subtype"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the studio component.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Configuration         StudioComponentConfigurationPtrOutput             `pulumi:"configuration"`
+	Description           pulumi.StringPtrOutput                            `pulumi:"description"`
+	Ec2SecurityGroupIds   pulumi.StringArrayOutput                          `pulumi:"ec2SecurityGroupIds"`
+	InitializationScripts StudioComponentInitializationScriptArrayOutput    `pulumi:"initializationScripts"`
+	Name                  pulumi.StringOutput                               `pulumi:"name"`
+	ScriptParameters      StudioComponentScriptParameterKeyValueArrayOutput `pulumi:"scriptParameters"`
+	StudioComponentId     pulumi.StringOutput                               `pulumi:"studioComponentId"`
+	StudioId              pulumi.StringOutput                               `pulumi:"studioId"`
+	Subtype               pulumi.StringPtrOutput                            `pulumi:"subtype"`
+	Tags                  pulumi.StringMapOutput                            `pulumi:"tags"`
+	Type                  pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewStudioComponent registers a new resource with the given unique name, arguments, and options.
@@ -94,54 +81,30 @@ func (StudioComponentState) ElementType() reflect.Type {
 }
 
 type studioComponentArgs struct {
-	// The configuration of the studio component, based on component type.
-	Configuration *StudioComponentConfiguration `pulumi:"configuration"`
-	// A human-readable description for the studio component resource.
-	Description *string `pulumi:"description"`
-	// The EC2 security groups that control access to the studio component.
-	Ec2SecurityGroupIds []string `pulumi:"ec2SecurityGroupIds"`
-	// Initialization scripts for studio components.
-	InitializationScripts []StudioComponentInitializationScript `pulumi:"initializationScripts"`
-	// A friendly name for the studio component resource.
-	Name *string `pulumi:"name"`
-	// Parameters for the studio component scripts.
-	ScriptParameters []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
-	// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-	StudioId string `pulumi:"studioId"`
-	// The specific subtype of a studio component.
-	Subtype *string `pulumi:"subtype"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the studio component.
-	Type string `pulumi:"type"`
+	Configuration         *StudioComponentConfiguration            `pulumi:"configuration"`
+	Description           *string                                  `pulumi:"description"`
+	Ec2SecurityGroupIds   []string                                 `pulumi:"ec2SecurityGroupIds"`
+	InitializationScripts []StudioComponentInitializationScript    `pulumi:"initializationScripts"`
+	Name                  *string                                  `pulumi:"name"`
+	ScriptParameters      []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
+	StudioId              string                                   `pulumi:"studioId"`
+	Subtype               *string                                  `pulumi:"subtype"`
+	Tags                  map[string]string                        `pulumi:"tags"`
+	Type                  string                                   `pulumi:"type"`
 }
 
 // The set of arguments for constructing a StudioComponent resource.
 type StudioComponentArgs struct {
-	// The configuration of the studio component, based on component type.
-	Configuration StudioComponentConfigurationPtrInput
-	// A human-readable description for the studio component resource.
-	Description pulumi.StringPtrInput
-	// The EC2 security groups that control access to the studio component.
-	Ec2SecurityGroupIds pulumi.StringArrayInput
-	// Initialization scripts for studio components.
+	Configuration         StudioComponentConfigurationPtrInput
+	Description           pulumi.StringPtrInput
+	Ec2SecurityGroupIds   pulumi.StringArrayInput
 	InitializationScripts StudioComponentInitializationScriptArrayInput
-	// A friendly name for the studio component resource.
-	Name pulumi.StringPtrInput
-	// Parameters for the studio component scripts.
-	ScriptParameters StudioComponentScriptParameterKeyValueArrayInput
-	// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-	StudioId pulumi.StringInput
-	// The specific subtype of a studio component.
-	Subtype pulumi.StringPtrInput
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags pulumi.StringMapInput
-	// The type of the studio component.
-	Type pulumi.StringInput
+	Name                  pulumi.StringPtrInput
+	ScriptParameters      StudioComponentScriptParameterKeyValueArrayInput
+	StudioId              pulumi.StringInput
+	Subtype               pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	Type                  pulumi.StringInput
 }
 
 func (StudioComponentArgs) ElementType() reflect.Type {
@@ -181,61 +144,48 @@ func (o StudioComponentOutput) ToStudioComponentOutputWithContext(ctx context.Co
 	return o
 }
 
-// The configuration of the studio component, based on component type.
 func (o StudioComponentOutput) Configuration() StudioComponentConfigurationPtrOutput {
 	return o.ApplyT(func(v *StudioComponent) StudioComponentConfigurationPtrOutput { return v.Configuration }).(StudioComponentConfigurationPtrOutput)
 }
 
-// A human-readable description for the studio component resource.
 func (o StudioComponentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The EC2 security groups that control access to the studio component.
 func (o StudioComponentOutput) Ec2SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringArrayOutput { return v.Ec2SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Initialization scripts for studio components.
 func (o StudioComponentOutput) InitializationScripts() StudioComponentInitializationScriptArrayOutput {
 	return o.ApplyT(func(v *StudioComponent) StudioComponentInitializationScriptArrayOutput {
 		return v.InitializationScripts
 	}).(StudioComponentInitializationScriptArrayOutput)
 }
 
-// A friendly name for the studio component resource.
 func (o StudioComponentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Parameters for the studio component scripts.
 func (o StudioComponentOutput) ScriptParameters() StudioComponentScriptParameterKeyValueArrayOutput {
 	return o.ApplyT(func(v *StudioComponent) StudioComponentScriptParameterKeyValueArrayOutput { return v.ScriptParameters }).(StudioComponentScriptParameterKeyValueArrayOutput)
 }
 
-// The unique identifier for the studio component resource.
 func (o StudioComponentOutput) StudioComponentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.StudioComponentId }).(pulumi.StringOutput)
 }
 
-// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 func (o StudioComponentOutput) StudioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
 }
 
-// The specific subtype of a studio component.
 func (o StudioComponentOutput) Subtype() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringPtrOutput { return v.Subtype }).(pulumi.StringPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
-//
-// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o StudioComponentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the studio component.
 func (o StudioComponentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

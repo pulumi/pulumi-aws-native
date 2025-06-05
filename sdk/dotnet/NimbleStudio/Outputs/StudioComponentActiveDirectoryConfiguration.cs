@@ -13,17 +13,8 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     [OutputType]
     public sealed class StudioComponentActiveDirectoryConfiguration
     {
-        /// <summary>
-        /// A collection of custom attributes for an Active Directory computer.
-        /// </summary>
         public readonly ImmutableArray<Outputs.StudioComponentActiveDirectoryComputerAttribute> ComputerAttributes;
-        /// <summary>
-        /// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
-        /// </summary>
         public readonly string? DirectoryId;
-        /// <summary>
-        /// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
-        /// </summary>
         public readonly string? OrganizationalUnitDistinguishedName;
 
         [OutputConstructor]

@@ -39,7 +39,7 @@ type LookupDomainNameResult struct {
 	DistributionDomainName *string `pulumi:"distributionDomainName"`
 	// The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
 	DistributionHostedZoneId *string `pulumi:"distributionHostedZoneId"`
-	// The ARN of the domain name. Supported only for private custom domain names.
+	// The ARN of the domain name.
 	DomainNameArn *string `pulumi:"domainNameArn"`
 	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	EndpointConfiguration *DomainNameEndpointConfiguration `pulumi:"endpointConfiguration"`
@@ -52,8 +52,9 @@ type LookupDomainNameResult struct {
 	// The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
 	RegionalDomainName *string `pulumi:"regionalDomainName"`
 	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
-	RegionalHostedZoneId *string                `pulumi:"regionalHostedZoneId"`
-	RoutingMode          *DomainNameRoutingMode `pulumi:"routingMode"`
+	RegionalHostedZoneId *string `pulumi:"regionalHostedZoneId"`
+	// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+	RoutingMode *DomainNameRoutingMode `pulumi:"routingMode"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// The collection of tags. Each tag element is associated with a given resource.
@@ -109,7 +110,7 @@ func (o LookupDomainNameResultOutput) DistributionHostedZoneId() pulumi.StringPt
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.DistributionHostedZoneId }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the domain name. Supported only for private custom domain names.
+// The ARN of the domain name.
 func (o LookupDomainNameResultOutput) DomainNameArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.DomainNameArn }).(pulumi.StringPtrOutput)
 }
@@ -144,6 +145,7 @@ func (o LookupDomainNameResultOutput) RegionalHostedZoneId() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.RegionalHostedZoneId }).(pulumi.StringPtrOutput)
 }
 
+// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
 func (o LookupDomainNameResultOutput) RoutingMode() DomainNameRoutingModePtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *DomainNameRoutingMode { return v.RoutingMode }).(DomainNameRoutingModePtrOutput)
 }

@@ -12,21 +12,12 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
 
     public sealed class LaunchProfileVolumeConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The number of I/O operations per second for the root volume that is attached to streaming session.
-        /// </summary>
         [Input("iops")]
         public Input<double>? Iops { get; set; }
 
-        /// <summary>
-        /// The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
-        /// </summary>
         [Input("size")]
         public Input<double>? Size { get; set; }
 
-        /// <summary>
-        /// The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
-        /// </summary>
         [Input("throughput")]
         public Input<double>? Throughput { get; set; }
 

@@ -78,6 +78,9 @@ namespace Pulumi.AwsNative.ApiGateway
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+    /// </summary>
     [EnumType]
     public readonly struct DomainNameRoutingMode : IEquatable<DomainNameRoutingMode>
     {

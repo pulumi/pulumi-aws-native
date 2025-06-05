@@ -14,19 +14,12 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     {
         [Input("mode", required: true)]
         private InputList<string>? _mode;
-
-        /// <summary>
-        /// Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
-        /// </summary>
         public InputList<string> Mode
         {
             get => _mode ?? (_mode = new InputList<string>());
             set => _mode = value;
         }
 
-        /// <summary>
-        /// The configuration for the upload storage root of the streaming session.
-        /// </summary>
         [Input("root")]
         public Input<Inputs.LaunchProfileStreamingSessionStorageRootArgs>? Root { get; set; }
 

@@ -66,7 +66,21 @@ export class LocationObjectStorage extends pulumi.CustomResource {
      * The name of the bucket on the self-managed object storage server.
      */
     public readonly bucketName!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
+     *
+     * When you include this paramater as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
+     *
+     * Make sure the DataSync has permission to access the KMS key that you specify.
+     *
+     * > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
+     */
     public readonly cmkSecretConfig!: pulumi.Output<outputs.datasync.LocationObjectStorageCmkSecretConfig | undefined>;
+    /**
+     * Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+     *
+     * > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
+     */
     public readonly customSecretConfig!: pulumi.Output<outputs.datasync.LocationObjectStorageCustomSecretConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the location that is created.
@@ -172,7 +186,21 @@ export interface LocationObjectStorageArgs {
      * The name of the bucket on the self-managed object storage server.
      */
     bucketName?: pulumi.Input<string>;
+    /**
+     * Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
+     *
+     * When you include this paramater as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
+     *
+     * Make sure the DataSync has permission to access the KMS key that you specify.
+     *
+     * > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
+     */
     cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationObjectStorageCmkSecretConfigArgs>;
+    /**
+     * Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+     *
+     * > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
+     */
     customSecretConfig?: pulumi.Input<inputs.datasync.LocationObjectStorageCustomSecretConfigArgs>;
     /**
      * Optional. The secret key is used if credentials are required to access the self-managed object storage server.

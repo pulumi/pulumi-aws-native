@@ -604,7 +604,21 @@ class FleetEc2EbsVolumeArgs:
 if not MYPY:
     class FleetHostConfigurationArgsDict(TypedDict):
         script_body: pulumi.Input[builtins.str]
+        """
+        The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+
+        For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
+
+        > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
+        """
         script_timeout_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+
+        > You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers. 
+
+        The default is 300 seconds (5 minutes).
+        """
 elif False:
     FleetHostConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -613,6 +627,18 @@ class FleetHostConfigurationArgs:
     def __init__(__self__, *,
                  script_body: pulumi.Input[builtins.str],
                  script_timeout_seconds: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] script_body: The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+               
+               For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
+               
+               > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
+        :param pulumi.Input[builtins.int] script_timeout_seconds: The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+               
+               > You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers. 
+               
+               The default is 300 seconds (5 minutes).
+        """
         pulumi.set(__self__, "script_body", script_body)
         if script_timeout_seconds is not None:
             pulumi.set(__self__, "script_timeout_seconds", script_timeout_seconds)
@@ -620,6 +646,13 @@ class FleetHostConfigurationArgs:
     @property
     @pulumi.getter(name="scriptBody")
     def script_body(self) -> pulumi.Input[builtins.str]:
+        """
+        The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+
+        For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
+
+        > The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
+        """
         return pulumi.get(self, "script_body")
 
     @script_body.setter
@@ -629,6 +662,13 @@ class FleetHostConfigurationArgs:
     @property
     @pulumi.getter(name="scriptTimeoutSeconds")
     def script_timeout_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+
+        > You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers. 
+
+        The default is 300 seconds (5 minutes).
+        """
         return pulumi.get(self, "script_timeout_seconds")
 
     @script_timeout_seconds.setter
@@ -675,6 +715,7 @@ if not MYPY:
     class FleetServiceManagedEc2FleetConfigurationArgsDict(TypedDict):
         instance_capabilities: pulumi.Input['FleetServiceManagedEc2InstanceCapabilitiesArgsDict']
         instance_market_options: pulumi.Input['FleetServiceManagedEc2InstanceMarketOptionsArgsDict']
+        storage_profile_id: NotRequired[pulumi.Input[builtins.str]]
 elif False:
     FleetServiceManagedEc2FleetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -682,9 +723,12 @@ elif False:
 class FleetServiceManagedEc2FleetConfigurationArgs:
     def __init__(__self__, *,
                  instance_capabilities: pulumi.Input['FleetServiceManagedEc2InstanceCapabilitiesArgs'],
-                 instance_market_options: pulumi.Input['FleetServiceManagedEc2InstanceMarketOptionsArgs']):
+                 instance_market_options: pulumi.Input['FleetServiceManagedEc2InstanceMarketOptionsArgs'],
+                 storage_profile_id: Optional[pulumi.Input[builtins.str]] = None):
         pulumi.set(__self__, "instance_capabilities", instance_capabilities)
         pulumi.set(__self__, "instance_market_options", instance_market_options)
+        if storage_profile_id is not None:
+            pulumi.set(__self__, "storage_profile_id", storage_profile_id)
 
     @property
     @pulumi.getter(name="instanceCapabilities")
@@ -703,6 +747,15 @@ class FleetServiceManagedEc2FleetConfigurationArgs:
     @instance_market_options.setter
     def instance_market_options(self, value: pulumi.Input['FleetServiceManagedEc2InstanceMarketOptionsArgs']):
         pulumi.set(self, "instance_market_options", value)
+
+    @property
+    @pulumi.getter(name="storageProfileId")
+    def storage_profile_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "storage_profile_id")
+
+    @storage_profile_id.setter
+    def storage_profile_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "storage_profile_id", value)
 
 
 if not MYPY:

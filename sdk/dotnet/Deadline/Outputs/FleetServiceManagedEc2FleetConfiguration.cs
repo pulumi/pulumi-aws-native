@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     {
         public readonly Outputs.FleetServiceManagedEc2InstanceCapabilities InstanceCapabilities;
         public readonly Outputs.FleetServiceManagedEc2InstanceMarketOptions InstanceMarketOptions;
+        public readonly string? StorageProfileId;
 
         [OutputConstructor]
         private FleetServiceManagedEc2FleetConfiguration(
             Outputs.FleetServiceManagedEc2InstanceCapabilities instanceCapabilities,
 
-            Outputs.FleetServiceManagedEc2InstanceMarketOptions instanceMarketOptions)
+            Outputs.FleetServiceManagedEc2InstanceMarketOptions instanceMarketOptions,
+
+            string? storageProfileId)
         {
             InstanceCapabilities = instanceCapabilities;
             InstanceMarketOptions = instanceMarketOptions;
+            StorageProfileId = storageProfileId;
         }
     }
 }

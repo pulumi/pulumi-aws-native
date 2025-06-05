@@ -83,7 +83,9 @@ class GetWorkspaceResult:
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional['outputs.WorkspaceLoggingConfiguration']:
         """
-        Contains information about the logging configuration for the workspace.
+        Contains information about the current rules and alerting logging configuration for the workspace.
+
+        > These logging configurations are only for rules and alerting logs.
         """
         return pulumi.get(self, "logging_configuration")
 
@@ -98,6 +100,9 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="queryLoggingConfiguration")
     def query_logging_configuration(self) -> Optional['outputs.WorkspaceQueryLoggingConfiguration']:
+        """
+        The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+        """
         return pulumi.get(self, "query_logging_configuration")
 
     @property

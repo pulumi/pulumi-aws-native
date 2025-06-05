@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
 
     public sealed class RoutingRuleActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Represents an InvokeApi action.
+        /// </summary>
         [Input("invokeApi", required: true)]
         public Input<Inputs.RoutingRuleActionInvokeApiArgs> InvokeApi { get; set; } = null!;
 

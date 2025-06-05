@@ -79,6 +79,9 @@ namespace Pulumi.AwsNative.Aps
         /// IAM role ARN for the scraper.
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The role configuration in an Amazon Managed Service for Prometheus scraper.
+        /// </summary>
         public readonly Outputs.ScraperRoleConfiguration? RoleConfiguration;
         /// <summary>
         /// The configuration in use by the scraper.

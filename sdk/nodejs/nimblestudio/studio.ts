@@ -37,47 +37,15 @@ export class Studio extends pulumi.CustomResource {
         return obj['__pulumiType'] === Studio.__pulumiType;
     }
 
-    /**
-     * The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-     */
     public readonly adminRoleArn!: pulumi.Output<string>;
-    /**
-     * A friendly name for the studio.
-     */
     public readonly displayName!: pulumi.Output<string>;
-    /**
-     * The AWS Region where the studio resource is located. For example, `us-west-2` .
-     */
     public /*out*/ readonly homeRegion!: pulumi.Output<string>;
-    /**
-     * The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
-     */
     public /*out*/ readonly ssoClientId!: pulumi.Output<string>;
-    /**
-     * Configuration of the encryption method that is used for the studio.
-     */
     public readonly studioEncryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StudioEncryptionConfiguration | undefined>;
-    /**
-     * The unique identifier for the studio resource.
-     */
     public /*out*/ readonly studioId!: pulumi.Output<string>;
-    /**
-     * The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
-     */
     public readonly studioName!: pulumi.Output<string>;
-    /**
-     * The unique identifier for the studio resource.
-     */
     public /*out*/ readonly studioUrl!: pulumi.Output<string>;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     *
-     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The IAM role that studio users assume when logging in to the Nimble Studio portal.
-     */
     public readonly userRoleArn!: pulumi.Output<string>;
 
     /**
@@ -133,30 +101,10 @@ export class Studio extends pulumi.CustomResource {
  * The set of arguments for constructing a Studio resource.
  */
 export interface StudioArgs {
-    /**
-     * The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-     */
     adminRoleArn: pulumi.Input<string>;
-    /**
-     * A friendly name for the studio.
-     */
     displayName: pulumi.Input<string>;
-    /**
-     * Configuration of the encryption method that is used for the studio.
-     */
     studioEncryptionConfiguration?: pulumi.Input<inputs.nimblestudio.StudioEncryptionConfigurationArgs>;
-    /**
-     * The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
-     */
     studioName?: pulumi.Input<string>;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     *
-     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The IAM role that studio users assume when logging in to the Nimble Studio portal.
-     */
     userRoleArn: pulumi.Input<string>;
 }

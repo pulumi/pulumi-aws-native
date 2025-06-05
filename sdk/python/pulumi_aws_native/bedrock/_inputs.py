@@ -209,6 +209,8 @@ __all__ = [
     'DataSourceWebDataSourceConfigurationArgsDict',
     'DataSourceWebSourceConfigurationArgs',
     'DataSourceWebSourceConfigurationArgsDict',
+    'FlowAdditionalModelRequestFieldsArgs',
+    'FlowAdditionalModelRequestFieldsArgsDict',
     'FlowAgentFlowNodeConfigurationArgs',
     'FlowAgentFlowNodeConfigurationArgsDict',
     'FlowAliasConcurrencyConfigurationArgs',
@@ -233,6 +235,8 @@ __all__ = [
     'FlowDataConnectionConfigurationArgsDict',
     'FlowDefinitionArgs',
     'FlowDefinitionArgsDict',
+    'FlowFieldForRerankingArgs',
+    'FlowFieldForRerankingArgsDict',
     'FlowGuardrailConfigurationArgs',
     'FlowGuardrailConfigurationArgsDict',
     'FlowInlineCodeFlowNodeConfigurationArgs',
@@ -243,10 +247,22 @@ __all__ = [
     'FlowIteratorFlowNodeConfigurationArgsDict',
     'FlowKnowledgeBaseFlowNodeConfigurationArgs',
     'FlowKnowledgeBaseFlowNodeConfigurationArgsDict',
+    'FlowKnowledgeBaseOrchestrationConfigurationArgs',
+    'FlowKnowledgeBaseOrchestrationConfigurationArgsDict',
+    'FlowKnowledgeBasePromptTemplatePropertiesArgs',
+    'FlowKnowledgeBasePromptTemplatePropertiesArgsDict',
     'FlowLambdaFunctionFlowNodeConfigurationArgs',
     'FlowLambdaFunctionFlowNodeConfigurationArgsDict',
     'FlowLexFlowNodeConfigurationArgs',
     'FlowLexFlowNodeConfigurationArgsDict',
+    'FlowLoopControllerFlowNodeConfigurationArgs',
+    'FlowLoopControllerFlowNodeConfigurationArgsDict',
+    'FlowLoopFlowNodeConfigurationArgs',
+    'FlowLoopFlowNodeConfigurationArgsDict',
+    'FlowLoopInputFlowNodeConfigurationArgs',
+    'FlowLoopInputFlowNodeConfigurationArgsDict',
+    'FlowMetadataConfigurationForRerankingArgs',
+    'FlowMetadataConfigurationForRerankingArgsDict',
     'FlowNodeConfiguration0PropertiesArgs',
     'FlowNodeConfiguration0PropertiesArgsDict',
     'FlowNodeConfiguration10PropertiesArgs',
@@ -255,6 +271,12 @@ __all__ = [
     'FlowNodeConfiguration11PropertiesArgsDict',
     'FlowNodeConfiguration12PropertiesArgs',
     'FlowNodeConfiguration12PropertiesArgsDict',
+    'FlowNodeConfiguration13PropertiesArgs',
+    'FlowNodeConfiguration13PropertiesArgsDict',
+    'FlowNodeConfiguration14PropertiesArgs',
+    'FlowNodeConfiguration14PropertiesArgsDict',
+    'FlowNodeConfiguration15PropertiesArgs',
+    'FlowNodeConfiguration15PropertiesArgsDict',
     'FlowNodeConfiguration1PropertiesArgs',
     'FlowNodeConfiguration1PropertiesArgsDict',
     'FlowNodeConfiguration2PropertiesArgs',
@@ -281,6 +303,8 @@ __all__ = [
     'FlowNodeArgsDict',
     'FlowOutputFlowNodeConfigurationArgs',
     'FlowOutputFlowNodeConfigurationArgsDict',
+    'FlowPerformanceConfigurationArgs',
+    'FlowPerformanceConfigurationArgsDict',
     'FlowPromptFlowNodeConfigurationArgs',
     'FlowPromptFlowNodeConfigurationArgsDict',
     'FlowPromptFlowNodeInlineConfigurationArgs',
@@ -299,6 +323,10 @@ __all__ = [
     'FlowPromptModelInferenceConfigurationArgsDict',
     'FlowPromptTemplateConfigurationPropertiesArgs',
     'FlowPromptTemplateConfigurationPropertiesArgsDict',
+    'FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs',
+    'FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgsDict',
+    'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs',
+    'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgsDict',
     'FlowRetrievalFlowNodeConfigurationArgs',
     'FlowRetrievalFlowNodeConfigurationArgsDict',
     'FlowRetrievalFlowNodeS3ConfigurationArgs',
@@ -315,6 +343,12 @@ __all__ = [
     'FlowStorageFlowNodeServiceConfigurationPropertiesArgsDict',
     'FlowTextPromptTemplateConfigurationArgs',
     'FlowTextPromptTemplateConfigurationArgsDict',
+    'FlowVectorSearchBedrockRerankingConfigurationArgs',
+    'FlowVectorSearchBedrockRerankingConfigurationArgsDict',
+    'FlowVectorSearchBedrockRerankingModelConfigurationArgs',
+    'FlowVectorSearchBedrockRerankingModelConfigurationArgsDict',
+    'FlowVectorSearchRerankingConfigurationArgs',
+    'FlowVectorSearchRerankingConfigurationArgsDict',
     'GuardrailContentFilterConfigArgs',
     'GuardrailContentFilterConfigArgsDict',
     'GuardrailContentPolicyConfigArgs',
@@ -5943,6 +5977,18 @@ class DataSourceWebSourceConfigurationArgs:
 
 
 if not MYPY:
+    class FlowAdditionalModelRequestFieldsArgsDict(TypedDict):
+        pass
+elif False:
+    FlowAdditionalModelRequestFieldsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowAdditionalModelRequestFieldsArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
     class FlowAgentFlowNodeConfigurationArgsDict(TypedDict):
         """
         Agent flow node configuration
@@ -5980,6 +6026,12 @@ class FlowAgentFlowNodeConfigurationArgs:
 if not MYPY:
     class FlowAliasConcurrencyConfigurationArgsDict(TypedDict):
         type: pulumi.Input['FlowAliasConcurrencyType']
+        """
+        The type of concurrency to use for parallel node execution. Specify one of the following options:
+
+        - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+        - `Manual` - You specify which nodes can be executed in parallel.
+        """
         max_concurrency: NotRequired[pulumi.Input[builtins.float]]
         """
         Number of nodes executed concurrently at a time
@@ -5993,6 +6045,10 @@ class FlowAliasConcurrencyConfigurationArgs:
                  type: pulumi.Input['FlowAliasConcurrencyType'],
                  max_concurrency: Optional[pulumi.Input[builtins.float]] = None):
         """
+        :param pulumi.Input['FlowAliasConcurrencyType'] type: The type of concurrency to use for parallel node execution. Specify one of the following options:
+               
+               - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+               - `Manual` - You specify which nodes can be executed in parallel.
         :param pulumi.Input[builtins.float] max_concurrency: Number of nodes executed concurrently at a time
         """
         pulumi.set(__self__, "type", type)
@@ -6002,6 +6058,12 @@ class FlowAliasConcurrencyConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['FlowAliasConcurrencyType']:
+        """
+        The type of concurrency to use for parallel node execution. Specify one of the following options:
+
+        - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+        - `Manual` - You specify which nodes can be executed in parallel.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -6479,6 +6541,41 @@ class FlowDefinitionArgs:
 
 
 if not MYPY:
+    class FlowFieldForRerankingArgsDict(TypedDict):
+        """
+        Field name for reranking
+        """
+        field_name: pulumi.Input[builtins.str]
+        """
+        Field name for reranking
+        """
+elif False:
+    FlowFieldForRerankingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowFieldForRerankingArgs:
+    def __init__(__self__, *,
+                 field_name: pulumi.Input[builtins.str]):
+        """
+        Field name for reranking
+        :param pulumi.Input[builtins.str] field_name: Field name for reranking
+        """
+        pulumi.set(__self__, "field_name", field_name)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Field name for reranking
+        """
+        return pulumi.get(self, "field_name")
+
+    @field_name.setter
+    def field_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "field_name", value)
+
+
+if not MYPY:
     class FlowGuardrailConfigurationArgsDict(TypedDict):
         """
         Configuration for a guardrail
@@ -6627,10 +6724,18 @@ if not MYPY:
         Identifier of the KnowledgeBase
         """
         guardrail_configuration: NotRequired[pulumi.Input['FlowGuardrailConfigurationArgsDict']]
+        inference_configuration: NotRequired[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgsDict']]
         model_id: NotRequired[pulumi.Input[builtins.str]]
         """
         ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
+        number_of_results: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Number Of Results to Retrieve
+        """
+        orchestration_configuration: NotRequired[pulumi.Input['FlowKnowledgeBaseOrchestrationConfigurationArgsDict']]
+        prompt_template: NotRequired[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgsDict']]
+        reranking_configuration: NotRequired[pulumi.Input['FlowVectorSearchRerankingConfigurationArgsDict']]
 elif False:
     FlowKnowledgeBaseFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6639,17 +6744,33 @@ class FlowKnowledgeBaseFlowNodeConfigurationArgs:
     def __init__(__self__, *,
                  knowledge_base_id: pulumi.Input[builtins.str],
                  guardrail_configuration: Optional[pulumi.Input['FlowGuardrailConfigurationArgs']] = None,
-                 model_id: Optional[pulumi.Input[builtins.str]] = None):
+                 inference_configuration: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']] = None,
+                 model_id: Optional[pulumi.Input[builtins.str]] = None,
+                 number_of_results: Optional[pulumi.Input[builtins.float]] = None,
+                 orchestration_configuration: Optional[pulumi.Input['FlowKnowledgeBaseOrchestrationConfigurationArgs']] = None,
+                 prompt_template: Optional[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgs']] = None,
+                 reranking_configuration: Optional[pulumi.Input['FlowVectorSearchRerankingConfigurationArgs']] = None):
         """
         Knowledge base flow node configuration
         :param pulumi.Input[builtins.str] knowledge_base_id: Identifier of the KnowledgeBase
         :param pulumi.Input[builtins.str] model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
+        :param pulumi.Input[builtins.float] number_of_results: Number Of Results to Retrieve
         """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
         if guardrail_configuration is not None:
             pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
+        if inference_configuration is not None:
+            pulumi.set(__self__, "inference_configuration", inference_configuration)
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
+        if number_of_results is not None:
+            pulumi.set(__self__, "number_of_results", number_of_results)
+        if orchestration_configuration is not None:
+            pulumi.set(__self__, "orchestration_configuration", orchestration_configuration)
+        if prompt_template is not None:
+            pulumi.set(__self__, "prompt_template", prompt_template)
+        if reranking_configuration is not None:
+            pulumi.set(__self__, "reranking_configuration", reranking_configuration)
 
     @property
     @pulumi.getter(name="knowledgeBaseId")
@@ -6673,6 +6794,15 @@ class FlowKnowledgeBaseFlowNodeConfigurationArgs:
         pulumi.set(self, "guardrail_configuration", value)
 
     @property
+    @pulumi.getter(name="inferenceConfiguration")
+    def inference_configuration(self) -> Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']]:
+        return pulumi.get(self, "inference_configuration")
+
+    @inference_configuration.setter
+    def inference_configuration(self, value: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']]):
+        pulumi.set(self, "inference_configuration", value)
+
+    @property
     @pulumi.getter(name="modelId")
     def model_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -6683,6 +6813,135 @@ class FlowKnowledgeBaseFlowNodeConfigurationArgs:
     @model_id.setter
     def model_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "model_id", value)
+
+    @property
+    @pulumi.getter(name="numberOfResults")
+    def number_of_results(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Number Of Results to Retrieve
+        """
+        return pulumi.get(self, "number_of_results")
+
+    @number_of_results.setter
+    def number_of_results(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "number_of_results", value)
+
+    @property
+    @pulumi.getter(name="orchestrationConfiguration")
+    def orchestration_configuration(self) -> Optional[pulumi.Input['FlowKnowledgeBaseOrchestrationConfigurationArgs']]:
+        return pulumi.get(self, "orchestration_configuration")
+
+    @orchestration_configuration.setter
+    def orchestration_configuration(self, value: Optional[pulumi.Input['FlowKnowledgeBaseOrchestrationConfigurationArgs']]):
+        pulumi.set(self, "orchestration_configuration", value)
+
+    @property
+    @pulumi.getter(name="promptTemplate")
+    def prompt_template(self) -> Optional[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgs']]:
+        return pulumi.get(self, "prompt_template")
+
+    @prompt_template.setter
+    def prompt_template(self, value: Optional[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgs']]):
+        pulumi.set(self, "prompt_template", value)
+
+    @property
+    @pulumi.getter(name="rerankingConfiguration")
+    def reranking_configuration(self) -> Optional[pulumi.Input['FlowVectorSearchRerankingConfigurationArgs']]:
+        return pulumi.get(self, "reranking_configuration")
+
+    @reranking_configuration.setter
+    def reranking_configuration(self, value: Optional[pulumi.Input['FlowVectorSearchRerankingConfigurationArgs']]):
+        pulumi.set(self, "reranking_configuration", value)
+
+
+if not MYPY:
+    class FlowKnowledgeBaseOrchestrationConfigurationArgsDict(TypedDict):
+        additional_model_request_fields: NotRequired[pulumi.Input['FlowAdditionalModelRequestFieldsArgsDict']]
+        inference_config: NotRequired[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgsDict']]
+        performance_config: NotRequired[pulumi.Input['FlowPerformanceConfigurationArgsDict']]
+        prompt_template: NotRequired[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgsDict']]
+elif False:
+    FlowKnowledgeBaseOrchestrationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowKnowledgeBaseOrchestrationConfigurationArgs:
+    def __init__(__self__, *,
+                 additional_model_request_fields: Optional[pulumi.Input['FlowAdditionalModelRequestFieldsArgs']] = None,
+                 inference_config: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']] = None,
+                 performance_config: Optional[pulumi.Input['FlowPerformanceConfigurationArgs']] = None,
+                 prompt_template: Optional[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgs']] = None):
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
+        if inference_config is not None:
+            pulumi.set(__self__, "inference_config", inference_config)
+        if performance_config is not None:
+            pulumi.set(__self__, "performance_config", performance_config)
+        if prompt_template is not None:
+            pulumi.set(__self__, "prompt_template", prompt_template)
+
+    @property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> Optional[pulumi.Input['FlowAdditionalModelRequestFieldsArgs']]:
+        return pulumi.get(self, "additional_model_request_fields")
+
+    @additional_model_request_fields.setter
+    def additional_model_request_fields(self, value: Optional[pulumi.Input['FlowAdditionalModelRequestFieldsArgs']]):
+        pulumi.set(self, "additional_model_request_fields", value)
+
+    @property
+    @pulumi.getter(name="inferenceConfig")
+    def inference_config(self) -> Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']]:
+        return pulumi.get(self, "inference_config")
+
+    @inference_config.setter
+    def inference_config(self, value: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']]):
+        pulumi.set(self, "inference_config", value)
+
+    @property
+    @pulumi.getter(name="performanceConfig")
+    def performance_config(self) -> Optional[pulumi.Input['FlowPerformanceConfigurationArgs']]:
+        return pulumi.get(self, "performance_config")
+
+    @performance_config.setter
+    def performance_config(self, value: Optional[pulumi.Input['FlowPerformanceConfigurationArgs']]):
+        pulumi.set(self, "performance_config", value)
+
+    @property
+    @pulumi.getter(name="promptTemplate")
+    def prompt_template(self) -> Optional[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgs']]:
+        return pulumi.get(self, "prompt_template")
+
+    @prompt_template.setter
+    def prompt_template(self, value: Optional[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgs']]):
+        pulumi.set(self, "prompt_template", value)
+
+
+if not MYPY:
+    class FlowKnowledgeBasePromptTemplatePropertiesArgsDict(TypedDict):
+        """
+        Knowledge Base Prompt template
+        """
+        text_prompt_template: pulumi.Input[builtins.str]
+elif False:
+    FlowKnowledgeBasePromptTemplatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowKnowledgeBasePromptTemplatePropertiesArgs:
+    def __init__(__self__, *,
+                 text_prompt_template: pulumi.Input[builtins.str]):
+        """
+        Knowledge Base Prompt template
+        """
+        pulumi.set(__self__, "text_prompt_template", text_prompt_template)
+
+    @property
+    @pulumi.getter(name="textPromptTemplate")
+    def text_prompt_template(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "text_prompt_template")
+
+    @text_prompt_template.setter
+    def text_prompt_template(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "text_prompt_template", value)
 
 
 if not MYPY:
@@ -6772,6 +7031,135 @@ class FlowLexFlowNodeConfigurationArgs:
     @locale_id.setter
     def locale_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "locale_id", value)
+
+
+if not MYPY:
+    class FlowLoopControllerFlowNodeConfigurationArgsDict(TypedDict):
+        """
+        Configuration for the LoopController node, which manages loop execution
+        """
+        continue_condition: pulumi.Input['FlowConditionArgsDict']
+        max_iterations: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Maximum number of iterations the loop can perform
+        """
+elif False:
+    FlowLoopControllerFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowLoopControllerFlowNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 continue_condition: pulumi.Input['FlowConditionArgs'],
+                 max_iterations: Optional[pulumi.Input[builtins.float]] = None):
+        """
+        Configuration for the LoopController node, which manages loop execution
+        :param pulumi.Input[builtins.float] max_iterations: Maximum number of iterations the loop can perform
+        """
+        pulumi.set(__self__, "continue_condition", continue_condition)
+        if max_iterations is not None:
+            pulumi.set(__self__, "max_iterations", max_iterations)
+
+    @property
+    @pulumi.getter(name="continueCondition")
+    def continue_condition(self) -> pulumi.Input['FlowConditionArgs']:
+        return pulumi.get(self, "continue_condition")
+
+    @continue_condition.setter
+    def continue_condition(self, value: pulumi.Input['FlowConditionArgs']):
+        pulumi.set(self, "continue_condition", value)
+
+    @property
+    @pulumi.getter(name="maxIterations")
+    def max_iterations(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Maximum number of iterations the loop can perform
+        """
+        return pulumi.get(self, "max_iterations")
+
+    @max_iterations.setter
+    def max_iterations(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "max_iterations", value)
+
+
+if not MYPY:
+    class FlowLoopFlowNodeConfigurationArgsDict(TypedDict):
+        """
+        Loop node config, contains loop's internal definition
+        """
+        definition: pulumi.Input['FlowDefinitionArgsDict']
+elif False:
+    FlowLoopFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowLoopFlowNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input['FlowDefinitionArgs']):
+        """
+        Loop node config, contains loop's internal definition
+        """
+        pulumi.set(__self__, "definition", definition)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input['FlowDefinitionArgs']:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input['FlowDefinitionArgs']):
+        pulumi.set(self, "definition", value)
+
+
+if not MYPY:
+    class FlowLoopInputFlowNodeConfigurationArgsDict(TypedDict):
+        """
+        Configuration for the LoopInput node
+        """
+        pass
+elif False:
+    FlowLoopInputFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowLoopInputFlowNodeConfigurationArgs:
+    def __init__(__self__):
+        """
+        Configuration for the LoopInput node
+        """
+        pass
+
+
+if not MYPY:
+    class FlowMetadataConfigurationForRerankingArgsDict(TypedDict):
+        selection_mode: pulumi.Input['FlowRerankingMetadataSelectionMode']
+        selective_mode_configuration: NotRequired[pulumi.Input[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgsDict', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgsDict']]]
+elif False:
+    FlowMetadataConfigurationForRerankingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowMetadataConfigurationForRerankingArgs:
+    def __init__(__self__, *,
+                 selection_mode: pulumi.Input['FlowRerankingMetadataSelectionMode'],
+                 selective_mode_configuration: Optional[pulumi.Input[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs']]] = None):
+        pulumi.set(__self__, "selection_mode", selection_mode)
+        if selective_mode_configuration is not None:
+            pulumi.set(__self__, "selective_mode_configuration", selective_mode_configuration)
+
+    @property
+    @pulumi.getter(name="selectionMode")
+    def selection_mode(self) -> pulumi.Input['FlowRerankingMetadataSelectionMode']:
+        return pulumi.get(self, "selection_mode")
+
+    @selection_mode.setter
+    def selection_mode(self, value: pulumi.Input['FlowRerankingMetadataSelectionMode']):
+        pulumi.set(self, "selection_mode", value)
+
+    @property
+    @pulumi.getter(name="selectiveModeConfiguration")
+    def selective_mode_configuration(self) -> Optional[pulumi.Input[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs']]]:
+        return pulumi.get(self, "selective_mode_configuration")
+
+    @selective_mode_configuration.setter
+    def selective_mode_configuration(self, value: Optional[pulumi.Input[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs']]]):
+        pulumi.set(self, "selective_mode_configuration", value)
 
 
 if not MYPY:
@@ -6884,6 +7272,90 @@ class FlowNodeConfiguration12PropertiesArgs:
     @inline_code.setter
     def inline_code(self, value: pulumi.Input['FlowInlineCodeFlowNodeConfigurationArgs']):
         pulumi.set(self, "inline_code", value)
+
+
+if not MYPY:
+    class FlowNodeConfiguration13PropertiesArgsDict(TypedDict):
+        """
+        Node configuration in a flow
+        """
+        loop: pulumi.Input['FlowLoopFlowNodeConfigurationArgsDict']
+elif False:
+    FlowNodeConfiguration13PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowNodeConfiguration13PropertiesArgs:
+    def __init__(__self__, *,
+                 loop: pulumi.Input['FlowLoopFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "loop", loop)
+
+    @property
+    @pulumi.getter
+    def loop(self) -> pulumi.Input['FlowLoopFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "loop")
+
+    @loop.setter
+    def loop(self, value: pulumi.Input['FlowLoopFlowNodeConfigurationArgs']):
+        pulumi.set(self, "loop", value)
+
+
+if not MYPY:
+    class FlowNodeConfiguration14PropertiesArgsDict(TypedDict):
+        """
+        Node configuration in a flow
+        """
+        loop_input: pulumi.Input['FlowLoopInputFlowNodeConfigurationArgsDict']
+elif False:
+    FlowNodeConfiguration14PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowNodeConfiguration14PropertiesArgs:
+    def __init__(__self__, *,
+                 loop_input: pulumi.Input['FlowLoopInputFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "loop_input", loop_input)
+
+    @property
+    @pulumi.getter(name="loopInput")
+    def loop_input(self) -> pulumi.Input['FlowLoopInputFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "loop_input")
+
+    @loop_input.setter
+    def loop_input(self, value: pulumi.Input['FlowLoopInputFlowNodeConfigurationArgs']):
+        pulumi.set(self, "loop_input", value)
+
+
+if not MYPY:
+    class FlowNodeConfiguration15PropertiesArgsDict(TypedDict):
+        """
+        Node configuration in a flow
+        """
+        loop_controller: pulumi.Input['FlowLoopControllerFlowNodeConfigurationArgsDict']
+elif False:
+    FlowNodeConfiguration15PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowNodeConfiguration15PropertiesArgs:
+    def __init__(__self__, *,
+                 loop_controller: pulumi.Input['FlowLoopControllerFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "loop_controller", loop_controller)
+
+    @property
+    @pulumi.getter(name="loopController")
+    def loop_controller(self) -> pulumi.Input['FlowLoopControllerFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "loop_controller")
+
+    @loop_controller.setter
+    def loop_controller(self, value: pulumi.Input['FlowLoopControllerFlowNodeConfigurationArgs']):
+        pulumi.set(self, "loop_controller", value)
 
 
 if not MYPY:
@@ -7153,8 +7625,9 @@ if not MYPY:
         """
         type: pulumi.Input['FlowNodeIoDataType']
         """
-        The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
+        category: NotRequired[pulumi.Input['FlowNodeInputCategory']]
 elif False:
     FlowNodeInputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7163,16 +7636,19 @@ class FlowNodeInputArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[builtins.str],
                  name: pulumi.Input[builtins.str],
-                 type: pulumi.Input['FlowNodeIoDataType']):
+                 type: pulumi.Input['FlowNodeIoDataType'],
+                 category: Optional[pulumi.Input['FlowNodeInputCategory']] = None):
         """
         Input to a node in a flow
         :param pulumi.Input[builtins.str] expression: Expression for a node input in a flow
         :param pulumi.Input[builtins.str] name: Name of a node input in a flow
-        :param pulumi.Input['FlowNodeIoDataType'] type: The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        :param pulumi.Input['FlowNodeIoDataType'] type: Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
 
     @property
     @pulumi.getter
@@ -7202,13 +7678,22 @@ class FlowNodeInputArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input['FlowNodeIoDataType']:
         """
-        The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input['FlowNodeIoDataType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input['FlowNodeInputCategory']]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input['FlowNodeInputCategory']]):
+        pulumi.set(self, "category", value)
 
 
 if not MYPY:
@@ -7278,7 +7763,7 @@ if not MYPY:
         """
         The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
         """
-        configuration: NotRequired[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgsDict', 'FlowNodeConfiguration1PropertiesArgsDict', 'FlowNodeConfiguration2PropertiesArgsDict', 'FlowNodeConfiguration3PropertiesArgsDict', 'FlowNodeConfiguration4PropertiesArgsDict', 'FlowNodeConfiguration5PropertiesArgsDict', 'FlowNodeConfiguration6PropertiesArgsDict', 'FlowNodeConfiguration7PropertiesArgsDict', 'FlowNodeConfiguration8PropertiesArgsDict', 'FlowNodeConfiguration9PropertiesArgsDict', 'FlowNodeConfiguration10PropertiesArgsDict', 'FlowNodeConfiguration11PropertiesArgsDict', 'FlowNodeConfiguration12PropertiesArgsDict']]]
+        configuration: NotRequired[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgsDict', 'FlowNodeConfiguration1PropertiesArgsDict', 'FlowNodeConfiguration2PropertiesArgsDict', 'FlowNodeConfiguration3PropertiesArgsDict', 'FlowNodeConfiguration4PropertiesArgsDict', 'FlowNodeConfiguration5PropertiesArgsDict', 'FlowNodeConfiguration6PropertiesArgsDict', 'FlowNodeConfiguration7PropertiesArgsDict', 'FlowNodeConfiguration8PropertiesArgsDict', 'FlowNodeConfiguration9PropertiesArgsDict', 'FlowNodeConfiguration10PropertiesArgsDict', 'FlowNodeConfiguration11PropertiesArgsDict', 'FlowNodeConfiguration12PropertiesArgsDict', 'FlowNodeConfiguration13PropertiesArgsDict', 'FlowNodeConfiguration14PropertiesArgsDict', 'FlowNodeConfiguration15PropertiesArgsDict']]]
         """
         Contains configurations for the node.
         """
@@ -7298,14 +7783,14 @@ class FlowNodeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[builtins.str],
                  type: pulumi.Input['FlowNodeType'],
-                 configuration: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']]] = None,
                  inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]]] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]]] = None):
         """
         Internal mixin for flow node
         :param pulumi.Input[builtins.str] name: Name of a node in a flow
         :param pulumi.Input['FlowNodeType'] type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-        :param pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs']] configuration: Contains configurations for the node.
+        :param pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']] configuration: Contains configurations for the node.
         :param pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]] inputs: List of node inputs in a flow
         :param pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]] outputs: List of node outputs in a flow
         """
@@ -7344,14 +7829,14 @@ class FlowNodeArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs']]]:
+    def configuration(self) -> Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']]]:
         """
         Contains configurations for the node.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs']]]):
+    def configuration(self, value: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']]]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -7395,6 +7880,29 @@ class FlowOutputFlowNodeConfigurationArgs:
         Output flow node configuration
         """
         pass
+
+
+if not MYPY:
+    class FlowPerformanceConfigurationArgsDict(TypedDict):
+        latency: NotRequired[pulumi.Input['FlowPerformanceConfigurationLatency']]
+elif False:
+    FlowPerformanceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowPerformanceConfigurationArgs:
+    def __init__(__self__, *,
+                 latency: Optional[pulumi.Input['FlowPerformanceConfigurationLatency']] = None):
+        if latency is not None:
+            pulumi.set(__self__, "latency", latency)
+
+    @property
+    @pulumi.getter
+    def latency(self) -> Optional[pulumi.Input['FlowPerformanceConfigurationLatency']]:
+        return pulumi.get(self, "latency")
+
+    @latency.setter
+    def latency(self, value: Optional[pulumi.Input['FlowPerformanceConfigurationLatency']]):
+        pulumi.set(self, "latency", value)
 
 
 if not MYPY:
@@ -7790,6 +8298,62 @@ class FlowPromptTemplateConfigurationPropertiesArgs:
 
 
 if not MYPY:
+    class FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgsDict(TypedDict):
+        """
+        Reranking Metadata Selective Mode Configuration
+        """
+        fields_to_include: pulumi.Input[Sequence[pulumi.Input['FlowFieldForRerankingArgsDict']]]
+elif False:
+    FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 fields_to_include: pulumi.Input[Sequence[pulumi.Input['FlowFieldForRerankingArgs']]]):
+        """
+        Reranking Metadata Selective Mode Configuration
+        """
+        pulumi.set(__self__, "fields_to_include", fields_to_include)
+
+    @property
+    @pulumi.getter(name="fieldsToInclude")
+    def fields_to_include(self) -> pulumi.Input[Sequence[pulumi.Input['FlowFieldForRerankingArgs']]]:
+        return pulumi.get(self, "fields_to_include")
+
+    @fields_to_include.setter
+    def fields_to_include(self, value: pulumi.Input[Sequence[pulumi.Input['FlowFieldForRerankingArgs']]]):
+        pulumi.set(self, "fields_to_include", value)
+
+
+if not MYPY:
+    class FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgsDict(TypedDict):
+        """
+        Reranking Metadata Selective Mode Configuration
+        """
+        fields_to_exclude: pulumi.Input[Sequence[pulumi.Input['FlowFieldForRerankingArgsDict']]]
+elif False:
+    FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 fields_to_exclude: pulumi.Input[Sequence[pulumi.Input['FlowFieldForRerankingArgs']]]):
+        """
+        Reranking Metadata Selective Mode Configuration
+        """
+        pulumi.set(__self__, "fields_to_exclude", fields_to_exclude)
+
+    @property
+    @pulumi.getter(name="fieldsToExclude")
+    def fields_to_exclude(self) -> pulumi.Input[Sequence[pulumi.Input['FlowFieldForRerankingArgs']]]:
+        return pulumi.get(self, "fields_to_exclude")
+
+    @fields_to_exclude.setter
+    def fields_to_exclude(self, value: pulumi.Input[Sequence[pulumi.Input['FlowFieldForRerankingArgs']]]):
+        pulumi.set(self, "fields_to_exclude", value)
+
+
+if not MYPY:
     class FlowRetrievalFlowNodeConfigurationArgsDict(TypedDict):
         """
         Retrieval flow node configuration
@@ -8100,6 +8664,133 @@ class FlowTextPromptTemplateConfigurationArgs:
     @input_variables.setter
     def input_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]]]):
         pulumi.set(self, "input_variables", value)
+
+
+if not MYPY:
+    class FlowVectorSearchBedrockRerankingConfigurationArgsDict(TypedDict):
+        model_configuration: pulumi.Input['FlowVectorSearchBedrockRerankingModelConfigurationArgsDict']
+        metadata_configuration: NotRequired[pulumi.Input['FlowMetadataConfigurationForRerankingArgsDict']]
+        number_of_reranked_results: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Number Of Results For Reranking
+        """
+elif False:
+    FlowVectorSearchBedrockRerankingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowVectorSearchBedrockRerankingConfigurationArgs:
+    def __init__(__self__, *,
+                 model_configuration: pulumi.Input['FlowVectorSearchBedrockRerankingModelConfigurationArgs'],
+                 metadata_configuration: Optional[pulumi.Input['FlowMetadataConfigurationForRerankingArgs']] = None,
+                 number_of_reranked_results: Optional[pulumi.Input[builtins.float]] = None):
+        """
+        :param pulumi.Input[builtins.float] number_of_reranked_results: Number Of Results For Reranking
+        """
+        pulumi.set(__self__, "model_configuration", model_configuration)
+        if metadata_configuration is not None:
+            pulumi.set(__self__, "metadata_configuration", metadata_configuration)
+        if number_of_reranked_results is not None:
+            pulumi.set(__self__, "number_of_reranked_results", number_of_reranked_results)
+
+    @property
+    @pulumi.getter(name="modelConfiguration")
+    def model_configuration(self) -> pulumi.Input['FlowVectorSearchBedrockRerankingModelConfigurationArgs']:
+        return pulumi.get(self, "model_configuration")
+
+    @model_configuration.setter
+    def model_configuration(self, value: pulumi.Input['FlowVectorSearchBedrockRerankingModelConfigurationArgs']):
+        pulumi.set(self, "model_configuration", value)
+
+    @property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> Optional[pulumi.Input['FlowMetadataConfigurationForRerankingArgs']]:
+        return pulumi.get(self, "metadata_configuration")
+
+    @metadata_configuration.setter
+    def metadata_configuration(self, value: Optional[pulumi.Input['FlowMetadataConfigurationForRerankingArgs']]):
+        pulumi.set(self, "metadata_configuration", value)
+
+    @property
+    @pulumi.getter(name="numberOfRerankedResults")
+    def number_of_reranked_results(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Number Of Results For Reranking
+        """
+        return pulumi.get(self, "number_of_reranked_results")
+
+    @number_of_reranked_results.setter
+    def number_of_reranked_results(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "number_of_reranked_results", value)
+
+
+if not MYPY:
+    class FlowVectorSearchBedrockRerankingModelConfigurationArgsDict(TypedDict):
+        model_arn: pulumi.Input[builtins.str]
+        additional_model_request_fields: NotRequired[pulumi.Input['FlowAdditionalModelRequestFieldsArgsDict']]
+elif False:
+    FlowVectorSearchBedrockRerankingModelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowVectorSearchBedrockRerankingModelConfigurationArgs:
+    def __init__(__self__, *,
+                 model_arn: pulumi.Input[builtins.str],
+                 additional_model_request_fields: Optional[pulumi.Input['FlowAdditionalModelRequestFieldsArgs']] = None):
+        pulumi.set(__self__, "model_arn", model_arn)
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "model_arn")
+
+    @model_arn.setter
+    def model_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "model_arn", value)
+
+    @property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> Optional[pulumi.Input['FlowAdditionalModelRequestFieldsArgs']]:
+        return pulumi.get(self, "additional_model_request_fields")
+
+    @additional_model_request_fields.setter
+    def additional_model_request_fields(self, value: Optional[pulumi.Input['FlowAdditionalModelRequestFieldsArgs']]):
+        pulumi.set(self, "additional_model_request_fields", value)
+
+
+if not MYPY:
+    class FlowVectorSearchRerankingConfigurationArgsDict(TypedDict):
+        type: pulumi.Input['FlowVectorSearchRerankingConfigurationType']
+        bedrock_reranking_configuration: NotRequired[pulumi.Input['FlowVectorSearchBedrockRerankingConfigurationArgsDict']]
+elif False:
+    FlowVectorSearchRerankingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowVectorSearchRerankingConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['FlowVectorSearchRerankingConfigurationType'],
+                 bedrock_reranking_configuration: Optional[pulumi.Input['FlowVectorSearchBedrockRerankingConfigurationArgs']] = None):
+        pulumi.set(__self__, "type", type)
+        if bedrock_reranking_configuration is not None:
+            pulumi.set(__self__, "bedrock_reranking_configuration", bedrock_reranking_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['FlowVectorSearchRerankingConfigurationType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['FlowVectorSearchRerankingConfigurationType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="bedrockRerankingConfiguration")
+    def bedrock_reranking_configuration(self) -> Optional[pulumi.Input['FlowVectorSearchBedrockRerankingConfigurationArgs']]:
+        return pulumi.get(self, "bedrock_reranking_configuration")
+
+    @bedrock_reranking_configuration.setter
+    def bedrock_reranking_configuration(self, value: Optional[pulumi.Input['FlowVectorSearchBedrockRerankingConfigurationArgs']]):
+        pulumi.set(self, "bedrock_reranking_configuration", value)
 
 
 if not MYPY:

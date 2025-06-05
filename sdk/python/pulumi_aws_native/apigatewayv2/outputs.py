@@ -564,11 +564,17 @@ class RoutingRuleAction(dict):
 
     def __init__(__self__, *,
                  invoke_api: 'outputs.RoutingRuleActionInvokeApi'):
+        """
+        :param 'RoutingRuleActionInvokeApi' invoke_api: Represents an InvokeApi action.
+        """
         pulumi.set(__self__, "invoke_api", invoke_api)
 
     @property
     @pulumi.getter(name="invokeApi")
     def invoke_api(self) -> 'outputs.RoutingRuleActionInvokeApi':
+        """
+        Represents an InvokeApi action.
+        """
         return pulumi.get(self, "invoke_api")
 
 
@@ -597,6 +603,11 @@ class RoutingRuleActionInvokeApi(dict):
                  api_id: builtins.str,
                  stage: builtins.str,
                  strip_base_path: Optional[builtins.bool] = None):
+        """
+        :param builtins.str api_id: The API identifier of the target API.
+        :param builtins.str stage: The name of the target stage.
+        :param builtins.bool strip_base_path: The strip base path setting. When true, API Gateway strips the incoming matched base path when forwarding the request to the target API.
+        """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "stage", stage)
         if strip_base_path is not None:
@@ -605,16 +616,25 @@ class RoutingRuleActionInvokeApi(dict):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> builtins.str:
+        """
+        The API identifier of the target API.
+        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter
     def stage(self) -> builtins.str:
+        """
+        The name of the target stage.
+        """
         return pulumi.get(self, "stage")
 
     @property
     @pulumi.getter(name="stripBasePath")
     def strip_base_path(self) -> Optional[builtins.bool]:
+        """
+        The strip base path setting. When true, API Gateway strips the incoming matched base path when forwarding the request to the target API.
+        """
         return pulumi.get(self, "strip_base_path")
 
 
@@ -642,6 +662,10 @@ class RoutingRuleCondition(dict):
     def __init__(__self__, *,
                  match_base_paths: Optional['outputs.RoutingRuleMatchBasePaths'] = None,
                  match_headers: Optional['outputs.RoutingRuleMatchHeaders'] = None):
+        """
+        :param 'RoutingRuleMatchBasePaths' match_base_paths: The base path to be matched.
+        :param 'RoutingRuleMatchHeaders' match_headers: The headers to be matched.
+        """
         if match_base_paths is not None:
             pulumi.set(__self__, "match_base_paths", match_base_paths)
         if match_headers is not None:
@@ -650,11 +674,17 @@ class RoutingRuleCondition(dict):
     @property
     @pulumi.getter(name="matchBasePaths")
     def match_base_paths(self) -> Optional['outputs.RoutingRuleMatchBasePaths']:
+        """
+        The base path to be matched.
+        """
         return pulumi.get(self, "match_base_paths")
 
     @property
     @pulumi.getter(name="matchHeaders")
     def match_headers(self) -> Optional['outputs.RoutingRuleMatchHeaders']:
+        """
+        The headers to be matched.
+        """
         return pulumi.get(self, "match_headers")
 
 
@@ -679,11 +709,17 @@ class RoutingRuleMatchBasePaths(dict):
 
     def __init__(__self__, *,
                  any_of: Sequence[builtins.str]):
+        """
+        :param Sequence[builtins.str] any_of: The string of the case sensitive base path to be matched.
+        """
         pulumi.set(__self__, "any_of", any_of)
 
     @property
     @pulumi.getter(name="anyOf")
     def any_of(self) -> Sequence[builtins.str]:
+        """
+        The string of the case sensitive base path to be matched.
+        """
         return pulumi.get(self, "any_of")
 
 
@@ -709,17 +745,27 @@ class RoutingRuleMatchHeaderValue(dict):
     def __init__(__self__, *,
                  header: builtins.str,
                  value_glob: builtins.str):
+        """
+        :param builtins.str header: The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~.` .
+        :param builtins.str value_glob: The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~` . Wildcard matching is supported for header glob values but must be for `*prefix-match` , `suffix-match*` , or `*infix*-match` .
+        """
         pulumi.set(__self__, "header", header)
         pulumi.set(__self__, "value_glob", value_glob)
 
     @property
     @pulumi.getter
     def header(self) -> builtins.str:
+        """
+        The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~.` .
+        """
         return pulumi.get(self, "header")
 
     @property
     @pulumi.getter(name="valueGlob")
     def value_glob(self) -> builtins.str:
+        """
+        The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~` . Wildcard matching is supported for header glob values but must be for `*prefix-match` , `suffix-match*` , or `*infix*-match` .
+        """
         return pulumi.get(self, "value_glob")
 
 
@@ -744,11 +790,17 @@ class RoutingRuleMatchHeaders(dict):
 
     def __init__(__self__, *,
                  any_of: Sequence['outputs.RoutingRuleMatchHeaderValue']):
+        """
+        :param Sequence['RoutingRuleMatchHeaderValue'] any_of: The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.
+        """
         pulumi.set(__self__, "any_of", any_of)
 
     @property
     @pulumi.getter(name="anyOf")
     def any_of(self) -> Sequence['outputs.RoutingRuleMatchHeaderValue']:
+        """
+        The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.
+        """
         return pulumi.get(self, "any_of")
 
 

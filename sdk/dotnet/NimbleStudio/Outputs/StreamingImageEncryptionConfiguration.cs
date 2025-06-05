@@ -13,13 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     [OutputType]
     public sealed class StreamingImageEncryptionConfiguration
     {
-        /// <summary>
-        /// The ARN for a KMS key that is used to encrypt studio data.
-        /// </summary>
         public readonly string? KeyArn;
-        /// <summary>
-        /// The type of KMS key that is used to encrypt studio data.
-        /// </summary>
         public readonly string KeyType;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     [OutputType]
     public sealed class StudioComponentLicenseServiceConfiguration
     {
-        /// <summary>
-        /// The endpoint of the license service that is accessed by the studio component resource.
-        /// </summary>
         public readonly string? Endpoint;
 
         [OutputConstructor]

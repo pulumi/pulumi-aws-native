@@ -11,14 +11,14 @@ namespace Pulumi.AwsNative.Ses.Outputs
 {
 
     [OutputType]
-    public sealed class MailManagerTrafficPolicyIngressBooleanToEvaluateProperties
+    public sealed class MailManagerRuleSetRuleBooleanToEvaluate2Properties
     {
-        public readonly Outputs.MailManagerTrafficPolicyIngressAnalysis Analysis;
+        public readonly Outputs.MailManagerRuleSetRuleIsInAddressList IsInAddressList;
 
         [OutputConstructor]
-        private MailManagerTrafficPolicyIngressBooleanToEvaluateProperties(Outputs.MailManagerTrafficPolicyIngressAnalysis analysis)
+        private MailManagerRuleSetRuleBooleanToEvaluate2Properties(Outputs.MailManagerRuleSetRuleIsInAddressList isInAddressList)
         {
-            Analysis = analysis;
+            IsInAddressList = isInAddressList;
         }
     }
 }

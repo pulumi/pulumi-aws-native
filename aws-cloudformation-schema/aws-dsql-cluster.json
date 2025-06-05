@@ -4,6 +4,7 @@
   "definitions" : {
     "Tag" : {
       "description" : "A map of key and value pairs to use to tag your cluster.",
+      "type" : "object",
       "properties" : {
         "Key" : {
           "type" : "string",
@@ -54,6 +55,26 @@
     "VpcEndpointServiceName" : {
       "description" : "The VPC endpoint service name.",
       "type" : "string"
+    },
+    "MultiRegionProperties" : {
+      "description" : "The Multi-region properties associated to this cluster.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "WitnessRegion" : {
+          "description" : "The witness region in a multi-region cluster.",
+          "type" : "string"
+        },
+        "Clusters" : {
+          "type" : "array",
+          "items" : {
+            "description" : "The cluster Amazon Resource Name (ARN) in a multi-region cluster.",
+            "type" : "string"
+          },
+          "uniqueItems" : true,
+          "insertionOrder" : false
+        }
+      }
     }
   },
   "additionalProperties" : false,
@@ -70,13 +91,13 @@
   "readOnlyProperties" : [ "/properties/ResourceArn", "/properties/Identifier", "/properties/CreationTime", "/properties/Status", "/properties/VpcEndpointServiceName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "dsql:CreateCluster", "dsql:GetCluster", "dsql:TagResource", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "dsql:CreateCluster", "dsql:GetCluster", "dsql:TagResource", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource", "iam:CreateServiceLinkedRole", "dsql:PutMultiRegionProperties", "dsql:AddPeerCluster", "dsql:PutWitnessRegion" ]
     },
     "read" : {
       "permissions" : [ "dsql:GetCluster", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource", "tag:GetTagKeys", "tag:GetTagValues" ]
     },
     "update" : {
-      "permissions" : [ "dsql:UpdateCluster", "dsql:GetCluster", "dsql:UntagResource", "dsql:TagResource", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource" ]
+      "permissions" : [ "dsql:UpdateCluster", "dsql:GetCluster", "dsql:UntagResource", "dsql:TagResource", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource", "dsql:PutMultiRegionProperties", "dsql:PutWitnessRegion", "dsql:AddPeerCluster", "dsql:RemovePeerCluster" ]
     },
     "delete" : {
       "permissions" : [ "dsql:DeleteCluster", "dsql:GetCluster", "dsql:ListTagsForResource" ]

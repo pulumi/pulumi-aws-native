@@ -207,6 +207,7 @@ const (
 	KeyCheckValueAlgorithmCmac     = KeyCheckValueAlgorithm("CMAC")
 	KeyCheckValueAlgorithmAnsiX924 = KeyCheckValueAlgorithm("ANSI_X9_24")
 	KeyCheckValueAlgorithmHmac     = KeyCheckValueAlgorithm("HMAC")
+	KeyCheckValueAlgorithmSha1     = KeyCheckValueAlgorithm("SHA_1")
 )
 
 func (KeyCheckValueAlgorithm) ElementType() reflect.Type {
@@ -334,6 +335,7 @@ func (o KeyCheckValueAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx contex
 //	KeyCheckValueAlgorithmCmac
 //	KeyCheckValueAlgorithmAnsiX924
 //	KeyCheckValueAlgorithmHmac
+//	KeyCheckValueAlgorithmSha1
 type KeyCheckValueAlgorithmInput interface {
 	pulumi.Input
 

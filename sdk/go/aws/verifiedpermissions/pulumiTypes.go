@@ -1574,6 +1574,9 @@ func (o PolicyStaticPolicyDefinitionPtrOutput) Statement() pulumi.StringPtrOutpu
 }
 
 type PolicyStoreDeletionProtection struct {
+	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+	//
+	// The default state is `DISABLED` .
 	Mode PolicyStoreDeletionMode `pulumi:"mode"`
 }
 
@@ -1589,6 +1592,9 @@ type PolicyStoreDeletionProtectionInput interface {
 }
 
 type PolicyStoreDeletionProtectionArgs struct {
+	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+	//
+	// The default state is `DISABLED` .
 	Mode PolicyStoreDeletionModeInput `pulumi:"mode"`
 }
 
@@ -1669,6 +1675,9 @@ func (o PolicyStoreDeletionProtectionOutput) ToPolicyStoreDeletionProtectionPtrO
 	}).(PolicyStoreDeletionProtectionPtrOutput)
 }
 
+// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+//
+// The default state is `DISABLED` .
 func (o PolicyStoreDeletionProtectionOutput) Mode() PolicyStoreDeletionModeOutput {
 	return o.ApplyT(func(v PolicyStoreDeletionProtection) PolicyStoreDeletionMode { return v.Mode }).(PolicyStoreDeletionModeOutput)
 }
@@ -1697,6 +1706,9 @@ func (o PolicyStoreDeletionProtectionPtrOutput) Elem() PolicyStoreDeletionProtec
 	}).(PolicyStoreDeletionProtectionOutput)
 }
 
+// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+//
+// The default state is `DISABLED` .
 func (o PolicyStoreDeletionProtectionPtrOutput) Mode() PolicyStoreDeletionModePtrOutput {
 	return o.ApplyT(func(v *PolicyStoreDeletionProtection) *PolicyStoreDeletionMode {
 		if v == nil {

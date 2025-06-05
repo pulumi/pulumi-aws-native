@@ -14,8 +14,10 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['ClusterArgs', 'Cluster']
 
@@ -23,14 +25,18 @@ __all__ = ['ClusterArgs', 'Cluster']
 class ClusterArgs:
     def __init__(__self__, *,
                  deletion_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 multi_region_properties: Optional[pulumi.Input['MultiRegionPropertiesPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
+        :param pulumi.Input['MultiRegionPropertiesPropertiesArgs'] multi_region_properties: The Multi-region properties associated to this cluster.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A map of key and value pairs this cluster is tagged with.
         """
         if deletion_protection_enabled is not None:
             pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
+        if multi_region_properties is not None:
+            pulumi.set(__self__, "multi_region_properties", multi_region_properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -45,6 +51,18 @@ class ClusterArgs:
     @deletion_protection_enabled.setter
     def deletion_protection_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "deletion_protection_enabled", value)
+
+    @property
+    @pulumi.getter(name="multiRegionProperties")
+    def multi_region_properties(self) -> Optional[pulumi.Input['MultiRegionPropertiesPropertiesArgs']]:
+        """
+        The Multi-region properties associated to this cluster.
+        """
+        return pulumi.get(self, "multi_region_properties")
+
+    @multi_region_properties.setter
+    def multi_region_properties(self, value: Optional[pulumi.Input['MultiRegionPropertiesPropertiesArgs']]):
+        pulumi.set(self, "multi_region_properties", value)
 
     @property
     @pulumi.getter
@@ -66,6 +84,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 multi_region_properties: Optional[pulumi.Input[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -74,6 +93,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
+        :param pulumi.Input[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict']] multi_region_properties: The Multi-region properties associated to this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A map of key and value pairs this cluster is tagged with.
         """
         ...
@@ -101,6 +121,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 multi_region_properties: Optional[pulumi.Input[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -112,6 +133,7 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
+            __props__.__dict__["multi_region_properties"] = multi_region_properties
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["identifier"] = None
@@ -143,6 +165,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["deletion_protection_enabled"] = None
         __props__.__dict__["identifier"] = None
+        __props__.__dict__["multi_region_properties"] = None
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -172,6 +195,14 @@ class Cluster(pulumi.CustomResource):
         The ID of the created cluster.
         """
         return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter(name="multiRegionProperties")
+    def multi_region_properties(self) -> pulumi.Output[Optional['outputs.MultiRegionPropertiesProperties']]:
+        """
+        The Multi-region properties associated to this cluster.
+        """
+        return pulumi.get(self, "multi_region_properties")
 
     @property
     @pulumi.getter(name="resourceArn")

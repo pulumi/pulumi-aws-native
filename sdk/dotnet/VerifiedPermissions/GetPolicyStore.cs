@@ -67,6 +67,11 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+        /// 
+        /// The default state is `DISABLED` .
+        /// </summary>
         public readonly Outputs.PolicyStoreDeletionProtection? DeletionProtection;
         /// <summary>
         /// Descriptive text that you can provide to help with identification of the current policy store.

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotSubSlotSetting
     {
+        /// <summary>
+        /// The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.
+        /// </summary>
         public readonly string? Expression;
+        /// <summary>
+        /// Specifications for the constituent sub slots of a composite slot.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.BotSpecifications>? SlotSpecifications;
 
         [OutputConstructor]

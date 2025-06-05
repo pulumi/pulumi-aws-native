@@ -265,7 +265,7 @@ class DistributionTenant(pulumi.CustomResource):
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["managedCertificateRequest", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DistributionTenant, __self__).__init__(
             'aws-native:cloudfront:DistributionTenant',

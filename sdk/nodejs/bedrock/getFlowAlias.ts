@@ -34,6 +34,9 @@ export interface GetFlowAliasResult {
      * Arn of the Flow Alias
      */
     readonly arn?: string;
+    /**
+     * The configuration that specifies how nodes in the flow are executed concurrently.
+     */
     readonly concurrencyConfiguration?: outputs.bedrock.FlowAliasConcurrencyConfiguration;
     /**
      * Time Stamp.

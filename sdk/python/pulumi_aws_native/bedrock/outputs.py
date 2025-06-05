@@ -116,6 +116,7 @@ __all__ = [
     'DataSourceWebCrawlerLimits',
     'DataSourceWebDataSourceConfiguration',
     'DataSourceWebSourceConfiguration',
+    'FlowAdditionalModelRequestFields',
     'FlowAgentFlowNodeConfiguration',
     'FlowAliasConcurrencyConfiguration',
     'FlowAliasRoutingConfigurationListItem',
@@ -128,18 +129,28 @@ __all__ = [
     'FlowConnectionConfiguration1Properties',
     'FlowDataConnectionConfiguration',
     'FlowDefinition',
+    'FlowFieldForReranking',
     'FlowGuardrailConfiguration',
     'FlowInlineCodeFlowNodeConfiguration',
     'FlowInputFlowNodeConfiguration',
     'FlowIteratorFlowNodeConfiguration',
     'FlowKnowledgeBaseFlowNodeConfiguration',
+    'FlowKnowledgeBaseOrchestrationConfiguration',
+    'FlowKnowledgeBasePromptTemplateProperties',
     'FlowLambdaFunctionFlowNodeConfiguration',
     'FlowLexFlowNodeConfiguration',
+    'FlowLoopControllerFlowNodeConfiguration',
+    'FlowLoopFlowNodeConfiguration',
+    'FlowLoopInputFlowNodeConfiguration',
+    'FlowMetadataConfigurationForReranking',
     'FlowNode',
     'FlowNodeConfiguration0Properties',
     'FlowNodeConfiguration10Properties',
     'FlowNodeConfiguration11Properties',
     'FlowNodeConfiguration12Properties',
+    'FlowNodeConfiguration13Properties',
+    'FlowNodeConfiguration14Properties',
+    'FlowNodeConfiguration15Properties',
     'FlowNodeConfiguration1Properties',
     'FlowNodeConfiguration2Properties',
     'FlowNodeConfiguration3Properties',
@@ -152,6 +163,7 @@ __all__ = [
     'FlowNodeInput',
     'FlowNodeOutput',
     'FlowOutputFlowNodeConfiguration',
+    'FlowPerformanceConfiguration',
     'FlowPromptFlowNodeConfiguration',
     'FlowPromptFlowNodeInlineConfiguration',
     'FlowPromptFlowNodeResourceConfiguration',
@@ -161,6 +173,8 @@ __all__ = [
     'FlowPromptInputVariable',
     'FlowPromptModelInferenceConfiguration',
     'FlowPromptTemplateConfigurationProperties',
+    'FlowRerankingMetadataSelectiveModeConfiguration0Properties',
+    'FlowRerankingMetadataSelectiveModeConfiguration1Properties',
     'FlowRetrievalFlowNodeConfiguration',
     'FlowRetrievalFlowNodeS3Configuration',
     'FlowRetrievalFlowNodeServiceConfigurationProperties',
@@ -170,9 +184,14 @@ __all__ = [
     'FlowStorageFlowNodeServiceConfigurationProperties',
     'FlowTextPromptTemplateConfiguration',
     'FlowValidation',
+    'FlowVectorSearchBedrockRerankingConfiguration',
+    'FlowVectorSearchBedrockRerankingModelConfiguration',
+    'FlowVectorSearchRerankingConfiguration',
+    'FlowVersionAdditionalModelRequestFields',
     'FlowVersionAgentFlowNodeConfiguration',
     'FlowVersionCollectorFlowNodeConfiguration',
     'FlowVersionConditionFlowNodeConfiguration',
+    'FlowVersionFieldForReranking',
     'FlowVersionFlowCondition',
     'FlowVersionFlowConditionalConnectionConfiguration',
     'FlowVersionFlowConnection',
@@ -185,6 +204,9 @@ __all__ = [
     'FlowVersionFlowNodeConfiguration10Properties',
     'FlowVersionFlowNodeConfiguration11Properties',
     'FlowVersionFlowNodeConfiguration12Properties',
+    'FlowVersionFlowNodeConfiguration13Properties',
+    'FlowVersionFlowNodeConfiguration14Properties',
+    'FlowVersionFlowNodeConfiguration15Properties',
     'FlowVersionFlowNodeConfiguration1Properties',
     'FlowVersionFlowNodeConfiguration2Properties',
     'FlowVersionFlowNodeConfiguration3Properties',
@@ -201,9 +223,16 @@ __all__ = [
     'FlowVersionInputFlowNodeConfiguration',
     'FlowVersionIteratorFlowNodeConfiguration',
     'FlowVersionKnowledgeBaseFlowNodeConfiguration',
+    'FlowVersionKnowledgeBaseOrchestrationConfiguration',
+    'FlowVersionKnowledgeBasePromptTemplateProperties',
     'FlowVersionLambdaFunctionFlowNodeConfiguration',
     'FlowVersionLexFlowNodeConfiguration',
+    'FlowVersionLoopControllerFlowNodeConfiguration',
+    'FlowVersionLoopFlowNodeConfiguration',
+    'FlowVersionLoopInputFlowNodeConfiguration',
+    'FlowVersionMetadataConfigurationForReranking',
     'FlowVersionOutputFlowNodeConfiguration',
+    'FlowVersionPerformanceConfiguration',
     'FlowVersionPromptFlowNodeConfiguration',
     'FlowVersionPromptFlowNodeInlineConfiguration',
     'FlowVersionPromptFlowNodeResourceConfiguration',
@@ -213,6 +242,8 @@ __all__ = [
     'FlowVersionPromptInputVariable',
     'FlowVersionPromptModelInferenceConfiguration',
     'FlowVersionPromptTemplateConfigurationProperties',
+    'FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties',
+    'FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties',
     'FlowVersionRetrievalFlowNodeConfiguration',
     'FlowVersionRetrievalFlowNodeS3Configuration',
     'FlowVersionRetrievalFlowNodeServiceConfigurationProperties',
@@ -220,6 +251,9 @@ __all__ = [
     'FlowVersionStorageFlowNodeS3Configuration',
     'FlowVersionStorageFlowNodeServiceConfigurationProperties',
     'FlowVersionTextPromptTemplateConfiguration',
+    'FlowVersionVectorSearchBedrockRerankingConfiguration',
+    'FlowVersionVectorSearchBedrockRerankingModelConfiguration',
+    'FlowVersionVectorSearchRerankingConfiguration',
     'GuardrailContentFilterConfig',
     'GuardrailContentPolicyConfig',
     'GuardrailContextualGroundingFilterConfig',
@@ -5058,6 +5092,12 @@ class DataSourceWebSourceConfiguration(dict):
 
 
 @pulumi.output_type
+class FlowAdditionalModelRequestFields(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
 class FlowAgentFlowNodeConfiguration(dict):
     """
     Agent flow node configuration
@@ -5119,6 +5159,10 @@ class FlowAliasConcurrencyConfiguration(dict):
                  type: 'FlowAliasConcurrencyType',
                  max_concurrency: Optional[builtins.float] = None):
         """
+        :param 'FlowAliasConcurrencyType' type: The type of concurrency to use for parallel node execution. Specify one of the following options:
+               
+               - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+               - `Manual` - You specify which nodes can be executed in parallel.
         :param builtins.float max_concurrency: Number of nodes executed concurrently at a time
         """
         pulumi.set(__self__, "type", type)
@@ -5128,6 +5172,12 @@ class FlowAliasConcurrencyConfiguration(dict):
     @property
     @pulumi.getter
     def type(self) -> 'FlowAliasConcurrencyType':
+        """
+        The type of concurrency to use for parallel node execution. Specify one of the following options:
+
+        - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
+        - `Manual` - You specify which nodes can be executed in parallel.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -5460,6 +5510,45 @@ class FlowDefinition(dict):
 
 
 @pulumi.output_type
+class FlowFieldForReranking(dict):
+    """
+    Field name for reranking
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldName":
+            suggest = "field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowFieldForReranking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowFieldForReranking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowFieldForReranking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_name: builtins.str):
+        """
+        Field name for reranking
+        :param builtins.str field_name: Field name for reranking
+        """
+        pulumi.set(__self__, "field_name", field_name)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> builtins.str:
+        """
+        Field name for reranking
+        """
+        return pulumi.get(self, "field_name")
+
+
+@pulumi.output_type
 class FlowGuardrailConfiguration(dict):
     """
     Configuration for a guardrail
@@ -5578,8 +5667,18 @@ class FlowKnowledgeBaseFlowNodeConfiguration(dict):
             suggest = "knowledge_base_id"
         elif key == "guardrailConfiguration":
             suggest = "guardrail_configuration"
+        elif key == "inferenceConfiguration":
+            suggest = "inference_configuration"
         elif key == "modelId":
             suggest = "model_id"
+        elif key == "numberOfResults":
+            suggest = "number_of_results"
+        elif key == "orchestrationConfiguration":
+            suggest = "orchestration_configuration"
+        elif key == "promptTemplate":
+            suggest = "prompt_template"
+        elif key == "rerankingConfiguration":
+            suggest = "reranking_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowKnowledgeBaseFlowNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -5595,17 +5694,33 @@ class FlowKnowledgeBaseFlowNodeConfiguration(dict):
     def __init__(__self__, *,
                  knowledge_base_id: builtins.str,
                  guardrail_configuration: Optional['outputs.FlowGuardrailConfiguration'] = None,
-                 model_id: Optional[builtins.str] = None):
+                 inference_configuration: Optional['outputs.FlowPromptInferenceConfigurationProperties'] = None,
+                 model_id: Optional[builtins.str] = None,
+                 number_of_results: Optional[builtins.float] = None,
+                 orchestration_configuration: Optional['outputs.FlowKnowledgeBaseOrchestrationConfiguration'] = None,
+                 prompt_template: Optional['outputs.FlowKnowledgeBasePromptTemplateProperties'] = None,
+                 reranking_configuration: Optional['outputs.FlowVectorSearchRerankingConfiguration'] = None):
         """
         Knowledge base flow node configuration
         :param builtins.str knowledge_base_id: Identifier of the KnowledgeBase
         :param builtins.str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
+        :param builtins.float number_of_results: Number Of Results to Retrieve
         """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
         if guardrail_configuration is not None:
             pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
+        if inference_configuration is not None:
+            pulumi.set(__self__, "inference_configuration", inference_configuration)
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
+        if number_of_results is not None:
+            pulumi.set(__self__, "number_of_results", number_of_results)
+        if orchestration_configuration is not None:
+            pulumi.set(__self__, "orchestration_configuration", orchestration_configuration)
+        if prompt_template is not None:
+            pulumi.set(__self__, "prompt_template", prompt_template)
+        if reranking_configuration is not None:
+            pulumi.set(__self__, "reranking_configuration", reranking_configuration)
 
     @property
     @pulumi.getter(name="knowledgeBaseId")
@@ -5621,12 +5736,135 @@ class FlowKnowledgeBaseFlowNodeConfiguration(dict):
         return pulumi.get(self, "guardrail_configuration")
 
     @property
+    @pulumi.getter(name="inferenceConfiguration")
+    def inference_configuration(self) -> Optional['outputs.FlowPromptInferenceConfigurationProperties']:
+        return pulumi.get(self, "inference_configuration")
+
+    @property
     @pulumi.getter(name="modelId")
     def model_id(self) -> Optional[builtins.str]:
         """
         ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
+
+    @property
+    @pulumi.getter(name="numberOfResults")
+    def number_of_results(self) -> Optional[builtins.float]:
+        """
+        Number Of Results to Retrieve
+        """
+        return pulumi.get(self, "number_of_results")
+
+    @property
+    @pulumi.getter(name="orchestrationConfiguration")
+    def orchestration_configuration(self) -> Optional['outputs.FlowKnowledgeBaseOrchestrationConfiguration']:
+        return pulumi.get(self, "orchestration_configuration")
+
+    @property
+    @pulumi.getter(name="promptTemplate")
+    def prompt_template(self) -> Optional['outputs.FlowKnowledgeBasePromptTemplateProperties']:
+        return pulumi.get(self, "prompt_template")
+
+    @property
+    @pulumi.getter(name="rerankingConfiguration")
+    def reranking_configuration(self) -> Optional['outputs.FlowVectorSearchRerankingConfiguration']:
+        return pulumi.get(self, "reranking_configuration")
+
+
+@pulumi.output_type
+class FlowKnowledgeBaseOrchestrationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalModelRequestFields":
+            suggest = "additional_model_request_fields"
+        elif key == "inferenceConfig":
+            suggest = "inference_config"
+        elif key == "performanceConfig":
+            suggest = "performance_config"
+        elif key == "promptTemplate":
+            suggest = "prompt_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowKnowledgeBaseOrchestrationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowKnowledgeBaseOrchestrationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowKnowledgeBaseOrchestrationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_model_request_fields: Optional['outputs.FlowAdditionalModelRequestFields'] = None,
+                 inference_config: Optional['outputs.FlowPromptInferenceConfigurationProperties'] = None,
+                 performance_config: Optional['outputs.FlowPerformanceConfiguration'] = None,
+                 prompt_template: Optional['outputs.FlowKnowledgeBasePromptTemplateProperties'] = None):
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
+        if inference_config is not None:
+            pulumi.set(__self__, "inference_config", inference_config)
+        if performance_config is not None:
+            pulumi.set(__self__, "performance_config", performance_config)
+        if prompt_template is not None:
+            pulumi.set(__self__, "prompt_template", prompt_template)
+
+    @property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> Optional['outputs.FlowAdditionalModelRequestFields']:
+        return pulumi.get(self, "additional_model_request_fields")
+
+    @property
+    @pulumi.getter(name="inferenceConfig")
+    def inference_config(self) -> Optional['outputs.FlowPromptInferenceConfigurationProperties']:
+        return pulumi.get(self, "inference_config")
+
+    @property
+    @pulumi.getter(name="performanceConfig")
+    def performance_config(self) -> Optional['outputs.FlowPerformanceConfiguration']:
+        return pulumi.get(self, "performance_config")
+
+    @property
+    @pulumi.getter(name="promptTemplate")
+    def prompt_template(self) -> Optional['outputs.FlowKnowledgeBasePromptTemplateProperties']:
+        return pulumi.get(self, "prompt_template")
+
+
+@pulumi.output_type
+class FlowKnowledgeBasePromptTemplateProperties(dict):
+    """
+    Knowledge Base Prompt template
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textPromptTemplate":
+            suggest = "text_prompt_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowKnowledgeBasePromptTemplateProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowKnowledgeBasePromptTemplateProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowKnowledgeBasePromptTemplateProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 text_prompt_template: builtins.str):
+        """
+        Knowledge Base Prompt template
+        """
+        pulumi.set(__self__, "text_prompt_template", text_prompt_template)
+
+    @property
+    @pulumi.getter(name="textPromptTemplate")
+    def text_prompt_template(self) -> builtins.str:
+        return pulumi.get(self, "text_prompt_template")
 
 
 @pulumi.output_type
@@ -5721,6 +5959,124 @@ class FlowLexFlowNodeConfiguration(dict):
 
 
 @pulumi.output_type
+class FlowLoopControllerFlowNodeConfiguration(dict):
+    """
+    Configuration for the LoopController node, which manages loop execution
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "continueCondition":
+            suggest = "continue_condition"
+        elif key == "maxIterations":
+            suggest = "max_iterations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowLoopControllerFlowNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowLoopControllerFlowNodeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowLoopControllerFlowNodeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 continue_condition: 'outputs.FlowCondition',
+                 max_iterations: Optional[builtins.float] = None):
+        """
+        Configuration for the LoopController node, which manages loop execution
+        :param builtins.float max_iterations: Maximum number of iterations the loop can perform
+        """
+        pulumi.set(__self__, "continue_condition", continue_condition)
+        if max_iterations is not None:
+            pulumi.set(__self__, "max_iterations", max_iterations)
+
+    @property
+    @pulumi.getter(name="continueCondition")
+    def continue_condition(self) -> 'outputs.FlowCondition':
+        return pulumi.get(self, "continue_condition")
+
+    @property
+    @pulumi.getter(name="maxIterations")
+    def max_iterations(self) -> Optional[builtins.float]:
+        """
+        Maximum number of iterations the loop can perform
+        """
+        return pulumi.get(self, "max_iterations")
+
+
+@pulumi.output_type
+class FlowLoopFlowNodeConfiguration(dict):
+    """
+    Loop node config, contains loop's internal definition
+    """
+    def __init__(__self__, *,
+                 definition: 'outputs.FlowDefinition'):
+        """
+        Loop node config, contains loop's internal definition
+        """
+        pulumi.set(__self__, "definition", definition)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> 'outputs.FlowDefinition':
+        return pulumi.get(self, "definition")
+
+
+@pulumi.output_type
+class FlowLoopInputFlowNodeConfiguration(dict):
+    """
+    Configuration for the LoopInput node
+    """
+    def __init__(__self__):
+        """
+        Configuration for the LoopInput node
+        """
+        pass
+
+
+@pulumi.output_type
+class FlowMetadataConfigurationForReranking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selectionMode":
+            suggest = "selection_mode"
+        elif key == "selectiveModeConfiguration":
+            suggest = "selective_mode_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowMetadataConfigurationForReranking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowMetadataConfigurationForReranking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowMetadataConfigurationForReranking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 selection_mode: 'FlowRerankingMetadataSelectionMode',
+                 selective_mode_configuration: Optional[Any] = None):
+        pulumi.set(__self__, "selection_mode", selection_mode)
+        if selective_mode_configuration is not None:
+            pulumi.set(__self__, "selective_mode_configuration", selective_mode_configuration)
+
+    @property
+    @pulumi.getter(name="selectionMode")
+    def selection_mode(self) -> 'FlowRerankingMetadataSelectionMode':
+        return pulumi.get(self, "selection_mode")
+
+    @property
+    @pulumi.getter(name="selectiveModeConfiguration")
+    def selective_mode_configuration(self) -> Optional[Any]:
+        return pulumi.get(self, "selective_mode_configuration")
+
+
+@pulumi.output_type
 class FlowNode(dict):
     """
     Internal mixin for flow node
@@ -5735,7 +6091,7 @@ class FlowNode(dict):
         Internal mixin for flow node
         :param builtins.str name: Name of a node in a flow
         :param 'FlowNodeType' type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-        :param Union['FlowNodeConfiguration0Properties', 'FlowNodeConfiguration1Properties', 'FlowNodeConfiguration2Properties', 'FlowNodeConfiguration3Properties', 'FlowNodeConfiguration4Properties', 'FlowNodeConfiguration5Properties', 'FlowNodeConfiguration6Properties', 'FlowNodeConfiguration7Properties', 'FlowNodeConfiguration8Properties', 'FlowNodeConfiguration9Properties', 'FlowNodeConfiguration10Properties', 'FlowNodeConfiguration11Properties', 'FlowNodeConfiguration12Properties'] configuration: Contains configurations for the node.
+        :param Union['FlowNodeConfiguration0Properties', 'FlowNodeConfiguration1Properties', 'FlowNodeConfiguration2Properties', 'FlowNodeConfiguration3Properties', 'FlowNodeConfiguration4Properties', 'FlowNodeConfiguration5Properties', 'FlowNodeConfiguration6Properties', 'FlowNodeConfiguration7Properties', 'FlowNodeConfiguration8Properties', 'FlowNodeConfiguration9Properties', 'FlowNodeConfiguration10Properties', 'FlowNodeConfiguration11Properties', 'FlowNodeConfiguration12Properties', 'FlowNodeConfiguration13Properties', 'FlowNodeConfiguration14Properties', 'FlowNodeConfiguration15Properties'] configuration: Contains configurations for the node.
         :param Sequence['FlowNodeInput'] inputs: List of node inputs in a flow
         :param Sequence['FlowNodeOutput'] outputs: List of node outputs in a flow
         """
@@ -5876,6 +6232,94 @@ class FlowNodeConfiguration12Properties(dict):
     @pulumi.getter(name="inlineCode")
     def inline_code(self) -> 'outputs.FlowInlineCodeFlowNodeConfiguration':
         return pulumi.get(self, "inline_code")
+
+
+@pulumi.output_type
+class FlowNodeConfiguration13Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    def __init__(__self__, *,
+                 loop: 'outputs.FlowLoopFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "loop", loop)
+
+    @property
+    @pulumi.getter
+    def loop(self) -> 'outputs.FlowLoopFlowNodeConfiguration':
+        return pulumi.get(self, "loop")
+
+
+@pulumi.output_type
+class FlowNodeConfiguration14Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loopInput":
+            suggest = "loop_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowNodeConfiguration14Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowNodeConfiguration14Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowNodeConfiguration14Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 loop_input: 'outputs.FlowLoopInputFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "loop_input", loop_input)
+
+    @property
+    @pulumi.getter(name="loopInput")
+    def loop_input(self) -> 'outputs.FlowLoopInputFlowNodeConfiguration':
+        return pulumi.get(self, "loop_input")
+
+
+@pulumi.output_type
+class FlowNodeConfiguration15Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loopController":
+            suggest = "loop_controller"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowNodeConfiguration15Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowNodeConfiguration15Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowNodeConfiguration15Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 loop_controller: 'outputs.FlowLoopControllerFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "loop_controller", loop_controller)
+
+    @property
+    @pulumi.getter(name="loopController")
+    def loop_controller(self) -> 'outputs.FlowLoopControllerFlowNodeConfiguration':
+        return pulumi.get(self, "loop_controller")
 
 
 @pulumi.output_type
@@ -6082,16 +6526,19 @@ class FlowNodeInput(dict):
     def __init__(__self__, *,
                  expression: builtins.str,
                  name: builtins.str,
-                 type: 'FlowNodeIoDataType'):
+                 type: 'FlowNodeIoDataType',
+                 category: Optional['FlowNodeInputCategory'] = None):
         """
         Input to a node in a flow
         :param builtins.str expression: Expression for a node input in a flow
         :param builtins.str name: Name of a node input in a flow
-        :param 'FlowNodeIoDataType' type: The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        :param 'FlowNodeIoDataType' type: Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
 
     @property
     @pulumi.getter
@@ -6113,9 +6560,14 @@ class FlowNodeInput(dict):
     @pulumi.getter
     def type(self) -> 'FlowNodeIoDataType':
         """
-        The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional['FlowNodeInputCategory']:
+        return pulumi.get(self, "category")
 
 
 @pulumi.output_type
@@ -6161,6 +6613,19 @@ class FlowOutputFlowNodeConfiguration(dict):
         Output flow node configuration
         """
         pass
+
+
+@pulumi.output_type
+class FlowPerformanceConfiguration(dict):
+    def __init__(__self__, *,
+                 latency: Optional['FlowPerformanceConfigurationLatency'] = None):
+        if latency is not None:
+            pulumi.set(__self__, "latency", latency)
+
+    @property
+    @pulumi.getter
+    def latency(self) -> Optional['FlowPerformanceConfigurationLatency']:
+        return pulumi.get(self, "latency")
 
 
 @pulumi.output_type
@@ -6490,6 +6955,76 @@ class FlowPromptTemplateConfigurationProperties(dict):
 
 
 @pulumi.output_type
+class FlowRerankingMetadataSelectiveModeConfiguration0Properties(dict):
+    """
+    Reranking Metadata Selective Mode Configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldsToInclude":
+            suggest = "fields_to_include"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowRerankingMetadataSelectiveModeConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowRerankingMetadataSelectiveModeConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowRerankingMetadataSelectiveModeConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields_to_include: Sequence['outputs.FlowFieldForReranking']):
+        """
+        Reranking Metadata Selective Mode Configuration
+        """
+        pulumi.set(__self__, "fields_to_include", fields_to_include)
+
+    @property
+    @pulumi.getter(name="fieldsToInclude")
+    def fields_to_include(self) -> Sequence['outputs.FlowFieldForReranking']:
+        return pulumi.get(self, "fields_to_include")
+
+
+@pulumi.output_type
+class FlowRerankingMetadataSelectiveModeConfiguration1Properties(dict):
+    """
+    Reranking Metadata Selective Mode Configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldsToExclude":
+            suggest = "fields_to_exclude"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowRerankingMetadataSelectiveModeConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowRerankingMetadataSelectiveModeConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowRerankingMetadataSelectiveModeConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields_to_exclude: Sequence['outputs.FlowFieldForReranking']):
+        """
+        Reranking Metadata Selective Mode Configuration
+        """
+        pulumi.set(__self__, "fields_to_exclude", fields_to_exclude)
+
+    @property
+    @pulumi.getter(name="fieldsToExclude")
+    def fields_to_exclude(self) -> Sequence['outputs.FlowFieldForReranking']:
+        return pulumi.get(self, "fields_to_exclude")
+
+
+@pulumi.output_type
 class FlowRetrievalFlowNodeConfiguration(dict):
     """
     Retrieval flow node configuration
@@ -6794,6 +7329,143 @@ class FlowValidation(dict):
 
 
 @pulumi.output_type
+class FlowVectorSearchBedrockRerankingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelConfiguration":
+            suggest = "model_configuration"
+        elif key == "metadataConfiguration":
+            suggest = "metadata_configuration"
+        elif key == "numberOfRerankedResults":
+            suggest = "number_of_reranked_results"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVectorSearchBedrockRerankingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVectorSearchBedrockRerankingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVectorSearchBedrockRerankingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_configuration: 'outputs.FlowVectorSearchBedrockRerankingModelConfiguration',
+                 metadata_configuration: Optional['outputs.FlowMetadataConfigurationForReranking'] = None,
+                 number_of_reranked_results: Optional[builtins.float] = None):
+        """
+        :param builtins.float number_of_reranked_results: Number Of Results For Reranking
+        """
+        pulumi.set(__self__, "model_configuration", model_configuration)
+        if metadata_configuration is not None:
+            pulumi.set(__self__, "metadata_configuration", metadata_configuration)
+        if number_of_reranked_results is not None:
+            pulumi.set(__self__, "number_of_reranked_results", number_of_reranked_results)
+
+    @property
+    @pulumi.getter(name="modelConfiguration")
+    def model_configuration(self) -> 'outputs.FlowVectorSearchBedrockRerankingModelConfiguration':
+        return pulumi.get(self, "model_configuration")
+
+    @property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> Optional['outputs.FlowMetadataConfigurationForReranking']:
+        return pulumi.get(self, "metadata_configuration")
+
+    @property
+    @pulumi.getter(name="numberOfRerankedResults")
+    def number_of_reranked_results(self) -> Optional[builtins.float]:
+        """
+        Number Of Results For Reranking
+        """
+        return pulumi.get(self, "number_of_reranked_results")
+
+
+@pulumi.output_type
+class FlowVectorSearchBedrockRerankingModelConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelArn":
+            suggest = "model_arn"
+        elif key == "additionalModelRequestFields":
+            suggest = "additional_model_request_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVectorSearchBedrockRerankingModelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVectorSearchBedrockRerankingModelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVectorSearchBedrockRerankingModelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_arn: builtins.str,
+                 additional_model_request_fields: Optional['outputs.FlowAdditionalModelRequestFields'] = None):
+        pulumi.set(__self__, "model_arn", model_arn)
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> builtins.str:
+        return pulumi.get(self, "model_arn")
+
+    @property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> Optional['outputs.FlowAdditionalModelRequestFields']:
+        return pulumi.get(self, "additional_model_request_fields")
+
+
+@pulumi.output_type
+class FlowVectorSearchRerankingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockRerankingConfiguration":
+            suggest = "bedrock_reranking_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVectorSearchRerankingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVectorSearchRerankingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVectorSearchRerankingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'FlowVectorSearchRerankingConfigurationType',
+                 bedrock_reranking_configuration: Optional['outputs.FlowVectorSearchBedrockRerankingConfiguration'] = None):
+        pulumi.set(__self__, "type", type)
+        if bedrock_reranking_configuration is not None:
+            pulumi.set(__self__, "bedrock_reranking_configuration", bedrock_reranking_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'FlowVectorSearchRerankingConfigurationType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="bedrockRerankingConfiguration")
+    def bedrock_reranking_configuration(self) -> Optional['outputs.FlowVectorSearchBedrockRerankingConfiguration']:
+        return pulumi.get(self, "bedrock_reranking_configuration")
+
+
+@pulumi.output_type
+class FlowVersionAdditionalModelRequestFields(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
 class FlowVersionAgentFlowNodeConfiguration(dict):
     """
     Agent flow node configuration
@@ -6864,6 +7536,45 @@ class FlowVersionConditionFlowNodeConfiguration(dict):
         List of conditions in a condition node
         """
         return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class FlowVersionFieldForReranking(dict):
+    """
+    Field name for reranking
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldName":
+            suggest = "field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionFieldForReranking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionFieldForReranking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionFieldForReranking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_name: builtins.str):
+        """
+        Field name for reranking
+        :param builtins.str field_name: Field name for reranking
+        """
+        pulumi.set(__self__, "field_name", field_name)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> builtins.str:
+        """
+        Field name for reranking
+        """
+        return pulumi.get(self, "field_name")
 
 
 @pulumi.output_type
@@ -7127,7 +7838,7 @@ class FlowVersionFlowNode(dict):
         Internal mixin for flow node
         :param builtins.str name: Name of a node in a flow
         :param 'FlowVersionFlowNodeType' type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-        :param Union['FlowVersionFlowNodeConfiguration0Properties', 'FlowVersionFlowNodeConfiguration1Properties', 'FlowVersionFlowNodeConfiguration2Properties', 'FlowVersionFlowNodeConfiguration3Properties', 'FlowVersionFlowNodeConfiguration4Properties', 'FlowVersionFlowNodeConfiguration5Properties', 'FlowVersionFlowNodeConfiguration6Properties', 'FlowVersionFlowNodeConfiguration7Properties', 'FlowVersionFlowNodeConfiguration8Properties', 'FlowVersionFlowNodeConfiguration9Properties', 'FlowVersionFlowNodeConfiguration10Properties', 'FlowVersionFlowNodeConfiguration11Properties', 'FlowVersionFlowNodeConfiguration12Properties'] configuration: Contains configurations for the node.
+        :param Union['FlowVersionFlowNodeConfiguration0Properties', 'FlowVersionFlowNodeConfiguration1Properties', 'FlowVersionFlowNodeConfiguration2Properties', 'FlowVersionFlowNodeConfiguration3Properties', 'FlowVersionFlowNodeConfiguration4Properties', 'FlowVersionFlowNodeConfiguration5Properties', 'FlowVersionFlowNodeConfiguration6Properties', 'FlowVersionFlowNodeConfiguration7Properties', 'FlowVersionFlowNodeConfiguration8Properties', 'FlowVersionFlowNodeConfiguration9Properties', 'FlowVersionFlowNodeConfiguration10Properties', 'FlowVersionFlowNodeConfiguration11Properties', 'FlowVersionFlowNodeConfiguration12Properties', 'FlowVersionFlowNodeConfiguration13Properties', 'FlowVersionFlowNodeConfiguration14Properties', 'FlowVersionFlowNodeConfiguration15Properties'] configuration: Contains configurations for the node.
         :param Sequence['FlowVersionFlowNodeInput'] inputs: List of node inputs in a flow
         :param Sequence['FlowVersionFlowNodeOutput'] outputs: List of node outputs in a flow
         """
@@ -7268,6 +7979,94 @@ class FlowVersionFlowNodeConfiguration12Properties(dict):
     @pulumi.getter(name="inlineCode")
     def inline_code(self) -> 'outputs.FlowVersionInlineCodeFlowNodeConfiguration':
         return pulumi.get(self, "inline_code")
+
+
+@pulumi.output_type
+class FlowVersionFlowNodeConfiguration13Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    def __init__(__self__, *,
+                 loop: 'outputs.FlowVersionLoopFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "loop", loop)
+
+    @property
+    @pulumi.getter
+    def loop(self) -> 'outputs.FlowVersionLoopFlowNodeConfiguration':
+        return pulumi.get(self, "loop")
+
+
+@pulumi.output_type
+class FlowVersionFlowNodeConfiguration14Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loopInput":
+            suggest = "loop_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionFlowNodeConfiguration14Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionFlowNodeConfiguration14Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionFlowNodeConfiguration14Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 loop_input: 'outputs.FlowVersionLoopInputFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "loop_input", loop_input)
+
+    @property
+    @pulumi.getter(name="loopInput")
+    def loop_input(self) -> 'outputs.FlowVersionLoopInputFlowNodeConfiguration':
+        return pulumi.get(self, "loop_input")
+
+
+@pulumi.output_type
+class FlowVersionFlowNodeConfiguration15Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loopController":
+            suggest = "loop_controller"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionFlowNodeConfiguration15Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionFlowNodeConfiguration15Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionFlowNodeConfiguration15Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 loop_controller: 'outputs.FlowVersionLoopControllerFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "loop_controller", loop_controller)
+
+    @property
+    @pulumi.getter(name="loopController")
+    def loop_controller(self) -> 'outputs.FlowVersionLoopControllerFlowNodeConfiguration':
+        return pulumi.get(self, "loop_controller")
 
 
 @pulumi.output_type
@@ -7479,7 +8278,7 @@ class FlowVersionFlowNodeInput(dict):
         Input to a node in a flow
         :param builtins.str expression: Expression for a node input in a flow
         :param builtins.str name: Name of a node input in a flow
-        :param 'FlowVersionFlowNodeIoDataType' type: The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        :param 'FlowVersionFlowNodeIoDataType' type: Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
@@ -7505,7 +8304,7 @@ class FlowVersionFlowNodeInput(dict):
     @pulumi.getter
     def type(self) -> 'FlowVersionFlowNodeIoDataType':
         """
-        The data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
         """
         return pulumi.get(self, "type")
 
@@ -7662,8 +8461,18 @@ class FlowVersionKnowledgeBaseFlowNodeConfiguration(dict):
             suggest = "knowledge_base_id"
         elif key == "guardrailConfiguration":
             suggest = "guardrail_configuration"
+        elif key == "inferenceConfiguration":
+            suggest = "inference_configuration"
         elif key == "modelId":
             suggest = "model_id"
+        elif key == "numberOfResults":
+            suggest = "number_of_results"
+        elif key == "orchestrationConfiguration":
+            suggest = "orchestration_configuration"
+        elif key == "promptTemplate":
+            suggest = "prompt_template"
+        elif key == "rerankingConfiguration":
+            suggest = "reranking_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowVersionKnowledgeBaseFlowNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -7679,17 +8488,33 @@ class FlowVersionKnowledgeBaseFlowNodeConfiguration(dict):
     def __init__(__self__, *,
                  knowledge_base_id: builtins.str,
                  guardrail_configuration: Optional['outputs.FlowVersionGuardrailConfiguration'] = None,
-                 model_id: Optional[builtins.str] = None):
+                 inference_configuration: Optional['outputs.FlowVersionPromptInferenceConfigurationProperties'] = None,
+                 model_id: Optional[builtins.str] = None,
+                 number_of_results: Optional[builtins.float] = None,
+                 orchestration_configuration: Optional['outputs.FlowVersionKnowledgeBaseOrchestrationConfiguration'] = None,
+                 prompt_template: Optional['outputs.FlowVersionKnowledgeBasePromptTemplateProperties'] = None,
+                 reranking_configuration: Optional['outputs.FlowVersionVectorSearchRerankingConfiguration'] = None):
         """
         Knowledge base flow node configuration
         :param builtins.str knowledge_base_id: Identifier of the KnowledgeBase
         :param builtins.str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
+        :param builtins.float number_of_results: Number Of Results to Retrieve
         """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
         if guardrail_configuration is not None:
             pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
+        if inference_configuration is not None:
+            pulumi.set(__self__, "inference_configuration", inference_configuration)
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
+        if number_of_results is not None:
+            pulumi.set(__self__, "number_of_results", number_of_results)
+        if orchestration_configuration is not None:
+            pulumi.set(__self__, "orchestration_configuration", orchestration_configuration)
+        if prompt_template is not None:
+            pulumi.set(__self__, "prompt_template", prompt_template)
+        if reranking_configuration is not None:
+            pulumi.set(__self__, "reranking_configuration", reranking_configuration)
 
     @property
     @pulumi.getter(name="knowledgeBaseId")
@@ -7705,12 +8530,135 @@ class FlowVersionKnowledgeBaseFlowNodeConfiguration(dict):
         return pulumi.get(self, "guardrail_configuration")
 
     @property
+    @pulumi.getter(name="inferenceConfiguration")
+    def inference_configuration(self) -> Optional['outputs.FlowVersionPromptInferenceConfigurationProperties']:
+        return pulumi.get(self, "inference_configuration")
+
+    @property
     @pulumi.getter(name="modelId")
     def model_id(self) -> Optional[builtins.str]:
         """
         ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
+
+    @property
+    @pulumi.getter(name="numberOfResults")
+    def number_of_results(self) -> Optional[builtins.float]:
+        """
+        Number Of Results to Retrieve
+        """
+        return pulumi.get(self, "number_of_results")
+
+    @property
+    @pulumi.getter(name="orchestrationConfiguration")
+    def orchestration_configuration(self) -> Optional['outputs.FlowVersionKnowledgeBaseOrchestrationConfiguration']:
+        return pulumi.get(self, "orchestration_configuration")
+
+    @property
+    @pulumi.getter(name="promptTemplate")
+    def prompt_template(self) -> Optional['outputs.FlowVersionKnowledgeBasePromptTemplateProperties']:
+        return pulumi.get(self, "prompt_template")
+
+    @property
+    @pulumi.getter(name="rerankingConfiguration")
+    def reranking_configuration(self) -> Optional['outputs.FlowVersionVectorSearchRerankingConfiguration']:
+        return pulumi.get(self, "reranking_configuration")
+
+
+@pulumi.output_type
+class FlowVersionKnowledgeBaseOrchestrationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalModelRequestFields":
+            suggest = "additional_model_request_fields"
+        elif key == "inferenceConfig":
+            suggest = "inference_config"
+        elif key == "performanceConfig":
+            suggest = "performance_config"
+        elif key == "promptTemplate":
+            suggest = "prompt_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionKnowledgeBaseOrchestrationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionKnowledgeBaseOrchestrationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionKnowledgeBaseOrchestrationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_model_request_fields: Optional['outputs.FlowVersionAdditionalModelRequestFields'] = None,
+                 inference_config: Optional['outputs.FlowVersionPromptInferenceConfigurationProperties'] = None,
+                 performance_config: Optional['outputs.FlowVersionPerformanceConfiguration'] = None,
+                 prompt_template: Optional['outputs.FlowVersionKnowledgeBasePromptTemplateProperties'] = None):
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
+        if inference_config is not None:
+            pulumi.set(__self__, "inference_config", inference_config)
+        if performance_config is not None:
+            pulumi.set(__self__, "performance_config", performance_config)
+        if prompt_template is not None:
+            pulumi.set(__self__, "prompt_template", prompt_template)
+
+    @property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> Optional['outputs.FlowVersionAdditionalModelRequestFields']:
+        return pulumi.get(self, "additional_model_request_fields")
+
+    @property
+    @pulumi.getter(name="inferenceConfig")
+    def inference_config(self) -> Optional['outputs.FlowVersionPromptInferenceConfigurationProperties']:
+        return pulumi.get(self, "inference_config")
+
+    @property
+    @pulumi.getter(name="performanceConfig")
+    def performance_config(self) -> Optional['outputs.FlowVersionPerformanceConfiguration']:
+        return pulumi.get(self, "performance_config")
+
+    @property
+    @pulumi.getter(name="promptTemplate")
+    def prompt_template(self) -> Optional['outputs.FlowVersionKnowledgeBasePromptTemplateProperties']:
+        return pulumi.get(self, "prompt_template")
+
+
+@pulumi.output_type
+class FlowVersionKnowledgeBasePromptTemplateProperties(dict):
+    """
+    Knowledge Base Prompt template
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textPromptTemplate":
+            suggest = "text_prompt_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionKnowledgeBasePromptTemplateProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionKnowledgeBasePromptTemplateProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionKnowledgeBasePromptTemplateProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 text_prompt_template: builtins.str):
+        """
+        Knowledge Base Prompt template
+        """
+        pulumi.set(__self__, "text_prompt_template", text_prompt_template)
+
+    @property
+    @pulumi.getter(name="textPromptTemplate")
+    def text_prompt_template(self) -> builtins.str:
+        return pulumi.get(self, "text_prompt_template")
 
 
 @pulumi.output_type
@@ -7805,6 +8753,124 @@ class FlowVersionLexFlowNodeConfiguration(dict):
 
 
 @pulumi.output_type
+class FlowVersionLoopControllerFlowNodeConfiguration(dict):
+    """
+    Configuration for the LoopController node, which manages loop execution
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "continueCondition":
+            suggest = "continue_condition"
+        elif key == "maxIterations":
+            suggest = "max_iterations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionLoopControllerFlowNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionLoopControllerFlowNodeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionLoopControllerFlowNodeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 continue_condition: 'outputs.FlowVersionFlowCondition',
+                 max_iterations: Optional[builtins.float] = None):
+        """
+        Configuration for the LoopController node, which manages loop execution
+        :param builtins.float max_iterations: Maximum number of iterations the loop can perform
+        """
+        pulumi.set(__self__, "continue_condition", continue_condition)
+        if max_iterations is not None:
+            pulumi.set(__self__, "max_iterations", max_iterations)
+
+    @property
+    @pulumi.getter(name="continueCondition")
+    def continue_condition(self) -> 'outputs.FlowVersionFlowCondition':
+        return pulumi.get(self, "continue_condition")
+
+    @property
+    @pulumi.getter(name="maxIterations")
+    def max_iterations(self) -> Optional[builtins.float]:
+        """
+        Maximum number of iterations the loop can perform
+        """
+        return pulumi.get(self, "max_iterations")
+
+
+@pulumi.output_type
+class FlowVersionLoopFlowNodeConfiguration(dict):
+    """
+    Loop node config, contains loop's internal definition
+    """
+    def __init__(__self__, *,
+                 definition: 'outputs.FlowVersionFlowDefinition'):
+        """
+        Loop node config, contains loop's internal definition
+        """
+        pulumi.set(__self__, "definition", definition)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> 'outputs.FlowVersionFlowDefinition':
+        return pulumi.get(self, "definition")
+
+
+@pulumi.output_type
+class FlowVersionLoopInputFlowNodeConfiguration(dict):
+    """
+    Configuration for the LoopInput node
+    """
+    def __init__(__self__):
+        """
+        Configuration for the LoopInput node
+        """
+        pass
+
+
+@pulumi.output_type
+class FlowVersionMetadataConfigurationForReranking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selectionMode":
+            suggest = "selection_mode"
+        elif key == "selectiveModeConfiguration":
+            suggest = "selective_mode_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionMetadataConfigurationForReranking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionMetadataConfigurationForReranking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionMetadataConfigurationForReranking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 selection_mode: 'FlowVersionRerankingMetadataSelectionMode',
+                 selective_mode_configuration: Optional[Any] = None):
+        pulumi.set(__self__, "selection_mode", selection_mode)
+        if selective_mode_configuration is not None:
+            pulumi.set(__self__, "selective_mode_configuration", selective_mode_configuration)
+
+    @property
+    @pulumi.getter(name="selectionMode")
+    def selection_mode(self) -> 'FlowVersionRerankingMetadataSelectionMode':
+        return pulumi.get(self, "selection_mode")
+
+    @property
+    @pulumi.getter(name="selectiveModeConfiguration")
+    def selective_mode_configuration(self) -> Optional[Any]:
+        return pulumi.get(self, "selective_mode_configuration")
+
+
+@pulumi.output_type
 class FlowVersionOutputFlowNodeConfiguration(dict):
     """
     Output flow node configuration
@@ -7814,6 +8880,19 @@ class FlowVersionOutputFlowNodeConfiguration(dict):
         Output flow node configuration
         """
         pass
+
+
+@pulumi.output_type
+class FlowVersionPerformanceConfiguration(dict):
+    def __init__(__self__, *,
+                 latency: Optional['FlowVersionPerformanceConfigurationLatency'] = None):
+        if latency is not None:
+            pulumi.set(__self__, "latency", latency)
+
+    @property
+    @pulumi.getter
+    def latency(self) -> Optional['FlowVersionPerformanceConfigurationLatency']:
+        return pulumi.get(self, "latency")
 
 
 @pulumi.output_type
@@ -8143,6 +9222,76 @@ class FlowVersionPromptTemplateConfigurationProperties(dict):
 
 
 @pulumi.output_type
+class FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties(dict):
+    """
+    Reranking Metadata Selective Mode Configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldsToInclude":
+            suggest = "fields_to_include"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields_to_include: Sequence['outputs.FlowVersionFieldForReranking']):
+        """
+        Reranking Metadata Selective Mode Configuration
+        """
+        pulumi.set(__self__, "fields_to_include", fields_to_include)
+
+    @property
+    @pulumi.getter(name="fieldsToInclude")
+    def fields_to_include(self) -> Sequence['outputs.FlowVersionFieldForReranking']:
+        return pulumi.get(self, "fields_to_include")
+
+
+@pulumi.output_type
+class FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties(dict):
+    """
+    Reranking Metadata Selective Mode Configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldsToExclude":
+            suggest = "fields_to_exclude"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields_to_exclude: Sequence['outputs.FlowVersionFieldForReranking']):
+        """
+        Reranking Metadata Selective Mode Configuration
+        """
+        pulumi.set(__self__, "fields_to_exclude", fields_to_exclude)
+
+    @property
+    @pulumi.getter(name="fieldsToExclude")
+    def fields_to_exclude(self) -> Sequence['outputs.FlowVersionFieldForReranking']:
+        return pulumi.get(self, "fields_to_exclude")
+
+
+@pulumi.output_type
 class FlowVersionRetrievalFlowNodeConfiguration(dict):
     """
     Retrieval flow node configuration
@@ -8377,6 +9526,137 @@ class FlowVersionTextPromptTemplateConfiguration(dict):
         List of input variables
         """
         return pulumi.get(self, "input_variables")
+
+
+@pulumi.output_type
+class FlowVersionVectorSearchBedrockRerankingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelConfiguration":
+            suggest = "model_configuration"
+        elif key == "metadataConfiguration":
+            suggest = "metadata_configuration"
+        elif key == "numberOfRerankedResults":
+            suggest = "number_of_reranked_results"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionVectorSearchBedrockRerankingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionVectorSearchBedrockRerankingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionVectorSearchBedrockRerankingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_configuration: 'outputs.FlowVersionVectorSearchBedrockRerankingModelConfiguration',
+                 metadata_configuration: Optional['outputs.FlowVersionMetadataConfigurationForReranking'] = None,
+                 number_of_reranked_results: Optional[builtins.float] = None):
+        """
+        :param builtins.float number_of_reranked_results: Number Of Results For Reranking
+        """
+        pulumi.set(__self__, "model_configuration", model_configuration)
+        if metadata_configuration is not None:
+            pulumi.set(__self__, "metadata_configuration", metadata_configuration)
+        if number_of_reranked_results is not None:
+            pulumi.set(__self__, "number_of_reranked_results", number_of_reranked_results)
+
+    @property
+    @pulumi.getter(name="modelConfiguration")
+    def model_configuration(self) -> 'outputs.FlowVersionVectorSearchBedrockRerankingModelConfiguration':
+        return pulumi.get(self, "model_configuration")
+
+    @property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> Optional['outputs.FlowVersionMetadataConfigurationForReranking']:
+        return pulumi.get(self, "metadata_configuration")
+
+    @property
+    @pulumi.getter(name="numberOfRerankedResults")
+    def number_of_reranked_results(self) -> Optional[builtins.float]:
+        """
+        Number Of Results For Reranking
+        """
+        return pulumi.get(self, "number_of_reranked_results")
+
+
+@pulumi.output_type
+class FlowVersionVectorSearchBedrockRerankingModelConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelArn":
+            suggest = "model_arn"
+        elif key == "additionalModelRequestFields":
+            suggest = "additional_model_request_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionVectorSearchBedrockRerankingModelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionVectorSearchBedrockRerankingModelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionVectorSearchBedrockRerankingModelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_arn: builtins.str,
+                 additional_model_request_fields: Optional['outputs.FlowVersionAdditionalModelRequestFields'] = None):
+        pulumi.set(__self__, "model_arn", model_arn)
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> builtins.str:
+        return pulumi.get(self, "model_arn")
+
+    @property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> Optional['outputs.FlowVersionAdditionalModelRequestFields']:
+        return pulumi.get(self, "additional_model_request_fields")
+
+
+@pulumi.output_type
+class FlowVersionVectorSearchRerankingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockRerankingConfiguration":
+            suggest = "bedrock_reranking_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionVectorSearchRerankingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionVectorSearchRerankingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionVectorSearchRerankingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'FlowVersionVectorSearchRerankingConfigurationType',
+                 bedrock_reranking_configuration: Optional['outputs.FlowVersionVectorSearchBedrockRerankingConfiguration'] = None):
+        pulumi.set(__self__, "type", type)
+        if bedrock_reranking_configuration is not None:
+            pulumi.set(__self__, "bedrock_reranking_configuration", bedrock_reranking_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'FlowVersionVectorSearchRerankingConfigurationType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="bedrockRerankingConfiguration")
+    def bedrock_reranking_configuration(self) -> Optional['outputs.FlowVersionVectorSearchBedrockRerankingConfiguration']:
+        return pulumi.get(self, "bedrock_reranking_configuration")
 
 
 @pulumi.output_type

@@ -1449,6 +1449,7 @@ func (o RouteResponseParameterConstraintsMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 type RoutingRuleAction struct {
+	// Represents an InvokeApi action.
 	InvokeApi RoutingRuleActionInvokeApi `pulumi:"invokeApi"`
 }
 
@@ -1464,6 +1465,7 @@ type RoutingRuleActionInput interface {
 }
 
 type RoutingRuleActionArgs struct {
+	// Represents an InvokeApi action.
 	InvokeApi RoutingRuleActionInvokeApiInput `pulumi:"invokeApi"`
 }
 
@@ -1518,6 +1520,7 @@ func (o RoutingRuleActionOutput) ToRoutingRuleActionOutputWithContext(ctx contex
 	return o
 }
 
+// Represents an InvokeApi action.
 func (o RoutingRuleActionOutput) InvokeApi() RoutingRuleActionInvokeApiOutput {
 	return o.ApplyT(func(v RoutingRuleAction) RoutingRuleActionInvokeApi { return v.InvokeApi }).(RoutingRuleActionInvokeApiOutput)
 }
@@ -1543,9 +1546,12 @@ func (o RoutingRuleActionArrayOutput) Index(i pulumi.IntInput) RoutingRuleAction
 }
 
 type RoutingRuleActionInvokeApi struct {
-	ApiId         string `pulumi:"apiId"`
-	Stage         string `pulumi:"stage"`
-	StripBasePath *bool  `pulumi:"stripBasePath"`
+	// The API identifier of the target API.
+	ApiId string `pulumi:"apiId"`
+	// The name of the target stage.
+	Stage string `pulumi:"stage"`
+	// The strip base path setting. When true, API Gateway strips the incoming matched base path when forwarding the request to the target API.
+	StripBasePath *bool `pulumi:"stripBasePath"`
 }
 
 // RoutingRuleActionInvokeApiInput is an input type that accepts RoutingRuleActionInvokeApiArgs and RoutingRuleActionInvokeApiOutput values.
@@ -1560,8 +1566,11 @@ type RoutingRuleActionInvokeApiInput interface {
 }
 
 type RoutingRuleActionInvokeApiArgs struct {
-	ApiId         pulumi.StringInput  `pulumi:"apiId"`
-	Stage         pulumi.StringInput  `pulumi:"stage"`
+	// The API identifier of the target API.
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// The name of the target stage.
+	Stage pulumi.StringInput `pulumi:"stage"`
+	// The strip base path setting. When true, API Gateway strips the incoming matched base path when forwarding the request to the target API.
 	StripBasePath pulumi.BoolPtrInput `pulumi:"stripBasePath"`
 }
 
@@ -1591,21 +1600,26 @@ func (o RoutingRuleActionInvokeApiOutput) ToRoutingRuleActionInvokeApiOutputWith
 	return o
 }
 
+// The API identifier of the target API.
 func (o RoutingRuleActionInvokeApiOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleActionInvokeApi) string { return v.ApiId }).(pulumi.StringOutput)
 }
 
+// The name of the target stage.
 func (o RoutingRuleActionInvokeApiOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleActionInvokeApi) string { return v.Stage }).(pulumi.StringOutput)
 }
 
+// The strip base path setting. When true, API Gateway strips the incoming matched base path when forwarding the request to the target API.
 func (o RoutingRuleActionInvokeApiOutput) StripBasePath() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RoutingRuleActionInvokeApi) *bool { return v.StripBasePath }).(pulumi.BoolPtrOutput)
 }
 
 type RoutingRuleCondition struct {
+	// The base path to be matched.
 	MatchBasePaths *RoutingRuleMatchBasePaths `pulumi:"matchBasePaths"`
-	MatchHeaders   *RoutingRuleMatchHeaders   `pulumi:"matchHeaders"`
+	// The headers to be matched.
+	MatchHeaders *RoutingRuleMatchHeaders `pulumi:"matchHeaders"`
 }
 
 // RoutingRuleConditionInput is an input type that accepts RoutingRuleConditionArgs and RoutingRuleConditionOutput values.
@@ -1620,8 +1634,10 @@ type RoutingRuleConditionInput interface {
 }
 
 type RoutingRuleConditionArgs struct {
+	// The base path to be matched.
 	MatchBasePaths RoutingRuleMatchBasePathsPtrInput `pulumi:"matchBasePaths"`
-	MatchHeaders   RoutingRuleMatchHeadersPtrInput   `pulumi:"matchHeaders"`
+	// The headers to be matched.
+	MatchHeaders RoutingRuleMatchHeadersPtrInput `pulumi:"matchHeaders"`
 }
 
 func (RoutingRuleConditionArgs) ElementType() reflect.Type {
@@ -1675,10 +1691,12 @@ func (o RoutingRuleConditionOutput) ToRoutingRuleConditionOutputWithContext(ctx 
 	return o
 }
 
+// The base path to be matched.
 func (o RoutingRuleConditionOutput) MatchBasePaths() RoutingRuleMatchBasePathsPtrOutput {
 	return o.ApplyT(func(v RoutingRuleCondition) *RoutingRuleMatchBasePaths { return v.MatchBasePaths }).(RoutingRuleMatchBasePathsPtrOutput)
 }
 
+// The headers to be matched.
 func (o RoutingRuleConditionOutput) MatchHeaders() RoutingRuleMatchHeadersPtrOutput {
 	return o.ApplyT(func(v RoutingRuleCondition) *RoutingRuleMatchHeaders { return v.MatchHeaders }).(RoutingRuleMatchHeadersPtrOutput)
 }
@@ -1704,6 +1722,7 @@ func (o RoutingRuleConditionArrayOutput) Index(i pulumi.IntInput) RoutingRuleCon
 }
 
 type RoutingRuleMatchBasePaths struct {
+	// The string of the case sensitive base path to be matched.
 	AnyOf []string `pulumi:"anyOf"`
 }
 
@@ -1719,6 +1738,7 @@ type RoutingRuleMatchBasePathsInput interface {
 }
 
 type RoutingRuleMatchBasePathsArgs struct {
+	// The string of the case sensitive base path to be matched.
 	AnyOf pulumi.StringArrayInput `pulumi:"anyOf"`
 }
 
@@ -1799,6 +1819,7 @@ func (o RoutingRuleMatchBasePathsOutput) ToRoutingRuleMatchBasePathsPtrOutputWit
 	}).(RoutingRuleMatchBasePathsPtrOutput)
 }
 
+// The string of the case sensitive base path to be matched.
 func (o RoutingRuleMatchBasePathsOutput) AnyOf() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoutingRuleMatchBasePaths) []string { return v.AnyOf }).(pulumi.StringArrayOutput)
 }
@@ -1827,6 +1848,7 @@ func (o RoutingRuleMatchBasePathsPtrOutput) Elem() RoutingRuleMatchBasePathsOutp
 	}).(RoutingRuleMatchBasePathsOutput)
 }
 
+// The string of the case sensitive base path to be matched.
 func (o RoutingRuleMatchBasePathsPtrOutput) AnyOf() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoutingRuleMatchBasePaths) []string {
 		if v == nil {
@@ -1837,7 +1859,9 @@ func (o RoutingRuleMatchBasePathsPtrOutput) AnyOf() pulumi.StringArrayOutput {
 }
 
 type RoutingRuleMatchHeaderValue struct {
-	Header    string `pulumi:"header"`
+	// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~.` .
+	Header string `pulumi:"header"`
+	// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~`. Wildcard matching is supported for header glob values but must be for`*prefix-match`,`suffix-match*`, or`*infix*-match` .
 	ValueGlob string `pulumi:"valueGlob"`
 }
 
@@ -1853,7 +1877,9 @@ type RoutingRuleMatchHeaderValueInput interface {
 }
 
 type RoutingRuleMatchHeaderValueArgs struct {
-	Header    pulumi.StringInput `pulumi:"header"`
+	// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~.` .
+	Header pulumi.StringInput `pulumi:"header"`
+	// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~`. Wildcard matching is supported for header glob values but must be for`*prefix-match`,`suffix-match*`, or`*infix*-match` .
 	ValueGlob pulumi.StringInput `pulumi:"valueGlob"`
 }
 
@@ -1908,10 +1934,12 @@ func (o RoutingRuleMatchHeaderValueOutput) ToRoutingRuleMatchHeaderValueOutputWi
 	return o
 }
 
+// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~.` .
 func (o RoutingRuleMatchHeaderValueOutput) Header() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleMatchHeaderValue) string { return v.Header }).(pulumi.StringOutput)
 }
 
+// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are `a-z` , `A-Z` , `0-9` , and the following special characters: `*?-!#$%&'.^_`|~`. Wildcard matching is supported for header glob values but must be for`*prefix-match`,`suffix-match*`, or`*infix*-match` .
 func (o RoutingRuleMatchHeaderValueOutput) ValueGlob() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleMatchHeaderValue) string { return v.ValueGlob }).(pulumi.StringOutput)
 }
@@ -1937,6 +1965,7 @@ func (o RoutingRuleMatchHeaderValueArrayOutput) Index(i pulumi.IntInput) Routing
 }
 
 type RoutingRuleMatchHeaders struct {
+	// The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.
 	AnyOf []RoutingRuleMatchHeaderValue `pulumi:"anyOf"`
 }
 
@@ -1952,6 +1981,7 @@ type RoutingRuleMatchHeadersInput interface {
 }
 
 type RoutingRuleMatchHeadersArgs struct {
+	// The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.
 	AnyOf RoutingRuleMatchHeaderValueArrayInput `pulumi:"anyOf"`
 }
 
@@ -2032,6 +2062,7 @@ func (o RoutingRuleMatchHeadersOutput) ToRoutingRuleMatchHeadersPtrOutputWithCon
 	}).(RoutingRuleMatchHeadersPtrOutput)
 }
 
+// The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.
 func (o RoutingRuleMatchHeadersOutput) AnyOf() RoutingRuleMatchHeaderValueArrayOutput {
 	return o.ApplyT(func(v RoutingRuleMatchHeaders) []RoutingRuleMatchHeaderValue { return v.AnyOf }).(RoutingRuleMatchHeaderValueArrayOutput)
 }
@@ -2060,6 +2091,7 @@ func (o RoutingRuleMatchHeadersPtrOutput) Elem() RoutingRuleMatchHeadersOutput {
 	}).(RoutingRuleMatchHeadersOutput)
 }
 
+// The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.
 func (o RoutingRuleMatchHeadersPtrOutput) AnyOf() RoutingRuleMatchHeaderValueArrayOutput {
 	return o.ApplyT(func(v *RoutingRuleMatchHeaders) []RoutingRuleMatchHeaderValue {
 		if v == nil {

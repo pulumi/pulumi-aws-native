@@ -92,6 +92,9 @@ class GetDomainNameResult:
     @property
     @pulumi.getter(name="routingMode")
     def routing_mode(self) -> Optional['DomainNameRoutingMode']:
+        """
+        The routing mode API Gateway uses to route traffic to your APIs.
+        """
         return pulumi.get(self, "routing_mode")
 
     @property

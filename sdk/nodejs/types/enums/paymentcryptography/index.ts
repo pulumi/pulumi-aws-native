@@ -26,6 +26,7 @@ export const KeyCheckValueAlgorithm = {
     Cmac: "CMAC",
     AnsiX924: "ANSI_X9_24",
     Hmac: "HMAC",
+    Sha1: "SHA_1",
 } as const;
 
 export type KeyCheckValueAlgorithm = (typeof KeyCheckValueAlgorithm)[keyof typeof KeyCheckValueAlgorithm];

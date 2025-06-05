@@ -41,7 +41,7 @@ export interface GetDomainNameResult {
      */
     readonly distributionHostedZoneId?: string;
     /**
-     * The ARN of the domain name. Supported only for private custom domain names.
+     * The ARN of the domain name.
      */
     readonly domainNameArn?: string;
     /**
@@ -68,6 +68,9 @@ export interface GetDomainNameResult {
      * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
      */
     readonly regionalHostedZoneId?: string;
+    /**
+     * The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+     */
     readonly routingMode?: enums.apigateway.DomainNameRoutingMode;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .

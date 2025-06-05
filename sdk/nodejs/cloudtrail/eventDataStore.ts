@@ -46,6 +46,10 @@ export class EventDataStore extends pulumi.CustomResource {
      */
     public readonly billingMode!: pulumi.Output<string | undefined>;
     /**
+     * An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+     */
+    public readonly contextKeySelectors!: pulumi.Output<outputs.cloudtrail.EventDataStoreContextKeySelector[] | undefined>;
+    /**
      * The timestamp of the event data store's creation.
      */
     public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
@@ -77,6 +81,10 @@ export class EventDataStore extends pulumi.CustomResource {
      * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+     */
+    public readonly maxEventSize!: pulumi.Output<enums.cloudtrail.EventDataStoreMaxEventSize | undefined>;
     /**
      * Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
      */
@@ -123,12 +131,14 @@ export class EventDataStore extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
             resourceInputs["billingMode"] = args ? args.billingMode : undefined;
+            resourceInputs["contextKeySelectors"] = args ? args.contextKeySelectors : undefined;
             resourceInputs["federationEnabled"] = args ? args.federationEnabled : undefined;
             resourceInputs["federationRoleArn"] = args ? args.federationRoleArn : undefined;
             resourceInputs["ingestionEnabled"] = args ? args.ingestionEnabled : undefined;
             resourceInputs["insightSelectors"] = args ? args.insightSelectors : undefined;
             resourceInputs["insightsDestination"] = args ? args.insightsDestination : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["maxEventSize"] = args ? args.maxEventSize : undefined;
             resourceInputs["multiRegionEnabled"] = args ? args.multiRegionEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["organizationEnabled"] = args ? args.organizationEnabled : undefined;
@@ -142,6 +152,7 @@ export class EventDataStore extends pulumi.CustomResource {
         } else {
             resourceInputs["advancedEventSelectors"] = undefined /*out*/;
             resourceInputs["billingMode"] = undefined /*out*/;
+            resourceInputs["contextKeySelectors"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["eventDataStoreArn"] = undefined /*out*/;
             resourceInputs["federationEnabled"] = undefined /*out*/;
@@ -150,6 +161,7 @@ export class EventDataStore extends pulumi.CustomResource {
             resourceInputs["insightSelectors"] = undefined /*out*/;
             resourceInputs["insightsDestination"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["maxEventSize"] = undefined /*out*/;
             resourceInputs["multiRegionEnabled"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["organizationEnabled"] = undefined /*out*/;
@@ -177,6 +189,10 @@ export interface EventDataStoreArgs {
      */
     billingMode?: pulumi.Input<string>;
     /**
+     * An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+     */
+    contextKeySelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreContextKeySelectorArgs>[]>;
+    /**
      * Indicates whether federation is enabled on an event data store.
      */
     federationEnabled?: pulumi.Input<boolean>;
@@ -200,6 +216,10 @@ export interface EventDataStoreArgs {
      * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+     */
+    maxEventSize?: pulumi.Input<enums.cloudtrail.EventDataStoreMaxEventSize>;
     /**
      * Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
      */

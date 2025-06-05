@@ -25,8 +25,17 @@ export interface GetRoutingRuleArgs {
 }
 
 export interface GetRoutingRuleResult {
+    /**
+     * The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
+     */
     readonly actions?: outputs.apigatewayv2.RoutingRuleAction[];
+    /**
+     * The conditions of the routing rule.
+     */
     readonly conditions?: outputs.apigatewayv2.RoutingRuleCondition[];
+    /**
+     * The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Priority values 1-1,000,000 are supported.
+     */
     readonly priority?: number;
     /**
      * Amazon Resource Name (ARN) of the resource.

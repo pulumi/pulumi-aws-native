@@ -360,6 +360,7 @@ func (in *domainNameAccessAssociationAccessAssociationSourceTypePtr) ToDomainNam
 	return pulumi.ToOutputWithContext(ctx, in).(DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput)
 }
 
+// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
 type DomainNameRoutingMode string
 
 const (

@@ -35,10 +35,13 @@ type LookupWorkspaceResult struct {
 	Alias *string `pulumi:"alias"`
 	// Workspace arn.
 	Arn *string `pulumi:"arn"`
-	// Contains information about the logging configuration for the workspace.
+	// Contains information about the current rules and alerting logging configuration for the workspace.
+	//
+	// > These logging configurations are only for rules and alerting logs.
 	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// AMP Workspace prometheus endpoint
-	PrometheusEndpoint        *string                             `pulumi:"prometheusEndpoint"`
+	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
+	// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
 	QueryLoggingConfiguration *WorkspaceQueryLoggingConfiguration `pulumi:"queryLoggingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -95,7 +98,9 @@ func (o LookupWorkspaceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the logging configuration for the workspace.
+// Contains information about the current rules and alerting logging configuration for the workspace.
+//
+// > These logging configurations are only for rules and alerting logs.
 func (o LookupWorkspaceResultOutput) LoggingConfiguration() WorkspaceLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceLoggingConfiguration { return v.LoggingConfiguration }).(WorkspaceLoggingConfigurationPtrOutput)
 }
@@ -105,6 +110,7 @@ func (o LookupWorkspaceResultOutput) PrometheusEndpoint() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.PrometheusEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
 func (o LookupWorkspaceResultOutput) QueryLoggingConfiguration() WorkspaceQueryLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceQueryLoggingConfiguration { return v.QueryLoggingConfiguration }).(WorkspaceQueryLoggingConfigurationPtrOutput)
 }

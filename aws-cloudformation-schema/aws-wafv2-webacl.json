@@ -1799,6 +1799,7 @@
       "description" : "Collection of dataProtects.",
       "$ref" : "#/definitions/DataProtectionConfig"
     },
+    "OnSourceDDoSProtectionConfig" : { },
     "Rules" : {
       "description" : "Collection of Rules.",
       "type" : "array",

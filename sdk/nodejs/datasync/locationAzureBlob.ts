@@ -55,13 +55,25 @@ export class LocationAzureBlob extends pulumi.CustomResource {
     public readonly azureBlobContainerUrl!: pulumi.Output<string | undefined>;
     /**
      * Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+     *
+     * > If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret.
      */
     public readonly azureBlobSasConfiguration!: pulumi.Output<outputs.datasync.LocationAzureBlobAzureBlobSasConfiguration | undefined>;
     /**
      * Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
      */
     public readonly azureBlobType!: pulumi.Output<enums.datasync.LocationAzureBlobAzureBlobType | undefined>;
+    /**
+     * Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+     *
+     * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+     */
     public readonly cmkSecretConfig!: pulumi.Output<outputs.datasync.LocationAzureBlobCmkSecretConfig | undefined>;
+    /**
+     * Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+     *
+     * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+     */
     public readonly customSecretConfig!: pulumi.Output<outputs.datasync.LocationAzureBlobCustomSecretConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
@@ -152,13 +164,25 @@ export interface LocationAzureBlobArgs {
     azureBlobContainerUrl?: pulumi.Input<string>;
     /**
      * Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+     *
+     * > If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret.
      */
     azureBlobSasConfiguration?: pulumi.Input<inputs.datasync.LocationAzureBlobAzureBlobSasConfigurationArgs>;
     /**
      * Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
      */
     azureBlobType?: pulumi.Input<enums.datasync.LocationAzureBlobAzureBlobType>;
+    /**
+     * Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+     *
+     * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+     */
     cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationAzureBlobCmkSecretConfigArgs>;
+    /**
+     * Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+     *
+     * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+     */
     customSecretConfig?: pulumi.Input<inputs.datasync.LocationAzureBlobCustomSecretConfigArgs>;
     /**
      * The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.

@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Aps.Inputs
     /// </summary>
     public sealed class WorkspaceLoggingDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration details for logging to CloudWatch Logs.
+        /// </summary>
         [Input("cloudWatchLogs", required: true)]
         public Input<Inputs.WorkspaceCloudWatchLogDestinationArgs> CloudWatchLogs { get; set; } = null!;
 
+        /// <summary>
+        /// Filtering criteria that determine which queries are logged.
+        /// </summary>
         [Input("filters", required: true)]
         public Input<Inputs.WorkspaceLoggingFilterArgs> Filters { get; set; } = null!;
 

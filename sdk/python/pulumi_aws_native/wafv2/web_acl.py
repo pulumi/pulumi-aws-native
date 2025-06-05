@@ -35,6 +35,7 @@ class WebAclArgs:
                  data_protection_config: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 on_source_d_do_s_protection_config: Optional[Any] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
@@ -64,6 +65,7 @@ class WebAclArgs:
         :param pulumi.Input['WebAclDataProtectionConfigArgs'] data_protection_config: Collection of dataProtects.
         :param pulumi.Input[builtins.str] description: A description of the web ACL that helps with identification.
         :param pulumi.Input[builtins.str] name: The name of the web ACL. You cannot change the name of a web ACL after you create it.
+        :param Any on_source_d_do_s_protection_config: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Collection of Rules.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
                
@@ -87,6 +89,8 @@ class WebAclArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if on_source_d_do_s_protection_config is not None:
+            pulumi.set(__self__, "on_source_d_do_s_protection_config", on_source_d_do_s_protection_config)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
@@ -229,6 +233,18 @@ class WebAclArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="onSourceDDoSProtectionConfig")
+    def on_source_d_do_s_protection_config(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "on_source_d_do_s_protection_config")
+
+    @on_source_d_do_s_protection_config.setter
+    def on_source_d_do_s_protection_config(self, value: Optional[Any]):
+        pulumi.set(self, "on_source_d_do_s_protection_config", value)
+
+    @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
         """
@@ -281,6 +297,7 @@ class WebAcl(pulumi.CustomResource):
                  default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 on_source_d_do_s_protection_config: Optional[Any] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input['WebAclScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -310,6 +327,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']] default_action: The action to perform if none of the `Rules` contained in the `WebACL` match.
         :param pulumi.Input[builtins.str] description: A description of the web ACL that helps with identification.
         :param pulumi.Input[builtins.str] name: The name of the web ACL. You cannot change the name of a web ACL after you create it.
+        :param Any on_source_d_do_s_protection_config: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]] rules: Collection of Rules.
         :param pulumi.Input['WebAclScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
                
@@ -354,6 +372,7 @@ class WebAcl(pulumi.CustomResource):
                  default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 on_source_d_do_s_protection_config: Optional[Any] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input['WebAclScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -378,6 +397,7 @@ class WebAcl(pulumi.CustomResource):
             __props__.__dict__["default_action"] = default_action
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["on_source_d_do_s_protection_config"] = on_source_d_do_s_protection_config
             __props__.__dict__["rules"] = rules
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
@@ -427,6 +447,7 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["label_namespace"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["on_source_d_do_s_protection_config"] = None
         __props__.__dict__["rules"] = None
         __props__.__dict__["scope"] = None
         __props__.__dict__["tags"] = None
@@ -545,6 +566,14 @@ class WebAcl(pulumi.CustomResource):
         The name of the web ACL. You cannot change the name of a web ACL after you create it.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="onSourceDDoSProtectionConfig")
+    def on_source_d_do_s_protection_config(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "on_source_d_do_s_protection_config")
 
     @property
     @pulumi.getter

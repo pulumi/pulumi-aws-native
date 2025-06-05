@@ -1047,6 +1047,179 @@ func (in *mailManagerRuleSetMailFromPtr) ToMailManagerRuleSetMailFromPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(MailManagerRuleSetMailFromPtrOutput)
 }
 
+type MailManagerRuleSetRuleAddressListEmailAttribute string
+
+const (
+	MailManagerRuleSetRuleAddressListEmailAttributeRecipient = MailManagerRuleSetRuleAddressListEmailAttribute("RECIPIENT")
+	MailManagerRuleSetRuleAddressListEmailAttributeMailFrom  = MailManagerRuleSetRuleAddressListEmailAttribute("MAIL_FROM")
+	MailManagerRuleSetRuleAddressListEmailAttributeSender    = MailManagerRuleSetRuleAddressListEmailAttribute("SENDER")
+	MailManagerRuleSetRuleAddressListEmailAttributeFrom      = MailManagerRuleSetRuleAddressListEmailAttribute("FROM")
+	MailManagerRuleSetRuleAddressListEmailAttributeTo        = MailManagerRuleSetRuleAddressListEmailAttribute("TO")
+	MailManagerRuleSetRuleAddressListEmailAttributeCc        = MailManagerRuleSetRuleAddressListEmailAttribute("CC")
+)
+
+func (MailManagerRuleSetRuleAddressListEmailAttribute) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAddressListEmailAttribute)(nil)).Elem()
+}
+
+func (e MailManagerRuleSetRuleAddressListEmailAttribute) ToMailManagerRuleSetRuleAddressListEmailAttributeOutput() MailManagerRuleSetRuleAddressListEmailAttributeOutput {
+	return pulumi.ToOutput(e).(MailManagerRuleSetRuleAddressListEmailAttributeOutput)
+}
+
+func (e MailManagerRuleSetRuleAddressListEmailAttribute) ToMailManagerRuleSetRuleAddressListEmailAttributeOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAddressListEmailAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MailManagerRuleSetRuleAddressListEmailAttributeOutput)
+}
+
+func (e MailManagerRuleSetRuleAddressListEmailAttribute) ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutput() MailManagerRuleSetRuleAddressListEmailAttributePtrOutput {
+	return e.ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutputWithContext(context.Background())
+}
+
+func (e MailManagerRuleSetRuleAddressListEmailAttribute) ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAddressListEmailAttributePtrOutput {
+	return MailManagerRuleSetRuleAddressListEmailAttribute(e).ToMailManagerRuleSetRuleAddressListEmailAttributeOutputWithContext(ctx).ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutputWithContext(ctx)
+}
+
+func (e MailManagerRuleSetRuleAddressListEmailAttribute) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MailManagerRuleSetRuleAddressListEmailAttribute) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MailManagerRuleSetRuleAddressListEmailAttribute) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MailManagerRuleSetRuleAddressListEmailAttribute) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MailManagerRuleSetRuleAddressListEmailAttributeOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleAddressListEmailAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleAddressListEmailAttribute)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributeOutput) ToMailManagerRuleSetRuleAddressListEmailAttributeOutput() MailManagerRuleSetRuleAddressListEmailAttributeOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributeOutput) ToMailManagerRuleSetRuleAddressListEmailAttributeOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAddressListEmailAttributeOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributeOutput) ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutput() MailManagerRuleSetRuleAddressListEmailAttributePtrOutput {
+	return o.ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributeOutput) ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAddressListEmailAttributePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailManagerRuleSetRuleAddressListEmailAttribute) *MailManagerRuleSetRuleAddressListEmailAttribute {
+		return &v
+	}).(MailManagerRuleSetRuleAddressListEmailAttributePtrOutput)
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MailManagerRuleSetRuleAddressListEmailAttribute) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MailManagerRuleSetRuleAddressListEmailAttribute) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MailManagerRuleSetRuleAddressListEmailAttributePtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleAddressListEmailAttributePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerRuleSetRuleAddressListEmailAttribute)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributePtrOutput) ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutput() MailManagerRuleSetRuleAddressListEmailAttributePtrOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributePtrOutput) ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAddressListEmailAttributePtrOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributePtrOutput) Elem() MailManagerRuleSetRuleAddressListEmailAttributeOutput {
+	return o.ApplyT(func(v *MailManagerRuleSetRuleAddressListEmailAttribute) MailManagerRuleSetRuleAddressListEmailAttribute {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerRuleSetRuleAddressListEmailAttribute
+		return ret
+	}).(MailManagerRuleSetRuleAddressListEmailAttributeOutput)
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerRuleSetRuleAddressListEmailAttributePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MailManagerRuleSetRuleAddressListEmailAttribute) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MailManagerRuleSetRuleAddressListEmailAttributeInput is an input type that accepts values of the MailManagerRuleSetRuleAddressListEmailAttribute enum
+// A concrete instance of `MailManagerRuleSetRuleAddressListEmailAttributeInput` can be one of the following:
+//
+//	MailManagerRuleSetRuleAddressListEmailAttributeRecipient
+//	MailManagerRuleSetRuleAddressListEmailAttributeMailFrom
+//	MailManagerRuleSetRuleAddressListEmailAttributeSender
+//	MailManagerRuleSetRuleAddressListEmailAttributeFrom
+//	MailManagerRuleSetRuleAddressListEmailAttributeTo
+//	MailManagerRuleSetRuleAddressListEmailAttributeCc
+type MailManagerRuleSetRuleAddressListEmailAttributeInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleAddressListEmailAttributeOutput() MailManagerRuleSetRuleAddressListEmailAttributeOutput
+	ToMailManagerRuleSetRuleAddressListEmailAttributeOutputWithContext(context.Context) MailManagerRuleSetRuleAddressListEmailAttributeOutput
+}
+
+var mailManagerRuleSetRuleAddressListEmailAttributePtrType = reflect.TypeOf((**MailManagerRuleSetRuleAddressListEmailAttribute)(nil)).Elem()
+
+type MailManagerRuleSetRuleAddressListEmailAttributePtrInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutput() MailManagerRuleSetRuleAddressListEmailAttributePtrOutput
+	ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutputWithContext(context.Context) MailManagerRuleSetRuleAddressListEmailAttributePtrOutput
+}
+
+type mailManagerRuleSetRuleAddressListEmailAttributePtr string
+
+func MailManagerRuleSetRuleAddressListEmailAttributePtr(v string) MailManagerRuleSetRuleAddressListEmailAttributePtrInput {
+	return (*mailManagerRuleSetRuleAddressListEmailAttributePtr)(&v)
+}
+
+func (*mailManagerRuleSetRuleAddressListEmailAttributePtr) ElementType() reflect.Type {
+	return mailManagerRuleSetRuleAddressListEmailAttributePtrType
+}
+
+func (in *mailManagerRuleSetRuleAddressListEmailAttributePtr) ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutput() MailManagerRuleSetRuleAddressListEmailAttributePtrOutput {
+	return pulumi.ToOutput(in).(MailManagerRuleSetRuleAddressListEmailAttributePtrOutput)
+}
+
+func (in *mailManagerRuleSetRuleAddressListEmailAttributePtr) ToMailManagerRuleSetRuleAddressListEmailAttributePtrOutputWithContext(ctx context.Context) MailManagerRuleSetRuleAddressListEmailAttributePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MailManagerRuleSetRuleAddressListEmailAttributePtrOutput)
+}
+
 type MailManagerRuleSetRuleBooleanEmailAttribute string
 
 const (
@@ -3807,6 +3980,169 @@ func (in *mailManagerTrafficPolicyAcceptActionPtr) ToMailManagerTrafficPolicyAcc
 	return pulumi.ToOutputWithContext(ctx, in).(MailManagerTrafficPolicyAcceptActionPtrOutput)
 }
 
+type MailManagerTrafficPolicyIngressAddressListEmailAttribute string
+
+const (
+	MailManagerTrafficPolicyIngressAddressListEmailAttributeRecipient = MailManagerTrafficPolicyIngressAddressListEmailAttribute("RECIPIENT")
+)
+
+func (MailManagerTrafficPolicyIngressAddressListEmailAttribute) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressAddressListEmailAttribute)(nil)).Elem()
+}
+
+func (e MailManagerTrafficPolicyIngressAddressListEmailAttribute) ToMailManagerTrafficPolicyIngressAddressListEmailAttributeOutput() MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput {
+	return pulumi.ToOutput(e).(MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput)
+}
+
+func (e MailManagerTrafficPolicyIngressAddressListEmailAttribute) ToMailManagerTrafficPolicyIngressAddressListEmailAttributeOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput)
+}
+
+func (e MailManagerTrafficPolicyIngressAddressListEmailAttribute) ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput() MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput {
+	return e.ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutputWithContext(context.Background())
+}
+
+func (e MailManagerTrafficPolicyIngressAddressListEmailAttribute) ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput {
+	return MailManagerTrafficPolicyIngressAddressListEmailAttribute(e).ToMailManagerTrafficPolicyIngressAddressListEmailAttributeOutputWithContext(ctx).ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutputWithContext(ctx)
+}
+
+func (e MailManagerTrafficPolicyIngressAddressListEmailAttribute) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MailManagerTrafficPolicyIngressAddressListEmailAttribute) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MailManagerTrafficPolicyIngressAddressListEmailAttribute) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MailManagerTrafficPolicyIngressAddressListEmailAttribute) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerTrafficPolicyIngressAddressListEmailAttribute)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput) ToMailManagerTrafficPolicyIngressAddressListEmailAttributeOutput() MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput) ToMailManagerTrafficPolicyIngressAddressListEmailAttributeOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput) ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput() MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput {
+	return o.ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput) ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailManagerTrafficPolicyIngressAddressListEmailAttribute) *MailManagerTrafficPolicyIngressAddressListEmailAttribute {
+		return &v
+	}).(MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MailManagerTrafficPolicyIngressAddressListEmailAttribute) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MailManagerTrafficPolicyIngressAddressListEmailAttribute) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput struct{ *pulumi.OutputState }
+
+func (MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MailManagerTrafficPolicyIngressAddressListEmailAttribute)(nil)).Elem()
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput) ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput() MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput) ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput {
+	return o
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput) Elem() MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput {
+	return o.ApplyT(func(v *MailManagerTrafficPolicyIngressAddressListEmailAttribute) MailManagerTrafficPolicyIngressAddressListEmailAttribute {
+		if v != nil {
+			return *v
+		}
+		var ret MailManagerTrafficPolicyIngressAddressListEmailAttribute
+		return ret
+	}).(MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput)
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MailManagerTrafficPolicyIngressAddressListEmailAttribute) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MailManagerTrafficPolicyIngressAddressListEmailAttributeInput is an input type that accepts values of the MailManagerTrafficPolicyIngressAddressListEmailAttribute enum
+// A concrete instance of `MailManagerTrafficPolicyIngressAddressListEmailAttributeInput` can be one of the following:
+//
+//	MailManagerTrafficPolicyIngressAddressListEmailAttributeRecipient
+type MailManagerTrafficPolicyIngressAddressListEmailAttributeInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressAddressListEmailAttributeOutput() MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput
+	ToMailManagerTrafficPolicyIngressAddressListEmailAttributeOutputWithContext(context.Context) MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput
+}
+
+var mailManagerTrafficPolicyIngressAddressListEmailAttributePtrType = reflect.TypeOf((**MailManagerTrafficPolicyIngressAddressListEmailAttribute)(nil)).Elem()
+
+type MailManagerTrafficPolicyIngressAddressListEmailAttributePtrInput interface {
+	pulumi.Input
+
+	ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput() MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput
+	ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutputWithContext(context.Context) MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput
+}
+
+type mailManagerTrafficPolicyIngressAddressListEmailAttributePtr string
+
+func MailManagerTrafficPolicyIngressAddressListEmailAttributePtr(v string) MailManagerTrafficPolicyIngressAddressListEmailAttributePtrInput {
+	return (*mailManagerTrafficPolicyIngressAddressListEmailAttributePtr)(&v)
+}
+
+func (*mailManagerTrafficPolicyIngressAddressListEmailAttributePtr) ElementType() reflect.Type {
+	return mailManagerTrafficPolicyIngressAddressListEmailAttributePtrType
+}
+
+func (in *mailManagerTrafficPolicyIngressAddressListEmailAttributePtr) ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput() MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput {
+	return pulumi.ToOutput(in).(MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput)
+}
+
+func (in *mailManagerTrafficPolicyIngressAddressListEmailAttributePtr) ToMailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutputWithContext(ctx context.Context) MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput)
+}
+
 type MailManagerTrafficPolicyIngressBooleanOperator string
 
 const (
@@ -5301,6 +5637,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetActionFailurePolicyPtrInput)(nil)).Elem(), MailManagerRuleSetActionFailurePolicy("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetMailFromInput)(nil)).Elem(), MailManagerRuleSetMailFrom("REPLACE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetMailFromPtrInput)(nil)).Elem(), MailManagerRuleSetMailFrom("REPLACE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAddressListEmailAttributeInput)(nil)).Elem(), MailManagerRuleSetRuleAddressListEmailAttribute("RECIPIENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleAddressListEmailAttributePtrInput)(nil)).Elem(), MailManagerRuleSetRuleAddressListEmailAttribute("RECIPIENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanEmailAttributeInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanEmailAttribute("READ_RECEIPT_REQUESTED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanEmailAttributePtrInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanEmailAttribute("READ_RECEIPT_REQUESTED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleBooleanOperatorInput)(nil)).Elem(), MailManagerRuleSetRuleBooleanOperator("IS_TRUE"))
@@ -5335,6 +5673,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetSnsNotificationPayloadTypePtrInput)(nil)).Elem(), MailManagerRuleSetSnsNotificationPayloadType("CONTENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyAcceptActionInput)(nil)).Elem(), MailManagerTrafficPolicyAcceptAction("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyAcceptActionPtrInput)(nil)).Elem(), MailManagerTrafficPolicyAcceptAction("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressAddressListEmailAttributeInput)(nil)).Elem(), MailManagerTrafficPolicyIngressAddressListEmailAttribute("RECIPIENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressAddressListEmailAttributePtrInput)(nil)).Elem(), MailManagerTrafficPolicyIngressAddressListEmailAttribute("RECIPIENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanOperatorInput)(nil)).Elem(), MailManagerTrafficPolicyIngressBooleanOperator("IS_TRUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressBooleanOperatorPtrInput)(nil)).Elem(), MailManagerTrafficPolicyIngressBooleanOperator("IS_TRUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressIpOperatorInput)(nil)).Elem(), MailManagerTrafficPolicyIngressIpOperator("CIDR_MATCHES"))
@@ -5367,6 +5707,8 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerRuleSetActionFailurePolicyPtrOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetMailFromOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetMailFromPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleAddressListEmailAttributeOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleAddressListEmailAttributePtrOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanEmailAttributeOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanEmailAttributePtrOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleBooleanOperatorOutput{})
@@ -5401,6 +5743,8 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerRuleSetSnsNotificationPayloadTypePtrOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyAcceptActionOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyAcceptActionPtrOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressAddressListEmailAttributeOutput{})
+	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressAddressListEmailAttributePtrOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressBooleanOperatorOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressBooleanOperatorPtrOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressIpOperatorOutput{})

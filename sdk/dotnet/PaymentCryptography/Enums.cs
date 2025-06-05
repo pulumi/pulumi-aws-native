@@ -61,6 +61,7 @@ namespace Pulumi.AwsNative.PaymentCryptography
         public static KeyCheckValueAlgorithm Cmac { get; } = new KeyCheckValueAlgorithm("CMAC");
         public static KeyCheckValueAlgorithm AnsiX924 { get; } = new KeyCheckValueAlgorithm("ANSI_X9_24");
         public static KeyCheckValueAlgorithm Hmac { get; } = new KeyCheckValueAlgorithm("HMAC");
+        public static KeyCheckValueAlgorithm Sha1 { get; } = new KeyCheckValueAlgorithm("SHA_1");
 
         public static bool operator ==(KeyCheckValueAlgorithm left, KeyCheckValueAlgorithm right) => left.Equals(right);
         public static bool operator !=(KeyCheckValueAlgorithm left, KeyCheckValueAlgorithm right) => !left.Equals(right);

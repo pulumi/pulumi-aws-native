@@ -140,7 +140,11 @@ class GetFirewallResult:
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> Optional[Sequence['outputs.FirewallSubnetMapping']]:
         """
-        The public subnets that Network Firewall is using for the firewall. Each subnet must belong to a different Availability Zone.
+        The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
+
+        These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone.
+
+        In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
         """
         return pulumi.get(self, "subnet_mappings")
 

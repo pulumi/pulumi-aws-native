@@ -37,43 +37,14 @@ export class LaunchProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === LaunchProfile.__pulumiType;
     }
 
-    /**
-     * A human-readable description of the launch profile.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Unique identifiers for a collection of EC2 subnets.
-     */
     public readonly ec2SubnetIds!: pulumi.Output<string[]>;
-    /**
-     * The unique identifier for the launch profile resource.
-     */
     public /*out*/ readonly launchProfileId!: pulumi.Output<string>;
-    /**
-     * The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
-     */
     public readonly launchProfileProtocolVersions!: pulumi.Output<string[]>;
-    /**
-     * A friendly name for the launch profile.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A configuration for a streaming session.
-     */
     public readonly streamConfiguration!: pulumi.Output<outputs.nimblestudio.LaunchProfileStreamConfiguration>;
-    /**
-     * Unique identifiers for a collection of studio components that can be used with this launch profile.
-     */
     public readonly studioComponentIds!: pulumi.Output<string[]>;
-    /**
-     * The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-     */
     public readonly studioId!: pulumi.Output<string>;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     *
-     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -133,38 +104,12 @@ export class LaunchProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a LaunchProfile resource.
  */
 export interface LaunchProfileArgs {
-    /**
-     * A human-readable description of the launch profile.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Unique identifiers for a collection of EC2 subnets.
-     */
     ec2SubnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
-     */
     launchProfileProtocolVersions: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A friendly name for the launch profile.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A configuration for a streaming session.
-     */
     streamConfiguration: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamConfigurationArgs>;
-    /**
-     * Unique identifiers for a collection of studio components that can be used with this launch profile.
-     */
     studioComponentIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-     */
     studioId: pulumi.Input<string>;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     *
-     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

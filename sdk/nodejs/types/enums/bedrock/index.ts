@@ -496,6 +496,17 @@ export const FlowConnectionType = {
  */
 export type FlowConnectionType = (typeof FlowConnectionType)[keyof typeof FlowConnectionType];
 
+export const FlowNodeInputCategory = {
+    LoopCondition: "LoopCondition",
+    ReturnValueToLoopStart: "ReturnValueToLoopStart",
+    ExitLoop: "ExitLoop",
+} as const;
+
+/**
+ * Optional tag to classify input type, currently exclusive to LoopNode
+ */
+export type FlowNodeInputCategory = (typeof FlowNodeInputCategory)[keyof typeof FlowNodeInputCategory];
+
 export const FlowNodeIoDataType = {
     String: "String",
     Number: "Number",
@@ -523,12 +534,25 @@ export const FlowNodeType = {
     Iterator: "Iterator",
     Collector: "Collector",
     InlineCode: "InlineCode",
+    Loop: "Loop",
+    LoopInput: "LoopInput",
+    LoopController: "LoopController",
 } as const;
 
 /**
  * Flow node types
  */
 export type FlowNodeType = (typeof FlowNodeType)[keyof typeof FlowNodeType];
+
+export const FlowPerformanceConfigurationLatency = {
+    Standard: "standard",
+    Optimized: "optimized",
+} as const;
+
+/**
+ * Performance Configuration Latency
+ */
+export type FlowPerformanceConfigurationLatency = (typeof FlowPerformanceConfigurationLatency)[keyof typeof FlowPerformanceConfigurationLatency];
 
 export const FlowPromptTemplateType = {
     Text: "TEXT",
@@ -538,6 +562,16 @@ export const FlowPromptTemplateType = {
  * Prompt template type
  */
 export type FlowPromptTemplateType = (typeof FlowPromptTemplateType)[keyof typeof FlowPromptTemplateType];
+
+export const FlowRerankingMetadataSelectionMode = {
+    Selective: "SELECTIVE",
+    All: "ALL",
+} as const;
+
+/**
+ * Reranking Metadata Selection Mode
+ */
+export type FlowRerankingMetadataSelectionMode = (typeof FlowRerankingMetadataSelectionMode)[keyof typeof FlowRerankingMetadataSelectionMode];
 
 export const FlowStatus = {
     Failed: "Failed",
@@ -559,6 +593,15 @@ export const FlowSupportedLanguages = {
  * Enum encodes the supported language type
  */
 export type FlowSupportedLanguages = (typeof FlowSupportedLanguages)[keyof typeof FlowSupportedLanguages];
+
+export const FlowVectorSearchRerankingConfigurationType = {
+    BedrockRerankingModel: "BEDROCK_RERANKING_MODEL",
+} as const;
+
+/**
+ * Enum of Rerank Configuration Types
+ */
+export type FlowVectorSearchRerankingConfigurationType = (typeof FlowVectorSearchRerankingConfigurationType)[keyof typeof FlowVectorSearchRerankingConfigurationType];
 
 export const FlowVersionFlowConnectionType = {
     Data: "Data",
@@ -597,6 +640,9 @@ export const FlowVersionFlowNodeType = {
     Storage: "Storage",
     Retrieval: "Retrieval",
     InlineCode: "InlineCode",
+    Loop: "Loop",
+    LoopInput: "LoopInput",
+    LoopController: "LoopController",
 } as const;
 
 /**
@@ -616,6 +662,16 @@ export const FlowVersionFlowStatus = {
  */
 export type FlowVersionFlowStatus = (typeof FlowVersionFlowStatus)[keyof typeof FlowVersionFlowStatus];
 
+export const FlowVersionPerformanceConfigurationLatency = {
+    Standard: "standard",
+    Optimized: "optimized",
+} as const;
+
+/**
+ * Performance Configuration Latency
+ */
+export type FlowVersionPerformanceConfigurationLatency = (typeof FlowVersionPerformanceConfigurationLatency)[keyof typeof FlowVersionPerformanceConfigurationLatency];
+
 export const FlowVersionPromptTemplateType = {
     Text: "TEXT",
 } as const;
@@ -625,6 +681,16 @@ export const FlowVersionPromptTemplateType = {
  */
 export type FlowVersionPromptTemplateType = (typeof FlowVersionPromptTemplateType)[keyof typeof FlowVersionPromptTemplateType];
 
+export const FlowVersionRerankingMetadataSelectionMode = {
+    Selective: "SELECTIVE",
+    All: "ALL",
+} as const;
+
+/**
+ * Reranking Metadata Selection Mode
+ */
+export type FlowVersionRerankingMetadataSelectionMode = (typeof FlowVersionRerankingMetadataSelectionMode)[keyof typeof FlowVersionRerankingMetadataSelectionMode];
+
 export const FlowVersionSupportedLanguages = {
     Python3: "Python_3",
 } as const;
@@ -633,6 +699,15 @@ export const FlowVersionSupportedLanguages = {
  * Enum encodes the supported language type
  */
 export type FlowVersionSupportedLanguages = (typeof FlowVersionSupportedLanguages)[keyof typeof FlowVersionSupportedLanguages];
+
+export const FlowVersionVectorSearchRerankingConfigurationType = {
+    BedrockRerankingModel: "BEDROCK_RERANKING_MODEL",
+} as const;
+
+/**
+ * Enum of Rerank Configuration Types
+ */
+export type FlowVersionVectorSearchRerankingConfigurationType = (typeof FlowVersionVectorSearchRerankingConfigurationType)[keyof typeof FlowVersionVectorSearchRerankingConfigurationType];
 
 export const GuardrailContentFilterAction = {
     Block: "BLOCK",

@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("regionalHostedZoneId")]
         public Output<string> RegionalHostedZoneId { get; private set; } = null!;
 
+        /// <summary>
+        /// The routing mode API Gateway uses to route traffic to your APIs.
+        /// </summary>
         [Output("routingMode")]
         public Output<Pulumi.AwsNative.ApiGatewayV2.DomainNameRoutingMode?> RoutingMode { get; private set; } = null!;
 
@@ -134,6 +137,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("mutualTlsAuthentication")]
         public Input<Inputs.DomainNameMutualTlsAuthenticationArgs>? MutualTlsAuthentication { get; set; }
 
+        /// <summary>
+        /// The routing mode API Gateway uses to route traffic to your APIs.
+        /// </summary>
         [Input("routingMode")]
         public Input<Pulumi.AwsNative.ApiGatewayV2.DomainNameRoutingMode>? RoutingMode { get; set; }
 

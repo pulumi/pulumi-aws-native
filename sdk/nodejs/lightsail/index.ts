@@ -70,6 +70,11 @@ export const getInstance: typeof import("./getInstance").getInstance = null as a
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
 
+export { GetInstanceSnapshotArgs, GetInstanceSnapshotResult, GetInstanceSnapshotOutputArgs } from "./getInstanceSnapshot";
+export const getInstanceSnapshot: typeof import("./getInstanceSnapshot").getInstanceSnapshot = null as any;
+export const getInstanceSnapshotOutput: typeof import("./getInstanceSnapshot").getInstanceSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceSnapshot","getInstanceSnapshotOutput"], () => require("./getInstanceSnapshot"));
+
 export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
 export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
 export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
@@ -89,6 +94,11 @@ export { InstanceArgs } from "./instance";
 export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
 utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
+
+export { InstanceSnapshotArgs } from "./instanceSnapshot";
+export type InstanceSnapshot = import("./instanceSnapshot").InstanceSnapshot;
+export const InstanceSnapshot: typeof import("./instanceSnapshot").InstanceSnapshot = null as any;
+utilities.lazyLoad(exports, ["InstanceSnapshot"], () => require("./instanceSnapshot"));
 
 export { LoadBalancerArgs } from "./loadBalancer";
 export type LoadBalancer = import("./loadBalancer").LoadBalancer;
@@ -127,6 +137,8 @@ const _module = {
                 return new Disk(name, <any>undefined, { urn })
             case "aws-native:lightsail:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "aws-native:lightsail:InstanceSnapshot":
+                return new InstanceSnapshot(name, <any>undefined, { urn })
             case "aws-native:lightsail:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
             case "aws-native:lightsail:LoadBalancerTlsCertificate":

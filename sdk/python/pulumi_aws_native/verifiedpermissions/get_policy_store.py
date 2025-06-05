@@ -61,6 +61,11 @@ class GetPolicyStoreResult:
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional['outputs.PolicyStoreDeletionProtection']:
+        """
+        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+
+        The default state is `DISABLED` .
+        """
         return pulumi.get(self, "deletion_protection")
 
     @property

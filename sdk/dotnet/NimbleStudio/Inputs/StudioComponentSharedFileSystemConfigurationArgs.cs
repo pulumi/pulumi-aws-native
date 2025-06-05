@@ -12,33 +12,18 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
 
     public sealed class StudioComponentSharedFileSystemConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The endpoint of the shared file system that is accessed by the studio component resource.
-        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
-        /// <summary>
-        /// The unique identifier for a file system.
-        /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 
-        /// <summary>
-        /// The mount location for a shared file system on a Linux virtual workstation.
-        /// </summary>
         [Input("linuxMountPoint")]
         public Input<string>? LinuxMountPoint { get; set; }
 
-        /// <summary>
-        /// The name of the file share.
-        /// </summary>
         [Input("shareName")]
         public Input<string>? ShareName { get; set; }
 
-        /// <summary>
-        /// The mount location for a shared file system on a Windows virtual workstation.
-        /// </summary>
         [Input("windowsMountDrive")]
         public Input<string>? WindowsMountDrive { get; set; }
 

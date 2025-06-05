@@ -36,8 +36,14 @@ type LookupLocationAzureBlobResult struct {
 	// The specific authentication type that you want DataSync to use to access your Azure Blob Container.
 	AzureBlobAuthenticationType *LocationAzureBlobAzureBlobAuthenticationType `pulumi:"azureBlobAuthenticationType"`
 	// Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
-	AzureBlobType      *LocationAzureBlobAzureBlobType      `pulumi:"azureBlobType"`
-	CmkSecretConfig    *LocationAzureBlobCmkSecretConfig    `pulumi:"cmkSecretConfig"`
+	AzureBlobType *LocationAzureBlobAzureBlobType `pulumi:"azureBlobType"`
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+	//
+	// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
+	CmkSecretConfig *LocationAzureBlobCmkSecretConfig `pulumi:"cmkSecretConfig"`
+	// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+	//
+	// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
 	CustomSecretConfig *LocationAzureBlobCustomSecretConfig `pulumi:"customSecretConfig"`
 	// The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
 	LocationArn *string `pulumi:"locationArn"`
@@ -102,10 +108,16 @@ func (o LookupLocationAzureBlobResultOutput) AzureBlobType() LocationAzureBlobAz
 	return o.ApplyT(func(v LookupLocationAzureBlobResult) *LocationAzureBlobAzureBlobType { return v.AzureBlobType }).(LocationAzureBlobAzureBlobTypePtrOutput)
 }
 
+// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+//
+// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
 func (o LookupLocationAzureBlobResultOutput) CmkSecretConfig() LocationAzureBlobCmkSecretConfigPtrOutput {
 	return o.ApplyT(func(v LookupLocationAzureBlobResult) *LocationAzureBlobCmkSecretConfig { return v.CmkSecretConfig }).(LocationAzureBlobCmkSecretConfigPtrOutput)
 }
 
+// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+//
+// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
 func (o LookupLocationAzureBlobResultOutput) CustomSecretConfig() LocationAzureBlobCustomSecretConfigPtrOutput {
 	return o.ApplyT(func(v LookupLocationAzureBlobResult) *LocationAzureBlobCustomSecretConfig {
 		return v.CustomSecretConfig

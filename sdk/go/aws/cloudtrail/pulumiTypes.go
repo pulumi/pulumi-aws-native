@@ -860,6 +860,115 @@ func (o EventDataStoreAdvancedFieldSelectorArrayOutput) Index(i pulumi.IntInput)
 	}).(EventDataStoreAdvancedFieldSelectorOutput)
 }
 
+// An object that contains information types to be included in CloudTrail enriched events.
+type EventDataStoreContextKeySelector struct {
+	// An operator that includes events that match the exact value of the event record field specified in Type.
+	Equals []string `pulumi:"equals"`
+	// Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+	Type EventDataStoreContextKeySelectorType `pulumi:"type"`
+}
+
+// EventDataStoreContextKeySelectorInput is an input type that accepts EventDataStoreContextKeySelectorArgs and EventDataStoreContextKeySelectorOutput values.
+// You can construct a concrete instance of `EventDataStoreContextKeySelectorInput` via:
+//
+//	EventDataStoreContextKeySelectorArgs{...}
+type EventDataStoreContextKeySelectorInput interface {
+	pulumi.Input
+
+	ToEventDataStoreContextKeySelectorOutput() EventDataStoreContextKeySelectorOutput
+	ToEventDataStoreContextKeySelectorOutputWithContext(context.Context) EventDataStoreContextKeySelectorOutput
+}
+
+// An object that contains information types to be included in CloudTrail enriched events.
+type EventDataStoreContextKeySelectorArgs struct {
+	// An operator that includes events that match the exact value of the event record field specified in Type.
+	Equals pulumi.StringArrayInput `pulumi:"equals"`
+	// Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+	Type EventDataStoreContextKeySelectorTypeInput `pulumi:"type"`
+}
+
+func (EventDataStoreContextKeySelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDataStoreContextKeySelector)(nil)).Elem()
+}
+
+func (i EventDataStoreContextKeySelectorArgs) ToEventDataStoreContextKeySelectorOutput() EventDataStoreContextKeySelectorOutput {
+	return i.ToEventDataStoreContextKeySelectorOutputWithContext(context.Background())
+}
+
+func (i EventDataStoreContextKeySelectorArgs) ToEventDataStoreContextKeySelectorOutputWithContext(ctx context.Context) EventDataStoreContextKeySelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreContextKeySelectorOutput)
+}
+
+// EventDataStoreContextKeySelectorArrayInput is an input type that accepts EventDataStoreContextKeySelectorArray and EventDataStoreContextKeySelectorArrayOutput values.
+// You can construct a concrete instance of `EventDataStoreContextKeySelectorArrayInput` via:
+//
+//	EventDataStoreContextKeySelectorArray{ EventDataStoreContextKeySelectorArgs{...} }
+type EventDataStoreContextKeySelectorArrayInput interface {
+	pulumi.Input
+
+	ToEventDataStoreContextKeySelectorArrayOutput() EventDataStoreContextKeySelectorArrayOutput
+	ToEventDataStoreContextKeySelectorArrayOutputWithContext(context.Context) EventDataStoreContextKeySelectorArrayOutput
+}
+
+type EventDataStoreContextKeySelectorArray []EventDataStoreContextKeySelectorInput
+
+func (EventDataStoreContextKeySelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventDataStoreContextKeySelector)(nil)).Elem()
+}
+
+func (i EventDataStoreContextKeySelectorArray) ToEventDataStoreContextKeySelectorArrayOutput() EventDataStoreContextKeySelectorArrayOutput {
+	return i.ToEventDataStoreContextKeySelectorArrayOutputWithContext(context.Background())
+}
+
+func (i EventDataStoreContextKeySelectorArray) ToEventDataStoreContextKeySelectorArrayOutputWithContext(ctx context.Context) EventDataStoreContextKeySelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreContextKeySelectorArrayOutput)
+}
+
+// An object that contains information types to be included in CloudTrail enriched events.
+type EventDataStoreContextKeySelectorOutput struct{ *pulumi.OutputState }
+
+func (EventDataStoreContextKeySelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDataStoreContextKeySelector)(nil)).Elem()
+}
+
+func (o EventDataStoreContextKeySelectorOutput) ToEventDataStoreContextKeySelectorOutput() EventDataStoreContextKeySelectorOutput {
+	return o
+}
+
+func (o EventDataStoreContextKeySelectorOutput) ToEventDataStoreContextKeySelectorOutputWithContext(ctx context.Context) EventDataStoreContextKeySelectorOutput {
+	return o
+}
+
+// An operator that includes events that match the exact value of the event record field specified in Type.
+func (o EventDataStoreContextKeySelectorOutput) Equals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventDataStoreContextKeySelector) []string { return v.Equals }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+func (o EventDataStoreContextKeySelectorOutput) Type() EventDataStoreContextKeySelectorTypeOutput {
+	return o.ApplyT(func(v EventDataStoreContextKeySelector) EventDataStoreContextKeySelectorType { return v.Type }).(EventDataStoreContextKeySelectorTypeOutput)
+}
+
+type EventDataStoreContextKeySelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (EventDataStoreContextKeySelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventDataStoreContextKeySelector)(nil)).Elem()
+}
+
+func (o EventDataStoreContextKeySelectorArrayOutput) ToEventDataStoreContextKeySelectorArrayOutput() EventDataStoreContextKeySelectorArrayOutput {
+	return o
+}
+
+func (o EventDataStoreContextKeySelectorArrayOutput) ToEventDataStoreContextKeySelectorArrayOutputWithContext(ctx context.Context) EventDataStoreContextKeySelectorArrayOutput {
+	return o
+}
+
+func (o EventDataStoreContextKeySelectorArrayOutput) Index(i pulumi.IntInput) EventDataStoreContextKeySelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventDataStoreContextKeySelector {
+		return vs[0].([]EventDataStoreContextKeySelector)[vs[1].(int)]
+	}).(EventDataStoreContextKeySelectorOutput)
+}
+
 // A string that contains Insights types that are logged on an event data store.
 type EventDataStoreInsightSelector struct {
 	// The type of Insights to log on an event data store.
@@ -1600,6 +1709,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedEventSelectorArrayInput)(nil)).Elem(), EventDataStoreAdvancedEventSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedFieldSelectorInput)(nil)).Elem(), EventDataStoreAdvancedFieldSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedFieldSelectorArrayInput)(nil)).Elem(), EventDataStoreAdvancedFieldSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreContextKeySelectorInput)(nil)).Elem(), EventDataStoreContextKeySelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreContextKeySelectorArrayInput)(nil)).Elem(), EventDataStoreContextKeySelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreInsightSelectorInput)(nil)).Elem(), EventDataStoreInsightSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreInsightSelectorArrayInput)(nil)).Elem(), EventDataStoreInsightSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedEventSelectorInput)(nil)).Elem(), TrailAdvancedEventSelectorArgs{})
@@ -1624,6 +1735,8 @@ func init() {
 	pulumi.RegisterOutputType(EventDataStoreAdvancedEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedFieldSelectorOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedFieldSelectorArrayOutput{})
+	pulumi.RegisterOutputType(EventDataStoreContextKeySelectorOutput{})
+	pulumi.RegisterOutputType(EventDataStoreContextKeySelectorArrayOutput{})
 	pulumi.RegisterOutputType(EventDataStoreInsightSelectorOutput{})
 	pulumi.RegisterOutputType(EventDataStoreInsightSelectorArrayOutput{})
 	pulumi.RegisterOutputType(TrailAdvancedEventSelectorOutput{})

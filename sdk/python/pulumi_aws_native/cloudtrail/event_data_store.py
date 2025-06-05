@@ -17,6 +17,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['EventDataStoreArgs', 'EventDataStore']
@@ -26,12 +27,14 @@ class EventDataStoreArgs:
     def __init__(__self__, *,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
                  billing_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 context_key_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreContextKeySelectorArgs']]]] = None,
                  federation_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  federation_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  ingestion_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreInsightSelectorArgs']]]] = None,
                  insights_destination: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 max_event_size: Optional[pulumi.Input['EventDataStoreMaxEventSize']] = None,
                  multi_region_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  organization_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -42,12 +45,14 @@ class EventDataStoreArgs:
         The set of arguments for constructing a EventDataStore resource.
         :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
         :param pulumi.Input[builtins.str] billing_mode: The mode that the event data store will use to charge for event storage.
+        :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreContextKeySelectorArgs']]] context_key_selectors: An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
         :param pulumi.Input[builtins.bool] federation_enabled: Indicates whether federation is enabled on an event data store.
         :param pulumi.Input[builtins.str] federation_role_arn: The ARN of the role used for event data store federation.
         :param pulumi.Input[builtins.bool] ingestion_enabled: Indicates whether the event data store is ingesting events.
         :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreInsightSelectorArgs']]] insight_selectors: Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
         :param pulumi.Input[builtins.str] insights_destination: Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
         :param pulumi.Input[builtins.str] kms_key_id: Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+        :param pulumi.Input['EventDataStoreMaxEventSize'] max_event_size: Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
         :param pulumi.Input[builtins.bool] multi_region_enabled: Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
         :param pulumi.Input[builtins.str] name: The name of the event data store.
         :param pulumi.Input[builtins.bool] organization_enabled: Indicates that an event data store is collecting logged events for an organization.
@@ -59,6 +64,8 @@ class EventDataStoreArgs:
             pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
         if billing_mode is not None:
             pulumi.set(__self__, "billing_mode", billing_mode)
+        if context_key_selectors is not None:
+            pulumi.set(__self__, "context_key_selectors", context_key_selectors)
         if federation_enabled is not None:
             pulumi.set(__self__, "federation_enabled", federation_enabled)
         if federation_role_arn is not None:
@@ -71,6 +78,8 @@ class EventDataStoreArgs:
             pulumi.set(__self__, "insights_destination", insights_destination)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if max_event_size is not None:
+            pulumi.set(__self__, "max_event_size", max_event_size)
         if multi_region_enabled is not None:
             pulumi.set(__self__, "multi_region_enabled", multi_region_enabled)
         if name is not None:
@@ -107,6 +116,18 @@ class EventDataStoreArgs:
     @billing_mode.setter
     def billing_mode(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "billing_mode", value)
+
+    @property
+    @pulumi.getter(name="contextKeySelectors")
+    def context_key_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreContextKeySelectorArgs']]]]:
+        """
+        An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+        """
+        return pulumi.get(self, "context_key_selectors")
+
+    @context_key_selectors.setter
+    def context_key_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreContextKeySelectorArgs']]]]):
+        pulumi.set(self, "context_key_selectors", value)
 
     @property
     @pulumi.getter(name="federationEnabled")
@@ -179,6 +200,18 @@ class EventDataStoreArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="maxEventSize")
+    def max_event_size(self) -> Optional[pulumi.Input['EventDataStoreMaxEventSize']]:
+        """
+        Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+        """
+        return pulumi.get(self, "max_event_size")
+
+    @max_event_size.setter
+    def max_event_size(self, value: Optional[pulumi.Input['EventDataStoreMaxEventSize']]):
+        pulumi.set(self, "max_event_size", value)
 
     @property
     @pulumi.getter(name="multiRegionEnabled")
@@ -261,12 +294,14 @@ class EventDataStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 context_key_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreContextKeySelectorArgs', 'EventDataStoreContextKeySelectorArgsDict']]]]] = None,
                  federation_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  federation_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  ingestion_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreInsightSelectorArgs', 'EventDataStoreInsightSelectorArgsDict']]]]] = None,
                  insights_destination: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 max_event_size: Optional[pulumi.Input['EventDataStoreMaxEventSize']] = None,
                  multi_region_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  organization_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -281,12 +316,14 @@ class EventDataStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
         :param pulumi.Input[builtins.str] billing_mode: The mode that the event data store will use to charge for event storage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreContextKeySelectorArgs', 'EventDataStoreContextKeySelectorArgsDict']]]] context_key_selectors: An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
         :param pulumi.Input[builtins.bool] federation_enabled: Indicates whether federation is enabled on an event data store.
         :param pulumi.Input[builtins.str] federation_role_arn: The ARN of the role used for event data store federation.
         :param pulumi.Input[builtins.bool] ingestion_enabled: Indicates whether the event data store is ingesting events.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreInsightSelectorArgs', 'EventDataStoreInsightSelectorArgsDict']]]] insight_selectors: Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
         :param pulumi.Input[builtins.str] insights_destination: Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
         :param pulumi.Input[builtins.str] kms_key_id: Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+        :param pulumi.Input['EventDataStoreMaxEventSize'] max_event_size: Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
         :param pulumi.Input[builtins.bool] multi_region_enabled: Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
         :param pulumi.Input[builtins.str] name: The name of the event data store.
         :param pulumi.Input[builtins.bool] organization_enabled: Indicates that an event data store is collecting logged events for an organization.
@@ -320,12 +357,14 @@ class EventDataStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 context_key_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreContextKeySelectorArgs', 'EventDataStoreContextKeySelectorArgsDict']]]]] = None,
                  federation_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  federation_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  ingestion_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreInsightSelectorArgs', 'EventDataStoreInsightSelectorArgsDict']]]]] = None,
                  insights_destination: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 max_event_size: Optional[pulumi.Input['EventDataStoreMaxEventSize']] = None,
                  multi_region_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  organization_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -343,12 +382,14 @@ class EventDataStore(pulumi.CustomResource):
 
             __props__.__dict__["advanced_event_selectors"] = advanced_event_selectors
             __props__.__dict__["billing_mode"] = billing_mode
+            __props__.__dict__["context_key_selectors"] = context_key_selectors
             __props__.__dict__["federation_enabled"] = federation_enabled
             __props__.__dict__["federation_role_arn"] = federation_role_arn
             __props__.__dict__["ingestion_enabled"] = ingestion_enabled
             __props__.__dict__["insight_selectors"] = insight_selectors
             __props__.__dict__["insights_destination"] = insights_destination
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["max_event_size"] = max_event_size
             __props__.__dict__["multi_region_enabled"] = multi_region_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["organization_enabled"] = organization_enabled
@@ -383,6 +424,7 @@ class EventDataStore(pulumi.CustomResource):
 
         __props__.__dict__["advanced_event_selectors"] = None
         __props__.__dict__["billing_mode"] = None
+        __props__.__dict__["context_key_selectors"] = None
         __props__.__dict__["created_timestamp"] = None
         __props__.__dict__["event_data_store_arn"] = None
         __props__.__dict__["federation_enabled"] = None
@@ -391,6 +433,7 @@ class EventDataStore(pulumi.CustomResource):
         __props__.__dict__["insight_selectors"] = None
         __props__.__dict__["insights_destination"] = None
         __props__.__dict__["kms_key_id"] = None
+        __props__.__dict__["max_event_size"] = None
         __props__.__dict__["multi_region_enabled"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["organization_enabled"] = None
@@ -416,6 +459,14 @@ class EventDataStore(pulumi.CustomResource):
         The mode that the event data store will use to charge for event storage.
         """
         return pulumi.get(self, "billing_mode")
+
+    @property
+    @pulumi.getter(name="contextKeySelectors")
+    def context_key_selectors(self) -> pulumi.Output[Optional[Sequence['outputs.EventDataStoreContextKeySelector']]]:
+        """
+        An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+        """
+        return pulumi.get(self, "context_key_selectors")
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -480,6 +531,14 @@ class EventDataStore(pulumi.CustomResource):
         Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="maxEventSize")
+    def max_event_size(self) -> pulumi.Output[Optional['EventDataStoreMaxEventSize']]:
+        """
+        Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+        """
+        return pulumi.get(self, "max_event_size")
 
     @property
     @pulumi.getter(name="multiRegionEnabled")

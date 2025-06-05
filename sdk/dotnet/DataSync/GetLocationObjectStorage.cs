@@ -71,7 +71,21 @@ namespace Pulumi.AwsNative.DataSync
         /// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         /// </summary>
         public readonly ImmutableArray<string> AgentArns;
+        /// <summary>
+        /// Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
+        /// 
+        /// When you include this paramater as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
+        /// 
+        /// Make sure the DataSync has permission to access the KMS key that you specify.
+        /// 
+        /// &gt; You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
+        /// </summary>
         public readonly Outputs.LocationObjectStorageCmkSecretConfig? CmkSecretConfig;
+        /// <summary>
+        /// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        /// 
+        /// &gt; You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
+        /// </summary>
         public readonly Outputs.LocationObjectStorageCustomSecretConfig? CustomSecretConfig;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the location that is created.

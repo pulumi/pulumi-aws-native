@@ -13,7 +13,21 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     [OutputType]
     public sealed class FleetHostConfiguration
     {
+        /// <summary>
+        /// The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+        /// 
+        /// For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide* .
+        /// 
+        /// &gt; The script runs as an administrative user ( `sudo root` on Linux, as an Administrator on Windows).
+        /// </summary>
         public readonly string ScriptBody;
+        /// <summary>
+        /// The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+        /// 
+        /// &gt; You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers. 
+        /// 
+        /// The default is 300 seconds (5 minutes).
+        /// </summary>
         public readonly int? ScriptTimeoutSeconds;
 
         [OutputConstructor]

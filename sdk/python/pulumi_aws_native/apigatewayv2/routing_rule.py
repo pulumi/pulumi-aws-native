@@ -28,7 +28,10 @@ class RoutingRuleArgs:
                  priority: pulumi.Input[builtins.int]):
         """
         The set of arguments for constructing a RoutingRule resource.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]] actions: The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]] conditions: The conditions of the routing rule.
         :param pulumi.Input[builtins.str] domain_name_arn: The amazon resource name (ARN) of the domain name resource.
+        :param pulumi.Input[builtins.int] priority: The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Priority values 1-1,000,000 are supported.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "conditions", conditions)
@@ -38,6 +41,9 @@ class RoutingRuleArgs:
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]]:
+        """
+        The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
+        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -47,6 +53,9 @@ class RoutingRuleArgs:
     @property
     @pulumi.getter
     def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]]:
+        """
+        The conditions of the routing rule.
+        """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
@@ -68,6 +77,9 @@ class RoutingRuleArgs:
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Input[builtins.int]:
+        """
+        The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Priority values 1-1,000,000 are supported.
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -91,7 +103,10 @@ class RoutingRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]] actions: The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]] conditions: The conditions of the routing rule.
         :param pulumi.Input[builtins.str] domain_name_arn: The amazon resource name (ARN) of the domain name resource.
+        :param pulumi.Input[builtins.int] priority: The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Priority values 1-1,000,000 are supported.
         """
         ...
     @overload
@@ -179,11 +194,17 @@ class RoutingRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.RoutingRuleAction']]:
+        """
+        The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Sequence['outputs.RoutingRuleCondition']]:
+        """
+        The conditions of the routing rule.
+        """
         return pulumi.get(self, "conditions")
 
     @property
@@ -197,6 +218,9 @@ class RoutingRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Output[builtins.int]:
+        """
+        The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Priority values 1-1,000,000 are supported.
+        """
         return pulumi.get(self, "priority")
 
     @property

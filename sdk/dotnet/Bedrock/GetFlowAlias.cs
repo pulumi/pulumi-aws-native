@@ -79,6 +79,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// Arn of the Flow Alias
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The configuration that specifies how nodes in the flow are executed concurrently.
+        /// </summary>
         public readonly Outputs.FlowAliasConcurrencyConfiguration? ConcurrencyConfiguration;
         /// <summary>
         /// Time Stamp.

@@ -13,6 +13,9 @@ __all__ = [
 
 @pulumi.type_token("aws-native:apigatewayv2:DomainNameRoutingMode")
 class DomainNameRoutingMode(builtins.str, Enum):
+    """
+    The routing mode API Gateway uses to route traffic to your APIs.
+    """
     API_MAPPING_ONLY = "API_MAPPING_ONLY"
     ROUTING_RULE_THEN_API_MAPPING = "ROUTING_RULE_THEN_API_MAPPING"
     ROUTING_RULE_ONLY = "ROUTING_RULE_ONLY"

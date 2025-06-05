@@ -63,11 +63,17 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
      * In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
      */
     public readonly environmentBlueprintIdentifier!: pulumi.Output<string>;
+    /**
+     * The environment role permission boundary.
+     */
     public readonly environmentRolePermissionBoundary!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the manage access role.
      */
     public readonly manageAccessRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning configuration of a blueprint.
+     */
     public readonly provisioningConfigurations!: pulumi.Output<outputs.datazone.EnvironmentBlueprintConfigurationProvisioningConfigurationProperties[] | undefined>;
     /**
      * The ARN of the provisioning role.
@@ -153,11 +159,17 @@ export interface EnvironmentBlueprintConfigurationArgs {
      * In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
      */
     environmentBlueprintIdentifier: pulumi.Input<string>;
+    /**
+     * The environment role permission boundary.
+     */
     environmentRolePermissionBoundary?: pulumi.Input<string>;
     /**
      * The ARN of the manage access role.
      */
     manageAccessRoleArn?: pulumi.Input<string>;
+    /**
+     * The provisioning configuration of a blueprint.
+     */
     provisioningConfigurations?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs>[]>;
     /**
      * The ARN of the provisioning role.

@@ -8153,6 +8153,174 @@ func (in *flowConnectionTypePtr) ToFlowConnectionTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(FlowConnectionTypePtrOutput)
 }
 
+// Optional tag to classify input type, currently exclusive to LoopNode
+type FlowNodeInputCategory string
+
+const (
+	FlowNodeInputCategoryLoopCondition          = FlowNodeInputCategory("LoopCondition")
+	FlowNodeInputCategoryReturnValueToLoopStart = FlowNodeInputCategory("ReturnValueToLoopStart")
+	FlowNodeInputCategoryExitLoop               = FlowNodeInputCategory("ExitLoop")
+)
+
+func (FlowNodeInputCategory) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeInputCategory)(nil)).Elem()
+}
+
+func (e FlowNodeInputCategory) ToFlowNodeInputCategoryOutput() FlowNodeInputCategoryOutput {
+	return pulumi.ToOutput(e).(FlowNodeInputCategoryOutput)
+}
+
+func (e FlowNodeInputCategory) ToFlowNodeInputCategoryOutputWithContext(ctx context.Context) FlowNodeInputCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowNodeInputCategoryOutput)
+}
+
+func (e FlowNodeInputCategory) ToFlowNodeInputCategoryPtrOutput() FlowNodeInputCategoryPtrOutput {
+	return e.ToFlowNodeInputCategoryPtrOutputWithContext(context.Background())
+}
+
+func (e FlowNodeInputCategory) ToFlowNodeInputCategoryPtrOutputWithContext(ctx context.Context) FlowNodeInputCategoryPtrOutput {
+	return FlowNodeInputCategory(e).ToFlowNodeInputCategoryOutputWithContext(ctx).ToFlowNodeInputCategoryPtrOutputWithContext(ctx)
+}
+
+func (e FlowNodeInputCategory) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowNodeInputCategory) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowNodeInputCategory) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowNodeInputCategory) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowNodeInputCategoryOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeInputCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeInputCategory)(nil)).Elem()
+}
+
+func (o FlowNodeInputCategoryOutput) ToFlowNodeInputCategoryOutput() FlowNodeInputCategoryOutput {
+	return o
+}
+
+func (o FlowNodeInputCategoryOutput) ToFlowNodeInputCategoryOutputWithContext(ctx context.Context) FlowNodeInputCategoryOutput {
+	return o
+}
+
+func (o FlowNodeInputCategoryOutput) ToFlowNodeInputCategoryPtrOutput() FlowNodeInputCategoryPtrOutput {
+	return o.ToFlowNodeInputCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeInputCategoryOutput) ToFlowNodeInputCategoryPtrOutputWithContext(ctx context.Context) FlowNodeInputCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNodeInputCategory) *FlowNodeInputCategory {
+		return &v
+	}).(FlowNodeInputCategoryPtrOutput)
+}
+
+func (o FlowNodeInputCategoryOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowNodeInputCategoryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowNodeInputCategory) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowNodeInputCategoryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeInputCategoryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowNodeInputCategory) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowNodeInputCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeInputCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeInputCategory)(nil)).Elem()
+}
+
+func (o FlowNodeInputCategoryPtrOutput) ToFlowNodeInputCategoryPtrOutput() FlowNodeInputCategoryPtrOutput {
+	return o
+}
+
+func (o FlowNodeInputCategoryPtrOutput) ToFlowNodeInputCategoryPtrOutputWithContext(ctx context.Context) FlowNodeInputCategoryPtrOutput {
+	return o
+}
+
+func (o FlowNodeInputCategoryPtrOutput) Elem() FlowNodeInputCategoryOutput {
+	return o.ApplyT(func(v *FlowNodeInputCategory) FlowNodeInputCategory {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNodeInputCategory
+		return ret
+	}).(FlowNodeInputCategoryOutput)
+}
+
+func (o FlowNodeInputCategoryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeInputCategoryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowNodeInputCategory) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowNodeInputCategoryInput is an input type that accepts values of the FlowNodeInputCategory enum
+// A concrete instance of `FlowNodeInputCategoryInput` can be one of the following:
+//
+//	FlowNodeInputCategoryLoopCondition
+//	FlowNodeInputCategoryReturnValueToLoopStart
+//	FlowNodeInputCategoryExitLoop
+type FlowNodeInputCategoryInput interface {
+	pulumi.Input
+
+	ToFlowNodeInputCategoryOutput() FlowNodeInputCategoryOutput
+	ToFlowNodeInputCategoryOutputWithContext(context.Context) FlowNodeInputCategoryOutput
+}
+
+var flowNodeInputCategoryPtrType = reflect.TypeOf((**FlowNodeInputCategory)(nil)).Elem()
+
+type FlowNodeInputCategoryPtrInput interface {
+	pulumi.Input
+
+	ToFlowNodeInputCategoryPtrOutput() FlowNodeInputCategoryPtrOutput
+	ToFlowNodeInputCategoryPtrOutputWithContext(context.Context) FlowNodeInputCategoryPtrOutput
+}
+
+type flowNodeInputCategoryPtr string
+
+func FlowNodeInputCategoryPtr(v string) FlowNodeInputCategoryPtrInput {
+	return (*flowNodeInputCategoryPtr)(&v)
+}
+
+func (*flowNodeInputCategoryPtr) ElementType() reflect.Type {
+	return flowNodeInputCategoryPtrType
+}
+
+func (in *flowNodeInputCategoryPtr) ToFlowNodeInputCategoryPtrOutput() FlowNodeInputCategoryPtrOutput {
+	return pulumi.ToOutput(in).(FlowNodeInputCategoryPtrOutput)
+}
+
+func (in *flowNodeInputCategoryPtr) ToFlowNodeInputCategoryPtrOutputWithContext(ctx context.Context) FlowNodeInputCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowNodeInputCategoryPtrOutput)
+}
+
 // Type of input/output for a node in a flow
 type FlowNodeIoDataType string
 
@@ -8342,6 +8510,9 @@ const (
 	FlowNodeTypeIterator       = FlowNodeType("Iterator")
 	FlowNodeTypeCollector      = FlowNodeType("Collector")
 	FlowNodeTypeInlineCode     = FlowNodeType("InlineCode")
+	FlowNodeTypeLoop           = FlowNodeType("Loop")
+	FlowNodeTypeLoopInput      = FlowNodeType("LoopInput")
+	FlowNodeTypeLoopController = FlowNodeType("LoopController")
 )
 
 func (FlowNodeType) ElementType() reflect.Type {
@@ -8479,6 +8650,9 @@ func (o FlowNodeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	FlowNodeTypeIterator
 //	FlowNodeTypeCollector
 //	FlowNodeTypeInlineCode
+//	FlowNodeTypeLoop
+//	FlowNodeTypeLoopInput
+//	FlowNodeTypeLoopController
 type FlowNodeTypeInput interface {
 	pulumi.Input
 
@@ -8511,6 +8685,172 @@ func (in *flowNodeTypePtr) ToFlowNodeTypePtrOutput() FlowNodeTypePtrOutput {
 
 func (in *flowNodeTypePtr) ToFlowNodeTypePtrOutputWithContext(ctx context.Context) FlowNodeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowNodeTypePtrOutput)
+}
+
+// Performance Configuration Latency
+type FlowPerformanceConfigurationLatency string
+
+const (
+	FlowPerformanceConfigurationLatencyStandard  = FlowPerformanceConfigurationLatency("standard")
+	FlowPerformanceConfigurationLatencyOptimized = FlowPerformanceConfigurationLatency("optimized")
+)
+
+func (FlowPerformanceConfigurationLatency) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPerformanceConfigurationLatency)(nil)).Elem()
+}
+
+func (e FlowPerformanceConfigurationLatency) ToFlowPerformanceConfigurationLatencyOutput() FlowPerformanceConfigurationLatencyOutput {
+	return pulumi.ToOutput(e).(FlowPerformanceConfigurationLatencyOutput)
+}
+
+func (e FlowPerformanceConfigurationLatency) ToFlowPerformanceConfigurationLatencyOutputWithContext(ctx context.Context) FlowPerformanceConfigurationLatencyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowPerformanceConfigurationLatencyOutput)
+}
+
+func (e FlowPerformanceConfigurationLatency) ToFlowPerformanceConfigurationLatencyPtrOutput() FlowPerformanceConfigurationLatencyPtrOutput {
+	return e.ToFlowPerformanceConfigurationLatencyPtrOutputWithContext(context.Background())
+}
+
+func (e FlowPerformanceConfigurationLatency) ToFlowPerformanceConfigurationLatencyPtrOutputWithContext(ctx context.Context) FlowPerformanceConfigurationLatencyPtrOutput {
+	return FlowPerformanceConfigurationLatency(e).ToFlowPerformanceConfigurationLatencyOutputWithContext(ctx).ToFlowPerformanceConfigurationLatencyPtrOutputWithContext(ctx)
+}
+
+func (e FlowPerformanceConfigurationLatency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowPerformanceConfigurationLatency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowPerformanceConfigurationLatency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowPerformanceConfigurationLatency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowPerformanceConfigurationLatencyOutput struct{ *pulumi.OutputState }
+
+func (FlowPerformanceConfigurationLatencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPerformanceConfigurationLatency)(nil)).Elem()
+}
+
+func (o FlowPerformanceConfigurationLatencyOutput) ToFlowPerformanceConfigurationLatencyOutput() FlowPerformanceConfigurationLatencyOutput {
+	return o
+}
+
+func (o FlowPerformanceConfigurationLatencyOutput) ToFlowPerformanceConfigurationLatencyOutputWithContext(ctx context.Context) FlowPerformanceConfigurationLatencyOutput {
+	return o
+}
+
+func (o FlowPerformanceConfigurationLatencyOutput) ToFlowPerformanceConfigurationLatencyPtrOutput() FlowPerformanceConfigurationLatencyPtrOutput {
+	return o.ToFlowPerformanceConfigurationLatencyPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPerformanceConfigurationLatencyOutput) ToFlowPerformanceConfigurationLatencyPtrOutputWithContext(ctx context.Context) FlowPerformanceConfigurationLatencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowPerformanceConfigurationLatency) *FlowPerformanceConfigurationLatency {
+		return &v
+	}).(FlowPerformanceConfigurationLatencyPtrOutput)
+}
+
+func (o FlowPerformanceConfigurationLatencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowPerformanceConfigurationLatencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowPerformanceConfigurationLatency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowPerformanceConfigurationLatencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPerformanceConfigurationLatencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowPerformanceConfigurationLatency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowPerformanceConfigurationLatencyPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowPerformanceConfigurationLatencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowPerformanceConfigurationLatency)(nil)).Elem()
+}
+
+func (o FlowPerformanceConfigurationLatencyPtrOutput) ToFlowPerformanceConfigurationLatencyPtrOutput() FlowPerformanceConfigurationLatencyPtrOutput {
+	return o
+}
+
+func (o FlowPerformanceConfigurationLatencyPtrOutput) ToFlowPerformanceConfigurationLatencyPtrOutputWithContext(ctx context.Context) FlowPerformanceConfigurationLatencyPtrOutput {
+	return o
+}
+
+func (o FlowPerformanceConfigurationLatencyPtrOutput) Elem() FlowPerformanceConfigurationLatencyOutput {
+	return o.ApplyT(func(v *FlowPerformanceConfigurationLatency) FlowPerformanceConfigurationLatency {
+		if v != nil {
+			return *v
+		}
+		var ret FlowPerformanceConfigurationLatency
+		return ret
+	}).(FlowPerformanceConfigurationLatencyOutput)
+}
+
+func (o FlowPerformanceConfigurationLatencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPerformanceConfigurationLatencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowPerformanceConfigurationLatency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowPerformanceConfigurationLatencyInput is an input type that accepts values of the FlowPerformanceConfigurationLatency enum
+// A concrete instance of `FlowPerformanceConfigurationLatencyInput` can be one of the following:
+//
+//	FlowPerformanceConfigurationLatencyStandard
+//	FlowPerformanceConfigurationLatencyOptimized
+type FlowPerformanceConfigurationLatencyInput interface {
+	pulumi.Input
+
+	ToFlowPerformanceConfigurationLatencyOutput() FlowPerformanceConfigurationLatencyOutput
+	ToFlowPerformanceConfigurationLatencyOutputWithContext(context.Context) FlowPerformanceConfigurationLatencyOutput
+}
+
+var flowPerformanceConfigurationLatencyPtrType = reflect.TypeOf((**FlowPerformanceConfigurationLatency)(nil)).Elem()
+
+type FlowPerformanceConfigurationLatencyPtrInput interface {
+	pulumi.Input
+
+	ToFlowPerformanceConfigurationLatencyPtrOutput() FlowPerformanceConfigurationLatencyPtrOutput
+	ToFlowPerformanceConfigurationLatencyPtrOutputWithContext(context.Context) FlowPerformanceConfigurationLatencyPtrOutput
+}
+
+type flowPerformanceConfigurationLatencyPtr string
+
+func FlowPerformanceConfigurationLatencyPtr(v string) FlowPerformanceConfigurationLatencyPtrInput {
+	return (*flowPerformanceConfigurationLatencyPtr)(&v)
+}
+
+func (*flowPerformanceConfigurationLatencyPtr) ElementType() reflect.Type {
+	return flowPerformanceConfigurationLatencyPtrType
+}
+
+func (in *flowPerformanceConfigurationLatencyPtr) ToFlowPerformanceConfigurationLatencyPtrOutput() FlowPerformanceConfigurationLatencyPtrOutput {
+	return pulumi.ToOutput(in).(FlowPerformanceConfigurationLatencyPtrOutput)
+}
+
+func (in *flowPerformanceConfigurationLatencyPtr) ToFlowPerformanceConfigurationLatencyPtrOutputWithContext(ctx context.Context) FlowPerformanceConfigurationLatencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowPerformanceConfigurationLatencyPtrOutput)
 }
 
 // Prompt template type
@@ -8675,6 +9015,172 @@ func (in *flowPromptTemplateTypePtr) ToFlowPromptTemplateTypePtrOutput() FlowPro
 
 func (in *flowPromptTemplateTypePtr) ToFlowPromptTemplateTypePtrOutputWithContext(ctx context.Context) FlowPromptTemplateTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowPromptTemplateTypePtrOutput)
+}
+
+// Reranking Metadata Selection Mode
+type FlowRerankingMetadataSelectionMode string
+
+const (
+	FlowRerankingMetadataSelectionModeSelective = FlowRerankingMetadataSelectionMode("SELECTIVE")
+	FlowRerankingMetadataSelectionModeAll       = FlowRerankingMetadataSelectionMode("ALL")
+)
+
+func (FlowRerankingMetadataSelectionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRerankingMetadataSelectionMode)(nil)).Elem()
+}
+
+func (e FlowRerankingMetadataSelectionMode) ToFlowRerankingMetadataSelectionModeOutput() FlowRerankingMetadataSelectionModeOutput {
+	return pulumi.ToOutput(e).(FlowRerankingMetadataSelectionModeOutput)
+}
+
+func (e FlowRerankingMetadataSelectionMode) ToFlowRerankingMetadataSelectionModeOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowRerankingMetadataSelectionModeOutput)
+}
+
+func (e FlowRerankingMetadataSelectionMode) ToFlowRerankingMetadataSelectionModePtrOutput() FlowRerankingMetadataSelectionModePtrOutput {
+	return e.ToFlowRerankingMetadataSelectionModePtrOutputWithContext(context.Background())
+}
+
+func (e FlowRerankingMetadataSelectionMode) ToFlowRerankingMetadataSelectionModePtrOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectionModePtrOutput {
+	return FlowRerankingMetadataSelectionMode(e).ToFlowRerankingMetadataSelectionModeOutputWithContext(ctx).ToFlowRerankingMetadataSelectionModePtrOutputWithContext(ctx)
+}
+
+func (e FlowRerankingMetadataSelectionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowRerankingMetadataSelectionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowRerankingMetadataSelectionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowRerankingMetadataSelectionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowRerankingMetadataSelectionModeOutput struct{ *pulumi.OutputState }
+
+func (FlowRerankingMetadataSelectionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRerankingMetadataSelectionMode)(nil)).Elem()
+}
+
+func (o FlowRerankingMetadataSelectionModeOutput) ToFlowRerankingMetadataSelectionModeOutput() FlowRerankingMetadataSelectionModeOutput {
+	return o
+}
+
+func (o FlowRerankingMetadataSelectionModeOutput) ToFlowRerankingMetadataSelectionModeOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectionModeOutput {
+	return o
+}
+
+func (o FlowRerankingMetadataSelectionModeOutput) ToFlowRerankingMetadataSelectionModePtrOutput() FlowRerankingMetadataSelectionModePtrOutput {
+	return o.ToFlowRerankingMetadataSelectionModePtrOutputWithContext(context.Background())
+}
+
+func (o FlowRerankingMetadataSelectionModeOutput) ToFlowRerankingMetadataSelectionModePtrOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowRerankingMetadataSelectionMode) *FlowRerankingMetadataSelectionMode {
+		return &v
+	}).(FlowRerankingMetadataSelectionModePtrOutput)
+}
+
+func (o FlowRerankingMetadataSelectionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowRerankingMetadataSelectionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowRerankingMetadataSelectionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowRerankingMetadataSelectionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowRerankingMetadataSelectionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowRerankingMetadataSelectionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowRerankingMetadataSelectionModePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowRerankingMetadataSelectionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRerankingMetadataSelectionMode)(nil)).Elem()
+}
+
+func (o FlowRerankingMetadataSelectionModePtrOutput) ToFlowRerankingMetadataSelectionModePtrOutput() FlowRerankingMetadataSelectionModePtrOutput {
+	return o
+}
+
+func (o FlowRerankingMetadataSelectionModePtrOutput) ToFlowRerankingMetadataSelectionModePtrOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectionModePtrOutput {
+	return o
+}
+
+func (o FlowRerankingMetadataSelectionModePtrOutput) Elem() FlowRerankingMetadataSelectionModeOutput {
+	return o.ApplyT(func(v *FlowRerankingMetadataSelectionMode) FlowRerankingMetadataSelectionMode {
+		if v != nil {
+			return *v
+		}
+		var ret FlowRerankingMetadataSelectionMode
+		return ret
+	}).(FlowRerankingMetadataSelectionModeOutput)
+}
+
+func (o FlowRerankingMetadataSelectionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowRerankingMetadataSelectionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowRerankingMetadataSelectionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowRerankingMetadataSelectionModeInput is an input type that accepts values of the FlowRerankingMetadataSelectionMode enum
+// A concrete instance of `FlowRerankingMetadataSelectionModeInput` can be one of the following:
+//
+//	FlowRerankingMetadataSelectionModeSelective
+//	FlowRerankingMetadataSelectionModeAll
+type FlowRerankingMetadataSelectionModeInput interface {
+	pulumi.Input
+
+	ToFlowRerankingMetadataSelectionModeOutput() FlowRerankingMetadataSelectionModeOutput
+	ToFlowRerankingMetadataSelectionModeOutputWithContext(context.Context) FlowRerankingMetadataSelectionModeOutput
+}
+
+var flowRerankingMetadataSelectionModePtrType = reflect.TypeOf((**FlowRerankingMetadataSelectionMode)(nil)).Elem()
+
+type FlowRerankingMetadataSelectionModePtrInput interface {
+	pulumi.Input
+
+	ToFlowRerankingMetadataSelectionModePtrOutput() FlowRerankingMetadataSelectionModePtrOutput
+	ToFlowRerankingMetadataSelectionModePtrOutputWithContext(context.Context) FlowRerankingMetadataSelectionModePtrOutput
+}
+
+type flowRerankingMetadataSelectionModePtr string
+
+func FlowRerankingMetadataSelectionModePtr(v string) FlowRerankingMetadataSelectionModePtrInput {
+	return (*flowRerankingMetadataSelectionModePtr)(&v)
+}
+
+func (*flowRerankingMetadataSelectionModePtr) ElementType() reflect.Type {
+	return flowRerankingMetadataSelectionModePtrType
+}
+
+func (in *flowRerankingMetadataSelectionModePtr) ToFlowRerankingMetadataSelectionModePtrOutput() FlowRerankingMetadataSelectionModePtrOutput {
+	return pulumi.ToOutput(in).(FlowRerankingMetadataSelectionModePtrOutput)
+}
+
+func (in *flowRerankingMetadataSelectionModePtr) ToFlowRerankingMetadataSelectionModePtrOutputWithContext(ctx context.Context) FlowRerankingMetadataSelectionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowRerankingMetadataSelectionModePtrOutput)
 }
 
 // Schema Type for Flow APIs
@@ -8934,6 +9440,170 @@ func (in *flowSupportedLanguagesPtr) ToFlowSupportedLanguagesPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSupportedLanguagesPtrOutput)
 }
 
+// Enum of Rerank Configuration Types
+type FlowVectorSearchRerankingConfigurationType string
+
+const (
+	FlowVectorSearchRerankingConfigurationTypeBedrockRerankingModel = FlowVectorSearchRerankingConfigurationType("BEDROCK_RERANKING_MODEL")
+)
+
+func (FlowVectorSearchRerankingConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVectorSearchRerankingConfigurationType)(nil)).Elem()
+}
+
+func (e FlowVectorSearchRerankingConfigurationType) ToFlowVectorSearchRerankingConfigurationTypeOutput() FlowVectorSearchRerankingConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(FlowVectorSearchRerankingConfigurationTypeOutput)
+}
+
+func (e FlowVectorSearchRerankingConfigurationType) ToFlowVectorSearchRerankingConfigurationTypeOutputWithContext(ctx context.Context) FlowVectorSearchRerankingConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowVectorSearchRerankingConfigurationTypeOutput)
+}
+
+func (e FlowVectorSearchRerankingConfigurationType) ToFlowVectorSearchRerankingConfigurationTypePtrOutput() FlowVectorSearchRerankingConfigurationTypePtrOutput {
+	return e.ToFlowVectorSearchRerankingConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e FlowVectorSearchRerankingConfigurationType) ToFlowVectorSearchRerankingConfigurationTypePtrOutputWithContext(ctx context.Context) FlowVectorSearchRerankingConfigurationTypePtrOutput {
+	return FlowVectorSearchRerankingConfigurationType(e).ToFlowVectorSearchRerankingConfigurationTypeOutputWithContext(ctx).ToFlowVectorSearchRerankingConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e FlowVectorSearchRerankingConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowVectorSearchRerankingConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowVectorSearchRerankingConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowVectorSearchRerankingConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowVectorSearchRerankingConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowVectorSearchRerankingConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVectorSearchRerankingConfigurationType)(nil)).Elem()
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypeOutput) ToFlowVectorSearchRerankingConfigurationTypeOutput() FlowVectorSearchRerankingConfigurationTypeOutput {
+	return o
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypeOutput) ToFlowVectorSearchRerankingConfigurationTypeOutputWithContext(ctx context.Context) FlowVectorSearchRerankingConfigurationTypeOutput {
+	return o
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypeOutput) ToFlowVectorSearchRerankingConfigurationTypePtrOutput() FlowVectorSearchRerankingConfigurationTypePtrOutput {
+	return o.ToFlowVectorSearchRerankingConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypeOutput) ToFlowVectorSearchRerankingConfigurationTypePtrOutputWithContext(ctx context.Context) FlowVectorSearchRerankingConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVectorSearchRerankingConfigurationType) *FlowVectorSearchRerankingConfigurationType {
+		return &v
+	}).(FlowVectorSearchRerankingConfigurationTypePtrOutput)
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVectorSearchRerankingConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVectorSearchRerankingConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVectorSearchRerankingConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVectorSearchRerankingConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVectorSearchRerankingConfigurationType)(nil)).Elem()
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypePtrOutput) ToFlowVectorSearchRerankingConfigurationTypePtrOutput() FlowVectorSearchRerankingConfigurationTypePtrOutput {
+	return o
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypePtrOutput) ToFlowVectorSearchRerankingConfigurationTypePtrOutputWithContext(ctx context.Context) FlowVectorSearchRerankingConfigurationTypePtrOutput {
+	return o
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypePtrOutput) Elem() FlowVectorSearchRerankingConfigurationTypeOutput {
+	return o.ApplyT(func(v *FlowVectorSearchRerankingConfigurationType) FlowVectorSearchRerankingConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVectorSearchRerankingConfigurationType
+		return ret
+	}).(FlowVectorSearchRerankingConfigurationTypeOutput)
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVectorSearchRerankingConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVectorSearchRerankingConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowVectorSearchRerankingConfigurationTypeInput is an input type that accepts values of the FlowVectorSearchRerankingConfigurationType enum
+// A concrete instance of `FlowVectorSearchRerankingConfigurationTypeInput` can be one of the following:
+//
+//	FlowVectorSearchRerankingConfigurationTypeBedrockRerankingModel
+type FlowVectorSearchRerankingConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToFlowVectorSearchRerankingConfigurationTypeOutput() FlowVectorSearchRerankingConfigurationTypeOutput
+	ToFlowVectorSearchRerankingConfigurationTypeOutputWithContext(context.Context) FlowVectorSearchRerankingConfigurationTypeOutput
+}
+
+var flowVectorSearchRerankingConfigurationTypePtrType = reflect.TypeOf((**FlowVectorSearchRerankingConfigurationType)(nil)).Elem()
+
+type FlowVectorSearchRerankingConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToFlowVectorSearchRerankingConfigurationTypePtrOutput() FlowVectorSearchRerankingConfigurationTypePtrOutput
+	ToFlowVectorSearchRerankingConfigurationTypePtrOutputWithContext(context.Context) FlowVectorSearchRerankingConfigurationTypePtrOutput
+}
+
+type flowVectorSearchRerankingConfigurationTypePtr string
+
+func FlowVectorSearchRerankingConfigurationTypePtr(v string) FlowVectorSearchRerankingConfigurationTypePtrInput {
+	return (*flowVectorSearchRerankingConfigurationTypePtr)(&v)
+}
+
+func (*flowVectorSearchRerankingConfigurationTypePtr) ElementType() reflect.Type {
+	return flowVectorSearchRerankingConfigurationTypePtrType
+}
+
+func (in *flowVectorSearchRerankingConfigurationTypePtr) ToFlowVectorSearchRerankingConfigurationTypePtrOutput() FlowVectorSearchRerankingConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(FlowVectorSearchRerankingConfigurationTypePtrOutput)
+}
+
+func (in *flowVectorSearchRerankingConfigurationTypePtr) ToFlowVectorSearchRerankingConfigurationTypePtrOutputWithContext(ctx context.Context) FlowVectorSearchRerankingConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowVectorSearchRerankingConfigurationTypePtrOutput)
+}
+
 // Connection type
 type FlowVersionFlowConnectionType string
 
@@ -9136,6 +9806,9 @@ const (
 	FlowVersionFlowNodeTypeStorage        = FlowVersionFlowNodeType("Storage")
 	FlowVersionFlowNodeTypeRetrieval      = FlowVersionFlowNodeType("Retrieval")
 	FlowVersionFlowNodeTypeInlineCode     = FlowVersionFlowNodeType("InlineCode")
+	FlowVersionFlowNodeTypeLoop           = FlowVersionFlowNodeType("Loop")
+	FlowVersionFlowNodeTypeLoopInput      = FlowVersionFlowNodeType("LoopInput")
+	FlowVersionFlowNodeTypeLoopController = FlowVersionFlowNodeType("LoopController")
 )
 
 type FlowVersionFlowNodeTypeOutput struct{ *pulumi.OutputState }
@@ -9314,6 +9987,97 @@ func (o FlowVersionFlowStatusPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
+// Performance Configuration Latency
+type FlowVersionPerformanceConfigurationLatency string
+
+const (
+	FlowVersionPerformanceConfigurationLatencyStandard  = FlowVersionPerformanceConfigurationLatency("standard")
+	FlowVersionPerformanceConfigurationLatencyOptimized = FlowVersionPerformanceConfigurationLatency("optimized")
+)
+
+type FlowVersionPerformanceConfigurationLatencyOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionPerformanceConfigurationLatencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionPerformanceConfigurationLatency)(nil)).Elem()
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyOutput) ToFlowVersionPerformanceConfigurationLatencyOutput() FlowVersionPerformanceConfigurationLatencyOutput {
+	return o
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyOutput) ToFlowVersionPerformanceConfigurationLatencyOutputWithContext(ctx context.Context) FlowVersionPerformanceConfigurationLatencyOutput {
+	return o
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyOutput) ToFlowVersionPerformanceConfigurationLatencyPtrOutput() FlowVersionPerformanceConfigurationLatencyPtrOutput {
+	return o.ToFlowVersionPerformanceConfigurationLatencyPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyOutput) ToFlowVersionPerformanceConfigurationLatencyPtrOutputWithContext(ctx context.Context) FlowVersionPerformanceConfigurationLatencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVersionPerformanceConfigurationLatency) *FlowVersionPerformanceConfigurationLatency {
+		return &v
+	}).(FlowVersionPerformanceConfigurationLatencyPtrOutput)
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionPerformanceConfigurationLatency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionPerformanceConfigurationLatency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVersionPerformanceConfigurationLatencyPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionPerformanceConfigurationLatencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionPerformanceConfigurationLatency)(nil)).Elem()
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyPtrOutput) ToFlowVersionPerformanceConfigurationLatencyPtrOutput() FlowVersionPerformanceConfigurationLatencyPtrOutput {
+	return o
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyPtrOutput) ToFlowVersionPerformanceConfigurationLatencyPtrOutputWithContext(ctx context.Context) FlowVersionPerformanceConfigurationLatencyPtrOutput {
+	return o
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyPtrOutput) Elem() FlowVersionPerformanceConfigurationLatencyOutput {
+	return o.ApplyT(func(v *FlowVersionPerformanceConfigurationLatency) FlowVersionPerformanceConfigurationLatency {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionPerformanceConfigurationLatency
+		return ret
+	}).(FlowVersionPerformanceConfigurationLatencyOutput)
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionPerformanceConfigurationLatencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVersionPerformanceConfigurationLatency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Prompt template type
 type FlowVersionPromptTemplateType string
 
@@ -9404,6 +10168,97 @@ func (o FlowVersionPromptTemplateTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
+// Reranking Metadata Selection Mode
+type FlowVersionRerankingMetadataSelectionMode string
+
+const (
+	FlowVersionRerankingMetadataSelectionModeSelective = FlowVersionRerankingMetadataSelectionMode("SELECTIVE")
+	FlowVersionRerankingMetadataSelectionModeAll       = FlowVersionRerankingMetadataSelectionMode("ALL")
+)
+
+type FlowVersionRerankingMetadataSelectionModeOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionRerankingMetadataSelectionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionRerankingMetadataSelectionMode)(nil)).Elem()
+}
+
+func (o FlowVersionRerankingMetadataSelectionModeOutput) ToFlowVersionRerankingMetadataSelectionModeOutput() FlowVersionRerankingMetadataSelectionModeOutput {
+	return o
+}
+
+func (o FlowVersionRerankingMetadataSelectionModeOutput) ToFlowVersionRerankingMetadataSelectionModeOutputWithContext(ctx context.Context) FlowVersionRerankingMetadataSelectionModeOutput {
+	return o
+}
+
+func (o FlowVersionRerankingMetadataSelectionModeOutput) ToFlowVersionRerankingMetadataSelectionModePtrOutput() FlowVersionRerankingMetadataSelectionModePtrOutput {
+	return o.ToFlowVersionRerankingMetadataSelectionModePtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionRerankingMetadataSelectionModeOutput) ToFlowVersionRerankingMetadataSelectionModePtrOutputWithContext(ctx context.Context) FlowVersionRerankingMetadataSelectionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVersionRerankingMetadataSelectionMode) *FlowVersionRerankingMetadataSelectionMode {
+		return &v
+	}).(FlowVersionRerankingMetadataSelectionModePtrOutput)
+}
+
+func (o FlowVersionRerankingMetadataSelectionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowVersionRerankingMetadataSelectionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionRerankingMetadataSelectionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowVersionRerankingMetadataSelectionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionRerankingMetadataSelectionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionRerankingMetadataSelectionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVersionRerankingMetadataSelectionModePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionRerankingMetadataSelectionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionRerankingMetadataSelectionMode)(nil)).Elem()
+}
+
+func (o FlowVersionRerankingMetadataSelectionModePtrOutput) ToFlowVersionRerankingMetadataSelectionModePtrOutput() FlowVersionRerankingMetadataSelectionModePtrOutput {
+	return o
+}
+
+func (o FlowVersionRerankingMetadataSelectionModePtrOutput) ToFlowVersionRerankingMetadataSelectionModePtrOutputWithContext(ctx context.Context) FlowVersionRerankingMetadataSelectionModePtrOutput {
+	return o
+}
+
+func (o FlowVersionRerankingMetadataSelectionModePtrOutput) Elem() FlowVersionRerankingMetadataSelectionModeOutput {
+	return o.ApplyT(func(v *FlowVersionRerankingMetadataSelectionMode) FlowVersionRerankingMetadataSelectionMode {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionRerankingMetadataSelectionMode
+		return ret
+	}).(FlowVersionRerankingMetadataSelectionModeOutput)
+}
+
+func (o FlowVersionRerankingMetadataSelectionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionRerankingMetadataSelectionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVersionRerankingMetadataSelectionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Enum encodes the supported language type
 type FlowVersionSupportedLanguages string
 
@@ -9486,6 +10341,96 @@ func (o FlowVersionSupportedLanguagesPtrOutput) ToStringPtrOutput() pulumi.Strin
 
 func (o FlowVersionSupportedLanguagesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVersionSupportedLanguages) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enum of Rerank Configuration Types
+type FlowVersionVectorSearchRerankingConfigurationType string
+
+const (
+	FlowVersionVectorSearchRerankingConfigurationTypeBedrockRerankingModel = FlowVersionVectorSearchRerankingConfigurationType("BEDROCK_RERANKING_MODEL")
+)
+
+type FlowVersionVectorSearchRerankingConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionVectorSearchRerankingConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionVectorSearchRerankingConfigurationType)(nil)).Elem()
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypeOutput) ToFlowVersionVectorSearchRerankingConfigurationTypeOutput() FlowVersionVectorSearchRerankingConfigurationTypeOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypeOutput) ToFlowVersionVectorSearchRerankingConfigurationTypeOutputWithContext(ctx context.Context) FlowVersionVectorSearchRerankingConfigurationTypeOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypeOutput) ToFlowVersionVectorSearchRerankingConfigurationTypePtrOutput() FlowVersionVectorSearchRerankingConfigurationTypePtrOutput {
+	return o.ToFlowVersionVectorSearchRerankingConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypeOutput) ToFlowVersionVectorSearchRerankingConfigurationTypePtrOutputWithContext(ctx context.Context) FlowVersionVectorSearchRerankingConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVersionVectorSearchRerankingConfigurationType) *FlowVersionVectorSearchRerankingConfigurationType {
+		return &v
+	}).(FlowVersionVectorSearchRerankingConfigurationTypePtrOutput)
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionVectorSearchRerankingConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVersionVectorSearchRerankingConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVersionVectorSearchRerankingConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionVectorSearchRerankingConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionVectorSearchRerankingConfigurationType)(nil)).Elem()
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypePtrOutput) ToFlowVersionVectorSearchRerankingConfigurationTypePtrOutput() FlowVersionVectorSearchRerankingConfigurationTypePtrOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypePtrOutput) ToFlowVersionVectorSearchRerankingConfigurationTypePtrOutputWithContext(ctx context.Context) FlowVersionVectorSearchRerankingConfigurationTypePtrOutput {
+	return o
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypePtrOutput) Elem() FlowVersionVectorSearchRerankingConfigurationTypeOutput {
+	return o.ApplyT(func(v *FlowVersionVectorSearchRerankingConfigurationType) FlowVersionVectorSearchRerankingConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionVectorSearchRerankingConfigurationType
+		return ret
+	}).(FlowVersionVectorSearchRerankingConfigurationTypeOutput)
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVersionVectorSearchRerankingConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVersionVectorSearchRerankingConfigurationType) *string {
 		if e == nil {
 			return nil
 		}
@@ -14496,14 +15441,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasConcurrencyTypePtrInput)(nil)).Elem(), FlowAliasConcurrencyType("Automatic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConnectionTypeInput)(nil)).Elem(), FlowConnectionType("Data"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConnectionTypePtrInput)(nil)).Elem(), FlowConnectionType("Data"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeInputCategoryInput)(nil)).Elem(), FlowNodeInputCategory("LoopCondition"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeInputCategoryPtrInput)(nil)).Elem(), FlowNodeInputCategory("LoopCondition"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeIoDataTypeInput)(nil)).Elem(), FlowNodeIoDataType("String"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeIoDataTypePtrInput)(nil)).Elem(), FlowNodeIoDataType("String"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeTypeInput)(nil)).Elem(), FlowNodeType("Input"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeTypePtrInput)(nil)).Elem(), FlowNodeType("Input"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPerformanceConfigurationLatencyInput)(nil)).Elem(), FlowPerformanceConfigurationLatency("standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPerformanceConfigurationLatencyPtrInput)(nil)).Elem(), FlowPerformanceConfigurationLatency("standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptTemplateTypeInput)(nil)).Elem(), FlowPromptTemplateType("TEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptTemplateTypePtrInput)(nil)).Elem(), FlowPromptTemplateType("TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRerankingMetadataSelectionModeInput)(nil)).Elem(), FlowRerankingMetadataSelectionMode("SELECTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRerankingMetadataSelectionModePtrInput)(nil)).Elem(), FlowRerankingMetadataSelectionMode("SELECTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSupportedLanguagesInput)(nil)).Elem(), FlowSupportedLanguages("Python_3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSupportedLanguagesPtrInput)(nil)).Elem(), FlowSupportedLanguages("Python_3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVectorSearchRerankingConfigurationTypeInput)(nil)).Elem(), FlowVectorSearchRerankingConfigurationType("BEDROCK_RERANKING_MODEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVectorSearchRerankingConfigurationTypePtrInput)(nil)).Elem(), FlowVectorSearchRerankingConfigurationType("BEDROCK_RERANKING_MODEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterActionInput)(nil)).Elem(), GuardrailContentFilterAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterActionPtrInput)(nil)).Elem(), GuardrailContentFilterAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterTypeInput)(nil)).Elem(), GuardrailContentFilterType("SEXUAL"))
@@ -14664,16 +15617,24 @@ func init() {
 	pulumi.RegisterOutputType(FlowAliasConcurrencyTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowConnectionTypeOutput{})
 	pulumi.RegisterOutputType(FlowConnectionTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowNodeInputCategoryOutput{})
+	pulumi.RegisterOutputType(FlowNodeInputCategoryPtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeIoDataTypeOutput{})
 	pulumi.RegisterOutputType(FlowNodeIoDataTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeTypeOutput{})
 	pulumi.RegisterOutputType(FlowNodeTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowPerformanceConfigurationLatencyOutput{})
+	pulumi.RegisterOutputType(FlowPerformanceConfigurationLatencyPtrOutput{})
 	pulumi.RegisterOutputType(FlowPromptTemplateTypeOutput{})
 	pulumi.RegisterOutputType(FlowPromptTemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowRerankingMetadataSelectionModeOutput{})
+	pulumi.RegisterOutputType(FlowRerankingMetadataSelectionModePtrOutput{})
 	pulumi.RegisterOutputType(FlowStatusOutput{})
 	pulumi.RegisterOutputType(FlowStatusPtrOutput{})
 	pulumi.RegisterOutputType(FlowSupportedLanguagesOutput{})
 	pulumi.RegisterOutputType(FlowSupportedLanguagesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVectorSearchRerankingConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(FlowVectorSearchRerankingConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowConnectionTypeOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowConnectionTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeIoDataTypeOutput{})
@@ -14682,10 +15643,16 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionFlowNodeTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowStatusOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowStatusPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionPerformanceConfigurationLatencyOutput{})
+	pulumi.RegisterOutputType(FlowVersionPerformanceConfigurationLatencyPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionPromptTemplateTypeOutput{})
 	pulumi.RegisterOutputType(FlowVersionPromptTemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionRerankingMetadataSelectionModeOutput{})
+	pulumi.RegisterOutputType(FlowVersionRerankingMetadataSelectionModePtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionSupportedLanguagesOutput{})
 	pulumi.RegisterOutputType(FlowVersionSupportedLanguagesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionVectorSearchRerankingConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(FlowVersionVectorSearchRerankingConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterActionOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterActionPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterTypeOutput{})

@@ -239,7 +239,7 @@
       "description" : "An object that represents the request for the Amazon CloudFront managed ACM certificate."
     }
   },
-  "createOnlyProperties" : [ "/properties/Name", "/properties/ManagedCertificateRequest" ],
+  "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/DomainResults", "/properties/ETag", "/properties/Status", "/properties/CreatedTime", "/properties/LastModifiedTime" ],
   "required" : [ "DistributionId", "Name", "Domains" ],
   "writeOnlyProperties" : [ "/properties/ManagedCertificateRequest" ],

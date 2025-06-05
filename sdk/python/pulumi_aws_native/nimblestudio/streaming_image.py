@@ -30,13 +30,6 @@ class StreamingImageArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a StreamingImage resource.
-        :param pulumi.Input[builtins.str] ec2_image_id: The ID of an EC2 machine image with which to create the streaming image.
-        :param pulumi.Input[builtins.str] studio_id: The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        :param pulumi.Input[builtins.str] description: A human-readable description of the streaming image.
-        :param pulumi.Input[builtins.str] name: A friendly name for a streaming image resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key-value pairs to apply to this resource.
-               
-               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "ec2_image_id", ec2_image_id)
         pulumi.set(__self__, "studio_id", studio_id)
@@ -54,9 +47,6 @@ class StreamingImageArgs:
     @property
     @pulumi.getter(name="ec2ImageId")
     def ec2_image_id(self) -> pulumi.Input[builtins.str]:
-        """
-        The ID of an EC2 machine image with which to create the streaming image.
-        """
         return pulumi.get(self, "ec2_image_id")
 
     @ec2_image_id.setter
@@ -66,9 +56,6 @@ class StreamingImageArgs:
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[builtins.str]:
-        """
-        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        """
         return pulumi.get(self, "studio_id")
 
     @studio_id.setter
@@ -78,9 +65,6 @@ class StreamingImageArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        A human-readable description of the streaming image.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -108,9 +92,6 @@ class StreamingImageArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        A friendly name for a streaming image resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -120,11 +101,6 @@ class StreamingImageArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        An array of key-value pairs to apply to this resource.
-
-        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -151,13 +127,6 @@ class StreamingImage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] description: A human-readable description of the streaming image.
-        :param pulumi.Input[builtins.str] ec2_image_id: The ID of an EC2 machine image with which to create the streaming image.
-        :param pulumi.Input[builtins.str] name: A friendly name for a streaming image resource.
-        :param pulumi.Input[builtins.str] studio_id: The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: An array of key-value pairs to apply to this resource.
-               
-               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -256,17 +225,11 @@ class StreamingImage(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        A human-readable description of the streaming image.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ec2ImageId")
     def ec2_image_id(self) -> pulumi.Output[builtins.str]:
-        """
-        The ID of an EC2 machine image with which to create the streaming image.
-        """
         return pulumi.get(self, "ec2_image_id")
 
     @property
@@ -287,58 +250,35 @@ class StreamingImage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="eulaIds")
     def eula_ids(self) -> pulumi.Output[Sequence[builtins.str]]:
-        """
-        The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
-        """
         return pulumi.get(self, "eula_ids")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
-        """
-        A friendly name for a streaming image resource.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> pulumi.Output[builtins.str]:
-        """
-        The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
-        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def platform(self) -> pulumi.Output[builtins.str]:
-        """
-        The platform of the streaming image, either WINDOWS or LINUX.
-        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter(name="streamingImageId")
     def streaming_image_id(self) -> pulumi.Output[builtins.str]:
-        """
-        The unique identifier for the streaming image resource.
-        """
         return pulumi.get(self, "streaming_image_id")
 
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[builtins.str]:
-        """
-        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        """
         return pulumi.get(self, "studio_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
-        """
-        An array of key-value pairs to apply to this resource.
-
-        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        """
         return pulumi.get(self, "tags")
 

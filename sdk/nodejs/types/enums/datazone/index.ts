@@ -154,6 +154,13 @@ export const ProjectMembershipUserDesignation = {
 
 export type ProjectMembershipUserDesignation = (typeof ProjectMembershipUserDesignation)[keyof typeof ProjectMembershipUserDesignation];
 
+export const ProjectProfileStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type ProjectProfileStatus = (typeof ProjectProfileStatus)[keyof typeof ProjectProfileStatus];
+
 export const ProjectStatus = {
     Active: "ACTIVE",
     Moving: "MOVING",

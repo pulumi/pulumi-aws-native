@@ -37,6 +37,9 @@ class PolicyStoreArgs:
                Currently, the only valid and required value is `Mode` .
                
                > We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
+        :param pulumi.Input['PolicyStoreDeletionProtectionArgs'] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+               
+               The default state is `DISABLED` .
         :param pulumi.Input[builtins.str] description: Descriptive text that you can provide to help with identification of the current policy store.
         :param pulumi.Input['PolicyStoreSchemaDefinitionArgs'] schema: Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the policy store
@@ -70,6 +73,11 @@ class PolicyStoreArgs:
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input['PolicyStoreDeletionProtectionArgs']]:
+        """
+        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+
+        The default state is `DISABLED` .
+        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -147,6 +155,9 @@ class PolicyStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['PolicyStoreDeletionProtectionArgs', 'PolicyStoreDeletionProtectionArgsDict']] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+               
+               The default state is `DISABLED` .
         :param pulumi.Input[builtins.str] description: Descriptive text that you can provide to help with identification of the current policy store.
         :param pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']] schema: Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the policy store
@@ -262,6 +273,11 @@ class PolicyStore(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[Optional['outputs.PolicyStoreDeletionProtection']]:
+        """
+        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+
+        The default state is `DISABLED` .
+        """
         return pulumi.get(self, "deletion_protection")
 
     @property

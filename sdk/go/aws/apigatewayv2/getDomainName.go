@@ -39,8 +39,9 @@ type LookupDomainNameResult struct {
 	// The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
 	RegionalDomainName *string `pulumi:"regionalDomainName"`
 	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
-	RegionalHostedZoneId *string                `pulumi:"regionalHostedZoneId"`
-	RoutingMode          *DomainNameRoutingMode `pulumi:"routingMode"`
+	RegionalHostedZoneId *string `pulumi:"regionalHostedZoneId"`
+	// The routing mode API Gateway uses to route traffic to your APIs.
+	RoutingMode *DomainNameRoutingMode `pulumi:"routingMode"`
 	// The collection of tags associated with a domain name.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -102,6 +103,7 @@ func (o LookupDomainNameResultOutput) RegionalHostedZoneId() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.RegionalHostedZoneId }).(pulumi.StringPtrOutput)
 }
 
+// The routing mode API Gateway uses to route traffic to your APIs.
 func (o LookupDomainNameResultOutput) RoutingMode() DomainNameRoutingModePtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *DomainNameRoutingMode { return v.RoutingMode }).(DomainNameRoutingModePtrOutput)
 }

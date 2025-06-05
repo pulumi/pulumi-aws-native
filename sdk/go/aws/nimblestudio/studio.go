@@ -16,28 +16,16 @@ import (
 type Studio struct {
 	pulumi.CustomResourceState
 
-	// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-	AdminRoleArn pulumi.StringOutput `pulumi:"adminRoleArn"`
-	// A friendly name for the studio.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The AWS Region where the studio resource is located. For example, `us-west-2` .
-	HomeRegion pulumi.StringOutput `pulumi:"homeRegion"`
-	// The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
-	SsoClientId pulumi.StringOutput `pulumi:"ssoClientId"`
-	// Configuration of the encryption method that is used for the studio.
+	AdminRoleArn                  pulumi.StringOutput                    `pulumi:"adminRoleArn"`
+	DisplayName                   pulumi.StringOutput                    `pulumi:"displayName"`
+	HomeRegion                    pulumi.StringOutput                    `pulumi:"homeRegion"`
+	SsoClientId                   pulumi.StringOutput                    `pulumi:"ssoClientId"`
 	StudioEncryptionConfiguration StudioEncryptionConfigurationPtrOutput `pulumi:"studioEncryptionConfiguration"`
-	// The unique identifier for the studio resource.
-	StudioId pulumi.StringOutput `pulumi:"studioId"`
-	// The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
-	StudioName pulumi.StringOutput `pulumi:"studioName"`
-	// The unique identifier for the studio resource.
-	StudioUrl pulumi.StringOutput `pulumi:"studioUrl"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The IAM role that studio users assume when logging in to the Nimble Studio portal.
-	UserRoleArn pulumi.StringOutput `pulumi:"userRoleArn"`
+	StudioId                      pulumi.StringOutput                    `pulumi:"studioId"`
+	StudioName                    pulumi.StringOutput                    `pulumi:"studioName"`
+	StudioUrl                     pulumi.StringOutput                    `pulumi:"studioUrl"`
+	Tags                          pulumi.StringMapOutput                 `pulumi:"tags"`
+	UserRoleArn                   pulumi.StringOutput                    `pulumi:"userRoleArn"`
 }
 
 // NewStudio registers a new resource with the given unique name, arguments, and options.
@@ -94,38 +82,22 @@ func (StudioState) ElementType() reflect.Type {
 }
 
 type studioArgs struct {
-	// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-	AdminRoleArn string `pulumi:"adminRoleArn"`
-	// A friendly name for the studio.
-	DisplayName string `pulumi:"displayName"`
-	// Configuration of the encryption method that is used for the studio.
+	AdminRoleArn                  string                         `pulumi:"adminRoleArn"`
+	DisplayName                   string                         `pulumi:"displayName"`
 	StudioEncryptionConfiguration *StudioEncryptionConfiguration `pulumi:"studioEncryptionConfiguration"`
-	// The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
-	StudioName *string `pulumi:"studioName"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags map[string]string `pulumi:"tags"`
-	// The IAM role that studio users assume when logging in to the Nimble Studio portal.
-	UserRoleArn string `pulumi:"userRoleArn"`
+	StudioName                    *string                        `pulumi:"studioName"`
+	Tags                          map[string]string              `pulumi:"tags"`
+	UserRoleArn                   string                         `pulumi:"userRoleArn"`
 }
 
 // The set of arguments for constructing a Studio resource.
 type StudioArgs struct {
-	// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-	AdminRoleArn pulumi.StringInput
-	// A friendly name for the studio.
-	DisplayName pulumi.StringInput
-	// Configuration of the encryption method that is used for the studio.
+	AdminRoleArn                  pulumi.StringInput
+	DisplayName                   pulumi.StringInput
 	StudioEncryptionConfiguration StudioEncryptionConfigurationPtrInput
-	// The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
-	StudioName pulumi.StringPtrInput
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags pulumi.StringMapInput
-	// The IAM role that studio users assume when logging in to the Nimble Studio portal.
-	UserRoleArn pulumi.StringInput
+	StudioName                    pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
+	UserRoleArn                   pulumi.StringInput
 }
 
 func (StudioArgs) ElementType() reflect.Type {
@@ -165,54 +137,42 @@ func (o StudioOutput) ToStudioOutputWithContext(ctx context.Context) StudioOutpu
 	return o
 }
 
-// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
 func (o StudioOutput) AdminRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.AdminRoleArn }).(pulumi.StringOutput)
 }
 
-// A friendly name for the studio.
 func (o StudioOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The AWS Region where the studio resource is located. For example, `us-west-2` .
 func (o StudioOutput) HomeRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.HomeRegion }).(pulumi.StringOutput)
 }
 
-// The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
 func (o StudioOutput) SsoClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.SsoClientId }).(pulumi.StringOutput)
 }
 
-// Configuration of the encryption method that is used for the studio.
 func (o StudioOutput) StudioEncryptionConfiguration() StudioEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Studio) StudioEncryptionConfigurationPtrOutput { return v.StudioEncryptionConfiguration }).(StudioEncryptionConfigurationPtrOutput)
 }
 
-// The unique identifier for the studio resource.
 func (o StudioOutput) StudioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
 }
 
-// The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
 func (o StudioOutput) StudioName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.StudioName }).(pulumi.StringOutput)
 }
 
-// The unique identifier for the studio resource.
 func (o StudioOutput) StudioUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.StudioUrl }).(pulumi.StringOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
-//
-// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o StudioOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The IAM role that studio users assume when logging in to the Nimble Studio portal.
 func (o StudioOutput) UserRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.UserRoleArn }).(pulumi.StringOutput)
 }

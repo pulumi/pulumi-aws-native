@@ -30,7 +30,10 @@ type LookupPolicyStoreArgs struct {
 
 type LookupPolicyStoreResult struct {
 	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
-	Arn                *string                        `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+	//
+	// The default state is `DISABLED` .
 	DeletionProtection *PolicyStoreDeletionProtection `pulumi:"deletionProtection"`
 	// Descriptive text that you can provide to help with identification of the current policy store.
 	Description *string `pulumi:"description"`
@@ -85,6 +88,9 @@ func (o LookupPolicyStoreResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+//
+// The default state is `DISABLED` .
 func (o LookupPolicyStoreResultOutput) DeletionProtection() PolicyStoreDeletionProtectionPtrOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) *PolicyStoreDeletionProtection { return v.DeletionProtection }).(PolicyStoreDeletionProtectionPtrOutput)
 }

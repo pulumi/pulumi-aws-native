@@ -15,15 +15,9 @@ namespace Pulumi.AwsNative.NimbleStudio
     [AwsNativeResourceType("aws-native:nimblestudio:StreamingImage")]
     public partial class StreamingImage : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A human-readable description of the streaming image.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of an EC2 machine image with which to create the streaming image.
-        /// </summary>
         [Output("ec2ImageId")]
         public Output<string> Ec2ImageId { get; private set; } = null!;
 
@@ -36,47 +30,24 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("encryptionConfigurationKeyType")]
         public Output<string?> EncryptionConfigurationKeyType { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
-        /// </summary>
         [Output("eulaIds")]
         public Output<ImmutableArray<string>> EulaIds { get; private set; } = null!;
 
-        /// <summary>
-        /// A friendly name for a streaming image resource.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
-        /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
-        /// <summary>
-        /// The platform of the streaming image, either WINDOWS or LINUX.
-        /// </summary>
         [Output("platform")]
         public Output<string> Platform { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for the streaming image resource.
-        /// </summary>
         [Output("streamingImageId")]
         public Output<string> StreamingImageId { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        /// </summary>
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// 
-        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -131,15 +102,9 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class StreamingImageArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A human-readable description of the streaming image.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID of an EC2 machine image with which to create the streaming image.
-        /// </summary>
         [Input("ec2ImageId", required: true)]
         public Input<string> Ec2ImageId { get; set; } = null!;
 
@@ -149,26 +114,14 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Input("encryptionConfigurationKeyType")]
         public Input<string>? EncryptionConfigurationKeyType { get; set; }
 
-        /// <summary>
-        /// A friendly name for a streaming image resource.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
-        /// </summary>
         [Input("studioId", required: true)]
         public Input<string> StudioId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// 
-        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

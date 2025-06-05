@@ -1971,6 +1971,171 @@ func (in *projectMembershipUserDesignationPtr) ToProjectMembershipUserDesignatio
 	return pulumi.ToOutputWithContext(ctx, in).(ProjectMembershipUserDesignationPtrOutput)
 }
 
+type ProjectProfileStatus string
+
+const (
+	ProjectProfileStatusEnabled  = ProjectProfileStatus("ENABLED")
+	ProjectProfileStatusDisabled = ProjectProfileStatus("DISABLED")
+)
+
+func (ProjectProfileStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileStatus)(nil)).Elem()
+}
+
+func (e ProjectProfileStatus) ToProjectProfileStatusOutput() ProjectProfileStatusOutput {
+	return pulumi.ToOutput(e).(ProjectProfileStatusOutput)
+}
+
+func (e ProjectProfileStatus) ToProjectProfileStatusOutputWithContext(ctx context.Context) ProjectProfileStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProjectProfileStatusOutput)
+}
+
+func (e ProjectProfileStatus) ToProjectProfileStatusPtrOutput() ProjectProfileStatusPtrOutput {
+	return e.ToProjectProfileStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ProjectProfileStatus) ToProjectProfileStatusPtrOutputWithContext(ctx context.Context) ProjectProfileStatusPtrOutput {
+	return ProjectProfileStatus(e).ToProjectProfileStatusOutputWithContext(ctx).ToProjectProfileStatusPtrOutputWithContext(ctx)
+}
+
+func (e ProjectProfileStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProjectProfileStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProjectProfileStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProjectProfileStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProjectProfileStatusOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileStatus)(nil)).Elem()
+}
+
+func (o ProjectProfileStatusOutput) ToProjectProfileStatusOutput() ProjectProfileStatusOutput {
+	return o
+}
+
+func (o ProjectProfileStatusOutput) ToProjectProfileStatusOutputWithContext(ctx context.Context) ProjectProfileStatusOutput {
+	return o
+}
+
+func (o ProjectProfileStatusOutput) ToProjectProfileStatusPtrOutput() ProjectProfileStatusPtrOutput {
+	return o.ToProjectProfileStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectProfileStatusOutput) ToProjectProfileStatusPtrOutputWithContext(ctx context.Context) ProjectProfileStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectProfileStatus) *ProjectProfileStatus {
+		return &v
+	}).(ProjectProfileStatusPtrOutput)
+}
+
+func (o ProjectProfileStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProjectProfileStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProjectProfileStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProjectProfileStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectProfileStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProjectProfileStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectProfileStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectProfileStatus)(nil)).Elem()
+}
+
+func (o ProjectProfileStatusPtrOutput) ToProjectProfileStatusPtrOutput() ProjectProfileStatusPtrOutput {
+	return o
+}
+
+func (o ProjectProfileStatusPtrOutput) ToProjectProfileStatusPtrOutputWithContext(ctx context.Context) ProjectProfileStatusPtrOutput {
+	return o
+}
+
+func (o ProjectProfileStatusPtrOutput) Elem() ProjectProfileStatusOutput {
+	return o.ApplyT(func(v *ProjectProfileStatus) ProjectProfileStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectProfileStatus
+		return ret
+	}).(ProjectProfileStatusOutput)
+}
+
+func (o ProjectProfileStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectProfileStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProjectProfileStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProjectProfileStatusInput is an input type that accepts values of the ProjectProfileStatus enum
+// A concrete instance of `ProjectProfileStatusInput` can be one of the following:
+//
+//	ProjectProfileStatusEnabled
+//	ProjectProfileStatusDisabled
+type ProjectProfileStatusInput interface {
+	pulumi.Input
+
+	ToProjectProfileStatusOutput() ProjectProfileStatusOutput
+	ToProjectProfileStatusOutputWithContext(context.Context) ProjectProfileStatusOutput
+}
+
+var projectProfileStatusPtrType = reflect.TypeOf((**ProjectProfileStatus)(nil)).Elem()
+
+type ProjectProfileStatusPtrInput interface {
+	pulumi.Input
+
+	ToProjectProfileStatusPtrOutput() ProjectProfileStatusPtrOutput
+	ToProjectProfileStatusPtrOutputWithContext(context.Context) ProjectProfileStatusPtrOutput
+}
+
+type projectProfileStatusPtr string
+
+func ProjectProfileStatusPtr(v string) ProjectProfileStatusPtrInput {
+	return (*projectProfileStatusPtr)(&v)
+}
+
+func (*projectProfileStatusPtr) ElementType() reflect.Type {
+	return projectProfileStatusPtrType
+}
+
+func (in *projectProfileStatusPtr) ToProjectProfileStatusPtrOutput() ProjectProfileStatusPtrOutput {
+	return pulumi.ToOutput(in).(ProjectProfileStatusPtrOutput)
+}
+
+func (in *projectProfileStatusPtr) ToProjectProfileStatusPtrOutputWithContext(ctx context.Context) ProjectProfileStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProjectProfileStatusPtrOutput)
+}
+
 type ProjectStatus string
 
 const (
@@ -2515,6 +2680,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OwnerEntityTypePtrInput)(nil)).Elem(), OwnerEntityType("DOMAIN_UNIT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipUserDesignationInput)(nil)).Elem(), ProjectMembershipUserDesignation("PROJECT_OWNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipUserDesignationPtrInput)(nil)).Elem(), ProjectMembershipUserDesignation("PROJECT_OWNER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileStatusInput)(nil)).Elem(), ProjectProfileStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileStatusPtrInput)(nil)).Elem(), ProjectProfileStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileStatusInput)(nil)).Elem(), UserProfileStatus("ASSIGNED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileStatusPtrInput)(nil)).Elem(), UserProfileStatus("ASSIGNED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserTypeInput)(nil)).Elem(), UserProfileUserType("IAM_USER"))
@@ -2545,6 +2712,8 @@ func init() {
 	pulumi.RegisterOutputType(OwnerEntityTypePtrOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipUserDesignationOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipUserDesignationPtrOutput{})
+	pulumi.RegisterOutputType(ProjectProfileStatusOutput{})
+	pulumi.RegisterOutputType(ProjectProfileStatusPtrOutput{})
 	pulumi.RegisterOutputType(ProjectStatusOutput{})
 	pulumi.RegisterOutputType(ProjectStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileStatusOutput{})

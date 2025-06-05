@@ -39,7 +39,11 @@ type Firewall struct {
 	FirewallPolicyChangeProtection pulumi.BoolPtrOutput `pulumi:"firewallPolicyChangeProtection"`
 	// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	SubnetChangeProtection pulumi.BoolPtrOutput `pulumi:"subnetChangeProtection"`
-	// The public subnets that Network Firewall is using for the firewall. Each subnet must belong to a different Availability Zone.
+	// The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
+	//
+	// These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone.
+	//
+	// In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
 	SubnetMappings FirewallSubnetMappingArrayOutput `pulumi:"subnetMappings"`
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -119,7 +123,11 @@ type firewallArgs struct {
 	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
 	// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	SubnetChangeProtection *bool `pulumi:"subnetChangeProtection"`
-	// The public subnets that Network Firewall is using for the firewall. Each subnet must belong to a different Availability Zone.
+	// The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
+	//
+	// These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone.
+	//
+	// In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
 	SubnetMappings []FirewallSubnetMapping `pulumi:"subnetMappings"`
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -147,7 +155,11 @@ type FirewallArgs struct {
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
 	// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	SubnetChangeProtection pulumi.BoolPtrInput
-	// The public subnets that Network Firewall is using for the firewall. Each subnet must belong to a different Availability Zone.
+	// The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
+	//
+	// These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone.
+	//
+	// In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
 	SubnetMappings FirewallSubnetMappingArrayInput
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -246,7 +258,11 @@ func (o FirewallOutput) SubnetChangeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.SubnetChangeProtection }).(pulumi.BoolPtrOutput)
 }
 
-// The public subnets that Network Firewall is using for the firewall. Each subnet must belong to a different Availability Zone.
+// The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
+//
+// These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone.
+//
+// In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
 func (o FirewallOutput) SubnetMappings() FirewallSubnetMappingArrayOutput {
 	return o.ApplyT(func(v *Firewall) FirewallSubnetMappingArrayOutput { return v.SubnetMappings }).(FirewallSubnetMappingArrayOutput)
 }

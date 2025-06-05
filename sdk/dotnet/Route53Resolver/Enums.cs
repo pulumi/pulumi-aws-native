@@ -492,6 +492,38 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
     /// <summary>
+    /// The Resolver endpoint IP address type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResolverEndpointType : IEquatable<ResolverEndpointType>
+    {
+        private readonly string _value;
+
+        private ResolverEndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResolverEndpointType Ipv6 { get; } = new ResolverEndpointType("IPV6");
+        public static ResolverEndpointType Ipv4 { get; } = new ResolverEndpointType("IPV4");
+        public static ResolverEndpointType Dualstack { get; } = new ResolverEndpointType("DUALSTACK");
+
+        public static bool operator ==(ResolverEndpointType left, ResolverEndpointType right) => left.Equals(right);
+        public static bool operator !=(ResolverEndpointType left, ResolverEndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(ResolverEndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResolverEndpointType other && Equals(other);
+        public bool Equals(ResolverEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// ResolverQueryLogConfigAssociationError
     /// </summary>
     [EnumType]

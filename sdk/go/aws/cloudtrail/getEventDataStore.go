@@ -33,6 +33,8 @@ type LookupEventDataStoreResult struct {
 	AdvancedEventSelectors []EventDataStoreAdvancedEventSelector `pulumi:"advancedEventSelectors"`
 	// The mode that the event data store will use to charge for event storage.
 	BillingMode *string `pulumi:"billingMode"`
+	// An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+	ContextKeySelectors []EventDataStoreContextKeySelector `pulumi:"contextKeySelectors"`
 	// The timestamp of the event data store's creation.
 	CreatedTimestamp *string `pulumi:"createdTimestamp"`
 	// The ARN of the event data store.
@@ -49,6 +51,8 @@ type LookupEventDataStoreResult struct {
 	InsightsDestination *string `pulumi:"insightsDestination"`
 	// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+	MaxEventSize *EventDataStoreMaxEventSize `pulumi:"maxEventSize"`
 	// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
 	MultiRegionEnabled *bool `pulumi:"multiRegionEnabled"`
 	// The name of the event data store.
@@ -111,6 +115,11 @@ func (o LookupEventDataStoreResultOutput) BillingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventDataStoreResult) *string { return v.BillingMode }).(pulumi.StringPtrOutput)
 }
 
+// An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+func (o LookupEventDataStoreResultOutput) ContextKeySelectors() EventDataStoreContextKeySelectorArrayOutput {
+	return o.ApplyT(func(v LookupEventDataStoreResult) []EventDataStoreContextKeySelector { return v.ContextKeySelectors }).(EventDataStoreContextKeySelectorArrayOutput)
+}
+
 // The timestamp of the event data store's creation.
 func (o LookupEventDataStoreResultOutput) CreatedTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventDataStoreResult) *string { return v.CreatedTimestamp }).(pulumi.StringPtrOutput)
@@ -149,6 +158,11 @@ func (o LookupEventDataStoreResultOutput) InsightsDestination() pulumi.StringPtr
 // Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 func (o LookupEventDataStoreResultOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventDataStoreResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+func (o LookupEventDataStoreResultOutput) MaxEventSize() EventDataStoreMaxEventSizePtrOutput {
+	return o.ApplyT(func(v LookupEventDataStoreResult) *EventDataStoreMaxEventSize { return v.MaxEventSize }).(EventDataStoreMaxEventSizePtrOutput)
 }
 
 // Indicates whether the event data store includes events from all regions, or only from the region in which it was created.

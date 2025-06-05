@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
 
     public sealed class StudioComponentScriptParameterKeyValueArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A script parameter key.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// A script parameter value.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

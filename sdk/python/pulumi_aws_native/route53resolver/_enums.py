@@ -22,6 +22,7 @@ __all__ = [
     'ResolverConfigAutodefinedReverse',
     'ResolverConfigAutodefinedReverseFlag',
     'ResolverDnssecConfigValidationStatus',
+    'ResolverEndpointType',
     'ResolverQueryLoggingConfigAssociationError',
     'ResolverQueryLoggingConfigAssociationStatus',
     'ResolverQueryLoggingConfigShareStatus',
@@ -183,6 +184,16 @@ class ResolverDnssecConfigValidationStatus(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLING = "DISABLING"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:route53resolver:ResolverEndpointType")
+class ResolverEndpointType(builtins.str, Enum):
+    """
+    The Resolver endpoint IP address type.
+    """
+    IPV6 = "IPV6"
+    IPV4 = "IPV4"
+    DUALSTACK = "DUALSTACK"
 
 
 @pulumi.type_token("aws-native:route53resolver:ResolverQueryLoggingConfigAssociationError")

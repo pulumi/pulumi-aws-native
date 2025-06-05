@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
 
     public sealed class StudioComponentActiveDirectoryComputerAttributeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name for the LDAP attribute.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The value for the LDAP attribute.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

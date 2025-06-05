@@ -58,6 +58,11 @@ namespace Pulumi.AwsNative.Deadline
         [Output("fleetId")]
         public Output<string> FleetId { get; private set; } = null!;
 
+        /// <summary>
+        /// Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+        /// 
+        /// To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
+        /// </summary>
         [Output("hostConfiguration")]
         public Output<Outputs.FleetHostConfiguration?> HostConfiguration { get; private set; } = null!;
 
@@ -174,6 +179,11 @@ namespace Pulumi.AwsNative.Deadline
         [Input("farmId", required: true)]
         public Input<string> FarmId { get; set; } = null!;
 
+        /// <summary>
+        /// Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+        /// 
+        /// To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
+        /// </summary>
         [Input("hostConfiguration")]
         public Input<Inputs.FleetHostConfigurationArgs>? HostConfiguration { get; set; }
 

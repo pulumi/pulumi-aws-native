@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, creation_time=None, deletion_protection_enabled=None, identifier=None, resource_arn=None, status=None, tags=None, vpc_endpoint_service_name=None):
+    def __init__(__self__, creation_time=None, deletion_protection_enabled=None, identifier=None, multi_region_properties=None, resource_arn=None, status=None, tags=None, vpc_endpoint_service_name=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -35,6 +36,9 @@ class GetClusterResult:
         if identifier and not isinstance(identifier, str):
             raise TypeError("Expected argument 'identifier' to be a str")
         pulumi.set(__self__, "identifier", identifier)
+        if multi_region_properties and not isinstance(multi_region_properties, dict):
+            raise TypeError("Expected argument 'multi_region_properties' to be a dict")
+        pulumi.set(__self__, "multi_region_properties", multi_region_properties)
         if resource_arn and not isinstance(resource_arn, str):
             raise TypeError("Expected argument 'resource_arn' to be a str")
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -71,6 +75,14 @@ class GetClusterResult:
         The ID of the created cluster.
         """
         return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter(name="multiRegionProperties")
+    def multi_region_properties(self) -> Optional['outputs.MultiRegionPropertiesProperties']:
+        """
+        The Multi-region properties associated to this cluster.
+        """
+        return pulumi.get(self, "multi_region_properties")
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -114,6 +126,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             creation_time=self.creation_time,
             deletion_protection_enabled=self.deletion_protection_enabled,
             identifier=self.identifier,
+            multi_region_properties=self.multi_region_properties,
             resource_arn=self.resource_arn,
             status=self.status,
             tags=self.tags,
@@ -137,6 +150,7 @@ def get_cluster(identifier: Optional[builtins.str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         deletion_protection_enabled=pulumi.get(__ret__, 'deletion_protection_enabled'),
         identifier=pulumi.get(__ret__, 'identifier'),
+        multi_region_properties=pulumi.get(__ret__, 'multi_region_properties'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -157,6 +171,7 @@ def get_cluster_output(identifier: Optional[pulumi.Input[builtins.str]] = None,
         creation_time=pulumi.get(__response__, 'creation_time'),
         deletion_protection_enabled=pulumi.get(__response__, 'deletion_protection_enabled'),
         identifier=pulumi.get(__response__, 'identifier'),
+        multi_region_properties=pulumi.get(__response__, 'multi_region_properties'),
         resource_arn=pulumi.get(__response__, 'resource_arn'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),

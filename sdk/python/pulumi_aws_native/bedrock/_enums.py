@@ -57,17 +57,24 @@ __all__ = [
     'DataSourceWebScopeType',
     'FlowAliasConcurrencyType',
     'FlowConnectionType',
+    'FlowNodeInputCategory',
     'FlowNodeIoDataType',
     'FlowNodeType',
+    'FlowPerformanceConfigurationLatency',
     'FlowPromptTemplateType',
+    'FlowRerankingMetadataSelectionMode',
     'FlowStatus',
     'FlowSupportedLanguages',
+    'FlowVectorSearchRerankingConfigurationType',
     'FlowVersionFlowConnectionType',
     'FlowVersionFlowNodeIoDataType',
     'FlowVersionFlowNodeType',
     'FlowVersionFlowStatus',
+    'FlowVersionPerformanceConfigurationLatency',
     'FlowVersionPromptTemplateType',
+    'FlowVersionRerankingMetadataSelectionMode',
     'FlowVersionSupportedLanguages',
+    'FlowVersionVectorSearchRerankingConfigurationType',
     'GuardrailContentFilterAction',
     'GuardrailContentFilterType',
     'GuardrailContextualGroundingAction',
@@ -547,6 +554,16 @@ class FlowConnectionType(builtins.str, Enum):
     CONDITIONAL = "Conditional"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowNodeInputCategory")
+class FlowNodeInputCategory(builtins.str, Enum):
+    """
+    Optional tag to classify input type, currently exclusive to LoopNode
+    """
+    LOOP_CONDITION = "LoopCondition"
+    RETURN_VALUE_TO_LOOP_START = "ReturnValueToLoopStart"
+    EXIT_LOOP = "ExitLoop"
+
+
 @pulumi.type_token("aws-native:bedrock:FlowNodeIoDataType")
 class FlowNodeIoDataType(builtins.str, Enum):
     """
@@ -577,6 +594,18 @@ class FlowNodeType(builtins.str, Enum):
     ITERATOR = "Iterator"
     COLLECTOR = "Collector"
     INLINE_CODE = "InlineCode"
+    LOOP = "Loop"
+    LOOP_INPUT = "LoopInput"
+    LOOP_CONTROLLER = "LoopController"
+
+
+@pulumi.type_token("aws-native:bedrock:FlowPerformanceConfigurationLatency")
+class FlowPerformanceConfigurationLatency(builtins.str, Enum):
+    """
+    Performance Configuration Latency
+    """
+    STANDARD = "standard"
+    OPTIMIZED = "optimized"
 
 
 @pulumi.type_token("aws-native:bedrock:FlowPromptTemplateType")
@@ -585,6 +614,15 @@ class FlowPromptTemplateType(builtins.str, Enum):
     Prompt template type
     """
     TEXT = "TEXT"
+
+
+@pulumi.type_token("aws-native:bedrock:FlowRerankingMetadataSelectionMode")
+class FlowRerankingMetadataSelectionMode(builtins.str, Enum):
+    """
+    Reranking Metadata Selection Mode
+    """
+    SELECTIVE = "SELECTIVE"
+    ALL = "ALL"
 
 
 @pulumi.type_token("aws-native:bedrock:FlowStatus")
@@ -604,6 +642,14 @@ class FlowSupportedLanguages(builtins.str, Enum):
     Enum encodes the supported language type
     """
     PYTHON3 = "Python_3"
+
+
+@pulumi.type_token("aws-native:bedrock:FlowVectorSearchRerankingConfigurationType")
+class FlowVectorSearchRerankingConfigurationType(builtins.str, Enum):
+    """
+    Enum of Rerank Configuration Types
+    """
+    BEDROCK_RERANKING_MODEL = "BEDROCK_RERANKING_MODEL"
 
 
 @pulumi.type_token("aws-native:bedrock:FlowVersionFlowConnectionType")
@@ -645,6 +691,9 @@ class FlowVersionFlowNodeType(builtins.str, Enum):
     STORAGE = "Storage"
     RETRIEVAL = "Retrieval"
     INLINE_CODE = "InlineCode"
+    LOOP = "Loop"
+    LOOP_INPUT = "LoopInput"
+    LOOP_CONTROLLER = "LoopController"
 
 
 @pulumi.type_token("aws-native:bedrock:FlowVersionFlowStatus")
@@ -658,6 +707,15 @@ class FlowVersionFlowStatus(builtins.str, Enum):
     NOT_PREPARED = "NotPrepared"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowVersionPerformanceConfigurationLatency")
+class FlowVersionPerformanceConfigurationLatency(builtins.str, Enum):
+    """
+    Performance Configuration Latency
+    """
+    STANDARD = "standard"
+    OPTIMIZED = "optimized"
+
+
 @pulumi.type_token("aws-native:bedrock:FlowVersionPromptTemplateType")
 class FlowVersionPromptTemplateType(builtins.str, Enum):
     """
@@ -666,12 +724,29 @@ class FlowVersionPromptTemplateType(builtins.str, Enum):
     TEXT = "TEXT"
 
 
+@pulumi.type_token("aws-native:bedrock:FlowVersionRerankingMetadataSelectionMode")
+class FlowVersionRerankingMetadataSelectionMode(builtins.str, Enum):
+    """
+    Reranking Metadata Selection Mode
+    """
+    SELECTIVE = "SELECTIVE"
+    ALL = "ALL"
+
+
 @pulumi.type_token("aws-native:bedrock:FlowVersionSupportedLanguages")
 class FlowVersionSupportedLanguages(builtins.str, Enum):
     """
     Enum encodes the supported language type
     """
     PYTHON3 = "Python_3"
+
+
+@pulumi.type_token("aws-native:bedrock:FlowVersionVectorSearchRerankingConfigurationType")
+class FlowVersionVectorSearchRerankingConfigurationType(builtins.str, Enum):
+    """
+    Enum of Rerank Configuration Types
+    """
+    BEDROCK_RERANKING_MODEL = "BEDROCK_RERANKING_MODEL"
 
 
 @pulumi.type_token("aws-native:bedrock:GuardrailContentFilterAction")

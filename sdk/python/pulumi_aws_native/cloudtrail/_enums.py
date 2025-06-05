@@ -12,6 +12,8 @@ __all__ = [
     'DashboardRefreshScheduleStatus',
     'DashboardStatus',
     'DashboardType',
+    'EventDataStoreContextKeySelectorType',
+    'EventDataStoreMaxEventSize',
     'TrailEventSelectorReadWriteType',
 ]
 
@@ -61,6 +63,24 @@ class DashboardType(builtins.str, Enum):
     """
     MANAGED = "MANAGED"
     CUSTOM = "CUSTOM"
+
+
+@pulumi.type_token("aws-native:cloudtrail:EventDataStoreContextKeySelectorType")
+class EventDataStoreContextKeySelectorType(builtins.str, Enum):
+    """
+    Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+    """
+    REQUEST_CONTEXT = "RequestContext"
+    TAG_CONTEXT = "TagContext"
+
+
+@pulumi.type_token("aws-native:cloudtrail:EventDataStoreMaxEventSize")
+class EventDataStoreMaxEventSize(builtins.str, Enum):
+    """
+    Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+    """
+    STANDARD = "Standard"
+    LARGE = "Large"
 
 
 @pulumi.type_token("aws-native:cloudtrail:TrailEventSelectorReadWriteType")

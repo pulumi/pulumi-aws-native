@@ -22,6 +22,8 @@ type Cluster struct {
 	DeletionProtectionEnabled pulumi.BoolPtrOutput `pulumi:"deletionProtectionEnabled"`
 	// The ID of the created cluster.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
+	// The Multi-region properties associated to this cluster.
+	MultiRegionProperties MultiRegionPropertiesPropertiesPtrOutput `pulumi:"multiRegionProperties"`
 	// The Amazon Resource Name (ARN) for the cluster.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The status of the cluster.
@@ -74,6 +76,8 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// Whether deletion protection is enabled in this cluster.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
+	// The Multi-region properties associated to this cluster.
+	MultiRegionProperties *MultiRegionPropertiesProperties `pulumi:"multiRegionProperties"`
 	// A map of key and value pairs this cluster is tagged with.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -82,6 +86,8 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// Whether deletion protection is enabled in this cluster.
 	DeletionProtectionEnabled pulumi.BoolPtrInput
+	// The Multi-region properties associated to this cluster.
+	MultiRegionProperties MultiRegionPropertiesPropertiesPtrInput
 	// A map of key and value pairs this cluster is tagged with.
 	Tags aws.TagArrayInput
 }
@@ -136,6 +142,11 @@ func (o ClusterOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
 // The ID of the created cluster.
 func (o ClusterOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
+}
+
+// The Multi-region properties associated to this cluster.
+func (o ClusterOutput) MultiRegionProperties() MultiRegionPropertiesPropertiesPtrOutput {
+	return o.ApplyT(func(v *Cluster) MultiRegionPropertiesPropertiesPtrOutput { return v.MultiRegionProperties }).(MultiRegionPropertiesPropertiesPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the cluster.

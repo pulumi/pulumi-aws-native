@@ -101,9 +101,7 @@ type Task struct {
 	TaskArn pulumi.StringOutput `pulumi:"taskArn"`
 	// Specifies the task mode for the task.
 	TaskMode TaskModePtrOutput `pulumi:"taskMode"`
-	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
-	//
-	// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+	// The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 	TaskReportConfig TaskReportConfigPtrOutput `pulumi:"taskReportConfig"`
 }
 
@@ -181,9 +179,7 @@ type taskArgs struct {
 	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies the task mode for the task.
 	TaskMode *TaskMode `pulumi:"taskMode"`
-	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
-	//
-	// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+	// The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 	TaskReportConfig *TaskReportConfig `pulumi:"taskReportConfig"`
 }
 
@@ -211,9 +207,7 @@ type TaskArgs struct {
 	Tags aws.TagArrayInput
 	// Specifies the task mode for the task.
 	TaskMode TaskModePtrInput
-	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
-	//
-	// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+	// The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 	TaskReportConfig TaskReportConfigPtrInput
 }
 
@@ -329,9 +323,7 @@ func (o TaskOutput) TaskMode() TaskModePtrOutput {
 	return o.ApplyT(func(v *Task) TaskModePtrOutput { return v.TaskMode }).(TaskModePtrOutput)
 }
 
-// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
-//
-// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+// The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 func (o TaskOutput) TaskReportConfig() TaskReportConfigPtrOutput {
 	return o.ApplyT(func(v *Task) TaskReportConfigPtrOutput { return v.TaskReportConfig }).(TaskReportConfigPtrOutput)
 }

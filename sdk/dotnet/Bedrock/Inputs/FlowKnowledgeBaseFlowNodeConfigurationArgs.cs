@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("guardrailConfiguration")]
         public Input<Inputs.FlowGuardrailConfigurationArgs>? GuardrailConfiguration { get; set; }
 
+        [Input("inferenceConfiguration")]
+        public Input<Inputs.FlowPromptInferenceConfigurationPropertiesArgs>? InferenceConfiguration { get; set; }
+
         /// <summary>
         /// Identifier of the KnowledgeBase
         /// </summary>
@@ -29,6 +32,21 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         /// </summary>
         [Input("modelId")]
         public Input<string>? ModelId { get; set; }
+
+        /// <summary>
+        /// Number Of Results to Retrieve
+        /// </summary>
+        [Input("numberOfResults")]
+        public Input<double>? NumberOfResults { get; set; }
+
+        [Input("orchestrationConfiguration")]
+        public Input<Inputs.FlowKnowledgeBaseOrchestrationConfigurationArgs>? OrchestrationConfiguration { get; set; }
+
+        [Input("promptTemplate")]
+        public Input<Inputs.FlowKnowledgeBasePromptTemplatePropertiesArgs>? PromptTemplate { get; set; }
+
+        [Input("rerankingConfiguration")]
+        public Input<Inputs.FlowVectorSearchRerankingConfigurationArgs>? RerankingConfiguration { get; set; }
 
         public FlowKnowledgeBaseFlowNodeConfigurationArgs()
         {

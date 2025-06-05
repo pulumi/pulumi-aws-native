@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Inputs
     {
         [Input("anyOf", required: true)]
         private InputList<Inputs.RoutingRuleMatchHeaderValueArgs>? _anyOf;
+
+        /// <summary>
+        /// The header name and header value glob to be matched. The matchHeaders condition is matched if any of the header name and header value globs are matched.
+        /// </summary>
         public InputList<Inputs.RoutingRuleMatchHeaderValueArgs> AnyOf
         {
             get => _anyOf ?? (_anyOf = new InputList<Inputs.RoutingRuleMatchHeaderValueArgs>());

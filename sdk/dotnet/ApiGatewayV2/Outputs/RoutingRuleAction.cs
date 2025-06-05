@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2.Outputs
     [OutputType]
     public sealed class RoutingRuleAction
     {
+        /// <summary>
+        /// Represents an InvokeApi action.
+        /// </summary>
         public readonly Outputs.RoutingRuleActionInvokeApi InvokeApi;
 
         [OutputConstructor]

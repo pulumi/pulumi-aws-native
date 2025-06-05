@@ -38,6 +38,10 @@ export interface GetClusterResult {
      */
     readonly identifier?: string;
     /**
+     * The Multi-region properties associated to this cluster.
+     */
+    readonly multiRegionProperties?: outputs.dsql.MultiRegionPropertiesProperties;
+    /**
      * The Amazon Resource Name (ARN) for the cluster.
      */
     readonly resourceArn?: string;

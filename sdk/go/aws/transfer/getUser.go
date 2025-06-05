@@ -39,7 +39,7 @@ type LookupUserResult struct {
 	//
 	// A `HomeDirectory` example is `/bucket_name/home/mydirectory` .
 	//
-	// > The `HomeDirectory` parameter is only used if `HomeDirectoryType` is set to `PATH` .
+	// > You can use the `HomeDirectory` parameter for `HomeDirectoryType` when it is set to either `PATH` or `LOGICAL` .
 	HomeDirectory *string `pulumi:"homeDirectory"`
 	// Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to your user and how you want to make them visible. You must specify the `Entry` and `Target` pair, where `Entry` shows how the path is made visible and `Target` is the actual Amazon S3 or Amazon EFS path. If you only specify a target, it is displayed as is. You also must ensure that your AWS Identity and Access Management (IAM) role provides access to paths in `Target` . This value can be set only when `HomeDirectoryType` is set to *LOGICAL* .
 	//
@@ -120,7 +120,7 @@ func (o LookupUserResultOutput) Arn() pulumi.StringPtrOutput {
 //
 // A `HomeDirectory` example is `/bucket_name/home/mydirectory` .
 //
-// > The `HomeDirectory` parameter is only used if `HomeDirectoryType` is set to `PATH` .
+// > You can use the `HomeDirectory` parameter for `HomeDirectoryType` when it is set to either `PATH` or `LOGICAL` .
 func (o LookupUserResultOutput) HomeDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.HomeDirectory }).(pulumi.StringPtrOutput)
 }

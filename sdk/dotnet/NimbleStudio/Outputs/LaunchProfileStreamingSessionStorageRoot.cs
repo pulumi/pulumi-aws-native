@@ -13,13 +13,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     [OutputType]
     public sealed class LaunchProfileStreamingSessionStorageRoot
     {
-        /// <summary>
-        /// The folder path in Linux workstations where files are uploaded.
-        /// </summary>
         public readonly string? Linux;
-        /// <summary>
-        /// The folder path in Windows workstations where files are uploaded.
-        /// </summary>
         public readonly string? Windows;
 
         [OutputConstructor]

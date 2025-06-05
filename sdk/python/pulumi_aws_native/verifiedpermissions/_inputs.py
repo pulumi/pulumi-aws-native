@@ -497,6 +497,11 @@ class PolicyStaticPolicyDefinitionArgs:
 if not MYPY:
     class PolicyStoreDeletionProtectionArgsDict(TypedDict):
         mode: pulumi.Input['PolicyStoreDeletionMode']
+        """
+        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+
+        The default state is `DISABLED` .
+        """
 elif False:
     PolicyStoreDeletionProtectionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -504,11 +509,21 @@ elif False:
 class PolicyStoreDeletionProtectionArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input['PolicyStoreDeletionMode']):
+        """
+        :param pulumi.Input['PolicyStoreDeletionMode'] mode: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+               
+               The default state is `DISABLED` .
+        """
         pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
     def mode(self) -> pulumi.Input['PolicyStoreDeletionMode']:
+        """
+        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
+
+        The default state is `DISABLED` .
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter

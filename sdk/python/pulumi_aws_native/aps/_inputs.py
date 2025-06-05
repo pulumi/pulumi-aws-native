@@ -600,7 +600,13 @@ if not MYPY:
         Destinations for query logging
         """
         cloud_watch_logs: pulumi.Input['WorkspaceCloudWatchLogDestinationArgsDict']
+        """
+        Configuration details for logging to CloudWatch Logs.
+        """
         filters: pulumi.Input['WorkspaceLoggingFilterArgsDict']
+        """
+        Filtering criteria that determine which queries are logged.
+        """
 elif False:
     WorkspaceLoggingDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -611,6 +617,8 @@ class WorkspaceLoggingDestinationArgs:
                  filters: pulumi.Input['WorkspaceLoggingFilterArgs']):
         """
         Destinations for query logging
+        :param pulumi.Input['WorkspaceCloudWatchLogDestinationArgs'] cloud_watch_logs: Configuration details for logging to CloudWatch Logs.
+        :param pulumi.Input['WorkspaceLoggingFilterArgs'] filters: Filtering criteria that determine which queries are logged.
         """
         pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
         pulumi.set(__self__, "filters", filters)
@@ -618,6 +626,9 @@ class WorkspaceLoggingDestinationArgs:
     @property
     @pulumi.getter(name="cloudWatchLogs")
     def cloud_watch_logs(self) -> pulumi.Input['WorkspaceCloudWatchLogDestinationArgs']:
+        """
+        Configuration details for logging to CloudWatch Logs.
+        """
         return pulumi.get(self, "cloud_watch_logs")
 
     @cloud_watch_logs.setter
@@ -627,6 +638,9 @@ class WorkspaceLoggingDestinationArgs:
     @property
     @pulumi.getter
     def filters(self) -> pulumi.Input['WorkspaceLoggingFilterArgs']:
+        """
+        Filtering criteria that determine which queries are logged.
+        """
         return pulumi.get(self, "filters")
 
     @filters.setter

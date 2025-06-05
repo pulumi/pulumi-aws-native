@@ -35,6 +35,8 @@ type LookupClusterResult struct {
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// The ID of the created cluster.
 	Identifier *string `pulumi:"identifier"`
+	// The Multi-region properties associated to this cluster.
+	MultiRegionProperties *MultiRegionPropertiesProperties `pulumi:"multiRegionProperties"`
 	// The Amazon Resource Name (ARN) for the cluster.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The status of the cluster.
@@ -90,6 +92,11 @@ func (o LookupClusterResultOutput) DeletionProtectionEnabled() pulumi.BoolPtrOut
 // The ID of the created cluster.
 func (o LookupClusterResultOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+// The Multi-region properties associated to this cluster.
+func (o LookupClusterResultOutput) MultiRegionProperties() MultiRegionPropertiesPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *MultiRegionPropertiesProperties { return v.MultiRegionProperties }).(MultiRegionPropertiesPropertiesPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the cluster.

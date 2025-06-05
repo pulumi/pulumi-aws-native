@@ -63,8 +63,17 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [OutputType]
     public sealed class GetRoutingRuleResult
     {
+        /// <summary>
+        /// The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RoutingRuleAction> Actions;
+        /// <summary>
+        /// The conditions of the routing rule.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RoutingRuleCondition> Conditions;
+        /// <summary>
+        /// The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Priority values 1-1,000,000 are supported.
+        /// </summary>
         public readonly int? Priority;
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource.

@@ -50,9 +50,7 @@ class TaskArgs:
         :param pulumi.Input['TaskScheduleArgs'] schedule: Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['TaskMode'] task_mode: Specifies the task mode for the task.
-        :param pulumi.Input['TaskReportConfigArgs'] task_report_config: Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
-               
-               When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+        :param pulumi.Input['TaskReportConfigArgs'] task_report_config: The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
         """
         pulumi.set(__self__, "destination_location_arn", destination_location_arn)
         pulumi.set(__self__, "source_location_arn", source_location_arn)
@@ -213,9 +211,7 @@ class TaskArgs:
     @pulumi.getter(name="taskReportConfig")
     def task_report_config(self) -> Optional[pulumi.Input['TaskReportConfigArgs']]:
         """
-        Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
-
-        When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+        The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
         """
         return pulumi.get(self, "task_report_config")
 
@@ -283,9 +279,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] source_location_arn: The ARN of the source location for the task.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['TaskMode'] task_mode: Specifies the task mode for the task.
-        :param pulumi.Input[Union['TaskReportConfigArgs', 'TaskReportConfigArgsDict']] task_report_config: Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
-               
-               When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+        :param pulumi.Input[Union['TaskReportConfigArgs', 'TaskReportConfigArgsDict']] task_report_config: The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
         """
         ...
     @overload
@@ -542,9 +536,7 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="taskReportConfig")
     def task_report_config(self) -> pulumi.Output[Optional['outputs.TaskReportConfig']]:
         """
-        Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
-
-        When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+        The configuration of your task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
         """
         return pulumi.get(self, "task_report_config")
 

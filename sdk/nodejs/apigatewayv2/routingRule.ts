@@ -37,12 +37,21 @@ export class RoutingRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoutingRule.__pulumiType;
     }
 
+    /**
+     * The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
+     */
     public readonly actions!: pulumi.Output<outputs.apigatewayv2.RoutingRuleAction[]>;
+    /**
+     * The conditions of the routing rule.
+     */
     public readonly conditions!: pulumi.Output<outputs.apigatewayv2.RoutingRuleCondition[]>;
     /**
      * The amazon resource name (ARN) of the domain name resource.
      */
     public readonly domainNameArn!: pulumi.Output<string>;
+    /**
+     * The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Priority values 1-1,000,000 are supported.
+     */
     public readonly priority!: pulumi.Output<number>;
     /**
      * Amazon Resource Name (ARN) of the resource.
@@ -101,11 +110,20 @@ export class RoutingRule extends pulumi.CustomResource {
  * The set of arguments for constructing a RoutingRule resource.
  */
 export interface RoutingRuleArgs {
+    /**
+     * The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
+     */
     actions: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RoutingRuleActionArgs>[]>;
+    /**
+     * The conditions of the routing rule.
+     */
     conditions: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RoutingRuleConditionArgs>[]>;
     /**
      * The amazon resource name (ARN) of the domain name resource.
      */
     domainNameArn: pulumi.Input<string>;
+    /**
+     * The order in which API Gateway evaluates a rule. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Priority values 1-1,000,000 are supported.
+     */
     priority: pulumi.Input<number>;
 }

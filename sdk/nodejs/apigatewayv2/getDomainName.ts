@@ -46,6 +46,9 @@ export interface GetDomainNameResult {
      * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
      */
     readonly regionalHostedZoneId?: string;
+    /**
+     * The routing mode API Gateway uses to route traffic to your APIs.
+     */
     readonly routingMode?: enums.apigatewayv2.DomainNameRoutingMode;
     /**
      * The collection of tags associated with a domain name.

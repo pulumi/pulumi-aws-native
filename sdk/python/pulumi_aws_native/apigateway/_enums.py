@@ -49,6 +49,9 @@ class DomainNameAccessAssociationAccessAssociationSourceType(builtins.str, Enum)
 
 @pulumi.type_token("aws-native:apigateway:DomainNameRoutingMode")
 class DomainNameRoutingMode(builtins.str, Enum):
+    """
+    The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
+    """
     BASE_PATH_MAPPING_ONLY = "BASE_PATH_MAPPING_ONLY"
     ROUTING_RULE_THEN_BASE_PATH_MAPPING = "ROUTING_RULE_THEN_BASE_PATH_MAPPING"
     ROUTING_RULE_ONLY = "ROUTING_RULE_ONLY"

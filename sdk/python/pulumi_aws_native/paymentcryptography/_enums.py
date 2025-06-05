@@ -41,6 +41,7 @@ class KeyCheckValueAlgorithm(builtins.str, Enum):
     CMAC = "CMAC"
     ANSI_X924 = "ANSI_X9_24"
     HMAC = "HMAC"
+    SHA1 = "SHA_1"
 
 
 @pulumi.type_token("aws-native:paymentcryptography:KeyClass")
