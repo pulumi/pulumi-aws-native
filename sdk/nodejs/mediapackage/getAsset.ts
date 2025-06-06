@@ -38,10 +38,6 @@ export interface GetAssetResult {
      */
     readonly egressEndpoints?: outputs.mediapackage.AssetEgressEndpoint[];
     /**
-     * The unique identifier for the Asset.
-     */
-    readonly id?: string;
-    /**
      * The ID of the PackagingGroup for the Asset.
      */
     readonly packagingGroupId?: string;
@@ -57,10 +53,6 @@ export interface GetAssetResult {
      * The IAM role_arn used to access the source S3 bucket.
      */
     readonly sourceRoleArn?: string;
-    /**
-     * A collection of tags associated with a resource
-     */
-    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::MediaPackage::Asset

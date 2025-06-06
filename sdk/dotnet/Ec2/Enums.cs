@@ -141,6 +141,39 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct Ec2FleetEbsBlockDeviceVolumeType : IEquatable<Ec2FleetEbsBlockDeviceVolumeType>
+    {
+        private readonly string _value;
+
+        private Ec2FleetEbsBlockDeviceVolumeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Ec2FleetEbsBlockDeviceVolumeType Gp2 { get; } = new Ec2FleetEbsBlockDeviceVolumeType("gp2");
+        public static Ec2FleetEbsBlockDeviceVolumeType Gp3 { get; } = new Ec2FleetEbsBlockDeviceVolumeType("gp3");
+        public static Ec2FleetEbsBlockDeviceVolumeType Io1 { get; } = new Ec2FleetEbsBlockDeviceVolumeType("io1");
+        public static Ec2FleetEbsBlockDeviceVolumeType Io2 { get; } = new Ec2FleetEbsBlockDeviceVolumeType("io2");
+        public static Ec2FleetEbsBlockDeviceVolumeType Sc1 { get; } = new Ec2FleetEbsBlockDeviceVolumeType("sc1");
+        public static Ec2FleetEbsBlockDeviceVolumeType St1 { get; } = new Ec2FleetEbsBlockDeviceVolumeType("st1");
+        public static Ec2FleetEbsBlockDeviceVolumeType Standard { get; } = new Ec2FleetEbsBlockDeviceVolumeType("standard");
+
+        public static bool operator ==(Ec2FleetEbsBlockDeviceVolumeType left, Ec2FleetEbsBlockDeviceVolumeType right) => left.Equals(right);
+        public static bool operator !=(Ec2FleetEbsBlockDeviceVolumeType left, Ec2FleetEbsBlockDeviceVolumeType right) => !left.Equals(right);
+
+        public static explicit operator string(Ec2FleetEbsBlockDeviceVolumeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Ec2FleetEbsBlockDeviceVolumeType other && Equals(other);
+        public bool Equals(Ec2FleetEbsBlockDeviceVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
     /// 

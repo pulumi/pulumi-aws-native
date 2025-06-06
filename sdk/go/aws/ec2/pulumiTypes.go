@@ -1846,6 +1846,118 @@ func (o Ec2FleetBaselinePerformanceFactorsRequestPtrOutput) Cpu() Ec2FleetCpuPer
 	}).(Ec2FleetCpuPerformanceFactorRequestPtrOutput)
 }
 
+type Ec2FleetBlockDeviceMapping struct {
+	DeviceName  *string                 `pulumi:"deviceName"`
+	Ebs         *Ec2FleetEbsBlockDevice `pulumi:"ebs"`
+	NoDevice    *string                 `pulumi:"noDevice"`
+	VirtualName *string                 `pulumi:"virtualName"`
+}
+
+// Ec2FleetBlockDeviceMappingInput is an input type that accepts Ec2FleetBlockDeviceMappingArgs and Ec2FleetBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `Ec2FleetBlockDeviceMappingInput` via:
+//
+//	Ec2FleetBlockDeviceMappingArgs{...}
+type Ec2FleetBlockDeviceMappingInput interface {
+	pulumi.Input
+
+	ToEc2FleetBlockDeviceMappingOutput() Ec2FleetBlockDeviceMappingOutput
+	ToEc2FleetBlockDeviceMappingOutputWithContext(context.Context) Ec2FleetBlockDeviceMappingOutput
+}
+
+type Ec2FleetBlockDeviceMappingArgs struct {
+	DeviceName  pulumi.StringPtrInput          `pulumi:"deviceName"`
+	Ebs         Ec2FleetEbsBlockDevicePtrInput `pulumi:"ebs"`
+	NoDevice    pulumi.StringPtrInput          `pulumi:"noDevice"`
+	VirtualName pulumi.StringPtrInput          `pulumi:"virtualName"`
+}
+
+func (Ec2FleetBlockDeviceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i Ec2FleetBlockDeviceMappingArgs) ToEc2FleetBlockDeviceMappingOutput() Ec2FleetBlockDeviceMappingOutput {
+	return i.ToEc2FleetBlockDeviceMappingOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetBlockDeviceMappingArgs) ToEc2FleetBlockDeviceMappingOutputWithContext(ctx context.Context) Ec2FleetBlockDeviceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetBlockDeviceMappingOutput)
+}
+
+// Ec2FleetBlockDeviceMappingArrayInput is an input type that accepts Ec2FleetBlockDeviceMappingArray and Ec2FleetBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `Ec2FleetBlockDeviceMappingArrayInput` via:
+//
+//	Ec2FleetBlockDeviceMappingArray{ Ec2FleetBlockDeviceMappingArgs{...} }
+type Ec2FleetBlockDeviceMappingArrayInput interface {
+	pulumi.Input
+
+	ToEc2FleetBlockDeviceMappingArrayOutput() Ec2FleetBlockDeviceMappingArrayOutput
+	ToEc2FleetBlockDeviceMappingArrayOutputWithContext(context.Context) Ec2FleetBlockDeviceMappingArrayOutput
+}
+
+type Ec2FleetBlockDeviceMappingArray []Ec2FleetBlockDeviceMappingInput
+
+func (Ec2FleetBlockDeviceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i Ec2FleetBlockDeviceMappingArray) ToEc2FleetBlockDeviceMappingArrayOutput() Ec2FleetBlockDeviceMappingArrayOutput {
+	return i.ToEc2FleetBlockDeviceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetBlockDeviceMappingArray) ToEc2FleetBlockDeviceMappingArrayOutputWithContext(ctx context.Context) Ec2FleetBlockDeviceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetBlockDeviceMappingArrayOutput)
+}
+
+type Ec2FleetBlockDeviceMappingOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetBlockDeviceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o Ec2FleetBlockDeviceMappingOutput) ToEc2FleetBlockDeviceMappingOutput() Ec2FleetBlockDeviceMappingOutput {
+	return o
+}
+
+func (o Ec2FleetBlockDeviceMappingOutput) ToEc2FleetBlockDeviceMappingOutputWithContext(ctx context.Context) Ec2FleetBlockDeviceMappingOutput {
+	return o
+}
+
+func (o Ec2FleetBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetBlockDeviceMappingOutput) Ebs() Ec2FleetEbsBlockDevicePtrOutput {
+	return o.ApplyT(func(v Ec2FleetBlockDeviceMapping) *Ec2FleetEbsBlockDevice { return v.Ebs }).(Ec2FleetEbsBlockDevicePtrOutput)
+}
+
+func (o Ec2FleetBlockDeviceMappingOutput) NoDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetBlockDeviceMapping) *string { return v.NoDevice }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetBlockDeviceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetBlockDeviceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o Ec2FleetBlockDeviceMappingArrayOutput) ToEc2FleetBlockDeviceMappingArrayOutput() Ec2FleetBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o Ec2FleetBlockDeviceMappingArrayOutput) ToEc2FleetBlockDeviceMappingArrayOutputWithContext(ctx context.Context) Ec2FleetBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o Ec2FleetBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) Ec2FleetBlockDeviceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ec2FleetBlockDeviceMapping {
+		return vs[0].([]Ec2FleetBlockDeviceMapping)[vs[1].(int)]
+	}).(Ec2FleetBlockDeviceMappingOutput)
+}
+
 type Ec2FleetCapacityRebalance struct {
 	// The replacement strategy to use. Only available for fleets of type `maintain` .
 	//
@@ -2346,6 +2458,229 @@ func (o Ec2FleetCpuPerformanceFactorRequestPtrOutput) References() Ec2FleetPerfo
 	}).(Ec2FleetPerformanceFactorReferenceRequestArrayOutput)
 }
 
+type Ec2FleetEbsBlockDevice struct {
+	DeleteOnTermination *bool                             `pulumi:"deleteOnTermination"`
+	Encrypted           *bool                             `pulumi:"encrypted"`
+	Iops                *int                              `pulumi:"iops"`
+	KmsKeyId            *string                           `pulumi:"kmsKeyId"`
+	SnapshotId          *string                           `pulumi:"snapshotId"`
+	VolumeSize          *int                              `pulumi:"volumeSize"`
+	VolumeType          *Ec2FleetEbsBlockDeviceVolumeType `pulumi:"volumeType"`
+}
+
+// Ec2FleetEbsBlockDeviceInput is an input type that accepts Ec2FleetEbsBlockDeviceArgs and Ec2FleetEbsBlockDeviceOutput values.
+// You can construct a concrete instance of `Ec2FleetEbsBlockDeviceInput` via:
+//
+//	Ec2FleetEbsBlockDeviceArgs{...}
+type Ec2FleetEbsBlockDeviceInput interface {
+	pulumi.Input
+
+	ToEc2FleetEbsBlockDeviceOutput() Ec2FleetEbsBlockDeviceOutput
+	ToEc2FleetEbsBlockDeviceOutputWithContext(context.Context) Ec2FleetEbsBlockDeviceOutput
+}
+
+type Ec2FleetEbsBlockDeviceArgs struct {
+	DeleteOnTermination pulumi.BoolPtrInput                      `pulumi:"deleteOnTermination"`
+	Encrypted           pulumi.BoolPtrInput                      `pulumi:"encrypted"`
+	Iops                pulumi.IntPtrInput                       `pulumi:"iops"`
+	KmsKeyId            pulumi.StringPtrInput                    `pulumi:"kmsKeyId"`
+	SnapshotId          pulumi.StringPtrInput                    `pulumi:"snapshotId"`
+	VolumeSize          pulumi.IntPtrInput                       `pulumi:"volumeSize"`
+	VolumeType          Ec2FleetEbsBlockDeviceVolumeTypePtrInput `pulumi:"volumeType"`
+}
+
+func (Ec2FleetEbsBlockDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetEbsBlockDevice)(nil)).Elem()
+}
+
+func (i Ec2FleetEbsBlockDeviceArgs) ToEc2FleetEbsBlockDeviceOutput() Ec2FleetEbsBlockDeviceOutput {
+	return i.ToEc2FleetEbsBlockDeviceOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetEbsBlockDeviceArgs) ToEc2FleetEbsBlockDeviceOutputWithContext(ctx context.Context) Ec2FleetEbsBlockDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetEbsBlockDeviceOutput)
+}
+
+func (i Ec2FleetEbsBlockDeviceArgs) ToEc2FleetEbsBlockDevicePtrOutput() Ec2FleetEbsBlockDevicePtrOutput {
+	return i.ToEc2FleetEbsBlockDevicePtrOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetEbsBlockDeviceArgs) ToEc2FleetEbsBlockDevicePtrOutputWithContext(ctx context.Context) Ec2FleetEbsBlockDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetEbsBlockDeviceOutput).ToEc2FleetEbsBlockDevicePtrOutputWithContext(ctx)
+}
+
+// Ec2FleetEbsBlockDevicePtrInput is an input type that accepts Ec2FleetEbsBlockDeviceArgs, Ec2FleetEbsBlockDevicePtr and Ec2FleetEbsBlockDevicePtrOutput values.
+// You can construct a concrete instance of `Ec2FleetEbsBlockDevicePtrInput` via:
+//
+//	        Ec2FleetEbsBlockDeviceArgs{...}
+//
+//	or:
+//
+//	        nil
+type Ec2FleetEbsBlockDevicePtrInput interface {
+	pulumi.Input
+
+	ToEc2FleetEbsBlockDevicePtrOutput() Ec2FleetEbsBlockDevicePtrOutput
+	ToEc2FleetEbsBlockDevicePtrOutputWithContext(context.Context) Ec2FleetEbsBlockDevicePtrOutput
+}
+
+type ec2FleetEbsBlockDevicePtrType Ec2FleetEbsBlockDeviceArgs
+
+func Ec2FleetEbsBlockDevicePtr(v *Ec2FleetEbsBlockDeviceArgs) Ec2FleetEbsBlockDevicePtrInput {
+	return (*ec2FleetEbsBlockDevicePtrType)(v)
+}
+
+func (*ec2FleetEbsBlockDevicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetEbsBlockDevice)(nil)).Elem()
+}
+
+func (i *ec2FleetEbsBlockDevicePtrType) ToEc2FleetEbsBlockDevicePtrOutput() Ec2FleetEbsBlockDevicePtrOutput {
+	return i.ToEc2FleetEbsBlockDevicePtrOutputWithContext(context.Background())
+}
+
+func (i *ec2FleetEbsBlockDevicePtrType) ToEc2FleetEbsBlockDevicePtrOutputWithContext(ctx context.Context) Ec2FleetEbsBlockDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetEbsBlockDevicePtrOutput)
+}
+
+type Ec2FleetEbsBlockDeviceOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetEbsBlockDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetEbsBlockDevice)(nil)).Elem()
+}
+
+func (o Ec2FleetEbsBlockDeviceOutput) ToEc2FleetEbsBlockDeviceOutput() Ec2FleetEbsBlockDeviceOutput {
+	return o
+}
+
+func (o Ec2FleetEbsBlockDeviceOutput) ToEc2FleetEbsBlockDeviceOutputWithContext(ctx context.Context) Ec2FleetEbsBlockDeviceOutput {
+	return o
+}
+
+func (o Ec2FleetEbsBlockDeviceOutput) ToEc2FleetEbsBlockDevicePtrOutput() Ec2FleetEbsBlockDevicePtrOutput {
+	return o.ToEc2FleetEbsBlockDevicePtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetEbsBlockDeviceOutput) ToEc2FleetEbsBlockDevicePtrOutputWithContext(ctx context.Context) Ec2FleetEbsBlockDevicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetEbsBlockDevice) *Ec2FleetEbsBlockDevice {
+		return &v
+	}).(Ec2FleetEbsBlockDevicePtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDeviceOutput) VolumeType() Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
+	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *Ec2FleetEbsBlockDeviceVolumeType { return v.VolumeType }).(Ec2FleetEbsBlockDeviceVolumeTypePtrOutput)
+}
+
+type Ec2FleetEbsBlockDevicePtrOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetEbsBlockDevicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetEbsBlockDevice)(nil)).Elem()
+}
+
+func (o Ec2FleetEbsBlockDevicePtrOutput) ToEc2FleetEbsBlockDevicePtrOutput() Ec2FleetEbsBlockDevicePtrOutput {
+	return o
+}
+
+func (o Ec2FleetEbsBlockDevicePtrOutput) ToEc2FleetEbsBlockDevicePtrOutputWithContext(ctx context.Context) Ec2FleetEbsBlockDevicePtrOutput {
+	return o
+}
+
+func (o Ec2FleetEbsBlockDevicePtrOutput) Elem() Ec2FleetEbsBlockDeviceOutput {
+	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) Ec2FleetEbsBlockDevice {
+		if v != nil {
+			return *v
+		}
+		var ret Ec2FleetEbsBlockDevice
+		return ret
+	}).(Ec2FleetEbsBlockDeviceOutput)
+}
+
+func (o Ec2FleetEbsBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOnTermination
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDevicePtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDevicePtrOutput) VolumeType() Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
+	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *Ec2FleetEbsBlockDeviceVolumeType {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(Ec2FleetEbsBlockDeviceVolumeTypePtrOutput)
+}
+
 type Ec2FleetFleetLaunchTemplateConfigRequest struct {
 	// The launch template to use. You must specify either the launch template ID or launch template name in the request.
 	LaunchTemplateSpecification *Ec2FleetFleetLaunchTemplateSpecificationRequest `pulumi:"launchTemplateSpecification"`
@@ -2464,7 +2799,8 @@ func (o Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput) Index(i pulumi.IntI
 
 type Ec2FleetFleetLaunchTemplateOverridesRequest struct {
 	// The Availability Zone in which to launch the instances.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
+	AvailabilityZone    *string                      `pulumi:"availabilityZone"`
+	BlockDeviceMappings []Ec2FleetBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 	//
 	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
@@ -2514,7 +2850,8 @@ type Ec2FleetFleetLaunchTemplateOverridesRequestInput interface {
 
 type Ec2FleetFleetLaunchTemplateOverridesRequestArgs struct {
 	// The Availability Zone in which to launch the instances.
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	AvailabilityZone    pulumi.StringPtrInput                `pulumi:"availabilityZone"`
+	BlockDeviceMappings Ec2FleetBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
 	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 	//
 	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
@@ -2605,6 +2942,12 @@ func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) ToEc2FleetFleetLaunch
 // The Availability Zone in which to launch the instances.
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) BlockDeviceMappings() Ec2FleetBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) []Ec2FleetBlockDeviceMapping {
+		return v.BlockDeviceMappings
+	}).(Ec2FleetBlockDeviceMappingArrayOutput)
 }
 
 // The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
@@ -35845,12 +36188,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput)(nil)).Elem(), Ec2FleetBaselineEbsBandwidthMbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetBaselinePerformanceFactorsRequestInput)(nil)).Elem(), Ec2FleetBaselinePerformanceFactorsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetBaselinePerformanceFactorsRequestPtrInput)(nil)).Elem(), Ec2FleetBaselinePerformanceFactorsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetBlockDeviceMappingInput)(nil)).Elem(), Ec2FleetBlockDeviceMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetBlockDeviceMappingArrayInput)(nil)).Elem(), Ec2FleetBlockDeviceMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityRebalanceInput)(nil)).Elem(), Ec2FleetCapacityRebalanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityRebalancePtrInput)(nil)).Elem(), Ec2FleetCapacityRebalanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityReservationOptionsRequestInput)(nil)).Elem(), Ec2FleetCapacityReservationOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityReservationOptionsRequestPtrInput)(nil)).Elem(), Ec2FleetCapacityReservationOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCpuPerformanceFactorRequestInput)(nil)).Elem(), Ec2FleetCpuPerformanceFactorRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCpuPerformanceFactorRequestPtrInput)(nil)).Elem(), Ec2FleetCpuPerformanceFactorRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetEbsBlockDeviceInput)(nil)).Elem(), Ec2FleetEbsBlockDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetEbsBlockDevicePtrInput)(nil)).Elem(), Ec2FleetEbsBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateConfigRequestInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateConfigRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateConfigRequestArrayInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateConfigRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateOverridesRequestInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateOverridesRequestArgs{})
@@ -36218,12 +36565,16 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetBaselinePerformanceFactorsRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetBaselinePerformanceFactorsRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetBlockDeviceMappingOutput{})
+	pulumi.RegisterOutputType(Ec2FleetBlockDeviceMappingArrayOutput{})
 	pulumi.RegisterOutputType(Ec2FleetCapacityRebalanceOutput{})
 	pulumi.RegisterOutputType(Ec2FleetCapacityRebalancePtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetCapacityReservationOptionsRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetCapacityReservationOptionsRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetCpuPerformanceFactorRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetCpuPerformanceFactorRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetEbsBlockDeviceOutput{})
+	pulumi.RegisterOutputType(Ec2FleetEbsBlockDevicePtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateConfigRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput{})
 	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateOverridesRequestOutput{})

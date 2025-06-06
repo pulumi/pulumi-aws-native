@@ -76,10 +76,6 @@ namespace Pulumi.AwsNative.MediaPackage
         /// </summary>
         public readonly ImmutableArray<Outputs.AssetEgressEndpoint> EgressEndpoints;
         /// <summary>
-        /// The unique identifier for the Asset.
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
         /// The ID of the PackagingGroup for the Asset.
         /// </summary>
         public readonly string? PackagingGroupId;
@@ -95,10 +91,6 @@ namespace Pulumi.AwsNative.MediaPackage
         /// The IAM role_arn used to access the source S3 bucket.
         /// </summary>
         public readonly string? SourceRoleArn;
-        /// <summary>
-        /// A collection of tags associated with a resource
-        /// </summary>
-        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAssetResult(
@@ -108,27 +100,21 @@ namespace Pulumi.AwsNative.MediaPackage
 
             ImmutableArray<Outputs.AssetEgressEndpoint> egressEndpoints,
 
-            string? id,
-
             string? packagingGroupId,
 
             string? resourceId,
 
             string? sourceArn,
 
-            string? sourceRoleArn,
-
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            string? sourceRoleArn)
         {
             Arn = arn;
             CreatedAt = createdAt;
             EgressEndpoints = egressEndpoints;
-            Id = id;
             PackagingGroupId = packagingGroupId;
             ResourceId = resourceId;
             SourceArn = sourceArn;
             SourceRoleArn = sourceRoleArn;
-            Tags = tags;
         }
     }
 }

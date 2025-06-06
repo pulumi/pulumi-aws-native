@@ -83,12 +83,14 @@
     "tagOnCreate" : true,
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "mediapackage-vod:TagResource", "mediapackage-vod:UntagResource", "mediapackage-vod:ListTagsForResource" ]
   },
   "additionalProperties" : false,
   "required" : [ "Id", "PackagingGroupId", "SourceArn", "SourceRoleArn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/EgressEndpoints/*/PackagingConfigurationId", "/properties/EgressEndpoints/*/Url" ],
   "primaryIdentifier" : [ "/properties/Id" ],
+  "createOnlyProperties" : [ "/properties/Id", "/properties/Tags" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "mediapackage-vod:CreateAsset", "mediapackage-vod:DescribeAsset", "mediapackage-vod:TagResource", "iam:PassRole" ]

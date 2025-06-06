@@ -2539,7 +2539,8 @@ _utilities.register(
    "aws-native:networkfirewall:FirewallPolicy": "FirewallPolicy",
    "aws-native:networkfirewall:LoggingConfiguration": "LoggingConfiguration",
    "aws-native:networkfirewall:RuleGroup": "RuleGroup",
-   "aws-native:networkfirewall:TlsInspectionConfiguration": "TlsInspectionConfiguration"
+   "aws-native:networkfirewall:TlsInspectionConfiguration": "TlsInspectionConfiguration",
+   "aws-native:networkfirewall:VpcEndpointAssociation": "VpcEndpointAssociation"
   }
  },
  {

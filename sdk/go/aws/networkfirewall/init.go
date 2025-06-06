@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RuleGroup{}
 	case "aws-native:networkfirewall:TlsInspectionConfiguration":
 		r = &TlsInspectionConfiguration{}
+	case "aws-native:networkfirewall:VpcEndpointAssociation":
+		r = &VpcEndpointAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

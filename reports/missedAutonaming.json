@@ -9728,7 +9728,7 @@
       "tags": {
         "type": "array",
         "items": {
-          "$ref": "#/types/aws-native:index:Tag"
+          "$ref": "#/types/aws-native:index:CreateOnlyTag"
         },
         "description": "A collection of tags associated with a resource"
       }
@@ -10225,6 +10225,29 @@
             "name": "LoggingConfigurationValue"
           }
         }
+      }
+    }
+  },
+  "aws-native:networkfirewall:VpcEndpointAssociation": {
+    "cfTypeName": "AWS::NetworkFirewall::VpcEndpointAssociation",
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "firewallArn": {
+        "type": "string"
+      },
+      "subnetMapping": {
+        "$ref": "#/types/aws-native:networkfirewall:VpcEndpointAssociationSubnetMapping"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      },
+      "vpcId": {
+        "type": "string"
       }
     }
   },

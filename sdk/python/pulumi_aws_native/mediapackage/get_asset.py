@@ -15,7 +15,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
     'GetAssetResult',
@@ -26,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAssetResult:
-    def __init__(__self__, arn=None, created_at=None, egress_endpoints=None, id=None, packaging_group_id=None, resource_id=None, source_arn=None, source_role_arn=None, tags=None):
+    def __init__(__self__, arn=None, created_at=None, egress_endpoints=None, packaging_group_id=None, resource_id=None, source_arn=None, source_role_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,9 +35,6 @@ class GetAssetResult:
         if egress_endpoints and not isinstance(egress_endpoints, list):
             raise TypeError("Expected argument 'egress_endpoints' to be a list")
         pulumi.set(__self__, "egress_endpoints", egress_endpoints)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if packaging_group_id and not isinstance(packaging_group_id, str):
             raise TypeError("Expected argument 'packaging_group_id' to be a str")
         pulumi.set(__self__, "packaging_group_id", packaging_group_id)
@@ -51,9 +47,6 @@ class GetAssetResult:
         if source_role_arn and not isinstance(source_role_arn, str):
             raise TypeError("Expected argument 'source_role_arn' to be a str")
         pulumi.set(__self__, "source_role_arn", source_role_arn)
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -78,14 +71,6 @@ class GetAssetResult:
         The list of egress endpoints available for the Asset.
         """
         return pulumi.get(self, "egress_endpoints")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[builtins.str]:
-        """
-        The unique identifier for the Asset.
-        """
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="packagingGroupId")
@@ -119,14 +104,6 @@ class GetAssetResult:
         """
         return pulumi.get(self, "source_role_arn")
 
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        A collection of tags associated with a resource
-        """
-        return pulumi.get(self, "tags")
-
 
 class AwaitableGetAssetResult(GetAssetResult):
     # pylint: disable=using-constant-test
@@ -137,12 +114,10 @@ class AwaitableGetAssetResult(GetAssetResult):
             arn=self.arn,
             created_at=self.created_at,
             egress_endpoints=self.egress_endpoints,
-            id=self.id,
             packaging_group_id=self.packaging_group_id,
             resource_id=self.resource_id,
             source_arn=self.source_arn,
-            source_role_arn=self.source_role_arn,
-            tags=self.tags)
+            source_role_arn=self.source_role_arn)
 
 
 def get_asset(id: Optional[builtins.str] = None,
@@ -162,12 +137,10 @@ def get_asset(id: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         created_at=pulumi.get(__ret__, 'created_at'),
         egress_endpoints=pulumi.get(__ret__, 'egress_endpoints'),
-        id=pulumi.get(__ret__, 'id'),
         packaging_group_id=pulumi.get(__ret__, 'packaging_group_id'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         source_arn=pulumi.get(__ret__, 'source_arn'),
-        source_role_arn=pulumi.get(__ret__, 'source_role_arn'),
-        tags=pulumi.get(__ret__, 'tags'))
+        source_role_arn=pulumi.get(__ret__, 'source_role_arn'))
 def get_asset_output(id: Optional[pulumi.Input[builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetResult]:
     """
@@ -184,9 +157,7 @@ def get_asset_output(id: Optional[pulumi.Input[builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         created_at=pulumi.get(__response__, 'created_at'),
         egress_endpoints=pulumi.get(__response__, 'egress_endpoints'),
-        id=pulumi.get(__response__, 'id'),
         packaging_group_id=pulumi.get(__response__, 'packaging_group_id'),
         resource_id=pulumi.get(__response__, 'resource_id'),
         source_arn=pulumi.get(__response__, 'source_arn'),
-        source_role_arn=pulumi.get(__response__, 'source_role_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+        source_role_arn=pulumi.get(__response__, 'source_role_arn')))

@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The Availability Zone in which to launch the instances.
         /// </summary>
         public readonly string? AvailabilityZone;
+        public readonly ImmutableArray<Outputs.Ec2FleetBlockDeviceMapping> BlockDeviceMappings;
         /// <summary>
         /// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
         /// 
@@ -70,6 +71,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         private Ec2FleetFleetLaunchTemplateOverridesRequest(
             string? availabilityZone,
 
+            ImmutableArray<Outputs.Ec2FleetBlockDeviceMapping> blockDeviceMappings,
+
             Outputs.Ec2FleetInstanceRequirementsRequest? instanceRequirements,
 
             string? instanceType,
@@ -85,6 +88,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             double? weightedCapacity)
         {
             AvailabilityZone = availabilityZone;
+            BlockDeviceMappings = blockDeviceMappings;
             InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
             MaxPrice = maxPrice;

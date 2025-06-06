@@ -40,6 +40,11 @@ export const getTlsInspectionConfiguration: typeof import("./getTlsInspectionCon
 export const getTlsInspectionConfigurationOutput: typeof import("./getTlsInspectionConfiguration").getTlsInspectionConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getTlsInspectionConfiguration","getTlsInspectionConfigurationOutput"], () => require("./getTlsInspectionConfiguration"));
 
+export { GetVpcEndpointAssociationArgs, GetVpcEndpointAssociationResult, GetVpcEndpointAssociationOutputArgs } from "./getVpcEndpointAssociation";
+export const getVpcEndpointAssociation: typeof import("./getVpcEndpointAssociation").getVpcEndpointAssociation = null as any;
+export const getVpcEndpointAssociationOutput: typeof import("./getVpcEndpointAssociation").getVpcEndpointAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcEndpointAssociation","getVpcEndpointAssociationOutput"], () => require("./getVpcEndpointAssociation"));
+
 export { LoggingConfigurationArgs } from "./loggingConfiguration";
 export type LoggingConfiguration = import("./loggingConfiguration").LoggingConfiguration;
 export const LoggingConfiguration: typeof import("./loggingConfiguration").LoggingConfiguration = null as any;
@@ -54,6 +59,11 @@ export { TlsInspectionConfigurationArgs } from "./tlsInspectionConfiguration";
 export type TlsInspectionConfiguration = import("./tlsInspectionConfiguration").TlsInspectionConfiguration;
 export const TlsInspectionConfiguration: typeof import("./tlsInspectionConfiguration").TlsInspectionConfiguration = null as any;
 utilities.lazyLoad(exports, ["TlsInspectionConfiguration"], () => require("./tlsInspectionConfiguration"));
+
+export { VpcEndpointAssociationArgs } from "./vpcEndpointAssociation";
+export type VpcEndpointAssociation = import("./vpcEndpointAssociation").VpcEndpointAssociation;
+export const VpcEndpointAssociation: typeof import("./vpcEndpointAssociation").VpcEndpointAssociation = null as any;
+utilities.lazyLoad(exports, ["VpcEndpointAssociation"], () => require("./vpcEndpointAssociation"));
 
 
 // Export enums:
@@ -73,6 +83,8 @@ const _module = {
                 return new RuleGroup(name, <any>undefined, { urn })
             case "aws-native:networkfirewall:TlsInspectionConfiguration":
                 return new TlsInspectionConfiguration(name, <any>undefined, { urn })
+            case "aws-native:networkfirewall:VpcEndpointAssociation":
+                return new VpcEndpointAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

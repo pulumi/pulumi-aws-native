@@ -18,6 +18,14 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        [Input("blockDeviceMappings")]
+        private InputList<Inputs.Ec2FleetBlockDeviceMappingArgs>? _blockDeviceMappings;
+        public InputList<Inputs.Ec2FleetBlockDeviceMappingArgs> BlockDeviceMappings
+        {
+            get => _blockDeviceMappings ?? (_blockDeviceMappings = new InputList<Inputs.Ec2FleetBlockDeviceMappingArgs>());
+            set => _blockDeviceMappings = value;
+        }
+
         /// <summary>
         /// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
         /// 
