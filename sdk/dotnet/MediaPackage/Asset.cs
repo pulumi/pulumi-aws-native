@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// A collection of tags associated with a resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -92,6 +92,10 @@ namespace Pulumi.AwsNative.MediaPackage
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "tags[*]",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -157,14 +161,14 @@ namespace Pulumi.AwsNative.MediaPackage
         public Input<string> SourceRoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
         /// A collection of tags associated with a resource
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
 

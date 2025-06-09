@@ -52,6 +52,18 @@ export const Ec2FleetCapacityReservationOptionsRequestUsageStrategy = {
  */
 export type Ec2FleetCapacityReservationOptionsRequestUsageStrategy = (typeof Ec2FleetCapacityReservationOptionsRequestUsageStrategy)[keyof typeof Ec2FleetCapacityReservationOptionsRequestUsageStrategy];
 
+export const Ec2FleetEbsBlockDeviceVolumeType = {
+    Gp2: "gp2",
+    Gp3: "gp3",
+    Io1: "io1",
+    Io2: "io2",
+    Sc1: "sc1",
+    St1: "st1",
+    Standard: "standard",
+} as const;
+
+export type Ec2FleetEbsBlockDeviceVolumeType = (typeof Ec2FleetEbsBlockDeviceVolumeType)[keyof typeof Ec2FleetEbsBlockDeviceVolumeType];
+
 export const Ec2FleetExcessCapacityTerminationPolicy = {
     Termination: "termination",
     NoTermination: "no-termination",

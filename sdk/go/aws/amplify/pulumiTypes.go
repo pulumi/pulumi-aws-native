@@ -566,9 +566,9 @@ func (o AppBasicAuthConfigPtrOutput) Username() pulumi.StringPtrOutput {
 type AppCacheConfig struct {
 	// The type of cache configuration to use for an Amplify app.
 	//
-	// The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules. This is the default setting.
+	// The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules.
 	//
-	// The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key.
+	// The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key. This is the default setting.
 	Type *AppCacheConfigType `pulumi:"type"`
 }
 
@@ -586,9 +586,9 @@ type AppCacheConfigInput interface {
 type AppCacheConfigArgs struct {
 	// The type of cache configuration to use for an Amplify app.
 	//
-	// The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules. This is the default setting.
+	// The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules.
 	//
-	// The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key.
+	// The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key. This is the default setting.
 	Type AppCacheConfigTypePtrInput `pulumi:"type"`
 }
 
@@ -671,9 +671,9 @@ func (o AppCacheConfigOutput) ToAppCacheConfigPtrOutputWithContext(ctx context.C
 
 // The type of cache configuration to use for an Amplify app.
 //
-// The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules. This is the default setting.
+// The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules.
 //
-// The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key.
+// The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key. This is the default setting.
 func (o AppCacheConfigOutput) Type() AppCacheConfigTypePtrOutput {
 	return o.ApplyT(func(v AppCacheConfig) *AppCacheConfigType { return v.Type }).(AppCacheConfigTypePtrOutput)
 }
@@ -704,9 +704,9 @@ func (o AppCacheConfigPtrOutput) Elem() AppCacheConfigOutput {
 
 // The type of cache configuration to use for an Amplify app.
 //
-// The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules. This is the default setting.
+// The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules.
 //
-// The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key.
+// The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key. This is the default setting.
 func (o AppCacheConfigPtrOutput) Type() AppCacheConfigTypePtrOutput {
 	return o.ApplyT(func(v *AppCacheConfig) *AppCacheConfigType {
 		if v == nil {

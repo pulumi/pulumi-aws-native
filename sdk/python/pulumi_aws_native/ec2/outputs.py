@@ -32,9 +32,11 @@ __all__ = [
     'Ec2FleetAcceleratorTotalMemoryMiBRequest',
     'Ec2FleetBaselineEbsBandwidthMbpsRequest',
     'Ec2FleetBaselinePerformanceFactorsRequest',
+    'Ec2FleetBlockDeviceMapping',
     'Ec2FleetCapacityRebalance',
     'Ec2FleetCapacityReservationOptionsRequest',
     'Ec2FleetCpuPerformanceFactorRequest',
+    'Ec2FleetEbsBlockDevice',
     'Ec2FleetFleetLaunchTemplateConfigRequest',
     'Ec2FleetFleetLaunchTemplateOverridesRequest',
     'Ec2FleetFleetLaunchTemplateSpecificationRequest',
@@ -880,6 +882,64 @@ class Ec2FleetBaselinePerformanceFactorsRequest(dict):
 
 
 @pulumi.output_type
+class Ec2FleetBlockDeviceMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceName":
+            suggest = "device_name"
+        elif key == "noDevice":
+            suggest = "no_device"
+        elif key == "virtualName":
+            suggest = "virtual_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetBlockDeviceMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ec2FleetBlockDeviceMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ec2FleetBlockDeviceMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_name: Optional[builtins.str] = None,
+                 ebs: Optional['outputs.Ec2FleetEbsBlockDevice'] = None,
+                 no_device: Optional[builtins.str] = None,
+                 virtual_name: Optional[builtins.str] = None):
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "device_name")
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Optional['outputs.Ec2FleetEbsBlockDevice']:
+        return pulumi.get(self, "ebs")
+
+    @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "no_device")
+
+    @property
+    @pulumi.getter(name="virtualName")
+    def virtual_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
 class Ec2FleetCapacityRebalance(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1017,6 +1077,92 @@ class Ec2FleetCpuPerformanceFactorRequest(dict):
 
 
 @pulumi.output_type
+class Ec2FleetEbsBlockDevice(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
+        elif key == "volumeSize":
+            suggest = "volume_size"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetEbsBlockDevice. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ec2FleetEbsBlockDevice.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ec2FleetEbsBlockDevice.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delete_on_termination: Optional[builtins.bool] = None,
+                 encrypted: Optional[builtins.bool] = None,
+                 iops: Optional[builtins.int] = None,
+                 kms_key_id: Optional[builtins.str] = None,
+                 snapshot_id: Optional[builtins.str] = None,
+                 volume_size: Optional[builtins.int] = None,
+                 volume_type: Optional['Ec2FleetEbsBlockDeviceVolumeType'] = None):
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "delete_on_termination")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "volume_size")
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional['Ec2FleetEbsBlockDeviceVolumeType']:
+        return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
 class Ec2FleetFleetLaunchTemplateConfigRequest(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1075,6 +1221,8 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
         suggest = None
         if key == "availabilityZone":
             suggest = "availability_zone"
+        elif key == "blockDeviceMappings":
+            suggest = "block_device_mappings"
         elif key == "instanceRequirements":
             suggest = "instance_requirements"
         elif key == "instanceType":
@@ -1099,6 +1247,7 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
 
     def __init__(__self__, *,
                  availability_zone: Optional[builtins.str] = None,
+                 block_device_mappings: Optional[Sequence['outputs.Ec2FleetBlockDeviceMapping']] = None,
                  instance_requirements: Optional['outputs.Ec2FleetInstanceRequirementsRequest'] = None,
                  instance_type: Optional[builtins.str] = None,
                  max_price: Optional[builtins.str] = None,
@@ -1138,6 +1287,8 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
         """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if block_device_mappings is not None:
+            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
@@ -1160,6 +1311,11 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
         The Availability Zone in which to launch the instances.
         """
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="blockDeviceMappings")
+    def block_device_mappings(self) -> Optional[Sequence['outputs.Ec2FleetBlockDeviceMapping']]:
+        return pulumi.get(self, "block_device_mappings")
 
     @property
     @pulumi.getter(name="instanceRequirements")

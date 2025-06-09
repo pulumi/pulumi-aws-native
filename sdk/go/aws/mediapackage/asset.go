@@ -34,7 +34,7 @@ type Asset struct {
 	// The IAM role_arn used to access the source S3 bucket.
 	SourceRoleArn pulumi.StringOutput `pulumi:"sourceRoleArn"`
 	// A collection of tags associated with a resource
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAsset registers a new resource with the given unique name, arguments, and options.
@@ -56,6 +56,10 @@ func NewAsset(ctx *pulumi.Context,
 	if args.SourceRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'SourceRoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"tags[*]",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Asset
 	err := ctx.RegisterResource("aws-native:mediapackage:Asset", name, args, &resource, opts...)
@@ -102,7 +106,7 @@ type assetArgs struct {
 	// The IAM role_arn used to access the source S3 bucket.
 	SourceRoleArn string `pulumi:"sourceRoleArn"`
 	// A collection of tags associated with a resource
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Asset resource.
@@ -120,7 +124,7 @@ type AssetArgs struct {
 	// The IAM role_arn used to access the source S3 bucket.
 	SourceRoleArn pulumi.StringInput
 	// A collection of tags associated with a resource
-	Tags aws.TagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (AssetArgs) ElementType() reflect.Type {
@@ -201,8 +205,8 @@ func (o AssetOutput) SourceRoleArn() pulumi.StringOutput {
 }
 
 // A collection of tags associated with a resource
-func (o AssetOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v *Asset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+func (o AssetOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Asset) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

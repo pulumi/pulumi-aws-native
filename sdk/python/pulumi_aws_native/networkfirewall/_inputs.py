@@ -107,6 +107,8 @@ __all__ = [
     'TlsInspectionConfigurationServerCertificateArgsDict',
     'TlsInspectionConfigurationTlsInspectionConfigurationArgs',
     'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict',
+    'VpcEndpointAssociationSubnetMappingArgs',
+    'VpcEndpointAssociationSubnetMappingArgsDict',
 ]
 
 MYPY = False
@@ -2932,5 +2934,56 @@ class TlsInspectionConfigurationTlsInspectionConfigurationArgs:
     @server_certificate_configurations.setter
     def server_certificate_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationArgs']]]]):
         pulumi.set(self, "server_certificate_configurations", value)
+
+
+if not MYPY:
+    class VpcEndpointAssociationSubnetMappingArgsDict(TypedDict):
+        subnet_id: pulumi.Input[builtins.str]
+        """
+        A SubnetId.
+        """
+        ip_address_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A IPAddressType
+        """
+elif False:
+    VpcEndpointAssociationSubnetMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEndpointAssociationSubnetMappingArgs:
+    def __init__(__self__, *,
+                 subnet_id: pulumi.Input[builtins.str],
+                 ip_address_type: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] subnet_id: A SubnetId.
+        :param pulumi.Input[builtins.str] ip_address_type: A IPAddressType
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[builtins.str]:
+        """
+        A SubnetId.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A IPAddressType
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
 
 

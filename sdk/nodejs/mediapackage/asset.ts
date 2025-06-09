@@ -72,7 +72,7 @@ export class Asset extends pulumi.CustomResource {
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Asset resource with the given unique name, arguments, and options.
@@ -118,6 +118,8 @@ export class Asset extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["tags[*]"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Asset.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -153,5 +155,5 @@ export interface AssetArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

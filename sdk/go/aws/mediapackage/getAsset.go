@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,8 +34,6 @@ type LookupAssetResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The list of egress endpoints available for the Asset.
 	EgressEndpoints []AssetEgressEndpoint `pulumi:"egressEndpoints"`
-	// The unique identifier for the Asset.
-	Id *string `pulumi:"id"`
 	// The ID of the PackagingGroup for the Asset.
 	PackagingGroupId *string `pulumi:"packagingGroupId"`
 	// The resource ID to include in SPEKE key requests.
@@ -45,8 +42,6 @@ type LookupAssetResult struct {
 	SourceArn *string `pulumi:"sourceArn"`
 	// The IAM role_arn used to access the source S3 bucket.
 	SourceRoleArn *string `pulumi:"sourceRoleArn"`
-	// A collection of tags associated with a resource
-	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAssetOutput(ctx *pulumi.Context, args LookupAssetOutputArgs, opts ...pulumi.InvokeOption) LookupAssetResultOutput {
@@ -96,11 +91,6 @@ func (o LookupAssetResultOutput) EgressEndpoints() AssetEgressEndpointArrayOutpu
 	return o.ApplyT(func(v LookupAssetResult) []AssetEgressEndpoint { return v.EgressEndpoints }).(AssetEgressEndpointArrayOutput)
 }
 
-// The unique identifier for the Asset.
-func (o LookupAssetResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAssetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
 // The ID of the PackagingGroup for the Asset.
 func (o LookupAssetResultOutput) PackagingGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssetResult) *string { return v.PackagingGroupId }).(pulumi.StringPtrOutput)
@@ -119,11 +109,6 @@ func (o LookupAssetResultOutput) SourceArn() pulumi.StringPtrOutput {
 // The IAM role_arn used to access the source S3 bucket.
 func (o LookupAssetResultOutput) SourceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssetResult) *string { return v.SourceRoleArn }).(pulumi.StringPtrOutput)
-}
-
-// A collection of tags associated with a resource
-func (o LookupAssetResultOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v LookupAssetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

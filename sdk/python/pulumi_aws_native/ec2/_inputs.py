@@ -41,12 +41,16 @@ __all__ = [
     'Ec2FleetBaselineEbsBandwidthMbpsRequestArgsDict',
     'Ec2FleetBaselinePerformanceFactorsRequestArgs',
     'Ec2FleetBaselinePerformanceFactorsRequestArgsDict',
+    'Ec2FleetBlockDeviceMappingArgs',
+    'Ec2FleetBlockDeviceMappingArgsDict',
     'Ec2FleetCapacityRebalanceArgs',
     'Ec2FleetCapacityRebalanceArgsDict',
     'Ec2FleetCapacityReservationOptionsRequestArgs',
     'Ec2FleetCapacityReservationOptionsRequestArgsDict',
     'Ec2FleetCpuPerformanceFactorRequestArgs',
     'Ec2FleetCpuPerformanceFactorRequestArgsDict',
+    'Ec2FleetEbsBlockDeviceArgs',
+    'Ec2FleetEbsBlockDeviceArgsDict',
     'Ec2FleetFleetLaunchTemplateConfigRequestArgs',
     'Ec2FleetFleetLaunchTemplateConfigRequestArgsDict',
     'Ec2FleetFleetLaunchTemplateOverridesRequestArgs',
@@ -1129,6 +1133,68 @@ class Ec2FleetBaselinePerformanceFactorsRequestArgs:
 
 
 if not MYPY:
+    class Ec2FleetBlockDeviceMappingArgsDict(TypedDict):
+        device_name: NotRequired[pulumi.Input[builtins.str]]
+        ebs: NotRequired[pulumi.Input['Ec2FleetEbsBlockDeviceArgsDict']]
+        no_device: NotRequired[pulumi.Input[builtins.str]]
+        virtual_name: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    Ec2FleetBlockDeviceMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class Ec2FleetBlockDeviceMappingArgs:
+    def __init__(__self__, *,
+                 device_name: Optional[pulumi.Input[builtins.str]] = None,
+                 ebs: Optional[pulumi.Input['Ec2FleetEbsBlockDeviceArgs']] = None,
+                 no_device: Optional[pulumi.Input[builtins.str]] = None,
+                 virtual_name: Optional[pulumi.Input[builtins.str]] = None):
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Optional[pulumi.Input['Ec2FleetEbsBlockDeviceArgs']]:
+        return pulumi.get(self, "ebs")
+
+    @ebs.setter
+    def ebs(self, value: Optional[pulumi.Input['Ec2FleetEbsBlockDeviceArgs']]):
+        pulumi.set(self, "ebs", value)
+
+    @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "no_device")
+
+    @no_device.setter
+    def no_device(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "no_device", value)
+
+    @property
+    @pulumi.getter(name="virtualName")
+    def virtual_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "virtual_name")
+
+    @virtual_name.setter
+    def virtual_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "virtual_name", value)
+
+
+if not MYPY:
     class Ec2FleetCapacityRebalanceArgsDict(TypedDict):
         replacement_strategy: NotRequired[pulumi.Input['Ec2FleetCapacityRebalanceReplacementStrategy']]
         """
@@ -1293,6 +1359,107 @@ class Ec2FleetCpuPerformanceFactorRequestArgs:
 
 
 if not MYPY:
+    class Ec2FleetEbsBlockDeviceArgsDict(TypedDict):
+        delete_on_termination: NotRequired[pulumi.Input[builtins.bool]]
+        encrypted: NotRequired[pulumi.Input[builtins.bool]]
+        iops: NotRequired[pulumi.Input[builtins.int]]
+        kms_key_id: NotRequired[pulumi.Input[builtins.str]]
+        snapshot_id: NotRequired[pulumi.Input[builtins.str]]
+        volume_size: NotRequired[pulumi.Input[builtins.int]]
+        volume_type: NotRequired[pulumi.Input['Ec2FleetEbsBlockDeviceVolumeType']]
+elif False:
+    Ec2FleetEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class Ec2FleetEbsBlockDeviceArgs:
+    def __init__(__self__, *,
+                 delete_on_termination: Optional[pulumi.Input[builtins.bool]] = None,
+                 encrypted: Optional[pulumi.Input[builtins.bool]] = None,
+                 iops: Optional[pulumi.Input[builtins.int]] = None,
+                 kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
+                 volume_size: Optional[pulumi.Input[builtins.int]] = None,
+                 volume_type: Optional[pulumi.Input['Ec2FleetEbsBlockDeviceVolumeType']] = None):
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "delete_on_termination")
+
+    @delete_on_termination.setter
+    def delete_on_termination(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "delete_on_termination", value)
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "encrypted")
+
+    @encrypted.setter
+    def encrypted(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "encrypted", value)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "iops")
+
+    @iops.setter
+    def iops(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "snapshot_id")
+
+    @snapshot_id.setter
+    def snapshot_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "snapshot_id", value)
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "volume_size")
+
+    @volume_size.setter
+    def volume_size(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "volume_size", value)
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional[pulumi.Input['Ec2FleetEbsBlockDeviceVolumeType']]:
+        return pulumi.get(self, "volume_type")
+
+    @volume_type.setter
+    def volume_type(self, value: Optional[pulumi.Input['Ec2FleetEbsBlockDeviceVolumeType']]):
+        pulumi.set(self, "volume_type", value)
+
+
+if not MYPY:
     class Ec2FleetFleetLaunchTemplateConfigRequestArgsDict(TypedDict):
         launch_template_specification: NotRequired[pulumi.Input['Ec2FleetFleetLaunchTemplateSpecificationRequestArgsDict']]
         """
@@ -1356,6 +1523,7 @@ if not MYPY:
         """
         The Availability Zone in which to launch the instances.
         """
+        block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetBlockDeviceMappingArgsDict']]]]
         instance_requirements: NotRequired[pulumi.Input['Ec2FleetInstanceRequirementsRequestArgsDict']]
         """
         The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
@@ -1411,6 +1579,7 @@ elif False:
 class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
+                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetBlockDeviceMappingArgs']]]] = None,
                  instance_requirements: Optional[pulumi.Input['Ec2FleetInstanceRequirementsRequestArgs']] = None,
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  max_price: Optional[pulumi.Input[builtins.str]] = None,
@@ -1450,6 +1619,8 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
         """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if block_device_mappings is not None:
+            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
@@ -1476,6 +1647,15 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="blockDeviceMappings")
+    def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetBlockDeviceMappingArgs']]]]:
+        return pulumi.get(self, "block_device_mappings")
+
+    @block_device_mappings.setter
+    def block_device_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetBlockDeviceMappingArgs']]]]):
+        pulumi.set(self, "block_device_mappings", value)
 
     @property
     @pulumi.getter(name="instanceRequirements")

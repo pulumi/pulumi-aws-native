@@ -5,6 +5,7 @@ AWS::NimbleStudio::LaunchProfile
 AWS::NimbleStudio::StreamingImage
 AWS::NimbleStudio::Studio
 AWS::NimbleStudio::StudioComponent
+AWS::OpsWorksCM::Server
 AWS::SNS::TopicPolicy
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get

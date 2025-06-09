@@ -380,7 +380,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "mediapackage-vod:TagResource", "mediapackage-vod:UntagResource", "mediapackage-vod:ListTagsForResource" ]
   },
   "additionalProperties" : false,
   "required" : [ "PackagingGroupId", "Id" ],

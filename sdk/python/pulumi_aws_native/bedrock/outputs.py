@@ -6533,6 +6533,11 @@ class FlowNodeInput(dict):
         :param builtins.str expression: Expression for a node input in a flow
         :param builtins.str name: Name of a node input in a flow
         :param 'FlowNodeIoDataType' type: Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
+        :param 'FlowNodeInputCategory' category: Specifies how input data flows between iterations in a DoWhile loop.
+               
+               - `LoopCondition` - Controls whether the loop continues by evaluating condition expressions against the input data. Use this category to define the condition that determines if the loop should continue.
+               - `ReturnValueToLoopStart` - Defines data to pass back to the start of the loop's next iteration. Use this category for variables that you want to update for each loop iteration.
+               - `ExitLoop` - Defines the value that's available once the loop ends. Use this category to expose loop results to nodes outside the loop.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
@@ -6567,6 +6572,13 @@ class FlowNodeInput(dict):
     @property
     @pulumi.getter
     def category(self) -> Optional['FlowNodeInputCategory']:
+        """
+        Specifies how input data flows between iterations in a DoWhile loop.
+
+        - `LoopCondition` - Controls whether the loop continues by evaluating condition expressions against the input data. Use this category to define the condition that determines if the loop should continue.
+        - `ReturnValueToLoopStart` - Defines data to pass back to the start of the loop's next iteration. Use this category for variables that you want to update for each loop iteration.
+        - `ExitLoop` - Defines the value that's available once the loop ends. Use this category to expose loop results to nodes outside the loop.
+        """
         return pulumi.get(self, "category")
 
 

@@ -11,6 +11,8 @@ const (
 	RegionAfSouth1 = Region("af-south-1")
 	// Asia Pacific (Hong Kong)
 	RegionApEast1 = Region("ap-east-1")
+	// Asia Pacific (Taipei)
+	RegionApEast2 = Region("ap-east-2")
 	// Asia Pacific (Tokyo)
 	RegionApNortheast1 = Region("ap-northeast-1")
 	// Asia Pacific (Seoul)

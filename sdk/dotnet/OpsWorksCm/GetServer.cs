@@ -33,11 +33,8 @@ namespace Pulumi.AwsNative.OpsWorksCm
 
     public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
-        /// </summary>
-        [Input("serverName", required: true)]
-        public string ServerName { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetServerArgs()
         {
@@ -47,11 +44,8 @@ namespace Pulumi.AwsNative.OpsWorksCm
 
     public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
-        /// </summary>
-        [Input("serverName", required: true)]
-        public Input<string> ServerName { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetServerInvokeArgs()
         {
@@ -80,6 +74,18 @@ namespace Pulumi.AwsNative.OpsWorksCm
         /// </summary>
         public readonly string? Endpoint;
         /// <summary>
+        /// Optional engine attributes on a specified server.
+        /// 
+        /// **Attributes accepted in a Chef createServer request:** - `CHEF_AUTOMATE_PIVOTAL_KEY` : A base64-encoded RSA public key. The corresponding private key is required to access the Chef API. When no CHEF_AUTOMATE_PIVOTAL_KEY is set, a private key is generated and returned in the response. When you are specifying the value of CHEF_AUTOMATE_PIVOTAL_KEY as a parameter in the AWS CloudFormation console, you must add newline ( `\n` ) characters at the end of each line of the pivotal key value.
+        /// - `CHEF_AUTOMATE_ADMIN_PASSWORD` : The password for the administrative user in the Chef Automate web-based dashboard. The password length is a minimum of eight characters, and a maximum of 32. The password can contain letters, numbers, and special characters (!/@#$%^&amp;+=_). The password must contain at least one lower case letter, one upper case letter, one number, and one special character. When no CHEF_AUTOMATE_ADMIN_PASSWORD is set, one is generated and returned in the response.
+        /// 
+        /// **Attributes accepted in a Puppet createServer request:** - `PUPPET_ADMIN_PASSWORD` : To work with the Puppet Enterprise console, a password must use ASCII characters.
+        /// - `PUPPET_R10K_REMOTE` : The r10k remote is the URL of your control repository (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k remote opens TCP port 8170.
+        /// - `PUPPET_R10K_PRIVATE_KEY` : If you are using a private Git repository, add PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded private SSH key.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServerEngineAttribute> EngineAttributes;
+        public readonly string? Id;
+        /// <summary>
         /// The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
         /// 
         /// - `HH:MM` for daily backups
@@ -98,6 +104,20 @@ namespace Pulumi.AwsNative.OpsWorksCm
         /// *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
         /// </summary>
         public readonly string? PreferredMaintenanceWindow;
+        /// <summary>
+        /// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
+        /// </summary>
+        public readonly string? ServerName;
+        /// <summary>
+        /// A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.
+        /// 
+        /// - The key cannot be empty.
+        /// - The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : / @`
+        /// - The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : / @`
+        /// - Leading and trailing spaces are trimmed from both the key and value.
+        /// - A maximum of 50 user-applied tags is allowed for any AWS OpsWorks CM server.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetServerResult(
@@ -109,16 +129,28 @@ namespace Pulumi.AwsNative.OpsWorksCm
 
             string? endpoint,
 
+            ImmutableArray<Outputs.ServerEngineAttribute> engineAttributes,
+
+            string? id,
+
             string? preferredBackupWindow,
 
-            string? preferredMaintenanceWindow)
+            string? preferredMaintenanceWindow,
+
+            string? serverName,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             BackupRetentionCount = backupRetentionCount;
             DisableAutomatedBackup = disableAutomatedBackup;
             Endpoint = endpoint;
+            EngineAttributes = engineAttributes;
+            Id = id;
             PreferredBackupWindow = preferredBackupWindow;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
+            ServerName = serverName;
+            Tags = tags;
         }
     }
 }

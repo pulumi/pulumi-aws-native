@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetServerResult',
@@ -24,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServerResult:
-    def __init__(__self__, arn=None, backup_retention_count=None, disable_automated_backup=None, endpoint=None, preferred_backup_window=None, preferred_maintenance_window=None):
+    def __init__(__self__, arn=None, backup_retention_count=None, disable_automated_backup=None, endpoint=None, engine_attributes=None, id=None, preferred_backup_window=None, preferred_maintenance_window=None, server_name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,12 +39,24 @@ class GetServerResult:
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if engine_attributes and not isinstance(engine_attributes, list):
+            raise TypeError("Expected argument 'engine_attributes' to be a list")
+        pulumi.set(__self__, "engine_attributes", engine_attributes)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if preferred_backup_window and not isinstance(preferred_backup_window, str):
             raise TypeError("Expected argument 'preferred_backup_window' to be a str")
         pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window and not isinstance(preferred_maintenance_window, str):
             raise TypeError("Expected argument 'preferred_maintenance_window' to be a str")
         pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if server_name and not isinstance(server_name, str):
+            raise TypeError("Expected argument 'server_name' to be a str")
+        pulumi.set(__self__, "server_name", server_name)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -77,6 +91,26 @@ class GetServerResult:
         return pulumi.get(self, "endpoint")
 
     @property
+    @pulumi.getter(name="engineAttributes")
+    def engine_attributes(self) -> Optional[Sequence['outputs.ServerEngineAttribute']]:
+        """
+        Optional engine attributes on a specified server.
+
+        **Attributes accepted in a Chef createServer request:** - `CHEF_AUTOMATE_PIVOTAL_KEY` : A base64-encoded RSA public key. The corresponding private key is required to access the Chef API. When no CHEF_AUTOMATE_PIVOTAL_KEY is set, a private key is generated and returned in the response. When you are specifying the value of CHEF_AUTOMATE_PIVOTAL_KEY as a parameter in the AWS CloudFormation console, you must add newline ( `\\n` ) characters at the end of each line of the pivotal key value.
+        - `CHEF_AUTOMATE_ADMIN_PASSWORD` : The password for the administrative user in the Chef Automate web-based dashboard. The password length is a minimum of eight characters, and a maximum of 32. The password can contain letters, numbers, and special characters (!/@#$%^&+=_). The password must contain at least one lower case letter, one upper case letter, one number, and one special character. When no CHEF_AUTOMATE_ADMIN_PASSWORD is set, one is generated and returned in the response.
+
+        **Attributes accepted in a Puppet createServer request:** - `PUPPET_ADMIN_PASSWORD` : To work with the Puppet Enterprise console, a password must use ASCII characters.
+        - `PUPPET_R10K_REMOTE` : The r10k remote is the URL of your control repository (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k remote opens TCP port 8170.
+        - `PUPPET_R10K_PRIVATE_KEY` : If you are using a private Git repository, add PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded private SSH key.
+        """
+        return pulumi.get(self, "engine_attributes")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[builtins.str]:
         """
@@ -103,6 +137,28 @@ class GetServerResult:
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[builtins.str]:
+        """
+        The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.
+
+        - The key cannot be empty.
+        - The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : / @`
+        - The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : / @`
+        - Leading and trailing spaces are trimmed from both the key and value.
+        - A maximum of 50 user-applied tags is allowed for any AWS OpsWorks CM server.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetServerResult(GetServerResult):
     # pylint: disable=using-constant-test
@@ -114,20 +170,21 @@ class AwaitableGetServerResult(GetServerResult):
             backup_retention_count=self.backup_retention_count,
             disable_automated_backup=self.disable_automated_backup,
             endpoint=self.endpoint,
+            engine_attributes=self.engine_attributes,
+            id=self.id,
             preferred_backup_window=self.preferred_backup_window,
-            preferred_maintenance_window=self.preferred_maintenance_window)
+            preferred_maintenance_window=self.preferred_maintenance_window,
+            server_name=self.server_name,
+            tags=self.tags)
 
 
-def get_server(server_name: Optional[builtins.str] = None,
+def get_server(id: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
     Resource Type definition for AWS::OpsWorksCM::Server
-
-
-    :param builtins.str server_name: The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
     """
     __args__ = dict()
-    __args__['serverName'] = server_name
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:opsworkscm:getServer', __args__, opts=opts, typ=GetServerResult).value
 
@@ -136,18 +193,19 @@ def get_server(server_name: Optional[builtins.str] = None,
         backup_retention_count=pulumi.get(__ret__, 'backup_retention_count'),
         disable_automated_backup=pulumi.get(__ret__, 'disable_automated_backup'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
+        engine_attributes=pulumi.get(__ret__, 'engine_attributes'),
+        id=pulumi.get(__ret__, 'id'),
         preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
-        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'))
-def get_server_output(server_name: Optional[pulumi.Input[builtins.str]] = None,
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        server_name=pulumi.get(__ret__, 'server_name'),
+        tags=pulumi.get(__ret__, 'tags'))
+def get_server_output(id: Optional[pulumi.Input[builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Resource Type definition for AWS::OpsWorksCM::Server
-
-
-    :param builtins.str server_name: The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
     """
     __args__ = dict()
-    __args__['serverName'] = server_name
+    __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:opsworkscm:getServer', __args__, opts=opts, typ=GetServerResult)
     return __ret__.apply(lambda __response__: GetServerResult(
@@ -155,5 +213,9 @@ def get_server_output(server_name: Optional[pulumi.Input[builtins.str]] = None,
         backup_retention_count=pulumi.get(__response__, 'backup_retention_count'),
         disable_automated_backup=pulumi.get(__response__, 'disable_automated_backup'),
         endpoint=pulumi.get(__response__, 'endpoint'),
+        engine_attributes=pulumi.get(__response__, 'engine_attributes'),
+        id=pulumi.get(__response__, 'id'),
         preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
-        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window')))
+        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
+        server_name=pulumi.get(__response__, 'server_name'),
+        tags=pulumi.get(__response__, 'tags')))

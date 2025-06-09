@@ -2065,7 +2065,7 @@ type MethodIntegration struct {
 	RequestParameters map[string]string `pulumi:"requestParameters"`
 	// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
 	RequestTemplates map[string]string `pulumi:"requestTemplates"`
-	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
+	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
 	TimeoutInMillis *int `pulumi:"timeoutInMillis"`
 	// Specifies an API method integration type. The valid value is one of the following:
 	//
@@ -2114,7 +2114,7 @@ type MethodIntegrationArgs struct {
 	RequestParameters pulumi.StringMapInput `pulumi:"requestParameters"`
 	// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
 	RequestTemplates pulumi.StringMapInput `pulumi:"requestTemplates"`
-	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
+	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
 	TimeoutInMillis pulumi.IntPtrInput `pulumi:"timeoutInMillis"`
 	// Specifies an API method integration type. The valid value is one of the following:
 	//
@@ -2261,7 +2261,7 @@ func (o MethodIntegrationOutput) RequestTemplates() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MethodIntegration) map[string]string { return v.RequestTemplates }).(pulumi.StringMapOutput)
 }
 
-// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
+// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
 func (o MethodIntegrationOutput) TimeoutInMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *int { return v.TimeoutInMillis }).(pulumi.IntPtrOutput)
 }
@@ -2416,7 +2416,7 @@ func (o MethodIntegrationPtrOutput) RequestTemplates() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
+// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
 func (o MethodIntegrationPtrOutput) TimeoutInMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *int {
 		if v == nil {

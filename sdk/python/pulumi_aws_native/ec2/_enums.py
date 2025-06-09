@@ -11,6 +11,7 @@ __all__ = [
     'CapacityReservationFleetTenancy',
     'Ec2FleetCapacityRebalanceReplacementStrategy',
     'Ec2FleetCapacityReservationOptionsRequestUsageStrategy',
+    'Ec2FleetEbsBlockDeviceVolumeType',
     'Ec2FleetExcessCapacityTerminationPolicy',
     'Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem',
     'Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem',
@@ -137,6 +138,17 @@ class Ec2FleetCapacityReservationOptionsRequestUsageStrategy(builtins.str, Enum)
     If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
     """
     USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first"
+
+
+@pulumi.type_token("aws-native:ec2:Ec2FleetEbsBlockDeviceVolumeType")
+class Ec2FleetEbsBlockDeviceVolumeType(builtins.str, Enum):
+    GP2 = "gp2"
+    GP3 = "gp3"
+    IO1 = "io1"
+    IO2 = "io2"
+    SC1 = "sc1"
+    ST1 = "st1"
+    STANDARD = "standard"
 
 
 @pulumi.type_token("aws-native:ec2:Ec2FleetExcessCapacityTerminationPolicy")

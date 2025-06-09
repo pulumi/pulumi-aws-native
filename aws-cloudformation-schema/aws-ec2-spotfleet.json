@@ -808,5 +808,8 @@
     "update" : {
       "permissions" : [ "ec2:ModifySpotFleetRequest", "ec2:DescribeSpotFleetRequests" ]
     }
+  },
+  "tagging" : {
+    "taggable" : false
   }
 }

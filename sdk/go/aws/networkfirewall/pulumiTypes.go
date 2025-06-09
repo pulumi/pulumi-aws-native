@@ -5858,6 +5858,74 @@ func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) ServerCer
 	}).(TlsInspectionConfigurationServerCertificateConfigurationArrayOutput)
 }
 
+type VpcEndpointAssociationSubnetMapping struct {
+	// A IPAddressType
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// A SubnetId.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// VpcEndpointAssociationSubnetMappingInput is an input type that accepts VpcEndpointAssociationSubnetMappingArgs and VpcEndpointAssociationSubnetMappingOutput values.
+// You can construct a concrete instance of `VpcEndpointAssociationSubnetMappingInput` via:
+//
+//	VpcEndpointAssociationSubnetMappingArgs{...}
+type VpcEndpointAssociationSubnetMappingInput interface {
+	pulumi.Input
+
+	ToVpcEndpointAssociationSubnetMappingOutput() VpcEndpointAssociationSubnetMappingOutput
+	ToVpcEndpointAssociationSubnetMappingOutputWithContext(context.Context) VpcEndpointAssociationSubnetMappingOutput
+}
+
+type VpcEndpointAssociationSubnetMappingArgs struct {
+	// A IPAddressType
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
+	// A SubnetId.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (VpcEndpointAssociationSubnetMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointAssociationSubnetMapping)(nil)).Elem()
+}
+
+func (i VpcEndpointAssociationSubnetMappingArgs) ToVpcEndpointAssociationSubnetMappingOutput() VpcEndpointAssociationSubnetMappingOutput {
+	return i.ToVpcEndpointAssociationSubnetMappingOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointAssociationSubnetMappingArgs) ToVpcEndpointAssociationSubnetMappingOutputWithContext(ctx context.Context) VpcEndpointAssociationSubnetMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointAssociationSubnetMappingOutput)
+}
+
+type VpcEndpointAssociationSubnetMappingOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointAssociationSubnetMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointAssociationSubnetMapping)(nil)).Elem()
+}
+
+func (o VpcEndpointAssociationSubnetMappingOutput) ToVpcEndpointAssociationSubnetMappingOutput() VpcEndpointAssociationSubnetMappingOutput {
+	return o
+}
+
+func (o VpcEndpointAssociationSubnetMappingOutput) ToVpcEndpointAssociationSubnetMappingOutputWithContext(ctx context.Context) VpcEndpointAssociationSubnetMappingOutput {
+	return o
+}
+
+// A IPAddressType
+func (o VpcEndpointAssociationSubnetMappingOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationSubnetMapping) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+// A SubnetId.
+func (o VpcEndpointAssociationSubnetMappingOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcEndpointAssociationSubnetMapping) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type VpcEndpointAssociationTag struct {
+	// The part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
+	Key string `pulumi:"key"`
+	// The part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyTypeInput)(nil)).Elem(), FirewallPolicyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyActionDefinitionInput)(nil)).Elem(), FirewallPolicyActionDefinitionArgs{})
@@ -5941,6 +6009,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateScopeInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateScopeArrayInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTlsInspectionConfigurationInput)(nil)).Elem(), TlsInspectionConfigurationTlsInspectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointAssociationSubnetMappingInput)(nil)).Elem(), VpcEndpointAssociationSubnetMappingArgs{})
 	pulumi.RegisterOutputType(FirewallPolicyTypeOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyActionDefinitionOutput{})
@@ -6026,4 +6095,5 @@ func init() {
 	pulumi.RegisterOutputType(TlsInspectionConfigurationServerCertificateScopeArrayOutput{})
 	pulumi.RegisterOutputType(TlsInspectionConfigurationTlsInspectionConfigurationOutput{})
 	pulumi.RegisterOutputType(TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointAssociationSubnetMappingOutput{})
 }

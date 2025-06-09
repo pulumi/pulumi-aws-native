@@ -42,7 +42,6 @@ class ServerArgs:
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 server_name: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -91,7 +90,6 @@ class ServerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups must be within the VPC that is specified by `SubnetIds` .
                
                If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
-        :param pulumi.Input[builtins.str] server_name: The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which to launch the server EC2 instance.
                
                Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.
@@ -140,8 +138,6 @@ class ServerArgs:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
@@ -390,18 +386,6 @@ class ServerArgs:
         pulumi.set(self, "security_group_ids", value)
 
     @property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
-        """
-        return pulumi.get(self, "server_name")
-
-    @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "server_name", value)
-
-    @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -461,7 +445,6 @@ class Server(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 server_name: Optional[pulumi.Input[builtins.str]] = None,
                  service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -562,7 +545,6 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups must be within the VPC that is specified by `SubnetIds` .
                
                If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
-        :param pulumi.Input[builtins.str] server_name: The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
         :param pulumi.Input[builtins.str] service_role_arn: The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which to launch the server EC2 instance.
                
@@ -668,7 +650,6 @@ class Server(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 server_name: Optional[pulumi.Input[builtins.str]] = None,
                  service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -702,15 +683,16 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["security_group_ids"] = security_group_ids
-            __props__.__dict__["server_name"] = server_name
             if service_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role_arn'")
             __props__.__dict__["service_role_arn"] = service_role_arn
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["endpoint"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["associatePublicIpAddress", "backupId", "customCertificate", "customDomain", "customPrivateKey", "engine", "engineModel", "engineVersion", "instanceProfileArn", "instanceType", "keyPair", "securityGroupIds[*]", "serverName", "serviceRoleArn", "subnetIds[*]"])
+            __props__.__dict__["server_name"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["associatePublicIpAddress", "backupId", "customCertificate", "customDomain", "customPrivateKey", "engine", "engineModel", "engineVersion", "instanceProfileArn", "instanceType", "keyPair", "securityGroupIds[*]", "serviceRoleArn", "subnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Server, __self__).__init__(
             'aws-native:opsworkscm:Server',
@@ -736,6 +718,7 @@ class Server(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["associate_public_ip_address"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["backup_id"] = None
         __props__.__dict__["backup_retention_count"] = None
         __props__.__dict__["custom_certificate"] = None
@@ -774,6 +757,11 @@ class Server(pulumi.CustomResource):
         Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
         """
         return pulumi.get(self, "associate_public_ip_address")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="backupId")

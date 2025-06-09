@@ -24,6 +24,10 @@ class Region(builtins.str, Enum):
     """
     Asia Pacific (Hong Kong)
     """
+    AP_EAST2 = "ap-east-2"
+    """
+    Asia Pacific (Taipei)
+    """
     AP_NORTHEAST1 = "ap-northeast-1"
     """
     Asia Pacific (Tokyo)

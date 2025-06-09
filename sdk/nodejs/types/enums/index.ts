@@ -368,6 +368,10 @@ export const Region = {
      */
     ApEast1: "ap-east-1",
     /**
+     * Asia Pacific (Taipei)
+     */
+    ApEast2: "ap-east-2",
+    /**
      * Asia Pacific (Tokyo)
      */
     ApNortheast1: "ap-northeast-1",

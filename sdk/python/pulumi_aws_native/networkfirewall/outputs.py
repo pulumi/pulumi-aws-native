@@ -63,6 +63,7 @@ __all__ = [
     'TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties',
     'TlsInspectionConfigurationServerCertificateScope',
     'TlsInspectionConfigurationTlsInspectionConfiguration',
+    'VpcEndpointAssociationSubnetMapping',
 ]
 
 @pulumi.output_type
@@ -2421,5 +2422,54 @@ class TlsInspectionConfigurationTlsInspectionConfiguration(dict):
         Lists the server certificate configurations that are associated with the TLS configuration.
         """
         return pulumi.get(self, "server_certificate_configurations")
+
+
+@pulumi.output_type
+class VpcEndpointAssociationSubnetMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcEndpointAssociationSubnetMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcEndpointAssociationSubnetMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcEndpointAssociationSubnetMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_id: builtins.str,
+                 ip_address_type: Optional[builtins.str] = None):
+        """
+        :param builtins.str subnet_id: A SubnetId.
+        :param builtins.str ip_address_type: A IPAddressType
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> builtins.str:
+        """
+        A SubnetId.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[builtins.str]:
+        """
+        A IPAddressType
+        """
+        return pulumi.get(self, "ip_address_type")
 
 

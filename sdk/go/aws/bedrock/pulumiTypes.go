@@ -21024,6 +21024,11 @@ func (o FlowNodeConfiguration9PropertiesPtrOutput) Iterator() FlowIteratorFlowNo
 
 // Input to a node in a flow
 type FlowNodeInputType struct {
+	// Specifies how input data flows between iterations in a DoWhile loop.
+	//
+	// - `LoopCondition` - Controls whether the loop continues by evaluating condition expressions against the input data. Use this category to define the condition that determines if the loop should continue.
+	// - `ReturnValueToLoopStart` - Defines data to pass back to the start of the loop's next iteration. Use this category for variables that you want to update for each loop iteration.
+	// - `ExitLoop` - Defines the value that's available once the loop ends. Use this category to expose loop results to nodes outside the loop.
 	Category *FlowNodeInputCategory `pulumi:"category"`
 	// Expression for a node input in a flow
 	Expression string `pulumi:"expression"`
@@ -21046,6 +21051,11 @@ type FlowNodeInputTypeInput interface {
 
 // Input to a node in a flow
 type FlowNodeInputTypeArgs struct {
+	// Specifies how input data flows between iterations in a DoWhile loop.
+	//
+	// - `LoopCondition` - Controls whether the loop continues by evaluating condition expressions against the input data. Use this category to define the condition that determines if the loop should continue.
+	// - `ReturnValueToLoopStart` - Defines data to pass back to the start of the loop's next iteration. Use this category for variables that you want to update for each loop iteration.
+	// - `ExitLoop` - Defines the value that's available once the loop ends. Use this category to expose loop results to nodes outside the loop.
 	Category FlowNodeInputCategoryPtrInput `pulumi:"category"`
 	// Expression for a node input in a flow
 	Expression pulumi.StringInput `pulumi:"expression"`
@@ -21107,6 +21117,11 @@ func (o FlowNodeInputTypeOutput) ToFlowNodeInputTypeOutputWithContext(ctx contex
 	return o
 }
 
+// Specifies how input data flows between iterations in a DoWhile loop.
+//
+// - `LoopCondition` - Controls whether the loop continues by evaluating condition expressions against the input data. Use this category to define the condition that determines if the loop should continue.
+// - `ReturnValueToLoopStart` - Defines data to pass back to the start of the loop's next iteration. Use this category for variables that you want to update for each loop iteration.
+// - `ExitLoop` - Defines the value that's available once the loop ends. Use this category to expose loop results to nodes outside the loop.
 func (o FlowNodeInputTypeOutput) Category() FlowNodeInputCategoryPtrOutput {
 	return o.ApplyT(func(v FlowNodeInputType) *FlowNodeInputCategory { return v.Category }).(FlowNodeInputCategoryPtrOutput)
 }

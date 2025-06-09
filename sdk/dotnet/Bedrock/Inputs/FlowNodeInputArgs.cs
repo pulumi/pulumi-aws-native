@@ -15,6 +15,13 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class FlowNodeInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies how input data flows between iterations in a DoWhile loop.
+        /// 
+        /// - `LoopCondition` - Controls whether the loop continues by evaluating condition expressions against the input data. Use this category to define the condition that determines if the loop should continue.
+        /// - `ReturnValueToLoopStart` - Defines data to pass back to the start of the loop's next iteration. Use this category for variables that you want to update for each loop iteration.
+        /// - `ExitLoop` - Defines the value that's available once the loop ends. Use this category to expose loop results to nodes outside the loop.
+        /// </summary>
         [Input("category")]
         public Input<Pulumi.AwsNative.Bedrock.FlowNodeInputCategory>? Category { get; set; }
 

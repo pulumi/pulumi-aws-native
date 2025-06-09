@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? RequestTemplates;
         /// <summary>
-        /// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
+        /// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
         /// </summary>
         public readonly int? TimeoutInMillis;
         /// <summary>

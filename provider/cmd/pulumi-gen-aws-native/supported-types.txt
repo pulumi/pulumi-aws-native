@@ -798,6 +798,7 @@ AWS::NetworkFirewall::FirewallPolicy
 AWS::NetworkFirewall::LoggingConfiguration
 AWS::NetworkFirewall::RuleGroup
 AWS::NetworkFirewall::TLSInspectionConfiguration
+AWS::NetworkFirewall::VpcEndpointAssociation
 AWS::NetworkManager::ConnectAttachment
 AWS::NetworkManager::ConnectPeer
 AWS::NetworkManager::CoreNetwork
