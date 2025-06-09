@@ -8,6 +8,10 @@
     "description": "Asia Pacific (Hong Kong)"
   },
   {
+    "name": "ap-east-2",
+    "description": "Asia Pacific (Taipei)"
+  },
+  {
     "name": "ap-northeast-1",
     "description": "Asia Pacific (Tokyo)"
   },
