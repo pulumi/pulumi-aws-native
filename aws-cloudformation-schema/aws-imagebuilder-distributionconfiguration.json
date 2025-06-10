@@ -315,20 +315,21 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
   },
   "handlers" : {
     "create" : {
       "permissions" : [ "iam:GetRole", "iam:CreateServiceLinkedRole", "ec2:DescribeLaunchTemplates", "ec2:CreateLaunchTemplateVersion", "ec2:ModifyLaunchTemplate", "ssm:GetParameter", "imagebuilder:TagResource", "imagebuilder:GetDistributionConfiguration", "imagebuilder:CreateDistributionConfiguration" ]
     },
     "update" : {
-      "permissions" : [ "ec2:DescribeLaunchTemplates", "ec2:CreateLaunchTemplateVersion", "ec2:ModifyLaunchTemplate", "ssm:GetParameter", "imagebuilder:GetDistributionConfiguration", "imagebuilder:UpdateDistributionConfiguration" ]
+      "permissions" : [ "ec2:DescribeLaunchTemplates", "ec2:CreateLaunchTemplateVersion", "ec2:ModifyLaunchTemplate", "ssm:GetParameter", "imagebuilder:GetDistributionConfiguration", "imagebuilder:UpdateDistributionConfiguration", "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetDistributionConfiguration" ]
     },
     "delete" : {
-      "permissions" : [ "imagebuilder:GetDistributionConfiguration", "imagebuilder:UnTagResource", "imagebuilder:DeleteDistributionConfiguration" ]
+      "permissions" : [ "imagebuilder:GetDistributionConfiguration", "imagebuilder:UntagResource", "imagebuilder:DeleteDistributionConfiguration" ]
     },
     "list" : {
       "permissions" : [ "imagebuilder:ListDistributionConfigurations" ]

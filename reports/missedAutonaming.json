@@ -7197,6 +7197,12 @@
         "type": "string",
         "description": "Valid IPv4 address within the address range of the specified subnet."
       },
+      "ipAddressType": {
+        "$ref": "#/types/aws-native:efs:MountTargetIpAddressType"
+      },
+      "ipv6Address": {
+        "type": "string"
+      },
       "securityGroups": {
         "type": "array",
         "items": {
@@ -7259,6 +7265,10 @@
         "type": "string",
         "description": "The cluster that the pod identity association is created for."
       },
+      "disableSessionTags": {
+        "type": "boolean",
+        "description": "The Disable Session Tags of the pod identity association."
+      },
       "namespace": {
         "type": "string",
         "description": "The Kubernetes namespace that the pod identity association is created for."
@@ -7277,6 +7287,10 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to this resource."
+      },
+      "targetRoleArn": {
+        "type": "string",
+        "description": "The Target Role Arn of the pod identity association."
       }
     }
   },
@@ -10209,6 +10223,9 @@
   "aws-native:networkfirewall:LoggingConfiguration": {
     "cfTypeName": "AWS::NetworkFirewall::LoggingConfiguration",
     "properties": {
+      "enableMonitoringDashboard": {
+        "type": "boolean"
+      },
       "firewallArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration."
