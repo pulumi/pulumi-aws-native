@@ -681,6 +681,7 @@ func (in *ec2FleetCapacityReservationOptionsRequestUsageStrategyPtr) ToEc2FleetC
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
 }
 
+// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
 type Ec2FleetEbsBlockDeviceVolumeType string
 
 const (

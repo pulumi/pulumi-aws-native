@@ -35,6 +35,12 @@ namespace Pulumi.AwsNative.Efs
         [Output("ipAddress")]
         public Output<string?> IpAddress { get; private set; } = null!;
 
+        [Output("ipAddressType")]
+        public Output<Pulumi.AwsNative.Efs.MountTargetIpAddressType?> IpAddressType { get; private set; } = null!;
+
+        [Output("ipv6Address")]
+        public Output<string?> Ipv6Address { get; private set; } = null!;
+
         /// <summary>
         /// VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
         /// </summary>
@@ -74,6 +80,8 @@ namespace Pulumi.AwsNative.Efs
                 {
                     "fileSystemId",
                     "ipAddress",
+                    "ipAddressType",
+                    "ipv6Address",
                     "subnetId",
                 },
             };
@@ -109,6 +117,12 @@ namespace Pulumi.AwsNative.Efs
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
+
+        [Input("ipAddressType")]
+        public Input<Pulumi.AwsNative.Efs.MountTargetIpAddressType>? IpAddressType { get; set; }
+
+        [Input("ipv6Address")]
+        public Input<string>? Ipv6Address { get; set; }
 
         [Input("securityGroups", required: true)]
         private InputList<string>? _securityGroups;

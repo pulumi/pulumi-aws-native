@@ -1847,10 +1847,18 @@ func (o Ec2FleetBaselinePerformanceFactorsRequestPtrOutput) Cpu() Ec2FleetCpuPer
 }
 
 type Ec2FleetBlockDeviceMapping struct {
-	DeviceName  *string                 `pulumi:"deviceName"`
-	Ebs         *Ec2FleetEbsBlockDevice `pulumi:"ebs"`
-	NoDevice    *string                 `pulumi:"noDevice"`
-	VirtualName *string                 `pulumi:"virtualName"`
+	// The device name (for example, `/dev/sdh` or `xvdh` ).
+	DeviceName *string `pulumi:"deviceName"`
+	// Parameters used to automatically set up EBS volumes when the instance is launched.
+	Ebs *Ec2FleetEbsBlockDevice `pulumi:"ebs"`
+	// To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
+	NoDevice *string `pulumi:"noDevice"`
+	// The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+	//
+	// NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+	//
+	// Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+	VirtualName *string `pulumi:"virtualName"`
 }
 
 // Ec2FleetBlockDeviceMappingInput is an input type that accepts Ec2FleetBlockDeviceMappingArgs and Ec2FleetBlockDeviceMappingOutput values.
@@ -1865,10 +1873,18 @@ type Ec2FleetBlockDeviceMappingInput interface {
 }
 
 type Ec2FleetBlockDeviceMappingArgs struct {
-	DeviceName  pulumi.StringPtrInput          `pulumi:"deviceName"`
-	Ebs         Ec2FleetEbsBlockDevicePtrInput `pulumi:"ebs"`
-	NoDevice    pulumi.StringPtrInput          `pulumi:"noDevice"`
-	VirtualName pulumi.StringPtrInput          `pulumi:"virtualName"`
+	// The device name (for example, `/dev/sdh` or `xvdh` ).
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// Parameters used to automatically set up EBS volumes when the instance is launched.
+	Ebs Ec2FleetEbsBlockDevicePtrInput `pulumi:"ebs"`
+	// To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
+	NoDevice pulumi.StringPtrInput `pulumi:"noDevice"`
+	// The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+	//
+	// NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+	//
+	// Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
 func (Ec2FleetBlockDeviceMappingArgs) ElementType() reflect.Type {
@@ -1922,18 +1938,26 @@ func (o Ec2FleetBlockDeviceMappingOutput) ToEc2FleetBlockDeviceMappingOutputWith
 	return o
 }
 
+// The device name (for example, `/dev/sdh` or `xvdh` ).
 func (o Ec2FleetBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
+// Parameters used to automatically set up EBS volumes when the instance is launched.
 func (o Ec2FleetBlockDeviceMappingOutput) Ebs() Ec2FleetEbsBlockDevicePtrOutput {
 	return o.ApplyT(func(v Ec2FleetBlockDeviceMapping) *Ec2FleetEbsBlockDevice { return v.Ebs }).(Ec2FleetEbsBlockDevicePtrOutput)
 }
 
+// To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
 func (o Ec2FleetBlockDeviceMappingOutput) NoDevice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetBlockDeviceMapping) *string { return v.NoDevice }).(pulumi.StringPtrOutput)
 }
 
+// The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+//
+// NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+//
+// Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
 func (o Ec2FleetBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -2459,13 +2483,53 @@ func (o Ec2FleetCpuPerformanceFactorRequestPtrOutput) References() Ec2FleetPerfo
 }
 
 type Ec2FleetEbsBlockDevice struct {
-	DeleteOnTermination *bool                             `pulumi:"deleteOnTermination"`
-	Encrypted           *bool                             `pulumi:"encrypted"`
-	Iops                *int                              `pulumi:"iops"`
-	KmsKeyId            *string                           `pulumi:"kmsKeyId"`
-	SnapshotId          *string                           `pulumi:"snapshotId"`
-	VolumeSize          *int                              `pulumi:"volumeSize"`
-	VolumeType          *Ec2FleetEbsBlockDeviceVolumeType `pulumi:"volumeType"`
+	// Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters) in the *Amazon EBS User Guide* .
+	//
+	// In no case can you remove encryption from an encrypted volume.
+	//
+	// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances) .
+	//
+	// This parameter is not returned by `DescribeImageAttribute` .
+	//
+	// For `CreateImage` and `RegisterImage` , whether you can include this parameter, and the allowed values differ depending on the type of block device mapping you are creating.
+	//
+	// - If you are creating a block device mapping for a *new (empty) volume* , you can include this parameter, and specify either `true` for an encrypted volume, or `false` for an unencrypted volume. If you omit this parameter, it defaults to `false` (unencrypted).
+	// - If you are creating a block device mapping from an *existing encrypted or unencrypted snapshot* , you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.
+	// - If you are creating a block device mapping from an *existing unencrypted volume* , you can include this parameter, but you must specify `false` . If you specify `true` , the request will fail. In this case, we recommend that you omit the parameter.
+	// - If you are creating a block device mapping from an *existing encrypted volume* , you can include this parameter, and specify either `true` or `false` . However, if you specify `false` , the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.
+	Encrypted *bool `pulumi:"encrypted"`
+	// The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+	//
+	// The following are the supported values for each volume type:
+	//
+	// - `gp3` : 3,000 - 16,000 IOPS
+	// - `io1` : 100 - 64,000 IOPS
+	// - `io2` : 100 - 256,000 IOPS
+	//
+	// For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+	//
+	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
+	Iops *int `pulumi:"iops"`
+	// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+	//
+	// This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The ID of the snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+	//
+	// The following are the supported sizes for each volume type:
+	//
+	// - `gp2` and `gp3` : 1 - 16,384 GiB
+	// - `io1` : 4 - 16,384 GiB
+	// - `io2` : 4 - 65,536 GiB
+	// - `st1` and `sc1` : 125 - 16,384 GiB
+	// - `standard` : 1 - 1024 GiB
+	VolumeSize *int `pulumi:"volumeSize"`
+	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+	VolumeType *Ec2FleetEbsBlockDeviceVolumeType `pulumi:"volumeType"`
 }
 
 // Ec2FleetEbsBlockDeviceInput is an input type that accepts Ec2FleetEbsBlockDeviceArgs and Ec2FleetEbsBlockDeviceOutput values.
@@ -2480,13 +2544,53 @@ type Ec2FleetEbsBlockDeviceInput interface {
 }
 
 type Ec2FleetEbsBlockDeviceArgs struct {
-	DeleteOnTermination pulumi.BoolPtrInput                      `pulumi:"deleteOnTermination"`
-	Encrypted           pulumi.BoolPtrInput                      `pulumi:"encrypted"`
-	Iops                pulumi.IntPtrInput                       `pulumi:"iops"`
-	KmsKeyId            pulumi.StringPtrInput                    `pulumi:"kmsKeyId"`
-	SnapshotId          pulumi.StringPtrInput                    `pulumi:"snapshotId"`
-	VolumeSize          pulumi.IntPtrInput                       `pulumi:"volumeSize"`
-	VolumeType          Ec2FleetEbsBlockDeviceVolumeTypePtrInput `pulumi:"volumeType"`
+	// Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters) in the *Amazon EBS User Guide* .
+	//
+	// In no case can you remove encryption from an encrypted volume.
+	//
+	// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances) .
+	//
+	// This parameter is not returned by `DescribeImageAttribute` .
+	//
+	// For `CreateImage` and `RegisterImage` , whether you can include this parameter, and the allowed values differ depending on the type of block device mapping you are creating.
+	//
+	// - If you are creating a block device mapping for a *new (empty) volume* , you can include this parameter, and specify either `true` for an encrypted volume, or `false` for an unencrypted volume. If you omit this parameter, it defaults to `false` (unencrypted).
+	// - If you are creating a block device mapping from an *existing encrypted or unencrypted snapshot* , you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.
+	// - If you are creating a block device mapping from an *existing unencrypted volume* , you can include this parameter, but you must specify `false` . If you specify `true` , the request will fail. In this case, we recommend that you omit the parameter.
+	// - If you are creating a block device mapping from an *existing encrypted volume* , you can include this parameter, and specify either `true` or `false` . However, if you specify `false` , the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+	//
+	// The following are the supported values for each volume type:
+	//
+	// - `gp3` : 3,000 - 16,000 IOPS
+	// - `io1` : 100 - 64,000 IOPS
+	// - `io2` : 100 - 256,000 IOPS
+	//
+	// For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+	//
+	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+	//
+	// This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The ID of the snapshot.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+	//
+	// The following are the supported sizes for each volume type:
+	//
+	// - `gp2` and `gp3` : 1 - 16,384 GiB
+	// - `io1` : 4 - 16,384 GiB
+	// - `io2` : 4 - 65,536 GiB
+	// - `st1` and `sc1` : 125 - 16,384 GiB
+	// - `standard` : 1 - 1024 GiB
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+	VolumeType Ec2FleetEbsBlockDeviceVolumeTypePtrInput `pulumi:"volumeType"`
 }
 
 func (Ec2FleetEbsBlockDeviceArgs) ElementType() reflect.Type {
@@ -2566,30 +2670,70 @@ func (o Ec2FleetEbsBlockDeviceOutput) ToEc2FleetEbsBlockDevicePtrOutputWithConte
 	}).(Ec2FleetEbsBlockDevicePtrOutput)
 }
 
+// Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters) in the *Amazon EBS User Guide* .
+//
+// In no case can you remove encryption from an encrypted volume.
+//
+// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances) .
+//
+// This parameter is not returned by `DescribeImageAttribute` .
+//
+// For `CreateImage` and `RegisterImage` , whether you can include this parameter, and the allowed values differ depending on the type of block device mapping you are creating.
+//
+// - If you are creating a block device mapping for a *new (empty) volume* , you can include this parameter, and specify either `true` for an encrypted volume, or `false` for an unencrypted volume. If you omit this parameter, it defaults to `false` (unencrypted).
+// - If you are creating a block device mapping from an *existing encrypted or unencrypted snapshot* , you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.
+// - If you are creating a block device mapping from an *existing unencrypted volume* , you can include this parameter, but you must specify `false` . If you specify `true` , the request will fail. In this case, we recommend that you omit the parameter.
+// - If you are creating a block device mapping from an *existing encrypted volume* , you can include this parameter, and specify either `true` or `false` . However, if you specify `false` , the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.
 func (o Ec2FleetEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+//
+// The following are the supported values for each volume type:
+//
+// - `gp3` : 3,000 - 16,000 IOPS
+// - `io1` : 100 - 64,000 IOPS
+// - `io2` : 100 - 256,000 IOPS
+//
+// For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+//
+// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
 func (o Ec2FleetEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+//
+// This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
 func (o Ec2FleetEbsBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the snapshot.
 func (o Ec2FleetEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+//
+// The following are the supported sizes for each volume type:
+//
+// - `gp2` and `gp3` : 1 - 16,384 GiB
+// - `io1` : 4 - 16,384 GiB
+// - `io2` : 4 - 65,536 GiB
+// - `st1` and `sc1` : 125 - 16,384 GiB
+// - `standard` : 1 - 1024 GiB
 func (o Ec2FleetEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
 func (o Ec2FleetEbsBlockDeviceOutput) VolumeType() Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
 	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *Ec2FleetEbsBlockDeviceVolumeType { return v.VolumeType }).(Ec2FleetEbsBlockDeviceVolumeTypePtrOutput)
 }
@@ -2618,6 +2762,7 @@ func (o Ec2FleetEbsBlockDevicePtrOutput) Elem() Ec2FleetEbsBlockDeviceOutput {
 	}).(Ec2FleetEbsBlockDeviceOutput)
 }
 
+// Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetEbsBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *bool {
 		if v == nil {
@@ -2627,6 +2772,20 @@ func (o Ec2FleetEbsBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters) in the *Amazon EBS User Guide* .
+//
+// In no case can you remove encryption from an encrypted volume.
+//
+// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances) .
+//
+// This parameter is not returned by `DescribeImageAttribute` .
+//
+// For `CreateImage` and `RegisterImage` , whether you can include this parameter, and the allowed values differ depending on the type of block device mapping you are creating.
+//
+// - If you are creating a block device mapping for a *new (empty) volume* , you can include this parameter, and specify either `true` for an encrypted volume, or `false` for an unencrypted volume. If you omit this parameter, it defaults to `false` (unencrypted).
+// - If you are creating a block device mapping from an *existing encrypted or unencrypted snapshot* , you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.
+// - If you are creating a block device mapping from an *existing unencrypted volume* , you can include this parameter, but you must specify `false` . If you specify `true` , the request will fail. In this case, we recommend that you omit the parameter.
+// - If you are creating a block device mapping from an *existing encrypted volume* , you can include this parameter, and specify either `true` or `false` . However, if you specify `false` , the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.
 func (o Ec2FleetEbsBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *bool {
 		if v == nil {
@@ -2636,6 +2795,17 @@ func (o Ec2FleetEbsBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+//
+// The following are the supported values for each volume type:
+//
+// - `gp3` : 3,000 - 16,000 IOPS
+// - `io1` : 100 - 64,000 IOPS
+// - `io2` : 100 - 256,000 IOPS
+//
+// For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+//
+// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
 func (o Ec2FleetEbsBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *int {
 		if v == nil {
@@ -2645,6 +2815,9 @@ func (o Ec2FleetEbsBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+//
+// This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
 func (o Ec2FleetEbsBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *string {
 		if v == nil {
@@ -2654,6 +2827,7 @@ func (o Ec2FleetEbsBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the snapshot.
 func (o Ec2FleetEbsBlockDevicePtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *string {
 		if v == nil {
@@ -2663,6 +2837,15 @@ func (o Ec2FleetEbsBlockDevicePtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+//
+// The following are the supported sizes for each volume type:
+//
+// - `gp2` and `gp3` : 1 - 16,384 GiB
+// - `io1` : 4 - 16,384 GiB
+// - `io2` : 4 - 65,536 GiB
+// - `st1` and `sc1` : 125 - 16,384 GiB
+// - `standard` : 1 - 1024 GiB
 func (o Ec2FleetEbsBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *int {
 		if v == nil {
@@ -2672,6 +2855,7 @@ func (o Ec2FleetEbsBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
 func (o Ec2FleetEbsBlockDevicePtrOutput) VolumeType() Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
 	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *Ec2FleetEbsBlockDeviceVolumeType {
 		if v == nil {
@@ -2799,7 +2983,12 @@ func (o Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput) Index(i pulumi.IntI
 
 type Ec2FleetFleetLaunchTemplateOverridesRequest struct {
 	// The Availability Zone in which to launch the instances.
-	AvailabilityZone    *string                      `pulumi:"availabilityZone"`
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
+	//
+	// Supported only for fleets of type `instant` .
+	//
+	// For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
 	BlockDeviceMappings []Ec2FleetBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 	//
@@ -2850,7 +3039,12 @@ type Ec2FleetFleetLaunchTemplateOverridesRequestInput interface {
 
 type Ec2FleetFleetLaunchTemplateOverridesRequestArgs struct {
 	// The Availability Zone in which to launch the instances.
-	AvailabilityZone    pulumi.StringPtrInput                `pulumi:"availabilityZone"`
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
+	//
+	// Supported only for fleets of type `instant` .
+	//
+	// For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
 	BlockDeviceMappings Ec2FleetBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
 	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 	//
@@ -2944,6 +3138,11 @@ func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) AvailabilityZone() pu
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
+//
+// Supported only for fleets of type `instant` .
+//
+// For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) BlockDeviceMappings() Ec2FleetBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) []Ec2FleetBlockDeviceMapping {
 		return v.BlockDeviceMappings

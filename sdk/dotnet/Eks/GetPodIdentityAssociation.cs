@@ -72,6 +72,14 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public readonly string? AssociationId;
         /// <summary>
+        /// The Disable Session Tags of the pod identity association.
+        /// </summary>
+        public readonly bool? DisableSessionTags;
+        /// <summary>
+        /// The External Id of the pod identity association.
+        /// </summary>
+        public readonly string? ExternalId;
+        /// <summary>
         /// The IAM role ARN that the pod identity association is created for.
         /// </summary>
         public readonly string? RoleArn;
@@ -79,6 +87,10 @@ namespace Pulumi.AwsNative.Eks
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The Target Role Arn of the pod identity association.
+        /// </summary>
+        public readonly string? TargetRoleArn;
 
         [OutputConstructor]
         private GetPodIdentityAssociationResult(
@@ -86,14 +98,23 @@ namespace Pulumi.AwsNative.Eks
 
             string? associationId,
 
+            bool? disableSessionTags,
+
+            string? externalId,
+
             string? roleArn,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            string? targetRoleArn)
         {
             AssociationArn = associationArn;
             AssociationId = associationId;
+            DisableSessionTags = disableSessionTags;
+            ExternalId = externalId;
             RoleArn = roleArn;
             Tags = tags;
+            TargetRoleArn = targetRoleArn;
         }
     }
 }

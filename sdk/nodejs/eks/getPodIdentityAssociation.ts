@@ -34,6 +34,14 @@ export interface GetPodIdentityAssociationResult {
      */
     readonly associationId?: string;
     /**
+     * The Disable Session Tags of the pod identity association.
+     */
+    readonly disableSessionTags?: boolean;
+    /**
+     * The External Id of the pod identity association.
+     */
+    readonly externalId?: string;
+    /**
      * The IAM role ARN that the pod identity association is created for.
      */
     readonly roleArn?: string;
@@ -41,6 +49,10 @@ export interface GetPodIdentityAssociationResult {
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The Target Role Arn of the pod identity association.
+     */
+    readonly targetRoleArn?: string;
 }
 /**
  * An object representing an Amazon EKS PodIdentityAssociation.

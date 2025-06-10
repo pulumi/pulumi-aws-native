@@ -37,6 +37,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoggingConfiguration.__pulumiType;
     }
 
+    public readonly enableMonitoringDashboard!: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
      */
@@ -67,10 +68,12 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             if ((!args || args.loggingConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loggingConfiguration'");
             }
+            resourceInputs["enableMonitoringDashboard"] = args ? args.enableMonitoringDashboard : undefined;
             resourceInputs["firewallArn"] = args ? args.firewallArn : undefined;
             resourceInputs["firewallName"] = args ? args.firewallName : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
         } else {
+            resourceInputs["enableMonitoringDashboard"] = undefined /*out*/;
             resourceInputs["firewallArn"] = undefined /*out*/;
             resourceInputs["firewallName"] = undefined /*out*/;
             resourceInputs["loggingConfiguration"] = undefined /*out*/;
@@ -86,6 +89,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a LoggingConfiguration resource.
  */
 export interface LoggingConfigurationArgs {
+    enableMonitoringDashboard?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
      */

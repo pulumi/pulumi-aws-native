@@ -140,7 +140,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     /**
      * The tags for the experiment template.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The targets for the experiment.
      */
@@ -165,9 +165,6 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             }
             if ((!args || args.stopConditions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stopConditions'");
-            }
-            if ((!args || args.tags === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'tags'");
             }
             if ((!args || args.targets === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
@@ -195,7 +192,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["targets"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["experimentOptions.accountTargeting", "tags.*"] };
+        const replaceOnChanges = { replaceOnChanges: ["experimentOptions.accountTargeting"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ExperimentTemplate.__pulumiType, name, resourceInputs, opts);
     }
@@ -236,7 +233,7 @@ export interface ExperimentTemplateArgs {
     /**
      * The tags for the experiment template.
      */
-    tags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The targets for the experiment.
      */

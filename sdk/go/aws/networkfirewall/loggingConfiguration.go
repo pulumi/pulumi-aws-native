@@ -16,6 +16,7 @@ import (
 type LoggingConfiguration struct {
 	pulumi.CustomResourceState
 
+	EnableMonitoringDashboard pulumi.BoolPtrOutput `pulumi:"enableMonitoringDashboard"`
 	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallArn pulumi.StringOutput `pulumi:"firewallArn"`
 	// The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
@@ -75,6 +76,7 @@ func (LoggingConfigurationState) ElementType() reflect.Type {
 }
 
 type loggingConfigurationArgs struct {
+	EnableMonitoringDashboard *bool `pulumi:"enableMonitoringDashboard"`
 	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallArn string `pulumi:"firewallArn"`
 	// The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
@@ -85,6 +87,7 @@ type loggingConfigurationArgs struct {
 
 // The set of arguments for constructing a LoggingConfiguration resource.
 type LoggingConfigurationArgs struct {
+	EnableMonitoringDashboard pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallArn pulumi.StringInput
 	// The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
@@ -128,6 +131,10 @@ func (o LoggingConfigurationOutput) ToLoggingConfigurationOutput() LoggingConfig
 
 func (o LoggingConfigurationOutput) ToLoggingConfigurationOutputWithContext(ctx context.Context) LoggingConfigurationOutput {
 	return o
+}
+
+func (o LoggingConfigurationOutput) EnableMonitoringDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) pulumi.BoolPtrOutput { return v.EnableMonitoringDashboard }).(pulumi.BoolPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.

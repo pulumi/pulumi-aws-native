@@ -25,6 +25,7 @@ class LoggingConfigurationInitArgs:
     def __init__(__self__, *,
                  firewall_arn: pulumi.Input[builtins.str],
                  logging_configuration: pulumi.Input['LoggingConfigurationArgs'],
+                 enable_monitoring_dashboard: Optional[pulumi.Input[builtins.bool]] = None,
                  firewall_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
@@ -34,6 +35,8 @@ class LoggingConfigurationInitArgs:
         """
         pulumi.set(__self__, "firewall_arn", firewall_arn)
         pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if enable_monitoring_dashboard is not None:
+            pulumi.set(__self__, "enable_monitoring_dashboard", enable_monitoring_dashboard)
         if firewall_name is not None:
             pulumi.set(__self__, "firewall_name", firewall_name)
 
@@ -62,6 +65,15 @@ class LoggingConfigurationInitArgs:
         pulumi.set(self, "logging_configuration", value)
 
     @property
+    @pulumi.getter(name="enableMonitoringDashboard")
+    def enable_monitoring_dashboard(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "enable_monitoring_dashboard")
+
+    @enable_monitoring_dashboard.setter
+    def enable_monitoring_dashboard(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_monitoring_dashboard", value)
+
+    @property
     @pulumi.getter(name="firewallName")
     def firewall_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -80,6 +92,7 @@ class LoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enable_monitoring_dashboard: Optional[pulumi.Input[builtins.bool]] = None,
                  firewall_arn: Optional[pulumi.Input[builtins.str]] = None,
                  firewall_name: Optional[pulumi.Input[builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationArgs', 'LoggingConfigurationArgsDict']]] = None,
@@ -117,6 +130,7 @@ class LoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enable_monitoring_dashboard: Optional[pulumi.Input[builtins.bool]] = None,
                  firewall_arn: Optional[pulumi.Input[builtins.str]] = None,
                  firewall_name: Optional[pulumi.Input[builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationArgs', 'LoggingConfigurationArgsDict']]] = None,
@@ -129,6 +143,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LoggingConfigurationInitArgs.__new__(LoggingConfigurationInitArgs)
 
+            __props__.__dict__["enable_monitoring_dashboard"] = enable_monitoring_dashboard
             if firewall_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_arn'")
             __props__.__dict__["firewall_arn"] = firewall_arn
@@ -160,10 +175,16 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         __props__ = LoggingConfigurationInitArgs.__new__(LoggingConfigurationInitArgs)
 
+        __props__.__dict__["enable_monitoring_dashboard"] = None
         __props__.__dict__["firewall_arn"] = None
         __props__.__dict__["firewall_name"] = None
         __props__.__dict__["logging_configuration"] = None
         return LoggingConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="enableMonitoringDashboard")
+    def enable_monitoring_dashboard(self) -> pulumi.Output[Optional[builtins.bool]]:
+        return pulumi.get(self, "enable_monitoring_dashboard")
 
     @property
     @pulumi.getter(name="firewallArn")

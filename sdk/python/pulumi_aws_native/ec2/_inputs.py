@@ -1135,9 +1135,25 @@ class Ec2FleetBaselinePerformanceFactorsRequestArgs:
 if not MYPY:
     class Ec2FleetBlockDeviceMappingArgsDict(TypedDict):
         device_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The device name (for example, `/dev/sdh` or `xvdh` ).
+        """
         ebs: NotRequired[pulumi.Input['Ec2FleetEbsBlockDeviceArgsDict']]
+        """
+        Parameters used to automatically set up EBS volumes when the instance is launched.
+        """
         no_device: NotRequired[pulumi.Input[builtins.str]]
+        """
+        To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
+        """
         virtual_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+
+        NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+
+        Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+        """
 elif False:
     Ec2FleetBlockDeviceMappingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1148,6 +1164,16 @@ class Ec2FleetBlockDeviceMappingArgs:
                  ebs: Optional[pulumi.Input['Ec2FleetEbsBlockDeviceArgs']] = None,
                  no_device: Optional[pulumi.Input[builtins.str]] = None,
                  virtual_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] device_name: The device name (for example, `/dev/sdh` or `xvdh` ).
+        :param pulumi.Input['Ec2FleetEbsBlockDeviceArgs'] ebs: Parameters used to automatically set up EBS volumes when the instance is launched.
+        :param pulumi.Input[builtins.str] no_device: To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
+        :param pulumi.Input[builtins.str] virtual_name: The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+               
+               NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+               
+               Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+        """
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
         if ebs is not None:
@@ -1160,6 +1186,9 @@ class Ec2FleetBlockDeviceMappingArgs:
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The device name (for example, `/dev/sdh` or `xvdh` ).
+        """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
@@ -1169,6 +1198,9 @@ class Ec2FleetBlockDeviceMappingArgs:
     @property
     @pulumi.getter
     def ebs(self) -> Optional[pulumi.Input['Ec2FleetEbsBlockDeviceArgs']]:
+        """
+        Parameters used to automatically set up EBS volumes when the instance is launched.
+        """
         return pulumi.get(self, "ebs")
 
     @ebs.setter
@@ -1178,6 +1210,9 @@ class Ec2FleetBlockDeviceMappingArgs:
     @property
     @pulumi.getter(name="noDevice")
     def no_device(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
+        """
         return pulumi.get(self, "no_device")
 
     @no_device.setter
@@ -1187,6 +1222,13 @@ class Ec2FleetBlockDeviceMappingArgs:
     @property
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+
+        NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+
+        Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+        """
         return pulumi.get(self, "virtual_name")
 
     @virtual_name.setter
@@ -1361,12 +1403,66 @@ class Ec2FleetCpuPerformanceFactorRequestArgs:
 if not MYPY:
     class Ec2FleetEbsBlockDeviceArgsDict(TypedDict):
         delete_on_termination: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
+        """
         encrypted: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters) in the *Amazon EBS User Guide* .
+
+        In no case can you remove encryption from an encrypted volume.
+
+        Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances) .
+
+        This parameter is not returned by `DescribeImageAttribute` .
+
+        For `CreateImage` and `RegisterImage` , whether you can include this parameter, and the allowed values differ depending on the type of block device mapping you are creating.
+
+        - If you are creating a block device mapping for a *new (empty) volume* , you can include this parameter, and specify either `true` for an encrypted volume, or `false` for an unencrypted volume. If you omit this parameter, it defaults to `false` (unencrypted).
+        - If you are creating a block device mapping from an *existing encrypted or unencrypted snapshot* , you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.
+        - If you are creating a block device mapping from an *existing unencrypted volume* , you can include this parameter, but you must specify `false` . If you specify `true` , the request will fail. In this case, we recommend that you omit the parameter.
+        - If you are creating a block device mapping from an *existing encrypted volume* , you can include this parameter, and specify either `true` or `false` . However, if you specify `false` , the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.
+        """
         iops: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+
+        The following are the supported values for each volume type:
+
+        - `gp3` : 3,000 - 16,000 IOPS
+        - `io1` : 100 - 64,000 IOPS
+        - `io2` : 100 - 256,000 IOPS
+
+        For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+
+        This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
+        """
         kms_key_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+
+        This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
+        """
         snapshot_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ID of the snapshot.
+        """
         volume_size: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+
+        The following are the supported sizes for each volume type:
+
+        - `gp2` and `gp3` : 1 - 16,384 GiB
+        - `io1` : 4 - 16,384 GiB
+        - `io2` : 4 - 65,536 GiB
+        - `st1` and `sc1` : 125 - 16,384 GiB
+        - `standard` : 1 - 1024 GiB
+        """
         volume_type: NotRequired[pulumi.Input['Ec2FleetEbsBlockDeviceVolumeType']]
+        """
+        The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+        """
 elif False:
     Ec2FleetEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1380,6 +1476,48 @@ class Ec2FleetEbsBlockDeviceArgs:
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  volume_size: Optional[pulumi.Input[builtins.int]] = None,
                  volume_type: Optional[pulumi.Input['Ec2FleetEbsBlockDeviceVolumeType']] = None):
+        """
+        :param pulumi.Input[builtins.bool] delete_on_termination: Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
+        :param pulumi.Input[builtins.bool] encrypted: Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters) in the *Amazon EBS User Guide* .
+               
+               In no case can you remove encryption from an encrypted volume.
+               
+               Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances) .
+               
+               This parameter is not returned by `DescribeImageAttribute` .
+               
+               For `CreateImage` and `RegisterImage` , whether you can include this parameter, and the allowed values differ depending on the type of block device mapping you are creating.
+               
+               - If you are creating a block device mapping for a *new (empty) volume* , you can include this parameter, and specify either `true` for an encrypted volume, or `false` for an unencrypted volume. If you omit this parameter, it defaults to `false` (unencrypted).
+               - If you are creating a block device mapping from an *existing encrypted or unencrypted snapshot* , you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.
+               - If you are creating a block device mapping from an *existing unencrypted volume* , you can include this parameter, but you must specify `false` . If you specify `true` , the request will fail. In this case, we recommend that you omit the parameter.
+               - If you are creating a block device mapping from an *existing encrypted volume* , you can include this parameter, and specify either `true` or `false` . However, if you specify `false` , the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.
+        :param pulumi.Input[builtins.int] iops: The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+               
+               The following are the supported values for each volume type:
+               
+               - `gp3` : 3,000 - 16,000 IOPS
+               - `io1` : 100 - 64,000 IOPS
+               - `io2` : 100 - 256,000 IOPS
+               
+               For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+               
+               This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
+        :param pulumi.Input[builtins.str] kms_key_id: Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+               
+               This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
+        :param pulumi.Input[builtins.str] snapshot_id: The ID of the snapshot.
+        :param pulumi.Input[builtins.int] volume_size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+               
+               The following are the supported sizes for each volume type:
+               
+               - `gp2` and `gp3` : 1 - 16,384 GiB
+               - `io1` : 4 - 16,384 GiB
+               - `io2` : 4 - 65,536 GiB
+               - `st1` and `sc1` : 125 - 16,384 GiB
+               - `standard` : 1 - 1024 GiB
+        :param pulumi.Input['Ec2FleetEbsBlockDeviceVolumeType'] volume_type: The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+        """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -1398,6 +1536,9 @@ class Ec2FleetEbsBlockDeviceArgs:
     @property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
+        """
         return pulumi.get(self, "delete_on_termination")
 
     @delete_on_termination.setter
@@ -1407,6 +1548,22 @@ class Ec2FleetEbsBlockDeviceArgs:
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters) in the *Amazon EBS User Guide* .
+
+        In no case can you remove encryption from an encrypted volume.
+
+        Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances) .
+
+        This parameter is not returned by `DescribeImageAttribute` .
+
+        For `CreateImage` and `RegisterImage` , whether you can include this parameter, and the allowed values differ depending on the type of block device mapping you are creating.
+
+        - If you are creating a block device mapping for a *new (empty) volume* , you can include this parameter, and specify either `true` for an encrypted volume, or `false` for an unencrypted volume. If you omit this parameter, it defaults to `false` (unencrypted).
+        - If you are creating a block device mapping from an *existing encrypted or unencrypted snapshot* , you must omit this parameter. If you include this parameter, the request will fail, regardless of the value that you specify.
+        - If you are creating a block device mapping from an *existing unencrypted volume* , you can include this parameter, but you must specify `false` . If you specify `true` , the request will fail. In this case, we recommend that you omit the parameter.
+        - If you are creating a block device mapping from an *existing encrypted volume* , you can include this parameter, and specify either `true` or `false` . However, if you specify `false` , the parameter is ignored and the block device mapping is always encrypted. In this case, we recommend that you omit the parameter.
+        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -1416,6 +1573,19 @@ class Ec2FleetEbsBlockDeviceArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The number of I/O operations per second (IOPS). For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+
+        The following are the supported values for each volume type:
+
+        - `gp3` : 3,000 - 16,000 IOPS
+        - `io1` : 100 - 64,000 IOPS
+        - `io2` : 100 - 256,000 IOPS
+
+        For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
+
+        This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -1425,6 +1595,11 @@ class Ec2FleetEbsBlockDeviceArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+
+        This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -1434,6 +1609,9 @@ class Ec2FleetEbsBlockDeviceArgs:
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ID of the snapshot.
+        """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
@@ -1443,6 +1621,17 @@ class Ec2FleetEbsBlockDeviceArgs:
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+
+        The following are the supported sizes for each volume type:
+
+        - `gp2` and `gp3` : 1 - 16,384 GiB
+        - `io1` : 4 - 16,384 GiB
+        - `io2` : 4 - 65,536 GiB
+        - `st1` and `sc1` : 125 - 16,384 GiB
+        - `standard` : 1 - 1024 GiB
+        """
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
@@ -1452,6 +1641,9 @@ class Ec2FleetEbsBlockDeviceArgs:
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input['Ec2FleetEbsBlockDeviceVolumeType']]:
+        """
+        The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+        """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
@@ -1524,6 +1716,13 @@ if not MYPY:
         The Availability Zone in which to launch the instances.
         """
         block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetBlockDeviceMappingArgsDict']]]]
+        """
+        The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
+
+        Supported only for fleets of type `instant` .
+
+        For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
+        """
         instance_requirements: NotRequired[pulumi.Input['Ec2FleetInstanceRequirementsRequestArgsDict']]
         """
         The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
@@ -1589,6 +1788,11 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
                  weighted_capacity: Optional[pulumi.Input[builtins.float]] = None):
         """
         :param pulumi.Input[builtins.str] availability_zone: The Availability Zone in which to launch the instances.
+        :param pulumi.Input[Sequence[pulumi.Input['Ec2FleetBlockDeviceMappingArgs']]] block_device_mappings: The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
+               
+               Supported only for fleets of type `instant` .
+               
+               For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
         :param pulumi.Input['Ec2FleetInstanceRequirementsRequestArgs'] instance_requirements: The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
                
                > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
@@ -1651,6 +1855,13 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
     @property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetBlockDeviceMappingArgs']]]]:
+        """
+        The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
+
+        Supported only for fleets of type `instant` .
+
+        For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
+        """
         return pulumi.get(self, "block_device_mappings")
 
     @block_device_mappings.setter

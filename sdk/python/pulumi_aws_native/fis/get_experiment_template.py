@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetExperimentTemplateResult:
-    def __init__(__self__, actions=None, description=None, experiment_options=None, experiment_report_configuration=None, id=None, log_configuration=None, role_arn=None, stop_conditions=None, targets=None):
+    def __init__(__self__, actions=None, description=None, experiment_options=None, experiment_report_configuration=None, id=None, log_configuration=None, role_arn=None, stop_conditions=None, tags=None, targets=None):
         if actions and not isinstance(actions, dict):
             raise TypeError("Expected argument 'actions' to be a dict")
         pulumi.set(__self__, "actions", actions)
@@ -51,6 +51,9 @@ class GetExperimentTemplateResult:
         if stop_conditions and not isinstance(stop_conditions, list):
             raise TypeError("Expected argument 'stop_conditions' to be a list")
         pulumi.set(__self__, "stop_conditions", stop_conditions)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if targets and not isinstance(targets, dict):
             raise TypeError("Expected argument 'targets' to be a dict")
         pulumi.set(__self__, "targets", targets)
@@ -121,6 +124,14 @@ class GetExperimentTemplateResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        The tags for the experiment template.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def targets(self) -> Optional[Mapping[str, 'outputs.ExperimentTemplateTarget']]:
         """
         The targets for the experiment.
@@ -142,6 +153,7 @@ class AwaitableGetExperimentTemplateResult(GetExperimentTemplateResult):
             log_configuration=self.log_configuration,
             role_arn=self.role_arn,
             stop_conditions=self.stop_conditions,
+            tags=self.tags,
             targets=self.targets)
 
 
@@ -167,6 +179,7 @@ def get_experiment_template(id: Optional[builtins.str] = None,
         log_configuration=pulumi.get(__ret__, 'log_configuration'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         stop_conditions=pulumi.get(__ret__, 'stop_conditions'),
+        tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
 def get_experiment_template_output(id: Optional[pulumi.Input[builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentTemplateResult]:
@@ -189,4 +202,5 @@ def get_experiment_template_output(id: Optional[pulumi.Input[builtins.str]] = No
         log_configuration=pulumi.get(__response__, 'log_configuration'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         stop_conditions=pulumi.get(__response__, 'stop_conditions'),
+        tags=pulumi.get(__response__, 'tags'),
         targets=pulumi.get(__response__, 'targets')))

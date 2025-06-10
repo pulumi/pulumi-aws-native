@@ -26,10 +26,18 @@ __all__ = [
 
 @pulumi.output_type
 class GetLoggingConfigurationResult:
-    def __init__(__self__, logging_configuration=None):
+    def __init__(__self__, enable_monitoring_dashboard=None, logging_configuration=None):
+        if enable_monitoring_dashboard and not isinstance(enable_monitoring_dashboard, bool):
+            raise TypeError("Expected argument 'enable_monitoring_dashboard' to be a bool")
+        pulumi.set(__self__, "enable_monitoring_dashboard", enable_monitoring_dashboard)
         if logging_configuration and not isinstance(logging_configuration, dict):
             raise TypeError("Expected argument 'logging_configuration' to be a dict")
         pulumi.set(__self__, "logging_configuration", logging_configuration)
+
+    @property
+    @pulumi.getter(name="enableMonitoringDashboard")
+    def enable_monitoring_dashboard(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "enable_monitoring_dashboard")
 
     @property
     @pulumi.getter(name="loggingConfiguration")
@@ -46,6 +54,7 @@ class AwaitableGetLoggingConfigurationResult(GetLoggingConfigurationResult):
         if False:
             yield self
         return GetLoggingConfigurationResult(
+            enable_monitoring_dashboard=self.enable_monitoring_dashboard,
             logging_configuration=self.logging_configuration)
 
 
@@ -63,6 +72,7 @@ def get_logging_configuration(firewall_arn: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:networkfirewall:getLoggingConfiguration', __args__, opts=opts, typ=GetLoggingConfigurationResult).value
 
     return AwaitableGetLoggingConfigurationResult(
+        enable_monitoring_dashboard=pulumi.get(__ret__, 'enable_monitoring_dashboard'),
         logging_configuration=pulumi.get(__ret__, 'logging_configuration'))
 def get_logging_configuration_output(firewall_arn: Optional[pulumi.Input[builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoggingConfigurationResult]:
@@ -77,4 +87,5 @@ def get_logging_configuration_output(firewall_arn: Optional[pulumi.Input[builtin
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:networkfirewall:getLoggingConfiguration', __args__, opts=opts, typ=GetLoggingConfigurationResult)
     return __ret__.apply(lambda __response__: GetLoggingConfigurationResult(
+        enable_monitoring_dashboard=pulumi.get(__response__, 'enable_monitoring_dashboard'),
         logging_configuration=pulumi.get(__response__, 'logging_configuration')))

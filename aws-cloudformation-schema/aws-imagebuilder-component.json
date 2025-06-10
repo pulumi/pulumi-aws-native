@@ -87,7 +87,7 @@
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UnTagResource" ]
+    "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
   },
   "handlers" : {
     "create" : {
@@ -97,7 +97,7 @@
       "permissions" : [ "imagebuilder:GetComponent", "kms:Decrypt" ]
     },
     "delete" : {
-      "permissions" : [ "imagebuilder:GetComponent", "imagebuilder:UnTagResource", "imagebuilder:DeleteComponent" ]
+      "permissions" : [ "imagebuilder:GetComponent", "imagebuilder:UntagResource", "imagebuilder:DeleteComponent" ]
     },
     "list" : {
       "permissions" : [ "imagebuilder:ListComponents", "imagebuilder:ListComponentBuildVersions" ],

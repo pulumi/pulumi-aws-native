@@ -25,6 +25,7 @@ export interface GetLoggingConfigurationArgs {
 }
 
 export interface GetLoggingConfigurationResult {
+    readonly enableMonitoringDashboard?: boolean;
     /**
      * Defines how AWS Network Firewall performs logging for a `Firewall` .
      */

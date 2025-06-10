@@ -20,6 +20,14 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         [Input("blockDeviceMappings")]
         private InputList<Inputs.Ec2FleetBlockDeviceMappingArgs>? _blockDeviceMappings;
+
+        /// <summary>
+        /// The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
+        /// 
+        /// Supported only for fleets of type `instant` .
+        /// 
+        /// For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
+        /// </summary>
         public InputList<Inputs.Ec2FleetBlockDeviceMappingArgs> BlockDeviceMappings
         {
             get => _blockDeviceMappings ?? (_blockDeviceMappings = new InputList<Inputs.Ec2FleetBlockDeviceMappingArgs>());

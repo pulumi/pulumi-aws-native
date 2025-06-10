@@ -70,7 +70,7 @@
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UnTagResource" ]
+    "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
   },
   "handlers" : {
     "create" : {
@@ -80,7 +80,7 @@
       "permissions" : [ "imagebuilder:GetWorkflow", "kms:Decrypt" ]
     },
     "delete" : {
-      "permissions" : [ "imagebuilder:GetWorkflow", "imagebuilder:UnTagResource", "imagebuilder:DeleteWorkflow" ]
+      "permissions" : [ "imagebuilder:GetWorkflow", "imagebuilder:UntagResource", "imagebuilder:DeleteWorkflow" ]
     },
     "list" : {
       "permissions" : [ "imagebuilder:ListWorkflows", "imagebuilder:ListWorkflowBuildVersions" ],

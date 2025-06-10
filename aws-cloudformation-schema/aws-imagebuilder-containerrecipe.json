@@ -239,7 +239,7 @@
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UnTagResource" ]
+    "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
   },
   "handlers" : {
     "create" : {
@@ -249,7 +249,7 @@
       "permissions" : [ "imagebuilder:GetContainerRecipe", "kms:Decrypt" ]
     },
     "delete" : {
-      "permissions" : [ "imagebuilder:UnTagResource", "imagebuilder:GetContainerRecipe", "imagebuilder:DeleteContainerRecipe" ]
+      "permissions" : [ "imagebuilder:UntagResource", "imagebuilder:GetContainerRecipe", "imagebuilder:DeleteContainerRecipe" ]
     },
     "list" : {
       "permissions" : [ "imagebuilder:ListContainerRecipes" ]

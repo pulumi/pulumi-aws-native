@@ -96,6 +96,10 @@ namespace Pulumi.AwsNative.Fis
         /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTemplateStopCondition> StopConditions;
         /// <summary>
+        /// The tags for the experiment template.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// The targets for the experiment.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ExperimentTemplateTarget>? Targets;
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.Fis
 
             ImmutableArray<Outputs.ExperimentTemplateStopCondition> stopConditions,
 
+            ImmutableDictionary<string, string>? tags,
+
             ImmutableDictionary<string, Outputs.ExperimentTemplateTarget>? targets)
         {
             Actions = actions;
@@ -128,6 +134,7 @@ namespace Pulumi.AwsNative.Fis
             LogConfiguration = logConfiguration;
             RoleArn = roleArn;
             StopConditions = stopConditions;
+            Tags = tags;
             Targets = targets;
         }
     }

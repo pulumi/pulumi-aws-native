@@ -142,6 +142,9 @@ class Ec2FleetCapacityReservationOptionsRequestUsageStrategy(builtins.str, Enum)
 
 @pulumi.type_token("aws-native:ec2:Ec2FleetEbsBlockDeviceVolumeType")
 class Ec2FleetEbsBlockDeviceVolumeType(builtins.str, Enum):
+    """
+    The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+    """
     GP2 = "gp2"
     GP3 = "gp3"
     IO1 = "io1"

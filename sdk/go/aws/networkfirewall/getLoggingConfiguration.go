@@ -28,6 +28,7 @@ type LookupLoggingConfigurationArgs struct {
 }
 
 type LookupLoggingConfigurationResult struct {
+	EnableMonitoringDashboard *bool `pulumi:"enableMonitoringDashboard"`
 	// Defines how AWS Network Firewall performs logging for a `Firewall` .
 	LoggingConfiguration *LoggingConfigurationType `pulumi:"loggingConfiguration"`
 }
@@ -62,6 +63,10 @@ func (o LookupLoggingConfigurationResultOutput) ToLookupLoggingConfigurationResu
 
 func (o LookupLoggingConfigurationResultOutput) ToLookupLoggingConfigurationResultOutputWithContext(ctx context.Context) LookupLoggingConfigurationResultOutput {
 	return o
+}
+
+func (o LookupLoggingConfigurationResultOutput) EnableMonitoringDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLoggingConfigurationResult) *bool { return v.EnableMonitoringDashboard }).(pulumi.BoolPtrOutput)
 }
 
 // Defines how AWS Network Firewall performs logging for a `Firewall` .

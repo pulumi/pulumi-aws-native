@@ -50,6 +50,14 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
+     * The Disable Session Tags of the pod identity association.
+     */
+    public readonly disableSessionTags!: pulumi.Output<boolean | undefined>;
+    /**
+     * The External Id of the pod identity association.
+     */
+    public /*out*/ readonly externalId!: pulumi.Output<string>;
+    /**
      * The Kubernetes namespace that the pod identity association is created for.
      */
     public readonly namespace!: pulumi.Output<string>;
@@ -65,6 +73,10 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The Target Role Arn of the pod identity association.
+     */
+    public readonly targetRoleArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PodIdentityAssociation resource with the given unique name, arguments, and options.
@@ -90,20 +102,26 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceAccount'");
             }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["disableSessionTags"] = args ? args.disableSessionTags : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["serviceAccount"] = args ? args.serviceAccount : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetRoleArn"] = args ? args.targetRoleArn : undefined;
             resourceInputs["associationArn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
+            resourceInputs["externalId"] = undefined /*out*/;
         } else {
             resourceInputs["associationArn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["disableSessionTags"] = undefined /*out*/;
+            resourceInputs["externalId"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["serviceAccount"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetRoleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["clusterName", "namespace", "serviceAccount"] };
@@ -121,6 +139,10 @@ export interface PodIdentityAssociationArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
+     * The Disable Session Tags of the pod identity association.
+     */
+    disableSessionTags?: pulumi.Input<boolean>;
+    /**
      * The Kubernetes namespace that the pod identity association is created for.
      */
     namespace: pulumi.Input<string>;
@@ -136,4 +158,8 @@ export interface PodIdentityAssociationArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The Target Role Arn of the pod identity association.
+     */
+    targetRoleArn?: pulumi.Input<string>;
 }

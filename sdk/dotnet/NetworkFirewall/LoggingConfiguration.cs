@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [AwsNativeResourceType("aws-native:networkfirewall:LoggingConfiguration")]
     public partial class LoggingConfiguration : global::Pulumi.CustomResource
     {
+        [Output("enableMonitoringDashboard")]
+        public Output<bool?> EnableMonitoringDashboard { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
         /// </summary>
@@ -83,6 +86,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class LoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("enableMonitoringDashboard")]
+        public Input<bool>? EnableMonitoringDashboard { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
         /// </summary>

@@ -44,6 +44,8 @@ type LookupExperimentTemplateResult struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The stop conditions for the experiment.
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
+	// The tags for the experiment template.
+	Tags map[string]string `pulumi:"tags"`
 	// The targets for the experiment.
 	Targets map[string]ExperimentTemplateTarget `pulumi:"targets"`
 }
@@ -122,6 +124,11 @@ func (o LookupExperimentTemplateResultOutput) RoleArn() pulumi.StringPtrOutput {
 // The stop conditions for the experiment.
 func (o LookupExperimentTemplateResultOutput) StopConditions() ExperimentTemplateStopConditionArrayOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) []ExperimentTemplateStopCondition { return v.StopConditions }).(ExperimentTemplateStopConditionArrayOutput)
+}
+
+// The tags for the experiment template.
+func (o LookupExperimentTemplateResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupExperimentTemplateResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The targets for the experiment.

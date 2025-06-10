@@ -62,6 +62,9 @@ export const Ec2FleetEbsBlockDeviceVolumeType = {
     Standard: "standard",
 } as const;
 
+/**
+ * The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+ */
 export type Ec2FleetEbsBlockDeviceVolumeType = (typeof Ec2FleetEbsBlockDeviceVolumeType)[keyof typeof Ec2FleetEbsBlockDeviceVolumeType];
 
 export const Ec2FleetExcessCapacityTerminationPolicy = {

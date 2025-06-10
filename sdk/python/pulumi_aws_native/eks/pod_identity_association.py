@@ -26,21 +26,29 @@ class PodIdentityAssociationArgs:
                  namespace: pulumi.Input[builtins.str],
                  role_arn: pulumi.Input[builtins.str],
                  service_account: pulumi.Input[builtins.str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 disable_session_tags: Optional[pulumi.Input[builtins.bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a PodIdentityAssociation resource.
         :param pulumi.Input[builtins.str] cluster_name: The cluster that the pod identity association is created for.
         :param pulumi.Input[builtins.str] namespace: The Kubernetes namespace that the pod identity association is created for.
         :param pulumi.Input[builtins.str] role_arn: The IAM role ARN that the pod identity association is created for.
         :param pulumi.Input[builtins.str] service_account: The Kubernetes service account that the pod identity association is created for.
+        :param pulumi.Input[builtins.bool] disable_session_tags: The Disable Session Tags of the pod identity association.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[builtins.str] target_role_arn: The Target Role Arn of the pod identity association.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "service_account", service_account)
+        if disable_session_tags is not None:
+            pulumi.set(__self__, "disable_session_tags", disable_session_tags)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_role_arn is not None:
+            pulumi.set(__self__, "target_role_arn", target_role_arn)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -91,6 +99,18 @@ class PodIdentityAssociationArgs:
         pulumi.set(self, "service_account", value)
 
     @property
+    @pulumi.getter(name="disableSessionTags")
+    def disable_session_tags(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        The Disable Session Tags of the pod identity association.
+        """
+        return pulumi.get(self, "disable_session_tags")
+
+    @disable_session_tags.setter
+    def disable_session_tags(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "disable_session_tags", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -102,6 +122,18 @@ class PodIdentityAssociationArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="targetRoleArn")
+    def target_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Target Role Arn of the pod identity association.
+        """
+        return pulumi.get(self, "target_role_arn")
+
+    @target_role_arn.setter
+    def target_role_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "target_role_arn", value)
+
 
 @pulumi.type_token("aws-native:eks:PodIdentityAssociation")
 class PodIdentityAssociation(pulumi.CustomResource):
@@ -110,10 +142,12 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                 disable_session_tags: Optional[pulumi.Input[builtins.bool]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  service_account: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         An object representing an Amazon EKS PodIdentityAssociation.
@@ -121,10 +155,12 @@ class PodIdentityAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_name: The cluster that the pod identity association is created for.
+        :param pulumi.Input[builtins.bool] disable_session_tags: The Disable Session Tags of the pod identity association.
         :param pulumi.Input[builtins.str] namespace: The Kubernetes namespace that the pod identity association is created for.
         :param pulumi.Input[builtins.str] role_arn: The IAM role ARN that the pod identity association is created for.
         :param pulumi.Input[builtins.str] service_account: The Kubernetes service account that the pod identity association is created for.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[builtins.str] target_role_arn: The Target Role Arn of the pod identity association.
         """
         ...
     @overload
@@ -151,10 +187,12 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                 disable_session_tags: Optional[pulumi.Input[builtins.bool]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  service_account: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -167,6 +205,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["disable_session_tags"] = disable_session_tags
             if namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace'")
             __props__.__dict__["namespace"] = namespace
@@ -177,8 +216,10 @@ class PodIdentityAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_account'")
             __props__.__dict__["service_account"] = service_account
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_role_arn"] = target_role_arn
             __props__.__dict__["association_arn"] = None
             __props__.__dict__["association_id"] = None
+            __props__.__dict__["external_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterName", "namespace", "serviceAccount"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PodIdentityAssociation, __self__).__init__(
@@ -206,10 +247,13 @@ class PodIdentityAssociation(pulumi.CustomResource):
         __props__.__dict__["association_arn"] = None
         __props__.__dict__["association_id"] = None
         __props__.__dict__["cluster_name"] = None
+        __props__.__dict__["disable_session_tags"] = None
+        __props__.__dict__["external_id"] = None
         __props__.__dict__["namespace"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["service_account"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["target_role_arn"] = None
         return PodIdentityAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -235,6 +279,22 @@ class PodIdentityAssociation(pulumi.CustomResource):
         The cluster that the pod identity association is created for.
         """
         return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter(name="disableSessionTags")
+    def disable_session_tags(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        The Disable Session Tags of the pod identity association.
+        """
+        return pulumi.get(self, "disable_session_tags")
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The External Id of the pod identity association.
+        """
+        return pulumi.get(self, "external_id")
 
     @property
     @pulumi.getter
@@ -267,4 +327,12 @@ class PodIdentityAssociation(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetRoleArn")
+    def target_role_arn(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The Target Role Arn of the pod identity association.
+        """
+        return pulumi.get(self, "target_role_arn")
 

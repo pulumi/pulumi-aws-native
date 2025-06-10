@@ -352,13 +352,184 @@ func (in *fileSystemProtectionReplicationOverwriteProtectionPtr) ToFileSystemPro
 	return pulumi.ToOutputWithContext(ctx, in).(FileSystemProtectionReplicationOverwriteProtectionPtrOutput)
 }
 
+type MountTargetIpAddressType string
+
+const (
+	MountTargetIpAddressTypeIpv4Only  = MountTargetIpAddressType("IPV4_ONLY")
+	MountTargetIpAddressTypeIpv6Only  = MountTargetIpAddressType("IPV6_ONLY")
+	MountTargetIpAddressTypeDualStack = MountTargetIpAddressType("DUAL_STACK")
+)
+
+func (MountTargetIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MountTargetIpAddressType)(nil)).Elem()
+}
+
+func (e MountTargetIpAddressType) ToMountTargetIpAddressTypeOutput() MountTargetIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(MountTargetIpAddressTypeOutput)
+}
+
+func (e MountTargetIpAddressType) ToMountTargetIpAddressTypeOutputWithContext(ctx context.Context) MountTargetIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MountTargetIpAddressTypeOutput)
+}
+
+func (e MountTargetIpAddressType) ToMountTargetIpAddressTypePtrOutput() MountTargetIpAddressTypePtrOutput {
+	return e.ToMountTargetIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e MountTargetIpAddressType) ToMountTargetIpAddressTypePtrOutputWithContext(ctx context.Context) MountTargetIpAddressTypePtrOutput {
+	return MountTargetIpAddressType(e).ToMountTargetIpAddressTypeOutputWithContext(ctx).ToMountTargetIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e MountTargetIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MountTargetIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MountTargetIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MountTargetIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MountTargetIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (MountTargetIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MountTargetIpAddressType)(nil)).Elem()
+}
+
+func (o MountTargetIpAddressTypeOutput) ToMountTargetIpAddressTypeOutput() MountTargetIpAddressTypeOutput {
+	return o
+}
+
+func (o MountTargetIpAddressTypeOutput) ToMountTargetIpAddressTypeOutputWithContext(ctx context.Context) MountTargetIpAddressTypeOutput {
+	return o
+}
+
+func (o MountTargetIpAddressTypeOutput) ToMountTargetIpAddressTypePtrOutput() MountTargetIpAddressTypePtrOutput {
+	return o.ToMountTargetIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o MountTargetIpAddressTypeOutput) ToMountTargetIpAddressTypePtrOutputWithContext(ctx context.Context) MountTargetIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MountTargetIpAddressType) *MountTargetIpAddressType {
+		return &v
+	}).(MountTargetIpAddressTypePtrOutput)
+}
+
+func (o MountTargetIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MountTargetIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MountTargetIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MountTargetIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MountTargetIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MountTargetIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MountTargetIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MountTargetIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MountTargetIpAddressType)(nil)).Elem()
+}
+
+func (o MountTargetIpAddressTypePtrOutput) ToMountTargetIpAddressTypePtrOutput() MountTargetIpAddressTypePtrOutput {
+	return o
+}
+
+func (o MountTargetIpAddressTypePtrOutput) ToMountTargetIpAddressTypePtrOutputWithContext(ctx context.Context) MountTargetIpAddressTypePtrOutput {
+	return o
+}
+
+func (o MountTargetIpAddressTypePtrOutput) Elem() MountTargetIpAddressTypeOutput {
+	return o.ApplyT(func(v *MountTargetIpAddressType) MountTargetIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret MountTargetIpAddressType
+		return ret
+	}).(MountTargetIpAddressTypeOutput)
+}
+
+func (o MountTargetIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MountTargetIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MountTargetIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MountTargetIpAddressTypeInput is an input type that accepts values of the MountTargetIpAddressType enum
+// A concrete instance of `MountTargetIpAddressTypeInput` can be one of the following:
+//
+//	MountTargetIpAddressTypeIpv4Only
+//	MountTargetIpAddressTypeIpv6Only
+//	MountTargetIpAddressTypeDualStack
+type MountTargetIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToMountTargetIpAddressTypeOutput() MountTargetIpAddressTypeOutput
+	ToMountTargetIpAddressTypeOutputWithContext(context.Context) MountTargetIpAddressTypeOutput
+}
+
+var mountTargetIpAddressTypePtrType = reflect.TypeOf((**MountTargetIpAddressType)(nil)).Elem()
+
+type MountTargetIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToMountTargetIpAddressTypePtrOutput() MountTargetIpAddressTypePtrOutput
+	ToMountTargetIpAddressTypePtrOutputWithContext(context.Context) MountTargetIpAddressTypePtrOutput
+}
+
+type mountTargetIpAddressTypePtr string
+
+func MountTargetIpAddressTypePtr(v string) MountTargetIpAddressTypePtrInput {
+	return (*mountTargetIpAddressTypePtr)(&v)
+}
+
+func (*mountTargetIpAddressTypePtr) ElementType() reflect.Type {
+	return mountTargetIpAddressTypePtrType
+}
+
+func (in *mountTargetIpAddressTypePtr) ToMountTargetIpAddressTypePtrOutput() MountTargetIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(MountTargetIpAddressTypePtrOutput)
+}
+
+func (in *mountTargetIpAddressTypePtr) ToMountTargetIpAddressTypePtrOutputWithContext(ctx context.Context) MountTargetIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MountTargetIpAddressTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemBackupPolicyStatusInput)(nil)).Elem(), FileSystemBackupPolicyStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemBackupPolicyStatusPtrInput)(nil)).Elem(), FileSystemBackupPolicyStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemProtectionReplicationOverwriteProtectionInput)(nil)).Elem(), FileSystemProtectionReplicationOverwriteProtection("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemProtectionReplicationOverwriteProtectionPtrInput)(nil)).Elem(), FileSystemProtectionReplicationOverwriteProtection("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MountTargetIpAddressTypeInput)(nil)).Elem(), MountTargetIpAddressType("IPV4_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MountTargetIpAddressTypePtrInput)(nil)).Elem(), MountTargetIpAddressType("IPV4_ONLY"))
 	pulumi.RegisterOutputType(FileSystemBackupPolicyStatusOutput{})
 	pulumi.RegisterOutputType(FileSystemBackupPolicyStatusPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemProtectionReplicationOverwriteProtectionOutput{})
 	pulumi.RegisterOutputType(FileSystemProtectionReplicationOverwriteProtectionPtrOutput{})
+	pulumi.RegisterOutputType(MountTargetIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(MountTargetIpAddressTypePtrOutput{})
 }

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -48,6 +51,8 @@ export class MountTarget extends pulumi.CustomResource {
      * Valid IPv4 address within the address range of the specified subnet.
      */
     public readonly ipAddress!: pulumi.Output<string | undefined>;
+    public readonly ipAddressType!: pulumi.Output<enums.efs.MountTargetIpAddressType | undefined>;
+    public readonly ipv6Address!: pulumi.Output<string | undefined>;
     /**
      * VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
      */
@@ -79,6 +84,8 @@ export class MountTarget extends pulumi.CustomResource {
             }
             resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["ipv6Address"] = args ? args.ipv6Address : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -86,11 +93,13 @@ export class MountTarget extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["fileSystemId"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["ipAddressType"] = undefined /*out*/;
+            resourceInputs["ipv6Address"] = undefined /*out*/;
             resourceInputs["securityGroups"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["fileSystemId", "ipAddress", "subnetId"] };
+        const replaceOnChanges = { replaceOnChanges: ["fileSystemId", "ipAddress", "ipAddressType", "ipv6Address", "subnetId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(MountTarget.__pulumiType, name, resourceInputs, opts);
     }
@@ -108,6 +117,8 @@ export interface MountTargetArgs {
      * Valid IPv4 address within the address range of the specified subnet.
      */
     ipAddress?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<enums.efs.MountTargetIpAddressType>;
+    ipv6Address?: pulumi.Input<string>;
     /**
      * VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
      */

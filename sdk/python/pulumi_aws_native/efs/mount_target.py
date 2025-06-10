@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['MountTargetArgs', 'MountTarget']
 
@@ -23,7 +24,9 @@ class MountTargetArgs:
                  file_system_id: pulumi.Input[builtins.str],
                  security_groups: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  subnet_id: pulumi.Input[builtins.str],
-                 ip_address: Optional[pulumi.Input[builtins.str]] = None):
+                 ip_address: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input['MountTargetIpAddressType']] = None,
+                 ipv6_address: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a MountTarget resource.
         :param pulumi.Input[builtins.str] file_system_id: The ID of the file system for which to create the mount target.
@@ -36,6 +39,10 @@ class MountTargetArgs:
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ipv6_address is not None:
+            pulumi.set(__self__, "ipv6_address", ipv6_address)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -85,6 +92,24 @@ class MountTargetArgs:
     def ip_address(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input['MountTargetIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input['MountTargetIpAddressType']]):
+        pulumi.set(self, "ip_address_type", value)
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "ipv6_address")
+
+    @ipv6_address.setter
+    def ipv6_address(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ipv6_address", value)
+
 
 @pulumi.type_token("aws-native:efs:MountTarget")
 class MountTarget(pulumi.CustomResource):
@@ -94,6 +119,8 @@ class MountTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input['MountTargetIpAddressType']] = None,
+                 ipv6_address: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -133,6 +160,8 @@ class MountTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_address_type: Optional[pulumi.Input['MountTargetIpAddressType']] = None,
+                 ipv6_address: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -148,6 +177,8 @@ class MountTarget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'file_system_id'")
             __props__.__dict__["file_system_id"] = file_system_id
             __props__.__dict__["ip_address"] = ip_address
+            __props__.__dict__["ip_address_type"] = ip_address_type
+            __props__.__dict__["ipv6_address"] = ipv6_address
             if security_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'security_groups'")
             __props__.__dict__["security_groups"] = security_groups
@@ -155,7 +186,7 @@ class MountTarget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["fileSystemId", "ipAddress", "subnetId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["fileSystemId", "ipAddress", "ipAddressType", "ipv6Address", "subnetId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MountTarget, __self__).__init__(
             'aws-native:efs:MountTarget',
@@ -182,6 +213,8 @@ class MountTarget(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["file_system_id"] = None
         __props__.__dict__["ip_address"] = None
+        __props__.__dict__["ip_address_type"] = None
+        __props__.__dict__["ipv6_address"] = None
         __props__.__dict__["security_groups"] = None
         __props__.__dict__["subnet_id"] = None
         return MountTarget(resource_name, opts=opts, __props__=__props__)
@@ -211,6 +244,16 @@ class MountTarget(pulumi.CustomResource):
         Valid IPv4 address within the address range of the specified subnet.
         """
         return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Output[Optional['MountTargetIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "ipv6_address")
 
     @property
     @pulumi.getter(name="securityGroups")

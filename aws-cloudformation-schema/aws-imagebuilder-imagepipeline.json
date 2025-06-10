@@ -207,20 +207,21 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
   },
   "handlers" : {
     "create" : {
       "permissions" : [ "ecr:BatchGetRepositoryScanningConfiguration", "iam:GetRole", "iam:PassRole", "iam:CreateServiceLinkedRole", "imagebuilder:TagResource", "imagebuilder:GetImagePipeline", "imagebuilder:GetImageRecipe", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:GetDistributionConfiguration", "imagebuilder:CreateImagePipeline", "imagebuilder:GetWorkflow", "inspector2:BatchGetAccountStatus" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "imagebuilder:GetImagePipeline", "imagebuilder:UpdateImagePipeline", "imagebuilder:GetWorkflow" ]
+      "permissions" : [ "iam:PassRole", "imagebuilder:GetImagePipeline", "imagebuilder:UpdateImagePipeline", "imagebuilder:GetWorkflow", "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetImagePipeline" ]
     },
     "delete" : {
-      "permissions" : [ "imagebuilder:UnTagResource", "imagebuilder:GetImagePipeline", "imagebuilder:DeleteImagePipeline" ]
+      "permissions" : [ "imagebuilder:UntagResource", "imagebuilder:GetImagePipeline", "imagebuilder:DeleteImagePipeline" ]
     },
     "list" : {
       "permissions" : [ "imagebuilder:ListImagePipelines" ]

@@ -63,14 +63,19 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [OutputType]
     public sealed class GetLoggingConfigurationResult
     {
+        public readonly bool? EnableMonitoringDashboard;
         /// <summary>
         /// Defines how AWS Network Firewall performs logging for a `Firewall` .
         /// </summary>
         public readonly Outputs.LoggingConfiguration? LoggingConfigurationValue;
 
         [OutputConstructor]
-        private GetLoggingConfigurationResult(Outputs.LoggingConfiguration? loggingConfiguration)
+        private GetLoggingConfigurationResult(
+            bool? enableMonitoringDashboard,
+
+            Outputs.LoggingConfiguration? loggingConfiguration)
         {
+            EnableMonitoringDashboard = enableMonitoringDashboard;
             LoggingConfigurationValue = loggingConfiguration;
         }
     }

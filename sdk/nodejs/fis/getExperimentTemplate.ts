@@ -58,6 +58,10 @@ export interface GetExperimentTemplateResult {
      */
     readonly stopConditions?: outputs.fis.ExperimentTemplateStopCondition[];
     /**
+     * The tags for the experiment template.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
      * The targets for the experiment.
      */
     readonly targets?: {[key: string]: outputs.fis.ExperimentTemplateTarget};

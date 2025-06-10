@@ -75,4 +75,33 @@ namespace Pulumi.AwsNative.Efs
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct MountTargetIpAddressType : IEquatable<MountTargetIpAddressType>
+    {
+        private readonly string _value;
+
+        private MountTargetIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MountTargetIpAddressType Ipv4Only { get; } = new MountTargetIpAddressType("IPV4_ONLY");
+        public static MountTargetIpAddressType Ipv6Only { get; } = new MountTargetIpAddressType("IPV6_ONLY");
+        public static MountTargetIpAddressType DualStack { get; } = new MountTargetIpAddressType("DUAL_STACK");
+
+        public static bool operator ==(MountTargetIpAddressType left, MountTargetIpAddressType right) => left.Equals(right);
+        public static bool operator !=(MountTargetIpAddressType left, MountTargetIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(MountTargetIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MountTargetIpAddressType other && Equals(other);
+        public bool Equals(MountTargetIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

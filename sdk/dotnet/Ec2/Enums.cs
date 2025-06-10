@@ -141,6 +141,9 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+    /// </summary>
     [EnumType]
     public readonly struct Ec2FleetEbsBlockDeviceVolumeType : IEquatable<Ec2FleetEbsBlockDeviceVolumeType>
     {

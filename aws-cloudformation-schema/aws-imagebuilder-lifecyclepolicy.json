@@ -263,20 +263,21 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
   },
   "handlers" : {
     "create" : {
       "permissions" : [ "iam:PassRole", "imagebuilder:CreateLifecyclePolicy", "imagebuilder:GetLifecyclePolicy", "imagebuilder:TagResource" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "imagebuilder:GetLifecyclePolicy", "imagebuilder:UpdateLifecyclePolicy" ]
+      "permissions" : [ "iam:PassRole", "imagebuilder:GetLifecyclePolicy", "imagebuilder:UpdateLifecyclePolicy", "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetLifecyclePolicy" ]
     },
     "delete" : {
-      "permissions" : [ "imagebuilder:GetLifecyclePolicy", "imagebuilder:DeleteLifecyclePolicy", "imagebuilder:UnTagResource" ]
+      "permissions" : [ "imagebuilder:GetLifecyclePolicy", "imagebuilder:DeleteLifecyclePolicy", "imagebuilder:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "imagebuilder:ListLifecyclePolicies" ]

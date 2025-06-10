@@ -33,10 +33,16 @@ type LookupPodIdentityAssociationResult struct {
 	AssociationArn *string `pulumi:"associationArn"`
 	// The ID of the pod identity association.
 	AssociationId *string `pulumi:"associationId"`
+	// The Disable Session Tags of the pod identity association.
+	DisableSessionTags *bool `pulumi:"disableSessionTags"`
+	// The External Id of the pod identity association.
+	ExternalId *string `pulumi:"externalId"`
 	// The IAM role ARN that the pod identity association is created for.
 	RoleArn *string `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The Target Role Arn of the pod identity association.
+	TargetRoleArn *string `pulumi:"targetRoleArn"`
 }
 
 func LookupPodIdentityAssociationOutput(ctx *pulumi.Context, args LookupPodIdentityAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupPodIdentityAssociationResultOutput {
@@ -81,6 +87,16 @@ func (o LookupPodIdentityAssociationResultOutput) AssociationId() pulumi.StringP
 	return o.ApplyT(func(v LookupPodIdentityAssociationResult) *string { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
+// The Disable Session Tags of the pod identity association.
+func (o LookupPodIdentityAssociationResultOutput) DisableSessionTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupPodIdentityAssociationResult) *bool { return v.DisableSessionTags }).(pulumi.BoolPtrOutput)
+}
+
+// The External Id of the pod identity association.
+func (o LookupPodIdentityAssociationResultOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPodIdentityAssociationResult) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
 // The IAM role ARN that the pod identity association is created for.
 func (o LookupPodIdentityAssociationResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPodIdentityAssociationResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
@@ -89,6 +105,11 @@ func (o LookupPodIdentityAssociationResultOutput) RoleArn() pulumi.StringPtrOutp
 // An array of key-value pairs to apply to this resource.
 func (o LookupPodIdentityAssociationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPodIdentityAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The Target Role Arn of the pod identity association.
+func (o LookupPodIdentityAssociationResultOutput) TargetRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPodIdentityAssociationResult) *string { return v.TargetRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

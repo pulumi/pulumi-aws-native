@@ -28,3 +28,11 @@ export const FileSystemProtectionReplicationOverwriteProtection = {
  *  If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
  */
 export type FileSystemProtectionReplicationOverwriteProtection = (typeof FileSystemProtectionReplicationOverwriteProtection)[keyof typeof FileSystemProtectionReplicationOverwriteProtection];
+
+export const MountTargetIpAddressType = {
+    Ipv4Only: "IPV4_ONLY",
+    Ipv6Only: "IPV6_ONLY",
+    DualStack: "DUAL_STACK",
+} as const;
+
+export type MountTargetIpAddressType = (typeof MountTargetIpAddressType)[keyof typeof MountTargetIpAddressType];

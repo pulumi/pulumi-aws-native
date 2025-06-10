@@ -179,20 +179,21 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
   },
   "handlers" : {
     "create" : {
       "permissions" : [ "iam:PassRole", "iam:GetRole", "iam:GetInstanceProfile", "iam:CreateServiceLinkedRole", "sns:Publish", "imagebuilder:TagResource", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:CreateInfrastructureConfiguration" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "sns:Publish", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:UpdateInfrastructureConfiguration" ]
+      "permissions" : [ "iam:PassRole", "sns:Publish", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:UpdateInfrastructureConfiguration", "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetInfrastructureConfiguration" ]
     },
     "delete" : {
-      "permissions" : [ "imagebuilder:UnTagResource", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:DeleteInfrastructureConfiguration" ]
+      "permissions" : [ "imagebuilder:UntagResource", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:DeleteInfrastructureConfiguration" ]
     },
     "list" : {
       "permissions" : [ "imagebuilder:ListInfrastructureConfigurations" ]

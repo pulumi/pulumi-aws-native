@@ -17,6 +17,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The Availability Zone in which to launch the instances.
         /// </summary>
         public readonly string? AvailabilityZone;
+        /// <summary>
+        /// The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
+        /// 
+        /// Supported only for fleets of type `instant` .
+        /// 
+        /// For more information, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide* .
+        /// </summary>
         public readonly ImmutableArray<Outputs.Ec2FleetBlockDeviceMapping> BlockDeviceMappings;
         /// <summary>
         /// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.

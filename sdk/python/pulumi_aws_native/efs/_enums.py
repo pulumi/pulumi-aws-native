@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'FileSystemBackupPolicyStatus',
     'FileSystemProtectionReplicationOverwriteProtection',
+    'MountTargetIpAddressType',
 ]
 
 
@@ -35,3 +36,10 @@ class FileSystemProtectionReplicationOverwriteProtection(builtins.str, Enum):
     """
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
+
+
+@pulumi.type_token("aws-native:efs:MountTargetIpAddressType")
+class MountTargetIpAddressType(builtins.str, Enum):
+    IPV4_ONLY = "IPV4_ONLY"
+    IPV6_ONLY = "IPV6_ONLY"
+    DUAL_STACK = "DUAL_STACK"

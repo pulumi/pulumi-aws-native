@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.Fis
         /// The tags for the experiment template.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The targets for the experiment.
@@ -206,7 +206,6 @@ namespace Pulumi.AwsNative.Fis
                 ReplaceOnChanges =
                 {
                     "experimentOptions.accountTargeting",
-                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -284,7 +283,7 @@ namespace Pulumi.AwsNative.Fis
             set => _stopConditions = value;
         }
 
-        [Input("tags", required: true)]
+        [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>

@@ -148,15 +148,11 @@ func NewExperimentTemplate(ctx *pulumi.Context,
 	if args.StopConditions == nil {
 		return nil, errors.New("invalid value for required argument 'StopConditions'")
 	}
-	if args.Tags == nil {
-		return nil, errors.New("invalid value for required argument 'Tags'")
-	}
 	if args.Targets == nil {
 		return nil, errors.New("invalid value for required argument 'Targets'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"experimentOptions.accountTargeting",
-		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
