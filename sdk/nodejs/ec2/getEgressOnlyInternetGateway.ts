@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -26,6 +29,10 @@ export interface GetEgressOnlyInternetGatewayResult {
      * Service Generated ID of the EgressOnlyInternetGateway
      */
     readonly id?: string;
+    /**
+     * Any tags assigned to the egress only internet gateway.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::EgressOnlyInternetGateway

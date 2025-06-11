@@ -98,6 +98,16 @@
       "required" : [ "EncryptionOption" ],
       "additionalProperties" : false
     },
+    "ManagedStorageEncryptionConfiguration" : {
+      "description" : "Indicates the encryption configuration for Athena Managed Storage. If not setting this field, Managed Storage will encrypt the query results with Athena's encryption key",
+      "type" : "object",
+      "properties" : {
+        "KmsKey" : {
+          "$ref" : "#/definitions/KmsKey"
+        }
+      },
+      "additionalProperties" : false
+    },
     "RemoveEncryptionConfiguration" : {
       "type" : "boolean"
     },
@@ -202,6 +212,19 @@
       },
       "additionalProperties" : false
     },
+    "ManagedQueryResultsConfiguration" : {
+      "description" : "The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time",
+      "type" : "object",
+      "properties" : {
+        "EncryptionConfiguration" : {
+          "$ref" : "#/definitions/ManagedStorageEncryptionConfiguration"
+        },
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
     "WorkGroupConfiguration" : {
       "type" : "object",
       "properties" : {
@@ -231,6 +254,9 @@
         },
         "CustomerContentEncryptionConfiguration" : {
           "$ref" : "#/definitions/CustomerContentEncryptionConfiguration"
+        },
+        "ManagedQueryResultsConfiguration" : {
+          "$ref" : "#/definitions/ManagedQueryResultsConfiguration"
         }
       },
       "additionalProperties" : false
@@ -271,6 +297,9 @@
         },
         "RemoveCustomerContentEncryptionConfiguration" : {
           "$ref" : "#/definitions/RemoveCustomerContentEncryptionConfiguration"
+        },
+        "ManagedQueryResultsConfiguration" : {
+          "$ref" : "#/definitions/ManagedQueryResultsConfiguration"
         }
       },
       "additionalProperties" : false

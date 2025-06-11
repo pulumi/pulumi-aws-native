@@ -7187,6 +7187,11 @@ func (o Ec2FleetVCpuCountRangeRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type EgressOnlyInternetGatewayTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type EipTag struct {
 	// The tag key.

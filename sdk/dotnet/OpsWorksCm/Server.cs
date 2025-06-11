@@ -92,6 +92,9 @@ namespace Pulumi.AwsNative.OpsWorksCm
         [Output("associatePublicIpAddress")]
         public Output<bool?> AssociatePublicIpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the server.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -224,7 +227,7 @@ namespace Pulumi.AwsNative.OpsWorksCm
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
+        /// The name of the server.
         /// </summary>
         [Output("serverName")]
         public Output<string> ServerName { get; private set; } = null!;

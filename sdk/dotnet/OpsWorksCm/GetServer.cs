@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.OpsWorksCm
 
     public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the server.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.OpsWorksCm
 
     public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the server.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -84,6 +90,9 @@ namespace Pulumi.AwsNative.OpsWorksCm
         /// - `PUPPET_R10K_PRIVATE_KEY` : If you are using a private Git repository, add PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded private SSH key.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServerEngineAttribute> EngineAttributes;
+        /// <summary>
+        /// The ID of the server.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
@@ -105,7 +114,7 @@ namespace Pulumi.AwsNative.OpsWorksCm
         /// </summary>
         public readonly string? PreferredMaintenanceWindow;
         /// <summary>
-        /// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
+        /// The name of the server.
         /// </summary>
         public readonly string? ServerName;
         /// <summary>

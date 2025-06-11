@@ -761,6 +761,9 @@ class Server(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The ID of the server.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -929,7 +932,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="serverName")
     def server_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
+        The name of the server.
         """
         return pulumi.get(self, "server_name")
 

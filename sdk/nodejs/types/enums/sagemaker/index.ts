@@ -557,6 +557,21 @@ export const DomainTagPropagation = {
  */
 export type DomainTagPropagation = (typeof DomainTagPropagation)[keyof typeof DomainTagPropagation];
 
+export const DomainUnifiedStudioSettingsStudioWebPortalAccess = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Sets whether you can access the domain in Amazon SageMaker Studio:
+ *
+ * ENABLED
+ * You can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.
+ * DISABLED
+ * You can't access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it only in that studio interface.
+ */
+export type DomainUnifiedStudioSettingsStudioWebPortalAccess = (typeof DomainUnifiedStudioSettingsStudioWebPortalAccess)[keyof typeof DomainUnifiedStudioSettingsStudioWebPortalAccess];
+
 export const DomainUserSettingsAutoMountHomeEfs = {
     Enabled: "Enabled",
     Disabled: "Disabled",

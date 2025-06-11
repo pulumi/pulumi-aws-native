@@ -880,7 +880,9 @@ if not MYPY:
     class MatchingWorkflowIncrementalRunConfigArgsDict(TypedDict):
         incremental_run_type: pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType']
         """
-        The type of incremental run. It takes only one value: `IMMEDIATE` .
+        The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+
+        > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
         """
 elif False:
     MatchingWorkflowIncrementalRunConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -890,7 +892,9 @@ class MatchingWorkflowIncrementalRunConfigArgs:
     def __init__(__self__, *,
                  incremental_run_type: pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType']):
         """
-        :param pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType'] incremental_run_type: The type of incremental run. It takes only one value: `IMMEDIATE` .
+        :param pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType'] incremental_run_type: The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+               
+               > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
         """
         pulumi.set(__self__, "incremental_run_type", incremental_run_type)
 
@@ -898,7 +902,9 @@ class MatchingWorkflowIncrementalRunConfigArgs:
     @pulumi.getter(name="incrementalRunType")
     def incremental_run_type(self) -> pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType']:
         """
-        The type of incremental run. It takes only one value: `IMMEDIATE` .
+        The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+
+        > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
         """
         return pulumi.get(self, "incremental_run_type")
 

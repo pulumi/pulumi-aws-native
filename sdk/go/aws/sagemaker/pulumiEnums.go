@@ -4880,6 +4880,177 @@ func (in *domainTagPropagationPtr) ToDomainTagPropagationPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(DomainTagPropagationPtrOutput)
 }
 
+// Sets whether you can access the domain in Amazon SageMaker Studio:
+//
+// ENABLED
+// You can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.
+// DISABLED
+// You can't access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it only in that studio interface.
+type DomainUnifiedStudioSettingsStudioWebPortalAccess string
+
+const (
+	DomainUnifiedStudioSettingsStudioWebPortalAccessEnabled  = DomainUnifiedStudioSettingsStudioWebPortalAccess("ENABLED")
+	DomainUnifiedStudioSettingsStudioWebPortalAccessDisabled = DomainUnifiedStudioSettingsStudioWebPortalAccess("DISABLED")
+)
+
+func (DomainUnifiedStudioSettingsStudioWebPortalAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainUnifiedStudioSettingsStudioWebPortalAccess)(nil)).Elem()
+}
+
+func (e DomainUnifiedStudioSettingsStudioWebPortalAccess) ToDomainUnifiedStudioSettingsStudioWebPortalAccessOutput() DomainUnifiedStudioSettingsStudioWebPortalAccessOutput {
+	return pulumi.ToOutput(e).(DomainUnifiedStudioSettingsStudioWebPortalAccessOutput)
+}
+
+func (e DomainUnifiedStudioSettingsStudioWebPortalAccess) ToDomainUnifiedStudioSettingsStudioWebPortalAccessOutputWithContext(ctx context.Context) DomainUnifiedStudioSettingsStudioWebPortalAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainUnifiedStudioSettingsStudioWebPortalAccessOutput)
+}
+
+func (e DomainUnifiedStudioSettingsStudioWebPortalAccess) ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput() DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput {
+	return e.ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutputWithContext(context.Background())
+}
+
+func (e DomainUnifiedStudioSettingsStudioWebPortalAccess) ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutputWithContext(ctx context.Context) DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput {
+	return DomainUnifiedStudioSettingsStudioWebPortalAccess(e).ToDomainUnifiedStudioSettingsStudioWebPortalAccessOutputWithContext(ctx).ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutputWithContext(ctx)
+}
+
+func (e DomainUnifiedStudioSettingsStudioWebPortalAccess) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainUnifiedStudioSettingsStudioWebPortalAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainUnifiedStudioSettingsStudioWebPortalAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainUnifiedStudioSettingsStudioWebPortalAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainUnifiedStudioSettingsStudioWebPortalAccessOutput struct{ *pulumi.OutputState }
+
+func (DomainUnifiedStudioSettingsStudioWebPortalAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainUnifiedStudioSettingsStudioWebPortalAccess)(nil)).Elem()
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessOutput) ToDomainUnifiedStudioSettingsStudioWebPortalAccessOutput() DomainUnifiedStudioSettingsStudioWebPortalAccessOutput {
+	return o
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessOutput) ToDomainUnifiedStudioSettingsStudioWebPortalAccessOutputWithContext(ctx context.Context) DomainUnifiedStudioSettingsStudioWebPortalAccessOutput {
+	return o
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessOutput) ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput() DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput {
+	return o.ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessOutput) ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutputWithContext(ctx context.Context) DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainUnifiedStudioSettingsStudioWebPortalAccess) *DomainUnifiedStudioSettingsStudioWebPortalAccess {
+		return &v
+	}).(DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput)
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainUnifiedStudioSettingsStudioWebPortalAccess) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainUnifiedStudioSettingsStudioWebPortalAccess) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainUnifiedStudioSettingsStudioWebPortalAccess)(nil)).Elem()
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput) ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput() DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput {
+	return o
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput) ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutputWithContext(ctx context.Context) DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput {
+	return o
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput) Elem() DomainUnifiedStudioSettingsStudioWebPortalAccessOutput {
+	return o.ApplyT(func(v *DomainUnifiedStudioSettingsStudioWebPortalAccess) DomainUnifiedStudioSettingsStudioWebPortalAccess {
+		if v != nil {
+			return *v
+		}
+		var ret DomainUnifiedStudioSettingsStudioWebPortalAccess
+		return ret
+	}).(DomainUnifiedStudioSettingsStudioWebPortalAccessOutput)
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainUnifiedStudioSettingsStudioWebPortalAccess) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainUnifiedStudioSettingsStudioWebPortalAccessInput is an input type that accepts values of the DomainUnifiedStudioSettingsStudioWebPortalAccess enum
+// A concrete instance of `DomainUnifiedStudioSettingsStudioWebPortalAccessInput` can be one of the following:
+//
+//	DomainUnifiedStudioSettingsStudioWebPortalAccessEnabled
+//	DomainUnifiedStudioSettingsStudioWebPortalAccessDisabled
+type DomainUnifiedStudioSettingsStudioWebPortalAccessInput interface {
+	pulumi.Input
+
+	ToDomainUnifiedStudioSettingsStudioWebPortalAccessOutput() DomainUnifiedStudioSettingsStudioWebPortalAccessOutput
+	ToDomainUnifiedStudioSettingsStudioWebPortalAccessOutputWithContext(context.Context) DomainUnifiedStudioSettingsStudioWebPortalAccessOutput
+}
+
+var domainUnifiedStudioSettingsStudioWebPortalAccessPtrType = reflect.TypeOf((**DomainUnifiedStudioSettingsStudioWebPortalAccess)(nil)).Elem()
+
+type DomainUnifiedStudioSettingsStudioWebPortalAccessPtrInput interface {
+	pulumi.Input
+
+	ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput() DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput
+	ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutputWithContext(context.Context) DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput
+}
+
+type domainUnifiedStudioSettingsStudioWebPortalAccessPtr string
+
+func DomainUnifiedStudioSettingsStudioWebPortalAccessPtr(v string) DomainUnifiedStudioSettingsStudioWebPortalAccessPtrInput {
+	return (*domainUnifiedStudioSettingsStudioWebPortalAccessPtr)(&v)
+}
+
+func (*domainUnifiedStudioSettingsStudioWebPortalAccessPtr) ElementType() reflect.Type {
+	return domainUnifiedStudioSettingsStudioWebPortalAccessPtrType
+}
+
+func (in *domainUnifiedStudioSettingsStudioWebPortalAccessPtr) ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput() DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput {
+	return pulumi.ToOutput(in).(DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput)
+}
+
+func (in *domainUnifiedStudioSettingsStudioWebPortalAccessPtr) ToDomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutputWithContext(ctx context.Context) DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput)
+}
+
 // Indicates whether auto-mounting of an EFS volume is supported for the user profile.
 type DomainUserSettingsAutoMountHomeEfs string
 
@@ -19030,6 +19201,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsNotebookOutputOptionPtrInput)(nil)).Elem(), DomainSharingSettingsNotebookOutputOption("Allowed"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagPropagationInput)(nil)).Elem(), DomainTagPropagation("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagPropagationPtrInput)(nil)).Elem(), DomainTagPropagation("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainUnifiedStudioSettingsStudioWebPortalAccessInput)(nil)).Elem(), DomainUnifiedStudioSettingsStudioWebPortalAccess("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainUnifiedStudioSettingsStudioWebPortalAccessPtrInput)(nil)).Elem(), DomainUnifiedStudioSettingsStudioWebPortalAccess("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsAutoMountHomeEfsInput)(nil)).Elem(), DomainUserSettingsAutoMountHomeEfs("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsAutoMountHomeEfsPtrInput)(nil)).Elem(), DomainUserSettingsAutoMountHomeEfs("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsStudioWebPortalInput)(nil)).Elem(), DomainUserSettingsStudioWebPortal("ENABLED"))
@@ -19239,6 +19412,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainSharingSettingsNotebookOutputOptionPtrOutput{})
 	pulumi.RegisterOutputType(DomainTagPropagationOutput{})
 	pulumi.RegisterOutputType(DomainTagPropagationPtrOutput{})
+	pulumi.RegisterOutputType(DomainUnifiedStudioSettingsStudioWebPortalAccessOutput{})
+	pulumi.RegisterOutputType(DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsAutoMountHomeEfsOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsAutoMountHomeEfsPtrOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalOutput{})

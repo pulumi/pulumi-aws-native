@@ -4178,6 +4178,13 @@
   "aws-native:ec2:EgressOnlyInternetGateway": {
     "cfTypeName": "AWS::EC2::EgressOnlyInternetGateway",
     "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Any tags assigned to the egress only internet gateway."
+      },
       "vpcId": {
         "type": "string",
         "description": "The ID of the VPC for which to create the egress-only internet gateway."

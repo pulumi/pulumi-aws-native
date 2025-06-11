@@ -1778,7 +1778,9 @@ func (in *idNamespaceTypePtr) ToIdNamespaceTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(IdNamespaceTypePtrOutput)
 }
 
-// The type of incremental run. It takes only one value: `IMMEDIATE` .
+// The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+//
+// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
 type MatchingWorkflowIncrementalRunConfigIncrementalRunType string
 
 const (

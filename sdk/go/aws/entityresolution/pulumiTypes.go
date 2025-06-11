@@ -1766,7 +1766,9 @@ type IdNamespaceTag struct {
 }
 
 type MatchingWorkflowIncrementalRunConfig struct {
-	// The type of incremental run. It takes only one value: `IMMEDIATE` .
+	// The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+	//
+	// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
 	IncrementalRunType MatchingWorkflowIncrementalRunConfigIncrementalRunType `pulumi:"incrementalRunType"`
 }
 
@@ -1782,7 +1784,9 @@ type MatchingWorkflowIncrementalRunConfigInput interface {
 }
 
 type MatchingWorkflowIncrementalRunConfigArgs struct {
-	// The type of incremental run. It takes only one value: `IMMEDIATE` .
+	// The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+	//
+	// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
 	IncrementalRunType MatchingWorkflowIncrementalRunConfigIncrementalRunTypeInput `pulumi:"incrementalRunType"`
 }
 
@@ -1863,7 +1867,9 @@ func (o MatchingWorkflowIncrementalRunConfigOutput) ToMatchingWorkflowIncrementa
 	}).(MatchingWorkflowIncrementalRunConfigPtrOutput)
 }
 
-// The type of incremental run. It takes only one value: `IMMEDIATE` .
+// The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+//
+// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
 func (o MatchingWorkflowIncrementalRunConfigOutput) IncrementalRunType() MatchingWorkflowIncrementalRunConfigIncrementalRunTypeOutput {
 	return o.ApplyT(func(v MatchingWorkflowIncrementalRunConfig) MatchingWorkflowIncrementalRunConfigIncrementalRunType {
 		return v.IncrementalRunType
@@ -1894,7 +1900,9 @@ func (o MatchingWorkflowIncrementalRunConfigPtrOutput) Elem() MatchingWorkflowIn
 	}).(MatchingWorkflowIncrementalRunConfigOutput)
 }
 
-// The type of incremental run. It takes only one value: `IMMEDIATE` .
+// The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+//
+// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
 func (o MatchingWorkflowIncrementalRunConfigPtrOutput) IncrementalRunType() MatchingWorkflowIncrementalRunConfigIncrementalRunTypePtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowIncrementalRunConfig) *MatchingWorkflowIncrementalRunConfigIncrementalRunType {
 		if v == nil {
