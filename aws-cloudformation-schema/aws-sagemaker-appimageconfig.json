@@ -219,24 +219,34 @@
   },
   "required" : [ "AppImageConfigName" ],
   "createOnlyProperties" : [ "/properties/AppImageConfigName", "/properties/Tags" ],
-  "writeOnlyProperties" : [ "/properties/Tags" ],
   "readOnlyProperties" : [ "/properties/AppImageConfigArn" ],
   "primaryIdentifier" : [ "/properties/AppImageConfigName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreateAppImageConfig", "sagemaker:DescribeAppImageConfig" ]
+      "permissions" : [ "sagemaker:CreateAppImageConfig", "sagemaker:DescribeAppImageConfig", "sagemaker:AddTags", "sagemaker:ListTags" ]
     },
     "read" : {
-      "permissions" : [ "sagemaker:DescribeAppImageConfig" ]
+      "permissions" : [ "sagemaker:DescribeAppImageConfig", "sagemaker:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "sagemaker:UpdateAppImageConfig", "sagemaker:DescribeAppImageConfig" ]
+      "permissions" : [ "sagemaker:UpdateAppImageConfig", "sagemaker:DescribeAppImageConfig", "sagemaker:AddTags", "sagemaker:DeleteTags", "sagemaker:ListTags" ]
     },
     "delete" : {
-      "permissions" : [ "sagemaker:DeleteAppImageConfig", "sagemaker:DescribeAppImageConfig" ]
+      "permissions" : [ "sagemaker:DeleteAppImageConfig", "sagemaker:DescribeAppImageConfig", "sagemaker:DeleteTags" ]
     },
     "list" : {
-      "permissions" : [ "sagemaker:ListAppImageConfigs" ]
+      "permissions" : [ "sagemaker:ListAppImageConfigs", "sagemaker:ListTags" ]
     }
+  },
+  "propertyTransform" : {
+    "/properties/AppImageConfigName" : "$lowercase(AppImageConfigName) $OR AppImageConfigName"
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "sagemaker:AddTags", "sagemaker:ListTags", "sagemaker:DeleteTags" ]
   }
 }
