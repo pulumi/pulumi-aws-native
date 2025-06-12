@@ -133,7 +133,9 @@ class IdNamespaceType(builtins.str, Enum):
 @pulumi.type_token("aws-native:entityresolution:MatchingWorkflowIncrementalRunConfigIncrementalRunType")
 class MatchingWorkflowIncrementalRunConfigIncrementalRunType(builtins.str, Enum):
     """
-    The type of incremental run. It takes only one value: `IMMEDIATE` .
+    The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+
+    > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
     """
     IMMEDIATE = "IMMEDIATE"
 

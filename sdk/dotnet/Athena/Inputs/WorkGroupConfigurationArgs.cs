@@ -50,6 +50,9 @@ namespace Pulumi.AwsNative.Athena.Inputs
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }
 
+        [Input("managedQueryResultsConfiguration")]
+        public Input<Inputs.WorkGroupManagedQueryResultsConfigurationArgs>? ManagedQueryResultsConfiguration { get; set; }
+
         /// <summary>
         /// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
         /// </summary>

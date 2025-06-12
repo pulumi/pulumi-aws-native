@@ -26,6 +26,8 @@ __all__ = [
     'WorkGroupCustomerContentEncryptionConfiguration',
     'WorkGroupEncryptionConfiguration',
     'WorkGroupEngineVersion',
+    'WorkGroupManagedQueryResultsConfiguration',
+    'WorkGroupManagedStorageEncryptionConfiguration',
     'WorkGroupResultConfiguration',
     'WorkGroupResultConfigurationUpdates',
 ]
@@ -154,6 +156,8 @@ class WorkGroupConfiguration(dict):
             suggest = "engine_version"
         elif key == "executionRole":
             suggest = "execution_role"
+        elif key == "managedQueryResultsConfiguration":
+            suggest = "managed_query_results_configuration"
         elif key == "publishCloudWatchMetricsEnabled":
             suggest = "publish_cloud_watch_metrics_enabled"
         elif key == "requesterPaysEnabled":
@@ -179,6 +183,7 @@ class WorkGroupConfiguration(dict):
                  enforce_work_group_configuration: Optional[builtins.bool] = None,
                  engine_version: Optional['outputs.WorkGroupEngineVersion'] = None,
                  execution_role: Optional[builtins.str] = None,
+                 managed_query_results_configuration: Optional['outputs.WorkGroupManagedQueryResultsConfiguration'] = None,
                  publish_cloud_watch_metrics_enabled: Optional[builtins.bool] = None,
                  requester_pays_enabled: Optional[builtins.bool] = None,
                  result_configuration: Optional['outputs.WorkGroupResultConfiguration'] = None):
@@ -207,6 +212,8 @@ class WorkGroupConfiguration(dict):
             pulumi.set(__self__, "engine_version", engine_version)
         if execution_role is not None:
             pulumi.set(__self__, "execution_role", execution_role)
+        if managed_query_results_configuration is not None:
+            pulumi.set(__self__, "managed_query_results_configuration", managed_query_results_configuration)
         if publish_cloud_watch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
         if requester_pays_enabled is not None:
@@ -265,6 +272,11 @@ class WorkGroupConfiguration(dict):
         return pulumi.get(self, "execution_role")
 
     @property
+    @pulumi.getter(name="managedQueryResultsConfiguration")
+    def managed_query_results_configuration(self) -> Optional['outputs.WorkGroupManagedQueryResultsConfiguration']:
+        return pulumi.get(self, "managed_query_results_configuration")
+
+    @property
     @pulumi.getter(name="publishCloudWatchMetricsEnabled")
     def publish_cloud_watch_metrics_enabled(self) -> Optional[builtins.bool]:
         """
@@ -309,6 +321,8 @@ class WorkGroupConfigurationUpdates(dict):
             suggest = "engine_version"
         elif key == "executionRole":
             suggest = "execution_role"
+        elif key == "managedQueryResultsConfiguration":
+            suggest = "managed_query_results_configuration"
         elif key == "publishCloudWatchMetricsEnabled":
             suggest = "publish_cloud_watch_metrics_enabled"
         elif key == "removeBytesScannedCutoffPerQuery":
@@ -338,6 +352,7 @@ class WorkGroupConfigurationUpdates(dict):
                  enforce_work_group_configuration: Optional[builtins.bool] = None,
                  engine_version: Optional['outputs.WorkGroupEngineVersion'] = None,
                  execution_role: Optional[builtins.str] = None,
+                 managed_query_results_configuration: Optional['outputs.WorkGroupManagedQueryResultsConfiguration'] = None,
                  publish_cloud_watch_metrics_enabled: Optional[builtins.bool] = None,
                  remove_bytes_scanned_cutoff_per_query: Optional[builtins.bool] = None,
                  remove_customer_content_encryption_configuration: Optional[builtins.bool] = None,
@@ -358,6 +373,8 @@ class WorkGroupConfigurationUpdates(dict):
             pulumi.set(__self__, "engine_version", engine_version)
         if execution_role is not None:
             pulumi.set(__self__, "execution_role", execution_role)
+        if managed_query_results_configuration is not None:
+            pulumi.set(__self__, "managed_query_results_configuration", managed_query_results_configuration)
         if publish_cloud_watch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
         if remove_bytes_scanned_cutoff_per_query is not None:
@@ -398,6 +415,11 @@ class WorkGroupConfigurationUpdates(dict):
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> Optional[builtins.str]:
         return pulumi.get(self, "execution_role")
+
+    @property
+    @pulumi.getter(name="managedQueryResultsConfiguration")
+    def managed_query_results_configuration(self) -> Optional['outputs.WorkGroupManagedQueryResultsConfiguration']:
+        return pulumi.get(self, "managed_query_results_configuration")
 
     @property
     @pulumi.getter(name="publishCloudWatchMetricsEnabled")
@@ -573,6 +595,86 @@ class WorkGroupEngineVersion(dict):
         The engine version requested by the user. Possible values are determined by the output of `ListEngineVersions` , including AUTO. The default is AUTO.
         """
         return pulumi.get(self, "selected_engine_version")
+
+
+@pulumi.output_type
+class WorkGroupManagedQueryResultsConfiguration(dict):
+    """
+    The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkGroupManagedQueryResultsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkGroupManagedQueryResultsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkGroupManagedQueryResultsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[builtins.bool] = None,
+                 encryption_configuration: Optional['outputs.WorkGroupManagedStorageEncryptionConfiguration'] = None):
+        """
+        The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional['outputs.WorkGroupManagedStorageEncryptionConfiguration']:
+        return pulumi.get(self, "encryption_configuration")
+
+
+@pulumi.output_type
+class WorkGroupManagedStorageEncryptionConfiguration(dict):
+    """
+    Indicates the encryption configuration for Athena Managed Storage. If not setting this field, Managed Storage will encrypt the query results with Athena's encryption key
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKey":
+            suggest = "kms_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkGroupManagedStorageEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkGroupManagedStorageEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkGroupManagedStorageEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key: Optional[builtins.str] = None):
+        """
+        Indicates the encryption configuration for Athena Managed Storage. If not setting this field, Managed Storage will encrypt the query results with Athena's encryption key
+        """
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "kms_key")
 
 
 @pulumi.output_type

@@ -24,18 +24,31 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 }
 
 type LookupEnvironmentArgs struct {
+	// The unique ID for the environment. For example: `env-1234567890` .
 	EnvironmentId string `pulumi:"environmentId"`
 }
 
 type LookupEnvironmentResult struct {
-	Checks           []EnvironmentCheck    `pulumi:"checks"`
-	CreatedAt        *string               `pulumi:"createdAt"`
-	Credentials      []EnvironmentSecret   `pulumi:"credentials"`
-	EnvironmentArn   *string               `pulumi:"environmentArn"`
-	EnvironmentId    *string               `pulumi:"environmentId"`
+	// A check on the environment to identify instance health and VMware VCF licensing issues. For example:
+	//
+	// `{ "checks": [ { "type": "KEY_REUSE", "result": "PASSED" }, { "type": "KEY_COVERAGE", "result": "PASSED" }, { "type": "REACHABILITY", "result": "PASSED" }, { "type": "HOST_COUNT", "result": "PASSED" } ] }`
+	Checks []EnvironmentCheck `pulumi:"checks"`
+	// The date and time that the environment was created. For example: `1749081600.000` .
+	CreatedAt *string `pulumi:"createdAt"`
+	// The VCF credentials that are stored as Amazon EVS managed secrets in AWS Secrets Manager. Amazon EVS stores credentials that are needed to install vCenter Server, NSX, and SDDC Manager. For example:
+	//
+	// `{ [ { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterAdmin-MnTMEi" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterRoot-87VyCF" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXRoot-SR3k43" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAdmin-L5LUiD" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAudit-Q2oW46" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerRoot-bFulOq" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerVCF-Ec3gES" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerAdmin-JMTAAb" } ] }`
+	Credentials []EnvironmentSecret `pulumi:"credentials"`
+	// The Amazon Resource Name (ARN) that is associated with the environment. For example: `arn:aws:evs:us-east-1:000000000000:environment/env-1234567890` .
+	EnvironmentArn *string `pulumi:"environmentArn"`
+	// The unique ID for the environment. For example: `env-1234567890` .
+	EnvironmentId *string `pulumi:"environmentId"`
+	// The state of an environment. For example: `CREATED` .
 	EnvironmentState *EnvironmentStateEnum `pulumi:"environmentState"`
-	ModifiedAt       *string               `pulumi:"modifiedAt"`
-	StateDetails     *string               `pulumi:"stateDetails"`
+	// The date and time that the environment was modified. For example: `1749081600.000` .
+	ModifiedAt *string `pulumi:"modifiedAt"`
+	// A detailed description of the `environmentState` of an environment. For example: `Environment successfully created` .
+	StateDetails *string `pulumi:"stateDetails"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -50,6 +63,7 @@ func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputAr
 }
 
 type LookupEnvironmentOutputArgs struct {
+	// The unique ID for the environment. For example: `env-1234567890` .
 	EnvironmentId pulumi.StringInput `pulumi:"environmentId"`
 }
 
@@ -71,34 +85,46 @@ func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutputWithContex
 	return o
 }
 
+// A check on the environment to identify instance health and VMware VCF licensing issues. For example:
+//
+// `{ "checks": [ { "type": "KEY_REUSE", "result": "PASSED" }, { "type": "KEY_COVERAGE", "result": "PASSED" }, { "type": "REACHABILITY", "result": "PASSED" }, { "type": "HOST_COUNT", "result": "PASSED" } ] }`
 func (o LookupEnvironmentResultOutput) Checks() EnvironmentCheckArrayOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) []EnvironmentCheck { return v.Checks }).(EnvironmentCheckArrayOutput)
 }
 
+// The date and time that the environment was created. For example: `1749081600.000` .
 func (o LookupEnvironmentResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The VCF credentials that are stored as Amazon EVS managed secrets in AWS Secrets Manager. Amazon EVS stores credentials that are needed to install vCenter Server, NSX, and SDDC Manager. For example:
+//
+// `{ [ { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterAdmin-MnTMEi" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterRoot-87VyCF" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXRoot-SR3k43" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAdmin-L5LUiD" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAudit-Q2oW46" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerRoot-bFulOq" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerVCF-Ec3gES" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerAdmin-JMTAAb" } ] }`
 func (o LookupEnvironmentResultOutput) Credentials() EnvironmentSecretArrayOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) []EnvironmentSecret { return v.Credentials }).(EnvironmentSecretArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) that is associated with the environment. For example: `arn:aws:evs:us-east-1:000000000000:environment/env-1234567890` .
 func (o LookupEnvironmentResultOutput) EnvironmentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.EnvironmentArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique ID for the environment. For example: `env-1234567890` .
 func (o LookupEnvironmentResultOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
 }
 
+// The state of an environment. For example: `CREATED` .
 func (o LookupEnvironmentResultOutput) EnvironmentState() EnvironmentStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *EnvironmentStateEnum { return v.EnvironmentState }).(EnvironmentStateEnumPtrOutput)
 }
 
+// The date and time that the environment was modified. For example: `1749081600.000` .
 func (o LookupEnvironmentResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// A detailed description of the `environmentState` of an environment. For example: `Environment successfully created` .
 func (o LookupEnvironmentResultOutput) StateDetails() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.StateDetails }).(pulumi.StringPtrOutput)
 }

@@ -20,7 +20,9 @@ type MatchingWorkflow struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the MatchingWorkflow
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// An object which defines an incremental run type and has only `incrementalRunType` as a field.
+	// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+	//
+	// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
 	IncrementalRunConfig MatchingWorkflowIncrementalRunConfigPtrOutput `pulumi:"incrementalRunConfig"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig MatchingWorkflowInputSourceArrayOutput `pulumi:"inputSourceConfig"`
@@ -96,7 +98,9 @@ func (MatchingWorkflowState) ElementType() reflect.Type {
 type matchingWorkflowArgs struct {
 	// The description of the MatchingWorkflow
 	Description *string `pulumi:"description"`
-	// An object which defines an incremental run type and has only `incrementalRunType` as a field.
+	// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+	//
+	// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
 	IncrementalRunConfig *MatchingWorkflowIncrementalRunConfig `pulumi:"incrementalRunConfig"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []MatchingWorkflowInputSource `pulumi:"inputSourceConfig"`
@@ -116,7 +120,9 @@ type matchingWorkflowArgs struct {
 type MatchingWorkflowArgs struct {
 	// The description of the MatchingWorkflow
 	Description pulumi.StringPtrInput
-	// An object which defines an incremental run type and has only `incrementalRunType` as a field.
+	// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+	//
+	// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
 	IncrementalRunConfig MatchingWorkflowIncrementalRunConfigPtrInput
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig MatchingWorkflowInputSourceArrayInput
@@ -178,7 +184,9 @@ func (o MatchingWorkflowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An object which defines an incremental run type and has only `incrementalRunType` as a field.
+// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+//
+// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
 func (o MatchingWorkflowOutput) IncrementalRunConfig() MatchingWorkflowIncrementalRunConfigPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflow) MatchingWorkflowIncrementalRunConfigPtrOutput { return v.IncrementalRunConfig }).(MatchingWorkflowIncrementalRunConfigPtrOutput)
 }

@@ -108,6 +108,9 @@ class GetServerResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[builtins.str]:
+        """
+        The ID of the server.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -141,7 +144,7 @@ class GetServerResult:
     @pulumi.getter(name="serverName")
     def server_name(self) -> Optional[builtins.str]:
         """
-        The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
+        The name of the server.
         """
         return pulumi.get(self, "server_name")
 
@@ -182,6 +185,9 @@ def get_server(id: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
     Resource Type definition for AWS::OpsWorksCM::Server
+
+
+    :param builtins.str id: The ID of the server.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -203,6 +209,9 @@ def get_server_output(id: Optional[pulumi.Input[builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Resource Type definition for AWS::OpsWorksCM::Server
+
+
+    :param builtins.str id: The ID of the server.
     """
     __args__ = dict()
     __args__['id'] = id

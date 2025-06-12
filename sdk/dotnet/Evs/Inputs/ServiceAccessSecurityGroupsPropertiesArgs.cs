@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evs.Inputs
 {
 
+    /// <summary>
+    /// The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
+    /// </summary>
     public sealed class ServiceAccessSecurityGroupsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// The security groups that allow service access.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());

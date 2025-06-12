@@ -99,4 +99,35 @@ namespace Pulumi.AwsNative.Mwaa
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The worker replacement strategy to use when updating the environment. Valid values: `FORCED`, `GRACEFUL`. FORCED means Apache Airflow workers will be stopped and replaced without waiting for tasks to complete before an update. GRACEFUL means Apache Airflow workers will be able to complete running tasks for up to 12 hours during an update before being stopped and replaced.
+    /// </summary>
+    [EnumType]
+    public readonly struct EnvironmentWorkerReplacementStrategy : IEquatable<EnvironmentWorkerReplacementStrategy>
+    {
+        private readonly string _value;
+
+        private EnvironmentWorkerReplacementStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnvironmentWorkerReplacementStrategy Forced { get; } = new EnvironmentWorkerReplacementStrategy("FORCED");
+        public static EnvironmentWorkerReplacementStrategy Graceful { get; } = new EnvironmentWorkerReplacementStrategy("GRACEFUL");
+
+        public static bool operator ==(EnvironmentWorkerReplacementStrategy left, EnvironmentWorkerReplacementStrategy right) => left.Equals(right);
+        public static bool operator !=(EnvironmentWorkerReplacementStrategy left, EnvironmentWorkerReplacementStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(EnvironmentWorkerReplacementStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnvironmentWorkerReplacementStrategy other && Equals(other);
+        public bool Equals(EnvironmentWorkerReplacementStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

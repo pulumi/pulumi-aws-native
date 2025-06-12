@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,6 +31,8 @@ type LookupEgressOnlyInternetGatewayArgs struct {
 type LookupEgressOnlyInternetGatewayResult struct {
 	// Service Generated ID of the EgressOnlyInternetGateway
 	Id *string `pulumi:"id"`
+	// Any tags assigned to the egress only internet gateway.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEgressOnlyInternetGatewayOutput(ctx *pulumi.Context, args LookupEgressOnlyInternetGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupEgressOnlyInternetGatewayResultOutput {
@@ -67,6 +70,11 @@ func (o LookupEgressOnlyInternetGatewayResultOutput) ToLookupEgressOnlyInternetG
 // Service Generated ID of the EgressOnlyInternetGateway
 func (o LookupEgressOnlyInternetGatewayResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEgressOnlyInternetGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Any tags assigned to the egress only internet gateway.
+func (o LookupEgressOnlyInternetGatewayResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEgressOnlyInternetGatewayResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

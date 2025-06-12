@@ -47,7 +47,8 @@ class EnvironmentArgs:
                  startup_script_s3_path: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[Any] = None,
                  webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[builtins.str]] = None):
+                 weekly_maintenance_window_start: Optional[pulumi.Input[builtins.str]] = None,
+                 worker_replacement_strategy: Optional[pulumi.Input['EnvironmentWorkerReplacementStrategy']] = None):
         """
         The set of arguments for constructing a Environment resource.
         :param Any airflow_configuration_options: Key/value pairs representing Airflow configuration variables.
@@ -159,6 +160,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "webserver_access_mode", webserver_access_mode)
         if weekly_maintenance_window_start is not None:
             pulumi.set(__self__, "weekly_maintenance_window_start", weekly_maintenance_window_start)
+        if worker_replacement_strategy is not None:
+            pulumi.set(__self__, "worker_replacement_strategy", worker_replacement_strategy)
 
     @property
     @pulumi.getter(name="airflowConfigurationOptions")
@@ -493,6 +496,15 @@ class EnvironmentArgs:
     def weekly_maintenance_window_start(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "weekly_maintenance_window_start", value)
 
+    @property
+    @pulumi.getter(name="workerReplacementStrategy")
+    def worker_replacement_strategy(self) -> Optional[pulumi.Input['EnvironmentWorkerReplacementStrategy']]:
+        return pulumi.get(self, "worker_replacement_strategy")
+
+    @worker_replacement_strategy.setter
+    def worker_replacement_strategy(self, value: Optional[pulumi.Input['EnvironmentWorkerReplacementStrategy']]):
+        pulumi.set(self, "worker_replacement_strategy", value)
+
 
 @pulumi.type_token("aws-native:mwaa:Environment")
 class Environment(pulumi.CustomResource):
@@ -525,6 +537,7 @@ class Environment(pulumi.CustomResource):
                  tags: Optional[Any] = None,
                  webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[builtins.str]] = None,
+                 worker_replacement_strategy: Optional[pulumi.Input['EnvironmentWorkerReplacementStrategy']] = None,
                  __props__=None):
         """
         Resource schema for AWS::MWAA::Environment
@@ -639,6 +652,7 @@ class Environment(pulumi.CustomResource):
                  tags: Optional[Any] = None,
                  webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[builtins.str]] = None,
+                 worker_replacement_strategy: Optional[pulumi.Input['EnvironmentWorkerReplacementStrategy']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -673,6 +687,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["webserver_access_mode"] = webserver_access_mode
             __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
+            __props__.__dict__["worker_replacement_strategy"] = worker_replacement_strategy
             __props__.__dict__["arn"] = None
             __props__.__dict__["celery_executor_queue"] = None
             __props__.__dict__["database_vpc_endpoint_service"] = None
@@ -732,6 +747,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["webserver_url"] = None
         __props__.__dict__["webserver_vpc_endpoint_service"] = None
         __props__.__dict__["weekly_maintenance_window_start"] = None
+        __props__.__dict__["worker_replacement_strategy"] = None
         return Environment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1006,4 +1022,9 @@ class Environment(pulumi.CustomResource):
         - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\\\d|2[0-3]):(00|30)
         """
         return pulumi.get(self, "weekly_maintenance_window_start")
+
+    @property
+    @pulumi.getter(name="workerReplacementStrategy")
+    def worker_replacement_strategy(self) -> pulumi.Output[Optional['EnvironmentWorkerReplacementStrategy']]:
+        return pulumi.get(self, "worker_replacement_strategy")
 

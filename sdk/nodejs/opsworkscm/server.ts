@@ -94,6 +94,9 @@ export class Server extends pulumi.CustomResource {
      * Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
      */
     public readonly associatePublicIpAddress!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the server.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
@@ -190,7 +193,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
+     * The name of the server.
      */
     public /*out*/ readonly serverName!: pulumi.Output<string>;
     /**

@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
             set => _securityGroupIds = value;
         }
 
+        [Input("unifiedStudioSettings")]
+        public Input<Inputs.DomainUnifiedStudioSettingsArgs>? UnifiedStudioSettings { get; set; }
+
         public DomainSettingsArgs()
         {
         }

@@ -39,6 +39,7 @@ namespace Pulumi.AwsNative.Athena.Outputs
         /// Role used to access user resources in an Athena for Apache Spark session. This property applies only to Spark-enabled workgroups in Athena.
         /// </summary>
         public readonly string? ExecutionRole;
+        public readonly Outputs.WorkGroupManagedQueryResultsConfiguration? ManagedQueryResultsConfiguration;
         /// <summary>
         /// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
         /// </summary>
@@ -66,6 +67,8 @@ namespace Pulumi.AwsNative.Athena.Outputs
 
             string? executionRole,
 
+            Outputs.WorkGroupManagedQueryResultsConfiguration? managedQueryResultsConfiguration,
+
             bool? publishCloudWatchMetricsEnabled,
 
             bool? requesterPaysEnabled,
@@ -78,6 +81,7 @@ namespace Pulumi.AwsNative.Athena.Outputs
             EnforceWorkGroupConfiguration = enforceWorkGroupConfiguration;
             EngineVersion = engineVersion;
             ExecutionRole = executionRole;
+            ManagedQueryResultsConfiguration = managedQueryResultsConfiguration;
             PublishCloudWatchMetricsEnabled = publishCloudWatchMetricsEnabled;
             RequesterPaysEnabled = requesterPaysEnabled;
             ResultConfiguration = resultConfiguration;
