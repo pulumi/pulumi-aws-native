@@ -9,8 +9,8 @@ require (
 	github.com/aws/aws-sdk-go-v2/config v1.27.11
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.56.1
 	github.com/pulumi/providertest v0.3.1
-	github.com/pulumi/pulumi/pkg/v3 v3.176.0
-	github.com/pulumi/pulumi/sdk/v3 v3.176.0
+	github.com/pulumi/pulumi/pkg/v3 v3.177.0
+	github.com/pulumi/pulumi/sdk/v3 v3.177.0
 	github.com/stretchr/testify v1.10.0
 )
 
@@ -57,7 +57,7 @@ require (
 	github.com/charmbracelet/bubbletea v0.25.0 // indirect
 	github.com/charmbracelet/lipgloss v0.7.1 // indirect
 	github.com/cheggaaa/pb v1.0.29 // indirect
-	github.com/cloudflare/circl v1.3.7 // indirect
+	github.com/cloudflare/circl v1.6.1 // indirect
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect
 	github.com/cyphar/filepath-securejoin v0.3.6 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
