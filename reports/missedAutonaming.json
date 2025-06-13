@@ -4178,6 +4178,13 @@
   "aws-native:ec2:EgressOnlyInternetGateway": {
     "cfTypeName": "AWS::EC2::EgressOnlyInternetGateway",
     "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Any tags assigned to the egress only internet gateway."
+      },
       "vpcId": {
         "type": "string",
         "description": "The ID of the VPC for which to create the egress-only internet gateway."
@@ -5663,7 +5670,7 @@
       },
       "mapPublicIpOnLaunch": {
         "type": "boolean",
-        "description": "Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.\n  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/)."
+        "description": "Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.\n AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/)."
       },
       "outpostArn": {
         "type": "string",
@@ -7198,10 +7205,12 @@
         "description": "Valid IPv4 address within the address range of the specified subnet."
       },
       "ipAddressType": {
-        "$ref": "#/types/aws-native:efs:MountTargetIpAddressType"
+        "$ref": "#/types/aws-native:efs:MountTargetIpAddressType",
+        "description": "The IP address type for the mount target. The possible values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). If you don’t specify an `IpAddressType` , then `IPV4_ONLY` is used.\n\n\u003e The `IPAddressType` must match the IP type of the subnet. Additionally, the `IPAddressType` parameter overrides the value set as the default IP address for the subnet in the VPC. For example, if the `IPAddressType` is `IPV4_ONLY` and `AssignIpv6AddressOnCreation` is `true` , then IPv4 is used for the mount target. For more information, see [Modify the IP addressing attributes of your subnet](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-public-ip.html) ."
       },
       "ipv6Address": {
-        "type": "string"
+        "type": "string",
+        "description": "If the `IPAddressType` for the mount target is IPv6 ( `IPV6_ONLY` or `DUAL_STACK` ), then specify the IPv6 address to use. If you do not specify an `Ipv6Address` , then Amazon EFS selects an unused IP address from the subnet specified for `SubnetId` ."
       },
       "securityGroups": {
         "type": "array",
@@ -9202,7 +9211,7 @@
       },
       "batchSize": {
         "type": "integer",
-        "description": "The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).\n  +   *Amazon Kinesis* – Default 100. Max 10,000.\n  +   *Amazon DynamoDB Streams* – Default 100. Max 10,000.\n  +   *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.\n  +   *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.\n  +   *Self-managed Apache Kafka* – Default 100. Max 10,000.\n  +   *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.\n  +   *DocumentDB* – Default 100. Max 10,000."
+        "description": "The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).\n  +  *Amazon Kinesis* – Default 100. Max 10,000.\n  +  *Amazon DynamoDB Streams* – Default 100. Max 10,000.\n  +  *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.\n  +  *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.\n  +  *Self-managed Apache Kafka* – Default 100. Max 10,000.\n  +  *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.\n  +  *DocumentDB* – Default 100. Max 10,000."
       },
       "bisectBatchOnFunctionError": {
         "type": "boolean",
@@ -9222,7 +9231,7 @@
       },
       "eventSourceArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the event source.\n  +   *Amazon Kinesis* – The ARN of the data stream or a stream consumer.\n  +   *Amazon DynamoDB Streams* – The ARN of the stream.\n  +   *Amazon Simple Queue Service* – The ARN of the queue.\n  +   *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster or the ARN of the VPC connection (for [cross-account event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc)).\n  +   *Amazon MQ* – The ARN of the broker.\n  +   *Amazon DocumentDB* – The ARN of the DocumentDB change stream."
+        "description": "The Amazon Resource Name (ARN) of the event source.\n  +  *Amazon Kinesis* – The ARN of the data stream or a stream consumer.\n  +  *Amazon DynamoDB Streams* – The ARN of the stream.\n  +  *Amazon Simple Queue Service* – The ARN of the queue.\n  +  *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster or the ARN of the VPC connection (for [cross-account event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc)).\n  +  *Amazon MQ* – The ARN of the broker.\n  +  *Amazon DocumentDB* – The ARN of the DocumentDB change stream."
       },
       "filterCriteria": {
         "$ref": "#/types/aws-native:lambda:EventSourceMappingFilterCriteria",
@@ -9230,7 +9239,7 @@
       },
       "functionName": {
         "type": "string",
-        "description": "The name or ARN of the Lambda function.\n  **Name formats**\n +   *Function name* – ``MyFunction``.\n  +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.\n  +   *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.\n  +   *Partial ARN* – ``123456789012:function:MyFunction``.\n  \n The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length."
+        "description": "The name or ARN of the Lambda function.\n  **Name formats**\n +  *Function name* – ``MyFunction``.\n  +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.\n  +  *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.\n  +  *Partial ARN* – ``123456789012:function:MyFunction``.\n  \n The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length."
       },
       "functionResponseTypes": {
         "type": "array",
@@ -9245,7 +9254,7 @@
       },
       "maximumBatchingWindowInSeconds": {
         "type": "integer",
-        "description": "The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.\n  *Default (, , event sources)*: 0\n  *Default (, Kafka, , event sources)*: 500 ms\n  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1."
+        "description": "The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.\n *Default (, , event sources)*: 0\n *Default (, Kafka, , event sources)*: 500 ms\n *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1."
       },
       "maximumRecordAgeInSeconds": {
         "type": "integer",
@@ -9295,7 +9304,7 @@
       },
       "startingPosition": {
         "type": "string",
-        "description": "The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.\n  +   *LATEST* - Read only new records.\n  +   *TRIM_HORIZON* - Process all available records.\n  +   *AT_TIMESTAMP* - Specify a time from which to start reading records."
+        "description": "The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.\n  +  *LATEST* - Read only new records.\n  +  *TRIM_HORIZON* - Process all available records.\n  +  *AT_TIMESTAMP* - Specify a time from which to start reading records."
       },
       "startingPositionTimestamp": {
         "type": "number",
