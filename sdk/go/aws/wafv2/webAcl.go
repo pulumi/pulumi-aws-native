@@ -57,8 +57,8 @@ type WebAcl struct {
 	LabelNamespace pulumi.StringOutput `pulumi:"labelNamespace"`
 	// The name of the web ACL. You cannot change the name of a web ACL after you create it.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
-	OnSourceDDoSProtectionConfig pulumi.AnyOutput `pulumi:"onSourceDDoSProtectionConfig"`
+	// Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
+	OnSourceDDoSProtectionConfig WebAclOnSourceDDoSProtectionConfigPtrOutput `pulumi:"onSourceDDoSProtectionConfig"`
 	// Collection of Rules.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
@@ -157,8 +157,8 @@ type webAclArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the web ACL. You cannot change the name of a web ACL after you create it.
 	Name *string `pulumi:"name"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
-	OnSourceDDoSProtectionConfig interface{} `pulumi:"onSourceDDoSProtectionConfig"`
+	// Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
+	OnSourceDDoSProtectionConfig *WebAclOnSourceDDoSProtectionConfig `pulumi:"onSourceDDoSProtectionConfig"`
 	// Collection of Rules.
 	Rules []WebAclRule `pulumi:"rules"`
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
@@ -205,8 +205,8 @@ type WebAclArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the web ACL. You cannot change the name of a web ACL after you create it.
 	Name pulumi.StringPtrInput
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
-	OnSourceDDoSProtectionConfig pulumi.Input
+	// Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
+	OnSourceDDoSProtectionConfig WebAclOnSourceDDoSProtectionConfigPtrInput
 	// Collection of Rules.
 	Rules WebAclRuleArrayInput
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
@@ -338,9 +338,9 @@ func (o WebAclOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
-func (o WebAclOutput) OnSourceDDoSProtectionConfig() pulumi.AnyOutput {
-	return o.ApplyT(func(v *WebAcl) pulumi.AnyOutput { return v.OnSourceDDoSProtectionConfig }).(pulumi.AnyOutput)
+// Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
+func (o WebAclOutput) OnSourceDDoSProtectionConfig() WebAclOnSourceDDoSProtectionConfigPtrOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclOnSourceDDoSProtectionConfigPtrOutput { return v.OnSourceDDoSProtectionConfig }).(WebAclOnSourceDDoSProtectionConfigPtrOutput)
 }
 
 // Collection of Rules.

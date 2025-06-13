@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("awsManagedRulesAcfpRuleSet")]
         public Input<Inputs.WebAclAwsManagedRulesAcfpRuleSetArgs>? AwsManagedRulesAcfpRuleSet { get; set; }
 
+        [Input("awsManagedRulesAntiDDoSRuleSet")]
+        public Input<Inputs.WebAclAwsManagedRulesAntiDDoSRuleSetArgs>? AwsManagedRulesAntiDDoSRuleSet { get; set; }
+
         /// <summary>
         /// Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
         /// 

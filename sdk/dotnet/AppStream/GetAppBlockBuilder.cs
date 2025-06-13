@@ -102,6 +102,10 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public readonly string? Platform;
         /// <summary>
+        /// The tags of the app block builder.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The VPC configuration for the app block builder.
         /// </summary>
         public readonly Outputs.AppBlockBuilderVpcConfig? VpcConfig;
@@ -126,6 +130,8 @@ namespace Pulumi.AwsNative.AppStream
 
             string? platform,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             Outputs.AppBlockBuilderVpcConfig? vpcConfig)
         {
             AccessEndpoints = accessEndpoints;
@@ -137,6 +143,7 @@ namespace Pulumi.AwsNative.AppStream
             IamRoleArn = iamRoleArn;
             InstanceType = instanceType;
             Platform = platform;
+            Tags = tags;
             VpcConfig = vpcConfig;
         }
     }

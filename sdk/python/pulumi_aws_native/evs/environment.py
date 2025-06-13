@@ -41,10 +41,23 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+        :param pulumi.Input['ConnectivityInfoPropertiesArgs'] connectivity_info: The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
         :param pulumi.Input['LicenseInfoPropertiesArgs'] license_info: The license information for an EVS environment
+        :param pulumi.Input[builtins.str] service_access_subnet_id: The subnet that is used to establish connectivity between the Amazon EVS control plane and VPC. Amazon EVS uses this subnet to perform validations and create the environment.
+        :param pulumi.Input[builtins.str] site_id: The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
+        :param pulumi.Input[builtins.bool] terms_accepted: Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+        :param pulumi.Input['VcfHostnamesPropertiesArgs'] vcf_hostnames: The DNS hostnames to be used by the VCF management appliances in your environment.
+               
+               For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
+        :param pulumi.Input['EnvironmentVcfVersion'] vcf_version: The VCF version of the environment.
+        :param pulumi.Input[builtins.str] vpc_id: The VPC associated with the environment.
         :param pulumi.Input[builtins.str] environment_name: The name of an EVS environment
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentHostInfoForCreateArgs']]] hosts: The initial hosts for environment only required upon creation. Modification after creation will have no effect
         :param pulumi.Input['InitialVlansPropertiesArgs'] initial_vlans: The initial Vlan configuration only required upon creation. Modification after creation will have no effect
+        :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS key ID that AWS Secrets Manager uses to encrypt secrets that are associated with the environment. These secrets contain the VCF credentials that are needed to install vCenter Server, NSX, and SDDC Manager.
+               
+               By default, Amazon EVS use the AWS Secrets Manager managed key `aws/secretsmanager` . You can also specify a customer managed key.
+        :param pulumi.Input['ServiceAccessSecurityGroupsPropertiesArgs'] service_access_security_groups: The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "connectivity_info", connectivity_info)
@@ -71,6 +84,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="connectivityInfo")
     def connectivity_info(self) -> pulumi.Input['ConnectivityInfoPropertiesArgs']:
+        """
+        The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
+        """
         return pulumi.get(self, "connectivity_info")
 
     @connectivity_info.setter
@@ -92,6 +108,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="serviceAccessSubnetId")
     def service_access_subnet_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The subnet that is used to establish connectivity between the Amazon EVS control plane and VPC. Amazon EVS uses this subnet to perform validations and create the environment.
+        """
         return pulumi.get(self, "service_access_subnet_id")
 
     @service_access_subnet_id.setter
@@ -101,6 +120,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="siteId")
     def site_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
+        """
         return pulumi.get(self, "site_id")
 
     @site_id.setter
@@ -110,6 +132,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="termsAccepted")
     def terms_accepted(self) -> pulumi.Input[builtins.bool]:
+        """
+        Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+        """
         return pulumi.get(self, "terms_accepted")
 
     @terms_accepted.setter
@@ -119,6 +144,11 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="vcfHostnames")
     def vcf_hostnames(self) -> pulumi.Input['VcfHostnamesPropertiesArgs']:
+        """
+        The DNS hostnames to be used by the VCF management appliances in your environment.
+
+        For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
+        """
         return pulumi.get(self, "vcf_hostnames")
 
     @vcf_hostnames.setter
@@ -128,6 +158,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="vcfVersion")
     def vcf_version(self) -> pulumi.Input['EnvironmentVcfVersion']:
+        """
+        The VCF version of the environment.
+        """
         return pulumi.get(self, "vcf_version")
 
     @vcf_version.setter
@@ -137,6 +170,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The VPC associated with the environment.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -182,6 +218,11 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS KMS key ID that AWS Secrets Manager uses to encrypt secrets that are associated with the environment. These secrets contain the VCF credentials that are needed to install vCenter Server, NSX, and SDDC Manager.
+
+        By default, Amazon EVS use the AWS Secrets Manager managed key `aws/secretsmanager` . You can also specify a customer managed key.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -191,6 +232,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="serviceAccessSecurityGroups")
     def service_access_security_groups(self) -> Optional[pulumi.Input['ServiceAccessSecurityGroupsPropertiesArgs']]:
+        """
+        The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
+        """
         return pulumi.get(self, "service_access_security_groups")
 
     @service_access_security_groups.setter
@@ -236,11 +280,24 @@ class Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ConnectivityInfoPropertiesArgs', 'ConnectivityInfoPropertiesArgsDict']] connectivity_info: The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
         :param pulumi.Input[builtins.str] environment_name: The name of an EVS environment
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentHostInfoForCreateArgs', 'EnvironmentHostInfoForCreateArgsDict']]]] hosts: The initial hosts for environment only required upon creation. Modification after creation will have no effect
         :param pulumi.Input[Union['InitialVlansPropertiesArgs', 'InitialVlansPropertiesArgsDict']] initial_vlans: The initial Vlan configuration only required upon creation. Modification after creation will have no effect
+        :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS key ID that AWS Secrets Manager uses to encrypt secrets that are associated with the environment. These secrets contain the VCF credentials that are needed to install vCenter Server, NSX, and SDDC Manager.
+               
+               By default, Amazon EVS use the AWS Secrets Manager managed key `aws/secretsmanager` . You can also specify a customer managed key.
         :param pulumi.Input[Union['LicenseInfoPropertiesArgs', 'LicenseInfoPropertiesArgsDict']] license_info: The license information for an EVS environment
+        :param pulumi.Input[Union['ServiceAccessSecurityGroupsPropertiesArgs', 'ServiceAccessSecurityGroupsPropertiesArgsDict']] service_access_security_groups: The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
+        :param pulumi.Input[builtins.str] service_access_subnet_id: The subnet that is used to establish connectivity between the Amazon EVS control plane and VPC. Amazon EVS uses this subnet to perform validations and create the environment.
+        :param pulumi.Input[builtins.str] site_id: The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[builtins.bool] terms_accepted: Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+        :param pulumi.Input[Union['VcfHostnamesPropertiesArgs', 'VcfHostnamesPropertiesArgsDict']] vcf_hostnames: The DNS hostnames to be used by the VCF management appliances in your environment.
+               
+               For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
+        :param pulumi.Input['EnvironmentVcfVersion'] vcf_version: The VCF version of the environment.
+        :param pulumi.Input[builtins.str] vpc_id: The VPC associated with the environment.
         """
         ...
     @overload
@@ -378,31 +435,53 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def checks(self) -> pulumi.Output[Sequence['outputs.EnvironmentCheck']]:
+        """
+        A check on the environment to identify instance health and VMware VCF licensing issues. For example:
+
+        `{ "checks": [ { "type": "KEY_REUSE", "result": "PASSED" }, { "type": "KEY_COVERAGE", "result": "PASSED" }, { "type": "REACHABILITY", "result": "PASSED" }, { "type": "HOST_COUNT", "result": "PASSED" } ] }`
+        """
         return pulumi.get(self, "checks")
 
     @property
     @pulumi.getter(name="connectivityInfo")
     def connectivity_info(self) -> pulumi.Output['outputs.ConnectivityInfoProperties']:
+        """
+        The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
+        """
         return pulumi.get(self, "connectivity_info")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The date and time that the environment was created. For example: `1749081600.000` .
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Sequence['outputs.EnvironmentSecret']]:
+        """
+        The VCF credentials that are stored as Amazon EVS managed secrets in AWS Secrets Manager. Amazon EVS stores credentials that are needed to install vCenter Server, NSX, and SDDC Manager. For example:
+
+        `{ [ { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterAdmin-MnTMEi" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterRoot-87VyCF" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXRoot-SR3k43" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAdmin-L5LUiD" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAudit-Q2oW46" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerRoot-bFulOq" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerVCF-Ec3gES" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerAdmin-JMTAAb" } ] }`
+        """
         return pulumi.get(self, "credentials")
 
     @property
     @pulumi.getter(name="environmentArn")
     def environment_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) that is associated with the environment. For example: `arn:aws:evs:us-east-1:000000000000:environment/env-1234567890` .
+        """
         return pulumi.get(self, "environment_arn")
 
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The unique ID for the environment. For example: `env-1234567890` .
+        """
         return pulumi.get(self, "environment_id")
 
     @property
@@ -416,6 +495,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="environmentState")
     def environment_state(self) -> pulumi.Output['EnvironmentState']:
+        """
+        The state of an environment. For example: `CREATED` .
+        """
         return pulumi.get(self, "environment_state")
 
     @property
@@ -437,6 +519,11 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The AWS KMS key ID that AWS Secrets Manager uses to encrypt secrets that are associated with the environment. These secrets contain the VCF credentials that are needed to install vCenter Server, NSX, and SDDC Manager.
+
+        By default, Amazon EVS use the AWS Secrets Manager managed key `aws/secretsmanager` . You can also specify a customer managed key.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
@@ -450,26 +537,41 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The date and time that the environment was modified. For example: `1749081600.000` .
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter(name="serviceAccessSecurityGroups")
     def service_access_security_groups(self) -> pulumi.Output[Optional['outputs.ServiceAccessSecurityGroupsProperties']]:
+        """
+        The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
+        """
         return pulumi.get(self, "service_access_security_groups")
 
     @property
     @pulumi.getter(name="serviceAccessSubnetId")
     def service_access_subnet_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The subnet that is used to establish connectivity between the Amazon EVS control plane and VPC. Amazon EVS uses this subnet to perform validations and create the environment.
+        """
         return pulumi.get(self, "service_access_subnet_id")
 
     @property
     @pulumi.getter(name="siteId")
     def site_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
+        """
         return pulumi.get(self, "site_id")
 
     @property
     @pulumi.getter(name="stateDetails")
     def state_details(self) -> pulumi.Output[builtins.str]:
+        """
+        A detailed description of the `environmentState` of an environment. For example: `Environment successfully created` .
+        """
         return pulumi.get(self, "state_details")
 
     @property
@@ -483,20 +585,34 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="termsAccepted")
     def terms_accepted(self) -> pulumi.Output[builtins.bool]:
+        """
+        Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+        """
         return pulumi.get(self, "terms_accepted")
 
     @property
     @pulumi.getter(name="vcfHostnames")
     def vcf_hostnames(self) -> pulumi.Output['outputs.VcfHostnamesProperties']:
+        """
+        The DNS hostnames to be used by the VCF management appliances in your environment.
+
+        For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
+        """
         return pulumi.get(self, "vcf_hostnames")
 
     @property
     @pulumi.getter(name="vcfVersion")
     def vcf_version(self) -> pulumi.Output['EnvironmentVcfVersion']:
+        """
+        The VCF version of the environment.
+        """
         return pulumi.get(self, "vcf_version")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The VPC associated with the environment.
+        """
         return pulumi.get(self, "vpc_id")
 

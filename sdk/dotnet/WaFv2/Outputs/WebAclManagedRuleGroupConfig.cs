@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
         /// </summary>
         public readonly Outputs.WebAclAwsManagedRulesAcfpRuleSet? AwsManagedRulesAcfpRuleSet;
+        public readonly Outputs.WebAclAwsManagedRulesAntiDDoSRuleSet? AwsManagedRulesAntiDDoSRuleSet;
         /// <summary>
         /// Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
         /// 
@@ -55,6 +56,8 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         private WebAclManagedRuleGroupConfig(
             Outputs.WebAclAwsManagedRulesAcfpRuleSet? awsManagedRulesAcfpRuleSet,
 
+            Outputs.WebAclAwsManagedRulesAntiDDoSRuleSet? awsManagedRulesAntiDDoSRuleSet,
+
             Outputs.WebAclAwsManagedRulesAtpRuleSet? awsManagedRulesAtpRuleSet,
 
             Outputs.WebAclAwsManagedRulesBotControlRuleSet? awsManagedRulesBotControlRuleSet,
@@ -68,6 +71,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
             Outputs.WebAclFieldIdentifier? usernameField)
         {
             AwsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
+            AwsManagedRulesAntiDDoSRuleSet = awsManagedRulesAntiDDoSRuleSet;
             AwsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
             AwsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
             LoginPath = loginPath;

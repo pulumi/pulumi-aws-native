@@ -758,6 +758,506 @@ func (o EventSourceMappingMetricsConfigMetricsItemArrayOutput) Index(i pulumi.In
 	}).(EventSourceMappingMetricsConfigMetricsItemOutput)
 }
 
+// The type of authentication Lambda uses to access your schema registry.
+type EventSourceMappingSchemaRegistryAccessConfigType string
+
+const (
+	EventSourceMappingSchemaRegistryAccessConfigTypeBasicAuth                = EventSourceMappingSchemaRegistryAccessConfigType("BASIC_AUTH")
+	EventSourceMappingSchemaRegistryAccessConfigTypeClientCertificateTlsAuth = EventSourceMappingSchemaRegistryAccessConfigType("CLIENT_CERTIFICATE_TLS_AUTH")
+	EventSourceMappingSchemaRegistryAccessConfigTypeServerRootCaCertificate  = EventSourceMappingSchemaRegistryAccessConfigType("SERVER_ROOT_CA_CERTIFICATE")
+)
+
+func (EventSourceMappingSchemaRegistryAccessConfigType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSchemaRegistryAccessConfigType)(nil)).Elem()
+}
+
+func (e EventSourceMappingSchemaRegistryAccessConfigType) ToEventSourceMappingSchemaRegistryAccessConfigTypeOutput() EventSourceMappingSchemaRegistryAccessConfigTypeOutput {
+	return pulumi.ToOutput(e).(EventSourceMappingSchemaRegistryAccessConfigTypeOutput)
+}
+
+func (e EventSourceMappingSchemaRegistryAccessConfigType) ToEventSourceMappingSchemaRegistryAccessConfigTypeOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryAccessConfigTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceMappingSchemaRegistryAccessConfigTypeOutput)
+}
+
+func (e EventSourceMappingSchemaRegistryAccessConfigType) ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutput() EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput {
+	return e.ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingSchemaRegistryAccessConfigType) ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput {
+	return EventSourceMappingSchemaRegistryAccessConfigType(e).ToEventSourceMappingSchemaRegistryAccessConfigTypeOutputWithContext(ctx).ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutputWithContext(ctx)
+}
+
+func (e EventSourceMappingSchemaRegistryAccessConfigType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingSchemaRegistryAccessConfigType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingSchemaRegistryAccessConfigType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingSchemaRegistryAccessConfigType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceMappingSchemaRegistryAccessConfigTypeOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSchemaRegistryAccessConfigTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSchemaRegistryAccessConfigType)(nil)).Elem()
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypeOutput) ToEventSourceMappingSchemaRegistryAccessConfigTypeOutput() EventSourceMappingSchemaRegistryAccessConfigTypeOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypeOutput) ToEventSourceMappingSchemaRegistryAccessConfigTypeOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryAccessConfigTypeOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypeOutput) ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutput() EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput {
+	return o.ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypeOutput) ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingSchemaRegistryAccessConfigType) *EventSourceMappingSchemaRegistryAccessConfigType {
+		return &v
+	}).(EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput)
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingSchemaRegistryAccessConfigType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingSchemaRegistryAccessConfigType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSchemaRegistryAccessConfigType)(nil)).Elem()
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput) ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutput() EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput) ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput) Elem() EventSourceMappingSchemaRegistryAccessConfigTypeOutput {
+	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryAccessConfigType) EventSourceMappingSchemaRegistryAccessConfigType {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingSchemaRegistryAccessConfigType
+		return ret
+	}).(EventSourceMappingSchemaRegistryAccessConfigTypeOutput)
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceMappingSchemaRegistryAccessConfigType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceMappingSchemaRegistryAccessConfigTypeInput is an input type that accepts values of the EventSourceMappingSchemaRegistryAccessConfigType enum
+// A concrete instance of `EventSourceMappingSchemaRegistryAccessConfigTypeInput` can be one of the following:
+//
+//	EventSourceMappingSchemaRegistryAccessConfigTypeBasicAuth
+//	EventSourceMappingSchemaRegistryAccessConfigTypeClientCertificateTlsAuth
+//	EventSourceMappingSchemaRegistryAccessConfigTypeServerRootCaCertificate
+type EventSourceMappingSchemaRegistryAccessConfigTypeInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSchemaRegistryAccessConfigTypeOutput() EventSourceMappingSchemaRegistryAccessConfigTypeOutput
+	ToEventSourceMappingSchemaRegistryAccessConfigTypeOutputWithContext(context.Context) EventSourceMappingSchemaRegistryAccessConfigTypeOutput
+}
+
+var eventSourceMappingSchemaRegistryAccessConfigTypePtrType = reflect.TypeOf((**EventSourceMappingSchemaRegistryAccessConfigType)(nil)).Elem()
+
+type EventSourceMappingSchemaRegistryAccessConfigTypePtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutput() EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput
+	ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutputWithContext(context.Context) EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput
+}
+
+type eventSourceMappingSchemaRegistryAccessConfigTypePtr string
+
+func EventSourceMappingSchemaRegistryAccessConfigTypePtr(v string) EventSourceMappingSchemaRegistryAccessConfigTypePtrInput {
+	return (*eventSourceMappingSchemaRegistryAccessConfigTypePtr)(&v)
+}
+
+func (*eventSourceMappingSchemaRegistryAccessConfigTypePtr) ElementType() reflect.Type {
+	return eventSourceMappingSchemaRegistryAccessConfigTypePtrType
+}
+
+func (in *eventSourceMappingSchemaRegistryAccessConfigTypePtr) ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutput() EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput {
+	return pulumi.ToOutput(in).(EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput)
+}
+
+func (in *eventSourceMappingSchemaRegistryAccessConfigTypePtr) ToEventSourceMappingSchemaRegistryAccessConfigTypePtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput)
+}
+
+// The record format that Lambda delivers to your function after schema validation.
+type EventSourceMappingSchemaRegistryConfigEventRecordFormat string
+
+const (
+	EventSourceMappingSchemaRegistryConfigEventRecordFormatJson   = EventSourceMappingSchemaRegistryConfigEventRecordFormat("JSON")
+	EventSourceMappingSchemaRegistryConfigEventRecordFormatSource = EventSourceMappingSchemaRegistryConfigEventRecordFormat("SOURCE")
+)
+
+func (EventSourceMappingSchemaRegistryConfigEventRecordFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSchemaRegistryConfigEventRecordFormat)(nil)).Elem()
+}
+
+func (e EventSourceMappingSchemaRegistryConfigEventRecordFormat) ToEventSourceMappingSchemaRegistryConfigEventRecordFormatOutput() EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput {
+	return pulumi.ToOutput(e).(EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput)
+}
+
+func (e EventSourceMappingSchemaRegistryConfigEventRecordFormat) ToEventSourceMappingSchemaRegistryConfigEventRecordFormatOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput)
+}
+
+func (e EventSourceMappingSchemaRegistryConfigEventRecordFormat) ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput() EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
+	return e.ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingSchemaRegistryConfigEventRecordFormat) ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
+	return EventSourceMappingSchemaRegistryConfigEventRecordFormat(e).ToEventSourceMappingSchemaRegistryConfigEventRecordFormatOutputWithContext(ctx).ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutputWithContext(ctx)
+}
+
+func (e EventSourceMappingSchemaRegistryConfigEventRecordFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingSchemaRegistryConfigEventRecordFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingSchemaRegistryConfigEventRecordFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingSchemaRegistryConfigEventRecordFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSchemaRegistryConfigEventRecordFormat)(nil)).Elem()
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput) ToEventSourceMappingSchemaRegistryConfigEventRecordFormatOutput() EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput) ToEventSourceMappingSchemaRegistryConfigEventRecordFormatOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput) ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput() EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
+	return o.ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput) ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingSchemaRegistryConfigEventRecordFormat) *EventSourceMappingSchemaRegistryConfigEventRecordFormat {
+		return &v
+	}).(EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput)
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingSchemaRegistryConfigEventRecordFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingSchemaRegistryConfigEventRecordFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSchemaRegistryConfigEventRecordFormat)(nil)).Elem()
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput) ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput() EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput) ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput) Elem() EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput {
+	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryConfigEventRecordFormat) EventSourceMappingSchemaRegistryConfigEventRecordFormat {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingSchemaRegistryConfigEventRecordFormat
+		return ret
+	}).(EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput)
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceMappingSchemaRegistryConfigEventRecordFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceMappingSchemaRegistryConfigEventRecordFormatInput is an input type that accepts values of the EventSourceMappingSchemaRegistryConfigEventRecordFormat enum
+// A concrete instance of `EventSourceMappingSchemaRegistryConfigEventRecordFormatInput` can be one of the following:
+//
+//	EventSourceMappingSchemaRegistryConfigEventRecordFormatJson
+//	EventSourceMappingSchemaRegistryConfigEventRecordFormatSource
+type EventSourceMappingSchemaRegistryConfigEventRecordFormatInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSchemaRegistryConfigEventRecordFormatOutput() EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput
+	ToEventSourceMappingSchemaRegistryConfigEventRecordFormatOutputWithContext(context.Context) EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput
+}
+
+var eventSourceMappingSchemaRegistryConfigEventRecordFormatPtrType = reflect.TypeOf((**EventSourceMappingSchemaRegistryConfigEventRecordFormat)(nil)).Elem()
+
+type EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput() EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput
+	ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutputWithContext(context.Context) EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput
+}
+
+type eventSourceMappingSchemaRegistryConfigEventRecordFormatPtr string
+
+func EventSourceMappingSchemaRegistryConfigEventRecordFormatPtr(v string) EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrInput {
+	return (*eventSourceMappingSchemaRegistryConfigEventRecordFormatPtr)(&v)
+}
+
+func (*eventSourceMappingSchemaRegistryConfigEventRecordFormatPtr) ElementType() reflect.Type {
+	return eventSourceMappingSchemaRegistryConfigEventRecordFormatPtrType
+}
+
+func (in *eventSourceMappingSchemaRegistryConfigEventRecordFormatPtr) ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput() EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
+	return pulumi.ToOutput(in).(EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput)
+}
+
+func (in *eventSourceMappingSchemaRegistryConfigEventRecordFormatPtr) ToEventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput)
+}
+
+// The attribute you want your schema registry to validate and filter for.
+type EventSourceMappingSchemaValidationConfigAttribute string
+
+const (
+	EventSourceMappingSchemaValidationConfigAttributeKey   = EventSourceMappingSchemaValidationConfigAttribute("KEY")
+	EventSourceMappingSchemaValidationConfigAttributeValue = EventSourceMappingSchemaValidationConfigAttribute("VALUE")
+)
+
+func (EventSourceMappingSchemaValidationConfigAttribute) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSchemaValidationConfigAttribute)(nil)).Elem()
+}
+
+func (e EventSourceMappingSchemaValidationConfigAttribute) ToEventSourceMappingSchemaValidationConfigAttributeOutput() EventSourceMappingSchemaValidationConfigAttributeOutput {
+	return pulumi.ToOutput(e).(EventSourceMappingSchemaValidationConfigAttributeOutput)
+}
+
+func (e EventSourceMappingSchemaValidationConfigAttribute) ToEventSourceMappingSchemaValidationConfigAttributeOutputWithContext(ctx context.Context) EventSourceMappingSchemaValidationConfigAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceMappingSchemaValidationConfigAttributeOutput)
+}
+
+func (e EventSourceMappingSchemaValidationConfigAttribute) ToEventSourceMappingSchemaValidationConfigAttributePtrOutput() EventSourceMappingSchemaValidationConfigAttributePtrOutput {
+	return e.ToEventSourceMappingSchemaValidationConfigAttributePtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingSchemaValidationConfigAttribute) ToEventSourceMappingSchemaValidationConfigAttributePtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaValidationConfigAttributePtrOutput {
+	return EventSourceMappingSchemaValidationConfigAttribute(e).ToEventSourceMappingSchemaValidationConfigAttributeOutputWithContext(ctx).ToEventSourceMappingSchemaValidationConfigAttributePtrOutputWithContext(ctx)
+}
+
+func (e EventSourceMappingSchemaValidationConfigAttribute) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingSchemaValidationConfigAttribute) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingSchemaValidationConfigAttribute) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingSchemaValidationConfigAttribute) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceMappingSchemaValidationConfigAttributeOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSchemaValidationConfigAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSchemaValidationConfigAttribute)(nil)).Elem()
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributeOutput) ToEventSourceMappingSchemaValidationConfigAttributeOutput() EventSourceMappingSchemaValidationConfigAttributeOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributeOutput) ToEventSourceMappingSchemaValidationConfigAttributeOutputWithContext(ctx context.Context) EventSourceMappingSchemaValidationConfigAttributeOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributeOutput) ToEventSourceMappingSchemaValidationConfigAttributePtrOutput() EventSourceMappingSchemaValidationConfigAttributePtrOutput {
+	return o.ToEventSourceMappingSchemaValidationConfigAttributePtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributeOutput) ToEventSourceMappingSchemaValidationConfigAttributePtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaValidationConfigAttributePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingSchemaValidationConfigAttribute) *EventSourceMappingSchemaValidationConfigAttribute {
+		return &v
+	}).(EventSourceMappingSchemaValidationConfigAttributePtrOutput)
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingSchemaValidationConfigAttribute) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingSchemaValidationConfigAttribute) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingSchemaValidationConfigAttributePtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSchemaValidationConfigAttributePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSchemaValidationConfigAttribute)(nil)).Elem()
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributePtrOutput) ToEventSourceMappingSchemaValidationConfigAttributePtrOutput() EventSourceMappingSchemaValidationConfigAttributePtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributePtrOutput) ToEventSourceMappingSchemaValidationConfigAttributePtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaValidationConfigAttributePtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributePtrOutput) Elem() EventSourceMappingSchemaValidationConfigAttributeOutput {
+	return o.ApplyT(func(v *EventSourceMappingSchemaValidationConfigAttribute) EventSourceMappingSchemaValidationConfigAttribute {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingSchemaValidationConfigAttribute
+		return ret
+	}).(EventSourceMappingSchemaValidationConfigAttributeOutput)
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaValidationConfigAttributePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceMappingSchemaValidationConfigAttribute) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceMappingSchemaValidationConfigAttributeInput is an input type that accepts values of the EventSourceMappingSchemaValidationConfigAttribute enum
+// A concrete instance of `EventSourceMappingSchemaValidationConfigAttributeInput` can be one of the following:
+//
+//	EventSourceMappingSchemaValidationConfigAttributeKey
+//	EventSourceMappingSchemaValidationConfigAttributeValue
+type EventSourceMappingSchemaValidationConfigAttributeInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSchemaValidationConfigAttributeOutput() EventSourceMappingSchemaValidationConfigAttributeOutput
+	ToEventSourceMappingSchemaValidationConfigAttributeOutputWithContext(context.Context) EventSourceMappingSchemaValidationConfigAttributeOutput
+}
+
+var eventSourceMappingSchemaValidationConfigAttributePtrType = reflect.TypeOf((**EventSourceMappingSchemaValidationConfigAttribute)(nil)).Elem()
+
+type EventSourceMappingSchemaValidationConfigAttributePtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSchemaValidationConfigAttributePtrOutput() EventSourceMappingSchemaValidationConfigAttributePtrOutput
+	ToEventSourceMappingSchemaValidationConfigAttributePtrOutputWithContext(context.Context) EventSourceMappingSchemaValidationConfigAttributePtrOutput
+}
+
+type eventSourceMappingSchemaValidationConfigAttributePtr string
+
+func EventSourceMappingSchemaValidationConfigAttributePtr(v string) EventSourceMappingSchemaValidationConfigAttributePtrInput {
+	return (*eventSourceMappingSchemaValidationConfigAttributePtr)(&v)
+}
+
+func (*eventSourceMappingSchemaValidationConfigAttributePtr) ElementType() reflect.Type {
+	return eventSourceMappingSchemaValidationConfigAttributePtrType
+}
+
+func (in *eventSourceMappingSchemaValidationConfigAttributePtr) ToEventSourceMappingSchemaValidationConfigAttributePtrOutput() EventSourceMappingSchemaValidationConfigAttributePtrOutput {
+	return pulumi.ToOutput(in).(EventSourceMappingSchemaValidationConfigAttributePtrOutput)
+}
+
+func (in *eventSourceMappingSchemaValidationConfigAttributePtr) ToEventSourceMappingSchemaValidationConfigAttributePtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaValidationConfigAttributePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingSchemaValidationConfigAttributePtrOutput)
+}
+
 // The type of authentication protocol, VPC components, or virtual host for your event source. For example: “"Type":"SASL_SCRAM_512_AUTH"“.
 //   - “BASIC_AUTH“ – (Amazon MQ) The ASMlong secret that stores your broker credentials.
 //   - “BASIC_AUTH“ – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
@@ -3414,6 +3914,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigMetricsItemInput)(nil)).Elem(), EventSourceMappingMetricsConfigMetricsItem("EventCount"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigMetricsItemPtrInput)(nil)).Elem(), EventSourceMappingMetricsConfigMetricsItem("EventCount"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigMetricsItemArrayInput)(nil)).Elem(), EventSourceMappingMetricsConfigMetricsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSchemaRegistryAccessConfigTypeInput)(nil)).Elem(), EventSourceMappingSchemaRegistryAccessConfigType("BASIC_AUTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSchemaRegistryAccessConfigTypePtrInput)(nil)).Elem(), EventSourceMappingSchemaRegistryAccessConfigType("BASIC_AUTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSchemaRegistryConfigEventRecordFormatInput)(nil)).Elem(), EventSourceMappingSchemaRegistryConfigEventRecordFormat("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrInput)(nil)).Elem(), EventSourceMappingSchemaRegistryConfigEventRecordFormat("JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSchemaValidationConfigAttributeInput)(nil)).Elem(), EventSourceMappingSchemaValidationConfigAttribute("KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSchemaValidationConfigAttributePtrInput)(nil)).Elem(), EventSourceMappingSchemaValidationConfigAttribute("KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationTypeInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationType("BASIC_AUTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationTypePtrInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationType("BASIC_AUTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArchitecturesItemInput)(nil)).Elem(), FunctionArchitecturesItem("x86_64"))
@@ -3454,6 +3960,12 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigMetricsItemOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigMetricsItemPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigMetricsItemArrayOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSchemaRegistryAccessConfigTypeOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSchemaRegistryConfigEventRecordFormatOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSchemaValidationConfigAttributeOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSchemaValidationConfigAttributePtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(FunctionArchitecturesItemOutput{})

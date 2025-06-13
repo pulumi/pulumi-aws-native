@@ -1249,6 +1249,154 @@ func (o RuleGroupAndStatementPtrOutput) Statements() RuleGroupStatementArrayOutp
 	}).(RuleGroupStatementArrayOutput)
 }
 
+type RuleGroupAsnMatchStatement struct {
+	AsnList           []int                              `pulumi:"asnList"`
+	ForwardedIpConfig *RuleGroupForwardedIpConfiguration `pulumi:"forwardedIpConfig"`
+}
+
+// RuleGroupAsnMatchStatementInput is an input type that accepts RuleGroupAsnMatchStatementArgs and RuleGroupAsnMatchStatementOutput values.
+// You can construct a concrete instance of `RuleGroupAsnMatchStatementInput` via:
+//
+//	RuleGroupAsnMatchStatementArgs{...}
+type RuleGroupAsnMatchStatementInput interface {
+	pulumi.Input
+
+	ToRuleGroupAsnMatchStatementOutput() RuleGroupAsnMatchStatementOutput
+	ToRuleGroupAsnMatchStatementOutputWithContext(context.Context) RuleGroupAsnMatchStatementOutput
+}
+
+type RuleGroupAsnMatchStatementArgs struct {
+	AsnList           pulumi.IntArrayInput                      `pulumi:"asnList"`
+	ForwardedIpConfig RuleGroupForwardedIpConfigurationPtrInput `pulumi:"forwardedIpConfig"`
+}
+
+func (RuleGroupAsnMatchStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupAsnMatchStatement)(nil)).Elem()
+}
+
+func (i RuleGroupAsnMatchStatementArgs) ToRuleGroupAsnMatchStatementOutput() RuleGroupAsnMatchStatementOutput {
+	return i.ToRuleGroupAsnMatchStatementOutputWithContext(context.Background())
+}
+
+func (i RuleGroupAsnMatchStatementArgs) ToRuleGroupAsnMatchStatementOutputWithContext(ctx context.Context) RuleGroupAsnMatchStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAsnMatchStatementOutput)
+}
+
+func (i RuleGroupAsnMatchStatementArgs) ToRuleGroupAsnMatchStatementPtrOutput() RuleGroupAsnMatchStatementPtrOutput {
+	return i.ToRuleGroupAsnMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupAsnMatchStatementArgs) ToRuleGroupAsnMatchStatementPtrOutputWithContext(ctx context.Context) RuleGroupAsnMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAsnMatchStatementOutput).ToRuleGroupAsnMatchStatementPtrOutputWithContext(ctx)
+}
+
+// RuleGroupAsnMatchStatementPtrInput is an input type that accepts RuleGroupAsnMatchStatementArgs, RuleGroupAsnMatchStatementPtr and RuleGroupAsnMatchStatementPtrOutput values.
+// You can construct a concrete instance of `RuleGroupAsnMatchStatementPtrInput` via:
+//
+//	        RuleGroupAsnMatchStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupAsnMatchStatementPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupAsnMatchStatementPtrOutput() RuleGroupAsnMatchStatementPtrOutput
+	ToRuleGroupAsnMatchStatementPtrOutputWithContext(context.Context) RuleGroupAsnMatchStatementPtrOutput
+}
+
+type ruleGroupAsnMatchStatementPtrType RuleGroupAsnMatchStatementArgs
+
+func RuleGroupAsnMatchStatementPtr(v *RuleGroupAsnMatchStatementArgs) RuleGroupAsnMatchStatementPtrInput {
+	return (*ruleGroupAsnMatchStatementPtrType)(v)
+}
+
+func (*ruleGroupAsnMatchStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupAsnMatchStatement)(nil)).Elem()
+}
+
+func (i *ruleGroupAsnMatchStatementPtrType) ToRuleGroupAsnMatchStatementPtrOutput() RuleGroupAsnMatchStatementPtrOutput {
+	return i.ToRuleGroupAsnMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupAsnMatchStatementPtrType) ToRuleGroupAsnMatchStatementPtrOutputWithContext(ctx context.Context) RuleGroupAsnMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAsnMatchStatementPtrOutput)
+}
+
+type RuleGroupAsnMatchStatementOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupAsnMatchStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupAsnMatchStatement)(nil)).Elem()
+}
+
+func (o RuleGroupAsnMatchStatementOutput) ToRuleGroupAsnMatchStatementOutput() RuleGroupAsnMatchStatementOutput {
+	return o
+}
+
+func (o RuleGroupAsnMatchStatementOutput) ToRuleGroupAsnMatchStatementOutputWithContext(ctx context.Context) RuleGroupAsnMatchStatementOutput {
+	return o
+}
+
+func (o RuleGroupAsnMatchStatementOutput) ToRuleGroupAsnMatchStatementPtrOutput() RuleGroupAsnMatchStatementPtrOutput {
+	return o.ToRuleGroupAsnMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupAsnMatchStatementOutput) ToRuleGroupAsnMatchStatementPtrOutputWithContext(ctx context.Context) RuleGroupAsnMatchStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupAsnMatchStatement) *RuleGroupAsnMatchStatement {
+		return &v
+	}).(RuleGroupAsnMatchStatementPtrOutput)
+}
+
+func (o RuleGroupAsnMatchStatementOutput) AsnList() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v RuleGroupAsnMatchStatement) []int { return v.AsnList }).(pulumi.IntArrayOutput)
+}
+
+func (o RuleGroupAsnMatchStatementOutput) ForwardedIpConfig() RuleGroupForwardedIpConfigurationPtrOutput {
+	return o.ApplyT(func(v RuleGroupAsnMatchStatement) *RuleGroupForwardedIpConfiguration { return v.ForwardedIpConfig }).(RuleGroupForwardedIpConfigurationPtrOutput)
+}
+
+type RuleGroupAsnMatchStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupAsnMatchStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupAsnMatchStatement)(nil)).Elem()
+}
+
+func (o RuleGroupAsnMatchStatementPtrOutput) ToRuleGroupAsnMatchStatementPtrOutput() RuleGroupAsnMatchStatementPtrOutput {
+	return o
+}
+
+func (o RuleGroupAsnMatchStatementPtrOutput) ToRuleGroupAsnMatchStatementPtrOutputWithContext(ctx context.Context) RuleGroupAsnMatchStatementPtrOutput {
+	return o
+}
+
+func (o RuleGroupAsnMatchStatementPtrOutput) Elem() RuleGroupAsnMatchStatementOutput {
+	return o.ApplyT(func(v *RuleGroupAsnMatchStatement) RuleGroupAsnMatchStatement {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupAsnMatchStatement
+		return ret
+	}).(RuleGroupAsnMatchStatementOutput)
+}
+
+func (o RuleGroupAsnMatchStatementPtrOutput) AsnList() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *RuleGroupAsnMatchStatement) []int {
+		if v == nil {
+			return nil
+		}
+		return v.AsnList
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o RuleGroupAsnMatchStatementPtrOutput) ForwardedIpConfig() RuleGroupForwardedIpConfigurationPtrOutput {
+	return o.ApplyT(func(v *RuleGroupAsnMatchStatement) *RuleGroupForwardedIpConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedIpConfig
+	}).(RuleGroupForwardedIpConfigurationPtrOutput)
+}
+
 // Block traffic towards application.
 type RuleGroupBlockAction struct {
 	// Defines a custom response for the web request.
@@ -7563,6 +7711,7 @@ func (o RuleGroupRateBasedStatementPtrOutput) ScopeDownStatement() RuleGroupStat
 
 // Specifies a single custom aggregate key for a rate-base rule.
 type RuleGroupRateBasedStatementCustomKey struct {
+	Asn *RuleGroupRateLimitAsn `pulumi:"asn"`
 	// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 	Cookie *RuleGroupRateLimitCookie `pulumi:"cookie"`
 	// Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
@@ -7610,6 +7759,7 @@ type RuleGroupRateBasedStatementCustomKeyInput interface {
 
 // Specifies a single custom aggregate key for a rate-base rule.
 type RuleGroupRateBasedStatementCustomKeyArgs struct {
+	Asn RuleGroupRateLimitAsnPtrInput `pulumi:"asn"`
 	// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 	Cookie RuleGroupRateLimitCookiePtrInput `pulumi:"cookie"`
 	// Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
@@ -7694,6 +7844,10 @@ func (o RuleGroupRateBasedStatementCustomKeyOutput) ToRuleGroupRateBasedStatemen
 
 func (o RuleGroupRateBasedStatementCustomKeyOutput) ToRuleGroupRateBasedStatementCustomKeyOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementCustomKeyOutput {
 	return o
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) Asn() RuleGroupRateLimitAsnPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitAsn { return v.Asn }).(RuleGroupRateLimitAsnPtrOutput)
 }
 
 // Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
@@ -7785,6 +7939,127 @@ func (o RuleGroupRateBasedStatementCustomKeyArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupRateBasedStatementCustomKey {
 		return vs[0].([]RuleGroupRateBasedStatementCustomKey)[vs[1].(int)]
 	}).(RuleGroupRateBasedStatementCustomKeyOutput)
+}
+
+// Specifies the request's ASN as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitAsn struct {
+}
+
+// RuleGroupRateLimitAsnInput is an input type that accepts RuleGroupRateLimitAsnArgs and RuleGroupRateLimitAsnOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitAsnInput` via:
+//
+//	RuleGroupRateLimitAsnArgs{...}
+type RuleGroupRateLimitAsnInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitAsnOutput() RuleGroupRateLimitAsnOutput
+	ToRuleGroupRateLimitAsnOutputWithContext(context.Context) RuleGroupRateLimitAsnOutput
+}
+
+// Specifies the request's ASN as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitAsnArgs struct {
+}
+
+func (RuleGroupRateLimitAsnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitAsn)(nil)).Elem()
+}
+
+func (i RuleGroupRateLimitAsnArgs) ToRuleGroupRateLimitAsnOutput() RuleGroupRateLimitAsnOutput {
+	return i.ToRuleGroupRateLimitAsnOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitAsnArgs) ToRuleGroupRateLimitAsnOutputWithContext(ctx context.Context) RuleGroupRateLimitAsnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitAsnOutput)
+}
+
+func (i RuleGroupRateLimitAsnArgs) ToRuleGroupRateLimitAsnPtrOutput() RuleGroupRateLimitAsnPtrOutput {
+	return i.ToRuleGroupRateLimitAsnPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitAsnArgs) ToRuleGroupRateLimitAsnPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitAsnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitAsnOutput).ToRuleGroupRateLimitAsnPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRateLimitAsnPtrInput is an input type that accepts RuleGroupRateLimitAsnArgs, RuleGroupRateLimitAsnPtr and RuleGroupRateLimitAsnPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitAsnPtrInput` via:
+//
+//	        RuleGroupRateLimitAsnArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRateLimitAsnPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitAsnPtrOutput() RuleGroupRateLimitAsnPtrOutput
+	ToRuleGroupRateLimitAsnPtrOutputWithContext(context.Context) RuleGroupRateLimitAsnPtrOutput
+}
+
+type ruleGroupRateLimitAsnPtrType RuleGroupRateLimitAsnArgs
+
+func RuleGroupRateLimitAsnPtr(v *RuleGroupRateLimitAsnArgs) RuleGroupRateLimitAsnPtrInput {
+	return (*ruleGroupRateLimitAsnPtrType)(v)
+}
+
+func (*ruleGroupRateLimitAsnPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitAsn)(nil)).Elem()
+}
+
+func (i *ruleGroupRateLimitAsnPtrType) ToRuleGroupRateLimitAsnPtrOutput() RuleGroupRateLimitAsnPtrOutput {
+	return i.ToRuleGroupRateLimitAsnPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRateLimitAsnPtrType) ToRuleGroupRateLimitAsnPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitAsnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitAsnPtrOutput)
+}
+
+// Specifies the request's ASN as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitAsnOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitAsnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitAsn)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitAsnOutput) ToRuleGroupRateLimitAsnOutput() RuleGroupRateLimitAsnOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitAsnOutput) ToRuleGroupRateLimitAsnOutputWithContext(ctx context.Context) RuleGroupRateLimitAsnOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitAsnOutput) ToRuleGroupRateLimitAsnPtrOutput() RuleGroupRateLimitAsnPtrOutput {
+	return o.ToRuleGroupRateLimitAsnPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitAsnOutput) ToRuleGroupRateLimitAsnPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitAsnPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitAsn) *RuleGroupRateLimitAsn {
+		return &v
+	}).(RuleGroupRateLimitAsnPtrOutput)
+}
+
+type RuleGroupRateLimitAsnPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitAsnPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitAsn)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitAsnPtrOutput) ToRuleGroupRateLimitAsnPtrOutput() RuleGroupRateLimitAsnPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitAsnPtrOutput) ToRuleGroupRateLimitAsnPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitAsnPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitAsnPtrOutput) Elem() RuleGroupRateLimitAsnOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitAsn) RuleGroupRateLimitAsn {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitAsn
+		return ret
+	}).(RuleGroupRateLimitAsnOutput)
 }
 
 // Specifies a cookie as an aggregate key for a rate-based rule.
@@ -10570,7 +10845,8 @@ func (o RuleGroupSqliMatchStatementPtrOutput) TextTransformations() RuleGroupTex
 // First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type RuleGroupStatement struct {
 	// A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
-	AndStatement *RuleGroupAndStatement `pulumi:"andStatement"`
+	AndStatement      *RuleGroupAndStatement      `pulumi:"andStatement"`
+	AsnMatchStatement *RuleGroupAsnMatchStatement `pulumi:"asnMatchStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 	ByteMatchStatement *RuleGroupByteMatchStatement `pulumi:"byteMatchStatement"`
 	// A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.
@@ -10673,7 +10949,8 @@ type RuleGroupStatementInput interface {
 // First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type RuleGroupStatementArgs struct {
 	// A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
-	AndStatement RuleGroupAndStatementPtrInput `pulumi:"andStatement"`
+	AndStatement      RuleGroupAndStatementPtrInput      `pulumi:"andStatement"`
+	AsnMatchStatement RuleGroupAsnMatchStatementPtrInput `pulumi:"asnMatchStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 	ByteMatchStatement RuleGroupByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
 	// A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.
@@ -10870,6 +11147,10 @@ func (o RuleGroupStatementOutput) AndStatement() RuleGroupAndStatementPtrOutput 
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupAndStatement { return v.AndStatement }).(RuleGroupAndStatementPtrOutput)
 }
 
+func (o RuleGroupStatementOutput) AsnMatchStatement() RuleGroupAsnMatchStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupAsnMatchStatement { return v.AsnMatchStatement }).(RuleGroupAsnMatchStatementPtrOutput)
+}
+
 // A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 func (o RuleGroupStatementOutput) ByteMatchStatement() RuleGroupByteMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupByteMatchStatement { return v.ByteMatchStatement }).(RuleGroupByteMatchStatementPtrOutput)
@@ -11026,6 +11307,15 @@ func (o RuleGroupStatementPtrOutput) AndStatement() RuleGroupAndStatementPtrOutp
 		}
 		return v.AndStatement
 	}).(RuleGroupAndStatementPtrOutput)
+}
+
+func (o RuleGroupStatementPtrOutput) AsnMatchStatement() RuleGroupAsnMatchStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupAsnMatchStatement {
+		if v == nil {
+			return nil
+		}
+		return v.AsnMatchStatement
+	}).(RuleGroupAsnMatchStatementPtrOutput)
 }
 
 // A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
@@ -12125,6 +12415,154 @@ func (o WebAclAndStatementPtrOutput) Statements() WebAclStatementArrayOutput {
 	}).(WebAclStatementArrayOutput)
 }
 
+type WebAclAsnMatchStatement struct {
+	AsnList           []int                           `pulumi:"asnList"`
+	ForwardedIpConfig *WebAclForwardedIpConfiguration `pulumi:"forwardedIpConfig"`
+}
+
+// WebAclAsnMatchStatementInput is an input type that accepts WebAclAsnMatchStatementArgs and WebAclAsnMatchStatementOutput values.
+// You can construct a concrete instance of `WebAclAsnMatchStatementInput` via:
+//
+//	WebAclAsnMatchStatementArgs{...}
+type WebAclAsnMatchStatementInput interface {
+	pulumi.Input
+
+	ToWebAclAsnMatchStatementOutput() WebAclAsnMatchStatementOutput
+	ToWebAclAsnMatchStatementOutputWithContext(context.Context) WebAclAsnMatchStatementOutput
+}
+
+type WebAclAsnMatchStatementArgs struct {
+	AsnList           pulumi.IntArrayInput                   `pulumi:"asnList"`
+	ForwardedIpConfig WebAclForwardedIpConfigurationPtrInput `pulumi:"forwardedIpConfig"`
+}
+
+func (WebAclAsnMatchStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclAsnMatchStatement)(nil)).Elem()
+}
+
+func (i WebAclAsnMatchStatementArgs) ToWebAclAsnMatchStatementOutput() WebAclAsnMatchStatementOutput {
+	return i.ToWebAclAsnMatchStatementOutputWithContext(context.Background())
+}
+
+func (i WebAclAsnMatchStatementArgs) ToWebAclAsnMatchStatementOutputWithContext(ctx context.Context) WebAclAsnMatchStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAsnMatchStatementOutput)
+}
+
+func (i WebAclAsnMatchStatementArgs) ToWebAclAsnMatchStatementPtrOutput() WebAclAsnMatchStatementPtrOutput {
+	return i.ToWebAclAsnMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclAsnMatchStatementArgs) ToWebAclAsnMatchStatementPtrOutputWithContext(ctx context.Context) WebAclAsnMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAsnMatchStatementOutput).ToWebAclAsnMatchStatementPtrOutputWithContext(ctx)
+}
+
+// WebAclAsnMatchStatementPtrInput is an input type that accepts WebAclAsnMatchStatementArgs, WebAclAsnMatchStatementPtr and WebAclAsnMatchStatementPtrOutput values.
+// You can construct a concrete instance of `WebAclAsnMatchStatementPtrInput` via:
+//
+//	        WebAclAsnMatchStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclAsnMatchStatementPtrInput interface {
+	pulumi.Input
+
+	ToWebAclAsnMatchStatementPtrOutput() WebAclAsnMatchStatementPtrOutput
+	ToWebAclAsnMatchStatementPtrOutputWithContext(context.Context) WebAclAsnMatchStatementPtrOutput
+}
+
+type webAclAsnMatchStatementPtrType WebAclAsnMatchStatementArgs
+
+func WebAclAsnMatchStatementPtr(v *WebAclAsnMatchStatementArgs) WebAclAsnMatchStatementPtrInput {
+	return (*webAclAsnMatchStatementPtrType)(v)
+}
+
+func (*webAclAsnMatchStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclAsnMatchStatement)(nil)).Elem()
+}
+
+func (i *webAclAsnMatchStatementPtrType) ToWebAclAsnMatchStatementPtrOutput() WebAclAsnMatchStatementPtrOutput {
+	return i.ToWebAclAsnMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclAsnMatchStatementPtrType) ToWebAclAsnMatchStatementPtrOutputWithContext(ctx context.Context) WebAclAsnMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAsnMatchStatementPtrOutput)
+}
+
+type WebAclAsnMatchStatementOutput struct{ *pulumi.OutputState }
+
+func (WebAclAsnMatchStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclAsnMatchStatement)(nil)).Elem()
+}
+
+func (o WebAclAsnMatchStatementOutput) ToWebAclAsnMatchStatementOutput() WebAclAsnMatchStatementOutput {
+	return o
+}
+
+func (o WebAclAsnMatchStatementOutput) ToWebAclAsnMatchStatementOutputWithContext(ctx context.Context) WebAclAsnMatchStatementOutput {
+	return o
+}
+
+func (o WebAclAsnMatchStatementOutput) ToWebAclAsnMatchStatementPtrOutput() WebAclAsnMatchStatementPtrOutput {
+	return o.ToWebAclAsnMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclAsnMatchStatementOutput) ToWebAclAsnMatchStatementPtrOutputWithContext(ctx context.Context) WebAclAsnMatchStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclAsnMatchStatement) *WebAclAsnMatchStatement {
+		return &v
+	}).(WebAclAsnMatchStatementPtrOutput)
+}
+
+func (o WebAclAsnMatchStatementOutput) AsnList() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v WebAclAsnMatchStatement) []int { return v.AsnList }).(pulumi.IntArrayOutput)
+}
+
+func (o WebAclAsnMatchStatementOutput) ForwardedIpConfig() WebAclForwardedIpConfigurationPtrOutput {
+	return o.ApplyT(func(v WebAclAsnMatchStatement) *WebAclForwardedIpConfiguration { return v.ForwardedIpConfig }).(WebAclForwardedIpConfigurationPtrOutput)
+}
+
+type WebAclAsnMatchStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclAsnMatchStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclAsnMatchStatement)(nil)).Elem()
+}
+
+func (o WebAclAsnMatchStatementPtrOutput) ToWebAclAsnMatchStatementPtrOutput() WebAclAsnMatchStatementPtrOutput {
+	return o
+}
+
+func (o WebAclAsnMatchStatementPtrOutput) ToWebAclAsnMatchStatementPtrOutputWithContext(ctx context.Context) WebAclAsnMatchStatementPtrOutput {
+	return o
+}
+
+func (o WebAclAsnMatchStatementPtrOutput) Elem() WebAclAsnMatchStatementOutput {
+	return o.ApplyT(func(v *WebAclAsnMatchStatement) WebAclAsnMatchStatement {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclAsnMatchStatement
+		return ret
+	}).(WebAclAsnMatchStatementOutput)
+}
+
+func (o WebAclAsnMatchStatementPtrOutput) AsnList() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *WebAclAsnMatchStatement) []int {
+		if v == nil {
+			return nil
+		}
+		return v.AsnList
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o WebAclAsnMatchStatementPtrOutput) ForwardedIpConfig() WebAclForwardedIpConfigurationPtrOutput {
+	return o.ApplyT(func(v *WebAclAsnMatchStatement) *WebAclForwardedIpConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedIpConfig
+	}).(WebAclForwardedIpConfigurationPtrOutput)
+}
+
 // AssociationConfig for body inspection
 type WebAclAssociationConfig struct {
 	// Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
@@ -12545,6 +12983,159 @@ func (o WebAclAwsManagedRulesAcfpRuleSetPtrOutput) ResponseInspection() WebAclRe
 		}
 		return v.ResponseInspection
 	}).(WebAclResponseInspectionPtrOutput)
+}
+
+// Configures how to use the AntiDDOS AWS managed rule group in the web ACL
+type WebAclAwsManagedRulesAntiDDoSRuleSet struct {
+	ClientSideActionConfig WebAclClientSideActionConfig `pulumi:"clientSideActionConfig"`
+	SensitivityToBlock     *WebAclSensitivityToAct      `pulumi:"sensitivityToBlock"`
+}
+
+// WebAclAwsManagedRulesAntiDDoSRuleSetInput is an input type that accepts WebAclAwsManagedRulesAntiDDoSRuleSetArgs and WebAclAwsManagedRulesAntiDDoSRuleSetOutput values.
+// You can construct a concrete instance of `WebAclAwsManagedRulesAntiDDoSRuleSetInput` via:
+//
+//	WebAclAwsManagedRulesAntiDDoSRuleSetArgs{...}
+type WebAclAwsManagedRulesAntiDDoSRuleSetInput interface {
+	pulumi.Input
+
+	ToWebAclAwsManagedRulesAntiDDoSRuleSetOutput() WebAclAwsManagedRulesAntiDDoSRuleSetOutput
+	ToWebAclAwsManagedRulesAntiDDoSRuleSetOutputWithContext(context.Context) WebAclAwsManagedRulesAntiDDoSRuleSetOutput
+}
+
+// Configures how to use the AntiDDOS AWS managed rule group in the web ACL
+type WebAclAwsManagedRulesAntiDDoSRuleSetArgs struct {
+	ClientSideActionConfig WebAclClientSideActionConfigInput `pulumi:"clientSideActionConfig"`
+	SensitivityToBlock     WebAclSensitivityToActPtrInput    `pulumi:"sensitivityToBlock"`
+}
+
+func (WebAclAwsManagedRulesAntiDDoSRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclAwsManagedRulesAntiDDoSRuleSet)(nil)).Elem()
+}
+
+func (i WebAclAwsManagedRulesAntiDDoSRuleSetArgs) ToWebAclAwsManagedRulesAntiDDoSRuleSetOutput() WebAclAwsManagedRulesAntiDDoSRuleSetOutput {
+	return i.ToWebAclAwsManagedRulesAntiDDoSRuleSetOutputWithContext(context.Background())
+}
+
+func (i WebAclAwsManagedRulesAntiDDoSRuleSetArgs) ToWebAclAwsManagedRulesAntiDDoSRuleSetOutputWithContext(ctx context.Context) WebAclAwsManagedRulesAntiDDoSRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAwsManagedRulesAntiDDoSRuleSetOutput)
+}
+
+func (i WebAclAwsManagedRulesAntiDDoSRuleSetArgs) ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput() WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput {
+	return i.ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclAwsManagedRulesAntiDDoSRuleSetArgs) ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutputWithContext(ctx context.Context) WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAwsManagedRulesAntiDDoSRuleSetOutput).ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutputWithContext(ctx)
+}
+
+// WebAclAwsManagedRulesAntiDDoSRuleSetPtrInput is an input type that accepts WebAclAwsManagedRulesAntiDDoSRuleSetArgs, WebAclAwsManagedRulesAntiDDoSRuleSetPtr and WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput values.
+// You can construct a concrete instance of `WebAclAwsManagedRulesAntiDDoSRuleSetPtrInput` via:
+//
+//	        WebAclAwsManagedRulesAntiDDoSRuleSetArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclAwsManagedRulesAntiDDoSRuleSetPtrInput interface {
+	pulumi.Input
+
+	ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput() WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput
+	ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutputWithContext(context.Context) WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput
+}
+
+type webAclAwsManagedRulesAntiDDoSRuleSetPtrType WebAclAwsManagedRulesAntiDDoSRuleSetArgs
+
+func WebAclAwsManagedRulesAntiDDoSRuleSetPtr(v *WebAclAwsManagedRulesAntiDDoSRuleSetArgs) WebAclAwsManagedRulesAntiDDoSRuleSetPtrInput {
+	return (*webAclAwsManagedRulesAntiDDoSRuleSetPtrType)(v)
+}
+
+func (*webAclAwsManagedRulesAntiDDoSRuleSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclAwsManagedRulesAntiDDoSRuleSet)(nil)).Elem()
+}
+
+func (i *webAclAwsManagedRulesAntiDDoSRuleSetPtrType) ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput() WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput {
+	return i.ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclAwsManagedRulesAntiDDoSRuleSetPtrType) ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutputWithContext(ctx context.Context) WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput)
+}
+
+// Configures how to use the AntiDDOS AWS managed rule group in the web ACL
+type WebAclAwsManagedRulesAntiDDoSRuleSetOutput struct{ *pulumi.OutputState }
+
+func (WebAclAwsManagedRulesAntiDDoSRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclAwsManagedRulesAntiDDoSRuleSet)(nil)).Elem()
+}
+
+func (o WebAclAwsManagedRulesAntiDDoSRuleSetOutput) ToWebAclAwsManagedRulesAntiDDoSRuleSetOutput() WebAclAwsManagedRulesAntiDDoSRuleSetOutput {
+	return o
+}
+
+func (o WebAclAwsManagedRulesAntiDDoSRuleSetOutput) ToWebAclAwsManagedRulesAntiDDoSRuleSetOutputWithContext(ctx context.Context) WebAclAwsManagedRulesAntiDDoSRuleSetOutput {
+	return o
+}
+
+func (o WebAclAwsManagedRulesAntiDDoSRuleSetOutput) ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput() WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput {
+	return o.ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclAwsManagedRulesAntiDDoSRuleSetOutput) ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutputWithContext(ctx context.Context) WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclAwsManagedRulesAntiDDoSRuleSet) *WebAclAwsManagedRulesAntiDDoSRuleSet {
+		return &v
+	}).(WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput)
+}
+
+func (o WebAclAwsManagedRulesAntiDDoSRuleSetOutput) ClientSideActionConfig() WebAclClientSideActionConfigOutput {
+	return o.ApplyT(func(v WebAclAwsManagedRulesAntiDDoSRuleSet) WebAclClientSideActionConfig {
+		return v.ClientSideActionConfig
+	}).(WebAclClientSideActionConfigOutput)
+}
+
+func (o WebAclAwsManagedRulesAntiDDoSRuleSetOutput) SensitivityToBlock() WebAclSensitivityToActPtrOutput {
+	return o.ApplyT(func(v WebAclAwsManagedRulesAntiDDoSRuleSet) *WebAclSensitivityToAct { return v.SensitivityToBlock }).(WebAclSensitivityToActPtrOutput)
+}
+
+type WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclAwsManagedRulesAntiDDoSRuleSet)(nil)).Elem()
+}
+
+func (o WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput) ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput() WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput {
+	return o
+}
+
+func (o WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput) ToWebAclAwsManagedRulesAntiDDoSRuleSetPtrOutputWithContext(ctx context.Context) WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput {
+	return o
+}
+
+func (o WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput) Elem() WebAclAwsManagedRulesAntiDDoSRuleSetOutput {
+	return o.ApplyT(func(v *WebAclAwsManagedRulesAntiDDoSRuleSet) WebAclAwsManagedRulesAntiDDoSRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclAwsManagedRulesAntiDDoSRuleSet
+		return ret
+	}).(WebAclAwsManagedRulesAntiDDoSRuleSetOutput)
+}
+
+func (o WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput) ClientSideActionConfig() WebAclClientSideActionConfigPtrOutput {
+	return o.ApplyT(func(v *WebAclAwsManagedRulesAntiDDoSRuleSet) *WebAclClientSideActionConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSideActionConfig
+	}).(WebAclClientSideActionConfigPtrOutput)
+}
+
+func (o WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput) SensitivityToBlock() WebAclSensitivityToActPtrOutput {
+	return o.ApplyT(func(v *WebAclAwsManagedRulesAntiDDoSRuleSet) *WebAclSensitivityToAct {
+		if v == nil {
+			return nil
+		}
+		return v.SensitivityToBlock
+	}).(WebAclSensitivityToActPtrOutput)
 }
 
 // Configures how to use the Account Takeover Prevention managed rule group in the web ACL
@@ -14217,6 +14808,308 @@ func (o WebAclChallengeConfigPtrOutput) ImmunityTimeProperty() WebAclImmunityTim
 		}
 		return v.ImmunityTimeProperty
 	}).(WebAclImmunityTimePropertyPtrOutput)
+}
+
+// Client side action config for AntiDDOS AMR.
+type WebAclClientSideAction struct {
+	ExemptUriRegularExpressions []WebAclRegex           `pulumi:"exemptUriRegularExpressions"`
+	Sensitivity                 *WebAclSensitivityToAct `pulumi:"sensitivity"`
+	UsageOfAction               WebAclUsageOfAction     `pulumi:"usageOfAction"`
+}
+
+// WebAclClientSideActionInput is an input type that accepts WebAclClientSideActionArgs and WebAclClientSideActionOutput values.
+// You can construct a concrete instance of `WebAclClientSideActionInput` via:
+//
+//	WebAclClientSideActionArgs{...}
+type WebAclClientSideActionInput interface {
+	pulumi.Input
+
+	ToWebAclClientSideActionOutput() WebAclClientSideActionOutput
+	ToWebAclClientSideActionOutputWithContext(context.Context) WebAclClientSideActionOutput
+}
+
+// Client side action config for AntiDDOS AMR.
+type WebAclClientSideActionArgs struct {
+	ExemptUriRegularExpressions WebAclRegexArrayInput          `pulumi:"exemptUriRegularExpressions"`
+	Sensitivity                 WebAclSensitivityToActPtrInput `pulumi:"sensitivity"`
+	UsageOfAction               WebAclUsageOfActionInput       `pulumi:"usageOfAction"`
+}
+
+func (WebAclClientSideActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclClientSideAction)(nil)).Elem()
+}
+
+func (i WebAclClientSideActionArgs) ToWebAclClientSideActionOutput() WebAclClientSideActionOutput {
+	return i.ToWebAclClientSideActionOutputWithContext(context.Background())
+}
+
+func (i WebAclClientSideActionArgs) ToWebAclClientSideActionOutputWithContext(ctx context.Context) WebAclClientSideActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclClientSideActionOutput)
+}
+
+func (i WebAclClientSideActionArgs) ToWebAclClientSideActionPtrOutput() WebAclClientSideActionPtrOutput {
+	return i.ToWebAclClientSideActionPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclClientSideActionArgs) ToWebAclClientSideActionPtrOutputWithContext(ctx context.Context) WebAclClientSideActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclClientSideActionOutput).ToWebAclClientSideActionPtrOutputWithContext(ctx)
+}
+
+// WebAclClientSideActionPtrInput is an input type that accepts WebAclClientSideActionArgs, WebAclClientSideActionPtr and WebAclClientSideActionPtrOutput values.
+// You can construct a concrete instance of `WebAclClientSideActionPtrInput` via:
+//
+//	        WebAclClientSideActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclClientSideActionPtrInput interface {
+	pulumi.Input
+
+	ToWebAclClientSideActionPtrOutput() WebAclClientSideActionPtrOutput
+	ToWebAclClientSideActionPtrOutputWithContext(context.Context) WebAclClientSideActionPtrOutput
+}
+
+type webAclClientSideActionPtrType WebAclClientSideActionArgs
+
+func WebAclClientSideActionPtr(v *WebAclClientSideActionArgs) WebAclClientSideActionPtrInput {
+	return (*webAclClientSideActionPtrType)(v)
+}
+
+func (*webAclClientSideActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclClientSideAction)(nil)).Elem()
+}
+
+func (i *webAclClientSideActionPtrType) ToWebAclClientSideActionPtrOutput() WebAclClientSideActionPtrOutput {
+	return i.ToWebAclClientSideActionPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclClientSideActionPtrType) ToWebAclClientSideActionPtrOutputWithContext(ctx context.Context) WebAclClientSideActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclClientSideActionPtrOutput)
+}
+
+// Client side action config for AntiDDOS AMR.
+type WebAclClientSideActionOutput struct{ *pulumi.OutputState }
+
+func (WebAclClientSideActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclClientSideAction)(nil)).Elem()
+}
+
+func (o WebAclClientSideActionOutput) ToWebAclClientSideActionOutput() WebAclClientSideActionOutput {
+	return o
+}
+
+func (o WebAclClientSideActionOutput) ToWebAclClientSideActionOutputWithContext(ctx context.Context) WebAclClientSideActionOutput {
+	return o
+}
+
+func (o WebAclClientSideActionOutput) ToWebAclClientSideActionPtrOutput() WebAclClientSideActionPtrOutput {
+	return o.ToWebAclClientSideActionPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclClientSideActionOutput) ToWebAclClientSideActionPtrOutputWithContext(ctx context.Context) WebAclClientSideActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclClientSideAction) *WebAclClientSideAction {
+		return &v
+	}).(WebAclClientSideActionPtrOutput)
+}
+
+func (o WebAclClientSideActionOutput) ExemptUriRegularExpressions() WebAclRegexArrayOutput {
+	return o.ApplyT(func(v WebAclClientSideAction) []WebAclRegex { return v.ExemptUriRegularExpressions }).(WebAclRegexArrayOutput)
+}
+
+func (o WebAclClientSideActionOutput) Sensitivity() WebAclSensitivityToActPtrOutput {
+	return o.ApplyT(func(v WebAclClientSideAction) *WebAclSensitivityToAct { return v.Sensitivity }).(WebAclSensitivityToActPtrOutput)
+}
+
+func (o WebAclClientSideActionOutput) UsageOfAction() WebAclUsageOfActionOutput {
+	return o.ApplyT(func(v WebAclClientSideAction) WebAclUsageOfAction { return v.UsageOfAction }).(WebAclUsageOfActionOutput)
+}
+
+type WebAclClientSideActionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclClientSideActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclClientSideAction)(nil)).Elem()
+}
+
+func (o WebAclClientSideActionPtrOutput) ToWebAclClientSideActionPtrOutput() WebAclClientSideActionPtrOutput {
+	return o
+}
+
+func (o WebAclClientSideActionPtrOutput) ToWebAclClientSideActionPtrOutputWithContext(ctx context.Context) WebAclClientSideActionPtrOutput {
+	return o
+}
+
+func (o WebAclClientSideActionPtrOutput) Elem() WebAclClientSideActionOutput {
+	return o.ApplyT(func(v *WebAclClientSideAction) WebAclClientSideAction {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclClientSideAction
+		return ret
+	}).(WebAclClientSideActionOutput)
+}
+
+func (o WebAclClientSideActionPtrOutput) ExemptUriRegularExpressions() WebAclRegexArrayOutput {
+	return o.ApplyT(func(v *WebAclClientSideAction) []WebAclRegex {
+		if v == nil {
+			return nil
+		}
+		return v.ExemptUriRegularExpressions
+	}).(WebAclRegexArrayOutput)
+}
+
+func (o WebAclClientSideActionPtrOutput) Sensitivity() WebAclSensitivityToActPtrOutput {
+	return o.ApplyT(func(v *WebAclClientSideAction) *WebAclSensitivityToAct {
+		if v == nil {
+			return nil
+		}
+		return v.Sensitivity
+	}).(WebAclSensitivityToActPtrOutput)
+}
+
+func (o WebAclClientSideActionPtrOutput) UsageOfAction() WebAclUsageOfActionPtrOutput {
+	return o.ApplyT(func(v *WebAclClientSideAction) *WebAclUsageOfAction {
+		if v == nil {
+			return nil
+		}
+		return &v.UsageOfAction
+	}).(WebAclUsageOfActionPtrOutput)
+}
+
+// Client side action config for AntiDDOS AMR.
+type WebAclClientSideActionConfig struct {
+	Challenge WebAclClientSideAction `pulumi:"challenge"`
+}
+
+// WebAclClientSideActionConfigInput is an input type that accepts WebAclClientSideActionConfigArgs and WebAclClientSideActionConfigOutput values.
+// You can construct a concrete instance of `WebAclClientSideActionConfigInput` via:
+//
+//	WebAclClientSideActionConfigArgs{...}
+type WebAclClientSideActionConfigInput interface {
+	pulumi.Input
+
+	ToWebAclClientSideActionConfigOutput() WebAclClientSideActionConfigOutput
+	ToWebAclClientSideActionConfigOutputWithContext(context.Context) WebAclClientSideActionConfigOutput
+}
+
+// Client side action config for AntiDDOS AMR.
+type WebAclClientSideActionConfigArgs struct {
+	Challenge WebAclClientSideActionInput `pulumi:"challenge"`
+}
+
+func (WebAclClientSideActionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclClientSideActionConfig)(nil)).Elem()
+}
+
+func (i WebAclClientSideActionConfigArgs) ToWebAclClientSideActionConfigOutput() WebAclClientSideActionConfigOutput {
+	return i.ToWebAclClientSideActionConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclClientSideActionConfigArgs) ToWebAclClientSideActionConfigOutputWithContext(ctx context.Context) WebAclClientSideActionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclClientSideActionConfigOutput)
+}
+
+func (i WebAclClientSideActionConfigArgs) ToWebAclClientSideActionConfigPtrOutput() WebAclClientSideActionConfigPtrOutput {
+	return i.ToWebAclClientSideActionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclClientSideActionConfigArgs) ToWebAclClientSideActionConfigPtrOutputWithContext(ctx context.Context) WebAclClientSideActionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclClientSideActionConfigOutput).ToWebAclClientSideActionConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclClientSideActionConfigPtrInput is an input type that accepts WebAclClientSideActionConfigArgs, WebAclClientSideActionConfigPtr and WebAclClientSideActionConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclClientSideActionConfigPtrInput` via:
+//
+//	        WebAclClientSideActionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclClientSideActionConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclClientSideActionConfigPtrOutput() WebAclClientSideActionConfigPtrOutput
+	ToWebAclClientSideActionConfigPtrOutputWithContext(context.Context) WebAclClientSideActionConfigPtrOutput
+}
+
+type webAclClientSideActionConfigPtrType WebAclClientSideActionConfigArgs
+
+func WebAclClientSideActionConfigPtr(v *WebAclClientSideActionConfigArgs) WebAclClientSideActionConfigPtrInput {
+	return (*webAclClientSideActionConfigPtrType)(v)
+}
+
+func (*webAclClientSideActionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclClientSideActionConfig)(nil)).Elem()
+}
+
+func (i *webAclClientSideActionConfigPtrType) ToWebAclClientSideActionConfigPtrOutput() WebAclClientSideActionConfigPtrOutput {
+	return i.ToWebAclClientSideActionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclClientSideActionConfigPtrType) ToWebAclClientSideActionConfigPtrOutputWithContext(ctx context.Context) WebAclClientSideActionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclClientSideActionConfigPtrOutput)
+}
+
+// Client side action config for AntiDDOS AMR.
+type WebAclClientSideActionConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclClientSideActionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclClientSideActionConfig)(nil)).Elem()
+}
+
+func (o WebAclClientSideActionConfigOutput) ToWebAclClientSideActionConfigOutput() WebAclClientSideActionConfigOutput {
+	return o
+}
+
+func (o WebAclClientSideActionConfigOutput) ToWebAclClientSideActionConfigOutputWithContext(ctx context.Context) WebAclClientSideActionConfigOutput {
+	return o
+}
+
+func (o WebAclClientSideActionConfigOutput) ToWebAclClientSideActionConfigPtrOutput() WebAclClientSideActionConfigPtrOutput {
+	return o.ToWebAclClientSideActionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclClientSideActionConfigOutput) ToWebAclClientSideActionConfigPtrOutputWithContext(ctx context.Context) WebAclClientSideActionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclClientSideActionConfig) *WebAclClientSideActionConfig {
+		return &v
+	}).(WebAclClientSideActionConfigPtrOutput)
+}
+
+func (o WebAclClientSideActionConfigOutput) Challenge() WebAclClientSideActionOutput {
+	return o.ApplyT(func(v WebAclClientSideActionConfig) WebAclClientSideAction { return v.Challenge }).(WebAclClientSideActionOutput)
+}
+
+type WebAclClientSideActionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclClientSideActionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclClientSideActionConfig)(nil)).Elem()
+}
+
+func (o WebAclClientSideActionConfigPtrOutput) ToWebAclClientSideActionConfigPtrOutput() WebAclClientSideActionConfigPtrOutput {
+	return o
+}
+
+func (o WebAclClientSideActionConfigPtrOutput) ToWebAclClientSideActionConfigPtrOutputWithContext(ctx context.Context) WebAclClientSideActionConfigPtrOutput {
+	return o
+}
+
+func (o WebAclClientSideActionConfigPtrOutput) Elem() WebAclClientSideActionConfigOutput {
+	return o.ApplyT(func(v *WebAclClientSideActionConfig) WebAclClientSideActionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclClientSideActionConfig
+		return ret
+	}).(WebAclClientSideActionConfigOutput)
+}
+
+func (o WebAclClientSideActionConfigPtrOutput) Challenge() WebAclClientSideActionPtrOutput {
+	return o.ApplyT(func(v *WebAclClientSideActionConfig) *WebAclClientSideAction {
+		if v == nil {
+			return nil
+		}
+		return &v.Challenge
+	}).(WebAclClientSideActionPtrOutput)
 }
 
 // The pattern to look for in the request cookies.
@@ -19268,7 +20161,8 @@ type WebAclManagedRuleGroupConfig struct {
 	// Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, `AWSManagedRulesACFPRuleSet` . Use this to provide account creation request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to account creation requests.
 	//
 	// For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
-	AwsManagedRulesAcfpRuleSet *WebAclAwsManagedRulesAcfpRuleSet `pulumi:"awsManagedRulesAcfpRuleSet"`
+	AwsManagedRulesAcfpRuleSet     *WebAclAwsManagedRulesAcfpRuleSet     `pulumi:"awsManagedRulesAcfpRuleSet"`
+	AwsManagedRulesAntiDDoSRuleSet *WebAclAwsManagedRulesAntiDDoSRuleSet `pulumi:"awsManagedRulesAntiDDoSRuleSet"`
 	// Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
 	//
 	// This configuration replaces the individual configuration fields in `ManagedRuleGroupConfig` and provides additional feature configuration.
@@ -19303,7 +20197,8 @@ type WebAclManagedRuleGroupConfigArgs struct {
 	// Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, `AWSManagedRulesACFPRuleSet` . Use this to provide account creation request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to account creation requests.
 	//
 	// For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
-	AwsManagedRulesAcfpRuleSet WebAclAwsManagedRulesAcfpRuleSetPtrInput `pulumi:"awsManagedRulesAcfpRuleSet"`
+	AwsManagedRulesAcfpRuleSet     WebAclAwsManagedRulesAcfpRuleSetPtrInput     `pulumi:"awsManagedRulesAcfpRuleSet"`
+	AwsManagedRulesAntiDDoSRuleSet WebAclAwsManagedRulesAntiDDoSRuleSetPtrInput `pulumi:"awsManagedRulesAntiDDoSRuleSet"`
 	// Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
 	//
 	// This configuration replaces the individual configuration fields in `ManagedRuleGroupConfig` and provides additional feature configuration.
@@ -19381,6 +20276,12 @@ func (o WebAclManagedRuleGroupConfigOutput) AwsManagedRulesAcfpRuleSet() WebAclA
 	return o.ApplyT(func(v WebAclManagedRuleGroupConfig) *WebAclAwsManagedRulesAcfpRuleSet {
 		return v.AwsManagedRulesAcfpRuleSet
 	}).(WebAclAwsManagedRulesAcfpRuleSetPtrOutput)
+}
+
+func (o WebAclManagedRuleGroupConfigOutput) AwsManagedRulesAntiDDoSRuleSet() WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput {
+	return o.ApplyT(func(v WebAclManagedRuleGroupConfig) *WebAclAwsManagedRulesAntiDDoSRuleSet {
+		return v.AwsManagedRulesAntiDDoSRuleSet
+	}).(WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput)
 }
 
 // Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
@@ -19837,6 +20738,144 @@ func (o WebAclNotStatementPtrOutput) Statement() WebAclStatementPtrOutput {
 		}
 		return &v.Statement
 	}).(WebAclStatementPtrOutput)
+}
+
+// Configures the options for on-source DDoS protection provided by supported resource type.
+type WebAclOnSourceDDoSProtectionConfig struct {
+	AlbLowReputationMode WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode `pulumi:"albLowReputationMode"`
+}
+
+// WebAclOnSourceDDoSProtectionConfigInput is an input type that accepts WebAclOnSourceDDoSProtectionConfigArgs and WebAclOnSourceDDoSProtectionConfigOutput values.
+// You can construct a concrete instance of `WebAclOnSourceDDoSProtectionConfigInput` via:
+//
+//	WebAclOnSourceDDoSProtectionConfigArgs{...}
+type WebAclOnSourceDDoSProtectionConfigInput interface {
+	pulumi.Input
+
+	ToWebAclOnSourceDDoSProtectionConfigOutput() WebAclOnSourceDDoSProtectionConfigOutput
+	ToWebAclOnSourceDDoSProtectionConfigOutputWithContext(context.Context) WebAclOnSourceDDoSProtectionConfigOutput
+}
+
+// Configures the options for on-source DDoS protection provided by supported resource type.
+type WebAclOnSourceDDoSProtectionConfigArgs struct {
+	AlbLowReputationMode WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeInput `pulumi:"albLowReputationMode"`
+}
+
+func (WebAclOnSourceDDoSProtectionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclOnSourceDDoSProtectionConfig)(nil)).Elem()
+}
+
+func (i WebAclOnSourceDDoSProtectionConfigArgs) ToWebAclOnSourceDDoSProtectionConfigOutput() WebAclOnSourceDDoSProtectionConfigOutput {
+	return i.ToWebAclOnSourceDDoSProtectionConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclOnSourceDDoSProtectionConfigArgs) ToWebAclOnSourceDDoSProtectionConfigOutputWithContext(ctx context.Context) WebAclOnSourceDDoSProtectionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclOnSourceDDoSProtectionConfigOutput)
+}
+
+func (i WebAclOnSourceDDoSProtectionConfigArgs) ToWebAclOnSourceDDoSProtectionConfigPtrOutput() WebAclOnSourceDDoSProtectionConfigPtrOutput {
+	return i.ToWebAclOnSourceDDoSProtectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclOnSourceDDoSProtectionConfigArgs) ToWebAclOnSourceDDoSProtectionConfigPtrOutputWithContext(ctx context.Context) WebAclOnSourceDDoSProtectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclOnSourceDDoSProtectionConfigOutput).ToWebAclOnSourceDDoSProtectionConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclOnSourceDDoSProtectionConfigPtrInput is an input type that accepts WebAclOnSourceDDoSProtectionConfigArgs, WebAclOnSourceDDoSProtectionConfigPtr and WebAclOnSourceDDoSProtectionConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclOnSourceDDoSProtectionConfigPtrInput` via:
+//
+//	        WebAclOnSourceDDoSProtectionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclOnSourceDDoSProtectionConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclOnSourceDDoSProtectionConfigPtrOutput() WebAclOnSourceDDoSProtectionConfigPtrOutput
+	ToWebAclOnSourceDDoSProtectionConfigPtrOutputWithContext(context.Context) WebAclOnSourceDDoSProtectionConfigPtrOutput
+}
+
+type webAclOnSourceDDoSProtectionConfigPtrType WebAclOnSourceDDoSProtectionConfigArgs
+
+func WebAclOnSourceDDoSProtectionConfigPtr(v *WebAclOnSourceDDoSProtectionConfigArgs) WebAclOnSourceDDoSProtectionConfigPtrInput {
+	return (*webAclOnSourceDDoSProtectionConfigPtrType)(v)
+}
+
+func (*webAclOnSourceDDoSProtectionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclOnSourceDDoSProtectionConfig)(nil)).Elem()
+}
+
+func (i *webAclOnSourceDDoSProtectionConfigPtrType) ToWebAclOnSourceDDoSProtectionConfigPtrOutput() WebAclOnSourceDDoSProtectionConfigPtrOutput {
+	return i.ToWebAclOnSourceDDoSProtectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclOnSourceDDoSProtectionConfigPtrType) ToWebAclOnSourceDDoSProtectionConfigPtrOutputWithContext(ctx context.Context) WebAclOnSourceDDoSProtectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclOnSourceDDoSProtectionConfigPtrOutput)
+}
+
+// Configures the options for on-source DDoS protection provided by supported resource type.
+type WebAclOnSourceDDoSProtectionConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclOnSourceDDoSProtectionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclOnSourceDDoSProtectionConfig)(nil)).Elem()
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigOutput) ToWebAclOnSourceDDoSProtectionConfigOutput() WebAclOnSourceDDoSProtectionConfigOutput {
+	return o
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigOutput) ToWebAclOnSourceDDoSProtectionConfigOutputWithContext(ctx context.Context) WebAclOnSourceDDoSProtectionConfigOutput {
+	return o
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigOutput) ToWebAclOnSourceDDoSProtectionConfigPtrOutput() WebAclOnSourceDDoSProtectionConfigPtrOutput {
+	return o.ToWebAclOnSourceDDoSProtectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigOutput) ToWebAclOnSourceDDoSProtectionConfigPtrOutputWithContext(ctx context.Context) WebAclOnSourceDDoSProtectionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclOnSourceDDoSProtectionConfig) *WebAclOnSourceDDoSProtectionConfig {
+		return &v
+	}).(WebAclOnSourceDDoSProtectionConfigPtrOutput)
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigOutput) AlbLowReputationMode() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput {
+	return o.ApplyT(func(v WebAclOnSourceDDoSProtectionConfig) WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode {
+		return v.AlbLowReputationMode
+	}).(WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput)
+}
+
+type WebAclOnSourceDDoSProtectionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclOnSourceDDoSProtectionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclOnSourceDDoSProtectionConfig)(nil)).Elem()
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigPtrOutput) ToWebAclOnSourceDDoSProtectionConfigPtrOutput() WebAclOnSourceDDoSProtectionConfigPtrOutput {
+	return o
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigPtrOutput) ToWebAclOnSourceDDoSProtectionConfigPtrOutputWithContext(ctx context.Context) WebAclOnSourceDDoSProtectionConfigPtrOutput {
+	return o
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigPtrOutput) Elem() WebAclOnSourceDDoSProtectionConfigOutput {
+	return o.ApplyT(func(v *WebAclOnSourceDDoSProtectionConfig) WebAclOnSourceDDoSProtectionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclOnSourceDDoSProtectionConfig
+		return ret
+	}).(WebAclOnSourceDDoSProtectionConfigOutput)
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigPtrOutput) AlbLowReputationMode() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput {
+	return o.ApplyT(func(v *WebAclOnSourceDDoSProtectionConfig) *WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode {
+		if v == nil {
+			return nil
+		}
+		return &v.AlbLowReputationMode
+	}).(WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput)
 }
 
 type WebAclOrStatement struct {
@@ -20497,6 +21536,7 @@ func (o WebAclRateBasedStatementPtrOutput) ScopeDownStatement() WebAclStatementP
 
 // Specifies a single custom aggregate key for a rate-base rule.
 type WebAclRateBasedStatementCustomKey struct {
+	Asn *WebAclRateLimitAsn `pulumi:"asn"`
 	// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 	Cookie *WebAclRateLimitCookie `pulumi:"cookie"`
 	// Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
@@ -20544,6 +21584,7 @@ type WebAclRateBasedStatementCustomKeyInput interface {
 
 // Specifies a single custom aggregate key for a rate-base rule.
 type WebAclRateBasedStatementCustomKeyArgs struct {
+	Asn WebAclRateLimitAsnPtrInput `pulumi:"asn"`
 	// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 	Cookie WebAclRateLimitCookiePtrInput `pulumi:"cookie"`
 	// Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
@@ -20630,6 +21671,10 @@ func (o WebAclRateBasedStatementCustomKeyOutput) ToWebAclRateBasedStatementCusto
 	return o
 }
 
+func (o WebAclRateBasedStatementCustomKeyOutput) Asn() WebAclRateLimitAsnPtrOutput {
+	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitAsn { return v.Asn }).(WebAclRateLimitAsnPtrOutput)
+}
+
 // Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 func (o WebAclRateBasedStatementCustomKeyOutput) Cookie() WebAclRateLimitCookiePtrOutput {
 	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitCookie { return v.Cookie }).(WebAclRateLimitCookiePtrOutput)
@@ -20713,6 +21758,127 @@ func (o WebAclRateBasedStatementCustomKeyArrayOutput) Index(i pulumi.IntInput) W
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRateBasedStatementCustomKey {
 		return vs[0].([]WebAclRateBasedStatementCustomKey)[vs[1].(int)]
 	}).(WebAclRateBasedStatementCustomKeyOutput)
+}
+
+// Specifies the request's ASN as an aggregate key for a rate-based rule.
+type WebAclRateLimitAsn struct {
+}
+
+// WebAclRateLimitAsnInput is an input type that accepts WebAclRateLimitAsnArgs and WebAclRateLimitAsnOutput values.
+// You can construct a concrete instance of `WebAclRateLimitAsnInput` via:
+//
+//	WebAclRateLimitAsnArgs{...}
+type WebAclRateLimitAsnInput interface {
+	pulumi.Input
+
+	ToWebAclRateLimitAsnOutput() WebAclRateLimitAsnOutput
+	ToWebAclRateLimitAsnOutputWithContext(context.Context) WebAclRateLimitAsnOutput
+}
+
+// Specifies the request's ASN as an aggregate key for a rate-based rule.
+type WebAclRateLimitAsnArgs struct {
+}
+
+func (WebAclRateLimitAsnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRateLimitAsn)(nil)).Elem()
+}
+
+func (i WebAclRateLimitAsnArgs) ToWebAclRateLimitAsnOutput() WebAclRateLimitAsnOutput {
+	return i.ToWebAclRateLimitAsnOutputWithContext(context.Background())
+}
+
+func (i WebAclRateLimitAsnArgs) ToWebAclRateLimitAsnOutputWithContext(ctx context.Context) WebAclRateLimitAsnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRateLimitAsnOutput)
+}
+
+func (i WebAclRateLimitAsnArgs) ToWebAclRateLimitAsnPtrOutput() WebAclRateLimitAsnPtrOutput {
+	return i.ToWebAclRateLimitAsnPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRateLimitAsnArgs) ToWebAclRateLimitAsnPtrOutputWithContext(ctx context.Context) WebAclRateLimitAsnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRateLimitAsnOutput).ToWebAclRateLimitAsnPtrOutputWithContext(ctx)
+}
+
+// WebAclRateLimitAsnPtrInput is an input type that accepts WebAclRateLimitAsnArgs, WebAclRateLimitAsnPtr and WebAclRateLimitAsnPtrOutput values.
+// You can construct a concrete instance of `WebAclRateLimitAsnPtrInput` via:
+//
+//	        WebAclRateLimitAsnArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRateLimitAsnPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRateLimitAsnPtrOutput() WebAclRateLimitAsnPtrOutput
+	ToWebAclRateLimitAsnPtrOutputWithContext(context.Context) WebAclRateLimitAsnPtrOutput
+}
+
+type webAclRateLimitAsnPtrType WebAclRateLimitAsnArgs
+
+func WebAclRateLimitAsnPtr(v *WebAclRateLimitAsnArgs) WebAclRateLimitAsnPtrInput {
+	return (*webAclRateLimitAsnPtrType)(v)
+}
+
+func (*webAclRateLimitAsnPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRateLimitAsn)(nil)).Elem()
+}
+
+func (i *webAclRateLimitAsnPtrType) ToWebAclRateLimitAsnPtrOutput() WebAclRateLimitAsnPtrOutput {
+	return i.ToWebAclRateLimitAsnPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRateLimitAsnPtrType) ToWebAclRateLimitAsnPtrOutputWithContext(ctx context.Context) WebAclRateLimitAsnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRateLimitAsnPtrOutput)
+}
+
+// Specifies the request's ASN as an aggregate key for a rate-based rule.
+type WebAclRateLimitAsnOutput struct{ *pulumi.OutputState }
+
+func (WebAclRateLimitAsnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRateLimitAsn)(nil)).Elem()
+}
+
+func (o WebAclRateLimitAsnOutput) ToWebAclRateLimitAsnOutput() WebAclRateLimitAsnOutput {
+	return o
+}
+
+func (o WebAclRateLimitAsnOutput) ToWebAclRateLimitAsnOutputWithContext(ctx context.Context) WebAclRateLimitAsnOutput {
+	return o
+}
+
+func (o WebAclRateLimitAsnOutput) ToWebAclRateLimitAsnPtrOutput() WebAclRateLimitAsnPtrOutput {
+	return o.ToWebAclRateLimitAsnPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRateLimitAsnOutput) ToWebAclRateLimitAsnPtrOutputWithContext(ctx context.Context) WebAclRateLimitAsnPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRateLimitAsn) *WebAclRateLimitAsn {
+		return &v
+	}).(WebAclRateLimitAsnPtrOutput)
+}
+
+type WebAclRateLimitAsnPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRateLimitAsnPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRateLimitAsn)(nil)).Elem()
+}
+
+func (o WebAclRateLimitAsnPtrOutput) ToWebAclRateLimitAsnPtrOutput() WebAclRateLimitAsnPtrOutput {
+	return o
+}
+
+func (o WebAclRateLimitAsnPtrOutput) ToWebAclRateLimitAsnPtrOutputWithContext(ctx context.Context) WebAclRateLimitAsnPtrOutput {
+	return o
+}
+
+func (o WebAclRateLimitAsnPtrOutput) Elem() WebAclRateLimitAsnOutput {
+	return o.ApplyT(func(v *WebAclRateLimitAsn) WebAclRateLimitAsn {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRateLimitAsn
+		return ret
+	}).(WebAclRateLimitAsnOutput)
 }
 
 // Specifies a cookie as an aggregate key for a rate-based rule.
@@ -22297,6 +23463,103 @@ func (o WebAclRateLimitUriPathPtrOutput) TextTransformations() WebAclTextTransfo
 		}
 		return v.TextTransformations
 	}).(WebAclTextTransformationArrayOutput)
+}
+
+// Regex
+type WebAclRegex struct {
+	RegexString *string `pulumi:"regexString"`
+}
+
+// WebAclRegexInput is an input type that accepts WebAclRegexArgs and WebAclRegexOutput values.
+// You can construct a concrete instance of `WebAclRegexInput` via:
+//
+//	WebAclRegexArgs{...}
+type WebAclRegexInput interface {
+	pulumi.Input
+
+	ToWebAclRegexOutput() WebAclRegexOutput
+	ToWebAclRegexOutputWithContext(context.Context) WebAclRegexOutput
+}
+
+// Regex
+type WebAclRegexArgs struct {
+	RegexString pulumi.StringPtrInput `pulumi:"regexString"`
+}
+
+func (WebAclRegexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRegex)(nil)).Elem()
+}
+
+func (i WebAclRegexArgs) ToWebAclRegexOutput() WebAclRegexOutput {
+	return i.ToWebAclRegexOutputWithContext(context.Background())
+}
+
+func (i WebAclRegexArgs) ToWebAclRegexOutputWithContext(ctx context.Context) WebAclRegexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRegexOutput)
+}
+
+// WebAclRegexArrayInput is an input type that accepts WebAclRegexArray and WebAclRegexArrayOutput values.
+// You can construct a concrete instance of `WebAclRegexArrayInput` via:
+//
+//	WebAclRegexArray{ WebAclRegexArgs{...} }
+type WebAclRegexArrayInput interface {
+	pulumi.Input
+
+	ToWebAclRegexArrayOutput() WebAclRegexArrayOutput
+	ToWebAclRegexArrayOutputWithContext(context.Context) WebAclRegexArrayOutput
+}
+
+type WebAclRegexArray []WebAclRegexInput
+
+func (WebAclRegexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclRegex)(nil)).Elem()
+}
+
+func (i WebAclRegexArray) ToWebAclRegexArrayOutput() WebAclRegexArrayOutput {
+	return i.ToWebAclRegexArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclRegexArray) ToWebAclRegexArrayOutputWithContext(ctx context.Context) WebAclRegexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRegexArrayOutput)
+}
+
+// Regex
+type WebAclRegexOutput struct{ *pulumi.OutputState }
+
+func (WebAclRegexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRegex)(nil)).Elem()
+}
+
+func (o WebAclRegexOutput) ToWebAclRegexOutput() WebAclRegexOutput {
+	return o
+}
+
+func (o WebAclRegexOutput) ToWebAclRegexOutputWithContext(ctx context.Context) WebAclRegexOutput {
+	return o
+}
+
+func (o WebAclRegexOutput) RegexString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAclRegex) *string { return v.RegexString }).(pulumi.StringPtrOutput)
+}
+
+type WebAclRegexArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclRegexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclRegex)(nil)).Elem()
+}
+
+func (o WebAclRegexArrayOutput) ToWebAclRegexArrayOutput() WebAclRegexArrayOutput {
+	return o
+}
+
+func (o WebAclRegexArrayOutput) ToWebAclRegexArrayOutputWithContext(ctx context.Context) WebAclRegexArrayOutput {
+	return o
+}
+
+func (o WebAclRegexArrayOutput) Index(i pulumi.IntInput) WebAclRegexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRegex {
+		return vs[0].([]WebAclRegex)[vs[1].(int)]
+	}).(WebAclRegexOutput)
 }
 
 type WebAclRegexMatchStatement struct {
@@ -25581,7 +26844,8 @@ func (o WebAclSqliMatchStatementPtrOutput) TextTransformations() WebAclTextTrans
 // First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type WebAclStatement struct {
 	// A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
-	AndStatement *WebAclAndStatement `pulumi:"andStatement"`
+	AndStatement      *WebAclAndStatement      `pulumi:"andStatement"`
+	AsnMatchStatement *WebAclAsnMatchStatement `pulumi:"asnMatchStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 	ByteMatchStatement *WebAclByteMatchStatement `pulumi:"byteMatchStatement"`
 	// A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.
@@ -25694,7 +26958,8 @@ type WebAclStatementInput interface {
 // First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type WebAclStatementArgs struct {
 	// A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
-	AndStatement WebAclAndStatementPtrInput `pulumi:"andStatement"`
+	AndStatement      WebAclAndStatementPtrInput      `pulumi:"andStatement"`
+	AsnMatchStatement WebAclAsnMatchStatementPtrInput `pulumi:"asnMatchStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 	ByteMatchStatement WebAclByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
 	// A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.
@@ -25901,6 +27166,10 @@ func (o WebAclStatementOutput) AndStatement() WebAclAndStatementPtrOutput {
 	return o.ApplyT(func(v WebAclStatement) *WebAclAndStatement { return v.AndStatement }).(WebAclAndStatementPtrOutput)
 }
 
+func (o WebAclStatementOutput) AsnMatchStatement() WebAclAsnMatchStatementPtrOutput {
+	return o.ApplyT(func(v WebAclStatement) *WebAclAsnMatchStatement { return v.AsnMatchStatement }).(WebAclAsnMatchStatementPtrOutput)
+}
+
 // A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 func (o WebAclStatementOutput) ByteMatchStatement() WebAclByteMatchStatementPtrOutput {
 	return o.ApplyT(func(v WebAclStatement) *WebAclByteMatchStatement { return v.ByteMatchStatement }).(WebAclByteMatchStatementPtrOutput)
@@ -26073,6 +27342,15 @@ func (o WebAclStatementPtrOutput) AndStatement() WebAclAndStatementPtrOutput {
 		}
 		return v.AndStatement
 	}).(WebAclAndStatementPtrOutput)
+}
+
+func (o WebAclStatementPtrOutput) AsnMatchStatement() WebAclAsnMatchStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclStatement) *WebAclAsnMatchStatement {
+		if v == nil {
+			return nil
+		}
+		return v.AsnMatchStatement
+	}).(WebAclAsnMatchStatementPtrOutput)
 }
 
 // A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
@@ -26932,6 +28210,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAllowActionPtrInput)(nil)).Elem(), RuleGroupAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAndStatementInput)(nil)).Elem(), RuleGroupAndStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAndStatementPtrInput)(nil)).Elem(), RuleGroupAndStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAsnMatchStatementInput)(nil)).Elem(), RuleGroupAsnMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupAsnMatchStatementPtrInput)(nil)).Elem(), RuleGroupAsnMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBlockActionInput)(nil)).Elem(), RuleGroupBlockActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBlockActionPtrInput)(nil)).Elem(), RuleGroupBlockActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupBodyInput)(nil)).Elem(), RuleGroupBodyArgs{})
@@ -27002,6 +28282,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementPtrInput)(nil)).Elem(), RuleGroupRateBasedStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementCustomKeyInput)(nil)).Elem(), RuleGroupRateBasedStatementCustomKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementCustomKeyArrayInput)(nil)).Elem(), RuleGroupRateBasedStatementCustomKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitAsnInput)(nil)).Elem(), RuleGroupRateLimitAsnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitAsnPtrInput)(nil)).Elem(), RuleGroupRateLimitAsnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitCookieInput)(nil)).Elem(), RuleGroupRateLimitCookieArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitCookiePtrInput)(nil)).Elem(), RuleGroupRateLimitCookieArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitForwardedIpInput)(nil)).Elem(), RuleGroupRateLimitForwardedIpArgs{})
@@ -27050,10 +28332,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAllowActionPtrInput)(nil)).Elem(), WebAclAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAndStatementInput)(nil)).Elem(), WebAclAndStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAndStatementPtrInput)(nil)).Elem(), WebAclAndStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAsnMatchStatementInput)(nil)).Elem(), WebAclAsnMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAsnMatchStatementPtrInput)(nil)).Elem(), WebAclAsnMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAssociationConfigInput)(nil)).Elem(), WebAclAssociationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAssociationConfigPtrInput)(nil)).Elem(), WebAclAssociationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesAcfpRuleSetInput)(nil)).Elem(), WebAclAwsManagedRulesAcfpRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesAcfpRuleSetPtrInput)(nil)).Elem(), WebAclAwsManagedRulesAcfpRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesAntiDDoSRuleSetInput)(nil)).Elem(), WebAclAwsManagedRulesAntiDDoSRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesAntiDDoSRuleSetPtrInput)(nil)).Elem(), WebAclAwsManagedRulesAntiDDoSRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesAtpRuleSetInput)(nil)).Elem(), WebAclAwsManagedRulesAtpRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesAtpRuleSetPtrInput)(nil)).Elem(), WebAclAwsManagedRulesAtpRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAwsManagedRulesBotControlRuleSetInput)(nil)).Elem(), WebAclAwsManagedRulesBotControlRuleSetArgs{})
@@ -27072,6 +28358,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclChallengeActionPtrInput)(nil)).Elem(), WebAclChallengeActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclChallengeConfigInput)(nil)).Elem(), WebAclChallengeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclChallengeConfigPtrInput)(nil)).Elem(), WebAclChallengeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclClientSideActionInput)(nil)).Elem(), WebAclClientSideActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclClientSideActionPtrInput)(nil)).Elem(), WebAclClientSideActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclClientSideActionConfigInput)(nil)).Elem(), WebAclClientSideActionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclClientSideActionConfigPtrInput)(nil)).Elem(), WebAclClientSideActionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCookieMatchPatternInput)(nil)).Elem(), WebAclCookieMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCookieMatchPatternPtrInput)(nil)).Elem(), WebAclCookieMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCookiesInput)(nil)).Elem(), WebAclCookiesArgs{})
@@ -27135,6 +28425,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclManagedRuleGroupStatementPtrInput)(nil)).Elem(), WebAclManagedRuleGroupStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclNotStatementInput)(nil)).Elem(), WebAclNotStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclNotStatementPtrInput)(nil)).Elem(), WebAclNotStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOnSourceDDoSProtectionConfigInput)(nil)).Elem(), WebAclOnSourceDDoSProtectionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOnSourceDDoSProtectionConfigPtrInput)(nil)).Elem(), WebAclOnSourceDDoSProtectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOrStatementInput)(nil)).Elem(), WebAclOrStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOrStatementPtrInput)(nil)).Elem(), WebAclOrStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOverrideActionInput)(nil)).Elem(), WebAclOverrideActionArgs{})
@@ -27143,6 +28435,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementPtrInput)(nil)).Elem(), WebAclRateBasedStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementCustomKeyInput)(nil)).Elem(), WebAclRateBasedStatementCustomKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementCustomKeyArrayInput)(nil)).Elem(), WebAclRateBasedStatementCustomKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitAsnInput)(nil)).Elem(), WebAclRateLimitAsnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitAsnPtrInput)(nil)).Elem(), WebAclRateLimitAsnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitCookieInput)(nil)).Elem(), WebAclRateLimitCookieArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitCookiePtrInput)(nil)).Elem(), WebAclRateLimitCookieArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitForwardedIpInput)(nil)).Elem(), WebAclRateLimitForwardedIpArgs{})
@@ -27165,6 +28459,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitQueryStringPtrInput)(nil)).Elem(), WebAclRateLimitQueryStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitUriPathInput)(nil)).Elem(), WebAclRateLimitUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitUriPathPtrInput)(nil)).Elem(), WebAclRateLimitUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRegexInput)(nil)).Elem(), WebAclRegexArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRegexArrayInput)(nil)).Elem(), WebAclRegexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRegexMatchStatementInput)(nil)).Elem(), WebAclRegexMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRegexMatchStatementPtrInput)(nil)).Elem(), WebAclRegexMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRegexPatternSetReferenceStatementInput)(nil)).Elem(), WebAclRegexPatternSetReferenceStatementArgs{})
@@ -27225,6 +28521,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupAllowActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupAsnMatchStatementOutput{})
+	pulumi.RegisterOutputType(RuleGroupAsnMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupBlockActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupBlockActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupBodyOutput{})
@@ -27295,6 +28593,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementCustomKeyOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementCustomKeyArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitAsnOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitAsnPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateLimitCookieOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateLimitCookiePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateLimitForwardedIpOutput{})
@@ -27344,10 +28644,14 @@ func init() {
 	pulumi.RegisterOutputType(WebAclAllowActionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAndStatementOutput{})
 	pulumi.RegisterOutputType(WebAclAndStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebAclAsnMatchStatementOutput{})
+	pulumi.RegisterOutputType(WebAclAsnMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAssociationConfigOutput{})
 	pulumi.RegisterOutputType(WebAclAssociationConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAwsManagedRulesAcfpRuleSetOutput{})
 	pulumi.RegisterOutputType(WebAclAwsManagedRulesAcfpRuleSetPtrOutput{})
+	pulumi.RegisterOutputType(WebAclAwsManagedRulesAntiDDoSRuleSetOutput{})
+	pulumi.RegisterOutputType(WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAwsManagedRulesAtpRuleSetOutput{})
 	pulumi.RegisterOutputType(WebAclAwsManagedRulesAtpRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAwsManagedRulesBotControlRuleSetOutput{})
@@ -27366,6 +28670,10 @@ func init() {
 	pulumi.RegisterOutputType(WebAclChallengeActionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclChallengeConfigOutput{})
 	pulumi.RegisterOutputType(WebAclChallengeConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebAclClientSideActionOutput{})
+	pulumi.RegisterOutputType(WebAclClientSideActionPtrOutput{})
+	pulumi.RegisterOutputType(WebAclClientSideActionConfigOutput{})
+	pulumi.RegisterOutputType(WebAclClientSideActionConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebAclCookieMatchPatternOutput{})
 	pulumi.RegisterOutputType(WebAclCookieMatchPatternPtrOutput{})
 	pulumi.RegisterOutputType(WebAclCookiesOutput{})
@@ -27430,6 +28738,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclManagedRuleGroupStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclNotStatementOutput{})
 	pulumi.RegisterOutputType(WebAclNotStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebAclOnSourceDDoSProtectionConfigOutput{})
+	pulumi.RegisterOutputType(WebAclOnSourceDDoSProtectionConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebAclOrStatementOutput{})
 	pulumi.RegisterOutputType(WebAclOrStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclOverrideActionOutput{})
@@ -27438,6 +28748,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRateBasedStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRateBasedStatementCustomKeyOutput{})
 	pulumi.RegisterOutputType(WebAclRateBasedStatementCustomKeyArrayOutput{})
+	pulumi.RegisterOutputType(WebAclRateLimitAsnOutput{})
+	pulumi.RegisterOutputType(WebAclRateLimitAsnPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRateLimitCookieOutput{})
 	pulumi.RegisterOutputType(WebAclRateLimitCookiePtrOutput{})
 	pulumi.RegisterOutputType(WebAclRateLimitForwardedIpOutput{})
@@ -27460,6 +28772,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRateLimitQueryStringPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRateLimitUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclRateLimitUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRegexOutput{})
+	pulumi.RegisterOutputType(WebAclRegexArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRegexMatchStatementOutput{})
 	pulumi.RegisterOutputType(WebAclRegexMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRegexPatternSetReferenceStatementOutput{})

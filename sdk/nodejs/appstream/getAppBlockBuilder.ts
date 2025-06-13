@@ -64,6 +64,10 @@ export interface GetAppBlockBuilderResult {
      */
     readonly platform?: string;
     /**
+     * The tags of the app block builder.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * The VPC configuration for the app block builder.
      */
     readonly vpcConfig?: outputs.appstream.AppBlockBuilderVpcConfig;

@@ -40,6 +40,10 @@ namespace Pulumi.AwsNative.Athena.Outputs
         /// </summary>
         public readonly string? ExecutionRole;
         /// <summary>
+        /// The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results.
+        /// </summary>
+        public readonly Outputs.WorkGroupManagedQueryResultsConfiguration? ManagedQueryResultsConfiguration;
+        /// <summary>
         /// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
         /// </summary>
         public readonly bool? PublishCloudWatchMetricsEnabled;
@@ -66,6 +70,8 @@ namespace Pulumi.AwsNative.Athena.Outputs
 
             string? executionRole,
 
+            Outputs.WorkGroupManagedQueryResultsConfiguration? managedQueryResultsConfiguration,
+
             bool? publishCloudWatchMetricsEnabled,
 
             bool? requesterPaysEnabled,
@@ -78,6 +84,7 @@ namespace Pulumi.AwsNative.Athena.Outputs
             EnforceWorkGroupConfiguration = enforceWorkGroupConfiguration;
             EngineVersion = engineVersion;
             ExecutionRole = executionRole;
+            ManagedQueryResultsConfiguration = managedQueryResultsConfiguration;
             PublishCloudWatchMetricsEnabled = publishCloudWatchMetricsEnabled;
             RequesterPaysEnabled = requesterPaysEnabled;
             ResultConfiguration = resultConfiguration;

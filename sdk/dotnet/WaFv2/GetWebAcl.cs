@@ -156,9 +156,9 @@ namespace Pulumi.AwsNative.WaFv2
         /// </summary>
         public readonly string? LabelNamespace;
         /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        /// Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
         /// </summary>
-        public readonly object? OnSourceDDoSProtectionConfig;
+        public readonly Outputs.WebAclOnSourceDDoSProtectionConfig? OnSourceDDoSProtectionConfig;
         /// <summary>
         /// Collection of Rules.
         /// </summary>
@@ -202,7 +202,7 @@ namespace Pulumi.AwsNative.WaFv2
 
             string? labelNamespace,
 
-            object? onSourceDDoSProtectionConfig,
+            Outputs.WebAclOnSourceDDoSProtectionConfig? onSourceDDoSProtectionConfig,
 
             ImmutableArray<Outputs.WebAclRule> rules,
 

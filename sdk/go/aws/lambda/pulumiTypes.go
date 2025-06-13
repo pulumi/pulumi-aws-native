@@ -1098,7 +1098,8 @@ func (o EventInvokeConfigOnSuccessPtrOutput) Destination() pulumi.StringPtrOutpu
 // Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
 type EventSourceMappingAmazonManagedKafkaEventSourceConfig struct {
 	// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
-	ConsumerGroupId *string `pulumi:"consumerGroupId"`
+	ConsumerGroupId      *string                                 `pulumi:"consumerGroupId"`
+	SchemaRegistryConfig *EventSourceMappingSchemaRegistryConfig `pulumi:"schemaRegistryConfig"`
 }
 
 // EventSourceMappingAmazonManagedKafkaEventSourceConfigInput is an input type that accepts EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs and EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput values.
@@ -1115,7 +1116,8 @@ type EventSourceMappingAmazonManagedKafkaEventSourceConfigInput interface {
 // Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
 type EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs struct {
 	// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
-	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
+	ConsumerGroupId      pulumi.StringPtrInput                          `pulumi:"consumerGroupId"`
+	SchemaRegistryConfig EventSourceMappingSchemaRegistryConfigPtrInput `pulumi:"schemaRegistryConfig"`
 }
 
 func (EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs) ElementType() reflect.Type {
@@ -1201,6 +1203,12 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ConsumerGro
 	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
 }
 
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) SchemaRegistryConfig() EventSourceMappingSchemaRegistryConfigPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfig) *EventSourceMappingSchemaRegistryConfig {
+		return v.SchemaRegistryConfig
+	}).(EventSourceMappingSchemaRegistryConfigPtrOutput)
+}
+
 type EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) ElementType() reflect.Type {
@@ -1233,6 +1241,15 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) Consumer
 		}
 		return v.ConsumerGroupId
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) SchemaRegistryConfig() EventSourceMappingSchemaRegistryConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfig) *EventSourceMappingSchemaRegistryConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaRegistryConfig
+	}).(EventSourceMappingSchemaRegistryConfigPtrOutput)
 }
 
 // A configuration object that specifies the destination of an event after Lambda processes it.
@@ -2075,7 +2092,7 @@ func (o EventSourceMappingMetricsConfigPtrOutput) Metrics() EventSourceMappingMe
 	}).(EventSourceMappingMetricsConfigMetricsItemArrayOutput)
 }
 
-// A destination for events that failed processing.
+// A destination for events that failed processing. See [Capturing records of Lambda asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) for more information.
 type EventSourceMappingOnFailure struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
 	//  To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
@@ -2094,7 +2111,7 @@ type EventSourceMappingOnFailureInput interface {
 	ToEventSourceMappingOnFailureOutputWithContext(context.Context) EventSourceMappingOnFailureOutput
 }
 
-// A destination for events that failed processing.
+// A destination for events that failed processing. See [Capturing records of Lambda asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) for more information.
 type EventSourceMappingOnFailureArgs struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
 	//  To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
@@ -2155,7 +2172,7 @@ func (i *eventSourceMappingOnFailurePtrType) ToEventSourceMappingOnFailurePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingOnFailurePtrOutput)
 }
 
-// A destination for events that failed processing.
+// A destination for events that failed processing. See [Capturing records of Lambda asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) for more information.
 type EventSourceMappingOnFailureOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingOnFailureOutput) ElementType() reflect.Type {
@@ -2524,6 +2541,413 @@ func (o EventSourceMappingScalingConfigPtrOutput) MaximumConcurrency() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+type EventSourceMappingSchemaRegistryAccessConfig struct {
+	// The type of authentication Lambda uses to access your schema registry.
+	Type *EventSourceMappingSchemaRegistryAccessConfigType `pulumi:"type"`
+	// The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
+	Uri *string `pulumi:"uri"`
+}
+
+// EventSourceMappingSchemaRegistryAccessConfigInput is an input type that accepts EventSourceMappingSchemaRegistryAccessConfigArgs and EventSourceMappingSchemaRegistryAccessConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingSchemaRegistryAccessConfigInput` via:
+//
+//	EventSourceMappingSchemaRegistryAccessConfigArgs{...}
+type EventSourceMappingSchemaRegistryAccessConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSchemaRegistryAccessConfigOutput() EventSourceMappingSchemaRegistryAccessConfigOutput
+	ToEventSourceMappingSchemaRegistryAccessConfigOutputWithContext(context.Context) EventSourceMappingSchemaRegistryAccessConfigOutput
+}
+
+type EventSourceMappingSchemaRegistryAccessConfigArgs struct {
+	// The type of authentication Lambda uses to access your schema registry.
+	Type EventSourceMappingSchemaRegistryAccessConfigTypePtrInput `pulumi:"type"`
+	// The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (EventSourceMappingSchemaRegistryAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSchemaRegistryAccessConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingSchemaRegistryAccessConfigArgs) ToEventSourceMappingSchemaRegistryAccessConfigOutput() EventSourceMappingSchemaRegistryAccessConfigOutput {
+	return i.ToEventSourceMappingSchemaRegistryAccessConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSchemaRegistryAccessConfigArgs) ToEventSourceMappingSchemaRegistryAccessConfigOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSchemaRegistryAccessConfigOutput)
+}
+
+// EventSourceMappingSchemaRegistryAccessConfigArrayInput is an input type that accepts EventSourceMappingSchemaRegistryAccessConfigArray and EventSourceMappingSchemaRegistryAccessConfigArrayOutput values.
+// You can construct a concrete instance of `EventSourceMappingSchemaRegistryAccessConfigArrayInput` via:
+//
+//	EventSourceMappingSchemaRegistryAccessConfigArray{ EventSourceMappingSchemaRegistryAccessConfigArgs{...} }
+type EventSourceMappingSchemaRegistryAccessConfigArrayInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSchemaRegistryAccessConfigArrayOutput() EventSourceMappingSchemaRegistryAccessConfigArrayOutput
+	ToEventSourceMappingSchemaRegistryAccessConfigArrayOutputWithContext(context.Context) EventSourceMappingSchemaRegistryAccessConfigArrayOutput
+}
+
+type EventSourceMappingSchemaRegistryAccessConfigArray []EventSourceMappingSchemaRegistryAccessConfigInput
+
+func (EventSourceMappingSchemaRegistryAccessConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingSchemaRegistryAccessConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingSchemaRegistryAccessConfigArray) ToEventSourceMappingSchemaRegistryAccessConfigArrayOutput() EventSourceMappingSchemaRegistryAccessConfigArrayOutput {
+	return i.ToEventSourceMappingSchemaRegistryAccessConfigArrayOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSchemaRegistryAccessConfigArray) ToEventSourceMappingSchemaRegistryAccessConfigArrayOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryAccessConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSchemaRegistryAccessConfigArrayOutput)
+}
+
+type EventSourceMappingSchemaRegistryAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSchemaRegistryAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSchemaRegistryAccessConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigOutput) ToEventSourceMappingSchemaRegistryAccessConfigOutput() EventSourceMappingSchemaRegistryAccessConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigOutput) ToEventSourceMappingSchemaRegistryAccessConfigOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryAccessConfigOutput {
+	return o
+}
+
+// The type of authentication Lambda uses to access your schema registry.
+func (o EventSourceMappingSchemaRegistryAccessConfigOutput) Type() EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSchemaRegistryAccessConfig) *EventSourceMappingSchemaRegistryAccessConfigType {
+		return v.Type
+	}).(EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput)
+}
+
+// The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
+func (o EventSourceMappingSchemaRegistryAccessConfigOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSchemaRegistryAccessConfig) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingSchemaRegistryAccessConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSchemaRegistryAccessConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingSchemaRegistryAccessConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigArrayOutput) ToEventSourceMappingSchemaRegistryAccessConfigArrayOutput() EventSourceMappingSchemaRegistryAccessConfigArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigArrayOutput) ToEventSourceMappingSchemaRegistryAccessConfigArrayOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryAccessConfigArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryAccessConfigArrayOutput) Index(i pulumi.IntInput) EventSourceMappingSchemaRegistryAccessConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSourceMappingSchemaRegistryAccessConfig {
+		return vs[0].([]EventSourceMappingSchemaRegistryAccessConfig)[vs[1].(int)]
+	}).(EventSourceMappingSchemaRegistryAccessConfigOutput)
+}
+
+type EventSourceMappingSchemaRegistryConfig struct {
+	// An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
+	AccessConfigs []EventSourceMappingSchemaRegistryAccessConfig `pulumi:"accessConfigs"`
+	// The record format that Lambda delivers to your function after schema validation.
+	EventRecordFormat *EventSourceMappingSchemaRegistryConfigEventRecordFormat `pulumi:"eventRecordFormat"`
+	// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
+	SchemaRegistryUri *string `pulumi:"schemaRegistryUri"`
+	// An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
+	SchemaValidationConfigs []EventSourceMappingSchemaValidationConfig `pulumi:"schemaValidationConfigs"`
+}
+
+// EventSourceMappingSchemaRegistryConfigInput is an input type that accepts EventSourceMappingSchemaRegistryConfigArgs and EventSourceMappingSchemaRegistryConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingSchemaRegistryConfigInput` via:
+//
+//	EventSourceMappingSchemaRegistryConfigArgs{...}
+type EventSourceMappingSchemaRegistryConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSchemaRegistryConfigOutput() EventSourceMappingSchemaRegistryConfigOutput
+	ToEventSourceMappingSchemaRegistryConfigOutputWithContext(context.Context) EventSourceMappingSchemaRegistryConfigOutput
+}
+
+type EventSourceMappingSchemaRegistryConfigArgs struct {
+	// An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
+	AccessConfigs EventSourceMappingSchemaRegistryAccessConfigArrayInput `pulumi:"accessConfigs"`
+	// The record format that Lambda delivers to your function after schema validation.
+	EventRecordFormat EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrInput `pulumi:"eventRecordFormat"`
+	// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
+	SchemaRegistryUri pulumi.StringPtrInput `pulumi:"schemaRegistryUri"`
+	// An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
+	SchemaValidationConfigs EventSourceMappingSchemaValidationConfigArrayInput `pulumi:"schemaValidationConfigs"`
+}
+
+func (EventSourceMappingSchemaRegistryConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSchemaRegistryConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingSchemaRegistryConfigArgs) ToEventSourceMappingSchemaRegistryConfigOutput() EventSourceMappingSchemaRegistryConfigOutput {
+	return i.ToEventSourceMappingSchemaRegistryConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSchemaRegistryConfigArgs) ToEventSourceMappingSchemaRegistryConfigOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSchemaRegistryConfigOutput)
+}
+
+func (i EventSourceMappingSchemaRegistryConfigArgs) ToEventSourceMappingSchemaRegistryConfigPtrOutput() EventSourceMappingSchemaRegistryConfigPtrOutput {
+	return i.ToEventSourceMappingSchemaRegistryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSchemaRegistryConfigArgs) ToEventSourceMappingSchemaRegistryConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSchemaRegistryConfigOutput).ToEventSourceMappingSchemaRegistryConfigPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingSchemaRegistryConfigPtrInput is an input type that accepts EventSourceMappingSchemaRegistryConfigArgs, EventSourceMappingSchemaRegistryConfigPtr and EventSourceMappingSchemaRegistryConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingSchemaRegistryConfigPtrInput` via:
+//
+//	        EventSourceMappingSchemaRegistryConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceMappingSchemaRegistryConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSchemaRegistryConfigPtrOutput() EventSourceMappingSchemaRegistryConfigPtrOutput
+	ToEventSourceMappingSchemaRegistryConfigPtrOutputWithContext(context.Context) EventSourceMappingSchemaRegistryConfigPtrOutput
+}
+
+type eventSourceMappingSchemaRegistryConfigPtrType EventSourceMappingSchemaRegistryConfigArgs
+
+func EventSourceMappingSchemaRegistryConfigPtr(v *EventSourceMappingSchemaRegistryConfigArgs) EventSourceMappingSchemaRegistryConfigPtrInput {
+	return (*eventSourceMappingSchemaRegistryConfigPtrType)(v)
+}
+
+func (*eventSourceMappingSchemaRegistryConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSchemaRegistryConfig)(nil)).Elem()
+}
+
+func (i *eventSourceMappingSchemaRegistryConfigPtrType) ToEventSourceMappingSchemaRegistryConfigPtrOutput() EventSourceMappingSchemaRegistryConfigPtrOutput {
+	return i.ToEventSourceMappingSchemaRegistryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingSchemaRegistryConfigPtrType) ToEventSourceMappingSchemaRegistryConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSchemaRegistryConfigPtrOutput)
+}
+
+type EventSourceMappingSchemaRegistryConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSchemaRegistryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSchemaRegistryConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSchemaRegistryConfigOutput) ToEventSourceMappingSchemaRegistryConfigOutput() EventSourceMappingSchemaRegistryConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryConfigOutput) ToEventSourceMappingSchemaRegistryConfigOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryConfigOutput) ToEventSourceMappingSchemaRegistryConfigPtrOutput() EventSourceMappingSchemaRegistryConfigPtrOutput {
+	return o.ToEventSourceMappingSchemaRegistryConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSchemaRegistryConfigOutput) ToEventSourceMappingSchemaRegistryConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingSchemaRegistryConfig) *EventSourceMappingSchemaRegistryConfig {
+		return &v
+	}).(EventSourceMappingSchemaRegistryConfigPtrOutput)
+}
+
+// An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
+func (o EventSourceMappingSchemaRegistryConfigOutput) AccessConfigs() EventSourceMappingSchemaRegistryAccessConfigArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingSchemaRegistryConfig) []EventSourceMappingSchemaRegistryAccessConfig {
+		return v.AccessConfigs
+	}).(EventSourceMappingSchemaRegistryAccessConfigArrayOutput)
+}
+
+// The record format that Lambda delivers to your function after schema validation.
+func (o EventSourceMappingSchemaRegistryConfigOutput) EventRecordFormat() EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSchemaRegistryConfig) *EventSourceMappingSchemaRegistryConfigEventRecordFormat {
+		return v.EventRecordFormat
+	}).(EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput)
+}
+
+// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
+func (o EventSourceMappingSchemaRegistryConfigOutput) SchemaRegistryUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSchemaRegistryConfig) *string { return v.SchemaRegistryUri }).(pulumi.StringPtrOutput)
+}
+
+// An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
+func (o EventSourceMappingSchemaRegistryConfigOutput) SchemaValidationConfigs() EventSourceMappingSchemaValidationConfigArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingSchemaRegistryConfig) []EventSourceMappingSchemaValidationConfig {
+		return v.SchemaValidationConfigs
+	}).(EventSourceMappingSchemaValidationConfigArrayOutput)
+}
+
+type EventSourceMappingSchemaRegistryConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSchemaRegistryConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSchemaRegistryConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSchemaRegistryConfigPtrOutput) ToEventSourceMappingSchemaRegistryConfigPtrOutput() EventSourceMappingSchemaRegistryConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryConfigPtrOutput) ToEventSourceMappingSchemaRegistryConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSchemaRegistryConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaRegistryConfigPtrOutput) Elem() EventSourceMappingSchemaRegistryConfigOutput {
+	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryConfig) EventSourceMappingSchemaRegistryConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingSchemaRegistryConfig
+		return ret
+	}).(EventSourceMappingSchemaRegistryConfigOutput)
+}
+
+// An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
+func (o EventSourceMappingSchemaRegistryConfigPtrOutput) AccessConfigs() EventSourceMappingSchemaRegistryAccessConfigArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryConfig) []EventSourceMappingSchemaRegistryAccessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AccessConfigs
+	}).(EventSourceMappingSchemaRegistryAccessConfigArrayOutput)
+}
+
+// The record format that Lambda delivers to your function after schema validation.
+func (o EventSourceMappingSchemaRegistryConfigPtrOutput) EventRecordFormat() EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryConfig) *EventSourceMappingSchemaRegistryConfigEventRecordFormat {
+		if v == nil {
+			return nil
+		}
+		return v.EventRecordFormat
+	}).(EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput)
+}
+
+// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
+func (o EventSourceMappingSchemaRegistryConfigPtrOutput) SchemaRegistryUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaRegistryUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
+func (o EventSourceMappingSchemaRegistryConfigPtrOutput) SchemaValidationConfigs() EventSourceMappingSchemaValidationConfigArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryConfig) []EventSourceMappingSchemaValidationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaValidationConfigs
+	}).(EventSourceMappingSchemaValidationConfigArrayOutput)
+}
+
+type EventSourceMappingSchemaValidationConfig struct {
+	// The attribute you want your schema registry to validate and filter for.
+	Attribute *EventSourceMappingSchemaValidationConfigAttribute `pulumi:"attribute"`
+}
+
+// EventSourceMappingSchemaValidationConfigInput is an input type that accepts EventSourceMappingSchemaValidationConfigArgs and EventSourceMappingSchemaValidationConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingSchemaValidationConfigInput` via:
+//
+//	EventSourceMappingSchemaValidationConfigArgs{...}
+type EventSourceMappingSchemaValidationConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSchemaValidationConfigOutput() EventSourceMappingSchemaValidationConfigOutput
+	ToEventSourceMappingSchemaValidationConfigOutputWithContext(context.Context) EventSourceMappingSchemaValidationConfigOutput
+}
+
+type EventSourceMappingSchemaValidationConfigArgs struct {
+	// The attribute you want your schema registry to validate and filter for.
+	Attribute EventSourceMappingSchemaValidationConfigAttributePtrInput `pulumi:"attribute"`
+}
+
+func (EventSourceMappingSchemaValidationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSchemaValidationConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingSchemaValidationConfigArgs) ToEventSourceMappingSchemaValidationConfigOutput() EventSourceMappingSchemaValidationConfigOutput {
+	return i.ToEventSourceMappingSchemaValidationConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSchemaValidationConfigArgs) ToEventSourceMappingSchemaValidationConfigOutputWithContext(ctx context.Context) EventSourceMappingSchemaValidationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSchemaValidationConfigOutput)
+}
+
+// EventSourceMappingSchemaValidationConfigArrayInput is an input type that accepts EventSourceMappingSchemaValidationConfigArray and EventSourceMappingSchemaValidationConfigArrayOutput values.
+// You can construct a concrete instance of `EventSourceMappingSchemaValidationConfigArrayInput` via:
+//
+//	EventSourceMappingSchemaValidationConfigArray{ EventSourceMappingSchemaValidationConfigArgs{...} }
+type EventSourceMappingSchemaValidationConfigArrayInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSchemaValidationConfigArrayOutput() EventSourceMappingSchemaValidationConfigArrayOutput
+	ToEventSourceMappingSchemaValidationConfigArrayOutputWithContext(context.Context) EventSourceMappingSchemaValidationConfigArrayOutput
+}
+
+type EventSourceMappingSchemaValidationConfigArray []EventSourceMappingSchemaValidationConfigInput
+
+func (EventSourceMappingSchemaValidationConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingSchemaValidationConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingSchemaValidationConfigArray) ToEventSourceMappingSchemaValidationConfigArrayOutput() EventSourceMappingSchemaValidationConfigArrayOutput {
+	return i.ToEventSourceMappingSchemaValidationConfigArrayOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSchemaValidationConfigArray) ToEventSourceMappingSchemaValidationConfigArrayOutputWithContext(ctx context.Context) EventSourceMappingSchemaValidationConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSchemaValidationConfigArrayOutput)
+}
+
+type EventSourceMappingSchemaValidationConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSchemaValidationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSchemaValidationConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSchemaValidationConfigOutput) ToEventSourceMappingSchemaValidationConfigOutput() EventSourceMappingSchemaValidationConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaValidationConfigOutput) ToEventSourceMappingSchemaValidationConfigOutputWithContext(ctx context.Context) EventSourceMappingSchemaValidationConfigOutput {
+	return o
+}
+
+// The attribute you want your schema registry to validate and filter for.
+func (o EventSourceMappingSchemaValidationConfigOutput) Attribute() EventSourceMappingSchemaValidationConfigAttributePtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSchemaValidationConfig) *EventSourceMappingSchemaValidationConfigAttribute {
+		return v.Attribute
+	}).(EventSourceMappingSchemaValidationConfigAttributePtrOutput)
+}
+
+type EventSourceMappingSchemaValidationConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSchemaValidationConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingSchemaValidationConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSchemaValidationConfigArrayOutput) ToEventSourceMappingSchemaValidationConfigArrayOutput() EventSourceMappingSchemaValidationConfigArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaValidationConfigArrayOutput) ToEventSourceMappingSchemaValidationConfigArrayOutputWithContext(ctx context.Context) EventSourceMappingSchemaValidationConfigArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingSchemaValidationConfigArrayOutput) Index(i pulumi.IntInput) EventSourceMappingSchemaValidationConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSourceMappingSchemaValidationConfig {
+		return vs[0].([]EventSourceMappingSchemaValidationConfig)[vs[1].(int)]
+	}).(EventSourceMappingSchemaValidationConfigOutput)
+}
+
 // The self-managed Apache Kafka cluster for your event source.
 type EventSourceMappingSelfManagedEventSource struct {
 	// The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
@@ -2666,8 +3090,9 @@ func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Endpoints() EventSour
 
 // Specific configuration settings for a self-managed Apache Kafka event source.
 type EventSourceMappingSelfManagedKafkaEventSourceConfig struct {
-	// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
-	ConsumerGroupId *string `pulumi:"consumerGroupId"`
+	// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
+	ConsumerGroupId      *string                                 `pulumi:"consumerGroupId"`
+	SchemaRegistryConfig *EventSourceMappingSchemaRegistryConfig `pulumi:"schemaRegistryConfig"`
 }
 
 // EventSourceMappingSelfManagedKafkaEventSourceConfigInput is an input type that accepts EventSourceMappingSelfManagedKafkaEventSourceConfigArgs and EventSourceMappingSelfManagedKafkaEventSourceConfigOutput values.
@@ -2683,8 +3108,9 @@ type EventSourceMappingSelfManagedKafkaEventSourceConfigInput interface {
 
 // Specific configuration settings for a self-managed Apache Kafka event source.
 type EventSourceMappingSelfManagedKafkaEventSourceConfigArgs struct {
-	// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
-	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
+	// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
+	ConsumerGroupId      pulumi.StringPtrInput                          `pulumi:"consumerGroupId"`
+	SchemaRegistryConfig EventSourceMappingSchemaRegistryConfigPtrInput `pulumi:"schemaRegistryConfig"`
 }
 
 func (EventSourceMappingSelfManagedKafkaEventSourceConfigArgs) ElementType() reflect.Type {
@@ -2765,9 +3191,15 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ToEventSource
 	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput)
 }
 
-// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
+// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) SchemaRegistryConfig() EventSourceMappingSchemaRegistryConfigPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfig) *EventSourceMappingSchemaRegistryConfig {
+		return v.SchemaRegistryConfig
+	}).(EventSourceMappingSchemaRegistryConfigPtrOutput)
 }
 
 type EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput struct{ *pulumi.OutputState }
@@ -2794,7 +3226,7 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) Elem() Eve
 	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput)
 }
 
-// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
+// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfig) *string {
 		if v == nil {
@@ -2804,18 +3236,27 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ConsumerGr
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) SchemaRegistryConfig() EventSourceMappingSchemaRegistryConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfig) *EventSourceMappingSchemaRegistryConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaRegistryConfig
+	}).(EventSourceMappingSchemaRegistryConfigPtrOutput)
+}
+
 // An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 type EventSourceMappingSourceAccessConfiguration struct {
 	// The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
-	//   +   ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
-	//   +   ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
-	//   +   ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
-	//   +   ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
-	//   +   ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
-	//   +   ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
-	//   +   ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
-	//   +   ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
-	//   +   ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+	//   +  ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+	//   +  ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+	//   +  ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+	//   +  ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+	//   +  ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+	//   +  ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+	//   +  ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+	//   +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+	//   +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
 	Type *EventSourceMappingSourceAccessConfigurationType `pulumi:"type"`
 	// The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
 	Uri *string `pulumi:"uri"`
@@ -2835,15 +3276,15 @@ type EventSourceMappingSourceAccessConfigurationInput interface {
 // An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 type EventSourceMappingSourceAccessConfigurationArgs struct {
 	// The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
-	//   +   ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
-	//   +   ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
-	//   +   ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
-	//   +   ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
-	//   +   ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
-	//   +   ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
-	//   +   ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
-	//   +   ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
-	//   +   ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+	//   +  ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+	//   +  ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+	//   +  ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+	//   +  ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+	//   +  ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+	//   +  ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+	//   +  ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+	//   +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+	//   +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
 	Type EventSourceMappingSourceAccessConfigurationTypePtrInput `pulumi:"type"`
 	// The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
@@ -5451,6 +5892,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingProvisionedPollerConfigPtrInput)(nil)).Elem(), EventSourceMappingProvisionedPollerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingScalingConfigInput)(nil)).Elem(), EventSourceMappingScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingScalingConfigPtrInput)(nil)).Elem(), EventSourceMappingScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSchemaRegistryAccessConfigInput)(nil)).Elem(), EventSourceMappingSchemaRegistryAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSchemaRegistryAccessConfigArrayInput)(nil)).Elem(), EventSourceMappingSchemaRegistryAccessConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSchemaRegistryConfigInput)(nil)).Elem(), EventSourceMappingSchemaRegistryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSchemaRegistryConfigPtrInput)(nil)).Elem(), EventSourceMappingSchemaRegistryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSchemaValidationConfigInput)(nil)).Elem(), EventSourceMappingSchemaValidationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSchemaValidationConfigArrayInput)(nil)).Elem(), EventSourceMappingSchemaValidationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedEventSourceInput)(nil)).Elem(), EventSourceMappingSelfManagedEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedEventSourcePtrInput)(nil)).Elem(), EventSourceMappingSelfManagedEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{})
@@ -5521,6 +5968,12 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingProvisionedPollerConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingScalingConfigOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingScalingConfigPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSchemaRegistryAccessConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSchemaRegistryAccessConfigArrayOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSchemaRegistryConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSchemaRegistryConfigPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSchemaValidationConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSchemaValidationConfigArrayOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourceOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourcePtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput{})

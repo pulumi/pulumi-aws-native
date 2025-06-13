@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -18,6 +19,8 @@ type EgressOnlyInternetGateway struct {
 
 	// Service Generated ID of the EgressOnlyInternetGateway
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Any tags assigned to the egress only internet gateway.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the VPC for which to create the egress-only internet gateway.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -69,12 +72,16 @@ func (EgressOnlyInternetGatewayState) ElementType() reflect.Type {
 }
 
 type egressOnlyInternetGatewayArgs struct {
+	// Any tags assigned to the egress only internet gateway.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the VPC for which to create the egress-only internet gateway.
 	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a EgressOnlyInternetGateway resource.
 type EgressOnlyInternetGatewayArgs struct {
+	// Any tags assigned to the egress only internet gateway.
+	Tags aws.TagArrayInput
 	// The ID of the VPC for which to create the egress-only internet gateway.
 	VpcId pulumi.StringInput
 }
@@ -119,6 +126,11 @@ func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutputWithCo
 // Service Generated ID of the EgressOnlyInternetGateway
 func (o EgressOnlyInternetGatewayOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EgressOnlyInternetGateway) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+// Any tags assigned to the egress only internet gateway.
+func (o EgressOnlyInternetGatewayOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EgressOnlyInternetGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the VPC for which to create the egress-only internet gateway.

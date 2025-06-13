@@ -195,7 +195,21 @@ type ClusterBrokerNodeGroupInfo struct {
 	ClientSubnets []string `pulumi:"clientSubnets"`
 	// Information about the cluster's connectivity setting.
 	ConnectivityInfo *ClusterConnectivityInfo `pulumi:"connectivityInfo"`
-	// The type of Amazon EC2 instances to use for brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
+	// The type of Amazon EC2 instances to use for brokers. Depending on the [broker type](https://docs.aws.amazon.com/msk/latest/developerguide/broker-instance-types.html) , Amazon MSK supports the following broker sizes:
+	//
+	// *Standard broker sizes*
+	//
+	// - kafka.t3.small
+	//
+	// > You can't select the kafka.t3.small instance type when the metadata mode is KRaft.
+	// - kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge
+	// - kafka.m7g.large, kafka.m7g.xlarge, kafka.m7g.2xlarge, kafka.m7g.4xlarge, kafka.m7g.8xlarge, kafka.m7g.12xlarge, kafka.m7g.16xlarge
+	//
+	// *Express broker sizes*
+	//
+	// - express.m7g.large, express.m7g.xlarge, express.m7g.2xlarge, express.m7g.4xlarge, express.m7g.8xlarge, express.m7g.12xlarge, express.m7g.16xlarge
+	//
+	// > Some broker sizes might not be available in certian AWS Regions. See the updated [Pricing tools](https://docs.aws.amazon.com/msk/pricing/) section on the Amazon MSK pricing page for the latest list of available instances by Region.
 	InstanceType string `pulumi:"instanceType"`
 	// The security groups to associate with the ENIs in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -225,7 +239,21 @@ type ClusterBrokerNodeGroupInfoArgs struct {
 	ClientSubnets pulumi.StringArrayInput `pulumi:"clientSubnets"`
 	// Information about the cluster's connectivity setting.
 	ConnectivityInfo ClusterConnectivityInfoPtrInput `pulumi:"connectivityInfo"`
-	// The type of Amazon EC2 instances to use for brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
+	// The type of Amazon EC2 instances to use for brokers. Depending on the [broker type](https://docs.aws.amazon.com/msk/latest/developerguide/broker-instance-types.html) , Amazon MSK supports the following broker sizes:
+	//
+	// *Standard broker sizes*
+	//
+	// - kafka.t3.small
+	//
+	// > You can't select the kafka.t3.small instance type when the metadata mode is KRaft.
+	// - kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge
+	// - kafka.m7g.large, kafka.m7g.xlarge, kafka.m7g.2xlarge, kafka.m7g.4xlarge, kafka.m7g.8xlarge, kafka.m7g.12xlarge, kafka.m7g.16xlarge
+	//
+	// *Express broker sizes*
+	//
+	// - express.m7g.large, express.m7g.xlarge, express.m7g.2xlarge, express.m7g.4xlarge, express.m7g.8xlarge, express.m7g.12xlarge, express.m7g.16xlarge
+	//
+	// > Some broker sizes might not be available in certian AWS Regions. See the updated [Pricing tools](https://docs.aws.amazon.com/msk/pricing/) section on the Amazon MSK pricing page for the latest list of available instances by Region.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The security groups to associate with the ENIs in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -278,7 +306,21 @@ func (o ClusterBrokerNodeGroupInfoOutput) ConnectivityInfo() ClusterConnectivity
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterConnectivityInfo { return v.ConnectivityInfo }).(ClusterConnectivityInfoPtrOutput)
 }
 
-// The type of Amazon EC2 instances to use for brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
+// The type of Amazon EC2 instances to use for brokers. Depending on the [broker type](https://docs.aws.amazon.com/msk/latest/developerguide/broker-instance-types.html) , Amazon MSK supports the following broker sizes:
+//
+// *Standard broker sizes*
+//
+// - kafka.t3.small
+//
+// > You can't select the kafka.t3.small instance type when the metadata mode is KRaft.
+// - kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge
+// - kafka.m7g.large, kafka.m7g.xlarge, kafka.m7g.2xlarge, kafka.m7g.4xlarge, kafka.m7g.8xlarge, kafka.m7g.12xlarge, kafka.m7g.16xlarge
+//
+// *Express broker sizes*
+//
+// - express.m7g.large, express.m7g.xlarge, express.m7g.2xlarge, express.m7g.4xlarge, express.m7g.8xlarge, express.m7g.12xlarge, express.m7g.16xlarge
+//
+// > Some broker sizes might not be available in certian AWS Regions. See the updated [Pricing tools](https://docs.aws.amazon.com/msk/pricing/) section on the Amazon MSK pricing page for the latest list of available instances by Region.
 func (o ClusterBrokerNodeGroupInfoOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -351,7 +393,21 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) ConnectivityInfo() ClusterConnectiv
 	}).(ClusterConnectivityInfoPtrOutput)
 }
 
-// The type of Amazon EC2 instances to use for brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
+// The type of Amazon EC2 instances to use for brokers. Depending on the [broker type](https://docs.aws.amazon.com/msk/latest/developerguide/broker-instance-types.html) , Amazon MSK supports the following broker sizes:
+//
+// *Standard broker sizes*
+//
+// - kafka.t3.small
+//
+// > You can't select the kafka.t3.small instance type when the metadata mode is KRaft.
+// - kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge
+// - kafka.m7g.large, kafka.m7g.xlarge, kafka.m7g.2xlarge, kafka.m7g.4xlarge, kafka.m7g.8xlarge, kafka.m7g.12xlarge, kafka.m7g.16xlarge
+//
+// *Express broker sizes*
+//
+// - express.m7g.large, express.m7g.xlarge, express.m7g.2xlarge, express.m7g.4xlarge, express.m7g.8xlarge, express.m7g.12xlarge, express.m7g.16xlarge
+//
+// > Some broker sizes might not be available in certian AWS Regions. See the updated [Pricing tools](https://docs.aws.amazon.com/msk/pricing/) section on the Amazon MSK pricing page for the latest list of available instances by Region.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *string {
 		if v == nil {

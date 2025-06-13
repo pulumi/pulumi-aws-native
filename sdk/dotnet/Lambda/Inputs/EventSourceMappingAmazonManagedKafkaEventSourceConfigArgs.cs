@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         [Input("consumerGroupId")]
         public Input<string>? ConsumerGroupId { get; set; }
 
+        [Input("schemaRegistryConfig")]
+        public Input<Inputs.EventSourceMappingSchemaRegistryConfigArgs>? SchemaRegistryConfig { get; set; }
+
         public EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs()
         {
         }

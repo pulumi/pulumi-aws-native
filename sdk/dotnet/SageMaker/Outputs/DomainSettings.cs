@@ -32,6 +32,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+        /// </summary>
+        public readonly Outputs.DomainUnifiedStudioSettings? UnifiedStudioSettings;
 
         [OutputConstructor]
         private DomainSettings(
@@ -41,12 +45,15 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.DomainRStudioServerProDomainSettings? rStudioServerProDomainSettings,
 
-            ImmutableArray<string> securityGroupIds)
+            ImmutableArray<string> securityGroupIds,
+
+            Outputs.DomainUnifiedStudioSettings? unifiedStudioSettings)
         {
             DockerSettings = dockerSettings;
             ExecutionRoleIdentityConfig = executionRoleIdentityConfig;
             RStudioServerProDomainSettings = rStudioServerProDomainSettings;
             SecurityGroupIds = securityGroupIds;
+            UnifiedStudioSettings = unifiedStudioSettings;
         }
     }
 }

@@ -416,6 +416,8 @@ type WorkGroupConfiguration struct {
 	EngineVersion *WorkGroupEngineVersion `pulumi:"engineVersion"`
 	// Role used to access user resources in an Athena for Apache Spark session. This property applies only to Spark-enabled workgroups in Athena.
 	ExecutionRole *string `pulumi:"executionRole"`
+	// The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results.
+	ManagedQueryResultsConfiguration *WorkGroupManagedQueryResultsConfiguration `pulumi:"managedQueryResultsConfiguration"`
 	// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
 	PublishCloudWatchMetricsEnabled *bool `pulumi:"publishCloudWatchMetricsEnabled"`
 	// If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
@@ -450,6 +452,8 @@ type WorkGroupConfigurationArgs struct {
 	EngineVersion WorkGroupEngineVersionPtrInput `pulumi:"engineVersion"`
 	// Role used to access user resources in an Athena for Apache Spark session. This property applies only to Spark-enabled workgroups in Athena.
 	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
+	// The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results.
+	ManagedQueryResultsConfiguration WorkGroupManagedQueryResultsConfigurationPtrInput `pulumi:"managedQueryResultsConfiguration"`
 	// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
 	PublishCloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudWatchMetricsEnabled"`
 	// If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
@@ -569,6 +573,13 @@ func (o WorkGroupConfigurationOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkGroupConfiguration) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
 }
 
+// The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results.
+func (o WorkGroupConfigurationOutput) ManagedQueryResultsConfiguration() WorkGroupManagedQueryResultsConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfiguration) *WorkGroupManagedQueryResultsConfiguration {
+		return v.ManagedQueryResultsConfiguration
+	}).(WorkGroupManagedQueryResultsConfigurationPtrOutput)
+}
+
 // Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
 func (o WorkGroupConfigurationOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupConfiguration) *bool { return v.PublishCloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
@@ -670,6 +681,16 @@ func (o WorkGroupConfigurationPtrOutput) ExecutionRole() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results.
+func (o WorkGroupConfigurationPtrOutput) ManagedQueryResultsConfiguration() WorkGroupManagedQueryResultsConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) *WorkGroupManagedQueryResultsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedQueryResultsConfiguration
+	}).(WorkGroupManagedQueryResultsConfigurationPtrOutput)
+}
+
 // Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
 func (o WorkGroupConfigurationPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupConfiguration) *bool {
@@ -708,6 +729,7 @@ type WorkGroupConfigurationUpdates struct {
 	EnforceWorkGroupConfiguration                *bool                                            `pulumi:"enforceWorkGroupConfiguration"`
 	EngineVersion                                *WorkGroupEngineVersion                          `pulumi:"engineVersion"`
 	ExecutionRole                                *string                                          `pulumi:"executionRole"`
+	ManagedQueryResultsConfiguration             *WorkGroupManagedQueryResultsConfiguration       `pulumi:"managedQueryResultsConfiguration"`
 	PublishCloudWatchMetricsEnabled              *bool                                            `pulumi:"publishCloudWatchMetricsEnabled"`
 	RemoveBytesScannedCutoffPerQuery             *bool                                            `pulumi:"removeBytesScannedCutoffPerQuery"`
 	RemoveCustomerContentEncryptionConfiguration *bool                                            `pulumi:"removeCustomerContentEncryptionConfiguration"`
@@ -734,6 +756,7 @@ type WorkGroupConfigurationUpdatesArgs struct {
 	EnforceWorkGroupConfiguration                pulumi.BoolPtrInput                                     `pulumi:"enforceWorkGroupConfiguration"`
 	EngineVersion                                WorkGroupEngineVersionPtrInput                          `pulumi:"engineVersion"`
 	ExecutionRole                                pulumi.StringPtrInput                                   `pulumi:"executionRole"`
+	ManagedQueryResultsConfiguration             WorkGroupManagedQueryResultsConfigurationPtrInput       `pulumi:"managedQueryResultsConfiguration"`
 	PublishCloudWatchMetricsEnabled              pulumi.BoolPtrInput                                     `pulumi:"publishCloudWatchMetricsEnabled"`
 	RemoveBytesScannedCutoffPerQuery             pulumi.BoolPtrInput                                     `pulumi:"removeBytesScannedCutoffPerQuery"`
 	RemoveCustomerContentEncryptionConfiguration pulumi.BoolPtrInput                                     `pulumi:"removeCustomerContentEncryptionConfiguration"`
@@ -845,6 +868,12 @@ func (o WorkGroupConfigurationUpdatesOutput) ExecutionRole() pulumi.StringPtrOut
 	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
 }
 
+func (o WorkGroupConfigurationUpdatesOutput) ManagedQueryResultsConfiguration() WorkGroupManagedQueryResultsConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *WorkGroupManagedQueryResultsConfiguration {
+		return v.ManagedQueryResultsConfiguration
+	}).(WorkGroupManagedQueryResultsConfigurationPtrOutput)
+}
+
 func (o WorkGroupConfigurationUpdatesOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *bool { return v.PublishCloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -943,6 +972,15 @@ func (o WorkGroupConfigurationUpdatesPtrOutput) ExecutionRole() pulumi.StringPtr
 		}
 		return v.ExecutionRole
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) ManagedQueryResultsConfiguration() WorkGroupManagedQueryResultsConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *WorkGroupManagedQueryResultsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedQueryResultsConfiguration
+	}).(WorkGroupManagedQueryResultsConfigurationPtrOutput)
 }
 
 func (o WorkGroupConfigurationUpdatesPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
@@ -1453,6 +1491,303 @@ func (o WorkGroupEngineVersionPtrOutput) SelectedEngineVersion() pulumi.StringPt
 			return nil
 		}
 		return v.SelectedEngineVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time
+type WorkGroupManagedQueryResultsConfiguration struct {
+	// If set to true, allows you to store query results in Athena owned storage. If set to false, workgroup member stores query results in location specified under `ResultConfiguration$OutputLocation` . The default is false. A workgroup cannot have the `ResultConfiguration$OutputLocation` parameter when you set this field to true.
+	Enabled *bool `pulumi:"enabled"`
+	// If you encrypt query and calculation results in Athena owned storage, this field indicates the encryption option (for example, SSE_KMS or CSE_KMS) and key information.
+	EncryptionConfiguration *WorkGroupManagedStorageEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+}
+
+// WorkGroupManagedQueryResultsConfigurationInput is an input type that accepts WorkGroupManagedQueryResultsConfigurationArgs and WorkGroupManagedQueryResultsConfigurationOutput values.
+// You can construct a concrete instance of `WorkGroupManagedQueryResultsConfigurationInput` via:
+//
+//	WorkGroupManagedQueryResultsConfigurationArgs{...}
+type WorkGroupManagedQueryResultsConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkGroupManagedQueryResultsConfigurationOutput() WorkGroupManagedQueryResultsConfigurationOutput
+	ToWorkGroupManagedQueryResultsConfigurationOutputWithContext(context.Context) WorkGroupManagedQueryResultsConfigurationOutput
+}
+
+// The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time
+type WorkGroupManagedQueryResultsConfigurationArgs struct {
+	// If set to true, allows you to store query results in Athena owned storage. If set to false, workgroup member stores query results in location specified under `ResultConfiguration$OutputLocation` . The default is false. A workgroup cannot have the `ResultConfiguration$OutputLocation` parameter when you set this field to true.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If you encrypt query and calculation results in Athena owned storage, this field indicates the encryption option (for example, SSE_KMS or CSE_KMS) and key information.
+	EncryptionConfiguration WorkGroupManagedStorageEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
+}
+
+func (WorkGroupManagedQueryResultsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupManagedQueryResultsConfiguration)(nil)).Elem()
+}
+
+func (i WorkGroupManagedQueryResultsConfigurationArgs) ToWorkGroupManagedQueryResultsConfigurationOutput() WorkGroupManagedQueryResultsConfigurationOutput {
+	return i.ToWorkGroupManagedQueryResultsConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkGroupManagedQueryResultsConfigurationArgs) ToWorkGroupManagedQueryResultsConfigurationOutputWithContext(ctx context.Context) WorkGroupManagedQueryResultsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupManagedQueryResultsConfigurationOutput)
+}
+
+func (i WorkGroupManagedQueryResultsConfigurationArgs) ToWorkGroupManagedQueryResultsConfigurationPtrOutput() WorkGroupManagedQueryResultsConfigurationPtrOutput {
+	return i.ToWorkGroupManagedQueryResultsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkGroupManagedQueryResultsConfigurationArgs) ToWorkGroupManagedQueryResultsConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupManagedQueryResultsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupManagedQueryResultsConfigurationOutput).ToWorkGroupManagedQueryResultsConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkGroupManagedQueryResultsConfigurationPtrInput is an input type that accepts WorkGroupManagedQueryResultsConfigurationArgs, WorkGroupManagedQueryResultsConfigurationPtr and WorkGroupManagedQueryResultsConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkGroupManagedQueryResultsConfigurationPtrInput` via:
+//
+//	        WorkGroupManagedQueryResultsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkGroupManagedQueryResultsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupManagedQueryResultsConfigurationPtrOutput() WorkGroupManagedQueryResultsConfigurationPtrOutput
+	ToWorkGroupManagedQueryResultsConfigurationPtrOutputWithContext(context.Context) WorkGroupManagedQueryResultsConfigurationPtrOutput
+}
+
+type workGroupManagedQueryResultsConfigurationPtrType WorkGroupManagedQueryResultsConfigurationArgs
+
+func WorkGroupManagedQueryResultsConfigurationPtr(v *WorkGroupManagedQueryResultsConfigurationArgs) WorkGroupManagedQueryResultsConfigurationPtrInput {
+	return (*workGroupManagedQueryResultsConfigurationPtrType)(v)
+}
+
+func (*workGroupManagedQueryResultsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupManagedQueryResultsConfiguration)(nil)).Elem()
+}
+
+func (i *workGroupManagedQueryResultsConfigurationPtrType) ToWorkGroupManagedQueryResultsConfigurationPtrOutput() WorkGroupManagedQueryResultsConfigurationPtrOutput {
+	return i.ToWorkGroupManagedQueryResultsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workGroupManagedQueryResultsConfigurationPtrType) ToWorkGroupManagedQueryResultsConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupManagedQueryResultsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupManagedQueryResultsConfigurationPtrOutput)
+}
+
+// The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time
+type WorkGroupManagedQueryResultsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupManagedQueryResultsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupManagedQueryResultsConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupManagedQueryResultsConfigurationOutput) ToWorkGroupManagedQueryResultsConfigurationOutput() WorkGroupManagedQueryResultsConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupManagedQueryResultsConfigurationOutput) ToWorkGroupManagedQueryResultsConfigurationOutputWithContext(ctx context.Context) WorkGroupManagedQueryResultsConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupManagedQueryResultsConfigurationOutput) ToWorkGroupManagedQueryResultsConfigurationPtrOutput() WorkGroupManagedQueryResultsConfigurationPtrOutput {
+	return o.ToWorkGroupManagedQueryResultsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupManagedQueryResultsConfigurationOutput) ToWorkGroupManagedQueryResultsConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupManagedQueryResultsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupManagedQueryResultsConfiguration) *WorkGroupManagedQueryResultsConfiguration {
+		return &v
+	}).(WorkGroupManagedQueryResultsConfigurationPtrOutput)
+}
+
+// If set to true, allows you to store query results in Athena owned storage. If set to false, workgroup member stores query results in location specified under `ResultConfiguration$OutputLocation` . The default is false. A workgroup cannot have the `ResultConfiguration$OutputLocation` parameter when you set this field to true.
+func (o WorkGroupManagedQueryResultsConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupManagedQueryResultsConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If you encrypt query and calculation results in Athena owned storage, this field indicates the encryption option (for example, SSE_KMS or CSE_KMS) and key information.
+func (o WorkGroupManagedQueryResultsConfigurationOutput) EncryptionConfiguration() WorkGroupManagedStorageEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupManagedQueryResultsConfiguration) *WorkGroupManagedStorageEncryptionConfiguration {
+		return v.EncryptionConfiguration
+	}).(WorkGroupManagedStorageEncryptionConfigurationPtrOutput)
+}
+
+type WorkGroupManagedQueryResultsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupManagedQueryResultsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupManagedQueryResultsConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupManagedQueryResultsConfigurationPtrOutput) ToWorkGroupManagedQueryResultsConfigurationPtrOutput() WorkGroupManagedQueryResultsConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupManagedQueryResultsConfigurationPtrOutput) ToWorkGroupManagedQueryResultsConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupManagedQueryResultsConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupManagedQueryResultsConfigurationPtrOutput) Elem() WorkGroupManagedQueryResultsConfigurationOutput {
+	return o.ApplyT(func(v *WorkGroupManagedQueryResultsConfiguration) WorkGroupManagedQueryResultsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupManagedQueryResultsConfiguration
+		return ret
+	}).(WorkGroupManagedQueryResultsConfigurationOutput)
+}
+
+// If set to true, allows you to store query results in Athena owned storage. If set to false, workgroup member stores query results in location specified under `ResultConfiguration$OutputLocation` . The default is false. A workgroup cannot have the `ResultConfiguration$OutputLocation` parameter when you set this field to true.
+func (o WorkGroupManagedQueryResultsConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupManagedQueryResultsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If you encrypt query and calculation results in Athena owned storage, this field indicates the encryption option (for example, SSE_KMS or CSE_KMS) and key information.
+func (o WorkGroupManagedQueryResultsConfigurationPtrOutput) EncryptionConfiguration() WorkGroupManagedStorageEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupManagedQueryResultsConfiguration) *WorkGroupManagedStorageEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionConfiguration
+	}).(WorkGroupManagedStorageEncryptionConfigurationPtrOutput)
+}
+
+// Indicates the encryption configuration for Athena Managed Storage. If not setting this field, Managed Storage will encrypt the query results with Athena's encryption key
+type WorkGroupManagedStorageEncryptionConfiguration struct {
+	KmsKey *string `pulumi:"kmsKey"`
+}
+
+// WorkGroupManagedStorageEncryptionConfigurationInput is an input type that accepts WorkGroupManagedStorageEncryptionConfigurationArgs and WorkGroupManagedStorageEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `WorkGroupManagedStorageEncryptionConfigurationInput` via:
+//
+//	WorkGroupManagedStorageEncryptionConfigurationArgs{...}
+type WorkGroupManagedStorageEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkGroupManagedStorageEncryptionConfigurationOutput() WorkGroupManagedStorageEncryptionConfigurationOutput
+	ToWorkGroupManagedStorageEncryptionConfigurationOutputWithContext(context.Context) WorkGroupManagedStorageEncryptionConfigurationOutput
+}
+
+// Indicates the encryption configuration for Athena Managed Storage. If not setting this field, Managed Storage will encrypt the query results with Athena's encryption key
+type WorkGroupManagedStorageEncryptionConfigurationArgs struct {
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+}
+
+func (WorkGroupManagedStorageEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupManagedStorageEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i WorkGroupManagedStorageEncryptionConfigurationArgs) ToWorkGroupManagedStorageEncryptionConfigurationOutput() WorkGroupManagedStorageEncryptionConfigurationOutput {
+	return i.ToWorkGroupManagedStorageEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkGroupManagedStorageEncryptionConfigurationArgs) ToWorkGroupManagedStorageEncryptionConfigurationOutputWithContext(ctx context.Context) WorkGroupManagedStorageEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupManagedStorageEncryptionConfigurationOutput)
+}
+
+func (i WorkGroupManagedStorageEncryptionConfigurationArgs) ToWorkGroupManagedStorageEncryptionConfigurationPtrOutput() WorkGroupManagedStorageEncryptionConfigurationPtrOutput {
+	return i.ToWorkGroupManagedStorageEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkGroupManagedStorageEncryptionConfigurationArgs) ToWorkGroupManagedStorageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupManagedStorageEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupManagedStorageEncryptionConfigurationOutput).ToWorkGroupManagedStorageEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkGroupManagedStorageEncryptionConfigurationPtrInput is an input type that accepts WorkGroupManagedStorageEncryptionConfigurationArgs, WorkGroupManagedStorageEncryptionConfigurationPtr and WorkGroupManagedStorageEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkGroupManagedStorageEncryptionConfigurationPtrInput` via:
+//
+//	        WorkGroupManagedStorageEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkGroupManagedStorageEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupManagedStorageEncryptionConfigurationPtrOutput() WorkGroupManagedStorageEncryptionConfigurationPtrOutput
+	ToWorkGroupManagedStorageEncryptionConfigurationPtrOutputWithContext(context.Context) WorkGroupManagedStorageEncryptionConfigurationPtrOutput
+}
+
+type workGroupManagedStorageEncryptionConfigurationPtrType WorkGroupManagedStorageEncryptionConfigurationArgs
+
+func WorkGroupManagedStorageEncryptionConfigurationPtr(v *WorkGroupManagedStorageEncryptionConfigurationArgs) WorkGroupManagedStorageEncryptionConfigurationPtrInput {
+	return (*workGroupManagedStorageEncryptionConfigurationPtrType)(v)
+}
+
+func (*workGroupManagedStorageEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupManagedStorageEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *workGroupManagedStorageEncryptionConfigurationPtrType) ToWorkGroupManagedStorageEncryptionConfigurationPtrOutput() WorkGroupManagedStorageEncryptionConfigurationPtrOutput {
+	return i.ToWorkGroupManagedStorageEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workGroupManagedStorageEncryptionConfigurationPtrType) ToWorkGroupManagedStorageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupManagedStorageEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupManagedStorageEncryptionConfigurationPtrOutput)
+}
+
+// Indicates the encryption configuration for Athena Managed Storage. If not setting this field, Managed Storage will encrypt the query results with Athena's encryption key
+type WorkGroupManagedStorageEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupManagedStorageEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupManagedStorageEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupManagedStorageEncryptionConfigurationOutput) ToWorkGroupManagedStorageEncryptionConfigurationOutput() WorkGroupManagedStorageEncryptionConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupManagedStorageEncryptionConfigurationOutput) ToWorkGroupManagedStorageEncryptionConfigurationOutputWithContext(ctx context.Context) WorkGroupManagedStorageEncryptionConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupManagedStorageEncryptionConfigurationOutput) ToWorkGroupManagedStorageEncryptionConfigurationPtrOutput() WorkGroupManagedStorageEncryptionConfigurationPtrOutput {
+	return o.ToWorkGroupManagedStorageEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupManagedStorageEncryptionConfigurationOutput) ToWorkGroupManagedStorageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupManagedStorageEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupManagedStorageEncryptionConfiguration) *WorkGroupManagedStorageEncryptionConfiguration {
+		return &v
+	}).(WorkGroupManagedStorageEncryptionConfigurationPtrOutput)
+}
+
+func (o WorkGroupManagedStorageEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupManagedStorageEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+type WorkGroupManagedStorageEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupManagedStorageEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupManagedStorageEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupManagedStorageEncryptionConfigurationPtrOutput) ToWorkGroupManagedStorageEncryptionConfigurationPtrOutput() WorkGroupManagedStorageEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupManagedStorageEncryptionConfigurationPtrOutput) ToWorkGroupManagedStorageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupManagedStorageEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupManagedStorageEncryptionConfigurationPtrOutput) Elem() WorkGroupManagedStorageEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *WorkGroupManagedStorageEncryptionConfiguration) WorkGroupManagedStorageEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupManagedStorageEncryptionConfiguration
+		return ret
+	}).(WorkGroupManagedStorageEncryptionConfigurationOutput)
+}
+
+func (o WorkGroupManagedStorageEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupManagedStorageEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1968,6 +2303,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionConfigurationPtrInput)(nil)).Elem(), WorkGroupEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEngineVersionInput)(nil)).Elem(), WorkGroupEngineVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEngineVersionPtrInput)(nil)).Elem(), WorkGroupEngineVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupManagedQueryResultsConfigurationInput)(nil)).Elem(), WorkGroupManagedQueryResultsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupManagedQueryResultsConfigurationPtrInput)(nil)).Elem(), WorkGroupManagedQueryResultsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupManagedStorageEncryptionConfigurationInput)(nil)).Elem(), WorkGroupManagedStorageEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupManagedStorageEncryptionConfigurationPtrInput)(nil)).Elem(), WorkGroupManagedStorageEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationInput)(nil)).Elem(), WorkGroupResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationPtrInput)(nil)).Elem(), WorkGroupResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationUpdatesInput)(nil)).Elem(), WorkGroupResultConfigurationUpdatesArgs{})
@@ -1988,6 +2327,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkGroupEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEngineVersionOutput{})
 	pulumi.RegisterOutputType(WorkGroupEngineVersionPtrOutput{})
+	pulumi.RegisterOutputType(WorkGroupManagedQueryResultsConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkGroupManagedQueryResultsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkGroupManagedStorageEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkGroupManagedStorageEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationUpdatesOutput{})

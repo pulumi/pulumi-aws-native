@@ -36,6 +36,9 @@ __all__ = [
     'EventSourceMappingOnFailure',
     'EventSourceMappingProvisionedPollerConfig',
     'EventSourceMappingScalingConfig',
+    'EventSourceMappingSchemaRegistryAccessConfig',
+    'EventSourceMappingSchemaRegistryConfig',
+    'EventSourceMappingSchemaValidationConfig',
     'EventSourceMappingSelfManagedEventSource',
     'EventSourceMappingSelfManagedKafkaEventSourceConfig',
     'EventSourceMappingSourceAccessConfiguration',
@@ -382,6 +385,8 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
         suggest = None
         if key == "consumerGroupId":
             suggest = "consumer_group_id"
+        elif key == "schemaRegistryConfig":
+            suggest = "schema_registry_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingAmazonManagedKafkaEventSourceConfig. Access the value via the '{suggest}' property getter instead.")
@@ -395,13 +400,16 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 consumer_group_id: Optional[builtins.str] = None):
+                 consumer_group_id: Optional[builtins.str] = None,
+                 schema_registry_config: Optional['outputs.EventSourceMappingSchemaRegistryConfig'] = None):
         """
         Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
         :param builtins.str consumer_group_id: The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
         """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+        if schema_registry_config is not None:
+            pulumi.set(__self__, "schema_registry_config", schema_registry_config)
 
     @property
     @pulumi.getter(name="consumerGroupId")
@@ -410,6 +418,11 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
         The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
         """
         return pulumi.get(self, "consumer_group_id")
+
+    @property
+    @pulumi.getter(name="schemaRegistryConfig")
+    def schema_registry_config(self) -> Optional['outputs.EventSourceMappingSchemaRegistryConfig']:
+        return pulumi.get(self, "schema_registry_config")
 
 
 @pulumi.output_type
@@ -632,12 +645,12 @@ class EventSourceMappingMetricsConfig(dict):
 @pulumi.output_type
 class EventSourceMappingOnFailure(dict):
     """
-    A destination for events that failed processing.
+    A destination for events that failed processing. See [Capturing records of Lambda asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) for more information.
     """
     def __init__(__self__, *,
                  destination: Optional[builtins.str] = None):
         """
-        A destination for events that failed processing.
+        A destination for events that failed processing. See [Capturing records of Lambda asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) for more information.
         :param builtins.str destination: The Amazon Resource Name (ARN) of the destination resource.
                 To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
                 To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
@@ -751,6 +764,134 @@ class EventSourceMappingScalingConfig(dict):
 
 
 @pulumi.output_type
+class EventSourceMappingSchemaRegistryAccessConfig(dict):
+    def __init__(__self__, *,
+                 type: Optional['EventSourceMappingSchemaRegistryAccessConfigType'] = None,
+                 uri: Optional[builtins.str] = None):
+        """
+        :param 'EventSourceMappingSchemaRegistryAccessConfigType' type: The type of authentication Lambda uses to access your schema registry.
+        :param builtins.str uri: The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['EventSourceMappingSchemaRegistryAccessConfigType']:
+        """
+        The type of authentication Lambda uses to access your schema registry.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[builtins.str]:
+        """
+        The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class EventSourceMappingSchemaRegistryConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessConfigs":
+            suggest = "access_configs"
+        elif key == "eventRecordFormat":
+            suggest = "event_record_format"
+        elif key == "schemaRegistryUri":
+            suggest = "schema_registry_uri"
+        elif key == "schemaValidationConfigs":
+            suggest = "schema_validation_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingSchemaRegistryConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingSchemaRegistryConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingSchemaRegistryConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_configs: Optional[Sequence['outputs.EventSourceMappingSchemaRegistryAccessConfig']] = None,
+                 event_record_format: Optional['EventSourceMappingSchemaRegistryConfigEventRecordFormat'] = None,
+                 schema_registry_uri: Optional[builtins.str] = None,
+                 schema_validation_configs: Optional[Sequence['outputs.EventSourceMappingSchemaValidationConfig']] = None):
+        """
+        :param Sequence['EventSourceMappingSchemaRegistryAccessConfig'] access_configs: An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
+        :param 'EventSourceMappingSchemaRegistryConfigEventRecordFormat' event_record_format: The record format that Lambda delivers to your function after schema validation.
+        :param builtins.str schema_registry_uri: The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
+        :param Sequence['EventSourceMappingSchemaValidationConfig'] schema_validation_configs: An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
+        """
+        if access_configs is not None:
+            pulumi.set(__self__, "access_configs", access_configs)
+        if event_record_format is not None:
+            pulumi.set(__self__, "event_record_format", event_record_format)
+        if schema_registry_uri is not None:
+            pulumi.set(__self__, "schema_registry_uri", schema_registry_uri)
+        if schema_validation_configs is not None:
+            pulumi.set(__self__, "schema_validation_configs", schema_validation_configs)
+
+    @property
+    @pulumi.getter(name="accessConfigs")
+    def access_configs(self) -> Optional[Sequence['outputs.EventSourceMappingSchemaRegistryAccessConfig']]:
+        """
+        An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
+        """
+        return pulumi.get(self, "access_configs")
+
+    @property
+    @pulumi.getter(name="eventRecordFormat")
+    def event_record_format(self) -> Optional['EventSourceMappingSchemaRegistryConfigEventRecordFormat']:
+        """
+        The record format that Lambda delivers to your function after schema validation.
+        """
+        return pulumi.get(self, "event_record_format")
+
+    @property
+    @pulumi.getter(name="schemaRegistryUri")
+    def schema_registry_uri(self) -> Optional[builtins.str]:
+        """
+        The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
+        """
+        return pulumi.get(self, "schema_registry_uri")
+
+    @property
+    @pulumi.getter(name="schemaValidationConfigs")
+    def schema_validation_configs(self) -> Optional[Sequence['outputs.EventSourceMappingSchemaValidationConfig']]:
+        """
+        An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
+        """
+        return pulumi.get(self, "schema_validation_configs")
+
+
+@pulumi.output_type
+class EventSourceMappingSchemaValidationConfig(dict):
+    def __init__(__self__, *,
+                 attribute: Optional['EventSourceMappingSchemaValidationConfigAttribute'] = None):
+        """
+        :param 'EventSourceMappingSchemaValidationConfigAttribute' attribute: The attribute you want your schema registry to validate and filter for.
+        """
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> Optional['EventSourceMappingSchemaValidationConfigAttribute']:
+        """
+        The attribute you want your schema registry to validate and filter for.
+        """
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
 class EventSourceMappingSelfManagedEventSource(dict):
     """
     The self-managed Apache Kafka cluster for your event source.
@@ -783,6 +924,8 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
         suggest = None
         if key == "consumerGroupId":
             suggest = "consumer_group_id"
+        elif key == "schemaRegistryConfig":
+            suggest = "schema_registry_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingSelfManagedKafkaEventSourceConfig. Access the value via the '{suggest}' property getter instead.")
@@ -796,21 +939,29 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 consumer_group_id: Optional[builtins.str] = None):
+                 consumer_group_id: Optional[builtins.str] = None,
+                 schema_registry_config: Optional['outputs.EventSourceMappingSchemaRegistryConfig'] = None):
         """
         Specific configuration settings for a self-managed Apache Kafka event source.
-        :param builtins.str consumer_group_id: The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
+        :param builtins.str consumer_group_id: The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
         """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+        if schema_registry_config is not None:
+            pulumi.set(__self__, "schema_registry_config", schema_registry_config)
 
     @property
     @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[builtins.str]:
         """
-        The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
+        The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
         """
         return pulumi.get(self, "consumer_group_id")
+
+    @property
+    @pulumi.getter(name="schemaRegistryConfig")
+    def schema_registry_config(self) -> Optional['outputs.EventSourceMappingSchemaRegistryConfig']:
+        return pulumi.get(self, "schema_registry_config")
 
 
 @pulumi.output_type
@@ -824,15 +975,15 @@ class EventSourceMappingSourceAccessConfiguration(dict):
         """
         An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
         :param 'EventSourceMappingSourceAccessConfigurationType' type: The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
-                 +   ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
-                 +   ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
-                 +   ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
-                 +   ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
-                 +   ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
-                 +   ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
-                 +   ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
-                 +   ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
-                 +   ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+                 +  ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+                 +  ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+                 +  ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+                 +  ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+                 +  ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+                 +  ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+                 +  ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+                 +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+                 +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
         :param builtins.str uri: The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
         """
         if type is not None:
@@ -845,15 +996,15 @@ class EventSourceMappingSourceAccessConfiguration(dict):
     def type(self) -> Optional['EventSourceMappingSourceAccessConfigurationType']:
         """
         The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
-          +   ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
-          +   ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
-          +   ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
-          +   ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
-          +   ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
-          +   ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
-          +   ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
-          +   ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
-          +   ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+          +  ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+          +  ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+          +  ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+          +  ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+          +  ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+          +  ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+          +  ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+          +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+          +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
         """
         return pulumi.get(self, "type")
 

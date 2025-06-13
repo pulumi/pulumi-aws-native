@@ -58,6 +58,10 @@ export interface GetApplicationResult {
      */
     readonly launchPath?: string;
     /**
+     * The tags of the application.
+     */
+    readonly tags?: (outputs.appstream.ApplicationTag0Properties | outputs.appstream.ApplicationTag1Properties)[];
+    /**
      * The working directory of the application.
      */
     readonly workingDirectory?: string;

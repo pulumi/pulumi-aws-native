@@ -121,14 +121,15 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "appstream:TagResource", "appstream:ListTagsForResource", "appstream:UntagResource" ]
   },
   "required" : [ "Name", "IconS3Location", "LaunchPath", "Platforms", "InstanceFamilies", "AppBlockArn" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/InstanceFamilies", "/properties/Platforms" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime" ],
-  "writeOnlyProperties" : [ "/properties/Tags", "/properties/AttributesToDelete" ],
+  "writeOnlyProperties" : [ "/properties/AttributesToDelete" ],
   "deprecatedProperties" : [ "/properties/Tags/TagKey", "/properties/Tags/TagValue" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
@@ -136,13 +137,13 @@
       "permissions" : [ "s3:GetObject", "appstream:CreateApplication", "appstream:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "appstream:DescribeApplications" ]
+      "permissions" : [ "appstream:DescribeApplications", "appstream:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "appstream:UpdateApplication", "s3:GetObject" ]
+      "permissions" : [ "appstream:UpdateApplication", "appstream:DescribeApplications", "appstream:TagResource", "appstream:UntagResource", "s3:GetObject" ]
     },
     "delete" : {
-      "permissions" : [ "appstream:DeleteApplication" ]
+      "permissions" : [ "appstream:DeleteApplication", "appstream:DescribeApplications" ]
     }
   }
 }

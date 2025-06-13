@@ -18,6 +18,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'BlockPublicAccessStatesProperties',
     'CapacityReservationCapacityAllocation',
     'CapacityReservationFleetInstanceTypeSpecification',
     'CapacityReservationFleetTag',
@@ -225,6 +226,42 @@ __all__ = [
     'VpnConnectionVpnTunnelLogOptionsSpecification',
     'VpnConnectionVpnTunnelOptionsSpecification',
 ]
+
+@pulumi.output_type
+class BlockPublicAccessStatesProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "internetGatewayBlockMode":
+            suggest = "internet_gateway_block_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlockPublicAccessStatesProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlockPublicAccessStatesProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlockPublicAccessStatesProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 internet_gateway_block_mode: Optional[builtins.str] = None):
+        """
+        :param builtins.str internet_gateway_block_mode: The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress 
+        """
+        if internet_gateway_block_mode is not None:
+            pulumi.set(__self__, "internet_gateway_block_mode", internet_gateway_block_mode)
+
+    @property
+    @pulumi.getter(name="internetGatewayBlockMode")
+    def internet_gateway_block_mode(self) -> Optional[builtins.str]:
+        """
+        The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress 
+        """
+        return pulumi.get(self, "internet_gateway_block_mode")
+
 
 @pulumi.output_type
 class CapacityReservationCapacityAllocation(dict):

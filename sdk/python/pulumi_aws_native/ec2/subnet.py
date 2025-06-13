@@ -63,7 +63,7 @@ class SubnetArgs:
         :param pulumi.Input[builtins.bool] ipv6_native: Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
         :param pulumi.Input[builtins.int] ipv6_netmask_length: An IPv6 netmask length for the subnet.
         :param pulumi.Input[builtins.bool] map_public_ip_on_launch: Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-                 AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+                AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input['PrivateDnsNameOptionsOnLaunchPropertiesArgs'] private_dns_name_options_on_launch: The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
                 Available options:
@@ -273,7 +273,7 @@ class SubnetArgs:
     def map_public_ip_on_launch(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-          AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+         AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         """
         return pulumi.get(self, "map_public_ip_on_launch")
 
@@ -371,7 +371,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] ipv6_native: Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
         :param pulumi.Input[builtins.int] ipv6_netmask_length: An IPv6 netmask length for the subnet.
         :param pulumi.Input[builtins.bool] map_public_ip_on_launch: Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-                 AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+                AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[Union['PrivateDnsNameOptionsOnLaunchPropertiesArgs', 'PrivateDnsNameOptionsOnLaunchPropertiesArgsDict']] private_dns_name_options_on_launch: The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
                 Available options:
@@ -453,6 +453,7 @@ class Subnet(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["block_public_access_states"] = None
             __props__.__dict__["ipv6_cidr_blocks"] = None
             __props__.__dict__["network_acl_association_id"] = None
             __props__.__dict__["subnet_id"] = None
@@ -483,6 +484,7 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["assign_ipv6_address_on_creation"] = None
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["availability_zone_id"] = None
+        __props__.__dict__["block_public_access_states"] = None
         __props__.__dict__["cidr_block"] = None
         __props__.__dict__["enable_dns64"] = None
         __props__.__dict__["enable_lni_at_device_index"] = None
@@ -527,6 +529,11 @@ class Subnet(pulumi.CustomResource):
         The AZ ID of the subnet.
         """
         return pulumi.get(self, "availability_zone_id")
+
+    @property
+    @pulumi.getter(name="blockPublicAccessStates")
+    def block_public_access_states(self) -> pulumi.Output['outputs.BlockPublicAccessStatesProperties']:
+        return pulumi.get(self, "block_public_access_states")
 
     @property
     @pulumi.getter(name="cidrBlock")
@@ -616,7 +623,7 @@ class Subnet(pulumi.CustomResource):
     def map_public_ip_on_launch(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-          AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+         AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         """
         return pulumi.get(self, "map_public_ip_on_launch")
 

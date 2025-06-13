@@ -38,14 +38,16 @@ type LookupEventSourceMappingArgs struct {
 }
 
 type LookupEventSourceMappingResult struct {
+	// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
+	AmazonManagedKafkaEventSourceConfig *EventSourceMappingAmazonManagedKafkaEventSourceConfig `pulumi:"amazonManagedKafkaEventSourceConfig"`
 	// The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
-	//   +   *Amazon Kinesis* – Default 100. Max 10,000.
-	//   +   *Amazon DynamoDB Streams* – Default 100. Max 10,000.
-	//   +   *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
-	//   +   *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
-	//   +   *Self-managed Apache Kafka* – Default 100. Max 10,000.
-	//   +   *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
-	//   +   *DocumentDB* – Default 100. Max 10,000.
+	//   +  *Amazon Kinesis* – Default 100. Max 10,000.
+	//   +  *Amazon DynamoDB Streams* – Default 100. Max 10,000.
+	//   +  *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
+	//   +  *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
+	//   +  *Self-managed Apache Kafka* – Default 100. Max 10,000.
+	//   +  *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
+	//   +  *DocumentDB* – Default 100. Max 10,000.
 	BatchSize *int `pulumi:"batchSize"`
 	// (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
 	//   When using ``BisectBatchOnFunctionError``, check the ``BatchSize`` parameter in the ``OnFailure`` destination message's metadata. The ``BatchSize`` could be greater than 1 since LAM consolidates failed messages metadata when writing to the ``OnFailure`` destination.
@@ -63,10 +65,10 @@ type LookupEventSourceMappingResult struct {
 	FilterCriteria *EventSourceMappingFilterCriteria `pulumi:"filterCriteria"`
 	// The name or ARN of the Lambda function.
 	//   **Name formats**
-	//  +   *Function name* – ``MyFunction``.
-	//   +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
-	//   +   *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
-	//   +   *Partial ARN* – ``123456789012:function:MyFunction``.
+	//  +  *Function name* – ``MyFunction``.
+	//   +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
+	//   +  *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
+	//   +  *Partial ARN* – ``123456789012:function:MyFunction``.
 	//
 	//  The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 	FunctionName *string `pulumi:"functionName"`
@@ -78,9 +80,9 @@ type LookupEventSourceMappingResult struct {
 	// The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-	//   *Default (, , event sources)*: 0
-	//   *Default (, Kafka, , event sources)*: 500 ms
-	//   *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+	//  *Default (, , event sources)*: 0
+	//  *Default (, Kafka, , event sources)*: 500 ms
+	//  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
 	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
 	// (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
 	//   The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
@@ -97,6 +99,8 @@ type LookupEventSourceMappingResult struct {
 	Queues []string `pulumi:"queues"`
 	// (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
 	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
+	// Specific configuration settings for a self-managed Apache Kafka event source.
+	SelfManagedKafkaEventSourceConfig *EventSourceMappingSelfManagedKafkaEventSourceConfig `pulumi:"selfManagedKafkaEventSourceConfig"`
 	// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 	SourceAccessConfigurations []EventSourceMappingSourceAccessConfiguration `pulumi:"sourceAccessConfigurations"`
 	// A list of tags to add to the event source mapping.
@@ -138,6 +142,13 @@ func (o LookupEventSourceMappingResultOutput) ToLookupEventSourceMappingResultOu
 
 func (o LookupEventSourceMappingResultOutput) ToLookupEventSourceMappingResultOutputWithContext(ctx context.Context) LookupEventSourceMappingResultOutput {
 	return o
+}
+
+// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
+func (o LookupEventSourceMappingResultOutput) AmazonManagedKafkaEventSourceConfig() EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
+	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingAmazonManagedKafkaEventSourceConfig {
+		return v.AmazonManagedKafkaEventSourceConfig
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput)
 }
 
 // The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
@@ -193,10 +204,10 @@ func (o LookupEventSourceMappingResultOutput) FilterCriteria() EventSourceMappin
 // The name or ARN of the Lambda function.
 //
 //	 **Name formats**
-//	+   *Function name* – ``MyFunction``.
-//	 +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
-//	 +   *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
-//	 +   *Partial ARN* – ``123456789012:function:MyFunction``.
+//	+  *Function name* – ``MyFunction``.
+//	 +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
+//	 +  *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
+//	 +  *Partial ARN* – ``123456789012:function:MyFunction``.
 //
 //	The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 func (o LookupEventSourceMappingResultOutput) FunctionName() pulumi.StringPtrOutput {
@@ -268,6 +279,13 @@ func (o LookupEventSourceMappingResultOutput) Queues() pulumi.StringArrayOutput 
 // (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
 func (o LookupEventSourceMappingResultOutput) ScalingConfig() EventSourceMappingScalingConfigPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingScalingConfig { return v.ScalingConfig }).(EventSourceMappingScalingConfigPtrOutput)
+}
+
+// Specific configuration settings for a self-managed Apache Kafka event source.
+func (o LookupEventSourceMappingResultOutput) SelfManagedKafkaEventSourceConfig() EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
+	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingSelfManagedKafkaEventSourceConfig {
+		return v.SelfManagedKafkaEventSourceConfig
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput)
 }
 
 // An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.

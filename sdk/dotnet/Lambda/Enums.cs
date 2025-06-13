@@ -124,16 +124,110 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
+    /// The type of authentication Lambda uses to access your schema registry.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceMappingSchemaRegistryAccessConfigType : IEquatable<EventSourceMappingSchemaRegistryAccessConfigType>
+    {
+        private readonly string _value;
+
+        private EventSourceMappingSchemaRegistryAccessConfigType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceMappingSchemaRegistryAccessConfigType BasicAuth { get; } = new EventSourceMappingSchemaRegistryAccessConfigType("BASIC_AUTH");
+        public static EventSourceMappingSchemaRegistryAccessConfigType ClientCertificateTlsAuth { get; } = new EventSourceMappingSchemaRegistryAccessConfigType("CLIENT_CERTIFICATE_TLS_AUTH");
+        public static EventSourceMappingSchemaRegistryAccessConfigType ServerRootCaCertificate { get; } = new EventSourceMappingSchemaRegistryAccessConfigType("SERVER_ROOT_CA_CERTIFICATE");
+
+        public static bool operator ==(EventSourceMappingSchemaRegistryAccessConfigType left, EventSourceMappingSchemaRegistryAccessConfigType right) => left.Equals(right);
+        public static bool operator !=(EventSourceMappingSchemaRegistryAccessConfigType left, EventSourceMappingSchemaRegistryAccessConfigType right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceMappingSchemaRegistryAccessConfigType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceMappingSchemaRegistryAccessConfigType other && Equals(other);
+        public bool Equals(EventSourceMappingSchemaRegistryAccessConfigType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The record format that Lambda delivers to your function after schema validation.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceMappingSchemaRegistryConfigEventRecordFormat : IEquatable<EventSourceMappingSchemaRegistryConfigEventRecordFormat>
+    {
+        private readonly string _value;
+
+        private EventSourceMappingSchemaRegistryConfigEventRecordFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceMappingSchemaRegistryConfigEventRecordFormat Json { get; } = new EventSourceMappingSchemaRegistryConfigEventRecordFormat("JSON");
+        public static EventSourceMappingSchemaRegistryConfigEventRecordFormat Source { get; } = new EventSourceMappingSchemaRegistryConfigEventRecordFormat("SOURCE");
+
+        public static bool operator ==(EventSourceMappingSchemaRegistryConfigEventRecordFormat left, EventSourceMappingSchemaRegistryConfigEventRecordFormat right) => left.Equals(right);
+        public static bool operator !=(EventSourceMappingSchemaRegistryConfigEventRecordFormat left, EventSourceMappingSchemaRegistryConfigEventRecordFormat right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceMappingSchemaRegistryConfigEventRecordFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceMappingSchemaRegistryConfigEventRecordFormat other && Equals(other);
+        public bool Equals(EventSourceMappingSchemaRegistryConfigEventRecordFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The attribute you want your schema registry to validate and filter for.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceMappingSchemaValidationConfigAttribute : IEquatable<EventSourceMappingSchemaValidationConfigAttribute>
+    {
+        private readonly string _value;
+
+        private EventSourceMappingSchemaValidationConfigAttribute(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceMappingSchemaValidationConfigAttribute Key { get; } = new EventSourceMappingSchemaValidationConfigAttribute("KEY");
+        public static EventSourceMappingSchemaValidationConfigAttribute Value { get; } = new EventSourceMappingSchemaValidationConfigAttribute("VALUE");
+
+        public static bool operator ==(EventSourceMappingSchemaValidationConfigAttribute left, EventSourceMappingSchemaValidationConfigAttribute right) => left.Equals(right);
+        public static bool operator !=(EventSourceMappingSchemaValidationConfigAttribute left, EventSourceMappingSchemaValidationConfigAttribute right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceMappingSchemaValidationConfigAttribute value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceMappingSchemaValidationConfigAttribute other && Equals(other);
+        public bool Equals(EventSourceMappingSchemaValidationConfigAttribute other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
-    ///   +   ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
-    ///   +   ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
-    ///   +   ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
-    ///   +   ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
-    ///   +   ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
-    ///   +   ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
-    ///   +   ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
-    ///   +   ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
-    ///   +   ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+    ///   +  ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+    ///   +  ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+    ///   +  ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+    ///   +  ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+    ///   +  ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+    ///   +  ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+    ///   +  ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+    ///   +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+    ///   +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
     /// </summary>
     [EnumType]
     public readonly struct EventSourceMappingSourceAccessConfigurationType : IEquatable<EventSourceMappingSourceAccessConfigurationType>

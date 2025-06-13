@@ -53,6 +53,7 @@ export class Subnet extends pulumi.CustomResource {
      * The AZ ID of the subnet.
      */
     public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly blockPublicAccessStates!: pulumi.Output<outputs.ec2.BlockPublicAccessStatesProperties>;
     /**
      * The IPv4 CIDR block assigned to the subnet.
      *  If you update this property, we create a new subnet, and then delete the existing one.
@@ -98,7 +99,7 @@ export class Subnet extends pulumi.CustomResource {
     public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-     *   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+     *  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
      */
     public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
     /**
@@ -162,6 +163,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["privateDnsNameOptionsOnLaunch"] = args ? args.privateDnsNameOptionsOnLaunch : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["blockPublicAccessStates"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
             resourceInputs["networkAclAssociationId"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
@@ -169,6 +171,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["assignIpv6AddressOnCreation"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
+            resourceInputs["blockPublicAccessStates"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["enableDns64"] = undefined /*out*/;
             resourceInputs["enableLniAtDeviceIndex"] = undefined /*out*/;
@@ -253,7 +256,7 @@ export interface SubnetArgs {
     ipv6NetmaskLength?: pulumi.Input<number>;
     /**
      * Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-     *   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+     *  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
      */
     mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     /**

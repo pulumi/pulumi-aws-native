@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetSubnetResult:
-    def __init__(__self__, assign_ipv6_address_on_creation=None, enable_dns64=None, ipv6_cidr_block=None, ipv6_cidr_blocks=None, map_public_ip_on_launch=None, network_acl_association_id=None, private_dns_name_options_on_launch=None, subnet_id=None, tags=None):
+    def __init__(__self__, assign_ipv6_address_on_creation=None, block_public_access_states=None, enable_dns64=None, ipv6_cidr_block=None, ipv6_cidr_blocks=None, map_public_ip_on_launch=None, network_acl_association_id=None, private_dns_name_options_on_launch=None, subnet_id=None, tags=None):
         if assign_ipv6_address_on_creation and not isinstance(assign_ipv6_address_on_creation, bool):
             raise TypeError("Expected argument 'assign_ipv6_address_on_creation' to be a bool")
         pulumi.set(__self__, "assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)
+        if block_public_access_states and not isinstance(block_public_access_states, dict):
+            raise TypeError("Expected argument 'block_public_access_states' to be a dict")
+        pulumi.set(__self__, "block_public_access_states", block_public_access_states)
         if enable_dns64 and not isinstance(enable_dns64, bool):
             raise TypeError("Expected argument 'enable_dns64' to be a bool")
         pulumi.set(__self__, "enable_dns64", enable_dns64)
@@ -65,6 +68,11 @@ class GetSubnetResult:
         return pulumi.get(self, "assign_ipv6_address_on_creation")
 
     @property
+    @pulumi.getter(name="blockPublicAccessStates")
+    def block_public_access_states(self) -> Optional['outputs.BlockPublicAccessStatesProperties']:
+        return pulumi.get(self, "block_public_access_states")
+
+    @property
     @pulumi.getter(name="enableDns64")
     def enable_dns64(self) -> Optional[builtins.bool]:
         """
@@ -95,7 +103,7 @@ class GetSubnetResult:
     def map_public_ip_on_launch(self) -> Optional[builtins.bool]:
         """
         Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-          AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+         AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         """
         return pulumi.get(self, "map_public_ip_on_launch")
 
@@ -143,6 +151,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             yield self
         return GetSubnetResult(
             assign_ipv6_address_on_creation=self.assign_ipv6_address_on_creation,
+            block_public_access_states=self.block_public_access_states,
             enable_dns64=self.enable_dns64,
             ipv6_cidr_block=self.ipv6_cidr_block,
             ipv6_cidr_blocks=self.ipv6_cidr_blocks,
@@ -170,6 +179,7 @@ def get_subnet(subnet_id: Optional[builtins.str] = None,
 
     return AwaitableGetSubnetResult(
         assign_ipv6_address_on_creation=pulumi.get(__ret__, 'assign_ipv6_address_on_creation'),
+        block_public_access_states=pulumi.get(__ret__, 'block_public_access_states'),
         enable_dns64=pulumi.get(__ret__, 'enable_dns64'),
         ipv6_cidr_block=pulumi.get(__ret__, 'ipv6_cidr_block'),
         ipv6_cidr_blocks=pulumi.get(__ret__, 'ipv6_cidr_blocks'),
@@ -194,6 +204,7 @@ def get_subnet_output(subnet_id: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSubnet', __args__, opts=opts, typ=GetSubnetResult)
     return __ret__.apply(lambda __response__: GetSubnetResult(
         assign_ipv6_address_on_creation=pulumi.get(__response__, 'assign_ipv6_address_on_creation'),
+        block_public_access_states=pulumi.get(__response__, 'block_public_access_states'),
         enable_dns64=pulumi.get(__response__, 'enable_dns64'),
         ipv6_cidr_block=pulumi.get(__response__, 'ipv6_cidr_block'),
         ipv6_cidr_blocks=pulumi.get(__response__, 'ipv6_cidr_blocks'),

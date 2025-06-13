@@ -47,6 +47,7 @@ __all__ = [
     'WebAclLabelMatchScope',
     'WebAclManagedRuleGroupConfigPayloadType',
     'WebAclMapMatchScope',
+    'WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode',
     'WebAclOversizeHandling',
     'WebAclPositionalConstraint',
     'WebAclRateBasedStatementAggregateKeyType',
@@ -57,10 +58,12 @@ __all__ = [
     'WebAclResponseContentType',
     'WebAclScope',
     'WebAclSensitivityLevel',
+    'WebAclSensitivityToAct',
     'WebAclSizeConstraintStatementComparisonOperator',
     'WebAclSizeInspectionLimit',
     'WebAclTextTransformationType',
     'WebAclUriFragmentFallbackBehavior',
+    'WebAclUsageOfAction',
 ]
 
 
@@ -559,6 +562,12 @@ class WebAclMapMatchScope(builtins.str, Enum):
     VALUE = "VALUE"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode")
+class WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode(builtins.str, Enum):
+    ACTIVE_UNDER_DDOS = "ACTIVE_UNDER_DDOS"
+    ALWAYS_ON = "ALWAYS_ON"
+
+
 @pulumi.type_token("aws-native:wafv2:WebAclOversizeHandling")
 class WebAclOversizeHandling(builtins.str, Enum):
     """
@@ -685,6 +694,13 @@ class WebAclSensitivityLevel(builtins.str, Enum):
     HIGH = "HIGH"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclSensitivityToAct")
+class WebAclSensitivityToAct(builtins.str, Enum):
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+
+
 @pulumi.type_token("aws-native:wafv2:WebAclSizeConstraintStatementComparisonOperator")
 class WebAclSizeConstraintStatementComparisonOperator(builtins.str, Enum):
     """
@@ -751,3 +767,9 @@ class WebAclUriFragmentFallbackBehavior(builtins.str, Enum):
     """
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
+
+
+@pulumi.type_token("aws-native:wafv2:WebAclUsageOfAction")
+class WebAclUsageOfAction(builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"

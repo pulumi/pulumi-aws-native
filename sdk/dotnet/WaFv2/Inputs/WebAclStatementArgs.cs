@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("andStatement")]
         public Input<Inputs.WebAclAndStatementArgs>? AndStatement { get; set; }
 
+        [Input("asnMatchStatement")]
+        public Input<Inputs.WebAclAsnMatchStatementArgs>? AsnMatchStatement { get; set; }
+
         /// <summary>
         /// A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
         /// </summary>

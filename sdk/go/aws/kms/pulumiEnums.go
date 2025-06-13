@@ -226,6 +226,9 @@ const (
 	KeySpecHmac384          = KeySpec("HMAC_384")
 	KeySpecHmac512          = KeySpec("HMAC_512")
 	KeySpecSm2              = KeySpec("SM2")
+	KeySpecMlDsa44          = KeySpec("ML_DSA_44")
+	KeySpecMlDsa65          = KeySpec("ML_DSA_65")
+	KeySpecMlDsa87          = KeySpec("ML_DSA_87")
 )
 
 func (KeySpec) ElementType() reflect.Type {
@@ -363,6 +366,9 @@ func (o KeySpecPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 //	KeySpecHmac384
 //	KeySpecHmac512
 //	KeySpecSm2
+//	KeySpecMlDsa44
+//	KeySpecMlDsa65
+//	KeySpecMlDsa87
 type KeySpecInput interface {
 	pulumi.Input
 

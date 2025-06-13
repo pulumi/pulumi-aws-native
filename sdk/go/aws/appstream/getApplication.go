@@ -44,6 +44,8 @@ type LookupApplicationResult struct {
 	LaunchParameters *string `pulumi:"launchParameters"`
 	// The launch path of the application.
 	LaunchPath *string `pulumi:"launchPath"`
+	// The tags of the application.
+	Tags []interface{} `pulumi:"tags"`
 	// The working directory of the application.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
 }
@@ -118,6 +120,11 @@ func (o LookupApplicationResultOutput) LaunchParameters() pulumi.StringPtrOutput
 // The launch path of the application.
 func (o LookupApplicationResultOutput) LaunchPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.LaunchPath }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the application.
+func (o LookupApplicationResultOutput) Tags() pulumi.ArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []interface{} { return v.Tags }).(pulumi.ArrayOutput)
 }
 
 // The working directory of the application.

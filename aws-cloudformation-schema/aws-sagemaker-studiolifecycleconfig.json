@@ -85,5 +85,8 @@
     "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "sagemaker:AddTags", "sagemaker:ListTags", "sagemaker:DeleteTags" ]
+  },
+  "propertyTransform" : {
+    "/properties/StudioLifecycleConfigName" : "$lowercase(StudioLifecycleConfigName) $OR StudioLifecycleConfigName"
   }
 }

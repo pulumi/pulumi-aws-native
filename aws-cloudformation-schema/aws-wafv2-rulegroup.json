@@ -299,6 +299,9 @@
         },
         "JA4Fingerprint" : {
           "$ref" : "#/definitions/RateLimitJA4Fingerprint"
+        },
+        "ASN" : {
+          "$ref" : "#/definitions/RateLimitAsn"
         }
       },
       "additionalProperties" : false
@@ -442,6 +445,10 @@
       },
       "required" : [ "FallbackBehavior" ],
       "additionalProperties" : false
+    },
+    "RateLimitAsn" : {
+      "description" : "Specifies the request's ASN as an aggregate key for a rate-based rule.",
+      "type" : "object"
     },
     "RateLimit" : {
       "type" : "integer",
@@ -865,6 +872,9 @@
         },
         "RegexMatchStatement" : {
           "$ref" : "#/definitions/RegexMatchStatement"
+        },
+        "AsnMatchStatement" : {
+          "$ref" : "#/definitions/AsnMatchStatement"
         }
       },
       "additionalProperties" : false
@@ -1009,6 +1019,23 @@
         }
       },
       "required" : [ "RegexString", "FieldToMatch", "TextTransformations" ],
+      "additionalProperties" : false
+    },
+    "AsnMatchStatement" : {
+      "type" : "object",
+      "properties" : {
+        "AsnList" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "minimum" : 0,
+            "maximum" : 4294967295
+          }
+        },
+        "ForwardedIPConfig" : {
+          "$ref" : "#/definitions/ForwardedIPConfiguration"
+        }
+      },
       "additionalProperties" : false
     },
     "CaptchaConfig" : {

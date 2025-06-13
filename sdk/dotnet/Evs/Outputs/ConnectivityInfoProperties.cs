@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evs.Outputs
 {
 
+    /// <summary>
+    /// The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
+    /// </summary>
     [OutputType]
     public sealed class ConnectivityInfoProperties
     {
+        /// <summary>
+        /// The unique IDs for private route server peers.
+        /// </summary>
         public readonly ImmutableArray<string> PrivateRouteServerPeerings;
 
         [OutputConstructor]

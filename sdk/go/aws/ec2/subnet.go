@@ -27,7 +27,8 @@ type Subnet struct {
 	//  If you update this property, you must also update the ``CidrBlock`` property.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The AZ ID of the subnet.
-	AvailabilityZoneId pulumi.StringPtrOutput `pulumi:"availabilityZoneId"`
+	AvailabilityZoneId      pulumi.StringPtrOutput                  `pulumi:"availabilityZoneId"`
+	BlockPublicAccessStates BlockPublicAccessStatesPropertiesOutput `pulumi:"blockPublicAccessStates"`
 	// The IPv4 CIDR block assigned to the subnet.
 	//  If you update this property, we create a new subnet, and then delete the existing one.
 	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
@@ -52,7 +53,7 @@ type Subnet struct {
 	// An IPv6 netmask length for the subnet.
 	Ipv6NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv6NetmaskLength"`
 	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-	//   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+	//  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
 	MapPublicIpOnLaunch pulumi.BoolPtrOutput `pulumi:"mapPublicIpOnLaunch"`
 	// The ID of the network ACL that is associated with the subnet's VPC, such as `acl-5fb85d36` .
 	NetworkAclAssociationId pulumi.StringOutput `pulumi:"networkAclAssociationId"`
@@ -159,7 +160,7 @@ type subnetArgs struct {
 	// An IPv6 netmask length for the subnet.
 	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
 	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-	//   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+	//  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
@@ -208,7 +209,7 @@ type SubnetArgs struct {
 	// An IPv6 netmask length for the subnet.
 	Ipv6NetmaskLength pulumi.IntPtrInput
 	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-	//   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+	//  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrInput
@@ -279,6 +280,10 @@ func (o SubnetOutput) AvailabilityZone() pulumi.StringPtrOutput {
 // The AZ ID of the subnet.
 func (o SubnetOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetOutput) BlockPublicAccessStates() BlockPublicAccessStatesPropertiesOutput {
+	return o.ApplyT(func(v *Subnet) BlockPublicAccessStatesPropertiesOutput { return v.BlockPublicAccessStates }).(BlockPublicAccessStatesPropertiesOutput)
 }
 
 // The IPv4 CIDR block assigned to the subnet.

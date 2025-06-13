@@ -111,24 +111,27 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "appstream:TagResource", "appstream:ListTagsForResource", "appstream:UntagResource" ]
   },
   "primaryIdentifier" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/DisplayName", "/properties/Description", "/properties/SourceS3Location", "/properties/SetupScriptDetails", "/properties/PackagingType", "/properties/PostSetupScriptDetails" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime" ],
-  "writeOnlyProperties" : [ "/properties/Tags" ],
   "deprecatedProperties" : [ "/properties/Tags/TagKey", "/properties/Tags/TagValue" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "appstream:CreateAppBlock", "appstream:TagResource", "s3:GetObject", "s3:ListBucket", "s3:GetBucketOwnershipControls" ]
     },
     "read" : {
-      "permissions" : [ "appstream:DescribeAppBlocks" ]
+      "permissions" : [ "appstream:DescribeAppBlocks", "appstream:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "appstream:DeleteAppBlock" ]
+      "permissions" : [ "appstream:DeleteAppBlock", "appstream:DescribeAppBlocks" ]
+    },
+    "update" : {
+      "permissions" : [ "appstream:DescribeAppBlocks", "appstream:TagResource", "appstream:UntagResource" ]
     }
   }
 }

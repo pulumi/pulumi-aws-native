@@ -8176,6 +8176,8 @@ type DomainSettings struct {
 	RStudioServerProDomainSettings *DomainRStudioServerProDomainSettings `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+	UnifiedStudioSettings *DomainUnifiedStudioSettings `pulumi:"unifiedStudioSettings"`
 }
 
 // DomainSettingsInput is an input type that accepts DomainSettingsArgs and DomainSettingsOutput values.
@@ -8199,6 +8201,8 @@ type DomainSettingsArgs struct {
 	RStudioServerProDomainSettings DomainRStudioServerProDomainSettingsPtrInput `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+	UnifiedStudioSettings DomainUnifiedStudioSettingsPtrInput `pulumi:"unifiedStudioSettings"`
 }
 
 func (DomainSettingsArgs) ElementType() reflect.Type {
@@ -8301,6 +8305,11 @@ func (o DomainSettingsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainSettings) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+func (o DomainSettingsOutput) UnifiedStudioSettings() DomainUnifiedStudioSettingsPtrOutput {
+	return o.ApplyT(func(v DomainSettings) *DomainUnifiedStudioSettings { return v.UnifiedStudioSettings }).(DomainUnifiedStudioSettingsPtrOutput)
+}
+
 type DomainSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainSettingsPtrOutput) ElementType() reflect.Type {
@@ -8363,6 +8372,16 @@ func (o DomainSettingsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 		}
 		return v.SecurityGroupIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+func (o DomainSettingsPtrOutput) UnifiedStudioSettings() DomainUnifiedStudioSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainSettings) *DomainUnifiedStudioSettings {
+		if v == nil {
+			return nil
+		}
+		return v.UnifiedStudioSettings
+	}).(DomainUnifiedStudioSettingsPtrOutput)
 }
 
 // Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
@@ -8749,6 +8768,282 @@ type DomainTag struct {
 	Key string `pulumi:"key"`
 	// The tag value.
 	Value string `pulumi:"value"`
+}
+
+// A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+type DomainUnifiedStudioSettings struct {
+	// The ID of the AWS account that has the Amazon SageMaker Unified Studio domain. The default value, if you don't specify an ID, is the ID of the account that has the Amazon SageMaker AI domain.
+	DomainAccountId *string `pulumi:"domainAccountId"`
+	// The ID of the Amazon SageMaker Unified Studio domain associated with this domain.
+	DomainId *string `pulumi:"domainId"`
+	// The AWS Region where the domain is located in Amazon SageMaker Unified Studio. The default value, if you don't specify a Region, is the Region where the Amazon SageMaker AI domain is located.
+	DomainRegion *string `pulumi:"domainRegion"`
+	// The ID of the environment that Amazon SageMaker Unified Studio associates with the domain.
+	EnvironmentId *string `pulumi:"environmentId"`
+	// The ID of the Amazon SageMaker Unified Studio project that corresponds to the domain.
+	ProjectId *string `pulumi:"projectId"`
+	// The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
+	ProjectS3Path *string `pulumi:"projectS3Path"`
+	// Sets whether you can access the domain in Amazon SageMaker Studio:
+	//
+	// ENABLED
+	// You can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.
+	// DISABLED
+	// You can't access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it only in that studio interface.
+	StudioWebPortalAccess *DomainUnifiedStudioSettingsStudioWebPortalAccess `pulumi:"studioWebPortalAccess"`
+}
+
+// DomainUnifiedStudioSettingsInput is an input type that accepts DomainUnifiedStudioSettingsArgs and DomainUnifiedStudioSettingsOutput values.
+// You can construct a concrete instance of `DomainUnifiedStudioSettingsInput` via:
+//
+//	DomainUnifiedStudioSettingsArgs{...}
+type DomainUnifiedStudioSettingsInput interface {
+	pulumi.Input
+
+	ToDomainUnifiedStudioSettingsOutput() DomainUnifiedStudioSettingsOutput
+	ToDomainUnifiedStudioSettingsOutputWithContext(context.Context) DomainUnifiedStudioSettingsOutput
+}
+
+// A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+type DomainUnifiedStudioSettingsArgs struct {
+	// The ID of the AWS account that has the Amazon SageMaker Unified Studio domain. The default value, if you don't specify an ID, is the ID of the account that has the Amazon SageMaker AI domain.
+	DomainAccountId pulumi.StringPtrInput `pulumi:"domainAccountId"`
+	// The ID of the Amazon SageMaker Unified Studio domain associated with this domain.
+	DomainId pulumi.StringPtrInput `pulumi:"domainId"`
+	// The AWS Region where the domain is located in Amazon SageMaker Unified Studio. The default value, if you don't specify a Region, is the Region where the Amazon SageMaker AI domain is located.
+	DomainRegion pulumi.StringPtrInput `pulumi:"domainRegion"`
+	// The ID of the environment that Amazon SageMaker Unified Studio associates with the domain.
+	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
+	// The ID of the Amazon SageMaker Unified Studio project that corresponds to the domain.
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+	// The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
+	ProjectS3Path pulumi.StringPtrInput `pulumi:"projectS3Path"`
+	// Sets whether you can access the domain in Amazon SageMaker Studio:
+	//
+	// ENABLED
+	// You can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.
+	// DISABLED
+	// You can't access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it only in that studio interface.
+	StudioWebPortalAccess DomainUnifiedStudioSettingsStudioWebPortalAccessPtrInput `pulumi:"studioWebPortalAccess"`
+}
+
+func (DomainUnifiedStudioSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainUnifiedStudioSettings)(nil)).Elem()
+}
+
+func (i DomainUnifiedStudioSettingsArgs) ToDomainUnifiedStudioSettingsOutput() DomainUnifiedStudioSettingsOutput {
+	return i.ToDomainUnifiedStudioSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainUnifiedStudioSettingsArgs) ToDomainUnifiedStudioSettingsOutputWithContext(ctx context.Context) DomainUnifiedStudioSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainUnifiedStudioSettingsOutput)
+}
+
+func (i DomainUnifiedStudioSettingsArgs) ToDomainUnifiedStudioSettingsPtrOutput() DomainUnifiedStudioSettingsPtrOutput {
+	return i.ToDomainUnifiedStudioSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainUnifiedStudioSettingsArgs) ToDomainUnifiedStudioSettingsPtrOutputWithContext(ctx context.Context) DomainUnifiedStudioSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainUnifiedStudioSettingsOutput).ToDomainUnifiedStudioSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainUnifiedStudioSettingsPtrInput is an input type that accepts DomainUnifiedStudioSettingsArgs, DomainUnifiedStudioSettingsPtr and DomainUnifiedStudioSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainUnifiedStudioSettingsPtrInput` via:
+//
+//	        DomainUnifiedStudioSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainUnifiedStudioSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainUnifiedStudioSettingsPtrOutput() DomainUnifiedStudioSettingsPtrOutput
+	ToDomainUnifiedStudioSettingsPtrOutputWithContext(context.Context) DomainUnifiedStudioSettingsPtrOutput
+}
+
+type domainUnifiedStudioSettingsPtrType DomainUnifiedStudioSettingsArgs
+
+func DomainUnifiedStudioSettingsPtr(v *DomainUnifiedStudioSettingsArgs) DomainUnifiedStudioSettingsPtrInput {
+	return (*domainUnifiedStudioSettingsPtrType)(v)
+}
+
+func (*domainUnifiedStudioSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainUnifiedStudioSettings)(nil)).Elem()
+}
+
+func (i *domainUnifiedStudioSettingsPtrType) ToDomainUnifiedStudioSettingsPtrOutput() DomainUnifiedStudioSettingsPtrOutput {
+	return i.ToDomainUnifiedStudioSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainUnifiedStudioSettingsPtrType) ToDomainUnifiedStudioSettingsPtrOutputWithContext(ctx context.Context) DomainUnifiedStudioSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainUnifiedStudioSettingsPtrOutput)
+}
+
+// A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+type DomainUnifiedStudioSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainUnifiedStudioSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainUnifiedStudioSettings)(nil)).Elem()
+}
+
+func (o DomainUnifiedStudioSettingsOutput) ToDomainUnifiedStudioSettingsOutput() DomainUnifiedStudioSettingsOutput {
+	return o
+}
+
+func (o DomainUnifiedStudioSettingsOutput) ToDomainUnifiedStudioSettingsOutputWithContext(ctx context.Context) DomainUnifiedStudioSettingsOutput {
+	return o
+}
+
+func (o DomainUnifiedStudioSettingsOutput) ToDomainUnifiedStudioSettingsPtrOutput() DomainUnifiedStudioSettingsPtrOutput {
+	return o.ToDomainUnifiedStudioSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUnifiedStudioSettingsOutput) ToDomainUnifiedStudioSettingsPtrOutputWithContext(ctx context.Context) DomainUnifiedStudioSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainUnifiedStudioSettings) *DomainUnifiedStudioSettings {
+		return &v
+	}).(DomainUnifiedStudioSettingsPtrOutput)
+}
+
+// The ID of the AWS account that has the Amazon SageMaker Unified Studio domain. The default value, if you don't specify an ID, is the ID of the account that has the Amazon SageMaker AI domain.
+func (o DomainUnifiedStudioSettingsOutput) DomainAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainUnifiedStudioSettings) *string { return v.DomainAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Amazon SageMaker Unified Studio domain associated with this domain.
+func (o DomainUnifiedStudioSettingsOutput) DomainId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainUnifiedStudioSettings) *string { return v.DomainId }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region where the domain is located in Amazon SageMaker Unified Studio. The default value, if you don't specify a Region, is the Region where the Amazon SageMaker AI domain is located.
+func (o DomainUnifiedStudioSettingsOutput) DomainRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainUnifiedStudioSettings) *string { return v.DomainRegion }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the environment that Amazon SageMaker Unified Studio associates with the domain.
+func (o DomainUnifiedStudioSettingsOutput) EnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainUnifiedStudioSettings) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Amazon SageMaker Unified Studio project that corresponds to the domain.
+func (o DomainUnifiedStudioSettingsOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainUnifiedStudioSettings) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+// The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
+func (o DomainUnifiedStudioSettingsOutput) ProjectS3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainUnifiedStudioSettings) *string { return v.ProjectS3Path }).(pulumi.StringPtrOutput)
+}
+
+// Sets whether you can access the domain in Amazon SageMaker Studio:
+//
+// ENABLED
+// You can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.
+// DISABLED
+// You can't access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it only in that studio interface.
+func (o DomainUnifiedStudioSettingsOutput) StudioWebPortalAccess() DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput {
+	return o.ApplyT(func(v DomainUnifiedStudioSettings) *DomainUnifiedStudioSettingsStudioWebPortalAccess {
+		return v.StudioWebPortalAccess
+	}).(DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput)
+}
+
+type DomainUnifiedStudioSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainUnifiedStudioSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainUnifiedStudioSettings)(nil)).Elem()
+}
+
+func (o DomainUnifiedStudioSettingsPtrOutput) ToDomainUnifiedStudioSettingsPtrOutput() DomainUnifiedStudioSettingsPtrOutput {
+	return o
+}
+
+func (o DomainUnifiedStudioSettingsPtrOutput) ToDomainUnifiedStudioSettingsPtrOutputWithContext(ctx context.Context) DomainUnifiedStudioSettingsPtrOutput {
+	return o
+}
+
+func (o DomainUnifiedStudioSettingsPtrOutput) Elem() DomainUnifiedStudioSettingsOutput {
+	return o.ApplyT(func(v *DomainUnifiedStudioSettings) DomainUnifiedStudioSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainUnifiedStudioSettings
+		return ret
+	}).(DomainUnifiedStudioSettingsOutput)
+}
+
+// The ID of the AWS account that has the Amazon SageMaker Unified Studio domain. The default value, if you don't specify an ID, is the ID of the account that has the Amazon SageMaker AI domain.
+func (o DomainUnifiedStudioSettingsPtrOutput) DomainAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainUnifiedStudioSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Amazon SageMaker Unified Studio domain associated with this domain.
+func (o DomainUnifiedStudioSettingsPtrOutput) DomainId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainUnifiedStudioSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region where the domain is located in Amazon SageMaker Unified Studio. The default value, if you don't specify a Region, is the Region where the Amazon SageMaker AI domain is located.
+func (o DomainUnifiedStudioSettingsPtrOutput) DomainRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainUnifiedStudioSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the environment that Amazon SageMaker Unified Studio associates with the domain.
+func (o DomainUnifiedStudioSettingsPtrOutput) EnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainUnifiedStudioSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnvironmentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Amazon SageMaker Unified Studio project that corresponds to the domain.
+func (o DomainUnifiedStudioSettingsPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainUnifiedStudioSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
+func (o DomainUnifiedStudioSettingsPtrOutput) ProjectS3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainUnifiedStudioSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectS3Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets whether you can access the domain in Amazon SageMaker Studio:
+//
+// ENABLED
+// You can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.
+// DISABLED
+// You can't access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it only in that studio interface.
+func (o DomainUnifiedStudioSettingsPtrOutput) StudioWebPortalAccess() DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput {
+	return o.ApplyT(func(v *DomainUnifiedStudioSettings) *DomainUnifiedStudioSettingsStudioWebPortalAccess {
+		if v == nil {
+			return nil
+		}
+		return v.StudioWebPortalAccess
+	}).(DomainUnifiedStudioSettingsStudioWebPortalAccessPtrOutput)
 }
 
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
@@ -42471,6 +42766,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsPtrInput)(nil)).Elem(), DomainSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainStudioWebPortalSettingsInput)(nil)).Elem(), DomainStudioWebPortalSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainStudioWebPortalSettingsPtrInput)(nil)).Elem(), DomainStudioWebPortalSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainUnifiedStudioSettingsInput)(nil)).Elem(), DomainUnifiedStudioSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainUnifiedStudioSettingsPtrInput)(nil)).Elem(), DomainUnifiedStudioSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsInput)(nil)).Elem(), DomainUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAlarmInput)(nil)).Elem(), EndpointAlarmArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAlarmArrayInput)(nil)).Elem(), EndpointAlarmArray{})
@@ -42977,6 +43274,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainSharingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainStudioWebPortalSettingsOutput{})
 	pulumi.RegisterOutputType(DomainStudioWebPortalSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainUnifiedStudioSettingsOutput{})
+	pulumi.RegisterOutputType(DomainUnifiedStudioSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointAlarmOutput{})

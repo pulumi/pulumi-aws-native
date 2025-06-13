@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetAppBlockBuilderResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppBlockBuilderResult:
-    def __init__(__self__, access_endpoints=None, arn=None, created_time=None, description=None, display_name=None, enable_default_internet_access=None, iam_role_arn=None, instance_type=None, platform=None, vpc_config=None):
+    def __init__(__self__, access_endpoints=None, arn=None, created_time=None, description=None, display_name=None, enable_default_internet_access=None, iam_role_arn=None, instance_type=None, platform=None, tags=None, vpc_config=None):
         if access_endpoints and not isinstance(access_endpoints, list):
             raise TypeError("Expected argument 'access_endpoints' to be a list")
         pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -53,6 +54,9 @@ class GetAppBlockBuilderResult:
         if platform and not isinstance(platform, str):
             raise TypeError("Expected argument 'platform' to be a str")
         pulumi.set(__self__, "platform", platform)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if vpc_config and not isinstance(vpc_config, dict):
             raise TypeError("Expected argument 'vpc_config' to be a dict")
         pulumi.set(__self__, "vpc_config", vpc_config)
@@ -132,6 +136,14 @@ class GetAppBlockBuilderResult:
         return pulumi.get(self, "platform")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags of the app block builder.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional['outputs.AppBlockBuilderVpcConfig']:
         """
@@ -155,6 +167,7 @@ class AwaitableGetAppBlockBuilderResult(GetAppBlockBuilderResult):
             iam_role_arn=self.iam_role_arn,
             instance_type=self.instance_type,
             platform=self.platform,
+            tags=self.tags,
             vpc_config=self.vpc_config)
 
 
@@ -181,6 +194,7 @@ def get_app_block_builder(name: Optional[builtins.str] = None,
         iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
         platform=pulumi.get(__ret__, 'platform'),
+        tags=pulumi.get(__ret__, 'tags'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
 def get_app_block_builder_output(name: Optional[pulumi.Input[builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppBlockBuilderResult]:
@@ -204,4 +218,5 @@ def get_app_block_builder_output(name: Optional[pulumi.Input[builtins.str]] = No
         iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),
         instance_type=pulumi.get(__response__, 'instance_type'),
         platform=pulumi.get(__response__, 'platform'),
+        tags=pulumi.get(__response__, 'tags'),
         vpc_config=pulumi.get(__response__, 'vpc_config')))

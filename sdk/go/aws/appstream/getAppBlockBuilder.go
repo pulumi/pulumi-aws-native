@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,6 +49,8 @@ type LookupAppBlockBuilderResult struct {
 	//
 	// *Allowed values* : `WINDOWS_SERVER_2019`
 	Platform *string `pulumi:"platform"`
+	// The tags of the app block builder.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The VPC configuration for the app block builder.
 	VpcConfig *AppBlockBuilderVpcConfig `pulumi:"vpcConfig"`
 }
@@ -129,6 +132,11 @@ func (o LookupAppBlockBuilderResultOutput) InstanceType() pulumi.StringPtrOutput
 // *Allowed values* : `WINDOWS_SERVER_2019`
 func (o LookupAppBlockBuilderResultOutput) Platform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *string { return v.Platform }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the app block builder.
+func (o LookupAppBlockBuilderResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAppBlockBuilderResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The VPC configuration for the app block builder.
