@@ -88,14 +88,18 @@ namespace Pulumi.AwsNative.Lambda
     public sealed class GetEventSourceMappingResult
     {
         /// <summary>
+        /// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
+        /// </summary>
+        public readonly Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig? AmazonManagedKafkaEventSourceConfig;
+        /// <summary>
         /// The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
-        ///   +   *Amazon Kinesis* – Default 100. Max 10,000.
-        ///   +   *Amazon DynamoDB Streams* – Default 100. Max 10,000.
-        ///   +   *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
-        ///   +   *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
-        ///   +   *Self-managed Apache Kafka* – Default 100. Max 10,000.
-        ///   +   *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
-        ///   +   *DocumentDB* – Default 100. Max 10,000.
+        ///   +  *Amazon Kinesis* – Default 100. Max 10,000.
+        ///   +  *Amazon DynamoDB Streams* – Default 100. Max 10,000.
+        ///   +  *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
+        ///   +  *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
+        ///   +  *Self-managed Apache Kafka* – Default 100. Max 10,000.
+        ///   +  *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
+        ///   +  *DocumentDB* – Default 100. Max 10,000.
         /// </summary>
         public readonly int? BatchSize;
         /// <summary>
@@ -127,10 +131,10 @@ namespace Pulumi.AwsNative.Lambda
         /// <summary>
         /// The name or ARN of the Lambda function.
         ///   **Name formats**
-        ///  +   *Function name* – ``MyFunction``.
-        ///   +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
-        ///   +   *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
-        ///   +   *Partial ARN* – ``123456789012:function:MyFunction``.
+        ///  +  *Function name* – ``MyFunction``.
+        ///   +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
+        ///   +  *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
+        ///   +  *Partial ARN* – ``123456789012:function:MyFunction``.
         ///   
         ///  The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
         /// </summary>
@@ -150,9 +154,9 @@ namespace Pulumi.AwsNative.Lambda
         public readonly string? KmsKeyArn;
         /// <summary>
         /// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-        ///   *Default (, , event sources)*: 0
-        ///   *Default (, Kafka, , event sources)*: 500 ms
-        ///   *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+        ///  *Default (, , event sources)*: 0
+        ///  *Default (, Kafka, , event sources)*: 500 ms
+        ///  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
         /// </summary>
         public readonly int? MaximumBatchingWindowInSeconds;
         /// <summary>
@@ -185,6 +189,10 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly Outputs.EventSourceMappingScalingConfig? ScalingConfig;
         /// <summary>
+        /// Specific configuration settings for a self-managed Apache Kafka event source.
+        /// </summary>
+        public readonly Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig? SelfManagedKafkaEventSourceConfig;
+        /// <summary>
         /// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration> SourceAccessConfigurations;
@@ -204,6 +212,8 @@ namespace Pulumi.AwsNative.Lambda
 
         [OutputConstructor]
         private GetEventSourceMappingResult(
+            Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig? amazonManagedKafkaEventSourceConfig,
+
             int? batchSize,
 
             bool? bisectBatchOnFunctionError,
@@ -242,6 +252,8 @@ namespace Pulumi.AwsNative.Lambda
 
             Outputs.EventSourceMappingScalingConfig? scalingConfig,
 
+            Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig? selfManagedKafkaEventSourceConfig,
+
             ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration> sourceAccessConfigurations,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -250,6 +262,7 @@ namespace Pulumi.AwsNative.Lambda
 
             int? tumblingWindowInSeconds)
         {
+            AmazonManagedKafkaEventSourceConfig = amazonManagedKafkaEventSourceConfig;
             BatchSize = batchSize;
             BisectBatchOnFunctionError = bisectBatchOnFunctionError;
             DestinationConfig = destinationConfig;
@@ -269,6 +282,7 @@ namespace Pulumi.AwsNative.Lambda
             ProvisionedPollerConfig = provisionedPollerConfig;
             Queues = queues;
             ScalingConfig = scalingConfig;
+            SelfManagedKafkaEventSourceConfig = selfManagedKafkaEventSourceConfig;
             SourceAccessConfigurations = sourceAccessConfigurations;
             Tags = tags;
             Topics = topics;

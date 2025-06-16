@@ -76,6 +76,7 @@ __all__ = [
     'DomainSettings',
     'DomainSharingSettings',
     'DomainStudioWebPortalSettings',
+    'DomainUnifiedStudioSettings',
     'DomainUserSettings',
     'EndpointAlarm',
     'EndpointAutoRollbackConfig',
@@ -3503,6 +3504,8 @@ class DomainSettings(dict):
             suggest = "r_studio_server_pro_domain_settings"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
+        elif key == "unifiedStudioSettings":
+            suggest = "unified_studio_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainSettings. Access the value via the '{suggest}' property getter instead.")
@@ -3519,13 +3522,15 @@ class DomainSettings(dict):
                  docker_settings: Optional['outputs.DomainDockerSettings'] = None,
                  execution_role_identity_config: Optional['DomainSettingsExecutionRoleIdentityConfig'] = None,
                  r_studio_server_pro_domain_settings: Optional['outputs.DomainRStudioServerProDomainSettings'] = None,
-                 security_group_ids: Optional[Sequence[builtins.str]] = None):
+                 security_group_ids: Optional[Sequence[builtins.str]] = None,
+                 unified_studio_settings: Optional['outputs.DomainUnifiedStudioSettings'] = None):
         """
         A collection of Domain settings.
         :param 'DomainDockerSettings' docker_settings: A collection of settings that configure the domain's Docker interaction.
         :param 'DomainSettingsExecutionRoleIdentityConfig' execution_role_identity_config: The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
         :param 'DomainRStudioServerProDomainSettings' r_studio_server_pro_domain_settings: A collection of settings that configure the `RStudioServerPro` Domain-level app.
         :param Sequence[builtins.str] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+        :param 'DomainUnifiedStudioSettings' unified_studio_settings: The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
         """
         if docker_settings is not None:
             pulumi.set(__self__, "docker_settings", docker_settings)
@@ -3535,6 +3540,8 @@ class DomainSettings(dict):
             pulumi.set(__self__, "r_studio_server_pro_domain_settings", r_studio_server_pro_domain_settings)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if unified_studio_settings is not None:
+            pulumi.set(__self__, "unified_studio_settings", unified_studio_settings)
 
     @property
     @pulumi.getter(name="dockerSettings")
@@ -3567,6 +3574,14 @@ class DomainSettings(dict):
         The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
         return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="unifiedStudioSettings")
+    def unified_studio_settings(self) -> Optional['outputs.DomainUnifiedStudioSettings']:
+        """
+        The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+        """
+        return pulumi.get(self, "unified_studio_settings")
 
 
 @pulumi.output_type
@@ -3717,6 +3732,140 @@ class DomainStudioWebPortalSettings(dict):
         The version aliases you are hiding from the Studio user interface.
         """
         return pulumi.get(self, "hidden_sage_maker_image_version_aliases")
+
+
+@pulumi.output_type
+class DomainUnifiedStudioSettings(dict):
+    """
+    A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainAccountId":
+            suggest = "domain_account_id"
+        elif key == "domainId":
+            suggest = "domain_id"
+        elif key == "domainRegion":
+            suggest = "domain_region"
+        elif key == "environmentId":
+            suggest = "environment_id"
+        elif key == "projectId":
+            suggest = "project_id"
+        elif key == "projectS3Path":
+            suggest = "project_s3_path"
+        elif key == "studioWebPortalAccess":
+            suggest = "studio_web_portal_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainUnifiedStudioSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainUnifiedStudioSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainUnifiedStudioSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_account_id: Optional[builtins.str] = None,
+                 domain_id: Optional[builtins.str] = None,
+                 domain_region: Optional[builtins.str] = None,
+                 environment_id: Optional[builtins.str] = None,
+                 project_id: Optional[builtins.str] = None,
+                 project_s3_path: Optional[builtins.str] = None,
+                 studio_web_portal_access: Optional['DomainUnifiedStudioSettingsStudioWebPortalAccess'] = None):
+        """
+        A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+        :param builtins.str domain_account_id: The ID of the AWS account that has the Amazon SageMaker Unified Studio domain. The default value, if you don't specify an ID, is the ID of the account that has the Amazon SageMaker AI domain.
+        :param builtins.str domain_id: The ID of the Amazon SageMaker Unified Studio domain associated with this domain.
+        :param builtins.str domain_region: The AWS Region where the domain is located in Amazon SageMaker Unified Studio. The default value, if you don't specify a Region, is the Region where the Amazon SageMaker AI domain is located.
+        :param builtins.str environment_id: The ID of the environment that Amazon SageMaker Unified Studio associates with the domain.
+        :param builtins.str project_id: The ID of the Amazon SageMaker Unified Studio project that corresponds to the domain.
+        :param builtins.str project_s3_path: The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
+        :param 'DomainUnifiedStudioSettingsStudioWebPortalAccess' studio_web_portal_access: Sets whether you can access the domain in Amazon SageMaker Studio:
+               
+               ENABLED
+               You can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.
+               DISABLED
+               You can't access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it only in that studio interface.
+        """
+        if domain_account_id is not None:
+            pulumi.set(__self__, "domain_account_id", domain_account_id)
+        if domain_id is not None:
+            pulumi.set(__self__, "domain_id", domain_id)
+        if domain_region is not None:
+            pulumi.set(__self__, "domain_region", domain_region)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if project_s3_path is not None:
+            pulumi.set(__self__, "project_s3_path", project_s3_path)
+        if studio_web_portal_access is not None:
+            pulumi.set(__self__, "studio_web_portal_access", studio_web_portal_access)
+
+    @property
+    @pulumi.getter(name="domainAccountId")
+    def domain_account_id(self) -> Optional[builtins.str]:
+        """
+        The ID of the AWS account that has the Amazon SageMaker Unified Studio domain. The default value, if you don't specify an ID, is the ID of the account that has the Amazon SageMaker AI domain.
+        """
+        return pulumi.get(self, "domain_account_id")
+
+    @property
+    @pulumi.getter(name="domainId")
+    def domain_id(self) -> Optional[builtins.str]:
+        """
+        The ID of the Amazon SageMaker Unified Studio domain associated with this domain.
+        """
+        return pulumi.get(self, "domain_id")
+
+    @property
+    @pulumi.getter(name="domainRegion")
+    def domain_region(self) -> Optional[builtins.str]:
+        """
+        The AWS Region where the domain is located in Amazon SageMaker Unified Studio. The default value, if you don't specify a Region, is the Region where the Amazon SageMaker AI domain is located.
+        """
+        return pulumi.get(self, "domain_region")
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[builtins.str]:
+        """
+        The ID of the environment that Amazon SageMaker Unified Studio associates with the domain.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[builtins.str]:
+        """
+        The ID of the Amazon SageMaker Unified Studio project that corresponds to the domain.
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter(name="projectS3Path")
+    def project_s3_path(self) -> Optional[builtins.str]:
+        """
+        The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
+        """
+        return pulumi.get(self, "project_s3_path")
+
+    @property
+    @pulumi.getter(name="studioWebPortalAccess")
+    def studio_web_portal_access(self) -> Optional['DomainUnifiedStudioSettingsStudioWebPortalAccess']:
+        """
+        Sets whether you can access the domain in Amazon SageMaker Studio:
+
+        ENABLED
+        You can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.
+        DISABLED
+        You can't access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it only in that studio interface.
+        """
+        return pulumi.get(self, "studio_web_portal_access")
 
 
 @pulumi.output_type

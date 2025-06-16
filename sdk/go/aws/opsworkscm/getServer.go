@@ -24,6 +24,7 @@ func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.In
 }
 
 type LookupServerArgs struct {
+	// The ID of the server.
 	Id string `pulumi:"id"`
 }
 
@@ -45,7 +46,8 @@ type LookupServerResult struct {
 	// - `PUPPET_R10K_REMOTE` : The r10k remote is the URL of your control repository (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k remote opens TCP port 8170.
 	// - `PUPPET_R10K_PRIVATE_KEY` : If you are using a private Git repository, add PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded private SSH key.
 	EngineAttributes []ServerEngineAttribute `pulumi:"engineAttributes"`
-	Id               *string                 `pulumi:"id"`
+	// The ID of the server.
+	Id *string `pulumi:"id"`
 	// The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
 	//
 	// - `HH:MM` for daily backups
@@ -61,8 +63,6 @@ type LookupServerResult struct {
 	//
 	// *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
-	ServerName *string `pulumi:"serverName"`
 	// A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.
 	//
 	// - The key cannot be empty.
@@ -83,6 +83,7 @@ func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts .
 }
 
 type LookupServerOutputArgs struct {
+	// The ID of the server.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -136,6 +137,7 @@ func (o LookupServerResultOutput) EngineAttributes() ServerEngineAttributeArrayO
 	return o.ApplyT(func(v LookupServerResult) []ServerEngineAttribute { return v.EngineAttributes }).(ServerEngineAttributeArrayOutput)
 }
 
+// The ID of the server.
 func (o LookupServerResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -159,11 +161,6 @@ func (o LookupServerResultOutput) PreferredBackupWindow() pulumi.StringPtrOutput
 // *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
 func (o LookupServerResultOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
-}
-
-// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
-func (o LookupServerResultOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupServerResult) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
 // A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.

@@ -67,11 +67,19 @@ namespace Pulumi.AwsNative.Ec2
         /// Service Generated ID of the EgressOnlyInternetGateway
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Any tags assigned to the egress only internet gateway.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private GetEgressOnlyInternetGatewayResult(string? id)
+        private GetEgressOnlyInternetGatewayResult(
+            string? id,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
+            Tags = tags;
         }
     }
 }

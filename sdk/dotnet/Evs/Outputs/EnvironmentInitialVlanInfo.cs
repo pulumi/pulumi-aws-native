@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Evs.Outputs
     [OutputType]
     public sealed class EnvironmentInitialVlanInfo
     {
+        /// <summary>
+        /// The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.
+        /// </summary>
         public readonly string Cidr;
 
         [OutputConstructor]

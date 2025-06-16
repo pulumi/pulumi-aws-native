@@ -102,9 +102,9 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+     * Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
      */
-    public readonly onSourceDDoSProtectionConfig!: pulumi.Output<any | undefined>;
+    public readonly onSourceDDoSProtectionConfig!: pulumi.Output<outputs.wafv2.WebAclOnSourceDDoSProtectionConfig | undefined>;
     /**
      * Collection of Rules.
      */
@@ -244,9 +244,9 @@ export interface WebAclArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+     * Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
      */
-    onSourceDDoSProtectionConfig?: any;
+    onSourceDDoSProtectionConfig?: pulumi.Input<inputs.wafv2.WebAclOnSourceDDoSProtectionConfigArgs>;
     /**
      * Collection of Rules.
      */

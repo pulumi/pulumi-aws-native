@@ -71,15 +71,22 @@ namespace Pulumi.AwsNative.AppStream
         /// The time when the app block was created.
         /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// The tags of the app block.
+        /// </summary>
+        public readonly ImmutableArray<Union<Outputs.AppBlockTag0Properties, Outputs.AppBlockTag1Properties>> Tags;
 
         [OutputConstructor]
         private GetAppBlockResult(
             string? arn,
 
-            string? createdTime)
+            string? createdTime,
+
+            ImmutableArray<Union<Outputs.AppBlockTag0Properties, Outputs.AppBlockTag1Properties>> tags)
         {
             Arn = arn;
             CreatedTime = createdTime;
+            Tags = tags;
         }
     }
 }

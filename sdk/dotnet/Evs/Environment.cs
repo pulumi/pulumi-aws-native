@@ -15,21 +15,43 @@ namespace Pulumi.AwsNative.Evs
     [AwsNativeResourceType("aws-native:evs:Environment")]
     public partial class Environment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A check on the environment to identify instance health and VMware VCF licensing issues. For example:
+        /// 
+        /// `{ "checks": [ { "type": "KEY_REUSE", "result": "PASSED" }, { "type": "KEY_COVERAGE", "result": "PASSED" }, { "type": "REACHABILITY", "result": "PASSED" }, { "type": "HOST_COUNT", "result": "PASSED" } ] }`
+        /// </summary>
         [Output("checks")]
         public Output<ImmutableArray<Outputs.EnvironmentCheck>> Checks { get; private set; } = null!;
 
+        /// <summary>
+        /// The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
+        /// </summary>
         [Output("connectivityInfo")]
         public Output<Outputs.ConnectivityInfoProperties> ConnectivityInfo { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that the environment was created. For example: `1749081600.000` .
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The VCF credentials that are stored as Amazon EVS managed secrets in AWS Secrets Manager. Amazon EVS stores credentials that are needed to install vCenter Server, NSX, and SDDC Manager. For example:
+        /// 
+        /// `{ [ { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterAdmin-MnTMEi" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterRoot-87VyCF" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXRoot-SR3k43" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAdmin-L5LUiD" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAudit-Q2oW46" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerRoot-bFulOq" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerVCF-Ec3gES" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerAdmin-JMTAAb" } ] }`
+        /// </summary>
         [Output("credentials")]
         public Output<ImmutableArray<Outputs.EnvironmentSecret>> Credentials { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that is associated with the environment. For example: `arn:aws:evs:us-east-1:000000000000:environment/env-1234567890` .
+        /// </summary>
         [Output("environmentArn")]
         public Output<string> EnvironmentArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID for the environment. For example: `env-1234567890` .
+        /// </summary>
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
 
@@ -39,6 +61,9 @@ namespace Pulumi.AwsNative.Evs
         [Output("environmentName")]
         public Output<string?> EnvironmentName { get; private set; } = null!;
 
+        /// <summary>
+        /// The state of an environment. For example: `CREATED` .
+        /// </summary>
         [Output("environmentState")]
         public Output<Pulumi.AwsNative.Evs.EnvironmentState> EnvironmentState { get; private set; } = null!;
 
@@ -54,6 +79,11 @@ namespace Pulumi.AwsNative.Evs
         [Output("initialVlans")]
         public Output<Outputs.InitialVlansProperties?> InitialVlans { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS KMS key ID that AWS Secrets Manager uses to encrypt secrets that are associated with the environment. These secrets contain the VCF credentials that are needed to install vCenter Server, NSX, and SDDC Manager.
+        /// 
+        /// By default, Amazon EVS use the AWS Secrets Manager managed key `aws/secretsmanager` . You can also specify a customer managed key.
+        /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
@@ -63,18 +93,33 @@ namespace Pulumi.AwsNative.Evs
         [Output("licenseInfo")]
         public Output<Outputs.LicenseInfoProperties> LicenseInfo { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that the environment was modified. For example: `1749081600.000` .
+        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
+        /// </summary>
         [Output("serviceAccessSecurityGroups")]
         public Output<Outputs.ServiceAccessSecurityGroupsProperties?> ServiceAccessSecurityGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// The subnet that is used to establish connectivity between the Amazon EVS control plane and VPC. Amazon EVS uses this subnet to perform validations and create the environment.
+        /// </summary>
         [Output("serviceAccessSubnetId")]
         public Output<string> ServiceAccessSubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
+        /// </summary>
         [Output("siteId")]
         public Output<string> SiteId { get; private set; } = null!;
 
+        /// <summary>
+        /// A detailed description of the `environmentState` of an environment. For example: `Environment successfully created` .
+        /// </summary>
         [Output("stateDetails")]
         public Output<string> StateDetails { get; private set; } = null!;
 
@@ -84,15 +129,29 @@ namespace Pulumi.AwsNative.Evs
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+        /// </summary>
         [Output("termsAccepted")]
         public Output<bool> TermsAccepted { get; private set; } = null!;
 
+        /// <summary>
+        /// The DNS hostnames to be used by the VCF management appliances in your environment.
+        /// 
+        /// For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
+        /// </summary>
         [Output("vcfHostnames")]
         public Output<Outputs.VcfHostnamesProperties> VcfHostnames { get; private set; } = null!;
 
+        /// <summary>
+        /// The VCF version of the environment.
+        /// </summary>
         [Output("vcfVersion")]
         public Output<Pulumi.AwsNative.Evs.EnvironmentVcfVersion> VcfVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC associated with the environment.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -155,6 +214,9 @@ namespace Pulumi.AwsNative.Evs
 
     public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
+        /// </summary>
         [Input("connectivityInfo", required: true)]
         public Input<Inputs.ConnectivityInfoPropertiesArgs> ConnectivityInfo { get; set; } = null!;
 
@@ -182,6 +244,11 @@ namespace Pulumi.AwsNative.Evs
         [Input("initialVlans")]
         public Input<Inputs.InitialVlansPropertiesArgs>? InitialVlans { get; set; }
 
+        /// <summary>
+        /// The AWS KMS key ID that AWS Secrets Manager uses to encrypt secrets that are associated with the environment. These secrets contain the VCF credentials that are needed to install vCenter Server, NSX, and SDDC Manager.
+        /// 
+        /// By default, Amazon EVS use the AWS Secrets Manager managed key `aws/secretsmanager` . You can also specify a customer managed key.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
@@ -191,12 +258,21 @@ namespace Pulumi.AwsNative.Evs
         [Input("licenseInfo", required: true)]
         public Input<Inputs.LicenseInfoPropertiesArgs> LicenseInfo { get; set; } = null!;
 
+        /// <summary>
+        /// The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
+        /// </summary>
         [Input("serviceAccessSecurityGroups")]
         public Input<Inputs.ServiceAccessSecurityGroupsPropertiesArgs>? ServiceAccessSecurityGroups { get; set; }
 
+        /// <summary>
+        /// The subnet that is used to establish connectivity between the Amazon EVS control plane and VPC. Amazon EVS uses this subnet to perform validations and create the environment.
+        /// </summary>
         [Input("serviceAccessSubnetId", required: true)]
         public Input<string> ServiceAccessSubnetId { get; set; } = null!;
 
+        /// <summary>
+        /// The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
+        /// </summary>
         [Input("siteId", required: true)]
         public Input<string> SiteId { get; set; } = null!;
 
@@ -212,15 +288,29 @@ namespace Pulumi.AwsNative.Evs
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+        /// </summary>
         [Input("termsAccepted", required: true)]
         public Input<bool> TermsAccepted { get; set; } = null!;
 
+        /// <summary>
+        /// The DNS hostnames to be used by the VCF management appliances in your environment.
+        /// 
+        /// For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
+        /// </summary>
         [Input("vcfHostnames", required: true)]
         public Input<Inputs.VcfHostnamesPropertiesArgs> VcfHostnames { get; set; } = null!;
 
+        /// <summary>
+        /// The VCF version of the environment.
+        /// </summary>
         [Input("vcfVersion", required: true)]
         public Input<Pulumi.AwsNative.Evs.EnvironmentVcfVersion> VcfVersion { get; set; } = null!;
 
+        /// <summary>
+        /// The VPC associated with the environment.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

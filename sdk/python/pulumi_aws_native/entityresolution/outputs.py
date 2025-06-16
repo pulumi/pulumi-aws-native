@@ -783,7 +783,9 @@ class MatchingWorkflowIncrementalRunConfig(dict):
     def __init__(__self__, *,
                  incremental_run_type: 'MatchingWorkflowIncrementalRunConfigIncrementalRunType'):
         """
-        :param 'MatchingWorkflowIncrementalRunConfigIncrementalRunType' incremental_run_type: The type of incremental run. It takes only one value: `IMMEDIATE` .
+        :param 'MatchingWorkflowIncrementalRunConfigIncrementalRunType' incremental_run_type: The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+               
+               > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
         """
         pulumi.set(__self__, "incremental_run_type", incremental_run_type)
 
@@ -791,7 +793,9 @@ class MatchingWorkflowIncrementalRunConfig(dict):
     @pulumi.getter(name="incrementalRunType")
     def incremental_run_type(self) -> 'MatchingWorkflowIncrementalRunConfigIncrementalRunType':
         """
-        The type of incremental run. It takes only one value: `IMMEDIATE` .
+        The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+
+        > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
         """
         return pulumi.get(self, "incremental_run_type")
 

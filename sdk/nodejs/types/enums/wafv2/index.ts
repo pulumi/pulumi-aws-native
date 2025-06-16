@@ -537,6 +537,13 @@ export const WebAclMapMatchScope = {
  */
 export type WebAclMapMatchScope = (typeof WebAclMapMatchScope)[keyof typeof WebAclMapMatchScope];
 
+export const WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode = {
+    ActiveUnderDdos: "ACTIVE_UNDER_DDOS",
+    AlwaysOn: "ALWAYS_ON",
+} as const;
+
+export type WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode = (typeof WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode)[keyof typeof WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode];
+
 export const WebAclOversizeHandling = {
     Continue: "CONTINUE",
     Match: "MATCH",
@@ -673,6 +680,14 @@ export const WebAclSensitivityLevel = {
  */
 export type WebAclSensitivityLevel = (typeof WebAclSensitivityLevel)[keyof typeof WebAclSensitivityLevel];
 
+export const WebAclSensitivityToAct = {
+    Low: "LOW",
+    Medium: "MEDIUM",
+    High: "HIGH",
+} as const;
+
+export type WebAclSensitivityToAct = (typeof WebAclSensitivityToAct)[keyof typeof WebAclSensitivityToAct];
+
 export const WebAclSizeConstraintStatementComparisonOperator = {
     Eq: "EQ",
     Ne: "NE",
@@ -744,3 +759,10 @@ export const WebAclUriFragmentFallbackBehavior = {
  * > AWS WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When parsing succeeds, AWS WAF doesn't apply the fallback behavior. For more information, see [JSON body](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body) in the *AWS WAF Developer Guide* .
  */
 export type WebAclUriFragmentFallbackBehavior = (typeof WebAclUriFragmentFallbackBehavior)[keyof typeof WebAclUriFragmentFallbackBehavior];
+
+export const WebAclUsageOfAction = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type WebAclUsageOfAction = (typeof WebAclUsageOfAction)[keyof typeof WebAclUsageOfAction];

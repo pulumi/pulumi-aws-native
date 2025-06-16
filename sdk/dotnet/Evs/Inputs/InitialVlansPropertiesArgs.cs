@@ -15,33 +15,63 @@ namespace Pulumi.AwsNative.Evs.Inputs
     /// </summary>
     public sealed class InitialVlansPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
+        /// </summary>
         [Input("edgeVTep", required: true)]
         public Input<Inputs.EnvironmentInitialVlanInfoArgs> EdgeVTep { get; set; } = null!;
 
+        /// <summary>
+        /// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
+        /// </summary>
         [Input("expansionVlan1", required: true)]
         public Input<Inputs.EnvironmentInitialVlanInfoArgs> ExpansionVlan1 { get; set; } = null!;
 
+        /// <summary>
+        /// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
+        /// </summary>
         [Input("expansionVlan2", required: true)]
         public Input<Inputs.EnvironmentInitialVlanInfoArgs> ExpansionVlan2 { get; set; } = null!;
 
+        /// <summary>
+        /// The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+        /// </summary>
         [Input("hcx", required: true)]
         public Input<Inputs.EnvironmentInitialVlanInfoArgs> Hcx { get; set; } = null!;
 
+        /// <summary>
+        /// The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
+        /// </summary>
         [Input("nsxUpLink", required: true)]
         public Input<Inputs.EnvironmentInitialVlanInfoArgs> NsxUpLink { get; set; } = null!;
 
+        /// <summary>
+        /// The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
+        /// </summary>
         [Input("vMotion", required: true)]
         public Input<Inputs.EnvironmentInitialVlanInfoArgs> VMotion { get; set; } = null!;
 
+        /// <summary>
+        /// The vSAN VLAN subnet. This VLAN subnet carries the communication between ESXi hosts to implement a vSAN shared storage pool.
+        /// </summary>
         [Input("vSan", required: true)]
         public Input<Inputs.EnvironmentInitialVlanInfoArgs> VSan { get; set; } = null!;
 
+        /// <summary>
+        /// The VTEP VLAN subnet. This VLAN subnet handles internal network traffic between virtual machines within a VCF instance.
+        /// </summary>
         [Input("vTep", required: true)]
         public Input<Inputs.EnvironmentInitialVlanInfoArgs> VTep { get; set; } = null!;
 
+        /// <summary>
+        /// The VM management VLAN subnet. This VLAN subnet carries traffic for vSphere virtual machines.
+        /// </summary>
         [Input("vmManagement", required: true)]
         public Input<Inputs.EnvironmentInitialVlanInfoArgs> VmManagement { get; set; } = null!;
 
+        /// <summary>
+        /// The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
+        /// </summary>
         [Input("vmkManagement", required: true)]
         public Input<Inputs.EnvironmentInitialVlanInfoArgs> VmkManagement { get; set; } = null!;
 

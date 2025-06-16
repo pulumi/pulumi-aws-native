@@ -27,7 +27,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventSourceMappingResult:
-    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, document_db_event_source_config=None, enabled=None, event_source_mapping_arn=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, kms_key_arn=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, metrics_config=None, parallelization_factor=None, provisioned_poller_config=None, queues=None, scaling_config=None, source_access_configurations=None, tags=None, topics=None, tumbling_window_in_seconds=None):
+    def __init__(__self__, amazon_managed_kafka_event_source_config=None, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, document_db_event_source_config=None, enabled=None, event_source_mapping_arn=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, kms_key_arn=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, metrics_config=None, parallelization_factor=None, provisioned_poller_config=None, queues=None, scaling_config=None, self_managed_kafka_event_source_config=None, source_access_configurations=None, tags=None, topics=None, tumbling_window_in_seconds=None):
+        if amazon_managed_kafka_event_source_config and not isinstance(amazon_managed_kafka_event_source_config, dict):
+            raise TypeError("Expected argument 'amazon_managed_kafka_event_source_config' to be a dict")
+        pulumi.set(__self__, "amazon_managed_kafka_event_source_config", amazon_managed_kafka_event_source_config)
         if batch_size and not isinstance(batch_size, int):
             raise TypeError("Expected argument 'batch_size' to be a int")
         pulumi.set(__self__, "batch_size", batch_size)
@@ -85,6 +88,9 @@ class GetEventSourceMappingResult:
         if scaling_config and not isinstance(scaling_config, dict):
             raise TypeError("Expected argument 'scaling_config' to be a dict")
         pulumi.set(__self__, "scaling_config", scaling_config)
+        if self_managed_kafka_event_source_config and not isinstance(self_managed_kafka_event_source_config, dict):
+            raise TypeError("Expected argument 'self_managed_kafka_event_source_config' to be a dict")
+        pulumi.set(__self__, "self_managed_kafka_event_source_config", self_managed_kafka_event_source_config)
         if source_access_configurations and not isinstance(source_access_configurations, list):
             raise TypeError("Expected argument 'source_access_configurations' to be a list")
         pulumi.set(__self__, "source_access_configurations", source_access_configurations)
@@ -99,17 +105,25 @@ class GetEventSourceMappingResult:
         pulumi.set(__self__, "tumbling_window_in_seconds", tumbling_window_in_seconds)
 
     @property
+    @pulumi.getter(name="amazonManagedKafkaEventSourceConfig")
+    def amazon_managed_kafka_event_source_config(self) -> Optional['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig']:
+        """
+        Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
+        """
+        return pulumi.get(self, "amazon_managed_kafka_event_source_config")
+
+    @property
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> Optional[builtins.int]:
         """
         The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
-          +   *Amazon Kinesis* – Default 100. Max 10,000.
-          +   *Amazon DynamoDB Streams* – Default 100. Max 10,000.
-          +   *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
-          +   *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
-          +   *Self-managed Apache Kafka* – Default 100. Max 10,000.
-          +   *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
-          +   *DocumentDB* – Default 100. Max 10,000.
+          +  *Amazon Kinesis* – Default 100. Max 10,000.
+          +  *Amazon DynamoDB Streams* – Default 100. Max 10,000.
+          +  *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
+          +  *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
+          +  *Self-managed Apache Kafka* – Default 100. Max 10,000.
+          +  *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
+          +  *DocumentDB* – Default 100. Max 10,000.
         """
         return pulumi.get(self, "batch_size")
 
@@ -169,10 +183,10 @@ class GetEventSourceMappingResult:
         """
         The name or ARN of the Lambda function.
           **Name formats**
-         +   *Function name* – ``MyFunction``.
-          +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
-          +   *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
-          +   *Partial ARN* – ``123456789012:function:MyFunction``.
+         +  *Function name* – ``MyFunction``.
+          +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
+          +  *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
+          +  *Partial ARN* – ``123456789012:function:MyFunction``.
           
          The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
         """
@@ -208,9 +222,9 @@ class GetEventSourceMappingResult:
     def maximum_batching_window_in_seconds(self) -> Optional[builtins.int]:
         """
         The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-          *Default (, , event sources)*: 0
-          *Default (, Kafka, , event sources)*: 500 ms
-          *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+         *Default (, , event sources)*: 0
+         *Default (, Kafka, , event sources)*: 500 ms
+         *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
         """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
@@ -272,6 +286,14 @@ class GetEventSourceMappingResult:
         return pulumi.get(self, "scaling_config")
 
     @property
+    @pulumi.getter(name="selfManagedKafkaEventSourceConfig")
+    def self_managed_kafka_event_source_config(self) -> Optional['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig']:
+        """
+        Specific configuration settings for a self-managed Apache Kafka event source.
+        """
+        return pulumi.get(self, "self_managed_kafka_event_source_config")
+
+    @property
     @pulumi.getter(name="sourceAccessConfigurations")
     def source_access_configurations(self) -> Optional[Sequence['outputs.EventSourceMappingSourceAccessConfiguration']]:
         """
@@ -311,6 +333,7 @@ class AwaitableGetEventSourceMappingResult(GetEventSourceMappingResult):
         if False:
             yield self
         return GetEventSourceMappingResult(
+            amazon_managed_kafka_event_source_config=self.amazon_managed_kafka_event_source_config,
             batch_size=self.batch_size,
             bisect_batch_on_function_error=self.bisect_batch_on_function_error,
             destination_config=self.destination_config,
@@ -330,6 +353,7 @@ class AwaitableGetEventSourceMappingResult(GetEventSourceMappingResult):
             provisioned_poller_config=self.provisioned_poller_config,
             queues=self.queues,
             scaling_config=self.scaling_config,
+            self_managed_kafka_event_source_config=self.self_managed_kafka_event_source_config,
             source_access_configurations=self.source_access_configurations,
             tags=self.tags,
             topics=self.topics,
@@ -358,6 +382,7 @@ def get_event_source_mapping(id: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lambda:getEventSourceMapping', __args__, opts=opts, typ=GetEventSourceMappingResult).value
 
     return AwaitableGetEventSourceMappingResult(
+        amazon_managed_kafka_event_source_config=pulumi.get(__ret__, 'amazon_managed_kafka_event_source_config'),
         batch_size=pulumi.get(__ret__, 'batch_size'),
         bisect_batch_on_function_error=pulumi.get(__ret__, 'bisect_batch_on_function_error'),
         destination_config=pulumi.get(__ret__, 'destination_config'),
@@ -377,6 +402,7 @@ def get_event_source_mapping(id: Optional[builtins.str] = None,
         provisioned_poller_config=pulumi.get(__ret__, 'provisioned_poller_config'),
         queues=pulumi.get(__ret__, 'queues'),
         scaling_config=pulumi.get(__ret__, 'scaling_config'),
+        self_managed_kafka_event_source_config=pulumi.get(__ret__, 'self_managed_kafka_event_source_config'),
         source_access_configurations=pulumi.get(__ret__, 'source_access_configurations'),
         tags=pulumi.get(__ret__, 'tags'),
         topics=pulumi.get(__ret__, 'topics'),
@@ -402,6 +428,7 @@ def get_event_source_mapping_output(id: Optional[pulumi.Input[builtins.str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getEventSourceMapping', __args__, opts=opts, typ=GetEventSourceMappingResult)
     return __ret__.apply(lambda __response__: GetEventSourceMappingResult(
+        amazon_managed_kafka_event_source_config=pulumi.get(__response__, 'amazon_managed_kafka_event_source_config'),
         batch_size=pulumi.get(__response__, 'batch_size'),
         bisect_batch_on_function_error=pulumi.get(__response__, 'bisect_batch_on_function_error'),
         destination_config=pulumi.get(__response__, 'destination_config'),
@@ -421,6 +448,7 @@ def get_event_source_mapping_output(id: Optional[pulumi.Input[builtins.str]] = N
         provisioned_poller_config=pulumi.get(__response__, 'provisioned_poller_config'),
         queues=pulumi.get(__response__, 'queues'),
         scaling_config=pulumi.get(__response__, 'scaling_config'),
+        self_managed_kafka_event_source_config=pulumi.get(__response__, 'self_managed_kafka_event_source_config'),
         source_access_configurations=pulumi.get(__response__, 'source_access_configurations'),
         tags=pulumi.get(__response__, 'tags'),
         topics=pulumi.get(__response__, 'topics'),

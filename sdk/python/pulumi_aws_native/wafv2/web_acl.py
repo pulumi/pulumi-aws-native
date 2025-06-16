@@ -35,7 +35,7 @@ class WebAclArgs:
                  data_protection_config: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 on_source_d_do_s_protection_config: Optional[Any] = None,
+                 on_source_d_do_s_protection_config: Optional[pulumi.Input['WebAclOnSourceDDoSProtectionConfigArgs']] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
@@ -65,7 +65,7 @@ class WebAclArgs:
         :param pulumi.Input['WebAclDataProtectionConfigArgs'] data_protection_config: Collection of dataProtects.
         :param pulumi.Input[builtins.str] description: A description of the web ACL that helps with identification.
         :param pulumi.Input[builtins.str] name: The name of the web ACL. You cannot change the name of a web ACL after you create it.
-        :param Any on_source_d_do_s_protection_config: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        :param pulumi.Input['WebAclOnSourceDDoSProtectionConfigArgs'] on_source_d_do_s_protection_config: Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Collection of Rules.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
                
@@ -234,14 +234,14 @@ class WebAclArgs:
 
     @property
     @pulumi.getter(name="onSourceDDoSProtectionConfig")
-    def on_source_d_do_s_protection_config(self) -> Optional[Any]:
+    def on_source_d_do_s_protection_config(self) -> Optional[pulumi.Input['WebAclOnSourceDDoSProtectionConfigArgs']]:
         """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
         """
         return pulumi.get(self, "on_source_d_do_s_protection_config")
 
     @on_source_d_do_s_protection_config.setter
-    def on_source_d_do_s_protection_config(self, value: Optional[Any]):
+    def on_source_d_do_s_protection_config(self, value: Optional[pulumi.Input['WebAclOnSourceDDoSProtectionConfigArgs']]):
         pulumi.set(self, "on_source_d_do_s_protection_config", value)
 
     @property
@@ -297,7 +297,7 @@ class WebAcl(pulumi.CustomResource):
                  default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 on_source_d_do_s_protection_config: Optional[Any] = None,
+                 on_source_d_do_s_protection_config: Optional[pulumi.Input[Union['WebAclOnSourceDDoSProtectionConfigArgs', 'WebAclOnSourceDDoSProtectionConfigArgsDict']]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input['WebAclScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -327,7 +327,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']] default_action: The action to perform if none of the `Rules` contained in the `WebACL` match.
         :param pulumi.Input[builtins.str] description: A description of the web ACL that helps with identification.
         :param pulumi.Input[builtins.str] name: The name of the web ACL. You cannot change the name of a web ACL after you create it.
-        :param Any on_source_d_do_s_protection_config: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        :param pulumi.Input[Union['WebAclOnSourceDDoSProtectionConfigArgs', 'WebAclOnSourceDDoSProtectionConfigArgsDict']] on_source_d_do_s_protection_config: Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]] rules: Collection of Rules.
         :param pulumi.Input['WebAclScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
                
@@ -372,7 +372,7 @@ class WebAcl(pulumi.CustomResource):
                  default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 on_source_d_do_s_protection_config: Optional[Any] = None,
+                 on_source_d_do_s_protection_config: Optional[pulumi.Input[Union['WebAclOnSourceDDoSProtectionConfigArgs', 'WebAclOnSourceDDoSProtectionConfigArgsDict']]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input['WebAclScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -569,9 +569,9 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="onSourceDDoSProtectionConfig")
-    def on_source_d_do_s_protection_config(self) -> pulumi.Output[Optional[Any]]:
+    def on_source_d_do_s_protection_config(self) -> pulumi.Output[Optional['outputs.WebAclOnSourceDDoSProtectionConfig']]:
         """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
         """
         return pulumi.get(self, "on_source_d_do_s_protection_config")
 

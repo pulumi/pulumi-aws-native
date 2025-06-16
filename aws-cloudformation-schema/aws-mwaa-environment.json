@@ -283,6 +283,9 @@
         },
         "Error" : {
           "$ref" : "#/definitions/UpdateError"
+        },
+        "WorkerReplacementStrategy" : {
+          "$ref" : "#/definitions/WorkerReplacementStrategy"
         }
       }
     },
@@ -332,6 +335,11 @@
       "type" : "string",
       "description" : "The webserver VPC endpoint service name, applicable if private webserver access mode selected.",
       "maxLength" : 1224
+    },
+    "WorkerReplacementStrategy" : {
+      "type" : "string",
+      "description" : "The worker replacement strategy to use when updating the environment. Valid values: `FORCED`, `GRACEFUL`. FORCED means Apache Airflow workers will be stopped and replaced without waiting for tasks to complete before an update. GRACEFUL means Apache Airflow workers will be able to complete running tasks for up to 12 hours during an update before being stopped and replaced.",
+      "enum" : [ "FORCED", "GRACEFUL" ]
     }
   },
   "properties" : {
@@ -426,12 +434,16 @@
     },
     "WebserverVpcEndpointService" : {
       "$ref" : "#/definitions/WebserverVpcEndpointService"
+    },
+    "WorkerReplacementStrategy" : {
+      "$ref" : "#/definitions/WorkerReplacementStrategy"
     }
   },
   "additionalProperties" : false,
   "required" : [ "Name" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/KmsKey", "/properties/NetworkConfiguration/SubnetIds", "/properties/EndpointManagement" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CeleryExecutorQueue", "/properties/DatabaseVpcEndpointService", "/properties/WebserverVpcEndpointService", "/properties/WebserverUrl", "/properties/LoggingConfiguration/DagProcessingLogs/CloudWatchLogGroupArn", "/properties/LoggingConfiguration/SchedulerLogs/CloudWatchLogGroupArn", "/properties/LoggingConfiguration/WebserverLogs/CloudWatchLogGroupArn", "/properties/LoggingConfiguration/WorkerLogs/CloudWatchLogGroupArn", "/properties/LoggingConfiguration/TaskLogs/CloudWatchLogGroupArn" ],
+  "writeOnlyProperties" : [ "/properties/WorkerReplacementStrategy" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
@@ -443,7 +455,7 @@
     },
     "update" : {
       "permissions" : [ "airflow:GetEnvironment", "airflow:UpdateEnvironment", "airflow:TagResource", "airflow:UntagResource", "iam:PassRole", "iam:ListRoles", "iam:AttachRolePolicy", "s3:GetBucketLocation", "s3:ListBucket", "s3:ListBucketVersions", "s3:GetEncryptionConfiguration", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeRouteTables", "kms:DescribeKey", "kms:ListAliases" ],
-      "timeoutInMinutes" : 480
+      "timeoutInMinutes" : 900
     },
     "delete" : {
       "permissions" : [ "airflow:GetEnvironment", "airflow:DeleteEnvironment" ]

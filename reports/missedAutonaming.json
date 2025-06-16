@@ -4178,6 +4178,13 @@
   "aws-native:ec2:EgressOnlyInternetGateway": {
     "cfTypeName": "AWS::EC2::EgressOnlyInternetGateway",
     "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Any tags assigned to the egress only internet gateway."
+      },
       "vpcId": {
         "type": "string",
         "description": "The ID of the VPC for which to create the egress-only internet gateway."
@@ -5663,7 +5670,7 @@
       },
       "mapPublicIpOnLaunch": {
         "type": "boolean",
-        "description": "Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.\n  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/)."
+        "description": "Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.\n AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/)."
       },
       "outpostArn": {
         "type": "string",
@@ -7198,10 +7205,12 @@
         "description": "Valid IPv4 address within the address range of the specified subnet."
       },
       "ipAddressType": {
-        "$ref": "#/types/aws-native:efs:MountTargetIpAddressType"
+        "$ref": "#/types/aws-native:efs:MountTargetIpAddressType",
+        "description": "The IP address type for the mount target. The possible values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). If you don’t specify an `IpAddressType` , then `IPV4_ONLY` is used.\n\n\u003e The `IPAddressType` must match the IP type of the subnet. Additionally, the `IPAddressType` parameter overrides the value set as the default IP address for the subnet in the VPC. For example, if the `IPAddressType` is `IPV4_ONLY` and `AssignIpv6AddressOnCreation` is `true` , then IPv4 is used for the mount target. For more information, see [Modify the IP addressing attributes of your subnet](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-public-ip.html) ."
       },
       "ipv6Address": {
-        "type": "string"
+        "type": "string",
+        "description": "If the `IPAddressType` for the mount target is IPv6 ( `IPV6_ONLY` or `DUAL_STACK` ), then specify the IPv6 address to use. If you do not specify an `Ipv6Address` , then Amazon EFS selects an unused IP address from the subnet specified for `SubnetId` ."
       },
       "securityGroups": {
         "type": "array",
@@ -9202,7 +9211,7 @@
       },
       "batchSize": {
         "type": "integer",
-        "description": "The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).\n  +   *Amazon Kinesis* – Default 100. Max 10,000.\n  +   *Amazon DynamoDB Streams* – Default 100. Max 10,000.\n  +   *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.\n  +   *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.\n  +   *Self-managed Apache Kafka* – Default 100. Max 10,000.\n  +   *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.\n  +   *DocumentDB* – Default 100. Max 10,000."
+        "description": "The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).\n  +  *Amazon Kinesis* – Default 100. Max 10,000.\n  +  *Amazon DynamoDB Streams* – Default 100. Max 10,000.\n  +  *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.\n  +  *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.\n  +  *Self-managed Apache Kafka* – Default 100. Max 10,000.\n  +  *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.\n  +  *DocumentDB* – Default 100. Max 10,000."
       },
       "bisectBatchOnFunctionError": {
         "type": "boolean",
@@ -9222,7 +9231,7 @@
       },
       "eventSourceArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the event source.\n  +   *Amazon Kinesis* – The ARN of the data stream or a stream consumer.\n  +   *Amazon DynamoDB Streams* – The ARN of the stream.\n  +   *Amazon Simple Queue Service* – The ARN of the queue.\n  +   *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster or the ARN of the VPC connection (for [cross-account event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc)).\n  +   *Amazon MQ* – The ARN of the broker.\n  +   *Amazon DocumentDB* – The ARN of the DocumentDB change stream."
+        "description": "The Amazon Resource Name (ARN) of the event source.\n  +  *Amazon Kinesis* – The ARN of the data stream or a stream consumer.\n  +  *Amazon DynamoDB Streams* – The ARN of the stream.\n  +  *Amazon Simple Queue Service* – The ARN of the queue.\n  +  *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster or the ARN of the VPC connection (for [cross-account event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc)).\n  +  *Amazon MQ* – The ARN of the broker.\n  +  *Amazon DocumentDB* – The ARN of the DocumentDB change stream."
       },
       "filterCriteria": {
         "$ref": "#/types/aws-native:lambda:EventSourceMappingFilterCriteria",
@@ -9230,7 +9239,7 @@
       },
       "functionName": {
         "type": "string",
-        "description": "The name or ARN of the Lambda function.\n  **Name formats**\n +   *Function name* – ``MyFunction``.\n  +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.\n  +   *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.\n  +   *Partial ARN* – ``123456789012:function:MyFunction``.\n  \n The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length."
+        "description": "The name or ARN of the Lambda function.\n  **Name formats**\n +  *Function name* – ``MyFunction``.\n  +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.\n  +  *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.\n  +  *Partial ARN* – ``123456789012:function:MyFunction``.\n  \n The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length."
       },
       "functionResponseTypes": {
         "type": "array",
@@ -9245,7 +9254,7 @@
       },
       "maximumBatchingWindowInSeconds": {
         "type": "integer",
-        "description": "The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.\n  *Default (, , event sources)*: 0\n  *Default (, Kafka, , event sources)*: 500 ms\n  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1."
+        "description": "The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.\n *Default (, , event sources)*: 0\n *Default (, Kafka, , event sources)*: 500 ms\n *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1."
       },
       "maximumRecordAgeInSeconds": {
         "type": "integer",
@@ -9295,7 +9304,7 @@
       },
       "startingPosition": {
         "type": "string",
-        "description": "The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.\n  +   *LATEST* - Read only new records.\n  +   *TRIM_HORIZON* - Process all available records.\n  +   *AT_TIMESTAMP* - Specify a time from which to start reading records."
+        "description": "The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.\n  +  *LATEST* - Read only new records.\n  +  *TRIM_HORIZON* - Process all available records.\n  +  *AT_TIMESTAMP* - Specify a time from which to start reading records."
       },
       "startingPositionTimestamp": {
         "type": "number",
@@ -10745,103 +10754,6 @@
           "type": "string"
         },
         "description": "Tags to apply to the link"
-      }
-    }
-  },
-  "aws-native:opsworkscm:Server": {
-    "cfTypeName": "AWS::OpsWorksCM::Server",
-    "properties": {
-      "associatePublicIpAddress": {
-        "type": "boolean",
-        "description": "Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` ."
-      },
-      "backupId": {
-        "type": "string",
-        "description": "If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId."
-      },
-      "backupRetentionCount": {
-        "type": "integer",
-        "description": "The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` ."
-      },
-      "customCertificate": {
-        "type": "string",
-        "description": "Supported on servers running Chef Automate 2.0 only. A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a custom certificate, you must also specify values for `CustomDomain` and `CustomPrivateKey` . The following are requirements for the `CustomCertificate` value:\n\n- You can provide either a self-signed, custom certificate, or the full certificate chain.\n- The certificate must be a valid X509 certificate, or a certificate chain in PEM format.\n- The certificate must be valid at the time of upload. A certificate can't be used before its validity period begins (the certificate's `NotBefore` date), or after it expires (the certificate's `NotAfter` date).\n- The certificate’s common name or subject alternative names (SANs), if present, must match the value of `CustomDomain` .\n- The certificate must match the value of `CustomPrivateKey` ."
-      },
-      "customDomain": {
-        "type": "string",
-        "description": "Supported on servers running Chef Automate 2.0 only. An optional public endpoint of a server, such as `https://aws.my-company.com` . To access the server, create a CNAME DNS record in your preferred DNS service that points the custom domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the generated `Endpoint` value if the server is using a custom domain. If you specify a custom domain, you must also specify values for `CustomCertificate` and `CustomPrivateKey` ."
-      },
-      "customPrivateKey": {
-        "type": "string",
-        "description": "Supported on servers running Chef Automate 2.0 only. A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase. If you specify a custom private key, you must also specify values for `CustomDomain` and `CustomCertificate` ."
-      },
-      "disableAutomatedBackup": {
-        "type": "boolean",
-        "description": "Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` ."
-      },
-      "engine": {
-        "type": "string",
-        "description": "The configuration management engine to use. Valid values include `ChefAutomate` and `Puppet` ."
-      },
-      "engineAttributes": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:opsworkscm:ServerEngineAttribute"
-        },
-        "description": "Optional engine attributes on a specified server.\n\n**Attributes accepted in a Chef createServer request:** - `CHEF_AUTOMATE_PIVOTAL_KEY` : A base64-encoded RSA public key. The corresponding private key is required to access the Chef API. When no CHEF_AUTOMATE_PIVOTAL_KEY is set, a private key is generated and returned in the response. When you are specifying the value of CHEF_AUTOMATE_PIVOTAL_KEY as a parameter in the AWS CloudFormation console, you must add newline ( `\\n` ) characters at the end of each line of the pivotal key value.\n- `CHEF_AUTOMATE_ADMIN_PASSWORD` : The password for the administrative user in the Chef Automate web-based dashboard. The password length is a minimum of eight characters, and a maximum of 32. The password can contain letters, numbers, and special characters (!/@#$%^\u0026+=_). The password must contain at least one lower case letter, one upper case letter, one number, and one special character. When no CHEF_AUTOMATE_ADMIN_PASSWORD is set, one is generated and returned in the response.\n\n**Attributes accepted in a Puppet createServer request:** - `PUPPET_ADMIN_PASSWORD` : To work with the Puppet Enterprise console, a password must use ASCII characters.\n- `PUPPET_R10K_REMOTE` : The r10k remote is the URL of your control repository (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k remote opens TCP port 8170.\n- `PUPPET_R10K_PRIVATE_KEY` : If you are using a private Git repository, add PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded private SSH key."
-      },
-      "engineModel": {
-        "type": "string",
-        "description": "The engine model of the server. Valid values in this release include `Monolithic` for Puppet and `Single` for Chef."
-      },
-      "engineVersion": {
-        "type": "string",
-        "description": "The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently `2` . For a Puppet server, valid values are `2019` or `2017` ."
-      },
-      "instanceProfileArn": {
-        "type": "string",
-        "description": "The ARN of the instance profile that your Amazon EC2 instances use."
-      },
-      "instanceType": {
-        "type": "string",
-        "description": "The Amazon EC2 instance type to use. For example, `m5.large` ."
-      },
-      "keyPair": {
-        "type": "string",
-        "description": "The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH."
-      },
-      "preferredBackupWindow": {
-        "type": "string",
-        "description": "The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:\n\n- `HH:MM` for daily backups\n- `DDD:HH:MM` for weekly backups\n\n`MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random, daily start time.\n\n*Example:* `08:00` , which represents a daily start time of 08:00 UTC.\n\n*Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)"
-      },
-      "preferredMaintenanceWindow": {
-        "type": "string",
-        "description": "The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance. Valid values must be specified in the following format: `DDD:HH:MM` . `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See `TimeWindowDefinition` for more information.\n\n*Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)"
-      },
-      "securityGroupIds": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups must be within the VPC that is specified by `SubnetIds` .\n\nIf you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone)."
-      },
-      "serviceRoleArn": {
-        "type": "string",
-        "description": "The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need."
-      },
-      "subnetIds": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "The IDs of subnets in which to launch the server EC2 instance.\n\nAmazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have \"Auto Assign Public IP\" enabled.\n\nEC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have \"Auto Assign Public IP\" enabled.\n\nFor more information about supported Amazon EC2 platforms, see [Supported Platforms](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html) ."
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.\n\n- The key cannot be empty.\n- The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : / @`\n- The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : / @`\n- Leading and trailing spaces are trimmed from both the key and value.\n- A maximum of 50 user-applied tags is allowed for any AWS OpsWorks CM server."
       }
     }
   },

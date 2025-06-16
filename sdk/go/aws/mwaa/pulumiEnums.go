@@ -513,6 +513,172 @@ func (in *environmentWebserverAccessModePtr) ToEnvironmentWebserverAccessModePtr
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentWebserverAccessModePtrOutput)
 }
 
+// The worker replacement strategy to use when updating the environment. Valid values: `FORCED`, `GRACEFUL`. FORCED means Apache Airflow workers will be stopped and replaced without waiting for tasks to complete before an update. GRACEFUL means Apache Airflow workers will be able to complete running tasks for up to 12 hours during an update before being stopped and replaced.
+type EnvironmentWorkerReplacementStrategy string
+
+const (
+	EnvironmentWorkerReplacementStrategyForced   = EnvironmentWorkerReplacementStrategy("FORCED")
+	EnvironmentWorkerReplacementStrategyGraceful = EnvironmentWorkerReplacementStrategy("GRACEFUL")
+)
+
+func (EnvironmentWorkerReplacementStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentWorkerReplacementStrategy)(nil)).Elem()
+}
+
+func (e EnvironmentWorkerReplacementStrategy) ToEnvironmentWorkerReplacementStrategyOutput() EnvironmentWorkerReplacementStrategyOutput {
+	return pulumi.ToOutput(e).(EnvironmentWorkerReplacementStrategyOutput)
+}
+
+func (e EnvironmentWorkerReplacementStrategy) ToEnvironmentWorkerReplacementStrategyOutputWithContext(ctx context.Context) EnvironmentWorkerReplacementStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EnvironmentWorkerReplacementStrategyOutput)
+}
+
+func (e EnvironmentWorkerReplacementStrategy) ToEnvironmentWorkerReplacementStrategyPtrOutput() EnvironmentWorkerReplacementStrategyPtrOutput {
+	return e.ToEnvironmentWorkerReplacementStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e EnvironmentWorkerReplacementStrategy) ToEnvironmentWorkerReplacementStrategyPtrOutputWithContext(ctx context.Context) EnvironmentWorkerReplacementStrategyPtrOutput {
+	return EnvironmentWorkerReplacementStrategy(e).ToEnvironmentWorkerReplacementStrategyOutputWithContext(ctx).ToEnvironmentWorkerReplacementStrategyPtrOutputWithContext(ctx)
+}
+
+func (e EnvironmentWorkerReplacementStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnvironmentWorkerReplacementStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnvironmentWorkerReplacementStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EnvironmentWorkerReplacementStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EnvironmentWorkerReplacementStrategyOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentWorkerReplacementStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentWorkerReplacementStrategy)(nil)).Elem()
+}
+
+func (o EnvironmentWorkerReplacementStrategyOutput) ToEnvironmentWorkerReplacementStrategyOutput() EnvironmentWorkerReplacementStrategyOutput {
+	return o
+}
+
+func (o EnvironmentWorkerReplacementStrategyOutput) ToEnvironmentWorkerReplacementStrategyOutputWithContext(ctx context.Context) EnvironmentWorkerReplacementStrategyOutput {
+	return o
+}
+
+func (o EnvironmentWorkerReplacementStrategyOutput) ToEnvironmentWorkerReplacementStrategyPtrOutput() EnvironmentWorkerReplacementStrategyPtrOutput {
+	return o.ToEnvironmentWorkerReplacementStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentWorkerReplacementStrategyOutput) ToEnvironmentWorkerReplacementStrategyPtrOutputWithContext(ctx context.Context) EnvironmentWorkerReplacementStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentWorkerReplacementStrategy) *EnvironmentWorkerReplacementStrategy {
+		return &v
+	}).(EnvironmentWorkerReplacementStrategyPtrOutput)
+}
+
+func (o EnvironmentWorkerReplacementStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EnvironmentWorkerReplacementStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnvironmentWorkerReplacementStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EnvironmentWorkerReplacementStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentWorkerReplacementStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnvironmentWorkerReplacementStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentWorkerReplacementStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentWorkerReplacementStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentWorkerReplacementStrategy)(nil)).Elem()
+}
+
+func (o EnvironmentWorkerReplacementStrategyPtrOutput) ToEnvironmentWorkerReplacementStrategyPtrOutput() EnvironmentWorkerReplacementStrategyPtrOutput {
+	return o
+}
+
+func (o EnvironmentWorkerReplacementStrategyPtrOutput) ToEnvironmentWorkerReplacementStrategyPtrOutputWithContext(ctx context.Context) EnvironmentWorkerReplacementStrategyPtrOutput {
+	return o
+}
+
+func (o EnvironmentWorkerReplacementStrategyPtrOutput) Elem() EnvironmentWorkerReplacementStrategyOutput {
+	return o.ApplyT(func(v *EnvironmentWorkerReplacementStrategy) EnvironmentWorkerReplacementStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentWorkerReplacementStrategy
+		return ret
+	}).(EnvironmentWorkerReplacementStrategyOutput)
+}
+
+func (o EnvironmentWorkerReplacementStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentWorkerReplacementStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EnvironmentWorkerReplacementStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EnvironmentWorkerReplacementStrategyInput is an input type that accepts values of the EnvironmentWorkerReplacementStrategy enum
+// A concrete instance of `EnvironmentWorkerReplacementStrategyInput` can be one of the following:
+//
+//	EnvironmentWorkerReplacementStrategyForced
+//	EnvironmentWorkerReplacementStrategyGraceful
+type EnvironmentWorkerReplacementStrategyInput interface {
+	pulumi.Input
+
+	ToEnvironmentWorkerReplacementStrategyOutput() EnvironmentWorkerReplacementStrategyOutput
+	ToEnvironmentWorkerReplacementStrategyOutputWithContext(context.Context) EnvironmentWorkerReplacementStrategyOutput
+}
+
+var environmentWorkerReplacementStrategyPtrType = reflect.TypeOf((**EnvironmentWorkerReplacementStrategy)(nil)).Elem()
+
+type EnvironmentWorkerReplacementStrategyPtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentWorkerReplacementStrategyPtrOutput() EnvironmentWorkerReplacementStrategyPtrOutput
+	ToEnvironmentWorkerReplacementStrategyPtrOutputWithContext(context.Context) EnvironmentWorkerReplacementStrategyPtrOutput
+}
+
+type environmentWorkerReplacementStrategyPtr string
+
+func EnvironmentWorkerReplacementStrategyPtr(v string) EnvironmentWorkerReplacementStrategyPtrInput {
+	return (*environmentWorkerReplacementStrategyPtr)(&v)
+}
+
+func (*environmentWorkerReplacementStrategyPtr) ElementType() reflect.Type {
+	return environmentWorkerReplacementStrategyPtrType
+}
+
+func (in *environmentWorkerReplacementStrategyPtr) ToEnvironmentWorkerReplacementStrategyPtrOutput() EnvironmentWorkerReplacementStrategyPtrOutput {
+	return pulumi.ToOutput(in).(EnvironmentWorkerReplacementStrategyPtrOutput)
+}
+
+func (in *environmentWorkerReplacementStrategyPtr) ToEnvironmentWorkerReplacementStrategyPtrOutputWithContext(ctx context.Context) EnvironmentWorkerReplacementStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentWorkerReplacementStrategyPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEndpointManagementInput)(nil)).Elem(), EnvironmentEndpointManagement("CUSTOMER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEndpointManagementPtrInput)(nil)).Elem(), EnvironmentEndpointManagement("CUSTOMER"))
@@ -520,10 +686,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingLevelPtrInput)(nil)).Elem(), EnvironmentLoggingLevel("CRITICAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWebserverAccessModeInput)(nil)).Elem(), EnvironmentWebserverAccessMode("PRIVATE_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWebserverAccessModePtrInput)(nil)).Elem(), EnvironmentWebserverAccessMode("PRIVATE_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWorkerReplacementStrategyInput)(nil)).Elem(), EnvironmentWorkerReplacementStrategy("FORCED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWorkerReplacementStrategyPtrInput)(nil)).Elem(), EnvironmentWorkerReplacementStrategy("FORCED"))
 	pulumi.RegisterOutputType(EnvironmentEndpointManagementOutput{})
 	pulumi.RegisterOutputType(EnvironmentEndpointManagementPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentLoggingLevelOutput{})
 	pulumi.RegisterOutputType(EnvironmentLoggingLevelPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentWebserverAccessModeOutput{})
 	pulumi.RegisterOutputType(EnvironmentWebserverAccessModePtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentWorkerReplacementStrategyOutput{})
+	pulumi.RegisterOutputType(EnvironmentWorkerReplacementStrategyPtrOutput{})
 }

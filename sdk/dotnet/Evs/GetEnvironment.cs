@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Evs
 
     public sealed class GetEnvironmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID for the environment. For example: `env-1234567890` .
+        /// </summary>
         [Input("environmentId", required: true)]
         public string EnvironmentId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Evs
 
     public sealed class GetEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID for the environment. For example: `env-1234567890` .
+        /// </summary>
         [Input("environmentId", required: true)]
         public Input<string> EnvironmentId { get; set; } = null!;
 
@@ -57,13 +63,41 @@ namespace Pulumi.AwsNative.Evs
     [OutputType]
     public sealed class GetEnvironmentResult
     {
+        /// <summary>
+        /// A check on the environment to identify instance health and VMware VCF licensing issues. For example:
+        /// 
+        /// `{ "checks": [ { "type": "KEY_REUSE", "result": "PASSED" }, { "type": "KEY_COVERAGE", "result": "PASSED" }, { "type": "REACHABILITY", "result": "PASSED" }, { "type": "HOST_COUNT", "result": "PASSED" } ] }`
+        /// </summary>
         public readonly ImmutableArray<Outputs.EnvironmentCheck> Checks;
+        /// <summary>
+        /// The date and time that the environment was created. For example: `1749081600.000` .
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The VCF credentials that are stored as Amazon EVS managed secrets in AWS Secrets Manager. Amazon EVS stores credentials that are needed to install vCenter Server, NSX, and SDDC Manager. For example:
+        /// 
+        /// `{ [ { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterAdmin-MnTMEi" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterRoot-87VyCF" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXRoot-SR3k43" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAdmin-L5LUiD" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAudit-Q2oW46" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerRoot-bFulOq" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerVCF-Ec3gES" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerAdmin-JMTAAb" } ] }`
+        /// </summary>
         public readonly ImmutableArray<Outputs.EnvironmentSecret> Credentials;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that is associated with the environment. For example: `arn:aws:evs:us-east-1:000000000000:environment/env-1234567890` .
+        /// </summary>
         public readonly string? EnvironmentArn;
+        /// <summary>
+        /// The unique ID for the environment. For example: `env-1234567890` .
+        /// </summary>
         public readonly string? EnvironmentId;
+        /// <summary>
+        /// The state of an environment. For example: `CREATED` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Evs.EnvironmentState? EnvironmentState;
+        /// <summary>
+        /// The date and time that the environment was modified. For example: `1749081600.000` .
+        /// </summary>
         public readonly string? ModifiedAt;
+        /// <summary>
+        /// A detailed description of the `environmentState` of an environment. For example: `Environment successfully created` .
+        /// </summary>
         public readonly string? StateDetails;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

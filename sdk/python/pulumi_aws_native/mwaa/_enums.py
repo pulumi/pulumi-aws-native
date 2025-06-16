@@ -10,6 +10,7 @@ __all__ = [
     'EnvironmentEndpointManagement',
     'EnvironmentLoggingLevel',
     'EnvironmentWebserverAccessMode',
+    'EnvironmentWorkerReplacementStrategy',
 ]
 
 
@@ -38,3 +39,12 @@ class EnvironmentWebserverAccessMode(builtins.str, Enum):
     """
     PRIVATE_ONLY = "PRIVATE_ONLY"
     PUBLIC_ONLY = "PUBLIC_ONLY"
+
+
+@pulumi.type_token("aws-native:mwaa:EnvironmentWorkerReplacementStrategy")
+class EnvironmentWorkerReplacementStrategy(builtins.str, Enum):
+    """
+    The worker replacement strategy to use when updating the environment. Valid values: `FORCED`, `GRACEFUL`. FORCED means Apache Airflow workers will be stopped and replaced without waiting for tasks to complete before an update. GRACEFUL means Apache Airflow workers will be able to complete running tasks for up to 12 hours during an update before being stopped and replaced.
+    """
+    FORCED = "FORCED"
+    GRACEFUL = "GRACEFUL"

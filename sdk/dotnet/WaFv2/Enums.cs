@@ -1382,6 +1382,34 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode : IEquatable<WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode>
+    {
+        private readonly string _value;
+
+        private WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode ActiveUnderDdos { get; } = new WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode("ACTIVE_UNDER_DDOS");
+        public static WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode AlwaysOn { get; } = new WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode("ALWAYS_ON");
+
+        public static bool operator ==(WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode left, WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode right) => left.Equals(right);
+        public static bool operator !=(WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode left, WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode other && Equals(other);
+        public bool Equals(WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Handling of requests containing oversize fields
     /// </summary>
@@ -1728,6 +1756,35 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct WebAclSensitivityToAct : IEquatable<WebAclSensitivityToAct>
+    {
+        private readonly string _value;
+
+        private WebAclSensitivityToAct(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclSensitivityToAct Low { get; } = new WebAclSensitivityToAct("LOW");
+        public static WebAclSensitivityToAct Medium { get; } = new WebAclSensitivityToAct("MEDIUM");
+        public static WebAclSensitivityToAct High { get; } = new WebAclSensitivityToAct("HIGH");
+
+        public static bool operator ==(WebAclSensitivityToAct left, WebAclSensitivityToAct right) => left.Equals(right);
+        public static bool operator !=(WebAclSensitivityToAct left, WebAclSensitivityToAct right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclSensitivityToAct value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclSensitivityToAct other && Equals(other);
+        public bool Equals(WebAclSensitivityToAct other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The operator to use to compare the request part to the size setting.
     /// </summary>
@@ -1877,6 +1934,34 @@ namespace Pulumi.AwsNative.WaFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebAclUriFragmentFallbackBehavior other && Equals(other);
         public bool Equals(WebAclUriFragmentFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WebAclUsageOfAction : IEquatable<WebAclUsageOfAction>
+    {
+        private readonly string _value;
+
+        private WebAclUsageOfAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclUsageOfAction Enabled { get; } = new WebAclUsageOfAction("ENABLED");
+        public static WebAclUsageOfAction Disabled { get; } = new WebAclUsageOfAction("DISABLED");
+
+        public static bool operator ==(WebAclUsageOfAction left, WebAclUsageOfAction right) => left.Equals(right);
+        public static bool operator !=(WebAclUsageOfAction left, WebAclUsageOfAction right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclUsageOfAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclUsageOfAction other && Equals(other);
+        public bool Equals(WebAclUsageOfAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

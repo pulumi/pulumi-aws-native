@@ -96,6 +96,10 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public readonly string? LaunchPath;
         /// <summary>
+        /// The tags of the application.
+        /// </summary>
+        public readonly ImmutableArray<Union<Outputs.ApplicationTag0Properties, Outputs.ApplicationTag1Properties>> Tags;
+        /// <summary>
         /// The working directory of the application.
         /// </summary>
         public readonly string? WorkingDirectory;
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.AppStream
 
             string? launchPath,
 
+            ImmutableArray<Union<Outputs.ApplicationTag0Properties, Outputs.ApplicationTag1Properties>> tags,
+
             string? workingDirectory)
         {
             AppBlockArn = appBlockArn;
@@ -128,6 +134,7 @@ namespace Pulumi.AwsNative.AppStream
             IconS3Location = iconS3Location;
             LaunchParameters = launchParameters;
             LaunchPath = launchPath;
+            Tags = tags;
             WorkingDirectory = workingDirectory;
         }
     }

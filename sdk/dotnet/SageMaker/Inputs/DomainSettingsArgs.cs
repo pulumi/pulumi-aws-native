@@ -45,6 +45,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
             set => _securityGroupIds = value;
         }
 
+        /// <summary>
+        /// The settings that apply to an SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+        /// </summary>
+        [Input("unifiedStudioSettings")]
+        public Input<Inputs.DomainUnifiedStudioSettingsArgs>? UnifiedStudioSettings { get; set; }
+
         public DomainSettingsArgs()
         {
         }

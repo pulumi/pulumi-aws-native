@@ -92,6 +92,9 @@ namespace Pulumi.AwsNative.OpsWorksCm
         [Output("associatePublicIpAddress")]
         public Output<bool?> AssociatePublicIpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the server.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -224,10 +227,10 @@ namespace Pulumi.AwsNative.OpsWorksCm
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
+        /// The name of the server.
         /// </summary>
         [Output("serverName")]
-        public Output<string> ServerName { get; private set; } = null!;
+        public Output<string?> ServerName { get; private set; } = null!;
 
         /// <summary>
         /// The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
@@ -296,6 +299,7 @@ namespace Pulumi.AwsNative.OpsWorksCm
                     "instanceType",
                     "keyPair",
                     "securityGroupIds[*]",
+                    "serverName",
                     "serviceRoleArn",
                     "subnetIds[*]",
                 },
@@ -460,6 +464,12 @@ namespace Pulumi.AwsNative.OpsWorksCm
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
         }
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName")]
+        public Input<string>? ServerName { get; set; }
 
         /// <summary>
         /// The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.

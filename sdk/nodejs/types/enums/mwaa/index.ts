@@ -31,3 +31,13 @@ export const EnvironmentWebserverAccessMode = {
  * Choice for mode of webserver access including over public internet or via private VPC endpoint.
  */
 export type EnvironmentWebserverAccessMode = (typeof EnvironmentWebserverAccessMode)[keyof typeof EnvironmentWebserverAccessMode];
+
+export const EnvironmentWorkerReplacementStrategy = {
+    Forced: "FORCED",
+    Graceful: "GRACEFUL",
+} as const;
+
+/**
+ * The worker replacement strategy to use when updating the environment. Valid values: `FORCED`, `GRACEFUL`. FORCED means Apache Airflow workers will be stopped and replaced without waiting for tasks to complete before an update. GRACEFUL means Apache Airflow workers will be able to complete running tasks for up to 12 hours during an update before being stopped and replaced.
+ */
+export type EnvironmentWorkerReplacementStrategy = (typeof EnvironmentWorkerReplacementStrategy)[keyof typeof EnvironmentWorkerReplacementStrategy];

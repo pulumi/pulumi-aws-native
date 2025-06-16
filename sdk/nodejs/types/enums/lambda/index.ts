@@ -34,6 +34,37 @@ export const EventSourceMappingMetricsConfigMetricsItem = {
 
 export type EventSourceMappingMetricsConfigMetricsItem = (typeof EventSourceMappingMetricsConfigMetricsItem)[keyof typeof EventSourceMappingMetricsConfigMetricsItem];
 
+export const EventSourceMappingSchemaRegistryAccessConfigType = {
+    BasicAuth: "BASIC_AUTH",
+    ClientCertificateTlsAuth: "CLIENT_CERTIFICATE_TLS_AUTH",
+    ServerRootCaCertificate: "SERVER_ROOT_CA_CERTIFICATE",
+} as const;
+
+/**
+ * The type of authentication Lambda uses to access your schema registry.
+ */
+export type EventSourceMappingSchemaRegistryAccessConfigType = (typeof EventSourceMappingSchemaRegistryAccessConfigType)[keyof typeof EventSourceMappingSchemaRegistryAccessConfigType];
+
+export const EventSourceMappingSchemaRegistryConfigEventRecordFormat = {
+    Json: "JSON",
+    Source: "SOURCE",
+} as const;
+
+/**
+ * The record format that Lambda delivers to your function after schema validation.
+ */
+export type EventSourceMappingSchemaRegistryConfigEventRecordFormat = (typeof EventSourceMappingSchemaRegistryConfigEventRecordFormat)[keyof typeof EventSourceMappingSchemaRegistryConfigEventRecordFormat];
+
+export const EventSourceMappingSchemaValidationConfigAttribute = {
+    Key: "KEY",
+    Value: "VALUE",
+} as const;
+
+/**
+ * The attribute you want your schema registry to validate and filter for.
+ */
+export type EventSourceMappingSchemaValidationConfigAttribute = (typeof EventSourceMappingSchemaValidationConfigAttribute)[keyof typeof EventSourceMappingSchemaValidationConfigAttribute];
+
 export const EventSourceMappingSourceAccessConfigurationType = {
     BasicAuth: "BASIC_AUTH",
     VpcSubnet: "VPC_SUBNET",
@@ -47,15 +78,15 @@ export const EventSourceMappingSourceAccessConfigurationType = {
 
 /**
  * The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
- *   +   ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
- *   +   ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
- *   +   ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
- *   +   ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
- *   +   ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
- *   +   ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
- *   +   ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
- *   +   ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
- *   +   ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+ *   +  ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+ *   +  ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+ *   +  ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+ *   +  ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+ *   +  ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+ *   +  ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+ *   +  ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+ *   +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+ *   +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
  */
 export type EventSourceMappingSourceAccessConfigurationType = (typeof EventSourceMappingSourceAccessConfigurationType)[keyof typeof EventSourceMappingSourceAccessConfigurationType];
 

@@ -71,6 +71,9 @@ class KeySpec(builtins.str, Enum):
     HMAC384 = "HMAC_384"
     HMAC512 = "HMAC_512"
     SM2 = "SM2"
+    ML_DSA44 = "ML_DSA_44"
+    ML_DSA65 = "ML_DSA_65"
+    ML_DSA87 = "ML_DSA_87"
 
 
 @pulumi.type_token("aws-native:kms:KeyUsage")

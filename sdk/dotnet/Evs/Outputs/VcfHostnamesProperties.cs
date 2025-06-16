@@ -10,17 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evs.Outputs
 {
 
+    /// <summary>
+    /// The DNS hostnames to be used by the VCF management appliances in your environment.
+    /// 
+    /// For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
+    /// </summary>
     [OutputType]
     public sealed class VcfHostnamesProperties
     {
+        /// <summary>
+        /// The hostname for VMware Cloud Builder.
+        /// </summary>
         public readonly string CloudBuilder;
+        /// <summary>
+        /// The VMware NSX hostname.
+        /// </summary>
         public readonly string Nsx;
+        /// <summary>
+        /// The hostname for the first NSX Edge node.
+        /// </summary>
         public readonly string NsxEdge1;
+        /// <summary>
+        /// The hostname for the second NSX Edge node.
+        /// </summary>
         public readonly string NsxEdge2;
+        /// <summary>
+        /// The hostname for the first VMware NSX Manager virtual machine (VM).
+        /// </summary>
         public readonly string NsxManager1;
+        /// <summary>
+        /// The hostname for the second VMware NSX Manager virtual machine (VM).
+        /// </summary>
         public readonly string NsxManager2;
+        /// <summary>
+        /// The hostname for the third VMware NSX Manager virtual machine (VM).
+        /// </summary>
         public readonly string NsxManager3;
+        /// <summary>
+        /// The hostname for SDDC Manager.
+        /// </summary>
         public readonly string SddcManager;
+        /// <summary>
+        /// The VMware vCenter hostname.
+        /// </summary>
         public readonly string VCenter;
 
         [OutputConstructor]

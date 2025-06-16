@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServerResult:
-    def __init__(__self__, arn=None, backup_retention_count=None, disable_automated_backup=None, endpoint=None, engine_attributes=None, id=None, preferred_backup_window=None, preferred_maintenance_window=None, server_name=None, tags=None):
+    def __init__(__self__, arn=None, backup_retention_count=None, disable_automated_backup=None, endpoint=None, engine_attributes=None, id=None, preferred_backup_window=None, preferred_maintenance_window=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,9 +51,6 @@ class GetServerResult:
         if preferred_maintenance_window and not isinstance(preferred_maintenance_window, str):
             raise TypeError("Expected argument 'preferred_maintenance_window' to be a str")
         pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
-        if server_name and not isinstance(server_name, str):
-            raise TypeError("Expected argument 'server_name' to be a str")
-        pulumi.set(__self__, "server_name", server_name)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -108,6 +105,9 @@ class GetServerResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[builtins.str]:
+        """
+        The ID of the server.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -138,14 +138,6 @@ class GetServerResult:
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[builtins.str]:
-        """
-        The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
-        """
-        return pulumi.get(self, "server_name")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -174,7 +166,6 @@ class AwaitableGetServerResult(GetServerResult):
             id=self.id,
             preferred_backup_window=self.preferred_backup_window,
             preferred_maintenance_window=self.preferred_maintenance_window,
-            server_name=self.server_name,
             tags=self.tags)
 
 
@@ -182,6 +173,9 @@ def get_server(id: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
     Resource Type definition for AWS::OpsWorksCM::Server
+
+
+    :param builtins.str id: The ID of the server.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -197,12 +191,14 @@ def get_server(id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
-        server_name=pulumi.get(__ret__, 'server_name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_server_output(id: Optional[pulumi.Input[builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Resource Type definition for AWS::OpsWorksCM::Server
+
+
+    :param builtins.str id: The ID of the server.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -217,5 +213,4 @@ def get_server_output(id: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
-        server_name=pulumi.get(__response__, 'server_name'),
         tags=pulumi.get(__response__, 'tags')))

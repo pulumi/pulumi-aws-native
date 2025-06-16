@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetEgressOnlyInternetGatewayResult',
@@ -24,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetEgressOnlyInternetGatewayResult:
-    def __init__(__self__, id=None):
+    def __init__(__self__, id=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -37,6 +41,14 @@ class GetEgressOnlyInternetGatewayResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Any tags assigned to the egress only internet gateway.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetEgressOnlyInternetGatewayResult(GetEgressOnlyInternetGatewayResult):
     # pylint: disable=using-constant-test
@@ -44,7 +56,8 @@ class AwaitableGetEgressOnlyInternetGatewayResult(GetEgressOnlyInternetGatewayRe
         if False:
             yield self
         return GetEgressOnlyInternetGatewayResult(
-            id=self.id)
+            id=self.id,
+            tags=self.tags)
 
 
 def get_egress_only_internet_gateway(id: Optional[builtins.str] = None,
@@ -61,7 +74,8 @@ def get_egress_only_internet_gateway(id: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getEgressOnlyInternetGateway', __args__, opts=opts, typ=GetEgressOnlyInternetGatewayResult).value
 
     return AwaitableGetEgressOnlyInternetGatewayResult(
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_egress_only_internet_gateway_output(id: Optional[pulumi.Input[builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEgressOnlyInternetGatewayResult]:
     """
@@ -75,4 +89,5 @@ def get_egress_only_internet_gateway_output(id: Optional[pulumi.Input[builtins.s
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getEgressOnlyInternetGateway', __args__, opts=opts, typ=GetEgressOnlyInternetGatewayResult)
     return __ret__.apply(lambda __response__: GetEgressOnlyInternetGatewayResult(
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags')))

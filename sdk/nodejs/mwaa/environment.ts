@@ -190,6 +190,7 @@ export class Environment extends pulumi.CustomResource {
      * - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\d|2[0-3]):(00|30)
      */
     public readonly weeklyMaintenanceWindowStart!: pulumi.Output<string | undefined>;
+    public readonly workerReplacementStrategy!: pulumi.Output<enums.mwaa.EnvironmentWorkerReplacementStrategy | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -227,6 +228,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
             resourceInputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
+            resourceInputs["workerReplacementStrategy"] = args ? args.workerReplacementStrategy : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["celeryExecutorQueue"] = undefined /*out*/;
             resourceInputs["databaseVpcEndpointService"] = undefined /*out*/;
@@ -263,6 +265,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["webserverUrl"] = undefined /*out*/;
             resourceInputs["webserverVpcEndpointService"] = undefined /*out*/;
             resourceInputs["weeklyMaintenanceWindowStart"] = undefined /*out*/;
+            resourceInputs["workerReplacementStrategy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["endpointManagement", "kmsKey", "name", "networkConfiguration.subnetIds[*]"] };
@@ -408,4 +411,5 @@ export interface EnvironmentArgs {
      * - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\d|2[0-3]):(00|30)
      */
     weeklyMaintenanceWindowStart?: pulumi.Input<string>;
+    workerReplacementStrategy?: pulumi.Input<enums.mwaa.EnvironmentWorkerReplacementStrategy>;
 }

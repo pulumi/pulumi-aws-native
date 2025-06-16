@@ -107,7 +107,8 @@ type Environment struct {
 	// The day and time of the week to start weekly maintenance updates of your environment in the following format: `DAY:HH:MM` . For example: `TUE:03:30` . You can specify a start time in 30 minute increments only. Supported input includes the following:
 	//
 	// - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\d|2[0-3]):(00|30)
-	WeeklyMaintenanceWindowStart pulumi.StringPtrOutput `pulumi:"weeklyMaintenanceWindowStart"`
+	WeeklyMaintenanceWindowStart pulumi.StringPtrOutput                        `pulumi:"weeklyMaintenanceWindowStart"`
+	WorkerReplacementStrategy    EnvironmentWorkerReplacementStrategyPtrOutput `pulumi:"workerReplacementStrategy"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -239,7 +240,8 @@ type environmentArgs struct {
 	// The day and time of the week to start weekly maintenance updates of your environment in the following format: `DAY:HH:MM` . For example: `TUE:03:30` . You can specify a start time in 30 minute increments only. Supported input includes the following:
 	//
 	// - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\d|2[0-3]):(00|30)
-	WeeklyMaintenanceWindowStart *string `pulumi:"weeklyMaintenanceWindowStart"`
+	WeeklyMaintenanceWindowStart *string                               `pulumi:"weeklyMaintenanceWindowStart"`
+	WorkerReplacementStrategy    *EnvironmentWorkerReplacementStrategy `pulumi:"workerReplacementStrategy"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -327,6 +329,7 @@ type EnvironmentArgs struct {
 	//
 	// - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\d|2[0-3]):(00|30)
 	WeeklyMaintenanceWindowStart pulumi.StringPtrInput
+	WorkerReplacementStrategy    EnvironmentWorkerReplacementStrategyPtrInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -548,6 +551,10 @@ func (o EnvironmentOutput) WebserverVpcEndpointService() pulumi.StringOutput {
 // - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\d|2[0-3]):(00|30)
 func (o EnvironmentOutput) WeeklyMaintenanceWindowStart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.WeeklyMaintenanceWindowStart }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) WorkerReplacementStrategy() EnvironmentWorkerReplacementStrategyPtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentWorkerReplacementStrategyPtrOutput { return v.WorkerReplacementStrategy }).(EnvironmentWorkerReplacementStrategyPtrOutput)
 }
 
 func init() {

@@ -14,18 +14,24 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['EgressOnlyInternetGatewayArgs', 'EgressOnlyInternetGateway']
 
 @pulumi.input_type
 class EgressOnlyInternetGatewayArgs:
     def __init__(__self__, *,
-                 vpc_id: pulumi.Input[builtins.str]):
+                 vpc_id: pulumi.Input[builtins.str],
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EgressOnlyInternetGateway resource.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC for which to create the egress-only internet gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the egress only internet gateway.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -39,6 +45,18 @@ class EgressOnlyInternetGatewayArgs:
     def vpc_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "vpc_id", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Any tags assigned to the egress only internet gateway.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:ec2:EgressOnlyInternetGateway")
 class EgressOnlyInternetGateway(pulumi.CustomResource):
@@ -46,6 +64,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -53,6 +72,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the egress only internet gateway.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC for which to create the egress-only internet gateway.
         """
         ...
@@ -79,6 +99,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -89,6 +110,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EgressOnlyInternetGatewayArgs.__new__(EgressOnlyInternetGatewayArgs)
 
+            __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
@@ -118,6 +140,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         __props__ = EgressOnlyInternetGatewayArgs.__new__(EgressOnlyInternetGatewayArgs)
 
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
         return EgressOnlyInternetGateway(resource_name, opts=opts, __props__=__props__)
 
@@ -128,6 +151,14 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         Service Generated ID of the EgressOnlyInternetGateway
         """
         return pulumi.get(self, "aws_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Any tags assigned to the egress only internet gateway.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")

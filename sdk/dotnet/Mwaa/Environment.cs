@@ -228,6 +228,9 @@ namespace Pulumi.AwsNative.Mwaa
         [Output("weeklyMaintenanceWindowStart")]
         public Output<string?> WeeklyMaintenanceWindowStart { get; private set; } = null!;
 
+        [Output("workerReplacementStrategy")]
+        public Output<Pulumi.AwsNative.Mwaa.EnvironmentWorkerReplacementStrategy?> WorkerReplacementStrategy { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Environment resource with the given unique name, arguments, and options.
@@ -462,6 +465,9 @@ namespace Pulumi.AwsNative.Mwaa
         /// </summary>
         [Input("weeklyMaintenanceWindowStart")]
         public Input<string>? WeeklyMaintenanceWindowStart { get; set; }
+
+        [Input("workerReplacementStrategy")]
+        public Input<Pulumi.AwsNative.Mwaa.EnvironmentWorkerReplacementStrategy>? WorkerReplacementStrategy { get; set; }
 
         public EnvironmentArgs()
         {

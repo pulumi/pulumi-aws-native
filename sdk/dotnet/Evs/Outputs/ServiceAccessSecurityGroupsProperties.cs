@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Evs.Outputs
 {
 
+    /// <summary>
+    /// The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
+    /// </summary>
     [OutputType]
     public sealed class ServiceAccessSecurityGroupsProperties
     {
+        /// <summary>
+        /// The security groups that allow service access.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
 
         [OutputConstructor]

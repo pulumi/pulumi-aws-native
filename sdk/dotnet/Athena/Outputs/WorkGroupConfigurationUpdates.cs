@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.Athena.Outputs
         public readonly bool? EnforceWorkGroupConfiguration;
         public readonly Outputs.WorkGroupEngineVersion? EngineVersion;
         public readonly string? ExecutionRole;
+        public readonly Outputs.WorkGroupManagedQueryResultsConfiguration? ManagedQueryResultsConfiguration;
         public readonly bool? PublishCloudWatchMetricsEnabled;
         public readonly bool? RemoveBytesScannedCutoffPerQuery;
         public readonly bool? RemoveCustomerContentEncryptionConfiguration;
@@ -42,6 +43,8 @@ namespace Pulumi.AwsNative.Athena.Outputs
 
             string? executionRole,
 
+            Outputs.WorkGroupManagedQueryResultsConfiguration? managedQueryResultsConfiguration,
+
             bool? publishCloudWatchMetricsEnabled,
 
             bool? removeBytesScannedCutoffPerQuery,
@@ -58,6 +61,7 @@ namespace Pulumi.AwsNative.Athena.Outputs
             EnforceWorkGroupConfiguration = enforceWorkGroupConfiguration;
             EngineVersion = engineVersion;
             ExecutionRole = executionRole;
+            ManagedQueryResultsConfiguration = managedQueryResultsConfiguration;
             PublishCloudWatchMetricsEnabled = publishCloudWatchMetricsEnabled;
             RemoveBytesScannedCutoffPerQuery = removeBytesScannedCutoffPerQuery;
             RemoveCustomerContentEncryptionConfiguration = removeCustomerContentEncryptionConfiguration;

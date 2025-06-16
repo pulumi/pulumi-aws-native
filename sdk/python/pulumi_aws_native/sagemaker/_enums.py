@@ -32,6 +32,7 @@ __all__ = [
     'DomainSettingsExecutionRoleIdentityConfig',
     'DomainSharingSettingsNotebookOutputOption',
     'DomainTagPropagation',
+    'DomainUnifiedStudioSettingsStudioWebPortalAccess',
     'DomainUserSettingsAutoMountHomeEfs',
     'DomainUserSettingsStudioWebPortal',
     'FeatureGroupFeatureDefinitionFeatureType',
@@ -643,6 +644,20 @@ class DomainSharingSettingsNotebookOutputOption(builtins.str, Enum):
 class DomainTagPropagation(builtins.str, Enum):
     """
     Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:sagemaker:DomainUnifiedStudioSettingsStudioWebPortalAccess")
+class DomainUnifiedStudioSettingsStudioWebPortalAccess(builtins.str, Enum):
+    """
+    Sets whether you can access the domain in Amazon SageMaker Studio:
+
+    ENABLED
+    You can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.
+    DISABLED
+    You can't access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it only in that studio interface.
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"

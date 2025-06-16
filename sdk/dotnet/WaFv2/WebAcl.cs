@@ -104,10 +104,10 @@ namespace Pulumi.AwsNative.WaFv2
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        /// Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
         /// </summary>
         [Output("onSourceDDoSProtectionConfig")]
-        public Output<object?> OnSourceDDoSProtectionConfig { get; private set; } = null!;
+        public Output<Outputs.WebAclOnSourceDDoSProtectionConfig?> OnSourceDDoSProtectionConfig { get; private set; } = null!;
 
         /// <summary>
         /// Collection of Rules.
@@ -260,10 +260,10 @@ namespace Pulumi.AwsNative.WaFv2
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        /// Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
         /// </summary>
         [Input("onSourceDDoSProtectionConfig")]
-        public Input<object>? OnSourceDDoSProtectionConfig { get; set; }
+        public Input<Inputs.WebAclOnSourceDDoSProtectionConfigArgs>? OnSourceDDoSProtectionConfig { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.WebAclRuleArgs>? _rules;

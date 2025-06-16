@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.Evs.Outputs
     [OutputType]
     public sealed class EnvironmentHostInfoForCreate
     {
+        /// <summary>
+        /// The unique ID of the Amazon EC2 Dedicated Host.
+        /// </summary>
         public readonly string? DedicatedHostId;
+        /// <summary>
+        /// The DNS hostname of the host. DNS hostnames for hosts must be unique across Amazon EVS environments and within VCF.
+        /// </summary>
         public readonly string HostName;
+        /// <summary>
+        /// The EC2 instance type that represents the host.
+        /// </summary>
         public readonly Pulumi.AwsNative.Evs.EnvironmentHostInfoForCreateInstanceType InstanceType;
+        /// <summary>
+        /// The name of the SSH key that is used to access the host.
+        /// </summary>
         public readonly string KeyName;
+        /// <summary>
+        /// The unique ID of the placement group where the host is placed.
+        /// </summary>
         public readonly string? PlacementGroupId;
 
         [OutputConstructor]

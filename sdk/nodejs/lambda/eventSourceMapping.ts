@@ -55,13 +55,13 @@ export class EventSourceMapping extends pulumi.CustomResource {
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
-     *   +   *Amazon Kinesis* – Default 100. Max 10,000.
-     *   +   *Amazon DynamoDB Streams* – Default 100. Max 10,000.
-     *   +   *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
-     *   +   *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
-     *   +   *Self-managed Apache Kafka* – Default 100. Max 10,000.
-     *   +   *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
-     *   +   *DocumentDB* – Default 100. Max 10,000.
+     *   +  *Amazon Kinesis* – Default 100. Max 10,000.
+     *   +  *Amazon DynamoDB Streams* – Default 100. Max 10,000.
+     *   +  *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
+     *   +  *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
+     *   +  *Self-managed Apache Kafka* – Default 100. Max 10,000.
+     *   +  *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
+     *   +  *DocumentDB* – Default 100. Max 10,000.
      */
     public readonly batchSize!: pulumi.Output<number | undefined>;
     /**
@@ -84,12 +84,12 @@ export class EventSourceMapping extends pulumi.CustomResource {
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the event source.
-     *   +   *Amazon Kinesis* – The ARN of the data stream or a stream consumer.
-     *   +   *Amazon DynamoDB Streams* – The ARN of the stream.
-     *   +   *Amazon Simple Queue Service* – The ARN of the queue.
-     *   +   *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster or the ARN of the VPC connection (for [cross-account event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc)).
-     *   +   *Amazon MQ* – The ARN of the broker.
-     *   +   *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
+     *   +  *Amazon Kinesis* – The ARN of the data stream or a stream consumer.
+     *   +  *Amazon DynamoDB Streams* – The ARN of the stream.
+     *   +  *Amazon Simple Queue Service* – The ARN of the queue.
+     *   +  *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster or the ARN of the VPC connection (for [cross-account event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc)).
+     *   +  *Amazon MQ* – The ARN of the broker.
+     *   +  *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
      */
     public readonly eventSourceArn!: pulumi.Output<string | undefined>;
     /**
@@ -103,10 +103,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * The name or ARN of the Lambda function.
      *   **Name formats**
-     *  +   *Function name* – ``MyFunction``.
-     *   +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
-     *   +   *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
-     *   +   *Partial ARN* – ``123456789012:function:MyFunction``.
+     *  +  *Function name* – ``MyFunction``.
+     *   +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
+     *   +  *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
+     *   +  *Partial ARN* – ``123456789012:function:MyFunction``.
      *   
      *  The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
      */
@@ -122,9 +122,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-     *   *Default (, , event sources)*: 0
-     *   *Default (, Kafka, , event sources)*: 500 ms
-     *   *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+     *  *Default (, , event sources)*: 0
+     *  *Default (, Kafka, , event sources)*: 500 ms
+     *  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
      */
     public readonly maximumBatchingWindowInSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -170,9 +170,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
     public readonly sourceAccessConfigurations!: pulumi.Output<outputs.lambda.EventSourceMappingSourceAccessConfiguration[] | undefined>;
     /**
      * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
-     *   +   *LATEST* - Read only new records.
-     *   +   *TRIM_HORIZON* - Process all available records.
-     *   +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
+     *   +  *LATEST* - Read only new records.
+     *   +  *TRIM_HORIZON* - Process all available records.
+     *   +  *AT_TIMESTAMP* - Specify a time from which to start reading records.
      */
     public readonly startingPosition!: pulumi.Output<string | undefined>;
     /**
@@ -268,7 +268,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["tumblingWindowInSeconds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["amazonManagedKafkaEventSourceConfig", "eventSourceArn", "selfManagedEventSource", "selfManagedKafkaEventSourceConfig", "startingPosition", "startingPositionTimestamp"] };
+        const replaceOnChanges = { replaceOnChanges: ["eventSourceArn", "selfManagedEventSource", "startingPosition", "startingPositionTimestamp"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EventSourceMapping.__pulumiType, name, resourceInputs, opts);
     }
@@ -284,13 +284,13 @@ export interface EventSourceMappingArgs {
     amazonManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs>;
     /**
      * The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
-     *   +   *Amazon Kinesis* – Default 100. Max 10,000.
-     *   +   *Amazon DynamoDB Streams* – Default 100. Max 10,000.
-     *   +   *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
-     *   +   *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
-     *   +   *Self-managed Apache Kafka* – Default 100. Max 10,000.
-     *   +   *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
-     *   +   *DocumentDB* – Default 100. Max 10,000.
+     *   +  *Amazon Kinesis* – Default 100. Max 10,000.
+     *   +  *Amazon DynamoDB Streams* – Default 100. Max 10,000.
+     *   +  *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
+     *   +  *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
+     *   +  *Self-managed Apache Kafka* – Default 100. Max 10,000.
+     *   +  *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
+     *   +  *DocumentDB* – Default 100. Max 10,000.
      */
     batchSize?: pulumi.Input<number>;
     /**
@@ -313,12 +313,12 @@ export interface EventSourceMappingArgs {
     enabled?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the event source.
-     *   +   *Amazon Kinesis* – The ARN of the data stream or a stream consumer.
-     *   +   *Amazon DynamoDB Streams* – The ARN of the stream.
-     *   +   *Amazon Simple Queue Service* – The ARN of the queue.
-     *   +   *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster or the ARN of the VPC connection (for [cross-account event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc)).
-     *   +   *Amazon MQ* – The ARN of the broker.
-     *   +   *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
+     *   +  *Amazon Kinesis* – The ARN of the data stream or a stream consumer.
+     *   +  *Amazon DynamoDB Streams* – The ARN of the stream.
+     *   +  *Amazon Simple Queue Service* – The ARN of the queue.
+     *   +  *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster or the ARN of the VPC connection (for [cross-account event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc)).
+     *   +  *Amazon MQ* – The ARN of the broker.
+     *   +  *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
      */
     eventSourceArn?: pulumi.Input<string>;
     /**
@@ -328,10 +328,10 @@ export interface EventSourceMappingArgs {
     /**
      * The name or ARN of the Lambda function.
      *   **Name formats**
-     *  +   *Function name* – ``MyFunction``.
-     *   +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
-     *   +   *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
-     *   +   *Partial ARN* – ``123456789012:function:MyFunction``.
+     *  +  *Function name* – ``MyFunction``.
+     *   +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
+     *   +  *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
+     *   +  *Partial ARN* – ``123456789012:function:MyFunction``.
      *   
      *  The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
      */
@@ -347,9 +347,9 @@ export interface EventSourceMappingArgs {
     kmsKeyArn?: pulumi.Input<string>;
     /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
-     *   *Default (, , event sources)*: 0
-     *   *Default (, Kafka, , event sources)*: 500 ms
-     *   *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
+     *  *Default (, , event sources)*: 0
+     *  *Default (, Kafka, , event sources)*: 500 ms
+     *  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
      */
     maximumBatchingWindowInSeconds?: pulumi.Input<number>;
     /**
@@ -395,9 +395,9 @@ export interface EventSourceMappingArgs {
     sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingSourceAccessConfigurationArgs>[]>;
     /**
      * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
-     *   +   *LATEST* - Read only new records.
-     *   +   *TRIM_HORIZON* - Process all available records.
-     *   +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
+     *   +  *LATEST* - Read only new records.
+     *   +  *TRIM_HORIZON* - Process all available records.
+     *   +  *AT_TIMESTAMP* - Specify a time from which to start reading records.
      */
     startingPosition?: pulumi.Input<string>;
     /**

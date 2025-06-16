@@ -86,7 +86,8 @@ type Server struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
 	AssociatePublicIpAddress pulumi.BoolPtrOutput `pulumi:"associatePublicIpAddress"`
-	AwsId                    pulumi.StringOutput  `pulumi:"awsId"`
+	// The ID of the server.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
 	BackupId pulumi.StringPtrOutput `pulumi:"backupId"`
 	// The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
@@ -147,8 +148,8 @@ type Server struct {
 	//
 	// If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
-	ServerName pulumi.StringOutput `pulumi:"serverName"`
+	// The name of the server.
+	ServerName pulumi.StringPtrOutput `pulumi:"serverName"`
 	// The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
 	// The IDs of subnets in which to launch the server EC2 instance.
@@ -198,6 +199,7 @@ func NewServer(ctx *pulumi.Context,
 		"instanceType",
 		"keyPair",
 		"securityGroupIds[*]",
+		"serverName",
 		"serviceRoleArn",
 		"subnetIds[*]",
 	})
@@ -295,6 +297,8 @@ type serverArgs struct {
 	//
 	// If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The name of the server.
+	ServerName *string `pulumi:"serverName"`
 	// The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
 	// The IDs of subnets in which to launch the server EC2 instance.
@@ -377,6 +381,8 @@ type ServerArgs struct {
 	//
 	// If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
 	SecurityGroupIds pulumi.StringArrayInput
+	// The name of the server.
+	ServerName pulumi.StringPtrInput
 	// The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
 	ServiceRoleArn pulumi.StringInput
 	// The IDs of subnets in which to launch the server EC2 instance.
@@ -444,6 +450,7 @@ func (o ServerOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the server.
 func (o ServerOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -559,9 +566,9 @@ func (o ServerOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
-func (o ServerOutput) ServerName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ServerName }).(pulumi.StringOutput)
+// The name of the server.
+func (o ServerOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
 // The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.

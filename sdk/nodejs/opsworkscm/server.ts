@@ -94,6 +94,9 @@ export class Server extends pulumi.CustomResource {
      * Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
      */
     public readonly associatePublicIpAddress!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the server.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
@@ -190,9 +193,9 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
+     * The name of the server.
      */
-    public /*out*/ readonly serverName!: pulumi.Output<string>;
+    public readonly serverName!: pulumi.Output<string | undefined>;
     /**
      * The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
      */
@@ -255,13 +258,13 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
-            resourceInputs["serverName"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associatePublicIpAddress"] = undefined /*out*/;
@@ -289,7 +292,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["associatePublicIpAddress", "backupId", "customCertificate", "customDomain", "customPrivateKey", "engine", "engineModel", "engineVersion", "instanceProfileArn", "instanceType", "keyPair", "securityGroupIds[*]", "serviceRoleArn", "subnetIds[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["associatePublicIpAddress", "backupId", "customCertificate", "customDomain", "customPrivateKey", "engine", "engineModel", "engineVersion", "instanceProfileArn", "instanceType", "keyPair", "securityGroupIds[*]", "serverName", "serviceRoleArn", "subnetIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Server.__pulumiType, name, resourceInputs, opts);
     }
@@ -393,6 +396,10 @@ export interface ServerArgs {
      * If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the server.
+     */
+    serverName?: pulumi.Input<string>;
     /**
      * The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
      */

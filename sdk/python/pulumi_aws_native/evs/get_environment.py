@@ -59,41 +59,69 @@ class GetEnvironmentResult:
     @property
     @pulumi.getter
     def checks(self) -> Optional[Sequence['outputs.EnvironmentCheck']]:
+        """
+        A check on the environment to identify instance health and VMware VCF licensing issues. For example:
+
+        `{ "checks": [ { "type": "KEY_REUSE", "result": "PASSED" }, { "type": "KEY_COVERAGE", "result": "PASSED" }, { "type": "REACHABILITY", "result": "PASSED" }, { "type": "HOST_COUNT", "result": "PASSED" } ] }`
+        """
         return pulumi.get(self, "checks")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[builtins.str]:
+        """
+        The date and time that the environment was created. For example: `1749081600.000` .
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def credentials(self) -> Optional[Sequence['outputs.EnvironmentSecret']]:
+        """
+        The VCF credentials that are stored as Amazon EVS managed secrets in AWS Secrets Manager. Amazon EVS stores credentials that are needed to install vCenter Server, NSX, and SDDC Manager. For example:
+
+        `{ [ { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterAdmin-MnTMEi" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterRoot-87VyCF" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXRoot-SR3k43" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAdmin-L5LUiD" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAudit-Q2oW46" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerRoot-bFulOq" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerVCF-Ec3gES" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerAdmin-JMTAAb" } ] }`
+        """
         return pulumi.get(self, "credentials")
 
     @property
     @pulumi.getter(name="environmentArn")
     def environment_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) that is associated with the environment. For example: `arn:aws:evs:us-east-1:000000000000:environment/env-1234567890` .
+        """
         return pulumi.get(self, "environment_arn")
 
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[builtins.str]:
+        """
+        The unique ID for the environment. For example: `env-1234567890` .
+        """
         return pulumi.get(self, "environment_id")
 
     @property
     @pulumi.getter(name="environmentState")
     def environment_state(self) -> Optional['EnvironmentState']:
+        """
+        The state of an environment. For example: `CREATED` .
+        """
         return pulumi.get(self, "environment_state")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[builtins.str]:
+        """
+        The date and time that the environment was modified. For example: `1749081600.000` .
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter(name="stateDetails")
     def state_details(self) -> Optional[builtins.str]:
+        """
+        A detailed description of the `environmentState` of an environment. For example: `Environment successfully created` .
+        """
         return pulumi.get(self, "state_details")
 
     @property
@@ -126,6 +154,9 @@ def get_environment(environment_id: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
     An environment created within the EVS service
+
+
+    :param builtins.str environment_id: The unique ID for the environment. For example: `env-1234567890` .
     """
     __args__ = dict()
     __args__['environmentId'] = environment_id
@@ -146,6 +177,9 @@ def get_environment_output(environment_id: Optional[pulumi.Input[builtins.str]] 
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     An environment created within the EVS service
+
+
+    :param builtins.str environment_id: The unique ID for the environment. For example: `env-1234567890` .
     """
     __args__ = dict()
     __args__['environmentId'] = environment_id

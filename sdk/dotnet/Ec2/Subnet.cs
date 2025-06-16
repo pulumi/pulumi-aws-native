@@ -37,6 +37,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("availabilityZoneId")]
         public Output<string?> AvailabilityZoneId { get; private set; } = null!;
 
+        [Output("blockPublicAccessStates")]
+        public Output<Outputs.BlockPublicAccessStatesProperties> BlockPublicAccessStates { get; private set; } = null!;
+
         /// <summary>
         /// The IPv4 CIDR block assigned to the subnet.
         ///  If you update this property, we create a new subnet, and then delete the existing one.
@@ -102,7 +105,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-        ///   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+        ///  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         /// </summary>
         [Output("mapPublicIpOnLaunch")]
         public Output<bool?> MapPublicIpOnLaunch { get; private set; } = null!;
@@ -285,7 +288,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-        ///   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+        ///  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         /// </summary>
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }

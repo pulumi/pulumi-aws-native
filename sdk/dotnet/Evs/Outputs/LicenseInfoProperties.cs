@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Evs.Outputs
     [OutputType]
     public sealed class LicenseInfoProperties
     {
+        /// <summary>
+        /// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
+        /// </summary>
         public readonly string SolutionKey;
+        /// <summary>
+        /// The VSAN license key. This license unlocks vSAN features.
+        /// </summary>
         public readonly string VsanKey;
 
         [OutputConstructor]

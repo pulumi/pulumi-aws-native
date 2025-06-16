@@ -6836,6 +6836,171 @@ func (in *webAclMapMatchScopePtr) ToWebAclMapMatchScopePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclMapMatchScopePtrOutput)
 }
 
+type WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode string
+
+const (
+	WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeActiveUnderDdos = WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode("ACTIVE_UNDER_DDOS")
+	WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeAlwaysOn        = WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode("ALWAYS_ON")
+)
+
+func (WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode)(nil)).Elem()
+}
+
+func (e WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput {
+	return pulumi.ToOutput(e).(WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput)
+}
+
+func (e WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutputWithContext(ctx context.Context) WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput)
+}
+
+func (e WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput {
+	return e.ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutputWithContext(context.Background())
+}
+
+func (e WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutputWithContext(ctx context.Context) WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput {
+	return WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode(e).ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutputWithContext(ctx).ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutputWithContext(ctx)
+}
+
+func (e WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput struct{ *pulumi.OutputState }
+
+func (WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode)(nil)).Elem()
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput) ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput {
+	return o
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput) ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutputWithContext(ctx context.Context) WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput {
+	return o
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput) ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput {
+	return o.ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutputWithContext(context.Background())
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput) ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutputWithContext(ctx context.Context) WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) *WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode {
+		return &v
+	}).(WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput)
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode)(nil)).Elem()
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput) ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput {
+	return o
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput) ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutputWithContext(ctx context.Context) WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput {
+	return o
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput) Elem() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput {
+	return o.ApplyT(func(v *WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode
+		return ret
+	}).(WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput)
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeInput is an input type that accepts values of the WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode enum
+// A concrete instance of `WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeInput` can be one of the following:
+//
+//	WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeActiveUnderDdos
+//	WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeAlwaysOn
+type WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeInput interface {
+	pulumi.Input
+
+	ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput
+	ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutputWithContext(context.Context) WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput
+}
+
+var webAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrType = reflect.TypeOf((**WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode)(nil)).Elem()
+
+type WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrInput interface {
+	pulumi.Input
+
+	ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput
+	ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutputWithContext(context.Context) WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput
+}
+
+type webAclOnSourceDDoSProtectionConfigAlbLowReputationModePtr string
+
+func WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtr(v string) WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrInput {
+	return (*webAclOnSourceDDoSProtectionConfigAlbLowReputationModePtr)(&v)
+}
+
+func (*webAclOnSourceDDoSProtectionConfigAlbLowReputationModePtr) ElementType() reflect.Type {
+	return webAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrType
+}
+
+func (in *webAclOnSourceDDoSProtectionConfigAlbLowReputationModePtr) ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput {
+	return pulumi.ToOutput(in).(WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput)
+}
+
+func (in *webAclOnSourceDDoSProtectionConfigAlbLowReputationModePtr) ToWebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutputWithContext(ctx context.Context) WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput)
+}
+
 // Handling of requests containing oversize fields
 type WebAclOversizeHandling string
 
@@ -8539,6 +8704,173 @@ func (in *webAclSensitivityLevelPtr) ToWebAclSensitivityLevelPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclSensitivityLevelPtrOutput)
 }
 
+type WebAclSensitivityToAct string
+
+const (
+	WebAclSensitivityToActLow    = WebAclSensitivityToAct("LOW")
+	WebAclSensitivityToActMedium = WebAclSensitivityToAct("MEDIUM")
+	WebAclSensitivityToActHigh   = WebAclSensitivityToAct("HIGH")
+)
+
+func (WebAclSensitivityToAct) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclSensitivityToAct)(nil)).Elem()
+}
+
+func (e WebAclSensitivityToAct) ToWebAclSensitivityToActOutput() WebAclSensitivityToActOutput {
+	return pulumi.ToOutput(e).(WebAclSensitivityToActOutput)
+}
+
+func (e WebAclSensitivityToAct) ToWebAclSensitivityToActOutputWithContext(ctx context.Context) WebAclSensitivityToActOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclSensitivityToActOutput)
+}
+
+func (e WebAclSensitivityToAct) ToWebAclSensitivityToActPtrOutput() WebAclSensitivityToActPtrOutput {
+	return e.ToWebAclSensitivityToActPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclSensitivityToAct) ToWebAclSensitivityToActPtrOutputWithContext(ctx context.Context) WebAclSensitivityToActPtrOutput {
+	return WebAclSensitivityToAct(e).ToWebAclSensitivityToActOutputWithContext(ctx).ToWebAclSensitivityToActPtrOutputWithContext(ctx)
+}
+
+func (e WebAclSensitivityToAct) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclSensitivityToAct) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclSensitivityToAct) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclSensitivityToAct) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclSensitivityToActOutput struct{ *pulumi.OutputState }
+
+func (WebAclSensitivityToActOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclSensitivityToAct)(nil)).Elem()
+}
+
+func (o WebAclSensitivityToActOutput) ToWebAclSensitivityToActOutput() WebAclSensitivityToActOutput {
+	return o
+}
+
+func (o WebAclSensitivityToActOutput) ToWebAclSensitivityToActOutputWithContext(ctx context.Context) WebAclSensitivityToActOutput {
+	return o
+}
+
+func (o WebAclSensitivityToActOutput) ToWebAclSensitivityToActPtrOutput() WebAclSensitivityToActPtrOutput {
+	return o.ToWebAclSensitivityToActPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclSensitivityToActOutput) ToWebAclSensitivityToActPtrOutputWithContext(ctx context.Context) WebAclSensitivityToActPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclSensitivityToAct) *WebAclSensitivityToAct {
+		return &v
+	}).(WebAclSensitivityToActPtrOutput)
+}
+
+func (o WebAclSensitivityToActOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclSensitivityToActOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclSensitivityToAct) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclSensitivityToActOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclSensitivityToActOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclSensitivityToAct) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclSensitivityToActPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclSensitivityToActPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclSensitivityToAct)(nil)).Elem()
+}
+
+func (o WebAclSensitivityToActPtrOutput) ToWebAclSensitivityToActPtrOutput() WebAclSensitivityToActPtrOutput {
+	return o
+}
+
+func (o WebAclSensitivityToActPtrOutput) ToWebAclSensitivityToActPtrOutputWithContext(ctx context.Context) WebAclSensitivityToActPtrOutput {
+	return o
+}
+
+func (o WebAclSensitivityToActPtrOutput) Elem() WebAclSensitivityToActOutput {
+	return o.ApplyT(func(v *WebAclSensitivityToAct) WebAclSensitivityToAct {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclSensitivityToAct
+		return ret
+	}).(WebAclSensitivityToActOutput)
+}
+
+func (o WebAclSensitivityToActPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclSensitivityToActPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclSensitivityToAct) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclSensitivityToActInput is an input type that accepts values of the WebAclSensitivityToAct enum
+// A concrete instance of `WebAclSensitivityToActInput` can be one of the following:
+//
+//	WebAclSensitivityToActLow
+//	WebAclSensitivityToActMedium
+//	WebAclSensitivityToActHigh
+type WebAclSensitivityToActInput interface {
+	pulumi.Input
+
+	ToWebAclSensitivityToActOutput() WebAclSensitivityToActOutput
+	ToWebAclSensitivityToActOutputWithContext(context.Context) WebAclSensitivityToActOutput
+}
+
+var webAclSensitivityToActPtrType = reflect.TypeOf((**WebAclSensitivityToAct)(nil)).Elem()
+
+type WebAclSensitivityToActPtrInput interface {
+	pulumi.Input
+
+	ToWebAclSensitivityToActPtrOutput() WebAclSensitivityToActPtrOutput
+	ToWebAclSensitivityToActPtrOutputWithContext(context.Context) WebAclSensitivityToActPtrOutput
+}
+
+type webAclSensitivityToActPtr string
+
+func WebAclSensitivityToActPtr(v string) WebAclSensitivityToActPtrInput {
+	return (*webAclSensitivityToActPtr)(&v)
+}
+
+func (*webAclSensitivityToActPtr) ElementType() reflect.Type {
+	return webAclSensitivityToActPtrType
+}
+
+func (in *webAclSensitivityToActPtr) ToWebAclSensitivityToActPtrOutput() WebAclSensitivityToActPtrOutput {
+	return pulumi.ToOutput(in).(WebAclSensitivityToActPtrOutput)
+}
+
+func (in *webAclSensitivityToActPtr) ToWebAclSensitivityToActPtrOutputWithContext(ctx context.Context) WebAclSensitivityToActPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclSensitivityToActPtrOutput)
+}
+
 // The operator to use to compare the request part to the size setting.
 type WebAclSizeConstraintStatementComparisonOperator string
 
@@ -9262,6 +9594,171 @@ func (in *webAclUriFragmentFallbackBehaviorPtr) ToWebAclUriFragmentFallbackBehav
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclUriFragmentFallbackBehaviorPtrOutput)
 }
 
+type WebAclUsageOfAction string
+
+const (
+	WebAclUsageOfActionEnabled  = WebAclUsageOfAction("ENABLED")
+	WebAclUsageOfActionDisabled = WebAclUsageOfAction("DISABLED")
+)
+
+func (WebAclUsageOfAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclUsageOfAction)(nil)).Elem()
+}
+
+func (e WebAclUsageOfAction) ToWebAclUsageOfActionOutput() WebAclUsageOfActionOutput {
+	return pulumi.ToOutput(e).(WebAclUsageOfActionOutput)
+}
+
+func (e WebAclUsageOfAction) ToWebAclUsageOfActionOutputWithContext(ctx context.Context) WebAclUsageOfActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclUsageOfActionOutput)
+}
+
+func (e WebAclUsageOfAction) ToWebAclUsageOfActionPtrOutput() WebAclUsageOfActionPtrOutput {
+	return e.ToWebAclUsageOfActionPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclUsageOfAction) ToWebAclUsageOfActionPtrOutputWithContext(ctx context.Context) WebAclUsageOfActionPtrOutput {
+	return WebAclUsageOfAction(e).ToWebAclUsageOfActionOutputWithContext(ctx).ToWebAclUsageOfActionPtrOutputWithContext(ctx)
+}
+
+func (e WebAclUsageOfAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclUsageOfAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclUsageOfAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclUsageOfAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclUsageOfActionOutput struct{ *pulumi.OutputState }
+
+func (WebAclUsageOfActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclUsageOfAction)(nil)).Elem()
+}
+
+func (o WebAclUsageOfActionOutput) ToWebAclUsageOfActionOutput() WebAclUsageOfActionOutput {
+	return o
+}
+
+func (o WebAclUsageOfActionOutput) ToWebAclUsageOfActionOutputWithContext(ctx context.Context) WebAclUsageOfActionOutput {
+	return o
+}
+
+func (o WebAclUsageOfActionOutput) ToWebAclUsageOfActionPtrOutput() WebAclUsageOfActionPtrOutput {
+	return o.ToWebAclUsageOfActionPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclUsageOfActionOutput) ToWebAclUsageOfActionPtrOutputWithContext(ctx context.Context) WebAclUsageOfActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclUsageOfAction) *WebAclUsageOfAction {
+		return &v
+	}).(WebAclUsageOfActionPtrOutput)
+}
+
+func (o WebAclUsageOfActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclUsageOfActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclUsageOfAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclUsageOfActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclUsageOfActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclUsageOfAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclUsageOfActionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclUsageOfActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclUsageOfAction)(nil)).Elem()
+}
+
+func (o WebAclUsageOfActionPtrOutput) ToWebAclUsageOfActionPtrOutput() WebAclUsageOfActionPtrOutput {
+	return o
+}
+
+func (o WebAclUsageOfActionPtrOutput) ToWebAclUsageOfActionPtrOutputWithContext(ctx context.Context) WebAclUsageOfActionPtrOutput {
+	return o
+}
+
+func (o WebAclUsageOfActionPtrOutput) Elem() WebAclUsageOfActionOutput {
+	return o.ApplyT(func(v *WebAclUsageOfAction) WebAclUsageOfAction {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclUsageOfAction
+		return ret
+	}).(WebAclUsageOfActionOutput)
+}
+
+func (o WebAclUsageOfActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclUsageOfActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclUsageOfAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclUsageOfActionInput is an input type that accepts values of the WebAclUsageOfAction enum
+// A concrete instance of `WebAclUsageOfActionInput` can be one of the following:
+//
+//	WebAclUsageOfActionEnabled
+//	WebAclUsageOfActionDisabled
+type WebAclUsageOfActionInput interface {
+	pulumi.Input
+
+	ToWebAclUsageOfActionOutput() WebAclUsageOfActionOutput
+	ToWebAclUsageOfActionOutputWithContext(context.Context) WebAclUsageOfActionOutput
+}
+
+var webAclUsageOfActionPtrType = reflect.TypeOf((**WebAclUsageOfAction)(nil)).Elem()
+
+type WebAclUsageOfActionPtrInput interface {
+	pulumi.Input
+
+	ToWebAclUsageOfActionPtrOutput() WebAclUsageOfActionPtrOutput
+	ToWebAclUsageOfActionPtrOutputWithContext(context.Context) WebAclUsageOfActionPtrOutput
+}
+
+type webAclUsageOfActionPtr string
+
+func WebAclUsageOfActionPtr(v string) WebAclUsageOfActionPtrInput {
+	return (*webAclUsageOfActionPtr)(&v)
+}
+
+func (*webAclUsageOfActionPtr) ElementType() reflect.Type {
+	return webAclUsageOfActionPtrType
+}
+
+func (in *webAclUsageOfActionPtr) ToWebAclUsageOfActionPtrOutput() WebAclUsageOfActionPtrOutput {
+	return pulumi.ToOutput(in).(WebAclUsageOfActionPtrOutput)
+}
+
+func (in *webAclUsageOfActionPtr) ToWebAclUsageOfActionPtrOutputWithContext(ctx context.Context) WebAclUsageOfActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclUsageOfActionPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IpSetIpAddressVersionInput)(nil)).Elem(), IpSetIpAddressVersion("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpSetIpAddressVersionPtrInput)(nil)).Elem(), IpSetIpAddressVersion("IPV4"))
@@ -9343,6 +9840,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclManagedRuleGroupConfigPayloadTypePtrInput)(nil)).Elem(), WebAclManagedRuleGroupConfigPayloadType("JSON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMapMatchScopeInput)(nil)).Elem(), WebAclMapMatchScope("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMapMatchScopePtrInput)(nil)).Elem(), WebAclMapMatchScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeInput)(nil)).Elem(), WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode("ACTIVE_UNDER_DDOS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrInput)(nil)).Elem(), WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode("ACTIVE_UNDER_DDOS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOversizeHandlingInput)(nil)).Elem(), WebAclOversizeHandling("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOversizeHandlingPtrInput)(nil)).Elem(), WebAclOversizeHandling("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPositionalConstraintInput)(nil)).Elem(), WebAclPositionalConstraint("EXACTLY"))
@@ -9363,6 +9862,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclScopePtrInput)(nil)).Elem(), WebAclScope("CLOUDFRONT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSensitivityLevelInput)(nil)).Elem(), WebAclSensitivityLevel("LOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSensitivityLevelPtrInput)(nil)).Elem(), WebAclSensitivityLevel("LOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSensitivityToActInput)(nil)).Elem(), WebAclSensitivityToAct("LOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSensitivityToActPtrInput)(nil)).Elem(), WebAclSensitivityToAct("LOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeConstraintStatementComparisonOperatorInput)(nil)).Elem(), WebAclSizeConstraintStatementComparisonOperator("EQ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeConstraintStatementComparisonOperatorPtrInput)(nil)).Elem(), WebAclSizeConstraintStatementComparisonOperator("EQ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclSizeInspectionLimitInput)(nil)).Elem(), WebAclSizeInspectionLimit("KB_16"))
@@ -9371,6 +9872,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclTextTransformationTypePtrInput)(nil)).Elem(), WebAclTextTransformationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclUriFragmentFallbackBehaviorInput)(nil)).Elem(), WebAclUriFragmentFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclUriFragmentFallbackBehaviorPtrInput)(nil)).Elem(), WebAclUriFragmentFallbackBehavior("MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclUsageOfActionInput)(nil)).Elem(), WebAclUsageOfAction("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclUsageOfActionPtrInput)(nil)).Elem(), WebAclUsageOfAction("ENABLED"))
 	pulumi.RegisterOutputType(IpSetIpAddressVersionOutput{})
 	pulumi.RegisterOutputType(IpSetIpAddressVersionPtrOutput{})
 	pulumi.RegisterOutputType(IpSetScopeOutput{})
@@ -9451,6 +9954,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclManagedRuleGroupConfigPayloadTypePtrOutput{})
 	pulumi.RegisterOutputType(WebAclMapMatchScopeOutput{})
 	pulumi.RegisterOutputType(WebAclMapMatchScopePtrOutput{})
+	pulumi.RegisterOutputType(WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput{})
+	pulumi.RegisterOutputType(WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput{})
 	pulumi.RegisterOutputType(WebAclOversizeHandlingOutput{})
 	pulumi.RegisterOutputType(WebAclOversizeHandlingPtrOutput{})
 	pulumi.RegisterOutputType(WebAclPositionalConstraintOutput{})
@@ -9471,6 +9976,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclScopePtrOutput{})
 	pulumi.RegisterOutputType(WebAclSensitivityLevelOutput{})
 	pulumi.RegisterOutputType(WebAclSensitivityLevelPtrOutput{})
+	pulumi.RegisterOutputType(WebAclSensitivityToActOutput{})
+	pulumi.RegisterOutputType(WebAclSensitivityToActPtrOutput{})
 	pulumi.RegisterOutputType(WebAclSizeConstraintStatementComparisonOperatorOutput{})
 	pulumi.RegisterOutputType(WebAclSizeConstraintStatementComparisonOperatorPtrOutput{})
 	pulumi.RegisterOutputType(WebAclSizeInspectionLimitOutput{})
@@ -9479,4 +9986,6 @@ func init() {
 	pulumi.RegisterOutputType(WebAclTextTransformationTypePtrOutput{})
 	pulumi.RegisterOutputType(WebAclUriFragmentFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(WebAclUriFragmentFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(WebAclUsageOfActionOutput{})
+	pulumi.RegisterOutputType(WebAclUsageOfActionPtrOutput{})
 }

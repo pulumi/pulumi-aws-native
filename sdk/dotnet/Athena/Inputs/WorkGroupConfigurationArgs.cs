@@ -51,6 +51,12 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public Input<string>? ExecutionRole { get; set; }
 
         /// <summary>
+        /// The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results.
+        /// </summary>
+        [Input("managedQueryResultsConfiguration")]
+        public Input<Inputs.WorkGroupManagedQueryResultsConfigurationArgs>? ManagedQueryResultsConfiguration { get; set; }
+
+        /// <summary>
         /// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
         /// </summary>
         [Input("publishCloudWatchMetricsEnabled")]

@@ -13,6 +13,64 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type BlockPublicAccessStatesProperties struct {
+	// The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress
+	InternetGatewayBlockMode *string `pulumi:"internetGatewayBlockMode"`
+}
+
+type BlockPublicAccessStatesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BlockPublicAccessStatesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlockPublicAccessStatesProperties)(nil)).Elem()
+}
+
+func (o BlockPublicAccessStatesPropertiesOutput) ToBlockPublicAccessStatesPropertiesOutput() BlockPublicAccessStatesPropertiesOutput {
+	return o
+}
+
+func (o BlockPublicAccessStatesPropertiesOutput) ToBlockPublicAccessStatesPropertiesOutputWithContext(ctx context.Context) BlockPublicAccessStatesPropertiesOutput {
+	return o
+}
+
+// The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress
+func (o BlockPublicAccessStatesPropertiesOutput) InternetGatewayBlockMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlockPublicAccessStatesProperties) *string { return v.InternetGatewayBlockMode }).(pulumi.StringPtrOutput)
+}
+
+type BlockPublicAccessStatesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BlockPublicAccessStatesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlockPublicAccessStatesProperties)(nil)).Elem()
+}
+
+func (o BlockPublicAccessStatesPropertiesPtrOutput) ToBlockPublicAccessStatesPropertiesPtrOutput() BlockPublicAccessStatesPropertiesPtrOutput {
+	return o
+}
+
+func (o BlockPublicAccessStatesPropertiesPtrOutput) ToBlockPublicAccessStatesPropertiesPtrOutputWithContext(ctx context.Context) BlockPublicAccessStatesPropertiesPtrOutput {
+	return o
+}
+
+func (o BlockPublicAccessStatesPropertiesPtrOutput) Elem() BlockPublicAccessStatesPropertiesOutput {
+	return o.ApplyT(func(v *BlockPublicAccessStatesProperties) BlockPublicAccessStatesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BlockPublicAccessStatesProperties
+		return ret
+	}).(BlockPublicAccessStatesPropertiesOutput)
+}
+
+// The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress
+func (o BlockPublicAccessStatesPropertiesPtrOutput) InternetGatewayBlockMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlockPublicAccessStatesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InternetGatewayBlockMode
+	}).(pulumi.StringPtrOutput)
+}
+
 type CapacityReservationCapacityAllocation struct {
 	// The usage type. `used` indicates that the instance capacity is in use by instances that are running in the Capacity Reservation.
 	AllocationType *string `pulumi:"allocationType"`
@@ -7185,6 +7243,17 @@ func (o Ec2FleetVCpuCountRangeRequestPtrOutput) Min() pulumi.IntPtrOutput {
 		}
 		return v.Min
 	}).(pulumi.IntPtrOutput)
+}
+
+type EgressOnlyInternetGatewayTag struct {
+	// The key of the tag.
+	//
+	// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	//
+	// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+	Value string `pulumi:"value"`
 }
 
 // Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
@@ -36736,6 +36805,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelLogOptionsSpecificationPtrInput)(nil)).Elem(), VpnConnectionVpnTunnelLogOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationArrayInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationArray{})
+	pulumi.RegisterOutputType(BlockPublicAccessStatesPropertiesOutput{})
+	pulumi.RegisterOutputType(BlockPublicAccessStatesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CapacityReservationCapacityAllocationOutput{})
 	pulumi.RegisterOutputType(CapacityReservationCapacityAllocationArrayOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceTypeSpecificationOutput{})

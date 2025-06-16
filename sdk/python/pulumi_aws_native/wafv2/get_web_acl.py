@@ -183,9 +183,9 @@ class GetWebAclResult:
 
     @property
     @pulumi.getter(name="onSourceDDoSProtectionConfig")
-    def on_source_d_do_s_protection_config(self) -> Optional[Any]:
+    def on_source_d_do_s_protection_config(self) -> Optional['outputs.WebAclOnSourceDDoSProtectionConfig']:
         """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WAFv2::WebACL` for more information about the expected schema for this property.
+        Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
         """
         return pulumi.get(self, "on_source_d_do_s_protection_config")
 

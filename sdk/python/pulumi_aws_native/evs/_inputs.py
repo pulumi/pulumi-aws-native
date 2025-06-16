@@ -37,7 +37,13 @@ MYPY = False
 
 if not MYPY:
     class ConnectivityInfoPropertiesArgsDict(TypedDict):
+        """
+        The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
+        """
         private_route_server_peerings: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        """
+        The unique IDs for private route server peers.
+        """
 elif False:
     ConnectivityInfoPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -45,11 +51,18 @@ elif False:
 class ConnectivityInfoPropertiesArgs:
     def __init__(__self__, *,
                  private_route_server_peerings: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        """
+        The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_route_server_peerings: The unique IDs for private route server peers.
+        """
         pulumi.set(__self__, "private_route_server_peerings", private_route_server_peerings)
 
     @property
     @pulumi.getter(name="privateRouteServerPeerings")
     def private_route_server_peerings(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        The unique IDs for private route server peers.
+        """
         return pulumi.get(self, "private_route_server_peerings")
 
     @private_route_server_peerings.setter
@@ -60,10 +73,25 @@ class ConnectivityInfoPropertiesArgs:
 if not MYPY:
     class EnvironmentHostInfoForCreateArgsDict(TypedDict):
         host_name: pulumi.Input[builtins.str]
+        """
+        The DNS hostname of the host. DNS hostnames for hosts must be unique across Amazon EVS environments and within VCF.
+        """
         instance_type: pulumi.Input['EnvironmentHostInfoForCreateInstanceType']
+        """
+        The EC2 instance type that represents the host.
+        """
         key_name: pulumi.Input[builtins.str]
+        """
+        The name of the SSH key that is used to access the host.
+        """
         dedicated_host_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The unique ID of the Amazon EC2 Dedicated Host.
+        """
         placement_group_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The unique ID of the placement group where the host is placed.
+        """
 elif False:
     EnvironmentHostInfoForCreateArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -75,6 +103,13 @@ class EnvironmentHostInfoForCreateArgs:
                  key_name: pulumi.Input[builtins.str],
                  dedicated_host_id: Optional[pulumi.Input[builtins.str]] = None,
                  placement_group_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] host_name: The DNS hostname of the host. DNS hostnames for hosts must be unique across Amazon EVS environments and within VCF.
+        :param pulumi.Input['EnvironmentHostInfoForCreateInstanceType'] instance_type: The EC2 instance type that represents the host.
+        :param pulumi.Input[builtins.str] key_name: The name of the SSH key that is used to access the host.
+        :param pulumi.Input[builtins.str] dedicated_host_id: The unique ID of the Amazon EC2 Dedicated Host.
+        :param pulumi.Input[builtins.str] placement_group_id: The unique ID of the placement group where the host is placed.
+        """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "key_name", key_name)
@@ -86,6 +121,9 @@ class EnvironmentHostInfoForCreateArgs:
     @property
     @pulumi.getter(name="hostName")
     def host_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The DNS hostname of the host. DNS hostnames for hosts must be unique across Amazon EVS environments and within VCF.
+        """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
@@ -95,6 +133,9 @@ class EnvironmentHostInfoForCreateArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input['EnvironmentHostInfoForCreateInstanceType']:
+        """
+        The EC2 instance type that represents the host.
+        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -104,6 +145,9 @@ class EnvironmentHostInfoForCreateArgs:
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the SSH key that is used to access the host.
+        """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
@@ -113,6 +157,9 @@ class EnvironmentHostInfoForCreateArgs:
     @property
     @pulumi.getter(name="dedicatedHostId")
     def dedicated_host_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The unique ID of the Amazon EC2 Dedicated Host.
+        """
         return pulumi.get(self, "dedicated_host_id")
 
     @dedicated_host_id.setter
@@ -122,6 +169,9 @@ class EnvironmentHostInfoForCreateArgs:
     @property
     @pulumi.getter(name="placementGroupId")
     def placement_group_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The unique ID of the placement group where the host is placed.
+        """
         return pulumi.get(self, "placement_group_id")
 
     @placement_group_id.setter
@@ -132,6 +182,9 @@ class EnvironmentHostInfoForCreateArgs:
 if not MYPY:
     class EnvironmentInitialVlanInfoArgsDict(TypedDict):
         cidr: pulumi.Input[builtins.str]
+        """
+        The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.
+        """
 elif False:
     EnvironmentInitialVlanInfoArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -139,11 +192,17 @@ elif False:
 class EnvironmentInitialVlanInfoArgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] cidr: The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.
+        """
         pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Input[builtins.str]:
+        """
+        The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.
+        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -157,15 +216,45 @@ if not MYPY:
         The initial Vlan configuration only required upon creation. Modification after creation will have no effect
         """
         edge_v_tep: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+        """
+        The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
+        """
         expansion_vlan1: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+        """
+        An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
+        """
         expansion_vlan2: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+        """
+        An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
+        """
         hcx: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+        """
+        The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+        """
         nsx_up_link: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+        """
+        The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
+        """
         v_motion: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+        """
+        The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
+        """
         v_san: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+        """
+        The vSAN VLAN subnet. This VLAN subnet carries the communication between ESXi hosts to implement a vSAN shared storage pool.
+        """
         v_tep: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+        """
+        The VTEP VLAN subnet. This VLAN subnet handles internal network traffic between virtual machines within a VCF instance.
+        """
         vm_management: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+        """
+        The VM management VLAN subnet. This VLAN subnet carries traffic for vSphere virtual machines.
+        """
         vmk_management: pulumi.Input['EnvironmentInitialVlanInfoArgsDict']
+        """
+        The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
+        """
 elif False:
     InitialVlansPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -184,6 +273,16 @@ class InitialVlansPropertiesArgs:
                  vmk_management: pulumi.Input['EnvironmentInitialVlanInfoArgs']):
         """
         The initial Vlan configuration only required upon creation. Modification after creation will have no effect
+        :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] edge_v_tep: The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
+        :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] expansion_vlan1: An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
+        :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] expansion_vlan2: An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
+        :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] hcx: The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+        :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] nsx_up_link: The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
+        :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] v_motion: The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
+        :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] v_san: The vSAN VLAN subnet. This VLAN subnet carries the communication between ESXi hosts to implement a vSAN shared storage pool.
+        :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] v_tep: The VTEP VLAN subnet. This VLAN subnet handles internal network traffic between virtual machines within a VCF instance.
+        :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] vm_management: The VM management VLAN subnet. This VLAN subnet carries traffic for vSphere virtual machines.
+        :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] vmk_management: The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
         """
         pulumi.set(__self__, "edge_v_tep", edge_v_tep)
         pulumi.set(__self__, "expansion_vlan1", expansion_vlan1)
@@ -199,6 +298,9 @@ class InitialVlansPropertiesArgs:
     @property
     @pulumi.getter(name="edgeVTep")
     def edge_v_tep(self) -> pulumi.Input['EnvironmentInitialVlanInfoArgs']:
+        """
+        The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
+        """
         return pulumi.get(self, "edge_v_tep")
 
     @edge_v_tep.setter
@@ -208,6 +310,9 @@ class InitialVlansPropertiesArgs:
     @property
     @pulumi.getter(name="expansionVlan1")
     def expansion_vlan1(self) -> pulumi.Input['EnvironmentInitialVlanInfoArgs']:
+        """
+        An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
+        """
         return pulumi.get(self, "expansion_vlan1")
 
     @expansion_vlan1.setter
@@ -217,6 +322,9 @@ class InitialVlansPropertiesArgs:
     @property
     @pulumi.getter(name="expansionVlan2")
     def expansion_vlan2(self) -> pulumi.Input['EnvironmentInitialVlanInfoArgs']:
+        """
+        An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
+        """
         return pulumi.get(self, "expansion_vlan2")
 
     @expansion_vlan2.setter
@@ -226,6 +334,9 @@ class InitialVlansPropertiesArgs:
     @property
     @pulumi.getter
     def hcx(self) -> pulumi.Input['EnvironmentInitialVlanInfoArgs']:
+        """
+        The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+        """
         return pulumi.get(self, "hcx")
 
     @hcx.setter
@@ -235,6 +346,9 @@ class InitialVlansPropertiesArgs:
     @property
     @pulumi.getter(name="nsxUpLink")
     def nsx_up_link(self) -> pulumi.Input['EnvironmentInitialVlanInfoArgs']:
+        """
+        The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
+        """
         return pulumi.get(self, "nsx_up_link")
 
     @nsx_up_link.setter
@@ -244,6 +358,9 @@ class InitialVlansPropertiesArgs:
     @property
     @pulumi.getter(name="vMotion")
     def v_motion(self) -> pulumi.Input['EnvironmentInitialVlanInfoArgs']:
+        """
+        The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
+        """
         return pulumi.get(self, "v_motion")
 
     @v_motion.setter
@@ -253,6 +370,9 @@ class InitialVlansPropertiesArgs:
     @property
     @pulumi.getter(name="vSan")
     def v_san(self) -> pulumi.Input['EnvironmentInitialVlanInfoArgs']:
+        """
+        The vSAN VLAN subnet. This VLAN subnet carries the communication between ESXi hosts to implement a vSAN shared storage pool.
+        """
         return pulumi.get(self, "v_san")
 
     @v_san.setter
@@ -262,6 +382,9 @@ class InitialVlansPropertiesArgs:
     @property
     @pulumi.getter(name="vTep")
     def v_tep(self) -> pulumi.Input['EnvironmentInitialVlanInfoArgs']:
+        """
+        The VTEP VLAN subnet. This VLAN subnet handles internal network traffic between virtual machines within a VCF instance.
+        """
         return pulumi.get(self, "v_tep")
 
     @v_tep.setter
@@ -271,6 +394,9 @@ class InitialVlansPropertiesArgs:
     @property
     @pulumi.getter(name="vmManagement")
     def vm_management(self) -> pulumi.Input['EnvironmentInitialVlanInfoArgs']:
+        """
+        The VM management VLAN subnet. This VLAN subnet carries traffic for vSphere virtual machines.
+        """
         return pulumi.get(self, "vm_management")
 
     @vm_management.setter
@@ -280,6 +406,9 @@ class InitialVlansPropertiesArgs:
     @property
     @pulumi.getter(name="vmkManagement")
     def vmk_management(self) -> pulumi.Input['EnvironmentInitialVlanInfoArgs']:
+        """
+        The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
+        """
         return pulumi.get(self, "vmk_management")
 
     @vmk_management.setter
@@ -293,7 +422,13 @@ if not MYPY:
         The license information for an EVS environment
         """
         solution_key: pulumi.Input[builtins.str]
+        """
+        The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
+        """
         vsan_key: pulumi.Input[builtins.str]
+        """
+        The VSAN license key. This license unlocks vSAN features.
+        """
 elif False:
     LicenseInfoPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -304,6 +439,8 @@ class LicenseInfoPropertiesArgs:
                  vsan_key: pulumi.Input[builtins.str]):
         """
         The license information for an EVS environment
+        :param pulumi.Input[builtins.str] solution_key: The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
+        :param pulumi.Input[builtins.str] vsan_key: The VSAN license key. This license unlocks vSAN features.
         """
         pulumi.set(__self__, "solution_key", solution_key)
         pulumi.set(__self__, "vsan_key", vsan_key)
@@ -311,6 +448,9 @@ class LicenseInfoPropertiesArgs:
     @property
     @pulumi.getter(name="solutionKey")
     def solution_key(self) -> pulumi.Input[builtins.str]:
+        """
+        The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
+        """
         return pulumi.get(self, "solution_key")
 
     @solution_key.setter
@@ -320,6 +460,9 @@ class LicenseInfoPropertiesArgs:
     @property
     @pulumi.getter(name="vsanKey")
     def vsan_key(self) -> pulumi.Input[builtins.str]:
+        """
+        The VSAN license key. This license unlocks vSAN features.
+        """
         return pulumi.get(self, "vsan_key")
 
     @vsan_key.setter
@@ -329,7 +472,13 @@ class LicenseInfoPropertiesArgs:
 
 if not MYPY:
     class ServiceAccessSecurityGroupsPropertiesArgsDict(TypedDict):
+        """
+        The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
+        """
         security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        The security groups that allow service access.
+        """
 elif False:
     ServiceAccessSecurityGroupsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -337,12 +486,19 @@ elif False:
 class ServiceAccessSecurityGroupsPropertiesArgs:
     def __init__(__self__, *,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: The security groups that allow service access.
+        """
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The security groups that allow service access.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -352,15 +508,47 @@ class ServiceAccessSecurityGroupsPropertiesArgs:
 
 if not MYPY:
     class VcfHostnamesPropertiesArgsDict(TypedDict):
+        """
+        The DNS hostnames to be used by the VCF management appliances in your environment.
+
+        For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
+        """
         cloud_builder: pulumi.Input[builtins.str]
+        """
+        The hostname for VMware Cloud Builder.
+        """
         nsx: pulumi.Input[builtins.str]
+        """
+        The VMware NSX hostname.
+        """
         nsx_edge1: pulumi.Input[builtins.str]
+        """
+        The hostname for the first NSX Edge node.
+        """
         nsx_edge2: pulumi.Input[builtins.str]
+        """
+        The hostname for the second NSX Edge node.
+        """
         nsx_manager1: pulumi.Input[builtins.str]
+        """
+        The hostname for the first VMware NSX Manager virtual machine (VM).
+        """
         nsx_manager2: pulumi.Input[builtins.str]
+        """
+        The hostname for the second VMware NSX Manager virtual machine (VM).
+        """
         nsx_manager3: pulumi.Input[builtins.str]
+        """
+        The hostname for the third VMware NSX Manager virtual machine (VM).
+        """
         sddc_manager: pulumi.Input[builtins.str]
+        """
+        The hostname for SDDC Manager.
+        """
         v_center: pulumi.Input[builtins.str]
+        """
+        The VMware vCenter hostname.
+        """
 elif False:
     VcfHostnamesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -376,6 +564,20 @@ class VcfHostnamesPropertiesArgs:
                  nsx_manager3: pulumi.Input[builtins.str],
                  sddc_manager: pulumi.Input[builtins.str],
                  v_center: pulumi.Input[builtins.str]):
+        """
+        The DNS hostnames to be used by the VCF management appliances in your environment.
+
+        For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
+        :param pulumi.Input[builtins.str] cloud_builder: The hostname for VMware Cloud Builder.
+        :param pulumi.Input[builtins.str] nsx: The VMware NSX hostname.
+        :param pulumi.Input[builtins.str] nsx_edge1: The hostname for the first NSX Edge node.
+        :param pulumi.Input[builtins.str] nsx_edge2: The hostname for the second NSX Edge node.
+        :param pulumi.Input[builtins.str] nsx_manager1: The hostname for the first VMware NSX Manager virtual machine (VM).
+        :param pulumi.Input[builtins.str] nsx_manager2: The hostname for the second VMware NSX Manager virtual machine (VM).
+        :param pulumi.Input[builtins.str] nsx_manager3: The hostname for the third VMware NSX Manager virtual machine (VM).
+        :param pulumi.Input[builtins.str] sddc_manager: The hostname for SDDC Manager.
+        :param pulumi.Input[builtins.str] v_center: The VMware vCenter hostname.
+        """
         pulumi.set(__self__, "cloud_builder", cloud_builder)
         pulumi.set(__self__, "nsx", nsx)
         pulumi.set(__self__, "nsx_edge1", nsx_edge1)
@@ -389,6 +591,9 @@ class VcfHostnamesPropertiesArgs:
     @property
     @pulumi.getter(name="cloudBuilder")
     def cloud_builder(self) -> pulumi.Input[builtins.str]:
+        """
+        The hostname for VMware Cloud Builder.
+        """
         return pulumi.get(self, "cloud_builder")
 
     @cloud_builder.setter
@@ -398,6 +603,9 @@ class VcfHostnamesPropertiesArgs:
     @property
     @pulumi.getter
     def nsx(self) -> pulumi.Input[builtins.str]:
+        """
+        The VMware NSX hostname.
+        """
         return pulumi.get(self, "nsx")
 
     @nsx.setter
@@ -407,6 +615,9 @@ class VcfHostnamesPropertiesArgs:
     @property
     @pulumi.getter(name="nsxEdge1")
     def nsx_edge1(self) -> pulumi.Input[builtins.str]:
+        """
+        The hostname for the first NSX Edge node.
+        """
         return pulumi.get(self, "nsx_edge1")
 
     @nsx_edge1.setter
@@ -416,6 +627,9 @@ class VcfHostnamesPropertiesArgs:
     @property
     @pulumi.getter(name="nsxEdge2")
     def nsx_edge2(self) -> pulumi.Input[builtins.str]:
+        """
+        The hostname for the second NSX Edge node.
+        """
         return pulumi.get(self, "nsx_edge2")
 
     @nsx_edge2.setter
@@ -425,6 +639,9 @@ class VcfHostnamesPropertiesArgs:
     @property
     @pulumi.getter(name="nsxManager1")
     def nsx_manager1(self) -> pulumi.Input[builtins.str]:
+        """
+        The hostname for the first VMware NSX Manager virtual machine (VM).
+        """
         return pulumi.get(self, "nsx_manager1")
 
     @nsx_manager1.setter
@@ -434,6 +651,9 @@ class VcfHostnamesPropertiesArgs:
     @property
     @pulumi.getter(name="nsxManager2")
     def nsx_manager2(self) -> pulumi.Input[builtins.str]:
+        """
+        The hostname for the second VMware NSX Manager virtual machine (VM).
+        """
         return pulumi.get(self, "nsx_manager2")
 
     @nsx_manager2.setter
@@ -443,6 +663,9 @@ class VcfHostnamesPropertiesArgs:
     @property
     @pulumi.getter(name="nsxManager3")
     def nsx_manager3(self) -> pulumi.Input[builtins.str]:
+        """
+        The hostname for the third VMware NSX Manager virtual machine (VM).
+        """
         return pulumi.get(self, "nsx_manager3")
 
     @nsx_manager3.setter
@@ -452,6 +675,9 @@ class VcfHostnamesPropertiesArgs:
     @property
     @pulumi.getter(name="sddcManager")
     def sddc_manager(self) -> pulumi.Input[builtins.str]:
+        """
+        The hostname for SDDC Manager.
+        """
         return pulumi.get(self, "sddc_manager")
 
     @sddc_manager.setter
@@ -461,6 +687,9 @@ class VcfHostnamesPropertiesArgs:
     @property
     @pulumi.getter(name="vCenter")
     def v_center(self) -> pulumi.Input[builtins.str]:
+        """
+        The VMware vCenter hostname.
+        """
         return pulumi.get(self, "v_center")
 
     @v_center.setter

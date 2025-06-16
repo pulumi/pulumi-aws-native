@@ -35,6 +35,8 @@ __all__ = [
     'RuleGroupAllowActionArgsDict',
     'RuleGroupAndStatementArgs',
     'RuleGroupAndStatementArgsDict',
+    'RuleGroupAsnMatchStatementArgs',
+    'RuleGroupAsnMatchStatementArgsDict',
     'RuleGroupBlockActionArgs',
     'RuleGroupBlockActionArgsDict',
     'RuleGroupBodyArgs',
@@ -105,6 +107,8 @@ __all__ = [
     'RuleGroupRateBasedStatementCustomKeyArgsDict',
     'RuleGroupRateBasedStatementArgs',
     'RuleGroupRateBasedStatementArgsDict',
+    'RuleGroupRateLimitAsnArgs',
+    'RuleGroupRateLimitAsnArgsDict',
     'RuleGroupRateLimitCookieArgs',
     'RuleGroupRateLimitCookieArgsDict',
     'RuleGroupRateLimitForwardedIpArgs',
@@ -153,10 +157,14 @@ __all__ = [
     'WebAclAllowActionArgsDict',
     'WebAclAndStatementArgs',
     'WebAclAndStatementArgsDict',
+    'WebAclAsnMatchStatementArgs',
+    'WebAclAsnMatchStatementArgsDict',
     'WebAclAssociationConfigArgs',
     'WebAclAssociationConfigArgsDict',
     'WebAclAwsManagedRulesAcfpRuleSetArgs',
     'WebAclAwsManagedRulesAcfpRuleSetArgsDict',
+    'WebAclAwsManagedRulesAntiDDoSRuleSetArgs',
+    'WebAclAwsManagedRulesAntiDDoSRuleSetArgsDict',
     'WebAclAwsManagedRulesAtpRuleSetArgs',
     'WebAclAwsManagedRulesAtpRuleSetArgsDict',
     'WebAclAwsManagedRulesBotControlRuleSetArgs',
@@ -175,6 +183,10 @@ __all__ = [
     'WebAclChallengeActionArgsDict',
     'WebAclChallengeConfigArgs',
     'WebAclChallengeConfigArgsDict',
+    'WebAclClientSideActionConfigArgs',
+    'WebAclClientSideActionConfigArgsDict',
+    'WebAclClientSideActionArgs',
+    'WebAclClientSideActionArgsDict',
     'WebAclCookieMatchPatternArgs',
     'WebAclCookieMatchPatternArgsDict',
     'WebAclCookiesArgs',
@@ -239,6 +251,8 @@ __all__ = [
     'WebAclManagedRuleGroupStatementArgsDict',
     'WebAclNotStatementArgs',
     'WebAclNotStatementArgsDict',
+    'WebAclOnSourceDDoSProtectionConfigArgs',
+    'WebAclOnSourceDDoSProtectionConfigArgsDict',
     'WebAclOrStatementArgs',
     'WebAclOrStatementArgsDict',
     'WebAclOverrideActionArgs',
@@ -247,6 +261,8 @@ __all__ = [
     'WebAclRateBasedStatementCustomKeyArgsDict',
     'WebAclRateBasedStatementArgs',
     'WebAclRateBasedStatementArgsDict',
+    'WebAclRateLimitAsnArgs',
+    'WebAclRateLimitAsnArgsDict',
     'WebAclRateLimitCookieArgs',
     'WebAclRateLimitCookieArgsDict',
     'WebAclRateLimitForwardedIpArgs',
@@ -273,6 +289,8 @@ __all__ = [
     'WebAclRegexMatchStatementArgsDict',
     'WebAclRegexPatternSetReferenceStatementArgs',
     'WebAclRegexPatternSetReferenceStatementArgsDict',
+    'WebAclRegexArgs',
+    'WebAclRegexArgsDict',
     'WebAclRequestBodyAssociatedResourceTypeConfigArgs',
     'WebAclRequestBodyAssociatedResourceTypeConfigArgsDict',
     'WebAclRequestInspectionAcfpArgs',
@@ -762,6 +780,42 @@ class RuleGroupAndStatementArgs:
     @statements.setter
     def statements(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatementArgs']]]):
         pulumi.set(self, "statements", value)
+
+
+if not MYPY:
+    class RuleGroupAsnMatchStatementArgsDict(TypedDict):
+        asn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        forwarded_ip_config: NotRequired[pulumi.Input['RuleGroupForwardedIpConfigurationArgsDict']]
+elif False:
+    RuleGroupAsnMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupAsnMatchStatementArgs:
+    def __init__(__self__, *,
+                 asn_list: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
+                 forwarded_ip_config: Optional[pulumi.Input['RuleGroupForwardedIpConfigurationArgs']] = None):
+        if asn_list is not None:
+            pulumi.set(__self__, "asn_list", asn_list)
+        if forwarded_ip_config is not None:
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+
+    @property
+    @pulumi.getter(name="asnList")
+    def asn_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "asn_list")
+
+    @asn_list.setter
+    def asn_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "asn_list", value)
+
+    @property
+    @pulumi.getter(name="forwardedIpConfig")
+    def forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupForwardedIpConfigurationArgs']]:
+        return pulumi.get(self, "forwarded_ip_config")
+
+    @forwarded_ip_config.setter
+    def forwarded_ip_config(self, value: Optional[pulumi.Input['RuleGroupForwardedIpConfigurationArgs']]):
+        pulumi.set(self, "forwarded_ip_config", value)
 
 
 if not MYPY:
@@ -3242,6 +3296,7 @@ if not MYPY:
         """
         Specifies a single custom aggregate key for a rate-base rule.
         """
+        asn: NotRequired[pulumi.Input['RuleGroupRateLimitAsnArgsDict']]
         cookie: NotRequired[pulumi.Input['RuleGroupRateLimitCookieArgsDict']]
         """
         Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
@@ -3302,6 +3357,7 @@ elif False:
 @pulumi.input_type
 class RuleGroupRateBasedStatementCustomKeyArgs:
     def __init__(__self__, *,
+                 asn: Optional[pulumi.Input['RuleGroupRateLimitAsnArgs']] = None,
                  cookie: Optional[pulumi.Input['RuleGroupRateLimitCookieArgs']] = None,
                  forwarded_ip: Optional[pulumi.Input['RuleGroupRateLimitForwardedIpArgs']] = None,
                  header: Optional[pulumi.Input['RuleGroupRateLimitHeaderArgs']] = None,
@@ -3337,6 +3393,8 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
         :param pulumi.Input['RuleGroupRateLimitQueryStringArgs'] query_string: Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
         :param pulumi.Input['RuleGroupRateLimitUriPathArgs'] uri_path: Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
         """
+        if asn is not None:
+            pulumi.set(__self__, "asn", asn)
         if cookie is not None:
             pulumi.set(__self__, "cookie", cookie)
         if forwarded_ip is not None:
@@ -3359,6 +3417,15 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
             pulumi.set(__self__, "query_string", query_string)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> Optional[pulumi.Input['RuleGroupRateLimitAsnArgs']]:
+        return pulumi.get(self, "asn")
+
+    @asn.setter
+    def asn(self, value: Optional[pulumi.Input['RuleGroupRateLimitAsnArgs']]):
+        pulumi.set(self, "asn", value)
 
     @property
     @pulumi.getter
@@ -3727,6 +3794,24 @@ class RuleGroupRateBasedStatementArgs:
     @scope_down_statement.setter
     def scope_down_statement(self, value: Optional[pulumi.Input['RuleGroupStatementArgs']]):
         pulumi.set(self, "scope_down_statement", value)
+
+
+if not MYPY:
+    class RuleGroupRateLimitAsnArgsDict(TypedDict):
+        """
+        Specifies the request's ASN as an aggregate key for a rate-based rule.
+        """
+        pass
+elif False:
+    RuleGroupRateLimitAsnArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRateLimitAsnArgs:
+    def __init__(__self__):
+        """
+        Specifies the request's ASN as an aggregate key for a rate-based rule.
+        """
+        pass
 
 
 if not MYPY:
@@ -4820,6 +4905,7 @@ if not MYPY:
         """
         A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
         """
+        asn_match_statement: NotRequired[pulumi.Input['RuleGroupAsnMatchStatementArgsDict']]
         byte_match_statement: NotRequired[pulumi.Input['RuleGroupByteMatchStatementArgsDict']]
         """
         A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
@@ -4937,6 +5023,7 @@ elif False:
 class RuleGroupStatementArgs:
     def __init__(__self__, *,
                  and_statement: Optional[pulumi.Input['RuleGroupAndStatementArgs']] = None,
+                 asn_match_statement: Optional[pulumi.Input['RuleGroupAsnMatchStatementArgs']] = None,
                  byte_match_statement: Optional[pulumi.Input['RuleGroupByteMatchStatementArgs']] = None,
                  geo_match_statement: Optional[pulumi.Input['RuleGroupGeoMatchStatementArgs']] = None,
                  ip_set_reference_statement: Optional[pulumi.Input['RuleGroupIpSetReferenceStatementArgs']] = None,
@@ -5029,6 +5116,8 @@ class RuleGroupStatementArgs:
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
+        if asn_match_statement is not None:
+            pulumi.set(__self__, "asn_match_statement", asn_match_statement)
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
@@ -5065,6 +5154,15 @@ class RuleGroupStatementArgs:
     @and_statement.setter
     def and_statement(self, value: Optional[pulumi.Input['RuleGroupAndStatementArgs']]):
         pulumi.set(self, "and_statement", value)
+
+    @property
+    @pulumi.getter(name="asnMatchStatement")
+    def asn_match_statement(self) -> Optional[pulumi.Input['RuleGroupAsnMatchStatementArgs']]:
+        return pulumi.get(self, "asn_match_statement")
+
+    @asn_match_statement.setter
+    def asn_match_statement(self, value: Optional[pulumi.Input['RuleGroupAsnMatchStatementArgs']]):
+        pulumi.set(self, "asn_match_statement", value)
 
     @property
     @pulumi.getter(name="byteMatchStatement")
@@ -5615,6 +5713,42 @@ class WebAclAndStatementArgs:
 
 
 if not MYPY:
+    class WebAclAsnMatchStatementArgsDict(TypedDict):
+        asn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        forwarded_ip_config: NotRequired[pulumi.Input['WebAclForwardedIpConfigurationArgsDict']]
+elif False:
+    WebAclAsnMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclAsnMatchStatementArgs:
+    def __init__(__self__, *,
+                 asn_list: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
+                 forwarded_ip_config: Optional[pulumi.Input['WebAclForwardedIpConfigurationArgs']] = None):
+        if asn_list is not None:
+            pulumi.set(__self__, "asn_list", asn_list)
+        if forwarded_ip_config is not None:
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+
+    @property
+    @pulumi.getter(name="asnList")
+    def asn_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "asn_list")
+
+    @asn_list.setter
+    def asn_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "asn_list", value)
+
+    @property
+    @pulumi.getter(name="forwardedIpConfig")
+    def forwarded_ip_config(self) -> Optional[pulumi.Input['WebAclForwardedIpConfigurationArgs']]:
+        return pulumi.get(self, "forwarded_ip_config")
+
+    @forwarded_ip_config.setter
+    def forwarded_ip_config(self, value: Optional[pulumi.Input['WebAclForwardedIpConfigurationArgs']]):
+        pulumi.set(self, "forwarded_ip_config", value)
+
+
+if not MYPY:
     class WebAclAssociationConfigArgsDict(TypedDict):
         """
         AssociationConfig for body inspection
@@ -5809,6 +5943,47 @@ class WebAclAwsManagedRulesAcfpRuleSetArgs:
     @response_inspection.setter
     def response_inspection(self, value: Optional[pulumi.Input['WebAclResponseInspectionArgs']]):
         pulumi.set(self, "response_inspection", value)
+
+
+if not MYPY:
+    class WebAclAwsManagedRulesAntiDDoSRuleSetArgsDict(TypedDict):
+        """
+        Configures how to use the AntiDDOS AWS managed rule group in the web ACL
+        """
+        client_side_action_config: pulumi.Input['WebAclClientSideActionConfigArgsDict']
+        sensitivity_to_block: NotRequired[pulumi.Input['WebAclSensitivityToAct']]
+elif False:
+    WebAclAwsManagedRulesAntiDDoSRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclAwsManagedRulesAntiDDoSRuleSetArgs:
+    def __init__(__self__, *,
+                 client_side_action_config: pulumi.Input['WebAclClientSideActionConfigArgs'],
+                 sensitivity_to_block: Optional[pulumi.Input['WebAclSensitivityToAct']] = None):
+        """
+        Configures how to use the AntiDDOS AWS managed rule group in the web ACL
+        """
+        pulumi.set(__self__, "client_side_action_config", client_side_action_config)
+        if sensitivity_to_block is not None:
+            pulumi.set(__self__, "sensitivity_to_block", sensitivity_to_block)
+
+    @property
+    @pulumi.getter(name="clientSideActionConfig")
+    def client_side_action_config(self) -> pulumi.Input['WebAclClientSideActionConfigArgs']:
+        return pulumi.get(self, "client_side_action_config")
+
+    @client_side_action_config.setter
+    def client_side_action_config(self, value: pulumi.Input['WebAclClientSideActionConfigArgs']):
+        pulumi.set(self, "client_side_action_config", value)
+
+    @property
+    @pulumi.getter(name="sensitivityToBlock")
+    def sensitivity_to_block(self) -> Optional[pulumi.Input['WebAclSensitivityToAct']]:
+        return pulumi.get(self, "sensitivity_to_block")
+
+    @sensitivity_to_block.setter
+    def sensitivity_to_block(self, value: Optional[pulumi.Input['WebAclSensitivityToAct']]):
+        pulumi.set(self, "sensitivity_to_block", value)
 
 
 if not MYPY:
@@ -6478,6 +6653,88 @@ class WebAclChallengeConfigArgs:
     @immunity_time_property.setter
     def immunity_time_property(self, value: Optional[pulumi.Input['WebAclImmunityTimePropertyArgs']]):
         pulumi.set(self, "immunity_time_property", value)
+
+
+if not MYPY:
+    class WebAclClientSideActionConfigArgsDict(TypedDict):
+        """
+        Client side action config for AntiDDOS AMR.
+        """
+        challenge: pulumi.Input['WebAclClientSideActionArgsDict']
+elif False:
+    WebAclClientSideActionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclClientSideActionConfigArgs:
+    def __init__(__self__, *,
+                 challenge: pulumi.Input['WebAclClientSideActionArgs']):
+        """
+        Client side action config for AntiDDOS AMR.
+        """
+        pulumi.set(__self__, "challenge", challenge)
+
+    @property
+    @pulumi.getter
+    def challenge(self) -> pulumi.Input['WebAclClientSideActionArgs']:
+        return pulumi.get(self, "challenge")
+
+    @challenge.setter
+    def challenge(self, value: pulumi.Input['WebAclClientSideActionArgs']):
+        pulumi.set(self, "challenge", value)
+
+
+if not MYPY:
+    class WebAclClientSideActionArgsDict(TypedDict):
+        """
+        Client side action config for AntiDDOS AMR.
+        """
+        usage_of_action: pulumi.Input['WebAclUsageOfAction']
+        exempt_uri_regular_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRegexArgsDict']]]]
+        sensitivity: NotRequired[pulumi.Input['WebAclSensitivityToAct']]
+elif False:
+    WebAclClientSideActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclClientSideActionArgs:
+    def __init__(__self__, *,
+                 usage_of_action: pulumi.Input['WebAclUsageOfAction'],
+                 exempt_uri_regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRegexArgs']]]] = None,
+                 sensitivity: Optional[pulumi.Input['WebAclSensitivityToAct']] = None):
+        """
+        Client side action config for AntiDDOS AMR.
+        """
+        pulumi.set(__self__, "usage_of_action", usage_of_action)
+        if exempt_uri_regular_expressions is not None:
+            pulumi.set(__self__, "exempt_uri_regular_expressions", exempt_uri_regular_expressions)
+        if sensitivity is not None:
+            pulumi.set(__self__, "sensitivity", sensitivity)
+
+    @property
+    @pulumi.getter(name="usageOfAction")
+    def usage_of_action(self) -> pulumi.Input['WebAclUsageOfAction']:
+        return pulumi.get(self, "usage_of_action")
+
+    @usage_of_action.setter
+    def usage_of_action(self, value: pulumi.Input['WebAclUsageOfAction']):
+        pulumi.set(self, "usage_of_action", value)
+
+    @property
+    @pulumi.getter(name="exemptUriRegularExpressions")
+    def exempt_uri_regular_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRegexArgs']]]]:
+        return pulumi.get(self, "exempt_uri_regular_expressions")
+
+    @exempt_uri_regular_expressions.setter
+    def exempt_uri_regular_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRegexArgs']]]]):
+        pulumi.set(self, "exempt_uri_regular_expressions", value)
+
+    @property
+    @pulumi.getter
+    def sensitivity(self) -> Optional[pulumi.Input['WebAclSensitivityToAct']]:
+        return pulumi.get(self, "sensitivity")
+
+    @sensitivity.setter
+    def sensitivity(self, value: Optional[pulumi.Input['WebAclSensitivityToAct']]):
+        pulumi.set(self, "sensitivity", value)
 
 
 if not MYPY:
@@ -8676,6 +8933,7 @@ if not MYPY:
 
         For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
         """
+        aws_managed_rules_anti_d_do_s_rule_set: NotRequired[pulumi.Input['WebAclAwsManagedRulesAntiDDoSRuleSetArgsDict']]
         aws_managed_rules_atp_rule_set: NotRequired[pulumi.Input['WebAclAwsManagedRulesAtpRuleSetArgsDict']]
         """
         Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
@@ -8711,6 +8969,7 @@ elif False:
 class WebAclManagedRuleGroupConfigArgs:
     def __init__(__self__, *,
                  aws_managed_rules_acfp_rule_set: Optional[pulumi.Input['WebAclAwsManagedRulesAcfpRuleSetArgs']] = None,
+                 aws_managed_rules_anti_d_do_s_rule_set: Optional[pulumi.Input['WebAclAwsManagedRulesAntiDDoSRuleSetArgs']] = None,
                  aws_managed_rules_atp_rule_set: Optional[pulumi.Input['WebAclAwsManagedRulesAtpRuleSetArgs']] = None,
                  aws_managed_rules_bot_control_rule_set: Optional[pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetArgs']] = None,
                  login_path: Optional[pulumi.Input[builtins.str]] = None,
@@ -8735,6 +8994,8 @@ class WebAclManagedRuleGroupConfigArgs:
         """
         if aws_managed_rules_acfp_rule_set is not None:
             pulumi.set(__self__, "aws_managed_rules_acfp_rule_set", aws_managed_rules_acfp_rule_set)
+        if aws_managed_rules_anti_d_do_s_rule_set is not None:
+            pulumi.set(__self__, "aws_managed_rules_anti_d_do_s_rule_set", aws_managed_rules_anti_d_do_s_rule_set)
         if aws_managed_rules_atp_rule_set is not None:
             pulumi.set(__self__, "aws_managed_rules_atp_rule_set", aws_managed_rules_atp_rule_set)
         if aws_managed_rules_bot_control_rule_set is not None:
@@ -8761,6 +9022,15 @@ class WebAclManagedRuleGroupConfigArgs:
     @aws_managed_rules_acfp_rule_set.setter
     def aws_managed_rules_acfp_rule_set(self, value: Optional[pulumi.Input['WebAclAwsManagedRulesAcfpRuleSetArgs']]):
         pulumi.set(self, "aws_managed_rules_acfp_rule_set", value)
+
+    @property
+    @pulumi.getter(name="awsManagedRulesAntiDDoSRuleSet")
+    def aws_managed_rules_anti_d_do_s_rule_set(self) -> Optional[pulumi.Input['WebAclAwsManagedRulesAntiDDoSRuleSetArgs']]:
+        return pulumi.get(self, "aws_managed_rules_anti_d_do_s_rule_set")
+
+    @aws_managed_rules_anti_d_do_s_rule_set.setter
+    def aws_managed_rules_anti_d_do_s_rule_set(self, value: Optional[pulumi.Input['WebAclAwsManagedRulesAntiDDoSRuleSetArgs']]):
+        pulumi.set(self, "aws_managed_rules_anti_d_do_s_rule_set", value)
 
     @property
     @pulumi.getter(name="awsManagedRulesAtpRuleSet")
@@ -9027,6 +9297,34 @@ class WebAclNotStatementArgs:
 
 
 if not MYPY:
+    class WebAclOnSourceDDoSProtectionConfigArgsDict(TypedDict):
+        """
+        Configures the options for on-source DDoS protection provided by supported resource type.
+        """
+        alb_low_reputation_mode: pulumi.Input['WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode']
+elif False:
+    WebAclOnSourceDDoSProtectionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclOnSourceDDoSProtectionConfigArgs:
+    def __init__(__self__, *,
+                 alb_low_reputation_mode: pulumi.Input['WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode']):
+        """
+        Configures the options for on-source DDoS protection provided by supported resource type.
+        """
+        pulumi.set(__self__, "alb_low_reputation_mode", alb_low_reputation_mode)
+
+    @property
+    @pulumi.getter(name="albLowReputationMode")
+    def alb_low_reputation_mode(self) -> pulumi.Input['WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode']:
+        return pulumi.get(self, "alb_low_reputation_mode")
+
+    @alb_low_reputation_mode.setter
+    def alb_low_reputation_mode(self, value: pulumi.Input['WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode']):
+        pulumi.set(self, "alb_low_reputation_mode", value)
+
+
+if not MYPY:
     class WebAclOrStatementArgsDict(TypedDict):
         statements: pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgsDict']]]
         """
@@ -9118,6 +9416,7 @@ if not MYPY:
         """
         Specifies a single custom aggregate key for a rate-base rule.
         """
+        asn: NotRequired[pulumi.Input['WebAclRateLimitAsnArgsDict']]
         cookie: NotRequired[pulumi.Input['WebAclRateLimitCookieArgsDict']]
         """
         Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
@@ -9178,6 +9477,7 @@ elif False:
 @pulumi.input_type
 class WebAclRateBasedStatementCustomKeyArgs:
     def __init__(__self__, *,
+                 asn: Optional[pulumi.Input['WebAclRateLimitAsnArgs']] = None,
                  cookie: Optional[pulumi.Input['WebAclRateLimitCookieArgs']] = None,
                  forwarded_ip: Optional[pulumi.Input['WebAclRateLimitForwardedIpArgs']] = None,
                  header: Optional[pulumi.Input['WebAclRateLimitHeaderArgs']] = None,
@@ -9213,6 +9513,8 @@ class WebAclRateBasedStatementCustomKeyArgs:
         :param pulumi.Input['WebAclRateLimitQueryStringArgs'] query_string: Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
         :param pulumi.Input['WebAclRateLimitUriPathArgs'] uri_path: Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
         """
+        if asn is not None:
+            pulumi.set(__self__, "asn", asn)
         if cookie is not None:
             pulumi.set(__self__, "cookie", cookie)
         if forwarded_ip is not None:
@@ -9235,6 +9537,15 @@ class WebAclRateBasedStatementCustomKeyArgs:
             pulumi.set(__self__, "query_string", query_string)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> Optional[pulumi.Input['WebAclRateLimitAsnArgs']]:
+        return pulumi.get(self, "asn")
+
+    @asn.setter
+    def asn(self, value: Optional[pulumi.Input['WebAclRateLimitAsnArgs']]):
+        pulumi.set(self, "asn", value)
 
     @property
     @pulumi.getter
@@ -9603,6 +9914,24 @@ class WebAclRateBasedStatementArgs:
     @scope_down_statement.setter
     def scope_down_statement(self, value: Optional[pulumi.Input['WebAclStatementArgs']]):
         pulumi.set(self, "scope_down_statement", value)
+
+
+if not MYPY:
+    class WebAclRateLimitAsnArgsDict(TypedDict):
+        """
+        Specifies the request's ASN as an aggregate key for a rate-based rule.
+        """
+        pass
+elif False:
+    WebAclRateLimitAsnArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRateLimitAsnArgs:
+    def __init__(__self__):
+        """
+        Specifies the request's ASN as an aggregate key for a rate-based rule.
+        """
+        pass
 
 
 if not MYPY:
@@ -10162,6 +10491,35 @@ class WebAclRegexPatternSetReferenceStatementArgs:
     @text_transformations.setter
     def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         pulumi.set(self, "text_transformations", value)
+
+
+if not MYPY:
+    class WebAclRegexArgsDict(TypedDict):
+        """
+        Regex
+        """
+        regex_string: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    WebAclRegexArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRegexArgs:
+    def __init__(__self__, *,
+                 regex_string: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Regex
+        """
+        if regex_string is not None:
+            pulumi.set(__self__, "regex_string", regex_string)
+
+    @property
+    @pulumi.getter(name="regexString")
+    def regex_string(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "regex_string")
+
+    @regex_string.setter
+    def regex_string(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "regex_string", value)
 
 
 if not MYPY:
@@ -11749,6 +12107,7 @@ if not MYPY:
         """
         A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
         """
+        asn_match_statement: NotRequired[pulumi.Input['WebAclAsnMatchStatementArgsDict']]
         byte_match_statement: NotRequired[pulumi.Input['WebAclByteMatchStatementArgsDict']]
         """
         A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
@@ -11880,6 +12239,7 @@ elif False:
 class WebAclStatementArgs:
     def __init__(__self__, *,
                  and_statement: Optional[pulumi.Input['WebAclAndStatementArgs']] = None,
+                 asn_match_statement: Optional[pulumi.Input['WebAclAsnMatchStatementArgs']] = None,
                  byte_match_statement: Optional[pulumi.Input['WebAclByteMatchStatementArgs']] = None,
                  geo_match_statement: Optional[pulumi.Input['WebAclGeoMatchStatementArgs']] = None,
                  ip_set_reference_statement: Optional[pulumi.Input['WebAclIpSetReferenceStatementArgs']] = None,
@@ -11982,6 +12342,8 @@ class WebAclStatementArgs:
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
+        if asn_match_statement is not None:
+            pulumi.set(__self__, "asn_match_statement", asn_match_statement)
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
@@ -12022,6 +12384,15 @@ class WebAclStatementArgs:
     @and_statement.setter
     def and_statement(self, value: Optional[pulumi.Input['WebAclAndStatementArgs']]):
         pulumi.set(self, "and_statement", value)
+
+    @property
+    @pulumi.getter(name="asnMatchStatement")
+    def asn_match_statement(self) -> Optional[pulumi.Input['WebAclAsnMatchStatementArgs']]:
+        return pulumi.get(self, "asn_match_statement")
+
+    @asn_match_statement.setter
+    def asn_match_statement(self, value: Optional[pulumi.Input['WebAclAsnMatchStatementArgs']]):
+        pulumi.set(self, "asn_match_statement", value)
 
     @property
     @pulumi.getter(name="byteMatchStatement")

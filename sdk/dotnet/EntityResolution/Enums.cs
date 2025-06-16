@@ -332,7 +332,9 @@ namespace Pulumi.AwsNative.EntityResolution
     }
 
     /// <summary>
-    /// The type of incremental run. It takes only one value: `IMMEDIATE` .
+    /// The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
+    /// 
+    /// &gt; For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
     /// </summary>
     [EnumType]
     public readonly struct MatchingWorkflowIncrementalRunConfigIncrementalRunType : IEquatable<MatchingWorkflowIncrementalRunConfigIncrementalRunType>

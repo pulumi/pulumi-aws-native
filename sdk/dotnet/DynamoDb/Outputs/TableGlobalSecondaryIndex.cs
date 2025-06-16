@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TableKeySchema> KeySchema;
         /// <summary>
-        /// The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+        /// The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
         /// </summary>
         public readonly Outputs.TableOnDemandThroughput? OnDemandThroughput;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// </summary>
         public readonly Outputs.TableProjection Projection;
         /// <summary>
-        /// Represents the provisioned throughput settings for the specified global secondary index.
+        /// Represents the provisioned throughput settings for the specified global secondary index. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
         ///  For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
         /// </summary>
         public readonly Outputs.TableProvisionedThroughput? ProvisionedThroughput;

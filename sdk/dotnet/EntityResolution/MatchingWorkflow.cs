@@ -25,7 +25,9 @@ namespace Pulumi.AwsNative.EntityResolution
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An object which defines an incremental run type and has only `incrementalRunType` as a field.
+        /// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+        /// 
+        /// &gt; For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
         /// </summary>
         [Output("incrementalRunConfig")]
         public Output<Outputs.MatchingWorkflowIncrementalRunConfig?> IncrementalRunConfig { get; private set; } = null!;
@@ -128,7 +130,9 @@ namespace Pulumi.AwsNative.EntityResolution
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An object which defines an incremental run type and has only `incrementalRunType` as a field.
+        /// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+        /// 
+        /// &gt; For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
         /// </summary>
         [Input("incrementalRunConfig")]
         public Input<Inputs.MatchingWorkflowIncrementalRunConfigArgs>? IncrementalRunConfig { get; set; }

@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
         /// </summary>
         public readonly Outputs.RuleGroupAndStatement? AndStatement;
+        public readonly Outputs.RuleGroupAsnMatchStatement? AsnMatchStatement;
         /// <summary>
         /// A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
         /// </summary>
@@ -135,6 +136,8 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         private RuleGroupStatement(
             Outputs.RuleGroupAndStatement? andStatement,
 
+            Outputs.RuleGroupAsnMatchStatement? asnMatchStatement,
+
             Outputs.RuleGroupByteMatchStatement? byteMatchStatement,
 
             Outputs.RuleGroupGeoMatchStatement? geoMatchStatement,
@@ -160,6 +163,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
             Outputs.RuleGroupXssMatchStatement? xssMatchStatement)
         {
             AndStatement = andStatement;
+            AsnMatchStatement = asnMatchStatement;
             ByteMatchStatement = byteMatchStatement;
             GeoMatchStatement = geoMatchStatement;
             IpSetReferenceStatement = ipSetReferenceStatement;

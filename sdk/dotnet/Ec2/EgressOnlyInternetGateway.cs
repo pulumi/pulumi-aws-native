@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
+        /// Any tags assigned to the egress only internet gateway.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the VPC for which to create the egress-only internet gateway.
         /// </summary>
         [Output("vpcId")]
@@ -76,6 +82,18 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class EgressOnlyInternetGatewayArgs : global::Pulumi.ResourceArgs
     {
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the egress only internet gateway.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The ID of the VPC for which to create the egress-only internet gateway.
         /// </summary>

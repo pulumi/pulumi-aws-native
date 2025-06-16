@@ -40,7 +40,9 @@ class MatchingWorkflowArgs:
         :param pulumi.Input['MatchingWorkflowResolutionTechniquesArgs'] resolution_techniques: An object which defines the `resolutionType` and the `ruleBasedProperties` .
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
         :param pulumi.Input[builtins.str] description: The description of the MatchingWorkflow
-        :param pulumi.Input['MatchingWorkflowIncrementalRunConfigArgs'] incremental_run_config: An object which defines an incremental run type and has only `incrementalRunType` as a field.
+        :param pulumi.Input['MatchingWorkflowIncrementalRunConfigArgs'] incremental_run_config: Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+               
+               > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input[builtins.str] workflow_name: The name of the MatchingWorkflow
         """
@@ -121,7 +123,9 @@ class MatchingWorkflowArgs:
     @pulumi.getter(name="incrementalRunConfig")
     def incremental_run_config(self) -> Optional[pulumi.Input['MatchingWorkflowIncrementalRunConfigArgs']]:
         """
-        An object which defines an incremental run type and has only `incrementalRunType` as a field.
+        Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+
+        > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
         """
         return pulumi.get(self, "incremental_run_config")
 
@@ -175,7 +179,9 @@ class MatchingWorkflow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: The description of the MatchingWorkflow
-        :param pulumi.Input[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict']] incremental_run_config: An object which defines an incremental run type and has only `incrementalRunType` as a field.
+        :param pulumi.Input[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict']] incremental_run_config: Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+               
+               > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]] output_source_config: A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
         :param pulumi.Input[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']] resolution_techniques: An object which defines the `resolutionType` and the `ruleBasedProperties` .
@@ -297,7 +303,9 @@ class MatchingWorkflow(pulumi.CustomResource):
     @pulumi.getter(name="incrementalRunConfig")
     def incremental_run_config(self) -> pulumi.Output[Optional['outputs.MatchingWorkflowIncrementalRunConfig']]:
         """
-        An object which defines an incremental run type and has only `incrementalRunType` as a field.
+        Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+
+        > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
         """
         return pulumi.get(self, "incremental_run_config")
 

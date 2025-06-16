@@ -74,6 +74,7 @@ namespace Pulumi.AwsNative.Ec2
         ///  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
         /// </summary>
         public readonly bool? AssignIpv6AddressOnCreation;
+        public readonly Outputs.BlockPublicAccessStatesProperties? BlockPublicAccessStates;
         /// <summary>
         /// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
         ///   You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a ``0.0.0.0/0`` route pointing to the internet gateway. For more information, see [Configure DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough) in the *User Guide*.
@@ -90,7 +91,7 @@ namespace Pulumi.AwsNative.Ec2
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
         /// <summary>
         /// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-        ///   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+        ///  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         /// </summary>
         public readonly bool? MapPublicIpOnLaunch;
         /// <summary>
@@ -118,6 +119,8 @@ namespace Pulumi.AwsNative.Ec2
         private GetSubnetResult(
             bool? assignIpv6AddressOnCreation,
 
+            Outputs.BlockPublicAccessStatesProperties? blockPublicAccessStates,
+
             bool? enableDns64,
 
             string? ipv6CidrBlock,
@@ -135,6 +138,7 @@ namespace Pulumi.AwsNative.Ec2
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AssignIpv6AddressOnCreation = assignIpv6AddressOnCreation;
+            BlockPublicAccessStates = blockPublicAccessStates;
             EnableDns64 = enableDns64;
             Ipv6CidrBlock = ipv6CidrBlock;
             Ipv6CidrBlocks = ipv6CidrBlocks;

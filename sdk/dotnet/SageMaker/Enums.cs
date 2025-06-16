@@ -1088,6 +1088,42 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// Sets whether you can access the domain in Amazon SageMaker Studio:
+    /// 
+    /// ENABLED
+    /// You can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.
+    /// DISABLED
+    /// You can't access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it only in that studio interface.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainUnifiedStudioSettingsStudioWebPortalAccess : IEquatable<DomainUnifiedStudioSettingsStudioWebPortalAccess>
+    {
+        private readonly string _value;
+
+        private DomainUnifiedStudioSettingsStudioWebPortalAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainUnifiedStudioSettingsStudioWebPortalAccess Enabled { get; } = new DomainUnifiedStudioSettingsStudioWebPortalAccess("ENABLED");
+        public static DomainUnifiedStudioSettingsStudioWebPortalAccess Disabled { get; } = new DomainUnifiedStudioSettingsStudioWebPortalAccess("DISABLED");
+
+        public static bool operator ==(DomainUnifiedStudioSettingsStudioWebPortalAccess left, DomainUnifiedStudioSettingsStudioWebPortalAccess right) => left.Equals(right);
+        public static bool operator !=(DomainUnifiedStudioSettingsStudioWebPortalAccess left, DomainUnifiedStudioSettingsStudioWebPortalAccess right) => !left.Equals(right);
+
+        public static explicit operator string(DomainUnifiedStudioSettingsStudioWebPortalAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainUnifiedStudioSettingsStudioWebPortalAccess other && Equals(other);
+        public bool Equals(DomainUnifiedStudioSettingsStudioWebPortalAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
     /// </summary>
     [EnumType]

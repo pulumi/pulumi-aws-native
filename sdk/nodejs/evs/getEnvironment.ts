@@ -18,17 +18,48 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetEnvironmentArgs {
+    /**
+     * The unique ID for the environment. For example: `env-1234567890` .
+     */
     environmentId: string;
 }
 
 export interface GetEnvironmentResult {
+    /**
+     * A check on the environment to identify instance health and VMware VCF licensing issues. For example:
+     *
+     * `{ "checks": [ { "type": "KEY_REUSE", "result": "PASSED" }, { "type": "KEY_COVERAGE", "result": "PASSED" }, { "type": "REACHABILITY", "result": "PASSED" }, { "type": "HOST_COUNT", "result": "PASSED" } ] }`
+     */
     readonly checks?: outputs.evs.EnvironmentCheck[];
+    /**
+     * The date and time that the environment was created. For example: `1749081600.000` .
+     */
     readonly createdAt?: string;
+    /**
+     * The VCF credentials that are stored as Amazon EVS managed secrets in AWS Secrets Manager. Amazon EVS stores credentials that are needed to install vCenter Server, NSX, and SDDC Manager. For example:
+     *
+     * `{ [ { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterAdmin-MnTMEi" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_vCenterRoot-87VyCF" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXRoot-SR3k43" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAdmin-L5LUiD" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_NSXAudit-Q2oW46" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerRoot-bFulOq" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerVCF-Ec3gES" }, { "secretArn": "arn:aws:secretsmanager:us-east-1:000000000000:secret:evs!env-1234567890_SDDCManagerAdmin-JMTAAb" } ] }`
+     */
     readonly credentials?: outputs.evs.EnvironmentSecret[];
+    /**
+     * The Amazon Resource Name (ARN) that is associated with the environment. For example: `arn:aws:evs:us-east-1:000000000000:environment/env-1234567890` .
+     */
     readonly environmentArn?: string;
+    /**
+     * The unique ID for the environment. For example: `env-1234567890` .
+     */
     readonly environmentId?: string;
+    /**
+     * The state of an environment. For example: `CREATED` .
+     */
     readonly environmentState?: enums.evs.EnvironmentState;
+    /**
+     * The date and time that the environment was modified. For example: `1749081600.000` .
+     */
     readonly modifiedAt?: string;
+    /**
+     * A detailed description of the `environmentState` of an environment. For example: `Environment successfully created` .
+     */
     readonly stateDetails?: string;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -46,5 +77,8 @@ export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulu
 }
 
 export interface GetEnvironmentOutputArgs {
+    /**
+     * The unique ID for the environment. For example: `env-1234567890` .
+     */
     environmentId: pulumi.Input<string>;
 }

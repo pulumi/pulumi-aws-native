@@ -31,7 +31,9 @@ export interface GetMatchingWorkflowResult {
      */
     readonly description?: string;
     /**
-     * An object which defines an incremental run type and has only `incrementalRunType` as a field.
+     * Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+     *
+     * > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
      */
     readonly incrementalRunConfig?: outputs.entityresolution.MatchingWorkflowIncrementalRunConfig;
     /**

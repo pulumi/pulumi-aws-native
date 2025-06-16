@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, app_block_arn=None, arn=None, created_time=None, description=None, display_name=None, icon_s3_location=None, launch_parameters=None, launch_path=None, working_directory=None):
+    def __init__(__self__, app_block_arn=None, arn=None, created_time=None, description=None, display_name=None, icon_s3_location=None, launch_parameters=None, launch_path=None, tags=None, working_directory=None):
         if app_block_arn and not isinstance(app_block_arn, str):
             raise TypeError("Expected argument 'app_block_arn' to be a str")
         pulumi.set(__self__, "app_block_arn", app_block_arn)
@@ -50,6 +50,9 @@ class GetApplicationResult:
         if launch_path and not isinstance(launch_path, str):
             raise TypeError("Expected argument 'launch_path' to be a str")
         pulumi.set(__self__, "launch_path", launch_path)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if working_directory and not isinstance(working_directory, str):
             raise TypeError("Expected argument 'working_directory' to be a str")
         pulumi.set(__self__, "working_directory", working_directory)
@@ -119,6 +122,14 @@ class GetApplicationResult:
         return pulumi.get(self, "launch_path")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence[Any]]:
+        """
+        The tags of the application.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[builtins.str]:
         """
@@ -141,6 +152,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             icon_s3_location=self.icon_s3_location,
             launch_parameters=self.launch_parameters,
             launch_path=self.launch_path,
+            tags=self.tags,
             working_directory=self.working_directory)
 
 
@@ -166,6 +178,7 @@ def get_application(arn: Optional[builtins.str] = None,
         icon_s3_location=pulumi.get(__ret__, 'icon_s3_location'),
         launch_parameters=pulumi.get(__ret__, 'launch_parameters'),
         launch_path=pulumi.get(__ret__, 'launch_path'),
+        tags=pulumi.get(__ret__, 'tags'),
         working_directory=pulumi.get(__ret__, 'working_directory'))
 def get_application_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
@@ -188,4 +201,5 @@ def get_application_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         icon_s3_location=pulumi.get(__response__, 'icon_s3_location'),
         launch_parameters=pulumi.get(__response__, 'launch_parameters'),
         launch_path=pulumi.get(__response__, 'launch_path'),
+        tags=pulumi.get(__response__, 'tags'),
         working_directory=pulumi.get(__response__, 'working_directory')))

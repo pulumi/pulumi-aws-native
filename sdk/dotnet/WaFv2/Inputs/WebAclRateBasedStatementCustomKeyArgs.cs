@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclRateBasedStatementCustomKeyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("asn")]
+        public Input<Inputs.WebAclRateLimitAsnArgs>? Asn { get; set; }
+
         /// <summary>
         /// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
         /// </summary>

@@ -1953,11 +1953,11 @@ if not MYPY:
         """
         on_demand_throughput: NotRequired[pulumi.Input['TableOnDemandThroughputArgsDict']]
         """
-        The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+        The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
         """
         provisioned_throughput: NotRequired[pulumi.Input['TableProvisionedThroughputArgsDict']]
         """
-        Represents the provisioned throughput settings for the specified global secondary index.
+        Represents the provisioned throughput settings for the specified global secondary index. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
          For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
         """
         warm_throughput: NotRequired[pulumi.Input['TableWarmThroughputArgsDict']]
@@ -1988,8 +1988,8 @@ class TableGlobalSecondaryIndexArgs:
                 The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         :param pulumi.Input['TableProjectionArgs'] projection: Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
         :param pulumi.Input['TableContributorInsightsSpecificationArgs'] contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
-        :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
-        :param pulumi.Input['TableProvisionedThroughputArgs'] provisioned_throughput: Represents the provisioned throughput settings for the specified global secondary index.
+        :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
+        :param pulumi.Input['TableProvisionedThroughputArgs'] provisioned_throughput: Represents the provisioned throughput settings for the specified global secondary index. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
                 For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
         :param pulumi.Input['TableWarmThroughputArgs'] warm_throughput: Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.
         """
@@ -2062,7 +2062,7 @@ class TableGlobalSecondaryIndexArgs:
     @pulumi.getter(name="onDemandThroughput")
     def on_demand_throughput(self) -> Optional[pulumi.Input['TableOnDemandThroughputArgs']]:
         """
-        The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+        The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
         """
         return pulumi.get(self, "on_demand_throughput")
 
@@ -2074,7 +2074,7 @@ class TableGlobalSecondaryIndexArgs:
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> Optional[pulumi.Input['TableProvisionedThroughputArgs']]:
         """
-        Represents the provisioned throughput settings for the specified global secondary index.
+        Represents the provisioned throughput settings for the specified global secondary index. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
          For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
         """
         return pulumi.get(self, "provisioned_throughput")

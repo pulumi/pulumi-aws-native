@@ -32,6 +32,8 @@ type LookupAppBlockResult struct {
 	Arn *string `pulumi:"arn"`
 	// The time when the app block was created.
 	CreatedTime *string `pulumi:"createdTime"`
+	// The tags of the app block.
+	Tags []interface{} `pulumi:"tags"`
 }
 
 func LookupAppBlockOutput(ctx *pulumi.Context, args LookupAppBlockOutputArgs, opts ...pulumi.InvokeOption) LookupAppBlockResultOutput {
@@ -74,6 +76,11 @@ func (o LookupAppBlockResultOutput) Arn() pulumi.StringPtrOutput {
 // The time when the app block was created.
 func (o LookupAppBlockResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the app block.
+func (o LookupAppBlockResultOutput) Tags() pulumi.ArrayOutput {
+	return o.ApplyT(func(v LookupAppBlockResult) []interface{} { return v.Tags }).(pulumi.ArrayOutput)
 }
 
 func init() {

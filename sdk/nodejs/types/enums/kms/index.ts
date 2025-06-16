@@ -29,6 +29,9 @@ export const KeySpec = {
     Hmac384: "HMAC_384",
     Hmac512: "HMAC_512",
     Sm2: "SM2",
+    MlDsa44: "ML_DSA_44",
+    MlDsa65: "ML_DSA_65",
+    MlDsa87: "ML_DSA_87",
 } as const;
 
 /**

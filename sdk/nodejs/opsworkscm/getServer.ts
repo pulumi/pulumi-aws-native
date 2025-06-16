@@ -18,6 +18,9 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetServerArgs {
+    /**
+     * The ID of the server.
+     */
     id: string;
 }
 
@@ -49,6 +52,9 @@ export interface GetServerResult {
      * - `PUPPET_R10K_PRIVATE_KEY` : If you are using a private Git repository, add PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded private SSH key.
      */
     readonly engineAttributes?: outputs.opsworkscm.ServerEngineAttribute[];
+    /**
+     * The ID of the server.
+     */
     readonly id?: string;
     /**
      * The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
@@ -69,10 +75,6 @@ export interface GetServerResult {
      * *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
      */
     readonly preferredMaintenanceWindow?: string;
-    /**
-     * The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
-     */
-    readonly serverName?: string;
     /**
      * A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.
      *
@@ -95,5 +97,8 @@ export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetServerOutputArgs {
+    /**
+     * The ID of the server.
+     */
     id: pulumi.Input<string>;
 }

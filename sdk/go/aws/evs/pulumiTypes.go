@@ -13,7 +13,9 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
 type ConnectivityInfoProperties struct {
+	// The unique IDs for private route server peers.
 	PrivateRouteServerPeerings []string `pulumi:"privateRouteServerPeerings"`
 }
 
@@ -28,7 +30,9 @@ type ConnectivityInfoPropertiesInput interface {
 	ToConnectivityInfoPropertiesOutputWithContext(context.Context) ConnectivityInfoPropertiesOutput
 }
 
+// The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
 type ConnectivityInfoPropertiesArgs struct {
+	// The unique IDs for private route server peers.
 	PrivateRouteServerPeerings pulumi.StringArrayInput `pulumi:"privateRouteServerPeerings"`
 }
 
@@ -44,6 +48,7 @@ func (i ConnectivityInfoPropertiesArgs) ToConnectivityInfoPropertiesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectivityInfoPropertiesOutput)
 }
 
+// The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
 type ConnectivityInfoPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectivityInfoPropertiesOutput) ElementType() reflect.Type {
@@ -58,14 +63,25 @@ func (o ConnectivityInfoPropertiesOutput) ToConnectivityInfoPropertiesOutputWith
 	return o
 }
 
+// The unique IDs for private route server peers.
 func (o ConnectivityInfoPropertiesOutput) PrivateRouteServerPeerings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectivityInfoProperties) []string { return v.PrivateRouteServerPeerings }).(pulumi.StringArrayOutput)
 }
 
 type EnvironmentCheck struct {
-	ImpairedSince *string                `pulumi:"impairedSince"`
-	Result        EnvironmentCheckResult `pulumi:"result"`
-	Type          EnvironmentCheckType   `pulumi:"type"`
+	// The time when environment health began to be impaired.
+	ImpairedSince *string `pulumi:"impairedSince"`
+	// The check result.
+	Result EnvironmentCheckResult `pulumi:"result"`
+	// The check type. Amazon EVS performs the following checks.
+	//
+	// - `KEY_REUSE` : checks that the VCF license key is not used by another Amazon EVS environment. This check fails if a used license is added to the environment.
+	// - `KEY_COVERAGE` : checks that your VCF license key allocates sufficient vCPU cores for all deployed hosts. The check fails when any assigned hosts in the EVS environment are not covered by license keys, or when any unassigned hosts cannot be covered by available vCPU cores in keys.
+	// - `REACHABILITY` : checks that the Amazon EVS control plane has a persistent connection to SDDC Manager. If Amazon EVS cannot reach the environment, this check fails.
+	// - `HOST_COUNT` : Checks that your environment has a minimum of 4 hosts, which is a requirement for VCF 5.2.1.
+	//
+	// If this check fails, you will need to add hosts so that your environment meets this minimum requirement. Amazon EVS only supports environments with 4-16 hosts.
+	Type EnvironmentCheckType `pulumi:"type"`
 }
 
 type EnvironmentCheckOutput struct{ *pulumi.OutputState }
@@ -82,14 +98,24 @@ func (o EnvironmentCheckOutput) ToEnvironmentCheckOutputWithContext(ctx context.
 	return o
 }
 
+// The time when environment health began to be impaired.
 func (o EnvironmentCheckOutput) ImpairedSince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentCheck) *string { return v.ImpairedSince }).(pulumi.StringPtrOutput)
 }
 
+// The check result.
 func (o EnvironmentCheckOutput) Result() EnvironmentCheckResultOutput {
 	return o.ApplyT(func(v EnvironmentCheck) EnvironmentCheckResult { return v.Result }).(EnvironmentCheckResultOutput)
 }
 
+// The check type. Amazon EVS performs the following checks.
+//
+// - `KEY_REUSE` : checks that the VCF license key is not used by another Amazon EVS environment. This check fails if a used license is added to the environment.
+// - `KEY_COVERAGE` : checks that your VCF license key allocates sufficient vCPU cores for all deployed hosts. The check fails when any assigned hosts in the EVS environment are not covered by license keys, or when any unassigned hosts cannot be covered by available vCPU cores in keys.
+// - `REACHABILITY` : checks that the Amazon EVS control plane has a persistent connection to SDDC Manager. If Amazon EVS cannot reach the environment, this check fails.
+// - `HOST_COUNT` : Checks that your environment has a minimum of 4 hosts, which is a requirement for VCF 5.2.1.
+//
+// If this check fails, you will need to add hosts so that your environment meets this minimum requirement. Amazon EVS only supports environments with 4-16 hosts.
 func (o EnvironmentCheckOutput) Type() EnvironmentCheckTypeOutput {
 	return o.ApplyT(func(v EnvironmentCheck) EnvironmentCheckType { return v.Type }).(EnvironmentCheckTypeOutput)
 }
@@ -115,11 +141,16 @@ func (o EnvironmentCheckArrayOutput) Index(i pulumi.IntInput) EnvironmentCheckOu
 }
 
 type EnvironmentHostInfoForCreate struct {
-	DedicatedHostId  *string                                  `pulumi:"dedicatedHostId"`
-	HostName         string                                   `pulumi:"hostName"`
-	InstanceType     EnvironmentHostInfoForCreateInstanceType `pulumi:"instanceType"`
-	KeyName          string                                   `pulumi:"keyName"`
-	PlacementGroupId *string                                  `pulumi:"placementGroupId"`
+	// The unique ID of the Amazon EC2 Dedicated Host.
+	DedicatedHostId *string `pulumi:"dedicatedHostId"`
+	// The DNS hostname of the host. DNS hostnames for hosts must be unique across Amazon EVS environments and within VCF.
+	HostName string `pulumi:"hostName"`
+	// The EC2 instance type that represents the host.
+	InstanceType EnvironmentHostInfoForCreateInstanceType `pulumi:"instanceType"`
+	// The name of the SSH key that is used to access the host.
+	KeyName string `pulumi:"keyName"`
+	// The unique ID of the placement group where the host is placed.
+	PlacementGroupId *string `pulumi:"placementGroupId"`
 }
 
 // EnvironmentHostInfoForCreateInput is an input type that accepts EnvironmentHostInfoForCreateArgs and EnvironmentHostInfoForCreateOutput values.
@@ -134,11 +165,16 @@ type EnvironmentHostInfoForCreateInput interface {
 }
 
 type EnvironmentHostInfoForCreateArgs struct {
-	DedicatedHostId  pulumi.StringPtrInput                         `pulumi:"dedicatedHostId"`
-	HostName         pulumi.StringInput                            `pulumi:"hostName"`
-	InstanceType     EnvironmentHostInfoForCreateInstanceTypeInput `pulumi:"instanceType"`
-	KeyName          pulumi.StringInput                            `pulumi:"keyName"`
-	PlacementGroupId pulumi.StringPtrInput                         `pulumi:"placementGroupId"`
+	// The unique ID of the Amazon EC2 Dedicated Host.
+	DedicatedHostId pulumi.StringPtrInput `pulumi:"dedicatedHostId"`
+	// The DNS hostname of the host. DNS hostnames for hosts must be unique across Amazon EVS environments and within VCF.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The EC2 instance type that represents the host.
+	InstanceType EnvironmentHostInfoForCreateInstanceTypeInput `pulumi:"instanceType"`
+	// The name of the SSH key that is used to access the host.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The unique ID of the placement group where the host is placed.
+	PlacementGroupId pulumi.StringPtrInput `pulumi:"placementGroupId"`
 }
 
 func (EnvironmentHostInfoForCreateArgs) ElementType() reflect.Type {
@@ -192,22 +228,27 @@ func (o EnvironmentHostInfoForCreateOutput) ToEnvironmentHostInfoForCreateOutput
 	return o
 }
 
+// The unique ID of the Amazon EC2 Dedicated Host.
 func (o EnvironmentHostInfoForCreateOutput) DedicatedHostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentHostInfoForCreate) *string { return v.DedicatedHostId }).(pulumi.StringPtrOutput)
 }
 
+// The DNS hostname of the host. DNS hostnames for hosts must be unique across Amazon EVS environments and within VCF.
 func (o EnvironmentHostInfoForCreateOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentHostInfoForCreate) string { return v.HostName }).(pulumi.StringOutput)
 }
 
+// The EC2 instance type that represents the host.
 func (o EnvironmentHostInfoForCreateOutput) InstanceType() EnvironmentHostInfoForCreateInstanceTypeOutput {
 	return o.ApplyT(func(v EnvironmentHostInfoForCreate) EnvironmentHostInfoForCreateInstanceType { return v.InstanceType }).(EnvironmentHostInfoForCreateInstanceTypeOutput)
 }
 
+// The name of the SSH key that is used to access the host.
 func (o EnvironmentHostInfoForCreateOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentHostInfoForCreate) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
+// The unique ID of the placement group where the host is placed.
 func (o EnvironmentHostInfoForCreateOutput) PlacementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentHostInfoForCreate) *string { return v.PlacementGroupId }).(pulumi.StringPtrOutput)
 }
@@ -233,6 +274,7 @@ func (o EnvironmentHostInfoForCreateArrayOutput) Index(i pulumi.IntInput) Enviro
 }
 
 type EnvironmentInitialVlanInfo struct {
+	// The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.
 	Cidr string `pulumi:"cidr"`
 }
 
@@ -248,6 +290,7 @@ type EnvironmentInitialVlanInfoInput interface {
 }
 
 type EnvironmentInitialVlanInfoArgs struct {
+	// The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.
 	Cidr pulumi.StringInput `pulumi:"cidr"`
 }
 
@@ -328,6 +371,7 @@ func (o EnvironmentInitialVlanInfoOutput) ToEnvironmentInitialVlanInfoPtrOutputW
 	}).(EnvironmentInitialVlanInfoPtrOutput)
 }
 
+// The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.
 func (o EnvironmentInitialVlanInfoOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentInitialVlanInfo) string { return v.Cidr }).(pulumi.StringOutput)
 }
@@ -356,6 +400,7 @@ func (o EnvironmentInitialVlanInfoPtrOutput) Elem() EnvironmentInitialVlanInfoOu
 	}).(EnvironmentInitialVlanInfoOutput)
 }
 
+// The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.
 func (o EnvironmentInitialVlanInfoPtrOutput) Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentInitialVlanInfo) *string {
 		if v == nil {
@@ -366,6 +411,7 @@ func (o EnvironmentInitialVlanInfoPtrOutput) Cidr() pulumi.StringPtrOutput {
 }
 
 type EnvironmentSecret struct {
+	// The Amazon Resource Name (ARN) of the secret.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -383,6 +429,7 @@ func (o EnvironmentSecretOutput) ToEnvironmentSecretOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the secret.
 func (o EnvironmentSecretOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -417,16 +464,26 @@ type EnvironmentTag struct {
 
 // The initial Vlan configuration only required upon creation. Modification after creation will have no effect
 type InitialVlansProperties struct {
-	EdgeVTep       EnvironmentInitialVlanInfo `pulumi:"edgeVTep"`
+	// The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
+	EdgeVTep EnvironmentInitialVlanInfo `pulumi:"edgeVTep"`
+	// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
 	ExpansionVlan1 EnvironmentInitialVlanInfo `pulumi:"expansionVlan1"`
+	// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
 	ExpansionVlan2 EnvironmentInitialVlanInfo `pulumi:"expansionVlan2"`
-	Hcx            EnvironmentInitialVlanInfo `pulumi:"hcx"`
-	NsxUpLink      EnvironmentInitialVlanInfo `pulumi:"nsxUpLink"`
-	VMotion        EnvironmentInitialVlanInfo `pulumi:"vMotion"`
-	VSan           EnvironmentInitialVlanInfo `pulumi:"vSan"`
-	VTep           EnvironmentInitialVlanInfo `pulumi:"vTep"`
-	VmManagement   EnvironmentInitialVlanInfo `pulumi:"vmManagement"`
-	VmkManagement  EnvironmentInitialVlanInfo `pulumi:"vmkManagement"`
+	// The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+	Hcx EnvironmentInitialVlanInfo `pulumi:"hcx"`
+	// The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
+	NsxUpLink EnvironmentInitialVlanInfo `pulumi:"nsxUpLink"`
+	// The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
+	VMotion EnvironmentInitialVlanInfo `pulumi:"vMotion"`
+	// The vSAN VLAN subnet. This VLAN subnet carries the communication between ESXi hosts to implement a vSAN shared storage pool.
+	VSan EnvironmentInitialVlanInfo `pulumi:"vSan"`
+	// The VTEP VLAN subnet. This VLAN subnet handles internal network traffic between virtual machines within a VCF instance.
+	VTep EnvironmentInitialVlanInfo `pulumi:"vTep"`
+	// The VM management VLAN subnet. This VLAN subnet carries traffic for vSphere virtual machines.
+	VmManagement EnvironmentInitialVlanInfo `pulumi:"vmManagement"`
+	// The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
+	VmkManagement EnvironmentInitialVlanInfo `pulumi:"vmkManagement"`
 }
 
 // InitialVlansPropertiesInput is an input type that accepts InitialVlansPropertiesArgs and InitialVlansPropertiesOutput values.
@@ -442,16 +499,26 @@ type InitialVlansPropertiesInput interface {
 
 // The initial Vlan configuration only required upon creation. Modification after creation will have no effect
 type InitialVlansPropertiesArgs struct {
-	EdgeVTep       EnvironmentInitialVlanInfoInput `pulumi:"edgeVTep"`
+	// The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
+	EdgeVTep EnvironmentInitialVlanInfoInput `pulumi:"edgeVTep"`
+	// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
 	ExpansionVlan1 EnvironmentInitialVlanInfoInput `pulumi:"expansionVlan1"`
+	// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
 	ExpansionVlan2 EnvironmentInitialVlanInfoInput `pulumi:"expansionVlan2"`
-	Hcx            EnvironmentInitialVlanInfoInput `pulumi:"hcx"`
-	NsxUpLink      EnvironmentInitialVlanInfoInput `pulumi:"nsxUpLink"`
-	VMotion        EnvironmentInitialVlanInfoInput `pulumi:"vMotion"`
-	VSan           EnvironmentInitialVlanInfoInput `pulumi:"vSan"`
-	VTep           EnvironmentInitialVlanInfoInput `pulumi:"vTep"`
-	VmManagement   EnvironmentInitialVlanInfoInput `pulumi:"vmManagement"`
-	VmkManagement  EnvironmentInitialVlanInfoInput `pulumi:"vmkManagement"`
+	// The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
+	Hcx EnvironmentInitialVlanInfoInput `pulumi:"hcx"`
+	// The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
+	NsxUpLink EnvironmentInitialVlanInfoInput `pulumi:"nsxUpLink"`
+	// The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
+	VMotion EnvironmentInitialVlanInfoInput `pulumi:"vMotion"`
+	// The vSAN VLAN subnet. This VLAN subnet carries the communication between ESXi hosts to implement a vSAN shared storage pool.
+	VSan EnvironmentInitialVlanInfoInput `pulumi:"vSan"`
+	// The VTEP VLAN subnet. This VLAN subnet handles internal network traffic between virtual machines within a VCF instance.
+	VTep EnvironmentInitialVlanInfoInput `pulumi:"vTep"`
+	// The VM management VLAN subnet. This VLAN subnet carries traffic for vSphere virtual machines.
+	VmManagement EnvironmentInitialVlanInfoInput `pulumi:"vmManagement"`
+	// The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
+	VmkManagement EnvironmentInitialVlanInfoInput `pulumi:"vmkManagement"`
 }
 
 func (InitialVlansPropertiesArgs) ElementType() reflect.Type {
@@ -532,42 +599,52 @@ func (o InitialVlansPropertiesOutput) ToInitialVlansPropertiesPtrOutputWithConte
 	}).(InitialVlansPropertiesPtrOutput)
 }
 
+// The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
 func (o InitialVlansPropertiesOutput) EdgeVTep() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.EdgeVTep }).(EnvironmentInitialVlanInfoOutput)
 }
 
+// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
 func (o InitialVlansPropertiesOutput) ExpansionVlan1() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.ExpansionVlan1 }).(EnvironmentInitialVlanInfoOutput)
 }
 
+// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
 func (o InitialVlansPropertiesOutput) ExpansionVlan2() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.ExpansionVlan2 }).(EnvironmentInitialVlanInfoOutput)
 }
 
+// The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
 func (o InitialVlansPropertiesOutput) Hcx() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.Hcx }).(EnvironmentInitialVlanInfoOutput)
 }
 
+// The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
 func (o InitialVlansPropertiesOutput) NsxUpLink() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.NsxUpLink }).(EnvironmentInitialVlanInfoOutput)
 }
 
+// The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
 func (o InitialVlansPropertiesOutput) VMotion() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.VMotion }).(EnvironmentInitialVlanInfoOutput)
 }
 
+// The vSAN VLAN subnet. This VLAN subnet carries the communication between ESXi hosts to implement a vSAN shared storage pool.
 func (o InitialVlansPropertiesOutput) VSan() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.VSan }).(EnvironmentInitialVlanInfoOutput)
 }
 
+// The VTEP VLAN subnet. This VLAN subnet handles internal network traffic between virtual machines within a VCF instance.
 func (o InitialVlansPropertiesOutput) VTep() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.VTep }).(EnvironmentInitialVlanInfoOutput)
 }
 
+// The VM management VLAN subnet. This VLAN subnet carries traffic for vSphere virtual machines.
 func (o InitialVlansPropertiesOutput) VmManagement() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.VmManagement }).(EnvironmentInitialVlanInfoOutput)
 }
 
+// The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
 func (o InitialVlansPropertiesOutput) VmkManagement() EnvironmentInitialVlanInfoOutput {
 	return o.ApplyT(func(v InitialVlansProperties) EnvironmentInitialVlanInfo { return v.VmkManagement }).(EnvironmentInitialVlanInfoOutput)
 }
@@ -596,6 +673,7 @@ func (o InitialVlansPropertiesPtrOutput) Elem() InitialVlansPropertiesOutput {
 	}).(InitialVlansPropertiesOutput)
 }
 
+// The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
 func (o InitialVlansPropertiesPtrOutput) EdgeVTep() EnvironmentInitialVlanInfoPtrOutput {
 	return o.ApplyT(func(v *InitialVlansProperties) *EnvironmentInitialVlanInfo {
 		if v == nil {
@@ -605,6 +683,7 @@ func (o InitialVlansPropertiesPtrOutput) EdgeVTep() EnvironmentInitialVlanInfoPt
 	}).(EnvironmentInitialVlanInfoPtrOutput)
 }
 
+// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
 func (o InitialVlansPropertiesPtrOutput) ExpansionVlan1() EnvironmentInitialVlanInfoPtrOutput {
 	return o.ApplyT(func(v *InitialVlansProperties) *EnvironmentInitialVlanInfo {
 		if v == nil {
@@ -614,6 +693,7 @@ func (o InitialVlansPropertiesPtrOutput) ExpansionVlan1() EnvironmentInitialVlan
 	}).(EnvironmentInitialVlanInfoPtrOutput)
 }
 
+// An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
 func (o InitialVlansPropertiesPtrOutput) ExpansionVlan2() EnvironmentInitialVlanInfoPtrOutput {
 	return o.ApplyT(func(v *InitialVlansProperties) *EnvironmentInitialVlanInfo {
 		if v == nil {
@@ -623,6 +703,7 @@ func (o InitialVlansPropertiesPtrOutput) ExpansionVlan2() EnvironmentInitialVlan
 	}).(EnvironmentInitialVlanInfoPtrOutput)
 }
 
+// The HCX VLAN subnet. This VLAN subnet allows the HCX Interconnnect (IX) and HCX Network Extension (NE) to reach their peers and enable HCX Service Mesh creation.
 func (o InitialVlansPropertiesPtrOutput) Hcx() EnvironmentInitialVlanInfoPtrOutput {
 	return o.ApplyT(func(v *InitialVlansProperties) *EnvironmentInitialVlanInfo {
 		if v == nil {
@@ -632,6 +713,7 @@ func (o InitialVlansPropertiesPtrOutput) Hcx() EnvironmentInitialVlanInfoPtrOutp
 	}).(EnvironmentInitialVlanInfoPtrOutput)
 }
 
+// The NSX uplink VLAN subnet. This VLAN subnet allows connectivity to the NSX overlay network.
 func (o InitialVlansPropertiesPtrOutput) NsxUpLink() EnvironmentInitialVlanInfoPtrOutput {
 	return o.ApplyT(func(v *InitialVlansProperties) *EnvironmentInitialVlanInfo {
 		if v == nil {
@@ -641,6 +723,7 @@ func (o InitialVlansPropertiesPtrOutput) NsxUpLink() EnvironmentInitialVlanInfoP
 	}).(EnvironmentInitialVlanInfoPtrOutput)
 }
 
+// The vMotion VLAN subnet. This VLAN subnet carries traffic for vSphere vMotion.
 func (o InitialVlansPropertiesPtrOutput) VMotion() EnvironmentInitialVlanInfoPtrOutput {
 	return o.ApplyT(func(v *InitialVlansProperties) *EnvironmentInitialVlanInfo {
 		if v == nil {
@@ -650,6 +733,7 @@ func (o InitialVlansPropertiesPtrOutput) VMotion() EnvironmentInitialVlanInfoPtr
 	}).(EnvironmentInitialVlanInfoPtrOutput)
 }
 
+// The vSAN VLAN subnet. This VLAN subnet carries the communication between ESXi hosts to implement a vSAN shared storage pool.
 func (o InitialVlansPropertiesPtrOutput) VSan() EnvironmentInitialVlanInfoPtrOutput {
 	return o.ApplyT(func(v *InitialVlansProperties) *EnvironmentInitialVlanInfo {
 		if v == nil {
@@ -659,6 +743,7 @@ func (o InitialVlansPropertiesPtrOutput) VSan() EnvironmentInitialVlanInfoPtrOut
 	}).(EnvironmentInitialVlanInfoPtrOutput)
 }
 
+// The VTEP VLAN subnet. This VLAN subnet handles internal network traffic between virtual machines within a VCF instance.
 func (o InitialVlansPropertiesPtrOutput) VTep() EnvironmentInitialVlanInfoPtrOutput {
 	return o.ApplyT(func(v *InitialVlansProperties) *EnvironmentInitialVlanInfo {
 		if v == nil {
@@ -668,6 +753,7 @@ func (o InitialVlansPropertiesPtrOutput) VTep() EnvironmentInitialVlanInfoPtrOut
 	}).(EnvironmentInitialVlanInfoPtrOutput)
 }
 
+// The VM management VLAN subnet. This VLAN subnet carries traffic for vSphere virtual machines.
 func (o InitialVlansPropertiesPtrOutput) VmManagement() EnvironmentInitialVlanInfoPtrOutput {
 	return o.ApplyT(func(v *InitialVlansProperties) *EnvironmentInitialVlanInfo {
 		if v == nil {
@@ -677,6 +763,7 @@ func (o InitialVlansPropertiesPtrOutput) VmManagement() EnvironmentInitialVlanIn
 	}).(EnvironmentInitialVlanInfoPtrOutput)
 }
 
+// The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESXi hosts and communicating with VMware vCenter Server.
 func (o InitialVlansPropertiesPtrOutput) VmkManagement() EnvironmentInitialVlanInfoPtrOutput {
 	return o.ApplyT(func(v *InitialVlansProperties) *EnvironmentInitialVlanInfo {
 		if v == nil {
@@ -688,8 +775,10 @@ func (o InitialVlansPropertiesPtrOutput) VmkManagement() EnvironmentInitialVlanI
 
 // The license information for an EVS environment
 type LicenseInfoProperties struct {
+	// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
 	SolutionKey string `pulumi:"solutionKey"`
-	VsanKey     string `pulumi:"vsanKey"`
+	// The VSAN license key. This license unlocks vSAN features.
+	VsanKey string `pulumi:"vsanKey"`
 }
 
 // LicenseInfoPropertiesInput is an input type that accepts LicenseInfoPropertiesArgs and LicenseInfoPropertiesOutput values.
@@ -705,8 +794,10 @@ type LicenseInfoPropertiesInput interface {
 
 // The license information for an EVS environment
 type LicenseInfoPropertiesArgs struct {
+	// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
 	SolutionKey pulumi.StringInput `pulumi:"solutionKey"`
-	VsanKey     pulumi.StringInput `pulumi:"vsanKey"`
+	// The VSAN license key. This license unlocks vSAN features.
+	VsanKey pulumi.StringInput `pulumi:"vsanKey"`
 }
 
 func (LicenseInfoPropertiesArgs) ElementType() reflect.Type {
@@ -736,15 +827,19 @@ func (o LicenseInfoPropertiesOutput) ToLicenseInfoPropertiesOutputWithContext(ct
 	return o
 }
 
+// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
 func (o LicenseInfoPropertiesOutput) SolutionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseInfoProperties) string { return v.SolutionKey }).(pulumi.StringOutput)
 }
 
+// The VSAN license key. This license unlocks vSAN features.
 func (o LicenseInfoPropertiesOutput) VsanKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseInfoProperties) string { return v.VsanKey }).(pulumi.StringOutput)
 }
 
+// The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
 type ServiceAccessSecurityGroupsProperties struct {
+	// The security groups that allow service access.
 	SecurityGroups []string `pulumi:"securityGroups"`
 }
 
@@ -759,7 +854,9 @@ type ServiceAccessSecurityGroupsPropertiesInput interface {
 	ToServiceAccessSecurityGroupsPropertiesOutputWithContext(context.Context) ServiceAccessSecurityGroupsPropertiesOutput
 }
 
+// The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
 type ServiceAccessSecurityGroupsPropertiesArgs struct {
+	// The security groups that allow service access.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 }
 
@@ -816,6 +913,7 @@ func (i *serviceAccessSecurityGroupsPropertiesPtrType) ToServiceAccessSecurityGr
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessSecurityGroupsPropertiesPtrOutput)
 }
 
+// The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
 type ServiceAccessSecurityGroupsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ServiceAccessSecurityGroupsPropertiesOutput) ElementType() reflect.Type {
@@ -840,6 +938,7 @@ func (o ServiceAccessSecurityGroupsPropertiesOutput) ToServiceAccessSecurityGrou
 	}).(ServiceAccessSecurityGroupsPropertiesPtrOutput)
 }
 
+// The security groups that allow service access.
 func (o ServiceAccessSecurityGroupsPropertiesOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAccessSecurityGroupsProperties) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -868,6 +967,7 @@ func (o ServiceAccessSecurityGroupsPropertiesPtrOutput) Elem() ServiceAccessSecu
 	}).(ServiceAccessSecurityGroupsPropertiesOutput)
 }
 
+// The security groups that allow service access.
 func (o ServiceAccessSecurityGroupsPropertiesPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceAccessSecurityGroupsProperties) []string {
 		if v == nil {
@@ -877,16 +977,28 @@ func (o ServiceAccessSecurityGroupsPropertiesPtrOutput) SecurityGroups() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// The DNS hostnames to be used by the VCF management appliances in your environment.
+//
+// For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
 type VcfHostnamesProperties struct {
+	// The hostname for VMware Cloud Builder.
 	CloudBuilder string `pulumi:"cloudBuilder"`
-	Nsx          string `pulumi:"nsx"`
-	NsxEdge1     string `pulumi:"nsxEdge1"`
-	NsxEdge2     string `pulumi:"nsxEdge2"`
-	NsxManager1  string `pulumi:"nsxManager1"`
-	NsxManager2  string `pulumi:"nsxManager2"`
-	NsxManager3  string `pulumi:"nsxManager3"`
-	SddcManager  string `pulumi:"sddcManager"`
-	VCenter      string `pulumi:"vCenter"`
+	// The VMware NSX hostname.
+	Nsx string `pulumi:"nsx"`
+	// The hostname for the first NSX Edge node.
+	NsxEdge1 string `pulumi:"nsxEdge1"`
+	// The hostname for the second NSX Edge node.
+	NsxEdge2 string `pulumi:"nsxEdge2"`
+	// The hostname for the first VMware NSX Manager virtual machine (VM).
+	NsxManager1 string `pulumi:"nsxManager1"`
+	// The hostname for the second VMware NSX Manager virtual machine (VM).
+	NsxManager2 string `pulumi:"nsxManager2"`
+	// The hostname for the third VMware NSX Manager virtual machine (VM).
+	NsxManager3 string `pulumi:"nsxManager3"`
+	// The hostname for SDDC Manager.
+	SddcManager string `pulumi:"sddcManager"`
+	// The VMware vCenter hostname.
+	VCenter string `pulumi:"vCenter"`
 }
 
 // VcfHostnamesPropertiesInput is an input type that accepts VcfHostnamesPropertiesArgs and VcfHostnamesPropertiesOutput values.
@@ -900,16 +1012,28 @@ type VcfHostnamesPropertiesInput interface {
 	ToVcfHostnamesPropertiesOutputWithContext(context.Context) VcfHostnamesPropertiesOutput
 }
 
+// The DNS hostnames to be used by the VCF management appliances in your environment.
+//
+// For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
 type VcfHostnamesPropertiesArgs struct {
+	// The hostname for VMware Cloud Builder.
 	CloudBuilder pulumi.StringInput `pulumi:"cloudBuilder"`
-	Nsx          pulumi.StringInput `pulumi:"nsx"`
-	NsxEdge1     pulumi.StringInput `pulumi:"nsxEdge1"`
-	NsxEdge2     pulumi.StringInput `pulumi:"nsxEdge2"`
-	NsxManager1  pulumi.StringInput `pulumi:"nsxManager1"`
-	NsxManager2  pulumi.StringInput `pulumi:"nsxManager2"`
-	NsxManager3  pulumi.StringInput `pulumi:"nsxManager3"`
-	SddcManager  pulumi.StringInput `pulumi:"sddcManager"`
-	VCenter      pulumi.StringInput `pulumi:"vCenter"`
+	// The VMware NSX hostname.
+	Nsx pulumi.StringInput `pulumi:"nsx"`
+	// The hostname for the first NSX Edge node.
+	NsxEdge1 pulumi.StringInput `pulumi:"nsxEdge1"`
+	// The hostname for the second NSX Edge node.
+	NsxEdge2 pulumi.StringInput `pulumi:"nsxEdge2"`
+	// The hostname for the first VMware NSX Manager virtual machine (VM).
+	NsxManager1 pulumi.StringInput `pulumi:"nsxManager1"`
+	// The hostname for the second VMware NSX Manager virtual machine (VM).
+	NsxManager2 pulumi.StringInput `pulumi:"nsxManager2"`
+	// The hostname for the third VMware NSX Manager virtual machine (VM).
+	NsxManager3 pulumi.StringInput `pulumi:"nsxManager3"`
+	// The hostname for SDDC Manager.
+	SddcManager pulumi.StringInput `pulumi:"sddcManager"`
+	// The VMware vCenter hostname.
+	VCenter pulumi.StringInput `pulumi:"vCenter"`
 }
 
 func (VcfHostnamesPropertiesArgs) ElementType() reflect.Type {
@@ -924,6 +1048,9 @@ func (i VcfHostnamesPropertiesArgs) ToVcfHostnamesPropertiesOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VcfHostnamesPropertiesOutput)
 }
 
+// The DNS hostnames to be used by the VCF management appliances in your environment.
+//
+// For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
 type VcfHostnamesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VcfHostnamesPropertiesOutput) ElementType() reflect.Type {
@@ -938,38 +1065,47 @@ func (o VcfHostnamesPropertiesOutput) ToVcfHostnamesPropertiesOutputWithContext(
 	return o
 }
 
+// The hostname for VMware Cloud Builder.
 func (o VcfHostnamesPropertiesOutput) CloudBuilder() pulumi.StringOutput {
 	return o.ApplyT(func(v VcfHostnamesProperties) string { return v.CloudBuilder }).(pulumi.StringOutput)
 }
 
+// The VMware NSX hostname.
 func (o VcfHostnamesPropertiesOutput) Nsx() pulumi.StringOutput {
 	return o.ApplyT(func(v VcfHostnamesProperties) string { return v.Nsx }).(pulumi.StringOutput)
 }
 
+// The hostname for the first NSX Edge node.
 func (o VcfHostnamesPropertiesOutput) NsxEdge1() pulumi.StringOutput {
 	return o.ApplyT(func(v VcfHostnamesProperties) string { return v.NsxEdge1 }).(pulumi.StringOutput)
 }
 
+// The hostname for the second NSX Edge node.
 func (o VcfHostnamesPropertiesOutput) NsxEdge2() pulumi.StringOutput {
 	return o.ApplyT(func(v VcfHostnamesProperties) string { return v.NsxEdge2 }).(pulumi.StringOutput)
 }
 
+// The hostname for the first VMware NSX Manager virtual machine (VM).
 func (o VcfHostnamesPropertiesOutput) NsxManager1() pulumi.StringOutput {
 	return o.ApplyT(func(v VcfHostnamesProperties) string { return v.NsxManager1 }).(pulumi.StringOutput)
 }
 
+// The hostname for the second VMware NSX Manager virtual machine (VM).
 func (o VcfHostnamesPropertiesOutput) NsxManager2() pulumi.StringOutput {
 	return o.ApplyT(func(v VcfHostnamesProperties) string { return v.NsxManager2 }).(pulumi.StringOutput)
 }
 
+// The hostname for the third VMware NSX Manager virtual machine (VM).
 func (o VcfHostnamesPropertiesOutput) NsxManager3() pulumi.StringOutput {
 	return o.ApplyT(func(v VcfHostnamesProperties) string { return v.NsxManager3 }).(pulumi.StringOutput)
 }
 
+// The hostname for SDDC Manager.
 func (o VcfHostnamesPropertiesOutput) SddcManager() pulumi.StringOutput {
 	return o.ApplyT(func(v VcfHostnamesProperties) string { return v.SddcManager }).(pulumi.StringOutput)
 }
 
+// The VMware vCenter hostname.
 func (o VcfHostnamesPropertiesOutput) VCenter() pulumi.StringOutput {
 	return o.ApplyT(func(v VcfHostnamesProperties) string { return v.VCenter }).(pulumi.StringOutput)
 }

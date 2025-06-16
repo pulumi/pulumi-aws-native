@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Evs.Outputs
     [OutputType]
     public sealed class EnvironmentSecret
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the secret.
+        /// </summary>
         public readonly string? SecretArn;
 
         [OutputConstructor]

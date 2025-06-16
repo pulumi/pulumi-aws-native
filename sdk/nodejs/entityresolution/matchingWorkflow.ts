@@ -43,7 +43,9 @@ export class MatchingWorkflow extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * An object which defines an incremental run type and has only `incrementalRunType` as a field.
+     * Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+     *
+     * > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
      */
     public readonly incrementalRunConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowIncrementalRunConfig | undefined>;
     /**
@@ -136,7 +138,9 @@ export interface MatchingWorkflowArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * An object which defines an incremental run type and has only `incrementalRunType` as a field.
+     * Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+     *
+     * > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
      */
     incrementalRunConfig?: pulumi.Input<inputs.entityresolution.MatchingWorkflowIncrementalRunConfigArgs>;
     /**
