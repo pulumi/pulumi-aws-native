@@ -118,21 +118,22 @@
   "required" : [ "Name", "Platform", "InstanceType", "VpcConfig" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime" ],
-  "writeOnlyProperties" : [ "/properties/Tags", "/properties/AppBlockArns" ],
+  "writeOnlyProperties" : [ "/properties/AppBlockArns" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "appstream:ListTagsForResource", "appstream:TagResource", "appstream:UntagResource" ]
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "appstream:CreateAppBlockBuilder", "appstream:DescribeAppBlockBuilders", "appstream:StartAppBlockBuilder", "appstream:AssociateAppBlockBuilderAppBlock", "appstream:DescribeAppBlockBuilderAppBlockAssociations", "appstream:TagResource", "iam:PassRole" ]
+      "permissions" : [ "appstream:CreateAppBlockBuilder", "appstream:DescribeAppBlockBuilders", "appstream:StartAppBlockBuilder", "appstream:AssociateAppBlockBuilderAppBlock", "appstream:DescribeAppBlockBuilderAppBlockAssociations", "appstream:TagResource", "appstream:ListTagsForResource", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "appstream:DescribeAppBlockBuilders" ]
+      "permissions" : [ "appstream:DescribeAppBlockBuilders", "appstream:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "appstream:UpdateAppBlockBuilder", "appstream:DescribeAppBlockBuilders", "appstream:StartAppBlockBuilder", "appstream:StopAppBlockBuilder", "appstream:AssociateAppBlockBuilderAppBlock", "appstream:DisassociateAppBlockBuilderAppBlock", "appstream:DescribeAppBlockBuilderAppBlockAssociations", "appstream:ListTagsForResource", "appstream:TagResource", "appstream:UntagResource", "iam:PassRole" ]
