@@ -63,5 +63,5 @@ jobs:
     - name: Chocolatey Package Deployment
       env:
         CURRENT_TAG: ${{ env.PROVIDER_VERSION }}
-      run: pulumictl create choco-deploy -a cf2pulumi ${CURRENT_TAG}
+      run: pulumictl create choco-deploy -a cf2pulumi "${CURRENT_TAG}"
     name: release
