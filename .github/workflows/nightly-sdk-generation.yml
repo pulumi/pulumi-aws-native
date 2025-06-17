@@ -90,7 +90,7 @@ jobs:
       run: make local_generate
     - name: Git submodule commit hash
       id: vars
-      run: echo commit-hash=$(git rev-parse HEAD) >> "$GITHUB_OUTPUT"
+      run: echo commit-hash="$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       working-directory: aws-cloudformation-user-guide
     - name: Commit changes
       run: >-
