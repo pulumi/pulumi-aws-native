@@ -397,6 +397,7 @@ AWS::EC2::Subnet
 AWS::EC2::SubnetCidrBlock
 AWS::EC2::SubnetNetworkAclAssociation
 AWS::EC2::SubnetRouteTableAssociation
+AWS::EC2::TrafficMirrorFilter
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayAttachment
 AWS::EC2::TransitGatewayConnect
