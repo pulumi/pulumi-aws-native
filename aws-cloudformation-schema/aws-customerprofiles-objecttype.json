@@ -128,7 +128,7 @@
       "description" : "Description of the profile object type.",
       "type" : "string",
       "minLength" : 1,
-      "maxLength" : 1000
+      "maxLength" : 10000
     },
     "EncryptionKey" : {
       "description" : "The default encryption key",
@@ -187,6 +187,16 @@
       "pattern" : "^[a-zA-Z0-9_-]+$",
       "minLength" : 1,
       "maxLength" : 64
+    },
+    "MaxProfileObjectCount" : {
+      "description" : "The maximum number of profile objects for this object type",
+      "type" : "integer",
+      "minimum" : 1
+    },
+    "MaxAvailableProfileObjectCount" : {
+      "description" : "The maximum available number of profile objects",
+      "type" : "integer",
+      "minimum" : 0
     }
   },
   "additionalProperties" : false,
@@ -200,7 +210,7 @@
     "permissions" : [ "profile:TagResource", "profile:UntagResource", "profile:ListTagsForResource" ]
   },
   "createOnlyProperties" : [ "/properties/DomainName", "/properties/ObjectTypeName" ],
-  "readOnlyProperties" : [ "/properties/LastUpdatedAt", "/properties/CreatedAt" ],
+  "readOnlyProperties" : [ "/properties/LastUpdatedAt", "/properties/CreatedAt", "/properties/MaxAvailableProfileObjectCount" ],
   "primaryIdentifier" : [ "/properties/DomainName", "/properties/ObjectTypeName" ],
   "handlers" : {
     "create" : {

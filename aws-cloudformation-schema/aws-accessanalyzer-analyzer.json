@@ -115,6 +115,59 @@
       },
       "additionalProperties" : false
     },
+    "InternalAccessAnalysisRuleCriteria" : {
+      "description" : "The criteria for an analysis rule for an internal access analyzer.",
+      "type" : "object",
+      "properties" : {
+        "AccountIds" : {
+          "description" : "A list of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers and cannot include the organization owner account.",
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "ResourceArns" : {
+          "description" : "A list of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.",
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "ResourceTypes" : {
+          "description" : "A list of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types.",
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "additionalProperties" : false
+    },
+    "InternalAccessConfiguration" : {
+      "description" : "Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates internal access within your AWS environment.",
+      "type" : "object",
+      "properties" : {
+        "InternalAccessAnalysisRule" : {
+          "description" : "Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.",
+          "type" : "object",
+          "properties" : {
+            "Inclusions" : {
+              "description" : "A list of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings.",
+              "type" : "array",
+              "insertionOrder" : false,
+              "items" : {
+                "$ref" : "#/definitions/InternalAccessAnalysisRuleCriteria"
+              }
+            }
+          },
+          "additionalProperties" : false
+        }
+      },
+      "additionalProperties" : false
+    },
     "UnusedAccessConfiguration" : {
       "description" : "The Configuration for Unused Access Analyzer",
       "type" : "object",
@@ -175,7 +228,7 @@
       }
     },
     "Type" : {
-      "description" : "The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS",
+      "description" : "The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS",
       "type" : "string",
       "minLength" : 0,
       "maxLength" : 1024
@@ -186,6 +239,9 @@
       "properties" : {
         "UnusedAccessConfiguration" : {
           "$ref" : "#/definitions/UnusedAccessConfiguration"
+        },
+        "InternalAccessConfiguration" : {
+          "$ref" : "#/definitions/InternalAccessConfiguration"
         }
       },
       "additionalProperties" : false
