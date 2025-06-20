@@ -90,7 +90,7 @@
           "$ref" : "#/definitions/PaymentConfiguration"
         }
       },
-      "required" : [ "AccountId", "DisplayName", "MemberAbilities" ],
+      "required" : [ "AccountId", "DisplayName" ],
       "additionalProperties" : false
     },
     "MemberStatus" : {
@@ -255,7 +255,7 @@
       "$ref" : "#/definitions/PaymentConfiguration"
     }
   },
-  "required" : [ "CreatorDisplayName", "CreatorMemberAbilities", "Members", "Name", "Description", "QueryLogStatus" ],
+  "required" : [ "CreatorDisplayName", "Name", "Description", "QueryLogStatus" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CollaborationIdentifier" ],
   "createOnlyProperties" : [ "/properties/CreatorDisplayName", "/properties/CreatorMemberAbilities", "/properties/CreatorMLMemberAbilities", "/properties/DataEncryptionMetadata", "/properties/JobLogStatus", "/properties/QueryLogStatus", "/properties/Members", "/properties/CreatorPaymentConfiguration" ],
   "primaryIdentifier" : [ "/properties/CollaborationIdentifier" ],
