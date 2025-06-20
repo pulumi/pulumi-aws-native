@@ -30,8 +30,8 @@ require (
 	github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54
 	github.com/pulumi/providertest v0.3.1
 	github.com/pulumi/pulumi-go-provider v0.26.0
-	github.com/pulumi/pulumi/pkg/v3 v3.177.0
-	github.com/pulumi/pulumi/sdk/v3 v3.177.0
+	github.com/pulumi/pulumi/pkg/v3 v3.178.0
+	github.com/pulumi/pulumi/sdk/v3 v3.178.0
 	github.com/stretchr/testify v1.10.0
 	github.com/wI2L/jsondiff v0.5.1
 	github.com/zclconf/go-cty v1.13.2
@@ -120,7 +120,7 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.14.2 // indirect
+	github.com/pulumi/esc v0.14.3 // indirect
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.13.1 // indirect
