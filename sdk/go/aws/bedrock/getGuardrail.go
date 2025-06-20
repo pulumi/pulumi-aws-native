@@ -37,7 +37,8 @@ type LookupGuardrailResult struct {
 	ContentPolicyConfig             *GuardrailContentPolicyConfig             `pulumi:"contentPolicyConfig"`
 	ContextualGroundingPolicyConfig *GuardrailContextualGroundingPolicyConfig `pulumi:"contextualGroundingPolicyConfig"`
 	// Time Stamp
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt         *string                     `pulumi:"createdAt"`
+	CrossRegionConfig *GuardrailCrossRegionConfig `pulumi:"crossRegionConfig"`
 	// Description of the guardrail or its version
 	Description *string `pulumi:"description"`
 	// List of failure recommendations
@@ -124,6 +125,10 @@ func (o LookupGuardrailResultOutput) ContextualGroundingPolicyConfig() Guardrail
 // Time Stamp
 func (o LookupGuardrailResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGuardrailResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGuardrailResultOutput) CrossRegionConfig() GuardrailCrossRegionConfigPtrOutput {
+	return o.ApplyT(func(v LookupGuardrailResult) *GuardrailCrossRegionConfig { return v.CrossRegionConfig }).(GuardrailCrossRegionConfigPtrOutput)
 }
 
 // Description of the guardrail or its version

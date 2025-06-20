@@ -60,6 +60,9 @@ export const EvaluationFormNumericQuestionPropertyValueAutomationLabel = {
     ContactDuration: "CONTACT_DURATION",
     AgentInteractionDuration: "AGENT_INTERACTION_DURATION",
     CustomerHoldTime: "CUSTOMER_HOLD_TIME",
+    LongestHoldDuration: "LONGEST_HOLD_DURATION",
+    NumberOfHolds: "NUMBER_OF_HOLDS",
+    AgentInteractionAndHoldDuration: "AGENT_INTERACTION_AND_HOLD_DURATION",
 } as const;
 
 /**

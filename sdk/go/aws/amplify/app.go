@@ -56,6 +56,8 @@ type App struct {
 	EnvironmentVariables AppEnvironmentVariableArrayOutput `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
 	IamServiceRole pulumi.StringPtrOutput `pulumi:"iamServiceRole"`
+	// The configuration details that apply to the jobs for an Amplify app.
+	JobConfig AppJobConfigPtrOutput `pulumi:"jobConfig"`
 	// The name of the Amplify app.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
@@ -148,6 +150,8 @@ type appArgs struct {
 	EnvironmentVariables []AppEnvironmentVariable `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
 	IamServiceRole *string `pulumi:"iamServiceRole"`
+	// The configuration details that apply to the jobs for an Amplify app.
+	JobConfig *AppJobConfig `pulumi:"jobConfig"`
 	// The name of the Amplify app.
 	Name *string `pulumi:"name"`
 	// The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
@@ -202,6 +206,8 @@ type AppArgs struct {
 	EnvironmentVariables AppEnvironmentVariableArrayInput
 	// AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
 	IamServiceRole pulumi.StringPtrInput
+	// The configuration details that apply to the jobs for an Amplify app.
+	JobConfig AppJobConfigPtrInput
 	// The name of the Amplify app.
 	Name pulumi.StringPtrInput
 	// The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
@@ -345,6 +351,11 @@ func (o AppOutput) EnvironmentVariables() AppEnvironmentVariableArrayOutput {
 // AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
 func (o AppOutput) IamServiceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.IamServiceRole }).(pulumi.StringPtrOutput)
+}
+
+// The configuration details that apply to the jobs for an Amplify app.
+func (o AppOutput) JobConfig() AppJobConfigPtrOutput {
+	return o.ApplyT(func(v *App) AppJobConfigPtrOutput { return v.JobConfig }).(AppJobConfigPtrOutput)
 }
 
 // The name of the Amplify app.

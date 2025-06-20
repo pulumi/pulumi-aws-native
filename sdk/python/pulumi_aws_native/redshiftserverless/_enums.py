@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'NamespaceLogExport',
     'NamespaceStatus',
+    'SnapshotStatus',
     'WorkgroupPerformanceTargetStatus',
     'WorkgroupStatus',
 ]
@@ -26,6 +27,16 @@ class NamespaceStatus(builtins.str, Enum):
     AVAILABLE = "AVAILABLE"
     MODIFYING = "MODIFYING"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:redshiftserverless:SnapshotStatus")
+class SnapshotStatus(builtins.str, Enum):
+    AVAILABLE = "AVAILABLE"
+    CREATING = "CREATING"
+    DELETED = "DELETED"
+    CANCELLED = "CANCELLED"
+    FAILED = "FAILED"
+    COPYING = "COPYING"
 
 
 @pulumi.type_token("aws-native:redshiftserverless:WorkgroupPerformanceTargetStatus")

@@ -27,7 +27,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetEvaluationFormResult:
-    def __init__(__self__, description=None, evaluation_form_arn=None, instance_arn=None, items=None, scoring_strategy=None, status=None, tags=None, title=None):
+    def __init__(__self__, auto_evaluation_configuration=None, description=None, evaluation_form_arn=None, instance_arn=None, items=None, scoring_strategy=None, status=None, tags=None, title=None):
+        if auto_evaluation_configuration and not isinstance(auto_evaluation_configuration, dict):
+            raise TypeError("Expected argument 'auto_evaluation_configuration' to be a dict")
+        pulumi.set(__self__, "auto_evaluation_configuration", auto_evaluation_configuration)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -52,6 +55,11 @@ class GetEvaluationFormResult:
         if title and not isinstance(title, str):
             raise TypeError("Expected argument 'title' to be a str")
         pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="autoEvaluationConfiguration")
+    def auto_evaluation_configuration(self) -> Optional['outputs.EvaluationFormAutoEvaluationConfiguration']:
+        return pulumi.get(self, "auto_evaluation_configuration")
 
     @property
     @pulumi.getter
@@ -128,6 +136,7 @@ class AwaitableGetEvaluationFormResult(GetEvaluationFormResult):
         if False:
             yield self
         return GetEvaluationFormResult(
+            auto_evaluation_configuration=self.auto_evaluation_configuration,
             description=self.description,
             evaluation_form_arn=self.evaluation_form_arn,
             instance_arn=self.instance_arn,
@@ -152,6 +161,7 @@ def get_evaluation_form(evaluation_form_arn: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getEvaluationForm', __args__, opts=opts, typ=GetEvaluationFormResult).value
 
     return AwaitableGetEvaluationFormResult(
+        auto_evaluation_configuration=pulumi.get(__ret__, 'auto_evaluation_configuration'),
         description=pulumi.get(__ret__, 'description'),
         evaluation_form_arn=pulumi.get(__ret__, 'evaluation_form_arn'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
@@ -173,6 +183,7 @@ def get_evaluation_form_output(evaluation_form_arn: Optional[pulumi.Input[builti
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getEvaluationForm', __args__, opts=opts, typ=GetEvaluationFormResult)
     return __ret__.apply(lambda __response__: GetEvaluationFormResult(
+        auto_evaluation_configuration=pulumi.get(__response__, 'auto_evaluation_configuration'),
         description=pulumi.get(__response__, 'description'),
         evaluation_form_arn=pulumi.get(__response__, 'evaluation_form_arn'),
         instance_arn=pulumi.get(__response__, 'instance_arn'),

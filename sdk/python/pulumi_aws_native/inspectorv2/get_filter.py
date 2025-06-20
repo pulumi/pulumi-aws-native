@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFilterResult:
-    def __init__(__self__, arn=None, description=None, filter_action=None, filter_criteria=None, name=None):
+    def __init__(__self__, arn=None, description=None, filter_action=None, filter_criteria=None, name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetFilterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -83,6 +86,11 @@ class GetFilterResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetFilterResult(GetFilterResult):
     # pylint: disable=using-constant-test
@@ -94,7 +102,8 @@ class AwaitableGetFilterResult(GetFilterResult):
             description=self.description,
             filter_action=self.filter_action,
             filter_criteria=self.filter_criteria,
-            name=self.name)
+            name=self.name,
+            tags=self.tags)
 
 
 def get_filter(arn: Optional[builtins.str] = None,
@@ -115,7 +124,8 @@ def get_filter(arn: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         filter_action=pulumi.get(__ret__, 'filter_action'),
         filter_criteria=pulumi.get(__ret__, 'filter_criteria'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_filter_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFilterResult]:
     """
@@ -133,4 +143,5 @@ def get_filter_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         filter_action=pulumi.get(__response__, 'filter_action'),
         filter_criteria=pulumi.get(__response__, 'filter_criteria'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

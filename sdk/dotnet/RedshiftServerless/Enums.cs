@@ -66,6 +66,38 @@ namespace Pulumi.AwsNative.RedshiftServerless
     }
 
     [EnumType]
+    public readonly struct SnapshotStatus : IEquatable<SnapshotStatus>
+    {
+        private readonly string _value;
+
+        private SnapshotStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotStatus Available { get; } = new SnapshotStatus("AVAILABLE");
+        public static SnapshotStatus Creating { get; } = new SnapshotStatus("CREATING");
+        public static SnapshotStatus Deleted { get; } = new SnapshotStatus("DELETED");
+        public static SnapshotStatus Cancelled { get; } = new SnapshotStatus("CANCELLED");
+        public static SnapshotStatus Failed { get; } = new SnapshotStatus("FAILED");
+        public static SnapshotStatus Copying { get; } = new SnapshotStatus("COPYING");
+
+        public static bool operator ==(SnapshotStatus left, SnapshotStatus right) => left.Equals(right);
+        public static bool operator !=(SnapshotStatus left, SnapshotStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotStatus other && Equals(other);
+        public bool Equals(SnapshotStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct WorkgroupPerformanceTargetStatus : IEquatable<WorkgroupPerformanceTargetStatus>
     {
         private readonly string _value;

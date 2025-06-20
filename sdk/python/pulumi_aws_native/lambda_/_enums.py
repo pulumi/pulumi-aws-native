@@ -63,9 +63,6 @@ class EventSourceMappingMetricsConfigMetricsItem(builtins.str, Enum):
 
 @pulumi.type_token("aws-native:lambda:EventSourceMappingSchemaRegistryAccessConfigType")
 class EventSourceMappingSchemaRegistryAccessConfigType(builtins.str, Enum):
-    """
-    The type of authentication Lambda uses to access your schema registry.
-    """
     BASIC_AUTH = "BASIC_AUTH"
     CLIENT_CERTIFICATE_TLS_AUTH = "CLIENT_CERTIFICATE_TLS_AUTH"
     SERVER_ROOT_CA_CERTIFICATE = "SERVER_ROOT_CA_CERTIFICATE"
@@ -73,18 +70,12 @@ class EventSourceMappingSchemaRegistryAccessConfigType(builtins.str, Enum):
 
 @pulumi.type_token("aws-native:lambda:EventSourceMappingSchemaRegistryConfigEventRecordFormat")
 class EventSourceMappingSchemaRegistryConfigEventRecordFormat(builtins.str, Enum):
-    """
-    The record format that Lambda delivers to your function after schema validation.
-    """
     JSON = "JSON"
     SOURCE = "SOURCE"
 
 
 @pulumi.type_token("aws-native:lambda:EventSourceMappingSchemaValidationConfigAttribute")
 class EventSourceMappingSchemaValidationConfigAttribute(builtins.str, Enum):
-    """
-    The attribute you want your schema registry to validate and filter for.
-    """
     KEY = "KEY"
     VALUE = "VALUE"
 

@@ -25,6 +25,7 @@ export interface GetEvaluationFormArgs {
 }
 
 export interface GetEvaluationFormResult {
+    readonly autoEvaluationConfiguration?: outputs.connect.EvaluationFormAutoEvaluationConfiguration;
     /**
      * The description of the evaluation form.
      *  *Length Constraints*: Minimum length of 0. Maximum length of 1024.

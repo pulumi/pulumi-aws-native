@@ -74,6 +74,37 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
     }
 
     /// <summary>
+    /// Enumeration of Instance Limits handling in a Campaign
+    /// </summary>
+    [EnumType]
+    public readonly struct CampaignInstanceLimitsHandling : IEquatable<CampaignInstanceLimitsHandling>
+    {
+        private readonly string _value;
+
+        private CampaignInstanceLimitsHandling(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CampaignInstanceLimitsHandling OptIn { get; } = new CampaignInstanceLimitsHandling("OPT_IN");
+        public static CampaignInstanceLimitsHandling OptOut { get; } = new CampaignInstanceLimitsHandling("OPT_OUT");
+
+        public static bool operator ==(CampaignInstanceLimitsHandling left, CampaignInstanceLimitsHandling right) => left.Equals(right);
+        public static bool operator !=(CampaignInstanceLimitsHandling left, CampaignInstanceLimitsHandling right) => !left.Equals(right);
+
+        public static explicit operator string(CampaignInstanceLimitsHandling value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CampaignInstanceLimitsHandling other && Equals(other);
+        public bool Equals(CampaignInstanceLimitsHandling other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Local TimeZone Detection method
     /// </summary>
     [EnumType]

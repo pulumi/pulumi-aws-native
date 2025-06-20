@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        [Input("memberAbilities", required: true)]
+        [Input("memberAbilities")]
         private InputList<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility>? _memberAbilities;
 
         /// <summary>

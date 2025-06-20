@@ -57,6 +57,8 @@ type LookupAppResult struct {
 	EnvironmentVariables []AppEnvironmentVariable `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
 	IamServiceRole *string `pulumi:"iamServiceRole"`
+	// The configuration details that apply to the jobs for an Amplify app.
+	JobConfig *AppJobConfig `pulumi:"jobConfig"`
 	// The name of the Amplify app.
 	Name *string `pulumi:"name"`
 	// The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
@@ -166,6 +168,11 @@ func (o LookupAppResultOutput) EnvironmentVariables() AppEnvironmentVariableArra
 // AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
 func (o LookupAppResultOutput) IamServiceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.IamServiceRole }).(pulumi.StringPtrOutput)
+}
+
+// The configuration details that apply to the jobs for an Amplify app.
+func (o LookupAppResultOutput) JobConfig() AppJobConfigPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *AppJobConfig { return v.JobConfig }).(AppJobConfigPtrOutput)
 }
 
 // The name of the Amplify app.

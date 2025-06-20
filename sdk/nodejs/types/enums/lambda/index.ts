@@ -40,9 +40,6 @@ export const EventSourceMappingSchemaRegistryAccessConfigType = {
     ServerRootCaCertificate: "SERVER_ROOT_CA_CERTIFICATE",
 } as const;
 
-/**
- * The type of authentication Lambda uses to access your schema registry.
- */
 export type EventSourceMappingSchemaRegistryAccessConfigType = (typeof EventSourceMappingSchemaRegistryAccessConfigType)[keyof typeof EventSourceMappingSchemaRegistryAccessConfigType];
 
 export const EventSourceMappingSchemaRegistryConfigEventRecordFormat = {
@@ -50,9 +47,6 @@ export const EventSourceMappingSchemaRegistryConfigEventRecordFormat = {
     Source: "SOURCE",
 } as const;
 
-/**
- * The record format that Lambda delivers to your function after schema validation.
- */
 export type EventSourceMappingSchemaRegistryConfigEventRecordFormat = (typeof EventSourceMappingSchemaRegistryConfigEventRecordFormat)[keyof typeof EventSourceMappingSchemaRegistryConfigEventRecordFormat];
 
 export const EventSourceMappingSchemaValidationConfigAttribute = {
@@ -60,9 +54,6 @@ export const EventSourceMappingSchemaValidationConfigAttribute = {
     Value: "VALUE",
 } as const;
 
-/**
- * The attribute you want your schema registry to validate and filter for.
- */
 export type EventSourceMappingSchemaValidationConfigAttribute = (typeof EventSourceMappingSchemaValidationConfigAttribute)[keyof typeof EventSourceMappingSchemaValidationConfigAttribute];
 
 export const EventSourceMappingSourceAccessConfigurationType = {

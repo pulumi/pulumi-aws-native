@@ -293,6 +293,9 @@ if not MYPY:
         """
         Details of the AWS account IDs used to filter findings.
         """
+        code_vulnerability_detector_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+        code_vulnerability_detector_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+        code_vulnerability_file_path: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
         component_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
         """
         Details of the component IDs used to filter findings.
@@ -337,6 +340,8 @@ if not MYPY:
         """
         The tags attached to the Amazon ECR container image.
         """
+        epss_score: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgsDict']]]]
+        exploit_available: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
         finding_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
         """
         Details on the finding ARNs used to filter findings.
@@ -353,10 +358,16 @@ if not MYPY:
         """
         Details on the date and time a finding was first seen used to filter findings.
         """
+        fix_available: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
         inspector_score: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgsDict']]]]
         """
         The Amazon Inspector score to filter on.
         """
+        lambda_function_execution_role_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+        lambda_function_last_modified_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
+        lambda_function_layers: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+        lambda_function_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
+        lambda_function_runtime: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
         last_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
         """
         Details on the date and time a finding was last seen used to filter findings.
@@ -420,6 +431,9 @@ elif False:
 class FilterCriteriaArgs:
     def __init__(__self__, *,
                  aws_account_id: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 code_vulnerability_detector_name: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 code_vulnerability_detector_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 code_vulnerability_file_path: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  component_id: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  component_type: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  ec2_instance_image_id: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
@@ -431,11 +445,19 @@ class FilterCriteriaArgs:
                  ecr_image_registry: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  ecr_image_repository_name: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  ecr_image_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 epss_score: Optional[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgs']]]] = None,
+                 exploit_available: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  finding_arn: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  finding_status: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  finding_type: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  first_observed_at: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
+                 fix_available: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  inspector_score: Optional[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgs']]]] = None,
+                 lambda_function_execution_role_arn: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 lambda_function_last_modified_at: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
+                 lambda_function_layers: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 lambda_function_name: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 lambda_function_runtime: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  last_observed_at: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
                  network_protocol: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  port_range: Optional[pulumi.Input[Sequence[pulumi.Input['FilterPortRangeFilterArgs']]]] = None,
@@ -485,6 +507,12 @@ class FilterCriteriaArgs:
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if code_vulnerability_detector_name is not None:
+            pulumi.set(__self__, "code_vulnerability_detector_name", code_vulnerability_detector_name)
+        if code_vulnerability_detector_tags is not None:
+            pulumi.set(__self__, "code_vulnerability_detector_tags", code_vulnerability_detector_tags)
+        if code_vulnerability_file_path is not None:
+            pulumi.set(__self__, "code_vulnerability_file_path", code_vulnerability_file_path)
         if component_id is not None:
             pulumi.set(__self__, "component_id", component_id)
         if component_type is not None:
@@ -507,6 +535,10 @@ class FilterCriteriaArgs:
             pulumi.set(__self__, "ecr_image_repository_name", ecr_image_repository_name)
         if ecr_image_tags is not None:
             pulumi.set(__self__, "ecr_image_tags", ecr_image_tags)
+        if epss_score is not None:
+            pulumi.set(__self__, "epss_score", epss_score)
+        if exploit_available is not None:
+            pulumi.set(__self__, "exploit_available", exploit_available)
         if finding_arn is not None:
             pulumi.set(__self__, "finding_arn", finding_arn)
         if finding_status is not None:
@@ -515,8 +547,20 @@ class FilterCriteriaArgs:
             pulumi.set(__self__, "finding_type", finding_type)
         if first_observed_at is not None:
             pulumi.set(__self__, "first_observed_at", first_observed_at)
+        if fix_available is not None:
+            pulumi.set(__self__, "fix_available", fix_available)
         if inspector_score is not None:
             pulumi.set(__self__, "inspector_score", inspector_score)
+        if lambda_function_execution_role_arn is not None:
+            pulumi.set(__self__, "lambda_function_execution_role_arn", lambda_function_execution_role_arn)
+        if lambda_function_last_modified_at is not None:
+            pulumi.set(__self__, "lambda_function_last_modified_at", lambda_function_last_modified_at)
+        if lambda_function_layers is not None:
+            pulumi.set(__self__, "lambda_function_layers", lambda_function_layers)
+        if lambda_function_name is not None:
+            pulumi.set(__self__, "lambda_function_name", lambda_function_name)
+        if lambda_function_runtime is not None:
+            pulumi.set(__self__, "lambda_function_runtime", lambda_function_runtime)
         if last_observed_at is not None:
             pulumi.set(__self__, "last_observed_at", last_observed_at)
         if network_protocol is not None:
@@ -557,6 +601,33 @@ class FilterCriteriaArgs:
     @aws_account_id.setter
     def aws_account_id(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "aws_account_id", value)
+
+    @property
+    @pulumi.getter(name="codeVulnerabilityDetectorName")
+    def code_vulnerability_detector_name(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+        return pulumi.get(self, "code_vulnerability_detector_name")
+
+    @code_vulnerability_detector_name.setter
+    def code_vulnerability_detector_name(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+        pulumi.set(self, "code_vulnerability_detector_name", value)
+
+    @property
+    @pulumi.getter(name="codeVulnerabilityDetectorTags")
+    def code_vulnerability_detector_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+        return pulumi.get(self, "code_vulnerability_detector_tags")
+
+    @code_vulnerability_detector_tags.setter
+    def code_vulnerability_detector_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+        pulumi.set(self, "code_vulnerability_detector_tags", value)
+
+    @property
+    @pulumi.getter(name="codeVulnerabilityFilePath")
+    def code_vulnerability_file_path(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+        return pulumi.get(self, "code_vulnerability_file_path")
+
+    @code_vulnerability_file_path.setter
+    def code_vulnerability_file_path(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+        pulumi.set(self, "code_vulnerability_file_path", value)
 
     @property
     @pulumi.getter(name="componentId")
@@ -691,6 +762,24 @@ class FilterCriteriaArgs:
         pulumi.set(self, "ecr_image_tags", value)
 
     @property
+    @pulumi.getter(name="epssScore")
+    def epss_score(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]:
+        return pulumi.get(self, "epss_score")
+
+    @epss_score.setter
+    def epss_score(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]):
+        pulumi.set(self, "epss_score", value)
+
+    @property
+    @pulumi.getter(name="exploitAvailable")
+    def exploit_available(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+        return pulumi.get(self, "exploit_available")
+
+    @exploit_available.setter
+    def exploit_available(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+        pulumi.set(self, "exploit_available", value)
+
+    @property
     @pulumi.getter(name="findingArn")
     def finding_arn(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
         """
@@ -739,6 +828,15 @@ class FilterCriteriaArgs:
         pulumi.set(self, "first_observed_at", value)
 
     @property
+    @pulumi.getter(name="fixAvailable")
+    def fix_available(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+        return pulumi.get(self, "fix_available")
+
+    @fix_available.setter
+    def fix_available(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+        pulumi.set(self, "fix_available", value)
+
+    @property
     @pulumi.getter(name="inspectorScore")
     def inspector_score(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]:
         """
@@ -749,6 +847,51 @@ class FilterCriteriaArgs:
     @inspector_score.setter
     def inspector_score(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]):
         pulumi.set(self, "inspector_score", value)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionExecutionRoleArn")
+    def lambda_function_execution_role_arn(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+        return pulumi.get(self, "lambda_function_execution_role_arn")
+
+    @lambda_function_execution_role_arn.setter
+    def lambda_function_execution_role_arn(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+        pulumi.set(self, "lambda_function_execution_role_arn", value)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionLastModifiedAt")
+    def lambda_function_last_modified_at(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]]:
+        return pulumi.get(self, "lambda_function_last_modified_at")
+
+    @lambda_function_last_modified_at.setter
+    def lambda_function_last_modified_at(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgs']]]]):
+        pulumi.set(self, "lambda_function_last_modified_at", value)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionLayers")
+    def lambda_function_layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+        return pulumi.get(self, "lambda_function_layers")
+
+    @lambda_function_layers.setter
+    def lambda_function_layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+        pulumi.set(self, "lambda_function_layers", value)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionName")
+    def lambda_function_name(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+        return pulumi.get(self, "lambda_function_name")
+
+    @lambda_function_name.setter
+    def lambda_function_name(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+        pulumi.set(self, "lambda_function_name", value)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionRuntime")
+    def lambda_function_runtime(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]:
+        return pulumi.get(self, "lambda_function_runtime")
+
+    @lambda_function_runtime.setter
+    def lambda_function_runtime(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
+        pulumi.set(self, "lambda_function_runtime", value)
 
     @property
     @pulumi.getter(name="lastObservedAt")
@@ -1043,8 +1186,10 @@ if not MYPY:
     class FilterPackageFilterArgsDict(TypedDict):
         architecture: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
         epoch: NotRequired[pulumi.Input['FilterNumberFilterArgsDict']]
+        file_path: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
         name: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
         release: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
+        source_lambda_layer_arn: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
         source_layer_hash: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
         version: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
 elif False:
@@ -1055,18 +1200,24 @@ class FilterPackageFilterArgs:
     def __init__(__self__, *,
                  architecture: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
                  epoch: Optional[pulumi.Input['FilterNumberFilterArgs']] = None,
+                 file_path: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
                  name: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
                  release: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
+                 source_lambda_layer_arn: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
                  source_layer_hash: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
                  version: Optional[pulumi.Input['FilterStringFilterArgs']] = None):
         if architecture is not None:
             pulumi.set(__self__, "architecture", architecture)
         if epoch is not None:
             pulumi.set(__self__, "epoch", epoch)
+        if file_path is not None:
+            pulumi.set(__self__, "file_path", file_path)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if release is not None:
             pulumi.set(__self__, "release", release)
+        if source_lambda_layer_arn is not None:
+            pulumi.set(__self__, "source_lambda_layer_arn", source_lambda_layer_arn)
         if source_layer_hash is not None:
             pulumi.set(__self__, "source_layer_hash", source_layer_hash)
         if version is not None:
@@ -1091,6 +1242,15 @@ class FilterPackageFilterArgs:
         pulumi.set(self, "epoch", value)
 
     @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> Optional[pulumi.Input['FilterStringFilterArgs']]:
+        return pulumi.get(self, "file_path")
+
+    @file_path.setter
+    def file_path(self, value: Optional[pulumi.Input['FilterStringFilterArgs']]):
+        pulumi.set(self, "file_path", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input['FilterStringFilterArgs']]:
         return pulumi.get(self, "name")
@@ -1107,6 +1267,15 @@ class FilterPackageFilterArgs:
     @release.setter
     def release(self, value: Optional[pulumi.Input['FilterStringFilterArgs']]):
         pulumi.set(self, "release", value)
+
+    @property
+    @pulumi.getter(name="sourceLambdaLayerArn")
+    def source_lambda_layer_arn(self) -> Optional[pulumi.Input['FilterStringFilterArgs']]:
+        return pulumi.get(self, "source_lambda_layer_arn")
+
+    @source_lambda_layer_arn.setter
+    def source_lambda_layer_arn(self, value: Optional[pulumi.Input['FilterStringFilterArgs']]):
+        pulumi.set(self, "source_lambda_layer_arn", value)
 
     @property
     @pulumi.getter(name="sourceLayerHash")

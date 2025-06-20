@@ -494,7 +494,7 @@ class CollaborationMemberSpecification(dict):
     def __init__(__self__, *,
                  account_id: builtins.str,
                  display_name: builtins.str,
-                 member_abilities: Sequence['CollaborationMemberAbility'],
+                 member_abilities: Optional[Sequence['CollaborationMemberAbility']] = None,
                  ml_member_abilities: Optional['outputs.CollaborationMlMemberAbilities'] = None,
                  payment_configuration: Optional['outputs.CollaborationPaymentConfiguration'] = None):
         """
@@ -510,7 +510,8 @@ class CollaborationMemberSpecification(dict):
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "member_abilities", member_abilities)
+        if member_abilities is not None:
+            pulumi.set(__self__, "member_abilities", member_abilities)
         if ml_member_abilities is not None:
             pulumi.set(__self__, "ml_member_abilities", ml_member_abilities)
         if payment_configuration is not None:
@@ -534,7 +535,7 @@ class CollaborationMemberSpecification(dict):
 
     @property
     @pulumi.getter(name="memberAbilities")
-    def member_abilities(self) -> Sequence['CollaborationMemberAbility']:
+    def member_abilities(self) -> Optional[Sequence['CollaborationMemberAbility']]:
         """
         The abilities granted to the collaboration member.
 

@@ -22,7 +22,9 @@ __all__ = [
     'CalculatedAttributeDefinitionAttributeItem',
     'CalculatedAttributeDefinitionConditions',
     'CalculatedAttributeDefinitionRange',
+    'CalculatedAttributeDefinitionReadiness',
     'CalculatedAttributeDefinitionThreshold',
+    'CalculatedAttributeDefinitionValueRange',
     'DestinationDetailsProperties',
     'DomainAttributeTypesSelector',
     'DomainAutoMerging',
@@ -71,6 +73,7 @@ __all__ = [
     'SegmentDefinitionGroup',
     'SegmentDefinitionProfileAttributes',
     'SegmentDefinitionProfileDimension',
+    'SegmentDefinitionProfileTypeDimension',
     'SegmentDefinitionRangeOverride',
     'SegmentDefinitionSegmentGroup',
     'SegmentDefinitionSourceSegment',
@@ -196,16 +199,49 @@ class CalculatedAttributeDefinitionRange(dict):
     """
     The relative time period over which data is included in the aggregation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "timestampSource":
+            suggest = "timestamp_source"
+        elif key == "valueRange":
+            suggest = "value_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CalculatedAttributeDefinitionRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CalculatedAttributeDefinitionRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CalculatedAttributeDefinitionRange.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  unit: 'CalculatedAttributeDefinitionRangeUnit',
-                 value: builtins.int):
+                 timestamp_format: Optional[builtins.str] = None,
+                 timestamp_source: Optional[builtins.str] = None,
+                 value: Optional[builtins.int] = None,
+                 value_range: Optional['outputs.CalculatedAttributeDefinitionValueRange'] = None):
         """
         The relative time period over which data is included in the aggregation.
         :param 'CalculatedAttributeDefinitionRangeUnit' unit: The unit of time.
+        :param builtins.str timestamp_format: The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+        :param builtins.str timestamp_source: An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
         :param builtins.int value: The amount of time of the specified unit.
         """
         pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if timestamp_source is not None:
+            pulumi.set(__self__, "timestamp_source", timestamp_source)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_range is not None:
+            pulumi.set(__self__, "value_range", value_range)
 
     @property
     @pulumi.getter
@@ -216,12 +252,85 @@ class CalculatedAttributeDefinitionRange(dict):
         return pulumi.get(self, "unit")
 
     @property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[builtins.str]:
+        """
+        The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+        """
+        return pulumi.get(self, "timestamp_format")
+
+    @property
+    @pulumi.getter(name="timestampSource")
+    def timestamp_source(self) -> Optional[builtins.str]:
+        """
+        An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+        """
+        return pulumi.get(self, "timestamp_source")
+
+    @property
     @pulumi.getter
-    def value(self) -> builtins.int:
+    def value(self) -> Optional[builtins.int]:
         """
         The amount of time of the specified unit.
         """
         return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueRange")
+    def value_range(self) -> Optional['outputs.CalculatedAttributeDefinitionValueRange']:
+        return pulumi.get(self, "value_range")
+
+
+@pulumi.output_type
+class CalculatedAttributeDefinitionReadiness(dict):
+    """
+    The readiness status of the calculated attribute.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "progressPercentage":
+            suggest = "progress_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CalculatedAttributeDefinitionReadiness. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CalculatedAttributeDefinitionReadiness.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CalculatedAttributeDefinitionReadiness.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 message: Optional[builtins.str] = None,
+                 progress_percentage: Optional[builtins.int] = None):
+        """
+        The readiness status of the calculated attribute.
+        :param builtins.str message: Any information pertaining to the status of the calculated attribute if required.
+        :param builtins.int progress_percentage: The progress percentage for including historical data in your calculated attribute.
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if progress_percentage is not None:
+            pulumi.set(__self__, "progress_percentage", progress_percentage)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[builtins.str]:
+        """
+        Any information pertaining to the status of the calculated attribute if required.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="progressPercentage")
+    def progress_percentage(self) -> Optional[builtins.int]:
+        """
+        The progress percentage for including historical data in your calculated attribute.
+        """
+        return pulumi.get(self, "progress_percentage")
 
 
 @pulumi.output_type
@@ -255,6 +364,39 @@ class CalculatedAttributeDefinitionThreshold(dict):
         The value of the threshold.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CalculatedAttributeDefinitionValueRange(dict):
+    """
+    A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
+    """
+    def __init__(__self__, *,
+                 end: builtins.int,
+                 start: builtins.int):
+        """
+        A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
+        :param builtins.int end: The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+        :param builtins.int start: The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+        """
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> builtins.int:
+        """
+        The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> builtins.int:
+        """
+        The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+        """
+        return pulumi.get(self, "start")
 
 
 @pulumi.output_type
@@ -2845,6 +2987,8 @@ class SegmentDefinitionProfileAttributes(dict):
             suggest = "personal_email_address"
         elif key == "phoneNumber":
             suggest = "phone_number"
+        elif key == "profileType":
+            suggest = "profile_type"
         elif key == "shippingAddress":
             suggest = "shipping_address"
 
@@ -2880,6 +3024,7 @@ class SegmentDefinitionProfileAttributes(dict):
                  party_type_string: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
                  personal_email_address: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
                  phone_number: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 profile_type: Optional['outputs.SegmentDefinitionProfileTypeDimension'] = None,
                  shipping_address: Optional['outputs.SegmentDefinitionAddressDimension'] = None):
         """
         Specifies the dimension settings within profile attributes for a segment.
@@ -2924,6 +3069,8 @@ class SegmentDefinitionProfileAttributes(dict):
             pulumi.set(__self__, "personal_email_address", personal_email_address)
         if phone_number is not None:
             pulumi.set(__self__, "phone_number", phone_number)
+        if profile_type is not None:
+            pulumi.set(__self__, "profile_type", profile_type)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
 
@@ -3028,6 +3175,11 @@ class SegmentDefinitionProfileAttributes(dict):
         return pulumi.get(self, "phone_number")
 
     @property
+    @pulumi.getter(name="profileType")
+    def profile_type(self) -> Optional['outputs.SegmentDefinitionProfileTypeDimension']:
+        return pulumi.get(self, "profile_type")
+
+    @property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> Optional['outputs.SegmentDefinitionAddressDimension']:
         return pulumi.get(self, "shipping_address")
@@ -3076,6 +3228,48 @@ class SegmentDefinitionProfileDimension(dict):
 
 
 @pulumi.output_type
+class SegmentDefinitionProfileTypeDimension(dict):
+    """
+    Specifies profile type based criteria for a segment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dimensionType":
+            suggest = "dimension_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionProfileTypeDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionProfileTypeDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionProfileTypeDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimension_type: 'SegmentDefinitionProfileTypeDimensionType',
+                 values: Sequence['SegmentDefinitionProfileType']):
+        """
+        Specifies profile type based criteria for a segment.
+        """
+        pulumi.set(__self__, "dimension_type", dimension_type)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="dimensionType")
+    def dimension_type(self) -> 'SegmentDefinitionProfileTypeDimensionType':
+        return pulumi.get(self, "dimension_type")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence['SegmentDefinitionProfileType']:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class SegmentDefinitionRangeOverride(dict):
     """
     Defines the range to be applied to the calculated attribute definition.
@@ -3086,9 +3280,9 @@ class SegmentDefinitionRangeOverride(dict):
                  end: Optional[builtins.int] = None):
         """
         Defines the range to be applied to the calculated attribute definition.
-        :param builtins.int start: The starting point for this overridden range.
+        :param builtins.int start: The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         :param 'SegmentDefinitionRangeOverrideUnit' unit: The unit to be applied to the range.
-        :param builtins.int end: The ending point for this overridden range.
+        :param builtins.int end: The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         """
         pulumi.set(__self__, "start", start)
         pulumi.set(__self__, "unit", unit)
@@ -3099,7 +3293,7 @@ class SegmentDefinitionRangeOverride(dict):
     @pulumi.getter
     def start(self) -> builtins.int:
         """
-        The starting point for this overridden range.
+        The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         """
         return pulumi.get(self, "start")
 
@@ -3115,7 +3309,7 @@ class SegmentDefinitionRangeOverride(dict):
     @pulumi.getter
     def end(self) -> Optional[builtins.int]:
         """
-        The ending point for this overridden range.
+        The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         """
         return pulumi.get(self, "end")
 

@@ -24,6 +24,30 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
             set => _awsAccountId = value;
         }
 
+        [Input("codeVulnerabilityDetectorName")]
+        private InputList<Inputs.FilterStringFilterArgs>? _codeVulnerabilityDetectorName;
+        public InputList<Inputs.FilterStringFilterArgs> CodeVulnerabilityDetectorName
+        {
+            get => _codeVulnerabilityDetectorName ?? (_codeVulnerabilityDetectorName = new InputList<Inputs.FilterStringFilterArgs>());
+            set => _codeVulnerabilityDetectorName = value;
+        }
+
+        [Input("codeVulnerabilityDetectorTags")]
+        private InputList<Inputs.FilterStringFilterArgs>? _codeVulnerabilityDetectorTags;
+        public InputList<Inputs.FilterStringFilterArgs> CodeVulnerabilityDetectorTags
+        {
+            get => _codeVulnerabilityDetectorTags ?? (_codeVulnerabilityDetectorTags = new InputList<Inputs.FilterStringFilterArgs>());
+            set => _codeVulnerabilityDetectorTags = value;
+        }
+
+        [Input("codeVulnerabilityFilePath")]
+        private InputList<Inputs.FilterStringFilterArgs>? _codeVulnerabilityFilePath;
+        public InputList<Inputs.FilterStringFilterArgs> CodeVulnerabilityFilePath
+        {
+            get => _codeVulnerabilityFilePath ?? (_codeVulnerabilityFilePath = new InputList<Inputs.FilterStringFilterArgs>());
+            set => _codeVulnerabilityFilePath = value;
+        }
+
         [Input("componentId")]
         private InputList<Inputs.FilterStringFilterArgs>? _componentId;
 
@@ -156,6 +180,22 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
             set => _ecrImageTags = value;
         }
 
+        [Input("epssScore")]
+        private InputList<Inputs.FilterNumberFilterArgs>? _epssScore;
+        public InputList<Inputs.FilterNumberFilterArgs> EpssScore
+        {
+            get => _epssScore ?? (_epssScore = new InputList<Inputs.FilterNumberFilterArgs>());
+            set => _epssScore = value;
+        }
+
+        [Input("exploitAvailable")]
+        private InputList<Inputs.FilterStringFilterArgs>? _exploitAvailable;
+        public InputList<Inputs.FilterStringFilterArgs> ExploitAvailable
+        {
+            get => _exploitAvailable ?? (_exploitAvailable = new InputList<Inputs.FilterStringFilterArgs>());
+            set => _exploitAvailable = value;
+        }
+
         [Input("findingArn")]
         private InputList<Inputs.FilterStringFilterArgs>? _findingArn;
 
@@ -204,6 +244,14 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
             set => _firstObservedAt = value;
         }
 
+        [Input("fixAvailable")]
+        private InputList<Inputs.FilterStringFilterArgs>? _fixAvailable;
+        public InputList<Inputs.FilterStringFilterArgs> FixAvailable
+        {
+            get => _fixAvailable ?? (_fixAvailable = new InputList<Inputs.FilterStringFilterArgs>());
+            set => _fixAvailable = value;
+        }
+
         [Input("inspectorScore")]
         private InputList<Inputs.FilterNumberFilterArgs>? _inspectorScore;
 
@@ -214,6 +262,46 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
         {
             get => _inspectorScore ?? (_inspectorScore = new InputList<Inputs.FilterNumberFilterArgs>());
             set => _inspectorScore = value;
+        }
+
+        [Input("lambdaFunctionExecutionRoleArn")]
+        private InputList<Inputs.FilterStringFilterArgs>? _lambdaFunctionExecutionRoleArn;
+        public InputList<Inputs.FilterStringFilterArgs> LambdaFunctionExecutionRoleArn
+        {
+            get => _lambdaFunctionExecutionRoleArn ?? (_lambdaFunctionExecutionRoleArn = new InputList<Inputs.FilterStringFilterArgs>());
+            set => _lambdaFunctionExecutionRoleArn = value;
+        }
+
+        [Input("lambdaFunctionLastModifiedAt")]
+        private InputList<Inputs.FilterDateFilterArgs>? _lambdaFunctionLastModifiedAt;
+        public InputList<Inputs.FilterDateFilterArgs> LambdaFunctionLastModifiedAt
+        {
+            get => _lambdaFunctionLastModifiedAt ?? (_lambdaFunctionLastModifiedAt = new InputList<Inputs.FilterDateFilterArgs>());
+            set => _lambdaFunctionLastModifiedAt = value;
+        }
+
+        [Input("lambdaFunctionLayers")]
+        private InputList<Inputs.FilterStringFilterArgs>? _lambdaFunctionLayers;
+        public InputList<Inputs.FilterStringFilterArgs> LambdaFunctionLayers
+        {
+            get => _lambdaFunctionLayers ?? (_lambdaFunctionLayers = new InputList<Inputs.FilterStringFilterArgs>());
+            set => _lambdaFunctionLayers = value;
+        }
+
+        [Input("lambdaFunctionName")]
+        private InputList<Inputs.FilterStringFilterArgs>? _lambdaFunctionName;
+        public InputList<Inputs.FilterStringFilterArgs> LambdaFunctionName
+        {
+            get => _lambdaFunctionName ?? (_lambdaFunctionName = new InputList<Inputs.FilterStringFilterArgs>());
+            set => _lambdaFunctionName = value;
+        }
+
+        [Input("lambdaFunctionRuntime")]
+        private InputList<Inputs.FilterStringFilterArgs>? _lambdaFunctionRuntime;
+        public InputList<Inputs.FilterStringFilterArgs> LambdaFunctionRuntime
+        {
+            get => _lambdaFunctionRuntime ?? (_lambdaFunctionRuntime = new InputList<Inputs.FilterStringFilterArgs>());
+            set => _lambdaFunctionRuntime = value;
         }
 
         [Input("lastObservedAt")]

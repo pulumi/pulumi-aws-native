@@ -16,14 +16,19 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Outputs
     [OutputType]
     public sealed class AnalyzerConfigurationProperties
     {
+        public readonly Outputs.AnalyzerInternalAccessConfiguration? InternalAccessConfiguration;
         /// <summary>
         /// Specifies the configuration of an unused access analyzer for an AWS organization or account.
         /// </summary>
         public readonly Outputs.AnalyzerUnusedAccessConfiguration? UnusedAccessConfiguration;
 
         [OutputConstructor]
-        private AnalyzerConfigurationProperties(Outputs.AnalyzerUnusedAccessConfiguration? unusedAccessConfiguration)
+        private AnalyzerConfigurationProperties(
+            Outputs.AnalyzerInternalAccessConfiguration? internalAccessConfiguration,
+
+            Outputs.AnalyzerUnusedAccessConfiguration? unusedAccessConfiguration)
         {
+            InternalAccessConfiguration = internalAccessConfiguration;
             UnusedAccessConfiguration = unusedAccessConfiguration;
         }
     }

@@ -54,6 +54,7 @@ export class Guardrail extends pulumi.CustomResource {
      * Time Stamp
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public readonly crossRegionConfig!: pulumi.Output<outputs.bedrock.GuardrailCrossRegionConfig | undefined>;
     /**
      * Description of the guardrail or its version
      */
@@ -132,6 +133,7 @@ export class Guardrail extends pulumi.CustomResource {
             resourceInputs["blockedOutputsMessaging"] = args ? args.blockedOutputsMessaging : undefined;
             resourceInputs["contentPolicyConfig"] = args ? args.contentPolicyConfig : undefined;
             resourceInputs["contextualGroundingPolicyConfig"] = args ? args.contextualGroundingPolicyConfig : undefined;
+            resourceInputs["crossRegionConfig"] = args ? args.crossRegionConfig : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -153,6 +155,7 @@ export class Guardrail extends pulumi.CustomResource {
             resourceInputs["contentPolicyConfig"] = undefined /*out*/;
             resourceInputs["contextualGroundingPolicyConfig"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["crossRegionConfig"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["failureRecommendations"] = undefined /*out*/;
             resourceInputs["guardrailArn"] = undefined /*out*/;
@@ -190,6 +193,7 @@ export interface GuardrailArgs {
      */
     contentPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfigArgs>;
     contextualGroundingPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfigArgs>;
+    crossRegionConfig?: pulumi.Input<inputs.bedrock.GuardrailCrossRegionConfigArgs>;
     /**
      * Description of the guardrail or its version
      */

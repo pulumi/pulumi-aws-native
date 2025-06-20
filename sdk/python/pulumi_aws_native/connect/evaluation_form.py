@@ -29,6 +29,7 @@ class EvaluationFormArgs:
                  items: pulumi.Input[Sequence[pulumi.Input['EvaluationFormBaseItemArgs']]],
                  status: pulumi.Input['EvaluationFormStatus'],
                  title: pulumi.Input[builtins.str],
+                 auto_evaluation_configuration: Optional[pulumi.Input['EvaluationFormAutoEvaluationConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  scoring_strategy: Optional[pulumi.Input['EvaluationFormScoringStrategyArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -50,6 +51,8 @@ class EvaluationFormArgs:
         pulumi.set(__self__, "items", items)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "title", title)
+        if auto_evaluation_configuration is not None:
+            pulumi.set(__self__, "auto_evaluation_configuration", auto_evaluation_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if scoring_strategy is not None:
@@ -109,6 +112,15 @@ class EvaluationFormArgs:
         pulumi.set(self, "title", value)
 
     @property
+    @pulumi.getter(name="autoEvaluationConfiguration")
+    def auto_evaluation_configuration(self) -> Optional[pulumi.Input['EvaluationFormAutoEvaluationConfigurationArgs']]:
+        return pulumi.get(self, "auto_evaluation_configuration")
+
+    @auto_evaluation_configuration.setter
+    def auto_evaluation_configuration(self, value: Optional[pulumi.Input['EvaluationFormAutoEvaluationConfigurationArgs']]):
+        pulumi.set(self, "auto_evaluation_configuration", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -152,6 +164,7 @@ class EvaluationForm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_evaluation_configuration: Optional[pulumi.Input[Union['EvaluationFormAutoEvaluationConfigurationArgs', 'EvaluationFormAutoEvaluationConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EvaluationFormBaseItemArgs', 'EvaluationFormBaseItemArgsDict']]]]] = None,
@@ -201,6 +214,7 @@ class EvaluationForm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_evaluation_configuration: Optional[pulumi.Input[Union['EvaluationFormAutoEvaluationConfigurationArgs', 'EvaluationFormAutoEvaluationConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EvaluationFormBaseItemArgs', 'EvaluationFormBaseItemArgsDict']]]]] = None,
@@ -217,6 +231,7 @@ class EvaluationForm(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EvaluationFormArgs.__new__(EvaluationFormArgs)
 
+            __props__.__dict__["auto_evaluation_configuration"] = auto_evaluation_configuration
             __props__.__dict__["description"] = description
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
@@ -255,6 +270,7 @@ class EvaluationForm(pulumi.CustomResource):
 
         __props__ = EvaluationFormArgs.__new__(EvaluationFormArgs)
 
+        __props__.__dict__["auto_evaluation_configuration"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["evaluation_form_arn"] = None
         __props__.__dict__["instance_arn"] = None
@@ -264,6 +280,11 @@ class EvaluationForm(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["title"] = None
         return EvaluationForm(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoEvaluationConfiguration")
+    def auto_evaluation_configuration(self) -> pulumi.Output[Optional['outputs.EvaluationFormAutoEvaluationConfiguration']]:
+        return pulumi.get(self, "auto_evaluation_configuration")
 
     @property
     @pulumi.getter

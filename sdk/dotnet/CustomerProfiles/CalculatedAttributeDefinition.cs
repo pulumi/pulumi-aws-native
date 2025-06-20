@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
+        [Output("readiness")]
+        public Output<Outputs.CalculatedAttributeDefinitionReadiness> Readiness { get; private set; } = null!;
+
         /// <summary>
         /// The aggregation operation to perform for the calculated attribute.
         /// </summary>
@@ -70,10 +73,22 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public Output<Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatistic> Statistic { get; private set; } = null!;
 
         /// <summary>
+        /// The status of the calculated attribute definition.
+        /// </summary>
+        [Output("status")]
+        public Output<Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatus> Status { get; private set; } = null!;
+
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to use historical data for the calculated attribute.
+        /// </summary>
+        [Output("useHistoricalData")]
+        public Output<bool?> UseHistoricalData { get; private set; } = null!;
 
 
         /// <summary>
@@ -101,7 +116,10 @@ namespace Pulumi.AwsNative.CustomerProfiles
                 ReplaceOnChanges =
                 {
                     "calculatedAttributeName",
+                    "conditions.range.timestampFormat",
+                    "conditions.range.timestampSource",
                     "domainName",
+                    "useHistoricalData",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,6 +196,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Whether to use historical data for the calculated attribute.
+        /// </summary>
+        [Input("useHistoricalData")]
+        public Input<bool>? UseHistoricalData { get; set; }
 
         public CalculatedAttributeDefinitionArgs()
         {

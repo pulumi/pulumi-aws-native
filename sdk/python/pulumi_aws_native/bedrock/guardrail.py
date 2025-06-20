@@ -29,6 +29,7 @@ class GuardrailArgs:
                  blocked_outputs_messaging: pulumi.Input[builtins.str],
                  content_policy_config: Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']] = None,
                  contextual_grounding_policy_config: Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']] = None,
+                 cross_region_config: Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -55,6 +56,8 @@ class GuardrailArgs:
             pulumi.set(__self__, "content_policy_config", content_policy_config)
         if contextual_grounding_policy_config is not None:
             pulumi.set(__self__, "contextual_grounding_policy_config", contextual_grounding_policy_config)
+        if cross_region_config is not None:
+            pulumi.set(__self__, "cross_region_config", cross_region_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if kms_key_arn is not None:
@@ -114,6 +117,15 @@ class GuardrailArgs:
     @contextual_grounding_policy_config.setter
     def contextual_grounding_policy_config(self, value: Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']]):
         pulumi.set(self, "contextual_grounding_policy_config", value)
+
+    @property
+    @pulumi.getter(name="crossRegionConfig")
+    def cross_region_config(self) -> Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']]:
+        return pulumi.get(self, "cross_region_config")
+
+    @cross_region_config.setter
+    def cross_region_config(self, value: Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']]):
+        pulumi.set(self, "cross_region_config", value)
 
     @property
     @pulumi.getter
@@ -210,6 +222,7 @@ class Guardrail(pulumi.CustomResource):
                  blocked_outputs_messaging: Optional[pulumi.Input[builtins.str]] = None,
                  content_policy_config: Optional[pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
                  contextual_grounding_policy_config: Optional[pulumi.Input[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
+                 cross_region_config: Optional[pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -262,6 +275,7 @@ class Guardrail(pulumi.CustomResource):
                  blocked_outputs_messaging: Optional[pulumi.Input[builtins.str]] = None,
                  content_policy_config: Optional[pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
                  contextual_grounding_policy_config: Optional[pulumi.Input[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
+                 cross_region_config: Optional[pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -286,6 +300,7 @@ class Guardrail(pulumi.CustomResource):
             __props__.__dict__["blocked_outputs_messaging"] = blocked_outputs_messaging
             __props__.__dict__["content_policy_config"] = content_policy_config
             __props__.__dict__["contextual_grounding_policy_config"] = contextual_grounding_policy_config
+            __props__.__dict__["cross_region_config"] = cross_region_config
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
@@ -328,6 +343,7 @@ class Guardrail(pulumi.CustomResource):
         __props__.__dict__["content_policy_config"] = None
         __props__.__dict__["contextual_grounding_policy_config"] = None
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["cross_region_config"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["failure_recommendations"] = None
         __props__.__dict__["guardrail_arn"] = None
@@ -380,6 +396,11 @@ class Guardrail(pulumi.CustomResource):
         Time Stamp
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="crossRegionConfig")
+    def cross_region_config(self) -> pulumi.Output[Optional['outputs.GuardrailCrossRegionConfig']]:
+        return pulumi.get(self, "cross_region_config")
 
     @property
     @pulumi.getter

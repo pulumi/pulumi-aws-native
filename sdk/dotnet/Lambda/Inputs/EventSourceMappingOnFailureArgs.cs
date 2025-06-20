@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
     /// <summary>
-    /// A destination for events that failed processing. See [Capturing records of Lambda asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) for more information.
+    /// A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
     /// </summary>
     public sealed class EventSourceMappingOnFailureArgs : global::Pulumi.ResourceArgs
     {

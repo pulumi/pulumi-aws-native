@@ -29,6 +29,7 @@ type LookupEvaluationFormArgs struct {
 }
 
 type LookupEvaluationFormResult struct {
+	AutoEvaluationConfiguration *EvaluationFormAutoEvaluationConfiguration `pulumi:"autoEvaluationConfiguration"`
 	// The description of the evaluation form.
 	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
 	Description *string `pulumi:"description"`
@@ -81,6 +82,12 @@ func (o LookupEvaluationFormResultOutput) ToLookupEvaluationFormResultOutput() L
 
 func (o LookupEvaluationFormResultOutput) ToLookupEvaluationFormResultOutputWithContext(ctx context.Context) LookupEvaluationFormResultOutput {
 	return o
+}
+
+func (o LookupEvaluationFormResultOutput) AutoEvaluationConfiguration() EvaluationFormAutoEvaluationConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupEvaluationFormResult) *EvaluationFormAutoEvaluationConfiguration {
+		return v.AutoEvaluationConfiguration
+	}).(EvaluationFormAutoEvaluationConfigurationPtrOutput)
 }
 
 // The description of the evaluation form.

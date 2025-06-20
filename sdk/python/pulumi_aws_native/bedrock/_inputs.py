@@ -357,6 +357,8 @@ __all__ = [
     'GuardrailContextualGroundingFilterConfigArgsDict',
     'GuardrailContextualGroundingPolicyConfigArgs',
     'GuardrailContextualGroundingPolicyConfigArgsDict',
+    'GuardrailCrossRegionConfigArgs',
+    'GuardrailCrossRegionConfigArgsDict',
     'GuardrailManagedWordsConfigArgs',
     'GuardrailManagedWordsConfigArgsDict',
     'GuardrailPiiEntityConfigArgs',
@@ -9125,6 +9127,41 @@ class GuardrailContextualGroundingPolicyConfigArgs:
     @filters_config.setter
     def filters_config(self, value: pulumi.Input[Sequence[pulumi.Input['GuardrailContextualGroundingFilterConfigArgs']]]):
         pulumi.set(self, "filters_config", value)
+
+
+if not MYPY:
+    class GuardrailCrossRegionConfigArgsDict(TypedDict):
+        """
+        The system-defined guardrail profile that you’re using with your guardrail
+        """
+        guardrail_profile_arn: pulumi.Input[builtins.str]
+        """
+        The Amazon Resource Name (ARN) of the guardrail profile
+        """
+elif False:
+    GuardrailCrossRegionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GuardrailCrossRegionConfigArgs:
+    def __init__(__self__, *,
+                 guardrail_profile_arn: pulumi.Input[builtins.str]):
+        """
+        The system-defined guardrail profile that you’re using with your guardrail
+        :param pulumi.Input[builtins.str] guardrail_profile_arn: The Amazon Resource Name (ARN) of the guardrail profile
+        """
+        pulumi.set(__self__, "guardrail_profile_arn", guardrail_profile_arn)
+
+    @property
+    @pulumi.getter(name="guardrailProfileArn")
+    def guardrail_profile_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the guardrail profile
+        """
+        return pulumi.get(self, "guardrail_profile_arn")
+
+    @guardrail_profile_arn.setter
+    def guardrail_profile_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "guardrail_profile_arn", value)
 
 
 if not MYPY:

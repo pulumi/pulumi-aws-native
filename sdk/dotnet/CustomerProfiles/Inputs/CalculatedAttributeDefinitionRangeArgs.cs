@@ -16,6 +16,18 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     public sealed class CalculatedAttributeDefinitionRangeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+        /// </summary>
+        [Input("timestampFormat")]
+        public Input<string>? TimestampFormat { get; set; }
+
+        /// <summary>
+        /// An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \"{ObjectTypeName.&lt;Location of timestamp field in JSON pointer format&gt;}\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+        /// </summary>
+        [Input("timestampSource")]
+        public Input<string>? TimestampSource { get; set; }
+
+        /// <summary>
         /// The unit of time.
         /// </summary>
         [Input("unit", required: true)]
@@ -24,8 +36,11 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         /// <summary>
         /// The amount of time of the specified unit.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<int> Value { get; set; } = null!;
+        [Input("value")]
+        public Input<int>? Value { get; set; }
+
+        [Input("valueRange")]
+        public Input<Inputs.CalculatedAttributeDefinitionValueRangeArgs>? ValueRange { get; set; }
 
         public CalculatedAttributeDefinitionRangeArgs()
         {

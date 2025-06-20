@@ -26,6 +26,16 @@ export const CampaignDayOfWeek = {
  */
 export type CampaignDayOfWeek = (typeof CampaignDayOfWeek)[keyof typeof CampaignDayOfWeek];
 
+export const CampaignInstanceLimitsHandling = {
+    OptIn: "OPT_IN",
+    OptOut: "OPT_OUT",
+} as const;
+
+/**
+ * Enumeration of Instance Limits handling in a Campaign
+ */
+export type CampaignInstanceLimitsHandling = (typeof CampaignInstanceLimitsHandling)[keyof typeof CampaignInstanceLimitsHandling];
+
 export const CampaignLocalTimeZoneDetectionType = {
     ZipCode: "ZIP_CODE",
     AreaCode: "AREA_CODE",

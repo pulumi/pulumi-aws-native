@@ -37,6 +37,7 @@ export class EvaluationForm extends pulumi.CustomResource {
         return obj['__pulumiType'] === EvaluationForm.__pulumiType;
     }
 
+    public readonly autoEvaluationConfiguration!: pulumi.Output<outputs.connect.EvaluationFormAutoEvaluationConfiguration | undefined>;
     /**
      * The description of the evaluation form.
      *  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
@@ -97,6 +98,7 @@ export class EvaluationForm extends pulumi.CustomResource {
             if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
+            resourceInputs["autoEvaluationConfiguration"] = args ? args.autoEvaluationConfiguration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["items"] = args ? args.items : undefined;
@@ -106,6 +108,7 @@ export class EvaluationForm extends pulumi.CustomResource {
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["evaluationFormArn"] = undefined /*out*/;
         } else {
+            resourceInputs["autoEvaluationConfiguration"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["evaluationFormArn"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
@@ -124,6 +127,7 @@ export class EvaluationForm extends pulumi.CustomResource {
  * The set of arguments for constructing a EvaluationForm resource.
  */
 export interface EvaluationFormArgs {
+    autoEvaluationConfiguration?: pulumi.Input<inputs.connect.EvaluationFormAutoEvaluationConfigurationArgs>;
     /**
      * The description of the evaluation form.
      *  *Length Constraints*: Minimum length of 0. Maximum length of 1024.

@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'CampaignCommunicationLimitTimeUnit',
     'CampaignDayOfWeek',
+    'CampaignInstanceLimitsHandling',
     'CampaignLocalTimeZoneDetectionType',
 ]
 
@@ -33,6 +34,15 @@ class CampaignDayOfWeek(builtins.str, Enum):
     FRIDAY = "FRIDAY"
     SATURDAY = "SATURDAY"
     SUNDAY = "SUNDAY"
+
+
+@pulumi.type_token("aws-native:connectcampaignsv2:CampaignInstanceLimitsHandling")
+class CampaignInstanceLimitsHandling(builtins.str, Enum):
+    """
+    Enumeration of Instance Limits handling in a Campaign
+    """
+    OPT_IN = "OPT_IN"
+    OPT_OUT = "OPT_OUT"
 
 
 @pulumi.type_token("aws-native:connectcampaignsv2:CampaignLocalTimeZoneDetectionType")

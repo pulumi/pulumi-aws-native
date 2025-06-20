@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// A configuration object that specifies the destination of an event after Lambda processes it.
+    /// A configuration object that specifies the destination of an event after Lambda processes it. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
     /// </summary>
     [OutputType]
     public sealed class EventSourceMappingDestinationConfig

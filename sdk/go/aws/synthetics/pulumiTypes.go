@@ -579,6 +579,8 @@ type CanaryRunConfig struct {
 	ActiveTracing *bool `pulumi:"activeTracing"`
 	// Environment variable key-value pairs.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
+	// Provide ephemeralStorage available for canary in MB
+	EphemeralStorage *int `pulumi:"ephemeralStorage"`
 	// Provide maximum memory available for canary in MB
 	MemoryInMb *int `pulumi:"memoryInMb"`
 	// Provide maximum canary timeout per run in seconds
@@ -601,6 +603,8 @@ type CanaryRunConfigArgs struct {
 	ActiveTracing pulumi.BoolPtrInput `pulumi:"activeTracing"`
 	// Environment variable key-value pairs.
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
+	// Provide ephemeralStorage available for canary in MB
+	EphemeralStorage pulumi.IntPtrInput `pulumi:"ephemeralStorage"`
 	// Provide maximum memory available for canary in MB
 	MemoryInMb pulumi.IntPtrInput `pulumi:"memoryInMb"`
 	// Provide maximum canary timeout per run in seconds
@@ -694,6 +698,11 @@ func (o CanaryRunConfigOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CanaryRunConfig) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
+// Provide ephemeralStorage available for canary in MB
+func (o CanaryRunConfigOutput) EphemeralStorage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CanaryRunConfig) *int { return v.EphemeralStorage }).(pulumi.IntPtrOutput)
+}
+
 // Provide maximum memory available for canary in MB
 func (o CanaryRunConfigOutput) MemoryInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CanaryRunConfig) *int { return v.MemoryInMb }).(pulumi.IntPtrOutput)
@@ -746,6 +755,16 @@ func (o CanaryRunConfigPtrOutput) EnvironmentVariables() pulumi.StringMapOutput 
 		}
 		return v.EnvironmentVariables
 	}).(pulumi.StringMapOutput)
+}
+
+// Provide ephemeralStorage available for canary in MB
+func (o CanaryRunConfigPtrOutput) EphemeralStorage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CanaryRunConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EphemeralStorage
+	}).(pulumi.IntPtrOutput)
 }
 
 // Provide maximum memory available for canary in MB

@@ -17,6 +17,7 @@ import (
 type EvaluationForm struct {
 	pulumi.CustomResourceState
 
+	AutoEvaluationConfiguration EvaluationFormAutoEvaluationConfigurationPtrOutput `pulumi:"autoEvaluationConfiguration"`
 	// The description of the evaluation form.
 	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -91,6 +92,7 @@ func (EvaluationFormState) ElementType() reflect.Type {
 }
 
 type evaluationFormArgs struct {
+	AutoEvaluationConfiguration *EvaluationFormAutoEvaluationConfiguration `pulumi:"autoEvaluationConfiguration"`
 	// The description of the evaluation form.
 	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
 	Description *string `pulumi:"description"`
@@ -113,6 +115,7 @@ type evaluationFormArgs struct {
 
 // The set of arguments for constructing a EvaluationForm resource.
 type EvaluationFormArgs struct {
+	AutoEvaluationConfiguration EvaluationFormAutoEvaluationConfigurationPtrInput
 	// The description of the evaluation form.
 	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
 	Description pulumi.StringPtrInput
@@ -168,6 +171,12 @@ func (o EvaluationFormOutput) ToEvaluationFormOutput() EvaluationFormOutput {
 
 func (o EvaluationFormOutput) ToEvaluationFormOutputWithContext(ctx context.Context) EvaluationFormOutput {
 	return o
+}
+
+func (o EvaluationFormOutput) AutoEvaluationConfiguration() EvaluationFormAutoEvaluationConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluationForm) EvaluationFormAutoEvaluationConfigurationPtrOutput {
+		return v.AutoEvaluationConfiguration
+	}).(EvaluationFormAutoEvaluationConfigurationPtrOutput)
 }
 
 // The description of the evaluation form.

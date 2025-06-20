@@ -31,7 +31,7 @@ class AnalyzerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Analyzer resource.
-        :param pulumi.Input[builtins.str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
+        :param pulumi.Input[builtins.str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS
         :param pulumi.Input['AnalyzerConfigurationPropertiesArgs'] analyzer_configuration: The configuration for the analyzer
         :param pulumi.Input[builtins.str] analyzer_name: Analyzer name
         :param pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]] archive_rules: Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
@@ -51,7 +51,7 @@ class AnalyzerArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[builtins.str]:
         """
-        The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
+        The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS
         """
         return pulumi.get(self, "type")
 
@@ -165,7 +165,7 @@ class Analyzer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] analyzer_name: Analyzer name
         :param pulumi.Input[Sequence[pulumi.Input[Union['AnalyzerArchiveRuleArgs', 'AnalyzerArchiveRuleArgsDict']]]] archive_rules: Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[builtins.str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
+        :param pulumi.Input[builtins.str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS
         """
         ...
     @overload
@@ -325,7 +325,7 @@ class Analyzer(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
+        The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS
         """
         return pulumi.get(self, "type")
 

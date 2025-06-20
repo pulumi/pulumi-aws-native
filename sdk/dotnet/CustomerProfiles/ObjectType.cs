@@ -70,6 +70,18 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum available number of profile objects
+        /// </summary>
+        [Output("maxAvailableProfileObjectCount")]
+        public Output<int> MaxAvailableProfileObjectCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum number of profile objects for this object type
+        /// </summary>
+        [Output("maxProfileObjectCount")]
+        public Output<int?> MaxProfileObjectCount { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the profile object type.
         /// </summary>
         [Output("objectTypeName")]
@@ -196,6 +208,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
             get => _keys ?? (_keys = new InputList<Inputs.ObjectTypeKeyMapArgs>());
             set => _keys = value;
         }
+
+        /// <summary>
+        /// The maximum number of profile objects for this object type
+        /// </summary>
+        [Input("maxProfileObjectCount")]
+        public Input<int>? MaxProfileObjectCount { get; set; }
 
         /// <summary>
         /// The name of the profile object type.

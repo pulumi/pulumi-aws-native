@@ -27,13 +27,16 @@ __all__ = [
     'LiveSourceHttpPackageConfiguration',
     'PlaybackConfigurationAdConditioningConfiguration',
     'PlaybackConfigurationAdMarkerPassthrough',
+    'PlaybackConfigurationAdsInteractionLog',
     'PlaybackConfigurationAvailSuppression',
     'PlaybackConfigurationBumper',
     'PlaybackConfigurationCdnConfiguration',
     'PlaybackConfigurationDashConfiguration',
     'PlaybackConfigurationHlsConfiguration',
     'PlaybackConfigurationLivePreRollConfiguration',
+    'PlaybackConfigurationLogConfiguration',
     'PlaybackConfigurationManifestProcessingRules',
+    'PlaybackConfigurationManifestServiceInteractionLog',
     'SourceLocationAccessConfiguration',
     'SourceLocationDefaultSegmentDeliveryConfiguration',
     'SourceLocationHttpConfiguration',
@@ -515,6 +518,56 @@ class PlaybackConfigurationAdMarkerPassthrough(dict):
 
 
 @pulumi.output_type
+class PlaybackConfigurationAdsInteractionLog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludeEventTypes":
+            suggest = "exclude_event_types"
+        elif key == "publishOptInEventTypes":
+            suggest = "publish_opt_in_event_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlaybackConfigurationAdsInteractionLog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlaybackConfigurationAdsInteractionLog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlaybackConfigurationAdsInteractionLog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exclude_event_types: Optional[Sequence[builtins.str]] = None,
+                 publish_opt_in_event_types: Optional[Sequence[builtins.str]] = None):
+        """
+        :param Sequence[builtins.str] exclude_event_types: Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+        :param Sequence[builtins.str] publish_opt_in_event_types: Indicates that MediaTailor emits RAW_ADS_RESPONSE logs for playback sessions that are initialized with this configuration.
+        """
+        if exclude_event_types is not None:
+            pulumi.set(__self__, "exclude_event_types", exclude_event_types)
+        if publish_opt_in_event_types is not None:
+            pulumi.set(__self__, "publish_opt_in_event_types", publish_opt_in_event_types)
+
+    @property
+    @pulumi.getter(name="excludeEventTypes")
+    def exclude_event_types(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+        """
+        return pulumi.get(self, "exclude_event_types")
+
+    @property
+    @pulumi.getter(name="publishOptInEventTypes")
+    def publish_opt_in_event_types(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Indicates that MediaTailor emits RAW_ADS_RESPONSE logs for playback sessions that are initialized with this configuration.
+        """
+        return pulumi.get(self, "publish_opt_in_event_types")
+
+
+@pulumi.output_type
 class PlaybackConfigurationAvailSuppression(dict):
     """
     The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
@@ -845,6 +898,83 @@ class PlaybackConfigurationLivePreRollConfiguration(dict):
 
 
 @pulumi.output_type
+class PlaybackConfigurationLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "percentEnabled":
+            suggest = "percent_enabled"
+        elif key == "adsInteractionLog":
+            suggest = "ads_interaction_log"
+        elif key == "enabledLoggingStrategies":
+            suggest = "enabled_logging_strategies"
+        elif key == "manifestServiceInteractionLog":
+            suggest = "manifest_service_interaction_log"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlaybackConfigurationLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlaybackConfigurationLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlaybackConfigurationLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 percent_enabled: builtins.int,
+                 ads_interaction_log: Optional['outputs.PlaybackConfigurationAdsInteractionLog'] = None,
+                 enabled_logging_strategies: Optional[Sequence[builtins.str]] = None,
+                 manifest_service_interaction_log: Optional['outputs.PlaybackConfigurationManifestServiceInteractionLog'] = None):
+        """
+        :param builtins.int percent_enabled: The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the debug log mode.
+        :param 'PlaybackConfigurationAdsInteractionLog' ads_interaction_log: The event types that MediaTailor emits in logs for interactions with the ADS.
+        :param Sequence[builtins.str] enabled_logging_strategies: The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose LEGACY_CLOUDWATCH. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose VENDED_LOGS. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. To use vended logs, you must configure the delivery destination in Amazon CloudWatch
+        :param 'PlaybackConfigurationManifestServiceInteractionLog' manifest_service_interaction_log: The event types that MediaTailor emits in logs for interactions with the origin server.
+        """
+        pulumi.set(__self__, "percent_enabled", percent_enabled)
+        if ads_interaction_log is not None:
+            pulumi.set(__self__, "ads_interaction_log", ads_interaction_log)
+        if enabled_logging_strategies is not None:
+            pulumi.set(__self__, "enabled_logging_strategies", enabled_logging_strategies)
+        if manifest_service_interaction_log is not None:
+            pulumi.set(__self__, "manifest_service_interaction_log", manifest_service_interaction_log)
+
+    @property
+    @pulumi.getter(name="percentEnabled")
+    def percent_enabled(self) -> builtins.int:
+        """
+        The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the debug log mode.
+        """
+        return pulumi.get(self, "percent_enabled")
+
+    @property
+    @pulumi.getter(name="adsInteractionLog")
+    def ads_interaction_log(self) -> Optional['outputs.PlaybackConfigurationAdsInteractionLog']:
+        """
+        The event types that MediaTailor emits in logs for interactions with the ADS.
+        """
+        return pulumi.get(self, "ads_interaction_log")
+
+    @property
+    @pulumi.getter(name="enabledLoggingStrategies")
+    def enabled_logging_strategies(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose LEGACY_CLOUDWATCH. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose VENDED_LOGS. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. To use vended logs, you must configure the delivery destination in Amazon CloudWatch
+        """
+        return pulumi.get(self, "enabled_logging_strategies")
+
+    @property
+    @pulumi.getter(name="manifestServiceInteractionLog")
+    def manifest_service_interaction_log(self) -> Optional['outputs.PlaybackConfigurationManifestServiceInteractionLog']:
+        """
+        The event types that MediaTailor emits in logs for interactions with the origin server.
+        """
+        return pulumi.get(self, "manifest_service_interaction_log")
+
+
+@pulumi.output_type
 class PlaybackConfigurationManifestProcessingRules(dict):
     """
     The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
@@ -882,6 +1012,42 @@ class PlaybackConfigurationManifestProcessingRules(dict):
         For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
         """
         return pulumi.get(self, "ad_marker_passthrough")
+
+
+@pulumi.output_type
+class PlaybackConfigurationManifestServiceInteractionLog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludeEventTypes":
+            suggest = "exclude_event_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlaybackConfigurationManifestServiceInteractionLog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlaybackConfigurationManifestServiceInteractionLog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlaybackConfigurationManifestServiceInteractionLog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exclude_event_types: Optional[Sequence[builtins.str]] = None):
+        """
+        :param Sequence[builtins.str] exclude_event_types: Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+        """
+        if exclude_event_types is not None:
+            pulumi.set(__self__, "exclude_event_types", exclude_event_types)
+
+    @property
+    @pulumi.getter(name="excludeEventTypes")
+    def exclude_event_types(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+        """
+        return pulumi.get(self, "exclude_event_types")
 
 
 @pulumi.output_type

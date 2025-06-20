@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     {
         [Input("asnList")]
         private InputList<int>? _asnList;
+
+        /// <summary>
+        /// Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
+        /// </summary>
         public InputList<int> AsnList
         {
             get => _asnList ?? (_asnList = new InputList<int>());
             set => _asnList = value;
         }
 
+        /// <summary>
+        /// The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+        /// </summary>
         [Input("forwardedIpConfig")]
         public Input<Inputs.WebAclForwardedIpConfigurationArgs>? ForwardedIpConfig { get; set; }
 

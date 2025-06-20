@@ -26,7 +26,8 @@ class FilterArgs:
                  filter_action: pulumi.Input['FilterAction'],
                  filter_criteria: pulumi.Input['FilterCriteriaArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Filter resource.
         :param pulumi.Input['FilterAction'] filter_action: Findings filter action.
@@ -40,6 +41,8 @@ class FilterArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="filterAction")
@@ -89,6 +92,15 @@ class FilterArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:inspectorv2:Filter")
 class Filter(pulumi.CustomResource):
@@ -100,6 +112,7 @@ class Filter(pulumi.CustomResource):
                  filter_action: Optional[pulumi.Input['FilterAction']] = None,
                  filter_criteria: Optional[pulumi.Input[Union['FilterCriteriaArgs', 'FilterCriteriaArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Inspector Filter resource schema
@@ -139,6 +152,7 @@ class Filter(pulumi.CustomResource):
                  filter_action: Optional[pulumi.Input['FilterAction']] = None,
                  filter_criteria: Optional[pulumi.Input[Union['FilterCriteriaArgs', 'FilterCriteriaArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -156,6 +170,7 @@ class Filter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'filter_criteria'")
             __props__.__dict__["filter_criteria"] = filter_criteria
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Filter, __self__).__init__(
             'aws-native:inspectorv2:Filter',
@@ -184,6 +199,7 @@ class Filter(pulumi.CustomResource):
         __props__.__dict__["filter_action"] = None
         __props__.__dict__["filter_criteria"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["tags"] = None
         return Filter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -225,4 +241,9 @@ class Filter(pulumi.CustomResource):
         Findings filter name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        return pulumi.get(self, "tags")
 

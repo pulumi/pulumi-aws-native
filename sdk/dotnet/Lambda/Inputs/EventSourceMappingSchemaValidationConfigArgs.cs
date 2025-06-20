@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 
     public sealed class EventSourceMappingSchemaValidationConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The attribute you want your schema registry to validate and filter for.
-        /// </summary>
         [Input("attribute")]
         public Input<Pulumi.AwsNative.Lambda.EventSourceMappingSchemaValidationConfigAttribute>? Attribute { get; set; }
 

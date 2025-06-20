@@ -80,6 +80,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         [Input("phoneNumber")]
         public Input<Inputs.SegmentDefinitionProfileDimensionArgs>? PhoneNumber { get; set; }
 
+        [Input("profileType")]
+        public Input<Inputs.SegmentDefinitionProfileTypeDimensionArgs>? ProfileType { get; set; }
+
         [Input("shippingAddress")]
         public Input<Inputs.SegmentDefinitionAddressDimensionArgs>? ShippingAddress { get; set; }
 

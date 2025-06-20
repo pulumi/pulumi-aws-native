@@ -937,7 +937,10 @@ func (o CisScanConfigurationWeeklySchedulePtrOutput) StartTime() CisScanConfigur
 
 type FilterCriteria struct {
 	// Details of the AWS account IDs used to filter findings.
-	AwsAccountId []FilterStringFilter `pulumi:"awsAccountId"`
+	AwsAccountId                  []FilterStringFilter `pulumi:"awsAccountId"`
+	CodeVulnerabilityDetectorName []FilterStringFilter `pulumi:"codeVulnerabilityDetectorName"`
+	CodeVulnerabilityDetectorTags []FilterStringFilter `pulumi:"codeVulnerabilityDetectorTags"`
+	CodeVulnerabilityFilePath     []FilterStringFilter `pulumi:"codeVulnerabilityFilePath"`
 	// Details of the component IDs used to filter findings.
 	ComponentId []FilterStringFilter `pulumi:"componentId"`
 	// Details of the component types used to filter findings.
@@ -959,7 +962,9 @@ type FilterCriteria struct {
 	// Details on the name of the Amazon ECR repository used to filter findings.
 	EcrImageRepositoryName []FilterStringFilter `pulumi:"ecrImageRepositoryName"`
 	// The tags attached to the Amazon ECR container image.
-	EcrImageTags []FilterStringFilter `pulumi:"ecrImageTags"`
+	EcrImageTags     []FilterStringFilter `pulumi:"ecrImageTags"`
+	EpssScore        []FilterNumberFilter `pulumi:"epssScore"`
+	ExploitAvailable []FilterStringFilter `pulumi:"exploitAvailable"`
 	// Details on the finding ARNs used to filter findings.
 	FindingArn []FilterStringFilter `pulumi:"findingArn"`
 	// Details on the finding status types used to filter findings.
@@ -967,9 +972,15 @@ type FilterCriteria struct {
 	// Details on the finding types used to filter findings.
 	FindingType []FilterStringFilter `pulumi:"findingType"`
 	// Details on the date and time a finding was first seen used to filter findings.
-	FirstObservedAt []FilterDateFilter `pulumi:"firstObservedAt"`
+	FirstObservedAt []FilterDateFilter   `pulumi:"firstObservedAt"`
+	FixAvailable    []FilterStringFilter `pulumi:"fixAvailable"`
 	// The Amazon Inspector score to filter on.
-	InspectorScore []FilterNumberFilter `pulumi:"inspectorScore"`
+	InspectorScore                 []FilterNumberFilter `pulumi:"inspectorScore"`
+	LambdaFunctionExecutionRoleArn []FilterStringFilter `pulumi:"lambdaFunctionExecutionRoleArn"`
+	LambdaFunctionLastModifiedAt   []FilterDateFilter   `pulumi:"lambdaFunctionLastModifiedAt"`
+	LambdaFunctionLayers           []FilterStringFilter `pulumi:"lambdaFunctionLayers"`
+	LambdaFunctionName             []FilterStringFilter `pulumi:"lambdaFunctionName"`
+	LambdaFunctionRuntime          []FilterStringFilter `pulumi:"lambdaFunctionRuntime"`
 	// Details on the date and time a finding was last seen used to filter findings.
 	LastObservedAt []FilterDateFilter `pulumi:"lastObservedAt"`
 	// Details on network protocol used to filter findings.
@@ -1013,7 +1024,10 @@ type FilterCriteriaInput interface {
 
 type FilterCriteriaArgs struct {
 	// Details of the AWS account IDs used to filter findings.
-	AwsAccountId FilterStringFilterArrayInput `pulumi:"awsAccountId"`
+	AwsAccountId                  FilterStringFilterArrayInput `pulumi:"awsAccountId"`
+	CodeVulnerabilityDetectorName FilterStringFilterArrayInput `pulumi:"codeVulnerabilityDetectorName"`
+	CodeVulnerabilityDetectorTags FilterStringFilterArrayInput `pulumi:"codeVulnerabilityDetectorTags"`
+	CodeVulnerabilityFilePath     FilterStringFilterArrayInput `pulumi:"codeVulnerabilityFilePath"`
 	// Details of the component IDs used to filter findings.
 	ComponentId FilterStringFilterArrayInput `pulumi:"componentId"`
 	// Details of the component types used to filter findings.
@@ -1035,7 +1049,9 @@ type FilterCriteriaArgs struct {
 	// Details on the name of the Amazon ECR repository used to filter findings.
 	EcrImageRepositoryName FilterStringFilterArrayInput `pulumi:"ecrImageRepositoryName"`
 	// The tags attached to the Amazon ECR container image.
-	EcrImageTags FilterStringFilterArrayInput `pulumi:"ecrImageTags"`
+	EcrImageTags     FilterStringFilterArrayInput `pulumi:"ecrImageTags"`
+	EpssScore        FilterNumberFilterArrayInput `pulumi:"epssScore"`
+	ExploitAvailable FilterStringFilterArrayInput `pulumi:"exploitAvailable"`
 	// Details on the finding ARNs used to filter findings.
 	FindingArn FilterStringFilterArrayInput `pulumi:"findingArn"`
 	// Details on the finding status types used to filter findings.
@@ -1043,9 +1059,15 @@ type FilterCriteriaArgs struct {
 	// Details on the finding types used to filter findings.
 	FindingType FilterStringFilterArrayInput `pulumi:"findingType"`
 	// Details on the date and time a finding was first seen used to filter findings.
-	FirstObservedAt FilterDateFilterArrayInput `pulumi:"firstObservedAt"`
+	FirstObservedAt FilterDateFilterArrayInput   `pulumi:"firstObservedAt"`
+	FixAvailable    FilterStringFilterArrayInput `pulumi:"fixAvailable"`
 	// The Amazon Inspector score to filter on.
-	InspectorScore FilterNumberFilterArrayInput `pulumi:"inspectorScore"`
+	InspectorScore                 FilterNumberFilterArrayInput `pulumi:"inspectorScore"`
+	LambdaFunctionExecutionRoleArn FilterStringFilterArrayInput `pulumi:"lambdaFunctionExecutionRoleArn"`
+	LambdaFunctionLastModifiedAt   FilterDateFilterArrayInput   `pulumi:"lambdaFunctionLastModifiedAt"`
+	LambdaFunctionLayers           FilterStringFilterArrayInput `pulumi:"lambdaFunctionLayers"`
+	LambdaFunctionName             FilterStringFilterArrayInput `pulumi:"lambdaFunctionName"`
+	LambdaFunctionRuntime          FilterStringFilterArrayInput `pulumi:"lambdaFunctionRuntime"`
 	// Details on the date and time a finding was last seen used to filter findings.
 	LastObservedAt FilterDateFilterArrayInput `pulumi:"lastObservedAt"`
 	// Details on network protocol used to filter findings.
@@ -1107,6 +1129,18 @@ func (o FilterCriteriaOutput) AwsAccountId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.AwsAccountId }).(FilterStringFilterArrayOutput)
 }
 
+func (o FilterCriteriaOutput) CodeVulnerabilityDetectorName() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.CodeVulnerabilityDetectorName }).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaOutput) CodeVulnerabilityDetectorTags() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.CodeVulnerabilityDetectorTags }).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaOutput) CodeVulnerabilityFilePath() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.CodeVulnerabilityFilePath }).(FilterStringFilterArrayOutput)
+}
+
 // Details of the component IDs used to filter findings.
 func (o FilterCriteriaOutput) ComponentId() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.ComponentId }).(FilterStringFilterArrayOutput)
@@ -1162,6 +1196,14 @@ func (o FilterCriteriaOutput) EcrImageTags() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.EcrImageTags }).(FilterStringFilterArrayOutput)
 }
 
+func (o FilterCriteriaOutput) EpssScore() FilterNumberFilterArrayOutput {
+	return o.ApplyT(func(v FilterCriteria) []FilterNumberFilter { return v.EpssScore }).(FilterNumberFilterArrayOutput)
+}
+
+func (o FilterCriteriaOutput) ExploitAvailable() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.ExploitAvailable }).(FilterStringFilterArrayOutput)
+}
+
 // Details on the finding ARNs used to filter findings.
 func (o FilterCriteriaOutput) FindingArn() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.FindingArn }).(FilterStringFilterArrayOutput)
@@ -1182,9 +1224,33 @@ func (o FilterCriteriaOutput) FirstObservedAt() FilterDateFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterDateFilter { return v.FirstObservedAt }).(FilterDateFilterArrayOutput)
 }
 
+func (o FilterCriteriaOutput) FixAvailable() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.FixAvailable }).(FilterStringFilterArrayOutput)
+}
+
 // The Amazon Inspector score to filter on.
 func (o FilterCriteriaOutput) InspectorScore() FilterNumberFilterArrayOutput {
 	return o.ApplyT(func(v FilterCriteria) []FilterNumberFilter { return v.InspectorScore }).(FilterNumberFilterArrayOutput)
+}
+
+func (o FilterCriteriaOutput) LambdaFunctionExecutionRoleArn() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.LambdaFunctionExecutionRoleArn }).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaOutput) LambdaFunctionLastModifiedAt() FilterDateFilterArrayOutput {
+	return o.ApplyT(func(v FilterCriteria) []FilterDateFilter { return v.LambdaFunctionLastModifiedAt }).(FilterDateFilterArrayOutput)
+}
+
+func (o FilterCriteriaOutput) LambdaFunctionLayers() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.LambdaFunctionLayers }).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaOutput) LambdaFunctionName() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.LambdaFunctionName }).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaOutput) LambdaFunctionRuntime() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v FilterCriteria) []FilterStringFilter { return v.LambdaFunctionRuntime }).(FilterStringFilterArrayOutput)
 }
 
 // Details on the date and time a finding was last seen used to filter findings.
@@ -1288,6 +1354,33 @@ func (o FilterCriteriaPtrOutput) AwsAccountId() FilterStringFilterArrayOutput {
 			return nil
 		}
 		return v.AwsAccountId
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) CodeVulnerabilityDetectorName() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.CodeVulnerabilityDetectorName
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) CodeVulnerabilityDetectorTags() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.CodeVulnerabilityDetectorTags
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) CodeVulnerabilityFilePath() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.CodeVulnerabilityFilePath
 	}).(FilterStringFilterArrayOutput)
 }
 
@@ -1401,6 +1494,24 @@ func (o FilterCriteriaPtrOutput) EcrImageTags() FilterStringFilterArrayOutput {
 	}).(FilterStringFilterArrayOutput)
 }
 
+func (o FilterCriteriaPtrOutput) EpssScore() FilterNumberFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.EpssScore
+	}).(FilterNumberFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) ExploitAvailable() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ExploitAvailable
+	}).(FilterStringFilterArrayOutput)
+}
+
 // Details on the finding ARNs used to filter findings.
 func (o FilterCriteriaPtrOutput) FindingArn() FilterStringFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
@@ -1441,6 +1552,15 @@ func (o FilterCriteriaPtrOutput) FirstObservedAt() FilterDateFilterArrayOutput {
 	}).(FilterDateFilterArrayOutput)
 }
 
+func (o FilterCriteriaPtrOutput) FixAvailable() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FixAvailable
+	}).(FilterStringFilterArrayOutput)
+}
+
 // The Amazon Inspector score to filter on.
 func (o FilterCriteriaPtrOutput) InspectorScore() FilterNumberFilterArrayOutput {
 	return o.ApplyT(func(v *FilterCriteria) []FilterNumberFilter {
@@ -1449,6 +1569,51 @@ func (o FilterCriteriaPtrOutput) InspectorScore() FilterNumberFilterArrayOutput 
 		}
 		return v.InspectorScore
 	}).(FilterNumberFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) LambdaFunctionExecutionRoleArn() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionExecutionRoleArn
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) LambdaFunctionLastModifiedAt() FilterDateFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionLastModifiedAt
+	}).(FilterDateFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) LambdaFunctionLayers() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionLayers
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) LambdaFunctionName() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionName
+	}).(FilterStringFilterArrayOutput)
+}
+
+func (o FilterCriteriaPtrOutput) LambdaFunctionRuntime() FilterStringFilterArrayOutput {
+	return o.ApplyT(func(v *FilterCriteria) []FilterStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionRuntime
+	}).(FilterStringFilterArrayOutput)
 }
 
 // Details on the date and time a finding was last seen used to filter findings.
@@ -1991,12 +2156,14 @@ func (o FilterNumberFilterArrayOutput) Index(i pulumi.IntInput) FilterNumberFilt
 }
 
 type FilterPackageFilter struct {
-	Architecture    *FilterStringFilter `pulumi:"architecture"`
-	Epoch           *FilterNumberFilter `pulumi:"epoch"`
-	Name            *FilterStringFilter `pulumi:"name"`
-	Release         *FilterStringFilter `pulumi:"release"`
-	SourceLayerHash *FilterStringFilter `pulumi:"sourceLayerHash"`
-	Version         *FilterStringFilter `pulumi:"version"`
+	Architecture         *FilterStringFilter `pulumi:"architecture"`
+	Epoch                *FilterNumberFilter `pulumi:"epoch"`
+	FilePath             *FilterStringFilter `pulumi:"filePath"`
+	Name                 *FilterStringFilter `pulumi:"name"`
+	Release              *FilterStringFilter `pulumi:"release"`
+	SourceLambdaLayerArn *FilterStringFilter `pulumi:"sourceLambdaLayerArn"`
+	SourceLayerHash      *FilterStringFilter `pulumi:"sourceLayerHash"`
+	Version              *FilterStringFilter `pulumi:"version"`
 }
 
 // FilterPackageFilterInput is an input type that accepts FilterPackageFilterArgs and FilterPackageFilterOutput values.
@@ -2011,12 +2178,14 @@ type FilterPackageFilterInput interface {
 }
 
 type FilterPackageFilterArgs struct {
-	Architecture    FilterStringFilterPtrInput `pulumi:"architecture"`
-	Epoch           FilterNumberFilterPtrInput `pulumi:"epoch"`
-	Name            FilterStringFilterPtrInput `pulumi:"name"`
-	Release         FilterStringFilterPtrInput `pulumi:"release"`
-	SourceLayerHash FilterStringFilterPtrInput `pulumi:"sourceLayerHash"`
-	Version         FilterStringFilterPtrInput `pulumi:"version"`
+	Architecture         FilterStringFilterPtrInput `pulumi:"architecture"`
+	Epoch                FilterNumberFilterPtrInput `pulumi:"epoch"`
+	FilePath             FilterStringFilterPtrInput `pulumi:"filePath"`
+	Name                 FilterStringFilterPtrInput `pulumi:"name"`
+	Release              FilterStringFilterPtrInput `pulumi:"release"`
+	SourceLambdaLayerArn FilterStringFilterPtrInput `pulumi:"sourceLambdaLayerArn"`
+	SourceLayerHash      FilterStringFilterPtrInput `pulumi:"sourceLayerHash"`
+	Version              FilterStringFilterPtrInput `pulumi:"version"`
 }
 
 func (FilterPackageFilterArgs) ElementType() reflect.Type {
@@ -2078,12 +2247,20 @@ func (o FilterPackageFilterOutput) Epoch() FilterNumberFilterPtrOutput {
 	return o.ApplyT(func(v FilterPackageFilter) *FilterNumberFilter { return v.Epoch }).(FilterNumberFilterPtrOutput)
 }
 
+func (o FilterPackageFilterOutput) FilePath() FilterStringFilterPtrOutput {
+	return o.ApplyT(func(v FilterPackageFilter) *FilterStringFilter { return v.FilePath }).(FilterStringFilterPtrOutput)
+}
+
 func (o FilterPackageFilterOutput) Name() FilterStringFilterPtrOutput {
 	return o.ApplyT(func(v FilterPackageFilter) *FilterStringFilter { return v.Name }).(FilterStringFilterPtrOutput)
 }
 
 func (o FilterPackageFilterOutput) Release() FilterStringFilterPtrOutput {
 	return o.ApplyT(func(v FilterPackageFilter) *FilterStringFilter { return v.Release }).(FilterStringFilterPtrOutput)
+}
+
+func (o FilterPackageFilterOutput) SourceLambdaLayerArn() FilterStringFilterPtrOutput {
+	return o.ApplyT(func(v FilterPackageFilter) *FilterStringFilter { return v.SourceLambdaLayerArn }).(FilterStringFilterPtrOutput)
 }
 
 func (o FilterPackageFilterOutput) SourceLayerHash() FilterStringFilterPtrOutput {

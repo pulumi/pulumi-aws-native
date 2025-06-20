@@ -1243,6 +1243,1845 @@ func (o AutomationRuleStringFilterArrayOutput) Index(i pulumi.IntInput) Automati
 	}).(AutomationRuleStringFilterOutput)
 }
 
+// Allows you to configure automated responses
+type AutomationRuleV2AutomationRulesActionV2 struct {
+	ExternalIntegrationConfiguration *AutomationRuleV2ExternalIntegrationConfiguration     `pulumi:"externalIntegrationConfiguration"`
+	FindingFieldsUpdate              *AutomationRuleV2AutomationRulesFindingFieldsUpdateV2 `pulumi:"findingFieldsUpdate"`
+	// The category of action to be executed by the automation rule
+	Type AutomationRuleV2AutomationRulesActionV2Type `pulumi:"type"`
+}
+
+// AutomationRuleV2AutomationRulesActionV2Input is an input type that accepts AutomationRuleV2AutomationRulesActionV2Args and AutomationRuleV2AutomationRulesActionV2Output values.
+// You can construct a concrete instance of `AutomationRuleV2AutomationRulesActionV2Input` via:
+//
+//	AutomationRuleV2AutomationRulesActionV2Args{...}
+type AutomationRuleV2AutomationRulesActionV2Input interface {
+	pulumi.Input
+
+	ToAutomationRuleV2AutomationRulesActionV2Output() AutomationRuleV2AutomationRulesActionV2Output
+	ToAutomationRuleV2AutomationRulesActionV2OutputWithContext(context.Context) AutomationRuleV2AutomationRulesActionV2Output
+}
+
+// Allows you to configure automated responses
+type AutomationRuleV2AutomationRulesActionV2Args struct {
+	ExternalIntegrationConfiguration AutomationRuleV2ExternalIntegrationConfigurationPtrInput     `pulumi:"externalIntegrationConfiguration"`
+	FindingFieldsUpdate              AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrInput `pulumi:"findingFieldsUpdate"`
+	// The category of action to be executed by the automation rule
+	Type AutomationRuleV2AutomationRulesActionV2TypeInput `pulumi:"type"`
+}
+
+func (AutomationRuleV2AutomationRulesActionV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2AutomationRulesActionV2)(nil)).Elem()
+}
+
+func (i AutomationRuleV2AutomationRulesActionV2Args) ToAutomationRuleV2AutomationRulesActionV2Output() AutomationRuleV2AutomationRulesActionV2Output {
+	return i.ToAutomationRuleV2AutomationRulesActionV2OutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2AutomationRulesActionV2Args) ToAutomationRuleV2AutomationRulesActionV2OutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesActionV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2AutomationRulesActionV2Output)
+}
+
+// AutomationRuleV2AutomationRulesActionV2ArrayInput is an input type that accepts AutomationRuleV2AutomationRulesActionV2Array and AutomationRuleV2AutomationRulesActionV2ArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleV2AutomationRulesActionV2ArrayInput` via:
+//
+//	AutomationRuleV2AutomationRulesActionV2Array{ AutomationRuleV2AutomationRulesActionV2Args{...} }
+type AutomationRuleV2AutomationRulesActionV2ArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2AutomationRulesActionV2ArrayOutput() AutomationRuleV2AutomationRulesActionV2ArrayOutput
+	ToAutomationRuleV2AutomationRulesActionV2ArrayOutputWithContext(context.Context) AutomationRuleV2AutomationRulesActionV2ArrayOutput
+}
+
+type AutomationRuleV2AutomationRulesActionV2Array []AutomationRuleV2AutomationRulesActionV2Input
+
+func (AutomationRuleV2AutomationRulesActionV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2AutomationRulesActionV2)(nil)).Elem()
+}
+
+func (i AutomationRuleV2AutomationRulesActionV2Array) ToAutomationRuleV2AutomationRulesActionV2ArrayOutput() AutomationRuleV2AutomationRulesActionV2ArrayOutput {
+	return i.ToAutomationRuleV2AutomationRulesActionV2ArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2AutomationRulesActionV2Array) ToAutomationRuleV2AutomationRulesActionV2ArrayOutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesActionV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2AutomationRulesActionV2ArrayOutput)
+}
+
+// Allows you to configure automated responses
+type AutomationRuleV2AutomationRulesActionV2Output struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2AutomationRulesActionV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2AutomationRulesActionV2)(nil)).Elem()
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2Output) ToAutomationRuleV2AutomationRulesActionV2Output() AutomationRuleV2AutomationRulesActionV2Output {
+	return o
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2Output) ToAutomationRuleV2AutomationRulesActionV2OutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesActionV2Output {
+	return o
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2Output) ExternalIntegrationConfiguration() AutomationRuleV2ExternalIntegrationConfigurationPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2AutomationRulesActionV2) *AutomationRuleV2ExternalIntegrationConfiguration {
+		return v.ExternalIntegrationConfiguration
+	}).(AutomationRuleV2ExternalIntegrationConfigurationPtrOutput)
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2Output) FindingFieldsUpdate() AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2AutomationRulesActionV2) *AutomationRuleV2AutomationRulesFindingFieldsUpdateV2 {
+		return v.FindingFieldsUpdate
+	}).(AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput)
+}
+
+// The category of action to be executed by the automation rule
+func (o AutomationRuleV2AutomationRulesActionV2Output) Type() AutomationRuleV2AutomationRulesActionV2TypeOutput {
+	return o.ApplyT(func(v AutomationRuleV2AutomationRulesActionV2) AutomationRuleV2AutomationRulesActionV2Type {
+		return v.Type
+	}).(AutomationRuleV2AutomationRulesActionV2TypeOutput)
+}
+
+type AutomationRuleV2AutomationRulesActionV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2AutomationRulesActionV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2AutomationRulesActionV2)(nil)).Elem()
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2ArrayOutput) ToAutomationRuleV2AutomationRulesActionV2ArrayOutput() AutomationRuleV2AutomationRulesActionV2ArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2ArrayOutput) ToAutomationRuleV2AutomationRulesActionV2ArrayOutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesActionV2ArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2ArrayOutput) Index(i pulumi.IntInput) AutomationRuleV2AutomationRulesActionV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleV2AutomationRulesActionV2 {
+		return vs[0].([]AutomationRuleV2AutomationRulesActionV2)[vs[1].(int)]
+	}).(AutomationRuleV2AutomationRulesActionV2Output)
+}
+
+// The changes to be applied to fields in a security finding when an automation rule is triggered
+type AutomationRuleV2AutomationRulesFindingFieldsUpdateV2 struct {
+	// Notes or contextual information for findings that are modified by the automation rule
+	Comment *string `pulumi:"comment"`
+	// The severity level to be assigned to findings that match the automation rule criteria
+	SeverityId *int `pulumi:"severityId"`
+	// The status to be applied to findings that match automation rule criteria
+	StatusId *int `pulumi:"statusId"`
+}
+
+// AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Input is an input type that accepts AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args and AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output values.
+// You can construct a concrete instance of `AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Input` via:
+//
+//	AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args{...}
+type AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Input interface {
+	pulumi.Input
+
+	ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output() AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output
+	ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2OutputWithContext(context.Context) AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output
+}
+
+// The changes to be applied to fields in a security finding when an automation rule is triggered
+type AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args struct {
+	// Notes or contextual information for findings that are modified by the automation rule
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// The severity level to be assigned to findings that match the automation rule criteria
+	SeverityId pulumi.IntPtrInput `pulumi:"severityId"`
+	// The status to be applied to findings that match automation rule criteria
+	StatusId pulumi.IntPtrInput `pulumi:"statusId"`
+}
+
+func (AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2AutomationRulesFindingFieldsUpdateV2)(nil)).Elem()
+}
+
+func (i AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args) ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output() AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output {
+	return i.ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2OutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args) ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2OutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output)
+}
+
+func (i AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args) ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput() AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput {
+	return i.ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args) ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output).ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutputWithContext(ctx)
+}
+
+// AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrInput is an input type that accepts AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args, AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Ptr and AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput values.
+// You can construct a concrete instance of `AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrInput` via:
+//
+//	        AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput() AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput
+	ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutputWithContext(context.Context) AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput
+}
+
+type automationRuleV2AutomationRulesFindingFieldsUpdateV2PtrType AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args
+
+func AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Ptr(v *AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args) AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrInput {
+	return (*automationRuleV2AutomationRulesFindingFieldsUpdateV2PtrType)(v)
+}
+
+func (*automationRuleV2AutomationRulesFindingFieldsUpdateV2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2AutomationRulesFindingFieldsUpdateV2)(nil)).Elem()
+}
+
+func (i *automationRuleV2AutomationRulesFindingFieldsUpdateV2PtrType) ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput() AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput {
+	return i.ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleV2AutomationRulesFindingFieldsUpdateV2PtrType) ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput)
+}
+
+// The changes to be applied to fields in a security finding when an automation rule is triggered
+type AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2AutomationRulesFindingFieldsUpdateV2)(nil)).Elem()
+}
+
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output) ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output() AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output {
+	return o
+}
+
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output) ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2OutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output {
+	return o
+}
+
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output) ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput() AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput {
+	return o.ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output) ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2AutomationRulesFindingFieldsUpdateV2) *AutomationRuleV2AutomationRulesFindingFieldsUpdateV2 {
+		return &v
+	}).(AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput)
+}
+
+// Notes or contextual information for findings that are modified by the automation rule
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2AutomationRulesFindingFieldsUpdateV2) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The severity level to be assigned to findings that match the automation rule criteria
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output) SeverityId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2AutomationRulesFindingFieldsUpdateV2) *int { return v.SeverityId }).(pulumi.IntPtrOutput)
+}
+
+// The status to be applied to findings that match automation rule criteria
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output) StatusId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2AutomationRulesFindingFieldsUpdateV2) *int { return v.StatusId }).(pulumi.IntPtrOutput)
+}
+
+type AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2AutomationRulesFindingFieldsUpdateV2)(nil)).Elem()
+}
+
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput) ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput() AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput) ToAutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput) Elem() AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output {
+	return o.ApplyT(func(v *AutomationRuleV2AutomationRulesFindingFieldsUpdateV2) AutomationRuleV2AutomationRulesFindingFieldsUpdateV2 {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2AutomationRulesFindingFieldsUpdateV2
+		return ret
+	}).(AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output)
+}
+
+// Notes or contextual information for findings that are modified by the automation rule
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2AutomationRulesFindingFieldsUpdateV2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+// The severity level to be assigned to findings that match the automation rule criteria
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput) SeverityId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2AutomationRulesFindingFieldsUpdateV2) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SeverityId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The status to be applied to findings that match automation rule criteria
+func (o AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput) StatusId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2AutomationRulesFindingFieldsUpdateV2) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StatusId
+	}).(pulumi.IntPtrOutput)
+}
+
+// Boolean filter for querying findings
+type AutomationRuleV2BooleanFilter struct {
+	// The value of the boolean
+	Value bool `pulumi:"value"`
+}
+
+// AutomationRuleV2BooleanFilterInput is an input type that accepts AutomationRuleV2BooleanFilterArgs and AutomationRuleV2BooleanFilterOutput values.
+// You can construct a concrete instance of `AutomationRuleV2BooleanFilterInput` via:
+//
+//	AutomationRuleV2BooleanFilterArgs{...}
+type AutomationRuleV2BooleanFilterInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2BooleanFilterOutput() AutomationRuleV2BooleanFilterOutput
+	ToAutomationRuleV2BooleanFilterOutputWithContext(context.Context) AutomationRuleV2BooleanFilterOutput
+}
+
+// Boolean filter for querying findings
+type AutomationRuleV2BooleanFilterArgs struct {
+	// The value of the boolean
+	Value pulumi.BoolInput `pulumi:"value"`
+}
+
+func (AutomationRuleV2BooleanFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2BooleanFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2BooleanFilterArgs) ToAutomationRuleV2BooleanFilterOutput() AutomationRuleV2BooleanFilterOutput {
+	return i.ToAutomationRuleV2BooleanFilterOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2BooleanFilterArgs) ToAutomationRuleV2BooleanFilterOutputWithContext(ctx context.Context) AutomationRuleV2BooleanFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2BooleanFilterOutput)
+}
+
+// Boolean filter for querying findings
+type AutomationRuleV2BooleanFilterOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2BooleanFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2BooleanFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2BooleanFilterOutput) ToAutomationRuleV2BooleanFilterOutput() AutomationRuleV2BooleanFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2BooleanFilterOutput) ToAutomationRuleV2BooleanFilterOutputWithContext(ctx context.Context) AutomationRuleV2BooleanFilterOutput {
+	return o
+}
+
+// The value of the boolean
+func (o AutomationRuleV2BooleanFilterOutput) Value() pulumi.BoolOutput {
+	return o.ApplyT(func(v AutomationRuleV2BooleanFilter) bool { return v.Value }).(pulumi.BoolOutput)
+}
+
+// Enables the creation of filtering criteria for security findings
+type AutomationRuleV2CompositeFilter struct {
+	// Enables filtering based on boolean field values
+	BooleanFilters []AutomationRuleV2OcsfBooleanFilter `pulumi:"booleanFilters"`
+	// Enables filtering based on date and timestamp fields
+	DateFilters []AutomationRuleV2OcsfDateFilter `pulumi:"dateFilters"`
+	// Enables filtering based on map field value
+	MapFilters []AutomationRuleV2OcsfMapFilter `pulumi:"mapFilters"`
+	// Enables filtering based on numerical field values
+	NumberFilters []AutomationRuleV2OcsfNumberFilter `pulumi:"numberFilters"`
+	Operator      *AutomationRuleV2AllowedOperators  `pulumi:"operator"`
+	// Enables filtering based on string field values
+	StringFilters []AutomationRuleV2OcsfStringFilter `pulumi:"stringFilters"`
+}
+
+// AutomationRuleV2CompositeFilterInput is an input type that accepts AutomationRuleV2CompositeFilterArgs and AutomationRuleV2CompositeFilterOutput values.
+// You can construct a concrete instance of `AutomationRuleV2CompositeFilterInput` via:
+//
+//	AutomationRuleV2CompositeFilterArgs{...}
+type AutomationRuleV2CompositeFilterInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2CompositeFilterOutput() AutomationRuleV2CompositeFilterOutput
+	ToAutomationRuleV2CompositeFilterOutputWithContext(context.Context) AutomationRuleV2CompositeFilterOutput
+}
+
+// Enables the creation of filtering criteria for security findings
+type AutomationRuleV2CompositeFilterArgs struct {
+	// Enables filtering based on boolean field values
+	BooleanFilters AutomationRuleV2OcsfBooleanFilterArrayInput `pulumi:"booleanFilters"`
+	// Enables filtering based on date and timestamp fields
+	DateFilters AutomationRuleV2OcsfDateFilterArrayInput `pulumi:"dateFilters"`
+	// Enables filtering based on map field value
+	MapFilters AutomationRuleV2OcsfMapFilterArrayInput `pulumi:"mapFilters"`
+	// Enables filtering based on numerical field values
+	NumberFilters AutomationRuleV2OcsfNumberFilterArrayInput `pulumi:"numberFilters"`
+	Operator      AutomationRuleV2AllowedOperatorsPtrInput   `pulumi:"operator"`
+	// Enables filtering based on string field values
+	StringFilters AutomationRuleV2OcsfStringFilterArrayInput `pulumi:"stringFilters"`
+}
+
+func (AutomationRuleV2CompositeFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2CompositeFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2CompositeFilterArgs) ToAutomationRuleV2CompositeFilterOutput() AutomationRuleV2CompositeFilterOutput {
+	return i.ToAutomationRuleV2CompositeFilterOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2CompositeFilterArgs) ToAutomationRuleV2CompositeFilterOutputWithContext(ctx context.Context) AutomationRuleV2CompositeFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2CompositeFilterOutput)
+}
+
+// AutomationRuleV2CompositeFilterArrayInput is an input type that accepts AutomationRuleV2CompositeFilterArray and AutomationRuleV2CompositeFilterArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleV2CompositeFilterArrayInput` via:
+//
+//	AutomationRuleV2CompositeFilterArray{ AutomationRuleV2CompositeFilterArgs{...} }
+type AutomationRuleV2CompositeFilterArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2CompositeFilterArrayOutput() AutomationRuleV2CompositeFilterArrayOutput
+	ToAutomationRuleV2CompositeFilterArrayOutputWithContext(context.Context) AutomationRuleV2CompositeFilterArrayOutput
+}
+
+type AutomationRuleV2CompositeFilterArray []AutomationRuleV2CompositeFilterInput
+
+func (AutomationRuleV2CompositeFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2CompositeFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2CompositeFilterArray) ToAutomationRuleV2CompositeFilterArrayOutput() AutomationRuleV2CompositeFilterArrayOutput {
+	return i.ToAutomationRuleV2CompositeFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2CompositeFilterArray) ToAutomationRuleV2CompositeFilterArrayOutputWithContext(ctx context.Context) AutomationRuleV2CompositeFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2CompositeFilterArrayOutput)
+}
+
+// Enables the creation of filtering criteria for security findings
+type AutomationRuleV2CompositeFilterOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2CompositeFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2CompositeFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2CompositeFilterOutput) ToAutomationRuleV2CompositeFilterOutput() AutomationRuleV2CompositeFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2CompositeFilterOutput) ToAutomationRuleV2CompositeFilterOutputWithContext(ctx context.Context) AutomationRuleV2CompositeFilterOutput {
+	return o
+}
+
+// Enables filtering based on boolean field values
+func (o AutomationRuleV2CompositeFilterOutput) BooleanFilters() AutomationRuleV2OcsfBooleanFilterArrayOutput {
+	return o.ApplyT(func(v AutomationRuleV2CompositeFilter) []AutomationRuleV2OcsfBooleanFilter { return v.BooleanFilters }).(AutomationRuleV2OcsfBooleanFilterArrayOutput)
+}
+
+// Enables filtering based on date and timestamp fields
+func (o AutomationRuleV2CompositeFilterOutput) DateFilters() AutomationRuleV2OcsfDateFilterArrayOutput {
+	return o.ApplyT(func(v AutomationRuleV2CompositeFilter) []AutomationRuleV2OcsfDateFilter { return v.DateFilters }).(AutomationRuleV2OcsfDateFilterArrayOutput)
+}
+
+// Enables filtering based on map field value
+func (o AutomationRuleV2CompositeFilterOutput) MapFilters() AutomationRuleV2OcsfMapFilterArrayOutput {
+	return o.ApplyT(func(v AutomationRuleV2CompositeFilter) []AutomationRuleV2OcsfMapFilter { return v.MapFilters }).(AutomationRuleV2OcsfMapFilterArrayOutput)
+}
+
+// Enables filtering based on numerical field values
+func (o AutomationRuleV2CompositeFilterOutput) NumberFilters() AutomationRuleV2OcsfNumberFilterArrayOutput {
+	return o.ApplyT(func(v AutomationRuleV2CompositeFilter) []AutomationRuleV2OcsfNumberFilter { return v.NumberFilters }).(AutomationRuleV2OcsfNumberFilterArrayOutput)
+}
+
+func (o AutomationRuleV2CompositeFilterOutput) Operator() AutomationRuleV2AllowedOperatorsPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2CompositeFilter) *AutomationRuleV2AllowedOperators { return v.Operator }).(AutomationRuleV2AllowedOperatorsPtrOutput)
+}
+
+// Enables filtering based on string field values
+func (o AutomationRuleV2CompositeFilterOutput) StringFilters() AutomationRuleV2OcsfStringFilterArrayOutput {
+	return o.ApplyT(func(v AutomationRuleV2CompositeFilter) []AutomationRuleV2OcsfStringFilter { return v.StringFilters }).(AutomationRuleV2OcsfStringFilterArrayOutput)
+}
+
+type AutomationRuleV2CompositeFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2CompositeFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2CompositeFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2CompositeFilterArrayOutput) ToAutomationRuleV2CompositeFilterArrayOutput() AutomationRuleV2CompositeFilterArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2CompositeFilterArrayOutput) ToAutomationRuleV2CompositeFilterArrayOutputWithContext(ctx context.Context) AutomationRuleV2CompositeFilterArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2CompositeFilterArrayOutput) Index(i pulumi.IntInput) AutomationRuleV2CompositeFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleV2CompositeFilter {
+		return vs[0].([]AutomationRuleV2CompositeFilter)[vs[1].(int)]
+	}).(AutomationRuleV2CompositeFilterOutput)
+}
+
+// Defines the parameters and conditions used to evaluate and filter security findings
+type AutomationRuleV2Criteria struct {
+	OcsfFindingCriteria *AutomationRuleV2OcsfFindingFilters `pulumi:"ocsfFindingCriteria"`
+}
+
+// AutomationRuleV2CriteriaInput is an input type that accepts AutomationRuleV2CriteriaArgs and AutomationRuleV2CriteriaOutput values.
+// You can construct a concrete instance of `AutomationRuleV2CriteriaInput` via:
+//
+//	AutomationRuleV2CriteriaArgs{...}
+type AutomationRuleV2CriteriaInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2CriteriaOutput() AutomationRuleV2CriteriaOutput
+	ToAutomationRuleV2CriteriaOutputWithContext(context.Context) AutomationRuleV2CriteriaOutput
+}
+
+// Defines the parameters and conditions used to evaluate and filter security findings
+type AutomationRuleV2CriteriaArgs struct {
+	OcsfFindingCriteria AutomationRuleV2OcsfFindingFiltersPtrInput `pulumi:"ocsfFindingCriteria"`
+}
+
+func (AutomationRuleV2CriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2Criteria)(nil)).Elem()
+}
+
+func (i AutomationRuleV2CriteriaArgs) ToAutomationRuleV2CriteriaOutput() AutomationRuleV2CriteriaOutput {
+	return i.ToAutomationRuleV2CriteriaOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2CriteriaArgs) ToAutomationRuleV2CriteriaOutputWithContext(ctx context.Context) AutomationRuleV2CriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2CriteriaOutput)
+}
+
+// Defines the parameters and conditions used to evaluate and filter security findings
+type AutomationRuleV2CriteriaOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2CriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2Criteria)(nil)).Elem()
+}
+
+func (o AutomationRuleV2CriteriaOutput) ToAutomationRuleV2CriteriaOutput() AutomationRuleV2CriteriaOutput {
+	return o
+}
+
+func (o AutomationRuleV2CriteriaOutput) ToAutomationRuleV2CriteriaOutputWithContext(ctx context.Context) AutomationRuleV2CriteriaOutput {
+	return o
+}
+
+func (o AutomationRuleV2CriteriaOutput) OcsfFindingCriteria() AutomationRuleV2OcsfFindingFiltersPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2Criteria) *AutomationRuleV2OcsfFindingFilters { return v.OcsfFindingCriteria }).(AutomationRuleV2OcsfFindingFiltersPtrOutput)
+}
+
+type AutomationRuleV2CriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2CriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2Criteria)(nil)).Elem()
+}
+
+func (o AutomationRuleV2CriteriaPtrOutput) ToAutomationRuleV2CriteriaPtrOutput() AutomationRuleV2CriteriaPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2CriteriaPtrOutput) ToAutomationRuleV2CriteriaPtrOutputWithContext(ctx context.Context) AutomationRuleV2CriteriaPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2CriteriaPtrOutput) Elem() AutomationRuleV2CriteriaOutput {
+	return o.ApplyT(func(v *AutomationRuleV2Criteria) AutomationRuleV2Criteria {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2Criteria
+		return ret
+	}).(AutomationRuleV2CriteriaOutput)
+}
+
+func (o AutomationRuleV2CriteriaPtrOutput) OcsfFindingCriteria() AutomationRuleV2OcsfFindingFiltersPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2Criteria) *AutomationRuleV2OcsfFindingFilters {
+		if v == nil {
+			return nil
+		}
+		return v.OcsfFindingCriteria
+	}).(AutomationRuleV2OcsfFindingFiltersPtrOutput)
+}
+
+// A date filter for querying findings
+type AutomationRuleV2DateFilter struct {
+	DateRange *AutomationRuleV2DateRange `pulumi:"dateRange"`
+	End       *string                    `pulumi:"end"`
+	Start     *string                    `pulumi:"start"`
+}
+
+// AutomationRuleV2DateFilterInput is an input type that accepts AutomationRuleV2DateFilterArgs and AutomationRuleV2DateFilterOutput values.
+// You can construct a concrete instance of `AutomationRuleV2DateFilterInput` via:
+//
+//	AutomationRuleV2DateFilterArgs{...}
+type AutomationRuleV2DateFilterInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2DateFilterOutput() AutomationRuleV2DateFilterOutput
+	ToAutomationRuleV2DateFilterOutputWithContext(context.Context) AutomationRuleV2DateFilterOutput
+}
+
+// A date filter for querying findings
+type AutomationRuleV2DateFilterArgs struct {
+	DateRange AutomationRuleV2DateRangePtrInput `pulumi:"dateRange"`
+	End       pulumi.StringPtrInput             `pulumi:"end"`
+	Start     pulumi.StringPtrInput             `pulumi:"start"`
+}
+
+func (AutomationRuleV2DateFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2DateFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2DateFilterArgs) ToAutomationRuleV2DateFilterOutput() AutomationRuleV2DateFilterOutput {
+	return i.ToAutomationRuleV2DateFilterOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2DateFilterArgs) ToAutomationRuleV2DateFilterOutputWithContext(ctx context.Context) AutomationRuleV2DateFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2DateFilterOutput)
+}
+
+// A date filter for querying findings
+type AutomationRuleV2DateFilterOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2DateFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2DateFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2DateFilterOutput) ToAutomationRuleV2DateFilterOutput() AutomationRuleV2DateFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2DateFilterOutput) ToAutomationRuleV2DateFilterOutputWithContext(ctx context.Context) AutomationRuleV2DateFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2DateFilterOutput) DateRange() AutomationRuleV2DateRangePtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2DateFilter) *AutomationRuleV2DateRange { return v.DateRange }).(AutomationRuleV2DateRangePtrOutput)
+}
+
+func (o AutomationRuleV2DateFilterOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2DateFilter) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+func (o AutomationRuleV2DateFilterOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2DateFilter) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+// A date range for the date filter
+type AutomationRuleV2DateRange struct {
+	// A date range unit for the date filter
+	Unit AutomationRuleV2DateRangeUnit `pulumi:"unit"`
+	// A date range value for the date filter
+	Value float64 `pulumi:"value"`
+}
+
+// AutomationRuleV2DateRangeInput is an input type that accepts AutomationRuleV2DateRangeArgs and AutomationRuleV2DateRangeOutput values.
+// You can construct a concrete instance of `AutomationRuleV2DateRangeInput` via:
+//
+//	AutomationRuleV2DateRangeArgs{...}
+type AutomationRuleV2DateRangeInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2DateRangeOutput() AutomationRuleV2DateRangeOutput
+	ToAutomationRuleV2DateRangeOutputWithContext(context.Context) AutomationRuleV2DateRangeOutput
+}
+
+// A date range for the date filter
+type AutomationRuleV2DateRangeArgs struct {
+	// A date range unit for the date filter
+	Unit AutomationRuleV2DateRangeUnitInput `pulumi:"unit"`
+	// A date range value for the date filter
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (AutomationRuleV2DateRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2DateRange)(nil)).Elem()
+}
+
+func (i AutomationRuleV2DateRangeArgs) ToAutomationRuleV2DateRangeOutput() AutomationRuleV2DateRangeOutput {
+	return i.ToAutomationRuleV2DateRangeOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2DateRangeArgs) ToAutomationRuleV2DateRangeOutputWithContext(ctx context.Context) AutomationRuleV2DateRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2DateRangeOutput)
+}
+
+func (i AutomationRuleV2DateRangeArgs) ToAutomationRuleV2DateRangePtrOutput() AutomationRuleV2DateRangePtrOutput {
+	return i.ToAutomationRuleV2DateRangePtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2DateRangeArgs) ToAutomationRuleV2DateRangePtrOutputWithContext(ctx context.Context) AutomationRuleV2DateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2DateRangeOutput).ToAutomationRuleV2DateRangePtrOutputWithContext(ctx)
+}
+
+// AutomationRuleV2DateRangePtrInput is an input type that accepts AutomationRuleV2DateRangeArgs, AutomationRuleV2DateRangePtr and AutomationRuleV2DateRangePtrOutput values.
+// You can construct a concrete instance of `AutomationRuleV2DateRangePtrInput` via:
+//
+//	        AutomationRuleV2DateRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleV2DateRangePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2DateRangePtrOutput() AutomationRuleV2DateRangePtrOutput
+	ToAutomationRuleV2DateRangePtrOutputWithContext(context.Context) AutomationRuleV2DateRangePtrOutput
+}
+
+type automationRuleV2DateRangePtrType AutomationRuleV2DateRangeArgs
+
+func AutomationRuleV2DateRangePtr(v *AutomationRuleV2DateRangeArgs) AutomationRuleV2DateRangePtrInput {
+	return (*automationRuleV2DateRangePtrType)(v)
+}
+
+func (*automationRuleV2DateRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2DateRange)(nil)).Elem()
+}
+
+func (i *automationRuleV2DateRangePtrType) ToAutomationRuleV2DateRangePtrOutput() AutomationRuleV2DateRangePtrOutput {
+	return i.ToAutomationRuleV2DateRangePtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleV2DateRangePtrType) ToAutomationRuleV2DateRangePtrOutputWithContext(ctx context.Context) AutomationRuleV2DateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2DateRangePtrOutput)
+}
+
+// A date range for the date filter
+type AutomationRuleV2DateRangeOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2DateRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2DateRange)(nil)).Elem()
+}
+
+func (o AutomationRuleV2DateRangeOutput) ToAutomationRuleV2DateRangeOutput() AutomationRuleV2DateRangeOutput {
+	return o
+}
+
+func (o AutomationRuleV2DateRangeOutput) ToAutomationRuleV2DateRangeOutputWithContext(ctx context.Context) AutomationRuleV2DateRangeOutput {
+	return o
+}
+
+func (o AutomationRuleV2DateRangeOutput) ToAutomationRuleV2DateRangePtrOutput() AutomationRuleV2DateRangePtrOutput {
+	return o.ToAutomationRuleV2DateRangePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2DateRangeOutput) ToAutomationRuleV2DateRangePtrOutputWithContext(ctx context.Context) AutomationRuleV2DateRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2DateRange) *AutomationRuleV2DateRange {
+		return &v
+	}).(AutomationRuleV2DateRangePtrOutput)
+}
+
+// A date range unit for the date filter
+func (o AutomationRuleV2DateRangeOutput) Unit() AutomationRuleV2DateRangeUnitOutput {
+	return o.ApplyT(func(v AutomationRuleV2DateRange) AutomationRuleV2DateRangeUnit { return v.Unit }).(AutomationRuleV2DateRangeUnitOutput)
+}
+
+// A date range value for the date filter
+func (o AutomationRuleV2DateRangeOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v AutomationRuleV2DateRange) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type AutomationRuleV2DateRangePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2DateRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2DateRange)(nil)).Elem()
+}
+
+func (o AutomationRuleV2DateRangePtrOutput) ToAutomationRuleV2DateRangePtrOutput() AutomationRuleV2DateRangePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2DateRangePtrOutput) ToAutomationRuleV2DateRangePtrOutputWithContext(ctx context.Context) AutomationRuleV2DateRangePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2DateRangePtrOutput) Elem() AutomationRuleV2DateRangeOutput {
+	return o.ApplyT(func(v *AutomationRuleV2DateRange) AutomationRuleV2DateRange {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2DateRange
+		return ret
+	}).(AutomationRuleV2DateRangeOutput)
+}
+
+// A date range unit for the date filter
+func (o AutomationRuleV2DateRangePtrOutput) Unit() AutomationRuleV2DateRangeUnitPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2DateRange) *AutomationRuleV2DateRangeUnit {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(AutomationRuleV2DateRangeUnitPtrOutput)
+}
+
+// A date range value for the date filter
+func (o AutomationRuleV2DateRangePtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2DateRange) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The settings for integrating automation rule actions with external systems or service
+type AutomationRuleV2ExternalIntegrationConfiguration struct {
+	// The ARN of the connector that establishes the integration
+	ConnectorArn *string `pulumi:"connectorArn"`
+}
+
+// AutomationRuleV2ExternalIntegrationConfigurationInput is an input type that accepts AutomationRuleV2ExternalIntegrationConfigurationArgs and AutomationRuleV2ExternalIntegrationConfigurationOutput values.
+// You can construct a concrete instance of `AutomationRuleV2ExternalIntegrationConfigurationInput` via:
+//
+//	AutomationRuleV2ExternalIntegrationConfigurationArgs{...}
+type AutomationRuleV2ExternalIntegrationConfigurationInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2ExternalIntegrationConfigurationOutput() AutomationRuleV2ExternalIntegrationConfigurationOutput
+	ToAutomationRuleV2ExternalIntegrationConfigurationOutputWithContext(context.Context) AutomationRuleV2ExternalIntegrationConfigurationOutput
+}
+
+// The settings for integrating automation rule actions with external systems or service
+type AutomationRuleV2ExternalIntegrationConfigurationArgs struct {
+	// The ARN of the connector that establishes the integration
+	ConnectorArn pulumi.StringPtrInput `pulumi:"connectorArn"`
+}
+
+func (AutomationRuleV2ExternalIntegrationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2ExternalIntegrationConfiguration)(nil)).Elem()
+}
+
+func (i AutomationRuleV2ExternalIntegrationConfigurationArgs) ToAutomationRuleV2ExternalIntegrationConfigurationOutput() AutomationRuleV2ExternalIntegrationConfigurationOutput {
+	return i.ToAutomationRuleV2ExternalIntegrationConfigurationOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2ExternalIntegrationConfigurationArgs) ToAutomationRuleV2ExternalIntegrationConfigurationOutputWithContext(ctx context.Context) AutomationRuleV2ExternalIntegrationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2ExternalIntegrationConfigurationOutput)
+}
+
+func (i AutomationRuleV2ExternalIntegrationConfigurationArgs) ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutput() AutomationRuleV2ExternalIntegrationConfigurationPtrOutput {
+	return i.ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2ExternalIntegrationConfigurationArgs) ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutputWithContext(ctx context.Context) AutomationRuleV2ExternalIntegrationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2ExternalIntegrationConfigurationOutput).ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutputWithContext(ctx)
+}
+
+// AutomationRuleV2ExternalIntegrationConfigurationPtrInput is an input type that accepts AutomationRuleV2ExternalIntegrationConfigurationArgs, AutomationRuleV2ExternalIntegrationConfigurationPtr and AutomationRuleV2ExternalIntegrationConfigurationPtrOutput values.
+// You can construct a concrete instance of `AutomationRuleV2ExternalIntegrationConfigurationPtrInput` via:
+//
+//	        AutomationRuleV2ExternalIntegrationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleV2ExternalIntegrationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutput() AutomationRuleV2ExternalIntegrationConfigurationPtrOutput
+	ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutputWithContext(context.Context) AutomationRuleV2ExternalIntegrationConfigurationPtrOutput
+}
+
+type automationRuleV2ExternalIntegrationConfigurationPtrType AutomationRuleV2ExternalIntegrationConfigurationArgs
+
+func AutomationRuleV2ExternalIntegrationConfigurationPtr(v *AutomationRuleV2ExternalIntegrationConfigurationArgs) AutomationRuleV2ExternalIntegrationConfigurationPtrInput {
+	return (*automationRuleV2ExternalIntegrationConfigurationPtrType)(v)
+}
+
+func (*automationRuleV2ExternalIntegrationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2ExternalIntegrationConfiguration)(nil)).Elem()
+}
+
+func (i *automationRuleV2ExternalIntegrationConfigurationPtrType) ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutput() AutomationRuleV2ExternalIntegrationConfigurationPtrOutput {
+	return i.ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleV2ExternalIntegrationConfigurationPtrType) ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutputWithContext(ctx context.Context) AutomationRuleV2ExternalIntegrationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2ExternalIntegrationConfigurationPtrOutput)
+}
+
+// The settings for integrating automation rule actions with external systems or service
+type AutomationRuleV2ExternalIntegrationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2ExternalIntegrationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2ExternalIntegrationConfiguration)(nil)).Elem()
+}
+
+func (o AutomationRuleV2ExternalIntegrationConfigurationOutput) ToAutomationRuleV2ExternalIntegrationConfigurationOutput() AutomationRuleV2ExternalIntegrationConfigurationOutput {
+	return o
+}
+
+func (o AutomationRuleV2ExternalIntegrationConfigurationOutput) ToAutomationRuleV2ExternalIntegrationConfigurationOutputWithContext(ctx context.Context) AutomationRuleV2ExternalIntegrationConfigurationOutput {
+	return o
+}
+
+func (o AutomationRuleV2ExternalIntegrationConfigurationOutput) ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutput() AutomationRuleV2ExternalIntegrationConfigurationPtrOutput {
+	return o.ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2ExternalIntegrationConfigurationOutput) ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutputWithContext(ctx context.Context) AutomationRuleV2ExternalIntegrationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2ExternalIntegrationConfiguration) *AutomationRuleV2ExternalIntegrationConfiguration {
+		return &v
+	}).(AutomationRuleV2ExternalIntegrationConfigurationPtrOutput)
+}
+
+// The ARN of the connector that establishes the integration
+func (o AutomationRuleV2ExternalIntegrationConfigurationOutput) ConnectorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2ExternalIntegrationConfiguration) *string { return v.ConnectorArn }).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2ExternalIntegrationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2ExternalIntegrationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2ExternalIntegrationConfiguration)(nil)).Elem()
+}
+
+func (o AutomationRuleV2ExternalIntegrationConfigurationPtrOutput) ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutput() AutomationRuleV2ExternalIntegrationConfigurationPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2ExternalIntegrationConfigurationPtrOutput) ToAutomationRuleV2ExternalIntegrationConfigurationPtrOutputWithContext(ctx context.Context) AutomationRuleV2ExternalIntegrationConfigurationPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2ExternalIntegrationConfigurationPtrOutput) Elem() AutomationRuleV2ExternalIntegrationConfigurationOutput {
+	return o.ApplyT(func(v *AutomationRuleV2ExternalIntegrationConfiguration) AutomationRuleV2ExternalIntegrationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2ExternalIntegrationConfiguration
+		return ret
+	}).(AutomationRuleV2ExternalIntegrationConfigurationOutput)
+}
+
+// The ARN of the connector that establishes the integration
+func (o AutomationRuleV2ExternalIntegrationConfigurationPtrOutput) ConnectorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2ExternalIntegrationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectorArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map filter for filtering findings
+type AutomationRuleV2MapFilter struct {
+	// The condition to apply to the key value when filtering findings with a map filter
+	Comparison AutomationRuleV2MapFilterComparison `pulumi:"comparison"`
+	// The key of the map filter
+	Key string `pulumi:"key"`
+	// The value for the key in the map filter
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleV2MapFilterInput is an input type that accepts AutomationRuleV2MapFilterArgs and AutomationRuleV2MapFilterOutput values.
+// You can construct a concrete instance of `AutomationRuleV2MapFilterInput` via:
+//
+//	AutomationRuleV2MapFilterArgs{...}
+type AutomationRuleV2MapFilterInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2MapFilterOutput() AutomationRuleV2MapFilterOutput
+	ToAutomationRuleV2MapFilterOutputWithContext(context.Context) AutomationRuleV2MapFilterOutput
+}
+
+// A map filter for filtering findings
+type AutomationRuleV2MapFilterArgs struct {
+	// The condition to apply to the key value when filtering findings with a map filter
+	Comparison AutomationRuleV2MapFilterComparisonInput `pulumi:"comparison"`
+	// The key of the map filter
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the key in the map filter
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleV2MapFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2MapFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2MapFilterArgs) ToAutomationRuleV2MapFilterOutput() AutomationRuleV2MapFilterOutput {
+	return i.ToAutomationRuleV2MapFilterOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2MapFilterArgs) ToAutomationRuleV2MapFilterOutputWithContext(ctx context.Context) AutomationRuleV2MapFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2MapFilterOutput)
+}
+
+// A map filter for filtering findings
+type AutomationRuleV2MapFilterOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2MapFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2MapFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2MapFilterOutput) ToAutomationRuleV2MapFilterOutput() AutomationRuleV2MapFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2MapFilterOutput) ToAutomationRuleV2MapFilterOutputWithContext(ctx context.Context) AutomationRuleV2MapFilterOutput {
+	return o
+}
+
+// The condition to apply to the key value when filtering findings with a map filter
+func (o AutomationRuleV2MapFilterOutput) Comparison() AutomationRuleV2MapFilterComparisonOutput {
+	return o.ApplyT(func(v AutomationRuleV2MapFilter) AutomationRuleV2MapFilterComparison { return v.Comparison }).(AutomationRuleV2MapFilterComparisonOutput)
+}
+
+// The key of the map filter
+func (o AutomationRuleV2MapFilterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleV2MapFilter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the key in the map filter
+func (o AutomationRuleV2MapFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleV2MapFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// A number filter for querying findings
+type AutomationRuleV2NumberFilter struct {
+	// The equal-to condition to be applied to a single field when querying for findings
+	Eq *float64 `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings
+	Gte *float64 `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings
+	Lte *float64 `pulumi:"lte"`
+}
+
+// AutomationRuleV2NumberFilterInput is an input type that accepts AutomationRuleV2NumberFilterArgs and AutomationRuleV2NumberFilterOutput values.
+// You can construct a concrete instance of `AutomationRuleV2NumberFilterInput` via:
+//
+//	AutomationRuleV2NumberFilterArgs{...}
+type AutomationRuleV2NumberFilterInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2NumberFilterOutput() AutomationRuleV2NumberFilterOutput
+	ToAutomationRuleV2NumberFilterOutputWithContext(context.Context) AutomationRuleV2NumberFilterOutput
+}
+
+// A number filter for querying findings
+type AutomationRuleV2NumberFilterArgs struct {
+	// The equal-to condition to be applied to a single field when querying for findings
+	Eq pulumi.Float64PtrInput `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings
+	Gte pulumi.Float64PtrInput `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings
+	Lte pulumi.Float64PtrInput `pulumi:"lte"`
+}
+
+func (AutomationRuleV2NumberFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2NumberFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2NumberFilterArgs) ToAutomationRuleV2NumberFilterOutput() AutomationRuleV2NumberFilterOutput {
+	return i.ToAutomationRuleV2NumberFilterOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2NumberFilterArgs) ToAutomationRuleV2NumberFilterOutputWithContext(ctx context.Context) AutomationRuleV2NumberFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2NumberFilterOutput)
+}
+
+// A number filter for querying findings
+type AutomationRuleV2NumberFilterOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2NumberFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2NumberFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2NumberFilterOutput) ToAutomationRuleV2NumberFilterOutput() AutomationRuleV2NumberFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2NumberFilterOutput) ToAutomationRuleV2NumberFilterOutputWithContext(ctx context.Context) AutomationRuleV2NumberFilterOutput {
+	return o
+}
+
+// The equal-to condition to be applied to a single field when querying for findings
+func (o AutomationRuleV2NumberFilterOutput) Eq() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2NumberFilter) *float64 { return v.Eq }).(pulumi.Float64PtrOutput)
+}
+
+// The greater-than-equal condition to be applied to a single field when querying for findings
+func (o AutomationRuleV2NumberFilterOutput) Gte() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2NumberFilter) *float64 { return v.Gte }).(pulumi.Float64PtrOutput)
+}
+
+// The less-than-equal condition to be applied to a single field when querying for findings
+func (o AutomationRuleV2NumberFilterOutput) Lte() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2NumberFilter) *float64 { return v.Lte }).(pulumi.Float64PtrOutput)
+}
+
+// Enables filtering of security findings based on boolean field values in OCSF
+type AutomationRuleV2OcsfBooleanFilter struct {
+	// The name of the field
+	FieldName AutomationRuleV2OcsfBooleanFilterFieldName `pulumi:"fieldName"`
+	Filter    AutomationRuleV2BooleanFilter              `pulumi:"filter"`
+}
+
+// AutomationRuleV2OcsfBooleanFilterInput is an input type that accepts AutomationRuleV2OcsfBooleanFilterArgs and AutomationRuleV2OcsfBooleanFilterOutput values.
+// You can construct a concrete instance of `AutomationRuleV2OcsfBooleanFilterInput` via:
+//
+//	AutomationRuleV2OcsfBooleanFilterArgs{...}
+type AutomationRuleV2OcsfBooleanFilterInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfBooleanFilterOutput() AutomationRuleV2OcsfBooleanFilterOutput
+	ToAutomationRuleV2OcsfBooleanFilterOutputWithContext(context.Context) AutomationRuleV2OcsfBooleanFilterOutput
+}
+
+// Enables filtering of security findings based on boolean field values in OCSF
+type AutomationRuleV2OcsfBooleanFilterArgs struct {
+	// The name of the field
+	FieldName AutomationRuleV2OcsfBooleanFilterFieldNameInput `pulumi:"fieldName"`
+	Filter    AutomationRuleV2BooleanFilterInput              `pulumi:"filter"`
+}
+
+func (AutomationRuleV2OcsfBooleanFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfBooleanFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2OcsfBooleanFilterArgs) ToAutomationRuleV2OcsfBooleanFilterOutput() AutomationRuleV2OcsfBooleanFilterOutput {
+	return i.ToAutomationRuleV2OcsfBooleanFilterOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2OcsfBooleanFilterArgs) ToAutomationRuleV2OcsfBooleanFilterOutputWithContext(ctx context.Context) AutomationRuleV2OcsfBooleanFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfBooleanFilterOutput)
+}
+
+// AutomationRuleV2OcsfBooleanFilterArrayInput is an input type that accepts AutomationRuleV2OcsfBooleanFilterArray and AutomationRuleV2OcsfBooleanFilterArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleV2OcsfBooleanFilterArrayInput` via:
+//
+//	AutomationRuleV2OcsfBooleanFilterArray{ AutomationRuleV2OcsfBooleanFilterArgs{...} }
+type AutomationRuleV2OcsfBooleanFilterArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfBooleanFilterArrayOutput() AutomationRuleV2OcsfBooleanFilterArrayOutput
+	ToAutomationRuleV2OcsfBooleanFilterArrayOutputWithContext(context.Context) AutomationRuleV2OcsfBooleanFilterArrayOutput
+}
+
+type AutomationRuleV2OcsfBooleanFilterArray []AutomationRuleV2OcsfBooleanFilterInput
+
+func (AutomationRuleV2OcsfBooleanFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2OcsfBooleanFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2OcsfBooleanFilterArray) ToAutomationRuleV2OcsfBooleanFilterArrayOutput() AutomationRuleV2OcsfBooleanFilterArrayOutput {
+	return i.ToAutomationRuleV2OcsfBooleanFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2OcsfBooleanFilterArray) ToAutomationRuleV2OcsfBooleanFilterArrayOutputWithContext(ctx context.Context) AutomationRuleV2OcsfBooleanFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfBooleanFilterArrayOutput)
+}
+
+// Enables filtering of security findings based on boolean field values in OCSF
+type AutomationRuleV2OcsfBooleanFilterOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfBooleanFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfBooleanFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterOutput) ToAutomationRuleV2OcsfBooleanFilterOutput() AutomationRuleV2OcsfBooleanFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterOutput) ToAutomationRuleV2OcsfBooleanFilterOutputWithContext(ctx context.Context) AutomationRuleV2OcsfBooleanFilterOutput {
+	return o
+}
+
+// The name of the field
+func (o AutomationRuleV2OcsfBooleanFilterOutput) FieldName() AutomationRuleV2OcsfBooleanFilterFieldNameOutput {
+	return o.ApplyT(func(v AutomationRuleV2OcsfBooleanFilter) AutomationRuleV2OcsfBooleanFilterFieldName {
+		return v.FieldName
+	}).(AutomationRuleV2OcsfBooleanFilterFieldNameOutput)
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterOutput) Filter() AutomationRuleV2BooleanFilterOutput {
+	return o.ApplyT(func(v AutomationRuleV2OcsfBooleanFilter) AutomationRuleV2BooleanFilter { return v.Filter }).(AutomationRuleV2BooleanFilterOutput)
+}
+
+type AutomationRuleV2OcsfBooleanFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfBooleanFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2OcsfBooleanFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterArrayOutput) ToAutomationRuleV2OcsfBooleanFilterArrayOutput() AutomationRuleV2OcsfBooleanFilterArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterArrayOutput) ToAutomationRuleV2OcsfBooleanFilterArrayOutputWithContext(ctx context.Context) AutomationRuleV2OcsfBooleanFilterArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterArrayOutput) Index(i pulumi.IntInput) AutomationRuleV2OcsfBooleanFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleV2OcsfBooleanFilter {
+		return vs[0].([]AutomationRuleV2OcsfBooleanFilter)[vs[1].(int)]
+	}).(AutomationRuleV2OcsfBooleanFilterOutput)
+}
+
+// Enables filtering of security findings based on date and timestamp fields in OCSF
+type AutomationRuleV2OcsfDateFilter struct {
+	// The name of the field
+	FieldName AutomationRuleV2OcsfDateFilterFieldName `pulumi:"fieldName"`
+	Filter    AutomationRuleV2DateFilter              `pulumi:"filter"`
+}
+
+// AutomationRuleV2OcsfDateFilterInput is an input type that accepts AutomationRuleV2OcsfDateFilterArgs and AutomationRuleV2OcsfDateFilterOutput values.
+// You can construct a concrete instance of `AutomationRuleV2OcsfDateFilterInput` via:
+//
+//	AutomationRuleV2OcsfDateFilterArgs{...}
+type AutomationRuleV2OcsfDateFilterInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfDateFilterOutput() AutomationRuleV2OcsfDateFilterOutput
+	ToAutomationRuleV2OcsfDateFilterOutputWithContext(context.Context) AutomationRuleV2OcsfDateFilterOutput
+}
+
+// Enables filtering of security findings based on date and timestamp fields in OCSF
+type AutomationRuleV2OcsfDateFilterArgs struct {
+	// The name of the field
+	FieldName AutomationRuleV2OcsfDateFilterFieldNameInput `pulumi:"fieldName"`
+	Filter    AutomationRuleV2DateFilterInput              `pulumi:"filter"`
+}
+
+func (AutomationRuleV2OcsfDateFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfDateFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2OcsfDateFilterArgs) ToAutomationRuleV2OcsfDateFilterOutput() AutomationRuleV2OcsfDateFilterOutput {
+	return i.ToAutomationRuleV2OcsfDateFilterOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2OcsfDateFilterArgs) ToAutomationRuleV2OcsfDateFilterOutputWithContext(ctx context.Context) AutomationRuleV2OcsfDateFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfDateFilterOutput)
+}
+
+// AutomationRuleV2OcsfDateFilterArrayInput is an input type that accepts AutomationRuleV2OcsfDateFilterArray and AutomationRuleV2OcsfDateFilterArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleV2OcsfDateFilterArrayInput` via:
+//
+//	AutomationRuleV2OcsfDateFilterArray{ AutomationRuleV2OcsfDateFilterArgs{...} }
+type AutomationRuleV2OcsfDateFilterArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfDateFilterArrayOutput() AutomationRuleV2OcsfDateFilterArrayOutput
+	ToAutomationRuleV2OcsfDateFilterArrayOutputWithContext(context.Context) AutomationRuleV2OcsfDateFilterArrayOutput
+}
+
+type AutomationRuleV2OcsfDateFilterArray []AutomationRuleV2OcsfDateFilterInput
+
+func (AutomationRuleV2OcsfDateFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2OcsfDateFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2OcsfDateFilterArray) ToAutomationRuleV2OcsfDateFilterArrayOutput() AutomationRuleV2OcsfDateFilterArrayOutput {
+	return i.ToAutomationRuleV2OcsfDateFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2OcsfDateFilterArray) ToAutomationRuleV2OcsfDateFilterArrayOutputWithContext(ctx context.Context) AutomationRuleV2OcsfDateFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfDateFilterArrayOutput)
+}
+
+// Enables filtering of security findings based on date and timestamp fields in OCSF
+type AutomationRuleV2OcsfDateFilterOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfDateFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfDateFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfDateFilterOutput) ToAutomationRuleV2OcsfDateFilterOutput() AutomationRuleV2OcsfDateFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfDateFilterOutput) ToAutomationRuleV2OcsfDateFilterOutputWithContext(ctx context.Context) AutomationRuleV2OcsfDateFilterOutput {
+	return o
+}
+
+// The name of the field
+func (o AutomationRuleV2OcsfDateFilterOutput) FieldName() AutomationRuleV2OcsfDateFilterFieldNameOutput {
+	return o.ApplyT(func(v AutomationRuleV2OcsfDateFilter) AutomationRuleV2OcsfDateFilterFieldName { return v.FieldName }).(AutomationRuleV2OcsfDateFilterFieldNameOutput)
+}
+
+func (o AutomationRuleV2OcsfDateFilterOutput) Filter() AutomationRuleV2DateFilterOutput {
+	return o.ApplyT(func(v AutomationRuleV2OcsfDateFilter) AutomationRuleV2DateFilter { return v.Filter }).(AutomationRuleV2DateFilterOutput)
+}
+
+type AutomationRuleV2OcsfDateFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfDateFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2OcsfDateFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfDateFilterArrayOutput) ToAutomationRuleV2OcsfDateFilterArrayOutput() AutomationRuleV2OcsfDateFilterArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfDateFilterArrayOutput) ToAutomationRuleV2OcsfDateFilterArrayOutputWithContext(ctx context.Context) AutomationRuleV2OcsfDateFilterArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfDateFilterArrayOutput) Index(i pulumi.IntInput) AutomationRuleV2OcsfDateFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleV2OcsfDateFilter {
+		return vs[0].([]AutomationRuleV2OcsfDateFilter)[vs[1].(int)]
+	}).(AutomationRuleV2OcsfDateFilterOutput)
+}
+
+// The filtering conditions that align with OCSF standards
+type AutomationRuleV2OcsfFindingFilters struct {
+	// Enables the creation of complex filtering conditions by combining filter
+	CompositeFilters  []AutomationRuleV2CompositeFilter `pulumi:"compositeFilters"`
+	CompositeOperator *AutomationRuleV2AllowedOperators `pulumi:"compositeOperator"`
+}
+
+// AutomationRuleV2OcsfFindingFiltersInput is an input type that accepts AutomationRuleV2OcsfFindingFiltersArgs and AutomationRuleV2OcsfFindingFiltersOutput values.
+// You can construct a concrete instance of `AutomationRuleV2OcsfFindingFiltersInput` via:
+//
+//	AutomationRuleV2OcsfFindingFiltersArgs{...}
+type AutomationRuleV2OcsfFindingFiltersInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfFindingFiltersOutput() AutomationRuleV2OcsfFindingFiltersOutput
+	ToAutomationRuleV2OcsfFindingFiltersOutputWithContext(context.Context) AutomationRuleV2OcsfFindingFiltersOutput
+}
+
+// The filtering conditions that align with OCSF standards
+type AutomationRuleV2OcsfFindingFiltersArgs struct {
+	// Enables the creation of complex filtering conditions by combining filter
+	CompositeFilters  AutomationRuleV2CompositeFilterArrayInput `pulumi:"compositeFilters"`
+	CompositeOperator AutomationRuleV2AllowedOperatorsPtrInput  `pulumi:"compositeOperator"`
+}
+
+func (AutomationRuleV2OcsfFindingFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfFindingFilters)(nil)).Elem()
+}
+
+func (i AutomationRuleV2OcsfFindingFiltersArgs) ToAutomationRuleV2OcsfFindingFiltersOutput() AutomationRuleV2OcsfFindingFiltersOutput {
+	return i.ToAutomationRuleV2OcsfFindingFiltersOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2OcsfFindingFiltersArgs) ToAutomationRuleV2OcsfFindingFiltersOutputWithContext(ctx context.Context) AutomationRuleV2OcsfFindingFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfFindingFiltersOutput)
+}
+
+func (i AutomationRuleV2OcsfFindingFiltersArgs) ToAutomationRuleV2OcsfFindingFiltersPtrOutput() AutomationRuleV2OcsfFindingFiltersPtrOutput {
+	return i.ToAutomationRuleV2OcsfFindingFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2OcsfFindingFiltersArgs) ToAutomationRuleV2OcsfFindingFiltersPtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfFindingFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfFindingFiltersOutput).ToAutomationRuleV2OcsfFindingFiltersPtrOutputWithContext(ctx)
+}
+
+// AutomationRuleV2OcsfFindingFiltersPtrInput is an input type that accepts AutomationRuleV2OcsfFindingFiltersArgs, AutomationRuleV2OcsfFindingFiltersPtr and AutomationRuleV2OcsfFindingFiltersPtrOutput values.
+// You can construct a concrete instance of `AutomationRuleV2OcsfFindingFiltersPtrInput` via:
+//
+//	        AutomationRuleV2OcsfFindingFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleV2OcsfFindingFiltersPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfFindingFiltersPtrOutput() AutomationRuleV2OcsfFindingFiltersPtrOutput
+	ToAutomationRuleV2OcsfFindingFiltersPtrOutputWithContext(context.Context) AutomationRuleV2OcsfFindingFiltersPtrOutput
+}
+
+type automationRuleV2OcsfFindingFiltersPtrType AutomationRuleV2OcsfFindingFiltersArgs
+
+func AutomationRuleV2OcsfFindingFiltersPtr(v *AutomationRuleV2OcsfFindingFiltersArgs) AutomationRuleV2OcsfFindingFiltersPtrInput {
+	return (*automationRuleV2OcsfFindingFiltersPtrType)(v)
+}
+
+func (*automationRuleV2OcsfFindingFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2OcsfFindingFilters)(nil)).Elem()
+}
+
+func (i *automationRuleV2OcsfFindingFiltersPtrType) ToAutomationRuleV2OcsfFindingFiltersPtrOutput() AutomationRuleV2OcsfFindingFiltersPtrOutput {
+	return i.ToAutomationRuleV2OcsfFindingFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleV2OcsfFindingFiltersPtrType) ToAutomationRuleV2OcsfFindingFiltersPtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfFindingFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfFindingFiltersPtrOutput)
+}
+
+// The filtering conditions that align with OCSF standards
+type AutomationRuleV2OcsfFindingFiltersOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfFindingFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfFindingFilters)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfFindingFiltersOutput) ToAutomationRuleV2OcsfFindingFiltersOutput() AutomationRuleV2OcsfFindingFiltersOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfFindingFiltersOutput) ToAutomationRuleV2OcsfFindingFiltersOutputWithContext(ctx context.Context) AutomationRuleV2OcsfFindingFiltersOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfFindingFiltersOutput) ToAutomationRuleV2OcsfFindingFiltersPtrOutput() AutomationRuleV2OcsfFindingFiltersPtrOutput {
+	return o.ToAutomationRuleV2OcsfFindingFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfFindingFiltersOutput) ToAutomationRuleV2OcsfFindingFiltersPtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfFindingFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2OcsfFindingFilters) *AutomationRuleV2OcsfFindingFilters {
+		return &v
+	}).(AutomationRuleV2OcsfFindingFiltersPtrOutput)
+}
+
+// Enables the creation of complex filtering conditions by combining filter
+func (o AutomationRuleV2OcsfFindingFiltersOutput) CompositeFilters() AutomationRuleV2CompositeFilterArrayOutput {
+	return o.ApplyT(func(v AutomationRuleV2OcsfFindingFilters) []AutomationRuleV2CompositeFilter {
+		return v.CompositeFilters
+	}).(AutomationRuleV2CompositeFilterArrayOutput)
+}
+
+func (o AutomationRuleV2OcsfFindingFiltersOutput) CompositeOperator() AutomationRuleV2AllowedOperatorsPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2OcsfFindingFilters) *AutomationRuleV2AllowedOperators {
+		return v.CompositeOperator
+	}).(AutomationRuleV2AllowedOperatorsPtrOutput)
+}
+
+type AutomationRuleV2OcsfFindingFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfFindingFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2OcsfFindingFilters)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfFindingFiltersPtrOutput) ToAutomationRuleV2OcsfFindingFiltersPtrOutput() AutomationRuleV2OcsfFindingFiltersPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfFindingFiltersPtrOutput) ToAutomationRuleV2OcsfFindingFiltersPtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfFindingFiltersPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfFindingFiltersPtrOutput) Elem() AutomationRuleV2OcsfFindingFiltersOutput {
+	return o.ApplyT(func(v *AutomationRuleV2OcsfFindingFilters) AutomationRuleV2OcsfFindingFilters {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2OcsfFindingFilters
+		return ret
+	}).(AutomationRuleV2OcsfFindingFiltersOutput)
+}
+
+// Enables the creation of complex filtering conditions by combining filter
+func (o AutomationRuleV2OcsfFindingFiltersPtrOutput) CompositeFilters() AutomationRuleV2CompositeFilterArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleV2OcsfFindingFilters) []AutomationRuleV2CompositeFilter {
+		if v == nil {
+			return nil
+		}
+		return v.CompositeFilters
+	}).(AutomationRuleV2CompositeFilterArrayOutput)
+}
+
+func (o AutomationRuleV2OcsfFindingFiltersPtrOutput) CompositeOperator() AutomationRuleV2AllowedOperatorsPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2OcsfFindingFilters) *AutomationRuleV2AllowedOperators {
+		if v == nil {
+			return nil
+		}
+		return v.CompositeOperator
+	}).(AutomationRuleV2AllowedOperatorsPtrOutput)
+}
+
+// Enables filtering of security findings based on map field values in OCSF
+type AutomationRuleV2OcsfMapFilter struct {
+	// The name of the field
+	FieldName AutomationRuleV2OcsfMapFilterFieldName `pulumi:"fieldName"`
+	Filter    AutomationRuleV2MapFilter              `pulumi:"filter"`
+}
+
+// AutomationRuleV2OcsfMapFilterInput is an input type that accepts AutomationRuleV2OcsfMapFilterArgs and AutomationRuleV2OcsfMapFilterOutput values.
+// You can construct a concrete instance of `AutomationRuleV2OcsfMapFilterInput` via:
+//
+//	AutomationRuleV2OcsfMapFilterArgs{...}
+type AutomationRuleV2OcsfMapFilterInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfMapFilterOutput() AutomationRuleV2OcsfMapFilterOutput
+	ToAutomationRuleV2OcsfMapFilterOutputWithContext(context.Context) AutomationRuleV2OcsfMapFilterOutput
+}
+
+// Enables filtering of security findings based on map field values in OCSF
+type AutomationRuleV2OcsfMapFilterArgs struct {
+	// The name of the field
+	FieldName AutomationRuleV2OcsfMapFilterFieldNameInput `pulumi:"fieldName"`
+	Filter    AutomationRuleV2MapFilterInput              `pulumi:"filter"`
+}
+
+func (AutomationRuleV2OcsfMapFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfMapFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2OcsfMapFilterArgs) ToAutomationRuleV2OcsfMapFilterOutput() AutomationRuleV2OcsfMapFilterOutput {
+	return i.ToAutomationRuleV2OcsfMapFilterOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2OcsfMapFilterArgs) ToAutomationRuleV2OcsfMapFilterOutputWithContext(ctx context.Context) AutomationRuleV2OcsfMapFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfMapFilterOutput)
+}
+
+// AutomationRuleV2OcsfMapFilterArrayInput is an input type that accepts AutomationRuleV2OcsfMapFilterArray and AutomationRuleV2OcsfMapFilterArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleV2OcsfMapFilterArrayInput` via:
+//
+//	AutomationRuleV2OcsfMapFilterArray{ AutomationRuleV2OcsfMapFilterArgs{...} }
+type AutomationRuleV2OcsfMapFilterArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfMapFilterArrayOutput() AutomationRuleV2OcsfMapFilterArrayOutput
+	ToAutomationRuleV2OcsfMapFilterArrayOutputWithContext(context.Context) AutomationRuleV2OcsfMapFilterArrayOutput
+}
+
+type AutomationRuleV2OcsfMapFilterArray []AutomationRuleV2OcsfMapFilterInput
+
+func (AutomationRuleV2OcsfMapFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2OcsfMapFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2OcsfMapFilterArray) ToAutomationRuleV2OcsfMapFilterArrayOutput() AutomationRuleV2OcsfMapFilterArrayOutput {
+	return i.ToAutomationRuleV2OcsfMapFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2OcsfMapFilterArray) ToAutomationRuleV2OcsfMapFilterArrayOutputWithContext(ctx context.Context) AutomationRuleV2OcsfMapFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfMapFilterArrayOutput)
+}
+
+// Enables filtering of security findings based on map field values in OCSF
+type AutomationRuleV2OcsfMapFilterOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfMapFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfMapFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfMapFilterOutput) ToAutomationRuleV2OcsfMapFilterOutput() AutomationRuleV2OcsfMapFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfMapFilterOutput) ToAutomationRuleV2OcsfMapFilterOutputWithContext(ctx context.Context) AutomationRuleV2OcsfMapFilterOutput {
+	return o
+}
+
+// The name of the field
+func (o AutomationRuleV2OcsfMapFilterOutput) FieldName() AutomationRuleV2OcsfMapFilterFieldNameOutput {
+	return o.ApplyT(func(v AutomationRuleV2OcsfMapFilter) AutomationRuleV2OcsfMapFilterFieldName { return v.FieldName }).(AutomationRuleV2OcsfMapFilterFieldNameOutput)
+}
+
+func (o AutomationRuleV2OcsfMapFilterOutput) Filter() AutomationRuleV2MapFilterOutput {
+	return o.ApplyT(func(v AutomationRuleV2OcsfMapFilter) AutomationRuleV2MapFilter { return v.Filter }).(AutomationRuleV2MapFilterOutput)
+}
+
+type AutomationRuleV2OcsfMapFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfMapFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2OcsfMapFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfMapFilterArrayOutput) ToAutomationRuleV2OcsfMapFilterArrayOutput() AutomationRuleV2OcsfMapFilterArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfMapFilterArrayOutput) ToAutomationRuleV2OcsfMapFilterArrayOutputWithContext(ctx context.Context) AutomationRuleV2OcsfMapFilterArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfMapFilterArrayOutput) Index(i pulumi.IntInput) AutomationRuleV2OcsfMapFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleV2OcsfMapFilter {
+		return vs[0].([]AutomationRuleV2OcsfMapFilter)[vs[1].(int)]
+	}).(AutomationRuleV2OcsfMapFilterOutput)
+}
+
+// Enables filtering of security findings based on numerical field values in OCSF
+type AutomationRuleV2OcsfNumberFilter struct {
+	// The name of the field
+	FieldName AutomationRuleV2OcsfNumberFilterFieldName `pulumi:"fieldName"`
+	Filter    AutomationRuleV2NumberFilter              `pulumi:"filter"`
+}
+
+// AutomationRuleV2OcsfNumberFilterInput is an input type that accepts AutomationRuleV2OcsfNumberFilterArgs and AutomationRuleV2OcsfNumberFilterOutput values.
+// You can construct a concrete instance of `AutomationRuleV2OcsfNumberFilterInput` via:
+//
+//	AutomationRuleV2OcsfNumberFilterArgs{...}
+type AutomationRuleV2OcsfNumberFilterInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfNumberFilterOutput() AutomationRuleV2OcsfNumberFilterOutput
+	ToAutomationRuleV2OcsfNumberFilterOutputWithContext(context.Context) AutomationRuleV2OcsfNumberFilterOutput
+}
+
+// Enables filtering of security findings based on numerical field values in OCSF
+type AutomationRuleV2OcsfNumberFilterArgs struct {
+	// The name of the field
+	FieldName AutomationRuleV2OcsfNumberFilterFieldNameInput `pulumi:"fieldName"`
+	Filter    AutomationRuleV2NumberFilterInput              `pulumi:"filter"`
+}
+
+func (AutomationRuleV2OcsfNumberFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfNumberFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2OcsfNumberFilterArgs) ToAutomationRuleV2OcsfNumberFilterOutput() AutomationRuleV2OcsfNumberFilterOutput {
+	return i.ToAutomationRuleV2OcsfNumberFilterOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2OcsfNumberFilterArgs) ToAutomationRuleV2OcsfNumberFilterOutputWithContext(ctx context.Context) AutomationRuleV2OcsfNumberFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfNumberFilterOutput)
+}
+
+// AutomationRuleV2OcsfNumberFilterArrayInput is an input type that accepts AutomationRuleV2OcsfNumberFilterArray and AutomationRuleV2OcsfNumberFilterArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleV2OcsfNumberFilterArrayInput` via:
+//
+//	AutomationRuleV2OcsfNumberFilterArray{ AutomationRuleV2OcsfNumberFilterArgs{...} }
+type AutomationRuleV2OcsfNumberFilterArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfNumberFilterArrayOutput() AutomationRuleV2OcsfNumberFilterArrayOutput
+	ToAutomationRuleV2OcsfNumberFilterArrayOutputWithContext(context.Context) AutomationRuleV2OcsfNumberFilterArrayOutput
+}
+
+type AutomationRuleV2OcsfNumberFilterArray []AutomationRuleV2OcsfNumberFilterInput
+
+func (AutomationRuleV2OcsfNumberFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2OcsfNumberFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2OcsfNumberFilterArray) ToAutomationRuleV2OcsfNumberFilterArrayOutput() AutomationRuleV2OcsfNumberFilterArrayOutput {
+	return i.ToAutomationRuleV2OcsfNumberFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2OcsfNumberFilterArray) ToAutomationRuleV2OcsfNumberFilterArrayOutputWithContext(ctx context.Context) AutomationRuleV2OcsfNumberFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfNumberFilterArrayOutput)
+}
+
+// Enables filtering of security findings based on numerical field values in OCSF
+type AutomationRuleV2OcsfNumberFilterOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfNumberFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfNumberFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfNumberFilterOutput) ToAutomationRuleV2OcsfNumberFilterOutput() AutomationRuleV2OcsfNumberFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfNumberFilterOutput) ToAutomationRuleV2OcsfNumberFilterOutputWithContext(ctx context.Context) AutomationRuleV2OcsfNumberFilterOutput {
+	return o
+}
+
+// The name of the field
+func (o AutomationRuleV2OcsfNumberFilterOutput) FieldName() AutomationRuleV2OcsfNumberFilterFieldNameOutput {
+	return o.ApplyT(func(v AutomationRuleV2OcsfNumberFilter) AutomationRuleV2OcsfNumberFilterFieldName { return v.FieldName }).(AutomationRuleV2OcsfNumberFilterFieldNameOutput)
+}
+
+func (o AutomationRuleV2OcsfNumberFilterOutput) Filter() AutomationRuleV2NumberFilterOutput {
+	return o.ApplyT(func(v AutomationRuleV2OcsfNumberFilter) AutomationRuleV2NumberFilter { return v.Filter }).(AutomationRuleV2NumberFilterOutput)
+}
+
+type AutomationRuleV2OcsfNumberFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfNumberFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2OcsfNumberFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfNumberFilterArrayOutput) ToAutomationRuleV2OcsfNumberFilterArrayOutput() AutomationRuleV2OcsfNumberFilterArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfNumberFilterArrayOutput) ToAutomationRuleV2OcsfNumberFilterArrayOutputWithContext(ctx context.Context) AutomationRuleV2OcsfNumberFilterArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfNumberFilterArrayOutput) Index(i pulumi.IntInput) AutomationRuleV2OcsfNumberFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleV2OcsfNumberFilter {
+		return vs[0].([]AutomationRuleV2OcsfNumberFilter)[vs[1].(int)]
+	}).(AutomationRuleV2OcsfNumberFilterOutput)
+}
+
+// Enables filtering of security findings based on string field values in OCSF
+type AutomationRuleV2OcsfStringFilter struct {
+	FieldName AutomationRuleV2OcsfStringField `pulumi:"fieldName"`
+	Filter    AutomationRuleV2StringFilter    `pulumi:"filter"`
+}
+
+// AutomationRuleV2OcsfStringFilterInput is an input type that accepts AutomationRuleV2OcsfStringFilterArgs and AutomationRuleV2OcsfStringFilterOutput values.
+// You can construct a concrete instance of `AutomationRuleV2OcsfStringFilterInput` via:
+//
+//	AutomationRuleV2OcsfStringFilterArgs{...}
+type AutomationRuleV2OcsfStringFilterInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfStringFilterOutput() AutomationRuleV2OcsfStringFilterOutput
+	ToAutomationRuleV2OcsfStringFilterOutputWithContext(context.Context) AutomationRuleV2OcsfStringFilterOutput
+}
+
+// Enables filtering of security findings based on string field values in OCSF
+type AutomationRuleV2OcsfStringFilterArgs struct {
+	FieldName AutomationRuleV2OcsfStringFieldInput `pulumi:"fieldName"`
+	Filter    AutomationRuleV2StringFilterInput    `pulumi:"filter"`
+}
+
+func (AutomationRuleV2OcsfStringFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfStringFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2OcsfStringFilterArgs) ToAutomationRuleV2OcsfStringFilterOutput() AutomationRuleV2OcsfStringFilterOutput {
+	return i.ToAutomationRuleV2OcsfStringFilterOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2OcsfStringFilterArgs) ToAutomationRuleV2OcsfStringFilterOutputWithContext(ctx context.Context) AutomationRuleV2OcsfStringFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfStringFilterOutput)
+}
+
+// AutomationRuleV2OcsfStringFilterArrayInput is an input type that accepts AutomationRuleV2OcsfStringFilterArray and AutomationRuleV2OcsfStringFilterArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleV2OcsfStringFilterArrayInput` via:
+//
+//	AutomationRuleV2OcsfStringFilterArray{ AutomationRuleV2OcsfStringFilterArgs{...} }
+type AutomationRuleV2OcsfStringFilterArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfStringFilterArrayOutput() AutomationRuleV2OcsfStringFilterArrayOutput
+	ToAutomationRuleV2OcsfStringFilterArrayOutputWithContext(context.Context) AutomationRuleV2OcsfStringFilterArrayOutput
+}
+
+type AutomationRuleV2OcsfStringFilterArray []AutomationRuleV2OcsfStringFilterInput
+
+func (AutomationRuleV2OcsfStringFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2OcsfStringFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2OcsfStringFilterArray) ToAutomationRuleV2OcsfStringFilterArrayOutput() AutomationRuleV2OcsfStringFilterArrayOutput {
+	return i.ToAutomationRuleV2OcsfStringFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2OcsfStringFilterArray) ToAutomationRuleV2OcsfStringFilterArrayOutputWithContext(ctx context.Context) AutomationRuleV2OcsfStringFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2OcsfStringFilterArrayOutput)
+}
+
+// Enables filtering of security findings based on string field values in OCSF
+type AutomationRuleV2OcsfStringFilterOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfStringFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfStringFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfStringFilterOutput) ToAutomationRuleV2OcsfStringFilterOutput() AutomationRuleV2OcsfStringFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfStringFilterOutput) ToAutomationRuleV2OcsfStringFilterOutputWithContext(ctx context.Context) AutomationRuleV2OcsfStringFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfStringFilterOutput) FieldName() AutomationRuleV2OcsfStringFieldOutput {
+	return o.ApplyT(func(v AutomationRuleV2OcsfStringFilter) AutomationRuleV2OcsfStringField { return v.FieldName }).(AutomationRuleV2OcsfStringFieldOutput)
+}
+
+func (o AutomationRuleV2OcsfStringFilterOutput) Filter() AutomationRuleV2StringFilterOutput {
+	return o.ApplyT(func(v AutomationRuleV2OcsfStringFilter) AutomationRuleV2StringFilter { return v.Filter }).(AutomationRuleV2StringFilterOutput)
+}
+
+type AutomationRuleV2OcsfStringFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfStringFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleV2OcsfStringFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfStringFilterArrayOutput) ToAutomationRuleV2OcsfStringFilterArrayOutput() AutomationRuleV2OcsfStringFilterArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfStringFilterArrayOutput) ToAutomationRuleV2OcsfStringFilterArrayOutputWithContext(ctx context.Context) AutomationRuleV2OcsfStringFilterArrayOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfStringFilterArrayOutput) Index(i pulumi.IntInput) AutomationRuleV2OcsfStringFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleV2OcsfStringFilter {
+		return vs[0].([]AutomationRuleV2OcsfStringFilter)[vs[1].(int)]
+	}).(AutomationRuleV2OcsfStringFilterOutput)
+}
+
+// A string filter for filtering findings
+type AutomationRuleV2StringFilter struct {
+	// The condition to apply to a string value when filtering findings
+	Comparison AutomationRuleV2StringFilterComparison `pulumi:"comparison"`
+	// The string filter value
+	Value string `pulumi:"value"`
+}
+
+// AutomationRuleV2StringFilterInput is an input type that accepts AutomationRuleV2StringFilterArgs and AutomationRuleV2StringFilterOutput values.
+// You can construct a concrete instance of `AutomationRuleV2StringFilterInput` via:
+//
+//	AutomationRuleV2StringFilterArgs{...}
+type AutomationRuleV2StringFilterInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2StringFilterOutput() AutomationRuleV2StringFilterOutput
+	ToAutomationRuleV2StringFilterOutputWithContext(context.Context) AutomationRuleV2StringFilterOutput
+}
+
+// A string filter for filtering findings
+type AutomationRuleV2StringFilterArgs struct {
+	// The condition to apply to a string value when filtering findings
+	Comparison AutomationRuleV2StringFilterComparisonInput `pulumi:"comparison"`
+	// The string filter value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomationRuleV2StringFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2StringFilter)(nil)).Elem()
+}
+
+func (i AutomationRuleV2StringFilterArgs) ToAutomationRuleV2StringFilterOutput() AutomationRuleV2StringFilterOutput {
+	return i.ToAutomationRuleV2StringFilterOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2StringFilterArgs) ToAutomationRuleV2StringFilterOutputWithContext(ctx context.Context) AutomationRuleV2StringFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2StringFilterOutput)
+}
+
+// A string filter for filtering findings
+type AutomationRuleV2StringFilterOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2StringFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2StringFilter)(nil)).Elem()
+}
+
+func (o AutomationRuleV2StringFilterOutput) ToAutomationRuleV2StringFilterOutput() AutomationRuleV2StringFilterOutput {
+	return o
+}
+
+func (o AutomationRuleV2StringFilterOutput) ToAutomationRuleV2StringFilterOutputWithContext(ctx context.Context) AutomationRuleV2StringFilterOutput {
+	return o
+}
+
+// The condition to apply to a string value when filtering findings
+func (o AutomationRuleV2StringFilterOutput) Comparison() AutomationRuleV2StringFilterComparisonOutput {
+	return o.ApplyT(func(v AutomationRuleV2StringFilter) AutomationRuleV2StringFilterComparison { return v.Comparison }).(AutomationRuleV2StringFilterComparisonOutput)
+}
+
+// The string filter value
+func (o AutomationRuleV2StringFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleV2StringFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
 // Used to update information about the investigation into the finding.
 type AutomationRuleWorkflowUpdate struct {
 	// The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
@@ -6521,7 +8360,7 @@ type InsightStringFilter struct {
 	// - `ResourceType NOT_EQUALS AwsIamPolicy`
 	// - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 	//
-	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
 	Comparison InsightStringFilterComparison `pulumi:"comparison"`
 	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
 	Value string `pulumi:"value"`
@@ -6569,7 +8408,7 @@ type InsightStringFilterArgs struct {
 	// - `ResourceType NOT_EQUALS AwsIamPolicy`
 	// - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 	//
-	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
 	Comparison InsightStringFilterComparisonInput `pulumi:"comparison"`
 	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -6656,7 +8495,7 @@ func (o InsightStringFilterOutput) ToInsightStringFilterOutputWithContext(ctx co
 // - `ResourceType NOT_EQUALS AwsIamPolicy`
 // - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 //
-// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
 func (o InsightStringFilterOutput) Comparison() InsightStringFilterComparisonOutput {
 	return o.ApplyT(func(v InsightStringFilter) InsightStringFilterComparison { return v.Comparison }).(InsightStringFilterComparisonOutput)
 }
@@ -7202,6 +9041,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleSeverityUpdatePtrInput)(nil)).Elem(), AutomationRuleSeverityUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleStringFilterInput)(nil)).Elem(), AutomationRuleStringFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleStringFilterArrayInput)(nil)).Elem(), AutomationRuleStringFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2AutomationRulesActionV2Input)(nil)).Elem(), AutomationRuleV2AutomationRulesActionV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2AutomationRulesActionV2ArrayInput)(nil)).Elem(), AutomationRuleV2AutomationRulesActionV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Input)(nil)).Elem(), AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrInput)(nil)).Elem(), AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2BooleanFilterInput)(nil)).Elem(), AutomationRuleV2BooleanFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2CompositeFilterInput)(nil)).Elem(), AutomationRuleV2CompositeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2CompositeFilterArrayInput)(nil)).Elem(), AutomationRuleV2CompositeFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2CriteriaInput)(nil)).Elem(), AutomationRuleV2CriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2DateFilterInput)(nil)).Elem(), AutomationRuleV2DateFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2DateRangeInput)(nil)).Elem(), AutomationRuleV2DateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2DateRangePtrInput)(nil)).Elem(), AutomationRuleV2DateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2ExternalIntegrationConfigurationInput)(nil)).Elem(), AutomationRuleV2ExternalIntegrationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2ExternalIntegrationConfigurationPtrInput)(nil)).Elem(), AutomationRuleV2ExternalIntegrationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2MapFilterInput)(nil)).Elem(), AutomationRuleV2MapFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2NumberFilterInput)(nil)).Elem(), AutomationRuleV2NumberFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfBooleanFilterInput)(nil)).Elem(), AutomationRuleV2OcsfBooleanFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfBooleanFilterArrayInput)(nil)).Elem(), AutomationRuleV2OcsfBooleanFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfDateFilterInput)(nil)).Elem(), AutomationRuleV2OcsfDateFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfDateFilterArrayInput)(nil)).Elem(), AutomationRuleV2OcsfDateFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfFindingFiltersInput)(nil)).Elem(), AutomationRuleV2OcsfFindingFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfFindingFiltersPtrInput)(nil)).Elem(), AutomationRuleV2OcsfFindingFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfMapFilterInput)(nil)).Elem(), AutomationRuleV2OcsfMapFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfMapFilterArrayInput)(nil)).Elem(), AutomationRuleV2OcsfMapFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfNumberFilterInput)(nil)).Elem(), AutomationRuleV2OcsfNumberFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfNumberFilterArrayInput)(nil)).Elem(), AutomationRuleV2OcsfNumberFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfStringFilterInput)(nil)).Elem(), AutomationRuleV2OcsfStringFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfStringFilterArrayInput)(nil)).Elem(), AutomationRuleV2OcsfStringFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2StringFilterInput)(nil)).Elem(), AutomationRuleV2StringFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleWorkflowUpdateInput)(nil)).Elem(), AutomationRuleWorkflowUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleWorkflowUpdatePtrInput)(nil)).Elem(), AutomationRuleWorkflowUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesActionInput)(nil)).Elem(), AutomationRulesActionArgs{})
@@ -7258,6 +9125,35 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRuleSeverityUpdatePtrOutput{})
 	pulumi.RegisterOutputType(AutomationRuleStringFilterOutput{})
 	pulumi.RegisterOutputType(AutomationRuleStringFilterArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2AutomationRulesActionV2Output{})
+	pulumi.RegisterOutputType(AutomationRuleV2AutomationRulesActionV2ArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Output{})
+	pulumi.RegisterOutputType(AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2BooleanFilterOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2CompositeFilterOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2CompositeFilterArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2CriteriaOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2CriteriaPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2DateFilterOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2DateRangeOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2DateRangePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2ExternalIntegrationConfigurationOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2ExternalIntegrationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2MapFilterOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2NumberFilterOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfBooleanFilterOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfBooleanFilterArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfDateFilterOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfDateFilterArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfFindingFiltersOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfFindingFiltersPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfMapFilterOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfMapFilterArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfNumberFilterOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfNumberFilterArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfStringFilterOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfStringFilterArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2StringFilterOutput{})
 	pulumi.RegisterOutputType(AutomationRuleWorkflowUpdateOutput{})
 	pulumi.RegisterOutputType(AutomationRuleWorkflowUpdatePtrOutput{})
 	pulumi.RegisterOutputType(AutomationRulesActionOutput{})

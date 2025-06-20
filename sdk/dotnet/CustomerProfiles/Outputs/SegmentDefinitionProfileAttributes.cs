@@ -36,6 +36,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
         public readonly Outputs.SegmentDefinitionProfileDimension? PartyTypeString;
         public readonly Outputs.SegmentDefinitionProfileDimension? PersonalEmailAddress;
         public readonly Outputs.SegmentDefinitionProfileDimension? PhoneNumber;
+        public readonly Outputs.SegmentDefinitionProfileTypeDimension? ProfileType;
         public readonly Outputs.SegmentDefinitionAddressDimension? ShippingAddress;
 
         [OutputConstructor]
@@ -80,6 +81,8 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
 
             Outputs.SegmentDefinitionProfileDimension? phoneNumber,
 
+            Outputs.SegmentDefinitionProfileTypeDimension? profileType,
+
             Outputs.SegmentDefinitionAddressDimension? shippingAddress)
         {
             AccountNumber = accountNumber;
@@ -102,6 +105,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
             PartyTypeString = partyTypeString;
             PersonalEmailAddress = personalEmailAddress;
             PhoneNumber = phoneNumber;
+            ProfileType = profileType;
             ShippingAddress = shippingAddress;
         }
     }

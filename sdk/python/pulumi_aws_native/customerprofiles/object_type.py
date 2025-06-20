@@ -32,6 +32,7 @@ class ObjectTypeArgs:
                  expiration_days: Optional[pulumi.Input[builtins.int]] = None,
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeFieldMapArgs']]]] = None,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyMapArgs']]]] = None,
+                 max_profile_object_count: Optional[pulumi.Input[builtins.int]] = None,
                  object_type_name: Optional[pulumi.Input[builtins.str]] = None,
                  source_last_updated_timestamp_format: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -45,6 +46,7 @@ class ObjectTypeArgs:
         :param pulumi.Input[builtins.int] expiration_days: The default number of days until the data within the domain expires.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeFieldMapArgs']]] fields: A list of the name and ObjectType field.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyMapArgs']]] keys: A list of unique keys that can be used to map data to the profile.
+        :param pulumi.Input[builtins.int] max_profile_object_count: The maximum number of profile objects for this object type
         :param pulumi.Input[builtins.str] object_type_name: The name of the profile object type.
         :param pulumi.Input[builtins.str] source_last_updated_timestamp_format: The format of your sourceLastUpdatedTimestamp that was previously set up.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the integration.
@@ -62,6 +64,8 @@ class ObjectTypeArgs:
             pulumi.set(__self__, "fields", fields)
         if keys is not None:
             pulumi.set(__self__, "keys", keys)
+        if max_profile_object_count is not None:
+            pulumi.set(__self__, "max_profile_object_count", max_profile_object_count)
         if object_type_name is not None:
             pulumi.set(__self__, "object_type_name", object_type_name)
         if source_last_updated_timestamp_format is not None:
@@ -156,6 +160,18 @@ class ObjectTypeArgs:
         pulumi.set(self, "keys", value)
 
     @property
+    @pulumi.getter(name="maxProfileObjectCount")
+    def max_profile_object_count(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The maximum number of profile objects for this object type
+        """
+        return pulumi.get(self, "max_profile_object_count")
+
+    @max_profile_object_count.setter
+    def max_profile_object_count(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_profile_object_count", value)
+
+    @property
     @pulumi.getter(name="objectTypeName")
     def object_type_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -217,6 +233,7 @@ class ObjectType(pulumi.CustomResource):
                  expiration_days: Optional[pulumi.Input[builtins.int]] = None,
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectTypeFieldMapArgs', 'ObjectTypeFieldMapArgsDict']]]]] = None,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectTypeKeyMapArgs', 'ObjectTypeKeyMapArgsDict']]]]] = None,
+                 max_profile_object_count: Optional[pulumi.Input[builtins.int]] = None,
                  object_type_name: Optional[pulumi.Input[builtins.str]] = None,
                  source_last_updated_timestamp_format: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -234,6 +251,7 @@ class ObjectType(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] expiration_days: The default number of days until the data within the domain expires.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectTypeFieldMapArgs', 'ObjectTypeFieldMapArgsDict']]]] fields: A list of the name and ObjectType field.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectTypeKeyMapArgs', 'ObjectTypeKeyMapArgsDict']]]] keys: A list of unique keys that can be used to map data to the profile.
+        :param pulumi.Input[builtins.int] max_profile_object_count: The maximum number of profile objects for this object type
         :param pulumi.Input[builtins.str] object_type_name: The name of the profile object type.
         :param pulumi.Input[builtins.str] source_last_updated_timestamp_format: The format of your sourceLastUpdatedTimestamp that was previously set up.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the integration.
@@ -270,6 +288,7 @@ class ObjectType(pulumi.CustomResource):
                  expiration_days: Optional[pulumi.Input[builtins.int]] = None,
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectTypeFieldMapArgs', 'ObjectTypeFieldMapArgsDict']]]]] = None,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectTypeKeyMapArgs', 'ObjectTypeKeyMapArgsDict']]]]] = None,
+                 max_profile_object_count: Optional[pulumi.Input[builtins.int]] = None,
                  object_type_name: Optional[pulumi.Input[builtins.str]] = None,
                  source_last_updated_timestamp_format: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -294,12 +313,14 @@ class ObjectType(pulumi.CustomResource):
             __props__.__dict__["expiration_days"] = expiration_days
             __props__.__dict__["fields"] = fields
             __props__.__dict__["keys"] = keys
+            __props__.__dict__["max_profile_object_count"] = max_profile_object_count
             __props__.__dict__["object_type_name"] = object_type_name
             __props__.__dict__["source_last_updated_timestamp_format"] = source_last_updated_timestamp_format
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_id"] = template_id
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
+            __props__.__dict__["max_available_profile_object_count"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainName", "objectTypeName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ObjectType, __self__).__init__(
@@ -333,6 +354,8 @@ class ObjectType(pulumi.CustomResource):
         __props__.__dict__["fields"] = None
         __props__.__dict__["keys"] = None
         __props__.__dict__["last_updated_at"] = None
+        __props__.__dict__["max_available_profile_object_count"] = None
+        __props__.__dict__["max_profile_object_count"] = None
         __props__.__dict__["object_type_name"] = None
         __props__.__dict__["source_last_updated_timestamp_format"] = None
         __props__.__dict__["tags"] = None
@@ -410,6 +433,22 @@ class ObjectType(pulumi.CustomResource):
         The time of this integration got last updated at.
         """
         return pulumi.get(self, "last_updated_at")
+
+    @property
+    @pulumi.getter(name="maxAvailableProfileObjectCount")
+    def max_available_profile_object_count(self) -> pulumi.Output[builtins.int]:
+        """
+        The maximum available number of profile objects
+        """
+        return pulumi.get(self, "max_available_profile_object_count")
+
+    @property
+    @pulumi.getter(name="maxProfileObjectCount")
+    def max_profile_object_count(self) -> pulumi.Output[Optional[builtins.int]]:
+        """
+        The maximum number of profile objects for this object type
+        """
+        return pulumi.get(self, "max_profile_object_count")
 
     @property
     @pulumi.getter(name="objectTypeName")

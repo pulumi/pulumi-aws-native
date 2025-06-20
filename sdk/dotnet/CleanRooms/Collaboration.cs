@@ -177,7 +177,7 @@ namespace Pulumi.AwsNative.CleanRooms
         [Input("creatorDisplayName", required: true)]
         public Input<string> CreatorDisplayName { get; set; } = null!;
 
-        [Input("creatorMemberAbilities", required: true)]
+        [Input("creatorMemberAbilities")]
         private InputList<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility>? _creatorMemberAbilities;
 
         /// <summary>
@@ -223,7 +223,7 @@ namespace Pulumi.AwsNative.CleanRooms
         [Input("jobLogStatus")]
         public Input<Pulumi.AwsNative.CleanRooms.CollaborationJobLogStatus>? JobLogStatus { get; set; }
 
-        [Input("members", required: true)]
+        [Input("members")]
         private InputList<Inputs.CollaborationMemberSpecificationArgs>? _members;
 
         /// <summary>

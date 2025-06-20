@@ -14,34 +14,20 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     {
         [Input("accessConfigs")]
         private InputList<Inputs.EventSourceMappingSchemaRegistryAccessConfigArgs>? _accessConfigs;
-
-        /// <summary>
-        /// An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
-        /// </summary>
         public InputList<Inputs.EventSourceMappingSchemaRegistryAccessConfigArgs> AccessConfigs
         {
             get => _accessConfigs ?? (_accessConfigs = new InputList<Inputs.EventSourceMappingSchemaRegistryAccessConfigArgs>());
             set => _accessConfigs = value;
         }
 
-        /// <summary>
-        /// The record format that Lambda delivers to your function after schema validation.
-        /// </summary>
         [Input("eventRecordFormat")]
         public Input<Pulumi.AwsNative.Lambda.EventSourceMappingSchemaRegistryConfigEventRecordFormat>? EventRecordFormat { get; set; }
 
-        /// <summary>
-        /// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-        /// </summary>
         [Input("schemaRegistryUri")]
         public Input<string>? SchemaRegistryUri { get; set; }
 
         [Input("schemaValidationConfigs")]
         private InputList<Inputs.EventSourceMappingSchemaValidationConfigArgs>? _schemaValidationConfigs;
-
-        /// <summary>
-        /// An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
-        /// </summary>
         public InputList<Inputs.EventSourceMappingSchemaValidationConfigArgs> SchemaValidationConfigs
         {
             get => _schemaValidationConfigs ?? (_schemaValidationConfigs = new InputList<Inputs.EventSourceMappingSchemaValidationConfigArgs>());

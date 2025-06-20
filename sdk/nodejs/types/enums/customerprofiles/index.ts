@@ -27,6 +27,18 @@ export const CalculatedAttributeDefinitionStatistic = {
  */
 export type CalculatedAttributeDefinitionStatistic = (typeof CalculatedAttributeDefinitionStatistic)[keyof typeof CalculatedAttributeDefinitionStatistic];
 
+export const CalculatedAttributeDefinitionStatus = {
+    InProgress: "IN_PROGRESS",
+    Preparing: "PREPARING",
+    Completed: "COMPLETED",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The status of the calculated attribute definition.
+ */
+export type CalculatedAttributeDefinitionStatus = (typeof CalculatedAttributeDefinitionStatus)[keyof typeof CalculatedAttributeDefinitionStatus];
+
 export const CalculatedAttributeDefinitionThresholdOperator = {
     EqualTo: "EQUAL_TO",
     GreaterThan: "GREATER_THAN",
@@ -399,6 +411,26 @@ export const SegmentDefinitionIncludeOptions = {
  * Specifies the operator on how to handle multiple groups within the same segment.
  */
 export type SegmentDefinitionIncludeOptions = (typeof SegmentDefinitionIncludeOptions)[keyof typeof SegmentDefinitionIncludeOptions];
+
+export const SegmentDefinitionProfileType = {
+    AccountProfile: "ACCOUNT_PROFILE",
+    Profile: "PROFILE",
+} as const;
+
+/**
+ * The type of profile.
+ */
+export type SegmentDefinitionProfileType = (typeof SegmentDefinitionProfileType)[keyof typeof SegmentDefinitionProfileType];
+
+export const SegmentDefinitionProfileTypeDimensionType = {
+    Inclusive: "INCLUSIVE",
+    Exclusive: "EXCLUSIVE",
+} as const;
+
+/**
+ * The type of segment dimension to use for a profile type dimension.
+ */
+export type SegmentDefinitionProfileTypeDimensionType = (typeof SegmentDefinitionProfileTypeDimensionType)[keyof typeof SegmentDefinitionProfileTypeDimensionType];
 
 export const SegmentDefinitionRangeOverrideUnit = {
     Days: "DAYS",

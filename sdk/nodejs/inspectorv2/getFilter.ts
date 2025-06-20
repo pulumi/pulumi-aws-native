@@ -45,6 +45,7 @@ export interface GetFilterResult {
      * Findings filter name.
      */
     readonly name?: string;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Inspector Filter resource schema

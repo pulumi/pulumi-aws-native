@@ -22,6 +22,11 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
         /// </summary>
         public readonly Outputs.WebAclAwsManagedRulesAcfpRuleSet? AwsManagedRulesAcfpRuleSet;
+        /// <summary>
+        /// Additional configuration for using the anti-DDoS managed rule group, `AWSManagedRulesAntiDDoSRuleSet` . Use this to configure anti-DDoS behavior for the rule group.
+        /// 
+        /// For information about using the anti-DDoS managed rule group, see [AWS WAF Anti-DDoS rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-anti-ddos.html) and [Distributed Denial of Service (DDoS) prevention](https://docs.aws.amazon.com/waf/latest/developerguide/waf-anti-ddos.html) in the *AWS WAF Developer Guide* .
+        /// </summary>
         public readonly Outputs.WebAclAwsManagedRulesAntiDDoSRuleSet? AwsManagedRulesAntiDDoSRuleSet;
         /// <summary>
         /// Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.

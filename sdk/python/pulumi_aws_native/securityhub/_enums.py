@@ -7,11 +7,23 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AggregatorV2RegionLinkingMode',
     'AutomationRuleDateRangeUnit',
     'AutomationRuleMapFilterComparison',
     'AutomationRuleRuleStatus',
     'AutomationRuleSeverityUpdateLabel',
     'AutomationRuleStringFilterComparison',
+    'AutomationRuleV2AllowedOperators',
+    'AutomationRuleV2AutomationRulesActionV2Type',
+    'AutomationRuleV2DateRangeUnit',
+    'AutomationRuleV2MapFilterComparison',
+    'AutomationRuleV2OcsfBooleanFilterFieldName',
+    'AutomationRuleV2OcsfDateFilterFieldName',
+    'AutomationRuleV2OcsfMapFilterFieldName',
+    'AutomationRuleV2OcsfNumberFilterFieldName',
+    'AutomationRuleV2OcsfStringField',
+    'AutomationRuleV2RuleStatus',
+    'AutomationRuleV2StringFilterComparison',
     'AutomationRuleWorkflowUpdateStatus',
     'AutomationRulesActionType',
     'AutomationRulesFindingFieldsUpdateVerificationState',
@@ -29,6 +41,14 @@ __all__ = [
     'PolicyAssociationTargetType',
     'SecurityControlParameterConfigurationValueType',
 ]
+
+
+@pulumi.type_token("aws-native:securityhub:AggregatorV2RegionLinkingMode")
+class AggregatorV2RegionLinkingMode(builtins.str, Enum):
+    """
+    Indicates to link a list of included Regions
+    """
+    SPECIFIED_REGIONS = "SPECIFIED_REGIONS"
 
 
 @pulumi.type_token("aws-native:securityhub:AutomationRuleDateRangeUnit")
@@ -100,6 +120,146 @@ class AutomationRuleStringFilterComparison(builtins.str, Enum):
     PREFIX_NOT_EQUALS = "PREFIX_NOT_EQUALS"
     CONTAINS = "CONTAINS"
     NOT_CONTAINS = "NOT_CONTAINS"
+
+
+@pulumi.type_token("aws-native:securityhub:AutomationRuleV2AllowedOperators")
+class AutomationRuleV2AllowedOperators(builtins.str, Enum):
+    """
+    The logical operator used to combine multiple conditions
+    """
+    AND_ = "AND"
+    OR_ = "OR"
+
+
+@pulumi.type_token("aws-native:securityhub:AutomationRuleV2AutomationRulesActionV2Type")
+class AutomationRuleV2AutomationRulesActionV2Type(builtins.str, Enum):
+    """
+    The category of action to be executed by the automation rule
+    """
+    FINDING_FIELDS_UPDATE = "FINDING_FIELDS_UPDATE"
+    EXTERNAL_INTEGRATION = "EXTERNAL_INTEGRATION"
+
+
+@pulumi.type_token("aws-native:securityhub:AutomationRuleV2DateRangeUnit")
+class AutomationRuleV2DateRangeUnit(builtins.str, Enum):
+    """
+    A date range unit for the date filter
+    """
+    DAYS = "DAYS"
+
+
+@pulumi.type_token("aws-native:securityhub:AutomationRuleV2MapFilterComparison")
+class AutomationRuleV2MapFilterComparison(builtins.str, Enum):
+    """
+    The condition to apply to the key value when filtering findings with a map filter
+    """
+    EQUALS = "EQUALS"
+    NOT_EQUALS = "NOT_EQUALS"
+
+
+@pulumi.type_token("aws-native:securityhub:AutomationRuleV2OcsfBooleanFilterFieldName")
+class AutomationRuleV2OcsfBooleanFilterFieldName(builtins.str, Enum):
+    """
+    The name of the field
+    """
+    COMPLIANCE_ASSESSMENTS_MEETS_CRITERIA = "compliance.assessments.meets_criteria"
+    VULNERABILITIES_IS_EXPLOIT_AVAILABLE = "vulnerabilities.is_exploit_available"
+    VULNERABILITIES_IS_FIX_AVAILABLE = "vulnerabilities.is_fix_available"
+
+
+@pulumi.type_token("aws-native:securityhub:AutomationRuleV2OcsfDateFilterFieldName")
+class AutomationRuleV2OcsfDateFilterFieldName(builtins.str, Enum):
+    """
+    The name of the field
+    """
+    FINDING_INFO_CREATED_TIME_DT = "finding_info.created_time_dt"
+    FINDING_INFO_FIRST_SEEN_TIME_DT = "finding_info.first_seen_time_dt"
+    FINDING_INFO_LAST_SEEN_TIME_DT = "finding_info.last_seen_time_dt"
+    FINDING_INFO_MODIFIED_TIME_DT = "finding_info.modified_time_dt"
+
+
+@pulumi.type_token("aws-native:securityhub:AutomationRuleV2OcsfMapFilterFieldName")
+class AutomationRuleV2OcsfMapFilterFieldName(builtins.str, Enum):
+    """
+    The name of the field
+    """
+    RESOURCES_TAGS = "resources.tags"
+
+
+@pulumi.type_token("aws-native:securityhub:AutomationRuleV2OcsfNumberFilterFieldName")
+class AutomationRuleV2OcsfNumberFilterFieldName(builtins.str, Enum):
+    """
+    The name of the field
+    """
+    ACTIVITY_ID = "activity_id"
+    COMPLIANCE_STATUS_ID = "compliance.status_id"
+    CONFIDENCE_SCORE = "confidence_score"
+    SEVERITY_ID = "severity_id"
+    STATUS_ID = "status_id"
+    FINDING_INFO_RELATED_EVENTS_COUNT = "finding_info.related_events_count"
+
+
+@pulumi.type_token("aws-native:securityhub:AutomationRuleV2OcsfStringField")
+class AutomationRuleV2OcsfStringField(builtins.str, Enum):
+    """
+    The name of the field
+    """
+    METADATA_UID = "metadata.uid"
+    ACTIVITY_NAME = "activity_name"
+    CLOUD_ACCOUNT_NAME = "cloud.account.name"
+    CLOUD_ACCOUNT_UID = "cloud.account.uid"
+    CLOUD_PROVIDER = "cloud.provider"
+    CLOUD_REGION = "cloud.region"
+    COMPLIANCE_ASSESSMENTS_CATEGORY = "compliance.assessments.category"
+    COMPLIANCE_ASSESSMENTS_NAME = "compliance.assessments.name"
+    COMPLIANCE_CONTROL = "compliance.control"
+    COMPLIANCE_STATUS = "compliance.status"
+    COMPLIANCE_STANDARDS = "compliance.standards"
+    FINDING_INFO_DESC = "finding_info.desc"
+    FINDING_INFO_SRC_URL = "finding_info.src_url"
+    FINDING_INFO_TITLE = "finding_info.title"
+    FINDING_INFO_TYPES = "finding_info.types"
+    FINDING_INFO_UID = "finding_info.uid"
+    FINDING_INFO_RELATED_EVENTS_UID = "finding_info.related_events.uid"
+    FINDING_INFO_RELATED_EVENTS_PRODUCT_UID = "finding_info.related_events.product.uid"
+    FINDING_INFO_RELATED_EVENTS_TITLE = "finding_info.related_events.title"
+    METADATA_PRODUCT_FEATURE_UID = "metadata.product.feature.uid"
+    METADATA_PRODUCT_NAME = "metadata.product.name"
+    METADATA_PRODUCT_UID = "metadata.product.uid"
+    METADATA_PRODUCT_VENDOR_NAME = "metadata.product.vendor_name"
+    REMEDIATION_DESC = "remediation.desc"
+    REMEDIATION_REFERENCES = "remediation.references"
+    RESOURCES_CLOUD_PARTITION = "resources.cloud_partition"
+    RESOURCES_NAME = "resources.name"
+    RESOURCES_REGION = "resources.region"
+    RESOURCES_TYPE = "resources.type"
+    RESOURCES_UID = "resources.uid"
+    SEVERITY = "severity"
+    STATUS = "status"
+    COMMENT = "comment"
+    VULNERABILITIES_FIX_COVERAGE = "vulnerabilities.fix_coverage"
+    CLASS_NAME = "class_name"
+
+
+@pulumi.type_token("aws-native:securityhub:AutomationRuleV2RuleStatus")
+class AutomationRuleV2RuleStatus(builtins.str, Enum):
+    """
+    The status of the automation rule
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:securityhub:AutomationRuleV2StringFilterComparison")
+class AutomationRuleV2StringFilterComparison(builtins.str, Enum):
+    """
+    The condition to apply to a string value when filtering findings
+    """
+    EQUALS = "EQUALS"
+    PREFIX = "PREFIX"
+    NOT_EQUALS = "NOT_EQUALS"
+    PREFIX_NOT_EQUALS = "PREFIX_NOT_EQUALS"
+    CONTAINS = "CONTAINS"
 
 
 @pulumi.type_token("aws-native:securityhub:AutomationRuleWorkflowUpdateStatus")

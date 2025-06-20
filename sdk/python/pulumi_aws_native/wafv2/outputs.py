@@ -565,6 +565,10 @@ class RuleGroupAsnMatchStatement(dict):
     def __init__(__self__, *,
                  asn_list: Optional[Sequence[builtins.int]] = None,
                  forwarded_ip_config: Optional['outputs.RuleGroupForwardedIpConfiguration'] = None):
+        """
+        :param Sequence[builtins.int] asn_list: Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
+        :param 'RuleGroupForwardedIpConfiguration' forwarded_ip_config: The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+        """
         if asn_list is not None:
             pulumi.set(__self__, "asn_list", asn_list)
         if forwarded_ip_config is not None:
@@ -573,11 +577,17 @@ class RuleGroupAsnMatchStatement(dict):
     @property
     @pulumi.getter(name="asnList")
     def asn_list(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
+        """
         return pulumi.get(self, "asn_list")
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional['outputs.RuleGroupForwardedIpConfiguration']:
+        """
+        The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+        """
         return pulumi.get(self, "forwarded_ip_config")
 
 
@@ -2817,6 +2827,7 @@ class RuleGroupRateBasedStatementCustomKey(dict):
                  uri_path: Optional['outputs.RuleGroupRateLimitUriPath'] = None):
         """
         Specifies a single custom aggregate key for a rate-base rule.
+        :param 'RuleGroupRateLimitAsn' asn: Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
         :param 'RuleGroupRateLimitCookie' cookie: Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
         :param 'RuleGroupRateLimitForwardedIp' forwarded_ip: Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
                
@@ -2867,6 +2878,9 @@ class RuleGroupRateBasedStatementCustomKey(dict):
     @property
     @pulumi.getter
     def asn(self) -> Optional['outputs.RuleGroupRateLimitAsn']:
+        """
+        Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
+        """
         return pulumi.get(self, "asn")
 
     @property
@@ -3935,6 +3949,9 @@ class RuleGroupStatement(dict):
         """
         First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
         :param 'RuleGroupAndStatement' and_statement: A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
+        :param 'RuleGroupAsnMatchStatement' asn_match_statement: A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+               
+               For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
         :param 'RuleGroupByteMatchStatement' byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
         :param 'RuleGroupGeoMatchStatement' geo_match_statement: A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.
                
@@ -4050,6 +4067,11 @@ class RuleGroupStatement(dict):
     @property
     @pulumi.getter(name="asnMatchStatement")
     def asn_match_statement(self) -> Optional['outputs.RuleGroupAsnMatchStatement']:
+        """
+        A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+
+        For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+        """
         return pulumi.get(self, "asn_match_statement")
 
     @property
@@ -4521,6 +4543,10 @@ class WebAclAsnMatchStatement(dict):
     def __init__(__self__, *,
                  asn_list: Optional[Sequence[builtins.int]] = None,
                  forwarded_ip_config: Optional['outputs.WebAclForwardedIpConfiguration'] = None):
+        """
+        :param Sequence[builtins.int] asn_list: Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
+        :param 'WebAclForwardedIpConfiguration' forwarded_ip_config: The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+        """
         if asn_list is not None:
             pulumi.set(__self__, "asn_list", asn_list)
         if forwarded_ip_config is not None:
@@ -4529,11 +4555,17 @@ class WebAclAsnMatchStatement(dict):
     @property
     @pulumi.getter(name="asnList")
     def asn_list(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
+        """
         return pulumi.get(self, "asn_list")
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional['outputs.WebAclForwardedIpConfiguration']:
+        """
+        The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+        """
         return pulumi.get(self, "forwarded_ip_config")
 
 
@@ -4731,6 +4763,16 @@ class WebAclAwsManagedRulesAntiDDoSRuleSet(dict):
                  sensitivity_to_block: Optional['WebAclSensitivityToAct'] = None):
         """
         Configures how to use the AntiDDOS AWS managed rule group in the web ACL
+        :param 'WebAclClientSideActionConfig' client_side_action_config: Configures the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack.
+        :param 'WebAclSensitivityToAct' sensitivity_to_block: The sensitivity that the rule group rule `DDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `DDoSRequests` rule runs.
+               
+               The higher the sensitivity, the more levels of labeling that the rule matches:
+               
+               - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+               - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+               - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+               
+               Default: `LOW`
         """
         pulumi.set(__self__, "client_side_action_config", client_side_action_config)
         if sensitivity_to_block is not None:
@@ -4739,11 +4781,25 @@ class WebAclAwsManagedRulesAntiDDoSRuleSet(dict):
     @property
     @pulumi.getter(name="clientSideActionConfig")
     def client_side_action_config(self) -> 'outputs.WebAclClientSideActionConfig':
+        """
+        Configures the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack.
+        """
         return pulumi.get(self, "client_side_action_config")
 
     @property
     @pulumi.getter(name="sensitivityToBlock")
     def sensitivity_to_block(self) -> Optional['WebAclSensitivityToAct']:
+        """
+        The sensitivity that the rule group rule `DDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `DDoSRequests` rule runs.
+
+        The higher the sensitivity, the more levels of labeling that the rule matches:
+
+        - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+        - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+        - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+
+        Default: `LOW`
+        """
         return pulumi.get(self, "sensitivity_to_block")
 
 
@@ -5368,6 +5424,41 @@ class WebAclClientSideAction(dict):
                  sensitivity: Optional['WebAclSensitivityToAct'] = None):
         """
         Client side action config for AntiDDOS AMR.
+        :param 'WebAclUsageOfAction' usage_of_action: Determines whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation and the related label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+               
+               - If usage is enabled:
+               
+               - The managed rule group adds the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web request whose URL does *NOT* match the regular expressions provided in the `ClientSideAction` setting `ExemptUriRegularExpressions` .
+               - The two rules are evaluated against web requests for protected resources that are experiencing a DDoS attack. The two rules only apply their action to matching requests that have the label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+               - If usage is disabled:
+               
+               - The managed rule group doesn't add the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web requests.
+               - The two rules are not evaluated.
+               - None of the other `ClientSideAction` settings have any effect.
+               
+               > This setting only enables or disables the use of the two anti-DDOS rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the anti-DDoS managed rule group.
+               > 
+               > This setting doesn't alter the action setting in the two rules. To override the actions used by the rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` , enable this setting, and then override the rule actions in the usual way, in your managed rule group configuration.
+        :param Sequence['WebAclRegex'] exempt_uri_regular_expressions: The regular expression to match against the web request URI, used to identify requests that can't handle a silent browser challenge. When the `ClientSideAction` setting `UsageOfAction` is enabled, the managed rule group uses this setting to determine which requests to label with `awswaf:managed:aws:anti-ddos:challengeable-request` . If `UsageOfAction` is disabled, this setting has no effect and the managed rule group doesn't add the label to any requests.
+               
+               The anti-DDoS managed rule group doesn't evaluate the rules `ChallengeDDoSRequests` or `ChallengeAllDuringEvent` for web requests whose URIs match this regex. This is true regardless of whether you override the rule action for either of the rules in your web ACL configuration.
+               
+               AWS recommends using a regular expression.
+               
+               This setting is required if `UsageOfAction` is set to `ENABLED` . If required, you can provide between 1 and 5 regex objects in the array of settings.
+               
+               AWS recommends starting with the following setting. Review and update it for your application's needs:
+               
+               `\\/api\\/|\\.(acc|avi|css|gif|jpe?g|js|mp[34]|ogg|otf|pdf|png|tiff?|ttf|webm|webp|woff2?)$`
+        :param 'WebAclSensitivityToAct' sensitivity: The sensitivity that the rule group rule `ChallengeDDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `ChallengeDDoSRequests` rule runs.
+               
+               The higher the sensitivity, the more levels of labeling that the rule matches:
+               
+               - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+               - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+               - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+               
+               Default: `HIGH`
         """
         pulumi.set(__self__, "usage_of_action", usage_of_action)
         if exempt_uri_regular_expressions is not None:
@@ -5378,16 +5469,57 @@ class WebAclClientSideAction(dict):
     @property
     @pulumi.getter(name="usageOfAction")
     def usage_of_action(self) -> 'WebAclUsageOfAction':
+        """
+        Determines whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation and the related label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+
+        - If usage is enabled:
+
+        - The managed rule group adds the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web request whose URL does *NOT* match the regular expressions provided in the `ClientSideAction` setting `ExemptUriRegularExpressions` .
+        - The two rules are evaluated against web requests for protected resources that are experiencing a DDoS attack. The two rules only apply their action to matching requests that have the label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+        - If usage is disabled:
+
+        - The managed rule group doesn't add the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web requests.
+        - The two rules are not evaluated.
+        - None of the other `ClientSideAction` settings have any effect.
+
+        > This setting only enables or disables the use of the two anti-DDOS rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the anti-DDoS managed rule group.
+        > 
+        > This setting doesn't alter the action setting in the two rules. To override the actions used by the rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` , enable this setting, and then override the rule actions in the usual way, in your managed rule group configuration.
+        """
         return pulumi.get(self, "usage_of_action")
 
     @property
     @pulumi.getter(name="exemptUriRegularExpressions")
     def exempt_uri_regular_expressions(self) -> Optional[Sequence['outputs.WebAclRegex']]:
+        """
+        The regular expression to match against the web request URI, used to identify requests that can't handle a silent browser challenge. When the `ClientSideAction` setting `UsageOfAction` is enabled, the managed rule group uses this setting to determine which requests to label with `awswaf:managed:aws:anti-ddos:challengeable-request` . If `UsageOfAction` is disabled, this setting has no effect and the managed rule group doesn't add the label to any requests.
+
+        The anti-DDoS managed rule group doesn't evaluate the rules `ChallengeDDoSRequests` or `ChallengeAllDuringEvent` for web requests whose URIs match this regex. This is true regardless of whether you override the rule action for either of the rules in your web ACL configuration.
+
+        AWS recommends using a regular expression.
+
+        This setting is required if `UsageOfAction` is set to `ENABLED` . If required, you can provide between 1 and 5 regex objects in the array of settings.
+
+        AWS recommends starting with the following setting. Review and update it for your application's needs:
+
+        `\\/api\\/|\\.(acc|avi|css|gif|jpe?g|js|mp[34]|ogg|otf|pdf|png|tiff?|ttf|webm|webp|woff2?)$`
+        """
         return pulumi.get(self, "exempt_uri_regular_expressions")
 
     @property
     @pulumi.getter
     def sensitivity(self) -> Optional['WebAclSensitivityToAct']:
+        """
+        The sensitivity that the rule group rule `ChallengeDDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `ChallengeDDoSRequests` rule runs.
+
+        The higher the sensitivity, the more levels of labeling that the rule matches:
+
+        - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+        - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+        - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+
+        Default: `HIGH`
+        """
         return pulumi.get(self, "sensitivity")
 
 
@@ -5400,12 +5532,24 @@ class WebAclClientSideActionConfig(dict):
                  challenge: 'outputs.WebAclClientSideAction'):
         """
         Client side action config for AntiDDOS AMR.
+        :param 'WebAclClientSideAction' challenge: Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
+               
+               > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here. 
+               
+               You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
         """
         pulumi.set(__self__, "challenge", challenge)
 
     @property
     @pulumi.getter
     def challenge(self) -> 'outputs.WebAclClientSideAction':
+        """
+        Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
+
+        > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here. 
+
+        You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
+        """
         return pulumi.get(self, "challenge")
 
 
@@ -7221,6 +7365,9 @@ class WebAclManagedRuleGroupConfig(dict):
         :param 'WebAclAwsManagedRulesAcfpRuleSet' aws_managed_rules_acfp_rule_set: Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, `AWSManagedRulesACFPRuleSet` . Use this to provide account creation request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to account creation requests.
                
                For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
+        :param 'WebAclAwsManagedRulesAntiDDoSRuleSet' aws_managed_rules_anti_d_do_s_rule_set: Additional configuration for using the anti-DDoS managed rule group, `AWSManagedRulesAntiDDoSRuleSet` . Use this to configure anti-DDoS behavior for the rule group.
+               
+               For information about using the anti-DDoS managed rule group, see [AWS WAF Anti-DDoS rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-anti-ddos.html) and [Distributed Denial of Service (DDoS) prevention](https://docs.aws.amazon.com/waf/latest/developerguide/waf-anti-ddos.html) in the *AWS WAF Developer Guide* .
         :param 'WebAclAwsManagedRulesAtpRuleSet' aws_managed_rules_atp_rule_set: Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
                
                This configuration replaces the individual configuration fields in `ManagedRuleGroupConfig` and provides additional feature configuration.
@@ -7262,6 +7409,11 @@ class WebAclManagedRuleGroupConfig(dict):
     @property
     @pulumi.getter(name="awsManagedRulesAntiDDoSRuleSet")
     def aws_managed_rules_anti_d_do_s_rule_set(self) -> Optional['outputs.WebAclAwsManagedRulesAntiDDoSRuleSet']:
+        """
+        Additional configuration for using the anti-DDoS managed rule group, `AWSManagedRulesAntiDDoSRuleSet` . Use this to configure anti-DDoS behavior for the rule group.
+
+        For information about using the anti-DDoS managed rule group, see [AWS WAF Anti-DDoS rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-anti-ddos.html) and [Distributed Denial of Service (DDoS) prevention](https://docs.aws.amazon.com/waf/latest/developerguide/waf-anti-ddos.html) in the *AWS WAF Developer Guide* .
+        """
         return pulumi.get(self, "aws_managed_rules_anti_d_do_s_rule_set")
 
     @property
@@ -7479,12 +7631,16 @@ class WebAclOnSourceDDoSProtectionConfig(dict):
                  alb_low_reputation_mode: 'WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode'):
         """
         Configures the options for on-source DDoS protection provided by supported resource type.
+        :param 'WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode' alb_low_reputation_mode: The level of DDoS protection that applies to web ACLs associated with Application Load Balancers. `ACTIVE_UNDER_DDOS` protection is enabled by default whenever a web ACL is associated with an Application Load Balancer. In the event that an Application Load Balancer experiences high-load conditions or suspected DDoS attacks, the `ACTIVE_UNDER_DDOS` protection automatically rate limits traffic from known low reputation sources without disrupting Application Load Balancer availability. `ALWAYS_ON` protection provides constant, always-on monitoring of known low reputation sources for suspected DDoS attacks. While this provides a higher level of protection, there may be potential impacts on legitimate traffic.
         """
         pulumi.set(__self__, "alb_low_reputation_mode", alb_low_reputation_mode)
 
     @property
     @pulumi.getter(name="albLowReputationMode")
     def alb_low_reputation_mode(self) -> 'WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode':
+        """
+        The level of DDoS protection that applies to web ACLs associated with Application Load Balancers. `ACTIVE_UNDER_DDOS` protection is enabled by default whenever a web ACL is associated with an Application Load Balancer. In the event that an Application Load Balancer experiences high-load conditions or suspected DDoS attacks, the `ACTIVE_UNDER_DDOS` protection automatically rate limits traffic from known low reputation sources without disrupting Application Load Balancer availability. `ALWAYS_ON` protection provides constant, always-on monitoring of known low reputation sources for suspected DDoS attacks. While this provides a higher level of protection, there may be potential impacts on legitimate traffic.
+        """
         return pulumi.get(self, "alb_low_reputation_mode")
 
 
@@ -7758,6 +7914,7 @@ class WebAclRateBasedStatementCustomKey(dict):
                  uri_path: Optional['outputs.WebAclRateLimitUriPath'] = None):
         """
         Specifies a single custom aggregate key for a rate-base rule.
+        :param 'WebAclRateLimitAsn' asn: Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
         :param 'WebAclRateLimitCookie' cookie: Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
         :param 'WebAclRateLimitForwardedIp' forwarded_ip: Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
                
@@ -7808,6 +7965,9 @@ class WebAclRateBasedStatementCustomKey(dict):
     @property
     @pulumi.getter
     def asn(self) -> Optional['outputs.WebAclRateLimitAsn']:
+        """
+        Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
+        """
         return pulumi.get(self, "asn")
 
     @property
@@ -9774,6 +9934,9 @@ class WebAclStatement(dict):
         """
         First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
         :param 'WebAclAndStatement' and_statement: A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
+        :param 'WebAclAsnMatchStatement' asn_match_statement: A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+               
+               For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
         :param 'WebAclByteMatchStatement' byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
         :param 'WebAclGeoMatchStatement' geo_match_statement: A rule statement that labels web requests by country and region and that matches against web requests based on country code. A geo match rule labels every request that it inspects regardless of whether it finds a match.
                
@@ -9901,6 +10064,11 @@ class WebAclStatement(dict):
     @property
     @pulumi.getter(name="asnMatchStatement")
     def asn_match_statement(self) -> Optional['outputs.WebAclAsnMatchStatement']:
+        """
+        A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+
+        For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+        """
         return pulumi.get(self, "asn_match_statement")
 
     @property

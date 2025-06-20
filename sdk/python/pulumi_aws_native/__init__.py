@@ -1580,6 +1580,7 @@ _utilities.register(
    "aws-native:ec2:SubnetCidrBlock": "SubnetCidrBlock",
    "aws-native:ec2:SubnetNetworkAclAssociation": "SubnetNetworkAclAssociation",
    "aws-native:ec2:SubnetRouteTableAssociation": "SubnetRouteTableAssociation",
+   "aws-native:ec2:TrafficMirrorFilter": "TrafficMirrorFilter",
    "aws-native:ec2:TransitGateway": "TransitGateway",
    "aws-native:ec2:TransitGatewayAttachment": "TransitGatewayAttachment",
    "aws-native:ec2:TransitGatewayConnect": "TransitGatewayConnect",
@@ -2837,6 +2838,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.redshiftserverless",
   "classes": {
    "aws-native:redshiftserverless:Namespace": "Namespace",
+   "aws-native:redshiftserverless:Snapshot": "Snapshot",
    "aws-native:redshiftserverless:Workgroup": "Workgroup"
   }
  },
@@ -3097,11 +3099,14 @@ _utilities.register(
   "mod": "securityhub",
   "fqn": "pulumi_aws_native.securityhub",
   "classes": {
+   "aws-native:securityhub:AggregatorV2": "AggregatorV2",
    "aws-native:securityhub:AutomationRule": "AutomationRule",
+   "aws-native:securityhub:AutomationRuleV2": "AutomationRuleV2",
    "aws-native:securityhub:ConfigurationPolicy": "ConfigurationPolicy",
    "aws-native:securityhub:DelegatedAdmin": "DelegatedAdmin",
    "aws-native:securityhub:FindingAggregator": "FindingAggregator",
    "aws-native:securityhub:Hub": "Hub",
+   "aws-native:securityhub:HubV2": "HubV2",
    "aws-native:securityhub:Insight": "Insight",
    "aws-native:securityhub:OrganizationConfiguration": "OrganizationConfiguration",
    "aws-native:securityhub:PolicyAssociation": "PolicyAssociation",

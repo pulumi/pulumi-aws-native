@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.InspectorV2
         /// Findings filter name.
         /// </summary>
         public readonly string? Name;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetFilterResult(
@@ -94,13 +95,16 @@ namespace Pulumi.AwsNative.InspectorV2
 
             Outputs.FilterCriteria? filterCriteria,
 
-            string? name)
+            string? name,
+
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;
             FilterAction = filterAction;
             FilterCriteria = filterCriteria;
             Name = name;
+            Tags = tags;
         }
     }
 }

@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetObjectTypeResult:
-    def __init__(__self__, allow_profile_creation=None, created_at=None, description=None, encryption_key=None, expiration_days=None, fields=None, keys=None, last_updated_at=None, source_last_updated_timestamp_format=None, tags=None, template_id=None):
+    def __init__(__self__, allow_profile_creation=None, created_at=None, description=None, encryption_key=None, expiration_days=None, fields=None, keys=None, last_updated_at=None, max_available_profile_object_count=None, max_profile_object_count=None, source_last_updated_timestamp_format=None, tags=None, template_id=None):
         if allow_profile_creation and not isinstance(allow_profile_creation, bool):
             raise TypeError("Expected argument 'allow_profile_creation' to be a bool")
         pulumi.set(__self__, "allow_profile_creation", allow_profile_creation)
@@ -52,6 +52,12 @@ class GetObjectTypeResult:
         if last_updated_at and not isinstance(last_updated_at, str):
             raise TypeError("Expected argument 'last_updated_at' to be a str")
         pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if max_available_profile_object_count and not isinstance(max_available_profile_object_count, int):
+            raise TypeError("Expected argument 'max_available_profile_object_count' to be a int")
+        pulumi.set(__self__, "max_available_profile_object_count", max_available_profile_object_count)
+        if max_profile_object_count and not isinstance(max_profile_object_count, int):
+            raise TypeError("Expected argument 'max_profile_object_count' to be a int")
+        pulumi.set(__self__, "max_profile_object_count", max_profile_object_count)
         if source_last_updated_timestamp_format and not isinstance(source_last_updated_timestamp_format, str):
             raise TypeError("Expected argument 'source_last_updated_timestamp_format' to be a str")
         pulumi.set(__self__, "source_last_updated_timestamp_format", source_last_updated_timestamp_format)
@@ -127,6 +133,22 @@ class GetObjectTypeResult:
         return pulumi.get(self, "last_updated_at")
 
     @property
+    @pulumi.getter(name="maxAvailableProfileObjectCount")
+    def max_available_profile_object_count(self) -> Optional[builtins.int]:
+        """
+        The maximum available number of profile objects
+        """
+        return pulumi.get(self, "max_available_profile_object_count")
+
+    @property
+    @pulumi.getter(name="maxProfileObjectCount")
+    def max_profile_object_count(self) -> Optional[builtins.int]:
+        """
+        The maximum number of profile objects for this object type
+        """
+        return pulumi.get(self, "max_profile_object_count")
+
+    @property
     @pulumi.getter(name="sourceLastUpdatedTimestampFormat")
     def source_last_updated_timestamp_format(self) -> Optional[builtins.str]:
         """
@@ -165,6 +187,8 @@ class AwaitableGetObjectTypeResult(GetObjectTypeResult):
             fields=self.fields,
             keys=self.keys,
             last_updated_at=self.last_updated_at,
+            max_available_profile_object_count=self.max_available_profile_object_count,
+            max_profile_object_count=self.max_profile_object_count,
             source_last_updated_timestamp_format=self.source_last_updated_timestamp_format,
             tags=self.tags,
             template_id=self.template_id)
@@ -195,6 +219,8 @@ def get_object_type(domain_name: Optional[builtins.str] = None,
         fields=pulumi.get(__ret__, 'fields'),
         keys=pulumi.get(__ret__, 'keys'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
+        max_available_profile_object_count=pulumi.get(__ret__, 'max_available_profile_object_count'),
+        max_profile_object_count=pulumi.get(__ret__, 'max_profile_object_count'),
         source_last_updated_timestamp_format=pulumi.get(__ret__, 'source_last_updated_timestamp_format'),
         tags=pulumi.get(__ret__, 'tags'),
         template_id=pulumi.get(__ret__, 'template_id'))
@@ -222,6 +248,8 @@ def get_object_type_output(domain_name: Optional[pulumi.Input[builtins.str]] = N
         fields=pulumi.get(__response__, 'fields'),
         keys=pulumi.get(__response__, 'keys'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
+        max_available_profile_object_count=pulumi.get(__response__, 'max_available_profile_object_count'),
+        max_profile_object_count=pulumi.get(__response__, 'max_profile_object_count'),
         source_last_updated_timestamp_format=pulumi.get(__response__, 'source_last_updated_timestamp_format'),
         tags=pulumi.get(__response__, 'tags'),
         template_id=pulumi.get(__response__, 'template_id')))

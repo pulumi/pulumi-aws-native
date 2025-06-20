@@ -758,7 +758,6 @@ func (o EventSourceMappingMetricsConfigMetricsItemArrayOutput) Index(i pulumi.In
 	}).(EventSourceMappingMetricsConfigMetricsItemOutput)
 }
 
-// The type of authentication Lambda uses to access your schema registry.
 type EventSourceMappingSchemaRegistryAccessConfigType string
 
 const (
@@ -926,7 +925,6 @@ func (in *eventSourceMappingSchemaRegistryAccessConfigTypePtr) ToEventSourceMapp
 	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput)
 }
 
-// The record format that Lambda delivers to your function after schema validation.
 type EventSourceMappingSchemaRegistryConfigEventRecordFormat string
 
 const (
@@ -1092,7 +1090,6 @@ func (in *eventSourceMappingSchemaRegistryConfigEventRecordFormatPtr) ToEventSou
 	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput)
 }
 
-// The attribute you want your schema registry to validate and filter for.
 type EventSourceMappingSchemaValidationConfigAttribute string
 
 const (

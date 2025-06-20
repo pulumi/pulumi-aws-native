@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGuardrailResult:
-    def __init__(__self__, blocked_input_messaging=None, blocked_outputs_messaging=None, content_policy_config=None, contextual_grounding_policy_config=None, created_at=None, description=None, failure_recommendations=None, guardrail_arn=None, guardrail_id=None, kms_key_arn=None, name=None, sensitive_information_policy_config=None, status=None, status_reasons=None, tags=None, topic_policy_config=None, updated_at=None, version=None, word_policy_config=None):
+    def __init__(__self__, blocked_input_messaging=None, blocked_outputs_messaging=None, content_policy_config=None, contextual_grounding_policy_config=None, created_at=None, cross_region_config=None, description=None, failure_recommendations=None, guardrail_arn=None, guardrail_id=None, kms_key_arn=None, name=None, sensitive_information_policy_config=None, status=None, status_reasons=None, tags=None, topic_policy_config=None, updated_at=None, version=None, word_policy_config=None):
         if blocked_input_messaging and not isinstance(blocked_input_messaging, str):
             raise TypeError("Expected argument 'blocked_input_messaging' to be a str")
         pulumi.set(__self__, "blocked_input_messaging", blocked_input_messaging)
@@ -43,6 +43,9 @@ class GetGuardrailResult:
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if cross_region_config and not isinstance(cross_region_config, dict):
+            raise TypeError("Expected argument 'cross_region_config' to be a dict")
+        pulumi.set(__self__, "cross_region_config", cross_region_config)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -122,6 +125,11 @@ class GetGuardrailResult:
         Time Stamp
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="crossRegionConfig")
+    def cross_region_config(self) -> Optional['outputs.GuardrailCrossRegionConfig']:
+        return pulumi.get(self, "cross_region_config")
 
     @property
     @pulumi.getter
@@ -247,6 +255,7 @@ class AwaitableGetGuardrailResult(GetGuardrailResult):
             content_policy_config=self.content_policy_config,
             contextual_grounding_policy_config=self.contextual_grounding_policy_config,
             created_at=self.created_at,
+            cross_region_config=self.cross_region_config,
             description=self.description,
             failure_recommendations=self.failure_recommendations,
             guardrail_arn=self.guardrail_arn,
@@ -282,6 +291,7 @@ def get_guardrail(guardrail_arn: Optional[builtins.str] = None,
         content_policy_config=pulumi.get(__ret__, 'content_policy_config'),
         contextual_grounding_policy_config=pulumi.get(__ret__, 'contextual_grounding_policy_config'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        cross_region_config=pulumi.get(__ret__, 'cross_region_config'),
         description=pulumi.get(__ret__, 'description'),
         failure_recommendations=pulumi.get(__ret__, 'failure_recommendations'),
         guardrail_arn=pulumi.get(__ret__, 'guardrail_arn'),
@@ -314,6 +324,7 @@ def get_guardrail_output(guardrail_arn: Optional[pulumi.Input[builtins.str]] = N
         content_policy_config=pulumi.get(__response__, 'content_policy_config'),
         contextual_grounding_policy_config=pulumi.get(__response__, 'contextual_grounding_policy_config'),
         created_at=pulumi.get(__response__, 'created_at'),
+        cross_region_config=pulumi.get(__response__, 'cross_region_config'),
         description=pulumi.get(__response__, 'description'),
         failure_recommendations=pulumi.get(__response__, 'failure_recommendations'),
         guardrail_arn=pulumi.get(__response__, 'guardrail_arn'),

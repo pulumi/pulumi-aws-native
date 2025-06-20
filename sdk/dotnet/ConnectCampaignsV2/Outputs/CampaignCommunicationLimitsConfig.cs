@@ -20,11 +20,16 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
         /// The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
         /// </summary>
         public readonly Outputs.CampaignCommunicationLimits? AllChannelsSubtypes;
+        public readonly Pulumi.AwsNative.ConnectCampaignsV2.CampaignInstanceLimitsHandling? InstanceLimitsHandling;
 
         [OutputConstructor]
-        private CampaignCommunicationLimitsConfig(Outputs.CampaignCommunicationLimits? allChannelsSubtypes)
+        private CampaignCommunicationLimitsConfig(
+            Outputs.CampaignCommunicationLimits? allChannelsSubtypes,
+
+            Pulumi.AwsNative.ConnectCampaignsV2.CampaignInstanceLimitsHandling? instanceLimitsHandling)
         {
             AllChannelsSubtypes = allChannelsSubtypes;
+            InstanceLimitsHandling = instanceLimitsHandling;
         }
     }
 }

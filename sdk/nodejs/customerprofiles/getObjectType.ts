@@ -63,6 +63,14 @@ export interface GetObjectTypeResult {
      */
     readonly lastUpdatedAt?: string;
     /**
+     * The maximum available number of profile objects
+     */
+    readonly maxAvailableProfileObjectCount?: number;
+    /**
+     * The maximum number of profile objects for this object type
+     */
+    readonly maxProfileObjectCount?: number;
+    /**
      * The format of your sourceLastUpdatedTimestamp that was previously set up.
      */
     readonly sourceLastUpdatedTimestampFormat?: string;

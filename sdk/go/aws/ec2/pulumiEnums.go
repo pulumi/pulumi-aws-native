@@ -11913,6 +11913,215 @@ func (in *spotFleetTagSpecificationResourceTypePtr) ToSpotFleetTagSpecificationR
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetTagSpecificationResourceTypePtrOutput)
 }
 
+// The network service traffic that is associated with the traffic mirror filter.
+type TrafficMirrorFilterTrafficMirrorNetworkService string
+
+const (
+	TrafficMirrorFilterTrafficMirrorNetworkServiceAmazonDns = TrafficMirrorFilterTrafficMirrorNetworkService("amazon-dns")
+)
+
+func (TrafficMirrorFilterTrafficMirrorNetworkService) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkService)(nil)).Elem()
+}
+
+func (e TrafficMirrorFilterTrafficMirrorNetworkService) ToTrafficMirrorFilterTrafficMirrorNetworkServiceOutput() TrafficMirrorFilterTrafficMirrorNetworkServiceOutput {
+	return pulumi.ToOutput(e).(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput)
+}
+
+func (e TrafficMirrorFilterTrafficMirrorNetworkService) ToTrafficMirrorFilterTrafficMirrorNetworkServiceOutputWithContext(ctx context.Context) TrafficMirrorFilterTrafficMirrorNetworkServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput)
+}
+
+func (e TrafficMirrorFilterTrafficMirrorNetworkService) ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput() TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput {
+	return e.ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutputWithContext(context.Background())
+}
+
+func (e TrafficMirrorFilterTrafficMirrorNetworkService) ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput {
+	return TrafficMirrorFilterTrafficMirrorNetworkService(e).ToTrafficMirrorFilterTrafficMirrorNetworkServiceOutputWithContext(ctx).ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutputWithContext(ctx)
+}
+
+func (e TrafficMirrorFilterTrafficMirrorNetworkService) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrafficMirrorFilterTrafficMirrorNetworkService) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrafficMirrorFilterTrafficMirrorNetworkService) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TrafficMirrorFilterTrafficMirrorNetworkService) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TrafficMirrorFilterTrafficMirrorNetworkServiceOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorFilterTrafficMirrorNetworkServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkService)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServiceOutput) ToTrafficMirrorFilterTrafficMirrorNetworkServiceOutput() TrafficMirrorFilterTrafficMirrorNetworkServiceOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServiceOutput) ToTrafficMirrorFilterTrafficMirrorNetworkServiceOutputWithContext(ctx context.Context) TrafficMirrorFilterTrafficMirrorNetworkServiceOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServiceOutput) ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput() TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput {
+	return o.ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutputWithContext(context.Background())
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServiceOutput) ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficMirrorFilterTrafficMirrorNetworkService) *TrafficMirrorFilterTrafficMirrorNetworkService {
+		return &v
+	}).(TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput)
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServiceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServiceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrafficMirrorFilterTrafficMirrorNetworkService) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServiceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServiceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrafficMirrorFilterTrafficMirrorNetworkService) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficMirrorFilterTrafficMirrorNetworkService)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput) ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput() TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput) ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput) Elem() TrafficMirrorFilterTrafficMirrorNetworkServiceOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterTrafficMirrorNetworkService) TrafficMirrorFilterTrafficMirrorNetworkService {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficMirrorFilterTrafficMirrorNetworkService
+		return ret
+	}).(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput)
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrafficMirrorFilterTrafficMirrorNetworkService) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TrafficMirrorFilterTrafficMirrorNetworkServiceInput is an input type that accepts values of the TrafficMirrorFilterTrafficMirrorNetworkService enum
+// A concrete instance of `TrafficMirrorFilterTrafficMirrorNetworkServiceInput` can be one of the following:
+//
+//	TrafficMirrorFilterTrafficMirrorNetworkServiceAmazonDns
+type TrafficMirrorFilterTrafficMirrorNetworkServiceInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterTrafficMirrorNetworkServiceOutput() TrafficMirrorFilterTrafficMirrorNetworkServiceOutput
+	ToTrafficMirrorFilterTrafficMirrorNetworkServiceOutputWithContext(context.Context) TrafficMirrorFilterTrafficMirrorNetworkServiceOutput
+}
+
+var trafficMirrorFilterTrafficMirrorNetworkServicePtrType = reflect.TypeOf((**TrafficMirrorFilterTrafficMirrorNetworkService)(nil)).Elem()
+
+type TrafficMirrorFilterTrafficMirrorNetworkServicePtrInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput() TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput
+	ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutputWithContext(context.Context) TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput
+}
+
+type trafficMirrorFilterTrafficMirrorNetworkServicePtr string
+
+func TrafficMirrorFilterTrafficMirrorNetworkServicePtr(v string) TrafficMirrorFilterTrafficMirrorNetworkServicePtrInput {
+	return (*trafficMirrorFilterTrafficMirrorNetworkServicePtr)(&v)
+}
+
+func (*trafficMirrorFilterTrafficMirrorNetworkServicePtr) ElementType() reflect.Type {
+	return trafficMirrorFilterTrafficMirrorNetworkServicePtrType
+}
+
+func (in *trafficMirrorFilterTrafficMirrorNetworkServicePtr) ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput() TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput {
+	return pulumi.ToOutput(in).(TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput)
+}
+
+func (in *trafficMirrorFilterTrafficMirrorNetworkServicePtr) ToTrafficMirrorFilterTrafficMirrorNetworkServicePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput)
+}
+
+// TrafficMirrorFilterTrafficMirrorNetworkServiceArrayInput is an input type that accepts TrafficMirrorFilterTrafficMirrorNetworkServiceArray and TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterTrafficMirrorNetworkServiceArrayInput` via:
+//
+//	TrafficMirrorFilterTrafficMirrorNetworkServiceArray{ TrafficMirrorFilterTrafficMirrorNetworkServiceArgs{...} }
+type TrafficMirrorFilterTrafficMirrorNetworkServiceArrayInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput() TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput
+	ToTrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutputWithContext(context.Context) TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput
+}
+
+type TrafficMirrorFilterTrafficMirrorNetworkServiceArray []TrafficMirrorFilterTrafficMirrorNetworkService
+
+func (TrafficMirrorFilterTrafficMirrorNetworkServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficMirrorFilterTrafficMirrorNetworkService)(nil)).Elem()
+}
+
+func (i TrafficMirrorFilterTrafficMirrorNetworkServiceArray) ToTrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput() TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput {
+	return i.ToTrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterTrafficMirrorNetworkServiceArray) ToTrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutputWithContext(ctx context.Context) TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput)
+}
+
+type TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficMirrorFilterTrafficMirrorNetworkService)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput) ToTrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput() TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput) ToTrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutputWithContext(ctx context.Context) TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput) Index(i pulumi.IntInput) TrafficMirrorFilterTrafficMirrorNetworkServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficMirrorFilterTrafficMirrorNetworkService {
+		return vs[0].([]TrafficMirrorFilterTrafficMirrorNetworkService)[vs[1].(int)]
+	}).(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput)
+}
+
 // The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
 type VpcBlockPublicAccessExclusionInternetGatewayExclusionMode string
 
@@ -14631,6 +14840,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetSpotPlacementTenancyPtrInput)(nil)).Elem(), SpotFleetSpotPlacementTenancy("dedicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTagSpecificationResourceTypeInput)(nil)).Elem(), SpotFleetTagSpecificationResourceType("client-vpn-endpoint"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTagSpecificationResourceTypePtrInput)(nil)).Elem(), SpotFleetTagSpecificationResourceType("client-vpn-endpoint"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServiceInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkService("amazon-dns"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServicePtrInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkService("amazon-dns"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServiceArrayInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessExclusionInternetGatewayExclusionModeInput)(nil)).Elem(), VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-bidirectional"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrInput)(nil)).Elem(), VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-bidirectional"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessOptionsInternetGatewayBlockModeInput)(nil)).Elem(), VpcBlockPublicAccessOptionsInternetGatewayBlockMode("block-bidirectional"))
@@ -14813,6 +15025,9 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetSpotPlacementTenancyPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetTagSpecificationResourceTypeOutput{})
 	pulumi.RegisterOutputType(SpotFleetTagSpecificationResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput{})
 	pulumi.RegisterOutputType(VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput{})
 	pulumi.RegisterOutputType(VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput{})
 	pulumi.RegisterOutputType(VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput{})

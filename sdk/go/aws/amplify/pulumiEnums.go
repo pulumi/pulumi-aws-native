@@ -352,6 +352,186 @@ func (in *appCacheConfigTypePtr) ToAppCacheConfigTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AppCacheConfigTypePtrOutput)
 }
 
+// Specifies the size of the build instance. Amplify supports three instance sizes: `STANDARD_8GB` , `LARGE_16GB` , and `XLARGE_72GB` . If you don't specify a value, Amplify uses the `STANDARD_8GB` default.
+//
+// The following list describes the CPU, memory, and storage capacity for each build instance type:
+//
+// - **STANDARD_8GB** - - vCPUs: 4
+// - Memory: 8 GiB
+// - Disk space: 128 GB
+// - **LARGE_16GB** - - vCPUs: 8
+// - Memory: 16 GiB
+// - Disk space: 128 GB
+// - **XLARGE_72GB** - - vCPUs: 36
+// - Memory: 72 GiB
+// - Disk space: 256 GB
+type AppJobConfigBuildComputeType string
+
+const (
+	AppJobConfigBuildComputeTypeStandard8gb = AppJobConfigBuildComputeType("STANDARD_8GB")
+	AppJobConfigBuildComputeTypeLarge16gb   = AppJobConfigBuildComputeType("LARGE_16GB")
+	AppJobConfigBuildComputeTypeXlarge72gb  = AppJobConfigBuildComputeType("XLARGE_72GB")
+)
+
+func (AppJobConfigBuildComputeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppJobConfigBuildComputeType)(nil)).Elem()
+}
+
+func (e AppJobConfigBuildComputeType) ToAppJobConfigBuildComputeTypeOutput() AppJobConfigBuildComputeTypeOutput {
+	return pulumi.ToOutput(e).(AppJobConfigBuildComputeTypeOutput)
+}
+
+func (e AppJobConfigBuildComputeType) ToAppJobConfigBuildComputeTypeOutputWithContext(ctx context.Context) AppJobConfigBuildComputeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppJobConfigBuildComputeTypeOutput)
+}
+
+func (e AppJobConfigBuildComputeType) ToAppJobConfigBuildComputeTypePtrOutput() AppJobConfigBuildComputeTypePtrOutput {
+	return e.ToAppJobConfigBuildComputeTypePtrOutputWithContext(context.Background())
+}
+
+func (e AppJobConfigBuildComputeType) ToAppJobConfigBuildComputeTypePtrOutputWithContext(ctx context.Context) AppJobConfigBuildComputeTypePtrOutput {
+	return AppJobConfigBuildComputeType(e).ToAppJobConfigBuildComputeTypeOutputWithContext(ctx).ToAppJobConfigBuildComputeTypePtrOutputWithContext(ctx)
+}
+
+func (e AppJobConfigBuildComputeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppJobConfigBuildComputeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppJobConfigBuildComputeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppJobConfigBuildComputeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppJobConfigBuildComputeTypeOutput struct{ *pulumi.OutputState }
+
+func (AppJobConfigBuildComputeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppJobConfigBuildComputeType)(nil)).Elem()
+}
+
+func (o AppJobConfigBuildComputeTypeOutput) ToAppJobConfigBuildComputeTypeOutput() AppJobConfigBuildComputeTypeOutput {
+	return o
+}
+
+func (o AppJobConfigBuildComputeTypeOutput) ToAppJobConfigBuildComputeTypeOutputWithContext(ctx context.Context) AppJobConfigBuildComputeTypeOutput {
+	return o
+}
+
+func (o AppJobConfigBuildComputeTypeOutput) ToAppJobConfigBuildComputeTypePtrOutput() AppJobConfigBuildComputeTypePtrOutput {
+	return o.ToAppJobConfigBuildComputeTypePtrOutputWithContext(context.Background())
+}
+
+func (o AppJobConfigBuildComputeTypeOutput) ToAppJobConfigBuildComputeTypePtrOutputWithContext(ctx context.Context) AppJobConfigBuildComputeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppJobConfigBuildComputeType) *AppJobConfigBuildComputeType {
+		return &v
+	}).(AppJobConfigBuildComputeTypePtrOutput)
+}
+
+func (o AppJobConfigBuildComputeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppJobConfigBuildComputeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppJobConfigBuildComputeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppJobConfigBuildComputeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppJobConfigBuildComputeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppJobConfigBuildComputeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppJobConfigBuildComputeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AppJobConfigBuildComputeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppJobConfigBuildComputeType)(nil)).Elem()
+}
+
+func (o AppJobConfigBuildComputeTypePtrOutput) ToAppJobConfigBuildComputeTypePtrOutput() AppJobConfigBuildComputeTypePtrOutput {
+	return o
+}
+
+func (o AppJobConfigBuildComputeTypePtrOutput) ToAppJobConfigBuildComputeTypePtrOutputWithContext(ctx context.Context) AppJobConfigBuildComputeTypePtrOutput {
+	return o
+}
+
+func (o AppJobConfigBuildComputeTypePtrOutput) Elem() AppJobConfigBuildComputeTypeOutput {
+	return o.ApplyT(func(v *AppJobConfigBuildComputeType) AppJobConfigBuildComputeType {
+		if v != nil {
+			return *v
+		}
+		var ret AppJobConfigBuildComputeType
+		return ret
+	}).(AppJobConfigBuildComputeTypeOutput)
+}
+
+func (o AppJobConfigBuildComputeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppJobConfigBuildComputeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppJobConfigBuildComputeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppJobConfigBuildComputeTypeInput is an input type that accepts values of the AppJobConfigBuildComputeType enum
+// A concrete instance of `AppJobConfigBuildComputeTypeInput` can be one of the following:
+//
+//	AppJobConfigBuildComputeTypeStandard8gb
+//	AppJobConfigBuildComputeTypeLarge16gb
+//	AppJobConfigBuildComputeTypeXlarge72gb
+type AppJobConfigBuildComputeTypeInput interface {
+	pulumi.Input
+
+	ToAppJobConfigBuildComputeTypeOutput() AppJobConfigBuildComputeTypeOutput
+	ToAppJobConfigBuildComputeTypeOutputWithContext(context.Context) AppJobConfigBuildComputeTypeOutput
+}
+
+var appJobConfigBuildComputeTypePtrType = reflect.TypeOf((**AppJobConfigBuildComputeType)(nil)).Elem()
+
+type AppJobConfigBuildComputeTypePtrInput interface {
+	pulumi.Input
+
+	ToAppJobConfigBuildComputeTypePtrOutput() AppJobConfigBuildComputeTypePtrOutput
+	ToAppJobConfigBuildComputeTypePtrOutputWithContext(context.Context) AppJobConfigBuildComputeTypePtrOutput
+}
+
+type appJobConfigBuildComputeTypePtr string
+
+func AppJobConfigBuildComputeTypePtr(v string) AppJobConfigBuildComputeTypePtrInput {
+	return (*appJobConfigBuildComputeTypePtr)(&v)
+}
+
+func (*appJobConfigBuildComputeTypePtr) ElementType() reflect.Type {
+	return appJobConfigBuildComputeTypePtrType
+}
+
+func (in *appJobConfigBuildComputeTypePtr) ToAppJobConfigBuildComputeTypePtrOutput() AppJobConfigBuildComputeTypePtrOutput {
+	return pulumi.ToOutput(in).(AppJobConfigBuildComputeTypePtrOutput)
+}
+
+func (in *appJobConfigBuildComputeTypePtr) ToAppJobConfigBuildComputeTypePtrOutputWithContext(ctx context.Context) AppJobConfigBuildComputeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppJobConfigBuildComputeTypePtrOutput)
+}
+
 // The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
 //
 // If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
@@ -964,6 +1144,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigStagePtrInput)(nil)).Elem(), AppAutoBranchCreationConfigStage("EXPERIMENTAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCacheConfigTypeInput)(nil)).Elem(), AppCacheConfigType("AMPLIFY_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCacheConfigTypePtrInput)(nil)).Elem(), AppCacheConfigType("AMPLIFY_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppJobConfigBuildComputeTypeInput)(nil)).Elem(), AppJobConfigBuildComputeType("STANDARD_8GB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppJobConfigBuildComputeTypePtrInput)(nil)).Elem(), AppJobConfigBuildComputeType("STANDARD_8GB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppPlatformInput)(nil)).Elem(), AppPlatform("WEB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppPlatformPtrInput)(nil)).Elem(), AppPlatform("WEB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchStageInput)(nil)).Elem(), BranchStage("EXPERIMENTAL"))
@@ -974,6 +1156,8 @@ func init() {
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigStagePtrOutput{})
 	pulumi.RegisterOutputType(AppCacheConfigTypeOutput{})
 	pulumi.RegisterOutputType(AppCacheConfigTypePtrOutput{})
+	pulumi.RegisterOutputType(AppJobConfigBuildComputeTypeOutput{})
+	pulumi.RegisterOutputType(AppJobConfigBuildComputeTypePtrOutput{})
 	pulumi.RegisterOutputType(AppPlatformOutput{})
 	pulumi.RegisterOutputType(AppPlatformPtrOutput{})
 	pulumi.RegisterOutputType(BranchStageOutput{})

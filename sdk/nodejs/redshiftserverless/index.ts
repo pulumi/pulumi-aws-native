@@ -10,6 +10,11 @@ export const getNamespace: typeof import("./getNamespace").getNamespace = null a
 export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
 utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
 
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+
 export { GetWorkgroupArgs, GetWorkgroupResult, GetWorkgroupOutputArgs } from "./getWorkgroup";
 export const getWorkgroup: typeof import("./getWorkgroup").getWorkgroup = null as any;
 export const getWorkgroupOutput: typeof import("./getWorkgroup").getWorkgroupOutput = null as any;
@@ -19,6 +24,11 @@ export { NamespaceArgs } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
 utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
 
 export { WorkgroupArgs } from "./workgroup";
 export type Workgroup = import("./workgroup").Workgroup;
@@ -35,6 +45,8 @@ const _module = {
         switch (type) {
             case "aws-native:redshiftserverless:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
+            case "aws-native:redshiftserverless:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             case "aws-native:redshiftserverless:Workgroup":
                 return new Workgroup(name, <any>undefined, { urn })
             default:

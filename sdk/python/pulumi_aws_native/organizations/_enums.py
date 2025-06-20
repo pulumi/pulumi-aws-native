@@ -45,7 +45,7 @@ class OrganizationFeatureSet(builtins.str, Enum):
 @pulumi.type_token("aws-native:organizations:PolicyType")
 class PolicyType(builtins.str, Enum):
     """
-    The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2
+    The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY
     """
     SERVICE_CONTROL_POLICY = "SERVICE_CONTROL_POLICY"
     AISERVICES_OPT_OUT_POLICY = "AISERVICES_OPT_OUT_POLICY"
@@ -54,3 +54,4 @@ class PolicyType(builtins.str, Enum):
     CHATBOT_POLICY = "CHATBOT_POLICY"
     RESOURCE_CONTROL_POLICY = "RESOURCE_CONTROL_POLICY"
     DECLARATIVE_POLICY_EC2 = "DECLARATIVE_POLICY_EC2"
+    SECURITYHUB_POLICY = "SECURITYHUB_POLICY"

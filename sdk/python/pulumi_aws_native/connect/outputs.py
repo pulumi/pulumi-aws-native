@@ -19,6 +19,7 @@ from ._enums import *
 
 __all__ = [
     'ConstraintsProperties',
+    'EvaluationFormAutoEvaluationConfiguration',
     'EvaluationFormBaseItem',
     'EvaluationFormItem',
     'EvaluationFormNumericQuestionAutomation',
@@ -158,6 +159,25 @@ class ConstraintsProperties(dict):
 
 
 @pulumi.output_type
+class EvaluationFormAutoEvaluationConfiguration(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool enabled: Auto Evaluation enablement status.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[builtins.bool]:
+        """
+        Auto Evaluation enablement status.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class EvaluationFormBaseItem(dict):
     """
     An item at the root level. All items must be sections.
@@ -222,7 +242,9 @@ class EvaluationFormNumericQuestionAutomation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "propertyValue":
+        if key == "answerSource":
+            suggest = "answer_source"
+        elif key == "propertyValue":
             suggest = "property_value"
 
         if suggest:
@@ -237,16 +259,25 @@ class EvaluationFormNumericQuestionAutomation(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 property_value: 'outputs.EvaluationFormNumericQuestionPropertyValueAutomation'):
+                 answer_source: Optional[Any] = None,
+                 property_value: Optional['outputs.EvaluationFormNumericQuestionPropertyValueAutomation'] = None):
         """
         Information about the automation configuration in numeric questions.
         :param 'EvaluationFormNumericQuestionPropertyValueAutomation' property_value: The property value of the automation.
         """
-        pulumi.set(__self__, "property_value", property_value)
+        if answer_source is not None:
+            pulumi.set(__self__, "answer_source", answer_source)
+        if property_value is not None:
+            pulumi.set(__self__, "property_value", property_value)
+
+    @property
+    @pulumi.getter(name="answerSource")
+    def answer_source(self) -> Optional[Any]:
+        return pulumi.get(self, "answer_source")
 
     @property
     @pulumi.getter(name="propertyValue")
-    def property_value(self) -> 'outputs.EvaluationFormNumericQuestionPropertyValueAutomation':
+    def property_value(self) -> Optional['outputs.EvaluationFormNumericQuestionPropertyValueAutomation']:
         """
         The property value of the automation.
         """

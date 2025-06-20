@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("crossRegionConfig")]
+        public Output<Outputs.GuardrailCrossRegionConfig?> CrossRegionConfig { get; private set; } = null!;
+
         /// <summary>
         /// Description of the guardrail or its version
         /// </summary>
@@ -191,6 +194,9 @@ namespace Pulumi.AwsNative.Bedrock
 
         [Input("contextualGroundingPolicyConfig")]
         public Input<Inputs.GuardrailContextualGroundingPolicyConfigArgs>? ContextualGroundingPolicyConfig { get; set; }
+
+        [Input("crossRegionConfig")]
+        public Input<Inputs.GuardrailCrossRegionConfigArgs>? CrossRegionConfig { get; set; }
 
         /// <summary>
         /// Description of the guardrail or its version

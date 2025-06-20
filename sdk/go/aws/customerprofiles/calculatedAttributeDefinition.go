@@ -32,11 +32,16 @@ type CalculatedAttributeDefinition struct {
 	// The unique name of the domain.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The timestamp of when the calculated attribute definition was most recently edited.
-	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
+	LastUpdatedAt pulumi.StringOutput                          `pulumi:"lastUpdatedAt"`
+	Readiness     CalculatedAttributeDefinitionReadinessOutput `pulumi:"readiness"`
 	// The aggregation operation to perform for the calculated attribute.
 	Statistic CalculatedAttributeDefinitionStatisticOutput `pulumi:"statistic"`
+	// The status of the calculated attribute definition.
+	Status CalculatedAttributeDefinitionStatusOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Whether to use historical data for the calculated attribute.
+	UseHistoricalData pulumi.BoolPtrOutput `pulumi:"useHistoricalData"`
 }
 
 // NewCalculatedAttributeDefinition registers a new resource with the given unique name, arguments, and options.
@@ -60,7 +65,10 @@ func NewCalculatedAttributeDefinition(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"calculatedAttributeName",
+		"conditions.range.timestampFormat",
+		"conditions.range.timestampSource",
 		"domainName",
+		"useHistoricalData",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -112,6 +120,8 @@ type calculatedAttributeDefinitionArgs struct {
 	Statistic CalculatedAttributeDefinitionStatistic `pulumi:"statistic"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// Whether to use historical data for the calculated attribute.
+	UseHistoricalData *bool `pulumi:"useHistoricalData"`
 }
 
 // The set of arguments for constructing a CalculatedAttributeDefinition resource.
@@ -132,6 +142,8 @@ type CalculatedAttributeDefinitionArgs struct {
 	Statistic CalculatedAttributeDefinitionStatisticInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
+	// Whether to use historical data for the calculated attribute.
+	UseHistoricalData pulumi.BoolPtrInput
 }
 
 func (CalculatedAttributeDefinitionArgs) ElementType() reflect.Type {
@@ -215,6 +227,12 @@ func (o CalculatedAttributeDefinitionOutput) LastUpdatedAt() pulumi.StringOutput
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
 
+func (o CalculatedAttributeDefinitionOutput) Readiness() CalculatedAttributeDefinitionReadinessOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinition) CalculatedAttributeDefinitionReadinessOutput {
+		return v.Readiness
+	}).(CalculatedAttributeDefinitionReadinessOutput)
+}
+
 // The aggregation operation to perform for the calculated attribute.
 func (o CalculatedAttributeDefinitionOutput) Statistic() CalculatedAttributeDefinitionStatisticOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) CalculatedAttributeDefinitionStatisticOutput {
@@ -222,9 +240,19 @@ func (o CalculatedAttributeDefinitionOutput) Statistic() CalculatedAttributeDefi
 	}).(CalculatedAttributeDefinitionStatisticOutput)
 }
 
+// The status of the calculated attribute definition.
+func (o CalculatedAttributeDefinitionOutput) Status() CalculatedAttributeDefinitionStatusOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinition) CalculatedAttributeDefinitionStatusOutput { return v.Status }).(CalculatedAttributeDefinitionStatusOutput)
+}
+
 // An array of key-value pairs to apply to this resource.
 func (o CalculatedAttributeDefinitionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// Whether to use historical data for the calculated attribute.
+func (o CalculatedAttributeDefinitionOutput) UseHistoricalData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinition) pulumi.BoolPtrOutput { return v.UseHistoricalData }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

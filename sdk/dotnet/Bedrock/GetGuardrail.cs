@@ -80,6 +80,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// Time Stamp
         /// </summary>
         public readonly string? CreatedAt;
+        public readonly Outputs.GuardrailCrossRegionConfig? CrossRegionConfig;
         /// <summary>
         /// Description of the guardrail or its version
         /// </summary>
@@ -149,6 +150,8 @@ namespace Pulumi.AwsNative.Bedrock
 
             string? createdAt,
 
+            Outputs.GuardrailCrossRegionConfig? crossRegionConfig,
+
             string? description,
 
             ImmutableArray<string> failureRecommendations,
@@ -182,6 +185,7 @@ namespace Pulumi.AwsNative.Bedrock
             ContentPolicyConfig = contentPolicyConfig;
             ContextualGroundingPolicyConfig = contextualGroundingPolicyConfig;
             CreatedAt = createdAt;
+            CrossRegionConfig = crossRegionConfig;
             Description = description;
             FailureRecommendations = failureRecommendations;
             GuardrailArn = guardrailArn;

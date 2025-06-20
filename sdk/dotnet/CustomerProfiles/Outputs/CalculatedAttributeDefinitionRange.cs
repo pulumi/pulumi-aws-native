@@ -17,22 +17,40 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     public sealed class CalculatedAttributeDefinitionRange
     {
         /// <summary>
+        /// The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+        /// </summary>
+        public readonly string? TimestampFormat;
+        /// <summary>
+        /// An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \"{ObjectTypeName.&lt;Location of timestamp field in JSON pointer format&gt;}\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+        /// </summary>
+        public readonly string? TimestampSource;
+        /// <summary>
         /// The unit of time.
         /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionRangeUnit Unit;
         /// <summary>
         /// The amount of time of the specified unit.
         /// </summary>
-        public readonly int Value;
+        public readonly int? Value;
+        public readonly Outputs.CalculatedAttributeDefinitionValueRange? ValueRange;
 
         [OutputConstructor]
         private CalculatedAttributeDefinitionRange(
+            string? timestampFormat,
+
+            string? timestampSource,
+
             Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionRangeUnit unit,
 
-            int value)
+            int? value,
+
+            Outputs.CalculatedAttributeDefinitionValueRange? valueRange)
         {
+            TimestampFormat = timestampFormat;
+            TimestampSource = timestampSource;
             Unit = unit;
             Value = value;
+            ValueRange = valueRange;
         }
     }
 }

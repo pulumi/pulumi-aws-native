@@ -8,6 +8,36 @@ using Pulumi;
 namespace Pulumi.AwsNative.SecurityHub
 {
     /// <summary>
+    /// Indicates to link a list of included Regions
+    /// </summary>
+    [EnumType]
+    public readonly struct AggregatorV2RegionLinkingMode : IEquatable<AggregatorV2RegionLinkingMode>
+    {
+        private readonly string _value;
+
+        private AggregatorV2RegionLinkingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AggregatorV2RegionLinkingMode SpecifiedRegions { get; } = new AggregatorV2RegionLinkingMode("SPECIFIED_REGIONS");
+
+        public static bool operator ==(AggregatorV2RegionLinkingMode left, AggregatorV2RegionLinkingMode right) => left.Equals(right);
+        public static bool operator !=(AggregatorV2RegionLinkingMode left, AggregatorV2RegionLinkingMode right) => !left.Equals(right);
+
+        public static explicit operator string(AggregatorV2RegionLinkingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AggregatorV2RegionLinkingMode other && Equals(other);
+        public bool Equals(AggregatorV2RegionLinkingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A date range unit for the date filter.
     /// </summary>
     [EnumType]
@@ -181,6 +211,388 @@ namespace Pulumi.AwsNative.SecurityHub
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AutomationRuleStringFilterComparison other && Equals(other);
         public bool Equals(AutomationRuleStringFilterComparison other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The logical operator used to combine multiple conditions
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRuleV2AllowedOperators : IEquatable<AutomationRuleV2AllowedOperators>
+    {
+        private readonly string _value;
+
+        private AutomationRuleV2AllowedOperators(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomationRuleV2AllowedOperators And { get; } = new AutomationRuleV2AllowedOperators("AND");
+        public static AutomationRuleV2AllowedOperators Or { get; } = new AutomationRuleV2AllowedOperators("OR");
+
+        public static bool operator ==(AutomationRuleV2AllowedOperators left, AutomationRuleV2AllowedOperators right) => left.Equals(right);
+        public static bool operator !=(AutomationRuleV2AllowedOperators left, AutomationRuleV2AllowedOperators right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRuleV2AllowedOperators value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRuleV2AllowedOperators other && Equals(other);
+        public bool Equals(AutomationRuleV2AllowedOperators other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The category of action to be executed by the automation rule
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRuleV2AutomationRulesActionV2Type : IEquatable<AutomationRuleV2AutomationRulesActionV2Type>
+    {
+        private readonly string _value;
+
+        private AutomationRuleV2AutomationRulesActionV2Type(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomationRuleV2AutomationRulesActionV2Type FindingFieldsUpdate { get; } = new AutomationRuleV2AutomationRulesActionV2Type("FINDING_FIELDS_UPDATE");
+        public static AutomationRuleV2AutomationRulesActionV2Type ExternalIntegration { get; } = new AutomationRuleV2AutomationRulesActionV2Type("EXTERNAL_INTEGRATION");
+
+        public static bool operator ==(AutomationRuleV2AutomationRulesActionV2Type left, AutomationRuleV2AutomationRulesActionV2Type right) => left.Equals(right);
+        public static bool operator !=(AutomationRuleV2AutomationRulesActionV2Type left, AutomationRuleV2AutomationRulesActionV2Type right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRuleV2AutomationRulesActionV2Type value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRuleV2AutomationRulesActionV2Type other && Equals(other);
+        public bool Equals(AutomationRuleV2AutomationRulesActionV2Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A date range unit for the date filter
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRuleV2DateRangeUnit : IEquatable<AutomationRuleV2DateRangeUnit>
+    {
+        private readonly string _value;
+
+        private AutomationRuleV2DateRangeUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomationRuleV2DateRangeUnit Days { get; } = new AutomationRuleV2DateRangeUnit("DAYS");
+
+        public static bool operator ==(AutomationRuleV2DateRangeUnit left, AutomationRuleV2DateRangeUnit right) => left.Equals(right);
+        public static bool operator !=(AutomationRuleV2DateRangeUnit left, AutomationRuleV2DateRangeUnit right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRuleV2DateRangeUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRuleV2DateRangeUnit other && Equals(other);
+        public bool Equals(AutomationRuleV2DateRangeUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The condition to apply to the key value when filtering findings with a map filter
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRuleV2MapFilterComparison : IEquatable<AutomationRuleV2MapFilterComparison>
+    {
+        private readonly string _value;
+
+        private AutomationRuleV2MapFilterComparison(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomationRuleV2MapFilterComparison EqualsValue { get; } = new AutomationRuleV2MapFilterComparison("EQUALS");
+        public static AutomationRuleV2MapFilterComparison NotEquals { get; } = new AutomationRuleV2MapFilterComparison("NOT_EQUALS");
+
+        public static bool operator ==(AutomationRuleV2MapFilterComparison left, AutomationRuleV2MapFilterComparison right) => left.Equals(right);
+        public static bool operator !=(AutomationRuleV2MapFilterComparison left, AutomationRuleV2MapFilterComparison right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRuleV2MapFilterComparison value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRuleV2MapFilterComparison other && Equals(other);
+        public bool Equals(AutomationRuleV2MapFilterComparison other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the field
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRuleV2OcsfBooleanFilterFieldName : IEquatable<AutomationRuleV2OcsfBooleanFilterFieldName>
+    {
+        private readonly string _value;
+
+        private AutomationRuleV2OcsfBooleanFilterFieldName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomationRuleV2OcsfBooleanFilterFieldName ComplianceAssessmentsMeetsCriteria { get; } = new AutomationRuleV2OcsfBooleanFilterFieldName("compliance.assessments.meets_criteria");
+        public static AutomationRuleV2OcsfBooleanFilterFieldName VulnerabilitiesIsExploitAvailable { get; } = new AutomationRuleV2OcsfBooleanFilterFieldName("vulnerabilities.is_exploit_available");
+        public static AutomationRuleV2OcsfBooleanFilterFieldName VulnerabilitiesIsFixAvailable { get; } = new AutomationRuleV2OcsfBooleanFilterFieldName("vulnerabilities.is_fix_available");
+
+        public static bool operator ==(AutomationRuleV2OcsfBooleanFilterFieldName left, AutomationRuleV2OcsfBooleanFilterFieldName right) => left.Equals(right);
+        public static bool operator !=(AutomationRuleV2OcsfBooleanFilterFieldName left, AutomationRuleV2OcsfBooleanFilterFieldName right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRuleV2OcsfBooleanFilterFieldName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRuleV2OcsfBooleanFilterFieldName other && Equals(other);
+        public bool Equals(AutomationRuleV2OcsfBooleanFilterFieldName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the field
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRuleV2OcsfDateFilterFieldName : IEquatable<AutomationRuleV2OcsfDateFilterFieldName>
+    {
+        private readonly string _value;
+
+        private AutomationRuleV2OcsfDateFilterFieldName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomationRuleV2OcsfDateFilterFieldName FindingInfoCreatedTimeDt { get; } = new AutomationRuleV2OcsfDateFilterFieldName("finding_info.created_time_dt");
+        public static AutomationRuleV2OcsfDateFilterFieldName FindingInfoFirstSeenTimeDt { get; } = new AutomationRuleV2OcsfDateFilterFieldName("finding_info.first_seen_time_dt");
+        public static AutomationRuleV2OcsfDateFilterFieldName FindingInfoLastSeenTimeDt { get; } = new AutomationRuleV2OcsfDateFilterFieldName("finding_info.last_seen_time_dt");
+        public static AutomationRuleV2OcsfDateFilterFieldName FindingInfoModifiedTimeDt { get; } = new AutomationRuleV2OcsfDateFilterFieldName("finding_info.modified_time_dt");
+
+        public static bool operator ==(AutomationRuleV2OcsfDateFilterFieldName left, AutomationRuleV2OcsfDateFilterFieldName right) => left.Equals(right);
+        public static bool operator !=(AutomationRuleV2OcsfDateFilterFieldName left, AutomationRuleV2OcsfDateFilterFieldName right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRuleV2OcsfDateFilterFieldName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRuleV2OcsfDateFilterFieldName other && Equals(other);
+        public bool Equals(AutomationRuleV2OcsfDateFilterFieldName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the field
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRuleV2OcsfMapFilterFieldName : IEquatable<AutomationRuleV2OcsfMapFilterFieldName>
+    {
+        private readonly string _value;
+
+        private AutomationRuleV2OcsfMapFilterFieldName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomationRuleV2OcsfMapFilterFieldName ResourcesTags { get; } = new AutomationRuleV2OcsfMapFilterFieldName("resources.tags");
+
+        public static bool operator ==(AutomationRuleV2OcsfMapFilterFieldName left, AutomationRuleV2OcsfMapFilterFieldName right) => left.Equals(right);
+        public static bool operator !=(AutomationRuleV2OcsfMapFilterFieldName left, AutomationRuleV2OcsfMapFilterFieldName right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRuleV2OcsfMapFilterFieldName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRuleV2OcsfMapFilterFieldName other && Equals(other);
+        public bool Equals(AutomationRuleV2OcsfMapFilterFieldName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the field
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRuleV2OcsfNumberFilterFieldName : IEquatable<AutomationRuleV2OcsfNumberFilterFieldName>
+    {
+        private readonly string _value;
+
+        private AutomationRuleV2OcsfNumberFilterFieldName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomationRuleV2OcsfNumberFilterFieldName ActivityId { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("activity_id");
+        public static AutomationRuleV2OcsfNumberFilterFieldName ComplianceStatusId { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("compliance.status_id");
+        public static AutomationRuleV2OcsfNumberFilterFieldName ConfidenceScore { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("confidence_score");
+        public static AutomationRuleV2OcsfNumberFilterFieldName SeverityId { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("severity_id");
+        public static AutomationRuleV2OcsfNumberFilterFieldName StatusId { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("status_id");
+        public static AutomationRuleV2OcsfNumberFilterFieldName FindingInfoRelatedEventsCount { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("finding_info.related_events_count");
+
+        public static bool operator ==(AutomationRuleV2OcsfNumberFilterFieldName left, AutomationRuleV2OcsfNumberFilterFieldName right) => left.Equals(right);
+        public static bool operator !=(AutomationRuleV2OcsfNumberFilterFieldName left, AutomationRuleV2OcsfNumberFilterFieldName right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRuleV2OcsfNumberFilterFieldName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRuleV2OcsfNumberFilterFieldName other && Equals(other);
+        public bool Equals(AutomationRuleV2OcsfNumberFilterFieldName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the field
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRuleV2OcsfStringField : IEquatable<AutomationRuleV2OcsfStringField>
+    {
+        private readonly string _value;
+
+        private AutomationRuleV2OcsfStringField(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomationRuleV2OcsfStringField MetadataUid { get; } = new AutomationRuleV2OcsfStringField("metadata.uid");
+        public static AutomationRuleV2OcsfStringField ActivityName { get; } = new AutomationRuleV2OcsfStringField("activity_name");
+        public static AutomationRuleV2OcsfStringField CloudAccountName { get; } = new AutomationRuleV2OcsfStringField("cloud.account.name");
+        public static AutomationRuleV2OcsfStringField CloudAccountUid { get; } = new AutomationRuleV2OcsfStringField("cloud.account.uid");
+        public static AutomationRuleV2OcsfStringField CloudProvider { get; } = new AutomationRuleV2OcsfStringField("cloud.provider");
+        public static AutomationRuleV2OcsfStringField CloudRegion { get; } = new AutomationRuleV2OcsfStringField("cloud.region");
+        public static AutomationRuleV2OcsfStringField ComplianceAssessmentsCategory { get; } = new AutomationRuleV2OcsfStringField("compliance.assessments.category");
+        public static AutomationRuleV2OcsfStringField ComplianceAssessmentsName { get; } = new AutomationRuleV2OcsfStringField("compliance.assessments.name");
+        public static AutomationRuleV2OcsfStringField ComplianceControl { get; } = new AutomationRuleV2OcsfStringField("compliance.control");
+        public static AutomationRuleV2OcsfStringField ComplianceStatus { get; } = new AutomationRuleV2OcsfStringField("compliance.status");
+        public static AutomationRuleV2OcsfStringField ComplianceStandards { get; } = new AutomationRuleV2OcsfStringField("compliance.standards");
+        public static AutomationRuleV2OcsfStringField FindingInfoDesc { get; } = new AutomationRuleV2OcsfStringField("finding_info.desc");
+        public static AutomationRuleV2OcsfStringField FindingInfoSrcUrl { get; } = new AutomationRuleV2OcsfStringField("finding_info.src_url");
+        public static AutomationRuleV2OcsfStringField FindingInfoTitle { get; } = new AutomationRuleV2OcsfStringField("finding_info.title");
+        public static AutomationRuleV2OcsfStringField FindingInfoTypes { get; } = new AutomationRuleV2OcsfStringField("finding_info.types");
+        public static AutomationRuleV2OcsfStringField FindingInfoUid { get; } = new AutomationRuleV2OcsfStringField("finding_info.uid");
+        public static AutomationRuleV2OcsfStringField FindingInfoRelatedEventsUid { get; } = new AutomationRuleV2OcsfStringField("finding_info.related_events.uid");
+        public static AutomationRuleV2OcsfStringField FindingInfoRelatedEventsProductUid { get; } = new AutomationRuleV2OcsfStringField("finding_info.related_events.product.uid");
+        public static AutomationRuleV2OcsfStringField FindingInfoRelatedEventsTitle { get; } = new AutomationRuleV2OcsfStringField("finding_info.related_events.title");
+        public static AutomationRuleV2OcsfStringField MetadataProductFeatureUid { get; } = new AutomationRuleV2OcsfStringField("metadata.product.feature.uid");
+        public static AutomationRuleV2OcsfStringField MetadataProductName { get; } = new AutomationRuleV2OcsfStringField("metadata.product.name");
+        public static AutomationRuleV2OcsfStringField MetadataProductUid { get; } = new AutomationRuleV2OcsfStringField("metadata.product.uid");
+        public static AutomationRuleV2OcsfStringField MetadataProductVendorName { get; } = new AutomationRuleV2OcsfStringField("metadata.product.vendor_name");
+        public static AutomationRuleV2OcsfStringField RemediationDesc { get; } = new AutomationRuleV2OcsfStringField("remediation.desc");
+        public static AutomationRuleV2OcsfStringField RemediationReferences { get; } = new AutomationRuleV2OcsfStringField("remediation.references");
+        public static AutomationRuleV2OcsfStringField ResourcesCloudPartition { get; } = new AutomationRuleV2OcsfStringField("resources.cloud_partition");
+        public static AutomationRuleV2OcsfStringField ResourcesName { get; } = new AutomationRuleV2OcsfStringField("resources.name");
+        public static AutomationRuleV2OcsfStringField ResourcesRegion { get; } = new AutomationRuleV2OcsfStringField("resources.region");
+        public static AutomationRuleV2OcsfStringField ResourcesType { get; } = new AutomationRuleV2OcsfStringField("resources.type");
+        public static AutomationRuleV2OcsfStringField ResourcesUid { get; } = new AutomationRuleV2OcsfStringField("resources.uid");
+        public static AutomationRuleV2OcsfStringField Severity { get; } = new AutomationRuleV2OcsfStringField("severity");
+        public static AutomationRuleV2OcsfStringField Status { get; } = new AutomationRuleV2OcsfStringField("status");
+        public static AutomationRuleV2OcsfStringField Comment { get; } = new AutomationRuleV2OcsfStringField("comment");
+        public static AutomationRuleV2OcsfStringField VulnerabilitiesFixCoverage { get; } = new AutomationRuleV2OcsfStringField("vulnerabilities.fix_coverage");
+        public static AutomationRuleV2OcsfStringField ClassName { get; } = new AutomationRuleV2OcsfStringField("class_name");
+
+        public static bool operator ==(AutomationRuleV2OcsfStringField left, AutomationRuleV2OcsfStringField right) => left.Equals(right);
+        public static bool operator !=(AutomationRuleV2OcsfStringField left, AutomationRuleV2OcsfStringField right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRuleV2OcsfStringField value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRuleV2OcsfStringField other && Equals(other);
+        public bool Equals(AutomationRuleV2OcsfStringField other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the automation rule
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRuleV2RuleStatus : IEquatable<AutomationRuleV2RuleStatus>
+    {
+        private readonly string _value;
+
+        private AutomationRuleV2RuleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomationRuleV2RuleStatus Enabled { get; } = new AutomationRuleV2RuleStatus("ENABLED");
+        public static AutomationRuleV2RuleStatus Disabled { get; } = new AutomationRuleV2RuleStatus("DISABLED");
+
+        public static bool operator ==(AutomationRuleV2RuleStatus left, AutomationRuleV2RuleStatus right) => left.Equals(right);
+        public static bool operator !=(AutomationRuleV2RuleStatus left, AutomationRuleV2RuleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRuleV2RuleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRuleV2RuleStatus other && Equals(other);
+        public bool Equals(AutomationRuleV2RuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The condition to apply to a string value when filtering findings
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRuleV2StringFilterComparison : IEquatable<AutomationRuleV2StringFilterComparison>
+    {
+        private readonly string _value;
+
+        private AutomationRuleV2StringFilterComparison(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutomationRuleV2StringFilterComparison EqualsValue { get; } = new AutomationRuleV2StringFilterComparison("EQUALS");
+        public static AutomationRuleV2StringFilterComparison Prefix { get; } = new AutomationRuleV2StringFilterComparison("PREFIX");
+        public static AutomationRuleV2StringFilterComparison NotEquals { get; } = new AutomationRuleV2StringFilterComparison("NOT_EQUALS");
+        public static AutomationRuleV2StringFilterComparison PrefixNotEquals { get; } = new AutomationRuleV2StringFilterComparison("PREFIX_NOT_EQUALS");
+        public static AutomationRuleV2StringFilterComparison Contains { get; } = new AutomationRuleV2StringFilterComparison("CONTAINS");
+
+        public static bool operator ==(AutomationRuleV2StringFilterComparison left, AutomationRuleV2StringFilterComparison right) => left.Equals(right);
+        public static bool operator !=(AutomationRuleV2StringFilterComparison left, AutomationRuleV2StringFilterComparison right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRuleV2StringFilterComparison value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRuleV2StringFilterComparison other && Equals(other);
+        public bool Equals(AutomationRuleV2StringFilterComparison other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

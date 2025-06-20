@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:redshiftserverless:Namespace":
 		r = &Namespace{}
+	case "aws-native:redshiftserverless:Snapshot":
+		r = &Snapshot{}
 	case "aws-native:redshiftserverless:Workgroup":
 		r = &Workgroup{}
 	default:

@@ -42,9 +42,12 @@ type LookupCalculatedAttributeDefinitionResult struct {
 	// The display name of the calculated attribute.
 	DisplayName *string `pulumi:"displayName"`
 	// The timestamp of when the calculated attribute definition was most recently edited.
-	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	LastUpdatedAt *string                                 `pulumi:"lastUpdatedAt"`
+	Readiness     *CalculatedAttributeDefinitionReadiness `pulumi:"readiness"`
 	// The aggregation operation to perform for the calculated attribute.
 	Statistic *CalculatedAttributeDefinitionStatistic `pulumi:"statistic"`
+	// The status of the calculated attribute definition.
+	Status *CalculatedAttributeDefinitionStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -117,11 +120,24 @@ func (o LookupCalculatedAttributeDefinitionResultOutput) LastUpdatedAt() pulumi.
 	return o.ApplyT(func(v LookupCalculatedAttributeDefinitionResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupCalculatedAttributeDefinitionResultOutput) Readiness() CalculatedAttributeDefinitionReadinessPtrOutput {
+	return o.ApplyT(func(v LookupCalculatedAttributeDefinitionResult) *CalculatedAttributeDefinitionReadiness {
+		return v.Readiness
+	}).(CalculatedAttributeDefinitionReadinessPtrOutput)
+}
+
 // The aggregation operation to perform for the calculated attribute.
 func (o LookupCalculatedAttributeDefinitionResultOutput) Statistic() CalculatedAttributeDefinitionStatisticPtrOutput {
 	return o.ApplyT(func(v LookupCalculatedAttributeDefinitionResult) *CalculatedAttributeDefinitionStatistic {
 		return v.Statistic
 	}).(CalculatedAttributeDefinitionStatisticPtrOutput)
+}
+
+// The status of the calculated attribute definition.
+func (o LookupCalculatedAttributeDefinitionResultOutput) Status() CalculatedAttributeDefinitionStatusPtrOutput {
+	return o.ApplyT(func(v LookupCalculatedAttributeDefinitionResult) *CalculatedAttributeDefinitionStatus {
+		return v.Status
+	}).(CalculatedAttributeDefinitionStatusPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

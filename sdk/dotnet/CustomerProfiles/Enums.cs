@@ -75,6 +75,39 @@ namespace Pulumi.AwsNative.CustomerProfiles
     }
 
     /// <summary>
+    /// The status of the calculated attribute definition.
+    /// </summary>
+    [EnumType]
+    public readonly struct CalculatedAttributeDefinitionStatus : IEquatable<CalculatedAttributeDefinitionStatus>
+    {
+        private readonly string _value;
+
+        private CalculatedAttributeDefinitionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CalculatedAttributeDefinitionStatus InProgress { get; } = new CalculatedAttributeDefinitionStatus("IN_PROGRESS");
+        public static CalculatedAttributeDefinitionStatus Preparing { get; } = new CalculatedAttributeDefinitionStatus("PREPARING");
+        public static CalculatedAttributeDefinitionStatus Completed { get; } = new CalculatedAttributeDefinitionStatus("COMPLETED");
+        public static CalculatedAttributeDefinitionStatus Failed { get; } = new CalculatedAttributeDefinitionStatus("FAILED");
+
+        public static bool operator ==(CalculatedAttributeDefinitionStatus left, CalculatedAttributeDefinitionStatus right) => left.Equals(right);
+        public static bool operator !=(CalculatedAttributeDefinitionStatus left, CalculatedAttributeDefinitionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CalculatedAttributeDefinitionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CalculatedAttributeDefinitionStatus other && Equals(other);
+        public bool Equals(CalculatedAttributeDefinitionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The operator of the threshold.
     /// </summary>
     [EnumType]
@@ -965,6 +998,68 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SegmentDefinitionIncludeOptions other && Equals(other);
         public bool Equals(SegmentDefinitionIncludeOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of profile.
+    /// </summary>
+    [EnumType]
+    public readonly struct SegmentDefinitionProfileType : IEquatable<SegmentDefinitionProfileType>
+    {
+        private readonly string _value;
+
+        private SegmentDefinitionProfileType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SegmentDefinitionProfileType AccountProfile { get; } = new SegmentDefinitionProfileType("ACCOUNT_PROFILE");
+        public static SegmentDefinitionProfileType Profile { get; } = new SegmentDefinitionProfileType("PROFILE");
+
+        public static bool operator ==(SegmentDefinitionProfileType left, SegmentDefinitionProfileType right) => left.Equals(right);
+        public static bool operator !=(SegmentDefinitionProfileType left, SegmentDefinitionProfileType right) => !left.Equals(right);
+
+        public static explicit operator string(SegmentDefinitionProfileType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SegmentDefinitionProfileType other && Equals(other);
+        public bool Equals(SegmentDefinitionProfileType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of segment dimension to use for a profile type dimension.
+    /// </summary>
+    [EnumType]
+    public readonly struct SegmentDefinitionProfileTypeDimensionType : IEquatable<SegmentDefinitionProfileTypeDimensionType>
+    {
+        private readonly string _value;
+
+        private SegmentDefinitionProfileTypeDimensionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SegmentDefinitionProfileTypeDimensionType Inclusive { get; } = new SegmentDefinitionProfileTypeDimensionType("INCLUSIVE");
+        public static SegmentDefinitionProfileTypeDimensionType Exclusive { get; } = new SegmentDefinitionProfileTypeDimensionType("EXCLUSIVE");
+
+        public static bool operator ==(SegmentDefinitionProfileTypeDimensionType left, SegmentDefinitionProfileTypeDimensionType right) => left.Equals(right);
+        public static bool operator !=(SegmentDefinitionProfileTypeDimensionType left, SegmentDefinitionProfileTypeDimensionType right) => !left.Equals(right);
+
+        public static explicit operator string(SegmentDefinitionProfileTypeDimensionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SegmentDefinitionProfileTypeDimensionType other && Equals(other);
+        public bool Equals(SegmentDefinitionProfileTypeDimensionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

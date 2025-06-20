@@ -13,9 +13,6 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingSchemaValidationConfig
     {
-        /// <summary>
-        /// The attribute you want your schema registry to validate and filter for.
-        /// </summary>
         public readonly Pulumi.AwsNative.Lambda.EventSourceMappingSchemaValidationConfigAttribute? Attribute;
 
         [OutputConstructor]

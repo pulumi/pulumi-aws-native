@@ -29,6 +29,29 @@ export const AppCacheConfigType = {
  */
 export type AppCacheConfigType = (typeof AppCacheConfigType)[keyof typeof AppCacheConfigType];
 
+export const AppJobConfigBuildComputeType = {
+    Standard8gb: "STANDARD_8GB",
+    Large16gb: "LARGE_16GB",
+    Xlarge72gb: "XLARGE_72GB",
+} as const;
+
+/**
+ * Specifies the size of the build instance. Amplify supports three instance sizes: `STANDARD_8GB` , `LARGE_16GB` , and `XLARGE_72GB` . If you don't specify a value, Amplify uses the `STANDARD_8GB` default.
+ *
+ * The following list describes the CPU, memory, and storage capacity for each build instance type:
+ *
+ * - **STANDARD_8GB** - - vCPUs: 4
+ * - Memory: 8 GiB
+ * - Disk space: 128 GB
+ * - **LARGE_16GB** - - vCPUs: 8
+ * - Memory: 16 GiB
+ * - Disk space: 128 GB
+ * - **XLARGE_72GB** - - vCPUs: 36
+ * - Memory: 72 GiB
+ * - Disk space: 256 GB
+ */
+export type AppJobConfigBuildComputeType = (typeof AppJobConfigBuildComputeType)[keyof typeof AppJobConfigBuildComputeType];
+
 export const AppPlatform = {
     Web: "WEB",
     WebDynamic: "WEB_DYNAMIC",

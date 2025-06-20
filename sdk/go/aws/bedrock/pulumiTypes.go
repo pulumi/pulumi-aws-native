@@ -29785,6 +29785,146 @@ func (o GuardrailContextualGroundingPolicyConfigPtrOutput) FiltersConfig() Guard
 	}).(GuardrailContextualGroundingFilterConfigArrayOutput)
 }
 
+// The system-defined guardrail profile that you’re using with your guardrail
+type GuardrailCrossRegionConfig struct {
+	// The Amazon Resource Name (ARN) of the guardrail profile
+	GuardrailProfileArn string `pulumi:"guardrailProfileArn"`
+}
+
+// GuardrailCrossRegionConfigInput is an input type that accepts GuardrailCrossRegionConfigArgs and GuardrailCrossRegionConfigOutput values.
+// You can construct a concrete instance of `GuardrailCrossRegionConfigInput` via:
+//
+//	GuardrailCrossRegionConfigArgs{...}
+type GuardrailCrossRegionConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailCrossRegionConfigOutput() GuardrailCrossRegionConfigOutput
+	ToGuardrailCrossRegionConfigOutputWithContext(context.Context) GuardrailCrossRegionConfigOutput
+}
+
+// The system-defined guardrail profile that you’re using with your guardrail
+type GuardrailCrossRegionConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the guardrail profile
+	GuardrailProfileArn pulumi.StringInput `pulumi:"guardrailProfileArn"`
+}
+
+func (GuardrailCrossRegionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailCrossRegionConfig)(nil)).Elem()
+}
+
+func (i GuardrailCrossRegionConfigArgs) ToGuardrailCrossRegionConfigOutput() GuardrailCrossRegionConfigOutput {
+	return i.ToGuardrailCrossRegionConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailCrossRegionConfigArgs) ToGuardrailCrossRegionConfigOutputWithContext(ctx context.Context) GuardrailCrossRegionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailCrossRegionConfigOutput)
+}
+
+func (i GuardrailCrossRegionConfigArgs) ToGuardrailCrossRegionConfigPtrOutput() GuardrailCrossRegionConfigPtrOutput {
+	return i.ToGuardrailCrossRegionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GuardrailCrossRegionConfigArgs) ToGuardrailCrossRegionConfigPtrOutputWithContext(ctx context.Context) GuardrailCrossRegionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailCrossRegionConfigOutput).ToGuardrailCrossRegionConfigPtrOutputWithContext(ctx)
+}
+
+// GuardrailCrossRegionConfigPtrInput is an input type that accepts GuardrailCrossRegionConfigArgs, GuardrailCrossRegionConfigPtr and GuardrailCrossRegionConfigPtrOutput values.
+// You can construct a concrete instance of `GuardrailCrossRegionConfigPtrInput` via:
+//
+//	        GuardrailCrossRegionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GuardrailCrossRegionConfigPtrInput interface {
+	pulumi.Input
+
+	ToGuardrailCrossRegionConfigPtrOutput() GuardrailCrossRegionConfigPtrOutput
+	ToGuardrailCrossRegionConfigPtrOutputWithContext(context.Context) GuardrailCrossRegionConfigPtrOutput
+}
+
+type guardrailCrossRegionConfigPtrType GuardrailCrossRegionConfigArgs
+
+func GuardrailCrossRegionConfigPtr(v *GuardrailCrossRegionConfigArgs) GuardrailCrossRegionConfigPtrInput {
+	return (*guardrailCrossRegionConfigPtrType)(v)
+}
+
+func (*guardrailCrossRegionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailCrossRegionConfig)(nil)).Elem()
+}
+
+func (i *guardrailCrossRegionConfigPtrType) ToGuardrailCrossRegionConfigPtrOutput() GuardrailCrossRegionConfigPtrOutput {
+	return i.ToGuardrailCrossRegionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *guardrailCrossRegionConfigPtrType) ToGuardrailCrossRegionConfigPtrOutputWithContext(ctx context.Context) GuardrailCrossRegionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailCrossRegionConfigPtrOutput)
+}
+
+// The system-defined guardrail profile that you’re using with your guardrail
+type GuardrailCrossRegionConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailCrossRegionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailCrossRegionConfig)(nil)).Elem()
+}
+
+func (o GuardrailCrossRegionConfigOutput) ToGuardrailCrossRegionConfigOutput() GuardrailCrossRegionConfigOutput {
+	return o
+}
+
+func (o GuardrailCrossRegionConfigOutput) ToGuardrailCrossRegionConfigOutputWithContext(ctx context.Context) GuardrailCrossRegionConfigOutput {
+	return o
+}
+
+func (o GuardrailCrossRegionConfigOutput) ToGuardrailCrossRegionConfigPtrOutput() GuardrailCrossRegionConfigPtrOutput {
+	return o.ToGuardrailCrossRegionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailCrossRegionConfigOutput) ToGuardrailCrossRegionConfigPtrOutputWithContext(ctx context.Context) GuardrailCrossRegionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailCrossRegionConfig) *GuardrailCrossRegionConfig {
+		return &v
+	}).(GuardrailCrossRegionConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the guardrail profile
+func (o GuardrailCrossRegionConfigOutput) GuardrailProfileArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GuardrailCrossRegionConfig) string { return v.GuardrailProfileArn }).(pulumi.StringOutput)
+}
+
+type GuardrailCrossRegionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailCrossRegionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailCrossRegionConfig)(nil)).Elem()
+}
+
+func (o GuardrailCrossRegionConfigPtrOutput) ToGuardrailCrossRegionConfigPtrOutput() GuardrailCrossRegionConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailCrossRegionConfigPtrOutput) ToGuardrailCrossRegionConfigPtrOutputWithContext(ctx context.Context) GuardrailCrossRegionConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailCrossRegionConfigPtrOutput) Elem() GuardrailCrossRegionConfigOutput {
+	return o.ApplyT(func(v *GuardrailCrossRegionConfig) GuardrailCrossRegionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailCrossRegionConfig
+		return ret
+	}).(GuardrailCrossRegionConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of the guardrail profile
+func (o GuardrailCrossRegionConfigPtrOutput) GuardrailProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuardrailCrossRegionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GuardrailProfileArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // A managed words config.
 type GuardrailManagedWordsConfig struct {
 	InputAction   *GuardrailWordAction `pulumi:"inputAction"`
@@ -42297,6 +42437,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingFilterConfigArrayInput)(nil)).Elem(), GuardrailContextualGroundingFilterConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingPolicyConfigInput)(nil)).Elem(), GuardrailContextualGroundingPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingPolicyConfigPtrInput)(nil)).Elem(), GuardrailContextualGroundingPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailCrossRegionConfigInput)(nil)).Elem(), GuardrailCrossRegionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailCrossRegionConfigPtrInput)(nil)).Elem(), GuardrailCrossRegionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailManagedWordsConfigInput)(nil)).Elem(), GuardrailManagedWordsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailManagedWordsConfigArrayInput)(nil)).Elem(), GuardrailManagedWordsConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailPiiEntityConfigInput)(nil)).Elem(), GuardrailPiiEntityConfigArgs{})
@@ -42914,6 +43056,8 @@ func init() {
 	pulumi.RegisterOutputType(GuardrailContextualGroundingFilterConfigArrayOutput{})
 	pulumi.RegisterOutputType(GuardrailContextualGroundingPolicyConfigOutput{})
 	pulumi.RegisterOutputType(GuardrailContextualGroundingPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailCrossRegionConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailCrossRegionConfigPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailManagedWordsConfigOutput{})
 	pulumi.RegisterOutputType(GuardrailManagedWordsConfigArrayOutput{})
 	pulumi.RegisterOutputType(GuardrailPiiEntityConfigOutput{})

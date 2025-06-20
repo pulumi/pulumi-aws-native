@@ -42,6 +42,7 @@ export interface GetGuardrailResult {
      * Time Stamp
      */
     readonly createdAt?: string;
+    readonly crossRegionConfig?: outputs.bedrock.GuardrailCrossRegionConfig;
     /**
      * Description of the guardrail or its version
      */

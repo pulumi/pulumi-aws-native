@@ -10,6 +10,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Indicates to link a list of included Regions
+type AggregatorV2RegionLinkingMode string
+
+const (
+	AggregatorV2RegionLinkingModeSpecifiedRegions = AggregatorV2RegionLinkingMode("SPECIFIED_REGIONS")
+)
+
+func (AggregatorV2RegionLinkingMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*AggregatorV2RegionLinkingMode)(nil)).Elem()
+}
+
+func (e AggregatorV2RegionLinkingMode) ToAggregatorV2RegionLinkingModeOutput() AggregatorV2RegionLinkingModeOutput {
+	return pulumi.ToOutput(e).(AggregatorV2RegionLinkingModeOutput)
+}
+
+func (e AggregatorV2RegionLinkingMode) ToAggregatorV2RegionLinkingModeOutputWithContext(ctx context.Context) AggregatorV2RegionLinkingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AggregatorV2RegionLinkingModeOutput)
+}
+
+func (e AggregatorV2RegionLinkingMode) ToAggregatorV2RegionLinkingModePtrOutput() AggregatorV2RegionLinkingModePtrOutput {
+	return e.ToAggregatorV2RegionLinkingModePtrOutputWithContext(context.Background())
+}
+
+func (e AggregatorV2RegionLinkingMode) ToAggregatorV2RegionLinkingModePtrOutputWithContext(ctx context.Context) AggregatorV2RegionLinkingModePtrOutput {
+	return AggregatorV2RegionLinkingMode(e).ToAggregatorV2RegionLinkingModeOutputWithContext(ctx).ToAggregatorV2RegionLinkingModePtrOutputWithContext(ctx)
+}
+
+func (e AggregatorV2RegionLinkingMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AggregatorV2RegionLinkingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AggregatorV2RegionLinkingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AggregatorV2RegionLinkingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AggregatorV2RegionLinkingModeOutput struct{ *pulumi.OutputState }
+
+func (AggregatorV2RegionLinkingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AggregatorV2RegionLinkingMode)(nil)).Elem()
+}
+
+func (o AggregatorV2RegionLinkingModeOutput) ToAggregatorV2RegionLinkingModeOutput() AggregatorV2RegionLinkingModeOutput {
+	return o
+}
+
+func (o AggregatorV2RegionLinkingModeOutput) ToAggregatorV2RegionLinkingModeOutputWithContext(ctx context.Context) AggregatorV2RegionLinkingModeOutput {
+	return o
+}
+
+func (o AggregatorV2RegionLinkingModeOutput) ToAggregatorV2RegionLinkingModePtrOutput() AggregatorV2RegionLinkingModePtrOutput {
+	return o.ToAggregatorV2RegionLinkingModePtrOutputWithContext(context.Background())
+}
+
+func (o AggregatorV2RegionLinkingModeOutput) ToAggregatorV2RegionLinkingModePtrOutputWithContext(ctx context.Context) AggregatorV2RegionLinkingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AggregatorV2RegionLinkingMode) *AggregatorV2RegionLinkingMode {
+		return &v
+	}).(AggregatorV2RegionLinkingModePtrOutput)
+}
+
+func (o AggregatorV2RegionLinkingModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AggregatorV2RegionLinkingModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AggregatorV2RegionLinkingMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AggregatorV2RegionLinkingModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AggregatorV2RegionLinkingModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AggregatorV2RegionLinkingMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AggregatorV2RegionLinkingModePtrOutput struct{ *pulumi.OutputState }
+
+func (AggregatorV2RegionLinkingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AggregatorV2RegionLinkingMode)(nil)).Elem()
+}
+
+func (o AggregatorV2RegionLinkingModePtrOutput) ToAggregatorV2RegionLinkingModePtrOutput() AggregatorV2RegionLinkingModePtrOutput {
+	return o
+}
+
+func (o AggregatorV2RegionLinkingModePtrOutput) ToAggregatorV2RegionLinkingModePtrOutputWithContext(ctx context.Context) AggregatorV2RegionLinkingModePtrOutput {
+	return o
+}
+
+func (o AggregatorV2RegionLinkingModePtrOutput) Elem() AggregatorV2RegionLinkingModeOutput {
+	return o.ApplyT(func(v *AggregatorV2RegionLinkingMode) AggregatorV2RegionLinkingMode {
+		if v != nil {
+			return *v
+		}
+		var ret AggregatorV2RegionLinkingMode
+		return ret
+	}).(AggregatorV2RegionLinkingModeOutput)
+}
+
+func (o AggregatorV2RegionLinkingModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AggregatorV2RegionLinkingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AggregatorV2RegionLinkingMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AggregatorV2RegionLinkingModeInput is an input type that accepts values of the AggregatorV2RegionLinkingMode enum
+// A concrete instance of `AggregatorV2RegionLinkingModeInput` can be one of the following:
+//
+//	AggregatorV2RegionLinkingModeSpecifiedRegions
+type AggregatorV2RegionLinkingModeInput interface {
+	pulumi.Input
+
+	ToAggregatorV2RegionLinkingModeOutput() AggregatorV2RegionLinkingModeOutput
+	ToAggregatorV2RegionLinkingModeOutputWithContext(context.Context) AggregatorV2RegionLinkingModeOutput
+}
+
+var aggregatorV2RegionLinkingModePtrType = reflect.TypeOf((**AggregatorV2RegionLinkingMode)(nil)).Elem()
+
+type AggregatorV2RegionLinkingModePtrInput interface {
+	pulumi.Input
+
+	ToAggregatorV2RegionLinkingModePtrOutput() AggregatorV2RegionLinkingModePtrOutput
+	ToAggregatorV2RegionLinkingModePtrOutputWithContext(context.Context) AggregatorV2RegionLinkingModePtrOutput
+}
+
+type aggregatorV2RegionLinkingModePtr string
+
+func AggregatorV2RegionLinkingModePtr(v string) AggregatorV2RegionLinkingModePtrInput {
+	return (*aggregatorV2RegionLinkingModePtr)(&v)
+}
+
+func (*aggregatorV2RegionLinkingModePtr) ElementType() reflect.Type {
+	return aggregatorV2RegionLinkingModePtrType
+}
+
+func (in *aggregatorV2RegionLinkingModePtr) ToAggregatorV2RegionLinkingModePtrOutput() AggregatorV2RegionLinkingModePtrOutput {
+	return pulumi.ToOutput(in).(AggregatorV2RegionLinkingModePtrOutput)
+}
+
+func (in *aggregatorV2RegionLinkingModePtr) ToAggregatorV2RegionLinkingModePtrOutputWithContext(ctx context.Context) AggregatorV2RegionLinkingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AggregatorV2RegionLinkingModePtrOutput)
+}
+
 // A date range unit for the date filter.
 type AutomationRuleDateRangeUnit string
 
@@ -873,6 +1037,1914 @@ func (in *automationRuleStringFilterComparisonPtr) ToAutomationRuleStringFilterC
 
 func (in *automationRuleStringFilterComparisonPtr) ToAutomationRuleStringFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleStringFilterComparisonPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleStringFilterComparisonPtrOutput)
+}
+
+// The logical operator used to combine multiple conditions
+type AutomationRuleV2AllowedOperators string
+
+const (
+	AutomationRuleV2AllowedOperatorsAnd = AutomationRuleV2AllowedOperators("AND")
+	AutomationRuleV2AllowedOperatorsOr  = AutomationRuleV2AllowedOperators("OR")
+)
+
+func (AutomationRuleV2AllowedOperators) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2AllowedOperators)(nil)).Elem()
+}
+
+func (e AutomationRuleV2AllowedOperators) ToAutomationRuleV2AllowedOperatorsOutput() AutomationRuleV2AllowedOperatorsOutput {
+	return pulumi.ToOutput(e).(AutomationRuleV2AllowedOperatorsOutput)
+}
+
+func (e AutomationRuleV2AllowedOperators) ToAutomationRuleV2AllowedOperatorsOutputWithContext(ctx context.Context) AutomationRuleV2AllowedOperatorsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutomationRuleV2AllowedOperatorsOutput)
+}
+
+func (e AutomationRuleV2AllowedOperators) ToAutomationRuleV2AllowedOperatorsPtrOutput() AutomationRuleV2AllowedOperatorsPtrOutput {
+	return e.ToAutomationRuleV2AllowedOperatorsPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2AllowedOperators) ToAutomationRuleV2AllowedOperatorsPtrOutputWithContext(ctx context.Context) AutomationRuleV2AllowedOperatorsPtrOutput {
+	return AutomationRuleV2AllowedOperators(e).ToAutomationRuleV2AllowedOperatorsOutputWithContext(ctx).ToAutomationRuleV2AllowedOperatorsPtrOutputWithContext(ctx)
+}
+
+func (e AutomationRuleV2AllowedOperators) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2AllowedOperators) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2AllowedOperators) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2AllowedOperators) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutomationRuleV2AllowedOperatorsOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2AllowedOperatorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2AllowedOperators)(nil)).Elem()
+}
+
+func (o AutomationRuleV2AllowedOperatorsOutput) ToAutomationRuleV2AllowedOperatorsOutput() AutomationRuleV2AllowedOperatorsOutput {
+	return o
+}
+
+func (o AutomationRuleV2AllowedOperatorsOutput) ToAutomationRuleV2AllowedOperatorsOutputWithContext(ctx context.Context) AutomationRuleV2AllowedOperatorsOutput {
+	return o
+}
+
+func (o AutomationRuleV2AllowedOperatorsOutput) ToAutomationRuleV2AllowedOperatorsPtrOutput() AutomationRuleV2AllowedOperatorsPtrOutput {
+	return o.ToAutomationRuleV2AllowedOperatorsPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2AllowedOperatorsOutput) ToAutomationRuleV2AllowedOperatorsPtrOutputWithContext(ctx context.Context) AutomationRuleV2AllowedOperatorsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2AllowedOperators) *AutomationRuleV2AllowedOperators {
+		return &v
+	}).(AutomationRuleV2AllowedOperatorsPtrOutput)
+}
+
+func (o AutomationRuleV2AllowedOperatorsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2AllowedOperatorsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2AllowedOperators) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutomationRuleV2AllowedOperatorsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2AllowedOperatorsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2AllowedOperators) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2AllowedOperatorsPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2AllowedOperatorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2AllowedOperators)(nil)).Elem()
+}
+
+func (o AutomationRuleV2AllowedOperatorsPtrOutput) ToAutomationRuleV2AllowedOperatorsPtrOutput() AutomationRuleV2AllowedOperatorsPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2AllowedOperatorsPtrOutput) ToAutomationRuleV2AllowedOperatorsPtrOutputWithContext(ctx context.Context) AutomationRuleV2AllowedOperatorsPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2AllowedOperatorsPtrOutput) Elem() AutomationRuleV2AllowedOperatorsOutput {
+	return o.ApplyT(func(v *AutomationRuleV2AllowedOperators) AutomationRuleV2AllowedOperators {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2AllowedOperators
+		return ret
+	}).(AutomationRuleV2AllowedOperatorsOutput)
+}
+
+func (o AutomationRuleV2AllowedOperatorsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2AllowedOperatorsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutomationRuleV2AllowedOperators) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutomationRuleV2AllowedOperatorsInput is an input type that accepts values of the AutomationRuleV2AllowedOperators enum
+// A concrete instance of `AutomationRuleV2AllowedOperatorsInput` can be one of the following:
+//
+//	AutomationRuleV2AllowedOperatorsAnd
+//	AutomationRuleV2AllowedOperatorsOr
+type AutomationRuleV2AllowedOperatorsInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2AllowedOperatorsOutput() AutomationRuleV2AllowedOperatorsOutput
+	ToAutomationRuleV2AllowedOperatorsOutputWithContext(context.Context) AutomationRuleV2AllowedOperatorsOutput
+}
+
+var automationRuleV2AllowedOperatorsPtrType = reflect.TypeOf((**AutomationRuleV2AllowedOperators)(nil)).Elem()
+
+type AutomationRuleV2AllowedOperatorsPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2AllowedOperatorsPtrOutput() AutomationRuleV2AllowedOperatorsPtrOutput
+	ToAutomationRuleV2AllowedOperatorsPtrOutputWithContext(context.Context) AutomationRuleV2AllowedOperatorsPtrOutput
+}
+
+type automationRuleV2AllowedOperatorsPtr string
+
+func AutomationRuleV2AllowedOperatorsPtr(v string) AutomationRuleV2AllowedOperatorsPtrInput {
+	return (*automationRuleV2AllowedOperatorsPtr)(&v)
+}
+
+func (*automationRuleV2AllowedOperatorsPtr) ElementType() reflect.Type {
+	return automationRuleV2AllowedOperatorsPtrType
+}
+
+func (in *automationRuleV2AllowedOperatorsPtr) ToAutomationRuleV2AllowedOperatorsPtrOutput() AutomationRuleV2AllowedOperatorsPtrOutput {
+	return pulumi.ToOutput(in).(AutomationRuleV2AllowedOperatorsPtrOutput)
+}
+
+func (in *automationRuleV2AllowedOperatorsPtr) ToAutomationRuleV2AllowedOperatorsPtrOutputWithContext(ctx context.Context) AutomationRuleV2AllowedOperatorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleV2AllowedOperatorsPtrOutput)
+}
+
+// The category of action to be executed by the automation rule
+type AutomationRuleV2AutomationRulesActionV2Type string
+
+const (
+	AutomationRuleV2AutomationRulesActionV2TypeFindingFieldsUpdate = AutomationRuleV2AutomationRulesActionV2Type("FINDING_FIELDS_UPDATE")
+	AutomationRuleV2AutomationRulesActionV2TypeExternalIntegration = AutomationRuleV2AutomationRulesActionV2Type("EXTERNAL_INTEGRATION")
+)
+
+func (AutomationRuleV2AutomationRulesActionV2Type) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2AutomationRulesActionV2Type)(nil)).Elem()
+}
+
+func (e AutomationRuleV2AutomationRulesActionV2Type) ToAutomationRuleV2AutomationRulesActionV2TypeOutput() AutomationRuleV2AutomationRulesActionV2TypeOutput {
+	return pulumi.ToOutput(e).(AutomationRuleV2AutomationRulesActionV2TypeOutput)
+}
+
+func (e AutomationRuleV2AutomationRulesActionV2Type) ToAutomationRuleV2AutomationRulesActionV2TypeOutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesActionV2TypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutomationRuleV2AutomationRulesActionV2TypeOutput)
+}
+
+func (e AutomationRuleV2AutomationRulesActionV2Type) ToAutomationRuleV2AutomationRulesActionV2TypePtrOutput() AutomationRuleV2AutomationRulesActionV2TypePtrOutput {
+	return e.ToAutomationRuleV2AutomationRulesActionV2TypePtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2AutomationRulesActionV2Type) ToAutomationRuleV2AutomationRulesActionV2TypePtrOutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesActionV2TypePtrOutput {
+	return AutomationRuleV2AutomationRulesActionV2Type(e).ToAutomationRuleV2AutomationRulesActionV2TypeOutputWithContext(ctx).ToAutomationRuleV2AutomationRulesActionV2TypePtrOutputWithContext(ctx)
+}
+
+func (e AutomationRuleV2AutomationRulesActionV2Type) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2AutomationRulesActionV2Type) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2AutomationRulesActionV2Type) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2AutomationRulesActionV2Type) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutomationRuleV2AutomationRulesActionV2TypeOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2AutomationRulesActionV2TypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2AutomationRulesActionV2Type)(nil)).Elem()
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypeOutput) ToAutomationRuleV2AutomationRulesActionV2TypeOutput() AutomationRuleV2AutomationRulesActionV2TypeOutput {
+	return o
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypeOutput) ToAutomationRuleV2AutomationRulesActionV2TypeOutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesActionV2TypeOutput {
+	return o
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypeOutput) ToAutomationRuleV2AutomationRulesActionV2TypePtrOutput() AutomationRuleV2AutomationRulesActionV2TypePtrOutput {
+	return o.ToAutomationRuleV2AutomationRulesActionV2TypePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypeOutput) ToAutomationRuleV2AutomationRulesActionV2TypePtrOutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesActionV2TypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2AutomationRulesActionV2Type) *AutomationRuleV2AutomationRulesActionV2Type {
+		return &v
+	}).(AutomationRuleV2AutomationRulesActionV2TypePtrOutput)
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2AutomationRulesActionV2Type) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2AutomationRulesActionV2Type) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2AutomationRulesActionV2TypePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2AutomationRulesActionV2TypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2AutomationRulesActionV2Type)(nil)).Elem()
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypePtrOutput) ToAutomationRuleV2AutomationRulesActionV2TypePtrOutput() AutomationRuleV2AutomationRulesActionV2TypePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypePtrOutput) ToAutomationRuleV2AutomationRulesActionV2TypePtrOutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesActionV2TypePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypePtrOutput) Elem() AutomationRuleV2AutomationRulesActionV2TypeOutput {
+	return o.ApplyT(func(v *AutomationRuleV2AutomationRulesActionV2Type) AutomationRuleV2AutomationRulesActionV2Type {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2AutomationRulesActionV2Type
+		return ret
+	}).(AutomationRuleV2AutomationRulesActionV2TypeOutput)
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2AutomationRulesActionV2TypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutomationRuleV2AutomationRulesActionV2Type) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutomationRuleV2AutomationRulesActionV2TypeInput is an input type that accepts values of the AutomationRuleV2AutomationRulesActionV2Type enum
+// A concrete instance of `AutomationRuleV2AutomationRulesActionV2TypeInput` can be one of the following:
+//
+//	AutomationRuleV2AutomationRulesActionV2TypeFindingFieldsUpdate
+//	AutomationRuleV2AutomationRulesActionV2TypeExternalIntegration
+type AutomationRuleV2AutomationRulesActionV2TypeInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2AutomationRulesActionV2TypeOutput() AutomationRuleV2AutomationRulesActionV2TypeOutput
+	ToAutomationRuleV2AutomationRulesActionV2TypeOutputWithContext(context.Context) AutomationRuleV2AutomationRulesActionV2TypeOutput
+}
+
+var automationRuleV2AutomationRulesActionV2TypePtrType = reflect.TypeOf((**AutomationRuleV2AutomationRulesActionV2Type)(nil)).Elem()
+
+type AutomationRuleV2AutomationRulesActionV2TypePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2AutomationRulesActionV2TypePtrOutput() AutomationRuleV2AutomationRulesActionV2TypePtrOutput
+	ToAutomationRuleV2AutomationRulesActionV2TypePtrOutputWithContext(context.Context) AutomationRuleV2AutomationRulesActionV2TypePtrOutput
+}
+
+type automationRuleV2AutomationRulesActionV2TypePtr string
+
+func AutomationRuleV2AutomationRulesActionV2TypePtr(v string) AutomationRuleV2AutomationRulesActionV2TypePtrInput {
+	return (*automationRuleV2AutomationRulesActionV2TypePtr)(&v)
+}
+
+func (*automationRuleV2AutomationRulesActionV2TypePtr) ElementType() reflect.Type {
+	return automationRuleV2AutomationRulesActionV2TypePtrType
+}
+
+func (in *automationRuleV2AutomationRulesActionV2TypePtr) ToAutomationRuleV2AutomationRulesActionV2TypePtrOutput() AutomationRuleV2AutomationRulesActionV2TypePtrOutput {
+	return pulumi.ToOutput(in).(AutomationRuleV2AutomationRulesActionV2TypePtrOutput)
+}
+
+func (in *automationRuleV2AutomationRulesActionV2TypePtr) ToAutomationRuleV2AutomationRulesActionV2TypePtrOutputWithContext(ctx context.Context) AutomationRuleV2AutomationRulesActionV2TypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleV2AutomationRulesActionV2TypePtrOutput)
+}
+
+// A date range unit for the date filter
+type AutomationRuleV2DateRangeUnit string
+
+const (
+	AutomationRuleV2DateRangeUnitDays = AutomationRuleV2DateRangeUnit("DAYS")
+)
+
+func (AutomationRuleV2DateRangeUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2DateRangeUnit)(nil)).Elem()
+}
+
+func (e AutomationRuleV2DateRangeUnit) ToAutomationRuleV2DateRangeUnitOutput() AutomationRuleV2DateRangeUnitOutput {
+	return pulumi.ToOutput(e).(AutomationRuleV2DateRangeUnitOutput)
+}
+
+func (e AutomationRuleV2DateRangeUnit) ToAutomationRuleV2DateRangeUnitOutputWithContext(ctx context.Context) AutomationRuleV2DateRangeUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutomationRuleV2DateRangeUnitOutput)
+}
+
+func (e AutomationRuleV2DateRangeUnit) ToAutomationRuleV2DateRangeUnitPtrOutput() AutomationRuleV2DateRangeUnitPtrOutput {
+	return e.ToAutomationRuleV2DateRangeUnitPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2DateRangeUnit) ToAutomationRuleV2DateRangeUnitPtrOutputWithContext(ctx context.Context) AutomationRuleV2DateRangeUnitPtrOutput {
+	return AutomationRuleV2DateRangeUnit(e).ToAutomationRuleV2DateRangeUnitOutputWithContext(ctx).ToAutomationRuleV2DateRangeUnitPtrOutputWithContext(ctx)
+}
+
+func (e AutomationRuleV2DateRangeUnit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2DateRangeUnit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2DateRangeUnit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2DateRangeUnit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutomationRuleV2DateRangeUnitOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2DateRangeUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2DateRangeUnit)(nil)).Elem()
+}
+
+func (o AutomationRuleV2DateRangeUnitOutput) ToAutomationRuleV2DateRangeUnitOutput() AutomationRuleV2DateRangeUnitOutput {
+	return o
+}
+
+func (o AutomationRuleV2DateRangeUnitOutput) ToAutomationRuleV2DateRangeUnitOutputWithContext(ctx context.Context) AutomationRuleV2DateRangeUnitOutput {
+	return o
+}
+
+func (o AutomationRuleV2DateRangeUnitOutput) ToAutomationRuleV2DateRangeUnitPtrOutput() AutomationRuleV2DateRangeUnitPtrOutput {
+	return o.ToAutomationRuleV2DateRangeUnitPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2DateRangeUnitOutput) ToAutomationRuleV2DateRangeUnitPtrOutputWithContext(ctx context.Context) AutomationRuleV2DateRangeUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2DateRangeUnit) *AutomationRuleV2DateRangeUnit {
+		return &v
+	}).(AutomationRuleV2DateRangeUnitPtrOutput)
+}
+
+func (o AutomationRuleV2DateRangeUnitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2DateRangeUnitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2DateRangeUnit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutomationRuleV2DateRangeUnitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2DateRangeUnitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2DateRangeUnit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2DateRangeUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2DateRangeUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2DateRangeUnit)(nil)).Elem()
+}
+
+func (o AutomationRuleV2DateRangeUnitPtrOutput) ToAutomationRuleV2DateRangeUnitPtrOutput() AutomationRuleV2DateRangeUnitPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2DateRangeUnitPtrOutput) ToAutomationRuleV2DateRangeUnitPtrOutputWithContext(ctx context.Context) AutomationRuleV2DateRangeUnitPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2DateRangeUnitPtrOutput) Elem() AutomationRuleV2DateRangeUnitOutput {
+	return o.ApplyT(func(v *AutomationRuleV2DateRangeUnit) AutomationRuleV2DateRangeUnit {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2DateRangeUnit
+		return ret
+	}).(AutomationRuleV2DateRangeUnitOutput)
+}
+
+func (o AutomationRuleV2DateRangeUnitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2DateRangeUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutomationRuleV2DateRangeUnit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutomationRuleV2DateRangeUnitInput is an input type that accepts values of the AutomationRuleV2DateRangeUnit enum
+// A concrete instance of `AutomationRuleV2DateRangeUnitInput` can be one of the following:
+//
+//	AutomationRuleV2DateRangeUnitDays
+type AutomationRuleV2DateRangeUnitInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2DateRangeUnitOutput() AutomationRuleV2DateRangeUnitOutput
+	ToAutomationRuleV2DateRangeUnitOutputWithContext(context.Context) AutomationRuleV2DateRangeUnitOutput
+}
+
+var automationRuleV2DateRangeUnitPtrType = reflect.TypeOf((**AutomationRuleV2DateRangeUnit)(nil)).Elem()
+
+type AutomationRuleV2DateRangeUnitPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2DateRangeUnitPtrOutput() AutomationRuleV2DateRangeUnitPtrOutput
+	ToAutomationRuleV2DateRangeUnitPtrOutputWithContext(context.Context) AutomationRuleV2DateRangeUnitPtrOutput
+}
+
+type automationRuleV2DateRangeUnitPtr string
+
+func AutomationRuleV2DateRangeUnitPtr(v string) AutomationRuleV2DateRangeUnitPtrInput {
+	return (*automationRuleV2DateRangeUnitPtr)(&v)
+}
+
+func (*automationRuleV2DateRangeUnitPtr) ElementType() reflect.Type {
+	return automationRuleV2DateRangeUnitPtrType
+}
+
+func (in *automationRuleV2DateRangeUnitPtr) ToAutomationRuleV2DateRangeUnitPtrOutput() AutomationRuleV2DateRangeUnitPtrOutput {
+	return pulumi.ToOutput(in).(AutomationRuleV2DateRangeUnitPtrOutput)
+}
+
+func (in *automationRuleV2DateRangeUnitPtr) ToAutomationRuleV2DateRangeUnitPtrOutputWithContext(ctx context.Context) AutomationRuleV2DateRangeUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleV2DateRangeUnitPtrOutput)
+}
+
+// The condition to apply to the key value when filtering findings with a map filter
+type AutomationRuleV2MapFilterComparison string
+
+const (
+	AutomationRuleV2MapFilterComparisonEquals    = AutomationRuleV2MapFilterComparison("EQUALS")
+	AutomationRuleV2MapFilterComparisonNotEquals = AutomationRuleV2MapFilterComparison("NOT_EQUALS")
+)
+
+func (AutomationRuleV2MapFilterComparison) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2MapFilterComparison)(nil)).Elem()
+}
+
+func (e AutomationRuleV2MapFilterComparison) ToAutomationRuleV2MapFilterComparisonOutput() AutomationRuleV2MapFilterComparisonOutput {
+	return pulumi.ToOutput(e).(AutomationRuleV2MapFilterComparisonOutput)
+}
+
+func (e AutomationRuleV2MapFilterComparison) ToAutomationRuleV2MapFilterComparisonOutputWithContext(ctx context.Context) AutomationRuleV2MapFilterComparisonOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutomationRuleV2MapFilterComparisonOutput)
+}
+
+func (e AutomationRuleV2MapFilterComparison) ToAutomationRuleV2MapFilterComparisonPtrOutput() AutomationRuleV2MapFilterComparisonPtrOutput {
+	return e.ToAutomationRuleV2MapFilterComparisonPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2MapFilterComparison) ToAutomationRuleV2MapFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleV2MapFilterComparisonPtrOutput {
+	return AutomationRuleV2MapFilterComparison(e).ToAutomationRuleV2MapFilterComparisonOutputWithContext(ctx).ToAutomationRuleV2MapFilterComparisonPtrOutputWithContext(ctx)
+}
+
+func (e AutomationRuleV2MapFilterComparison) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2MapFilterComparison) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2MapFilterComparison) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2MapFilterComparison) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutomationRuleV2MapFilterComparisonOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2MapFilterComparisonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2MapFilterComparison)(nil)).Elem()
+}
+
+func (o AutomationRuleV2MapFilterComparisonOutput) ToAutomationRuleV2MapFilterComparisonOutput() AutomationRuleV2MapFilterComparisonOutput {
+	return o
+}
+
+func (o AutomationRuleV2MapFilterComparisonOutput) ToAutomationRuleV2MapFilterComparisonOutputWithContext(ctx context.Context) AutomationRuleV2MapFilterComparisonOutput {
+	return o
+}
+
+func (o AutomationRuleV2MapFilterComparisonOutput) ToAutomationRuleV2MapFilterComparisonPtrOutput() AutomationRuleV2MapFilterComparisonPtrOutput {
+	return o.ToAutomationRuleV2MapFilterComparisonPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2MapFilterComparisonOutput) ToAutomationRuleV2MapFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleV2MapFilterComparisonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2MapFilterComparison) *AutomationRuleV2MapFilterComparison {
+		return &v
+	}).(AutomationRuleV2MapFilterComparisonPtrOutput)
+}
+
+func (o AutomationRuleV2MapFilterComparisonOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2MapFilterComparisonOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2MapFilterComparison) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutomationRuleV2MapFilterComparisonOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2MapFilterComparisonOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2MapFilterComparison) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2MapFilterComparisonPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2MapFilterComparisonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2MapFilterComparison)(nil)).Elem()
+}
+
+func (o AutomationRuleV2MapFilterComparisonPtrOutput) ToAutomationRuleV2MapFilterComparisonPtrOutput() AutomationRuleV2MapFilterComparisonPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2MapFilterComparisonPtrOutput) ToAutomationRuleV2MapFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleV2MapFilterComparisonPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2MapFilterComparisonPtrOutput) Elem() AutomationRuleV2MapFilterComparisonOutput {
+	return o.ApplyT(func(v *AutomationRuleV2MapFilterComparison) AutomationRuleV2MapFilterComparison {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2MapFilterComparison
+		return ret
+	}).(AutomationRuleV2MapFilterComparisonOutput)
+}
+
+func (o AutomationRuleV2MapFilterComparisonPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2MapFilterComparisonPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutomationRuleV2MapFilterComparison) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutomationRuleV2MapFilterComparisonInput is an input type that accepts values of the AutomationRuleV2MapFilterComparison enum
+// A concrete instance of `AutomationRuleV2MapFilterComparisonInput` can be one of the following:
+//
+//	AutomationRuleV2MapFilterComparisonEquals
+//	AutomationRuleV2MapFilterComparisonNotEquals
+type AutomationRuleV2MapFilterComparisonInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2MapFilterComparisonOutput() AutomationRuleV2MapFilterComparisonOutput
+	ToAutomationRuleV2MapFilterComparisonOutputWithContext(context.Context) AutomationRuleV2MapFilterComparisonOutput
+}
+
+var automationRuleV2MapFilterComparisonPtrType = reflect.TypeOf((**AutomationRuleV2MapFilterComparison)(nil)).Elem()
+
+type AutomationRuleV2MapFilterComparisonPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2MapFilterComparisonPtrOutput() AutomationRuleV2MapFilterComparisonPtrOutput
+	ToAutomationRuleV2MapFilterComparisonPtrOutputWithContext(context.Context) AutomationRuleV2MapFilterComparisonPtrOutput
+}
+
+type automationRuleV2MapFilterComparisonPtr string
+
+func AutomationRuleV2MapFilterComparisonPtr(v string) AutomationRuleV2MapFilterComparisonPtrInput {
+	return (*automationRuleV2MapFilterComparisonPtr)(&v)
+}
+
+func (*automationRuleV2MapFilterComparisonPtr) ElementType() reflect.Type {
+	return automationRuleV2MapFilterComparisonPtrType
+}
+
+func (in *automationRuleV2MapFilterComparisonPtr) ToAutomationRuleV2MapFilterComparisonPtrOutput() AutomationRuleV2MapFilterComparisonPtrOutput {
+	return pulumi.ToOutput(in).(AutomationRuleV2MapFilterComparisonPtrOutput)
+}
+
+func (in *automationRuleV2MapFilterComparisonPtr) ToAutomationRuleV2MapFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleV2MapFilterComparisonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleV2MapFilterComparisonPtrOutput)
+}
+
+// The name of the field
+type AutomationRuleV2OcsfBooleanFilterFieldName string
+
+const (
+	AutomationRuleV2OcsfBooleanFilterFieldNameComplianceAssessmentsMeetsCriteria = AutomationRuleV2OcsfBooleanFilterFieldName("compliance.assessments.meets_criteria")
+	AutomationRuleV2OcsfBooleanFilterFieldNameVulnerabilitiesIsExploitAvailable  = AutomationRuleV2OcsfBooleanFilterFieldName("vulnerabilities.is_exploit_available")
+	AutomationRuleV2OcsfBooleanFilterFieldNameVulnerabilitiesIsFixAvailable      = AutomationRuleV2OcsfBooleanFilterFieldName("vulnerabilities.is_fix_available")
+)
+
+func (AutomationRuleV2OcsfBooleanFilterFieldName) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfBooleanFilterFieldName)(nil)).Elem()
+}
+
+func (e AutomationRuleV2OcsfBooleanFilterFieldName) ToAutomationRuleV2OcsfBooleanFilterFieldNameOutput() AutomationRuleV2OcsfBooleanFilterFieldNameOutput {
+	return pulumi.ToOutput(e).(AutomationRuleV2OcsfBooleanFilterFieldNameOutput)
+}
+
+func (e AutomationRuleV2OcsfBooleanFilterFieldName) ToAutomationRuleV2OcsfBooleanFilterFieldNameOutputWithContext(ctx context.Context) AutomationRuleV2OcsfBooleanFilterFieldNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutomationRuleV2OcsfBooleanFilterFieldNameOutput)
+}
+
+func (e AutomationRuleV2OcsfBooleanFilterFieldName) ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput() AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput {
+	return e.ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2OcsfBooleanFilterFieldName) ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput {
+	return AutomationRuleV2OcsfBooleanFilterFieldName(e).ToAutomationRuleV2OcsfBooleanFilterFieldNameOutputWithContext(ctx).ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutputWithContext(ctx)
+}
+
+func (e AutomationRuleV2OcsfBooleanFilterFieldName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2OcsfBooleanFilterFieldName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2OcsfBooleanFilterFieldName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2OcsfBooleanFilterFieldName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutomationRuleV2OcsfBooleanFilterFieldNameOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfBooleanFilterFieldNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfBooleanFilterFieldName)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNameOutput) ToAutomationRuleV2OcsfBooleanFilterFieldNameOutput() AutomationRuleV2OcsfBooleanFilterFieldNameOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNameOutput) ToAutomationRuleV2OcsfBooleanFilterFieldNameOutputWithContext(ctx context.Context) AutomationRuleV2OcsfBooleanFilterFieldNameOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNameOutput) ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput() AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput {
+	return o.ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNameOutput) ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2OcsfBooleanFilterFieldName) *AutomationRuleV2OcsfBooleanFilterFieldName {
+		return &v
+	}).(AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput)
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2OcsfBooleanFilterFieldName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2OcsfBooleanFilterFieldName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2OcsfBooleanFilterFieldName)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput) ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput() AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput) ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput) Elem() AutomationRuleV2OcsfBooleanFilterFieldNameOutput {
+	return o.ApplyT(func(v *AutomationRuleV2OcsfBooleanFilterFieldName) AutomationRuleV2OcsfBooleanFilterFieldName {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2OcsfBooleanFilterFieldName
+		return ret
+	}).(AutomationRuleV2OcsfBooleanFilterFieldNameOutput)
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutomationRuleV2OcsfBooleanFilterFieldName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutomationRuleV2OcsfBooleanFilterFieldNameInput is an input type that accepts values of the AutomationRuleV2OcsfBooleanFilterFieldName enum
+// A concrete instance of `AutomationRuleV2OcsfBooleanFilterFieldNameInput` can be one of the following:
+//
+//	AutomationRuleV2OcsfBooleanFilterFieldNameComplianceAssessmentsMeetsCriteria
+//	AutomationRuleV2OcsfBooleanFilterFieldNameVulnerabilitiesIsExploitAvailable
+//	AutomationRuleV2OcsfBooleanFilterFieldNameVulnerabilitiesIsFixAvailable
+type AutomationRuleV2OcsfBooleanFilterFieldNameInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfBooleanFilterFieldNameOutput() AutomationRuleV2OcsfBooleanFilterFieldNameOutput
+	ToAutomationRuleV2OcsfBooleanFilterFieldNameOutputWithContext(context.Context) AutomationRuleV2OcsfBooleanFilterFieldNameOutput
+}
+
+var automationRuleV2OcsfBooleanFilterFieldNamePtrType = reflect.TypeOf((**AutomationRuleV2OcsfBooleanFilterFieldName)(nil)).Elem()
+
+type AutomationRuleV2OcsfBooleanFilterFieldNamePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput() AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput
+	ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutputWithContext(context.Context) AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput
+}
+
+type automationRuleV2OcsfBooleanFilterFieldNamePtr string
+
+func AutomationRuleV2OcsfBooleanFilterFieldNamePtr(v string) AutomationRuleV2OcsfBooleanFilterFieldNamePtrInput {
+	return (*automationRuleV2OcsfBooleanFilterFieldNamePtr)(&v)
+}
+
+func (*automationRuleV2OcsfBooleanFilterFieldNamePtr) ElementType() reflect.Type {
+	return automationRuleV2OcsfBooleanFilterFieldNamePtrType
+}
+
+func (in *automationRuleV2OcsfBooleanFilterFieldNamePtr) ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput() AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput {
+	return pulumi.ToOutput(in).(AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput)
+}
+
+func (in *automationRuleV2OcsfBooleanFilterFieldNamePtr) ToAutomationRuleV2OcsfBooleanFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput)
+}
+
+// The name of the field
+type AutomationRuleV2OcsfDateFilterFieldName string
+
+const (
+	AutomationRuleV2OcsfDateFilterFieldNameFindingInfoCreatedTimeDt   = AutomationRuleV2OcsfDateFilterFieldName("finding_info.created_time_dt")
+	AutomationRuleV2OcsfDateFilterFieldNameFindingInfoFirstSeenTimeDt = AutomationRuleV2OcsfDateFilterFieldName("finding_info.first_seen_time_dt")
+	AutomationRuleV2OcsfDateFilterFieldNameFindingInfoLastSeenTimeDt  = AutomationRuleV2OcsfDateFilterFieldName("finding_info.last_seen_time_dt")
+	AutomationRuleV2OcsfDateFilterFieldNameFindingInfoModifiedTimeDt  = AutomationRuleV2OcsfDateFilterFieldName("finding_info.modified_time_dt")
+)
+
+func (AutomationRuleV2OcsfDateFilterFieldName) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfDateFilterFieldName)(nil)).Elem()
+}
+
+func (e AutomationRuleV2OcsfDateFilterFieldName) ToAutomationRuleV2OcsfDateFilterFieldNameOutput() AutomationRuleV2OcsfDateFilterFieldNameOutput {
+	return pulumi.ToOutput(e).(AutomationRuleV2OcsfDateFilterFieldNameOutput)
+}
+
+func (e AutomationRuleV2OcsfDateFilterFieldName) ToAutomationRuleV2OcsfDateFilterFieldNameOutputWithContext(ctx context.Context) AutomationRuleV2OcsfDateFilterFieldNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutomationRuleV2OcsfDateFilterFieldNameOutput)
+}
+
+func (e AutomationRuleV2OcsfDateFilterFieldName) ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutput() AutomationRuleV2OcsfDateFilterFieldNamePtrOutput {
+	return e.ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2OcsfDateFilterFieldName) ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfDateFilterFieldNamePtrOutput {
+	return AutomationRuleV2OcsfDateFilterFieldName(e).ToAutomationRuleV2OcsfDateFilterFieldNameOutputWithContext(ctx).ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutputWithContext(ctx)
+}
+
+func (e AutomationRuleV2OcsfDateFilterFieldName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2OcsfDateFilterFieldName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2OcsfDateFilterFieldName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2OcsfDateFilterFieldName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutomationRuleV2OcsfDateFilterFieldNameOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfDateFilterFieldNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfDateFilterFieldName)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNameOutput) ToAutomationRuleV2OcsfDateFilterFieldNameOutput() AutomationRuleV2OcsfDateFilterFieldNameOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNameOutput) ToAutomationRuleV2OcsfDateFilterFieldNameOutputWithContext(ctx context.Context) AutomationRuleV2OcsfDateFilterFieldNameOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNameOutput) ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutput() AutomationRuleV2OcsfDateFilterFieldNamePtrOutput {
+	return o.ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNameOutput) ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfDateFilterFieldNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2OcsfDateFilterFieldName) *AutomationRuleV2OcsfDateFilterFieldName {
+		return &v
+	}).(AutomationRuleV2OcsfDateFilterFieldNamePtrOutput)
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2OcsfDateFilterFieldName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2OcsfDateFilterFieldName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2OcsfDateFilterFieldNamePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfDateFilterFieldNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2OcsfDateFilterFieldName)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNamePtrOutput) ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutput() AutomationRuleV2OcsfDateFilterFieldNamePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNamePtrOutput) ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfDateFilterFieldNamePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNamePtrOutput) Elem() AutomationRuleV2OcsfDateFilterFieldNameOutput {
+	return o.ApplyT(func(v *AutomationRuleV2OcsfDateFilterFieldName) AutomationRuleV2OcsfDateFilterFieldName {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2OcsfDateFilterFieldName
+		return ret
+	}).(AutomationRuleV2OcsfDateFilterFieldNameOutput)
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfDateFilterFieldNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutomationRuleV2OcsfDateFilterFieldName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutomationRuleV2OcsfDateFilterFieldNameInput is an input type that accepts values of the AutomationRuleV2OcsfDateFilterFieldName enum
+// A concrete instance of `AutomationRuleV2OcsfDateFilterFieldNameInput` can be one of the following:
+//
+//	AutomationRuleV2OcsfDateFilterFieldNameFindingInfoCreatedTimeDt
+//	AutomationRuleV2OcsfDateFilterFieldNameFindingInfoFirstSeenTimeDt
+//	AutomationRuleV2OcsfDateFilterFieldNameFindingInfoLastSeenTimeDt
+//	AutomationRuleV2OcsfDateFilterFieldNameFindingInfoModifiedTimeDt
+type AutomationRuleV2OcsfDateFilterFieldNameInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfDateFilterFieldNameOutput() AutomationRuleV2OcsfDateFilterFieldNameOutput
+	ToAutomationRuleV2OcsfDateFilterFieldNameOutputWithContext(context.Context) AutomationRuleV2OcsfDateFilterFieldNameOutput
+}
+
+var automationRuleV2OcsfDateFilterFieldNamePtrType = reflect.TypeOf((**AutomationRuleV2OcsfDateFilterFieldName)(nil)).Elem()
+
+type AutomationRuleV2OcsfDateFilterFieldNamePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutput() AutomationRuleV2OcsfDateFilterFieldNamePtrOutput
+	ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutputWithContext(context.Context) AutomationRuleV2OcsfDateFilterFieldNamePtrOutput
+}
+
+type automationRuleV2OcsfDateFilterFieldNamePtr string
+
+func AutomationRuleV2OcsfDateFilterFieldNamePtr(v string) AutomationRuleV2OcsfDateFilterFieldNamePtrInput {
+	return (*automationRuleV2OcsfDateFilterFieldNamePtr)(&v)
+}
+
+func (*automationRuleV2OcsfDateFilterFieldNamePtr) ElementType() reflect.Type {
+	return automationRuleV2OcsfDateFilterFieldNamePtrType
+}
+
+func (in *automationRuleV2OcsfDateFilterFieldNamePtr) ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutput() AutomationRuleV2OcsfDateFilterFieldNamePtrOutput {
+	return pulumi.ToOutput(in).(AutomationRuleV2OcsfDateFilterFieldNamePtrOutput)
+}
+
+func (in *automationRuleV2OcsfDateFilterFieldNamePtr) ToAutomationRuleV2OcsfDateFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfDateFilterFieldNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleV2OcsfDateFilterFieldNamePtrOutput)
+}
+
+// The name of the field
+type AutomationRuleV2OcsfMapFilterFieldName string
+
+const (
+	AutomationRuleV2OcsfMapFilterFieldNameResourcesTags = AutomationRuleV2OcsfMapFilterFieldName("resources.tags")
+)
+
+func (AutomationRuleV2OcsfMapFilterFieldName) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfMapFilterFieldName)(nil)).Elem()
+}
+
+func (e AutomationRuleV2OcsfMapFilterFieldName) ToAutomationRuleV2OcsfMapFilterFieldNameOutput() AutomationRuleV2OcsfMapFilterFieldNameOutput {
+	return pulumi.ToOutput(e).(AutomationRuleV2OcsfMapFilterFieldNameOutput)
+}
+
+func (e AutomationRuleV2OcsfMapFilterFieldName) ToAutomationRuleV2OcsfMapFilterFieldNameOutputWithContext(ctx context.Context) AutomationRuleV2OcsfMapFilterFieldNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutomationRuleV2OcsfMapFilterFieldNameOutput)
+}
+
+func (e AutomationRuleV2OcsfMapFilterFieldName) ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutput() AutomationRuleV2OcsfMapFilterFieldNamePtrOutput {
+	return e.ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2OcsfMapFilterFieldName) ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfMapFilterFieldNamePtrOutput {
+	return AutomationRuleV2OcsfMapFilterFieldName(e).ToAutomationRuleV2OcsfMapFilterFieldNameOutputWithContext(ctx).ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutputWithContext(ctx)
+}
+
+func (e AutomationRuleV2OcsfMapFilterFieldName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2OcsfMapFilterFieldName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2OcsfMapFilterFieldName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2OcsfMapFilterFieldName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutomationRuleV2OcsfMapFilterFieldNameOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfMapFilterFieldNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfMapFilterFieldName)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNameOutput) ToAutomationRuleV2OcsfMapFilterFieldNameOutput() AutomationRuleV2OcsfMapFilterFieldNameOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNameOutput) ToAutomationRuleV2OcsfMapFilterFieldNameOutputWithContext(ctx context.Context) AutomationRuleV2OcsfMapFilterFieldNameOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNameOutput) ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutput() AutomationRuleV2OcsfMapFilterFieldNamePtrOutput {
+	return o.ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNameOutput) ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfMapFilterFieldNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2OcsfMapFilterFieldName) *AutomationRuleV2OcsfMapFilterFieldName {
+		return &v
+	}).(AutomationRuleV2OcsfMapFilterFieldNamePtrOutput)
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2OcsfMapFilterFieldName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2OcsfMapFilterFieldName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2OcsfMapFilterFieldNamePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfMapFilterFieldNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2OcsfMapFilterFieldName)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNamePtrOutput) ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutput() AutomationRuleV2OcsfMapFilterFieldNamePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNamePtrOutput) ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfMapFilterFieldNamePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNamePtrOutput) Elem() AutomationRuleV2OcsfMapFilterFieldNameOutput {
+	return o.ApplyT(func(v *AutomationRuleV2OcsfMapFilterFieldName) AutomationRuleV2OcsfMapFilterFieldName {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2OcsfMapFilterFieldName
+		return ret
+	}).(AutomationRuleV2OcsfMapFilterFieldNameOutput)
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfMapFilterFieldNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutomationRuleV2OcsfMapFilterFieldName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutomationRuleV2OcsfMapFilterFieldNameInput is an input type that accepts values of the AutomationRuleV2OcsfMapFilterFieldName enum
+// A concrete instance of `AutomationRuleV2OcsfMapFilterFieldNameInput` can be one of the following:
+//
+//	AutomationRuleV2OcsfMapFilterFieldNameResourcesTags
+type AutomationRuleV2OcsfMapFilterFieldNameInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfMapFilterFieldNameOutput() AutomationRuleV2OcsfMapFilterFieldNameOutput
+	ToAutomationRuleV2OcsfMapFilterFieldNameOutputWithContext(context.Context) AutomationRuleV2OcsfMapFilterFieldNameOutput
+}
+
+var automationRuleV2OcsfMapFilterFieldNamePtrType = reflect.TypeOf((**AutomationRuleV2OcsfMapFilterFieldName)(nil)).Elem()
+
+type AutomationRuleV2OcsfMapFilterFieldNamePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutput() AutomationRuleV2OcsfMapFilterFieldNamePtrOutput
+	ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutputWithContext(context.Context) AutomationRuleV2OcsfMapFilterFieldNamePtrOutput
+}
+
+type automationRuleV2OcsfMapFilterFieldNamePtr string
+
+func AutomationRuleV2OcsfMapFilterFieldNamePtr(v string) AutomationRuleV2OcsfMapFilterFieldNamePtrInput {
+	return (*automationRuleV2OcsfMapFilterFieldNamePtr)(&v)
+}
+
+func (*automationRuleV2OcsfMapFilterFieldNamePtr) ElementType() reflect.Type {
+	return automationRuleV2OcsfMapFilterFieldNamePtrType
+}
+
+func (in *automationRuleV2OcsfMapFilterFieldNamePtr) ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutput() AutomationRuleV2OcsfMapFilterFieldNamePtrOutput {
+	return pulumi.ToOutput(in).(AutomationRuleV2OcsfMapFilterFieldNamePtrOutput)
+}
+
+func (in *automationRuleV2OcsfMapFilterFieldNamePtr) ToAutomationRuleV2OcsfMapFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfMapFilterFieldNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleV2OcsfMapFilterFieldNamePtrOutput)
+}
+
+// The name of the field
+type AutomationRuleV2OcsfNumberFilterFieldName string
+
+const (
+	AutomationRuleV2OcsfNumberFilterFieldNameActivityId                    = AutomationRuleV2OcsfNumberFilterFieldName("activity_id")
+	AutomationRuleV2OcsfNumberFilterFieldNameComplianceStatusId            = AutomationRuleV2OcsfNumberFilterFieldName("compliance.status_id")
+	AutomationRuleV2OcsfNumberFilterFieldNameConfidenceScore               = AutomationRuleV2OcsfNumberFilterFieldName("confidence_score")
+	AutomationRuleV2OcsfNumberFilterFieldNameSeverityId                    = AutomationRuleV2OcsfNumberFilterFieldName("severity_id")
+	AutomationRuleV2OcsfNumberFilterFieldNameStatusId                      = AutomationRuleV2OcsfNumberFilterFieldName("status_id")
+	AutomationRuleV2OcsfNumberFilterFieldNameFindingInfoRelatedEventsCount = AutomationRuleV2OcsfNumberFilterFieldName("finding_info.related_events_count")
+)
+
+func (AutomationRuleV2OcsfNumberFilterFieldName) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfNumberFilterFieldName)(nil)).Elem()
+}
+
+func (e AutomationRuleV2OcsfNumberFilterFieldName) ToAutomationRuleV2OcsfNumberFilterFieldNameOutput() AutomationRuleV2OcsfNumberFilterFieldNameOutput {
+	return pulumi.ToOutput(e).(AutomationRuleV2OcsfNumberFilterFieldNameOutput)
+}
+
+func (e AutomationRuleV2OcsfNumberFilterFieldName) ToAutomationRuleV2OcsfNumberFilterFieldNameOutputWithContext(ctx context.Context) AutomationRuleV2OcsfNumberFilterFieldNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutomationRuleV2OcsfNumberFilterFieldNameOutput)
+}
+
+func (e AutomationRuleV2OcsfNumberFilterFieldName) ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutput() AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput {
+	return e.ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2OcsfNumberFilterFieldName) ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput {
+	return AutomationRuleV2OcsfNumberFilterFieldName(e).ToAutomationRuleV2OcsfNumberFilterFieldNameOutputWithContext(ctx).ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutputWithContext(ctx)
+}
+
+func (e AutomationRuleV2OcsfNumberFilterFieldName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2OcsfNumberFilterFieldName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2OcsfNumberFilterFieldName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2OcsfNumberFilterFieldName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutomationRuleV2OcsfNumberFilterFieldNameOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfNumberFilterFieldNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfNumberFilterFieldName)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNameOutput) ToAutomationRuleV2OcsfNumberFilterFieldNameOutput() AutomationRuleV2OcsfNumberFilterFieldNameOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNameOutput) ToAutomationRuleV2OcsfNumberFilterFieldNameOutputWithContext(ctx context.Context) AutomationRuleV2OcsfNumberFilterFieldNameOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNameOutput) ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutput() AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput {
+	return o.ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNameOutput) ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2OcsfNumberFilterFieldName) *AutomationRuleV2OcsfNumberFilterFieldName {
+		return &v
+	}).(AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput)
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2OcsfNumberFilterFieldName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2OcsfNumberFilterFieldName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2OcsfNumberFilterFieldName)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput) ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutput() AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput) ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput) Elem() AutomationRuleV2OcsfNumberFilterFieldNameOutput {
+	return o.ApplyT(func(v *AutomationRuleV2OcsfNumberFilterFieldName) AutomationRuleV2OcsfNumberFilterFieldName {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2OcsfNumberFilterFieldName
+		return ret
+	}).(AutomationRuleV2OcsfNumberFilterFieldNameOutput)
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutomationRuleV2OcsfNumberFilterFieldName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutomationRuleV2OcsfNumberFilterFieldNameInput is an input type that accepts values of the AutomationRuleV2OcsfNumberFilterFieldName enum
+// A concrete instance of `AutomationRuleV2OcsfNumberFilterFieldNameInput` can be one of the following:
+//
+//	AutomationRuleV2OcsfNumberFilterFieldNameActivityId
+//	AutomationRuleV2OcsfNumberFilterFieldNameComplianceStatusId
+//	AutomationRuleV2OcsfNumberFilterFieldNameConfidenceScore
+//	AutomationRuleV2OcsfNumberFilterFieldNameSeverityId
+//	AutomationRuleV2OcsfNumberFilterFieldNameStatusId
+//	AutomationRuleV2OcsfNumberFilterFieldNameFindingInfoRelatedEventsCount
+type AutomationRuleV2OcsfNumberFilterFieldNameInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfNumberFilterFieldNameOutput() AutomationRuleV2OcsfNumberFilterFieldNameOutput
+	ToAutomationRuleV2OcsfNumberFilterFieldNameOutputWithContext(context.Context) AutomationRuleV2OcsfNumberFilterFieldNameOutput
+}
+
+var automationRuleV2OcsfNumberFilterFieldNamePtrType = reflect.TypeOf((**AutomationRuleV2OcsfNumberFilterFieldName)(nil)).Elem()
+
+type AutomationRuleV2OcsfNumberFilterFieldNamePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutput() AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput
+	ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutputWithContext(context.Context) AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput
+}
+
+type automationRuleV2OcsfNumberFilterFieldNamePtr string
+
+func AutomationRuleV2OcsfNumberFilterFieldNamePtr(v string) AutomationRuleV2OcsfNumberFilterFieldNamePtrInput {
+	return (*automationRuleV2OcsfNumberFilterFieldNamePtr)(&v)
+}
+
+func (*automationRuleV2OcsfNumberFilterFieldNamePtr) ElementType() reflect.Type {
+	return automationRuleV2OcsfNumberFilterFieldNamePtrType
+}
+
+func (in *automationRuleV2OcsfNumberFilterFieldNamePtr) ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutput() AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput {
+	return pulumi.ToOutput(in).(AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput)
+}
+
+func (in *automationRuleV2OcsfNumberFilterFieldNamePtr) ToAutomationRuleV2OcsfNumberFilterFieldNamePtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput)
+}
+
+// The name of the field
+type AutomationRuleV2OcsfStringField string
+
+const (
+	AutomationRuleV2OcsfStringFieldMetadataUid                        = AutomationRuleV2OcsfStringField("metadata.uid")
+	AutomationRuleV2OcsfStringFieldActivityName                       = AutomationRuleV2OcsfStringField("activity_name")
+	AutomationRuleV2OcsfStringFieldCloudAccountName                   = AutomationRuleV2OcsfStringField("cloud.account.name")
+	AutomationRuleV2OcsfStringFieldCloudAccountUid                    = AutomationRuleV2OcsfStringField("cloud.account.uid")
+	AutomationRuleV2OcsfStringFieldCloudProvider                      = AutomationRuleV2OcsfStringField("cloud.provider")
+	AutomationRuleV2OcsfStringFieldCloudRegion                        = AutomationRuleV2OcsfStringField("cloud.region")
+	AutomationRuleV2OcsfStringFieldComplianceAssessmentsCategory      = AutomationRuleV2OcsfStringField("compliance.assessments.category")
+	AutomationRuleV2OcsfStringFieldComplianceAssessmentsName          = AutomationRuleV2OcsfStringField("compliance.assessments.name")
+	AutomationRuleV2OcsfStringFieldComplianceControl                  = AutomationRuleV2OcsfStringField("compliance.control")
+	AutomationRuleV2OcsfStringFieldComplianceStatus                   = AutomationRuleV2OcsfStringField("compliance.status")
+	AutomationRuleV2OcsfStringFieldComplianceStandards                = AutomationRuleV2OcsfStringField("compliance.standards")
+	AutomationRuleV2OcsfStringFieldFindingInfoDesc                    = AutomationRuleV2OcsfStringField("finding_info.desc")
+	AutomationRuleV2OcsfStringFieldFindingInfoSrcUrl                  = AutomationRuleV2OcsfStringField("finding_info.src_url")
+	AutomationRuleV2OcsfStringFieldFindingInfoTitle                   = AutomationRuleV2OcsfStringField("finding_info.title")
+	AutomationRuleV2OcsfStringFieldFindingInfoTypes                   = AutomationRuleV2OcsfStringField("finding_info.types")
+	AutomationRuleV2OcsfStringFieldFindingInfoUid                     = AutomationRuleV2OcsfStringField("finding_info.uid")
+	AutomationRuleV2OcsfStringFieldFindingInfoRelatedEventsUid        = AutomationRuleV2OcsfStringField("finding_info.related_events.uid")
+	AutomationRuleV2OcsfStringFieldFindingInfoRelatedEventsProductUid = AutomationRuleV2OcsfStringField("finding_info.related_events.product.uid")
+	AutomationRuleV2OcsfStringFieldFindingInfoRelatedEventsTitle      = AutomationRuleV2OcsfStringField("finding_info.related_events.title")
+	AutomationRuleV2OcsfStringFieldMetadataProductFeatureUid          = AutomationRuleV2OcsfStringField("metadata.product.feature.uid")
+	AutomationRuleV2OcsfStringFieldMetadataProductName                = AutomationRuleV2OcsfStringField("metadata.product.name")
+	AutomationRuleV2OcsfStringFieldMetadataProductUid                 = AutomationRuleV2OcsfStringField("metadata.product.uid")
+	AutomationRuleV2OcsfStringFieldMetadataProductVendorName          = AutomationRuleV2OcsfStringField("metadata.product.vendor_name")
+	AutomationRuleV2OcsfStringFieldRemediationDesc                    = AutomationRuleV2OcsfStringField("remediation.desc")
+	AutomationRuleV2OcsfStringFieldRemediationReferences              = AutomationRuleV2OcsfStringField("remediation.references")
+	AutomationRuleV2OcsfStringFieldResourcesCloudPartition            = AutomationRuleV2OcsfStringField("resources.cloud_partition")
+	AutomationRuleV2OcsfStringFieldResourcesName                      = AutomationRuleV2OcsfStringField("resources.name")
+	AutomationRuleV2OcsfStringFieldResourcesRegion                    = AutomationRuleV2OcsfStringField("resources.region")
+	AutomationRuleV2OcsfStringFieldResourcesType                      = AutomationRuleV2OcsfStringField("resources.type")
+	AutomationRuleV2OcsfStringFieldResourcesUid                       = AutomationRuleV2OcsfStringField("resources.uid")
+	AutomationRuleV2OcsfStringFieldSeverity                           = AutomationRuleV2OcsfStringField("severity")
+	AutomationRuleV2OcsfStringFieldStatus                             = AutomationRuleV2OcsfStringField("status")
+	AutomationRuleV2OcsfStringFieldComment                            = AutomationRuleV2OcsfStringField("comment")
+	AutomationRuleV2OcsfStringFieldVulnerabilitiesFixCoverage         = AutomationRuleV2OcsfStringField("vulnerabilities.fix_coverage")
+	AutomationRuleV2OcsfStringFieldClassName                          = AutomationRuleV2OcsfStringField("class_name")
+)
+
+func (AutomationRuleV2OcsfStringField) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfStringField)(nil)).Elem()
+}
+
+func (e AutomationRuleV2OcsfStringField) ToAutomationRuleV2OcsfStringFieldOutput() AutomationRuleV2OcsfStringFieldOutput {
+	return pulumi.ToOutput(e).(AutomationRuleV2OcsfStringFieldOutput)
+}
+
+func (e AutomationRuleV2OcsfStringField) ToAutomationRuleV2OcsfStringFieldOutputWithContext(ctx context.Context) AutomationRuleV2OcsfStringFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutomationRuleV2OcsfStringFieldOutput)
+}
+
+func (e AutomationRuleV2OcsfStringField) ToAutomationRuleV2OcsfStringFieldPtrOutput() AutomationRuleV2OcsfStringFieldPtrOutput {
+	return e.ToAutomationRuleV2OcsfStringFieldPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2OcsfStringField) ToAutomationRuleV2OcsfStringFieldPtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfStringFieldPtrOutput {
+	return AutomationRuleV2OcsfStringField(e).ToAutomationRuleV2OcsfStringFieldOutputWithContext(ctx).ToAutomationRuleV2OcsfStringFieldPtrOutputWithContext(ctx)
+}
+
+func (e AutomationRuleV2OcsfStringField) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2OcsfStringField) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2OcsfStringField) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2OcsfStringField) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutomationRuleV2OcsfStringFieldOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfStringFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2OcsfStringField)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfStringFieldOutput) ToAutomationRuleV2OcsfStringFieldOutput() AutomationRuleV2OcsfStringFieldOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfStringFieldOutput) ToAutomationRuleV2OcsfStringFieldOutputWithContext(ctx context.Context) AutomationRuleV2OcsfStringFieldOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfStringFieldOutput) ToAutomationRuleV2OcsfStringFieldPtrOutput() AutomationRuleV2OcsfStringFieldPtrOutput {
+	return o.ToAutomationRuleV2OcsfStringFieldPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfStringFieldOutput) ToAutomationRuleV2OcsfStringFieldPtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfStringFieldPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2OcsfStringField) *AutomationRuleV2OcsfStringField {
+		return &v
+	}).(AutomationRuleV2OcsfStringFieldPtrOutput)
+}
+
+func (o AutomationRuleV2OcsfStringFieldOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfStringFieldOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2OcsfStringField) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutomationRuleV2OcsfStringFieldOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfStringFieldOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2OcsfStringField) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2OcsfStringFieldPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2OcsfStringFieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2OcsfStringField)(nil)).Elem()
+}
+
+func (o AutomationRuleV2OcsfStringFieldPtrOutput) ToAutomationRuleV2OcsfStringFieldPtrOutput() AutomationRuleV2OcsfStringFieldPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfStringFieldPtrOutput) ToAutomationRuleV2OcsfStringFieldPtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfStringFieldPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2OcsfStringFieldPtrOutput) Elem() AutomationRuleV2OcsfStringFieldOutput {
+	return o.ApplyT(func(v *AutomationRuleV2OcsfStringField) AutomationRuleV2OcsfStringField {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2OcsfStringField
+		return ret
+	}).(AutomationRuleV2OcsfStringFieldOutput)
+}
+
+func (o AutomationRuleV2OcsfStringFieldPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2OcsfStringFieldPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutomationRuleV2OcsfStringField) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutomationRuleV2OcsfStringFieldInput is an input type that accepts values of the AutomationRuleV2OcsfStringField enum
+// A concrete instance of `AutomationRuleV2OcsfStringFieldInput` can be one of the following:
+//
+//	AutomationRuleV2OcsfStringFieldMetadataUid
+//	AutomationRuleV2OcsfStringFieldActivityName
+//	AutomationRuleV2OcsfStringFieldCloudAccountName
+//	AutomationRuleV2OcsfStringFieldCloudAccountUid
+//	AutomationRuleV2OcsfStringFieldCloudProvider
+//	AutomationRuleV2OcsfStringFieldCloudRegion
+//	AutomationRuleV2OcsfStringFieldComplianceAssessmentsCategory
+//	AutomationRuleV2OcsfStringFieldComplianceAssessmentsName
+//	AutomationRuleV2OcsfStringFieldComplianceControl
+//	AutomationRuleV2OcsfStringFieldComplianceStatus
+//	AutomationRuleV2OcsfStringFieldComplianceStandards
+//	AutomationRuleV2OcsfStringFieldFindingInfoDesc
+//	AutomationRuleV2OcsfStringFieldFindingInfoSrcUrl
+//	AutomationRuleV2OcsfStringFieldFindingInfoTitle
+//	AutomationRuleV2OcsfStringFieldFindingInfoTypes
+//	AutomationRuleV2OcsfStringFieldFindingInfoUid
+//	AutomationRuleV2OcsfStringFieldFindingInfoRelatedEventsUid
+//	AutomationRuleV2OcsfStringFieldFindingInfoRelatedEventsProductUid
+//	AutomationRuleV2OcsfStringFieldFindingInfoRelatedEventsTitle
+//	AutomationRuleV2OcsfStringFieldMetadataProductFeatureUid
+//	AutomationRuleV2OcsfStringFieldMetadataProductName
+//	AutomationRuleV2OcsfStringFieldMetadataProductUid
+//	AutomationRuleV2OcsfStringFieldMetadataProductVendorName
+//	AutomationRuleV2OcsfStringFieldRemediationDesc
+//	AutomationRuleV2OcsfStringFieldRemediationReferences
+//	AutomationRuleV2OcsfStringFieldResourcesCloudPartition
+//	AutomationRuleV2OcsfStringFieldResourcesName
+//	AutomationRuleV2OcsfStringFieldResourcesRegion
+//	AutomationRuleV2OcsfStringFieldResourcesType
+//	AutomationRuleV2OcsfStringFieldResourcesUid
+//	AutomationRuleV2OcsfStringFieldSeverity
+//	AutomationRuleV2OcsfStringFieldStatus
+//	AutomationRuleV2OcsfStringFieldComment
+//	AutomationRuleV2OcsfStringFieldVulnerabilitiesFixCoverage
+//	AutomationRuleV2OcsfStringFieldClassName
+type AutomationRuleV2OcsfStringFieldInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfStringFieldOutput() AutomationRuleV2OcsfStringFieldOutput
+	ToAutomationRuleV2OcsfStringFieldOutputWithContext(context.Context) AutomationRuleV2OcsfStringFieldOutput
+}
+
+var automationRuleV2OcsfStringFieldPtrType = reflect.TypeOf((**AutomationRuleV2OcsfStringField)(nil)).Elem()
+
+type AutomationRuleV2OcsfStringFieldPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2OcsfStringFieldPtrOutput() AutomationRuleV2OcsfStringFieldPtrOutput
+	ToAutomationRuleV2OcsfStringFieldPtrOutputWithContext(context.Context) AutomationRuleV2OcsfStringFieldPtrOutput
+}
+
+type automationRuleV2OcsfStringFieldPtr string
+
+func AutomationRuleV2OcsfStringFieldPtr(v string) AutomationRuleV2OcsfStringFieldPtrInput {
+	return (*automationRuleV2OcsfStringFieldPtr)(&v)
+}
+
+func (*automationRuleV2OcsfStringFieldPtr) ElementType() reflect.Type {
+	return automationRuleV2OcsfStringFieldPtrType
+}
+
+func (in *automationRuleV2OcsfStringFieldPtr) ToAutomationRuleV2OcsfStringFieldPtrOutput() AutomationRuleV2OcsfStringFieldPtrOutput {
+	return pulumi.ToOutput(in).(AutomationRuleV2OcsfStringFieldPtrOutput)
+}
+
+func (in *automationRuleV2OcsfStringFieldPtr) ToAutomationRuleV2OcsfStringFieldPtrOutputWithContext(ctx context.Context) AutomationRuleV2OcsfStringFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleV2OcsfStringFieldPtrOutput)
+}
+
+// The status of the automation rule
+type AutomationRuleV2RuleStatus string
+
+const (
+	AutomationRuleV2RuleStatusEnabled  = AutomationRuleV2RuleStatus("ENABLED")
+	AutomationRuleV2RuleStatusDisabled = AutomationRuleV2RuleStatus("DISABLED")
+)
+
+func (AutomationRuleV2RuleStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2RuleStatus)(nil)).Elem()
+}
+
+func (e AutomationRuleV2RuleStatus) ToAutomationRuleV2RuleStatusOutput() AutomationRuleV2RuleStatusOutput {
+	return pulumi.ToOutput(e).(AutomationRuleV2RuleStatusOutput)
+}
+
+func (e AutomationRuleV2RuleStatus) ToAutomationRuleV2RuleStatusOutputWithContext(ctx context.Context) AutomationRuleV2RuleStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutomationRuleV2RuleStatusOutput)
+}
+
+func (e AutomationRuleV2RuleStatus) ToAutomationRuleV2RuleStatusPtrOutput() AutomationRuleV2RuleStatusPtrOutput {
+	return e.ToAutomationRuleV2RuleStatusPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2RuleStatus) ToAutomationRuleV2RuleStatusPtrOutputWithContext(ctx context.Context) AutomationRuleV2RuleStatusPtrOutput {
+	return AutomationRuleV2RuleStatus(e).ToAutomationRuleV2RuleStatusOutputWithContext(ctx).ToAutomationRuleV2RuleStatusPtrOutputWithContext(ctx)
+}
+
+func (e AutomationRuleV2RuleStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2RuleStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2RuleStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2RuleStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutomationRuleV2RuleStatusOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2RuleStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2RuleStatus)(nil)).Elem()
+}
+
+func (o AutomationRuleV2RuleStatusOutput) ToAutomationRuleV2RuleStatusOutput() AutomationRuleV2RuleStatusOutput {
+	return o
+}
+
+func (o AutomationRuleV2RuleStatusOutput) ToAutomationRuleV2RuleStatusOutputWithContext(ctx context.Context) AutomationRuleV2RuleStatusOutput {
+	return o
+}
+
+func (o AutomationRuleV2RuleStatusOutput) ToAutomationRuleV2RuleStatusPtrOutput() AutomationRuleV2RuleStatusPtrOutput {
+	return o.ToAutomationRuleV2RuleStatusPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2RuleStatusOutput) ToAutomationRuleV2RuleStatusPtrOutputWithContext(ctx context.Context) AutomationRuleV2RuleStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2RuleStatus) *AutomationRuleV2RuleStatus {
+		return &v
+	}).(AutomationRuleV2RuleStatusPtrOutput)
+}
+
+func (o AutomationRuleV2RuleStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2RuleStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2RuleStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutomationRuleV2RuleStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2RuleStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2RuleStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2RuleStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2RuleStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2RuleStatus)(nil)).Elem()
+}
+
+func (o AutomationRuleV2RuleStatusPtrOutput) ToAutomationRuleV2RuleStatusPtrOutput() AutomationRuleV2RuleStatusPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2RuleStatusPtrOutput) ToAutomationRuleV2RuleStatusPtrOutputWithContext(ctx context.Context) AutomationRuleV2RuleStatusPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2RuleStatusPtrOutput) Elem() AutomationRuleV2RuleStatusOutput {
+	return o.ApplyT(func(v *AutomationRuleV2RuleStatus) AutomationRuleV2RuleStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2RuleStatus
+		return ret
+	}).(AutomationRuleV2RuleStatusOutput)
+}
+
+func (o AutomationRuleV2RuleStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2RuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutomationRuleV2RuleStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutomationRuleV2RuleStatusInput is an input type that accepts values of the AutomationRuleV2RuleStatus enum
+// A concrete instance of `AutomationRuleV2RuleStatusInput` can be one of the following:
+//
+//	AutomationRuleV2RuleStatusEnabled
+//	AutomationRuleV2RuleStatusDisabled
+type AutomationRuleV2RuleStatusInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2RuleStatusOutput() AutomationRuleV2RuleStatusOutput
+	ToAutomationRuleV2RuleStatusOutputWithContext(context.Context) AutomationRuleV2RuleStatusOutput
+}
+
+var automationRuleV2RuleStatusPtrType = reflect.TypeOf((**AutomationRuleV2RuleStatus)(nil)).Elem()
+
+type AutomationRuleV2RuleStatusPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2RuleStatusPtrOutput() AutomationRuleV2RuleStatusPtrOutput
+	ToAutomationRuleV2RuleStatusPtrOutputWithContext(context.Context) AutomationRuleV2RuleStatusPtrOutput
+}
+
+type automationRuleV2RuleStatusPtr string
+
+func AutomationRuleV2RuleStatusPtr(v string) AutomationRuleV2RuleStatusPtrInput {
+	return (*automationRuleV2RuleStatusPtr)(&v)
+}
+
+func (*automationRuleV2RuleStatusPtr) ElementType() reflect.Type {
+	return automationRuleV2RuleStatusPtrType
+}
+
+func (in *automationRuleV2RuleStatusPtr) ToAutomationRuleV2RuleStatusPtrOutput() AutomationRuleV2RuleStatusPtrOutput {
+	return pulumi.ToOutput(in).(AutomationRuleV2RuleStatusPtrOutput)
+}
+
+func (in *automationRuleV2RuleStatusPtr) ToAutomationRuleV2RuleStatusPtrOutputWithContext(ctx context.Context) AutomationRuleV2RuleStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleV2RuleStatusPtrOutput)
+}
+
+// The condition to apply to a string value when filtering findings
+type AutomationRuleV2StringFilterComparison string
+
+const (
+	AutomationRuleV2StringFilterComparisonEquals          = AutomationRuleV2StringFilterComparison("EQUALS")
+	AutomationRuleV2StringFilterComparisonPrefix          = AutomationRuleV2StringFilterComparison("PREFIX")
+	AutomationRuleV2StringFilterComparisonNotEquals       = AutomationRuleV2StringFilterComparison("NOT_EQUALS")
+	AutomationRuleV2StringFilterComparisonPrefixNotEquals = AutomationRuleV2StringFilterComparison("PREFIX_NOT_EQUALS")
+	AutomationRuleV2StringFilterComparisonContains        = AutomationRuleV2StringFilterComparison("CONTAINS")
+)
+
+func (AutomationRuleV2StringFilterComparison) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2StringFilterComparison)(nil)).Elem()
+}
+
+func (e AutomationRuleV2StringFilterComparison) ToAutomationRuleV2StringFilterComparisonOutput() AutomationRuleV2StringFilterComparisonOutput {
+	return pulumi.ToOutput(e).(AutomationRuleV2StringFilterComparisonOutput)
+}
+
+func (e AutomationRuleV2StringFilterComparison) ToAutomationRuleV2StringFilterComparisonOutputWithContext(ctx context.Context) AutomationRuleV2StringFilterComparisonOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutomationRuleV2StringFilterComparisonOutput)
+}
+
+func (e AutomationRuleV2StringFilterComparison) ToAutomationRuleV2StringFilterComparisonPtrOutput() AutomationRuleV2StringFilterComparisonPtrOutput {
+	return e.ToAutomationRuleV2StringFilterComparisonPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2StringFilterComparison) ToAutomationRuleV2StringFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleV2StringFilterComparisonPtrOutput {
+	return AutomationRuleV2StringFilterComparison(e).ToAutomationRuleV2StringFilterComparisonOutputWithContext(ctx).ToAutomationRuleV2StringFilterComparisonPtrOutputWithContext(ctx)
+}
+
+func (e AutomationRuleV2StringFilterComparison) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2StringFilterComparison) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutomationRuleV2StringFilterComparison) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutomationRuleV2StringFilterComparison) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutomationRuleV2StringFilterComparisonOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2StringFilterComparisonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2StringFilterComparison)(nil)).Elem()
+}
+
+func (o AutomationRuleV2StringFilterComparisonOutput) ToAutomationRuleV2StringFilterComparisonOutput() AutomationRuleV2StringFilterComparisonOutput {
+	return o
+}
+
+func (o AutomationRuleV2StringFilterComparisonOutput) ToAutomationRuleV2StringFilterComparisonOutputWithContext(ctx context.Context) AutomationRuleV2StringFilterComparisonOutput {
+	return o
+}
+
+func (o AutomationRuleV2StringFilterComparisonOutput) ToAutomationRuleV2StringFilterComparisonPtrOutput() AutomationRuleV2StringFilterComparisonPtrOutput {
+	return o.ToAutomationRuleV2StringFilterComparisonPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2StringFilterComparisonOutput) ToAutomationRuleV2StringFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleV2StringFilterComparisonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2StringFilterComparison) *AutomationRuleV2StringFilterComparison {
+		return &v
+	}).(AutomationRuleV2StringFilterComparisonPtrOutput)
+}
+
+func (o AutomationRuleV2StringFilterComparisonOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2StringFilterComparisonOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2StringFilterComparison) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutomationRuleV2StringFilterComparisonOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2StringFilterComparisonOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutomationRuleV2StringFilterComparison) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2StringFilterComparisonPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2StringFilterComparisonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2StringFilterComparison)(nil)).Elem()
+}
+
+func (o AutomationRuleV2StringFilterComparisonPtrOutput) ToAutomationRuleV2StringFilterComparisonPtrOutput() AutomationRuleV2StringFilterComparisonPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2StringFilterComparisonPtrOutput) ToAutomationRuleV2StringFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleV2StringFilterComparisonPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2StringFilterComparisonPtrOutput) Elem() AutomationRuleV2StringFilterComparisonOutput {
+	return o.ApplyT(func(v *AutomationRuleV2StringFilterComparison) AutomationRuleV2StringFilterComparison {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2StringFilterComparison
+		return ret
+	}).(AutomationRuleV2StringFilterComparisonOutput)
+}
+
+func (o AutomationRuleV2StringFilterComparisonPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2StringFilterComparisonPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutomationRuleV2StringFilterComparison) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutomationRuleV2StringFilterComparisonInput is an input type that accepts values of the AutomationRuleV2StringFilterComparison enum
+// A concrete instance of `AutomationRuleV2StringFilterComparisonInput` can be one of the following:
+//
+//	AutomationRuleV2StringFilterComparisonEquals
+//	AutomationRuleV2StringFilterComparisonPrefix
+//	AutomationRuleV2StringFilterComparisonNotEquals
+//	AutomationRuleV2StringFilterComparisonPrefixNotEquals
+//	AutomationRuleV2StringFilterComparisonContains
+type AutomationRuleV2StringFilterComparisonInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2StringFilterComparisonOutput() AutomationRuleV2StringFilterComparisonOutput
+	ToAutomationRuleV2StringFilterComparisonOutputWithContext(context.Context) AutomationRuleV2StringFilterComparisonOutput
+}
+
+var automationRuleV2StringFilterComparisonPtrType = reflect.TypeOf((**AutomationRuleV2StringFilterComparison)(nil)).Elem()
+
+type AutomationRuleV2StringFilterComparisonPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2StringFilterComparisonPtrOutput() AutomationRuleV2StringFilterComparisonPtrOutput
+	ToAutomationRuleV2StringFilterComparisonPtrOutputWithContext(context.Context) AutomationRuleV2StringFilterComparisonPtrOutput
+}
+
+type automationRuleV2StringFilterComparisonPtr string
+
+func AutomationRuleV2StringFilterComparisonPtr(v string) AutomationRuleV2StringFilterComparisonPtrInput {
+	return (*automationRuleV2StringFilterComparisonPtr)(&v)
+}
+
+func (*automationRuleV2StringFilterComparisonPtr) ElementType() reflect.Type {
+	return automationRuleV2StringFilterComparisonPtrType
+}
+
+func (in *automationRuleV2StringFilterComparisonPtr) ToAutomationRuleV2StringFilterComparisonPtrOutput() AutomationRuleV2StringFilterComparisonPtrOutput {
+	return pulumi.ToOutput(in).(AutomationRuleV2StringFilterComparisonPtrOutput)
+}
+
+func (in *automationRuleV2StringFilterComparisonPtr) ToAutomationRuleV2StringFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleV2StringFilterComparisonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleV2StringFilterComparisonPtrOutput)
 }
 
 // The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to “SUPPRESSED“ or “RESOLVED“ does not prevent a new finding for the same issue.
@@ -3266,6 +5338,8 @@ func (in *securityControlParameterConfigurationValueTypePtr) ToSecurityControlPa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AggregatorV2RegionLinkingModeInput)(nil)).Elem(), AggregatorV2RegionLinkingMode("SPECIFIED_REGIONS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AggregatorV2RegionLinkingModePtrInput)(nil)).Elem(), AggregatorV2RegionLinkingMode("SPECIFIED_REGIONS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleDateRangeUnitInput)(nil)).Elem(), AutomationRuleDateRangeUnit("DAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleDateRangeUnitPtrInput)(nil)).Elem(), AutomationRuleDateRangeUnit("DAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleMapFilterComparisonInput)(nil)).Elem(), AutomationRuleMapFilterComparison("EQUALS"))
@@ -3276,6 +5350,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleSeverityUpdateLabelPtrInput)(nil)).Elem(), AutomationRuleSeverityUpdateLabel("INFORMATIONAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleStringFilterComparisonInput)(nil)).Elem(), AutomationRuleStringFilterComparison("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleStringFilterComparisonPtrInput)(nil)).Elem(), AutomationRuleStringFilterComparison("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2AllowedOperatorsInput)(nil)).Elem(), AutomationRuleV2AllowedOperators("AND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2AllowedOperatorsPtrInput)(nil)).Elem(), AutomationRuleV2AllowedOperators("AND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2AutomationRulesActionV2TypeInput)(nil)).Elem(), AutomationRuleV2AutomationRulesActionV2Type("FINDING_FIELDS_UPDATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2AutomationRulesActionV2TypePtrInput)(nil)).Elem(), AutomationRuleV2AutomationRulesActionV2Type("FINDING_FIELDS_UPDATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2DateRangeUnitInput)(nil)).Elem(), AutomationRuleV2DateRangeUnit("DAYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2DateRangeUnitPtrInput)(nil)).Elem(), AutomationRuleV2DateRangeUnit("DAYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2MapFilterComparisonInput)(nil)).Elem(), AutomationRuleV2MapFilterComparison("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2MapFilterComparisonPtrInput)(nil)).Elem(), AutomationRuleV2MapFilterComparison("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfBooleanFilterFieldNameInput)(nil)).Elem(), AutomationRuleV2OcsfBooleanFilterFieldName("compliance.assessments.meets_criteria"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfBooleanFilterFieldNamePtrInput)(nil)).Elem(), AutomationRuleV2OcsfBooleanFilterFieldName("compliance.assessments.meets_criteria"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfDateFilterFieldNameInput)(nil)).Elem(), AutomationRuleV2OcsfDateFilterFieldName("finding_info.created_time_dt"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfDateFilterFieldNamePtrInput)(nil)).Elem(), AutomationRuleV2OcsfDateFilterFieldName("finding_info.created_time_dt"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfMapFilterFieldNameInput)(nil)).Elem(), AutomationRuleV2OcsfMapFilterFieldName("resources.tags"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfMapFilterFieldNamePtrInput)(nil)).Elem(), AutomationRuleV2OcsfMapFilterFieldName("resources.tags"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfNumberFilterFieldNameInput)(nil)).Elem(), AutomationRuleV2OcsfNumberFilterFieldName("activity_id"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfNumberFilterFieldNamePtrInput)(nil)).Elem(), AutomationRuleV2OcsfNumberFilterFieldName("activity_id"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfStringFieldInput)(nil)).Elem(), AutomationRuleV2OcsfStringField("metadata.uid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfStringFieldPtrInput)(nil)).Elem(), AutomationRuleV2OcsfStringField("metadata.uid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2RuleStatusInput)(nil)).Elem(), AutomationRuleV2RuleStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2RuleStatusPtrInput)(nil)).Elem(), AutomationRuleV2RuleStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2StringFilterComparisonInput)(nil)).Elem(), AutomationRuleV2StringFilterComparison("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2StringFilterComparisonPtrInput)(nil)).Elem(), AutomationRuleV2StringFilterComparison("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleWorkflowUpdateStatusInput)(nil)).Elem(), AutomationRuleWorkflowUpdateStatus("NEW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleWorkflowUpdateStatusPtrInput)(nil)).Elem(), AutomationRuleWorkflowUpdateStatus("NEW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesActionTypeInput)(nil)).Elem(), AutomationRulesActionType("FINDING_FIELDS_UPDATE"))
@@ -3300,6 +5396,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAssociationTargetTypePtrInput)(nil)).Elem(), PolicyAssociationTargetType("ACCOUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityControlParameterConfigurationValueTypeInput)(nil)).Elem(), SecurityControlParameterConfigurationValueType("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityControlParameterConfigurationValueTypePtrInput)(nil)).Elem(), SecurityControlParameterConfigurationValueType("DEFAULT"))
+	pulumi.RegisterOutputType(AggregatorV2RegionLinkingModeOutput{})
+	pulumi.RegisterOutputType(AggregatorV2RegionLinkingModePtrOutput{})
 	pulumi.RegisterOutputType(AutomationRuleDateRangeUnitOutput{})
 	pulumi.RegisterOutputType(AutomationRuleDateRangeUnitPtrOutput{})
 	pulumi.RegisterOutputType(AutomationRuleMapFilterComparisonOutput{})
@@ -3310,6 +5408,28 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRuleSeverityUpdateLabelPtrOutput{})
 	pulumi.RegisterOutputType(AutomationRuleStringFilterComparisonOutput{})
 	pulumi.RegisterOutputType(AutomationRuleStringFilterComparisonPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2AllowedOperatorsOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2AllowedOperatorsPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2AutomationRulesActionV2TypeOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2AutomationRulesActionV2TypePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2DateRangeUnitOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2DateRangeUnitPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2MapFilterComparisonOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2MapFilterComparisonPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfBooleanFilterFieldNameOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfBooleanFilterFieldNamePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfDateFilterFieldNameOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfDateFilterFieldNamePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfMapFilterFieldNameOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfMapFilterFieldNamePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfNumberFilterFieldNameOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfStringFieldOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2OcsfStringFieldPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2RuleStatusOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2RuleStatusPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2StringFilterComparisonOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2StringFilterComparisonPtrOutput{})
 	pulumi.RegisterOutputType(AutomationRuleWorkflowUpdateStatusOutput{})
 	pulumi.RegisterOutputType(AutomationRuleWorkflowUpdateStatusPtrOutput{})
 	pulumi.RegisterOutputType(AutomationRulesActionTypeOutput{})

@@ -54,10 +54,15 @@ export interface GetCalculatedAttributeDefinitionResult {
      * The timestamp of when the calculated attribute definition was most recently edited.
      */
     readonly lastUpdatedAt?: string;
+    readonly readiness?: outputs.customerprofiles.CalculatedAttributeDefinitionReadiness;
     /**
      * The aggregation operation to perform for the calculated attribute.
      */
     readonly statistic?: enums.customerprofiles.CalculatedAttributeDefinitionStatistic;
+    /**
+     * The status of the calculated attribute definition.
+     */
+    readonly status?: enums.customerprofiles.CalculatedAttributeDefinitionStatus;
     /**
      * An array of key-value pairs to apply to this resource.
      */

@@ -23,6 +23,11 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("awsManagedRulesAcfpRuleSet")]
         public Input<Inputs.WebAclAwsManagedRulesAcfpRuleSetArgs>? AwsManagedRulesAcfpRuleSet { get; set; }
 
+        /// <summary>
+        /// Additional configuration for using the anti-DDoS managed rule group, `AWSManagedRulesAntiDDoSRuleSet` . Use this to configure anti-DDoS behavior for the rule group.
+        /// 
+        /// For information about using the anti-DDoS managed rule group, see [AWS WAF Anti-DDoS rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-anti-ddos.html) and [Distributed Denial of Service (DDoS) prevention](https://docs.aws.amazon.com/waf/latest/developerguide/waf-anti-ddos.html) in the *AWS WAF Developer Guide* .
+        /// </summary>
         [Input("awsManagedRulesAntiDDoSRuleSet")]
         public Input<Inputs.WebAclAwsManagedRulesAntiDDoSRuleSetArgs>? AwsManagedRulesAntiDDoSRuleSet { get; set; }
 

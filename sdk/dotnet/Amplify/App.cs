@@ -120,6 +120,12 @@ namespace Pulumi.AwsNative.Amplify
         public Output<string?> IamServiceRole { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration details that apply to the jobs for an Amplify app.
+        /// </summary>
+        [Output("jobConfig")]
+        public Output<Outputs.AppJobConfig?> JobConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Amplify app.
         /// </summary>
         [Output("name")]
@@ -293,6 +299,12 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         [Input("iamServiceRole")]
         public Input<string>? IamServiceRole { get; set; }
+
+        /// <summary>
+        /// The configuration details that apply to the jobs for an Amplify app.
+        /// </summary>
+        [Input("jobConfig")]
+        public Input<Inputs.AppJobConfigArgs>? JobConfig { get; set; }
 
         /// <summary>
         /// The name of the Amplify app.

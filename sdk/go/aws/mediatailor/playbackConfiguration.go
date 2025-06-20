@@ -35,6 +35,8 @@ type PlaybackConfiguration struct {
 	HlsConfiguration PlaybackConfigurationHlsConfigurationPtrOutput `pulumi:"hlsConfiguration"`
 	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration PlaybackConfigurationLivePreRollConfigurationPtrOutput `pulumi:"livePreRollConfiguration"`
+	// The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+	LogConfiguration PlaybackConfigurationLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
 	ManifestProcessingRules PlaybackConfigurationManifestProcessingRulesPtrOutput `pulumi:"manifestProcessingRules"`
 	// The identifier for the playback configuration.
@@ -125,6 +127,8 @@ type playbackConfigurationArgs struct {
 	HlsConfiguration *PlaybackConfigurationHlsConfiguration `pulumi:"hlsConfiguration"`
 	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration *PlaybackConfigurationLivePreRollConfiguration `pulumi:"livePreRollConfiguration"`
+	// The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+	LogConfiguration *PlaybackConfigurationLogConfiguration `pulumi:"logConfiguration"`
 	// The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
 	ManifestProcessingRules *PlaybackConfigurationManifestProcessingRules `pulumi:"manifestProcessingRules"`
 	// The identifier for the playback configuration.
@@ -161,6 +165,8 @@ type PlaybackConfigurationArgs struct {
 	HlsConfiguration PlaybackConfigurationHlsConfigurationPtrInput
 	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration PlaybackConfigurationLivePreRollConfigurationPtrInput
+	// The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+	LogConfiguration PlaybackConfigurationLogConfigurationPtrInput
 	// The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
 	ManifestProcessingRules PlaybackConfigurationManifestProcessingRulesPtrInput
 	// The identifier for the playback configuration.
@@ -269,6 +275,13 @@ func (o PlaybackConfigurationOutput) LivePreRollConfiguration() PlaybackConfigur
 	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationLivePreRollConfigurationPtrOutput {
 		return v.LivePreRollConfiguration
 	}).(PlaybackConfigurationLivePreRollConfigurationPtrOutput)
+}
+
+// The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+func (o PlaybackConfigurationOutput) LogConfiguration() PlaybackConfigurationLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationLogConfigurationPtrOutput {
+		return v.LogConfiguration
+	}).(PlaybackConfigurationLogConfigurationPtrOutput)
 }
 
 // The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.

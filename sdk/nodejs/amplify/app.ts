@@ -110,6 +110,10 @@ export class App extends pulumi.CustomResource {
      */
     public readonly iamServiceRole!: pulumi.Output<string | undefined>;
     /**
+     * The configuration details that apply to the jobs for an Amplify app.
+     */
+    public readonly jobConfig!: pulumi.Output<outputs.amplify.AppJobConfig | undefined>;
+    /**
      * The name of the Amplify app.
      */
     public readonly name!: pulumi.Output<string>;
@@ -161,6 +165,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["enableBranchAutoDeletion"] = args ? args.enableBranchAutoDeletion : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["iamServiceRole"] = args ? args.iamServiceRole : undefined;
+            resourceInputs["jobConfig"] = args ? args.jobConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["oauthToken"] = args ? args.oauthToken : undefined;
             resourceInputs["platform"] = args ? args.platform : undefined;
@@ -187,6 +192,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["enableBranchAutoDeletion"] = undefined /*out*/;
             resourceInputs["environmentVariables"] = undefined /*out*/;
             resourceInputs["iamServiceRole"] = undefined /*out*/;
+            resourceInputs["jobConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["oauthToken"] = undefined /*out*/;
             resourceInputs["platform"] = undefined /*out*/;
@@ -258,6 +264,10 @@ export interface AppArgs {
      * AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
      */
     iamServiceRole?: pulumi.Input<string>;
+    /**
+     * The configuration details that apply to the jobs for an Amplify app.
+     */
+    jobConfig?: pulumi.Input<inputs.amplify.AppJobConfigArgs>;
     /**
      * The name of the Amplify app.
      */

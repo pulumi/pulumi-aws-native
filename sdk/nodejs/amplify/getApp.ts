@@ -80,6 +80,10 @@ export interface GetAppResult {
      */
     readonly iamServiceRole?: string;
     /**
+     * The configuration details that apply to the jobs for an Amplify app.
+     */
+    readonly jobConfig?: outputs.amplify.AppJobConfig;
+    /**
      * The name of the Amplify app.
      */
     readonly name?: string;

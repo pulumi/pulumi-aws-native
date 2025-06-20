@@ -402,10 +402,15 @@ func (o CalculatedAttributeDefinitionConditionsPtrOutput) Threshold() Calculated
 
 // The relative time period over which data is included in the aggregation.
 type CalculatedAttributeDefinitionRange struct {
+	// The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+	TimestampFormat *string `pulumi:"timestampFormat"`
+	// An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+	TimestampSource *string `pulumi:"timestampSource"`
 	// The unit of time.
 	Unit CalculatedAttributeDefinitionRangeUnit `pulumi:"unit"`
 	// The amount of time of the specified unit.
-	Value int `pulumi:"value"`
+	Value      *int                                     `pulumi:"value"`
+	ValueRange *CalculatedAttributeDefinitionValueRange `pulumi:"valueRange"`
 }
 
 // CalculatedAttributeDefinitionRangeInput is an input type that accepts CalculatedAttributeDefinitionRangeArgs and CalculatedAttributeDefinitionRangeOutput values.
@@ -421,10 +426,15 @@ type CalculatedAttributeDefinitionRangeInput interface {
 
 // The relative time period over which data is included in the aggregation.
 type CalculatedAttributeDefinitionRangeArgs struct {
+	// The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+	TimestampFormat pulumi.StringPtrInput `pulumi:"timestampFormat"`
+	// An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+	TimestampSource pulumi.StringPtrInput `pulumi:"timestampSource"`
 	// The unit of time.
 	Unit CalculatedAttributeDefinitionRangeUnitInput `pulumi:"unit"`
 	// The amount of time of the specified unit.
-	Value pulumi.IntInput `pulumi:"value"`
+	Value      pulumi.IntPtrInput                              `pulumi:"value"`
+	ValueRange CalculatedAttributeDefinitionValueRangePtrInput `pulumi:"valueRange"`
 }
 
 func (CalculatedAttributeDefinitionRangeArgs) ElementType() reflect.Type {
@@ -505,14 +515,30 @@ func (o CalculatedAttributeDefinitionRangeOutput) ToCalculatedAttributeDefinitio
 	}).(CalculatedAttributeDefinitionRangePtrOutput)
 }
 
+// The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+func (o CalculatedAttributeDefinitionRangeOutput) TimestampFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) *string { return v.TimestampFormat }).(pulumi.StringPtrOutput)
+}
+
+// An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+func (o CalculatedAttributeDefinitionRangeOutput) TimestampSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) *string { return v.TimestampSource }).(pulumi.StringPtrOutput)
+}
+
 // The unit of time.
 func (o CalculatedAttributeDefinitionRangeOutput) Unit() CalculatedAttributeDefinitionRangeUnitOutput {
 	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) CalculatedAttributeDefinitionRangeUnit { return v.Unit }).(CalculatedAttributeDefinitionRangeUnitOutput)
 }
 
 // The amount of time of the specified unit.
-func (o CalculatedAttributeDefinitionRangeOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) int { return v.Value }).(pulumi.IntOutput)
+func (o CalculatedAttributeDefinitionRangeOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionRangeOutput) ValueRange() CalculatedAttributeDefinitionValueRangePtrOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) *CalculatedAttributeDefinitionValueRange {
+		return v.ValueRange
+	}).(CalculatedAttributeDefinitionValueRangePtrOutput)
 }
 
 type CalculatedAttributeDefinitionRangePtrOutput struct{ *pulumi.OutputState }
@@ -539,6 +565,26 @@ func (o CalculatedAttributeDefinitionRangePtrOutput) Elem() CalculatedAttributeD
 	}).(CalculatedAttributeDefinitionRangeOutput)
 }
 
+// The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+func (o CalculatedAttributeDefinitionRangePtrOutput) TimestampFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionRange) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimestampFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+func (o CalculatedAttributeDefinitionRangePtrOutput) TimestampSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionRange) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimestampSource
+	}).(pulumi.StringPtrOutput)
+}
+
 // The unit of time.
 func (o CalculatedAttributeDefinitionRangePtrOutput) Unit() CalculatedAttributeDefinitionRangeUnitPtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionRange) *CalculatedAttributeDefinitionRangeUnit {
@@ -555,7 +601,93 @@ func (o CalculatedAttributeDefinitionRangePtrOutput) Value() pulumi.IntPtrOutput
 		if v == nil {
 			return nil
 		}
-		return &v.Value
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CalculatedAttributeDefinitionRangePtrOutput) ValueRange() CalculatedAttributeDefinitionValueRangePtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionRange) *CalculatedAttributeDefinitionValueRange {
+		if v == nil {
+			return nil
+		}
+		return v.ValueRange
+	}).(CalculatedAttributeDefinitionValueRangePtrOutput)
+}
+
+// The readiness status of the calculated attribute.
+type CalculatedAttributeDefinitionReadiness struct {
+	// Any information pertaining to the status of the calculated attribute if required.
+	Message *string `pulumi:"message"`
+	// The progress percentage for including historical data in your calculated attribute.
+	ProgressPercentage *int `pulumi:"progressPercentage"`
+}
+
+// The readiness status of the calculated attribute.
+type CalculatedAttributeDefinitionReadinessOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionReadinessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionReadiness)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionReadinessOutput) ToCalculatedAttributeDefinitionReadinessOutput() CalculatedAttributeDefinitionReadinessOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionReadinessOutput) ToCalculatedAttributeDefinitionReadinessOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionReadinessOutput {
+	return o
+}
+
+// Any information pertaining to the status of the calculated attribute if required.
+func (o CalculatedAttributeDefinitionReadinessOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionReadiness) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The progress percentage for including historical data in your calculated attribute.
+func (o CalculatedAttributeDefinitionReadinessOutput) ProgressPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionReadiness) *int { return v.ProgressPercentage }).(pulumi.IntPtrOutput)
+}
+
+type CalculatedAttributeDefinitionReadinessPtrOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionReadinessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionReadiness)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionReadinessPtrOutput) ToCalculatedAttributeDefinitionReadinessPtrOutput() CalculatedAttributeDefinitionReadinessPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionReadinessPtrOutput) ToCalculatedAttributeDefinitionReadinessPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionReadinessPtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionReadinessPtrOutput) Elem() CalculatedAttributeDefinitionReadinessOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionReadiness) CalculatedAttributeDefinitionReadiness {
+		if v != nil {
+			return *v
+		}
+		var ret CalculatedAttributeDefinitionReadiness
+		return ret
+	}).(CalculatedAttributeDefinitionReadinessOutput)
+}
+
+// Any information pertaining to the status of the calculated attribute if required.
+func (o CalculatedAttributeDefinitionReadinessPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionReadiness) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// The progress percentage for including historical data in your calculated attribute.
+func (o CalculatedAttributeDefinitionReadinessPtrOutput) ProgressPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionReadiness) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProgressPercentage
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -726,6 +858,165 @@ func (o CalculatedAttributeDefinitionThresholdPtrOutput) Value() pulumi.StringPt
 		}
 		return &v.Value
 	}).(pulumi.StringPtrOutput)
+}
+
+// A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
+type CalculatedAttributeDefinitionValueRange struct {
+	// The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+	End int `pulumi:"end"`
+	// The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+	Start int `pulumi:"start"`
+}
+
+// CalculatedAttributeDefinitionValueRangeInput is an input type that accepts CalculatedAttributeDefinitionValueRangeArgs and CalculatedAttributeDefinitionValueRangeOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionValueRangeInput` via:
+//
+//	CalculatedAttributeDefinitionValueRangeArgs{...}
+type CalculatedAttributeDefinitionValueRangeInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionValueRangeOutput() CalculatedAttributeDefinitionValueRangeOutput
+	ToCalculatedAttributeDefinitionValueRangeOutputWithContext(context.Context) CalculatedAttributeDefinitionValueRangeOutput
+}
+
+// A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
+type CalculatedAttributeDefinitionValueRangeArgs struct {
+	// The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+	End pulumi.IntInput `pulumi:"end"`
+	// The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+	Start pulumi.IntInput `pulumi:"start"`
+}
+
+func (CalculatedAttributeDefinitionValueRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionValueRange)(nil)).Elem()
+}
+
+func (i CalculatedAttributeDefinitionValueRangeArgs) ToCalculatedAttributeDefinitionValueRangeOutput() CalculatedAttributeDefinitionValueRangeOutput {
+	return i.ToCalculatedAttributeDefinitionValueRangeOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionValueRangeArgs) ToCalculatedAttributeDefinitionValueRangeOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionValueRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionValueRangeOutput)
+}
+
+func (i CalculatedAttributeDefinitionValueRangeArgs) ToCalculatedAttributeDefinitionValueRangePtrOutput() CalculatedAttributeDefinitionValueRangePtrOutput {
+	return i.ToCalculatedAttributeDefinitionValueRangePtrOutputWithContext(context.Background())
+}
+
+func (i CalculatedAttributeDefinitionValueRangeArgs) ToCalculatedAttributeDefinitionValueRangePtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionValueRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionValueRangeOutput).ToCalculatedAttributeDefinitionValueRangePtrOutputWithContext(ctx)
+}
+
+// CalculatedAttributeDefinitionValueRangePtrInput is an input type that accepts CalculatedAttributeDefinitionValueRangeArgs, CalculatedAttributeDefinitionValueRangePtr and CalculatedAttributeDefinitionValueRangePtrOutput values.
+// You can construct a concrete instance of `CalculatedAttributeDefinitionValueRangePtrInput` via:
+//
+//	        CalculatedAttributeDefinitionValueRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type CalculatedAttributeDefinitionValueRangePtrInput interface {
+	pulumi.Input
+
+	ToCalculatedAttributeDefinitionValueRangePtrOutput() CalculatedAttributeDefinitionValueRangePtrOutput
+	ToCalculatedAttributeDefinitionValueRangePtrOutputWithContext(context.Context) CalculatedAttributeDefinitionValueRangePtrOutput
+}
+
+type calculatedAttributeDefinitionValueRangePtrType CalculatedAttributeDefinitionValueRangeArgs
+
+func CalculatedAttributeDefinitionValueRangePtr(v *CalculatedAttributeDefinitionValueRangeArgs) CalculatedAttributeDefinitionValueRangePtrInput {
+	return (*calculatedAttributeDefinitionValueRangePtrType)(v)
+}
+
+func (*calculatedAttributeDefinitionValueRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionValueRange)(nil)).Elem()
+}
+
+func (i *calculatedAttributeDefinitionValueRangePtrType) ToCalculatedAttributeDefinitionValueRangePtrOutput() CalculatedAttributeDefinitionValueRangePtrOutput {
+	return i.ToCalculatedAttributeDefinitionValueRangePtrOutputWithContext(context.Background())
+}
+
+func (i *calculatedAttributeDefinitionValueRangePtrType) ToCalculatedAttributeDefinitionValueRangePtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionValueRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionValueRangePtrOutput)
+}
+
+// A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
+type CalculatedAttributeDefinitionValueRangeOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionValueRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CalculatedAttributeDefinitionValueRange)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionValueRangeOutput) ToCalculatedAttributeDefinitionValueRangeOutput() CalculatedAttributeDefinitionValueRangeOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionValueRangeOutput) ToCalculatedAttributeDefinitionValueRangeOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionValueRangeOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionValueRangeOutput) ToCalculatedAttributeDefinitionValueRangePtrOutput() CalculatedAttributeDefinitionValueRangePtrOutput {
+	return o.ToCalculatedAttributeDefinitionValueRangePtrOutputWithContext(context.Background())
+}
+
+func (o CalculatedAttributeDefinitionValueRangeOutput) ToCalculatedAttributeDefinitionValueRangePtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionValueRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CalculatedAttributeDefinitionValueRange) *CalculatedAttributeDefinitionValueRange {
+		return &v
+	}).(CalculatedAttributeDefinitionValueRangePtrOutput)
+}
+
+// The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+func (o CalculatedAttributeDefinitionValueRangeOutput) End() pulumi.IntOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionValueRange) int { return v.End }).(pulumi.IntOutput)
+}
+
+// The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+func (o CalculatedAttributeDefinitionValueRangeOutput) Start() pulumi.IntOutput {
+	return o.ApplyT(func(v CalculatedAttributeDefinitionValueRange) int { return v.Start }).(pulumi.IntOutput)
+}
+
+type CalculatedAttributeDefinitionValueRangePtrOutput struct{ *pulumi.OutputState }
+
+func (CalculatedAttributeDefinitionValueRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CalculatedAttributeDefinitionValueRange)(nil)).Elem()
+}
+
+func (o CalculatedAttributeDefinitionValueRangePtrOutput) ToCalculatedAttributeDefinitionValueRangePtrOutput() CalculatedAttributeDefinitionValueRangePtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionValueRangePtrOutput) ToCalculatedAttributeDefinitionValueRangePtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionValueRangePtrOutput {
+	return o
+}
+
+func (o CalculatedAttributeDefinitionValueRangePtrOutput) Elem() CalculatedAttributeDefinitionValueRangeOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionValueRange) CalculatedAttributeDefinitionValueRange {
+		if v != nil {
+			return *v
+		}
+		var ret CalculatedAttributeDefinitionValueRange
+		return ret
+	}).(CalculatedAttributeDefinitionValueRangeOutput)
+}
+
+// The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+func (o CalculatedAttributeDefinitionValueRangePtrOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionValueRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.End
+	}).(pulumi.IntPtrOutput)
+}
+
+// The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+func (o CalculatedAttributeDefinitionValueRangePtrOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CalculatedAttributeDefinitionValueRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Start
+	}).(pulumi.IntPtrOutput)
 }
 
 // Details regarding the Kinesis stream.
@@ -7540,6 +7831,7 @@ type SegmentDefinitionProfileAttributes struct {
 	PartyTypeString       *SegmentDefinitionProfileDimension                 `pulumi:"partyTypeString"`
 	PersonalEmailAddress  *SegmentDefinitionProfileDimension                 `pulumi:"personalEmailAddress"`
 	PhoneNumber           *SegmentDefinitionProfileDimension                 `pulumi:"phoneNumber"`
+	ProfileType           *SegmentDefinitionProfileTypeDimension             `pulumi:"profileType"`
 	ShippingAddress       *SegmentDefinitionAddressDimension                 `pulumi:"shippingAddress"`
 }
 
@@ -7576,6 +7868,7 @@ type SegmentDefinitionProfileAttributesArgs struct {
 	PartyTypeString       SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"partyTypeString"`
 	PersonalEmailAddress  SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"personalEmailAddress"`
 	PhoneNumber           SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"phoneNumber"`
+	ProfileType           SegmentDefinitionProfileTypeDimensionPtrInput             `pulumi:"profileType"`
 	ShippingAddress       SegmentDefinitionAddressDimensionPtrInput                 `pulumi:"shippingAddress"`
 }
 
@@ -7700,6 +7993,12 @@ func (o SegmentDefinitionProfileAttributesOutput) PersonalEmailAddress() Segment
 
 func (o SegmentDefinitionProfileAttributesOutput) PhoneNumber() SegmentDefinitionProfileDimensionPtrOutput {
 	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension { return v.PhoneNumber }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) ProfileType() SegmentDefinitionProfileTypeDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileTypeDimension {
+		return v.ProfileType
+	}).(SegmentDefinitionProfileTypeDimensionPtrOutput)
 }
 
 func (o SegmentDefinitionProfileAttributesOutput) ShippingAddress() SegmentDefinitionAddressDimensionPtrOutput {
@@ -7859,11 +8158,164 @@ func (o SegmentDefinitionProfileDimensionPtrOutput) Values() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies profile type based criteria for a segment.
+type SegmentDefinitionProfileTypeDimension struct {
+	DimensionType SegmentDefinitionProfileTypeDimensionType `pulumi:"dimensionType"`
+	Values        []SegmentDefinitionProfileType            `pulumi:"values"`
+}
+
+// SegmentDefinitionProfileTypeDimensionInput is an input type that accepts SegmentDefinitionProfileTypeDimensionArgs and SegmentDefinitionProfileTypeDimensionOutput values.
+// You can construct a concrete instance of `SegmentDefinitionProfileTypeDimensionInput` via:
+//
+//	SegmentDefinitionProfileTypeDimensionArgs{...}
+type SegmentDefinitionProfileTypeDimensionInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionProfileTypeDimensionOutput() SegmentDefinitionProfileTypeDimensionOutput
+	ToSegmentDefinitionProfileTypeDimensionOutputWithContext(context.Context) SegmentDefinitionProfileTypeDimensionOutput
+}
+
+// Specifies profile type based criteria for a segment.
+type SegmentDefinitionProfileTypeDimensionArgs struct {
+	DimensionType SegmentDefinitionProfileTypeDimensionTypeInput `pulumi:"dimensionType"`
+	Values        SegmentDefinitionProfileTypeArrayInput         `pulumi:"values"`
+}
+
+func (SegmentDefinitionProfileTypeDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionProfileTypeDimension)(nil)).Elem()
+}
+
+func (i SegmentDefinitionProfileTypeDimensionArgs) ToSegmentDefinitionProfileTypeDimensionOutput() SegmentDefinitionProfileTypeDimensionOutput {
+	return i.ToSegmentDefinitionProfileTypeDimensionOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionProfileTypeDimensionArgs) ToSegmentDefinitionProfileTypeDimensionOutputWithContext(ctx context.Context) SegmentDefinitionProfileTypeDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionProfileTypeDimensionOutput)
+}
+
+func (i SegmentDefinitionProfileTypeDimensionArgs) ToSegmentDefinitionProfileTypeDimensionPtrOutput() SegmentDefinitionProfileTypeDimensionPtrOutput {
+	return i.ToSegmentDefinitionProfileTypeDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionProfileTypeDimensionArgs) ToSegmentDefinitionProfileTypeDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionProfileTypeDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionProfileTypeDimensionOutput).ToSegmentDefinitionProfileTypeDimensionPtrOutputWithContext(ctx)
+}
+
+// SegmentDefinitionProfileTypeDimensionPtrInput is an input type that accepts SegmentDefinitionProfileTypeDimensionArgs, SegmentDefinitionProfileTypeDimensionPtr and SegmentDefinitionProfileTypeDimensionPtrOutput values.
+// You can construct a concrete instance of `SegmentDefinitionProfileTypeDimensionPtrInput` via:
+//
+//	        SegmentDefinitionProfileTypeDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SegmentDefinitionProfileTypeDimensionPtrInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionProfileTypeDimensionPtrOutput() SegmentDefinitionProfileTypeDimensionPtrOutput
+	ToSegmentDefinitionProfileTypeDimensionPtrOutputWithContext(context.Context) SegmentDefinitionProfileTypeDimensionPtrOutput
+}
+
+type segmentDefinitionProfileTypeDimensionPtrType SegmentDefinitionProfileTypeDimensionArgs
+
+func SegmentDefinitionProfileTypeDimensionPtr(v *SegmentDefinitionProfileTypeDimensionArgs) SegmentDefinitionProfileTypeDimensionPtrInput {
+	return (*segmentDefinitionProfileTypeDimensionPtrType)(v)
+}
+
+func (*segmentDefinitionProfileTypeDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionProfileTypeDimension)(nil)).Elem()
+}
+
+func (i *segmentDefinitionProfileTypeDimensionPtrType) ToSegmentDefinitionProfileTypeDimensionPtrOutput() SegmentDefinitionProfileTypeDimensionPtrOutput {
+	return i.ToSegmentDefinitionProfileTypeDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *segmentDefinitionProfileTypeDimensionPtrType) ToSegmentDefinitionProfileTypeDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionProfileTypeDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionProfileTypeDimensionPtrOutput)
+}
+
+// Specifies profile type based criteria for a segment.
+type SegmentDefinitionProfileTypeDimensionOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionProfileTypeDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionProfileTypeDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionProfileTypeDimensionOutput) ToSegmentDefinitionProfileTypeDimensionOutput() SegmentDefinitionProfileTypeDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionProfileTypeDimensionOutput) ToSegmentDefinitionProfileTypeDimensionOutputWithContext(ctx context.Context) SegmentDefinitionProfileTypeDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionProfileTypeDimensionOutput) ToSegmentDefinitionProfileTypeDimensionPtrOutput() SegmentDefinitionProfileTypeDimensionPtrOutput {
+	return o.ToSegmentDefinitionProfileTypeDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionProfileTypeDimensionOutput) ToSegmentDefinitionProfileTypeDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionProfileTypeDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDefinitionProfileTypeDimension) *SegmentDefinitionProfileTypeDimension {
+		return &v
+	}).(SegmentDefinitionProfileTypeDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileTypeDimensionOutput) DimensionType() SegmentDefinitionProfileTypeDimensionTypeOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileTypeDimension) SegmentDefinitionProfileTypeDimensionType {
+		return v.DimensionType
+	}).(SegmentDefinitionProfileTypeDimensionTypeOutput)
+}
+
+func (o SegmentDefinitionProfileTypeDimensionOutput) Values() SegmentDefinitionProfileTypeArrayOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileTypeDimension) []SegmentDefinitionProfileType { return v.Values }).(SegmentDefinitionProfileTypeArrayOutput)
+}
+
+type SegmentDefinitionProfileTypeDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionProfileTypeDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionProfileTypeDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionProfileTypeDimensionPtrOutput) ToSegmentDefinitionProfileTypeDimensionPtrOutput() SegmentDefinitionProfileTypeDimensionPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionProfileTypeDimensionPtrOutput) ToSegmentDefinitionProfileTypeDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionProfileTypeDimensionPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionProfileTypeDimensionPtrOutput) Elem() SegmentDefinitionProfileTypeDimensionOutput {
+	return o.ApplyT(func(v *SegmentDefinitionProfileTypeDimension) SegmentDefinitionProfileTypeDimension {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDefinitionProfileTypeDimension
+		return ret
+	}).(SegmentDefinitionProfileTypeDimensionOutput)
+}
+
+func (o SegmentDefinitionProfileTypeDimensionPtrOutput) DimensionType() SegmentDefinitionProfileTypeDimensionTypePtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionProfileTypeDimension) *SegmentDefinitionProfileTypeDimensionType {
+		if v == nil {
+			return nil
+		}
+		return &v.DimensionType
+	}).(SegmentDefinitionProfileTypeDimensionTypePtrOutput)
+}
+
+func (o SegmentDefinitionProfileTypeDimensionPtrOutput) Values() SegmentDefinitionProfileTypeArrayOutput {
+	return o.ApplyT(func(v *SegmentDefinitionProfileTypeDimension) []SegmentDefinitionProfileType {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(SegmentDefinitionProfileTypeArrayOutput)
+}
+
 // Defines the range to be applied to the calculated attribute definition.
 type SegmentDefinitionRangeOverride struct {
-	// The ending point for this overridden range.
+	// The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
 	End *int `pulumi:"end"`
-	// The starting point for this overridden range.
+	// The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
 	Start int `pulumi:"start"`
 	// The unit to be applied to the range.
 	Unit SegmentDefinitionRangeOverrideUnit `pulumi:"unit"`
@@ -7882,9 +8334,9 @@ type SegmentDefinitionRangeOverrideInput interface {
 
 // Defines the range to be applied to the calculated attribute definition.
 type SegmentDefinitionRangeOverrideArgs struct {
-	// The ending point for this overridden range.
+	// The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
 	End pulumi.IntPtrInput `pulumi:"end"`
-	// The starting point for this overridden range.
+	// The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
 	Start pulumi.IntInput `pulumi:"start"`
 	// The unit to be applied to the range.
 	Unit SegmentDefinitionRangeOverrideUnitInput `pulumi:"unit"`
@@ -7968,12 +8420,12 @@ func (o SegmentDefinitionRangeOverrideOutput) ToSegmentDefinitionRangeOverridePt
 	}).(SegmentDefinitionRangeOverridePtrOutput)
 }
 
-// The ending point for this overridden range.
+// The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
 func (o SegmentDefinitionRangeOverrideOutput) End() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SegmentDefinitionRangeOverride) *int { return v.End }).(pulumi.IntPtrOutput)
 }
 
-// The starting point for this overridden range.
+// The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
 func (o SegmentDefinitionRangeOverrideOutput) Start() pulumi.IntOutput {
 	return o.ApplyT(func(v SegmentDefinitionRangeOverride) int { return v.Start }).(pulumi.IntOutput)
 }
@@ -8007,7 +8459,7 @@ func (o SegmentDefinitionRangeOverridePtrOutput) Elem() SegmentDefinitionRangeOv
 	}).(SegmentDefinitionRangeOverrideOutput)
 }
 
-// The ending point for this overridden range.
+// The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
 func (o SegmentDefinitionRangeOverridePtrOutput) End() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SegmentDefinitionRangeOverride) *int {
 		if v == nil {
@@ -8017,7 +8469,7 @@ func (o SegmentDefinitionRangeOverridePtrOutput) End() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The starting point for this overridden range.
+// The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
 func (o SegmentDefinitionRangeOverridePtrOutput) Start() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SegmentDefinitionRangeOverride) *int {
 		if v == nil {
@@ -8216,6 +8668,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionRangePtrInput)(nil)).Elem(), CalculatedAttributeDefinitionRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionThresholdInput)(nil)).Elem(), CalculatedAttributeDefinitionThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionThresholdPtrInput)(nil)).Elem(), CalculatedAttributeDefinitionThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionValueRangeInput)(nil)).Elem(), CalculatedAttributeDefinitionValueRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionValueRangePtrInput)(nil)).Elem(), CalculatedAttributeDefinitionValueRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAttributeTypesSelectorInput)(nil)).Elem(), DomainAttributeTypesSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAttributeTypesSelectorPtrInput)(nil)).Elem(), DomainAttributeTypesSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoMergingInput)(nil)).Elem(), DomainAutoMergingArgs{})
@@ -8305,6 +8759,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionProfileAttributesInput)(nil)).Elem(), SegmentDefinitionProfileAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionProfileDimensionInput)(nil)).Elem(), SegmentDefinitionProfileDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionProfileDimensionPtrInput)(nil)).Elem(), SegmentDefinitionProfileDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionProfileTypeDimensionInput)(nil)).Elem(), SegmentDefinitionProfileTypeDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionProfileTypeDimensionPtrInput)(nil)).Elem(), SegmentDefinitionProfileTypeDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionRangeOverrideInput)(nil)).Elem(), SegmentDefinitionRangeOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionRangeOverridePtrInput)(nil)).Elem(), SegmentDefinitionRangeOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSegmentGroupInput)(nil)).Elem(), SegmentDefinitionSegmentGroupArgs{})
@@ -8318,8 +8774,12 @@ func init() {
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionConditionsPtrOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionRangeOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionRangePtrOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionReadinessOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionReadinessPtrOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionThresholdOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionThresholdPtrOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionValueRangeOutput{})
+	pulumi.RegisterOutputType(CalculatedAttributeDefinitionValueRangePtrOutput{})
 	pulumi.RegisterOutputType(DestinationDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(DestinationDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DomainAttributeTypesSelectorOutput{})
@@ -8413,6 +8873,8 @@ func init() {
 	pulumi.RegisterOutputType(SegmentDefinitionProfileAttributesOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionProfileDimensionOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionProfileDimensionPtrOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionProfileTypeDimensionOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionProfileTypeDimensionPtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionRangeOverrideOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionRangeOverridePtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionSegmentGroupOutput{})

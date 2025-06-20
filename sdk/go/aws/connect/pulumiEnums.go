@@ -696,14 +696,17 @@ func (in *contactFlowTypePtr) ToContactFlowTypePtrOutputWithContext(ctx context.
 type EvaluationFormNumericQuestionPropertyValueAutomationLabel string
 
 const (
-	EvaluationFormNumericQuestionPropertyValueAutomationLabelOverallCustomerSentimentScore = EvaluationFormNumericQuestionPropertyValueAutomationLabel("OVERALL_CUSTOMER_SENTIMENT_SCORE")
-	EvaluationFormNumericQuestionPropertyValueAutomationLabelOverallAgentSentimentScore    = EvaluationFormNumericQuestionPropertyValueAutomationLabel("OVERALL_AGENT_SENTIMENT_SCORE")
-	EvaluationFormNumericQuestionPropertyValueAutomationLabelNonTalkTime                   = EvaluationFormNumericQuestionPropertyValueAutomationLabel("NON_TALK_TIME")
-	EvaluationFormNumericQuestionPropertyValueAutomationLabelNonTalkTimePercentage         = EvaluationFormNumericQuestionPropertyValueAutomationLabel("NON_TALK_TIME_PERCENTAGE")
-	EvaluationFormNumericQuestionPropertyValueAutomationLabelNumberOfInterruptions         = EvaluationFormNumericQuestionPropertyValueAutomationLabel("NUMBER_OF_INTERRUPTIONS")
-	EvaluationFormNumericQuestionPropertyValueAutomationLabelContactDuration               = EvaluationFormNumericQuestionPropertyValueAutomationLabel("CONTACT_DURATION")
-	EvaluationFormNumericQuestionPropertyValueAutomationLabelAgentInteractionDuration      = EvaluationFormNumericQuestionPropertyValueAutomationLabel("AGENT_INTERACTION_DURATION")
-	EvaluationFormNumericQuestionPropertyValueAutomationLabelCustomerHoldTime              = EvaluationFormNumericQuestionPropertyValueAutomationLabel("CUSTOMER_HOLD_TIME")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelOverallCustomerSentimentScore   = EvaluationFormNumericQuestionPropertyValueAutomationLabel("OVERALL_CUSTOMER_SENTIMENT_SCORE")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelOverallAgentSentimentScore      = EvaluationFormNumericQuestionPropertyValueAutomationLabel("OVERALL_AGENT_SENTIMENT_SCORE")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelNonTalkTime                     = EvaluationFormNumericQuestionPropertyValueAutomationLabel("NON_TALK_TIME")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelNonTalkTimePercentage           = EvaluationFormNumericQuestionPropertyValueAutomationLabel("NON_TALK_TIME_PERCENTAGE")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelNumberOfInterruptions           = EvaluationFormNumericQuestionPropertyValueAutomationLabel("NUMBER_OF_INTERRUPTIONS")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelContactDuration                 = EvaluationFormNumericQuestionPropertyValueAutomationLabel("CONTACT_DURATION")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelAgentInteractionDuration        = EvaluationFormNumericQuestionPropertyValueAutomationLabel("AGENT_INTERACTION_DURATION")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelCustomerHoldTime                = EvaluationFormNumericQuestionPropertyValueAutomationLabel("CUSTOMER_HOLD_TIME")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelLongestHoldDuration             = EvaluationFormNumericQuestionPropertyValueAutomationLabel("LONGEST_HOLD_DURATION")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelNumberOfHolds                   = EvaluationFormNumericQuestionPropertyValueAutomationLabel("NUMBER_OF_HOLDS")
+	EvaluationFormNumericQuestionPropertyValueAutomationLabelAgentInteractionAndHoldDuration = EvaluationFormNumericQuestionPropertyValueAutomationLabel("AGENT_INTERACTION_AND_HOLD_DURATION")
 )
 
 func (EvaluationFormNumericQuestionPropertyValueAutomationLabel) ElementType() reflect.Type {
@@ -836,6 +839,9 @@ func (o EvaluationFormNumericQuestionPropertyValueAutomationLabelPtrOutput) ToSt
 //	EvaluationFormNumericQuestionPropertyValueAutomationLabelContactDuration
 //	EvaluationFormNumericQuestionPropertyValueAutomationLabelAgentInteractionDuration
 //	EvaluationFormNumericQuestionPropertyValueAutomationLabelCustomerHoldTime
+//	EvaluationFormNumericQuestionPropertyValueAutomationLabelLongestHoldDuration
+//	EvaluationFormNumericQuestionPropertyValueAutomationLabelNumberOfHolds
+//	EvaluationFormNumericQuestionPropertyValueAutomationLabelAgentInteractionAndHoldDuration
 type EvaluationFormNumericQuestionPropertyValueAutomationLabelInput interface {
 	pulumi.Input
 

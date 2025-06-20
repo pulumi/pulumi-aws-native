@@ -15,6 +15,13 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclClientSideActionConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
+        /// 
+        /// &gt; This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here. 
+        /// 
+        /// You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
+        /// </summary>
         [Input("challenge", required: true)]
         public Input<Inputs.WebAclClientSideActionArgs> Challenge { get; set; } = null!;
 

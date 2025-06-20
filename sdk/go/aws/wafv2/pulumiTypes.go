@@ -1250,7 +1250,9 @@ func (o RuleGroupAndStatementPtrOutput) Statements() RuleGroupStatementArrayOutp
 }
 
 type RuleGroupAsnMatchStatement struct {
-	AsnList           []int                              `pulumi:"asnList"`
+	// Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
+	AsnList []int `pulumi:"asnList"`
+	// The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	ForwardedIpConfig *RuleGroupForwardedIpConfiguration `pulumi:"forwardedIpConfig"`
 }
 
@@ -1266,7 +1268,9 @@ type RuleGroupAsnMatchStatementInput interface {
 }
 
 type RuleGroupAsnMatchStatementArgs struct {
-	AsnList           pulumi.IntArrayInput                      `pulumi:"asnList"`
+	// Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
+	AsnList pulumi.IntArrayInput `pulumi:"asnList"`
+	// The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	ForwardedIpConfig RuleGroupForwardedIpConfigurationPtrInput `pulumi:"forwardedIpConfig"`
 }
 
@@ -1347,10 +1351,12 @@ func (o RuleGroupAsnMatchStatementOutput) ToRuleGroupAsnMatchStatementPtrOutputW
 	}).(RuleGroupAsnMatchStatementPtrOutput)
 }
 
+// Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
 func (o RuleGroupAsnMatchStatementOutput) AsnList() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RuleGroupAsnMatchStatement) []int { return v.AsnList }).(pulumi.IntArrayOutput)
 }
 
+// The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 func (o RuleGroupAsnMatchStatementOutput) ForwardedIpConfig() RuleGroupForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v RuleGroupAsnMatchStatement) *RuleGroupForwardedIpConfiguration { return v.ForwardedIpConfig }).(RuleGroupForwardedIpConfigurationPtrOutput)
 }
@@ -1379,6 +1385,7 @@ func (o RuleGroupAsnMatchStatementPtrOutput) Elem() RuleGroupAsnMatchStatementOu
 	}).(RuleGroupAsnMatchStatementOutput)
 }
 
+// Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
 func (o RuleGroupAsnMatchStatementPtrOutput) AsnList() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *RuleGroupAsnMatchStatement) []int {
 		if v == nil {
@@ -1388,6 +1395,7 @@ func (o RuleGroupAsnMatchStatementPtrOutput) AsnList() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
+// The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 func (o RuleGroupAsnMatchStatementPtrOutput) ForwardedIpConfig() RuleGroupForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleGroupAsnMatchStatement) *RuleGroupForwardedIpConfiguration {
 		if v == nil {
@@ -7711,6 +7719,7 @@ func (o RuleGroupRateBasedStatementPtrOutput) ScopeDownStatement() RuleGroupStat
 
 // Specifies a single custom aggregate key for a rate-base rule.
 type RuleGroupRateBasedStatementCustomKey struct {
+	// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
 	Asn *RuleGroupRateLimitAsn `pulumi:"asn"`
 	// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 	Cookie *RuleGroupRateLimitCookie `pulumi:"cookie"`
@@ -7759,6 +7768,7 @@ type RuleGroupRateBasedStatementCustomKeyInput interface {
 
 // Specifies a single custom aggregate key for a rate-base rule.
 type RuleGroupRateBasedStatementCustomKeyArgs struct {
+	// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
 	Asn RuleGroupRateLimitAsnPtrInput `pulumi:"asn"`
 	// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 	Cookie RuleGroupRateLimitCookiePtrInput `pulumi:"cookie"`
@@ -7846,6 +7856,7 @@ func (o RuleGroupRateBasedStatementCustomKeyOutput) ToRuleGroupRateBasedStatemen
 	return o
 }
 
+// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
 func (o RuleGroupRateBasedStatementCustomKeyOutput) Asn() RuleGroupRateLimitAsnPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitAsn { return v.Asn }).(RuleGroupRateLimitAsnPtrOutput)
 }
@@ -10845,7 +10856,10 @@ func (o RuleGroupSqliMatchStatementPtrOutput) TextTransformations() RuleGroupTex
 // First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type RuleGroupStatement struct {
 	// A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
-	AndStatement      *RuleGroupAndStatement      `pulumi:"andStatement"`
+	AndStatement *RuleGroupAndStatement `pulumi:"andStatement"`
+	// A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+	//
+	// For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	AsnMatchStatement *RuleGroupAsnMatchStatement `pulumi:"asnMatchStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 	ByteMatchStatement *RuleGroupByteMatchStatement `pulumi:"byteMatchStatement"`
@@ -10949,7 +10963,10 @@ type RuleGroupStatementInput interface {
 // First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type RuleGroupStatementArgs struct {
 	// A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
-	AndStatement      RuleGroupAndStatementPtrInput      `pulumi:"andStatement"`
+	AndStatement RuleGroupAndStatementPtrInput `pulumi:"andStatement"`
+	// A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+	//
+	// For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	AsnMatchStatement RuleGroupAsnMatchStatementPtrInput `pulumi:"asnMatchStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 	ByteMatchStatement RuleGroupByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
@@ -11147,6 +11164,9 @@ func (o RuleGroupStatementOutput) AndStatement() RuleGroupAndStatementPtrOutput 
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupAndStatement { return v.AndStatement }).(RuleGroupAndStatementPtrOutput)
 }
 
+// A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+//
+// For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 func (o RuleGroupStatementOutput) AsnMatchStatement() RuleGroupAsnMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupAsnMatchStatement { return v.AsnMatchStatement }).(RuleGroupAsnMatchStatementPtrOutput)
 }
@@ -11309,6 +11329,9 @@ func (o RuleGroupStatementPtrOutput) AndStatement() RuleGroupAndStatementPtrOutp
 	}).(RuleGroupAndStatementPtrOutput)
 }
 
+// A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+//
+// For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 func (o RuleGroupStatementPtrOutput) AsnMatchStatement() RuleGroupAsnMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupAsnMatchStatement {
 		if v == nil {
@@ -12416,7 +12439,9 @@ func (o WebAclAndStatementPtrOutput) Statements() WebAclStatementArrayOutput {
 }
 
 type WebAclAsnMatchStatement struct {
-	AsnList           []int                           `pulumi:"asnList"`
+	// Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
+	AsnList []int `pulumi:"asnList"`
+	// The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	ForwardedIpConfig *WebAclForwardedIpConfiguration `pulumi:"forwardedIpConfig"`
 }
 
@@ -12432,7 +12457,9 @@ type WebAclAsnMatchStatementInput interface {
 }
 
 type WebAclAsnMatchStatementArgs struct {
-	AsnList           pulumi.IntArrayInput                   `pulumi:"asnList"`
+	// Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
+	AsnList pulumi.IntArrayInput `pulumi:"asnList"`
+	// The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	ForwardedIpConfig WebAclForwardedIpConfigurationPtrInput `pulumi:"forwardedIpConfig"`
 }
 
@@ -12513,10 +12540,12 @@ func (o WebAclAsnMatchStatementOutput) ToWebAclAsnMatchStatementPtrOutputWithCon
 	}).(WebAclAsnMatchStatementPtrOutput)
 }
 
+// Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
 func (o WebAclAsnMatchStatementOutput) AsnList() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v WebAclAsnMatchStatement) []int { return v.AsnList }).(pulumi.IntArrayOutput)
 }
 
+// The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 func (o WebAclAsnMatchStatementOutput) ForwardedIpConfig() WebAclForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v WebAclAsnMatchStatement) *WebAclForwardedIpConfiguration { return v.ForwardedIpConfig }).(WebAclForwardedIpConfigurationPtrOutput)
 }
@@ -12545,6 +12574,7 @@ func (o WebAclAsnMatchStatementPtrOutput) Elem() WebAclAsnMatchStatementOutput {
 	}).(WebAclAsnMatchStatementOutput)
 }
 
+// Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
 func (o WebAclAsnMatchStatementPtrOutput) AsnList() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *WebAclAsnMatchStatement) []int {
 		if v == nil {
@@ -12554,6 +12584,7 @@ func (o WebAclAsnMatchStatementPtrOutput) AsnList() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
+// The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 func (o WebAclAsnMatchStatementPtrOutput) ForwardedIpConfig() WebAclForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebAclAsnMatchStatement) *WebAclForwardedIpConfiguration {
 		if v == nil {
@@ -12987,8 +13018,18 @@ func (o WebAclAwsManagedRulesAcfpRuleSetPtrOutput) ResponseInspection() WebAclRe
 
 // Configures how to use the AntiDDOS AWS managed rule group in the web ACL
 type WebAclAwsManagedRulesAntiDDoSRuleSet struct {
+	// Configures the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack.
 	ClientSideActionConfig WebAclClientSideActionConfig `pulumi:"clientSideActionConfig"`
-	SensitivityToBlock     *WebAclSensitivityToAct      `pulumi:"sensitivityToBlock"`
+	// The sensitivity that the rule group rule `DDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `DDoSRequests` rule runs.
+	//
+	// The higher the sensitivity, the more levels of labeling that the rule matches:
+	//
+	// - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+	// - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+	// - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+	//
+	// Default: `LOW`
+	SensitivityToBlock *WebAclSensitivityToAct `pulumi:"sensitivityToBlock"`
 }
 
 // WebAclAwsManagedRulesAntiDDoSRuleSetInput is an input type that accepts WebAclAwsManagedRulesAntiDDoSRuleSetArgs and WebAclAwsManagedRulesAntiDDoSRuleSetOutput values.
@@ -13004,8 +13045,18 @@ type WebAclAwsManagedRulesAntiDDoSRuleSetInput interface {
 
 // Configures how to use the AntiDDOS AWS managed rule group in the web ACL
 type WebAclAwsManagedRulesAntiDDoSRuleSetArgs struct {
+	// Configures the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack.
 	ClientSideActionConfig WebAclClientSideActionConfigInput `pulumi:"clientSideActionConfig"`
-	SensitivityToBlock     WebAclSensitivityToActPtrInput    `pulumi:"sensitivityToBlock"`
+	// The sensitivity that the rule group rule `DDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `DDoSRequests` rule runs.
+	//
+	// The higher the sensitivity, the more levels of labeling that the rule matches:
+	//
+	// - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+	// - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+	// - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+	//
+	// Default: `LOW`
+	SensitivityToBlock WebAclSensitivityToActPtrInput `pulumi:"sensitivityToBlock"`
 }
 
 func (WebAclAwsManagedRulesAntiDDoSRuleSetArgs) ElementType() reflect.Type {
@@ -13086,12 +13137,22 @@ func (o WebAclAwsManagedRulesAntiDDoSRuleSetOutput) ToWebAclAwsManagedRulesAntiD
 	}).(WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput)
 }
 
+// Configures the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack.
 func (o WebAclAwsManagedRulesAntiDDoSRuleSetOutput) ClientSideActionConfig() WebAclClientSideActionConfigOutput {
 	return o.ApplyT(func(v WebAclAwsManagedRulesAntiDDoSRuleSet) WebAclClientSideActionConfig {
 		return v.ClientSideActionConfig
 	}).(WebAclClientSideActionConfigOutput)
 }
 
+// The sensitivity that the rule group rule `DDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `DDoSRequests` rule runs.
+//
+// The higher the sensitivity, the more levels of labeling that the rule matches:
+//
+// - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+// - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+// - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+//
+// Default: `LOW`
 func (o WebAclAwsManagedRulesAntiDDoSRuleSetOutput) SensitivityToBlock() WebAclSensitivityToActPtrOutput {
 	return o.ApplyT(func(v WebAclAwsManagedRulesAntiDDoSRuleSet) *WebAclSensitivityToAct { return v.SensitivityToBlock }).(WebAclSensitivityToActPtrOutput)
 }
@@ -13120,6 +13181,7 @@ func (o WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput) Elem() WebAclAwsManagedRu
 	}).(WebAclAwsManagedRulesAntiDDoSRuleSetOutput)
 }
 
+// Configures the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack.
 func (o WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput) ClientSideActionConfig() WebAclClientSideActionConfigPtrOutput {
 	return o.ApplyT(func(v *WebAclAwsManagedRulesAntiDDoSRuleSet) *WebAclClientSideActionConfig {
 		if v == nil {
@@ -13129,6 +13191,15 @@ func (o WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput) ClientSideActionConfig() 
 	}).(WebAclClientSideActionConfigPtrOutput)
 }
 
+// The sensitivity that the rule group rule `DDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `DDoSRequests` rule runs.
+//
+// The higher the sensitivity, the more levels of labeling that the rule matches:
+//
+// - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+// - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+// - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+//
+// Default: `LOW`
 func (o WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput) SensitivityToBlock() WebAclSensitivityToActPtrOutput {
 	return o.ApplyT(func(v *WebAclAwsManagedRulesAntiDDoSRuleSet) *WebAclSensitivityToAct {
 		if v == nil {
@@ -14812,9 +14883,44 @@ func (o WebAclChallengeConfigPtrOutput) ImmunityTimeProperty() WebAclImmunityTim
 
 // Client side action config for AntiDDOS AMR.
 type WebAclClientSideAction struct {
-	ExemptUriRegularExpressions []WebAclRegex           `pulumi:"exemptUriRegularExpressions"`
-	Sensitivity                 *WebAclSensitivityToAct `pulumi:"sensitivity"`
-	UsageOfAction               WebAclUsageOfAction     `pulumi:"usageOfAction"`
+	// The regular expression to match against the web request URI, used to identify requests that can't handle a silent browser challenge. When the `ClientSideAction` setting `UsageOfAction` is enabled, the managed rule group uses this setting to determine which requests to label with `awswaf:managed:aws:anti-ddos:challengeable-request` . If `UsageOfAction` is disabled, this setting has no effect and the managed rule group doesn't add the label to any requests.
+	//
+	// The anti-DDoS managed rule group doesn't evaluate the rules `ChallengeDDoSRequests` or `ChallengeAllDuringEvent` for web requests whose URIs match this regex. This is true regardless of whether you override the rule action for either of the rules in your web ACL configuration.
+	//
+	// AWS recommends using a regular expression.
+	//
+	// This setting is required if `UsageOfAction` is set to `ENABLED` . If required, you can provide between 1 and 5 regex objects in the array of settings.
+	//
+	// AWS recommends starting with the following setting. Review and update it for your application's needs:
+	//
+	// `\/api\/|\.(acc|avi|css|gif|jpe?g|js|mp[34]|ogg|otf|pdf|png|tiff?|ttf|webm|webp|woff2?)$`
+	ExemptUriRegularExpressions []WebAclRegex `pulumi:"exemptUriRegularExpressions"`
+	// The sensitivity that the rule group rule `ChallengeDDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `ChallengeDDoSRequests` rule runs.
+	//
+	// The higher the sensitivity, the more levels of labeling that the rule matches:
+	//
+	// - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+	// - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+	// - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+	//
+	// Default: `HIGH`
+	Sensitivity *WebAclSensitivityToAct `pulumi:"sensitivity"`
+	// Determines whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation and the related label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+	//
+	// - If usage is enabled:
+	//
+	// - The managed rule group adds the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web request whose URL does *NOT* match the regular expressions provided in the `ClientSideAction` setting `ExemptUriRegularExpressions` .
+	// - The two rules are evaluated against web requests for protected resources that are experiencing a DDoS attack. The two rules only apply their action to matching requests that have the label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+	// - If usage is disabled:
+	//
+	// - The managed rule group doesn't add the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web requests.
+	// - The two rules are not evaluated.
+	// - None of the other `ClientSideAction` settings have any effect.
+	//
+	// > This setting only enables or disables the use of the two anti-DDOS rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the anti-DDoS managed rule group.
+	// >
+	// > This setting doesn't alter the action setting in the two rules. To override the actions used by the rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` , enable this setting, and then override the rule actions in the usual way, in your managed rule group configuration.
+	UsageOfAction WebAclUsageOfAction `pulumi:"usageOfAction"`
 }
 
 // WebAclClientSideActionInput is an input type that accepts WebAclClientSideActionArgs and WebAclClientSideActionOutput values.
@@ -14830,9 +14936,44 @@ type WebAclClientSideActionInput interface {
 
 // Client side action config for AntiDDOS AMR.
 type WebAclClientSideActionArgs struct {
-	ExemptUriRegularExpressions WebAclRegexArrayInput          `pulumi:"exemptUriRegularExpressions"`
-	Sensitivity                 WebAclSensitivityToActPtrInput `pulumi:"sensitivity"`
-	UsageOfAction               WebAclUsageOfActionInput       `pulumi:"usageOfAction"`
+	// The regular expression to match against the web request URI, used to identify requests that can't handle a silent browser challenge. When the `ClientSideAction` setting `UsageOfAction` is enabled, the managed rule group uses this setting to determine which requests to label with `awswaf:managed:aws:anti-ddos:challengeable-request` . If `UsageOfAction` is disabled, this setting has no effect and the managed rule group doesn't add the label to any requests.
+	//
+	// The anti-DDoS managed rule group doesn't evaluate the rules `ChallengeDDoSRequests` or `ChallengeAllDuringEvent` for web requests whose URIs match this regex. This is true regardless of whether you override the rule action for either of the rules in your web ACL configuration.
+	//
+	// AWS recommends using a regular expression.
+	//
+	// This setting is required if `UsageOfAction` is set to `ENABLED` . If required, you can provide between 1 and 5 regex objects in the array of settings.
+	//
+	// AWS recommends starting with the following setting. Review and update it for your application's needs:
+	//
+	// `\/api\/|\.(acc|avi|css|gif|jpe?g|js|mp[34]|ogg|otf|pdf|png|tiff?|ttf|webm|webp|woff2?)$`
+	ExemptUriRegularExpressions WebAclRegexArrayInput `pulumi:"exemptUriRegularExpressions"`
+	// The sensitivity that the rule group rule `ChallengeDDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `ChallengeDDoSRequests` rule runs.
+	//
+	// The higher the sensitivity, the more levels of labeling that the rule matches:
+	//
+	// - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+	// - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+	// - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+	//
+	// Default: `HIGH`
+	Sensitivity WebAclSensitivityToActPtrInput `pulumi:"sensitivity"`
+	// Determines whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation and the related label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+	//
+	// - If usage is enabled:
+	//
+	// - The managed rule group adds the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web request whose URL does *NOT* match the regular expressions provided in the `ClientSideAction` setting `ExemptUriRegularExpressions` .
+	// - The two rules are evaluated against web requests for protected resources that are experiencing a DDoS attack. The two rules only apply their action to matching requests that have the label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+	// - If usage is disabled:
+	//
+	// - The managed rule group doesn't add the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web requests.
+	// - The two rules are not evaluated.
+	// - None of the other `ClientSideAction` settings have any effect.
+	//
+	// > This setting only enables or disables the use of the two anti-DDOS rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the anti-DDoS managed rule group.
+	// >
+	// > This setting doesn't alter the action setting in the two rules. To override the actions used by the rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` , enable this setting, and then override the rule actions in the usual way, in your managed rule group configuration.
+	UsageOfAction WebAclUsageOfActionInput `pulumi:"usageOfAction"`
 }
 
 func (WebAclClientSideActionArgs) ElementType() reflect.Type {
@@ -14913,14 +15054,49 @@ func (o WebAclClientSideActionOutput) ToWebAclClientSideActionPtrOutputWithConte
 	}).(WebAclClientSideActionPtrOutput)
 }
 
+// The regular expression to match against the web request URI, used to identify requests that can't handle a silent browser challenge. When the `ClientSideAction` setting `UsageOfAction` is enabled, the managed rule group uses this setting to determine which requests to label with `awswaf:managed:aws:anti-ddos:challengeable-request` . If `UsageOfAction` is disabled, this setting has no effect and the managed rule group doesn't add the label to any requests.
+//
+// The anti-DDoS managed rule group doesn't evaluate the rules `ChallengeDDoSRequests` or `ChallengeAllDuringEvent` for web requests whose URIs match this regex. This is true regardless of whether you override the rule action for either of the rules in your web ACL configuration.
+//
+// AWS recommends using a regular expression.
+//
+// This setting is required if `UsageOfAction` is set to `ENABLED` . If required, you can provide between 1 and 5 regex objects in the array of settings.
+//
+// AWS recommends starting with the following setting. Review and update it for your application's needs:
+//
+// `\/api\/|\.(acc|avi|css|gif|jpe?g|js|mp[34]|ogg|otf|pdf|png|tiff?|ttf|webm|webp|woff2?)$`
 func (o WebAclClientSideActionOutput) ExemptUriRegularExpressions() WebAclRegexArrayOutput {
 	return o.ApplyT(func(v WebAclClientSideAction) []WebAclRegex { return v.ExemptUriRegularExpressions }).(WebAclRegexArrayOutput)
 }
 
+// The sensitivity that the rule group rule `ChallengeDDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `ChallengeDDoSRequests` rule runs.
+//
+// The higher the sensitivity, the more levels of labeling that the rule matches:
+//
+// - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+// - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+// - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+//
+// Default: `HIGH`
 func (o WebAclClientSideActionOutput) Sensitivity() WebAclSensitivityToActPtrOutput {
 	return o.ApplyT(func(v WebAclClientSideAction) *WebAclSensitivityToAct { return v.Sensitivity }).(WebAclSensitivityToActPtrOutput)
 }
 
+// Determines whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation and the related label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+//
+// - If usage is enabled:
+//
+// - The managed rule group adds the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web request whose URL does *NOT* match the regular expressions provided in the `ClientSideAction` setting `ExemptUriRegularExpressions` .
+// - The two rules are evaluated against web requests for protected resources that are experiencing a DDoS attack. The two rules only apply their action to matching requests that have the label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+// - If usage is disabled:
+//
+// - The managed rule group doesn't add the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web requests.
+// - The two rules are not evaluated.
+// - None of the other `ClientSideAction` settings have any effect.
+//
+// > This setting only enables or disables the use of the two anti-DDOS rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the anti-DDoS managed rule group.
+// >
+// > This setting doesn't alter the action setting in the two rules. To override the actions used by the rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` , enable this setting, and then override the rule actions in the usual way, in your managed rule group configuration.
 func (o WebAclClientSideActionOutput) UsageOfAction() WebAclUsageOfActionOutput {
 	return o.ApplyT(func(v WebAclClientSideAction) WebAclUsageOfAction { return v.UsageOfAction }).(WebAclUsageOfActionOutput)
 }
@@ -14949,6 +15125,17 @@ func (o WebAclClientSideActionPtrOutput) Elem() WebAclClientSideActionOutput {
 	}).(WebAclClientSideActionOutput)
 }
 
+// The regular expression to match against the web request URI, used to identify requests that can't handle a silent browser challenge. When the `ClientSideAction` setting `UsageOfAction` is enabled, the managed rule group uses this setting to determine which requests to label with `awswaf:managed:aws:anti-ddos:challengeable-request` . If `UsageOfAction` is disabled, this setting has no effect and the managed rule group doesn't add the label to any requests.
+//
+// The anti-DDoS managed rule group doesn't evaluate the rules `ChallengeDDoSRequests` or `ChallengeAllDuringEvent` for web requests whose URIs match this regex. This is true regardless of whether you override the rule action for either of the rules in your web ACL configuration.
+//
+// AWS recommends using a regular expression.
+//
+// This setting is required if `UsageOfAction` is set to `ENABLED` . If required, you can provide between 1 and 5 regex objects in the array of settings.
+//
+// AWS recommends starting with the following setting. Review and update it for your application's needs:
+//
+// `\/api\/|\.(acc|avi|css|gif|jpe?g|js|mp[34]|ogg|otf|pdf|png|tiff?|ttf|webm|webp|woff2?)$`
 func (o WebAclClientSideActionPtrOutput) ExemptUriRegularExpressions() WebAclRegexArrayOutput {
 	return o.ApplyT(func(v *WebAclClientSideAction) []WebAclRegex {
 		if v == nil {
@@ -14958,6 +15145,15 @@ func (o WebAclClientSideActionPtrOutput) ExemptUriRegularExpressions() WebAclReg
 	}).(WebAclRegexArrayOutput)
 }
 
+// The sensitivity that the rule group rule `ChallengeDDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `ChallengeDDoSRequests` rule runs.
+//
+// The higher the sensitivity, the more levels of labeling that the rule matches:
+//
+// - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+// - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+// - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+//
+// Default: `HIGH`
 func (o WebAclClientSideActionPtrOutput) Sensitivity() WebAclSensitivityToActPtrOutput {
 	return o.ApplyT(func(v *WebAclClientSideAction) *WebAclSensitivityToAct {
 		if v == nil {
@@ -14967,6 +15163,21 @@ func (o WebAclClientSideActionPtrOutput) Sensitivity() WebAclSensitivityToActPtr
 	}).(WebAclSensitivityToActPtrOutput)
 }
 
+// Determines whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation and the related label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+//
+// - If usage is enabled:
+//
+// - The managed rule group adds the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web request whose URL does *NOT* match the regular expressions provided in the `ClientSideAction` setting `ExemptUriRegularExpressions` .
+// - The two rules are evaluated against web requests for protected resources that are experiencing a DDoS attack. The two rules only apply their action to matching requests that have the label `awswaf:managed:aws:anti-ddos:challengeable-request` .
+// - If usage is disabled:
+//
+// - The managed rule group doesn't add the label `awswaf:managed:aws:anti-ddos:challengeable-request` to any web requests.
+// - The two rules are not evaluated.
+// - None of the other `ClientSideAction` settings have any effect.
+//
+// > This setting only enables or disables the use of the two anti-DDOS rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the anti-DDoS managed rule group.
+// >
+// > This setting doesn't alter the action setting in the two rules. To override the actions used by the rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` , enable this setting, and then override the rule actions in the usual way, in your managed rule group configuration.
 func (o WebAclClientSideActionPtrOutput) UsageOfAction() WebAclUsageOfActionPtrOutput {
 	return o.ApplyT(func(v *WebAclClientSideAction) *WebAclUsageOfAction {
 		if v == nil {
@@ -14978,6 +15189,11 @@ func (o WebAclClientSideActionPtrOutput) UsageOfAction() WebAclUsageOfActionPtrO
 
 // Client side action config for AntiDDOS AMR.
 type WebAclClientSideActionConfig struct {
+	// Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
+	//
+	// > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here.
+	//
+	// You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
 	Challenge WebAclClientSideAction `pulumi:"challenge"`
 }
 
@@ -14994,6 +15210,11 @@ type WebAclClientSideActionConfigInput interface {
 
 // Client side action config for AntiDDOS AMR.
 type WebAclClientSideActionConfigArgs struct {
+	// Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
+	//
+	// > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here.
+	//
+	// You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
 	Challenge WebAclClientSideActionInput `pulumi:"challenge"`
 }
 
@@ -15075,6 +15296,11 @@ func (o WebAclClientSideActionConfigOutput) ToWebAclClientSideActionConfigPtrOut
 	}).(WebAclClientSideActionConfigPtrOutput)
 }
 
+// Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
+//
+// > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here.
+//
+// You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
 func (o WebAclClientSideActionConfigOutput) Challenge() WebAclClientSideActionOutput {
 	return o.ApplyT(func(v WebAclClientSideActionConfig) WebAclClientSideAction { return v.Challenge }).(WebAclClientSideActionOutput)
 }
@@ -15103,6 +15329,11 @@ func (o WebAclClientSideActionConfigPtrOutput) Elem() WebAclClientSideActionConf
 	}).(WebAclClientSideActionConfigOutput)
 }
 
+// Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
+//
+// > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here.
+//
+// You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
 func (o WebAclClientSideActionConfigPtrOutput) Challenge() WebAclClientSideActionPtrOutput {
 	return o.ApplyT(func(v *WebAclClientSideActionConfig) *WebAclClientSideAction {
 		if v == nil {
@@ -20161,7 +20392,10 @@ type WebAclManagedRuleGroupConfig struct {
 	// Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, `AWSManagedRulesACFPRuleSet` . Use this to provide account creation request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to account creation requests.
 	//
 	// For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
-	AwsManagedRulesAcfpRuleSet     *WebAclAwsManagedRulesAcfpRuleSet     `pulumi:"awsManagedRulesAcfpRuleSet"`
+	AwsManagedRulesAcfpRuleSet *WebAclAwsManagedRulesAcfpRuleSet `pulumi:"awsManagedRulesAcfpRuleSet"`
+	// Additional configuration for using the anti-DDoS managed rule group, `AWSManagedRulesAntiDDoSRuleSet` . Use this to configure anti-DDoS behavior for the rule group.
+	//
+	// For information about using the anti-DDoS managed rule group, see [AWS WAF Anti-DDoS rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-anti-ddos.html) and [Distributed Denial of Service (DDoS) prevention](https://docs.aws.amazon.com/waf/latest/developerguide/waf-anti-ddos.html) in the *AWS WAF Developer Guide* .
 	AwsManagedRulesAntiDDoSRuleSet *WebAclAwsManagedRulesAntiDDoSRuleSet `pulumi:"awsManagedRulesAntiDDoSRuleSet"`
 	// Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
 	//
@@ -20197,7 +20431,10 @@ type WebAclManagedRuleGroupConfigArgs struct {
 	// Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, `AWSManagedRulesACFPRuleSet` . Use this to provide account creation request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to account creation requests.
 	//
 	// For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
-	AwsManagedRulesAcfpRuleSet     WebAclAwsManagedRulesAcfpRuleSetPtrInput     `pulumi:"awsManagedRulesAcfpRuleSet"`
+	AwsManagedRulesAcfpRuleSet WebAclAwsManagedRulesAcfpRuleSetPtrInput `pulumi:"awsManagedRulesAcfpRuleSet"`
+	// Additional configuration for using the anti-DDoS managed rule group, `AWSManagedRulesAntiDDoSRuleSet` . Use this to configure anti-DDoS behavior for the rule group.
+	//
+	// For information about using the anti-DDoS managed rule group, see [AWS WAF Anti-DDoS rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-anti-ddos.html) and [Distributed Denial of Service (DDoS) prevention](https://docs.aws.amazon.com/waf/latest/developerguide/waf-anti-ddos.html) in the *AWS WAF Developer Guide* .
 	AwsManagedRulesAntiDDoSRuleSet WebAclAwsManagedRulesAntiDDoSRuleSetPtrInput `pulumi:"awsManagedRulesAntiDDoSRuleSet"`
 	// Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
 	//
@@ -20278,6 +20515,9 @@ func (o WebAclManagedRuleGroupConfigOutput) AwsManagedRulesAcfpRuleSet() WebAclA
 	}).(WebAclAwsManagedRulesAcfpRuleSetPtrOutput)
 }
 
+// Additional configuration for using the anti-DDoS managed rule group, `AWSManagedRulesAntiDDoSRuleSet` . Use this to configure anti-DDoS behavior for the rule group.
+//
+// For information about using the anti-DDoS managed rule group, see [AWS WAF Anti-DDoS rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-anti-ddos.html) and [Distributed Denial of Service (DDoS) prevention](https://docs.aws.amazon.com/waf/latest/developerguide/waf-anti-ddos.html) in the *AWS WAF Developer Guide* .
 func (o WebAclManagedRuleGroupConfigOutput) AwsManagedRulesAntiDDoSRuleSet() WebAclAwsManagedRulesAntiDDoSRuleSetPtrOutput {
 	return o.ApplyT(func(v WebAclManagedRuleGroupConfig) *WebAclAwsManagedRulesAntiDDoSRuleSet {
 		return v.AwsManagedRulesAntiDDoSRuleSet
@@ -20742,6 +20982,7 @@ func (o WebAclNotStatementPtrOutput) Statement() WebAclStatementPtrOutput {
 
 // Configures the options for on-source DDoS protection provided by supported resource type.
 type WebAclOnSourceDDoSProtectionConfig struct {
+	// The level of DDoS protection that applies to web ACLs associated with Application Load Balancers. `ACTIVE_UNDER_DDOS` protection is enabled by default whenever a web ACL is associated with an Application Load Balancer. In the event that an Application Load Balancer experiences high-load conditions or suspected DDoS attacks, the `ACTIVE_UNDER_DDOS` protection automatically rate limits traffic from known low reputation sources without disrupting Application Load Balancer availability. `ALWAYS_ON` protection provides constant, always-on monitoring of known low reputation sources for suspected DDoS attacks. While this provides a higher level of protection, there may be potential impacts on legitimate traffic.
 	AlbLowReputationMode WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode `pulumi:"albLowReputationMode"`
 }
 
@@ -20758,6 +20999,7 @@ type WebAclOnSourceDDoSProtectionConfigInput interface {
 
 // Configures the options for on-source DDoS protection provided by supported resource type.
 type WebAclOnSourceDDoSProtectionConfigArgs struct {
+	// The level of DDoS protection that applies to web ACLs associated with Application Load Balancers. `ACTIVE_UNDER_DDOS` protection is enabled by default whenever a web ACL is associated with an Application Load Balancer. In the event that an Application Load Balancer experiences high-load conditions or suspected DDoS attacks, the `ACTIVE_UNDER_DDOS` protection automatically rate limits traffic from known low reputation sources without disrupting Application Load Balancer availability. `ALWAYS_ON` protection provides constant, always-on monitoring of known low reputation sources for suspected DDoS attacks. While this provides a higher level of protection, there may be potential impacts on legitimate traffic.
 	AlbLowReputationMode WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeInput `pulumi:"albLowReputationMode"`
 }
 
@@ -20839,6 +21081,7 @@ func (o WebAclOnSourceDDoSProtectionConfigOutput) ToWebAclOnSourceDDoSProtection
 	}).(WebAclOnSourceDDoSProtectionConfigPtrOutput)
 }
 
+// The level of DDoS protection that applies to web ACLs associated with Application Load Balancers. `ACTIVE_UNDER_DDOS` protection is enabled by default whenever a web ACL is associated with an Application Load Balancer. In the event that an Application Load Balancer experiences high-load conditions or suspected DDoS attacks, the `ACTIVE_UNDER_DDOS` protection automatically rate limits traffic from known low reputation sources without disrupting Application Load Balancer availability. `ALWAYS_ON` protection provides constant, always-on monitoring of known low reputation sources for suspected DDoS attacks. While this provides a higher level of protection, there may be potential impacts on legitimate traffic.
 func (o WebAclOnSourceDDoSProtectionConfigOutput) AlbLowReputationMode() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModeOutput {
 	return o.ApplyT(func(v WebAclOnSourceDDoSProtectionConfig) WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode {
 		return v.AlbLowReputationMode
@@ -20869,6 +21112,7 @@ func (o WebAclOnSourceDDoSProtectionConfigPtrOutput) Elem() WebAclOnSourceDDoSPr
 	}).(WebAclOnSourceDDoSProtectionConfigOutput)
 }
 
+// The level of DDoS protection that applies to web ACLs associated with Application Load Balancers. `ACTIVE_UNDER_DDOS` protection is enabled by default whenever a web ACL is associated with an Application Load Balancer. In the event that an Application Load Balancer experiences high-load conditions or suspected DDoS attacks, the `ACTIVE_UNDER_DDOS` protection automatically rate limits traffic from known low reputation sources without disrupting Application Load Balancer availability. `ALWAYS_ON` protection provides constant, always-on monitoring of known low reputation sources for suspected DDoS attacks. While this provides a higher level of protection, there may be potential impacts on legitimate traffic.
 func (o WebAclOnSourceDDoSProtectionConfigPtrOutput) AlbLowReputationMode() WebAclOnSourceDDoSProtectionConfigAlbLowReputationModePtrOutput {
 	return o.ApplyT(func(v *WebAclOnSourceDDoSProtectionConfig) *WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode {
 		if v == nil {
@@ -21536,6 +21780,7 @@ func (o WebAclRateBasedStatementPtrOutput) ScopeDownStatement() WebAclStatementP
 
 // Specifies a single custom aggregate key for a rate-base rule.
 type WebAclRateBasedStatementCustomKey struct {
+	// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
 	Asn *WebAclRateLimitAsn `pulumi:"asn"`
 	// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 	Cookie *WebAclRateLimitCookie `pulumi:"cookie"`
@@ -21584,6 +21829,7 @@ type WebAclRateBasedStatementCustomKeyInput interface {
 
 // Specifies a single custom aggregate key for a rate-base rule.
 type WebAclRateBasedStatementCustomKeyArgs struct {
+	// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
 	Asn WebAclRateLimitAsnPtrInput `pulumi:"asn"`
 	// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 	Cookie WebAclRateLimitCookiePtrInput `pulumi:"cookie"`
@@ -21671,6 +21917,7 @@ func (o WebAclRateBasedStatementCustomKeyOutput) ToWebAclRateBasedStatementCusto
 	return o
 }
 
+// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
 func (o WebAclRateBasedStatementCustomKeyOutput) Asn() WebAclRateLimitAsnPtrOutput {
 	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitAsn { return v.Asn }).(WebAclRateLimitAsnPtrOutput)
 }
@@ -26844,7 +27091,10 @@ func (o WebAclSqliMatchStatementPtrOutput) TextTransformations() WebAclTextTrans
 // First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type WebAclStatement struct {
 	// A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
-	AndStatement      *WebAclAndStatement      `pulumi:"andStatement"`
+	AndStatement *WebAclAndStatement `pulumi:"andStatement"`
+	// A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+	//
+	// For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	AsnMatchStatement *WebAclAsnMatchStatement `pulumi:"asnMatchStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 	ByteMatchStatement *WebAclByteMatchStatement `pulumi:"byteMatchStatement"`
@@ -26958,7 +27208,10 @@ type WebAclStatementInput interface {
 // First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type WebAclStatementArgs struct {
 	// A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
-	AndStatement      WebAclAndStatementPtrInput      `pulumi:"andStatement"`
+	AndStatement WebAclAndStatementPtrInput `pulumi:"andStatement"`
+	// A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+	//
+	// For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	AsnMatchStatement WebAclAsnMatchStatementPtrInput `pulumi:"asnMatchStatement"`
 	// A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is called a string match statement.
 	ByteMatchStatement WebAclByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
@@ -27166,6 +27419,9 @@ func (o WebAclStatementOutput) AndStatement() WebAclAndStatementPtrOutput {
 	return o.ApplyT(func(v WebAclStatement) *WebAclAndStatement { return v.AndStatement }).(WebAclAndStatementPtrOutput)
 }
 
+// A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+//
+// For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 func (o WebAclStatementOutput) AsnMatchStatement() WebAclAsnMatchStatementPtrOutput {
 	return o.ApplyT(func(v WebAclStatement) *WebAclAsnMatchStatement { return v.AsnMatchStatement }).(WebAclAsnMatchStatementPtrOutput)
 }
@@ -27344,6 +27600,9 @@ func (o WebAclStatementPtrOutput) AndStatement() WebAclAndStatementPtrOutput {
 	}).(WebAclAndStatementPtrOutput)
 }
 
+// A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+//
+// For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 func (o WebAclStatementPtrOutput) AsnMatchStatement() WebAclAsnMatchStatementPtrOutput {
 	return o.ApplyT(func(v *WebAclStatement) *WebAclAsnMatchStatement {
 		if v == nil {

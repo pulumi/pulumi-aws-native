@@ -397,6 +397,192 @@ type NamespaceTag struct {
 	Value string `pulumi:"value"`
 }
 
+type SnapshotType struct {
+	AdminUsername      *string         `pulumi:"adminUsername"`
+	KmsKeyId           *string         `pulumi:"kmsKeyId"`
+	NamespaceArn       *string         `pulumi:"namespaceArn"`
+	NamespaceName      *string         `pulumi:"namespaceName"`
+	OwnerAccount       *string         `pulumi:"ownerAccount"`
+	RetentionPeriod    *int            `pulumi:"retentionPeriod"`
+	SnapshotArn        *string         `pulumi:"snapshotArn"`
+	SnapshotCreateTime *string         `pulumi:"snapshotCreateTime"`
+	SnapshotName       *string         `pulumi:"snapshotName"`
+	Status             *SnapshotStatus `pulumi:"status"`
+}
+
+type SnapshotTypeOutput struct{ *pulumi.OutputState }
+
+func (SnapshotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotType)(nil)).Elem()
+}
+
+func (o SnapshotTypeOutput) ToSnapshotTypeOutput() SnapshotTypeOutput {
+	return o
+}
+
+func (o SnapshotTypeOutput) ToSnapshotTypeOutputWithContext(ctx context.Context) SnapshotTypeOutput {
+	return o
+}
+
+func (o SnapshotTypeOutput) AdminUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotType) *string { return v.AdminUsername }).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypeOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotType) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypeOutput) NamespaceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotType) *string { return v.NamespaceArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypeOutput) NamespaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotType) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypeOutput) OwnerAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotType) *string { return v.OwnerAccount }).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypeOutput) RetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SnapshotType) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+func (o SnapshotTypeOutput) SnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotType) *string { return v.SnapshotArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypeOutput) SnapshotCreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotType) *string { return v.SnapshotCreateTime }).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypeOutput) SnapshotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotType) *string { return v.SnapshotName }).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypeOutput) Status() SnapshotStatusPtrOutput {
+	return o.ApplyT(func(v SnapshotType) *SnapshotStatus { return v.Status }).(SnapshotStatusPtrOutput)
+}
+
+type SnapshotTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotType)(nil)).Elem()
+}
+
+func (o SnapshotTypePtrOutput) ToSnapshotTypePtrOutput() SnapshotTypePtrOutput {
+	return o
+}
+
+func (o SnapshotTypePtrOutput) ToSnapshotTypePtrOutputWithContext(ctx context.Context) SnapshotTypePtrOutput {
+	return o
+}
+
+func (o SnapshotTypePtrOutput) Elem() SnapshotTypeOutput {
+	return o.ApplyT(func(v *SnapshotType) SnapshotType {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotType
+		return ret
+	}).(SnapshotTypeOutput)
+}
+
+func (o SnapshotTypePtrOutput) AdminUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypePtrOutput) NamespaceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypePtrOutput) NamespaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypePtrOutput) OwnerAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OwnerAccount
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypePtrOutput) RetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotType) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SnapshotTypePtrOutput) SnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypePtrOutput) SnapshotCreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotCreateTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypePtrOutput) SnapshotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SnapshotTypePtrOutput) Status() SnapshotStatusPtrOutput {
+	return o.ApplyT(func(v *SnapshotType) *SnapshotStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(SnapshotStatusPtrOutput)
+}
+
+type SnapshotTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type WorkgroupType struct {
 	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
 	BaseCapacity *int `pulumi:"baseCapacity"`
@@ -1521,6 +1707,8 @@ func init() {
 	pulumi.RegisterOutputType(NamespaceTypePtrOutput{})
 	pulumi.RegisterOutputType(NamespaceSnapshotCopyConfigurationOutput{})
 	pulumi.RegisterOutputType(NamespaceSnapshotCopyConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(SnapshotTypeOutput{})
+	pulumi.RegisterOutputType(SnapshotTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupTypeOutput{})
 	pulumi.RegisterOutputType(WorkgroupTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigParameterOutput{})

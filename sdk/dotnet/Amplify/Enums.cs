@@ -77,6 +77,50 @@ namespace Pulumi.AwsNative.Amplify
     }
 
     /// <summary>
+    /// Specifies the size of the build instance. Amplify supports three instance sizes: `STANDARD_8GB` , `LARGE_16GB` , and `XLARGE_72GB` . If you don't specify a value, Amplify uses the `STANDARD_8GB` default.
+    /// 
+    /// The following list describes the CPU, memory, and storage capacity for each build instance type:
+    /// 
+    /// - **STANDARD_8GB** - - vCPUs: 4
+    /// - Memory: 8 GiB
+    /// - Disk space: 128 GB
+    /// - **LARGE_16GB** - - vCPUs: 8
+    /// - Memory: 16 GiB
+    /// - Disk space: 128 GB
+    /// - **XLARGE_72GB** - - vCPUs: 36
+    /// - Memory: 72 GiB
+    /// - Disk space: 256 GB
+    /// </summary>
+    [EnumType]
+    public readonly struct AppJobConfigBuildComputeType : IEquatable<AppJobConfigBuildComputeType>
+    {
+        private readonly string _value;
+
+        private AppJobConfigBuildComputeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppJobConfigBuildComputeType Standard8gb { get; } = new AppJobConfigBuildComputeType("STANDARD_8GB");
+        public static AppJobConfigBuildComputeType Large16gb { get; } = new AppJobConfigBuildComputeType("LARGE_16GB");
+        public static AppJobConfigBuildComputeType Xlarge72gb { get; } = new AppJobConfigBuildComputeType("XLARGE_72GB");
+
+        public static bool operator ==(AppJobConfigBuildComputeType left, AppJobConfigBuildComputeType right) => left.Equals(right);
+        public static bool operator !=(AppJobConfigBuildComputeType left, AppJobConfigBuildComputeType right) => !left.Equals(right);
+
+        public static explicit operator string(AppJobConfigBuildComputeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppJobConfigBuildComputeType other && Equals(other);
+        public bool Equals(AppJobConfigBuildComputeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
     /// 
     /// If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .

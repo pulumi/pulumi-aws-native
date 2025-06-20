@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
         /// Details of the AWS account IDs used to filter findings.
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> AwsAccountId;
+        public readonly ImmutableArray<Outputs.FilterStringFilter> CodeVulnerabilityDetectorName;
+        public readonly ImmutableArray<Outputs.FilterStringFilter> CodeVulnerabilityDetectorTags;
+        public readonly ImmutableArray<Outputs.FilterStringFilter> CodeVulnerabilityFilePath;
         /// <summary>
         /// Details of the component IDs used to filter findings.
         /// </summary>
@@ -61,6 +64,8 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
         /// The tags attached to the Amazon ECR container image.
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> EcrImageTags;
+        public readonly ImmutableArray<Outputs.FilterNumberFilter> EpssScore;
+        public readonly ImmutableArray<Outputs.FilterStringFilter> ExploitAvailable;
         /// <summary>
         /// Details on the finding ARNs used to filter findings.
         /// </summary>
@@ -77,10 +82,16 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
         /// Details on the date and time a finding was first seen used to filter findings.
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterDateFilter> FirstObservedAt;
+        public readonly ImmutableArray<Outputs.FilterStringFilter> FixAvailable;
         /// <summary>
         /// The Amazon Inspector score to filter on.
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterNumberFilter> InspectorScore;
+        public readonly ImmutableArray<Outputs.FilterStringFilter> LambdaFunctionExecutionRoleArn;
+        public readonly ImmutableArray<Outputs.FilterDateFilter> LambdaFunctionLastModifiedAt;
+        public readonly ImmutableArray<Outputs.FilterStringFilter> LambdaFunctionLayers;
+        public readonly ImmutableArray<Outputs.FilterStringFilter> LambdaFunctionName;
+        public readonly ImmutableArray<Outputs.FilterStringFilter> LambdaFunctionRuntime;
         /// <summary>
         /// Details on the date and time a finding was last seen used to filter findings.
         /// </summary>
@@ -142,6 +153,12 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
         private FilterCriteria(
             ImmutableArray<Outputs.FilterStringFilter> awsAccountId,
 
+            ImmutableArray<Outputs.FilterStringFilter> codeVulnerabilityDetectorName,
+
+            ImmutableArray<Outputs.FilterStringFilter> codeVulnerabilityDetectorTags,
+
+            ImmutableArray<Outputs.FilterStringFilter> codeVulnerabilityFilePath,
+
             ImmutableArray<Outputs.FilterStringFilter> componentId,
 
             ImmutableArray<Outputs.FilterStringFilter> componentType,
@@ -164,6 +181,10 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
 
             ImmutableArray<Outputs.FilterStringFilter> ecrImageTags,
 
+            ImmutableArray<Outputs.FilterNumberFilter> epssScore,
+
+            ImmutableArray<Outputs.FilterStringFilter> exploitAvailable,
+
             ImmutableArray<Outputs.FilterStringFilter> findingArn,
 
             ImmutableArray<Outputs.FilterStringFilter> findingStatus,
@@ -172,7 +193,19 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
 
             ImmutableArray<Outputs.FilterDateFilter> firstObservedAt,
 
+            ImmutableArray<Outputs.FilterStringFilter> fixAvailable,
+
             ImmutableArray<Outputs.FilterNumberFilter> inspectorScore,
+
+            ImmutableArray<Outputs.FilterStringFilter> lambdaFunctionExecutionRoleArn,
+
+            ImmutableArray<Outputs.FilterDateFilter> lambdaFunctionLastModifiedAt,
+
+            ImmutableArray<Outputs.FilterStringFilter> lambdaFunctionLayers,
+
+            ImmutableArray<Outputs.FilterStringFilter> lambdaFunctionName,
+
+            ImmutableArray<Outputs.FilterStringFilter> lambdaFunctionRuntime,
 
             ImmutableArray<Outputs.FilterDateFilter> lastObservedAt,
 
@@ -203,6 +236,9 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
             ImmutableArray<Outputs.FilterPackageFilter> vulnerablePackages)
         {
             AwsAccountId = awsAccountId;
+            CodeVulnerabilityDetectorName = codeVulnerabilityDetectorName;
+            CodeVulnerabilityDetectorTags = codeVulnerabilityDetectorTags;
+            CodeVulnerabilityFilePath = codeVulnerabilityFilePath;
             ComponentId = componentId;
             ComponentType = componentType;
             Ec2InstanceImageId = ec2InstanceImageId;
@@ -214,11 +250,19 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
             EcrImageRegistry = ecrImageRegistry;
             EcrImageRepositoryName = ecrImageRepositoryName;
             EcrImageTags = ecrImageTags;
+            EpssScore = epssScore;
+            ExploitAvailable = exploitAvailable;
             FindingArn = findingArn;
             FindingStatus = findingStatus;
             FindingType = findingType;
             FirstObservedAt = firstObservedAt;
+            FixAvailable = fixAvailable;
             InspectorScore = inspectorScore;
+            LambdaFunctionExecutionRoleArn = lambdaFunctionExecutionRoleArn;
+            LambdaFunctionLastModifiedAt = lambdaFunctionLastModifiedAt;
+            LambdaFunctionLayers = lambdaFunctionLayers;
+            LambdaFunctionName = lambdaFunctionName;
+            LambdaFunctionRuntime = lambdaFunctionRuntime;
             LastObservedAt = lastObservedAt;
             NetworkProtocol = networkProtocol;
             PortRange = portRange;

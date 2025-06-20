@@ -259,6 +259,8 @@ class CampaignCommunicationLimitsConfig(dict):
         suggest = None
         if key == "allChannelsSubtypes":
             suggest = "all_channels_subtypes"
+        elif key == "instanceLimitsHandling":
+            suggest = "instance_limits_handling"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CampaignCommunicationLimitsConfig. Access the value via the '{suggest}' property getter instead.")
@@ -272,13 +274,16 @@ class CampaignCommunicationLimitsConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 all_channels_subtypes: Optional['outputs.CampaignCommunicationLimits'] = None):
+                 all_channels_subtypes: Optional['outputs.CampaignCommunicationLimits'] = None,
+                 instance_limits_handling: Optional['CampaignInstanceLimitsHandling'] = None):
         """
         Communication limits config
         :param 'CampaignCommunicationLimits' all_channels_subtypes: The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
         """
         if all_channels_subtypes is not None:
             pulumi.set(__self__, "all_channels_subtypes", all_channels_subtypes)
+        if instance_limits_handling is not None:
+            pulumi.set(__self__, "instance_limits_handling", instance_limits_handling)
 
     @property
     @pulumi.getter(name="allChannelsSubtypes")
@@ -287,6 +292,11 @@ class CampaignCommunicationLimitsConfig(dict):
         The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
         """
         return pulumi.get(self, "all_channels_subtypes")
+
+    @property
+    @pulumi.getter(name="instanceLimitsHandling")
+    def instance_limits_handling(self) -> Optional['CampaignInstanceLimitsHandling']:
+        return pulumi.get(self, "instance_limits_handling")
 
 
 @pulumi.output_type

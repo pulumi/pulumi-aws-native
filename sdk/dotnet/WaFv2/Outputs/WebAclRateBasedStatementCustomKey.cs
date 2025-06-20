@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclRateBasedStatementCustomKey
     {
+        /// <summary>
+        /// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
+        /// </summary>
         public readonly Outputs.WebAclRateLimitAsn? Asn;
         /// <summary>
         /// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.

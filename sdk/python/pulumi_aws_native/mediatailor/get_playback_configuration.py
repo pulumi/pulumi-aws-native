@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPlaybackConfigurationResult:
-    def __init__(__self__, ad_conditioning_configuration=None, ad_decision_server_url=None, avail_suppression=None, bumper=None, cdn_configuration=None, configuration_aliases=None, dash_configuration=None, hls_configuration=None, live_pre_roll_configuration=None, manifest_processing_rules=None, personalization_threshold_seconds=None, playback_configuration_arn=None, playback_endpoint_prefix=None, session_initialization_endpoint_prefix=None, slate_ad_url=None, tags=None, transcode_profile_name=None, video_content_source_url=None):
+    def __init__(__self__, ad_conditioning_configuration=None, ad_decision_server_url=None, avail_suppression=None, bumper=None, cdn_configuration=None, configuration_aliases=None, dash_configuration=None, hls_configuration=None, live_pre_roll_configuration=None, log_configuration=None, manifest_processing_rules=None, personalization_threshold_seconds=None, playback_configuration_arn=None, playback_endpoint_prefix=None, session_initialization_endpoint_prefix=None, slate_ad_url=None, tags=None, transcode_profile_name=None, video_content_source_url=None):
         if ad_conditioning_configuration and not isinstance(ad_conditioning_configuration, dict):
             raise TypeError("Expected argument 'ad_conditioning_configuration' to be a dict")
         pulumi.set(__self__, "ad_conditioning_configuration", ad_conditioning_configuration)
@@ -55,6 +55,9 @@ class GetPlaybackConfigurationResult:
         if live_pre_roll_configuration and not isinstance(live_pre_roll_configuration, dict):
             raise TypeError("Expected argument 'live_pre_roll_configuration' to be a dict")
         pulumi.set(__self__, "live_pre_roll_configuration", live_pre_roll_configuration)
+        if log_configuration and not isinstance(log_configuration, dict):
+            raise TypeError("Expected argument 'log_configuration' to be a dict")
+        pulumi.set(__self__, "log_configuration", log_configuration)
         if manifest_processing_rules and not isinstance(manifest_processing_rules, dict):
             raise TypeError("Expected argument 'manifest_processing_rules' to be a dict")
         pulumi.set(__self__, "manifest_processing_rules", manifest_processing_rules)
@@ -156,6 +159,14 @@ class GetPlaybackConfigurationResult:
         return pulumi.get(self, "live_pre_roll_configuration")
 
     @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional['outputs.PlaybackConfigurationLogConfiguration']:
+        """
+        The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @property
     @pulumi.getter(name="manifestProcessingRules")
     def manifest_processing_rules(self) -> Optional['outputs.PlaybackConfigurationManifestProcessingRules']:
         """
@@ -243,6 +254,7 @@ class AwaitableGetPlaybackConfigurationResult(GetPlaybackConfigurationResult):
             dash_configuration=self.dash_configuration,
             hls_configuration=self.hls_configuration,
             live_pre_roll_configuration=self.live_pre_roll_configuration,
+            log_configuration=self.log_configuration,
             manifest_processing_rules=self.manifest_processing_rules,
             personalization_threshold_seconds=self.personalization_threshold_seconds,
             playback_configuration_arn=self.playback_configuration_arn,
@@ -277,6 +289,7 @@ def get_playback_configuration(name: Optional[builtins.str] = None,
         dash_configuration=pulumi.get(__ret__, 'dash_configuration'),
         hls_configuration=pulumi.get(__ret__, 'hls_configuration'),
         live_pre_roll_configuration=pulumi.get(__ret__, 'live_pre_roll_configuration'),
+        log_configuration=pulumi.get(__ret__, 'log_configuration'),
         manifest_processing_rules=pulumi.get(__ret__, 'manifest_processing_rules'),
         personalization_threshold_seconds=pulumi.get(__ret__, 'personalization_threshold_seconds'),
         playback_configuration_arn=pulumi.get(__ret__, 'playback_configuration_arn'),
@@ -308,6 +321,7 @@ def get_playback_configuration_output(name: Optional[pulumi.Input[builtins.str]]
         dash_configuration=pulumi.get(__response__, 'dash_configuration'),
         hls_configuration=pulumi.get(__response__, 'hls_configuration'),
         live_pre_roll_configuration=pulumi.get(__response__, 'live_pre_roll_configuration'),
+        log_configuration=pulumi.get(__response__, 'log_configuration'),
         manifest_processing_rules=pulumi.get(__response__, 'manifest_processing_rules'),
         personalization_threshold_seconds=pulumi.get(__response__, 'personalization_threshold_seconds'),
         playback_configuration_arn=pulumi.get(__response__, 'playback_configuration_arn'),

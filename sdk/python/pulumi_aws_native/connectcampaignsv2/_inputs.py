@@ -235,19 +235,23 @@ if not MYPY:
         """
         The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
         """
+        instance_limits_handling: NotRequired[pulumi.Input['CampaignInstanceLimitsHandling']]
 elif False:
     CampaignCommunicationLimitsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CampaignCommunicationLimitsConfigArgs:
     def __init__(__self__, *,
-                 all_channels_subtypes: Optional[pulumi.Input['CampaignCommunicationLimitsArgs']] = None):
+                 all_channels_subtypes: Optional[pulumi.Input['CampaignCommunicationLimitsArgs']] = None,
+                 instance_limits_handling: Optional[pulumi.Input['CampaignInstanceLimitsHandling']] = None):
         """
         Communication limits config
         :param pulumi.Input['CampaignCommunicationLimitsArgs'] all_channels_subtypes: The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
         """
         if all_channels_subtypes is not None:
             pulumi.set(__self__, "all_channels_subtypes", all_channels_subtypes)
+        if instance_limits_handling is not None:
+            pulumi.set(__self__, "instance_limits_handling", instance_limits_handling)
 
     @property
     @pulumi.getter(name="allChannelsSubtypes")
@@ -260,6 +264,15 @@ class CampaignCommunicationLimitsConfigArgs:
     @all_channels_subtypes.setter
     def all_channels_subtypes(self, value: Optional[pulumi.Input['CampaignCommunicationLimitsArgs']]):
         pulumi.set(self, "all_channels_subtypes", value)
+
+    @property
+    @pulumi.getter(name="instanceLimitsHandling")
+    def instance_limits_handling(self) -> Optional[pulumi.Input['CampaignInstanceLimitsHandling']]:
+        return pulumi.get(self, "instance_limits_handling")
+
+    @instance_limits_handling.setter
+    def instance_limits_handling(self, value: Optional[pulumi.Input['CampaignInstanceLimitsHandling']]):
+        pulumi.set(self, "instance_limits_handling", value)
 
 
 if not MYPY:

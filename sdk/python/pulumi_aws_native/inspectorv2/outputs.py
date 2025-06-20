@@ -284,6 +284,12 @@ class FilterCriteria(dict):
         suggest = None
         if key == "awsAccountId":
             suggest = "aws_account_id"
+        elif key == "codeVulnerabilityDetectorName":
+            suggest = "code_vulnerability_detector_name"
+        elif key == "codeVulnerabilityDetectorTags":
+            suggest = "code_vulnerability_detector_tags"
+        elif key == "codeVulnerabilityFilePath":
+            suggest = "code_vulnerability_file_path"
         elif key == "componentId":
             suggest = "component_id"
         elif key == "componentType":
@@ -306,6 +312,10 @@ class FilterCriteria(dict):
             suggest = "ecr_image_repository_name"
         elif key == "ecrImageTags":
             suggest = "ecr_image_tags"
+        elif key == "epssScore":
+            suggest = "epss_score"
+        elif key == "exploitAvailable":
+            suggest = "exploit_available"
         elif key == "findingArn":
             suggest = "finding_arn"
         elif key == "findingStatus":
@@ -314,8 +324,20 @@ class FilterCriteria(dict):
             suggest = "finding_type"
         elif key == "firstObservedAt":
             suggest = "first_observed_at"
+        elif key == "fixAvailable":
+            suggest = "fix_available"
         elif key == "inspectorScore":
             suggest = "inspector_score"
+        elif key == "lambdaFunctionExecutionRoleArn":
+            suggest = "lambda_function_execution_role_arn"
+        elif key == "lambdaFunctionLastModifiedAt":
+            suggest = "lambda_function_last_modified_at"
+        elif key == "lambdaFunctionLayers":
+            suggest = "lambda_function_layers"
+        elif key == "lambdaFunctionName":
+            suggest = "lambda_function_name"
+        elif key == "lambdaFunctionRuntime":
+            suggest = "lambda_function_runtime"
         elif key == "lastObservedAt":
             suggest = "last_observed_at"
         elif key == "networkProtocol":
@@ -354,6 +376,9 @@ class FilterCriteria(dict):
 
     def __init__(__self__, *,
                  aws_account_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
+                 code_vulnerability_detector_name: Optional[Sequence['outputs.FilterStringFilter']] = None,
+                 code_vulnerability_detector_tags: Optional[Sequence['outputs.FilterStringFilter']] = None,
+                 code_vulnerability_file_path: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  component_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  component_type: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  ec2_instance_image_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
@@ -365,11 +390,19 @@ class FilterCriteria(dict):
                  ecr_image_registry: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  ecr_image_repository_name: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  ecr_image_tags: Optional[Sequence['outputs.FilterStringFilter']] = None,
+                 epss_score: Optional[Sequence['outputs.FilterNumberFilter']] = None,
+                 exploit_available: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  finding_arn: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  finding_status: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  finding_type: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  first_observed_at: Optional[Sequence['outputs.FilterDateFilter']] = None,
+                 fix_available: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  inspector_score: Optional[Sequence['outputs.FilterNumberFilter']] = None,
+                 lambda_function_execution_role_arn: Optional[Sequence['outputs.FilterStringFilter']] = None,
+                 lambda_function_last_modified_at: Optional[Sequence['outputs.FilterDateFilter']] = None,
+                 lambda_function_layers: Optional[Sequence['outputs.FilterStringFilter']] = None,
+                 lambda_function_name: Optional[Sequence['outputs.FilterStringFilter']] = None,
+                 lambda_function_runtime: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  last_observed_at: Optional[Sequence['outputs.FilterDateFilter']] = None,
                  network_protocol: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  port_range: Optional[Sequence['outputs.FilterPortRangeFilter']] = None,
@@ -419,6 +452,12 @@ class FilterCriteria(dict):
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if code_vulnerability_detector_name is not None:
+            pulumi.set(__self__, "code_vulnerability_detector_name", code_vulnerability_detector_name)
+        if code_vulnerability_detector_tags is not None:
+            pulumi.set(__self__, "code_vulnerability_detector_tags", code_vulnerability_detector_tags)
+        if code_vulnerability_file_path is not None:
+            pulumi.set(__self__, "code_vulnerability_file_path", code_vulnerability_file_path)
         if component_id is not None:
             pulumi.set(__self__, "component_id", component_id)
         if component_type is not None:
@@ -441,6 +480,10 @@ class FilterCriteria(dict):
             pulumi.set(__self__, "ecr_image_repository_name", ecr_image_repository_name)
         if ecr_image_tags is not None:
             pulumi.set(__self__, "ecr_image_tags", ecr_image_tags)
+        if epss_score is not None:
+            pulumi.set(__self__, "epss_score", epss_score)
+        if exploit_available is not None:
+            pulumi.set(__self__, "exploit_available", exploit_available)
         if finding_arn is not None:
             pulumi.set(__self__, "finding_arn", finding_arn)
         if finding_status is not None:
@@ -449,8 +492,20 @@ class FilterCriteria(dict):
             pulumi.set(__self__, "finding_type", finding_type)
         if first_observed_at is not None:
             pulumi.set(__self__, "first_observed_at", first_observed_at)
+        if fix_available is not None:
+            pulumi.set(__self__, "fix_available", fix_available)
         if inspector_score is not None:
             pulumi.set(__self__, "inspector_score", inspector_score)
+        if lambda_function_execution_role_arn is not None:
+            pulumi.set(__self__, "lambda_function_execution_role_arn", lambda_function_execution_role_arn)
+        if lambda_function_last_modified_at is not None:
+            pulumi.set(__self__, "lambda_function_last_modified_at", lambda_function_last_modified_at)
+        if lambda_function_layers is not None:
+            pulumi.set(__self__, "lambda_function_layers", lambda_function_layers)
+        if lambda_function_name is not None:
+            pulumi.set(__self__, "lambda_function_name", lambda_function_name)
+        if lambda_function_runtime is not None:
+            pulumi.set(__self__, "lambda_function_runtime", lambda_function_runtime)
         if last_observed_at is not None:
             pulumi.set(__self__, "last_observed_at", last_observed_at)
         if network_protocol is not None:
@@ -487,6 +542,21 @@ class FilterCriteria(dict):
         Details of the AWS account IDs used to filter findings.
         """
         return pulumi.get(self, "aws_account_id")
+
+    @property
+    @pulumi.getter(name="codeVulnerabilityDetectorName")
+    def code_vulnerability_detector_name(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        return pulumi.get(self, "code_vulnerability_detector_name")
+
+    @property
+    @pulumi.getter(name="codeVulnerabilityDetectorTags")
+    def code_vulnerability_detector_tags(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        return pulumi.get(self, "code_vulnerability_detector_tags")
+
+    @property
+    @pulumi.getter(name="codeVulnerabilityFilePath")
+    def code_vulnerability_file_path(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        return pulumi.get(self, "code_vulnerability_file_path")
 
     @property
     @pulumi.getter(name="componentId")
@@ -577,6 +647,16 @@ class FilterCriteria(dict):
         return pulumi.get(self, "ecr_image_tags")
 
     @property
+    @pulumi.getter(name="epssScore")
+    def epss_score(self) -> Optional[Sequence['outputs.FilterNumberFilter']]:
+        return pulumi.get(self, "epss_score")
+
+    @property
+    @pulumi.getter(name="exploitAvailable")
+    def exploit_available(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        return pulumi.get(self, "exploit_available")
+
+    @property
     @pulumi.getter(name="findingArn")
     def finding_arn(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
         """
@@ -609,12 +689,42 @@ class FilterCriteria(dict):
         return pulumi.get(self, "first_observed_at")
 
     @property
+    @pulumi.getter(name="fixAvailable")
+    def fix_available(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        return pulumi.get(self, "fix_available")
+
+    @property
     @pulumi.getter(name="inspectorScore")
     def inspector_score(self) -> Optional[Sequence['outputs.FilterNumberFilter']]:
         """
         The Amazon Inspector score to filter on.
         """
         return pulumi.get(self, "inspector_score")
+
+    @property
+    @pulumi.getter(name="lambdaFunctionExecutionRoleArn")
+    def lambda_function_execution_role_arn(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        return pulumi.get(self, "lambda_function_execution_role_arn")
+
+    @property
+    @pulumi.getter(name="lambdaFunctionLastModifiedAt")
+    def lambda_function_last_modified_at(self) -> Optional[Sequence['outputs.FilterDateFilter']]:
+        return pulumi.get(self, "lambda_function_last_modified_at")
+
+    @property
+    @pulumi.getter(name="lambdaFunctionLayers")
+    def lambda_function_layers(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        return pulumi.get(self, "lambda_function_layers")
+
+    @property
+    @pulumi.getter(name="lambdaFunctionName")
+    def lambda_function_name(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        return pulumi.get(self, "lambda_function_name")
+
+    @property
+    @pulumi.getter(name="lambdaFunctionRuntime")
+    def lambda_function_runtime(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        return pulumi.get(self, "lambda_function_runtime")
 
     @property
     @pulumi.getter(name="lastObservedAt")
@@ -842,7 +952,11 @@ class FilterPackageFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sourceLayerHash":
+        if key == "filePath":
+            suggest = "file_path"
+        elif key == "sourceLambdaLayerArn":
+            suggest = "source_lambda_layer_arn"
+        elif key == "sourceLayerHash":
             suggest = "source_layer_hash"
 
         if suggest:
@@ -859,18 +973,24 @@ class FilterPackageFilter(dict):
     def __init__(__self__, *,
                  architecture: Optional['outputs.FilterStringFilter'] = None,
                  epoch: Optional['outputs.FilterNumberFilter'] = None,
+                 file_path: Optional['outputs.FilterStringFilter'] = None,
                  name: Optional['outputs.FilterStringFilter'] = None,
                  release: Optional['outputs.FilterStringFilter'] = None,
+                 source_lambda_layer_arn: Optional['outputs.FilterStringFilter'] = None,
                  source_layer_hash: Optional['outputs.FilterStringFilter'] = None,
                  version: Optional['outputs.FilterStringFilter'] = None):
         if architecture is not None:
             pulumi.set(__self__, "architecture", architecture)
         if epoch is not None:
             pulumi.set(__self__, "epoch", epoch)
+        if file_path is not None:
+            pulumi.set(__self__, "file_path", file_path)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if release is not None:
             pulumi.set(__self__, "release", release)
+        if source_lambda_layer_arn is not None:
+            pulumi.set(__self__, "source_lambda_layer_arn", source_lambda_layer_arn)
         if source_layer_hash is not None:
             pulumi.set(__self__, "source_layer_hash", source_layer_hash)
         if version is not None:
@@ -887,6 +1007,11 @@ class FilterPackageFilter(dict):
         return pulumi.get(self, "epoch")
 
     @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> Optional['outputs.FilterStringFilter']:
+        return pulumi.get(self, "file_path")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional['outputs.FilterStringFilter']:
         return pulumi.get(self, "name")
@@ -895,6 +1020,11 @@ class FilterPackageFilter(dict):
     @pulumi.getter
     def release(self) -> Optional['outputs.FilterStringFilter']:
         return pulumi.get(self, "release")
+
+    @property
+    @pulumi.getter(name="sourceLambdaLayerArn")
+    def source_lambda_layer_arn(self) -> Optional['outputs.FilterStringFilter']:
+        return pulumi.get(self, "source_lambda_layer_arn")
 
     @property
     @pulumi.getter(name="sourceLayerHash")

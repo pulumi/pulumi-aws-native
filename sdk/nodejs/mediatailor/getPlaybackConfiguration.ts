@@ -62,6 +62,10 @@ export interface GetPlaybackConfigurationResult {
      */
     readonly livePreRollConfiguration?: outputs.mediatailor.PlaybackConfigurationLivePreRollConfiguration;
     /**
+     * The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+     */
+    readonly logConfiguration?: outputs.mediatailor.PlaybackConfigurationLogConfiguration;
+    /**
      * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
      */
     readonly manifestProcessingRules?: outputs.mediatailor.PlaybackConfigurationManifestProcessingRules;

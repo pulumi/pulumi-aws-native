@@ -91,7 +91,7 @@ class ServerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups must be within the VPC that is specified by `SubnetIds` .
                
                If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
-        :param pulumi.Input[builtins.str] server_name: The name of the server.
+        :param pulumi.Input[builtins.str] server_name: The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which to launch the server EC2 instance.
                
                Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.
@@ -393,7 +393,7 @@ class ServerArgs:
     @pulumi.getter(name="serverName")
     def server_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the server.
+        The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
         """
         return pulumi.get(self, "server_name")
 
@@ -562,7 +562,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups must be within the VPC that is specified by `SubnetIds` .
                
                If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
-        :param pulumi.Input[builtins.str] server_name: The name of the server.
+        :param pulumi.Input[builtins.str] server_name: The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
         :param pulumi.Input[builtins.str] service_role_arn: The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which to launch the server EC2 instance.
                
@@ -951,7 +951,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="serverName")
     def server_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The name of the server.
+        The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
         """
         return pulumi.get(self, "server_name")
 

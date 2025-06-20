@@ -100,6 +100,10 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         public readonly Outputs.PlaybackConfigurationLivePreRollConfiguration? LivePreRollConfiguration;
         /// <summary>
+        /// The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+        /// </summary>
+        public readonly Outputs.PlaybackConfigurationLogConfiguration? LogConfiguration;
+        /// <summary>
         /// The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
         /// </summary>
         public readonly Outputs.PlaybackConfigurationManifestProcessingRules? ManifestProcessingRules;
@@ -156,6 +160,8 @@ namespace Pulumi.AwsNative.MediaTailor
 
             Outputs.PlaybackConfigurationLivePreRollConfiguration? livePreRollConfiguration,
 
+            Outputs.PlaybackConfigurationLogConfiguration? logConfiguration,
+
             Outputs.PlaybackConfigurationManifestProcessingRules? manifestProcessingRules,
 
             int? personalizationThresholdSeconds,
@@ -183,6 +189,7 @@ namespace Pulumi.AwsNative.MediaTailor
             DashConfiguration = dashConfiguration;
             HlsConfiguration = hlsConfiguration;
             LivePreRollConfiguration = livePreRollConfiguration;
+            LogConfiguration = logConfiguration;
             ManifestProcessingRules = manifestProcessingRules;
             PersonalizationThresholdSeconds = personalizationThresholdSeconds;
             PlaybackConfigurationArn = playbackConfigurationArn;

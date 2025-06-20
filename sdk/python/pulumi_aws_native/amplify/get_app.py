@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppResult:
-    def __init__(__self__, app_id=None, app_name=None, arn=None, build_spec=None, cache_config=None, compute_role_arn=None, custom_headers=None, custom_rules=None, default_domain=None, description=None, enable_branch_auto_deletion=None, environment_variables=None, iam_service_role=None, name=None, platform=None, repository=None, tags=None):
+    def __init__(__self__, app_id=None, app_name=None, arn=None, build_spec=None, cache_config=None, compute_role_arn=None, custom_headers=None, custom_rules=None, default_domain=None, description=None, enable_branch_auto_deletion=None, environment_variables=None, iam_service_role=None, job_config=None, name=None, platform=None, repository=None, tags=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
@@ -67,6 +67,9 @@ class GetAppResult:
         if iam_service_role and not isinstance(iam_service_role, str):
             raise TypeError("Expected argument 'iam_service_role' to be a str")
         pulumi.set(__self__, "iam_service_role", iam_service_role)
+        if job_config and not isinstance(job_config, dict):
+            raise TypeError("Expected argument 'job_config' to be a dict")
+        pulumi.set(__self__, "job_config", job_config)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -187,6 +190,14 @@ class GetAppResult:
         return pulumi.get(self, "iam_service_role")
 
     @property
+    @pulumi.getter(name="jobConfig")
+    def job_config(self) -> Optional['outputs.AppJobConfig']:
+        """
+        The configuration details that apply to the jobs for an Amplify app.
+        """
+        return pulumi.get(self, "job_config")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
         """
@@ -240,6 +251,7 @@ class AwaitableGetAppResult(GetAppResult):
             enable_branch_auto_deletion=self.enable_branch_auto_deletion,
             environment_variables=self.environment_variables,
             iam_service_role=self.iam_service_role,
+            job_config=self.job_config,
             name=self.name,
             platform=self.platform,
             repository=self.repository,
@@ -273,6 +285,7 @@ def get_app(arn: Optional[builtins.str] = None,
         enable_branch_auto_deletion=pulumi.get(__ret__, 'enable_branch_auto_deletion'),
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
         iam_service_role=pulumi.get(__ret__, 'iam_service_role'),
+        job_config=pulumi.get(__ret__, 'job_config'),
         name=pulumi.get(__ret__, 'name'),
         platform=pulumi.get(__ret__, 'platform'),
         repository=pulumi.get(__ret__, 'repository'),
@@ -303,6 +316,7 @@ def get_app_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         enable_branch_auto_deletion=pulumi.get(__response__, 'enable_branch_auto_deletion'),
         environment_variables=pulumi.get(__response__, 'environment_variables'),
         iam_service_role=pulumi.get(__response__, 'iam_service_role'),
+        job_config=pulumi.get(__response__, 'job_config'),
         name=pulumi.get(__response__, 'name'),
         platform=pulumi.get(__response__, 'platform'),
         repository=pulumi.get(__response__, 'repository'),

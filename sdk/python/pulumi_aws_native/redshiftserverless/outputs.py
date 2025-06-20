@@ -20,6 +20,7 @@ from ._enums import *
 __all__ = [
     'Namespace',
     'NamespaceSnapshotCopyConfiguration',
+    'Snapshot',
     'Workgroup',
     'WorkgroupConfigParameter',
     'WorkgroupEndpoint',
@@ -291,6 +292,124 @@ class NamespaceSnapshotCopyConfiguration(dict):
         The retention period of snapshots that are copied to the destination AWS Region .
         """
         return pulumi.get(self, "snapshot_retention_period")
+
+
+@pulumi.output_type
+class Snapshot(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "namespaceArn":
+            suggest = "namespace_arn"
+        elif key == "namespaceName":
+            suggest = "namespace_name"
+        elif key == "ownerAccount":
+            suggest = "owner_account"
+        elif key == "retentionPeriod":
+            suggest = "retention_period"
+        elif key == "snapshotArn":
+            suggest = "snapshot_arn"
+        elif key == "snapshotCreateTime":
+            suggest = "snapshot_create_time"
+        elif key == "snapshotName":
+            suggest = "snapshot_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Snapshot. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Snapshot.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Snapshot.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_username: Optional[builtins.str] = None,
+                 kms_key_id: Optional[builtins.str] = None,
+                 namespace_arn: Optional[builtins.str] = None,
+                 namespace_name: Optional[builtins.str] = None,
+                 owner_account: Optional[builtins.str] = None,
+                 retention_period: Optional[builtins.int] = None,
+                 snapshot_arn: Optional[builtins.str] = None,
+                 snapshot_create_time: Optional[builtins.str] = None,
+                 snapshot_name: Optional[builtins.str] = None,
+                 status: Optional['SnapshotStatus'] = None):
+        if admin_username is not None:
+            pulumi.set(__self__, "admin_username", admin_username)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if namespace_arn is not None:
+            pulumi.set(__self__, "namespace_arn", namespace_arn)
+        if namespace_name is not None:
+            pulumi.set(__self__, "namespace_name", namespace_name)
+        if owner_account is not None:
+            pulumi.set(__self__, "owner_account", owner_account)
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+        if snapshot_arn is not None:
+            pulumi.set(__self__, "snapshot_arn", snapshot_arn)
+        if snapshot_create_time is not None:
+            pulumi.set(__self__, "snapshot_create_time", snapshot_create_time)
+        if snapshot_name is not None:
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "admin_username")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="namespaceArn")
+    def namespace_arn(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "namespace_arn")
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "namespace_name")
+
+    @property
+    @pulumi.getter(name="ownerAccount")
+    def owner_account(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner_account")
+
+    @property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "retention_period")
+
+    @property
+    @pulumi.getter(name="snapshotArn")
+    def snapshot_arn(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "snapshot_arn")
+
+    @property
+    @pulumi.getter(name="snapshotCreateTime")
+    def snapshot_create_time(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "snapshot_create_time")
+
+    @property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "snapshot_name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['SnapshotStatus']:
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

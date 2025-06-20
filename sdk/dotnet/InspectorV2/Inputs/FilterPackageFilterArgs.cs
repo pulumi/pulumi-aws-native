@@ -18,11 +18,17 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
         [Input("epoch")]
         public Input<Inputs.FilterNumberFilterArgs>? Epoch { get; set; }
 
+        [Input("filePath")]
+        public Input<Inputs.FilterStringFilterArgs>? FilePath { get; set; }
+
         [Input("name")]
         public Input<Inputs.FilterStringFilterArgs>? Name { get; set; }
 
         [Input("release")]
         public Input<Inputs.FilterStringFilterArgs>? Release { get; set; }
+
+        [Input("sourceLambdaLayerArn")]
+        public Input<Inputs.FilterStringFilterArgs>? SourceLambdaLayerArn { get; set; }
 
         [Input("sourceLayerHash")]
         public Input<Inputs.FilterStringFilterArgs>? SourceLayerHash { get; set; }

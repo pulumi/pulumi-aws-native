@@ -118,6 +118,10 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         public readonly string? IamServiceRole;
         /// <summary>
+        /// The configuration details that apply to the jobs for an Amplify app.
+        /// </summary>
+        public readonly Outputs.AppJobConfig? JobConfig;
+        /// <summary>
         /// The name of the Amplify app.
         /// </summary>
         public readonly string? Name;
@@ -164,6 +168,8 @@ namespace Pulumi.AwsNative.Amplify
 
             string? iamServiceRole,
 
+            Outputs.AppJobConfig? jobConfig,
+
             string? name,
 
             Pulumi.AwsNative.Amplify.AppPlatform? platform,
@@ -185,6 +191,7 @@ namespace Pulumi.AwsNative.Amplify
             EnableBranchAutoDeletion = enableBranchAutoDeletion;
             EnvironmentVariables = environmentVariables;
             IamServiceRole = iamServiceRole;
+            JobConfig = jobConfig;
             Name = name;
             Platform = platform;
             Repository = repository;

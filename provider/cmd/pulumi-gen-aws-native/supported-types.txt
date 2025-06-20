@@ -397,6 +397,7 @@ AWS::EC2::Subnet
 AWS::EC2::SubnetCidrBlock
 AWS::EC2::SubnetNetworkAclAssociation
 AWS::EC2::SubnetRouteTableAssociation
+AWS::EC2::TrafficMirrorFilter
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayAttachment
 AWS::EC2::TransitGatewayConnect
@@ -914,6 +915,7 @@ AWS::Redshift::EventSubscription
 AWS::Redshift::Integration
 AWS::Redshift::ScheduledAction
 AWS::RedshiftServerless::Namespace
+AWS::RedshiftServerless::Snapshot
 AWS::RedshiftServerless::Workgroup
 AWS::RefactorSpaces::Application
 AWS::RefactorSpaces::Environment
@@ -1060,11 +1062,14 @@ AWS::SecretsManager::ResourcePolicy
 AWS::SecretsManager::RotationSchedule
 AWS::SecretsManager::Secret
 AWS::SecretsManager::SecretTargetAttachment
+AWS::SecurityHub::AggregatorV2
 AWS::SecurityHub::AutomationRule
+AWS::SecurityHub::AutomationRuleV2
 AWS::SecurityHub::ConfigurationPolicy
 AWS::SecurityHub::DelegatedAdmin
 AWS::SecurityHub::FindingAggregator
 AWS::SecurityHub::Hub
+AWS::SecurityHub::HubV2
 AWS::SecurityHub::Insight
 AWS::SecurityHub::OrganizationConfiguration
 AWS::SecurityHub::PolicyAssociation

@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AggregatorV2RegionLinkingMode = {
+    SpecifiedRegions: "SPECIFIED_REGIONS",
+} as const;
+
+/**
+ * Indicates to link a list of included Regions
+ */
+export type AggregatorV2RegionLinkingMode = (typeof AggregatorV2RegionLinkingMode)[keyof typeof AggregatorV2RegionLinkingMode];
+
 export const AutomationRuleDateRangeUnit = {
     Days: "DAYS",
 } as const;
@@ -77,6 +86,157 @@ export const AutomationRuleStringFilterComparison = {
  * The condition to apply to a string value when filtering Security Hub findings.
  */
 export type AutomationRuleStringFilterComparison = (typeof AutomationRuleStringFilterComparison)[keyof typeof AutomationRuleStringFilterComparison];
+
+export const AutomationRuleV2AllowedOperators = {
+    And: "AND",
+    Or: "OR",
+} as const;
+
+/**
+ * The logical operator used to combine multiple conditions
+ */
+export type AutomationRuleV2AllowedOperators = (typeof AutomationRuleV2AllowedOperators)[keyof typeof AutomationRuleV2AllowedOperators];
+
+export const AutomationRuleV2AutomationRulesActionV2Type = {
+    FindingFieldsUpdate: "FINDING_FIELDS_UPDATE",
+    ExternalIntegration: "EXTERNAL_INTEGRATION",
+} as const;
+
+/**
+ * The category of action to be executed by the automation rule
+ */
+export type AutomationRuleV2AutomationRulesActionV2Type = (typeof AutomationRuleV2AutomationRulesActionV2Type)[keyof typeof AutomationRuleV2AutomationRulesActionV2Type];
+
+export const AutomationRuleV2DateRangeUnit = {
+    Days: "DAYS",
+} as const;
+
+/**
+ * A date range unit for the date filter
+ */
+export type AutomationRuleV2DateRangeUnit = (typeof AutomationRuleV2DateRangeUnit)[keyof typeof AutomationRuleV2DateRangeUnit];
+
+export const AutomationRuleV2MapFilterComparison = {
+    Equals: "EQUALS",
+    NotEquals: "NOT_EQUALS",
+} as const;
+
+/**
+ * The condition to apply to the key value when filtering findings with a map filter
+ */
+export type AutomationRuleV2MapFilterComparison = (typeof AutomationRuleV2MapFilterComparison)[keyof typeof AutomationRuleV2MapFilterComparison];
+
+export const AutomationRuleV2OcsfBooleanFilterFieldName = {
+    ComplianceAssessmentsMeetsCriteria: "compliance.assessments.meets_criteria",
+    VulnerabilitiesIsExploitAvailable: "vulnerabilities.is_exploit_available",
+    VulnerabilitiesIsFixAvailable: "vulnerabilities.is_fix_available",
+} as const;
+
+/**
+ * The name of the field
+ */
+export type AutomationRuleV2OcsfBooleanFilterFieldName = (typeof AutomationRuleV2OcsfBooleanFilterFieldName)[keyof typeof AutomationRuleV2OcsfBooleanFilterFieldName];
+
+export const AutomationRuleV2OcsfDateFilterFieldName = {
+    FindingInfoCreatedTimeDt: "finding_info.created_time_dt",
+    FindingInfoFirstSeenTimeDt: "finding_info.first_seen_time_dt",
+    FindingInfoLastSeenTimeDt: "finding_info.last_seen_time_dt",
+    FindingInfoModifiedTimeDt: "finding_info.modified_time_dt",
+} as const;
+
+/**
+ * The name of the field
+ */
+export type AutomationRuleV2OcsfDateFilterFieldName = (typeof AutomationRuleV2OcsfDateFilterFieldName)[keyof typeof AutomationRuleV2OcsfDateFilterFieldName];
+
+export const AutomationRuleV2OcsfMapFilterFieldName = {
+    ResourcesTags: "resources.tags",
+} as const;
+
+/**
+ * The name of the field
+ */
+export type AutomationRuleV2OcsfMapFilterFieldName = (typeof AutomationRuleV2OcsfMapFilterFieldName)[keyof typeof AutomationRuleV2OcsfMapFilterFieldName];
+
+export const AutomationRuleV2OcsfNumberFilterFieldName = {
+    ActivityId: "activity_id",
+    ComplianceStatusId: "compliance.status_id",
+    ConfidenceScore: "confidence_score",
+    SeverityId: "severity_id",
+    StatusId: "status_id",
+    FindingInfoRelatedEventsCount: "finding_info.related_events_count",
+} as const;
+
+/**
+ * The name of the field
+ */
+export type AutomationRuleV2OcsfNumberFilterFieldName = (typeof AutomationRuleV2OcsfNumberFilterFieldName)[keyof typeof AutomationRuleV2OcsfNumberFilterFieldName];
+
+export const AutomationRuleV2OcsfStringField = {
+    MetadataUid: "metadata.uid",
+    ActivityName: "activity_name",
+    CloudAccountName: "cloud.account.name",
+    CloudAccountUid: "cloud.account.uid",
+    CloudProvider: "cloud.provider",
+    CloudRegion: "cloud.region",
+    ComplianceAssessmentsCategory: "compliance.assessments.category",
+    ComplianceAssessmentsName: "compliance.assessments.name",
+    ComplianceControl: "compliance.control",
+    ComplianceStatus: "compliance.status",
+    ComplianceStandards: "compliance.standards",
+    FindingInfoDesc: "finding_info.desc",
+    FindingInfoSrcUrl: "finding_info.src_url",
+    FindingInfoTitle: "finding_info.title",
+    FindingInfoTypes: "finding_info.types",
+    FindingInfoUid: "finding_info.uid",
+    FindingInfoRelatedEventsUid: "finding_info.related_events.uid",
+    FindingInfoRelatedEventsProductUid: "finding_info.related_events.product.uid",
+    FindingInfoRelatedEventsTitle: "finding_info.related_events.title",
+    MetadataProductFeatureUid: "metadata.product.feature.uid",
+    MetadataProductName: "metadata.product.name",
+    MetadataProductUid: "metadata.product.uid",
+    MetadataProductVendorName: "metadata.product.vendor_name",
+    RemediationDesc: "remediation.desc",
+    RemediationReferences: "remediation.references",
+    ResourcesCloudPartition: "resources.cloud_partition",
+    ResourcesName: "resources.name",
+    ResourcesRegion: "resources.region",
+    ResourcesType: "resources.type",
+    ResourcesUid: "resources.uid",
+    Severity: "severity",
+    Status: "status",
+    Comment: "comment",
+    VulnerabilitiesFixCoverage: "vulnerabilities.fix_coverage",
+    ClassName: "class_name",
+} as const;
+
+/**
+ * The name of the field
+ */
+export type AutomationRuleV2OcsfStringField = (typeof AutomationRuleV2OcsfStringField)[keyof typeof AutomationRuleV2OcsfStringField];
+
+export const AutomationRuleV2RuleStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The status of the automation rule
+ */
+export type AutomationRuleV2RuleStatus = (typeof AutomationRuleV2RuleStatus)[keyof typeof AutomationRuleV2RuleStatus];
+
+export const AutomationRuleV2StringFilterComparison = {
+    Equals: "EQUALS",
+    Prefix: "PREFIX",
+    NotEquals: "NOT_EQUALS",
+    PrefixNotEquals: "PREFIX_NOT_EQUALS",
+    Contains: "CONTAINS",
+} as const;
+
+/**
+ * The condition to apply to a string value when filtering findings
+ */
+export type AutomationRuleV2StringFilterComparison = (typeof AutomationRuleV2StringFilterComparison)[keyof typeof AutomationRuleV2StringFilterComparison];
 
 export const AutomationRuleWorkflowUpdateStatus = {
     New: "NEW",

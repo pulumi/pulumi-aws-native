@@ -1252,7 +1252,7 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) SchemaRe
 	}).(EventSourceMappingSchemaRegistryConfigPtrOutput)
 }
 
-// A configuration object that specifies the destination of an event after Lambda processes it.
+// A configuration object that specifies the destination of an event after Lambda processes it. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 type EventSourceMappingDestinationConfig struct {
 	// The destination configuration for failed invocations.
 	OnFailure *EventSourceMappingOnFailure `pulumi:"onFailure"`
@@ -1269,7 +1269,7 @@ type EventSourceMappingDestinationConfigInput interface {
 	ToEventSourceMappingDestinationConfigOutputWithContext(context.Context) EventSourceMappingDestinationConfigOutput
 }
 
-// A configuration object that specifies the destination of an event after Lambda processes it.
+// A configuration object that specifies the destination of an event after Lambda processes it. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 type EventSourceMappingDestinationConfigArgs struct {
 	// The destination configuration for failed invocations.
 	OnFailure EventSourceMappingOnFailurePtrInput `pulumi:"onFailure"`
@@ -1328,7 +1328,7 @@ func (i *eventSourceMappingDestinationConfigPtrType) ToEventSourceMappingDestina
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDestinationConfigPtrOutput)
 }
 
-// A configuration object that specifies the destination of an event after Lambda processes it.
+// A configuration object that specifies the destination of an event after Lambda processes it. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 type EventSourceMappingDestinationConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingDestinationConfigOutput) ElementType() reflect.Type {
@@ -2092,7 +2092,7 @@ func (o EventSourceMappingMetricsConfigPtrOutput) Metrics() EventSourceMappingMe
 	}).(EventSourceMappingMetricsConfigMetricsItemArrayOutput)
 }
 
-// A destination for events that failed processing. See [Capturing records of Lambda asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) for more information.
+// A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 type EventSourceMappingOnFailure struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
 	//  To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
@@ -2111,7 +2111,7 @@ type EventSourceMappingOnFailureInput interface {
 	ToEventSourceMappingOnFailureOutputWithContext(context.Context) EventSourceMappingOnFailureOutput
 }
 
-// A destination for events that failed processing. See [Capturing records of Lambda asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) for more information.
+// A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 type EventSourceMappingOnFailureArgs struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
 	//  To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
@@ -2172,7 +2172,7 @@ func (i *eventSourceMappingOnFailurePtrType) ToEventSourceMappingOnFailurePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingOnFailurePtrOutput)
 }
 
-// A destination for events that failed processing. See [Capturing records of Lambda asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) for more information.
+// A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 type EventSourceMappingOnFailureOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingOnFailureOutput) ElementType() reflect.Type {
@@ -2542,10 +2542,8 @@ func (o EventSourceMappingScalingConfigPtrOutput) MaximumConcurrency() pulumi.In
 }
 
 type EventSourceMappingSchemaRegistryAccessConfig struct {
-	// The type of authentication Lambda uses to access your schema registry.
 	Type *EventSourceMappingSchemaRegistryAccessConfigType `pulumi:"type"`
-	// The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
-	Uri *string `pulumi:"uri"`
+	Uri  *string                                           `pulumi:"uri"`
 }
 
 // EventSourceMappingSchemaRegistryAccessConfigInput is an input type that accepts EventSourceMappingSchemaRegistryAccessConfigArgs and EventSourceMappingSchemaRegistryAccessConfigOutput values.
@@ -2560,10 +2558,8 @@ type EventSourceMappingSchemaRegistryAccessConfigInput interface {
 }
 
 type EventSourceMappingSchemaRegistryAccessConfigArgs struct {
-	// The type of authentication Lambda uses to access your schema registry.
 	Type EventSourceMappingSchemaRegistryAccessConfigTypePtrInput `pulumi:"type"`
-	// The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	Uri  pulumi.StringPtrInput                                    `pulumi:"uri"`
 }
 
 func (EventSourceMappingSchemaRegistryAccessConfigArgs) ElementType() reflect.Type {
@@ -2617,14 +2613,12 @@ func (o EventSourceMappingSchemaRegistryAccessConfigOutput) ToEventSourceMapping
 	return o
 }
 
-// The type of authentication Lambda uses to access your schema registry.
 func (o EventSourceMappingSchemaRegistryAccessConfigOutput) Type() EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSchemaRegistryAccessConfig) *EventSourceMappingSchemaRegistryAccessConfigType {
 		return v.Type
 	}).(EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput)
 }
 
-// The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
 func (o EventSourceMappingSchemaRegistryAccessConfigOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSchemaRegistryAccessConfig) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -2650,14 +2644,10 @@ func (o EventSourceMappingSchemaRegistryAccessConfigArrayOutput) Index(i pulumi.
 }
 
 type EventSourceMappingSchemaRegistryConfig struct {
-	// An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
-	AccessConfigs []EventSourceMappingSchemaRegistryAccessConfig `pulumi:"accessConfigs"`
-	// The record format that Lambda delivers to your function after schema validation.
-	EventRecordFormat *EventSourceMappingSchemaRegistryConfigEventRecordFormat `pulumi:"eventRecordFormat"`
-	// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-	SchemaRegistryUri *string `pulumi:"schemaRegistryUri"`
-	// An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
-	SchemaValidationConfigs []EventSourceMappingSchemaValidationConfig `pulumi:"schemaValidationConfigs"`
+	AccessConfigs           []EventSourceMappingSchemaRegistryAccessConfig           `pulumi:"accessConfigs"`
+	EventRecordFormat       *EventSourceMappingSchemaRegistryConfigEventRecordFormat `pulumi:"eventRecordFormat"`
+	SchemaRegistryUri       *string                                                  `pulumi:"schemaRegistryUri"`
+	SchemaValidationConfigs []EventSourceMappingSchemaValidationConfig               `pulumi:"schemaValidationConfigs"`
 }
 
 // EventSourceMappingSchemaRegistryConfigInput is an input type that accepts EventSourceMappingSchemaRegistryConfigArgs and EventSourceMappingSchemaRegistryConfigOutput values.
@@ -2672,14 +2662,10 @@ type EventSourceMappingSchemaRegistryConfigInput interface {
 }
 
 type EventSourceMappingSchemaRegistryConfigArgs struct {
-	// An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
-	AccessConfigs EventSourceMappingSchemaRegistryAccessConfigArrayInput `pulumi:"accessConfigs"`
-	// The record format that Lambda delivers to your function after schema validation.
-	EventRecordFormat EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrInput `pulumi:"eventRecordFormat"`
-	// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-	SchemaRegistryUri pulumi.StringPtrInput `pulumi:"schemaRegistryUri"`
-	// An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
-	SchemaValidationConfigs EventSourceMappingSchemaValidationConfigArrayInput `pulumi:"schemaValidationConfigs"`
+	AccessConfigs           EventSourceMappingSchemaRegistryAccessConfigArrayInput          `pulumi:"accessConfigs"`
+	EventRecordFormat       EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrInput `pulumi:"eventRecordFormat"`
+	SchemaRegistryUri       pulumi.StringPtrInput                                           `pulumi:"schemaRegistryUri"`
+	SchemaValidationConfigs EventSourceMappingSchemaValidationConfigArrayInput              `pulumi:"schemaValidationConfigs"`
 }
 
 func (EventSourceMappingSchemaRegistryConfigArgs) ElementType() reflect.Type {
@@ -2759,26 +2745,22 @@ func (o EventSourceMappingSchemaRegistryConfigOutput) ToEventSourceMappingSchema
 	}).(EventSourceMappingSchemaRegistryConfigPtrOutput)
 }
 
-// An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
 func (o EventSourceMappingSchemaRegistryConfigOutput) AccessConfigs() EventSourceMappingSchemaRegistryAccessConfigArrayOutput {
 	return o.ApplyT(func(v EventSourceMappingSchemaRegistryConfig) []EventSourceMappingSchemaRegistryAccessConfig {
 		return v.AccessConfigs
 	}).(EventSourceMappingSchemaRegistryAccessConfigArrayOutput)
 }
 
-// The record format that Lambda delivers to your function after schema validation.
 func (o EventSourceMappingSchemaRegistryConfigOutput) EventRecordFormat() EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSchemaRegistryConfig) *EventSourceMappingSchemaRegistryConfigEventRecordFormat {
 		return v.EventRecordFormat
 	}).(EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput)
 }
 
-// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
 func (o EventSourceMappingSchemaRegistryConfigOutput) SchemaRegistryUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSchemaRegistryConfig) *string { return v.SchemaRegistryUri }).(pulumi.StringPtrOutput)
 }
 
-// An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
 func (o EventSourceMappingSchemaRegistryConfigOutput) SchemaValidationConfigs() EventSourceMappingSchemaValidationConfigArrayOutput {
 	return o.ApplyT(func(v EventSourceMappingSchemaRegistryConfig) []EventSourceMappingSchemaValidationConfig {
 		return v.SchemaValidationConfigs
@@ -2809,7 +2791,6 @@ func (o EventSourceMappingSchemaRegistryConfigPtrOutput) Elem() EventSourceMappi
 	}).(EventSourceMappingSchemaRegistryConfigOutput)
 }
 
-// An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
 func (o EventSourceMappingSchemaRegistryConfigPtrOutput) AccessConfigs() EventSourceMappingSchemaRegistryAccessConfigArrayOutput {
 	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryConfig) []EventSourceMappingSchemaRegistryAccessConfig {
 		if v == nil {
@@ -2819,7 +2800,6 @@ func (o EventSourceMappingSchemaRegistryConfigPtrOutput) AccessConfigs() EventSo
 	}).(EventSourceMappingSchemaRegistryAccessConfigArrayOutput)
 }
 
-// The record format that Lambda delivers to your function after schema validation.
 func (o EventSourceMappingSchemaRegistryConfigPtrOutput) EventRecordFormat() EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryConfig) *EventSourceMappingSchemaRegistryConfigEventRecordFormat {
 		if v == nil {
@@ -2829,7 +2809,6 @@ func (o EventSourceMappingSchemaRegistryConfigPtrOutput) EventRecordFormat() Eve
 	}).(EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput)
 }
 
-// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
 func (o EventSourceMappingSchemaRegistryConfigPtrOutput) SchemaRegistryUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryConfig) *string {
 		if v == nil {
@@ -2839,7 +2818,6 @@ func (o EventSourceMappingSchemaRegistryConfigPtrOutput) SchemaRegistryUri() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
 func (o EventSourceMappingSchemaRegistryConfigPtrOutput) SchemaValidationConfigs() EventSourceMappingSchemaValidationConfigArrayOutput {
 	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryConfig) []EventSourceMappingSchemaValidationConfig {
 		if v == nil {
@@ -2850,7 +2828,6 @@ func (o EventSourceMappingSchemaRegistryConfigPtrOutput) SchemaValidationConfigs
 }
 
 type EventSourceMappingSchemaValidationConfig struct {
-	// The attribute you want your schema registry to validate and filter for.
 	Attribute *EventSourceMappingSchemaValidationConfigAttribute `pulumi:"attribute"`
 }
 
@@ -2866,7 +2843,6 @@ type EventSourceMappingSchemaValidationConfigInput interface {
 }
 
 type EventSourceMappingSchemaValidationConfigArgs struct {
-	// The attribute you want your schema registry to validate and filter for.
 	Attribute EventSourceMappingSchemaValidationConfigAttributePtrInput `pulumi:"attribute"`
 }
 
@@ -2921,7 +2897,6 @@ func (o EventSourceMappingSchemaValidationConfigOutput) ToEventSourceMappingSche
 	return o
 }
 
-// The attribute you want your schema registry to validate and filter for.
 func (o EventSourceMappingSchemaValidationConfigOutput) Attribute() EventSourceMappingSchemaValidationConfigAttributePtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSchemaValidationConfig) *EventSourceMappingSchemaValidationConfigAttribute {
 		return v.Attribute

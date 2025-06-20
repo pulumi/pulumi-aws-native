@@ -484,7 +484,7 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
 if not MYPY:
     class EventSourceMappingDestinationConfigArgsDict(TypedDict):
         """
-        A configuration object that specifies the destination of an event after Lambda processes it.
+        A configuration object that specifies the destination of an event after Lambda processes it. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
         """
         on_failure: NotRequired[pulumi.Input['EventSourceMappingOnFailureArgsDict']]
         """
@@ -498,7 +498,7 @@ class EventSourceMappingDestinationConfigArgs:
     def __init__(__self__, *,
                  on_failure: Optional[pulumi.Input['EventSourceMappingOnFailureArgs']] = None):
         """
-        A configuration object that specifies the destination of an event after Lambda processes it.
+        A configuration object that specifies the destination of an event after Lambda processes it. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
         :param pulumi.Input['EventSourceMappingOnFailureArgs'] on_failure: The destination configuration for failed invocations.
         """
         if on_failure is not None:
@@ -740,7 +740,7 @@ class EventSourceMappingMetricsConfigArgs:
 if not MYPY:
     class EventSourceMappingOnFailureArgsDict(TypedDict):
         """
-        A destination for events that failed processing. See [Capturing records of Lambda asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) for more information.
+        A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
         """
         destination: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -756,7 +756,7 @@ class EventSourceMappingOnFailureArgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input[builtins.str]] = None):
         """
-        A destination for events that failed processing. See [Capturing records of Lambda asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) for more information.
+        A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
         :param pulumi.Input[builtins.str] destination: The Amazon Resource Name (ARN) of the destination resource.
                 To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
                 To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
@@ -874,13 +874,7 @@ class EventSourceMappingScalingConfigArgs:
 if not MYPY:
     class EventSourceMappingSchemaRegistryAccessConfigArgsDict(TypedDict):
         type: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigType']]
-        """
-        The type of authentication Lambda uses to access your schema registry.
-        """
         uri: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
-        """
 elif False:
     EventSourceMappingSchemaRegistryAccessConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -889,10 +883,6 @@ class EventSourceMappingSchemaRegistryAccessConfigArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigType']] = None,
                  uri: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        :param pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigType'] type: The type of authentication Lambda uses to access your schema registry.
-        :param pulumi.Input[builtins.str] uri: The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if uri is not None:
@@ -901,9 +891,6 @@ class EventSourceMappingSchemaRegistryAccessConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigType']]:
-        """
-        The type of authentication Lambda uses to access your schema registry.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -913,9 +900,6 @@ class EventSourceMappingSchemaRegistryAccessConfigArgs:
     @property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -926,21 +910,9 @@ class EventSourceMappingSchemaRegistryAccessConfigArgs:
 if not MYPY:
     class EventSourceMappingSchemaRegistryConfigArgsDict(TypedDict):
         access_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgsDict']]]]
-        """
-        An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
-        """
         event_record_format: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryConfigEventRecordFormat']]
-        """
-        The record format that Lambda delivers to your function after schema validation.
-        """
         schema_registry_uri: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-        """
         schema_validation_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgsDict']]]]
-        """
-        An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
-        """
 elif False:
     EventSourceMappingSchemaRegistryConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -951,12 +923,6 @@ class EventSourceMappingSchemaRegistryConfigArgs:
                  event_record_format: Optional[pulumi.Input['EventSourceMappingSchemaRegistryConfigEventRecordFormat']] = None,
                  schema_registry_uri: Optional[pulumi.Input[builtins.str]] = None,
                  schema_validation_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgs']]] access_configs: An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
-        :param pulumi.Input['EventSourceMappingSchemaRegistryConfigEventRecordFormat'] event_record_format: The record format that Lambda delivers to your function after schema validation.
-        :param pulumi.Input[builtins.str] schema_registry_uri: The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgs']]] schema_validation_configs: An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
-        """
         if access_configs is not None:
             pulumi.set(__self__, "access_configs", access_configs)
         if event_record_format is not None:
@@ -969,9 +935,6 @@ class EventSourceMappingSchemaRegistryConfigArgs:
     @property
     @pulumi.getter(name="accessConfigs")
     def access_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgs']]]]:
-        """
-        An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
-        """
         return pulumi.get(self, "access_configs")
 
     @access_configs.setter
@@ -981,9 +944,6 @@ class EventSourceMappingSchemaRegistryConfigArgs:
     @property
     @pulumi.getter(name="eventRecordFormat")
     def event_record_format(self) -> Optional[pulumi.Input['EventSourceMappingSchemaRegistryConfigEventRecordFormat']]:
-        """
-        The record format that Lambda delivers to your function after schema validation.
-        """
         return pulumi.get(self, "event_record_format")
 
     @event_record_format.setter
@@ -993,9 +953,6 @@ class EventSourceMappingSchemaRegistryConfigArgs:
     @property
     @pulumi.getter(name="schemaRegistryUri")
     def schema_registry_uri(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-        """
         return pulumi.get(self, "schema_registry_uri")
 
     @schema_registry_uri.setter
@@ -1005,9 +962,6 @@ class EventSourceMappingSchemaRegistryConfigArgs:
     @property
     @pulumi.getter(name="schemaValidationConfigs")
     def schema_validation_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgs']]]]:
-        """
-        An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
-        """
         return pulumi.get(self, "schema_validation_configs")
 
     @schema_validation_configs.setter
@@ -1018,9 +972,6 @@ class EventSourceMappingSchemaRegistryConfigArgs:
 if not MYPY:
     class EventSourceMappingSchemaValidationConfigArgsDict(TypedDict):
         attribute: NotRequired[pulumi.Input['EventSourceMappingSchemaValidationConfigAttribute']]
-        """
-        The attribute you want your schema registry to validate and filter for.
-        """
 elif False:
     EventSourceMappingSchemaValidationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1028,18 +979,12 @@ elif False:
 class EventSourceMappingSchemaValidationConfigArgs:
     def __init__(__self__, *,
                  attribute: Optional[pulumi.Input['EventSourceMappingSchemaValidationConfigAttribute']] = None):
-        """
-        :param pulumi.Input['EventSourceMappingSchemaValidationConfigAttribute'] attribute: The attribute you want your schema registry to validate and filter for.
-        """
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
 
     @property
     @pulumi.getter
     def attribute(self) -> Optional[pulumi.Input['EventSourceMappingSchemaValidationConfigAttribute']]:
-        """
-        The attribute you want your schema registry to validate and filter for.
-        """
         return pulumi.get(self, "attribute")
 
     @attribute.setter

@@ -15,8 +15,10 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
     {
         public readonly Outputs.FilterStringFilter? Architecture;
         public readonly Outputs.FilterNumberFilter? Epoch;
+        public readonly Outputs.FilterStringFilter? FilePath;
         public readonly Outputs.FilterStringFilter? Name;
         public readonly Outputs.FilterStringFilter? Release;
+        public readonly Outputs.FilterStringFilter? SourceLambdaLayerArn;
         public readonly Outputs.FilterStringFilter? SourceLayerHash;
         public readonly Outputs.FilterStringFilter? Version;
 
@@ -26,9 +28,13 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
 
             Outputs.FilterNumberFilter? epoch,
 
+            Outputs.FilterStringFilter? filePath,
+
             Outputs.FilterStringFilter? name,
 
             Outputs.FilterStringFilter? release,
+
+            Outputs.FilterStringFilter? sourceLambdaLayerArn,
 
             Outputs.FilterStringFilter? sourceLayerHash,
 
@@ -36,8 +42,10 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
         {
             Architecture = architecture;
             Epoch = epoch;
+            FilePath = filePath;
             Name = name;
             Release = release;
+            SourceLambdaLayerArn = sourceLambdaLayerArn;
             SourceLayerHash = sourceLayerHash;
             Version = version;
         }

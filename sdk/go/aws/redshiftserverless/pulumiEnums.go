@@ -313,6 +313,100 @@ func (o NamespaceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
+type SnapshotStatus string
+
+const (
+	SnapshotStatusAvailable = SnapshotStatus("AVAILABLE")
+	SnapshotStatusCreating  = SnapshotStatus("CREATING")
+	SnapshotStatusDeleted   = SnapshotStatus("DELETED")
+	SnapshotStatusCancelled = SnapshotStatus("CANCELLED")
+	SnapshotStatusFailed    = SnapshotStatus("FAILED")
+	SnapshotStatusCopying   = SnapshotStatus("COPYING")
+)
+
+type SnapshotStatusOutput struct{ *pulumi.OutputState }
+
+func (SnapshotStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotStatus)(nil)).Elem()
+}
+
+func (o SnapshotStatusOutput) ToSnapshotStatusOutput() SnapshotStatusOutput {
+	return o
+}
+
+func (o SnapshotStatusOutput) ToSnapshotStatusOutputWithContext(ctx context.Context) SnapshotStatusOutput {
+	return o
+}
+
+func (o SnapshotStatusOutput) ToSnapshotStatusPtrOutput() SnapshotStatusPtrOutput {
+	return o.ToSnapshotStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStatusOutput) ToSnapshotStatusPtrOutputWithContext(ctx context.Context) SnapshotStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotStatus) *SnapshotStatus {
+		return &v
+	}).(SnapshotStatusPtrOutput)
+}
+
+func (o SnapshotStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotStatus)(nil)).Elem()
+}
+
+func (o SnapshotStatusPtrOutput) ToSnapshotStatusPtrOutput() SnapshotStatusPtrOutput {
+	return o
+}
+
+func (o SnapshotStatusPtrOutput) ToSnapshotStatusPtrOutputWithContext(ctx context.Context) SnapshotStatusPtrOutput {
+	return o
+}
+
+func (o SnapshotStatusPtrOutput) Elem() SnapshotStatusOutput {
+	return o.ApplyT(func(v *SnapshotStatus) SnapshotStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotStatus
+		return ret
+	}).(SnapshotStatusOutput)
+}
+
+func (o SnapshotStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkgroupPerformanceTargetStatus string
 
 const (
@@ -660,6 +754,8 @@ func init() {
 	pulumi.RegisterOutputType(NamespaceLogExportArrayOutput{})
 	pulumi.RegisterOutputType(NamespaceStatusOutput{})
 	pulumi.RegisterOutputType(NamespaceStatusPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotStatusOutput{})
+	pulumi.RegisterOutputType(SnapshotStatusPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupPerformanceTargetStatusOutput{})
 	pulumi.RegisterOutputType(WorkgroupPerformanceTargetStatusPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupStatusOutput{})

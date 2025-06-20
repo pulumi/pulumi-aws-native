@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// - You can use CA certificates that you imported into ACM, but you can't generate CA certificates with ACM.
         /// - You can't use certificates issued by AWS Private Certificate Authority .
         /// 
-        /// For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
+        /// For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
         /// 
         /// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
         /// </summary>

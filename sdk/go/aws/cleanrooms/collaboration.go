@@ -67,14 +67,8 @@ func NewCollaboration(ctx *pulumi.Context,
 	if args.CreatorDisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'CreatorDisplayName'")
 	}
-	if args.CreatorMemberAbilities == nil {
-		return nil, errors.New("invalid value for required argument 'CreatorMemberAbilities'")
-	}
 	if args.Description == nil {
 		return nil, errors.New("invalid value for required argument 'Description'")
-	}
-	if args.Members == nil {
-		return nil, errors.New("invalid value for required argument 'Members'")
 	}
 	if args.QueryLogStatus == nil {
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")

@@ -672,7 +672,8 @@ func (o CampaignCommunicationLimitsPtrOutput) CommunicationLimitList() CampaignC
 // Communication limits config
 type CampaignCommunicationLimitsConfig struct {
 	// The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
-	AllChannelsSubtypes *CampaignCommunicationLimits `pulumi:"allChannelsSubtypes"`
+	AllChannelsSubtypes    *CampaignCommunicationLimits    `pulumi:"allChannelsSubtypes"`
+	InstanceLimitsHandling *CampaignInstanceLimitsHandling `pulumi:"instanceLimitsHandling"`
 }
 
 // CampaignCommunicationLimitsConfigInput is an input type that accepts CampaignCommunicationLimitsConfigArgs and CampaignCommunicationLimitsConfigOutput values.
@@ -689,7 +690,8 @@ type CampaignCommunicationLimitsConfigInput interface {
 // Communication limits config
 type CampaignCommunicationLimitsConfigArgs struct {
 	// The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
-	AllChannelsSubtypes CampaignCommunicationLimitsPtrInput `pulumi:"allChannelsSubtypes"`
+	AllChannelsSubtypes    CampaignCommunicationLimitsPtrInput    `pulumi:"allChannelsSubtypes"`
+	InstanceLimitsHandling CampaignInstanceLimitsHandlingPtrInput `pulumi:"instanceLimitsHandling"`
 }
 
 func (CampaignCommunicationLimitsConfigArgs) ElementType() reflect.Type {
@@ -775,6 +777,12 @@ func (o CampaignCommunicationLimitsConfigOutput) AllChannelsSubtypes() CampaignC
 	return o.ApplyT(func(v CampaignCommunicationLimitsConfig) *CampaignCommunicationLimits { return v.AllChannelsSubtypes }).(CampaignCommunicationLimitsPtrOutput)
 }
 
+func (o CampaignCommunicationLimitsConfigOutput) InstanceLimitsHandling() CampaignInstanceLimitsHandlingPtrOutput {
+	return o.ApplyT(func(v CampaignCommunicationLimitsConfig) *CampaignInstanceLimitsHandling {
+		return v.InstanceLimitsHandling
+	}).(CampaignInstanceLimitsHandlingPtrOutput)
+}
+
 type CampaignCommunicationLimitsConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (CampaignCommunicationLimitsConfigPtrOutput) ElementType() reflect.Type {
@@ -807,6 +815,15 @@ func (o CampaignCommunicationLimitsConfigPtrOutput) AllChannelsSubtypes() Campai
 		}
 		return v.AllChannelsSubtypes
 	}).(CampaignCommunicationLimitsPtrOutput)
+}
+
+func (o CampaignCommunicationLimitsConfigPtrOutput) InstanceLimitsHandling() CampaignInstanceLimitsHandlingPtrOutput {
+	return o.ApplyT(func(v *CampaignCommunicationLimitsConfig) *CampaignInstanceLimitsHandling {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceLimitsHandling
+	}).(CampaignInstanceLimitsHandlingPtrOutput)
 }
 
 // Campaign communication time config

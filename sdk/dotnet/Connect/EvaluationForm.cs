@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect
     [AwsNativeResourceType("aws-native:connect:EvaluationForm")]
     public partial class EvaluationForm : global::Pulumi.CustomResource
     {
+        [Output("autoEvaluationConfiguration")]
+        public Output<Outputs.EvaluationFormAutoEvaluationConfiguration?> AutoEvaluationConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The description of the evaluation form.
         ///  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
@@ -112,6 +115,9 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class EvaluationFormArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoEvaluationConfiguration")]
+        public Input<Inputs.EvaluationFormAutoEvaluationConfigurationArgs>? AutoEvaluationConfiguration { get; set; }
+
         /// <summary>
         /// The description of the evaluation form.
         ///  *Length Constraints*: Minimum length of 0. Maximum length of 1024.

@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
+        /// Provide ephemeralStorage available for canary in MB
+        /// </summary>
+        public readonly int? EphemeralStorage;
+        /// <summary>
         /// Provide maximum memory available for canary in MB
         /// </summary>
         public readonly int? MemoryInMb;
@@ -36,12 +40,15 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
             ImmutableDictionary<string, string>? environmentVariables,
 
+            int? ephemeralStorage,
+
             int? memoryInMb,
 
             int? timeoutInSeconds)
         {
             ActiveTracing = activeTracing;
             EnvironmentVariables = environmentVariables;
+            EphemeralStorage = ephemeralStorage;
             MemoryInMb = memoryInMb;
             TimeoutInSeconds = timeoutInSeconds;
         }

@@ -26,45 +26,45 @@ __all__ = ['CollaborationArgs', 'Collaboration']
 class CollaborationArgs:
     def __init__(__self__, *,
                  creator_display_name: pulumi.Input[builtins.str],
-                 creator_member_abilities: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]],
                  description: pulumi.Input[builtins.str],
-                 members: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]],
                  query_log_status: pulumi.Input['CollaborationQueryLogStatus'],
                  analytics_engine: Optional[pulumi.Input['CollaborationAnalyticsEngine']] = None,
+                 creator_member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
                  creator_ml_member_abilities: Optional[pulumi.Input['CollaborationMlMemberAbilitiesArgs']] = None,
                  creator_payment_configuration: Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']] = None,
                  data_encryption_metadata: Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']] = None,
                  job_log_status: Optional[pulumi.Input['CollaborationJobLogStatus']] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Collaboration resource.
         :param pulumi.Input[builtins.str] creator_display_name: A display name of the collaboration creator.
-        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]] creator_member_abilities: The abilities granted to the collaboration creator.
-               
-               *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
         :param pulumi.Input[builtins.str] description: A description of the collaboration provided by the collaboration owner.
-        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]] members: A list of initial members, not including the creator. This list is immutable.
         :param pulumi.Input['CollaborationQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the collaboration.
                
                When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         :param pulumi.Input['CollaborationAnalyticsEngine'] analytics_engine: The analytics engine for the collaboration.
+        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]] creator_member_abilities: The abilities granted to the collaboration creator.
+               
+               *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
         :param pulumi.Input['CollaborationMlMemberAbilitiesArgs'] creator_ml_member_abilities: The ML member abilities for a collaboration member.
         :param pulumi.Input['CollaborationPaymentConfigurationArgs'] creator_payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
         :param pulumi.Input['CollaborationDataEncryptionMetadataArgs'] data_encryption_metadata: The settings for client-side encryption for cryptographic computing.
         :param pulumi.Input['CollaborationJobLogStatus'] job_log_status: An indicator as to whether job logging has been enabled or disabled for the collaboration.
                
                When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]] members: A list of initial members, not including the creator. This list is immutable.
         :param pulumi.Input[builtins.str] name: A human-readable identifier provided by the collaboration owner. Display names are not unique.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         pulumi.set(__self__, "creator_display_name", creator_display_name)
-        pulumi.set(__self__, "creator_member_abilities", creator_member_abilities)
         pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "members", members)
         pulumi.set(__self__, "query_log_status", query_log_status)
         if analytics_engine is not None:
             pulumi.set(__self__, "analytics_engine", analytics_engine)
+        if creator_member_abilities is not None:
+            pulumi.set(__self__, "creator_member_abilities", creator_member_abilities)
         if creator_ml_member_abilities is not None:
             pulumi.set(__self__, "creator_ml_member_abilities", creator_ml_member_abilities)
         if creator_payment_configuration is not None:
@@ -73,6 +73,8 @@ class CollaborationArgs:
             pulumi.set(__self__, "data_encryption_metadata", data_encryption_metadata)
         if job_log_status is not None:
             pulumi.set(__self__, "job_log_status", job_log_status)
+        if members is not None:
+            pulumi.set(__self__, "members", members)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -91,20 +93,6 @@ class CollaborationArgs:
         pulumi.set(self, "creator_display_name", value)
 
     @property
-    @pulumi.getter(name="creatorMemberAbilities")
-    def creator_member_abilities(self) -> pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]:
-        """
-        The abilities granted to the collaboration creator.
-
-        *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
-        """
-        return pulumi.get(self, "creator_member_abilities")
-
-    @creator_member_abilities.setter
-    def creator_member_abilities(self, value: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]):
-        pulumi.set(self, "creator_member_abilities", value)
-
-    @property
     @pulumi.getter
     def description(self) -> pulumi.Input[builtins.str]:
         """
@@ -115,18 +103,6 @@ class CollaborationArgs:
     @description.setter
     def description(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def members(self) -> pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]]:
-        """
-        A list of initial members, not including the creator. This list is immutable.
-        """
-        return pulumi.get(self, "members")
-
-    @members.setter
-    def members(self, value: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]]):
-        pulumi.set(self, "members", value)
 
     @property
     @pulumi.getter(name="queryLogStatus")
@@ -153,6 +129,20 @@ class CollaborationArgs:
     @analytics_engine.setter
     def analytics_engine(self, value: Optional[pulumi.Input['CollaborationAnalyticsEngine']]):
         pulumi.set(self, "analytics_engine", value)
+
+    @property
+    @pulumi.getter(name="creatorMemberAbilities")
+    def creator_member_abilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]]:
+        """
+        The abilities granted to the collaboration creator.
+
+        *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
+        """
+        return pulumi.get(self, "creator_member_abilities")
+
+    @creator_member_abilities.setter
+    def creator_member_abilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]]):
+        pulumi.set(self, "creator_member_abilities", value)
 
     @property
     @pulumi.getter(name="creatorMlMemberAbilities")
@@ -203,6 +193,18 @@ class CollaborationArgs:
     @job_log_status.setter
     def job_log_status(self, value: Optional[pulumi.Input['CollaborationJobLogStatus']]):
         pulumi.set(self, "job_log_status", value)
+
+    @property
+    @pulumi.getter
+    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]]]:
+        """
+        A list of initial members, not including the creator. This list is immutable.
+        """
+        return pulumi.get(self, "members")
+
+    @members.setter
+    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]]]):
+        pulumi.set(self, "members", value)
 
     @property
     @pulumi.getter
@@ -321,8 +323,6 @@ class Collaboration(pulumi.CustomResource):
             if creator_display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'creator_display_name'")
             __props__.__dict__["creator_display_name"] = creator_display_name
-            if creator_member_abilities is None and not opts.urn:
-                raise TypeError("Missing required property 'creator_member_abilities'")
             __props__.__dict__["creator_member_abilities"] = creator_member_abilities
             __props__.__dict__["creator_ml_member_abilities"] = creator_ml_member_abilities
             __props__.__dict__["creator_payment_configuration"] = creator_payment_configuration
@@ -331,8 +331,6 @@ class Collaboration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["job_log_status"] = job_log_status
-            if members is None and not opts.urn:
-                raise TypeError("Missing required property 'members'")
             __props__.__dict__["members"] = members
             __props__.__dict__["name"] = name
             if query_log_status is None and not opts.urn:
@@ -419,7 +417,7 @@ class Collaboration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creatorMemberAbilities")
-    def creator_member_abilities(self) -> pulumi.Output[Sequence['CollaborationMemberAbility']]:
+    def creator_member_abilities(self) -> pulumi.Output[Optional[Sequence['CollaborationMemberAbility']]]:
         """
         The abilities granted to the collaboration creator.
 
@@ -471,7 +469,7 @@ class Collaboration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def members(self) -> pulumi.Output[Sequence['outputs.CollaborationMemberSpecification']]:
+    def members(self) -> pulumi.Output[Optional[Sequence['outputs.CollaborationMemberSpecification']]]:
         """
         A list of initial members, not including the creator. This list is immutable.
         """

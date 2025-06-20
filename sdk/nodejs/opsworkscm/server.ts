@@ -193,7 +193,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The name of the server.
+     * The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
      */
     public readonly serverName!: pulumi.Output<string | undefined>;
     /**
@@ -397,7 +397,7 @@ export interface ServerArgs {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the server.
+     * The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
      */
     serverName?: pulumi.Input<string>;
     /**

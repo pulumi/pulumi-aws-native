@@ -616,7 +616,7 @@ if not MYPY:
         """
         The member's display name.
         """
-        member_abilities: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]
+        member_abilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]]
         """
         The abilities granted to the collaboration member.
 
@@ -640,7 +640,7 @@ class CollaborationMemberSpecificationArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[builtins.str],
                  display_name: pulumi.Input[builtins.str],
-                 member_abilities: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]],
+                 member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
                  ml_member_abilities: Optional[pulumi.Input['CollaborationMlMemberAbilitiesArgs']] = None,
                  payment_configuration: Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']] = None):
         """
@@ -656,7 +656,8 @@ class CollaborationMemberSpecificationArgs:
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "member_abilities", member_abilities)
+        if member_abilities is not None:
+            pulumi.set(__self__, "member_abilities", member_abilities)
         if ml_member_abilities is not None:
             pulumi.set(__self__, "ml_member_abilities", ml_member_abilities)
         if payment_configuration is not None:
@@ -688,7 +689,7 @@ class CollaborationMemberSpecificationArgs:
 
     @property
     @pulumi.getter(name="memberAbilities")
-    def member_abilities(self) -> pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]:
+    def member_abilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]]:
         """
         The abilities granted to the collaboration member.
 
@@ -697,7 +698,7 @@ class CollaborationMemberSpecificationArgs:
         return pulumi.get(self, "member_abilities")
 
     @member_abilities.setter
-    def member_abilities(self, value: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]):
+    def member_abilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]]):
         pulumi.set(self, "member_abilities", value)
 
     @property

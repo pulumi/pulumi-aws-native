@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class RuleGroupAsnMatchStatement
     {
+        /// <summary>
+        /// Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
+        /// </summary>
         public readonly ImmutableArray<int> AsnList;
+        /// <summary>
+        /// The configuration for inspecting IP addresses to match against an ASN in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
+        /// </summary>
         public readonly Outputs.RuleGroupForwardedIpConfiguration? ForwardedIpConfig;
 
         [OutputConstructor]

@@ -123,9 +123,6 @@ namespace Pulumi.AwsNative.Lambda
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The type of authentication Lambda uses to access your schema registry.
-    /// </summary>
     [EnumType]
     public readonly struct EventSourceMappingSchemaRegistryAccessConfigType : IEquatable<EventSourceMappingSchemaRegistryAccessConfigType>
     {
@@ -155,9 +152,6 @@ namespace Pulumi.AwsNative.Lambda
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The record format that Lambda delivers to your function after schema validation.
-    /// </summary>
     [EnumType]
     public readonly struct EventSourceMappingSchemaRegistryConfigEventRecordFormat : IEquatable<EventSourceMappingSchemaRegistryConfigEventRecordFormat>
     {
@@ -186,9 +180,6 @@ namespace Pulumi.AwsNative.Lambda
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The attribute you want your schema registry to validate and filter for.
-    /// </summary>
     [EnumType]
     public readonly struct EventSourceMappingSchemaValidationConfigAttribute : IEquatable<EventSourceMappingSchemaValidationConfigAttribute>
     {

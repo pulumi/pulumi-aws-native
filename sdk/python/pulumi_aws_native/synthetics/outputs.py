@@ -259,6 +259,8 @@ class CanaryRunConfig(dict):
             suggest = "active_tracing"
         elif key == "environmentVariables":
             suggest = "environment_variables"
+        elif key == "ephemeralStorage":
+            suggest = "ephemeral_storage"
         elif key == "memoryInMb":
             suggest = "memory_in_mb"
         elif key == "timeoutInSeconds":
@@ -278,11 +280,13 @@ class CanaryRunConfig(dict):
     def __init__(__self__, *,
                  active_tracing: Optional[builtins.bool] = None,
                  environment_variables: Optional[Mapping[str, builtins.str]] = None,
+                 ephemeral_storage: Optional[builtins.int] = None,
                  memory_in_mb: Optional[builtins.int] = None,
                  timeout_in_seconds: Optional[builtins.int] = None):
         """
         :param builtins.bool active_tracing: Enable active tracing if set to true
         :param Mapping[str, builtins.str] environment_variables: Environment variable key-value pairs.
+        :param builtins.int ephemeral_storage: Provide ephemeralStorage available for canary in MB
         :param builtins.int memory_in_mb: Provide maximum memory available for canary in MB
         :param builtins.int timeout_in_seconds: Provide maximum canary timeout per run in seconds
         """
@@ -290,6 +294,8 @@ class CanaryRunConfig(dict):
             pulumi.set(__self__, "active_tracing", active_tracing)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if memory_in_mb is not None:
             pulumi.set(__self__, "memory_in_mb", memory_in_mb)
         if timeout_in_seconds is not None:
@@ -310,6 +316,14 @@ class CanaryRunConfig(dict):
         Environment variable key-value pairs.
         """
         return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[builtins.int]:
+        """
+        Provide ephemeralStorage available for canary in MB
+        """
+        return pulumi.get(self, "ephemeral_storage")
 
     @property
     @pulumi.getter(name="memoryInMb")

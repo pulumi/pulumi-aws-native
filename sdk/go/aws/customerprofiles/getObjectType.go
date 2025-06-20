@@ -47,6 +47,10 @@ type LookupObjectTypeResult struct {
 	Keys []ObjectTypeKeyMap `pulumi:"keys"`
 	// The time of this integration got last updated at.
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	// The maximum available number of profile objects
+	MaxAvailableProfileObjectCount *int `pulumi:"maxAvailableProfileObjectCount"`
+	// The maximum number of profile objects for this object type
+	MaxProfileObjectCount *int `pulumi:"maxProfileObjectCount"`
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	SourceLastUpdatedTimestampFormat *string `pulumi:"sourceLastUpdatedTimestampFormat"`
 	// The tags (keys and values) associated with the integration.
@@ -127,6 +131,16 @@ func (o LookupObjectTypeResultOutput) Keys() ObjectTypeKeyMapArrayOutput {
 // The time of this integration got last updated at.
 func (o LookupObjectTypeResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupObjectTypeResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The maximum available number of profile objects
+func (o LookupObjectTypeResultOutput) MaxAvailableProfileObjectCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupObjectTypeResult) *int { return v.MaxAvailableProfileObjectCount }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of profile objects for this object type
+func (o LookupObjectTypeResultOutput) MaxProfileObjectCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupObjectTypeResult) *int { return v.MaxProfileObjectCount }).(pulumi.IntPtrOutput)
 }
 
 // The format of your sourceLastUpdatedTimestamp that was previously set up.

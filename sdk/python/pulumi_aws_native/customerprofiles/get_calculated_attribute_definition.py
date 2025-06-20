@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCalculatedAttributeDefinitionResult:
-    def __init__(__self__, attribute_details=None, conditions=None, created_at=None, description=None, display_name=None, last_updated_at=None, statistic=None, tags=None):
+    def __init__(__self__, attribute_details=None, conditions=None, created_at=None, description=None, display_name=None, last_updated_at=None, readiness=None, statistic=None, status=None, tags=None):
         if attribute_details and not isinstance(attribute_details, dict):
             raise TypeError("Expected argument 'attribute_details' to be a dict")
         pulumi.set(__self__, "attribute_details", attribute_details)
@@ -46,9 +46,15 @@ class GetCalculatedAttributeDefinitionResult:
         if last_updated_at and not isinstance(last_updated_at, str):
             raise TypeError("Expected argument 'last_updated_at' to be a str")
         pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if readiness and not isinstance(readiness, dict):
+            raise TypeError("Expected argument 'readiness' to be a dict")
+        pulumi.set(__self__, "readiness", readiness)
         if statistic and not isinstance(statistic, str):
             raise TypeError("Expected argument 'statistic' to be a str")
         pulumi.set(__self__, "statistic", statistic)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -103,11 +109,24 @@ class GetCalculatedAttributeDefinitionResult:
 
     @property
     @pulumi.getter
+    def readiness(self) -> Optional['outputs.CalculatedAttributeDefinitionReadiness']:
+        return pulumi.get(self, "readiness")
+
+    @property
+    @pulumi.getter
     def statistic(self) -> Optional['CalculatedAttributeDefinitionStatistic']:
         """
         The aggregation operation to perform for the calculated attribute.
         """
         return pulumi.get(self, "statistic")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['CalculatedAttributeDefinitionStatus']:
+        """
+        The status of the calculated attribute definition.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
@@ -130,7 +149,9 @@ class AwaitableGetCalculatedAttributeDefinitionResult(GetCalculatedAttributeDefi
             description=self.description,
             display_name=self.display_name,
             last_updated_at=self.last_updated_at,
+            readiness=self.readiness,
             statistic=self.statistic,
+            status=self.status,
             tags=self.tags)
 
 
@@ -157,7 +178,9 @@ def get_calculated_attribute_definition(calculated_attribute_name: Optional[buil
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
+        readiness=pulumi.get(__ret__, 'readiness'),
         statistic=pulumi.get(__ret__, 'statistic'),
+        status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_calculated_attribute_definition_output(calculated_attribute_name: Optional[pulumi.Input[builtins.str]] = None,
                                                domain_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -181,5 +204,7 @@ def get_calculated_attribute_definition_output(calculated_attribute_name: Option
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
+        readiness=pulumi.get(__response__, 'readiness'),
         statistic=pulumi.get(__response__, 'statistic'),
+        status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

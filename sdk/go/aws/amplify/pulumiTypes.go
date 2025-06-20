@@ -964,6 +964,191 @@ func (o AppEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) AppEnvironme
 	}).(AppEnvironmentVariableOutput)
 }
 
+type AppJobConfig struct {
+	// Specifies the size of the build instance. Amplify supports three instance sizes: `STANDARD_8GB` , `LARGE_16GB` , and `XLARGE_72GB` . If you don't specify a value, Amplify uses the `STANDARD_8GB` default.
+	//
+	// The following list describes the CPU, memory, and storage capacity for each build instance type:
+	//
+	// - **STANDARD_8GB** - - vCPUs: 4
+	// - Memory: 8 GiB
+	// - Disk space: 128 GB
+	// - **LARGE_16GB** - - vCPUs: 8
+	// - Memory: 16 GiB
+	// - Disk space: 128 GB
+	// - **XLARGE_72GB** - - vCPUs: 36
+	// - Memory: 72 GiB
+	// - Disk space: 256 GB
+	BuildComputeType AppJobConfigBuildComputeType `pulumi:"buildComputeType"`
+}
+
+// AppJobConfigInput is an input type that accepts AppJobConfigArgs and AppJobConfigOutput values.
+// You can construct a concrete instance of `AppJobConfigInput` via:
+//
+//	AppJobConfigArgs{...}
+type AppJobConfigInput interface {
+	pulumi.Input
+
+	ToAppJobConfigOutput() AppJobConfigOutput
+	ToAppJobConfigOutputWithContext(context.Context) AppJobConfigOutput
+}
+
+type AppJobConfigArgs struct {
+	// Specifies the size of the build instance. Amplify supports three instance sizes: `STANDARD_8GB` , `LARGE_16GB` , and `XLARGE_72GB` . If you don't specify a value, Amplify uses the `STANDARD_8GB` default.
+	//
+	// The following list describes the CPU, memory, and storage capacity for each build instance type:
+	//
+	// - **STANDARD_8GB** - - vCPUs: 4
+	// - Memory: 8 GiB
+	// - Disk space: 128 GB
+	// - **LARGE_16GB** - - vCPUs: 8
+	// - Memory: 16 GiB
+	// - Disk space: 128 GB
+	// - **XLARGE_72GB** - - vCPUs: 36
+	// - Memory: 72 GiB
+	// - Disk space: 256 GB
+	BuildComputeType AppJobConfigBuildComputeTypeInput `pulumi:"buildComputeType"`
+}
+
+func (AppJobConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppJobConfig)(nil)).Elem()
+}
+
+func (i AppJobConfigArgs) ToAppJobConfigOutput() AppJobConfigOutput {
+	return i.ToAppJobConfigOutputWithContext(context.Background())
+}
+
+func (i AppJobConfigArgs) ToAppJobConfigOutputWithContext(ctx context.Context) AppJobConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppJobConfigOutput)
+}
+
+func (i AppJobConfigArgs) ToAppJobConfigPtrOutput() AppJobConfigPtrOutput {
+	return i.ToAppJobConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppJobConfigArgs) ToAppJobConfigPtrOutputWithContext(ctx context.Context) AppJobConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppJobConfigOutput).ToAppJobConfigPtrOutputWithContext(ctx)
+}
+
+// AppJobConfigPtrInput is an input type that accepts AppJobConfigArgs, AppJobConfigPtr and AppJobConfigPtrOutput values.
+// You can construct a concrete instance of `AppJobConfigPtrInput` via:
+//
+//	        AppJobConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppJobConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppJobConfigPtrOutput() AppJobConfigPtrOutput
+	ToAppJobConfigPtrOutputWithContext(context.Context) AppJobConfigPtrOutput
+}
+
+type appJobConfigPtrType AppJobConfigArgs
+
+func AppJobConfigPtr(v *AppJobConfigArgs) AppJobConfigPtrInput {
+	return (*appJobConfigPtrType)(v)
+}
+
+func (*appJobConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppJobConfig)(nil)).Elem()
+}
+
+func (i *appJobConfigPtrType) ToAppJobConfigPtrOutput() AppJobConfigPtrOutput {
+	return i.ToAppJobConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appJobConfigPtrType) ToAppJobConfigPtrOutputWithContext(ctx context.Context) AppJobConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppJobConfigPtrOutput)
+}
+
+type AppJobConfigOutput struct{ *pulumi.OutputState }
+
+func (AppJobConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppJobConfig)(nil)).Elem()
+}
+
+func (o AppJobConfigOutput) ToAppJobConfigOutput() AppJobConfigOutput {
+	return o
+}
+
+func (o AppJobConfigOutput) ToAppJobConfigOutputWithContext(ctx context.Context) AppJobConfigOutput {
+	return o
+}
+
+func (o AppJobConfigOutput) ToAppJobConfigPtrOutput() AppJobConfigPtrOutput {
+	return o.ToAppJobConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppJobConfigOutput) ToAppJobConfigPtrOutputWithContext(ctx context.Context) AppJobConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppJobConfig) *AppJobConfig {
+		return &v
+	}).(AppJobConfigPtrOutput)
+}
+
+// Specifies the size of the build instance. Amplify supports three instance sizes: `STANDARD_8GB` , `LARGE_16GB` , and `XLARGE_72GB` . If you don't specify a value, Amplify uses the `STANDARD_8GB` default.
+//
+// The following list describes the CPU, memory, and storage capacity for each build instance type:
+//
+// - **STANDARD_8GB** - - vCPUs: 4
+// - Memory: 8 GiB
+// - Disk space: 128 GB
+// - **LARGE_16GB** - - vCPUs: 8
+// - Memory: 16 GiB
+// - Disk space: 128 GB
+// - **XLARGE_72GB** - - vCPUs: 36
+// - Memory: 72 GiB
+// - Disk space: 256 GB
+func (o AppJobConfigOutput) BuildComputeType() AppJobConfigBuildComputeTypeOutput {
+	return o.ApplyT(func(v AppJobConfig) AppJobConfigBuildComputeType { return v.BuildComputeType }).(AppJobConfigBuildComputeTypeOutput)
+}
+
+type AppJobConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppJobConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppJobConfig)(nil)).Elem()
+}
+
+func (o AppJobConfigPtrOutput) ToAppJobConfigPtrOutput() AppJobConfigPtrOutput {
+	return o
+}
+
+func (o AppJobConfigPtrOutput) ToAppJobConfigPtrOutputWithContext(ctx context.Context) AppJobConfigPtrOutput {
+	return o
+}
+
+func (o AppJobConfigPtrOutput) Elem() AppJobConfigOutput {
+	return o.ApplyT(func(v *AppJobConfig) AppJobConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppJobConfig
+		return ret
+	}).(AppJobConfigOutput)
+}
+
+// Specifies the size of the build instance. Amplify supports three instance sizes: `STANDARD_8GB` , `LARGE_16GB` , and `XLARGE_72GB` . If you don't specify a value, Amplify uses the `STANDARD_8GB` default.
+//
+// The following list describes the CPU, memory, and storage capacity for each build instance type:
+//
+// - **STANDARD_8GB** - - vCPUs: 4
+// - Memory: 8 GiB
+// - Disk space: 128 GB
+// - **LARGE_16GB** - - vCPUs: 8
+// - Memory: 16 GiB
+// - Disk space: 128 GB
+// - **XLARGE_72GB** - - vCPUs: 36
+// - Memory: 72 GiB
+// - Disk space: 256 GB
+func (o AppJobConfigPtrOutput) BuildComputeType() AppJobConfigBuildComputeTypePtrOutput {
+	return o.ApplyT(func(v *AppJobConfig) *AppJobConfigBuildComputeType {
+		if v == nil {
+			return nil
+		}
+		return &v.BuildComputeType
+	}).(AppJobConfigBuildComputeTypePtrOutput)
+}
+
 type AppTag struct {
 	// Specifies the key for the tag.
 	Key string `pulumi:"key"`
@@ -1811,6 +1996,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCustomRuleArrayInput)(nil)).Elem(), AppCustomRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppEnvironmentVariableInput)(nil)).Elem(), AppEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppEnvironmentVariableArrayInput)(nil)).Elem(), AppEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppJobConfigInput)(nil)).Elem(), AppJobConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppJobConfigPtrInput)(nil)).Elem(), AppJobConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchBackendInput)(nil)).Elem(), BranchBackendArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchBackendPtrInput)(nil)).Elem(), BranchBackendArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchBasicAuthConfigInput)(nil)).Elem(), BranchBasicAuthConfigArgs{})
@@ -1831,6 +2018,8 @@ func init() {
 	pulumi.RegisterOutputType(AppCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(AppEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(AppEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(AppJobConfigOutput{})
+	pulumi.RegisterOutputType(AppJobConfigPtrOutput{})
 	pulumi.RegisterOutputType(BranchBackendOutput{})
 	pulumi.RegisterOutputType(BranchBackendPtrOutput{})
 	pulumi.RegisterOutputType(BranchBasicAuthConfigOutput{})

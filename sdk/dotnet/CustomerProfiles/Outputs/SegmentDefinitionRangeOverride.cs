@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     public sealed class SegmentDefinitionRangeOverride
     {
         /// <summary>
-        /// The ending point for this overridden range.
+        /// The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         /// </summary>
         public readonly int? End;
         /// <summary>
-        /// The starting point for this overridden range.
+        /// The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         /// </summary>
         public readonly int Start;
         /// <summary>

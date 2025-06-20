@@ -57,6 +57,7 @@ export class Filter extends pulumi.CustomResource {
      * Findings filter name.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Filter resource with the given unique name, arguments, and options.
@@ -79,6 +80,7 @@ export class Filter extends pulumi.CustomResource {
             resourceInputs["filterAction"] = args ? args.filterAction : undefined;
             resourceInputs["filterCriteria"] = args ? args.filterCriteria : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -86,6 +88,7 @@ export class Filter extends pulumi.CustomResource {
             resourceInputs["filterAction"] = undefined /*out*/;
             resourceInputs["filterCriteria"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Filter.__pulumiType, name, resourceInputs, opts);
@@ -112,4 +115,5 @@ export interface FilterArgs {
      * Findings filter name.
      */
     name?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

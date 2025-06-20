@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class RuleGroupRateBasedStatementCustomKeyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
+        /// </summary>
         [Input("asn")]
         public Input<Inputs.RuleGroupRateLimitAsnArgs>? Asn { get; set; }
 

@@ -2506,6 +2506,9 @@
   "aws-native:connect:EvaluationForm": {
     "cfTypeName": "AWS::Connect::EvaluationForm",
     "properties": {
+      "autoEvaluationConfiguration": {
+        "$ref": "#/types/aws-native:connect:EvaluationFormAutoEvaluationConfiguration"
+      },
       "description": {
         "type": "string",
         "description": "The description of the evaluation form.\n *Length Constraints*: Minimum length of 0. Maximum length of 1024."
@@ -2818,6 +2821,10 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to this resource."
+      },
+      "useHistoricalData": {
+        "type": "boolean",
+        "description": "Whether to use historical data for the calculated attribute."
       }
     }
   },
@@ -5737,6 +5744,29 @@
       "subnetId": {
         "type": "string",
         "description": "The ID of the subnet."
+      }
+    }
+  },
+  "aws-native:ec2:TrafficMirrorFilter": {
+    "cfTypeName": "AWS::EC2::TrafficMirrorFilter",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "The description of a traffic mirror filter."
+      },
+      "networkServices": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ec2:TrafficMirrorFilterTrafficMirrorNetworkService"
+        },
+        "description": "The network service that is associated with the traffic mirror filter."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for a traffic mirror filter."
       }
     }
   },
@@ -11588,7 +11618,7 @@
       },
       "engineLifecycleSupport": {
         "type": "string",
-        "description": "The life cycle type for this DB cluster.\n  By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.\n  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:\n  +  Amazon Aurora - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide*\n  +  Amazon RDS - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*\n  \n Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters\n Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``\n Default: ``open-source-rds-extended-support``"
+        "description": "The life cycle type for this DB cluster.\n  By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.\n  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:\n  +  Amazon Aurora - [Amazon RDS Extended Support with Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide*\n  +  Amazon RDS - [Amazon RDS Extended Support with Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*\n  \n Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters\n Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``\n Default: ``open-source-rds-extended-support``"
       },
       "engineMode": {
         "type": "string",
@@ -11899,7 +11929,7 @@
       },
       "engineLifecycleSupport": {
         "type": "string",
-        "description": "The life cycle type for this DB instance.\n  By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.\n  This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.\n You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*.\n Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``\n Default: ``open-source-rds-extended-support``"
+        "description": "The life cycle type for this DB instance.\n  By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.\n  This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.\n You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Amazon RDS Extended Support with Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*.\n Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``\n Default: ``open-source-rds-extended-support``"
       },
       "engineVersion": {
         "type": "string",
@@ -12988,6 +13018,65 @@
       }
     }
   },
+  "aws-native:securityhub:AggregatorV2": {
+    "cfTypeName": "AWS::SecurityHub::AggregatorV2",
+    "properties": {
+      "linkedRegions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The list of included Regions"
+      },
+      "regionLinkingMode": {
+        "$ref": "#/types/aws-native:securityhub:AggregatorV2RegionLinkingMode",
+        "description": "Indicates to link a list of included Regions"
+      },
+      "tags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "aws-native:securityhub:AutomationRuleV2": {
+    "cfTypeName": "AWS::SecurityHub::AutomationRuleV2",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:securityhub:AutomationRuleV2AutomationRulesActionV2"
+        },
+        "description": "A list of actions to be performed when the rule criteria is met"
+      },
+      "criteria": {
+        "$ref": "#/types/aws-native:securityhub:AutomationRuleV2Criteria"
+      },
+      "description": {
+        "type": "string",
+        "description": "A description of the automation rule"
+      },
+      "ruleName": {
+        "type": "string",
+        "description": "The name of the automation rule"
+      },
+      "ruleOrder": {
+        "type": "number",
+        "description": "The value for the rule priority"
+      },
+      "ruleStatus": {
+        "$ref": "#/types/aws-native:securityhub:AutomationRuleV2RuleStatus",
+        "description": "The status of the automation rule"
+      },
+      "tags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      }
+    }
+  },
   "aws-native:securityhub:DelegatedAdmin": {
     "cfTypeName": "AWS::SecurityHub::DelegatedAdmin",
     "properties": {
@@ -13034,6 +13123,17 @@
           "type": "string"
         },
         "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) ."
+      }
+    }
+  },
+  "aws-native:securityhub:HubV2": {
+    "cfTypeName": "AWS::SecurityHub::HubV2",
+    "properties": {
+      "tags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
       }
     }
   },

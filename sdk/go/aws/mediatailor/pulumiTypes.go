@@ -1345,6 +1345,162 @@ func (o PlaybackConfigurationAdMarkerPassthroughPtrOutput) Enabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
+type PlaybackConfigurationAdsInteractionLog struct {
+	// Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+	ExcludeEventTypes []string `pulumi:"excludeEventTypes"`
+	// Indicates that MediaTailor emits RAW_ADS_RESPONSE logs for playback sessions that are initialized with this configuration.
+	PublishOptInEventTypes []string `pulumi:"publishOptInEventTypes"`
+}
+
+// PlaybackConfigurationAdsInteractionLogInput is an input type that accepts PlaybackConfigurationAdsInteractionLogArgs and PlaybackConfigurationAdsInteractionLogOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationAdsInteractionLogInput` via:
+//
+//	PlaybackConfigurationAdsInteractionLogArgs{...}
+type PlaybackConfigurationAdsInteractionLogInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationAdsInteractionLogOutput() PlaybackConfigurationAdsInteractionLogOutput
+	ToPlaybackConfigurationAdsInteractionLogOutputWithContext(context.Context) PlaybackConfigurationAdsInteractionLogOutput
+}
+
+type PlaybackConfigurationAdsInteractionLogArgs struct {
+	// Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+	ExcludeEventTypes pulumi.StringArrayInput `pulumi:"excludeEventTypes"`
+	// Indicates that MediaTailor emits RAW_ADS_RESPONSE logs for playback sessions that are initialized with this configuration.
+	PublishOptInEventTypes pulumi.StringArrayInput `pulumi:"publishOptInEventTypes"`
+}
+
+func (PlaybackConfigurationAdsInteractionLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationAdsInteractionLog)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationAdsInteractionLogArgs) ToPlaybackConfigurationAdsInteractionLogOutput() PlaybackConfigurationAdsInteractionLogOutput {
+	return i.ToPlaybackConfigurationAdsInteractionLogOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationAdsInteractionLogArgs) ToPlaybackConfigurationAdsInteractionLogOutputWithContext(ctx context.Context) PlaybackConfigurationAdsInteractionLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdsInteractionLogOutput)
+}
+
+func (i PlaybackConfigurationAdsInteractionLogArgs) ToPlaybackConfigurationAdsInteractionLogPtrOutput() PlaybackConfigurationAdsInteractionLogPtrOutput {
+	return i.ToPlaybackConfigurationAdsInteractionLogPtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationAdsInteractionLogArgs) ToPlaybackConfigurationAdsInteractionLogPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdsInteractionLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdsInteractionLogOutput).ToPlaybackConfigurationAdsInteractionLogPtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationAdsInteractionLogPtrInput is an input type that accepts PlaybackConfigurationAdsInteractionLogArgs, PlaybackConfigurationAdsInteractionLogPtr and PlaybackConfigurationAdsInteractionLogPtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationAdsInteractionLogPtrInput` via:
+//
+//	        PlaybackConfigurationAdsInteractionLogArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationAdsInteractionLogPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationAdsInteractionLogPtrOutput() PlaybackConfigurationAdsInteractionLogPtrOutput
+	ToPlaybackConfigurationAdsInteractionLogPtrOutputWithContext(context.Context) PlaybackConfigurationAdsInteractionLogPtrOutput
+}
+
+type playbackConfigurationAdsInteractionLogPtrType PlaybackConfigurationAdsInteractionLogArgs
+
+func PlaybackConfigurationAdsInteractionLogPtr(v *PlaybackConfigurationAdsInteractionLogArgs) PlaybackConfigurationAdsInteractionLogPtrInput {
+	return (*playbackConfigurationAdsInteractionLogPtrType)(v)
+}
+
+func (*playbackConfigurationAdsInteractionLogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationAdsInteractionLog)(nil)).Elem()
+}
+
+func (i *playbackConfigurationAdsInteractionLogPtrType) ToPlaybackConfigurationAdsInteractionLogPtrOutput() PlaybackConfigurationAdsInteractionLogPtrOutput {
+	return i.ToPlaybackConfigurationAdsInteractionLogPtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationAdsInteractionLogPtrType) ToPlaybackConfigurationAdsInteractionLogPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdsInteractionLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdsInteractionLogPtrOutput)
+}
+
+type PlaybackConfigurationAdsInteractionLogOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationAdsInteractionLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationAdsInteractionLog)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationAdsInteractionLogOutput) ToPlaybackConfigurationAdsInteractionLogOutput() PlaybackConfigurationAdsInteractionLogOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdsInteractionLogOutput) ToPlaybackConfigurationAdsInteractionLogOutputWithContext(ctx context.Context) PlaybackConfigurationAdsInteractionLogOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdsInteractionLogOutput) ToPlaybackConfigurationAdsInteractionLogPtrOutput() PlaybackConfigurationAdsInteractionLogPtrOutput {
+	return o.ToPlaybackConfigurationAdsInteractionLogPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationAdsInteractionLogOutput) ToPlaybackConfigurationAdsInteractionLogPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdsInteractionLogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationAdsInteractionLog) *PlaybackConfigurationAdsInteractionLog {
+		return &v
+	}).(PlaybackConfigurationAdsInteractionLogPtrOutput)
+}
+
+// Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+func (o PlaybackConfigurationAdsInteractionLogOutput) ExcludeEventTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdsInteractionLog) []string { return v.ExcludeEventTypes }).(pulumi.StringArrayOutput)
+}
+
+// Indicates that MediaTailor emits RAW_ADS_RESPONSE logs for playback sessions that are initialized with this configuration.
+func (o PlaybackConfigurationAdsInteractionLogOutput) PublishOptInEventTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdsInteractionLog) []string { return v.PublishOptInEventTypes }).(pulumi.StringArrayOutput)
+}
+
+type PlaybackConfigurationAdsInteractionLogPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationAdsInteractionLogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationAdsInteractionLog)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationAdsInteractionLogPtrOutput) ToPlaybackConfigurationAdsInteractionLogPtrOutput() PlaybackConfigurationAdsInteractionLogPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdsInteractionLogPtrOutput) ToPlaybackConfigurationAdsInteractionLogPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdsInteractionLogPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdsInteractionLogPtrOutput) Elem() PlaybackConfigurationAdsInteractionLogOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdsInteractionLog) PlaybackConfigurationAdsInteractionLog {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationAdsInteractionLog
+		return ret
+	}).(PlaybackConfigurationAdsInteractionLogOutput)
+}
+
+// Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+func (o PlaybackConfigurationAdsInteractionLogPtrOutput) ExcludeEventTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdsInteractionLog) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeEventTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates that MediaTailor emits RAW_ADS_RESPONSE logs for playback sessions that are initialized with this configuration.
+func (o PlaybackConfigurationAdsInteractionLogPtrOutput) PublishOptInEventTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdsInteractionLog) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublishOptInEventTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 // The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
 type PlaybackConfigurationAvailSuppression struct {
 	// Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
@@ -2321,6 +2477,204 @@ func (o PlaybackConfigurationLivePreRollConfigurationPtrOutput) MaxDurationSecon
 	}).(pulumi.IntPtrOutput)
 }
 
+type PlaybackConfigurationLogConfiguration struct {
+	// The event types that MediaTailor emits in logs for interactions with the ADS.
+	AdsInteractionLog *PlaybackConfigurationAdsInteractionLog `pulumi:"adsInteractionLog"`
+	// The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose LEGACY_CLOUDWATCH. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose VENDED_LOGS. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. To use vended logs, you must configure the delivery destination in Amazon CloudWatch
+	EnabledLoggingStrategies []string `pulumi:"enabledLoggingStrategies"`
+	// The event types that MediaTailor emits in logs for interactions with the origin server.
+	ManifestServiceInteractionLog *PlaybackConfigurationManifestServiceInteractionLog `pulumi:"manifestServiceInteractionLog"`
+	// The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the debug log mode.
+	PercentEnabled int `pulumi:"percentEnabled"`
+}
+
+// PlaybackConfigurationLogConfigurationInput is an input type that accepts PlaybackConfigurationLogConfigurationArgs and PlaybackConfigurationLogConfigurationOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationLogConfigurationInput` via:
+//
+//	PlaybackConfigurationLogConfigurationArgs{...}
+type PlaybackConfigurationLogConfigurationInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationLogConfigurationOutput() PlaybackConfigurationLogConfigurationOutput
+	ToPlaybackConfigurationLogConfigurationOutputWithContext(context.Context) PlaybackConfigurationLogConfigurationOutput
+}
+
+type PlaybackConfigurationLogConfigurationArgs struct {
+	// The event types that MediaTailor emits in logs for interactions with the ADS.
+	AdsInteractionLog PlaybackConfigurationAdsInteractionLogPtrInput `pulumi:"adsInteractionLog"`
+	// The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose LEGACY_CLOUDWATCH. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose VENDED_LOGS. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. To use vended logs, you must configure the delivery destination in Amazon CloudWatch
+	EnabledLoggingStrategies pulumi.StringArrayInput `pulumi:"enabledLoggingStrategies"`
+	// The event types that MediaTailor emits in logs for interactions with the origin server.
+	ManifestServiceInteractionLog PlaybackConfigurationManifestServiceInteractionLogPtrInput `pulumi:"manifestServiceInteractionLog"`
+	// The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the debug log mode.
+	PercentEnabled pulumi.IntInput `pulumi:"percentEnabled"`
+}
+
+func (PlaybackConfigurationLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationLogConfigurationArgs) ToPlaybackConfigurationLogConfigurationOutput() PlaybackConfigurationLogConfigurationOutput {
+	return i.ToPlaybackConfigurationLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationLogConfigurationArgs) ToPlaybackConfigurationLogConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationLogConfigurationOutput)
+}
+
+func (i PlaybackConfigurationLogConfigurationArgs) ToPlaybackConfigurationLogConfigurationPtrOutput() PlaybackConfigurationLogConfigurationPtrOutput {
+	return i.ToPlaybackConfigurationLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationLogConfigurationArgs) ToPlaybackConfigurationLogConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationLogConfigurationOutput).ToPlaybackConfigurationLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationLogConfigurationPtrInput is an input type that accepts PlaybackConfigurationLogConfigurationArgs, PlaybackConfigurationLogConfigurationPtr and PlaybackConfigurationLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationLogConfigurationPtrInput` via:
+//
+//	        PlaybackConfigurationLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationLogConfigurationPtrOutput() PlaybackConfigurationLogConfigurationPtrOutput
+	ToPlaybackConfigurationLogConfigurationPtrOutputWithContext(context.Context) PlaybackConfigurationLogConfigurationPtrOutput
+}
+
+type playbackConfigurationLogConfigurationPtrType PlaybackConfigurationLogConfigurationArgs
+
+func PlaybackConfigurationLogConfigurationPtr(v *PlaybackConfigurationLogConfigurationArgs) PlaybackConfigurationLogConfigurationPtrInput {
+	return (*playbackConfigurationLogConfigurationPtrType)(v)
+}
+
+func (*playbackConfigurationLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (i *playbackConfigurationLogConfigurationPtrType) ToPlaybackConfigurationLogConfigurationPtrOutput() PlaybackConfigurationLogConfigurationPtrOutput {
+	return i.ToPlaybackConfigurationLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationLogConfigurationPtrType) ToPlaybackConfigurationLogConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationLogConfigurationPtrOutput)
+}
+
+type PlaybackConfigurationLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationLogConfigurationOutput) ToPlaybackConfigurationLogConfigurationOutput() PlaybackConfigurationLogConfigurationOutput {
+	return o
+}
+
+func (o PlaybackConfigurationLogConfigurationOutput) ToPlaybackConfigurationLogConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationLogConfigurationOutput {
+	return o
+}
+
+func (o PlaybackConfigurationLogConfigurationOutput) ToPlaybackConfigurationLogConfigurationPtrOutput() PlaybackConfigurationLogConfigurationPtrOutput {
+	return o.ToPlaybackConfigurationLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationLogConfigurationOutput) ToPlaybackConfigurationLogConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationLogConfiguration) *PlaybackConfigurationLogConfiguration {
+		return &v
+	}).(PlaybackConfigurationLogConfigurationPtrOutput)
+}
+
+// The event types that MediaTailor emits in logs for interactions with the ADS.
+func (o PlaybackConfigurationLogConfigurationOutput) AdsInteractionLog() PlaybackConfigurationAdsInteractionLogPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationLogConfiguration) *PlaybackConfigurationAdsInteractionLog {
+		return v.AdsInteractionLog
+	}).(PlaybackConfigurationAdsInteractionLogPtrOutput)
+}
+
+// The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose LEGACY_CLOUDWATCH. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose VENDED_LOGS. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. To use vended logs, you must configure the delivery destination in Amazon CloudWatch
+func (o PlaybackConfigurationLogConfigurationOutput) EnabledLoggingStrategies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PlaybackConfigurationLogConfiguration) []string { return v.EnabledLoggingStrategies }).(pulumi.StringArrayOutput)
+}
+
+// The event types that MediaTailor emits in logs for interactions with the origin server.
+func (o PlaybackConfigurationLogConfigurationOutput) ManifestServiceInteractionLog() PlaybackConfigurationManifestServiceInteractionLogPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationLogConfiguration) *PlaybackConfigurationManifestServiceInteractionLog {
+		return v.ManifestServiceInteractionLog
+	}).(PlaybackConfigurationManifestServiceInteractionLogPtrOutput)
+}
+
+// The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the debug log mode.
+func (o PlaybackConfigurationLogConfigurationOutput) PercentEnabled() pulumi.IntOutput {
+	return o.ApplyT(func(v PlaybackConfigurationLogConfiguration) int { return v.PercentEnabled }).(pulumi.IntOutput)
+}
+
+type PlaybackConfigurationLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationLogConfigurationPtrOutput) ToPlaybackConfigurationLogConfigurationPtrOutput() PlaybackConfigurationLogConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationLogConfigurationPtrOutput) ToPlaybackConfigurationLogConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationLogConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationLogConfigurationPtrOutput) Elem() PlaybackConfigurationLogConfigurationOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationLogConfiguration) PlaybackConfigurationLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationLogConfiguration
+		return ret
+	}).(PlaybackConfigurationLogConfigurationOutput)
+}
+
+// The event types that MediaTailor emits in logs for interactions with the ADS.
+func (o PlaybackConfigurationLogConfigurationPtrOutput) AdsInteractionLog() PlaybackConfigurationAdsInteractionLogPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationLogConfiguration) *PlaybackConfigurationAdsInteractionLog {
+		if v == nil {
+			return nil
+		}
+		return v.AdsInteractionLog
+	}).(PlaybackConfigurationAdsInteractionLogPtrOutput)
+}
+
+// The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose LEGACY_CLOUDWATCH. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose VENDED_LOGS. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. To use vended logs, you must configure the delivery destination in Amazon CloudWatch
+func (o PlaybackConfigurationLogConfigurationPtrOutput) EnabledLoggingStrategies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationLogConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledLoggingStrategies
+	}).(pulumi.StringArrayOutput)
+}
+
+// The event types that MediaTailor emits in logs for interactions with the origin server.
+func (o PlaybackConfigurationLogConfigurationPtrOutput) ManifestServiceInteractionLog() PlaybackConfigurationManifestServiceInteractionLogPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationLogConfiguration) *PlaybackConfigurationManifestServiceInteractionLog {
+		if v == nil {
+			return nil
+		}
+		return v.ManifestServiceInteractionLog
+	}).(PlaybackConfigurationManifestServiceInteractionLogPtrOutput)
+}
+
+// The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the debug log mode.
+func (o PlaybackConfigurationLogConfigurationPtrOutput) PercentEnabled() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationLogConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.PercentEnabled
+	}).(pulumi.IntPtrOutput)
+}
+
 // The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
 type PlaybackConfigurationManifestProcessingRules struct {
 	// For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
@@ -2461,6 +2815,143 @@ func (o PlaybackConfigurationManifestProcessingRulesPtrOutput) AdMarkerPassthrou
 		}
 		return v.AdMarkerPassthrough
 	}).(PlaybackConfigurationAdMarkerPassthroughPtrOutput)
+}
+
+type PlaybackConfigurationManifestServiceInteractionLog struct {
+	// Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+	ExcludeEventTypes []string `pulumi:"excludeEventTypes"`
+}
+
+// PlaybackConfigurationManifestServiceInteractionLogInput is an input type that accepts PlaybackConfigurationManifestServiceInteractionLogArgs and PlaybackConfigurationManifestServiceInteractionLogOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationManifestServiceInteractionLogInput` via:
+//
+//	PlaybackConfigurationManifestServiceInteractionLogArgs{...}
+type PlaybackConfigurationManifestServiceInteractionLogInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationManifestServiceInteractionLogOutput() PlaybackConfigurationManifestServiceInteractionLogOutput
+	ToPlaybackConfigurationManifestServiceInteractionLogOutputWithContext(context.Context) PlaybackConfigurationManifestServiceInteractionLogOutput
+}
+
+type PlaybackConfigurationManifestServiceInteractionLogArgs struct {
+	// Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+	ExcludeEventTypes pulumi.StringArrayInput `pulumi:"excludeEventTypes"`
+}
+
+func (PlaybackConfigurationManifestServiceInteractionLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationManifestServiceInteractionLog)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationManifestServiceInteractionLogArgs) ToPlaybackConfigurationManifestServiceInteractionLogOutput() PlaybackConfigurationManifestServiceInteractionLogOutput {
+	return i.ToPlaybackConfigurationManifestServiceInteractionLogOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationManifestServiceInteractionLogArgs) ToPlaybackConfigurationManifestServiceInteractionLogOutputWithContext(ctx context.Context) PlaybackConfigurationManifestServiceInteractionLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationManifestServiceInteractionLogOutput)
+}
+
+func (i PlaybackConfigurationManifestServiceInteractionLogArgs) ToPlaybackConfigurationManifestServiceInteractionLogPtrOutput() PlaybackConfigurationManifestServiceInteractionLogPtrOutput {
+	return i.ToPlaybackConfigurationManifestServiceInteractionLogPtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationManifestServiceInteractionLogArgs) ToPlaybackConfigurationManifestServiceInteractionLogPtrOutputWithContext(ctx context.Context) PlaybackConfigurationManifestServiceInteractionLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationManifestServiceInteractionLogOutput).ToPlaybackConfigurationManifestServiceInteractionLogPtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationManifestServiceInteractionLogPtrInput is an input type that accepts PlaybackConfigurationManifestServiceInteractionLogArgs, PlaybackConfigurationManifestServiceInteractionLogPtr and PlaybackConfigurationManifestServiceInteractionLogPtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationManifestServiceInteractionLogPtrInput` via:
+//
+//	        PlaybackConfigurationManifestServiceInteractionLogArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationManifestServiceInteractionLogPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationManifestServiceInteractionLogPtrOutput() PlaybackConfigurationManifestServiceInteractionLogPtrOutput
+	ToPlaybackConfigurationManifestServiceInteractionLogPtrOutputWithContext(context.Context) PlaybackConfigurationManifestServiceInteractionLogPtrOutput
+}
+
+type playbackConfigurationManifestServiceInteractionLogPtrType PlaybackConfigurationManifestServiceInteractionLogArgs
+
+func PlaybackConfigurationManifestServiceInteractionLogPtr(v *PlaybackConfigurationManifestServiceInteractionLogArgs) PlaybackConfigurationManifestServiceInteractionLogPtrInput {
+	return (*playbackConfigurationManifestServiceInteractionLogPtrType)(v)
+}
+
+func (*playbackConfigurationManifestServiceInteractionLogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationManifestServiceInteractionLog)(nil)).Elem()
+}
+
+func (i *playbackConfigurationManifestServiceInteractionLogPtrType) ToPlaybackConfigurationManifestServiceInteractionLogPtrOutput() PlaybackConfigurationManifestServiceInteractionLogPtrOutput {
+	return i.ToPlaybackConfigurationManifestServiceInteractionLogPtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationManifestServiceInteractionLogPtrType) ToPlaybackConfigurationManifestServiceInteractionLogPtrOutputWithContext(ctx context.Context) PlaybackConfigurationManifestServiceInteractionLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationManifestServiceInteractionLogPtrOutput)
+}
+
+type PlaybackConfigurationManifestServiceInteractionLogOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationManifestServiceInteractionLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationManifestServiceInteractionLog)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationManifestServiceInteractionLogOutput) ToPlaybackConfigurationManifestServiceInteractionLogOutput() PlaybackConfigurationManifestServiceInteractionLogOutput {
+	return o
+}
+
+func (o PlaybackConfigurationManifestServiceInteractionLogOutput) ToPlaybackConfigurationManifestServiceInteractionLogOutputWithContext(ctx context.Context) PlaybackConfigurationManifestServiceInteractionLogOutput {
+	return o
+}
+
+func (o PlaybackConfigurationManifestServiceInteractionLogOutput) ToPlaybackConfigurationManifestServiceInteractionLogPtrOutput() PlaybackConfigurationManifestServiceInteractionLogPtrOutput {
+	return o.ToPlaybackConfigurationManifestServiceInteractionLogPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationManifestServiceInteractionLogOutput) ToPlaybackConfigurationManifestServiceInteractionLogPtrOutputWithContext(ctx context.Context) PlaybackConfigurationManifestServiceInteractionLogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationManifestServiceInteractionLog) *PlaybackConfigurationManifestServiceInteractionLog {
+		return &v
+	}).(PlaybackConfigurationManifestServiceInteractionLogPtrOutput)
+}
+
+// Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+func (o PlaybackConfigurationManifestServiceInteractionLogOutput) ExcludeEventTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PlaybackConfigurationManifestServiceInteractionLog) []string { return v.ExcludeEventTypes }).(pulumi.StringArrayOutput)
+}
+
+type PlaybackConfigurationManifestServiceInteractionLogPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationManifestServiceInteractionLogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationManifestServiceInteractionLog)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationManifestServiceInteractionLogPtrOutput) ToPlaybackConfigurationManifestServiceInteractionLogPtrOutput() PlaybackConfigurationManifestServiceInteractionLogPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationManifestServiceInteractionLogPtrOutput) ToPlaybackConfigurationManifestServiceInteractionLogPtrOutputWithContext(ctx context.Context) PlaybackConfigurationManifestServiceInteractionLogPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationManifestServiceInteractionLogPtrOutput) Elem() PlaybackConfigurationManifestServiceInteractionLogOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationManifestServiceInteractionLog) PlaybackConfigurationManifestServiceInteractionLog {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationManifestServiceInteractionLog
+		return ret
+	}).(PlaybackConfigurationManifestServiceInteractionLogOutput)
+}
+
+// Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+func (o PlaybackConfigurationManifestServiceInteractionLogPtrOutput) ExcludeEventTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationManifestServiceInteractionLog) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeEventTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 type PlaybackConfigurationTag struct {
@@ -3332,6 +3823,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdConditioningConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationAdConditioningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdMarkerPassthroughInput)(nil)).Elem(), PlaybackConfigurationAdMarkerPassthroughArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdMarkerPassthroughPtrInput)(nil)).Elem(), PlaybackConfigurationAdMarkerPassthroughArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdsInteractionLogInput)(nil)).Elem(), PlaybackConfigurationAdsInteractionLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdsInteractionLogPtrInput)(nil)).Elem(), PlaybackConfigurationAdsInteractionLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionPtrInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationBumperInput)(nil)).Elem(), PlaybackConfigurationBumperArgs{})
@@ -3344,8 +3837,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHlsConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationHlsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationLivePreRollConfigurationInput)(nil)).Elem(), PlaybackConfigurationLivePreRollConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationLivePreRollConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationLivePreRollConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationLogConfigurationInput)(nil)).Elem(), PlaybackConfigurationLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationLogConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationManifestProcessingRulesInput)(nil)).Elem(), PlaybackConfigurationManifestProcessingRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationManifestProcessingRulesPtrInput)(nil)).Elem(), PlaybackConfigurationManifestProcessingRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationManifestServiceInteractionLogInput)(nil)).Elem(), PlaybackConfigurationManifestServiceInteractionLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationManifestServiceInteractionLogPtrInput)(nil)).Elem(), PlaybackConfigurationManifestServiceInteractionLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessConfigurationInput)(nil)).Elem(), SourceLocationAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessConfigurationPtrInput)(nil)).Elem(), SourceLocationAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationDefaultSegmentDeliveryConfigurationInput)(nil)).Elem(), SourceLocationDefaultSegmentDeliveryConfigurationArgs{})
@@ -3375,6 +3872,8 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationAdConditioningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdMarkerPassthroughOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdMarkerPassthroughPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationAdsInteractionLogOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationAdsInteractionLogPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationBumperOutput{})
@@ -3387,8 +3886,12 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationHlsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationLivePreRollConfigurationOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationLivePreRollConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationLogConfigurationOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationManifestProcessingRulesOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationManifestProcessingRulesPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationManifestServiceInteractionLogOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationManifestServiceInteractionLogPtrOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessConfigurationOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SourceLocationDefaultSegmentDeliveryConfigurationOutput{})

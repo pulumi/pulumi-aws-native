@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'CalculatedAttributeDefinitionRangeUnit',
     'CalculatedAttributeDefinitionStatistic',
+    'CalculatedAttributeDefinitionStatus',
     'CalculatedAttributeDefinitionThresholdOperator',
     'DomainAttributeTypesSelectorAttributeMatchingModel',
     'DomainConflictResolutionConflictResolvingModel',
@@ -34,6 +35,8 @@ __all__ = [
     'SegmentDefinitionAttributeDimensionType',
     'SegmentDefinitionDateDimensionType',
     'SegmentDefinitionIncludeOptions',
+    'SegmentDefinitionProfileType',
+    'SegmentDefinitionProfileTypeDimensionType',
     'SegmentDefinitionRangeOverrideUnit',
     'SegmentDefinitionStringDimensionType',
 ]
@@ -60,6 +63,17 @@ class CalculatedAttributeDefinitionStatistic(builtins.str, Enum):
     MAXIMUM = "MAXIMUM"
     AVERAGE = "AVERAGE"
     MAX_OCCURRENCE = "MAX_OCCURRENCE"
+
+
+@pulumi.type_token("aws-native:customerprofiles:CalculatedAttributeDefinitionStatus")
+class CalculatedAttributeDefinitionStatus(builtins.str, Enum):
+    """
+    The status of the calculated attribute definition.
+    """
+    IN_PROGRESS = "IN_PROGRESS"
+    PREPARING = "PREPARING"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
 
 
 @pulumi.type_token("aws-native:customerprofiles:CalculatedAttributeDefinitionThresholdOperator")
@@ -408,6 +422,24 @@ class SegmentDefinitionIncludeOptions(builtins.str, Enum):
     ALL = "ALL"
     ANY = "ANY"
     NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionProfileType")
+class SegmentDefinitionProfileType(builtins.str, Enum):
+    """
+    The type of profile.
+    """
+    ACCOUNT_PROFILE = "ACCOUNT_PROFILE"
+    PROFILE = "PROFILE"
+
+
+@pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionProfileTypeDimensionType")
+class SegmentDefinitionProfileTypeDimensionType(builtins.str, Enum):
+    """
+    The type of segment dimension to use for a profile type dimension.
+    """
+    INCLUSIVE = "INCLUSIVE"
+    EXCLUSIVE = "EXCLUSIVE"
 
 
 @pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionRangeOverrideUnit")

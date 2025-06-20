@@ -27,6 +27,8 @@ __all__ = [
     'AppCustomRuleArgsDict',
     'AppEnvironmentVariableArgs',
     'AppEnvironmentVariableArgsDict',
+    'AppJobConfigArgs',
+    'AppJobConfigArgsDict',
     'BranchBackendArgs',
     'BranchBackendArgsDict',
     'BranchBasicAuthConfigArgs',
@@ -581,6 +583,73 @@ class AppEnvironmentVariableArgs:
     @value.setter
     def value(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class AppJobConfigArgsDict(TypedDict):
+        build_compute_type: pulumi.Input['AppJobConfigBuildComputeType']
+        """
+        Specifies the size of the build instance. Amplify supports three instance sizes: `STANDARD_8GB` , `LARGE_16GB` , and `XLARGE_72GB` . If you don't specify a value, Amplify uses the `STANDARD_8GB` default.
+
+        The following list describes the CPU, memory, and storage capacity for each build instance type:
+
+        - **STANDARD_8GB** - - vCPUs: 4
+        - Memory: 8 GiB
+        - Disk space: 128 GB
+        - **LARGE_16GB** - - vCPUs: 8
+        - Memory: 16 GiB
+        - Disk space: 128 GB
+        - **XLARGE_72GB** - - vCPUs: 36
+        - Memory: 72 GiB
+        - Disk space: 256 GB
+        """
+elif False:
+    AppJobConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppJobConfigArgs:
+    def __init__(__self__, *,
+                 build_compute_type: pulumi.Input['AppJobConfigBuildComputeType']):
+        """
+        :param pulumi.Input['AppJobConfigBuildComputeType'] build_compute_type: Specifies the size of the build instance. Amplify supports three instance sizes: `STANDARD_8GB` , `LARGE_16GB` , and `XLARGE_72GB` . If you don't specify a value, Amplify uses the `STANDARD_8GB` default.
+               
+               The following list describes the CPU, memory, and storage capacity for each build instance type:
+               
+               - **STANDARD_8GB** - - vCPUs: 4
+               - Memory: 8 GiB
+               - Disk space: 128 GB
+               - **LARGE_16GB** - - vCPUs: 8
+               - Memory: 16 GiB
+               - Disk space: 128 GB
+               - **XLARGE_72GB** - - vCPUs: 36
+               - Memory: 72 GiB
+               - Disk space: 256 GB
+        """
+        pulumi.set(__self__, "build_compute_type", build_compute_type)
+
+    @property
+    @pulumi.getter(name="buildComputeType")
+    def build_compute_type(self) -> pulumi.Input['AppJobConfigBuildComputeType']:
+        """
+        Specifies the size of the build instance. Amplify supports three instance sizes: `STANDARD_8GB` , `LARGE_16GB` , and `XLARGE_72GB` . If you don't specify a value, Amplify uses the `STANDARD_8GB` default.
+
+        The following list describes the CPU, memory, and storage capacity for each build instance type:
+
+        - **STANDARD_8GB** - - vCPUs: 4
+        - Memory: 8 GiB
+        - Disk space: 128 GB
+        - **LARGE_16GB** - - vCPUs: 8
+        - Memory: 16 GiB
+        - Disk space: 128 GB
+        - **XLARGE_72GB** - - vCPUs: 36
+        - Memory: 72 GiB
+        - Disk space: 256 GB
+        """
+        return pulumi.get(self, "build_compute_type")
+
+    @build_compute_type.setter
+    def build_compute_type(self, value: pulumi.Input['AppJobConfigBuildComputeType']):
+        pulumi.set(self, "build_compute_type", value)
 
 
 if not MYPY:

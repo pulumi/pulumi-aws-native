@@ -245,6 +245,7 @@ func (o AnalyzerArchiveRuleArrayOutput) Index(i pulumi.IntInput) AnalyzerArchive
 
 // The configuration for the analyzer
 type AnalyzerConfigurationProperties struct {
+	InternalAccessConfiguration *AnalyzerInternalAccessConfiguration `pulumi:"internalAccessConfiguration"`
 	// Specifies the configuration of an unused access analyzer for an AWS organization or account.
 	UnusedAccessConfiguration *AnalyzerUnusedAccessConfiguration `pulumi:"unusedAccessConfiguration"`
 }
@@ -262,6 +263,7 @@ type AnalyzerConfigurationPropertiesInput interface {
 
 // The configuration for the analyzer
 type AnalyzerConfigurationPropertiesArgs struct {
+	InternalAccessConfiguration AnalyzerInternalAccessConfigurationPtrInput `pulumi:"internalAccessConfiguration"`
 	// Specifies the configuration of an unused access analyzer for an AWS organization or account.
 	UnusedAccessConfiguration AnalyzerUnusedAccessConfigurationPtrInput `pulumi:"unusedAccessConfiguration"`
 }
@@ -344,6 +346,12 @@ func (o AnalyzerConfigurationPropertiesOutput) ToAnalyzerConfigurationProperties
 	}).(AnalyzerConfigurationPropertiesPtrOutput)
 }
 
+func (o AnalyzerConfigurationPropertiesOutput) InternalAccessConfiguration() AnalyzerInternalAccessConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalyzerConfigurationProperties) *AnalyzerInternalAccessConfiguration {
+		return v.InternalAccessConfiguration
+	}).(AnalyzerInternalAccessConfigurationPtrOutput)
+}
+
 // Specifies the configuration of an unused access analyzer for an AWS organization or account.
 func (o AnalyzerConfigurationPropertiesOutput) UnusedAccessConfiguration() AnalyzerUnusedAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationProperties) *AnalyzerUnusedAccessConfiguration {
@@ -373,6 +381,15 @@ func (o AnalyzerConfigurationPropertiesPtrOutput) Elem() AnalyzerConfigurationPr
 		var ret AnalyzerConfigurationProperties
 		return ret
 	}).(AnalyzerConfigurationPropertiesOutput)
+}
+
+func (o AnalyzerConfigurationPropertiesPtrOutput) InternalAccessConfiguration() AnalyzerInternalAccessConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalyzerConfigurationProperties) *AnalyzerInternalAccessConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.InternalAccessConfiguration
+	}).(AnalyzerInternalAccessConfigurationPtrOutput)
 }
 
 // Specifies the configuration of an unused access analyzer for an AWS organization or account.
@@ -516,6 +533,408 @@ func (o AnalyzerFilterArrayOutput) Index(i pulumi.IntInput) AnalyzerFilterOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyzerFilter {
 		return vs[0].([]AnalyzerFilter)[vs[1].(int)]
 	}).(AnalyzerFilterOutput)
+}
+
+// The criteria for an analysis rule for an internal access analyzer.
+type AnalyzerInternalAccessAnalysisRuleCriteria struct {
+	// A list of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers and cannot include the organization owner account.
+	AccountIds []string `pulumi:"accountIds"`
+	// A list of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
+	ResourceArns []string `pulumi:"resourceArns"`
+	// A list of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types.
+	ResourceTypes []string `pulumi:"resourceTypes"`
+}
+
+// AnalyzerInternalAccessAnalysisRuleCriteriaInput is an input type that accepts AnalyzerInternalAccessAnalysisRuleCriteriaArgs and AnalyzerInternalAccessAnalysisRuleCriteriaOutput values.
+// You can construct a concrete instance of `AnalyzerInternalAccessAnalysisRuleCriteriaInput` via:
+//
+//	AnalyzerInternalAccessAnalysisRuleCriteriaArgs{...}
+type AnalyzerInternalAccessAnalysisRuleCriteriaInput interface {
+	pulumi.Input
+
+	ToAnalyzerInternalAccessAnalysisRuleCriteriaOutput() AnalyzerInternalAccessAnalysisRuleCriteriaOutput
+	ToAnalyzerInternalAccessAnalysisRuleCriteriaOutputWithContext(context.Context) AnalyzerInternalAccessAnalysisRuleCriteriaOutput
+}
+
+// The criteria for an analysis rule for an internal access analyzer.
+type AnalyzerInternalAccessAnalysisRuleCriteriaArgs struct {
+	// A list of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers and cannot include the organization owner account.
+	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
+	// A list of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
+	ResourceArns pulumi.StringArrayInput `pulumi:"resourceArns"`
+	// A list of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+}
+
+func (AnalyzerInternalAccessAnalysisRuleCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerInternalAccessAnalysisRuleCriteria)(nil)).Elem()
+}
+
+func (i AnalyzerInternalAccessAnalysisRuleCriteriaArgs) ToAnalyzerInternalAccessAnalysisRuleCriteriaOutput() AnalyzerInternalAccessAnalysisRuleCriteriaOutput {
+	return i.ToAnalyzerInternalAccessAnalysisRuleCriteriaOutputWithContext(context.Background())
+}
+
+func (i AnalyzerInternalAccessAnalysisRuleCriteriaArgs) ToAnalyzerInternalAccessAnalysisRuleCriteriaOutputWithContext(ctx context.Context) AnalyzerInternalAccessAnalysisRuleCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerInternalAccessAnalysisRuleCriteriaOutput)
+}
+
+// AnalyzerInternalAccessAnalysisRuleCriteriaArrayInput is an input type that accepts AnalyzerInternalAccessAnalysisRuleCriteriaArray and AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput values.
+// You can construct a concrete instance of `AnalyzerInternalAccessAnalysisRuleCriteriaArrayInput` via:
+//
+//	AnalyzerInternalAccessAnalysisRuleCriteriaArray{ AnalyzerInternalAccessAnalysisRuleCriteriaArgs{...} }
+type AnalyzerInternalAccessAnalysisRuleCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToAnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput() AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput
+	ToAnalyzerInternalAccessAnalysisRuleCriteriaArrayOutputWithContext(context.Context) AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput
+}
+
+type AnalyzerInternalAccessAnalysisRuleCriteriaArray []AnalyzerInternalAccessAnalysisRuleCriteriaInput
+
+func (AnalyzerInternalAccessAnalysisRuleCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyzerInternalAccessAnalysisRuleCriteria)(nil)).Elem()
+}
+
+func (i AnalyzerInternalAccessAnalysisRuleCriteriaArray) ToAnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput() AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput {
+	return i.ToAnalyzerInternalAccessAnalysisRuleCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i AnalyzerInternalAccessAnalysisRuleCriteriaArray) ToAnalyzerInternalAccessAnalysisRuleCriteriaArrayOutputWithContext(ctx context.Context) AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput)
+}
+
+// The criteria for an analysis rule for an internal access analyzer.
+type AnalyzerInternalAccessAnalysisRuleCriteriaOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerInternalAccessAnalysisRuleCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerInternalAccessAnalysisRuleCriteria)(nil)).Elem()
+}
+
+func (o AnalyzerInternalAccessAnalysisRuleCriteriaOutput) ToAnalyzerInternalAccessAnalysisRuleCriteriaOutput() AnalyzerInternalAccessAnalysisRuleCriteriaOutput {
+	return o
+}
+
+func (o AnalyzerInternalAccessAnalysisRuleCriteriaOutput) ToAnalyzerInternalAccessAnalysisRuleCriteriaOutputWithContext(ctx context.Context) AnalyzerInternalAccessAnalysisRuleCriteriaOutput {
+	return o
+}
+
+// A list of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers and cannot include the organization owner account.
+func (o AnalyzerInternalAccessAnalysisRuleCriteriaOutput) AccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnalyzerInternalAccessAnalysisRuleCriteria) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
+func (o AnalyzerInternalAccessAnalysisRuleCriteriaOutput) ResourceArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnalyzerInternalAccessAnalysisRuleCriteria) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
+}
+
+// A list of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types.
+func (o AnalyzerInternalAccessAnalysisRuleCriteriaOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnalyzerInternalAccessAnalysisRuleCriteria) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+type AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyzerInternalAccessAnalysisRuleCriteria)(nil)).Elem()
+}
+
+func (o AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput) ToAnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput() AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput {
+	return o
+}
+
+func (o AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput) ToAnalyzerInternalAccessAnalysisRuleCriteriaArrayOutputWithContext(ctx context.Context) AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput {
+	return o
+}
+
+func (o AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput) Index(i pulumi.IntInput) AnalyzerInternalAccessAnalysisRuleCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyzerInternalAccessAnalysisRuleCriteria {
+		return vs[0].([]AnalyzerInternalAccessAnalysisRuleCriteria)[vs[1].(int)]
+	}).(AnalyzerInternalAccessAnalysisRuleCriteriaOutput)
+}
+
+// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates internal access within your AWS environment.
+type AnalyzerInternalAccessConfiguration struct {
+	// Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.
+	InternalAccessAnalysisRule *AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties `pulumi:"internalAccessAnalysisRule"`
+}
+
+// AnalyzerInternalAccessConfigurationInput is an input type that accepts AnalyzerInternalAccessConfigurationArgs and AnalyzerInternalAccessConfigurationOutput values.
+// You can construct a concrete instance of `AnalyzerInternalAccessConfigurationInput` via:
+//
+//	AnalyzerInternalAccessConfigurationArgs{...}
+type AnalyzerInternalAccessConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalyzerInternalAccessConfigurationOutput() AnalyzerInternalAccessConfigurationOutput
+	ToAnalyzerInternalAccessConfigurationOutputWithContext(context.Context) AnalyzerInternalAccessConfigurationOutput
+}
+
+// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates internal access within your AWS environment.
+type AnalyzerInternalAccessConfigurationArgs struct {
+	// Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.
+	InternalAccessAnalysisRule AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrInput `pulumi:"internalAccessAnalysisRule"`
+}
+
+func (AnalyzerInternalAccessConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerInternalAccessConfiguration)(nil)).Elem()
+}
+
+func (i AnalyzerInternalAccessConfigurationArgs) ToAnalyzerInternalAccessConfigurationOutput() AnalyzerInternalAccessConfigurationOutput {
+	return i.ToAnalyzerInternalAccessConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalyzerInternalAccessConfigurationArgs) ToAnalyzerInternalAccessConfigurationOutputWithContext(ctx context.Context) AnalyzerInternalAccessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerInternalAccessConfigurationOutput)
+}
+
+func (i AnalyzerInternalAccessConfigurationArgs) ToAnalyzerInternalAccessConfigurationPtrOutput() AnalyzerInternalAccessConfigurationPtrOutput {
+	return i.ToAnalyzerInternalAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalyzerInternalAccessConfigurationArgs) ToAnalyzerInternalAccessConfigurationPtrOutputWithContext(ctx context.Context) AnalyzerInternalAccessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerInternalAccessConfigurationOutput).ToAnalyzerInternalAccessConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalyzerInternalAccessConfigurationPtrInput is an input type that accepts AnalyzerInternalAccessConfigurationArgs, AnalyzerInternalAccessConfigurationPtr and AnalyzerInternalAccessConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalyzerInternalAccessConfigurationPtrInput` via:
+//
+//	        AnalyzerInternalAccessConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalyzerInternalAccessConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalyzerInternalAccessConfigurationPtrOutput() AnalyzerInternalAccessConfigurationPtrOutput
+	ToAnalyzerInternalAccessConfigurationPtrOutputWithContext(context.Context) AnalyzerInternalAccessConfigurationPtrOutput
+}
+
+type analyzerInternalAccessConfigurationPtrType AnalyzerInternalAccessConfigurationArgs
+
+func AnalyzerInternalAccessConfigurationPtr(v *AnalyzerInternalAccessConfigurationArgs) AnalyzerInternalAccessConfigurationPtrInput {
+	return (*analyzerInternalAccessConfigurationPtrType)(v)
+}
+
+func (*analyzerInternalAccessConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyzerInternalAccessConfiguration)(nil)).Elem()
+}
+
+func (i *analyzerInternalAccessConfigurationPtrType) ToAnalyzerInternalAccessConfigurationPtrOutput() AnalyzerInternalAccessConfigurationPtrOutput {
+	return i.ToAnalyzerInternalAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analyzerInternalAccessConfigurationPtrType) ToAnalyzerInternalAccessConfigurationPtrOutputWithContext(ctx context.Context) AnalyzerInternalAccessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerInternalAccessConfigurationPtrOutput)
+}
+
+// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates internal access within your AWS environment.
+type AnalyzerInternalAccessConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerInternalAccessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerInternalAccessConfiguration)(nil)).Elem()
+}
+
+func (o AnalyzerInternalAccessConfigurationOutput) ToAnalyzerInternalAccessConfigurationOutput() AnalyzerInternalAccessConfigurationOutput {
+	return o
+}
+
+func (o AnalyzerInternalAccessConfigurationOutput) ToAnalyzerInternalAccessConfigurationOutputWithContext(ctx context.Context) AnalyzerInternalAccessConfigurationOutput {
+	return o
+}
+
+func (o AnalyzerInternalAccessConfigurationOutput) ToAnalyzerInternalAccessConfigurationPtrOutput() AnalyzerInternalAccessConfigurationPtrOutput {
+	return o.ToAnalyzerInternalAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalyzerInternalAccessConfigurationOutput) ToAnalyzerInternalAccessConfigurationPtrOutputWithContext(ctx context.Context) AnalyzerInternalAccessConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyzerInternalAccessConfiguration) *AnalyzerInternalAccessConfiguration {
+		return &v
+	}).(AnalyzerInternalAccessConfigurationPtrOutput)
+}
+
+// Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.
+func (o AnalyzerInternalAccessConfigurationOutput) InternalAccessAnalysisRule() AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput {
+	return o.ApplyT(func(v AnalyzerInternalAccessConfiguration) *AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties {
+		return v.InternalAccessAnalysisRule
+	}).(AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput)
+}
+
+type AnalyzerInternalAccessConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerInternalAccessConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyzerInternalAccessConfiguration)(nil)).Elem()
+}
+
+func (o AnalyzerInternalAccessConfigurationPtrOutput) ToAnalyzerInternalAccessConfigurationPtrOutput() AnalyzerInternalAccessConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalyzerInternalAccessConfigurationPtrOutput) ToAnalyzerInternalAccessConfigurationPtrOutputWithContext(ctx context.Context) AnalyzerInternalAccessConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalyzerInternalAccessConfigurationPtrOutput) Elem() AnalyzerInternalAccessConfigurationOutput {
+	return o.ApplyT(func(v *AnalyzerInternalAccessConfiguration) AnalyzerInternalAccessConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyzerInternalAccessConfiguration
+		return ret
+	}).(AnalyzerInternalAccessConfigurationOutput)
+}
+
+// Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.
+func (o AnalyzerInternalAccessConfigurationPtrOutput) InternalAccessAnalysisRule() AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput {
+	return o.ApplyT(func(v *AnalyzerInternalAccessConfiguration) *AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties {
+		if v == nil {
+			return nil
+		}
+		return v.InternalAccessAnalysisRule
+	}).(AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput)
+}
+
+// Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.
+type AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties struct {
+	// A list of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings.
+	Inclusions []AnalyzerInternalAccessAnalysisRuleCriteria `pulumi:"inclusions"`
+}
+
+// AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesInput is an input type that accepts AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs and AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput values.
+// You can construct a concrete instance of `AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesInput` via:
+//
+//	AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs{...}
+type AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesInput interface {
+	pulumi.Input
+
+	ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput() AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput
+	ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutputWithContext(context.Context) AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput
+}
+
+// Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.
+type AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs struct {
+	// A list of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings.
+	Inclusions AnalyzerInternalAccessAnalysisRuleCriteriaArrayInput `pulumi:"inclusions"`
+}
+
+func (AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties)(nil)).Elem()
+}
+
+func (i AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs) ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput() AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput {
+	return i.ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutputWithContext(context.Background())
+}
+
+func (i AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs) ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutputWithContext(ctx context.Context) AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput)
+}
+
+func (i AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs) ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput() AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput {
+	return i.ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs) ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutputWithContext(ctx context.Context) AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput).ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutputWithContext(ctx)
+}
+
+// AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrInput is an input type that accepts AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs, AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtr and AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput values.
+// You can construct a concrete instance of `AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrInput` via:
+//
+//	        AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput() AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput
+	ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutputWithContext(context.Context) AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput
+}
+
+type analyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrType AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs
+
+func AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtr(v *AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs) AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrInput {
+	return (*analyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrType)(v)
+}
+
+func (*analyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties)(nil)).Elem()
+}
+
+func (i *analyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrType) ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput() AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput {
+	return i.ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *analyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrType) ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutputWithContext(ctx context.Context) AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput)
+}
+
+// Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.
+type AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties)(nil)).Elem()
+}
+
+func (o AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput) ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput() AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput {
+	return o
+}
+
+func (o AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput) ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutputWithContext(ctx context.Context) AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput {
+	return o
+}
+
+func (o AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput) ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput() AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput {
+	return o.ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput) ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutputWithContext(ctx context.Context) AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties) *AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties {
+		return &v
+	}).(AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput)
+}
+
+// A list of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings.
+func (o AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput) Inclusions() AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput {
+	return o.ApplyT(func(v AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties) []AnalyzerInternalAccessAnalysisRuleCriteria {
+		return v.Inclusions
+	}).(AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput)
+}
+
+type AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties)(nil)).Elem()
+}
+
+func (o AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput) ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput() AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput {
+	return o
+}
+
+func (o AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput) ToAnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutputWithContext(ctx context.Context) AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput {
+	return o
+}
+
+func (o AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput) Elem() AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput {
+	return o.ApplyT(func(v *AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties) AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties
+		return ret
+	}).(AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput)
+}
+
+// A list of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings.
+func (o AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput) Inclusions() AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput {
+	return o.ApplyT(func(v *AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties) []AnalyzerInternalAccessAnalysisRuleCriteria {
+		if v == nil {
+			return nil
+		}
+		return v.Inclusions
+	}).(AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -984,6 +1403,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationPropertiesPtrInput)(nil)).Elem(), AnalyzerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerFilterInput)(nil)).Elem(), AnalyzerFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerFilterArrayInput)(nil)).Elem(), AnalyzerFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerInternalAccessAnalysisRuleCriteriaInput)(nil)).Elem(), AnalyzerInternalAccessAnalysisRuleCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerInternalAccessAnalysisRuleCriteriaArrayInput)(nil)).Elem(), AnalyzerInternalAccessAnalysisRuleCriteriaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerInternalAccessConfigurationInput)(nil)).Elem(), AnalyzerInternalAccessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerInternalAccessConfigurationPtrInput)(nil)).Elem(), AnalyzerInternalAccessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesInput)(nil)).Elem(), AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrInput)(nil)).Elem(), AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerTagInput)(nil)).Elem(), AnalyzerTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerTagArrayInput)(nil)).Elem(), AnalyzerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerUnusedAccessConfigurationInput)(nil)).Elem(), AnalyzerUnusedAccessConfigurationArgs{})
@@ -999,6 +1424,12 @@ func init() {
 	pulumi.RegisterOutputType(AnalyzerConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AnalyzerFilterOutput{})
 	pulumi.RegisterOutputType(AnalyzerFilterArrayOutput{})
+	pulumi.RegisterOutputType(AnalyzerInternalAccessAnalysisRuleCriteriaOutput{})
+	pulumi.RegisterOutputType(AnalyzerInternalAccessAnalysisRuleCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(AnalyzerInternalAccessConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalyzerInternalAccessConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesOutput{})
+	pulumi.RegisterOutputType(AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AnalyzerTagOutput{})
 	pulumi.RegisterOutputType(AnalyzerTagArrayOutput{})
 	pulumi.RegisterOutputType(AnalyzerUnusedAccessConfigurationOutput{})

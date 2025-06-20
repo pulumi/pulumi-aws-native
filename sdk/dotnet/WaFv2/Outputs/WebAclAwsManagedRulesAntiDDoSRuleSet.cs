@@ -16,7 +16,21 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclAwsManagedRulesAntiDDoSRuleSet
     {
+        /// <summary>
+        /// Configures the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack.
+        /// </summary>
         public readonly Outputs.WebAclClientSideActionConfig ClientSideActionConfig;
+        /// <summary>
+        /// The sensitivity that the rule group rule `DDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `DDoSRequests` rule runs.
+        /// 
+        /// The higher the sensitivity, the more levels of labeling that the rule matches:
+        /// 
+        /// - Low sensitivity is less sensitive, causing the rule to match only on the most likely participants in an attack, which are the requests with the high suspicion label `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` .
+        /// - Medium sensitivity causes the rule to match on the medium and high suspicion labels.
+        /// - High sensitivity causes the rule to match on all of the suspicion labels: low, medium, and high.
+        /// 
+        /// Default: `LOW`
+        /// </summary>
         public readonly Pulumi.AwsNative.WaFv2.WebAclSensitivityToAct? SensitivityToBlock;
 
         [OutputConstructor]

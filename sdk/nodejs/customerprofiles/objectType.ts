@@ -74,6 +74,14 @@ export class ObjectType extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
     /**
+     * The maximum available number of profile objects
+     */
+    public /*out*/ readonly maxAvailableProfileObjectCount!: pulumi.Output<number>;
+    /**
+     * The maximum number of profile objects for this object type
+     */
+    public readonly maxProfileObjectCount!: pulumi.Output<number | undefined>;
+    /**
      * The name of the profile object type.
      */
     public readonly objectTypeName!: pulumi.Output<string>;
@@ -114,12 +122,14 @@ export class ObjectType extends pulumi.CustomResource {
             resourceInputs["expirationDays"] = args ? args.expirationDays : undefined;
             resourceInputs["fields"] = args ? args.fields : undefined;
             resourceInputs["keys"] = args ? args.keys : undefined;
+            resourceInputs["maxProfileObjectCount"] = args ? args.maxProfileObjectCount : undefined;
             resourceInputs["objectTypeName"] = args ? args.objectTypeName : undefined;
             resourceInputs["sourceLastUpdatedTimestampFormat"] = args ? args.sourceLastUpdatedTimestampFormat : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templateId"] = args ? args.templateId : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["maxAvailableProfileObjectCount"] = undefined /*out*/;
         } else {
             resourceInputs["allowProfileCreation"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -130,6 +140,8 @@ export class ObjectType extends pulumi.CustomResource {
             resourceInputs["fields"] = undefined /*out*/;
             resourceInputs["keys"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["maxAvailableProfileObjectCount"] = undefined /*out*/;
+            resourceInputs["maxProfileObjectCount"] = undefined /*out*/;
             resourceInputs["objectTypeName"] = undefined /*out*/;
             resourceInputs["sourceLastUpdatedTimestampFormat"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -174,6 +186,10 @@ export interface ObjectTypeArgs {
      * A list of unique keys that can be used to map data to the profile.
      */
     keys?: pulumi.Input<pulumi.Input<inputs.customerprofiles.ObjectTypeKeyMapArgs>[]>;
+    /**
+     * The maximum number of profile objects for this object type
+     */
+    maxProfileObjectCount?: pulumi.Input<number>;
     /**
      * The name of the profile object type.
      */

@@ -74,6 +74,10 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
      */
     public readonly livePreRollConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationLivePreRollConfiguration | undefined>;
     /**
+     * The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+     */
+    public readonly logConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationLogConfiguration | undefined>;
+    /**
      * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
      */
     public readonly manifestProcessingRules!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationManifestProcessingRules | undefined>;
@@ -140,6 +144,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["dashConfiguration"] = args ? args.dashConfiguration : undefined;
             resourceInputs["hlsConfiguration"] = args ? args.hlsConfiguration : undefined;
             resourceInputs["livePreRollConfiguration"] = args ? args.livePreRollConfiguration : undefined;
+            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["manifestProcessingRules"] = args ? args.manifestProcessingRules : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["personalizationThresholdSeconds"] = args ? args.personalizationThresholdSeconds : undefined;
@@ -160,6 +165,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["dashConfiguration"] = undefined /*out*/;
             resourceInputs["hlsConfiguration"] = undefined /*out*/;
             resourceInputs["livePreRollConfiguration"] = undefined /*out*/;
+            resourceInputs["logConfiguration"] = undefined /*out*/;
             resourceInputs["manifestProcessingRules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["personalizationThresholdSeconds"] = undefined /*out*/;
@@ -218,6 +224,10 @@ export interface PlaybackConfigurationArgs {
      * The configuration for pre-roll ad insertion.
      */
     livePreRollConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationLivePreRollConfigurationArgs>;
+    /**
+     * The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+     */
+    logConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationLogConfigurationArgs>;
     /**
      * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
      */

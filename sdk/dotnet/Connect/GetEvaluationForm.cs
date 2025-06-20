@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.Connect
     [OutputType]
     public sealed class GetEvaluationFormResult
     {
+        public readonly Outputs.EvaluationFormAutoEvaluationConfiguration? AutoEvaluationConfiguration;
         /// <summary>
         /// The description of the evaluation form.
         ///  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
@@ -102,6 +103,8 @@ namespace Pulumi.AwsNative.Connect
 
         [OutputConstructor]
         private GetEvaluationFormResult(
+            Outputs.EvaluationFormAutoEvaluationConfiguration? autoEvaluationConfiguration,
+
             string? description,
 
             string? evaluationFormArn,
@@ -118,6 +121,7 @@ namespace Pulumi.AwsNative.Connect
 
             string? title)
         {
+            AutoEvaluationConfiguration = autoEvaluationConfiguration;
             Description = description;
             EvaluationFormArn = evaluationFormArn;
             InstanceArn = instanceArn;

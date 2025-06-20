@@ -161,6 +161,9 @@ namespace Pulumi.AwsNative.Connect
         public static EvaluationFormNumericQuestionPropertyValueAutomationLabel ContactDuration { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("CONTACT_DURATION");
         public static EvaluationFormNumericQuestionPropertyValueAutomationLabel AgentInteractionDuration { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("AGENT_INTERACTION_DURATION");
         public static EvaluationFormNumericQuestionPropertyValueAutomationLabel CustomerHoldTime { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("CUSTOMER_HOLD_TIME");
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel LongestHoldDuration { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("LONGEST_HOLD_DURATION");
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel NumberOfHolds { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("NUMBER_OF_HOLDS");
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel AgentInteractionAndHoldDuration { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("AGENT_INTERACTION_AND_HOLD_DURATION");
 
         public static bool operator ==(EvaluationFormNumericQuestionPropertyValueAutomationLabel left, EvaluationFormNumericQuestionPropertyValueAutomationLabel right) => left.Equals(right);
         public static bool operator !=(EvaluationFormNumericQuestionPropertyValueAutomationLabel left, EvaluationFormNumericQuestionPropertyValueAutomationLabel right) => !left.Equals(right);

@@ -19,6 +19,8 @@ from ._enums import *
 __all__ = [
     'ConstraintsPropertiesArgs',
     'ConstraintsPropertiesArgsDict',
+    'EvaluationFormAutoEvaluationConfigurationArgs',
+    'EvaluationFormAutoEvaluationConfigurationArgsDict',
     'EvaluationFormBaseItemArgs',
     'EvaluationFormBaseItemArgsDict',
     'EvaluationFormItemArgs',
@@ -236,6 +238,38 @@ class ConstraintsPropertiesArgs:
 
 
 if not MYPY:
+    class EvaluationFormAutoEvaluationConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Auto Evaluation enablement status.
+        """
+elif False:
+    EvaluationFormAutoEvaluationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EvaluationFormAutoEvaluationConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[builtins.bool] enabled: Auto Evaluation enablement status.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Auto Evaluation enablement status.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
     class EvaluationFormBaseItemArgsDict(TypedDict):
         """
         An item at the root level. All items must be sections.
@@ -331,7 +365,8 @@ if not MYPY:
         """
         Information about the automation configuration in numeric questions.
         """
-        property_value: pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgsDict']
+        answer_source: NotRequired[Any]
+        property_value: NotRequired[pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgsDict']]
         """
         The property value of the automation.
         """
@@ -341,23 +376,36 @@ elif False:
 @pulumi.input_type
 class EvaluationFormNumericQuestionAutomationArgs:
     def __init__(__self__, *,
-                 property_value: pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs']):
+                 answer_source: Optional[Any] = None,
+                 property_value: Optional[pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs']] = None):
         """
         Information about the automation configuration in numeric questions.
         :param pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs'] property_value: The property value of the automation.
         """
-        pulumi.set(__self__, "property_value", property_value)
+        if answer_source is not None:
+            pulumi.set(__self__, "answer_source", answer_source)
+        if property_value is not None:
+            pulumi.set(__self__, "property_value", property_value)
+
+    @property
+    @pulumi.getter(name="answerSource")
+    def answer_source(self) -> Optional[Any]:
+        return pulumi.get(self, "answer_source")
+
+    @answer_source.setter
+    def answer_source(self, value: Optional[Any]):
+        pulumi.set(self, "answer_source", value)
 
     @property
     @pulumi.getter(name="propertyValue")
-    def property_value(self) -> pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs']:
+    def property_value(self) -> Optional[pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs']]:
         """
         The property value of the automation.
         """
         return pulumi.get(self, "property_value")
 
     @property_value.setter
-    def property_value(self, value: pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs']):
+    def property_value(self, value: Optional[pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs']]):
         pulumi.set(self, "property_value", value)
 
 

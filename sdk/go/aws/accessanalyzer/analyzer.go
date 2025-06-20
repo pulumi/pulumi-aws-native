@@ -87,7 +87,7 @@ type Analyzer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
+	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -147,7 +147,7 @@ type analyzerArgs struct {
 	ArchiveRules []AnalyzerArchiveRule `pulumi:"archiveRules"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
+	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS
 	Type string `pulumi:"type"`
 }
 
@@ -161,7 +161,7 @@ type AnalyzerArgs struct {
 	ArchiveRules AnalyzerArchiveRuleArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
-	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
+	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS
 	Type pulumi.StringInput
 }
 
@@ -227,7 +227,7 @@ func (o AnalyzerOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Analyzer) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
+// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS
 func (o AnalyzerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

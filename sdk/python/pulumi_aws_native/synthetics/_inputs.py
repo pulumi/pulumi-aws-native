@@ -294,6 +294,10 @@ if not MYPY:
         """
         Environment variable key-value pairs.
         """
+        ephemeral_storage: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Provide ephemeralStorage available for canary in MB
+        """
         memory_in_mb: NotRequired[pulumi.Input[builtins.int]]
         """
         Provide maximum memory available for canary in MB
@@ -310,11 +314,13 @@ class CanaryRunConfigArgs:
     def __init__(__self__, *,
                  active_tracing: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[builtins.int]] = None,
                  memory_in_mb: Optional[pulumi.Input[builtins.int]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[builtins.int]] = None):
         """
         :param pulumi.Input[builtins.bool] active_tracing: Enable active tracing if set to true
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variable key-value pairs.
+        :param pulumi.Input[builtins.int] ephemeral_storage: Provide ephemeralStorage available for canary in MB
         :param pulumi.Input[builtins.int] memory_in_mb: Provide maximum memory available for canary in MB
         :param pulumi.Input[builtins.int] timeout_in_seconds: Provide maximum canary timeout per run in seconds
         """
@@ -322,6 +328,8 @@ class CanaryRunConfigArgs:
             pulumi.set(__self__, "active_tracing", active_tracing)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if memory_in_mb is not None:
             pulumi.set(__self__, "memory_in_mb", memory_in_mb)
         if timeout_in_seconds is not None:
@@ -350,6 +358,18 @@ class CanaryRunConfigArgs:
     @environment_variables.setter
     def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Provide ephemeralStorage available for canary in MB
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @ephemeral_storage.setter
+    def ephemeral_storage(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "ephemeral_storage", value)
 
     @property
     @pulumi.getter(name="memoryInMb")

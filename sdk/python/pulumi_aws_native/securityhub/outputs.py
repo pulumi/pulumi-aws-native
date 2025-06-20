@@ -26,6 +26,23 @@ __all__ = [
     'AutomationRuleRelatedFinding',
     'AutomationRuleSeverityUpdate',
     'AutomationRuleStringFilter',
+    'AutomationRuleV2AutomationRulesActionV2',
+    'AutomationRuleV2AutomationRulesFindingFieldsUpdateV2',
+    'AutomationRuleV2BooleanFilter',
+    'AutomationRuleV2CompositeFilter',
+    'AutomationRuleV2Criteria',
+    'AutomationRuleV2DateFilter',
+    'AutomationRuleV2DateRange',
+    'AutomationRuleV2ExternalIntegrationConfiguration',
+    'AutomationRuleV2MapFilter',
+    'AutomationRuleV2NumberFilter',
+    'AutomationRuleV2OcsfBooleanFilter',
+    'AutomationRuleV2OcsfDateFilter',
+    'AutomationRuleV2OcsfFindingFilters',
+    'AutomationRuleV2OcsfMapFilter',
+    'AutomationRuleV2OcsfNumberFilter',
+    'AutomationRuleV2OcsfStringFilter',
+    'AutomationRuleV2StringFilter',
     'AutomationRuleWorkflowUpdate',
     'AutomationRulesAction',
     'AutomationRulesFindingFieldsUpdate',
@@ -510,6 +527,816 @@ class AutomationRuleStringFilter(dict):
     def value(self) -> builtins.str:
         """
         The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleV2AutomationRulesActionV2(dict):
+    """
+    Allows you to configure automated responses
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalIntegrationConfiguration":
+            suggest = "external_integration_configuration"
+        elif key == "findingFieldsUpdate":
+            suggest = "finding_fields_update"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2AutomationRulesActionV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2AutomationRulesActionV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2AutomationRulesActionV2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'AutomationRuleV2AutomationRulesActionV2Type',
+                 external_integration_configuration: Optional['outputs.AutomationRuleV2ExternalIntegrationConfiguration'] = None,
+                 finding_fields_update: Optional['outputs.AutomationRuleV2AutomationRulesFindingFieldsUpdateV2'] = None):
+        """
+        Allows you to configure automated responses
+        :param 'AutomationRuleV2AutomationRulesActionV2Type' type: The category of action to be executed by the automation rule
+        """
+        pulumi.set(__self__, "type", type)
+        if external_integration_configuration is not None:
+            pulumi.set(__self__, "external_integration_configuration", external_integration_configuration)
+        if finding_fields_update is not None:
+            pulumi.set(__self__, "finding_fields_update", finding_fields_update)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'AutomationRuleV2AutomationRulesActionV2Type':
+        """
+        The category of action to be executed by the automation rule
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="externalIntegrationConfiguration")
+    def external_integration_configuration(self) -> Optional['outputs.AutomationRuleV2ExternalIntegrationConfiguration']:
+        return pulumi.get(self, "external_integration_configuration")
+
+    @property
+    @pulumi.getter(name="findingFieldsUpdate")
+    def finding_fields_update(self) -> Optional['outputs.AutomationRuleV2AutomationRulesFindingFieldsUpdateV2']:
+        return pulumi.get(self, "finding_fields_update")
+
+
+@pulumi.output_type
+class AutomationRuleV2AutomationRulesFindingFieldsUpdateV2(dict):
+    """
+    The changes to be applied to fields in a security finding when an automation rule is triggered
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "severityId":
+            suggest = "severity_id"
+        elif key == "statusId":
+            suggest = "status_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2AutomationRulesFindingFieldsUpdateV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2AutomationRulesFindingFieldsUpdateV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2AutomationRulesFindingFieldsUpdateV2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[builtins.str] = None,
+                 severity_id: Optional[builtins.int] = None,
+                 status_id: Optional[builtins.int] = None):
+        """
+        The changes to be applied to fields in a security finding when an automation rule is triggered
+        :param builtins.str comment: Notes or contextual information for findings that are modified by the automation rule
+        :param builtins.int severity_id: The severity level to be assigned to findings that match the automation rule criteria
+        :param builtins.int status_id: The status to be applied to findings that match automation rule criteria
+        """
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if severity_id is not None:
+            pulumi.set(__self__, "severity_id", severity_id)
+        if status_id is not None:
+            pulumi.set(__self__, "status_id", status_id)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[builtins.str]:
+        """
+        Notes or contextual information for findings that are modified by the automation rule
+        """
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="severityId")
+    def severity_id(self) -> Optional[builtins.int]:
+        """
+        The severity level to be assigned to findings that match the automation rule criteria
+        """
+        return pulumi.get(self, "severity_id")
+
+    @property
+    @pulumi.getter(name="statusId")
+    def status_id(self) -> Optional[builtins.int]:
+        """
+        The status to be applied to findings that match automation rule criteria
+        """
+        return pulumi.get(self, "status_id")
+
+
+@pulumi.output_type
+class AutomationRuleV2BooleanFilter(dict):
+    """
+    Boolean filter for querying findings
+    """
+    def __init__(__self__, *,
+                 value: builtins.bool):
+        """
+        Boolean filter for querying findings
+        :param builtins.bool value: The value of the boolean
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.bool:
+        """
+        The value of the boolean
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleV2CompositeFilter(dict):
+    """
+    Enables the creation of filtering criteria for security findings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "booleanFilters":
+            suggest = "boolean_filters"
+        elif key == "dateFilters":
+            suggest = "date_filters"
+        elif key == "mapFilters":
+            suggest = "map_filters"
+        elif key == "numberFilters":
+            suggest = "number_filters"
+        elif key == "stringFilters":
+            suggest = "string_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2CompositeFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2CompositeFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2CompositeFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 boolean_filters: Optional[Sequence['outputs.AutomationRuleV2OcsfBooleanFilter']] = None,
+                 date_filters: Optional[Sequence['outputs.AutomationRuleV2OcsfDateFilter']] = None,
+                 map_filters: Optional[Sequence['outputs.AutomationRuleV2OcsfMapFilter']] = None,
+                 number_filters: Optional[Sequence['outputs.AutomationRuleV2OcsfNumberFilter']] = None,
+                 operator: Optional['AutomationRuleV2AllowedOperators'] = None,
+                 string_filters: Optional[Sequence['outputs.AutomationRuleV2OcsfStringFilter']] = None):
+        """
+        Enables the creation of filtering criteria for security findings
+        :param Sequence['AutomationRuleV2OcsfBooleanFilter'] boolean_filters: Enables filtering based on boolean field values
+        :param Sequence['AutomationRuleV2OcsfDateFilter'] date_filters: Enables filtering based on date and timestamp fields
+        :param Sequence['AutomationRuleV2OcsfMapFilter'] map_filters: Enables filtering based on map field value
+        :param Sequence['AutomationRuleV2OcsfNumberFilter'] number_filters: Enables filtering based on numerical field values
+        :param Sequence['AutomationRuleV2OcsfStringFilter'] string_filters: Enables filtering based on string field values
+        """
+        if boolean_filters is not None:
+            pulumi.set(__self__, "boolean_filters", boolean_filters)
+        if date_filters is not None:
+            pulumi.set(__self__, "date_filters", date_filters)
+        if map_filters is not None:
+            pulumi.set(__self__, "map_filters", map_filters)
+        if number_filters is not None:
+            pulumi.set(__self__, "number_filters", number_filters)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if string_filters is not None:
+            pulumi.set(__self__, "string_filters", string_filters)
+
+    @property
+    @pulumi.getter(name="booleanFilters")
+    def boolean_filters(self) -> Optional[Sequence['outputs.AutomationRuleV2OcsfBooleanFilter']]:
+        """
+        Enables filtering based on boolean field values
+        """
+        return pulumi.get(self, "boolean_filters")
+
+    @property
+    @pulumi.getter(name="dateFilters")
+    def date_filters(self) -> Optional[Sequence['outputs.AutomationRuleV2OcsfDateFilter']]:
+        """
+        Enables filtering based on date and timestamp fields
+        """
+        return pulumi.get(self, "date_filters")
+
+    @property
+    @pulumi.getter(name="mapFilters")
+    def map_filters(self) -> Optional[Sequence['outputs.AutomationRuleV2OcsfMapFilter']]:
+        """
+        Enables filtering based on map field value
+        """
+        return pulumi.get(self, "map_filters")
+
+    @property
+    @pulumi.getter(name="numberFilters")
+    def number_filters(self) -> Optional[Sequence['outputs.AutomationRuleV2OcsfNumberFilter']]:
+        """
+        Enables filtering based on numerical field values
+        """
+        return pulumi.get(self, "number_filters")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional['AutomationRuleV2AllowedOperators']:
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="stringFilters")
+    def string_filters(self) -> Optional[Sequence['outputs.AutomationRuleV2OcsfStringFilter']]:
+        """
+        Enables filtering based on string field values
+        """
+        return pulumi.get(self, "string_filters")
+
+
+@pulumi.output_type
+class AutomationRuleV2Criteria(dict):
+    """
+    Defines the parameters and conditions used to evaluate and filter security findings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ocsfFindingCriteria":
+            suggest = "ocsf_finding_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2Criteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2Criteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2Criteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ocsf_finding_criteria: Optional['outputs.AutomationRuleV2OcsfFindingFilters'] = None):
+        """
+        Defines the parameters and conditions used to evaluate and filter security findings
+        """
+        if ocsf_finding_criteria is not None:
+            pulumi.set(__self__, "ocsf_finding_criteria", ocsf_finding_criteria)
+
+    @property
+    @pulumi.getter(name="ocsfFindingCriteria")
+    def ocsf_finding_criteria(self) -> Optional['outputs.AutomationRuleV2OcsfFindingFilters']:
+        return pulumi.get(self, "ocsf_finding_criteria")
+
+
+@pulumi.output_type
+class AutomationRuleV2DateFilter(dict):
+    """
+    A date filter for querying findings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateRange":
+            suggest = "date_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2DateFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2DateFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2DateFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date_range: Optional['outputs.AutomationRuleV2DateRange'] = None,
+                 end: Optional[builtins.str] = None,
+                 start: Optional[builtins.str] = None):
+        """
+        A date filter for querying findings
+        """
+        if date_range is not None:
+            pulumi.set(__self__, "date_range", date_range)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> Optional['outputs.AutomationRuleV2DateRange']:
+        return pulumi.get(self, "date_range")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class AutomationRuleV2DateRange(dict):
+    """
+    A date range for the date filter
+    """
+    def __init__(__self__, *,
+                 unit: 'AutomationRuleV2DateRangeUnit',
+                 value: builtins.float):
+        """
+        A date range for the date filter
+        :param 'AutomationRuleV2DateRangeUnit' unit: A date range unit for the date filter
+        :param builtins.float value: A date range value for the date filter
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'AutomationRuleV2DateRangeUnit':
+        """
+        A date range unit for the date filter
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.float:
+        """
+        A date range value for the date filter
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleV2ExternalIntegrationConfiguration(dict):
+    """
+    The settings for integrating automation rule actions with external systems or service
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorArn":
+            suggest = "connector_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2ExternalIntegrationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2ExternalIntegrationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2ExternalIntegrationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_arn: Optional[builtins.str] = None):
+        """
+        The settings for integrating automation rule actions with external systems or service
+        :param builtins.str connector_arn: The ARN of the connector that establishes the integration
+        """
+        if connector_arn is not None:
+            pulumi.set(__self__, "connector_arn", connector_arn)
+
+    @property
+    @pulumi.getter(name="connectorArn")
+    def connector_arn(self) -> Optional[builtins.str]:
+        """
+        The ARN of the connector that establishes the integration
+        """
+        return pulumi.get(self, "connector_arn")
+
+
+@pulumi.output_type
+class AutomationRuleV2MapFilter(dict):
+    """
+    A map filter for filtering findings
+    """
+    def __init__(__self__, *,
+                 comparison: 'AutomationRuleV2MapFilterComparison',
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        A map filter for filtering findings
+        :param 'AutomationRuleV2MapFilterComparison' comparison: The condition to apply to the key value when filtering findings with a map filter
+        :param builtins.str key: The key of the map filter
+        :param builtins.str value: The value for the key in the map filter
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> 'AutomationRuleV2MapFilterComparison':
+        """
+        The condition to apply to the key value when filtering findings with a map filter
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        The key of the map filter
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The value for the key in the map filter
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleV2NumberFilter(dict):
+    """
+    A number filter for querying findings
+    """
+    def __init__(__self__, *,
+                 eq: Optional[builtins.float] = None,
+                 gte: Optional[builtins.float] = None,
+                 lte: Optional[builtins.float] = None):
+        """
+        A number filter for querying findings
+        :param builtins.float eq: The equal-to condition to be applied to a single field when querying for findings
+        :param builtins.float gte: The greater-than-equal condition to be applied to a single field when querying for findings
+        :param builtins.float lte: The less-than-equal condition to be applied to a single field when querying for findings
+        """
+        if eq is not None:
+            pulumi.set(__self__, "eq", eq)
+        if gte is not None:
+            pulumi.set(__self__, "gte", gte)
+        if lte is not None:
+            pulumi.set(__self__, "lte", lte)
+
+    @property
+    @pulumi.getter
+    def eq(self) -> Optional[builtins.float]:
+        """
+        The equal-to condition to be applied to a single field when querying for findings
+        """
+        return pulumi.get(self, "eq")
+
+    @property
+    @pulumi.getter
+    def gte(self) -> Optional[builtins.float]:
+        """
+        The greater-than-equal condition to be applied to a single field when querying for findings
+        """
+        return pulumi.get(self, "gte")
+
+    @property
+    @pulumi.getter
+    def lte(self) -> Optional[builtins.float]:
+        """
+        The less-than-equal condition to be applied to a single field when querying for findings
+        """
+        return pulumi.get(self, "lte")
+
+
+@pulumi.output_type
+class AutomationRuleV2OcsfBooleanFilter(dict):
+    """
+    Enables filtering of security findings based on boolean field values in OCSF
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldName":
+            suggest = "field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2OcsfBooleanFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2OcsfBooleanFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2OcsfBooleanFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_name: 'AutomationRuleV2OcsfBooleanFilterFieldName',
+                 filter: 'outputs.AutomationRuleV2BooleanFilter'):
+        """
+        Enables filtering of security findings based on boolean field values in OCSF
+        :param 'AutomationRuleV2OcsfBooleanFilterFieldName' field_name: The name of the field
+        """
+        pulumi.set(__self__, "field_name", field_name)
+        pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> 'AutomationRuleV2OcsfBooleanFilterFieldName':
+        """
+        The name of the field
+        """
+        return pulumi.get(self, "field_name")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> 'outputs.AutomationRuleV2BooleanFilter':
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class AutomationRuleV2OcsfDateFilter(dict):
+    """
+    Enables filtering of security findings based on date and timestamp fields in OCSF
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldName":
+            suggest = "field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2OcsfDateFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2OcsfDateFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2OcsfDateFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_name: 'AutomationRuleV2OcsfDateFilterFieldName',
+                 filter: 'outputs.AutomationRuleV2DateFilter'):
+        """
+        Enables filtering of security findings based on date and timestamp fields in OCSF
+        :param 'AutomationRuleV2OcsfDateFilterFieldName' field_name: The name of the field
+        """
+        pulumi.set(__self__, "field_name", field_name)
+        pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> 'AutomationRuleV2OcsfDateFilterFieldName':
+        """
+        The name of the field
+        """
+        return pulumi.get(self, "field_name")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> 'outputs.AutomationRuleV2DateFilter':
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class AutomationRuleV2OcsfFindingFilters(dict):
+    """
+    The filtering conditions that align with OCSF standards
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compositeFilters":
+            suggest = "composite_filters"
+        elif key == "compositeOperator":
+            suggest = "composite_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2OcsfFindingFilters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2OcsfFindingFilters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2OcsfFindingFilters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 composite_filters: Optional[Sequence['outputs.AutomationRuleV2CompositeFilter']] = None,
+                 composite_operator: Optional['AutomationRuleV2AllowedOperators'] = None):
+        """
+        The filtering conditions that align with OCSF standards
+        :param Sequence['AutomationRuleV2CompositeFilter'] composite_filters: Enables the creation of complex filtering conditions by combining filter
+        """
+        if composite_filters is not None:
+            pulumi.set(__self__, "composite_filters", composite_filters)
+        if composite_operator is not None:
+            pulumi.set(__self__, "composite_operator", composite_operator)
+
+    @property
+    @pulumi.getter(name="compositeFilters")
+    def composite_filters(self) -> Optional[Sequence['outputs.AutomationRuleV2CompositeFilter']]:
+        """
+        Enables the creation of complex filtering conditions by combining filter
+        """
+        return pulumi.get(self, "composite_filters")
+
+    @property
+    @pulumi.getter(name="compositeOperator")
+    def composite_operator(self) -> Optional['AutomationRuleV2AllowedOperators']:
+        return pulumi.get(self, "composite_operator")
+
+
+@pulumi.output_type
+class AutomationRuleV2OcsfMapFilter(dict):
+    """
+    Enables filtering of security findings based on map field values in OCSF
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldName":
+            suggest = "field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2OcsfMapFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2OcsfMapFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2OcsfMapFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_name: 'AutomationRuleV2OcsfMapFilterFieldName',
+                 filter: 'outputs.AutomationRuleV2MapFilter'):
+        """
+        Enables filtering of security findings based on map field values in OCSF
+        :param 'AutomationRuleV2OcsfMapFilterFieldName' field_name: The name of the field
+        """
+        pulumi.set(__self__, "field_name", field_name)
+        pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> 'AutomationRuleV2OcsfMapFilterFieldName':
+        """
+        The name of the field
+        """
+        return pulumi.get(self, "field_name")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> 'outputs.AutomationRuleV2MapFilter':
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class AutomationRuleV2OcsfNumberFilter(dict):
+    """
+    Enables filtering of security findings based on numerical field values in OCSF
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldName":
+            suggest = "field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2OcsfNumberFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2OcsfNumberFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2OcsfNumberFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_name: 'AutomationRuleV2OcsfNumberFilterFieldName',
+                 filter: 'outputs.AutomationRuleV2NumberFilter'):
+        """
+        Enables filtering of security findings based on numerical field values in OCSF
+        :param 'AutomationRuleV2OcsfNumberFilterFieldName' field_name: The name of the field
+        """
+        pulumi.set(__self__, "field_name", field_name)
+        pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> 'AutomationRuleV2OcsfNumberFilterFieldName':
+        """
+        The name of the field
+        """
+        return pulumi.get(self, "field_name")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> 'outputs.AutomationRuleV2NumberFilter':
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class AutomationRuleV2OcsfStringFilter(dict):
+    """
+    Enables filtering of security findings based on string field values in OCSF
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldName":
+            suggest = "field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2OcsfStringFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2OcsfStringFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2OcsfStringFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_name: 'AutomationRuleV2OcsfStringField',
+                 filter: 'outputs.AutomationRuleV2StringFilter'):
+        """
+        Enables filtering of security findings based on string field values in OCSF
+        """
+        pulumi.set(__self__, "field_name", field_name)
+        pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> 'AutomationRuleV2OcsfStringField':
+        return pulumi.get(self, "field_name")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> 'outputs.AutomationRuleV2StringFilter':
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class AutomationRuleV2StringFilter(dict):
+    """
+    A string filter for filtering findings
+    """
+    def __init__(__self__, *,
+                 comparison: 'AutomationRuleV2StringFilterComparison',
+                 value: builtins.str):
+        """
+        A string filter for filtering findings
+        :param 'AutomationRuleV2StringFilterComparison' comparison: The condition to apply to a string value when filtering findings
+        :param builtins.str value: The string filter value
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> 'AutomationRuleV2StringFilterComparison':
+        """
+        The condition to apply to a string value when filtering findings
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The string filter value
         """
         return pulumi.get(self, "value")
 
@@ -3500,7 +4327,7 @@ class InsightStringFilter(dict):
                - `ResourceType NOT_EQUALS AwsIamPolicy`
                - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
                
-               `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+               `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
         :param builtins.str value: The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
         """
         pulumi.set(__self__, "comparison", comparison)
@@ -3539,7 +4366,7 @@ class InsightStringFilter(dict):
         - `ResourceType NOT_EQUALS AwsIamPolicy`
         - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 
-        `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+        `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
         """
         return pulumi.get(self, "comparison")
 

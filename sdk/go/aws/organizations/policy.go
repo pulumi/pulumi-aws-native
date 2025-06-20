@@ -35,7 +35,7 @@ type Policy struct {
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
 	TargetIds pulumi.StringArrayOutput `pulumi:"targetIds"`
-	// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2
+	// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY
 	Type PolicyTypeOutput `pulumi:"type"`
 }
 
@@ -101,7 +101,7 @@ type policyArgs struct {
 	Tags []aws.Tag `pulumi:"tags"`
 	// List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
 	TargetIds []string `pulumi:"targetIds"`
-	// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2
+	// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY
 	Type PolicyType `pulumi:"type"`
 }
 
@@ -119,7 +119,7 @@ type PolicyArgs struct {
 	Tags aws.TagArrayInput
 	// List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to
 	TargetIds pulumi.StringArrayInput
-	// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2
+	// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY
 	Type PolicyTypeInput
 }
 
@@ -202,7 +202,7 @@ func (o PolicyOutput) TargetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.TargetIds }).(pulumi.StringArrayOutput)
 }
 
-// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2
+// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY
 func (o PolicyOutput) Type() PolicyTypeOutput {
 	return o.ApplyT(func(v *Policy) PolicyTypeOutput { return v.Type }).(PolicyTypeOutput)
 }

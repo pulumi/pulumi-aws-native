@@ -27,6 +27,8 @@ __all__ = [
     'CalculatedAttributeDefinitionRangeArgsDict',
     'CalculatedAttributeDefinitionThresholdArgs',
     'CalculatedAttributeDefinitionThresholdArgsDict',
+    'CalculatedAttributeDefinitionValueRangeArgs',
+    'CalculatedAttributeDefinitionValueRangeArgsDict',
     'DomainAttributeTypesSelectorArgs',
     'DomainAttributeTypesSelectorArgsDict',
     'DomainAutoMergingArgs',
@@ -119,6 +121,8 @@ __all__ = [
     'SegmentDefinitionProfileAttributesArgsDict',
     'SegmentDefinitionProfileDimensionArgs',
     'SegmentDefinitionProfileDimensionArgsDict',
+    'SegmentDefinitionProfileTypeDimensionArgs',
+    'SegmentDefinitionProfileTypeDimensionArgsDict',
     'SegmentDefinitionRangeOverrideArgs',
     'SegmentDefinitionRangeOverrideArgsDict',
     'SegmentDefinitionSegmentGroupArgs',
@@ -296,10 +300,19 @@ if not MYPY:
         """
         The unit of time.
         """
-        value: pulumi.Input[builtins.int]
+        timestamp_format: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+        """
+        timestamp_source: NotRequired[pulumi.Input[builtins.str]]
+        """
+        An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+        """
+        value: NotRequired[pulumi.Input[builtins.int]]
         """
         The amount of time of the specified unit.
         """
+        value_range: NotRequired[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgsDict']]
 elif False:
     CalculatedAttributeDefinitionRangeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -307,14 +320,26 @@ elif False:
 class CalculatedAttributeDefinitionRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input['CalculatedAttributeDefinitionRangeUnit'],
-                 value: pulumi.Input[builtins.int]):
+                 timestamp_format: Optional[pulumi.Input[builtins.str]] = None,
+                 timestamp_source: Optional[pulumi.Input[builtins.str]] = None,
+                 value: Optional[pulumi.Input[builtins.int]] = None,
+                 value_range: Optional[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgs']] = None):
         """
         The relative time period over which data is included in the aggregation.
         :param pulumi.Input['CalculatedAttributeDefinitionRangeUnit'] unit: The unit of time.
+        :param pulumi.Input[builtins.str] timestamp_format: The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+        :param pulumi.Input[builtins.str] timestamp_source: An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
         :param pulumi.Input[builtins.int] value: The amount of time of the specified unit.
         """
         pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if timestamp_source is not None:
+            pulumi.set(__self__, "timestamp_source", timestamp_source)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_range is not None:
+            pulumi.set(__self__, "value_range", value_range)
 
     @property
     @pulumi.getter
@@ -329,16 +354,49 @@ class CalculatedAttributeDefinitionRangeArgs:
         pulumi.set(self, "unit", value)
 
     @property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+        """
+        return pulumi.get(self, "timestamp_format")
+
+    @timestamp_format.setter
+    def timestamp_format(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "timestamp_format", value)
+
+    @property
+    @pulumi.getter(name="timestampSource")
+    def timestamp_source(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+        """
+        return pulumi.get(self, "timestamp_source")
+
+    @timestamp_source.setter
+    def timestamp_source(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "timestamp_source", value)
+
+    @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[builtins.int]:
+    def value(self) -> Optional[pulumi.Input[builtins.int]]:
         """
         The amount of time of the specified unit.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[builtins.int]):
+    def value(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueRange")
+    def value_range(self) -> Optional[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgs']]:
+        return pulumi.get(self, "value_range")
+
+    @value_range.setter
+    def value_range(self, value: Optional[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgs']]):
+        pulumi.set(self, "value_range", value)
 
 
 if not MYPY:
@@ -393,6 +451,60 @@ class CalculatedAttributeDefinitionThresholdArgs:
     @value.setter
     def value(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class CalculatedAttributeDefinitionValueRangeArgsDict(TypedDict):
+        """
+        A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
+        """
+        end: pulumi.Input[builtins.int]
+        """
+        The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+        """
+        start: pulumi.Input[builtins.int]
+        """
+        The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+        """
+elif False:
+    CalculatedAttributeDefinitionValueRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CalculatedAttributeDefinitionValueRangeArgs:
+    def __init__(__self__, *,
+                 end: pulumi.Input[builtins.int],
+                 start: pulumi.Input[builtins.int]):
+        """
+        A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
+        :param pulumi.Input[builtins.int] end: The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+        :param pulumi.Input[builtins.int] start: The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+        """
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> pulumi.Input[builtins.int]:
+        """
+        The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+        """
+        return pulumi.get(self, "end")
+
+    @end.setter
+    def end(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "end", value)
+
+    @property
+    @pulumi.getter
+    def start(self) -> pulumi.Input[builtins.int]:
+        """
+        The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+        """
+        return pulumi.get(self, "start")
+
+    @start.setter
+    def start(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "start", value)
 
 
 if not MYPY:
@@ -3272,6 +3384,7 @@ if not MYPY:
         party_type_string: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
         personal_email_address: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
         phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+        profile_type: NotRequired[pulumi.Input['SegmentDefinitionProfileTypeDimensionArgsDict']]
         shipping_address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
 elif False:
     SegmentDefinitionProfileAttributesArgsDict: TypeAlias = Mapping[str, Any]
@@ -3299,6 +3412,7 @@ class SegmentDefinitionProfileAttributesArgs:
                  party_type_string: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
                  personal_email_address: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
                  phone_number: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
+                 profile_type: Optional[pulumi.Input['SegmentDefinitionProfileTypeDimensionArgs']] = None,
                  shipping_address: Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']] = None):
         """
         Specifies the dimension settings within profile attributes for a segment.
@@ -3343,6 +3457,8 @@ class SegmentDefinitionProfileAttributesArgs:
             pulumi.set(__self__, "personal_email_address", personal_email_address)
         if phone_number is not None:
             pulumi.set(__self__, "phone_number", phone_number)
+        if profile_type is not None:
+            pulumi.set(__self__, "profile_type", profile_type)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
 
@@ -3527,6 +3643,15 @@ class SegmentDefinitionProfileAttributesArgs:
         pulumi.set(self, "phone_number", value)
 
     @property
+    @pulumi.getter(name="profileType")
+    def profile_type(self) -> Optional[pulumi.Input['SegmentDefinitionProfileTypeDimensionArgs']]:
+        return pulumi.get(self, "profile_type")
+
+    @profile_type.setter
+    def profile_type(self, value: Optional[pulumi.Input['SegmentDefinitionProfileTypeDimensionArgs']]):
+        pulumi.set(self, "profile_type", value)
+
+    @property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']]:
         return pulumi.get(self, "shipping_address")
@@ -3577,13 +3702,53 @@ class SegmentDefinitionProfileDimensionArgs:
 
 
 if not MYPY:
+    class SegmentDefinitionProfileTypeDimensionArgsDict(TypedDict):
+        """
+        Specifies profile type based criteria for a segment.
+        """
+        dimension_type: pulumi.Input['SegmentDefinitionProfileTypeDimensionType']
+        values: pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionProfileType']]]
+elif False:
+    SegmentDefinitionProfileTypeDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SegmentDefinitionProfileTypeDimensionArgs:
+    def __init__(__self__, *,
+                 dimension_type: pulumi.Input['SegmentDefinitionProfileTypeDimensionType'],
+                 values: pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionProfileType']]]):
+        """
+        Specifies profile type based criteria for a segment.
+        """
+        pulumi.set(__self__, "dimension_type", dimension_type)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="dimensionType")
+    def dimension_type(self) -> pulumi.Input['SegmentDefinitionProfileTypeDimensionType']:
+        return pulumi.get(self, "dimension_type")
+
+    @dimension_type.setter
+    def dimension_type(self, value: pulumi.Input['SegmentDefinitionProfileTypeDimensionType']):
+        pulumi.set(self, "dimension_type", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionProfileType']]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionProfileType']]]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
     class SegmentDefinitionRangeOverrideArgsDict(TypedDict):
         """
         Defines the range to be applied to the calculated attribute definition.
         """
         start: pulumi.Input[builtins.int]
         """
-        The starting point for this overridden range.
+        The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         """
         unit: pulumi.Input['SegmentDefinitionRangeOverrideUnit']
         """
@@ -3591,7 +3756,7 @@ if not MYPY:
         """
         end: NotRequired[pulumi.Input[builtins.int]]
         """
-        The ending point for this overridden range.
+        The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         """
 elif False:
     SegmentDefinitionRangeOverrideArgsDict: TypeAlias = Mapping[str, Any]
@@ -3604,9 +3769,9 @@ class SegmentDefinitionRangeOverrideArgs:
                  end: Optional[pulumi.Input[builtins.int]] = None):
         """
         Defines the range to be applied to the calculated attribute definition.
-        :param pulumi.Input[builtins.int] start: The starting point for this overridden range.
+        :param pulumi.Input[builtins.int] start: The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         :param pulumi.Input['SegmentDefinitionRangeOverrideUnit'] unit: The unit to be applied to the range.
-        :param pulumi.Input[builtins.int] end: The ending point for this overridden range.
+        :param pulumi.Input[builtins.int] end: The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         """
         pulumi.set(__self__, "start", start)
         pulumi.set(__self__, "unit", unit)
@@ -3617,7 +3782,7 @@ class SegmentDefinitionRangeOverrideArgs:
     @pulumi.getter
     def start(self) -> pulumi.Input[builtins.int]:
         """
-        The starting point for this overridden range.
+        The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         """
         return pulumi.get(self, "start")
 
@@ -3641,7 +3806,7 @@ class SegmentDefinitionRangeOverrideArgs:
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The ending point for this overridden range.
+        The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         """
         return pulumi.get(self, "end")
 

@@ -21,6 +21,11 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("andStatement")]
         public Input<Inputs.RuleGroupAndStatementArgs>? AndStatement { get; set; }
 
+        /// <summary>
+        /// A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
+        /// 
+        /// For additional details, see [ASN match rule statement](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-asn-match.html) in the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+        /// </summary>
         [Input("asnMatchStatement")]
         public Input<Inputs.RuleGroupAsnMatchStatementArgs>? AsnMatchStatement { get; set; }
 

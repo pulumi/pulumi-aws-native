@@ -35,6 +35,10 @@ type ObjectType struct {
 	Keys ObjectTypeKeyMapArrayOutput `pulumi:"keys"`
 	// The time of this integration got last updated at.
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
+	// The maximum available number of profile objects
+	MaxAvailableProfileObjectCount pulumi.IntOutput `pulumi:"maxAvailableProfileObjectCount"`
+	// The maximum number of profile objects for this object type
+	MaxProfileObjectCount pulumi.IntPtrOutput `pulumi:"maxProfileObjectCount"`
 	// The name of the profile object type.
 	ObjectTypeName pulumi.StringOutput `pulumi:"objectTypeName"`
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
@@ -110,6 +114,8 @@ type objectTypeArgs struct {
 	Fields []ObjectTypeFieldMap `pulumi:"fields"`
 	// A list of unique keys that can be used to map data to the profile.
 	Keys []ObjectTypeKeyMap `pulumi:"keys"`
+	// The maximum number of profile objects for this object type
+	MaxProfileObjectCount *int `pulumi:"maxProfileObjectCount"`
 	// The name of the profile object type.
 	ObjectTypeName *string `pulumi:"objectTypeName"`
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
@@ -136,6 +142,8 @@ type ObjectTypeArgs struct {
 	Fields ObjectTypeFieldMapArrayInput
 	// A list of unique keys that can be used to map data to the profile.
 	Keys ObjectTypeKeyMapArrayInput
+	// The maximum number of profile objects for this object type
+	MaxProfileObjectCount pulumi.IntPtrInput
 	// The name of the profile object type.
 	ObjectTypeName pulumi.StringPtrInput
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
@@ -226,6 +234,16 @@ func (o ObjectTypeOutput) Keys() ObjectTypeKeyMapArrayOutput {
 // The time of this integration got last updated at.
 func (o ObjectTypeOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectType) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
+}
+
+// The maximum available number of profile objects
+func (o ObjectTypeOutput) MaxAvailableProfileObjectCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.IntOutput { return v.MaxAvailableProfileObjectCount }).(pulumi.IntOutput)
+}
+
+// The maximum number of profile objects for this object type
+func (o ObjectTypeOutput) MaxProfileObjectCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.IntPtrOutput { return v.MaxProfileObjectCount }).(pulumi.IntPtrOutput)
 }
 
 // The name of the profile object type.

@@ -18,6 +18,17 @@ export const NamespaceStatus = {
 
 export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceStatus];
 
+export const SnapshotStatus = {
+    Available: "AVAILABLE",
+    Creating: "CREATING",
+    Deleted: "DELETED",
+    Cancelled: "CANCELLED",
+    Failed: "FAILED",
+    Copying: "COPYING",
+} as const;
+
+export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus];
+
 export const WorkgroupPerformanceTargetStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

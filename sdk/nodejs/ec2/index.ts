@@ -335,6 +335,11 @@ export const getSubnetRouteTableAssociation: typeof import("./getSubnetRouteTabl
 export const getSubnetRouteTableAssociationOutput: typeof import("./getSubnetRouteTableAssociation").getSubnetRouteTableAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getSubnetRouteTableAssociation","getSubnetRouteTableAssociationOutput"], () => require("./getSubnetRouteTableAssociation"));
 
+export { GetTrafficMirrorFilterArgs, GetTrafficMirrorFilterResult, GetTrafficMirrorFilterOutputArgs } from "./getTrafficMirrorFilter";
+export const getTrafficMirrorFilter: typeof import("./getTrafficMirrorFilter").getTrafficMirrorFilter = null as any;
+export const getTrafficMirrorFilterOutput: typeof import("./getTrafficMirrorFilter").getTrafficMirrorFilterOutput = null as any;
+utilities.lazyLoad(exports, ["getTrafficMirrorFilter","getTrafficMirrorFilterOutput"], () => require("./getTrafficMirrorFilter"));
+
 export { GetTransitGatewayArgs, GetTransitGatewayResult, GetTransitGatewayOutputArgs } from "./getTransitGateway";
 export const getTransitGateway: typeof import("./getTransitGateway").getTransitGateway = null as any;
 export const getTransitGatewayOutput: typeof import("./getTransitGateway").getTransitGatewayOutput = null as any;
@@ -695,6 +700,11 @@ export type SubnetRouteTableAssociation = import("./subnetRouteTableAssociation"
 export const SubnetRouteTableAssociation: typeof import("./subnetRouteTableAssociation").SubnetRouteTableAssociation = null as any;
 utilities.lazyLoad(exports, ["SubnetRouteTableAssociation"], () => require("./subnetRouteTableAssociation"));
 
+export { TrafficMirrorFilterArgs } from "./trafficMirrorFilter";
+export type TrafficMirrorFilter = import("./trafficMirrorFilter").TrafficMirrorFilter;
+export const TrafficMirrorFilter: typeof import("./trafficMirrorFilter").TrafficMirrorFilter = null as any;
+utilities.lazyLoad(exports, ["TrafficMirrorFilter"], () => require("./trafficMirrorFilter"));
+
 export { TransitGatewayArgs } from "./transitGateway";
 export type TransitGateway = import("./transitGateway").TransitGateway;
 export const TransitGateway: typeof import("./transitGateway").TransitGateway = null as any;
@@ -982,6 +992,8 @@ const _module = {
                 return new SubnetNetworkAclAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:SubnetRouteTableAssociation":
                 return new SubnetRouteTableAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:TrafficMirrorFilter":
+                return new TrafficMirrorFilter(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGateway":
                 return new TransitGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayAttachment":

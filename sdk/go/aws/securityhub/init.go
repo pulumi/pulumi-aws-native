@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:securityhub:AggregatorV2":
+		r = &AggregatorV2{}
 	case "aws-native:securityhub:AutomationRule":
 		r = &AutomationRule{}
+	case "aws-native:securityhub:AutomationRuleV2":
+		r = &AutomationRuleV2{}
 	case "aws-native:securityhub:ConfigurationPolicy":
 		r = &ConfigurationPolicy{}
 	case "aws-native:securityhub:DelegatedAdmin":
@@ -31,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FindingAggregator{}
 	case "aws-native:securityhub:Hub":
 		r = &Hub{}
+	case "aws-native:securityhub:HubV2":
+		r = &HubV2{}
 	case "aws-native:securityhub:Insight":
 		r = &Insight{}
 	case "aws-native:securityhub:OrganizationConfiguration":

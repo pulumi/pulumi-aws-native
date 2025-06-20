@@ -69,14 +69,23 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
      * The timestamp of when the calculated attribute definition was most recently edited.
      */
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    public /*out*/ readonly readiness!: pulumi.Output<outputs.customerprofiles.CalculatedAttributeDefinitionReadiness>;
     /**
      * The aggregation operation to perform for the calculated attribute.
      */
     public readonly statistic!: pulumi.Output<enums.customerprofiles.CalculatedAttributeDefinitionStatistic>;
     /**
+     * The status of the calculated attribute definition.
+     */
+    public /*out*/ readonly status!: pulumi.Output<enums.customerprofiles.CalculatedAttributeDefinitionStatus>;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Whether to use historical data for the calculated attribute.
+     */
+    public readonly useHistoricalData!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a CalculatedAttributeDefinition resource with the given unique name, arguments, and options.
@@ -109,8 +118,11 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["statistic"] = args ? args.statistic : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["useHistoricalData"] = args ? args.useHistoricalData : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["readiness"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["attributeDetails"] = undefined /*out*/;
             resourceInputs["calculatedAttributeName"] = undefined /*out*/;
@@ -120,11 +132,14 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["readiness"] = undefined /*out*/;
             resourceInputs["statistic"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["useHistoricalData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["calculatedAttributeName", "domainName"] };
+        const replaceOnChanges = { replaceOnChanges: ["calculatedAttributeName", "conditions.range.timestampFormat", "conditions.range.timestampSource", "domainName", "useHistoricalData"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CalculatedAttributeDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -166,4 +181,8 @@ export interface CalculatedAttributeDefinitionArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Whether to use historical data for the calculated attribute.
+     */
+    useHistoricalData?: pulumi.Input<boolean>;
 }

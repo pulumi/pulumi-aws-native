@@ -99,10 +99,15 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The timestamp of when the calculated attribute definition was most recently edited.
         /// </summary>
         public readonly string? LastUpdatedAt;
+        public readonly Outputs.CalculatedAttributeDefinitionReadiness? Readiness;
         /// <summary>
         /// The aggregation operation to perform for the calculated attribute.
         /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatistic? Statistic;
+        /// <summary>
+        /// The status of the calculated attribute definition.
+        /// </summary>
+        public readonly Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatus? Status;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -122,7 +127,11 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             string? lastUpdatedAt,
 
+            Outputs.CalculatedAttributeDefinitionReadiness? readiness,
+
             Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatistic? statistic,
+
+            Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionStatus? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
@@ -132,7 +141,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
             Description = description;
             DisplayName = displayName;
             LastUpdatedAt = lastUpdatedAt;
+            Readiness = readiness;
             Statistic = statistic;
+            Status = status;
             Tags = tags;
         }
     }

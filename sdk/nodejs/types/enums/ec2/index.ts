@@ -898,6 +898,15 @@ export const SpotFleetTagSpecificationResourceType = {
  */
 export type SpotFleetTagSpecificationResourceType = (typeof SpotFleetTagSpecificationResourceType)[keyof typeof SpotFleetTagSpecificationResourceType];
 
+export const TrafficMirrorFilterTrafficMirrorNetworkService = {
+    AmazonDns: "amazon-dns",
+} as const;
+
+/**
+ * The network service traffic that is associated with the traffic mirror filter.
+ */
+export type TrafficMirrorFilterTrafficMirrorNetworkService = (typeof TrafficMirrorFilterTrafficMirrorNetworkService)[keyof typeof TrafficMirrorFilterTrafficMirrorNetworkService];
+
 export const VpcBlockPublicAccessExclusionInternetGatewayExclusionMode = {
     AllowBidirectional: "allow-bidirectional",
     AllowEgress: "allow-egress",

@@ -108,6 +108,14 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public readonly string? LastUpdatedAt;
         /// <summary>
+        /// The maximum available number of profile objects
+        /// </summary>
+        public readonly int? MaxAvailableProfileObjectCount;
+        /// <summary>
+        /// The maximum number of profile objects for this object type
+        /// </summary>
+        public readonly int? MaxProfileObjectCount;
+        /// <summary>
         /// The format of your sourceLastUpdatedTimestamp that was previously set up.
         /// </summary>
         public readonly string? SourceLastUpdatedTimestampFormat;
@@ -138,6 +146,10 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             string? lastUpdatedAt,
 
+            int? maxAvailableProfileObjectCount,
+
+            int? maxProfileObjectCount,
+
             string? sourceLastUpdatedTimestampFormat,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -152,6 +164,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
             Fields = fields;
             Keys = keys;
             LastUpdatedAt = lastUpdatedAt;
+            MaxAvailableProfileObjectCount = maxAvailableProfileObjectCount;
+            MaxProfileObjectCount = maxProfileObjectCount;
             SourceLastUpdatedTimestampFormat = sourceLastUpdatedTimestampFormat;
             Tags = tags;
             TemplateId = templateId;

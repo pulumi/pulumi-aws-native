@@ -13,13 +13,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingSchemaRegistryAccessConfig
     {
-        /// <summary>
-        /// The type of authentication Lambda uses to access your schema registry.
-        /// </summary>
         public readonly Pulumi.AwsNative.Lambda.EventSourceMappingSchemaRegistryAccessConfigType? Type;
-        /// <summary>
-        /// The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
-        /// </summary>
         public readonly string? Uri;
 
         [OutputConstructor]

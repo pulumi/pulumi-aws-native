@@ -62,7 +62,7 @@ export class Collaboration extends pulumi.CustomResource {
      *
      * *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
      */
-    public readonly creatorMemberAbilities!: pulumi.Output<enums.cleanrooms.CollaborationMemberAbility[]>;
+    public readonly creatorMemberAbilities!: pulumi.Output<enums.cleanrooms.CollaborationMemberAbility[] | undefined>;
     /**
      * The ML member abilities for a collaboration member.
      */
@@ -88,7 +88,7 @@ export class Collaboration extends pulumi.CustomResource {
     /**
      * A list of initial members, not including the creator. This list is immutable.
      */
-    public readonly members!: pulumi.Output<outputs.cleanrooms.CollaborationMemberSpecification[]>;
+    public readonly members!: pulumi.Output<outputs.cleanrooms.CollaborationMemberSpecification[] | undefined>;
     /**
      * A human-readable identifier provided by the collaboration owner. Display names are not unique.
      */
@@ -118,14 +118,8 @@ export class Collaboration extends pulumi.CustomResource {
             if ((!args || args.creatorDisplayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'creatorDisplayName'");
             }
-            if ((!args || args.creatorMemberAbilities === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'creatorMemberAbilities'");
-            }
             if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
-            }
-            if ((!args || args.members === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'members'");
             }
             if ((!args || args.queryLogStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryLogStatus'");
@@ -184,7 +178,7 @@ export interface CollaborationArgs {
      *
      * *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
      */
-    creatorMemberAbilities: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationMemberAbility>[]>;
+    creatorMemberAbilities?: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationMemberAbility>[]>;
     /**
      * The ML member abilities for a collaboration member.
      */
@@ -210,7 +204,7 @@ export interface CollaborationArgs {
     /**
      * A list of initial members, not including the creator. This list is immutable.
      */
-    members: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMemberSpecificationArgs>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMemberSpecificationArgs>[]>;
     /**
      * A human-readable identifier provided by the collaboration owner. Display names are not unique.
      */

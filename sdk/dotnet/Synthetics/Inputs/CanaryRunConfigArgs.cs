@@ -31,6 +31,12 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         }
 
         /// <summary>
+        /// Provide ephemeralStorage available for canary in MB
+        /// </summary>
+        [Input("ephemeralStorage")]
+        public Input<int>? EphemeralStorage { get; set; }
+
+        /// <summary>
         /// Provide maximum memory available for canary in MB
         /// </summary>
         [Input("memoryInMb")]

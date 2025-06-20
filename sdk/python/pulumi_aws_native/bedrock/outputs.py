@@ -258,6 +258,7 @@ __all__ = [
     'GuardrailContentPolicyConfig',
     'GuardrailContextualGroundingFilterConfig',
     'GuardrailContextualGroundingPolicyConfig',
+    'GuardrailCrossRegionConfig',
     'GuardrailManagedWordsConfig',
     'GuardrailPiiEntityConfig',
     'GuardrailRegexConfig',
@@ -9927,6 +9928,45 @@ class GuardrailContextualGroundingPolicyConfig(dict):
         List of contextual grounding filter configs.
         """
         return pulumi.get(self, "filters_config")
+
+
+@pulumi.output_type
+class GuardrailCrossRegionConfig(dict):
+    """
+    The system-defined guardrail profile that you’re using with your guardrail
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "guardrailProfileArn":
+            suggest = "guardrail_profile_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailCrossRegionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailCrossRegionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailCrossRegionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 guardrail_profile_arn: builtins.str):
+        """
+        The system-defined guardrail profile that you’re using with your guardrail
+        :param builtins.str guardrail_profile_arn: The Amazon Resource Name (ARN) of the guardrail profile
+        """
+        pulumi.set(__self__, "guardrail_profile_arn", guardrail_profile_arn)
+
+    @property
+    @pulumi.getter(name="guardrailProfileArn")
+    def guardrail_profile_arn(self) -> builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the guardrail profile
+        """
+        return pulumi.get(self, "guardrail_profile_arn")
 
 
 @pulumi.output_type

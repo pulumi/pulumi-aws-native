@@ -47,6 +47,8 @@ type LookupPlaybackConfigurationResult struct {
 	HlsConfiguration *PlaybackConfigurationHlsConfiguration `pulumi:"hlsConfiguration"`
 	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration *PlaybackConfigurationLivePreRollConfiguration `pulumi:"livePreRollConfiguration"`
+	// The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+	LogConfiguration *PlaybackConfigurationLogConfiguration `pulumi:"logConfiguration"`
 	// The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
 	ManifestProcessingRules *PlaybackConfigurationManifestProcessingRules `pulumi:"manifestProcessingRules"`
 	// Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
@@ -154,6 +156,13 @@ func (o LookupPlaybackConfigurationResultOutput) LivePreRollConfiguration() Play
 	return o.ApplyT(func(v LookupPlaybackConfigurationResult) *PlaybackConfigurationLivePreRollConfiguration {
 		return v.LivePreRollConfiguration
 	}).(PlaybackConfigurationLivePreRollConfigurationPtrOutput)
+}
+
+// The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+func (o LookupPlaybackConfigurationResultOutput) LogConfiguration() PlaybackConfigurationLogConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupPlaybackConfigurationResult) *PlaybackConfigurationLogConfiguration {
+		return v.LogConfiguration
+	}).(PlaybackConfigurationLogConfigurationPtrOutput)
 }
 
 // The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.

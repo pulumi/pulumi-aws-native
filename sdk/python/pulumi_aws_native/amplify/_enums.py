@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'AppAutoBranchCreationConfigStage',
     'AppCacheConfigType',
+    'AppJobConfigBuildComputeType',
     'AppPlatform',
     'BranchStage',
     'DomainCertificateCertificateType',
@@ -39,6 +40,28 @@ class AppCacheConfigType(builtins.str, Enum):
     """
     AMPLIFY_MANAGED = "AMPLIFY_MANAGED"
     AMPLIFY_MANAGED_NO_COOKIES = "AMPLIFY_MANAGED_NO_COOKIES"
+
+
+@pulumi.type_token("aws-native:amplify:AppJobConfigBuildComputeType")
+class AppJobConfigBuildComputeType(builtins.str, Enum):
+    """
+    Specifies the size of the build instance. Amplify supports three instance sizes: `STANDARD_8GB` , `LARGE_16GB` , and `XLARGE_72GB` . If you don't specify a value, Amplify uses the `STANDARD_8GB` default.
+
+    The following list describes the CPU, memory, and storage capacity for each build instance type:
+
+    - **STANDARD_8GB** - - vCPUs: 4
+    - Memory: 8 GiB
+    - Disk space: 128 GB
+    - **LARGE_16GB** - - vCPUs: 8
+    - Memory: 16 GiB
+    - Disk space: 128 GB
+    - **XLARGE_72GB** - - vCPUs: 36
+    - Memory: 72 GiB
+    - Disk space: 256 GB
+    """
+    STANDARD8GB = "STANDARD_8GB"
+    LARGE16GB = "LARGE_16GB"
+    XLARGE72GB = "XLARGE_72GB"
 
 
 @pulumi.type_token("aws-native:amplify:AppPlatform")

@@ -350,6 +350,172 @@ func (in *campaignDayOfWeekPtr) ToCampaignDayOfWeekPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(CampaignDayOfWeekPtrOutput)
 }
 
+// Enumeration of Instance Limits handling in a Campaign
+type CampaignInstanceLimitsHandling string
+
+const (
+	CampaignInstanceLimitsHandlingOptIn  = CampaignInstanceLimitsHandling("OPT_IN")
+	CampaignInstanceLimitsHandlingOptOut = CampaignInstanceLimitsHandling("OPT_OUT")
+)
+
+func (CampaignInstanceLimitsHandling) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignInstanceLimitsHandling)(nil)).Elem()
+}
+
+func (e CampaignInstanceLimitsHandling) ToCampaignInstanceLimitsHandlingOutput() CampaignInstanceLimitsHandlingOutput {
+	return pulumi.ToOutput(e).(CampaignInstanceLimitsHandlingOutput)
+}
+
+func (e CampaignInstanceLimitsHandling) ToCampaignInstanceLimitsHandlingOutputWithContext(ctx context.Context) CampaignInstanceLimitsHandlingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CampaignInstanceLimitsHandlingOutput)
+}
+
+func (e CampaignInstanceLimitsHandling) ToCampaignInstanceLimitsHandlingPtrOutput() CampaignInstanceLimitsHandlingPtrOutput {
+	return e.ToCampaignInstanceLimitsHandlingPtrOutputWithContext(context.Background())
+}
+
+func (e CampaignInstanceLimitsHandling) ToCampaignInstanceLimitsHandlingPtrOutputWithContext(ctx context.Context) CampaignInstanceLimitsHandlingPtrOutput {
+	return CampaignInstanceLimitsHandling(e).ToCampaignInstanceLimitsHandlingOutputWithContext(ctx).ToCampaignInstanceLimitsHandlingPtrOutputWithContext(ctx)
+}
+
+func (e CampaignInstanceLimitsHandling) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CampaignInstanceLimitsHandling) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CampaignInstanceLimitsHandling) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CampaignInstanceLimitsHandling) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CampaignInstanceLimitsHandlingOutput struct{ *pulumi.OutputState }
+
+func (CampaignInstanceLimitsHandlingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignInstanceLimitsHandling)(nil)).Elem()
+}
+
+func (o CampaignInstanceLimitsHandlingOutput) ToCampaignInstanceLimitsHandlingOutput() CampaignInstanceLimitsHandlingOutput {
+	return o
+}
+
+func (o CampaignInstanceLimitsHandlingOutput) ToCampaignInstanceLimitsHandlingOutputWithContext(ctx context.Context) CampaignInstanceLimitsHandlingOutput {
+	return o
+}
+
+func (o CampaignInstanceLimitsHandlingOutput) ToCampaignInstanceLimitsHandlingPtrOutput() CampaignInstanceLimitsHandlingPtrOutput {
+	return o.ToCampaignInstanceLimitsHandlingPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignInstanceLimitsHandlingOutput) ToCampaignInstanceLimitsHandlingPtrOutputWithContext(ctx context.Context) CampaignInstanceLimitsHandlingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignInstanceLimitsHandling) *CampaignInstanceLimitsHandling {
+		return &v
+	}).(CampaignInstanceLimitsHandlingPtrOutput)
+}
+
+func (o CampaignInstanceLimitsHandlingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CampaignInstanceLimitsHandlingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CampaignInstanceLimitsHandling) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CampaignInstanceLimitsHandlingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignInstanceLimitsHandlingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CampaignInstanceLimitsHandling) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignInstanceLimitsHandlingPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignInstanceLimitsHandlingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignInstanceLimitsHandling)(nil)).Elem()
+}
+
+func (o CampaignInstanceLimitsHandlingPtrOutput) ToCampaignInstanceLimitsHandlingPtrOutput() CampaignInstanceLimitsHandlingPtrOutput {
+	return o
+}
+
+func (o CampaignInstanceLimitsHandlingPtrOutput) ToCampaignInstanceLimitsHandlingPtrOutputWithContext(ctx context.Context) CampaignInstanceLimitsHandlingPtrOutput {
+	return o
+}
+
+func (o CampaignInstanceLimitsHandlingPtrOutput) Elem() CampaignInstanceLimitsHandlingOutput {
+	return o.ApplyT(func(v *CampaignInstanceLimitsHandling) CampaignInstanceLimitsHandling {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignInstanceLimitsHandling
+		return ret
+	}).(CampaignInstanceLimitsHandlingOutput)
+}
+
+func (o CampaignInstanceLimitsHandlingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignInstanceLimitsHandlingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CampaignInstanceLimitsHandling) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CampaignInstanceLimitsHandlingInput is an input type that accepts values of the CampaignInstanceLimitsHandling enum
+// A concrete instance of `CampaignInstanceLimitsHandlingInput` can be one of the following:
+//
+//	CampaignInstanceLimitsHandlingOptIn
+//	CampaignInstanceLimitsHandlingOptOut
+type CampaignInstanceLimitsHandlingInput interface {
+	pulumi.Input
+
+	ToCampaignInstanceLimitsHandlingOutput() CampaignInstanceLimitsHandlingOutput
+	ToCampaignInstanceLimitsHandlingOutputWithContext(context.Context) CampaignInstanceLimitsHandlingOutput
+}
+
+var campaignInstanceLimitsHandlingPtrType = reflect.TypeOf((**CampaignInstanceLimitsHandling)(nil)).Elem()
+
+type CampaignInstanceLimitsHandlingPtrInput interface {
+	pulumi.Input
+
+	ToCampaignInstanceLimitsHandlingPtrOutput() CampaignInstanceLimitsHandlingPtrOutput
+	ToCampaignInstanceLimitsHandlingPtrOutputWithContext(context.Context) CampaignInstanceLimitsHandlingPtrOutput
+}
+
+type campaignInstanceLimitsHandlingPtr string
+
+func CampaignInstanceLimitsHandlingPtr(v string) CampaignInstanceLimitsHandlingPtrInput {
+	return (*campaignInstanceLimitsHandlingPtr)(&v)
+}
+
+func (*campaignInstanceLimitsHandlingPtr) ElementType() reflect.Type {
+	return campaignInstanceLimitsHandlingPtrType
+}
+
+func (in *campaignInstanceLimitsHandlingPtr) ToCampaignInstanceLimitsHandlingPtrOutput() CampaignInstanceLimitsHandlingPtrOutput {
+	return pulumi.ToOutput(in).(CampaignInstanceLimitsHandlingPtrOutput)
+}
+
+func (in *campaignInstanceLimitsHandlingPtr) ToCampaignInstanceLimitsHandlingPtrOutputWithContext(ctx context.Context) CampaignInstanceLimitsHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CampaignInstanceLimitsHandlingPtrOutput)
+}
+
 // Local TimeZone Detection method
 type CampaignLocalTimeZoneDetectionType string
 
@@ -566,6 +732,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCommunicationLimitTimeUnitPtrInput)(nil)).Elem(), CampaignCommunicationLimitTimeUnit("DAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDayOfWeekInput)(nil)).Elem(), CampaignDayOfWeek("MONDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDayOfWeekPtrInput)(nil)).Elem(), CampaignDayOfWeek("MONDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignInstanceLimitsHandlingInput)(nil)).Elem(), CampaignInstanceLimitsHandling("OPT_IN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignInstanceLimitsHandlingPtrInput)(nil)).Elem(), CampaignInstanceLimitsHandling("OPT_IN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneDetectionTypeInput)(nil)).Elem(), CampaignLocalTimeZoneDetectionType("ZIP_CODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneDetectionTypePtrInput)(nil)).Elem(), CampaignLocalTimeZoneDetectionType("ZIP_CODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneDetectionTypeArrayInput)(nil)).Elem(), CampaignLocalTimeZoneDetectionTypeArray{})
@@ -573,6 +741,8 @@ func init() {
 	pulumi.RegisterOutputType(CampaignCommunicationLimitTimeUnitPtrOutput{})
 	pulumi.RegisterOutputType(CampaignDayOfWeekOutput{})
 	pulumi.RegisterOutputType(CampaignDayOfWeekPtrOutput{})
+	pulumi.RegisterOutputType(CampaignInstanceLimitsHandlingOutput{})
+	pulumi.RegisterOutputType(CampaignInstanceLimitsHandlingPtrOutput{})
 	pulumi.RegisterOutputType(CampaignLocalTimeZoneDetectionTypeOutput{})
 	pulumi.RegisterOutputType(CampaignLocalTimeZoneDetectionTypePtrOutput{})
 	pulumi.RegisterOutputType(CampaignLocalTimeZoneDetectionTypeArrayOutput{})
