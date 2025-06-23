@@ -2,6 +2,7 @@ AWS::ACMPCA::Certificate
 AWS::ACMPCA::CertificateAuthority
 AWS::ACMPCA::CertificateAuthorityActivation
 AWS::ACMPCA::Permission
+AWS::AIOps::InvestigationGroup
 AWS::APS::RuleGroupsNamespace
 AWS::APS::Scraper
 AWS::APS::Workspace

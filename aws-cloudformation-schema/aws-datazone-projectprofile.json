@@ -7,13 +7,13 @@
   },
   "handlers" : {
     "read" : {
-      "permissions" : [ "datazone:GetProjectProfile" ]
+      "permissions" : [ "datazone:GetProjectProfile", "ssm:GetParameter" ]
     },
     "create" : {
-      "permissions" : [ "datazone:CreateProjectProfile", "datazone:GetProjectProfile" ]
+      "permissions" : [ "datazone:CreateProjectProfile", "datazone:GetProjectProfile", "ssm:GetParameter" ]
     },
     "update" : {
-      "permissions" : [ "datazone:UpdateProjectProfile", "datazone:GetProjectProfile" ]
+      "permissions" : [ "datazone:UpdateProjectProfile", "datazone:GetProjectProfile", "ssm:GetParameter" ]
     },
     "list" : {
       "permissions" : [ "datazone:ListProjectProfiles" ]
@@ -23,7 +23,7 @@
     }
   },
   "typeName" : "AWS::DataZone::ProjectProfile",
-  "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/CreatedBy", "/properties/DomainId", "/properties/DomainUnitId", "/properties/Id", "/properties/Identifier", "/properties/LastUpdatedAt" ],
+  "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/CreatedBy", "/properties/DomainId", "/properties/DomainUnitId", "/properties/Id", "/properties/Identifier", "/properties/LastUpdatedAt", "/properties/EnvironmentConfigurations/*/Id", "/properties/EnvironmentConfigurations/*/ConfigurationParameters/ResolvedParameters" ],
   "description" : "Definition of AWS::DataZone::ProjectProfile Resource Type",
   "writeOnlyProperties" : [ "/properties/DomainUnitIdentifier" ],
   "createOnlyProperties" : [ "/properties/DomainIdentifier" ],
@@ -65,11 +65,6 @@
           "items" : {
             "$ref" : "#/definitions/EnvironmentConfigurationParameter"
           }
-        },
-        "SsmPath" : {
-          "minLength" : 1,
-          "type" : "string",
-          "maxLength" : 2048
         }
       }
     },
@@ -210,6 +205,12 @@
       "pattern" : "^[\\w -]+$",
       "type" : "string",
       "maxLength" : 64
+    },
+    "EnvironmentConfigurations" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/EnvironmentConfiguration"
+      }
     },
     "DomainId" : {
       "pattern" : "^dzd[_][a-zA-Z0-9_-]{1,36}$",
