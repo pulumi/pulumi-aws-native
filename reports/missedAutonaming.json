@@ -1329,7 +1329,7 @@
       },
       "resourceIdentifier": {
         "type": "string",
-        "description": "The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.\n\nAt this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off."
+        "description": "The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.\n\nAt this time, supported resources are Network Load Balancers and Application Load Balancers."
       },
       "zonalAutoshiftStatus": {
         "$ref": "#/types/aws-native:arczonalshift:ZonalAutoshiftConfigurationZonalAutoshiftStatus",
@@ -3897,6 +3897,10 @@
       "deletionProtectionEnabled": {
         "type": "boolean",
         "description": "Whether deletion protection is enabled in this cluster."
+      },
+      "kmsEncryptionKey": {
+        "type": "string",
+        "description": "The KMS key that encrypts data on the cluster."
       },
       "multiRegionProperties": {
         "$ref": "#/types/aws-native:dsql:MultiRegionPropertiesProperties",
@@ -12873,6 +12877,22 @@
       }
     }
   },
+  "aws-native:s3tables:Namespace": {
+    "cfTypeName": "AWS::S3Tables::Namespace",
+    "properties": {
+      "namespace": {
+        "type": "string",
+        "language": {
+          "csharp": {
+            "name": "NamespaceValue"
+          }
+        }
+      },
+      "tableBucketArn": {
+        "type": "string"
+      }
+    }
+  },
   "aws-native:s3tables:TableBucketPolicy": {
     "cfTypeName": "AWS::S3Tables::TableBucketPolicy",
     "properties": {
@@ -13036,7 +13056,8 @@
         "type": "object",
         "additionalProperties": {
           "type": "string"
-        }
+        },
+        "description": "A list of key-value pairs to be applied to the AggregatorV2."
       }
     }
   },
@@ -13051,7 +13072,8 @@
         "description": "A list of actions to be performed when the rule criteria is met"
       },
       "criteria": {
-        "$ref": "#/types/aws-native:securityhub:AutomationRuleV2Criteria"
+        "$ref": "#/types/aws-native:securityhub:AutomationRuleV2Criteria",
+        "description": "The filtering type and configuration of the automation rule."
       },
       "description": {
         "type": "string",
@@ -13073,7 +13095,8 @@
         "type": "object",
         "additionalProperties": {
           "type": "string"
-        }
+        },
+        "description": "A list of key-value pairs associated with the V2 automation rule."
       }
     }
   },
@@ -13133,7 +13156,8 @@
         "type": "object",
         "additionalProperties": {
           "type": "string"
-        }
+        },
+        "description": "The tags to add to the hub V2 resource when you enable Security Hub."
       }
     }
   },
