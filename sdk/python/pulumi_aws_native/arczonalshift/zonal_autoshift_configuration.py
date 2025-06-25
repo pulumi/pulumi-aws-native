@@ -35,7 +35,7 @@ class ZonalAutoshiftConfigurationArgs:
                You can update or delete a practice run configuration. Before you delete a practice run configuration, you must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled.
         :param pulumi.Input[builtins.str] resource_identifier: The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
                
-               At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+               At this time, supported resources are Network Load Balancers and Application Load Balancers.
         :param pulumi.Input['ZonalAutoshiftConfigurationZonalAutoshiftStatus'] zonal_autoshift_status: When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
         """
         if practice_run_configuration is not None:
@@ -67,7 +67,7 @@ class ZonalAutoshiftConfigurationArgs:
         """
         The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
 
-        At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+        At this time, supported resources are Network Load Balancers and Application Load Balancers.
         """
         return pulumi.get(self, "resource_identifier")
 
@@ -110,7 +110,7 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
                You can update or delete a practice run configuration. Before you delete a practice run configuration, you must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled.
         :param pulumi.Input[builtins.str] resource_identifier: The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
                
-               At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+               At this time, supported resources are Network Load Balancers and Application Load Balancers.
         :param pulumi.Input['ZonalAutoshiftConfigurationZonalAutoshiftStatus'] zonal_autoshift_status: When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
         """
         ...
@@ -199,7 +199,7 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
         """
         The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
 
-        At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+        At this time, supported resources are Network Load Balancers and Application Load Balancers.
         """
         return pulumi.get(self, "resource_identifier")
 

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:s3tables:Namespace":
+		r = &Namespace{}
 	case "aws-native:s3tables:TableBucket":
 		r = &TableBucket{}
 	case "aws-native:s3tables:TableBucketPolicy":

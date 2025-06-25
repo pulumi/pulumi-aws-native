@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.DataZone
         /// The domain unit ID of the project profile.
         /// </summary>
         public readonly string? DomainUnitId;
+        public readonly ImmutableArray<Outputs.ProjectProfileEnvironmentConfiguration> EnvironmentConfigurations;
         /// <summary>
         /// The ID of the project profile.
         /// </summary>
@@ -113,6 +114,8 @@ namespace Pulumi.AwsNative.DataZone
 
             string? domainUnitId,
 
+            ImmutableArray<Outputs.ProjectProfileEnvironmentConfiguration> environmentConfigurations,
+
             string? id,
 
             string? identifier,
@@ -128,6 +131,7 @@ namespace Pulumi.AwsNative.DataZone
             Description = description;
             DomainId = domainId;
             DomainUnitId = domainUnitId;
+            EnvironmentConfigurations = environmentConfigurations;
             Id = id;
             Identifier = identifier;
             LastUpdatedAt = lastUpdatedAt;

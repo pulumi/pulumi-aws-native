@@ -16,8 +16,77 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'EncryptionDetailsProperties',
     'MultiRegionPropertiesProperties',
 ]
+
+@pulumi.output_type
+class EncryptionDetailsProperties(dict):
+    """
+    The encryption configuration details for the cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionStatus":
+            suggest = "encryption_status"
+        elif key == "encryptionType":
+            suggest = "encryption_type"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionDetailsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionDetailsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionDetailsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_status: Optional[builtins.str] = None,
+                 encryption_type: Optional[builtins.str] = None,
+                 kms_key_arn: Optional[builtins.str] = None):
+        """
+        The encryption configuration details for the cluster.
+        :param builtins.str encryption_status: The status of encryption for the cluster.
+        :param builtins.str encryption_type: The type of encryption that protects data in the cluster.
+        :param builtins.str kms_key_arn: The Amazon Resource Name (ARN) of the KMS key that encrypts data in the cluster.
+        """
+        if encryption_status is not None:
+            pulumi.set(__self__, "encryption_status", encryption_status)
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="encryptionStatus")
+    def encryption_status(self) -> Optional[builtins.str]:
+        """
+        The status of encryption for the cluster.
+        """
+        return pulumi.get(self, "encryption_status")
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[builtins.str]:
+        """
+        The type of encryption that protects data in the cluster.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the KMS key that encrypts data in the cluster.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
 
 @pulumi.output_type
 class MultiRegionPropertiesProperties(dict):

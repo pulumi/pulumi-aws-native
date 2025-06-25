@@ -924,6 +924,7 @@ if not MYPY:
         - `targetInstanceTypes` can target only instance types and families that are included within the [`ComputeResource.instanceTypes`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-instanceTypes) set. `targetInstanceTypes` doesn't need to include all of the instances from the `instanceType` set, but at least a subset. For example, if `ComputeResource.instanceTypes` includes `[m5, g5]` , `targetInstanceTypes` can include `[m5.2xlarge]` and `[m5.large]` but not `[c5.large]` .
         - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
         """
+        userdata_type: NotRequired[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType']]
         version: NotRequired[pulumi.Input[builtins.str]]
         """
         The version number of the launch template, `$Default` , or `$Latest` .
@@ -945,6 +946,7 @@ class ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs:
                  launch_template_id: Optional[pulumi.Input[builtins.str]] = None,
                  launch_template_name: Optional[pulumi.Input[builtins.str]] = None,
                  target_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 userdata_type: Optional[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType']] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] launch_template_id: The ID of the launch template.
@@ -979,6 +981,8 @@ class ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs:
             pulumi.set(__self__, "launch_template_name", launch_template_name)
         if target_instance_types is not None:
             pulumi.set(__self__, "target_instance_types", target_instance_types)
+        if userdata_type is not None:
+            pulumi.set(__self__, "userdata_type", userdata_type)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -1032,6 +1036,15 @@ class ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs:
         pulumi.set(self, "target_instance_types", value)
 
     @property
+    @pulumi.getter(name="userdataType")
+    def userdata_type(self) -> Optional[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType']]:
+        return pulumi.get(self, "userdata_type")
+
+    @userdata_type.setter
+    def userdata_type(self, value: Optional[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType']]):
+        pulumi.set(self, "userdata_type", value)
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1070,6 +1083,7 @@ if not MYPY:
 
         > To unset all override templates for a compute environment, you can pass an empty array to the [UpdateComputeEnvironment.overrides](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) parameter, or not include the `overrides` parameter when submitting the `UpdateComputeEnvironment` API operation.
         """
+        userdata_type: NotRequired[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationUserdataType']]
         version: NotRequired[pulumi.Input[builtins.str]]
         """
         The version number of the launch template, `$Default` , or `$Latest` .
@@ -1091,6 +1105,7 @@ class ComputeEnvironmentLaunchTemplateSpecificationArgs:
                  launch_template_id: Optional[pulumi.Input[builtins.str]] = None,
                  launch_template_name: Optional[pulumi.Input[builtins.str]] = None,
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs']]]] = None,
+                 userdata_type: Optional[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationUserdataType']] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] launch_template_id: The ID of the launch template.
@@ -1116,6 +1131,8 @@ class ComputeEnvironmentLaunchTemplateSpecificationArgs:
             pulumi.set(__self__, "launch_template_name", launch_template_name)
         if overrides is not None:
             pulumi.set(__self__, "overrides", overrides)
+        if userdata_type is not None:
+            pulumi.set(__self__, "userdata_type", userdata_type)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -1158,6 +1175,15 @@ class ComputeEnvironmentLaunchTemplateSpecificationArgs:
     @overrides.setter
     def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs']]]]):
         pulumi.set(self, "overrides", value)
+
+    @property
+    @pulumi.getter(name="userdataType")
+    def userdata_type(self) -> Optional[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationUserdataType']]:
+        return pulumi.get(self, "userdata_type")
+
+    @userdata_type.setter
+    def userdata_type(self, value: Optional[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationUserdataType']]):
+        pulumi.set(self, "userdata_type", value)
 
     @property
     @pulumi.getter

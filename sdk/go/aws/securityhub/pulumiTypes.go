@@ -1245,8 +1245,10 @@ func (o AutomationRuleStringFilterArrayOutput) Index(i pulumi.IntInput) Automati
 
 // Allows you to configure automated responses
 type AutomationRuleV2AutomationRulesActionV2 struct {
-	ExternalIntegrationConfiguration *AutomationRuleV2ExternalIntegrationConfiguration     `pulumi:"externalIntegrationConfiguration"`
-	FindingFieldsUpdate              *AutomationRuleV2AutomationRulesFindingFieldsUpdateV2 `pulumi:"findingFieldsUpdate"`
+	// The settings for integrating automation rule actions with external systems or service.
+	ExternalIntegrationConfiguration *AutomationRuleV2ExternalIntegrationConfiguration `pulumi:"externalIntegrationConfiguration"`
+	// Specifies that the automation rule action is an update to a finding field.
+	FindingFieldsUpdate *AutomationRuleV2AutomationRulesFindingFieldsUpdateV2 `pulumi:"findingFieldsUpdate"`
 	// The category of action to be executed by the automation rule
 	Type AutomationRuleV2AutomationRulesActionV2Type `pulumi:"type"`
 }
@@ -1264,8 +1266,10 @@ type AutomationRuleV2AutomationRulesActionV2Input interface {
 
 // Allows you to configure automated responses
 type AutomationRuleV2AutomationRulesActionV2Args struct {
-	ExternalIntegrationConfiguration AutomationRuleV2ExternalIntegrationConfigurationPtrInput     `pulumi:"externalIntegrationConfiguration"`
-	FindingFieldsUpdate              AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrInput `pulumi:"findingFieldsUpdate"`
+	// The settings for integrating automation rule actions with external systems or service.
+	ExternalIntegrationConfiguration AutomationRuleV2ExternalIntegrationConfigurationPtrInput `pulumi:"externalIntegrationConfiguration"`
+	// Specifies that the automation rule action is an update to a finding field.
+	FindingFieldsUpdate AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrInput `pulumi:"findingFieldsUpdate"`
 	// The category of action to be executed by the automation rule
 	Type AutomationRuleV2AutomationRulesActionV2TypeInput `pulumi:"type"`
 }
@@ -1322,12 +1326,14 @@ func (o AutomationRuleV2AutomationRulesActionV2Output) ToAutomationRuleV2Automat
 	return o
 }
 
+// The settings for integrating automation rule actions with external systems or service.
 func (o AutomationRuleV2AutomationRulesActionV2Output) ExternalIntegrationConfiguration() AutomationRuleV2ExternalIntegrationConfigurationPtrOutput {
 	return o.ApplyT(func(v AutomationRuleV2AutomationRulesActionV2) *AutomationRuleV2ExternalIntegrationConfiguration {
 		return v.ExternalIntegrationConfiguration
 	}).(AutomationRuleV2ExternalIntegrationConfigurationPtrOutput)
 }
 
+// Specifies that the automation rule action is an update to a finding field.
 func (o AutomationRuleV2AutomationRulesActionV2Output) FindingFieldsUpdate() AutomationRuleV2AutomationRulesFindingFieldsUpdateV2PtrOutput {
 	return o.ApplyT(func(v AutomationRuleV2AutomationRulesActionV2) *AutomationRuleV2AutomationRulesFindingFieldsUpdateV2 {
 		return v.FindingFieldsUpdate
@@ -1604,7 +1610,8 @@ type AutomationRuleV2CompositeFilter struct {
 	MapFilters []AutomationRuleV2OcsfMapFilter `pulumi:"mapFilters"`
 	// Enables filtering based on numerical field values
 	NumberFilters []AutomationRuleV2OcsfNumberFilter `pulumi:"numberFilters"`
-	Operator      *AutomationRuleV2AllowedOperators  `pulumi:"operator"`
+	// The logical operator used to combine multiple filter conditions.
+	Operator *AutomationRuleV2AllowedOperators `pulumi:"operator"`
 	// Enables filtering based on string field values
 	StringFilters []AutomationRuleV2OcsfStringFilter `pulumi:"stringFilters"`
 }
@@ -1630,7 +1637,8 @@ type AutomationRuleV2CompositeFilterArgs struct {
 	MapFilters AutomationRuleV2OcsfMapFilterArrayInput `pulumi:"mapFilters"`
 	// Enables filtering based on numerical field values
 	NumberFilters AutomationRuleV2OcsfNumberFilterArrayInput `pulumi:"numberFilters"`
-	Operator      AutomationRuleV2AllowedOperatorsPtrInput   `pulumi:"operator"`
+	// The logical operator used to combine multiple filter conditions.
+	Operator AutomationRuleV2AllowedOperatorsPtrInput `pulumi:"operator"`
 	// Enables filtering based on string field values
 	StringFilters AutomationRuleV2OcsfStringFilterArrayInput `pulumi:"stringFilters"`
 }
@@ -1707,6 +1715,7 @@ func (o AutomationRuleV2CompositeFilterOutput) NumberFilters() AutomationRuleV2O
 	return o.ApplyT(func(v AutomationRuleV2CompositeFilter) []AutomationRuleV2OcsfNumberFilter { return v.NumberFilters }).(AutomationRuleV2OcsfNumberFilterArrayOutput)
 }
 
+// The logical operator used to combine multiple filter conditions.
 func (o AutomationRuleV2CompositeFilterOutput) Operator() AutomationRuleV2AllowedOperatorsPtrOutput {
 	return o.ApplyT(func(v AutomationRuleV2CompositeFilter) *AutomationRuleV2AllowedOperators { return v.Operator }).(AutomationRuleV2AllowedOperatorsPtrOutput)
 }
@@ -1738,6 +1747,7 @@ func (o AutomationRuleV2CompositeFilterArrayOutput) Index(i pulumi.IntInput) Aut
 
 // Defines the parameters and conditions used to evaluate and filter security findings
 type AutomationRuleV2Criteria struct {
+	// The filtering conditions that align with OCSF standards.
 	OcsfFindingCriteria *AutomationRuleV2OcsfFindingFilters `pulumi:"ocsfFindingCriteria"`
 }
 
@@ -1754,6 +1764,7 @@ type AutomationRuleV2CriteriaInput interface {
 
 // Defines the parameters and conditions used to evaluate and filter security findings
 type AutomationRuleV2CriteriaArgs struct {
+	// The filtering conditions that align with OCSF standards.
 	OcsfFindingCriteria AutomationRuleV2OcsfFindingFiltersPtrInput `pulumi:"ocsfFindingCriteria"`
 }
 
@@ -1784,6 +1795,7 @@ func (o AutomationRuleV2CriteriaOutput) ToAutomationRuleV2CriteriaOutputWithCont
 	return o
 }
 
+// The filtering conditions that align with OCSF standards.
 func (o AutomationRuleV2CriteriaOutput) OcsfFindingCriteria() AutomationRuleV2OcsfFindingFiltersPtrOutput {
 	return o.ApplyT(func(v AutomationRuleV2Criteria) *AutomationRuleV2OcsfFindingFilters { return v.OcsfFindingCriteria }).(AutomationRuleV2OcsfFindingFiltersPtrOutput)
 }
@@ -1812,6 +1824,7 @@ func (o AutomationRuleV2CriteriaPtrOutput) Elem() AutomationRuleV2CriteriaOutput
 	}).(AutomationRuleV2CriteriaOutput)
 }
 
+// The filtering conditions that align with OCSF standards.
 func (o AutomationRuleV2CriteriaPtrOutput) OcsfFindingCriteria() AutomationRuleV2OcsfFindingFiltersPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleV2Criteria) *AutomationRuleV2OcsfFindingFilters {
 		if v == nil {
@@ -1823,9 +1836,16 @@ func (o AutomationRuleV2CriteriaPtrOutput) OcsfFindingCriteria() AutomationRuleV
 
 // A date filter for querying findings
 type AutomationRuleV2DateFilter struct {
+	// A date range for the date filter.
 	DateRange *AutomationRuleV2DateRange `pulumi:"dateRange"`
-	End       *string                    `pulumi:"end"`
-	Start     *string                    `pulumi:"start"`
+	// A timestamp that provides the end date for the date filter.
+	//
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	End *string `pulumi:"end"`
+	// A timestamp that provides the start date for the date filter.
+	//
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	Start *string `pulumi:"start"`
 }
 
 // AutomationRuleV2DateFilterInput is an input type that accepts AutomationRuleV2DateFilterArgs and AutomationRuleV2DateFilterOutput values.
@@ -1841,9 +1861,16 @@ type AutomationRuleV2DateFilterInput interface {
 
 // A date filter for querying findings
 type AutomationRuleV2DateFilterArgs struct {
+	// A date range for the date filter.
 	DateRange AutomationRuleV2DateRangePtrInput `pulumi:"dateRange"`
-	End       pulumi.StringPtrInput             `pulumi:"end"`
-	Start     pulumi.StringPtrInput             `pulumi:"start"`
+	// A timestamp that provides the end date for the date filter.
+	//
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// A timestamp that provides the start date for the date filter.
+	//
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (AutomationRuleV2DateFilterArgs) ElementType() reflect.Type {
@@ -1873,14 +1900,21 @@ func (o AutomationRuleV2DateFilterOutput) ToAutomationRuleV2DateFilterOutputWith
 	return o
 }
 
+// A date range for the date filter.
 func (o AutomationRuleV2DateFilterOutput) DateRange() AutomationRuleV2DateRangePtrOutput {
 	return o.ApplyT(func(v AutomationRuleV2DateFilter) *AutomationRuleV2DateRange { return v.DateRange }).(AutomationRuleV2DateRangePtrOutput)
 }
 
+// A timestamp that provides the end date for the date filter.
+//
+// For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 func (o AutomationRuleV2DateFilterOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleV2DateFilter) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
+// A timestamp that provides the start date for the date filter.
+//
+// For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 func (o AutomationRuleV2DateFilterOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleV2DateFilter) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -2334,7 +2368,8 @@ func (o AutomationRuleV2NumberFilterOutput) Lte() pulumi.Float64PtrOutput {
 type AutomationRuleV2OcsfBooleanFilter struct {
 	// The name of the field
 	FieldName AutomationRuleV2OcsfBooleanFilterFieldName `pulumi:"fieldName"`
-	Filter    AutomationRuleV2BooleanFilter              `pulumi:"filter"`
+	// Enables filtering of security findings based on boolean field values in OCSF.
+	Filter AutomationRuleV2BooleanFilter `pulumi:"filter"`
 }
 
 // AutomationRuleV2OcsfBooleanFilterInput is an input type that accepts AutomationRuleV2OcsfBooleanFilterArgs and AutomationRuleV2OcsfBooleanFilterOutput values.
@@ -2352,7 +2387,8 @@ type AutomationRuleV2OcsfBooleanFilterInput interface {
 type AutomationRuleV2OcsfBooleanFilterArgs struct {
 	// The name of the field
 	FieldName AutomationRuleV2OcsfBooleanFilterFieldNameInput `pulumi:"fieldName"`
-	Filter    AutomationRuleV2BooleanFilterInput              `pulumi:"filter"`
+	// Enables filtering of security findings based on boolean field values in OCSF.
+	Filter AutomationRuleV2BooleanFilterInput `pulumi:"filter"`
 }
 
 func (AutomationRuleV2OcsfBooleanFilterArgs) ElementType() reflect.Type {
@@ -2414,6 +2450,7 @@ func (o AutomationRuleV2OcsfBooleanFilterOutput) FieldName() AutomationRuleV2Ocs
 	}).(AutomationRuleV2OcsfBooleanFilterFieldNameOutput)
 }
 
+// Enables filtering of security findings based on boolean field values in OCSF.
 func (o AutomationRuleV2OcsfBooleanFilterOutput) Filter() AutomationRuleV2BooleanFilterOutput {
 	return o.ApplyT(func(v AutomationRuleV2OcsfBooleanFilter) AutomationRuleV2BooleanFilter { return v.Filter }).(AutomationRuleV2BooleanFilterOutput)
 }
@@ -2442,7 +2479,8 @@ func (o AutomationRuleV2OcsfBooleanFilterArrayOutput) Index(i pulumi.IntInput) A
 type AutomationRuleV2OcsfDateFilter struct {
 	// The name of the field
 	FieldName AutomationRuleV2OcsfDateFilterFieldName `pulumi:"fieldName"`
-	Filter    AutomationRuleV2DateFilter              `pulumi:"filter"`
+	// Enables filtering of security findings based on date and timestamp fields in OCSF.
+	Filter AutomationRuleV2DateFilter `pulumi:"filter"`
 }
 
 // AutomationRuleV2OcsfDateFilterInput is an input type that accepts AutomationRuleV2OcsfDateFilterArgs and AutomationRuleV2OcsfDateFilterOutput values.
@@ -2460,7 +2498,8 @@ type AutomationRuleV2OcsfDateFilterInput interface {
 type AutomationRuleV2OcsfDateFilterArgs struct {
 	// The name of the field
 	FieldName AutomationRuleV2OcsfDateFilterFieldNameInput `pulumi:"fieldName"`
-	Filter    AutomationRuleV2DateFilterInput              `pulumi:"filter"`
+	// Enables filtering of security findings based on date and timestamp fields in OCSF.
+	Filter AutomationRuleV2DateFilterInput `pulumi:"filter"`
 }
 
 func (AutomationRuleV2OcsfDateFilterArgs) ElementType() reflect.Type {
@@ -2520,6 +2559,7 @@ func (o AutomationRuleV2OcsfDateFilterOutput) FieldName() AutomationRuleV2OcsfDa
 	return o.ApplyT(func(v AutomationRuleV2OcsfDateFilter) AutomationRuleV2OcsfDateFilterFieldName { return v.FieldName }).(AutomationRuleV2OcsfDateFilterFieldNameOutput)
 }
 
+// Enables filtering of security findings based on date and timestamp fields in OCSF.
 func (o AutomationRuleV2OcsfDateFilterOutput) Filter() AutomationRuleV2DateFilterOutput {
 	return o.ApplyT(func(v AutomationRuleV2OcsfDateFilter) AutomationRuleV2DateFilter { return v.Filter }).(AutomationRuleV2DateFilterOutput)
 }
@@ -2547,7 +2587,8 @@ func (o AutomationRuleV2OcsfDateFilterArrayOutput) Index(i pulumi.IntInput) Auto
 // The filtering conditions that align with OCSF standards
 type AutomationRuleV2OcsfFindingFilters struct {
 	// Enables the creation of complex filtering conditions by combining filter
-	CompositeFilters  []AutomationRuleV2CompositeFilter `pulumi:"compositeFilters"`
+	CompositeFilters []AutomationRuleV2CompositeFilter `pulumi:"compositeFilters"`
+	// The logical operators used to combine the filtering on multiple `CompositeFilters` .
 	CompositeOperator *AutomationRuleV2AllowedOperators `pulumi:"compositeOperator"`
 }
 
@@ -2565,8 +2606,9 @@ type AutomationRuleV2OcsfFindingFiltersInput interface {
 // The filtering conditions that align with OCSF standards
 type AutomationRuleV2OcsfFindingFiltersArgs struct {
 	// Enables the creation of complex filtering conditions by combining filter
-	CompositeFilters  AutomationRuleV2CompositeFilterArrayInput `pulumi:"compositeFilters"`
-	CompositeOperator AutomationRuleV2AllowedOperatorsPtrInput  `pulumi:"compositeOperator"`
+	CompositeFilters AutomationRuleV2CompositeFilterArrayInput `pulumi:"compositeFilters"`
+	// The logical operators used to combine the filtering on multiple `CompositeFilters` .
+	CompositeOperator AutomationRuleV2AllowedOperatorsPtrInput `pulumi:"compositeOperator"`
 }
 
 func (AutomationRuleV2OcsfFindingFiltersArgs) ElementType() reflect.Type {
@@ -2654,6 +2696,7 @@ func (o AutomationRuleV2OcsfFindingFiltersOutput) CompositeFilters() AutomationR
 	}).(AutomationRuleV2CompositeFilterArrayOutput)
 }
 
+// The logical operators used to combine the filtering on multiple `CompositeFilters` .
 func (o AutomationRuleV2OcsfFindingFiltersOutput) CompositeOperator() AutomationRuleV2AllowedOperatorsPtrOutput {
 	return o.ApplyT(func(v AutomationRuleV2OcsfFindingFilters) *AutomationRuleV2AllowedOperators {
 		return v.CompositeOperator
@@ -2694,6 +2737,7 @@ func (o AutomationRuleV2OcsfFindingFiltersPtrOutput) CompositeFilters() Automati
 	}).(AutomationRuleV2CompositeFilterArrayOutput)
 }
 
+// The logical operators used to combine the filtering on multiple `CompositeFilters` .
 func (o AutomationRuleV2OcsfFindingFiltersPtrOutput) CompositeOperator() AutomationRuleV2AllowedOperatorsPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleV2OcsfFindingFilters) *AutomationRuleV2AllowedOperators {
 		if v == nil {
@@ -2707,7 +2751,8 @@ func (o AutomationRuleV2OcsfFindingFiltersPtrOutput) CompositeOperator() Automat
 type AutomationRuleV2OcsfMapFilter struct {
 	// The name of the field
 	FieldName AutomationRuleV2OcsfMapFilterFieldName `pulumi:"fieldName"`
-	Filter    AutomationRuleV2MapFilter              `pulumi:"filter"`
+	// Enables filtering of security findings based on map field values in OCSF.
+	Filter AutomationRuleV2MapFilter `pulumi:"filter"`
 }
 
 // AutomationRuleV2OcsfMapFilterInput is an input type that accepts AutomationRuleV2OcsfMapFilterArgs and AutomationRuleV2OcsfMapFilterOutput values.
@@ -2725,7 +2770,8 @@ type AutomationRuleV2OcsfMapFilterInput interface {
 type AutomationRuleV2OcsfMapFilterArgs struct {
 	// The name of the field
 	FieldName AutomationRuleV2OcsfMapFilterFieldNameInput `pulumi:"fieldName"`
-	Filter    AutomationRuleV2MapFilterInput              `pulumi:"filter"`
+	// Enables filtering of security findings based on map field values in OCSF.
+	Filter AutomationRuleV2MapFilterInput `pulumi:"filter"`
 }
 
 func (AutomationRuleV2OcsfMapFilterArgs) ElementType() reflect.Type {
@@ -2785,6 +2831,7 @@ func (o AutomationRuleV2OcsfMapFilterOutput) FieldName() AutomationRuleV2OcsfMap
 	return o.ApplyT(func(v AutomationRuleV2OcsfMapFilter) AutomationRuleV2OcsfMapFilterFieldName { return v.FieldName }).(AutomationRuleV2OcsfMapFilterFieldNameOutput)
 }
 
+// Enables filtering of security findings based on map field values in OCSF.
 func (o AutomationRuleV2OcsfMapFilterOutput) Filter() AutomationRuleV2MapFilterOutput {
 	return o.ApplyT(func(v AutomationRuleV2OcsfMapFilter) AutomationRuleV2MapFilter { return v.Filter }).(AutomationRuleV2MapFilterOutput)
 }
@@ -2813,7 +2860,8 @@ func (o AutomationRuleV2OcsfMapFilterArrayOutput) Index(i pulumi.IntInput) Autom
 type AutomationRuleV2OcsfNumberFilter struct {
 	// The name of the field
 	FieldName AutomationRuleV2OcsfNumberFilterFieldName `pulumi:"fieldName"`
-	Filter    AutomationRuleV2NumberFilter              `pulumi:"filter"`
+	// Enables filtering of security findings based on numerical field values in OCSF.
+	Filter AutomationRuleV2NumberFilter `pulumi:"filter"`
 }
 
 // AutomationRuleV2OcsfNumberFilterInput is an input type that accepts AutomationRuleV2OcsfNumberFilterArgs and AutomationRuleV2OcsfNumberFilterOutput values.
@@ -2831,7 +2879,8 @@ type AutomationRuleV2OcsfNumberFilterInput interface {
 type AutomationRuleV2OcsfNumberFilterArgs struct {
 	// The name of the field
 	FieldName AutomationRuleV2OcsfNumberFilterFieldNameInput `pulumi:"fieldName"`
-	Filter    AutomationRuleV2NumberFilterInput              `pulumi:"filter"`
+	// Enables filtering of security findings based on numerical field values in OCSF.
+	Filter AutomationRuleV2NumberFilterInput `pulumi:"filter"`
 }
 
 func (AutomationRuleV2OcsfNumberFilterArgs) ElementType() reflect.Type {
@@ -2891,6 +2940,7 @@ func (o AutomationRuleV2OcsfNumberFilterOutput) FieldName() AutomationRuleV2Ocsf
 	return o.ApplyT(func(v AutomationRuleV2OcsfNumberFilter) AutomationRuleV2OcsfNumberFilterFieldName { return v.FieldName }).(AutomationRuleV2OcsfNumberFilterFieldNameOutput)
 }
 
+// Enables filtering of security findings based on numerical field values in OCSF.
 func (o AutomationRuleV2OcsfNumberFilterOutput) Filter() AutomationRuleV2NumberFilterOutput {
 	return o.ApplyT(func(v AutomationRuleV2OcsfNumberFilter) AutomationRuleV2NumberFilter { return v.Filter }).(AutomationRuleV2NumberFilterOutput)
 }
@@ -2917,8 +2967,10 @@ func (o AutomationRuleV2OcsfNumberFilterArrayOutput) Index(i pulumi.IntInput) Au
 
 // Enables filtering of security findings based on string field values in OCSF
 type AutomationRuleV2OcsfStringFilter struct {
+	// The name of the field.
 	FieldName AutomationRuleV2OcsfStringField `pulumi:"fieldName"`
-	Filter    AutomationRuleV2StringFilter    `pulumi:"filter"`
+	// Enables filtering of security findings based on string field values in OCSF.
+	Filter AutomationRuleV2StringFilter `pulumi:"filter"`
 }
 
 // AutomationRuleV2OcsfStringFilterInput is an input type that accepts AutomationRuleV2OcsfStringFilterArgs and AutomationRuleV2OcsfStringFilterOutput values.
@@ -2934,8 +2986,10 @@ type AutomationRuleV2OcsfStringFilterInput interface {
 
 // Enables filtering of security findings based on string field values in OCSF
 type AutomationRuleV2OcsfStringFilterArgs struct {
+	// The name of the field.
 	FieldName AutomationRuleV2OcsfStringFieldInput `pulumi:"fieldName"`
-	Filter    AutomationRuleV2StringFilterInput    `pulumi:"filter"`
+	// Enables filtering of security findings based on string field values in OCSF.
+	Filter AutomationRuleV2StringFilterInput `pulumi:"filter"`
 }
 
 func (AutomationRuleV2OcsfStringFilterArgs) ElementType() reflect.Type {
@@ -2990,10 +3044,12 @@ func (o AutomationRuleV2OcsfStringFilterOutput) ToAutomationRuleV2OcsfStringFilt
 	return o
 }
 
+// The name of the field.
 func (o AutomationRuleV2OcsfStringFilterOutput) FieldName() AutomationRuleV2OcsfStringFieldOutput {
 	return o.ApplyT(func(v AutomationRuleV2OcsfStringFilter) AutomationRuleV2OcsfStringField { return v.FieldName }).(AutomationRuleV2OcsfStringFieldOutput)
 }
 
+// Enables filtering of security findings based on string field values in OCSF.
 func (o AutomationRuleV2OcsfStringFilterOutput) Filter() AutomationRuleV2StringFilterOutput {
 	return o.ApplyT(func(v AutomationRuleV2OcsfStringFilter) AutomationRuleV2StringFilter { return v.Filter }).(AutomationRuleV2StringFilterOutput)
 }

@@ -20,8 +20,12 @@ type Cluster struct {
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// Whether deletion protection is enabled in this cluster.
 	DeletionProtectionEnabled pulumi.BoolPtrOutput `pulumi:"deletionProtectionEnabled"`
+	// The encryption configuration details for the cluster.
+	EncryptionDetails EncryptionDetailsPropertiesOutput `pulumi:"encryptionDetails"`
 	// The ID of the created cluster.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
+	// The KMS key that encrypts data on the cluster.
+	KmsEncryptionKey pulumi.StringPtrOutput `pulumi:"kmsEncryptionKey"`
 	// The Multi-region properties associated to this cluster.
 	MultiRegionProperties MultiRegionPropertiesPropertiesPtrOutput `pulumi:"multiRegionProperties"`
 	// The Amazon Resource Name (ARN) for the cluster.
@@ -76,6 +80,8 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// Whether deletion protection is enabled in this cluster.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
+	// The KMS key that encrypts data on the cluster.
+	KmsEncryptionKey *string `pulumi:"kmsEncryptionKey"`
 	// The Multi-region properties associated to this cluster.
 	MultiRegionProperties *MultiRegionPropertiesProperties `pulumi:"multiRegionProperties"`
 	// A map of key and value pairs this cluster is tagged with.
@@ -86,6 +92,8 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// Whether deletion protection is enabled in this cluster.
 	DeletionProtectionEnabled pulumi.BoolPtrInput
+	// The KMS key that encrypts data on the cluster.
+	KmsEncryptionKey pulumi.StringPtrInput
 	// The Multi-region properties associated to this cluster.
 	MultiRegionProperties MultiRegionPropertiesPropertiesPtrInput
 	// A map of key and value pairs this cluster is tagged with.
@@ -139,9 +147,19 @@ func (o ClusterOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The encryption configuration details for the cluster.
+func (o ClusterOutput) EncryptionDetails() EncryptionDetailsPropertiesOutput {
+	return o.ApplyT(func(v *Cluster) EncryptionDetailsPropertiesOutput { return v.EncryptionDetails }).(EncryptionDetailsPropertiesOutput)
+}
+
 // The ID of the created cluster.
 func (o ClusterOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
+}
+
+// The KMS key that encrypts data on the cluster.
+func (o ClusterOutput) KmsEncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.KmsEncryptionKey }).(pulumi.StringPtrOutput)
 }
 
 // The Multi-region properties associated to this cluster.

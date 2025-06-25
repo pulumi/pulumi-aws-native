@@ -21,7 +21,7 @@ export interface GetZonalAutoshiftConfigurationArgs {
     /**
      * The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
      *
-     * At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+     * At this time, supported resources are Network Load Balancers and Application Load Balancers.
      */
     resourceIdentifier: string;
 }
@@ -54,7 +54,7 @@ export interface GetZonalAutoshiftConfigurationOutputArgs {
     /**
      * The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
      *
-     * At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+     * At this time, supported resources are Network Load Balancers and Application Load Balancers.
      */
     resourceIdentifier: pulumi.Input<string>;
 }

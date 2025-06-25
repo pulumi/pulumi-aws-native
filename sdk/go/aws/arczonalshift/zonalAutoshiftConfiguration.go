@@ -23,7 +23,7 @@ type ZonalAutoshiftConfiguration struct {
 	PracticeRunConfiguration ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput `pulumi:"practiceRunConfiguration"`
 	// The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
 	//
-	// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+	// At this time, supported resources are Network Load Balancers and Application Load Balancers.
 	ResourceIdentifier pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
 	// When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
 	ZonalAutoshiftStatus ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput `pulumi:"zonalAutoshiftStatus"`
@@ -81,7 +81,7 @@ type zonalAutoshiftConfigurationArgs struct {
 	PracticeRunConfiguration *ZonalAutoshiftConfigurationPracticeRunConfiguration `pulumi:"practiceRunConfiguration"`
 	// The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
 	//
-	// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+	// At this time, supported resources are Network Load Balancers and Application Load Balancers.
 	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
 	// When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
 	ZonalAutoshiftStatus *ZonalAutoshiftConfigurationZonalAutoshiftStatus `pulumi:"zonalAutoshiftStatus"`
@@ -97,7 +97,7 @@ type ZonalAutoshiftConfigurationArgs struct {
 	PracticeRunConfiguration ZonalAutoshiftConfigurationPracticeRunConfigurationPtrInput
 	// The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
 	//
-	// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+	// At this time, supported resources are Network Load Balancers and Application Load Balancers.
 	ResourceIdentifier pulumi.StringPtrInput
 	// When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
 	ZonalAutoshiftStatus ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrInput
@@ -153,7 +153,7 @@ func (o ZonalAutoshiftConfigurationOutput) PracticeRunConfiguration() ZonalAutos
 
 // The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
 //
-// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+// At this time, supported resources are Network Load Balancers and Application Load Balancers.
 func (o ZonalAutoshiftConfigurationOutput) ResourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ZonalAutoshiftConfiguration) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
 }

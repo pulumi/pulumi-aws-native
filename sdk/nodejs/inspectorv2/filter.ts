@@ -57,6 +57,9 @@ export class Filter extends pulumi.CustomResource {
      * Findings filter name.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The tags attached to the filter.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -115,5 +118,8 @@ export interface FilterArgs {
      * Findings filter name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The tags attached to the filter.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

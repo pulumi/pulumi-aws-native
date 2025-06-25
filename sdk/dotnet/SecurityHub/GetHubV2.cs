@@ -67,7 +67,13 @@ namespace Pulumi.AwsNative.SecurityHub
         /// The Amazon Resource Name of the Security Hub V2 resource.
         /// </summary>
         public readonly string? HubV2Arn;
+        /// <summary>
+        /// The date and time when the service was enabled in the account.
+        /// </summary>
         public readonly string? SubscribedAt;
+        /// <summary>
+        /// The tags to add to the hub V2 resource when you enable Security Hub.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

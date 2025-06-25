@@ -97,6 +97,8 @@ __all__ = [
     'DataSourceSharePointConfigurationArgsDict',
     'DataSourceSqlConfigurationArgs',
     'DataSourceSqlConfigurationArgsDict',
+    'DataSourceTemplateConfigurationArgs',
+    'DataSourceTemplateConfigurationArgsDict',
     'DataSourceToIndexFieldMappingArgs',
     'DataSourceToIndexFieldMappingArgsDict',
     'DataSourceVpcConfigurationArgs',
@@ -353,6 +355,10 @@ if not MYPY:
         """
         Provides the configuration information to connect to Microsoft SharePoint as your data source.
         """
+        template_configuration: NotRequired[pulumi.Input['DataSourceTemplateConfigurationArgsDict']]
+        """
+        Provides a template for the configuration information to connect to your data source.
+        """
         web_crawler_configuration: NotRequired[pulumi.Input['DataSourceWebCrawlerConfigurationArgsDict']]
         """
         Provides the configuration information required for Amazon Kendra Web Crawler.
@@ -375,6 +381,7 @@ class DataSourceConfigurationArgs:
                  salesforce_configuration: Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']] = None,
                  service_now_configuration: Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']] = None,
                  share_point_configuration: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']] = None,
+                 template_configuration: Optional[pulumi.Input['DataSourceTemplateConfigurationArgs']] = None,
                  web_crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None,
                  work_docs_configuration: Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']] = None):
         """
@@ -394,6 +401,7 @@ class DataSourceConfigurationArgs:
         :param pulumi.Input['DataSourceSalesforceConfigurationArgs'] salesforce_configuration: Provides the configuration information to connect to Salesforce as your data source.
         :param pulumi.Input['DataSourceServiceNowConfigurationArgs'] service_now_configuration: Provides the configuration information to connect to ServiceNow as your data source.
         :param pulumi.Input['DataSourceSharePointConfigurationArgs'] share_point_configuration: Provides the configuration information to connect to Microsoft SharePoint as your data source.
+        :param pulumi.Input['DataSourceTemplateConfigurationArgs'] template_configuration: Provides a template for the configuration information to connect to your data source.
         :param pulumi.Input['DataSourceWebCrawlerConfigurationArgs'] web_crawler_configuration: Provides the configuration information required for Amazon Kendra Web Crawler.
         :param pulumi.Input['DataSourceWorkDocsConfigurationArgs'] work_docs_configuration: Provides the configuration information to connect to Amazon WorkDocs as your data source.
         """
@@ -413,6 +421,8 @@ class DataSourceConfigurationArgs:
             pulumi.set(__self__, "service_now_configuration", service_now_configuration)
         if share_point_configuration is not None:
             pulumi.set(__self__, "share_point_configuration", share_point_configuration)
+        if template_configuration is not None:
+            pulumi.set(__self__, "template_configuration", template_configuration)
         if web_crawler_configuration is not None:
             pulumi.set(__self__, "web_crawler_configuration", web_crawler_configuration)
         if work_docs_configuration is not None:
@@ -521,6 +531,18 @@ class DataSourceConfigurationArgs:
     @share_point_configuration.setter
     def share_point_configuration(self, value: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']]):
         pulumi.set(self, "share_point_configuration", value)
+
+    @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> Optional[pulumi.Input['DataSourceTemplateConfigurationArgs']]:
+        """
+        Provides a template for the configuration information to connect to your data source.
+        """
+        return pulumi.get(self, "template_configuration")
+
+    @template_configuration.setter
+    def template_configuration(self, value: Optional[pulumi.Input['DataSourceTemplateConfigurationArgs']]):
+        pulumi.set(self, "template_configuration", value)
 
     @property
     @pulumi.getter(name="webCrawlerConfiguration")
@@ -4012,6 +4034,43 @@ class DataSourceSqlConfigurationArgs:
     @query_identifiers_enclosing_option.setter
     def query_identifiers_enclosing_option(self, value: Optional[pulumi.Input['DataSourceQueryIdentifiersEnclosingOption']]):
         pulumi.set(self, "query_identifiers_enclosing_option", value)
+
+
+if not MYPY:
+    class DataSourceTemplateConfigurationArgsDict(TypedDict):
+        template: Any
+        """
+        The template schema used for the data source, where templates schemas are supported.
+
+        See [Data source template schemas](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html) .
+        """
+elif False:
+    DataSourceTemplateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceTemplateConfigurationArgs:
+    def __init__(__self__, *,
+                 template: Any):
+        """
+        :param Any template: The template schema used for the data source, where templates schemas are supported.
+               
+               See [Data source template schemas](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html) .
+        """
+        pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def template(self) -> Any:
+        """
+        The template schema used for the data source, where templates schemas are supported.
+
+        See [Data source template schemas](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html) .
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: Any):
+        pulumi.set(self, "template", value)
 
 
 if not MYPY:

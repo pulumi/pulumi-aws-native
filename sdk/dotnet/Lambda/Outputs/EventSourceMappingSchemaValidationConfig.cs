@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingSchemaValidationConfig
     {
+        /// <summary>
+        /// The attributes you want your schema registry to validate and filter for. If you selected `JSON` as the `EventRecordFormat` , Lambda also deserializes the selected message attributes.
+        /// </summary>
         public readonly Pulumi.AwsNative.Lambda.EventSourceMappingSchemaValidationConfigAttribute? Attribute;
 
         [OutputConstructor]

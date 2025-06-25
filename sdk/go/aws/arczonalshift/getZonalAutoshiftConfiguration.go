@@ -25,7 +25,7 @@ func LookupZonalAutoshiftConfiguration(ctx *pulumi.Context, args *LookupZonalAut
 type LookupZonalAutoshiftConfigurationArgs struct {
 	// The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
 	//
-	// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+	// At this time, supported resources are Network Load Balancers and Application Load Balancers.
 	ResourceIdentifier string `pulumi:"resourceIdentifier"`
 }
 
@@ -52,7 +52,7 @@ func LookupZonalAutoshiftConfigurationOutput(ctx *pulumi.Context, args LookupZon
 type LookupZonalAutoshiftConfigurationOutputArgs struct {
 	// The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
 	//
-	// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+	// At this time, supported resources are Network Load Balancers and Application Load Balancers.
 	ResourceIdentifier pulumi.StringInput `pulumi:"resourceIdentifier"`
 }
 

@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleV2AutomationRulesActionV2
     {
+        /// <summary>
+        /// The settings for integrating automation rule actions with external systems or service.
+        /// </summary>
         public readonly Outputs.AutomationRuleV2ExternalIntegrationConfiguration? ExternalIntegrationConfiguration;
+        /// <summary>
+        /// Specifies that the automation rule action is an update to a finding field.
+        /// </summary>
         public readonly Outputs.AutomationRuleV2AutomationRulesFindingFieldsUpdateV2? FindingFieldsUpdate;
         /// <summary>
         /// The category of action to be executed by the automation rule

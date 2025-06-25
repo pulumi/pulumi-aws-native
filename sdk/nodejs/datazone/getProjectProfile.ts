@@ -44,6 +44,7 @@ export interface GetProjectProfileResult {
      * The domain unit ID of the project profile.
      */
     readonly domainUnitId?: string;
+    readonly environmentConfigurations?: outputs.datazone.ProjectProfileEnvironmentConfiguration[];
     /**
      * The ID of the project profile.
      */

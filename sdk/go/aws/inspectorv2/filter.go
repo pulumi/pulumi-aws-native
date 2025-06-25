@@ -25,7 +25,8 @@ type Filter struct {
 	// Findings filter criteria.
 	FilterCriteria FilterCriteriaOutput `pulumi:"filterCriteria"`
 	// Findings filter name.
-	Name pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The tags attached to the filter.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -82,7 +83,8 @@ type filterArgs struct {
 	// Findings filter criteria.
 	FilterCriteria FilterCriteria `pulumi:"filterCriteria"`
 	// Findings filter name.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The tags attached to the filter.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -96,6 +98,7 @@ type FilterArgs struct {
 	FilterCriteria FilterCriteriaInput
 	// Findings filter name.
 	Name pulumi.StringPtrInput
+	// The tags attached to the filter.
 	Tags pulumi.StringMapInput
 }
 
@@ -161,6 +164,7 @@ func (o FilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The tags attached to the filter.
 func (o FilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

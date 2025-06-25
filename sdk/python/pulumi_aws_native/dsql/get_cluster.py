@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, creation_time=None, deletion_protection_enabled=None, identifier=None, multi_region_properties=None, resource_arn=None, status=None, tags=None, vpc_endpoint_service_name=None):
+    def __init__(__self__, creation_time=None, deletion_protection_enabled=None, encryption_details=None, identifier=None, multi_region_properties=None, resource_arn=None, status=None, tags=None, vpc_endpoint_service_name=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
         if deletion_protection_enabled and not isinstance(deletion_protection_enabled, bool):
             raise TypeError("Expected argument 'deletion_protection_enabled' to be a bool")
         pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
+        if encryption_details and not isinstance(encryption_details, dict):
+            raise TypeError("Expected argument 'encryption_details' to be a dict")
+        pulumi.set(__self__, "encryption_details", encryption_details)
         if identifier and not isinstance(identifier, str):
             raise TypeError("Expected argument 'identifier' to be a str")
         pulumi.set(__self__, "identifier", identifier)
@@ -67,6 +70,14 @@ class GetClusterResult:
         Whether deletion protection is enabled in this cluster.
         """
         return pulumi.get(self, "deletion_protection_enabled")
+
+    @property
+    @pulumi.getter(name="encryptionDetails")
+    def encryption_details(self) -> Optional['outputs.EncryptionDetailsProperties']:
+        """
+        The encryption configuration details for the cluster.
+        """
+        return pulumi.get(self, "encryption_details")
 
     @property
     @pulumi.getter
@@ -125,6 +136,7 @@ class AwaitableGetClusterResult(GetClusterResult):
         return GetClusterResult(
             creation_time=self.creation_time,
             deletion_protection_enabled=self.deletion_protection_enabled,
+            encryption_details=self.encryption_details,
             identifier=self.identifier,
             multi_region_properties=self.multi_region_properties,
             resource_arn=self.resource_arn,
@@ -149,6 +161,7 @@ def get_cluster(identifier: Optional[builtins.str] = None,
     return AwaitableGetClusterResult(
         creation_time=pulumi.get(__ret__, 'creation_time'),
         deletion_protection_enabled=pulumi.get(__ret__, 'deletion_protection_enabled'),
+        encryption_details=pulumi.get(__ret__, 'encryption_details'),
         identifier=pulumi.get(__ret__, 'identifier'),
         multi_region_properties=pulumi.get(__ret__, 'multi_region_properties'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
@@ -170,6 +183,7 @@ def get_cluster_output(identifier: Optional[pulumi.Input[builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetClusterResult(
         creation_time=pulumi.get(__response__, 'creation_time'),
         deletion_protection_enabled=pulumi.get(__response__, 'deletion_protection_enabled'),
+        encryption_details=pulumi.get(__response__, 'encryption_details'),
         identifier=pulumi.get(__response__, 'identifier'),
         multi_region_properties=pulumi.get(__response__, 'multi_region_properties'),
         resource_arn=pulumi.get(__response__, 'resource_arn'),

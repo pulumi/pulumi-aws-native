@@ -7,11 +7,25 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType',
+    'ComputeEnvironmentLaunchTemplateSpecificationUserdataType',
     'ConsumableResourceResourceType',
     'JobQueueJobStateTimeLimitActionAction',
     'JobQueueJobStateTimeLimitActionState',
     'JobQueueState',
 ]
+
+
+@pulumi.type_token("aws-native:batch:ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType")
+class ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType(builtins.str, Enum):
+    EKS_BOOTSTRAP_SH = "EKS_BOOTSTRAP_SH"
+    EKS_NODEADM = "EKS_NODEADM"
+
+
+@pulumi.type_token("aws-native:batch:ComputeEnvironmentLaunchTemplateSpecificationUserdataType")
+class ComputeEnvironmentLaunchTemplateSpecificationUserdataType(builtins.str, Enum):
+    EKS_BOOTSTRAP_SH = "EKS_BOOTSTRAP_SH"
+    EKS_NODEADM = "EKS_NODEADM"
 
 
 @pulumi.type_token("aws-native:batch:ConsumableResourceResourceType")

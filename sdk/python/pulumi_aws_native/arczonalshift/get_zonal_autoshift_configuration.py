@@ -73,7 +73,7 @@ def get_zonal_autoshift_configuration(resource_identifier: Optional[builtins.str
 
     :param builtins.str resource_identifier: The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
            
-           At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+           At this time, supported resources are Network Load Balancers and Application Load Balancers.
     """
     __args__ = dict()
     __args__['resourceIdentifier'] = resource_identifier
@@ -91,7 +91,7 @@ def get_zonal_autoshift_configuration_output(resource_identifier: Optional[pulum
 
     :param builtins.str resource_identifier: The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
            
-           At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+           At this time, supported resources are Network Load Balancers and Application Load Balancers.
     """
     __args__ = dict()
     __args__['resourceIdentifier'] = resource_identifier

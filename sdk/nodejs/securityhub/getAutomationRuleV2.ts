@@ -29,7 +29,13 @@ export interface GetAutomationRuleV2Result {
      * A list of actions to be performed when the rule criteria is met
      */
     readonly actions?: outputs.securityhub.AutomationRuleV2AutomationRulesActionV2[];
+    /**
+     * The timestamp when the V2 automation rule was created.
+     */
     readonly createdAt?: string;
+    /**
+     * The filtering type and configuration of the automation rule.
+     */
     readonly criteria?: outputs.securityhub.AutomationRuleV2Criteria;
     /**
      * A description of the automation rule
@@ -55,7 +61,13 @@ export interface GetAutomationRuleV2Result {
      * The status of the automation rule
      */
     readonly ruleStatus?: enums.securityhub.AutomationRuleV2RuleStatus;
+    /**
+     * A list of key-value pairs associated with the V2 automation rule.
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * The timestamp when the V2 automation rule was updated.
+     */
     readonly updatedAt?: string;
 }
 /**

@@ -96,6 +96,10 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         public readonly Outputs.PlaybackConfigurationHlsConfiguration? HlsConfiguration;
         /// <summary>
+        /// The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+        /// </summary>
+        public readonly Pulumi.AwsNative.MediaTailor.PlaybackConfigurationInsertionMode? InsertionMode;
+        /// <summary>
         /// The configuration for pre-roll ad insertion.
         /// </summary>
         public readonly Outputs.PlaybackConfigurationLivePreRollConfiguration? LivePreRollConfiguration;
@@ -158,6 +162,8 @@ namespace Pulumi.AwsNative.MediaTailor
 
             Outputs.PlaybackConfigurationHlsConfiguration? hlsConfiguration,
 
+            Pulumi.AwsNative.MediaTailor.PlaybackConfigurationInsertionMode? insertionMode,
+
             Outputs.PlaybackConfigurationLivePreRollConfiguration? livePreRollConfiguration,
 
             Outputs.PlaybackConfigurationLogConfiguration? logConfiguration,
@@ -188,6 +194,7 @@ namespace Pulumi.AwsNative.MediaTailor
             ConfigurationAliases = configurationAliases;
             DashConfiguration = dashConfiguration;
             HlsConfiguration = hlsConfiguration;
+            InsertionMode = insertionMode;
             LivePreRollConfiguration = livePreRollConfiguration;
             LogConfiguration = logConfiguration;
             ManifestProcessingRules = manifestProcessingRules;

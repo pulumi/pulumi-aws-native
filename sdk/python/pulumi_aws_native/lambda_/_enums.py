@@ -63,6 +63,9 @@ class EventSourceMappingMetricsConfigMetricsItem(builtins.str, Enum):
 
 @pulumi.type_token("aws-native:lambda:EventSourceMappingSchemaRegistryAccessConfigType")
 class EventSourceMappingSchemaRegistryAccessConfigType(builtins.str, Enum):
+    """
+    The type of authentication Lambda uses to access your schema registry.
+    """
     BASIC_AUTH = "BASIC_AUTH"
     CLIENT_CERTIFICATE_TLS_AUTH = "CLIENT_CERTIFICATE_TLS_AUTH"
     SERVER_ROOT_CA_CERTIFICATE = "SERVER_ROOT_CA_CERTIFICATE"
@@ -70,12 +73,21 @@ class EventSourceMappingSchemaRegistryAccessConfigType(builtins.str, Enum):
 
 @pulumi.type_token("aws-native:lambda:EventSourceMappingSchemaRegistryConfigEventRecordFormat")
 class EventSourceMappingSchemaRegistryConfigEventRecordFormat(builtins.str, Enum):
+    """
+    The record format that Lambda delivers to your function after schema validation.
+
+    - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
+    - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+    """
     JSON = "JSON"
     SOURCE = "SOURCE"
 
 
 @pulumi.type_token("aws-native:lambda:EventSourceMappingSchemaValidationConfigAttribute")
 class EventSourceMappingSchemaValidationConfigAttribute(builtins.str, Enum):
+    """
+    The attributes you want your schema registry to validate and filter for. If you selected `JSON` as the `EventRecordFormat` , Lambda also deserializes the selected message attributes.
+    """
     KEY = "KEY"
     VALUE = "VALUE"
 

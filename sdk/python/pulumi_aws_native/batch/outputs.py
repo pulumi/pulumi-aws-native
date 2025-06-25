@@ -643,6 +643,8 @@ class ComputeEnvironmentLaunchTemplateSpecification(dict):
             suggest = "launch_template_id"
         elif key == "launchTemplateName":
             suggest = "launch_template_name"
+        elif key == "userdataType":
+            suggest = "userdata_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentLaunchTemplateSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -659,6 +661,7 @@ class ComputeEnvironmentLaunchTemplateSpecification(dict):
                  launch_template_id: Optional[builtins.str] = None,
                  launch_template_name: Optional[builtins.str] = None,
                  overrides: Optional[Sequence['outputs.ComputeEnvironmentLaunchTemplateSpecificationOverride']] = None,
+                 userdata_type: Optional['ComputeEnvironmentLaunchTemplateSpecificationUserdataType'] = None,
                  version: Optional[builtins.str] = None):
         """
         :param builtins.str launch_template_id: The ID of the launch template.
@@ -684,6 +687,8 @@ class ComputeEnvironmentLaunchTemplateSpecification(dict):
             pulumi.set(__self__, "launch_template_name", launch_template_name)
         if overrides is not None:
             pulumi.set(__self__, "overrides", overrides)
+        if userdata_type is not None:
+            pulumi.set(__self__, "userdata_type", userdata_type)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -716,6 +721,11 @@ class ComputeEnvironmentLaunchTemplateSpecification(dict):
         return pulumi.get(self, "overrides")
 
     @property
+    @pulumi.getter(name="userdataType")
+    def userdata_type(self) -> Optional['ComputeEnvironmentLaunchTemplateSpecificationUserdataType']:
+        return pulumi.get(self, "userdata_type")
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[builtins.str]:
         """
@@ -743,6 +753,8 @@ class ComputeEnvironmentLaunchTemplateSpecificationOverride(dict):
             suggest = "launch_template_name"
         elif key == "targetInstanceTypes":
             suggest = "target_instance_types"
+        elif key == "userdataType":
+            suggest = "userdata_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentLaunchTemplateSpecificationOverride. Access the value via the '{suggest}' property getter instead.")
@@ -759,6 +771,7 @@ class ComputeEnvironmentLaunchTemplateSpecificationOverride(dict):
                  launch_template_id: Optional[builtins.str] = None,
                  launch_template_name: Optional[builtins.str] = None,
                  target_instance_types: Optional[Sequence[builtins.str]] = None,
+                 userdata_type: Optional['ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType'] = None,
                  version: Optional[builtins.str] = None):
         """
         :param builtins.str launch_template_id: The ID of the launch template.
@@ -793,6 +806,8 @@ class ComputeEnvironmentLaunchTemplateSpecificationOverride(dict):
             pulumi.set(__self__, "launch_template_name", launch_template_name)
         if target_instance_types is not None:
             pulumi.set(__self__, "target_instance_types", target_instance_types)
+        if userdata_type is not None:
+            pulumi.set(__self__, "userdata_type", userdata_type)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -832,6 +847,11 @@ class ComputeEnvironmentLaunchTemplateSpecificationOverride(dict):
         - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
         """
         return pulumi.get(self, "target_instance_types")
+
+    @property
+    @pulumi.getter(name="userdataType")
+    def userdata_type(self) -> Optional['ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType']:
+        return pulumi.get(self, "userdata_type")
 
     @property
     @pulumi.getter

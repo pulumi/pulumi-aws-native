@@ -89,6 +89,10 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public readonly string? GameServerContainerGroupDefinitionArn;
         /// <summary>
+        /// The number of desired game server container groups per instance, a number between 1-5000.
+        /// </summary>
+        public readonly int? GameServerContainerGroupsPerInstance;
+        /// <summary>
         /// A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
         /// </summary>
         public readonly Outputs.ContainerFleetGameSessionCreationLimitPolicy? GameSessionCreationLimitPolicy;
@@ -154,6 +158,8 @@ namespace Pulumi.AwsNative.GameLift
 
             string? gameServerContainerGroupDefinitionArn,
 
+            int? gameServerContainerGroupsPerInstance,
+
             Outputs.ContainerFleetGameSessionCreationLimitPolicy? gameSessionCreationLimitPolicy,
 
             Outputs.ContainerFleetConnectionPortRange? instanceConnectionPortRange,
@@ -185,6 +191,7 @@ namespace Pulumi.AwsNative.GameLift
             FleetId = fleetId;
             FleetRoleArn = fleetRoleArn;
             GameServerContainerGroupDefinitionArn = gameServerContainerGroupDefinitionArn;
+            GameServerContainerGroupsPerInstance = gameServerContainerGroupsPerInstance;
             GameSessionCreationLimitPolicy = gameSessionCreationLimitPolicy;
             InstanceConnectionPortRange = instanceConnectionPortRange;
             InstanceInboundPermissions = instanceInboundPermissions;

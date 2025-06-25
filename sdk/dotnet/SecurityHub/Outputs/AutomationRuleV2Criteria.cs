@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleV2Criteria
     {
+        /// <summary>
+        /// The filtering conditions that align with OCSF standards.
+        /// </summary>
         public readonly Outputs.AutomationRuleV2OcsfFindingFilters? OcsfFindingCriteria;
 
         [OutputConstructor]

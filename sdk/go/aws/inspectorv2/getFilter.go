@@ -37,7 +37,8 @@ type LookupFilterResult struct {
 	// Findings filter criteria.
 	FilterCriteria *FilterCriteria `pulumi:"filterCriteria"`
 	// Findings filter name.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The tags attached to the filter.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -98,6 +99,7 @@ func (o LookupFilterResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFilterResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The tags attached to the filter.
 func (o LookupFilterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFilterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

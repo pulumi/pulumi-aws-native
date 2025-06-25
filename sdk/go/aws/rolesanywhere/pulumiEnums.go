@@ -508,9 +508,8 @@ func (in *trustAnchorNotificationEventPtr) ToTrustAnchorNotificationEventPtrOutp
 type TrustAnchorType string
 
 const (
-	TrustAnchorTypeAwsAcmPca            = TrustAnchorType("AWS_ACM_PCA")
-	TrustAnchorTypeCertificateBundle    = TrustAnchorType("CERTIFICATE_BUNDLE")
-	TrustAnchorTypeSelfSignedRepository = TrustAnchorType("SELF_SIGNED_REPOSITORY")
+	TrustAnchorTypeAwsAcmPca         = TrustAnchorType("AWS_ACM_PCA")
+	TrustAnchorTypeCertificateBundle = TrustAnchorType("CERTIFICATE_BUNDLE")
 )
 
 func (TrustAnchorType) ElementType() reflect.Type {
@@ -637,7 +636,6 @@ func (o TrustAnchorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 //
 //	TrustAnchorTypeAwsAcmPca
 //	TrustAnchorTypeCertificateBundle
-//	TrustAnchorTypeSelfSignedRepository
 type TrustAnchorTypeInput interface {
 	pulumi.Input
 

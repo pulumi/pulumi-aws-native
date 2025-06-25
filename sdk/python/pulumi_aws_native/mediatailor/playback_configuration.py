@@ -34,6 +34,7 @@ class PlaybackConfigurationArgs:
                  configuration_aliases: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  dash_configuration: Optional[pulumi.Input['PlaybackConfigurationDashConfigurationArgs']] = None,
                  hls_configuration: Optional[pulumi.Input['PlaybackConfigurationHlsConfigurationArgs']] = None,
+                 insertion_mode: Optional[pulumi.Input['PlaybackConfigurationInsertionMode']] = None,
                  live_pre_roll_configuration: Optional[pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs']] = None,
                  log_configuration: Optional[pulumi.Input['PlaybackConfigurationLogConfigurationArgs']] = None,
                  manifest_processing_rules: Optional[pulumi.Input['PlaybackConfigurationManifestProcessingRulesArgs']] = None,
@@ -53,6 +54,7 @@ class PlaybackConfigurationArgs:
         :param pulumi.Input[Mapping[str, Any]] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
         :param pulumi.Input['PlaybackConfigurationDashConfigurationArgs'] dash_configuration: The configuration for DASH content.
         :param pulumi.Input['PlaybackConfigurationHlsConfigurationArgs'] hls_configuration: The configuration for HLS content.
+        :param pulumi.Input['PlaybackConfigurationInsertionMode'] insertion_mode: The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
         :param pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs'] live_pre_roll_configuration: The configuration for pre-roll ad insertion.
         :param pulumi.Input['PlaybackConfigurationLogConfigurationArgs'] log_configuration: The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
         :param pulumi.Input['PlaybackConfigurationManifestProcessingRulesArgs'] manifest_processing_rules: The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
@@ -78,6 +80,8 @@ class PlaybackConfigurationArgs:
             pulumi.set(__self__, "dash_configuration", dash_configuration)
         if hls_configuration is not None:
             pulumi.set(__self__, "hls_configuration", hls_configuration)
+        if insertion_mode is not None:
+            pulumi.set(__self__, "insertion_mode", insertion_mode)
         if live_pre_roll_configuration is not None:
             pulumi.set(__self__, "live_pre_roll_configuration", live_pre_roll_configuration)
         if log_configuration is not None:
@@ -204,6 +208,18 @@ class PlaybackConfigurationArgs:
         pulumi.set(self, "hls_configuration", value)
 
     @property
+    @pulumi.getter(name="insertionMode")
+    def insertion_mode(self) -> Optional[pulumi.Input['PlaybackConfigurationInsertionMode']]:
+        """
+        The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+        """
+        return pulumi.get(self, "insertion_mode")
+
+    @insertion_mode.setter
+    def insertion_mode(self, value: Optional[pulumi.Input['PlaybackConfigurationInsertionMode']]):
+        pulumi.set(self, "insertion_mode", value)
+
+    @property
     @pulumi.getter(name="livePreRollConfiguration")
     def live_pre_roll_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs']]:
         """
@@ -314,6 +330,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  configuration_aliases: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  dash_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationDashConfigurationArgs', 'PlaybackConfigurationDashConfigurationArgsDict']]] = None,
                  hls_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationHlsConfigurationArgs', 'PlaybackConfigurationHlsConfigurationArgsDict']]] = None,
+                 insertion_mode: Optional[pulumi.Input['PlaybackConfigurationInsertionMode']] = None,
                  live_pre_roll_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationLivePreRollConfigurationArgs', 'PlaybackConfigurationLivePreRollConfigurationArgsDict']]] = None,
                  log_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationLogConfigurationArgs', 'PlaybackConfigurationLogConfigurationArgsDict']]] = None,
                  manifest_processing_rules: Optional[pulumi.Input[Union['PlaybackConfigurationManifestProcessingRulesArgs', 'PlaybackConfigurationManifestProcessingRulesArgsDict']]] = None,
@@ -337,6 +354,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
         :param pulumi.Input[Union['PlaybackConfigurationDashConfigurationArgs', 'PlaybackConfigurationDashConfigurationArgsDict']] dash_configuration: The configuration for DASH content.
         :param pulumi.Input[Union['PlaybackConfigurationHlsConfigurationArgs', 'PlaybackConfigurationHlsConfigurationArgsDict']] hls_configuration: The configuration for HLS content.
+        :param pulumi.Input['PlaybackConfigurationInsertionMode'] insertion_mode: The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
         :param pulumi.Input[Union['PlaybackConfigurationLivePreRollConfigurationArgs', 'PlaybackConfigurationLivePreRollConfigurationArgsDict']] live_pre_roll_configuration: The configuration for pre-roll ad insertion.
         :param pulumi.Input[Union['PlaybackConfigurationLogConfigurationArgs', 'PlaybackConfigurationLogConfigurationArgsDict']] log_configuration: The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
         :param pulumi.Input[Union['PlaybackConfigurationManifestProcessingRulesArgs', 'PlaybackConfigurationManifestProcessingRulesArgsDict']] manifest_processing_rules: The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
@@ -379,6 +397,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  configuration_aliases: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  dash_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationDashConfigurationArgs', 'PlaybackConfigurationDashConfigurationArgsDict']]] = None,
                  hls_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationHlsConfigurationArgs', 'PlaybackConfigurationHlsConfigurationArgsDict']]] = None,
+                 insertion_mode: Optional[pulumi.Input['PlaybackConfigurationInsertionMode']] = None,
                  live_pre_roll_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationLivePreRollConfigurationArgs', 'PlaybackConfigurationLivePreRollConfigurationArgsDict']]] = None,
                  log_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationLogConfigurationArgs', 'PlaybackConfigurationLogConfigurationArgsDict']]] = None,
                  manifest_processing_rules: Optional[pulumi.Input[Union['PlaybackConfigurationManifestProcessingRulesArgs', 'PlaybackConfigurationManifestProcessingRulesArgsDict']]] = None,
@@ -407,6 +426,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
             __props__.__dict__["configuration_aliases"] = configuration_aliases
             __props__.__dict__["dash_configuration"] = dash_configuration
             __props__.__dict__["hls_configuration"] = hls_configuration
+            __props__.__dict__["insertion_mode"] = insertion_mode
             __props__.__dict__["live_pre_roll_configuration"] = live_pre_roll_configuration
             __props__.__dict__["log_configuration"] = log_configuration
             __props__.__dict__["manifest_processing_rules"] = manifest_processing_rules
@@ -453,6 +473,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
         __props__.__dict__["configuration_aliases"] = None
         __props__.__dict__["dash_configuration"] = None
         __props__.__dict__["hls_configuration"] = None
+        __props__.__dict__["insertion_mode"] = None
         __props__.__dict__["live_pre_roll_configuration"] = None
         __props__.__dict__["log_configuration"] = None
         __props__.__dict__["manifest_processing_rules"] = None
@@ -530,6 +551,14 @@ class PlaybackConfiguration(pulumi.CustomResource):
         The configuration for HLS content.
         """
         return pulumi.get(self, "hls_configuration")
+
+    @property
+    @pulumi.getter(name="insertionMode")
+    def insertion_mode(self) -> pulumi.Output[Optional['PlaybackConfigurationInsertionMode']]:
+        """
+        The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+        """
+        return pulumi.get(self, "insertion_mode")
 
     @property
     @pulumi.getter(name="livePreRollConfiguration")

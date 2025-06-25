@@ -67,7 +67,13 @@ namespace Pulumi.AwsNative.SecurityHub
         /// A list of actions to be performed when the rule criteria is met
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleV2AutomationRulesActionV2> Actions;
+        /// <summary>
+        /// The timestamp when the V2 automation rule was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The filtering type and configuration of the automation rule.
+        /// </summary>
         public readonly Outputs.AutomationRuleV2Criteria? Criteria;
         /// <summary>
         /// A description of the automation rule
@@ -93,7 +99,13 @@ namespace Pulumi.AwsNative.SecurityHub
         /// The status of the automation rule
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRuleV2RuleStatus? RuleStatus;
+        /// <summary>
+        /// A list of key-value pairs associated with the V2 automation rule.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The timestamp when the V2 automation rule was updated.
+        /// </summary>
         public readonly string? UpdatedAt;
 
         [OutputConstructor]

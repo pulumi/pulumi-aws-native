@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
             set => _compositeFilters = value;
         }
 
+        /// <summary>
+        /// The logical operators used to combine the filtering on multiple `CompositeFilters` .
+        /// </summary>
         [Input("compositeOperator")]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRuleV2AllowedOperators>? CompositeOperator { get; set; }
 

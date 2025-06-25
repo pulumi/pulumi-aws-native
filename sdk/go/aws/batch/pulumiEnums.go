@@ -10,6 +10,336 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType string
+
+const (
+	ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeEksBootstrapSh = ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType("EKS_BOOTSTRAP_SH")
+	ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeEksNodeadm     = ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType("EKS_NODEADM")
+)
+
+func (ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType)(nil)).Elem()
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput {
+	return pulumi.ToOutput(e).(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput)
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput)
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput {
+	return e.ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput {
+	return ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType(e).ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutputWithContext(ctx).ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutputWithContext(ctx)
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput) ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput {
+	return o
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput) ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput {
+	return o
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput) ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput {
+	return o.ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput) ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) *ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType {
+		return &v
+	}).(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput)
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput) ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput) ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput) Elem() ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType
+		return ret
+	}).(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput)
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeInput is an input type that accepts values of the ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType enum
+// A concrete instance of `ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeInput` can be one of the following:
+//
+//	ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeEksBootstrapSh
+//	ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeEksNodeadm
+type ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput
+	ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutputWithContext(context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput
+}
+
+var computeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrType = reflect.TypeOf((**ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType)(nil)).Elem()
+
+type ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput
+	ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutputWithContext(context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput
+}
+
+type computeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtr string
+
+func ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtr(v string) ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrInput {
+	return (*computeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtr)(&v)
+}
+
+func (*computeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtr) ElementType() reflect.Type {
+	return computeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrType
+}
+
+func (in *computeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtr) ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput {
+	return pulumi.ToOutput(in).(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput)
+}
+
+func (in *computeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtr) ToComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput)
+}
+
+type ComputeEnvironmentLaunchTemplateSpecificationUserdataType string
+
+const (
+	ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeEksBootstrapSh = ComputeEnvironmentLaunchTemplateSpecificationUserdataType("EKS_BOOTSTRAP_SH")
+	ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeEksNodeadm     = ComputeEnvironmentLaunchTemplateSpecificationUserdataType("EKS_NODEADM")
+)
+
+func (ComputeEnvironmentLaunchTemplateSpecificationUserdataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationUserdataType)(nil)).Elem()
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationUserdataType) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput {
+	return pulumi.ToOutput(e).(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput)
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationUserdataType) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput)
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationUserdataType) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
+	return e.ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationUserdataType) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
+	return ComputeEnvironmentLaunchTemplateSpecificationUserdataType(e).ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutputWithContext(ctx).ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutputWithContext(ctx)
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationUserdataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationUserdataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationUserdataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentLaunchTemplateSpecificationUserdataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationUserdataType)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput {
+	return o
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput {
+	return o
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
+	return o.ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentLaunchTemplateSpecificationUserdataType) *ComputeEnvironmentLaunchTemplateSpecificationUserdataType {
+		return &v
+	}).(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput)
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentLaunchTemplateSpecificationUserdataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentLaunchTemplateSpecificationUserdataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentLaunchTemplateSpecificationUserdataType)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput) Elem() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentLaunchTemplateSpecificationUserdataType) ComputeEnvironmentLaunchTemplateSpecificationUserdataType {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentLaunchTemplateSpecificationUserdataType
+		return ret
+	}).(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput)
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeEnvironmentLaunchTemplateSpecificationUserdataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeInput is an input type that accepts values of the ComputeEnvironmentLaunchTemplateSpecificationUserdataType enum
+// A concrete instance of `ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeInput` can be one of the following:
+//
+//	ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeEksBootstrapSh
+//	ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeEksNodeadm
+type ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput
+	ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutputWithContext(context.Context) ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput
+}
+
+var computeEnvironmentLaunchTemplateSpecificationUserdataTypePtrType = reflect.TypeOf((**ComputeEnvironmentLaunchTemplateSpecificationUserdataType)(nil)).Elem()
+
+type ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput
+	ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutputWithContext(context.Context) ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput
+}
+
+type computeEnvironmentLaunchTemplateSpecificationUserdataTypePtr string
+
+func ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtr(v string) ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrInput {
+	return (*computeEnvironmentLaunchTemplateSpecificationUserdataTypePtr)(&v)
+}
+
+func (*computeEnvironmentLaunchTemplateSpecificationUserdataTypePtr) ElementType() reflect.Type {
+	return computeEnvironmentLaunchTemplateSpecificationUserdataTypePtrType
+}
+
+func (in *computeEnvironmentLaunchTemplateSpecificationUserdataTypePtr) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
+	return pulumi.ToOutput(in).(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput)
+}
+
+func (in *computeEnvironmentLaunchTemplateSpecificationUserdataTypePtr) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput)
+}
+
 // Type of Consumable Resource.
 type ConsumableResourceResourceType string
 
@@ -671,6 +1001,10 @@ func (in *jobQueueStateEnumPtr) ToJobQueueStateEnumPtrOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType("EKS_BOOTSTRAP_SH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType("EKS_BOOTSTRAP_SH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationUserdataType("EKS_BOOTSTRAP_SH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationUserdataType("EKS_BOOTSTRAP_SH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConsumableResourceResourceTypeInput)(nil)).Elem(), ConsumableResourceResourceType("REPLENISHABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConsumableResourceResourceTypePtrInput)(nil)).Elem(), ConsumableResourceResourceType("REPLENISHABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionActionInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionAction("CANCEL"))
@@ -679,6 +1013,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionStatePtrInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionState("RUNNABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueStateEnumInput)(nil)).Elem(), JobQueueStateEnum("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueStateEnumPtrInput)(nil)).Elem(), JobQueueStateEnum("DISABLED"))
+	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput{})
 	pulumi.RegisterOutputType(ConsumableResourceResourceTypeOutput{})
 	pulumi.RegisterOutputType(ConsumableResourceResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(JobQueueJobStateTimeLimitActionActionOutput{})

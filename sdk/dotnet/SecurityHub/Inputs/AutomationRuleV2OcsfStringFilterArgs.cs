@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     /// </summary>
     public sealed class AutomationRuleV2OcsfStringFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the field.
+        /// </summary>
         [Input("fieldName", required: true)]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRuleV2OcsfStringField> FieldName { get; set; } = null!;
 
+        /// <summary>
+        /// Enables filtering of security findings based on string field values in OCSF.
+        /// </summary>
         [Input("filter", required: true)]
         public Input<Inputs.AutomationRuleV2StringFilterArgs> Filter { get; set; } = null!;
 

@@ -40,6 +40,9 @@ export const EventSourceMappingSchemaRegistryAccessConfigType = {
     ServerRootCaCertificate: "SERVER_ROOT_CA_CERTIFICATE",
 } as const;
 
+/**
+ * The type of authentication Lambda uses to access your schema registry.
+ */
 export type EventSourceMappingSchemaRegistryAccessConfigType = (typeof EventSourceMappingSchemaRegistryAccessConfigType)[keyof typeof EventSourceMappingSchemaRegistryAccessConfigType];
 
 export const EventSourceMappingSchemaRegistryConfigEventRecordFormat = {
@@ -47,6 +50,12 @@ export const EventSourceMappingSchemaRegistryConfigEventRecordFormat = {
     Source: "SOURCE",
 } as const;
 
+/**
+ * The record format that Lambda delivers to your function after schema validation.
+ *
+ * - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
+ * - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+ */
 export type EventSourceMappingSchemaRegistryConfigEventRecordFormat = (typeof EventSourceMappingSchemaRegistryConfigEventRecordFormat)[keyof typeof EventSourceMappingSchemaRegistryConfigEventRecordFormat];
 
 export const EventSourceMappingSchemaValidationConfigAttribute = {
@@ -54,6 +63,9 @@ export const EventSourceMappingSchemaValidationConfigAttribute = {
     Value: "VALUE",
 } as const;
 
+/**
+ * The attributes you want your schema registry to validate and filter for. If you selected `JSON` as the `EventRecordFormat` , Lambda also deserializes the selected message attributes.
+ */
 export type EventSourceMappingSchemaValidationConfigAttribute = (typeof EventSourceMappingSchemaValidationConfigAttribute)[keyof typeof EventSourceMappingSchemaValidationConfigAttribute];
 
 export const EventSourceMappingSourceAccessConfigurationType = {

@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetContainerFleetResult:
-    def __init__(__self__, creation_time=None, deployment_details=None, description=None, fleet_arn=None, fleet_id=None, fleet_role_arn=None, game_server_container_group_definition_arn=None, game_session_creation_limit_policy=None, instance_connection_port_range=None, instance_inbound_permissions=None, locations=None, log_configuration=None, maximum_game_server_container_groups_per_instance=None, metric_groups=None, new_game_session_protection_policy=None, per_instance_container_group_definition_arn=None, scaling_policies=None, status=None, tags=None):
+    def __init__(__self__, creation_time=None, deployment_details=None, description=None, fleet_arn=None, fleet_id=None, fleet_role_arn=None, game_server_container_group_definition_arn=None, game_server_container_groups_per_instance=None, game_session_creation_limit_policy=None, instance_connection_port_range=None, instance_inbound_permissions=None, locations=None, log_configuration=None, maximum_game_server_container_groups_per_instance=None, metric_groups=None, new_game_session_protection_policy=None, per_instance_container_group_definition_arn=None, scaling_policies=None, status=None, tags=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -49,6 +49,9 @@ class GetContainerFleetResult:
         if game_server_container_group_definition_arn and not isinstance(game_server_container_group_definition_arn, str):
             raise TypeError("Expected argument 'game_server_container_group_definition_arn' to be a str")
         pulumi.set(__self__, "game_server_container_group_definition_arn", game_server_container_group_definition_arn)
+        if game_server_container_groups_per_instance and not isinstance(game_server_container_groups_per_instance, int):
+            raise TypeError("Expected argument 'game_server_container_groups_per_instance' to be a int")
+        pulumi.set(__self__, "game_server_container_groups_per_instance", game_server_container_groups_per_instance)
         if game_session_creation_limit_policy and not isinstance(game_session_creation_limit_policy, dict):
             raise TypeError("Expected argument 'game_session_creation_limit_policy' to be a dict")
         pulumi.set(__self__, "game_session_creation_limit_policy", game_session_creation_limit_policy)
@@ -138,6 +141,14 @@ class GetContainerFleetResult:
         The Amazon Resource Name (ARN) of the game server container group definition. This field will be empty if GameServerContainerGroupDefinitionName is not specified.
         """
         return pulumi.get(self, "game_server_container_group_definition_arn")
+
+    @property
+    @pulumi.getter(name="gameServerContainerGroupsPerInstance")
+    def game_server_container_groups_per_instance(self) -> Optional[builtins.int]:
+        """
+        The number of desired game server container groups per instance, a number between 1-5000.
+        """
+        return pulumi.get(self, "game_server_container_groups_per_instance")
 
     @property
     @pulumi.getter(name="gameSessionCreationLimitPolicy")
@@ -250,6 +261,7 @@ class AwaitableGetContainerFleetResult(GetContainerFleetResult):
             fleet_id=self.fleet_id,
             fleet_role_arn=self.fleet_role_arn,
             game_server_container_group_definition_arn=self.game_server_container_group_definition_arn,
+            game_server_container_groups_per_instance=self.game_server_container_groups_per_instance,
             game_session_creation_limit_policy=self.game_session_creation_limit_policy,
             instance_connection_port_range=self.instance_connection_port_range,
             instance_inbound_permissions=self.instance_inbound_permissions,
@@ -285,6 +297,7 @@ def get_container_fleet(fleet_id: Optional[builtins.str] = None,
         fleet_id=pulumi.get(__ret__, 'fleet_id'),
         fleet_role_arn=pulumi.get(__ret__, 'fleet_role_arn'),
         game_server_container_group_definition_arn=pulumi.get(__ret__, 'game_server_container_group_definition_arn'),
+        game_server_container_groups_per_instance=pulumi.get(__ret__, 'game_server_container_groups_per_instance'),
         game_session_creation_limit_policy=pulumi.get(__ret__, 'game_session_creation_limit_policy'),
         instance_connection_port_range=pulumi.get(__ret__, 'instance_connection_port_range'),
         instance_inbound_permissions=pulumi.get(__ret__, 'instance_inbound_permissions'),
@@ -317,6 +330,7 @@ def get_container_fleet_output(fleet_id: Optional[pulumi.Input[builtins.str]] = 
         fleet_id=pulumi.get(__response__, 'fleet_id'),
         fleet_role_arn=pulumi.get(__response__, 'fleet_role_arn'),
         game_server_container_group_definition_arn=pulumi.get(__response__, 'game_server_container_group_definition_arn'),
+        game_server_container_groups_per_instance=pulumi.get(__response__, 'game_server_container_groups_per_instance'),
         game_session_creation_limit_policy=pulumi.get(__response__, 'game_session_creation_limit_policy'),
         instance_connection_port_range=pulumi.get(__response__, 'instance_connection_port_range'),
         instance_inbound_permissions=pulumi.get(__response__, 'instance_inbound_permissions'),

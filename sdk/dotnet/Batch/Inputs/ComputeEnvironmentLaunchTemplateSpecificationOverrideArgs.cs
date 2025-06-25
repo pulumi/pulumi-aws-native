@@ -49,6 +49,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
             set => _targetInstanceTypes = value;
         }
 
+        [Input("userdataType")]
+        public Input<Pulumi.AwsNative.Batch.ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType>? UserdataType { get; set; }
+
         /// <summary>
         /// The version number of the launch template, `$Default` , or `$Latest` .
         /// 

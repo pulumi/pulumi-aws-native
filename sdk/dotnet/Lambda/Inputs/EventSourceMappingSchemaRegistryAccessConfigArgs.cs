@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 
     public sealed class EventSourceMappingSchemaRegistryAccessConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of authentication Lambda uses to access your schema registry.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.Lambda.EventSourceMappingSchemaRegistryAccessConfigType>? Type { get; set; }
 
+        /// <summary>
+        /// The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
+        /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 

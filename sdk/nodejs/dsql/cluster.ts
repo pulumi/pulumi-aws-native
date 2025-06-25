@@ -46,9 +46,17 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly deletionProtectionEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The encryption configuration details for the cluster.
+     */
+    public /*out*/ readonly encryptionDetails!: pulumi.Output<outputs.dsql.EncryptionDetailsProperties>;
+    /**
      * The ID of the created cluster.
      */
     public /*out*/ readonly identifier!: pulumi.Output<string>;
+    /**
+     * The KMS key that encrypts data on the cluster.
+     */
+    public readonly kmsEncryptionKey!: pulumi.Output<string | undefined>;
     /**
      * The Multi-region properties associated to this cluster.
      */
@@ -82,9 +90,11 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
+            resourceInputs["kmsEncryptionKey"] = args ? args.kmsEncryptionKey : undefined;
             resourceInputs["multiRegionProperties"] = args ? args.multiRegionProperties : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["encryptionDetails"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -92,7 +102,9 @@ export class Cluster extends pulumi.CustomResource {
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deletionProtectionEnabled"] = undefined /*out*/;
+            resourceInputs["encryptionDetails"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
+            resourceInputs["kmsEncryptionKey"] = undefined /*out*/;
             resourceInputs["multiRegionProperties"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -112,6 +124,10 @@ export interface ClusterArgs {
      * Whether deletion protection is enabled in this cluster.
      */
     deletionProtectionEnabled?: pulumi.Input<boolean>;
+    /**
+     * The KMS key that encrypts data on the cluster.
+     */
+    kmsEncryptionKey?: pulumi.Input<string>;
     /**
      * The Multi-region properties associated to this cluster.
      */

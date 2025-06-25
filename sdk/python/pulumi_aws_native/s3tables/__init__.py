@@ -9,6 +9,7 @@ import typing
 from ._enums import *
 from .get_table_bucket import *
 from .get_table_bucket_policy import *
+from .namespace import *
 from .table_bucket import *
 from .table_bucket_policy import *
 from ._inputs import *

@@ -36,7 +36,8 @@ type LookupAggregatorV2Result struct {
 	LinkedRegions []string `pulumi:"linkedRegions"`
 	// Indicates to link a list of included Regions
 	RegionLinkingMode *AggregatorV2RegionLinkingMode `pulumi:"regionLinkingMode"`
-	Tags              map[string]string              `pulumi:"tags"`
+	// A list of key-value pairs to be applied to the AggregatorV2.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupAggregatorV2Output(ctx *pulumi.Context, args LookupAggregatorV2OutputArgs, opts ...pulumi.InvokeOption) LookupAggregatorV2ResultOutput {
@@ -91,6 +92,7 @@ func (o LookupAggregatorV2ResultOutput) RegionLinkingMode() AggregatorV2RegionLi
 	return o.ApplyT(func(v LookupAggregatorV2Result) *AggregatorV2RegionLinkingMode { return v.RegionLinkingMode }).(AggregatorV2RegionLinkingModePtrOutput)
 }
 
+// A list of key-value pairs to be applied to the AggregatorV2.
 func (o LookupAggregatorV2ResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAggregatorV2Result) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

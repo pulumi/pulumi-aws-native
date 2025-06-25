@@ -70,6 +70,10 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
      */
     public readonly hlsConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationHlsConfiguration | undefined>;
     /**
+     * The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+     */
+    public readonly insertionMode!: pulumi.Output<enums.mediatailor.PlaybackConfigurationInsertionMode | undefined>;
+    /**
      * The configuration for pre-roll ad insertion.
      */
     public readonly livePreRollConfiguration!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationLivePreRollConfiguration | undefined>;
@@ -143,6 +147,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["configurationAliases"] = args ? args.configurationAliases : undefined;
             resourceInputs["dashConfiguration"] = args ? args.dashConfiguration : undefined;
             resourceInputs["hlsConfiguration"] = args ? args.hlsConfiguration : undefined;
+            resourceInputs["insertionMode"] = args ? args.insertionMode : undefined;
             resourceInputs["livePreRollConfiguration"] = args ? args.livePreRollConfiguration : undefined;
             resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["manifestProcessingRules"] = args ? args.manifestProcessingRules : undefined;
@@ -164,6 +169,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["configurationAliases"] = undefined /*out*/;
             resourceInputs["dashConfiguration"] = undefined /*out*/;
             resourceInputs["hlsConfiguration"] = undefined /*out*/;
+            resourceInputs["insertionMode"] = undefined /*out*/;
             resourceInputs["livePreRollConfiguration"] = undefined /*out*/;
             resourceInputs["logConfiguration"] = undefined /*out*/;
             resourceInputs["manifestProcessingRules"] = undefined /*out*/;
@@ -220,6 +226,10 @@ export interface PlaybackConfigurationArgs {
      * The configuration for HLS content.
      */
     hlsConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationHlsConfigurationArgs>;
+    /**
+     * The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+     */
+    insertionMode?: pulumi.Input<enums.mediatailor.PlaybackConfigurationInsertionMode>;
     /**
      * The configuration for pre-roll ad insertion.
      */

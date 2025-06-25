@@ -786,7 +786,13 @@ if not MYPY:
         The category of action to be executed by the automation rule
         """
         external_integration_configuration: NotRequired[pulumi.Input['AutomationRuleV2ExternalIntegrationConfigurationArgsDict']]
+        """
+        The settings for integrating automation rule actions with external systems or service.
+        """
         finding_fields_update: NotRequired[pulumi.Input['AutomationRuleV2AutomationRulesFindingFieldsUpdateV2ArgsDict']]
+        """
+        Specifies that the automation rule action is an update to a finding field.
+        """
 elif False:
     AutomationRuleV2AutomationRulesActionV2ArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -799,6 +805,8 @@ class AutomationRuleV2AutomationRulesActionV2Args:
         """
         Allows you to configure automated responses
         :param pulumi.Input['AutomationRuleV2AutomationRulesActionV2Type'] type: The category of action to be executed by the automation rule
+        :param pulumi.Input['AutomationRuleV2ExternalIntegrationConfigurationArgs'] external_integration_configuration: The settings for integrating automation rule actions with external systems or service.
+        :param pulumi.Input['AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args'] finding_fields_update: Specifies that the automation rule action is an update to a finding field.
         """
         pulumi.set(__self__, "type", type)
         if external_integration_configuration is not None:
@@ -821,6 +829,9 @@ class AutomationRuleV2AutomationRulesActionV2Args:
     @property
     @pulumi.getter(name="externalIntegrationConfiguration")
     def external_integration_configuration(self) -> Optional[pulumi.Input['AutomationRuleV2ExternalIntegrationConfigurationArgs']]:
+        """
+        The settings for integrating automation rule actions with external systems or service.
+        """
         return pulumi.get(self, "external_integration_configuration")
 
     @external_integration_configuration.setter
@@ -830,6 +841,9 @@ class AutomationRuleV2AutomationRulesActionV2Args:
     @property
     @pulumi.getter(name="findingFieldsUpdate")
     def finding_fields_update(self) -> Optional[pulumi.Input['AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args']]:
+        """
+        Specifies that the automation rule action is an update to a finding field.
+        """
         return pulumi.get(self, "finding_fields_update")
 
     @finding_fields_update.setter
@@ -970,6 +984,9 @@ if not MYPY:
         Enables filtering based on numerical field values
         """
         operator: NotRequired[pulumi.Input['AutomationRuleV2AllowedOperators']]
+        """
+        The logical operator used to combine multiple filter conditions.
+        """
         string_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfStringFilterArgsDict']]]]
         """
         Enables filtering based on string field values
@@ -992,6 +1009,7 @@ class AutomationRuleV2CompositeFilterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfDateFilterArgs']]] date_filters: Enables filtering based on date and timestamp fields
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfMapFilterArgs']]] map_filters: Enables filtering based on map field value
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfNumberFilterArgs']]] number_filters: Enables filtering based on numerical field values
+        :param pulumi.Input['AutomationRuleV2AllowedOperators'] operator: The logical operator used to combine multiple filter conditions.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfStringFilterArgs']]] string_filters: Enables filtering based on string field values
         """
         if boolean_filters is not None:
@@ -1058,6 +1076,9 @@ class AutomationRuleV2CompositeFilterArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input['AutomationRuleV2AllowedOperators']]:
+        """
+        The logical operator used to combine multiple filter conditions.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -1083,6 +1104,9 @@ if not MYPY:
         Defines the parameters and conditions used to evaluate and filter security findings
         """
         ocsf_finding_criteria: NotRequired[pulumi.Input['AutomationRuleV2OcsfFindingFiltersArgsDict']]
+        """
+        The filtering conditions that align with OCSF standards.
+        """
 elif False:
     AutomationRuleV2CriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1092,6 +1116,7 @@ class AutomationRuleV2CriteriaArgs:
                  ocsf_finding_criteria: Optional[pulumi.Input['AutomationRuleV2OcsfFindingFiltersArgs']] = None):
         """
         Defines the parameters and conditions used to evaluate and filter security findings
+        :param pulumi.Input['AutomationRuleV2OcsfFindingFiltersArgs'] ocsf_finding_criteria: The filtering conditions that align with OCSF standards.
         """
         if ocsf_finding_criteria is not None:
             pulumi.set(__self__, "ocsf_finding_criteria", ocsf_finding_criteria)
@@ -1099,6 +1124,9 @@ class AutomationRuleV2CriteriaArgs:
     @property
     @pulumi.getter(name="ocsfFindingCriteria")
     def ocsf_finding_criteria(self) -> Optional[pulumi.Input['AutomationRuleV2OcsfFindingFiltersArgs']]:
+        """
+        The filtering conditions that align with OCSF standards.
+        """
         return pulumi.get(self, "ocsf_finding_criteria")
 
     @ocsf_finding_criteria.setter
@@ -1112,8 +1140,21 @@ if not MYPY:
         A date filter for querying findings
         """
         date_range: NotRequired[pulumi.Input['AutomationRuleV2DateRangeArgsDict']]
+        """
+        A date range for the date filter.
+        """
         end: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A timestamp that provides the end date for the date filter.
+
+        For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        """
         start: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A timestamp that provides the start date for the date filter.
+
+        For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        """
 elif False:
     AutomationRuleV2DateFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1125,6 +1166,13 @@ class AutomationRuleV2DateFilterArgs:
                  start: Optional[pulumi.Input[builtins.str]] = None):
         """
         A date filter for querying findings
+        :param pulumi.Input['AutomationRuleV2DateRangeArgs'] date_range: A date range for the date filter.
+        :param pulumi.Input[builtins.str] end: A timestamp that provides the end date for the date filter.
+               
+               For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        :param pulumi.Input[builtins.str] start: A timestamp that provides the start date for the date filter.
+               
+               For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
@@ -1136,6 +1184,9 @@ class AutomationRuleV2DateFilterArgs:
     @property
     @pulumi.getter(name="dateRange")
     def date_range(self) -> Optional[pulumi.Input['AutomationRuleV2DateRangeArgs']]:
+        """
+        A date range for the date filter.
+        """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
@@ -1145,6 +1196,11 @@ class AutomationRuleV2DateFilterArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A timestamp that provides the end date for the date filter.
+
+        For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -1154,6 +1210,11 @@ class AutomationRuleV2DateFilterArgs:
     @property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A timestamp that provides the start date for the date filter.
+
+        For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -1410,6 +1471,9 @@ if not MYPY:
         The name of the field
         """
         filter: pulumi.Input['AutomationRuleV2BooleanFilterArgsDict']
+        """
+        Enables filtering of security findings based on boolean field values in OCSF.
+        """
 elif False:
     AutomationRuleV2OcsfBooleanFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1421,6 +1485,7 @@ class AutomationRuleV2OcsfBooleanFilterArgs:
         """
         Enables filtering of security findings based on boolean field values in OCSF
         :param pulumi.Input['AutomationRuleV2OcsfBooleanFilterFieldName'] field_name: The name of the field
+        :param pulumi.Input['AutomationRuleV2BooleanFilterArgs'] filter: Enables filtering of security findings based on boolean field values in OCSF.
         """
         pulumi.set(__self__, "field_name", field_name)
         pulumi.set(__self__, "filter", filter)
@@ -1440,6 +1505,9 @@ class AutomationRuleV2OcsfBooleanFilterArgs:
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Input['AutomationRuleV2BooleanFilterArgs']:
+        """
+        Enables filtering of security findings based on boolean field values in OCSF.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -1457,6 +1525,9 @@ if not MYPY:
         The name of the field
         """
         filter: pulumi.Input['AutomationRuleV2DateFilterArgsDict']
+        """
+        Enables filtering of security findings based on date and timestamp fields in OCSF.
+        """
 elif False:
     AutomationRuleV2OcsfDateFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1468,6 +1539,7 @@ class AutomationRuleV2OcsfDateFilterArgs:
         """
         Enables filtering of security findings based on date and timestamp fields in OCSF
         :param pulumi.Input['AutomationRuleV2OcsfDateFilterFieldName'] field_name: The name of the field
+        :param pulumi.Input['AutomationRuleV2DateFilterArgs'] filter: Enables filtering of security findings based on date and timestamp fields in OCSF.
         """
         pulumi.set(__self__, "field_name", field_name)
         pulumi.set(__self__, "filter", filter)
@@ -1487,6 +1559,9 @@ class AutomationRuleV2OcsfDateFilterArgs:
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Input['AutomationRuleV2DateFilterArgs']:
+        """
+        Enables filtering of security findings based on date and timestamp fields in OCSF.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -1504,6 +1579,9 @@ if not MYPY:
         Enables the creation of complex filtering conditions by combining filter
         """
         composite_operator: NotRequired[pulumi.Input['AutomationRuleV2AllowedOperators']]
+        """
+        The logical operators used to combine the filtering on multiple `CompositeFilters` .
+        """
 elif False:
     AutomationRuleV2OcsfFindingFiltersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1515,6 +1593,7 @@ class AutomationRuleV2OcsfFindingFiltersArgs:
         """
         The filtering conditions that align with OCSF standards
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2CompositeFilterArgs']]] composite_filters: Enables the creation of complex filtering conditions by combining filter
+        :param pulumi.Input['AutomationRuleV2AllowedOperators'] composite_operator: The logical operators used to combine the filtering on multiple `CompositeFilters` .
         """
         if composite_filters is not None:
             pulumi.set(__self__, "composite_filters", composite_filters)
@@ -1536,6 +1615,9 @@ class AutomationRuleV2OcsfFindingFiltersArgs:
     @property
     @pulumi.getter(name="compositeOperator")
     def composite_operator(self) -> Optional[pulumi.Input['AutomationRuleV2AllowedOperators']]:
+        """
+        The logical operators used to combine the filtering on multiple `CompositeFilters` .
+        """
         return pulumi.get(self, "composite_operator")
 
     @composite_operator.setter
@@ -1553,6 +1635,9 @@ if not MYPY:
         The name of the field
         """
         filter: pulumi.Input['AutomationRuleV2MapFilterArgsDict']
+        """
+        Enables filtering of security findings based on map field values in OCSF.
+        """
 elif False:
     AutomationRuleV2OcsfMapFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1564,6 +1649,7 @@ class AutomationRuleV2OcsfMapFilterArgs:
         """
         Enables filtering of security findings based on map field values in OCSF
         :param pulumi.Input['AutomationRuleV2OcsfMapFilterFieldName'] field_name: The name of the field
+        :param pulumi.Input['AutomationRuleV2MapFilterArgs'] filter: Enables filtering of security findings based on map field values in OCSF.
         """
         pulumi.set(__self__, "field_name", field_name)
         pulumi.set(__self__, "filter", filter)
@@ -1583,6 +1669,9 @@ class AutomationRuleV2OcsfMapFilterArgs:
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Input['AutomationRuleV2MapFilterArgs']:
+        """
+        Enables filtering of security findings based on map field values in OCSF.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -1600,6 +1689,9 @@ if not MYPY:
         The name of the field
         """
         filter: pulumi.Input['AutomationRuleV2NumberFilterArgsDict']
+        """
+        Enables filtering of security findings based on numerical field values in OCSF.
+        """
 elif False:
     AutomationRuleV2OcsfNumberFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1611,6 +1703,7 @@ class AutomationRuleV2OcsfNumberFilterArgs:
         """
         Enables filtering of security findings based on numerical field values in OCSF
         :param pulumi.Input['AutomationRuleV2OcsfNumberFilterFieldName'] field_name: The name of the field
+        :param pulumi.Input['AutomationRuleV2NumberFilterArgs'] filter: Enables filtering of security findings based on numerical field values in OCSF.
         """
         pulumi.set(__self__, "field_name", field_name)
         pulumi.set(__self__, "filter", filter)
@@ -1630,6 +1723,9 @@ class AutomationRuleV2OcsfNumberFilterArgs:
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Input['AutomationRuleV2NumberFilterArgs']:
+        """
+        Enables filtering of security findings based on numerical field values in OCSF.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -1643,7 +1739,13 @@ if not MYPY:
         Enables filtering of security findings based on string field values in OCSF
         """
         field_name: pulumi.Input['AutomationRuleV2OcsfStringField']
+        """
+        The name of the field.
+        """
         filter: pulumi.Input['AutomationRuleV2StringFilterArgsDict']
+        """
+        Enables filtering of security findings based on string field values in OCSF.
+        """
 elif False:
     AutomationRuleV2OcsfStringFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1654,6 +1756,8 @@ class AutomationRuleV2OcsfStringFilterArgs:
                  filter: pulumi.Input['AutomationRuleV2StringFilterArgs']):
         """
         Enables filtering of security findings based on string field values in OCSF
+        :param pulumi.Input['AutomationRuleV2OcsfStringField'] field_name: The name of the field.
+        :param pulumi.Input['AutomationRuleV2StringFilterArgs'] filter: Enables filtering of security findings based on string field values in OCSF.
         """
         pulumi.set(__self__, "field_name", field_name)
         pulumi.set(__self__, "filter", filter)
@@ -1661,6 +1765,9 @@ class AutomationRuleV2OcsfStringFilterArgs:
     @property
     @pulumi.getter(name="fieldName")
     def field_name(self) -> pulumi.Input['AutomationRuleV2OcsfStringField']:
+        """
+        The name of the field.
+        """
         return pulumi.get(self, "field_name")
 
     @field_name.setter
@@ -1670,6 +1777,9 @@ class AutomationRuleV2OcsfStringFilterArgs:
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Input['AutomationRuleV2StringFilterArgs']:
+        """
+        Enables filtering of security findings based on string field values in OCSF.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter

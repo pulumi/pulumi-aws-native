@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("regionLinkingMode")]
         public Output<Pulumi.AwsNative.SecurityHub.AggregatorV2RegionLinkingMode> RegionLinkingMode { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of key-value pairs to be applied to the AggregatorV2.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -107,6 +110,10 @@ namespace Pulumi.AwsNative.SecurityHub
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A list of key-value pairs to be applied to the AggregatorV2.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

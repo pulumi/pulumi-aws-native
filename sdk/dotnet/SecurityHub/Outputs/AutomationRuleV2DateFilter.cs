@@ -16,8 +16,21 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleV2DateFilter
     {
+        /// <summary>
+        /// A date range for the date filter.
+        /// </summary>
         public readonly Outputs.AutomationRuleV2DateRange? DateRange;
+        /// <summary>
+        /// A timestamp that provides the end date for the date filter.
+        /// 
+        /// For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        /// </summary>
         public readonly string? End;
+        /// <summary>
+        /// A timestamp that provides the start date for the date filter.
+        /// 
+        /// For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        /// </summary>
         public readonly string? Start;
 
         [OutputConstructor]

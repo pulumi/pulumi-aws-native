@@ -54,6 +54,10 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly Outputs.DataSourceSharePointConfiguration? SharePointConfiguration;
         /// <summary>
+        /// Provides a template for the configuration information to connect to your data source.
+        /// </summary>
+        public readonly Outputs.DataSourceTemplateConfiguration? TemplateConfiguration;
+        /// <summary>
         /// Provides the configuration information required for Amazon Kendra Web Crawler.
         /// </summary>
         public readonly Outputs.DataSourceWebCrawlerConfiguration? WebCrawlerConfiguration;
@@ -80,6 +84,8 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Outputs.DataSourceSharePointConfiguration? sharePointConfiguration,
 
+            Outputs.DataSourceTemplateConfiguration? templateConfiguration,
+
             Outputs.DataSourceWebCrawlerConfiguration? webCrawlerConfiguration,
 
             Outputs.DataSourceWorkDocsConfiguration? workDocsConfiguration)
@@ -92,6 +98,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
             SalesforceConfiguration = salesforceConfiguration;
             ServiceNowConfiguration = serviceNowConfiguration;
             SharePointConfiguration = sharePointConfiguration;
+            TemplateConfiguration = templateConfiguration;
             WebCrawlerConfiguration = webCrawlerConfiguration;
             WorkDocsConfiguration = workDocsConfiguration;
         }

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         [Input("fieldName", required: true)]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRuleV2OcsfNumberFilterFieldName> FieldName { get; set; } = null!;
 
+        /// <summary>
+        /// Enables filtering of security findings based on numerical field values in OCSF.
+        /// </summary>
         [Input("filter", required: true)]
         public Input<Inputs.AutomationRuleV2NumberFilterArgs> Filter { get; set; } = null!;
 

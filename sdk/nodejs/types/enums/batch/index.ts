@@ -2,6 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType = {
+    EksBootstrapSh: "EKS_BOOTSTRAP_SH",
+    EksNodeadm: "EKS_NODEADM",
+} as const;
+
+export type ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType = (typeof ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType)[keyof typeof ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType];
+
+export const ComputeEnvironmentLaunchTemplateSpecificationUserdataType = {
+    EksBootstrapSh: "EKS_BOOTSTRAP_SH",
+    EksNodeadm: "EKS_NODEADM",
+} as const;
+
+export type ComputeEnvironmentLaunchTemplateSpecificationUserdataType = (typeof ComputeEnvironmentLaunchTemplateSpecificationUserdataType)[keyof typeof ComputeEnvironmentLaunchTemplateSpecificationUserdataType];
+
 export const ConsumableResourceResourceType = {
     Replenishable: "REPLENISHABLE",
     NonReplenishable: "NON_REPLENISHABLE",

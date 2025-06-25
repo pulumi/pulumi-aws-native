@@ -72,11 +72,17 @@ class GetAutomationRuleV2Result:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[builtins.str]:
+        """
+        The timestamp when the V2 automation rule was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def criteria(self) -> Optional['outputs.AutomationRuleV2Criteria']:
+        """
+        The filtering type and configuration of the automation rule.
+        """
         return pulumi.get(self, "criteria")
 
     @property
@@ -130,11 +136,17 @@ class GetAutomationRuleV2Result:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        A list of key-value pairs associated with the V2 automation rule.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[builtins.str]:
+        """
+        The timestamp when the V2 automation rule was updated.
+        """
         return pulumi.get(self, "updated_at")
 
 

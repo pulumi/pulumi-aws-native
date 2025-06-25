@@ -20,6 +20,7 @@ __all__ = [
     'GroupProfileStatus',
     'OwnerEntityType',
     'ProjectMembershipUserDesignation',
+    'ProjectProfileDeploymentMode',
     'ProjectProfileStatus',
     'ProjectStatus',
     'UserProfileStatus',
@@ -165,6 +166,12 @@ class ProjectMembershipUserDesignation(builtins.str, Enum):
     PROJECT_CATALOG_VIEWER = "PROJECT_CATALOG_VIEWER"
     PROJECT_CATALOG_CONSUMER = "PROJECT_CATALOG_CONSUMER"
     PROJECT_CATALOG_STEWARD = "PROJECT_CATALOG_STEWARD"
+
+
+@pulumi.type_token("aws-native:datazone:ProjectProfileDeploymentMode")
+class ProjectProfileDeploymentMode(builtins.str, Enum):
+    ON_CREATE = "ON_CREATE"
+    ON_DEMAND = "ON_DEMAND"
 
 
 @pulumi.type_token("aws-native:datazone:ProjectProfileStatus")

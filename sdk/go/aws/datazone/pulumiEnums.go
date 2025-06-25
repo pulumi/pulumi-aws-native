@@ -1971,6 +1971,171 @@ func (in *projectMembershipUserDesignationPtr) ToProjectMembershipUserDesignatio
 	return pulumi.ToOutputWithContext(ctx, in).(ProjectMembershipUserDesignationPtrOutput)
 }
 
+type ProjectProfileDeploymentMode string
+
+const (
+	ProjectProfileDeploymentModeOnCreate = ProjectProfileDeploymentMode("ON_CREATE")
+	ProjectProfileDeploymentModeOnDemand = ProjectProfileDeploymentMode("ON_DEMAND")
+)
+
+func (ProjectProfileDeploymentMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileDeploymentMode)(nil)).Elem()
+}
+
+func (e ProjectProfileDeploymentMode) ToProjectProfileDeploymentModeOutput() ProjectProfileDeploymentModeOutput {
+	return pulumi.ToOutput(e).(ProjectProfileDeploymentModeOutput)
+}
+
+func (e ProjectProfileDeploymentMode) ToProjectProfileDeploymentModeOutputWithContext(ctx context.Context) ProjectProfileDeploymentModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProjectProfileDeploymentModeOutput)
+}
+
+func (e ProjectProfileDeploymentMode) ToProjectProfileDeploymentModePtrOutput() ProjectProfileDeploymentModePtrOutput {
+	return e.ToProjectProfileDeploymentModePtrOutputWithContext(context.Background())
+}
+
+func (e ProjectProfileDeploymentMode) ToProjectProfileDeploymentModePtrOutputWithContext(ctx context.Context) ProjectProfileDeploymentModePtrOutput {
+	return ProjectProfileDeploymentMode(e).ToProjectProfileDeploymentModeOutputWithContext(ctx).ToProjectProfileDeploymentModePtrOutputWithContext(ctx)
+}
+
+func (e ProjectProfileDeploymentMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProjectProfileDeploymentMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProjectProfileDeploymentMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProjectProfileDeploymentMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProjectProfileDeploymentModeOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileDeploymentModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileDeploymentMode)(nil)).Elem()
+}
+
+func (o ProjectProfileDeploymentModeOutput) ToProjectProfileDeploymentModeOutput() ProjectProfileDeploymentModeOutput {
+	return o
+}
+
+func (o ProjectProfileDeploymentModeOutput) ToProjectProfileDeploymentModeOutputWithContext(ctx context.Context) ProjectProfileDeploymentModeOutput {
+	return o
+}
+
+func (o ProjectProfileDeploymentModeOutput) ToProjectProfileDeploymentModePtrOutput() ProjectProfileDeploymentModePtrOutput {
+	return o.ToProjectProfileDeploymentModePtrOutputWithContext(context.Background())
+}
+
+func (o ProjectProfileDeploymentModeOutput) ToProjectProfileDeploymentModePtrOutputWithContext(ctx context.Context) ProjectProfileDeploymentModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectProfileDeploymentMode) *ProjectProfileDeploymentMode {
+		return &v
+	}).(ProjectProfileDeploymentModePtrOutput)
+}
+
+func (o ProjectProfileDeploymentModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProjectProfileDeploymentModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProjectProfileDeploymentMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProjectProfileDeploymentModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectProfileDeploymentModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProjectProfileDeploymentMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectProfileDeploymentModePtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileDeploymentModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectProfileDeploymentMode)(nil)).Elem()
+}
+
+func (o ProjectProfileDeploymentModePtrOutput) ToProjectProfileDeploymentModePtrOutput() ProjectProfileDeploymentModePtrOutput {
+	return o
+}
+
+func (o ProjectProfileDeploymentModePtrOutput) ToProjectProfileDeploymentModePtrOutputWithContext(ctx context.Context) ProjectProfileDeploymentModePtrOutput {
+	return o
+}
+
+func (o ProjectProfileDeploymentModePtrOutput) Elem() ProjectProfileDeploymentModeOutput {
+	return o.ApplyT(func(v *ProjectProfileDeploymentMode) ProjectProfileDeploymentMode {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectProfileDeploymentMode
+		return ret
+	}).(ProjectProfileDeploymentModeOutput)
+}
+
+func (o ProjectProfileDeploymentModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectProfileDeploymentModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProjectProfileDeploymentMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProjectProfileDeploymentModeInput is an input type that accepts values of the ProjectProfileDeploymentMode enum
+// A concrete instance of `ProjectProfileDeploymentModeInput` can be one of the following:
+//
+//	ProjectProfileDeploymentModeOnCreate
+//	ProjectProfileDeploymentModeOnDemand
+type ProjectProfileDeploymentModeInput interface {
+	pulumi.Input
+
+	ToProjectProfileDeploymentModeOutput() ProjectProfileDeploymentModeOutput
+	ToProjectProfileDeploymentModeOutputWithContext(context.Context) ProjectProfileDeploymentModeOutput
+}
+
+var projectProfileDeploymentModePtrType = reflect.TypeOf((**ProjectProfileDeploymentMode)(nil)).Elem()
+
+type ProjectProfileDeploymentModePtrInput interface {
+	pulumi.Input
+
+	ToProjectProfileDeploymentModePtrOutput() ProjectProfileDeploymentModePtrOutput
+	ToProjectProfileDeploymentModePtrOutputWithContext(context.Context) ProjectProfileDeploymentModePtrOutput
+}
+
+type projectProfileDeploymentModePtr string
+
+func ProjectProfileDeploymentModePtr(v string) ProjectProfileDeploymentModePtrInput {
+	return (*projectProfileDeploymentModePtr)(&v)
+}
+
+func (*projectProfileDeploymentModePtr) ElementType() reflect.Type {
+	return projectProfileDeploymentModePtrType
+}
+
+func (in *projectProfileDeploymentModePtr) ToProjectProfileDeploymentModePtrOutput() ProjectProfileDeploymentModePtrOutput {
+	return pulumi.ToOutput(in).(ProjectProfileDeploymentModePtrOutput)
+}
+
+func (in *projectProfileDeploymentModePtr) ToProjectProfileDeploymentModePtrOutputWithContext(ctx context.Context) ProjectProfileDeploymentModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProjectProfileDeploymentModePtrOutput)
+}
+
 type ProjectProfileStatus string
 
 const (
@@ -2680,6 +2845,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OwnerEntityTypePtrInput)(nil)).Elem(), OwnerEntityType("DOMAIN_UNIT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipUserDesignationInput)(nil)).Elem(), ProjectMembershipUserDesignation("PROJECT_OWNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipUserDesignationPtrInput)(nil)).Elem(), ProjectMembershipUserDesignation("PROJECT_OWNER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileDeploymentModeInput)(nil)).Elem(), ProjectProfileDeploymentMode("ON_CREATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileDeploymentModePtrInput)(nil)).Elem(), ProjectProfileDeploymentMode("ON_CREATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileStatusInput)(nil)).Elem(), ProjectProfileStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileStatusPtrInput)(nil)).Elem(), ProjectProfileStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileStatusInput)(nil)).Elem(), UserProfileStatus("ASSIGNED"))
@@ -2712,6 +2879,8 @@ func init() {
 	pulumi.RegisterOutputType(OwnerEntityTypePtrOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipUserDesignationOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipUserDesignationPtrOutput{})
+	pulumi.RegisterOutputType(ProjectProfileDeploymentModeOutput{})
+	pulumi.RegisterOutputType(ProjectProfileDeploymentModePtrOutput{})
 	pulumi.RegisterOutputType(ProjectProfileStatusOutput{})
 	pulumi.RegisterOutputType(ProjectProfileStatusPtrOutput{})
 	pulumi.RegisterOutputType(ProjectStatusOutput{})

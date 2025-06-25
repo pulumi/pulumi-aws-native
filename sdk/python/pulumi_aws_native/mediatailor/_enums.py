@@ -15,6 +15,7 @@ __all__ = [
     'PlaybackConfigurationAvailSuppressionFillPolicy',
     'PlaybackConfigurationAvailSuppressionMode',
     'PlaybackConfigurationDashConfigurationOriginManifestType',
+    'PlaybackConfigurationInsertionMode',
     'PlaybackConfigurationStreamingMediaFileConditioning',
     'SourceLocationAccessType',
     'VodSourceType',
@@ -76,6 +77,12 @@ class PlaybackConfigurationDashConfigurationOriginManifestType(builtins.str, Enu
     """
     SINGLE_PERIOD = "SINGLE_PERIOD"
     MULTI_PERIOD = "MULTI_PERIOD"
+
+
+@pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationInsertionMode")
+class PlaybackConfigurationInsertionMode(builtins.str, Enum):
+    STITCHED_ONLY = "STITCHED_ONLY"
+    PLAYER_SELECT = "PLAYER_SELECT"
 
 
 @pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationStreamingMediaFileConditioning")

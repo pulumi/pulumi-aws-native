@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.ArcZonalShift
         /// <summary>
         /// The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
         /// 
-        /// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+        /// At this time, supported resources are Network Load Balancers and Application Load Balancers.
         /// </summary>
         [Input("resourceIdentifier", required: true)]
         public string ResourceIdentifier { get; set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.ArcZonalShift
         /// <summary>
         /// The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
         /// 
-        /// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+        /// At this time, supported resources are Network Load Balancers and Application Load Balancers.
         /// </summary>
         [Input("resourceIdentifier", required: true)]
         public Input<string> ResourceIdentifier { get; set; } = null!;

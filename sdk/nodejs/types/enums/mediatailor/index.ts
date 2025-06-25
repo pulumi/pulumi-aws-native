@@ -67,6 +67,13 @@ export const PlaybackConfigurationDashConfigurationOriginManifestType = {
  */
 export type PlaybackConfigurationDashConfigurationOriginManifestType = (typeof PlaybackConfigurationDashConfigurationOriginManifestType)[keyof typeof PlaybackConfigurationDashConfigurationOriginManifestType];
 
+export const PlaybackConfigurationInsertionMode = {
+    StitchedOnly: "STITCHED_ONLY",
+    PlayerSelect: "PLAYER_SELECT",
+} as const;
+
+export type PlaybackConfigurationInsertionMode = (typeof PlaybackConfigurationInsertionMode)[keyof typeof PlaybackConfigurationInsertionMode];
+
 export const PlaybackConfigurationStreamingMediaFileConditioning = {
     Transcode: "TRANSCODE",
     None: "NONE",

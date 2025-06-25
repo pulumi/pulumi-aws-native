@@ -433,6 +433,34 @@ namespace Pulumi.AwsNative.DataZone
     }
 
     [EnumType]
+    public readonly struct ProjectProfileDeploymentMode : IEquatable<ProjectProfileDeploymentMode>
+    {
+        private readonly string _value;
+
+        private ProjectProfileDeploymentMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProjectProfileDeploymentMode OnCreate { get; } = new ProjectProfileDeploymentMode("ON_CREATE");
+        public static ProjectProfileDeploymentMode OnDemand { get; } = new ProjectProfileDeploymentMode("ON_DEMAND");
+
+        public static bool operator ==(ProjectProfileDeploymentMode left, ProjectProfileDeploymentMode right) => left.Equals(right);
+        public static bool operator !=(ProjectProfileDeploymentMode left, ProjectProfileDeploymentMode right) => !left.Equals(right);
+
+        public static explicit operator string(ProjectProfileDeploymentMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProjectProfileDeploymentMode other && Equals(other);
+        public bool Equals(ProjectProfileDeploymentMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ProjectProfileStatus : IEquatable<ProjectProfileStatus>
     {
         private readonly string _value;

@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// The name of the field
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRuleV2OcsfDateFilterFieldName FieldName;
+        /// <summary>
+        /// Enables filtering of security findings based on date and timestamp fields in OCSF.
+        /// </summary>
         public readonly Outputs.AutomationRuleV2DateFilter Filter;
 
         [OutputConstructor]

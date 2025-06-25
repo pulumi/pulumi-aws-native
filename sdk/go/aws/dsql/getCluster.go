@@ -33,6 +33,8 @@ type LookupClusterResult struct {
 	CreationTime *string `pulumi:"creationTime"`
 	// Whether deletion protection is enabled in this cluster.
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
+	// The encryption configuration details for the cluster.
+	EncryptionDetails *EncryptionDetailsProperties `pulumi:"encryptionDetails"`
 	// The ID of the created cluster.
 	Identifier *string `pulumi:"identifier"`
 	// The Multi-region properties associated to this cluster.
@@ -87,6 +89,11 @@ func (o LookupClusterResultOutput) CreationTime() pulumi.StringPtrOutput {
 // Whether deletion protection is enabled in this cluster.
 func (o LookupClusterResultOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *bool { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The encryption configuration details for the cluster.
+func (o LookupClusterResultOutput) EncryptionDetails() EncryptionDetailsPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *EncryptionDetailsProperties { return v.EncryptionDetails }).(EncryptionDetailsPropertiesPtrOutput)
 }
 
 // The ID of the created cluster.

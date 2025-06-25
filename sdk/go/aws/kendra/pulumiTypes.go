@@ -525,6 +525,8 @@ type DataSourceConfiguration struct {
 	ServiceNowConfiguration *DataSourceServiceNowConfiguration `pulumi:"serviceNowConfiguration"`
 	// Provides the configuration information to connect to Microsoft SharePoint as your data source.
 	SharePointConfiguration *DataSourceSharePointConfiguration `pulumi:"sharePointConfiguration"`
+	// Provides a template for the configuration information to connect to your data source.
+	TemplateConfiguration *DataSourceTemplateConfiguration `pulumi:"templateConfiguration"`
 	// Provides the configuration information required for Amazon Kendra Web Crawler.
 	WebCrawlerConfiguration *DataSourceWebCrawlerConfiguration `pulumi:"webCrawlerConfiguration"`
 	// Provides the configuration information to connect to Amazon WorkDocs as your data source.
@@ -567,6 +569,8 @@ type DataSourceConfigurationArgs struct {
 	ServiceNowConfiguration DataSourceServiceNowConfigurationPtrInput `pulumi:"serviceNowConfiguration"`
 	// Provides the configuration information to connect to Microsoft SharePoint as your data source.
 	SharePointConfiguration DataSourceSharePointConfigurationPtrInput `pulumi:"sharePointConfiguration"`
+	// Provides a template for the configuration information to connect to your data source.
+	TemplateConfiguration DataSourceTemplateConfigurationPtrInput `pulumi:"templateConfiguration"`
 	// Provides the configuration information required for Amazon Kendra Web Crawler.
 	WebCrawlerConfiguration DataSourceWebCrawlerConfigurationPtrInput `pulumi:"webCrawlerConfiguration"`
 	// Provides the configuration information to connect to Amazon WorkDocs as your data source.
@@ -698,6 +702,11 @@ func (o DataSourceConfigurationOutput) SharePointConfiguration() DataSourceShare
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceSharePointConfiguration { return v.SharePointConfiguration }).(DataSourceSharePointConfigurationPtrOutput)
 }
 
+// Provides a template for the configuration information to connect to your data source.
+func (o DataSourceConfigurationOutput) TemplateConfiguration() DataSourceTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceTemplateConfiguration { return v.TemplateConfiguration }).(DataSourceTemplateConfigurationPtrOutput)
+}
+
 // Provides the configuration information required for Amazon Kendra Web Crawler.
 func (o DataSourceConfigurationOutput) WebCrawlerConfiguration() DataSourceWebCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceWebCrawlerConfiguration { return v.WebCrawlerConfiguration }).(DataSourceWebCrawlerConfigurationPtrOutput)
@@ -818,6 +827,16 @@ func (o DataSourceConfigurationPtrOutput) SharePointConfiguration() DataSourceSh
 		}
 		return v.SharePointConfiguration
 	}).(DataSourceSharePointConfigurationPtrOutput)
+}
+
+// Provides a template for the configuration information to connect to your data source.
+func (o DataSourceConfigurationPtrOutput) TemplateConfiguration() DataSourceTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceTemplateConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateConfiguration
+	}).(DataSourceTemplateConfigurationPtrOutput)
 }
 
 // Provides the configuration information required for Amazon Kendra Web Crawler.
@@ -7898,6 +7917,151 @@ type DataSourceTag struct {
 	Value string `pulumi:"value"`
 }
 
+type DataSourceTemplateConfiguration struct {
+	// The template schema used for the data source, where templates schemas are supported.
+	//
+	// See [Data source template schemas](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html) .
+	Template interface{} `pulumi:"template"`
+}
+
+// DataSourceTemplateConfigurationInput is an input type that accepts DataSourceTemplateConfigurationArgs and DataSourceTemplateConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceTemplateConfigurationInput` via:
+//
+//	DataSourceTemplateConfigurationArgs{...}
+type DataSourceTemplateConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceTemplateConfigurationOutput() DataSourceTemplateConfigurationOutput
+	ToDataSourceTemplateConfigurationOutputWithContext(context.Context) DataSourceTemplateConfigurationOutput
+}
+
+type DataSourceTemplateConfigurationArgs struct {
+	// The template schema used for the data source, where templates schemas are supported.
+	//
+	// See [Data source template schemas](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html) .
+	Template pulumi.Input `pulumi:"template"`
+}
+
+func (DataSourceTemplateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTemplateConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceTemplateConfigurationArgs) ToDataSourceTemplateConfigurationOutput() DataSourceTemplateConfigurationOutput {
+	return i.ToDataSourceTemplateConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceTemplateConfigurationArgs) ToDataSourceTemplateConfigurationOutputWithContext(ctx context.Context) DataSourceTemplateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTemplateConfigurationOutput)
+}
+
+func (i DataSourceTemplateConfigurationArgs) ToDataSourceTemplateConfigurationPtrOutput() DataSourceTemplateConfigurationPtrOutput {
+	return i.ToDataSourceTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceTemplateConfigurationArgs) ToDataSourceTemplateConfigurationPtrOutputWithContext(ctx context.Context) DataSourceTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTemplateConfigurationOutput).ToDataSourceTemplateConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceTemplateConfigurationPtrInput is an input type that accepts DataSourceTemplateConfigurationArgs, DataSourceTemplateConfigurationPtr and DataSourceTemplateConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceTemplateConfigurationPtrInput` via:
+//
+//	        DataSourceTemplateConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceTemplateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceTemplateConfigurationPtrOutput() DataSourceTemplateConfigurationPtrOutput
+	ToDataSourceTemplateConfigurationPtrOutputWithContext(context.Context) DataSourceTemplateConfigurationPtrOutput
+}
+
+type dataSourceTemplateConfigurationPtrType DataSourceTemplateConfigurationArgs
+
+func DataSourceTemplateConfigurationPtr(v *DataSourceTemplateConfigurationArgs) DataSourceTemplateConfigurationPtrInput {
+	return (*dataSourceTemplateConfigurationPtrType)(v)
+}
+
+func (*dataSourceTemplateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceTemplateConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceTemplateConfigurationPtrType) ToDataSourceTemplateConfigurationPtrOutput() DataSourceTemplateConfigurationPtrOutput {
+	return i.ToDataSourceTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceTemplateConfigurationPtrType) ToDataSourceTemplateConfigurationPtrOutputWithContext(ctx context.Context) DataSourceTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTemplateConfigurationPtrOutput)
+}
+
+type DataSourceTemplateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceTemplateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTemplateConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceTemplateConfigurationOutput) ToDataSourceTemplateConfigurationOutput() DataSourceTemplateConfigurationOutput {
+	return o
+}
+
+func (o DataSourceTemplateConfigurationOutput) ToDataSourceTemplateConfigurationOutputWithContext(ctx context.Context) DataSourceTemplateConfigurationOutput {
+	return o
+}
+
+func (o DataSourceTemplateConfigurationOutput) ToDataSourceTemplateConfigurationPtrOutput() DataSourceTemplateConfigurationPtrOutput {
+	return o.ToDataSourceTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceTemplateConfigurationOutput) ToDataSourceTemplateConfigurationPtrOutputWithContext(ctx context.Context) DataSourceTemplateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceTemplateConfiguration) *DataSourceTemplateConfiguration {
+		return &v
+	}).(DataSourceTemplateConfigurationPtrOutput)
+}
+
+// The template schema used for the data source, where templates schemas are supported.
+//
+// See [Data source template schemas](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html) .
+func (o DataSourceTemplateConfigurationOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v DataSourceTemplateConfiguration) interface{} { return v.Template }).(pulumi.AnyOutput)
+}
+
+type DataSourceTemplateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceTemplateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceTemplateConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceTemplateConfigurationPtrOutput) ToDataSourceTemplateConfigurationPtrOutput() DataSourceTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceTemplateConfigurationPtrOutput) ToDataSourceTemplateConfigurationPtrOutputWithContext(ctx context.Context) DataSourceTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceTemplateConfigurationPtrOutput) Elem() DataSourceTemplateConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceTemplateConfiguration) DataSourceTemplateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceTemplateConfiguration
+		return ret
+	}).(DataSourceTemplateConfigurationOutput)
+}
+
+// The template schema used for the data source, where templates schemas are supported.
+//
+// See [Data source template schemas](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html) .
+func (o DataSourceTemplateConfigurationPtrOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DataSourceTemplateConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Template
+	}).(pulumi.AnyOutput)
+}
+
 type DataSourceToIndexFieldMapping struct {
 	DataSourceFieldName string  `pulumi:"dataSourceFieldName"`
 	DateFieldFormat     *string `pulumi:"dateFieldFormat"`
@@ -11100,6 +11264,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointConfigurationPtrInput)(nil)).Elem(), DataSourceSharePointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSqlConfigurationInput)(nil)).Elem(), DataSourceSqlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSqlConfigurationPtrInput)(nil)).Elem(), DataSourceSqlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTemplateConfigurationInput)(nil)).Elem(), DataSourceTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTemplateConfigurationPtrInput)(nil)).Elem(), DataSourceTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceToIndexFieldMappingInput)(nil)).Elem(), DataSourceToIndexFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceToIndexFieldMappingArrayInput)(nil)).Elem(), DataSourceToIndexFieldMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConfigurationInput)(nil)).Elem(), DataSourceVpcConfigurationArgs{})
@@ -11217,6 +11383,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceSharePointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSqlConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceSqlConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceTemplateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceToIndexFieldMappingOutput{})
 	pulumi.RegisterOutputType(DataSourceToIndexFieldMappingArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConfigurationOutput{})

@@ -26,7 +26,6 @@ export type TrustAnchorNotificationEvent = (typeof TrustAnchorNotificationEvent)
 export const TrustAnchorType = {
     AwsAcmPca: "AWS_ACM_PCA",
     CertificateBundle: "CERTIFICATE_BUNDLE",
-    SelfSignedRepository: "SELF_SIGNED_REPOSITORY",
 } as const;
 
 export type TrustAnchorType = (typeof TrustAnchorType)[keyof typeof TrustAnchorType];

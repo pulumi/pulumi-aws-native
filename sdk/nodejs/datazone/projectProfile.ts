@@ -63,6 +63,7 @@ export class ProjectProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly domainUnitId!: pulumi.Output<string>;
     public readonly domainUnitIdentifier!: pulumi.Output<string | undefined>;
+    public readonly environmentConfigurations!: pulumi.Output<outputs.datazone.ProjectProfileEnvironmentConfiguration[] | undefined>;
     public /*out*/ readonly identifier!: pulumi.Output<string>;
     /**
      * The timestamp at which a project profile was last updated.
@@ -91,6 +92,7 @@ export class ProjectProfile extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
             resourceInputs["domainUnitIdentifier"] = args ? args.domainUnitIdentifier : undefined;
+            resourceInputs["environmentConfigurations"] = args ? args.environmentConfigurations : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -109,6 +111,7 @@ export class ProjectProfile extends pulumi.CustomResource {
             resourceInputs["domainIdentifier"] = undefined /*out*/;
             resourceInputs["domainUnitId"] = undefined /*out*/;
             resourceInputs["domainUnitIdentifier"] = undefined /*out*/;
+            resourceInputs["environmentConfigurations"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -131,6 +134,7 @@ export interface ProjectProfileArgs {
     description?: pulumi.Input<string>;
     domainIdentifier?: pulumi.Input<string>;
     domainUnitIdentifier?: pulumi.Input<string>;
+    environmentConfigurations?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectProfileEnvironmentConfigurationArgs>[]>;
     /**
      * The name of a project profile.
      */

@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("hubV2Arn")]
         public Output<string> HubV2Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when the service was enabled in the account.
+        /// </summary>
         [Output("subscribedAt")]
         public Output<string> SubscribedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to add to the hub V2 resource when you enable Security Hub.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -74,6 +80,10 @@ namespace Pulumi.AwsNative.SecurityHub
     {
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags to add to the hub V2 resource when you enable Security Hub.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         [Input("fieldName", required: true)]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRuleV2OcsfMapFilterFieldName> FieldName { get; set; } = null!;
 
+        /// <summary>
+        /// Enables filtering of security findings based on map field values in OCSF.
+        /// </summary>
         [Input("filter", required: true)]
         public Input<Inputs.AutomationRuleV2MapFilterArgs> Filter { get; set; } = null!;
 

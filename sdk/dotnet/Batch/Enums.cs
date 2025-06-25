@@ -7,6 +7,62 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Batch
 {
+    [EnumType]
+    public readonly struct ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType : IEquatable<ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType>
+    {
+        private readonly string _value;
+
+        private ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType EksBootstrapSh { get; } = new ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType("EKS_BOOTSTRAP_SH");
+        public static ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType EksNodeadm { get; } = new ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType("EKS_NODEADM");
+
+        public static bool operator ==(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType left, ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType right) => left.Equals(right);
+        public static bool operator !=(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType left, ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType other && Equals(other);
+        public bool Equals(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ComputeEnvironmentLaunchTemplateSpecificationUserdataType : IEquatable<ComputeEnvironmentLaunchTemplateSpecificationUserdataType>
+    {
+        private readonly string _value;
+
+        private ComputeEnvironmentLaunchTemplateSpecificationUserdataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeEnvironmentLaunchTemplateSpecificationUserdataType EksBootstrapSh { get; } = new ComputeEnvironmentLaunchTemplateSpecificationUserdataType("EKS_BOOTSTRAP_SH");
+        public static ComputeEnvironmentLaunchTemplateSpecificationUserdataType EksNodeadm { get; } = new ComputeEnvironmentLaunchTemplateSpecificationUserdataType("EKS_NODEADM");
+
+        public static bool operator ==(ComputeEnvironmentLaunchTemplateSpecificationUserdataType left, ComputeEnvironmentLaunchTemplateSpecificationUserdataType right) => left.Equals(right);
+        public static bool operator !=(ComputeEnvironmentLaunchTemplateSpecificationUserdataType left, ComputeEnvironmentLaunchTemplateSpecificationUserdataType right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeEnvironmentLaunchTemplateSpecificationUserdataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeEnvironmentLaunchTemplateSpecificationUserdataType other && Equals(other);
+        public bool Equals(ComputeEnvironmentLaunchTemplateSpecificationUserdataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Type of Consumable Resource.
     /// </summary>

@@ -28,6 +28,7 @@ class AggregatorV2Args:
         The set of arguments for constructing a AggregatorV2 resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] linked_regions: The list of included Regions
         :param pulumi.Input['AggregatorV2RegionLinkingMode'] region_linking_mode: Indicates to link a list of included Regions
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of key-value pairs to be applied to the AggregatorV2.
         """
         pulumi.set(__self__, "linked_regions", linked_regions)
         pulumi.set(__self__, "region_linking_mode", region_linking_mode)
@@ -61,6 +62,9 @@ class AggregatorV2Args:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A list of key-value pairs to be applied to the AggregatorV2.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -85,6 +89,7 @@ class AggregatorV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] linked_regions: The list of included Regions
         :param pulumi.Input['AggregatorV2RegionLinkingMode'] region_linking_mode: Indicates to link a list of included Regions
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of key-value pairs to be applied to the AggregatorV2.
         """
         ...
     @overload
@@ -195,5 +200,8 @@ class AggregatorV2(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        A list of key-value pairs to be applied to the AggregatorV2.
+        """
         return pulumi.get(self, "tags")
 

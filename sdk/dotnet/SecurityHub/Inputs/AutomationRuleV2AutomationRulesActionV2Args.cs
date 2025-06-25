@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     /// </summary>
     public sealed class AutomationRuleV2AutomationRulesActionV2Args : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The settings for integrating automation rule actions with external systems or service.
+        /// </summary>
         [Input("externalIntegrationConfiguration")]
         public Input<Inputs.AutomationRuleV2ExternalIntegrationConfigurationArgs>? ExternalIntegrationConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies that the automation rule action is an update to a finding field.
+        /// </summary>
         [Input("findingFieldsUpdate")]
         public Input<Inputs.AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args>? FindingFieldsUpdate { get; set; }
 

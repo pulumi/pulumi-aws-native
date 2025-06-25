@@ -13,9 +13,27 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingSchemaRegistryConfig
     {
+        /// <summary>
+        /// An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingSchemaRegistryAccessConfig> AccessConfigs;
+        /// <summary>
+        /// The record format that Lambda delivers to your function after schema validation.
+        /// 
+        /// - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
+        /// - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+        /// </summary>
         public readonly Pulumi.AwsNative.Lambda.EventSourceMappingSchemaRegistryConfigEventRecordFormat? EventRecordFormat;
+        /// <summary>
+        /// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
+        /// 
+        /// - For AWS Glue schema registries, use the ARN of the registry.
+        /// - For Confluent schema registries, use the URL of the registry.
+        /// </summary>
         public readonly string? SchemaRegistryUri;
+        /// <summary>
+        /// An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingSchemaValidationConfig> SchemaValidationConfigs;
 
         [OutputConstructor]

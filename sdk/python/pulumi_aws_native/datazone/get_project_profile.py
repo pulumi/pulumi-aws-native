@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetProjectProfileResult:
-    def __init__(__self__, created_at=None, created_by=None, description=None, domain_id=None, domain_unit_id=None, id=None, identifier=None, last_updated_at=None, name=None, status=None):
+    def __init__(__self__, created_at=None, created_by=None, description=None, domain_id=None, domain_unit_id=None, environment_configurations=None, id=None, identifier=None, last_updated_at=None, name=None, status=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -41,6 +42,9 @@ class GetProjectProfileResult:
         if domain_unit_id and not isinstance(domain_unit_id, str):
             raise TypeError("Expected argument 'domain_unit_id' to be a str")
         pulumi.set(__self__, "domain_unit_id", domain_unit_id)
+        if environment_configurations and not isinstance(environment_configurations, list):
+            raise TypeError("Expected argument 'environment_configurations' to be a list")
+        pulumi.set(__self__, "environment_configurations", environment_configurations)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -98,6 +102,11 @@ class GetProjectProfileResult:
         return pulumi.get(self, "domain_unit_id")
 
     @property
+    @pulumi.getter(name="environmentConfigurations")
+    def environment_configurations(self) -> Optional[Sequence['outputs.ProjectProfileEnvironmentConfiguration']]:
+        return pulumi.get(self, "environment_configurations")
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[builtins.str]:
         """
@@ -146,6 +155,7 @@ class AwaitableGetProjectProfileResult(GetProjectProfileResult):
             description=self.description,
             domain_id=self.domain_id,
             domain_unit_id=self.domain_unit_id,
+            environment_configurations=self.environment_configurations,
             id=self.id,
             identifier=self.identifier,
             last_updated_at=self.last_updated_at,
@@ -171,6 +181,7 @@ def get_project_profile(domain_identifier: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         domain_id=pulumi.get(__ret__, 'domain_id'),
         domain_unit_id=pulumi.get(__ret__, 'domain_unit_id'),
+        environment_configurations=pulumi.get(__ret__, 'environment_configurations'),
         id=pulumi.get(__ret__, 'id'),
         identifier=pulumi.get(__ret__, 'identifier'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
@@ -193,6 +204,7 @@ def get_project_profile_output(domain_identifier: Optional[pulumi.Input[builtins
         description=pulumi.get(__response__, 'description'),
         domain_id=pulumi.get(__response__, 'domain_id'),
         domain_unit_id=pulumi.get(__response__, 'domain_unit_id'),
+        environment_configurations=pulumi.get(__response__, 'environment_configurations'),
         id=pulumi.get(__response__, 'id'),
         identifier=pulumi.get(__response__, 'identifier'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),

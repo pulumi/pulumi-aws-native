@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
             set => _numberFilters = value;
         }
 
+        /// <summary>
+        /// The logical operator used to combine multiple filter conditions.
+        /// </summary>
         [Input("operator")]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRuleV2AllowedOperators>? Operator { get; set; }
 

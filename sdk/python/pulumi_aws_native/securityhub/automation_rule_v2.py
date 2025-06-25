@@ -33,10 +33,12 @@ class AutomationRuleV2Args:
         """
         The set of arguments for constructing a AutomationRuleV2 resource.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2AutomationRulesActionV2Args']]] actions: A list of actions to be performed when the rule criteria is met
+        :param pulumi.Input['AutomationRuleV2CriteriaArgs'] criteria: The filtering type and configuration of the automation rule.
         :param pulumi.Input[builtins.str] description: A description of the automation rule
         :param pulumi.Input[builtins.str] rule_name: The name of the automation rule
         :param pulumi.Input[builtins.float] rule_order: The value for the rule priority
         :param pulumi.Input['AutomationRuleV2RuleStatus'] rule_status: The status of the automation rule
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of key-value pairs associated with the V2 automation rule.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "criteria", criteria)
@@ -63,6 +65,9 @@ class AutomationRuleV2Args:
     @property
     @pulumi.getter
     def criteria(self) -> pulumi.Input['AutomationRuleV2CriteriaArgs']:
+        """
+        The filtering type and configuration of the automation rule.
+        """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
@@ -120,6 +125,9 @@ class AutomationRuleV2Args:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A list of key-value pairs associated with the V2 automation rule.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -147,10 +155,12 @@ class AutomationRuleV2(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleV2AutomationRulesActionV2Args', 'AutomationRuleV2AutomationRulesActionV2ArgsDict']]]] actions: A list of actions to be performed when the rule criteria is met
+        :param pulumi.Input[Union['AutomationRuleV2CriteriaArgs', 'AutomationRuleV2CriteriaArgsDict']] criteria: The filtering type and configuration of the automation rule.
         :param pulumi.Input[builtins.str] description: A description of the automation rule
         :param pulumi.Input[builtins.str] rule_name: The name of the automation rule
         :param pulumi.Input[builtins.float] rule_order: The value for the rule priority
         :param pulumi.Input['AutomationRuleV2RuleStatus'] rule_status: The status of the automation rule
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of key-value pairs associated with the V2 automation rule.
         """
         ...
     @overload
@@ -259,11 +269,17 @@ class AutomationRuleV2(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The timestamp when the V2 automation rule was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def criteria(self) -> pulumi.Output['outputs.AutomationRuleV2Criteria']:
+        """
+        The filtering type and configuration of the automation rule.
+        """
         return pulumi.get(self, "criteria")
 
     @property
@@ -317,10 +333,16 @@ class AutomationRuleV2(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        A list of key-value pairs associated with the V2 automation rule.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The timestamp when the V2 automation rule was updated.
+        """
         return pulumi.get(self, "updated_at")
 

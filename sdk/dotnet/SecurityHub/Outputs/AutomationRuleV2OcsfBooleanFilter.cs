@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// The name of the field
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRuleV2OcsfBooleanFilterFieldName FieldName;
+        /// <summary>
+        /// Enables filtering of security findings based on boolean field values in OCSF.
+        /// </summary>
         public readonly Outputs.AutomationRuleV2BooleanFilter Filter;
 
         [OutputConstructor]

@@ -103,7 +103,6 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
         public static TrustAnchorType AwsAcmPca { get; } = new TrustAnchorType("AWS_ACM_PCA");
         public static TrustAnchorType CertificateBundle { get; } = new TrustAnchorType("CERTIFICATE_BUNDLE");
-        public static TrustAnchorType SelfSignedRepository { get; } = new TrustAnchorType("SELF_SIGNED_REPOSITORY");
 
         public static bool operator ==(TrustAnchorType left, TrustAnchorType right) => left.Equals(right);
         public static bool operator !=(TrustAnchorType left, TrustAnchorType right) => !left.Equals(right);

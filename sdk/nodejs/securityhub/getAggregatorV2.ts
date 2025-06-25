@@ -41,6 +41,9 @@ export interface GetAggregatorV2Result {
      * Indicates to link a list of included Regions
      */
     readonly regionLinkingMode?: enums.securityhub.AggregatorV2RegionLinkingMode;
+    /**
+     * A list of key-value pairs to be applied to the AggregatorV2.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**

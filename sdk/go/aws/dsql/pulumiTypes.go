@@ -21,6 +21,100 @@ type ClusterTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The encryption configuration details for the cluster.
+type EncryptionDetailsProperties struct {
+	// The status of encryption for the cluster.
+	EncryptionStatus *string `pulumi:"encryptionStatus"`
+	// The type of encryption that protects data in the cluster.
+	EncryptionType *string `pulumi:"encryptionType"`
+	// The Amazon Resource Name (ARN) of the KMS key that encrypts data in the cluster.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// The encryption configuration details for the cluster.
+type EncryptionDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EncryptionDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionDetailsProperties)(nil)).Elem()
+}
+
+func (o EncryptionDetailsPropertiesOutput) ToEncryptionDetailsPropertiesOutput() EncryptionDetailsPropertiesOutput {
+	return o
+}
+
+func (o EncryptionDetailsPropertiesOutput) ToEncryptionDetailsPropertiesOutputWithContext(ctx context.Context) EncryptionDetailsPropertiesOutput {
+	return o
+}
+
+// The status of encryption for the cluster.
+func (o EncryptionDetailsPropertiesOutput) EncryptionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionDetailsProperties) *string { return v.EncryptionStatus }).(pulumi.StringPtrOutput)
+}
+
+// The type of encryption that protects data in the cluster.
+func (o EncryptionDetailsPropertiesOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionDetailsProperties) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the KMS key that encrypts data in the cluster.
+func (o EncryptionDetailsPropertiesOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionDetailsProperties) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionDetailsProperties)(nil)).Elem()
+}
+
+func (o EncryptionDetailsPropertiesPtrOutput) ToEncryptionDetailsPropertiesPtrOutput() EncryptionDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o EncryptionDetailsPropertiesPtrOutput) ToEncryptionDetailsPropertiesPtrOutputWithContext(ctx context.Context) EncryptionDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o EncryptionDetailsPropertiesPtrOutput) Elem() EncryptionDetailsPropertiesOutput {
+	return o.ApplyT(func(v *EncryptionDetailsProperties) EncryptionDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionDetailsProperties
+		return ret
+	}).(EncryptionDetailsPropertiesOutput)
+}
+
+// The status of encryption for the cluster.
+func (o EncryptionDetailsPropertiesPtrOutput) EncryptionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of encryption that protects data in the cluster.
+func (o EncryptionDetailsPropertiesPtrOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the KMS key that encrypts data in the cluster.
+func (o EncryptionDetailsPropertiesPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Multi-region properties associated to this cluster.
 type MultiRegionPropertiesProperties struct {
 	// The set of peered clusters that form the multi-Region cluster configuration. Each peered cluster represents a database instance in a different Region.
@@ -183,6 +277,8 @@ func (o MultiRegionPropertiesPropertiesPtrOutput) WitnessRegion() pulumi.StringP
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionPropertiesPropertiesInput)(nil)).Elem(), MultiRegionPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionPropertiesPropertiesPtrInput)(nil)).Elem(), MultiRegionPropertiesPropertiesArgs{})
+	pulumi.RegisterOutputType(EncryptionDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(EncryptionDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MultiRegionPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(MultiRegionPropertiesPropertiesPtrOutput{})
 }

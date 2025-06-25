@@ -191,6 +191,7 @@ class DataSourceType(builtins.str, Enum):
     GOOGLEDRIVE = "GOOGLEDRIVE"
     WEBCRAWLER = "WEBCRAWLER"
     WORKDOCS = "WORKDOCS"
+    TEMPLATE = "TEMPLATE"
 
 
 @pulumi.type_token("aws-native:kendra:DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode")

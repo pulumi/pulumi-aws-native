@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.Dsql
         /// </summary>
         public readonly bool? DeletionProtectionEnabled;
         /// <summary>
+        /// The encryption configuration details for the cluster.
+        /// </summary>
+        public readonly Outputs.EncryptionDetailsProperties? EncryptionDetails;
+        /// <summary>
         /// The ID of the created cluster.
         /// </summary>
         public readonly string? Identifier;
@@ -102,6 +106,8 @@ namespace Pulumi.AwsNative.Dsql
 
             bool? deletionProtectionEnabled,
 
+            Outputs.EncryptionDetailsProperties? encryptionDetails,
+
             string? identifier,
 
             Outputs.MultiRegionPropertiesProperties? multiRegionProperties,
@@ -116,6 +122,7 @@ namespace Pulumi.AwsNative.Dsql
         {
             CreationTime = creationTime;
             DeletionProtectionEnabled = deletionProtectionEnabled;
+            EncryptionDetails = encryptionDetails;
             Identifier = identifier;
             MultiRegionProperties = multiRegionProperties;
             ResourceArn = resourceArn;

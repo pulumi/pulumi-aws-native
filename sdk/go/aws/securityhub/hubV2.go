@@ -16,9 +16,11 @@ type HubV2 struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of the Security Hub V2 resource.
-	HubV2Arn     pulumi.StringOutput    `pulumi:"hubV2Arn"`
-	SubscribedAt pulumi.StringOutput    `pulumi:"subscribedAt"`
-	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	HubV2Arn pulumi.StringOutput `pulumi:"hubV2Arn"`
+	// The date and time when the service was enabled in the account.
+	SubscribedAt pulumi.StringOutput `pulumi:"subscribedAt"`
+	// The tags to add to the hub V2 resource when you enable Security Hub.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewHubV2 registers a new resource with the given unique name, arguments, and options.
@@ -61,11 +63,13 @@ func (HubV2State) ElementType() reflect.Type {
 }
 
 type hubV2Args struct {
+	// The tags to add to the hub V2 resource when you enable Security Hub.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HubV2 resource.
 type HubV2Args struct {
+	// The tags to add to the hub V2 resource when you enable Security Hub.
 	Tags pulumi.StringMapInput
 }
 
@@ -111,10 +115,12 @@ func (o HubV2Output) HubV2Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HubV2) pulumi.StringOutput { return v.HubV2Arn }).(pulumi.StringOutput)
 }
 
+// The date and time when the service was enabled in the account.
 func (o HubV2Output) SubscribedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *HubV2) pulumi.StringOutput { return v.SubscribedAt }).(pulumi.StringOutput)
 }
 
+// The tags to add to the hub V2 resource when you enable Security Hub.
 func (o HubV2Output) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HubV2) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

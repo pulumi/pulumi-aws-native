@@ -77,6 +77,11 @@ __all__ = [
     'ProjectEnvironmentParameter',
     'ProjectMembershipMember0Properties',
     'ProjectMembershipMember1Properties',
+    'ProjectProfileAwsAccount',
+    'ProjectProfileEnvironmentConfiguration',
+    'ProjectProfileEnvironmentConfigurationParameter',
+    'ProjectProfileEnvironmentConfigurationParametersDetails',
+    'ProjectProfileRegion',
     'SubscriptionTargetForm',
     'UserProfileDetails0Properties',
     'UserProfileDetails1Properties',
@@ -2711,6 +2716,261 @@ class ProjectMembershipMember1Properties(dict):
     @pulumi.getter(name="groupIdentifier")
     def group_identifier(self) -> builtins.str:
         return pulumi.get(self, "group_identifier")
+
+
+@pulumi.output_type
+class ProjectProfileAwsAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsAccountId":
+            suggest = "aws_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectProfileAwsAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectProfileAwsAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectProfileAwsAccount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_account_id: builtins.str):
+        pulumi.set(__self__, "aws_account_id", aws_account_id)
+
+    @property
+    @pulumi.getter(name="awsAccountId")
+    def aws_account_id(self) -> builtins.str:
+        return pulumi.get(self, "aws_account_id")
+
+
+@pulumi.output_type
+class ProjectProfileEnvironmentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "environmentBlueprintId":
+            suggest = "environment_blueprint_id"
+        elif key == "awsAccount":
+            suggest = "aws_account"
+        elif key == "configurationParameters":
+            suggest = "configuration_parameters"
+        elif key == "deploymentMode":
+            suggest = "deployment_mode"
+        elif key == "deploymentOrder":
+            suggest = "deployment_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectProfileEnvironmentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectProfileEnvironmentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectProfileEnvironmentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: 'outputs.ProjectProfileRegion',
+                 environment_blueprint_id: builtins.str,
+                 name: builtins.str,
+                 aws_account: Optional['outputs.ProjectProfileAwsAccount'] = None,
+                 configuration_parameters: Optional['outputs.ProjectProfileEnvironmentConfigurationParametersDetails'] = None,
+                 deployment_mode: Optional['ProjectProfileDeploymentMode'] = None,
+                 deployment_order: Optional[builtins.float] = None,
+                 description: Optional[builtins.str] = None,
+                 id: Optional[builtins.str] = None):
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "environment_blueprint_id", environment_blueprint_id)
+        pulumi.set(__self__, "name", name)
+        if aws_account is not None:
+            pulumi.set(__self__, "aws_account", aws_account)
+        if configuration_parameters is not None:
+            pulumi.set(__self__, "configuration_parameters", configuration_parameters)
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+        if deployment_order is not None:
+            pulumi.set(__self__, "deployment_order", deployment_order)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> 'outputs.ProjectProfileRegion':
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter(name="environmentBlueprintId")
+    def environment_blueprint_id(self) -> builtins.str:
+        return pulumi.get(self, "environment_blueprint_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="awsAccount")
+    def aws_account(self) -> Optional['outputs.ProjectProfileAwsAccount']:
+        return pulumi.get(self, "aws_account")
+
+    @property
+    @pulumi.getter(name="configurationParameters")
+    def configuration_parameters(self) -> Optional['outputs.ProjectProfileEnvironmentConfigurationParametersDetails']:
+        return pulumi.get(self, "configuration_parameters")
+
+    @property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional['ProjectProfileDeploymentMode']:
+        return pulumi.get(self, "deployment_mode")
+
+    @property
+    @pulumi.getter(name="deploymentOrder")
+    def deployment_order(self) -> Optional[builtins.float]:
+        return pulumi.get(self, "deployment_order")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ProjectProfileEnvironmentConfigurationParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEditable":
+            suggest = "is_editable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectProfileEnvironmentConfigurationParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectProfileEnvironmentConfigurationParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectProfileEnvironmentConfigurationParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_editable: Optional[builtins.bool] = None,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        if is_editable is not None:
+            pulumi.set(__self__, "is_editable", is_editable)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="isEditable")
+    def is_editable(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_editable")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProjectProfileEnvironmentConfigurationParametersDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterOverrides":
+            suggest = "parameter_overrides"
+        elif key == "resolvedParameters":
+            suggest = "resolved_parameters"
+        elif key == "ssmPath":
+            suggest = "ssm_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectProfileEnvironmentConfigurationParametersDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectProfileEnvironmentConfigurationParametersDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectProfileEnvironmentConfigurationParametersDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameter_overrides: Optional[Sequence['outputs.ProjectProfileEnvironmentConfigurationParameter']] = None,
+                 resolved_parameters: Optional[Sequence['outputs.ProjectProfileEnvironmentConfigurationParameter']] = None,
+                 ssm_path: Optional[builtins.str] = None):
+        if parameter_overrides is not None:
+            pulumi.set(__self__, "parameter_overrides", parameter_overrides)
+        if resolved_parameters is not None:
+            pulumi.set(__self__, "resolved_parameters", resolved_parameters)
+        if ssm_path is not None:
+            pulumi.set(__self__, "ssm_path", ssm_path)
+
+    @property
+    @pulumi.getter(name="parameterOverrides")
+    def parameter_overrides(self) -> Optional[Sequence['outputs.ProjectProfileEnvironmentConfigurationParameter']]:
+        return pulumi.get(self, "parameter_overrides")
+
+    @property
+    @pulumi.getter(name="resolvedParameters")
+    def resolved_parameters(self) -> Optional[Sequence['outputs.ProjectProfileEnvironmentConfigurationParameter']]:
+        return pulumi.get(self, "resolved_parameters")
+
+    @property
+    @pulumi.getter(name="ssmPath")
+    def ssm_path(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "ssm_path")
+
+
+@pulumi.output_type
+class ProjectProfileRegion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionName":
+            suggest = "region_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectProfileRegion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectProfileRegion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectProfileRegion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region_name: builtins.str):
+        pulumi.set(__self__, "region_name", region_name)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> builtins.str:
+        return pulumi.get(self, "region_name")
 
 
 @pulumi.output_type

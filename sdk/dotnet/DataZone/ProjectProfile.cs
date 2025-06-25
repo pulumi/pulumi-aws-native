@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.DataZone
         [Output("domainUnitIdentifier")]
         public Output<string?> DomainUnitIdentifier { get; private set; } = null!;
 
+        [Output("environmentConfigurations")]
+        public Output<ImmutableArray<Outputs.ProjectProfileEnvironmentConfiguration>> EnvironmentConfigurations { get; private set; } = null!;
+
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
 
@@ -138,6 +141,14 @@ namespace Pulumi.AwsNative.DataZone
 
         [Input("domainUnitIdentifier")]
         public Input<string>? DomainUnitIdentifier { get; set; }
+
+        [Input("environmentConfigurations")]
+        private InputList<Inputs.ProjectProfileEnvironmentConfigurationArgs>? _environmentConfigurations;
+        public InputList<Inputs.ProjectProfileEnvironmentConfigurationArgs> EnvironmentConfigurations
+        {
+            get => _environmentConfigurations ?? (_environmentConfigurations = new InputList<Inputs.ProjectProfileEnvironmentConfigurationArgs>());
+            set => _environmentConfigurations = value;
+        }
 
         /// <summary>
         /// The name of a project profile.

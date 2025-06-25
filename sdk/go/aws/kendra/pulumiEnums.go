@@ -2538,6 +2538,7 @@ const (
 	DataSourceTypeGoogledrive = DataSourceType("GOOGLEDRIVE")
 	DataSourceTypeWebcrawler  = DataSourceType("WEBCRAWLER")
 	DataSourceTypeWorkdocs    = DataSourceType("WORKDOCS")
+	DataSourceTypeTemplate    = DataSourceType("TEMPLATE")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -2673,6 +2674,7 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeGoogledrive
 //	DataSourceTypeWebcrawler
 //	DataSourceTypeWorkdocs
+//	DataSourceTypeTemplate
 type DataSourceTypeInput interface {
 	pulumi.Input
 

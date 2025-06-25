@@ -1103,7 +1103,8 @@ type ComputeEnvironmentLaunchTemplateSpecification struct {
 	// You can specify up to ten (10) launch template overrides that are associated to unique instance types or families for each compute environment.
 	//
 	// > To unset all override templates for a compute environment, you can pass an empty array to the [UpdateComputeEnvironment.overrides](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) parameter, or not include the `overrides` parameter when submitting the `UpdateComputeEnvironment` API operation.
-	Overrides []ComputeEnvironmentLaunchTemplateSpecificationOverride `pulumi:"overrides"`
+	Overrides    []ComputeEnvironmentLaunchTemplateSpecificationOverride    `pulumi:"overrides"`
+	UserdataType *ComputeEnvironmentLaunchTemplateSpecificationUserdataType `pulumi:"userdataType"`
 	// The version number of the launch template, `$Default` , or `$Latest` .
 	//
 	// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
@@ -1137,7 +1138,8 @@ type ComputeEnvironmentLaunchTemplateSpecificationArgs struct {
 	// You can specify up to ten (10) launch template overrides that are associated to unique instance types or families for each compute environment.
 	//
 	// > To unset all override templates for a compute environment, you can pass an empty array to the [UpdateComputeEnvironment.overrides](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) parameter, or not include the `overrides` parameter when submitting the `UpdateComputeEnvironment` API operation.
-	Overrides ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput `pulumi:"overrides"`
+	Overrides    ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput   `pulumi:"overrides"`
+	UserdataType ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrInput `pulumi:"userdataType"`
 	// The version number of the launch template, `$Default` , or `$Latest` .
 	//
 	// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
@@ -1248,6 +1250,12 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationOutput) Overrides() Compute
 	}).(ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput)
 }
 
+func (o ComputeEnvironmentLaunchTemplateSpecificationOutput) UserdataType() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecification) *ComputeEnvironmentLaunchTemplateSpecificationUserdataType {
+		return v.UserdataType
+	}).(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput)
+}
+
 // The version number of the launch template, `$Default` , or `$Latest` .
 //
 // If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
@@ -1319,6 +1327,15 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) Overrides() Comp
 	}).(ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput)
 }
 
+func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) UserdataType() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentLaunchTemplateSpecification) *ComputeEnvironmentLaunchTemplateSpecificationUserdataType {
+		if v == nil {
+			return nil
+		}
+		return v.UserdataType
+	}).(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput)
+}
+
 // The version number of the launch template, `$Default` , or `$Latest` .
 //
 // If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
@@ -1356,7 +1373,8 @@ type ComputeEnvironmentLaunchTemplateSpecificationOverride struct {
 	// - `optimal` isn't allowed.
 	// - `targetInstanceTypes` can target only instance types and families that are included within the [`ComputeResource.instanceTypes`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-instanceTypes) set. `targetInstanceTypes` doesn't need to include all of the instances from the `instanceType` set, but at least a subset. For example, if `ComputeResource.instanceTypes` includes `[m5, g5]` , `targetInstanceTypes` can include `[m5.2xlarge]` and `[m5.large]` but not `[c5.large]` .
 	// - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
-	TargetInstanceTypes []string `pulumi:"targetInstanceTypes"`
+	TargetInstanceTypes []string                                                           `pulumi:"targetInstanceTypes"`
+	UserdataType        *ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType `pulumi:"userdataType"`
 	// The version number of the launch template, `$Default` , or `$Latest` .
 	//
 	// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
@@ -1399,7 +1417,8 @@ type ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs struct {
 	// - `optimal` isn't allowed.
 	// - `targetInstanceTypes` can target only instance types and families that are included within the [`ComputeResource.instanceTypes`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-instanceTypes) set. `targetInstanceTypes` doesn't need to include all of the instances from the `instanceType` set, but at least a subset. For example, if `ComputeResource.instanceTypes` includes `[m5, g5]` , `targetInstanceTypes` can include `[m5.2xlarge]` and `[m5.large]` but not `[c5.large]` .
 	// - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
-	TargetInstanceTypes pulumi.StringArrayInput `pulumi:"targetInstanceTypes"`
+	TargetInstanceTypes pulumi.StringArrayInput                                                   `pulumi:"targetInstanceTypes"`
+	UserdataType        ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrInput `pulumi:"userdataType"`
 	// The version number of the launch template, `$Default` , or `$Latest` .
 	//
 	// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
@@ -1489,6 +1508,12 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) LaunchTempl
 // - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
 func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) TargetInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) []string { return v.TargetInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) UserdataType() ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) *ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType {
+		return v.UserdataType
+	}).(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput)
 }
 
 // The version number of the launch template, `$Default` , or `$Latest` .

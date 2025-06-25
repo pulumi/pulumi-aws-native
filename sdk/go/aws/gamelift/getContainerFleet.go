@@ -42,6 +42,8 @@ type LookupContainerFleetResult struct {
 	FleetRoleArn *string `pulumi:"fleetRoleArn"`
 	// The Amazon Resource Name (ARN) of the game server container group definition. This field will be empty if GameServerContainerGroupDefinitionName is not specified.
 	GameServerContainerGroupDefinitionArn *string `pulumi:"gameServerContainerGroupDefinitionArn"`
+	// The number of desired game server container groups per instance, a number between 1-5000.
+	GameServerContainerGroupsPerInstance *int `pulumi:"gameServerContainerGroupsPerInstance"`
 	// A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
 	GameSessionCreationLimitPolicy *ContainerFleetGameSessionCreationLimitPolicy `pulumi:"gameSessionCreationLimitPolicy"`
 	// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
@@ -135,6 +137,11 @@ func (o LookupContainerFleetResultOutput) FleetRoleArn() pulumi.StringPtrOutput 
 // The Amazon Resource Name (ARN) of the game server container group definition. This field will be empty if GameServerContainerGroupDefinitionName is not specified.
 func (o LookupContainerFleetResultOutput) GameServerContainerGroupDefinitionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContainerFleetResult) *string { return v.GameServerContainerGroupDefinitionArn }).(pulumi.StringPtrOutput)
+}
+
+// The number of desired game server container groups per instance, a number between 1-5000.
+func (o LookupContainerFleetResultOutput) GameServerContainerGroupsPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupContainerFleetResult) *int { return v.GameServerContainerGroupsPerInstance }).(pulumi.IntPtrOutput)
 }
 
 // A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.

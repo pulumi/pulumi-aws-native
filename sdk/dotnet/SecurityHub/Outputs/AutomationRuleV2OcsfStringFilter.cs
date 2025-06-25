@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleV2OcsfStringFilter
     {
+        /// <summary>
+        /// The name of the field.
+        /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRuleV2OcsfStringField FieldName;
+        /// <summary>
+        /// Enables filtering of security findings based on string field values in OCSF.
+        /// </summary>
         public readonly Outputs.AutomationRuleV2StringFilter Filter;
 
         [OutputConstructor]

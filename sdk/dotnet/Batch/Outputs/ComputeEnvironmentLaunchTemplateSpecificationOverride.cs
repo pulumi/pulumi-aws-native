@@ -38,6 +38,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
         /// </summary>
         public readonly ImmutableArray<string> TargetInstanceTypes;
+        public readonly Pulumi.AwsNative.Batch.ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType? UserdataType;
         /// <summary>
         /// The version number of the launch template, `$Default` , or `$Latest` .
         /// 
@@ -59,11 +60,14 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             ImmutableArray<string> targetInstanceTypes,
 
+            Pulumi.AwsNative.Batch.ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType? userdataType,
+
             string? version)
         {
             LaunchTemplateId = launchTemplateId;
             LaunchTemplateName = launchTemplateName;
             TargetInstanceTypes = targetInstanceTypes;
+            UserdataType = userdataType;
             Version = version;
         }
     }

@@ -23,6 +23,7 @@ class HubV2Args:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a HubV2 resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags to add to the hub V2 resource when you enable Security Hub.
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -30,6 +31,9 @@ class HubV2Args:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The tags to add to the hub V2 resource when you enable Security Hub.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -50,6 +54,7 @@ class HubV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags to add to the hub V2 resource when you enable Security Hub.
         """
         ...
     @overload
@@ -126,10 +131,16 @@ class HubV2(pulumi.CustomResource):
     @property
     @pulumi.getter(name="subscribedAt")
     def subscribed_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The date and time when the service was enabled in the account.
+        """
         return pulumi.get(self, "subscribed_at")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        The tags to add to the hub V2 resource when you enable Security Hub.
+        """
         return pulumi.get(self, "tags")
 

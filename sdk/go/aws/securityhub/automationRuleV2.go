@@ -17,9 +17,11 @@ type AutomationRuleV2 struct {
 	pulumi.CustomResourceState
 
 	// A list of actions to be performed when the rule criteria is met
-	Actions   AutomationRuleV2AutomationRulesActionV2ArrayOutput `pulumi:"actions"`
-	CreatedAt pulumi.StringOutput                                `pulumi:"createdAt"`
-	Criteria  AutomationRuleV2CriteriaOutput                     `pulumi:"criteria"`
+	Actions AutomationRuleV2AutomationRulesActionV2ArrayOutput `pulumi:"actions"`
+	// The timestamp when the V2 automation rule was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The filtering type and configuration of the automation rule.
+	Criteria AutomationRuleV2CriteriaOutput `pulumi:"criteria"`
 	// A description of the automation rule
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The ARN of the automation rule
@@ -32,8 +34,10 @@ type AutomationRuleV2 struct {
 	RuleOrder pulumi.Float64Output `pulumi:"ruleOrder"`
 	// The status of the automation rule
 	RuleStatus AutomationRuleV2RuleStatusPtrOutput `pulumi:"ruleStatus"`
-	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
-	UpdatedAt  pulumi.StringOutput                 `pulumi:"updatedAt"`
+	// A list of key-value pairs associated with the V2 automation rule.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The timestamp when the V2 automation rule was updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewAutomationRuleV2 registers a new resource with the given unique name, arguments, and options.
@@ -92,8 +96,9 @@ func (AutomationRuleV2State) ElementType() reflect.Type {
 
 type automationRuleV2Args struct {
 	// A list of actions to be performed when the rule criteria is met
-	Actions  []AutomationRuleV2AutomationRulesActionV2 `pulumi:"actions"`
-	Criteria AutomationRuleV2Criteria                  `pulumi:"criteria"`
+	Actions []AutomationRuleV2AutomationRulesActionV2 `pulumi:"actions"`
+	// The filtering type and configuration of the automation rule.
+	Criteria AutomationRuleV2Criteria `pulumi:"criteria"`
 	// A description of the automation rule
 	Description string `pulumi:"description"`
 	// The name of the automation rule
@@ -102,13 +107,15 @@ type automationRuleV2Args struct {
 	RuleOrder float64 `pulumi:"ruleOrder"`
 	// The status of the automation rule
 	RuleStatus *AutomationRuleV2RuleStatus `pulumi:"ruleStatus"`
-	Tags       map[string]string           `pulumi:"tags"`
+	// A list of key-value pairs associated with the V2 automation rule.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AutomationRuleV2 resource.
 type AutomationRuleV2Args struct {
 	// A list of actions to be performed when the rule criteria is met
-	Actions  AutomationRuleV2AutomationRulesActionV2ArrayInput
+	Actions AutomationRuleV2AutomationRulesActionV2ArrayInput
+	// The filtering type and configuration of the automation rule.
 	Criteria AutomationRuleV2CriteriaInput
 	// A description of the automation rule
 	Description pulumi.StringInput
@@ -118,7 +125,8 @@ type AutomationRuleV2Args struct {
 	RuleOrder pulumi.Float64Input
 	// The status of the automation rule
 	RuleStatus AutomationRuleV2RuleStatusPtrInput
-	Tags       pulumi.StringMapInput
+	// A list of key-value pairs associated with the V2 automation rule.
+	Tags pulumi.StringMapInput
 }
 
 func (AutomationRuleV2Args) ElementType() reflect.Type {
@@ -163,10 +171,12 @@ func (o AutomationRuleV2Output) Actions() AutomationRuleV2AutomationRulesActionV
 	return o.ApplyT(func(v *AutomationRuleV2) AutomationRuleV2AutomationRulesActionV2ArrayOutput { return v.Actions }).(AutomationRuleV2AutomationRulesActionV2ArrayOutput)
 }
 
+// The timestamp when the V2 automation rule was created.
 func (o AutomationRuleV2Output) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRuleV2) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The filtering type and configuration of the automation rule.
 func (o AutomationRuleV2Output) Criteria() AutomationRuleV2CriteriaOutput {
 	return o.ApplyT(func(v *AutomationRuleV2) AutomationRuleV2CriteriaOutput { return v.Criteria }).(AutomationRuleV2CriteriaOutput)
 }
@@ -201,10 +211,12 @@ func (o AutomationRuleV2Output) RuleStatus() AutomationRuleV2RuleStatusPtrOutput
 	return o.ApplyT(func(v *AutomationRuleV2) AutomationRuleV2RuleStatusPtrOutput { return v.RuleStatus }).(AutomationRuleV2RuleStatusPtrOutput)
 }
 
+// A list of key-value pairs associated with the V2 automation rule.
 func (o AutomationRuleV2Output) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AutomationRuleV2) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The timestamp when the V2 automation rule was updated.
 func (o AutomationRuleV2Output) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRuleV2) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

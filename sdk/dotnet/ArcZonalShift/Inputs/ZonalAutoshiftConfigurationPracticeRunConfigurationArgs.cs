@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.ArcZonalShift.Inputs
         private InputList<string>? _blockedWindows;
 
         /// <summary>
-        /// An array of one or more days and times that you can specify when Route 53 ARC does not start practice runs for a resource. Days and times are in UTC.
+        /// An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
         /// 
         /// Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
         /// </summary>

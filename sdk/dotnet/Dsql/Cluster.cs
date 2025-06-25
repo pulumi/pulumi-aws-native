@@ -28,10 +28,22 @@ namespace Pulumi.AwsNative.Dsql
         public Output<bool?> DeletionProtectionEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The encryption configuration details for the cluster.
+        /// </summary>
+        [Output("encryptionDetails")]
+        public Output<Outputs.EncryptionDetailsProperties> EncryptionDetails { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the created cluster.
         /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The KMS key that encrypts data on the cluster.
+        /// </summary>
+        [Output("kmsEncryptionKey")]
+        public Output<string?> KmsEncryptionKey { get; private set; } = null!;
 
         /// <summary>
         /// The Multi-region properties associated to this cluster.
@@ -113,6 +125,12 @@ namespace Pulumi.AwsNative.Dsql
         /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
+
+        /// <summary>
+        /// The KMS key that encrypts data on the cluster.
+        /// </summary>
+        [Input("kmsEncryptionKey")]
+        public Input<string>? KmsEncryptionKey { get; set; }
 
         /// <summary>
         /// The Multi-region properties associated to this cluster.

@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.InspectorV2
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags attached to the filter.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -119,6 +122,10 @@ namespace Pulumi.AwsNative.InspectorV2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags attached to the filter.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

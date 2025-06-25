@@ -14,7 +14,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ProjectProfileArgs', 'ProjectProfile']
 
@@ -24,6 +26,7 @@ class ProjectProfileArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  domain_unit_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 environment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input['ProjectProfileStatus']] = None):
         """
@@ -38,6 +41,8 @@ class ProjectProfileArgs:
             pulumi.set(__self__, "domain_identifier", domain_identifier)
         if domain_unit_identifier is not None:
             pulumi.set(__self__, "domain_unit_identifier", domain_unit_identifier)
+        if environment_configurations is not None:
+            pulumi.set(__self__, "environment_configurations", environment_configurations)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if status is not None:
@@ -74,6 +79,15 @@ class ProjectProfileArgs:
         pulumi.set(self, "domain_unit_identifier", value)
 
     @property
+    @pulumi.getter(name="environmentConfigurations")
+    def environment_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]]]:
+        return pulumi.get(self, "environment_configurations")
+
+    @environment_configurations.setter
+    def environment_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]]]):
+        pulumi.set(self, "environment_configurations", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -107,6 +121,7 @@ class ProjectProfile(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  domain_unit_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 environment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input['ProjectProfileStatus']] = None,
                  __props__=None):
@@ -146,6 +161,7 @@ class ProjectProfile(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  domain_unit_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 environment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input['ProjectProfileStatus']] = None,
                  __props__=None):
@@ -160,6 +176,7 @@ class ProjectProfile(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["domain_identifier"] = domain_identifier
             __props__.__dict__["domain_unit_identifier"] = domain_unit_identifier
+            __props__.__dict__["environment_configurations"] = environment_configurations
             __props__.__dict__["name"] = name
             __props__.__dict__["status"] = status
             __props__.__dict__["aws_id"] = None
@@ -201,6 +218,7 @@ class ProjectProfile(pulumi.CustomResource):
         __props__.__dict__["domain_identifier"] = None
         __props__.__dict__["domain_unit_id"] = None
         __props__.__dict__["domain_unit_identifier"] = None
+        __props__.__dict__["environment_configurations"] = None
         __props__.__dict__["identifier"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["name"] = None
@@ -264,6 +282,11 @@ class ProjectProfile(pulumi.CustomResource):
     @pulumi.getter(name="domainUnitIdentifier")
     def domain_unit_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
         return pulumi.get(self, "domain_unit_identifier")
+
+    @property
+    @pulumi.getter(name="environmentConfigurations")
+    def environment_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectProfileEnvironmentConfiguration']]]:
+        return pulumi.get(self, "environment_configurations")
 
     @property
     @pulumi.getter

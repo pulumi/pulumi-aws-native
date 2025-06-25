@@ -241,6 +241,34 @@ namespace Pulumi.AwsNative.MediaTailor
     }
 
     [EnumType]
+    public readonly struct PlaybackConfigurationInsertionMode : IEquatable<PlaybackConfigurationInsertionMode>
+    {
+        private readonly string _value;
+
+        private PlaybackConfigurationInsertionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlaybackConfigurationInsertionMode StitchedOnly { get; } = new PlaybackConfigurationInsertionMode("STITCHED_ONLY");
+        public static PlaybackConfigurationInsertionMode PlayerSelect { get; } = new PlaybackConfigurationInsertionMode("PLAYER_SELECT");
+
+        public static bool operator ==(PlaybackConfigurationInsertionMode left, PlaybackConfigurationInsertionMode right) => left.Equals(right);
+        public static bool operator !=(PlaybackConfigurationInsertionMode left, PlaybackConfigurationInsertionMode right) => !left.Equals(right);
+
+        public static explicit operator string(PlaybackConfigurationInsertionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlaybackConfigurationInsertionMode other && Equals(other);
+        public bool Equals(PlaybackConfigurationInsertionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct PlaybackConfigurationStreamingMediaFileConditioning : IEquatable<PlaybackConfigurationStreamingMediaFileConditioning>
     {
         private readonly string _value;

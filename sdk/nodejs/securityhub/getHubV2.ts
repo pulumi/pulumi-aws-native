@@ -26,7 +26,13 @@ export interface GetHubV2Result {
      * The Amazon Resource Name of the Security Hub V2 resource.
      */
     readonly hubV2Arn?: string;
+    /**
+     * The date and time when the service was enabled in the account.
+     */
     readonly subscribedAt?: string;
+    /**
+     * The tags to add to the hub V2 resource when you enable Security Hub.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**

@@ -29,9 +29,11 @@ type LookupHubV2Args struct {
 
 type LookupHubV2Result struct {
 	// The Amazon Resource Name of the Security Hub V2 resource.
-	HubV2Arn     *string           `pulumi:"hubV2Arn"`
-	SubscribedAt *string           `pulumi:"subscribedAt"`
-	Tags         map[string]string `pulumi:"tags"`
+	HubV2Arn *string `pulumi:"hubV2Arn"`
+	// The date and time when the service was enabled in the account.
+	SubscribedAt *string `pulumi:"subscribedAt"`
+	// The tags to add to the hub V2 resource when you enable Security Hub.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupHubV2Output(ctx *pulumi.Context, args LookupHubV2OutputArgs, opts ...pulumi.InvokeOption) LookupHubV2ResultOutput {
@@ -71,10 +73,12 @@ func (o LookupHubV2ResultOutput) HubV2Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHubV2Result) *string { return v.HubV2Arn }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the service was enabled in the account.
 func (o LookupHubV2ResultOutput) SubscribedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHubV2Result) *string { return v.SubscribedAt }).(pulumi.StringPtrOutput)
 }
 
+// The tags to add to the hub V2 resource when you enable Security Hub.
 func (o LookupHubV2ResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupHubV2Result) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

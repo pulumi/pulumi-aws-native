@@ -154,6 +154,13 @@ export const ProjectMembershipUserDesignation = {
 
 export type ProjectMembershipUserDesignation = (typeof ProjectMembershipUserDesignation)[keyof typeof ProjectMembershipUserDesignation];
 
+export const ProjectProfileDeploymentMode = {
+    OnCreate: "ON_CREATE",
+    OnDemand: "ON_DEMAND",
+} as const;
+
+export type ProjectProfileDeploymentMode = (typeof ProjectProfileDeploymentMode)[keyof typeof ProjectProfileDeploymentMode];
+
 export const ProjectProfileStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

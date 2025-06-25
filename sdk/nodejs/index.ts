@@ -67,6 +67,7 @@ export * from "./types/enums";
 // Export sub-modules:
 import * as accessanalyzer from "./accessanalyzer";
 import * as acmpca from "./acmpca";
+import * as aiops from "./aiops";
 import * as amazonmq from "./amazonmq";
 import * as amplify from "./amplify";
 import * as amplifyuibuilder from "./amplifyuibuilder";
@@ -289,6 +290,7 @@ import * as vpclattice from "./vpclattice";
 import * as wafv2 from "./wafv2";
 import * as wisdom from "./wisdom";
 import * as workspaces from "./workspaces";
+import * as workspacesinstances from "./workspacesinstances";
 import * as workspacesthinclient from "./workspacesthinclient";
 import * as workspacesweb from "./workspacesweb";
 import * as xray from "./xray";
@@ -296,6 +298,7 @@ import * as xray from "./xray";
 export {
     accessanalyzer,
     acmpca,
+    aiops,
     amazonmq,
     amplify,
     amplifyuibuilder,
@@ -518,6 +521,7 @@ export {
     wafv2,
     wisdom,
     workspaces,
+    workspacesinstances,
     workspacesthinclient,
     workspacesweb,
     xray,

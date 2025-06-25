@@ -34,6 +34,10 @@ export interface GetClusterResult {
      */
     readonly deletionProtectionEnabled?: boolean;
     /**
+     * The encryption configuration details for the cluster.
+     */
+    readonly encryptionDetails?: outputs.dsql.EncryptionDetailsProperties;
+    /**
      * The ID of the created cluster.
      */
     readonly identifier?: string;

@@ -1423,6 +1423,171 @@ func (in *playbackConfigurationDashConfigurationOriginManifestTypePtr) ToPlaybac
 	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput)
 }
 
+type PlaybackConfigurationInsertionMode string
+
+const (
+	PlaybackConfigurationInsertionModeStitchedOnly = PlaybackConfigurationInsertionMode("STITCHED_ONLY")
+	PlaybackConfigurationInsertionModePlayerSelect = PlaybackConfigurationInsertionMode("PLAYER_SELECT")
+)
+
+func (PlaybackConfigurationInsertionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationInsertionMode)(nil)).Elem()
+}
+
+func (e PlaybackConfigurationInsertionMode) ToPlaybackConfigurationInsertionModeOutput() PlaybackConfigurationInsertionModeOutput {
+	return pulumi.ToOutput(e).(PlaybackConfigurationInsertionModeOutput)
+}
+
+func (e PlaybackConfigurationInsertionMode) ToPlaybackConfigurationInsertionModeOutputWithContext(ctx context.Context) PlaybackConfigurationInsertionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlaybackConfigurationInsertionModeOutput)
+}
+
+func (e PlaybackConfigurationInsertionMode) ToPlaybackConfigurationInsertionModePtrOutput() PlaybackConfigurationInsertionModePtrOutput {
+	return e.ToPlaybackConfigurationInsertionModePtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationInsertionMode) ToPlaybackConfigurationInsertionModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationInsertionModePtrOutput {
+	return PlaybackConfigurationInsertionMode(e).ToPlaybackConfigurationInsertionModeOutputWithContext(ctx).ToPlaybackConfigurationInsertionModePtrOutputWithContext(ctx)
+}
+
+func (e PlaybackConfigurationInsertionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationInsertionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationInsertionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationInsertionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlaybackConfigurationInsertionModeOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationInsertionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationInsertionMode)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationInsertionModeOutput) ToPlaybackConfigurationInsertionModeOutput() PlaybackConfigurationInsertionModeOutput {
+	return o
+}
+
+func (o PlaybackConfigurationInsertionModeOutput) ToPlaybackConfigurationInsertionModeOutputWithContext(ctx context.Context) PlaybackConfigurationInsertionModeOutput {
+	return o
+}
+
+func (o PlaybackConfigurationInsertionModeOutput) ToPlaybackConfigurationInsertionModePtrOutput() PlaybackConfigurationInsertionModePtrOutput {
+	return o.ToPlaybackConfigurationInsertionModePtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationInsertionModeOutput) ToPlaybackConfigurationInsertionModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationInsertionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationInsertionMode) *PlaybackConfigurationInsertionMode {
+		return &v
+	}).(PlaybackConfigurationInsertionModePtrOutput)
+}
+
+func (o PlaybackConfigurationInsertionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationInsertionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationInsertionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlaybackConfigurationInsertionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationInsertionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationInsertionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlaybackConfigurationInsertionModePtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationInsertionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationInsertionMode)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationInsertionModePtrOutput) ToPlaybackConfigurationInsertionModePtrOutput() PlaybackConfigurationInsertionModePtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationInsertionModePtrOutput) ToPlaybackConfigurationInsertionModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationInsertionModePtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationInsertionModePtrOutput) Elem() PlaybackConfigurationInsertionModeOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationInsertionMode) PlaybackConfigurationInsertionMode {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationInsertionMode
+		return ret
+	}).(PlaybackConfigurationInsertionModeOutput)
+}
+
+func (o PlaybackConfigurationInsertionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationInsertionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlaybackConfigurationInsertionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlaybackConfigurationInsertionModeInput is an input type that accepts values of the PlaybackConfigurationInsertionMode enum
+// A concrete instance of `PlaybackConfigurationInsertionModeInput` can be one of the following:
+//
+//	PlaybackConfigurationInsertionModeStitchedOnly
+//	PlaybackConfigurationInsertionModePlayerSelect
+type PlaybackConfigurationInsertionModeInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationInsertionModeOutput() PlaybackConfigurationInsertionModeOutput
+	ToPlaybackConfigurationInsertionModeOutputWithContext(context.Context) PlaybackConfigurationInsertionModeOutput
+}
+
+var playbackConfigurationInsertionModePtrType = reflect.TypeOf((**PlaybackConfigurationInsertionMode)(nil)).Elem()
+
+type PlaybackConfigurationInsertionModePtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationInsertionModePtrOutput() PlaybackConfigurationInsertionModePtrOutput
+	ToPlaybackConfigurationInsertionModePtrOutputWithContext(context.Context) PlaybackConfigurationInsertionModePtrOutput
+}
+
+type playbackConfigurationInsertionModePtr string
+
+func PlaybackConfigurationInsertionModePtr(v string) PlaybackConfigurationInsertionModePtrInput {
+	return (*playbackConfigurationInsertionModePtr)(&v)
+}
+
+func (*playbackConfigurationInsertionModePtr) ElementType() reflect.Type {
+	return playbackConfigurationInsertionModePtrType
+}
+
+func (in *playbackConfigurationInsertionModePtr) ToPlaybackConfigurationInsertionModePtrOutput() PlaybackConfigurationInsertionModePtrOutput {
+	return pulumi.ToOutput(in).(PlaybackConfigurationInsertionModePtrOutput)
+}
+
+func (in *playbackConfigurationInsertionModePtr) ToPlaybackConfigurationInsertionModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationInsertionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationInsertionModePtrOutput)
+}
+
 type PlaybackConfigurationStreamingMediaFileConditioning string
 
 const (
@@ -1939,6 +2104,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionModePtrInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypeInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypePtrInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationInsertionModeInput)(nil)).Elem(), PlaybackConfigurationInsertionMode("STITCHED_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationInsertionModePtrInput)(nil)).Elem(), PlaybackConfigurationInsertionMode("STITCHED_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationStreamingMediaFileConditioningInput)(nil)).Elem(), PlaybackConfigurationStreamingMediaFileConditioning("TRANSCODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationStreamingMediaFileConditioningPtrInput)(nil)).Elem(), PlaybackConfigurationStreamingMediaFileConditioning("TRANSCODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessTypeInput)(nil)).Elem(), SourceLocationAccessType("S3_SIGV4"))
@@ -1963,6 +2130,8 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionModePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypeOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationInsertionModeOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationInsertionModePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationStreamingMediaFileConditioningOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationStreamingMediaFileConditioningPtrOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessTypeOutput{})

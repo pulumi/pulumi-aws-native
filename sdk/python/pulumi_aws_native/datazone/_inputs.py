@@ -135,6 +135,16 @@ __all__ = [
     'ProjectMembershipMember0PropertiesArgsDict',
     'ProjectMembershipMember1PropertiesArgs',
     'ProjectMembershipMember1PropertiesArgsDict',
+    'ProjectProfileAwsAccountArgs',
+    'ProjectProfileAwsAccountArgsDict',
+    'ProjectProfileEnvironmentConfigurationParametersDetailsArgs',
+    'ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict',
+    'ProjectProfileEnvironmentConfigurationParameterArgs',
+    'ProjectProfileEnvironmentConfigurationParameterArgsDict',
+    'ProjectProfileEnvironmentConfigurationArgs',
+    'ProjectProfileEnvironmentConfigurationArgsDict',
+    'ProjectProfileRegionArgs',
+    'ProjectProfileRegionArgsDict',
     'SubscriptionTargetFormArgs',
     'SubscriptionTargetFormArgsDict',
 ]
@@ -2919,6 +2929,272 @@ class ProjectMembershipMember1PropertiesArgs:
     @group_identifier.setter
     def group_identifier(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "group_identifier", value)
+
+
+if not MYPY:
+    class ProjectProfileAwsAccountArgsDict(TypedDict):
+        aws_account_id: pulumi.Input[builtins.str]
+elif False:
+    ProjectProfileAwsAccountArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectProfileAwsAccountArgs:
+    def __init__(__self__, *,
+                 aws_account_id: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "aws_account_id", aws_account_id)
+
+    @property
+    @pulumi.getter(name="awsAccountId")
+    def aws_account_id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "aws_account_id")
+
+    @aws_account_id.setter
+    def aws_account_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "aws_account_id", value)
+
+
+if not MYPY:
+    class ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict(TypedDict):
+        parameter_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgsDict']]]]
+        resolved_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgsDict']]]]
+        ssm_path: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectProfileEnvironmentConfigurationParametersDetailsArgs:
+    def __init__(__self__, *,
+                 parameter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]] = None,
+                 resolved_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]] = None,
+                 ssm_path: Optional[pulumi.Input[builtins.str]] = None):
+        if parameter_overrides is not None:
+            pulumi.set(__self__, "parameter_overrides", parameter_overrides)
+        if resolved_parameters is not None:
+            pulumi.set(__self__, "resolved_parameters", resolved_parameters)
+        if ssm_path is not None:
+            pulumi.set(__self__, "ssm_path", ssm_path)
+
+    @property
+    @pulumi.getter(name="parameterOverrides")
+    def parameter_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]:
+        return pulumi.get(self, "parameter_overrides")
+
+    @parameter_overrides.setter
+    def parameter_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]):
+        pulumi.set(self, "parameter_overrides", value)
+
+    @property
+    @pulumi.getter(name="resolvedParameters")
+    def resolved_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]:
+        return pulumi.get(self, "resolved_parameters")
+
+    @resolved_parameters.setter
+    def resolved_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]):
+        pulumi.set(self, "resolved_parameters", value)
+
+    @property
+    @pulumi.getter(name="ssmPath")
+    def ssm_path(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "ssm_path")
+
+    @ssm_path.setter
+    def ssm_path(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ssm_path", value)
+
+
+if not MYPY:
+    class ProjectProfileEnvironmentConfigurationParameterArgsDict(TypedDict):
+        is_editable: NotRequired[pulumi.Input[builtins.bool]]
+        name: NotRequired[pulumi.Input[builtins.str]]
+        value: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    ProjectProfileEnvironmentConfigurationParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectProfileEnvironmentConfigurationParameterArgs:
+    def __init__(__self__, *,
+                 is_editable: Optional[pulumi.Input[builtins.bool]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 value: Optional[pulumi.Input[builtins.str]] = None):
+        if is_editable is not None:
+            pulumi.set(__self__, "is_editable", is_editable)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="isEditable")
+    def is_editable(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_editable")
+
+    @is_editable.setter
+    def is_editable(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_editable", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ProjectProfileEnvironmentConfigurationArgsDict(TypedDict):
+        aws_region: pulumi.Input['ProjectProfileRegionArgsDict']
+        environment_blueprint_id: pulumi.Input[builtins.str]
+        name: pulumi.Input[builtins.str]
+        aws_account: NotRequired[pulumi.Input['ProjectProfileAwsAccountArgsDict']]
+        configuration_parameters: NotRequired[pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict']]
+        deployment_mode: NotRequired[pulumi.Input['ProjectProfileDeploymentMode']]
+        deployment_order: NotRequired[pulumi.Input[builtins.float]]
+        description: NotRequired[pulumi.Input[builtins.str]]
+        id: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    ProjectProfileEnvironmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectProfileEnvironmentConfigurationArgs:
+    def __init__(__self__, *,
+                 aws_region: pulumi.Input['ProjectProfileRegionArgs'],
+                 environment_blueprint_id: pulumi.Input[builtins.str],
+                 name: pulumi.Input[builtins.str],
+                 aws_account: Optional[pulumi.Input['ProjectProfileAwsAccountArgs']] = None,
+                 configuration_parameters: Optional[pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgs']] = None,
+                 deployment_mode: Optional[pulumi.Input['ProjectProfileDeploymentMode']] = None,
+                 deployment_order: Optional[pulumi.Input[builtins.float]] = None,
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 id: Optional[pulumi.Input[builtins.str]] = None):
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "environment_blueprint_id", environment_blueprint_id)
+        pulumi.set(__self__, "name", name)
+        if aws_account is not None:
+            pulumi.set(__self__, "aws_account", aws_account)
+        if configuration_parameters is not None:
+            pulumi.set(__self__, "configuration_parameters", configuration_parameters)
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+        if deployment_order is not None:
+            pulumi.set(__self__, "deployment_order", deployment_order)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> pulumi.Input['ProjectProfileRegionArgs']:
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: pulumi.Input['ProjectProfileRegionArgs']):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter(name="environmentBlueprintId")
+    def environment_blueprint_id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "environment_blueprint_id")
+
+    @environment_blueprint_id.setter
+    def environment_blueprint_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "environment_blueprint_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="awsAccount")
+    def aws_account(self) -> Optional[pulumi.Input['ProjectProfileAwsAccountArgs']]:
+        return pulumi.get(self, "aws_account")
+
+    @aws_account.setter
+    def aws_account(self, value: Optional[pulumi.Input['ProjectProfileAwsAccountArgs']]):
+        pulumi.set(self, "aws_account", value)
+
+    @property
+    @pulumi.getter(name="configurationParameters")
+    def configuration_parameters(self) -> Optional[pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgs']]:
+        return pulumi.get(self, "configuration_parameters")
+
+    @configuration_parameters.setter
+    def configuration_parameters(self, value: Optional[pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgs']]):
+        pulumi.set(self, "configuration_parameters", value)
+
+    @property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[pulumi.Input['ProjectProfileDeploymentMode']]:
+        return pulumi.get(self, "deployment_mode")
+
+    @deployment_mode.setter
+    def deployment_mode(self, value: Optional[pulumi.Input['ProjectProfileDeploymentMode']]):
+        pulumi.set(self, "deployment_mode", value)
+
+    @property
+    @pulumi.getter(name="deploymentOrder")
+    def deployment_order(self) -> Optional[pulumi.Input[builtins.float]]:
+        return pulumi.get(self, "deployment_order")
+
+    @deployment_order.setter
+    def deployment_order(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "deployment_order", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class ProjectProfileRegionArgsDict(TypedDict):
+        region_name: pulumi.Input[builtins.str]
+elif False:
+    ProjectProfileRegionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectProfileRegionArgs:
+    def __init__(__self__, *,
+                 region_name: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "region_name", region_name)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "region_name")
+
+    @region_name.setter
+    def region_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "region_name", value)
 
 
 if not MYPY:

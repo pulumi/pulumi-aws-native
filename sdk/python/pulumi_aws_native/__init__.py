@@ -27,6 +27,8 @@ if typing.TYPE_CHECKING:
     accessanalyzer = __accessanalyzer
     import pulumi_aws_native.acmpca as __acmpca
     acmpca = __acmpca
+    import pulumi_aws_native.aiops as __aiops
+    aiops = __aiops
     import pulumi_aws_native.amazonmq as __amazonmq
     amazonmq = __amazonmq
     import pulumi_aws_native.amplify as __amplify
@@ -469,6 +471,8 @@ if typing.TYPE_CHECKING:
     wisdom = __wisdom
     import pulumi_aws_native.workspaces as __workspaces
     workspaces = __workspaces
+    import pulumi_aws_native.workspacesinstances as __workspacesinstances
+    workspacesinstances = __workspacesinstances
     import pulumi_aws_native.workspacesthinclient as __workspacesthinclient
     workspacesthinclient = __workspacesthinclient
     import pulumi_aws_native.workspacesweb as __workspacesweb
@@ -478,6 +482,7 @@ if typing.TYPE_CHECKING:
 else:
     accessanalyzer = _utilities.lazy_import('pulumi_aws_native.accessanalyzer')
     acmpca = _utilities.lazy_import('pulumi_aws_native.acmpca')
+    aiops = _utilities.lazy_import('pulumi_aws_native.aiops')
     amazonmq = _utilities.lazy_import('pulumi_aws_native.amazonmq')
     amplify = _utilities.lazy_import('pulumi_aws_native.amplify')
     amplifyuibuilder = _utilities.lazy_import('pulumi_aws_native.amplifyuibuilder')
@@ -699,6 +704,7 @@ else:
     wafv2 = _utilities.lazy_import('pulumi_aws_native.wafv2')
     wisdom = _utilities.lazy_import('pulumi_aws_native.wisdom')
     workspaces = _utilities.lazy_import('pulumi_aws_native.workspaces')
+    workspacesinstances = _utilities.lazy_import('pulumi_aws_native.workspacesinstances')
     workspacesthinclient = _utilities.lazy_import('pulumi_aws_native.workspacesthinclient')
     workspacesweb = _utilities.lazy_import('pulumi_aws_native.workspacesweb')
     xray = _utilities.lazy_import('pulumi_aws_native.xray')
@@ -723,6 +729,14 @@ _utilities.register(
    "aws-native:acmpca:CertificateAuthority": "CertificateAuthority",
    "aws-native:acmpca:CertificateAuthorityActivation": "CertificateAuthorityActivation",
    "aws-native:acmpca:Permission": "Permission"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "aiops",
+  "fqn": "pulumi_aws_native.aiops",
+  "classes": {
+   "aws-native:aiops:InvestigationGroup": "InvestigationGroup"
   }
  },
  {
@@ -3036,6 +3050,7 @@ _utilities.register(
   "mod": "s3tables",
   "fqn": "pulumi_aws_native.s3tables",
   "classes": {
+   "aws-native:s3tables:Namespace": "Namespace",
    "aws-native:s3tables:TableBucket": "TableBucket",
    "aws-native:s3tables:TableBucketPolicy": "TableBucketPolicy"
   }
@@ -3420,6 +3435,16 @@ _utilities.register(
   "classes": {
    "aws-native:workspaces:ConnectionAlias": "ConnectionAlias",
    "aws-native:workspaces:WorkspacesPool": "WorkspacesPool"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "workspacesinstances",
+  "fqn": "pulumi_aws_native.workspacesinstances",
+  "classes": {
+   "aws-native:workspacesinstances:Volume": "Volume",
+   "aws-native:workspacesinstances:VolumeAssociation": "VolumeAssociation",
+   "aws-native:workspacesinstances:WorkspaceInstance": "WorkspaceInstance"
   }
  },
  {

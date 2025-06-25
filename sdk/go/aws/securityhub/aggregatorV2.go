@@ -24,7 +24,8 @@ type AggregatorV2 struct {
 	LinkedRegions pulumi.StringArrayOutput `pulumi:"linkedRegions"`
 	// Indicates to link a list of included Regions
 	RegionLinkingMode AggregatorV2RegionLinkingModeOutput `pulumi:"regionLinkingMode"`
-	Tags              pulumi.StringMapOutput              `pulumi:"tags"`
+	// A list of key-value pairs to be applied to the AggregatorV2.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAggregatorV2 registers a new resource with the given unique name, arguments, and options.
@@ -77,7 +78,8 @@ type aggregatorV2Args struct {
 	LinkedRegions []string `pulumi:"linkedRegions"`
 	// Indicates to link a list of included Regions
 	RegionLinkingMode AggregatorV2RegionLinkingMode `pulumi:"regionLinkingMode"`
-	Tags              map[string]string             `pulumi:"tags"`
+	// A list of key-value pairs to be applied to the AggregatorV2.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AggregatorV2 resource.
@@ -86,7 +88,8 @@ type AggregatorV2Args struct {
 	LinkedRegions pulumi.StringArrayInput
 	// Indicates to link a list of included Regions
 	RegionLinkingMode AggregatorV2RegionLinkingModeInput
-	Tags              pulumi.StringMapInput
+	// A list of key-value pairs to be applied to the AggregatorV2.
+	Tags pulumi.StringMapInput
 }
 
 func (AggregatorV2Args) ElementType() reflect.Type {
@@ -146,6 +149,7 @@ func (o AggregatorV2Output) RegionLinkingMode() AggregatorV2RegionLinkingModeOut
 	return o.ApplyT(func(v *AggregatorV2) AggregatorV2RegionLinkingModeOutput { return v.RegionLinkingMode }).(AggregatorV2RegionLinkingModeOutput)
 }
 
+// A list of key-value pairs to be applied to the AggregatorV2.
 func (o AggregatorV2Output) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AggregatorV2) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

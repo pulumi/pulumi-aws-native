@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// The name of the field
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRuleV2OcsfNumberFilterFieldName FieldName;
+        /// <summary>
+        /// Enables filtering of security findings based on numerical field values in OCSF.
+        /// </summary>
         public readonly Outputs.AutomationRuleV2NumberFilter Filter;
 
         [OutputConstructor]

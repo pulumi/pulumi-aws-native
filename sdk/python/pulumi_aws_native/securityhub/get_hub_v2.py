@@ -46,11 +46,17 @@ class GetHubV2Result:
     @property
     @pulumi.getter(name="subscribedAt")
     def subscribed_at(self) -> Optional[builtins.str]:
+        """
+        The date and time when the service was enabled in the account.
+        """
         return pulumi.get(self, "subscribed_at")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        The tags to add to the hub V2 resource when you enable Security Hub.
+        """
         return pulumi.get(self, "tags")
 
 

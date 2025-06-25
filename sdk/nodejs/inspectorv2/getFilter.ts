@@ -45,6 +45,9 @@ export interface GetFilterResult {
      * Findings filter name.
      */
     readonly name?: string;
+    /**
+     * The tags attached to the filter.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**

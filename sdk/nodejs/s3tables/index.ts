@@ -15,6 +15,11 @@ export const getTableBucketPolicy: typeof import("./getTableBucketPolicy").getTa
 export const getTableBucketPolicyOutput: typeof import("./getTableBucketPolicy").getTableBucketPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getTableBucketPolicy","getTableBucketPolicyOutput"], () => require("./getTableBucketPolicy"));
 
+export { NamespaceArgs } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+
 export { TableBucketArgs } from "./tableBucket";
 export type TableBucket = import("./tableBucket").TableBucket;
 export const TableBucket: typeof import("./tableBucket").TableBucket = null as any;
@@ -33,6 +38,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:s3tables:Namespace":
+                return new Namespace(name, <any>undefined, { urn })
             case "aws-native:s3tables:TableBucket":
                 return new TableBucket(name, <any>undefined, { urn })
             case "aws-native:s3tables:TableBucketPolicy":

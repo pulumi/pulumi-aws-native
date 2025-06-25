@@ -37,7 +37,8 @@ type LookupProjectProfileResult struct {
 	// The domain ID of the project profile.
 	DomainId *string `pulumi:"domainId"`
 	// The domain unit ID of the project profile.
-	DomainUnitId *string `pulumi:"domainUnitId"`
+	DomainUnitId              *string                                  `pulumi:"domainUnitId"`
+	EnvironmentConfigurations []ProjectProfileEnvironmentConfiguration `pulumi:"environmentConfigurations"`
 	// The ID of the project profile.
 	Id         *string `pulumi:"id"`
 	Identifier *string `pulumi:"identifier"`
@@ -104,6 +105,12 @@ func (o LookupProjectProfileResultOutput) DomainId() pulumi.StringPtrOutput {
 // The domain unit ID of the project profile.
 func (o LookupProjectProfileResultOutput) DomainUnitId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectProfileResult) *string { return v.DomainUnitId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupProjectProfileResultOutput) EnvironmentConfigurations() ProjectProfileEnvironmentConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupProjectProfileResult) []ProjectProfileEnvironmentConfiguration {
+		return v.EnvironmentConfigurations
+	}).(ProjectProfileEnvironmentConfigurationArrayOutput)
 }
 
 // The ID of the project profile.

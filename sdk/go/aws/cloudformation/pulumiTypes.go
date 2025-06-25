@@ -2280,7 +2280,7 @@ type StackSetTag struct {
 type StackTag struct {
 	// *Required* . A string used to identify this tag. You can specify a maximum of 128 characters for a tag key. Tags owned by AWS have the reserved prefix: `aws:` .
 	Key string `pulumi:"key"`
-	// *Required* . A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
+	// *Required* . A string that contains the value for this tag. You can specify a maximum of 256 characters for a tag value.
 	Value string `pulumi:"value"`
 }
 

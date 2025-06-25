@@ -53,6 +53,9 @@ export class AggregatorV2 extends pulumi.CustomResource {
      * Indicates to link a list of included Regions
      */
     public readonly regionLinkingMode!: pulumi.Output<enums.securityhub.AggregatorV2RegionLinkingMode>;
+    /**
+     * A list of key-value pairs to be applied to the AggregatorV2.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -101,5 +104,8 @@ export interface AggregatorV2Args {
      * Indicates to link a list of included Regions
      */
     regionLinkingMode: pulumi.Input<enums.securityhub.AggregatorV2RegionLinkingMode>;
+    /**
+     * A list of key-value pairs to be applied to the AggregatorV2.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

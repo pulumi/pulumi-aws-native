@@ -8490,6 +8490,605 @@ func (o ProjectMembershipMember1PropertiesOutput) GroupIdentifier() pulumi.Strin
 	return o.ApplyT(func(v ProjectMembershipMember1Properties) string { return v.GroupIdentifier }).(pulumi.StringOutput)
 }
 
+type ProjectProfileAwsAccount struct {
+	AwsAccountId string `pulumi:"awsAccountId"`
+}
+
+// ProjectProfileAwsAccountInput is an input type that accepts ProjectProfileAwsAccountArgs and ProjectProfileAwsAccountOutput values.
+// You can construct a concrete instance of `ProjectProfileAwsAccountInput` via:
+//
+//	ProjectProfileAwsAccountArgs{...}
+type ProjectProfileAwsAccountInput interface {
+	pulumi.Input
+
+	ToProjectProfileAwsAccountOutput() ProjectProfileAwsAccountOutput
+	ToProjectProfileAwsAccountOutputWithContext(context.Context) ProjectProfileAwsAccountOutput
+}
+
+type ProjectProfileAwsAccountArgs struct {
+	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
+}
+
+func (ProjectProfileAwsAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileAwsAccount)(nil)).Elem()
+}
+
+func (i ProjectProfileAwsAccountArgs) ToProjectProfileAwsAccountOutput() ProjectProfileAwsAccountOutput {
+	return i.ToProjectProfileAwsAccountOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileAwsAccountArgs) ToProjectProfileAwsAccountOutputWithContext(ctx context.Context) ProjectProfileAwsAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileAwsAccountOutput)
+}
+
+func (i ProjectProfileAwsAccountArgs) ToProjectProfileAwsAccountPtrOutput() ProjectProfileAwsAccountPtrOutput {
+	return i.ToProjectProfileAwsAccountPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileAwsAccountArgs) ToProjectProfileAwsAccountPtrOutputWithContext(ctx context.Context) ProjectProfileAwsAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileAwsAccountOutput).ToProjectProfileAwsAccountPtrOutputWithContext(ctx)
+}
+
+// ProjectProfileAwsAccountPtrInput is an input type that accepts ProjectProfileAwsAccountArgs, ProjectProfileAwsAccountPtr and ProjectProfileAwsAccountPtrOutput values.
+// You can construct a concrete instance of `ProjectProfileAwsAccountPtrInput` via:
+//
+//	        ProjectProfileAwsAccountArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectProfileAwsAccountPtrInput interface {
+	pulumi.Input
+
+	ToProjectProfileAwsAccountPtrOutput() ProjectProfileAwsAccountPtrOutput
+	ToProjectProfileAwsAccountPtrOutputWithContext(context.Context) ProjectProfileAwsAccountPtrOutput
+}
+
+type projectProfileAwsAccountPtrType ProjectProfileAwsAccountArgs
+
+func ProjectProfileAwsAccountPtr(v *ProjectProfileAwsAccountArgs) ProjectProfileAwsAccountPtrInput {
+	return (*projectProfileAwsAccountPtrType)(v)
+}
+
+func (*projectProfileAwsAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectProfileAwsAccount)(nil)).Elem()
+}
+
+func (i *projectProfileAwsAccountPtrType) ToProjectProfileAwsAccountPtrOutput() ProjectProfileAwsAccountPtrOutput {
+	return i.ToProjectProfileAwsAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *projectProfileAwsAccountPtrType) ToProjectProfileAwsAccountPtrOutputWithContext(ctx context.Context) ProjectProfileAwsAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileAwsAccountPtrOutput)
+}
+
+type ProjectProfileAwsAccountOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileAwsAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileAwsAccount)(nil)).Elem()
+}
+
+func (o ProjectProfileAwsAccountOutput) ToProjectProfileAwsAccountOutput() ProjectProfileAwsAccountOutput {
+	return o
+}
+
+func (o ProjectProfileAwsAccountOutput) ToProjectProfileAwsAccountOutputWithContext(ctx context.Context) ProjectProfileAwsAccountOutput {
+	return o
+}
+
+func (o ProjectProfileAwsAccountOutput) ToProjectProfileAwsAccountPtrOutput() ProjectProfileAwsAccountPtrOutput {
+	return o.ToProjectProfileAwsAccountPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectProfileAwsAccountOutput) ToProjectProfileAwsAccountPtrOutputWithContext(ctx context.Context) ProjectProfileAwsAccountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectProfileAwsAccount) *ProjectProfileAwsAccount {
+		return &v
+	}).(ProjectProfileAwsAccountPtrOutput)
+}
+
+func (o ProjectProfileAwsAccountOutput) AwsAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectProfileAwsAccount) string { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+type ProjectProfileAwsAccountPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileAwsAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectProfileAwsAccount)(nil)).Elem()
+}
+
+func (o ProjectProfileAwsAccountPtrOutput) ToProjectProfileAwsAccountPtrOutput() ProjectProfileAwsAccountPtrOutput {
+	return o
+}
+
+func (o ProjectProfileAwsAccountPtrOutput) ToProjectProfileAwsAccountPtrOutputWithContext(ctx context.Context) ProjectProfileAwsAccountPtrOutput {
+	return o
+}
+
+func (o ProjectProfileAwsAccountPtrOutput) Elem() ProjectProfileAwsAccountOutput {
+	return o.ApplyT(func(v *ProjectProfileAwsAccount) ProjectProfileAwsAccount {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectProfileAwsAccount
+		return ret
+	}).(ProjectProfileAwsAccountOutput)
+}
+
+func (o ProjectProfileAwsAccountPtrOutput) AwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectProfileAwsAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectProfileEnvironmentConfiguration struct {
+	AwsAccount              *ProjectProfileAwsAccount                                `pulumi:"awsAccount"`
+	AwsRegion               ProjectProfileRegion                                     `pulumi:"awsRegion"`
+	ConfigurationParameters *ProjectProfileEnvironmentConfigurationParametersDetails `pulumi:"configurationParameters"`
+	DeploymentMode          *ProjectProfileDeploymentMode                            `pulumi:"deploymentMode"`
+	DeploymentOrder         *float64                                                 `pulumi:"deploymentOrder"`
+	Description             *string                                                  `pulumi:"description"`
+	EnvironmentBlueprintId  string                                                   `pulumi:"environmentBlueprintId"`
+	Id                      *string                                                  `pulumi:"id"`
+	Name                    string                                                   `pulumi:"name"`
+}
+
+// ProjectProfileEnvironmentConfigurationInput is an input type that accepts ProjectProfileEnvironmentConfigurationArgs and ProjectProfileEnvironmentConfigurationOutput values.
+// You can construct a concrete instance of `ProjectProfileEnvironmentConfigurationInput` via:
+//
+//	ProjectProfileEnvironmentConfigurationArgs{...}
+type ProjectProfileEnvironmentConfigurationInput interface {
+	pulumi.Input
+
+	ToProjectProfileEnvironmentConfigurationOutput() ProjectProfileEnvironmentConfigurationOutput
+	ToProjectProfileEnvironmentConfigurationOutputWithContext(context.Context) ProjectProfileEnvironmentConfigurationOutput
+}
+
+type ProjectProfileEnvironmentConfigurationArgs struct {
+	AwsAccount              ProjectProfileAwsAccountPtrInput                                `pulumi:"awsAccount"`
+	AwsRegion               ProjectProfileRegionInput                                       `pulumi:"awsRegion"`
+	ConfigurationParameters ProjectProfileEnvironmentConfigurationParametersDetailsPtrInput `pulumi:"configurationParameters"`
+	DeploymentMode          ProjectProfileDeploymentModePtrInput                            `pulumi:"deploymentMode"`
+	DeploymentOrder         pulumi.Float64PtrInput                                          `pulumi:"deploymentOrder"`
+	Description             pulumi.StringPtrInput                                           `pulumi:"description"`
+	EnvironmentBlueprintId  pulumi.StringInput                                              `pulumi:"environmentBlueprintId"`
+	Id                      pulumi.StringPtrInput                                           `pulumi:"id"`
+	Name                    pulumi.StringInput                                              `pulumi:"name"`
+}
+
+func (ProjectProfileEnvironmentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileEnvironmentConfiguration)(nil)).Elem()
+}
+
+func (i ProjectProfileEnvironmentConfigurationArgs) ToProjectProfileEnvironmentConfigurationOutput() ProjectProfileEnvironmentConfigurationOutput {
+	return i.ToProjectProfileEnvironmentConfigurationOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileEnvironmentConfigurationArgs) ToProjectProfileEnvironmentConfigurationOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileEnvironmentConfigurationOutput)
+}
+
+// ProjectProfileEnvironmentConfigurationArrayInput is an input type that accepts ProjectProfileEnvironmentConfigurationArray and ProjectProfileEnvironmentConfigurationArrayOutput values.
+// You can construct a concrete instance of `ProjectProfileEnvironmentConfigurationArrayInput` via:
+//
+//	ProjectProfileEnvironmentConfigurationArray{ ProjectProfileEnvironmentConfigurationArgs{...} }
+type ProjectProfileEnvironmentConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToProjectProfileEnvironmentConfigurationArrayOutput() ProjectProfileEnvironmentConfigurationArrayOutput
+	ToProjectProfileEnvironmentConfigurationArrayOutputWithContext(context.Context) ProjectProfileEnvironmentConfigurationArrayOutput
+}
+
+type ProjectProfileEnvironmentConfigurationArray []ProjectProfileEnvironmentConfigurationInput
+
+func (ProjectProfileEnvironmentConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectProfileEnvironmentConfiguration)(nil)).Elem()
+}
+
+func (i ProjectProfileEnvironmentConfigurationArray) ToProjectProfileEnvironmentConfigurationArrayOutput() ProjectProfileEnvironmentConfigurationArrayOutput {
+	return i.ToProjectProfileEnvironmentConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileEnvironmentConfigurationArray) ToProjectProfileEnvironmentConfigurationArrayOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileEnvironmentConfigurationArrayOutput)
+}
+
+type ProjectProfileEnvironmentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileEnvironmentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileEnvironmentConfiguration)(nil)).Elem()
+}
+
+func (o ProjectProfileEnvironmentConfigurationOutput) ToProjectProfileEnvironmentConfigurationOutput() ProjectProfileEnvironmentConfigurationOutput {
+	return o
+}
+
+func (o ProjectProfileEnvironmentConfigurationOutput) ToProjectProfileEnvironmentConfigurationOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationOutput {
+	return o
+}
+
+func (o ProjectProfileEnvironmentConfigurationOutput) AwsAccount() ProjectProfileAwsAccountPtrOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *ProjectProfileAwsAccount { return v.AwsAccount }).(ProjectProfileAwsAccountPtrOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationOutput) AwsRegion() ProjectProfileRegionOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) ProjectProfileRegion { return v.AwsRegion }).(ProjectProfileRegionOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationOutput) ConfigurationParameters() ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *ProjectProfileEnvironmentConfigurationParametersDetails {
+		return v.ConfigurationParameters
+	}).(ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationOutput) DeploymentMode() ProjectProfileDeploymentModePtrOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *ProjectProfileDeploymentMode { return v.DeploymentMode }).(ProjectProfileDeploymentModePtrOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationOutput) DeploymentOrder() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *float64 { return v.DeploymentOrder }).(pulumi.Float64PtrOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationOutput) EnvironmentBlueprintId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) string { return v.EnvironmentBlueprintId }).(pulumi.StringOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ProjectProfileEnvironmentConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileEnvironmentConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectProfileEnvironmentConfiguration)(nil)).Elem()
+}
+
+func (o ProjectProfileEnvironmentConfigurationArrayOutput) ToProjectProfileEnvironmentConfigurationArrayOutput() ProjectProfileEnvironmentConfigurationArrayOutput {
+	return o
+}
+
+func (o ProjectProfileEnvironmentConfigurationArrayOutput) ToProjectProfileEnvironmentConfigurationArrayOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationArrayOutput {
+	return o
+}
+
+func (o ProjectProfileEnvironmentConfigurationArrayOutput) Index(i pulumi.IntInput) ProjectProfileEnvironmentConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectProfileEnvironmentConfiguration {
+		return vs[0].([]ProjectProfileEnvironmentConfiguration)[vs[1].(int)]
+	}).(ProjectProfileEnvironmentConfigurationOutput)
+}
+
+type ProjectProfileEnvironmentConfigurationParameter struct {
+	IsEditable *bool   `pulumi:"isEditable"`
+	Name       *string `pulumi:"name"`
+	Value      *string `pulumi:"value"`
+}
+
+// ProjectProfileEnvironmentConfigurationParameterInput is an input type that accepts ProjectProfileEnvironmentConfigurationParameterArgs and ProjectProfileEnvironmentConfigurationParameterOutput values.
+// You can construct a concrete instance of `ProjectProfileEnvironmentConfigurationParameterInput` via:
+//
+//	ProjectProfileEnvironmentConfigurationParameterArgs{...}
+type ProjectProfileEnvironmentConfigurationParameterInput interface {
+	pulumi.Input
+
+	ToProjectProfileEnvironmentConfigurationParameterOutput() ProjectProfileEnvironmentConfigurationParameterOutput
+	ToProjectProfileEnvironmentConfigurationParameterOutputWithContext(context.Context) ProjectProfileEnvironmentConfigurationParameterOutput
+}
+
+type ProjectProfileEnvironmentConfigurationParameterArgs struct {
+	IsEditable pulumi.BoolPtrInput   `pulumi:"isEditable"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	Value      pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ProjectProfileEnvironmentConfigurationParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileEnvironmentConfigurationParameter)(nil)).Elem()
+}
+
+func (i ProjectProfileEnvironmentConfigurationParameterArgs) ToProjectProfileEnvironmentConfigurationParameterOutput() ProjectProfileEnvironmentConfigurationParameterOutput {
+	return i.ToProjectProfileEnvironmentConfigurationParameterOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileEnvironmentConfigurationParameterArgs) ToProjectProfileEnvironmentConfigurationParameterOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileEnvironmentConfigurationParameterOutput)
+}
+
+// ProjectProfileEnvironmentConfigurationParameterArrayInput is an input type that accepts ProjectProfileEnvironmentConfigurationParameterArray and ProjectProfileEnvironmentConfigurationParameterArrayOutput values.
+// You can construct a concrete instance of `ProjectProfileEnvironmentConfigurationParameterArrayInput` via:
+//
+//	ProjectProfileEnvironmentConfigurationParameterArray{ ProjectProfileEnvironmentConfigurationParameterArgs{...} }
+type ProjectProfileEnvironmentConfigurationParameterArrayInput interface {
+	pulumi.Input
+
+	ToProjectProfileEnvironmentConfigurationParameterArrayOutput() ProjectProfileEnvironmentConfigurationParameterArrayOutput
+	ToProjectProfileEnvironmentConfigurationParameterArrayOutputWithContext(context.Context) ProjectProfileEnvironmentConfigurationParameterArrayOutput
+}
+
+type ProjectProfileEnvironmentConfigurationParameterArray []ProjectProfileEnvironmentConfigurationParameterInput
+
+func (ProjectProfileEnvironmentConfigurationParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectProfileEnvironmentConfigurationParameter)(nil)).Elem()
+}
+
+func (i ProjectProfileEnvironmentConfigurationParameterArray) ToProjectProfileEnvironmentConfigurationParameterArrayOutput() ProjectProfileEnvironmentConfigurationParameterArrayOutput {
+	return i.ToProjectProfileEnvironmentConfigurationParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileEnvironmentConfigurationParameterArray) ToProjectProfileEnvironmentConfigurationParameterArrayOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileEnvironmentConfigurationParameterArrayOutput)
+}
+
+type ProjectProfileEnvironmentConfigurationParameterOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileEnvironmentConfigurationParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileEnvironmentConfigurationParameter)(nil)).Elem()
+}
+
+func (o ProjectProfileEnvironmentConfigurationParameterOutput) ToProjectProfileEnvironmentConfigurationParameterOutput() ProjectProfileEnvironmentConfigurationParameterOutput {
+	return o
+}
+
+func (o ProjectProfileEnvironmentConfigurationParameterOutput) ToProjectProfileEnvironmentConfigurationParameterOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationParameterOutput {
+	return o
+}
+
+func (o ProjectProfileEnvironmentConfigurationParameterOutput) IsEditable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfigurationParameter) *bool { return v.IsEditable }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfigurationParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfigurationParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ProjectProfileEnvironmentConfigurationParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileEnvironmentConfigurationParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectProfileEnvironmentConfigurationParameter)(nil)).Elem()
+}
+
+func (o ProjectProfileEnvironmentConfigurationParameterArrayOutput) ToProjectProfileEnvironmentConfigurationParameterArrayOutput() ProjectProfileEnvironmentConfigurationParameterArrayOutput {
+	return o
+}
+
+func (o ProjectProfileEnvironmentConfigurationParameterArrayOutput) ToProjectProfileEnvironmentConfigurationParameterArrayOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationParameterArrayOutput {
+	return o
+}
+
+func (o ProjectProfileEnvironmentConfigurationParameterArrayOutput) Index(i pulumi.IntInput) ProjectProfileEnvironmentConfigurationParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectProfileEnvironmentConfigurationParameter {
+		return vs[0].([]ProjectProfileEnvironmentConfigurationParameter)[vs[1].(int)]
+	}).(ProjectProfileEnvironmentConfigurationParameterOutput)
+}
+
+type ProjectProfileEnvironmentConfigurationParametersDetails struct {
+	ParameterOverrides []ProjectProfileEnvironmentConfigurationParameter `pulumi:"parameterOverrides"`
+	ResolvedParameters []ProjectProfileEnvironmentConfigurationParameter `pulumi:"resolvedParameters"`
+	SsmPath            *string                                           `pulumi:"ssmPath"`
+}
+
+// ProjectProfileEnvironmentConfigurationParametersDetailsInput is an input type that accepts ProjectProfileEnvironmentConfigurationParametersDetailsArgs and ProjectProfileEnvironmentConfigurationParametersDetailsOutput values.
+// You can construct a concrete instance of `ProjectProfileEnvironmentConfigurationParametersDetailsInput` via:
+//
+//	ProjectProfileEnvironmentConfigurationParametersDetailsArgs{...}
+type ProjectProfileEnvironmentConfigurationParametersDetailsInput interface {
+	pulumi.Input
+
+	ToProjectProfileEnvironmentConfigurationParametersDetailsOutput() ProjectProfileEnvironmentConfigurationParametersDetailsOutput
+	ToProjectProfileEnvironmentConfigurationParametersDetailsOutputWithContext(context.Context) ProjectProfileEnvironmentConfigurationParametersDetailsOutput
+}
+
+type ProjectProfileEnvironmentConfigurationParametersDetailsArgs struct {
+	ParameterOverrides ProjectProfileEnvironmentConfigurationParameterArrayInput `pulumi:"parameterOverrides"`
+	ResolvedParameters ProjectProfileEnvironmentConfigurationParameterArrayInput `pulumi:"resolvedParameters"`
+	SsmPath            pulumi.StringPtrInput                                     `pulumi:"ssmPath"`
+}
+
+func (ProjectProfileEnvironmentConfigurationParametersDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileEnvironmentConfigurationParametersDetails)(nil)).Elem()
+}
+
+func (i ProjectProfileEnvironmentConfigurationParametersDetailsArgs) ToProjectProfileEnvironmentConfigurationParametersDetailsOutput() ProjectProfileEnvironmentConfigurationParametersDetailsOutput {
+	return i.ToProjectProfileEnvironmentConfigurationParametersDetailsOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileEnvironmentConfigurationParametersDetailsArgs) ToProjectProfileEnvironmentConfigurationParametersDetailsOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationParametersDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileEnvironmentConfigurationParametersDetailsOutput)
+}
+
+func (i ProjectProfileEnvironmentConfigurationParametersDetailsArgs) ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput() ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput {
+	return i.ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileEnvironmentConfigurationParametersDetailsArgs) ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileEnvironmentConfigurationParametersDetailsOutput).ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutputWithContext(ctx)
+}
+
+// ProjectProfileEnvironmentConfigurationParametersDetailsPtrInput is an input type that accepts ProjectProfileEnvironmentConfigurationParametersDetailsArgs, ProjectProfileEnvironmentConfigurationParametersDetailsPtr and ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput values.
+// You can construct a concrete instance of `ProjectProfileEnvironmentConfigurationParametersDetailsPtrInput` via:
+//
+//	        ProjectProfileEnvironmentConfigurationParametersDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectProfileEnvironmentConfigurationParametersDetailsPtrInput interface {
+	pulumi.Input
+
+	ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput() ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput
+	ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutputWithContext(context.Context) ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput
+}
+
+type projectProfileEnvironmentConfigurationParametersDetailsPtrType ProjectProfileEnvironmentConfigurationParametersDetailsArgs
+
+func ProjectProfileEnvironmentConfigurationParametersDetailsPtr(v *ProjectProfileEnvironmentConfigurationParametersDetailsArgs) ProjectProfileEnvironmentConfigurationParametersDetailsPtrInput {
+	return (*projectProfileEnvironmentConfigurationParametersDetailsPtrType)(v)
+}
+
+func (*projectProfileEnvironmentConfigurationParametersDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectProfileEnvironmentConfigurationParametersDetails)(nil)).Elem()
+}
+
+func (i *projectProfileEnvironmentConfigurationParametersDetailsPtrType) ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput() ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput {
+	return i.ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *projectProfileEnvironmentConfigurationParametersDetailsPtrType) ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput)
+}
+
+type ProjectProfileEnvironmentConfigurationParametersDetailsOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileEnvironmentConfigurationParametersDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileEnvironmentConfigurationParametersDetails)(nil)).Elem()
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsOutput) ToProjectProfileEnvironmentConfigurationParametersDetailsOutput() ProjectProfileEnvironmentConfigurationParametersDetailsOutput {
+	return o
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsOutput) ToProjectProfileEnvironmentConfigurationParametersDetailsOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationParametersDetailsOutput {
+	return o
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsOutput) ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput() ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput {
+	return o.ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsOutput) ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectProfileEnvironmentConfigurationParametersDetails) *ProjectProfileEnvironmentConfigurationParametersDetails {
+		return &v
+	}).(ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsOutput) ParameterOverrides() ProjectProfileEnvironmentConfigurationParameterArrayOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfigurationParametersDetails) []ProjectProfileEnvironmentConfigurationParameter {
+		return v.ParameterOverrides
+	}).(ProjectProfileEnvironmentConfigurationParameterArrayOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsOutput) ResolvedParameters() ProjectProfileEnvironmentConfigurationParameterArrayOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfigurationParametersDetails) []ProjectProfileEnvironmentConfigurationParameter {
+		return v.ResolvedParameters
+	}).(ProjectProfileEnvironmentConfigurationParameterArrayOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsOutput) SsmPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectProfileEnvironmentConfigurationParametersDetails) *string { return v.SsmPath }).(pulumi.StringPtrOutput)
+}
+
+type ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectProfileEnvironmentConfigurationParametersDetails)(nil)).Elem()
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput() ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput {
+	return o
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) ToProjectProfileEnvironmentConfigurationParametersDetailsPtrOutputWithContext(ctx context.Context) ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput {
+	return o
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) Elem() ProjectProfileEnvironmentConfigurationParametersDetailsOutput {
+	return o.ApplyT(func(v *ProjectProfileEnvironmentConfigurationParametersDetails) ProjectProfileEnvironmentConfigurationParametersDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectProfileEnvironmentConfigurationParametersDetails
+		return ret
+	}).(ProjectProfileEnvironmentConfigurationParametersDetailsOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) ParameterOverrides() ProjectProfileEnvironmentConfigurationParameterArrayOutput {
+	return o.ApplyT(func(v *ProjectProfileEnvironmentConfigurationParametersDetails) []ProjectProfileEnvironmentConfigurationParameter {
+		if v == nil {
+			return nil
+		}
+		return v.ParameterOverrides
+	}).(ProjectProfileEnvironmentConfigurationParameterArrayOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) ResolvedParameters() ProjectProfileEnvironmentConfigurationParameterArrayOutput {
+	return o.ApplyT(func(v *ProjectProfileEnvironmentConfigurationParametersDetails) []ProjectProfileEnvironmentConfigurationParameter {
+		if v == nil {
+			return nil
+		}
+		return v.ResolvedParameters
+	}).(ProjectProfileEnvironmentConfigurationParameterArrayOutput)
+}
+
+func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) SsmPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectProfileEnvironmentConfigurationParametersDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SsmPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectProfileRegion struct {
+	RegionName string `pulumi:"regionName"`
+}
+
+// ProjectProfileRegionInput is an input type that accepts ProjectProfileRegionArgs and ProjectProfileRegionOutput values.
+// You can construct a concrete instance of `ProjectProfileRegionInput` via:
+//
+//	ProjectProfileRegionArgs{...}
+type ProjectProfileRegionInput interface {
+	pulumi.Input
+
+	ToProjectProfileRegionOutput() ProjectProfileRegionOutput
+	ToProjectProfileRegionOutputWithContext(context.Context) ProjectProfileRegionOutput
+}
+
+type ProjectProfileRegionArgs struct {
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+}
+
+func (ProjectProfileRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileRegion)(nil)).Elem()
+}
+
+func (i ProjectProfileRegionArgs) ToProjectProfileRegionOutput() ProjectProfileRegionOutput {
+	return i.ToProjectProfileRegionOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileRegionArgs) ToProjectProfileRegionOutputWithContext(ctx context.Context) ProjectProfileRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileRegionOutput)
+}
+
+type ProjectProfileRegionOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileRegion)(nil)).Elem()
+}
+
+func (o ProjectProfileRegionOutput) ToProjectProfileRegionOutput() ProjectProfileRegionOutput {
+	return o
+}
+
+func (o ProjectProfileRegionOutput) ToProjectProfileRegionOutputWithContext(ctx context.Context) ProjectProfileRegionOutput {
+	return o
+}
+
+func (o ProjectProfileRegionOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectProfileRegion) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
 // The details of the subscription target configuration.
 type SubscriptionTargetForm struct {
 	// The content of the subscription target configuration.
@@ -8978,6 +9577,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentParameterArrayInput)(nil)).Elem(), ProjectEnvironmentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember0PropertiesInput)(nil)).Elem(), ProjectMembershipMember0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectMembershipMember1PropertiesInput)(nil)).Elem(), ProjectMembershipMember1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileAwsAccountInput)(nil)).Elem(), ProjectProfileAwsAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileAwsAccountPtrInput)(nil)).Elem(), ProjectProfileAwsAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileEnvironmentConfigurationInput)(nil)).Elem(), ProjectProfileEnvironmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileEnvironmentConfigurationArrayInput)(nil)).Elem(), ProjectProfileEnvironmentConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileEnvironmentConfigurationParameterInput)(nil)).Elem(), ProjectProfileEnvironmentConfigurationParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileEnvironmentConfigurationParameterArrayInput)(nil)).Elem(), ProjectProfileEnvironmentConfigurationParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileEnvironmentConfigurationParametersDetailsInput)(nil)).Elem(), ProjectProfileEnvironmentConfigurationParametersDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileEnvironmentConfigurationParametersDetailsPtrInput)(nil)).Elem(), ProjectProfileEnvironmentConfigurationParametersDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileRegionInput)(nil)).Elem(), ProjectProfileRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormInput)(nil)).Elem(), SubscriptionTargetFormArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormArrayInput)(nil)).Elem(), SubscriptionTargetFormArray{})
 	pulumi.RegisterOutputType(ConnectionAthenaPropertiesInputOutput{})
@@ -9094,6 +9702,15 @@ func init() {
 	pulumi.RegisterOutputType(ProjectEnvironmentParameterArrayOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipMember0PropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectMembershipMember1PropertiesOutput{})
+	pulumi.RegisterOutputType(ProjectProfileAwsAccountOutput{})
+	pulumi.RegisterOutputType(ProjectProfileAwsAccountPtrOutput{})
+	pulumi.RegisterOutputType(ProjectProfileEnvironmentConfigurationOutput{})
+	pulumi.RegisterOutputType(ProjectProfileEnvironmentConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ProjectProfileEnvironmentConfigurationParameterOutput{})
+	pulumi.RegisterOutputType(ProjectProfileEnvironmentConfigurationParameterArrayOutput{})
+	pulumi.RegisterOutputType(ProjectProfileEnvironmentConfigurationParametersDetailsOutput{})
+	pulumi.RegisterOutputType(ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ProjectProfileRegionOutput{})
 	pulumi.RegisterOutputType(SubscriptionTargetFormOutput{})
 	pulumi.RegisterOutputType(SubscriptionTargetFormArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileDetails0PropertiesOutput{})

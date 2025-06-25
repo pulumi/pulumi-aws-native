@@ -33,6 +33,8 @@ type PlaybackConfiguration struct {
 	DashConfiguration PlaybackConfigurationDashConfigurationPtrOutput `pulumi:"dashConfiguration"`
 	// The configuration for HLS content.
 	HlsConfiguration PlaybackConfigurationHlsConfigurationPtrOutput `pulumi:"hlsConfiguration"`
+	// The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+	InsertionMode PlaybackConfigurationInsertionModePtrOutput `pulumi:"insertionMode"`
 	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration PlaybackConfigurationLivePreRollConfigurationPtrOutput `pulumi:"livePreRollConfiguration"`
 	// The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
@@ -125,6 +127,8 @@ type playbackConfigurationArgs struct {
 	DashConfiguration *PlaybackConfigurationDashConfiguration `pulumi:"dashConfiguration"`
 	// The configuration for HLS content.
 	HlsConfiguration *PlaybackConfigurationHlsConfiguration `pulumi:"hlsConfiguration"`
+	// The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+	InsertionMode *PlaybackConfigurationInsertionMode `pulumi:"insertionMode"`
 	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration *PlaybackConfigurationLivePreRollConfiguration `pulumi:"livePreRollConfiguration"`
 	// The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
@@ -163,6 +167,8 @@ type PlaybackConfigurationArgs struct {
 	DashConfiguration PlaybackConfigurationDashConfigurationPtrInput
 	// The configuration for HLS content.
 	HlsConfiguration PlaybackConfigurationHlsConfigurationPtrInput
+	// The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+	InsertionMode PlaybackConfigurationInsertionModePtrInput
 	// The configuration for pre-roll ad insertion.
 	LivePreRollConfiguration PlaybackConfigurationLivePreRollConfigurationPtrInput
 	// The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
@@ -268,6 +274,11 @@ func (o PlaybackConfigurationOutput) HlsConfiguration() PlaybackConfigurationHls
 	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationHlsConfigurationPtrOutput {
 		return v.HlsConfiguration
 	}).(PlaybackConfigurationHlsConfigurationPtrOutput)
+}
+
+// The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+func (o PlaybackConfigurationOutput) InsertionMode() PlaybackConfigurationInsertionModePtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationInsertionModePtrOutput { return v.InsertionMode }).(PlaybackConfigurationInsertionModePtrOutput)
 }
 
 // The configuration for pre-roll ad insertion.

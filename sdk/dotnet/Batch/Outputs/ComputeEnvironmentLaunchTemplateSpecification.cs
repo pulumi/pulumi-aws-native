@@ -29,6 +29,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// &gt; To unset all override templates for a compute environment, you can pass an empty array to the [UpdateComputeEnvironment.overrides](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) parameter, or not include the `overrides` parameter when submitting the `UpdateComputeEnvironment` API operation.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComputeEnvironmentLaunchTemplateSpecificationOverride> Overrides;
+        public readonly Pulumi.AwsNative.Batch.ComputeEnvironmentLaunchTemplateSpecificationUserdataType? UserdataType;
         /// <summary>
         /// The version number of the launch template, `$Default` , or `$Latest` .
         /// 
@@ -50,11 +51,14 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             ImmutableArray<Outputs.ComputeEnvironmentLaunchTemplateSpecificationOverride> overrides,
 
+            Pulumi.AwsNative.Batch.ComputeEnvironmentLaunchTemplateSpecificationUserdataType? userdataType,
+
             string? version)
         {
             LaunchTemplateId = launchTemplateId;
             LaunchTemplateName = launchTemplateName;
             Overrides = overrides;
+            UserdataType = userdataType;
             Version = version;
         }
     }

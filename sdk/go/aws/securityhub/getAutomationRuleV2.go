@@ -29,9 +29,11 @@ type LookupAutomationRuleV2Args struct {
 
 type LookupAutomationRuleV2Result struct {
 	// A list of actions to be performed when the rule criteria is met
-	Actions   []AutomationRuleV2AutomationRulesActionV2 `pulumi:"actions"`
-	CreatedAt *string                                   `pulumi:"createdAt"`
-	Criteria  *AutomationRuleV2Criteria                 `pulumi:"criteria"`
+	Actions []AutomationRuleV2AutomationRulesActionV2 `pulumi:"actions"`
+	// The timestamp when the V2 automation rule was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The filtering type and configuration of the automation rule.
+	Criteria *AutomationRuleV2Criteria `pulumi:"criteria"`
 	// A description of the automation rule
 	Description *string `pulumi:"description"`
 	// The ARN of the automation rule
@@ -44,8 +46,10 @@ type LookupAutomationRuleV2Result struct {
 	RuleOrder *float64 `pulumi:"ruleOrder"`
 	// The status of the automation rule
 	RuleStatus *AutomationRuleV2RuleStatus `pulumi:"ruleStatus"`
-	Tags       map[string]string           `pulumi:"tags"`
-	UpdatedAt  *string                     `pulumi:"updatedAt"`
+	// A list of key-value pairs associated with the V2 automation rule.
+	Tags map[string]string `pulumi:"tags"`
+	// The timestamp when the V2 automation rule was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 func LookupAutomationRuleV2Output(ctx *pulumi.Context, args LookupAutomationRuleV2OutputArgs, opts ...pulumi.InvokeOption) LookupAutomationRuleV2ResultOutput {
@@ -85,10 +89,12 @@ func (o LookupAutomationRuleV2ResultOutput) Actions() AutomationRuleV2Automation
 	return o.ApplyT(func(v LookupAutomationRuleV2Result) []AutomationRuleV2AutomationRulesActionV2 { return v.Actions }).(AutomationRuleV2AutomationRulesActionV2ArrayOutput)
 }
 
+// The timestamp when the V2 automation rule was created.
 func (o LookupAutomationRuleV2ResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleV2Result) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The filtering type and configuration of the automation rule.
 func (o LookupAutomationRuleV2ResultOutput) Criteria() AutomationRuleV2CriteriaPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleV2Result) *AutomationRuleV2Criteria { return v.Criteria }).(AutomationRuleV2CriteriaPtrOutput)
 }
@@ -123,10 +129,12 @@ func (o LookupAutomationRuleV2ResultOutput) RuleStatus() AutomationRuleV2RuleSta
 	return o.ApplyT(func(v LookupAutomationRuleV2Result) *AutomationRuleV2RuleStatus { return v.RuleStatus }).(AutomationRuleV2RuleStatusPtrOutput)
 }
 
+// A list of key-value pairs associated with the V2 automation rule.
 func (o LookupAutomationRuleV2ResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAutomationRuleV2Result) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The timestamp when the V2 automation rule was updated.
 func (o LookupAutomationRuleV2ResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleV2Result) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }

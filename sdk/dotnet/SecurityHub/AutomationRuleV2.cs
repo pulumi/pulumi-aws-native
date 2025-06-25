@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("actions")]
         public Output<ImmutableArray<Outputs.AutomationRuleV2AutomationRulesActionV2>> Actions { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp when the V2 automation rule was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The filtering type and configuration of the automation rule.
+        /// </summary>
         [Output("criteria")]
         public Output<Outputs.AutomationRuleV2Criteria> Criteria { get; private set; } = null!;
 
@@ -63,9 +69,15 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("ruleStatus")]
         public Output<Pulumi.AwsNative.SecurityHub.AutomationRuleV2RuleStatus?> RuleStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of key-value pairs associated with the V2 automation rule.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp when the V2 automation rule was updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -126,6 +138,9 @@ namespace Pulumi.AwsNative.SecurityHub
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The filtering type and configuration of the automation rule.
+        /// </summary>
         [Input("criteria", required: true)]
         public Input<Inputs.AutomationRuleV2CriteriaArgs> Criteria { get; set; } = null!;
 
@@ -155,6 +170,10 @@ namespace Pulumi.AwsNative.SecurityHub
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A list of key-value pairs associated with the V2 automation rule.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

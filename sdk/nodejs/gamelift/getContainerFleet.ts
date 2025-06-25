@@ -51,6 +51,10 @@ export interface GetContainerFleetResult {
      */
     readonly gameServerContainerGroupDefinitionArn?: string;
     /**
+     * The number of desired game server container groups per instance, a number between 1-5000.
+     */
+    readonly gameServerContainerGroupsPerInstance?: number;
+    /**
      * A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
      */
     readonly gameSessionCreationLimitPolicy?: outputs.gamelift.ContainerFleetGameSessionCreationLimitPolicy;

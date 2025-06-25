@@ -89,6 +89,9 @@ class GetFilterResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        The tags attached to the filter.
+        """
         return pulumi.get(self, "tags")
 
 

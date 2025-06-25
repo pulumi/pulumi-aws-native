@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// Enables filtering based on numerical field values
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleV2OcsfNumberFilter> NumberFilters;
+        /// <summary>
+        /// The logical operator used to combine multiple filter conditions.
+        /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRuleV2AllowedOperators? Operator;
         /// <summary>
         /// Enables filtering based on string field values

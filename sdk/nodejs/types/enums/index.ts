@@ -176,6 +176,7 @@ import * as vpclattice from "./vpclattice";
 import * as wafv2 from "./wafv2";
 import * as wisdom from "./wisdom";
 import * as workspaces from "./workspaces";
+import * as workspacesinstances from "./workspacesinstances";
 import * as workspacesthinclient from "./workspacesthinclient";
 import * as workspacesweb from "./workspacesweb";
 
@@ -354,6 +355,7 @@ export {
     wafv2,
     wisdom,
     workspaces,
+    workspacesinstances,
     workspacesthinclient,
     workspacesweb,
 };

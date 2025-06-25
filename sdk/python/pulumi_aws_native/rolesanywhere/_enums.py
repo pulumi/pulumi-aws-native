@@ -36,4 +36,3 @@ class TrustAnchorNotificationEvent(builtins.str, Enum):
 class TrustAnchorType(builtins.str, Enum):
     AWS_ACM_PCA = "AWS_ACM_PCA"
     CERTIFICATE_BUNDLE = "CERTIFICATE_BUNDLE"
-    SELF_SIGNED_REPOSITORY = "SELF_SIGNED_REPOSITORY"

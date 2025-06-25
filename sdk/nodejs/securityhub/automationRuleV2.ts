@@ -41,7 +41,13 @@ export class AutomationRuleV2 extends pulumi.CustomResource {
      * A list of actions to be performed when the rule criteria is met
      */
     public readonly actions!: pulumi.Output<outputs.securityhub.AutomationRuleV2AutomationRulesActionV2[]>;
+    /**
+     * The timestamp when the V2 automation rule was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The filtering type and configuration of the automation rule.
+     */
     public readonly criteria!: pulumi.Output<outputs.securityhub.AutomationRuleV2Criteria>;
     /**
      * A description of the automation rule
@@ -67,7 +73,13 @@ export class AutomationRuleV2 extends pulumi.CustomResource {
      * The status of the automation rule
      */
     public readonly ruleStatus!: pulumi.Output<enums.securityhub.AutomationRuleV2RuleStatus | undefined>;
+    /**
+     * A list of key-value pairs associated with the V2 automation rule.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The timestamp when the V2 automation rule was updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -133,6 +145,9 @@ export interface AutomationRuleV2Args {
      * A list of actions to be performed when the rule criteria is met
      */
     actions: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleV2AutomationRulesActionV2Args>[]>;
+    /**
+     * The filtering type and configuration of the automation rule.
+     */
     criteria: pulumi.Input<inputs.securityhub.AutomationRuleV2CriteriaArgs>;
     /**
      * A description of the automation rule
@@ -150,5 +165,8 @@ export interface AutomationRuleV2Args {
      * The status of the automation rule
      */
     ruleStatus?: pulumi.Input<enums.securityhub.AutomationRuleV2RuleStatus>;
+    /**
+     * A list of key-value pairs associated with the V2 automation rule.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -482,6 +482,7 @@ namespace Pulumi.AwsNative.Kendra
         public static DataSourceType Googledrive { get; } = new DataSourceType("GOOGLEDRIVE");
         public static DataSourceType Webcrawler { get; } = new DataSourceType("WEBCRAWLER");
         public static DataSourceType Workdocs { get; } = new DataSourceType("WORKDOCS");
+        public static DataSourceType Template { get; } = new DataSourceType("TEMPLATE");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);

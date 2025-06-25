@@ -69,6 +69,12 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<Inputs.DataSourceSharePointConfigurationArgs>? SharePointConfiguration { get; set; }
 
         /// <summary>
+        /// Provides a template for the configuration information to connect to your data source.
+        /// </summary>
+        [Input("templateConfiguration")]
+        public Input<Inputs.DataSourceTemplateConfigurationArgs>? TemplateConfiguration { get; set; }
+
+        /// <summary>
         /// Provides the configuration information required for Amazon Kendra Web Crawler.
         /// </summary>
         [Input("webCrawlerConfiguration")]

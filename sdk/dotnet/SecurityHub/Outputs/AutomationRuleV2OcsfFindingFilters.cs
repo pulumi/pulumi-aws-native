@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// Enables the creation of complex filtering conditions by combining filter
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleV2CompositeFilter> CompositeFilters;
+        /// <summary>
+        /// The logical operators used to combine the filtering on multiple `CompositeFilters` .
+        /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRuleV2AllowedOperators? CompositeOperator;
 
         [OutputConstructor]

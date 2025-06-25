@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     /// </summary>
     public sealed class AutomationRuleV2CriteriaArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The filtering conditions that align with OCSF standards.
+        /// </summary>
         [Input("ocsfFindingCriteria")]
         public Input<Inputs.AutomationRuleV2OcsfFindingFiltersArgs>? OcsfFindingCriteria { get; set; }
 

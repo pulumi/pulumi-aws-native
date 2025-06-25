@@ -77,6 +77,9 @@ class GetAggregatorV2Result:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        A list of key-value pairs to be applied to the AggregatorV2.
+        """
         return pulumi.get(self, "tags")
 
 

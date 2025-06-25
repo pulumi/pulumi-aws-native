@@ -34,6 +34,7 @@ class FilterArgs:
         :param pulumi.Input['FilterCriteriaArgs'] filter_criteria: Findings filter criteria.
         :param pulumi.Input[builtins.str] description: Findings filter description.
         :param pulumi.Input[builtins.str] name: Findings filter name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags attached to the filter.
         """
         pulumi.set(__self__, "filter_action", filter_action)
         pulumi.set(__self__, "filter_criteria", filter_criteria)
@@ -95,6 +96,9 @@ class FilterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The tags attached to the filter.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -123,6 +127,7 @@ class Filter(pulumi.CustomResource):
         :param pulumi.Input['FilterAction'] filter_action: Findings filter action.
         :param pulumi.Input[Union['FilterCriteriaArgs', 'FilterCriteriaArgsDict']] filter_criteria: Findings filter criteria.
         :param pulumi.Input[builtins.str] name: Findings filter name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags attached to the filter.
         """
         ...
     @overload
@@ -245,5 +250,8 @@ class Filter(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        The tags attached to the filter.
+        """
         return pulumi.get(self, "tags")
 

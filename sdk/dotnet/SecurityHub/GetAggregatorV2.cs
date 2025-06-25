@@ -79,6 +79,9 @@ namespace Pulumi.AwsNative.SecurityHub
         /// Indicates to link a list of included Regions
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AggregatorV2RegionLinkingMode? RegionLinkingMode;
+        /// <summary>
+        /// A list of key-value pairs to be applied to the AggregatorV2.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

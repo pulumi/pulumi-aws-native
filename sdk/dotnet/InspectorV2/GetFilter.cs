@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.InspectorV2
         /// Findings filter name.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The tags attached to the filter.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
