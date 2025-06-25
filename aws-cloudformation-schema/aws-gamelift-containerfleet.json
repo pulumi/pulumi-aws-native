@@ -435,7 +435,7 @@
   "required" : [ "FleetRoleArn" ],
   "createOnlyProperties" : [ "/properties/InstanceType", "/properties/BillingType" ],
   "readOnlyProperties" : [ "/properties/CreationTime", "/properties/Status", "/properties/FleetId", "/properties/FleetArn", "/properties/DeploymentDetails", "/properties/GameServerContainerGroupDefinitionArn", "/properties/PerInstanceContainerGroupDefinitionArn", "/properties/MaximumGameServerContainerGroupsPerInstance" ],
-  "writeOnlyProperties" : [ "/properties/DeploymentConfiguration", "/properties/GameServerContainerGroupsPerInstance", "/properties/GameServerContainerGroupDefinitionName", "/properties/PerInstanceContainerGroupDefinitionName" ],
+  "writeOnlyProperties" : [ "/properties/DeploymentConfiguration", "/properties/GameServerContainerGroupDefinitionName", "/properties/PerInstanceContainerGroupDefinitionName" ],
   "primaryIdentifier" : [ "/properties/FleetId" ],
   "handlers" : {
     "create" : {

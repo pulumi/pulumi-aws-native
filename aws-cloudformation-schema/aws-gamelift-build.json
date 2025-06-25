@@ -101,12 +101,12 @@
   "additionalProperties" : false,
   "required" : [ ],
   "createOnlyProperties" : [ "/properties/StorageLocation", "/properties/OperatingSystem", "/properties/ServerSdkVersion" ],
-  "writeOnlyProperties" : [ "/properties/StorageLocation", "/properties/ServerSdkVersion" ],
+  "writeOnlyProperties" : [ "/properties/StorageLocation" ],
   "readOnlyProperties" : [ "/properties/BuildId", "/properties/BuildArn" ],
   "primaryIdentifier" : [ "/properties/BuildId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "gamelift:DescribeBuild", "gamelift:CreateBuild", "gamelift:ListTagsForResource", "gamelift:TagResource" ]
+      "permissions" : [ "gamelift:DescribeBuild", "gamelift:CreateBuild", "gamelift:ListTagsForResource", "gamelift:TagResource", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "gamelift:DescribeBuild", "gamelift:ListTagsForResource" ]

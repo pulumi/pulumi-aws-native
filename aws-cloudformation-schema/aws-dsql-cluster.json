@@ -75,6 +75,29 @@
           "insertionOrder" : false
         }
       }
+    },
+    "KmsEncryptionKey" : {
+      "description" : "The KMS key that encrypts data on the cluster.",
+      "type" : "string"
+    },
+    "EncryptionDetails" : {
+      "description" : "The encryption configuration details for the cluster.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EncryptionStatus" : {
+          "description" : "The status of encryption for the cluster.",
+          "type" : "string"
+        },
+        "EncryptionType" : {
+          "description" : "The type of encryption that protects data in the cluster.",
+          "type" : "string"
+        },
+        "KmsKeyArn" : {
+          "description" : "The Amazon Resource Name (ARN) of the KMS key that encrypts data in the cluster.",
+          "type" : "string"
+        }
+      }
     }
   },
   "additionalProperties" : false,
@@ -88,16 +111,17 @@
     "permissions" : [ "dsql:UntagResource", "dsql:TagResource", "dsql:ListTagsForResource" ]
   },
   "primaryIdentifier" : [ "/properties/Identifier" ],
-  "readOnlyProperties" : [ "/properties/ResourceArn", "/properties/Identifier", "/properties/CreationTime", "/properties/Status", "/properties/VpcEndpointServiceName" ],
+  "readOnlyProperties" : [ "/properties/ResourceArn", "/properties/Identifier", "/properties/CreationTime", "/properties/Status", "/properties/VpcEndpointServiceName", "/properties/EncryptionDetails" ],
+  "writeOnlyProperties" : [ "/properties/KmsEncryptionKey" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "dsql:CreateCluster", "dsql:GetCluster", "dsql:TagResource", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource", "iam:CreateServiceLinkedRole", "dsql:PutMultiRegionProperties", "dsql:AddPeerCluster", "dsql:PutWitnessRegion" ]
+      "permissions" : [ "dsql:CreateCluster", "dsql:UpdateCluster", "dsql:GetCluster", "dsql:TagResource", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource", "iam:CreateServiceLinkedRole", "dsql:PutMultiRegionProperties", "dsql:AddPeerCluster", "dsql:PutWitnessRegion", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "kms:DescribeKey" ]
     },
     "read" : {
       "permissions" : [ "dsql:GetCluster", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource", "tag:GetTagKeys", "tag:GetTagValues" ]
     },
     "update" : {
-      "permissions" : [ "dsql:UpdateCluster", "dsql:GetCluster", "dsql:UntagResource", "dsql:TagResource", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource", "dsql:PutMultiRegionProperties", "dsql:PutWitnessRegion", "dsql:AddPeerCluster", "dsql:RemovePeerCluster" ]
+      "permissions" : [ "dsql:UpdateCluster", "dsql:GetCluster", "dsql:UntagResource", "dsql:TagResource", "dsql:GetVpcEndpointServiceName", "dsql:ListTagsForResource", "dsql:PutMultiRegionProperties", "dsql:PutWitnessRegion", "dsql:AddPeerCluster", "dsql:RemovePeerCluster", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "kms:DescribeKey" ]
     },
     "delete" : {
       "permissions" : [ "dsql:DeleteCluster", "dsql:GetCluster", "dsql:ListTagsForResource" ]

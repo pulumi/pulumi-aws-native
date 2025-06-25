@@ -2,6 +2,7 @@ AWS::ACMPCA::Certificate
 AWS::ACMPCA::CertificateAuthority
 AWS::ACMPCA::CertificateAuthorityActivation
 AWS::ACMPCA::Permission
+AWS::AIOps::InvestigationGroup
 AWS::APS::RuleGroupsNamespace
 AWS::APS::Scraper
 AWS::APS::Workspace
@@ -986,6 +987,7 @@ AWS::S3Outposts::AccessPoint
 AWS::S3Outposts::Bucket
 AWS::S3Outposts::BucketPolicy
 AWS::S3Outposts::Endpoint
+AWS::S3Tables::Namespace
 AWS::S3Tables::TableBucket
 AWS::S3Tables::TableBucketPolicy
 AWS::SES::ConfigurationSet
@@ -1163,6 +1165,9 @@ AWS::WorkSpacesWeb::Portal
 AWS::WorkSpacesWeb::TrustStore
 AWS::WorkSpacesWeb::UserAccessLoggingSettings
 AWS::WorkSpacesWeb::UserSettings
+AWS::WorkspacesInstances::Volume
+AWS::WorkspacesInstances::VolumeAssociation
+AWS::WorkspacesInstances::WorkspaceInstance
 AWS::XRay::Group
 AWS::XRay::ResourcePolicy
 AWS::XRay::SamplingRule

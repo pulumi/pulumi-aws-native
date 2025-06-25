@@ -167,6 +167,10 @@
         "Version" : {
           "type" : "string"
         },
+        "UserdataType" : {
+          "type" : "string",
+          "enum" : [ "EKS_BOOTSTRAP_SH", "EKS_NODEADM" ]
+        },
         "Overrides" : {
           "type" : "array",
           "uniqueItems" : false,
@@ -189,6 +193,10 @@
         },
         "Version" : {
           "type" : "string"
+        },
+        "UserdataType" : {
+          "type" : "string",
+          "enum" : [ "EKS_BOOTSTRAP_SH", "EKS_NODEADM" ]
         },
         "TargetInstanceTypes" : {
           "type" : "array",
@@ -247,16 +255,16 @@
   "additionalIdentifiers" : [ [ "/properties/ComputeEnvironmentName" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "Batch:CreateComputeEnvironment", "Batch:TagResource", "Batch:DescribeComputeEnvironments", "iam:CreateServiceLinkedRole", "Iam:PassRole", "Eks:DescribeCluster" ]
+      "permissions" : [ "Batch:CreateComputeEnvironment", "Batch:TagResource", "Batch:DescribeComputeEnvironments", "iam:CreateServiceLinkedRole", "Iam:PassRole", "Eks:DescribeCluster", "ec2:DescribeLaunchTemplateVersions" ]
     },
     "read" : {
       "permissions" : [ "Batch:DescribeComputeEnvironments" ]
     },
     "update" : {
-      "permissions" : [ "Batch:UpdateComputeEnvironment", "Batch:DescribeComputeEnvironments", "Batch:TagResource", "Batch:UnTagResource", "Iam:PassRole", "Eks:DescribeCluster" ]
+      "permissions" : [ "Batch:UpdateComputeEnvironment", "Batch:DescribeComputeEnvironments", "Batch:TagResource", "Batch:UnTagResource", "Iam:PassRole", "Eks:DescribeCluster", "ec2:DescribeLaunchTemplateVersions" ]
     },
     "delete" : {
-      "permissions" : [ "Batch:DeleteComputeEnvironment", "Batch:DescribeComputeEnvironments", "Batch:UpdateComputeEnvironment", "Iam:PassRole", "Eks:DescribeCluster" ]
+      "permissions" : [ "Batch:DeleteComputeEnvironment", "Batch:DescribeComputeEnvironments", "Batch:UpdateComputeEnvironment", "Iam:PassRole", "Eks:DescribeCluster", "ec2:DescribeLaunchTemplateVersions" ]
     },
     "list" : {
       "permissions" : [ "Batch:DescribeComputeEnvironments" ]
