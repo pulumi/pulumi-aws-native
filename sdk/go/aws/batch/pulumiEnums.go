@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
 type ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType string
 
 const (
@@ -175,6 +176,7 @@ func (in *computeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtr) 
 	return pulumi.ToOutputWithContext(ctx, in).(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput)
 }
 
+// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
 type ComputeEnvironmentLaunchTemplateSpecificationUserdataType string
 
 const (

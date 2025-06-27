@@ -3195,7 +3195,7 @@ if not MYPY:
         type: pulumi.Input['RuleReferenceType']
         """
         The type of the reference. ``DATE`` must be of type Epoch timestamp. 
-          *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+         *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         """
         value: pulumi.Input[builtins.str]
         """
@@ -3212,7 +3212,7 @@ class RuleReferenceArgs:
         """
         Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. (Supports variable injection in the ``Value`` field.)
         :param pulumi.Input['RuleReferenceType'] type: The type of the reference. ``DATE`` must be of type Epoch timestamp. 
-                 *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+                *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         :param pulumi.Input[builtins.str] value: A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
         """
         pulumi.set(__self__, "type", type)
@@ -3223,7 +3223,7 @@ class RuleReferenceArgs:
     def type(self) -> pulumi.Input['RuleReferenceType']:
         """
         The type of the reference. ``DATE`` must be of type Epoch timestamp. 
-          *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+         *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         """
         return pulumi.get(self, "type")
 
@@ -3256,12 +3256,12 @@ if not MYPY:
         content_type: pulumi.Input['RuleSendNotificationActionContentType']
         """
         Content type format.
-          *Allowed value*: ``PLAIN_TEXT``
+         *Allowed value*: ``PLAIN_TEXT``
         """
         delivery_method: pulumi.Input['RuleSendNotificationActionDeliveryMethod']
         """
         Notification delivery method.
-          *Allowed value*: ``EMAIL``
+         *Allowed value*: ``EMAIL``
         """
         recipient: pulumi.Input['RuleNotificationRecipientTypeArgsDict']
         """
@@ -3286,9 +3286,9 @@ class RuleSendNotificationActionArgs:
         Information about the send notification action.
         :param pulumi.Input[builtins.str] content: Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         :param pulumi.Input['RuleSendNotificationActionContentType'] content_type: Content type format.
-                 *Allowed value*: ``PLAIN_TEXT``
+                *Allowed value*: ``PLAIN_TEXT``
         :param pulumi.Input['RuleSendNotificationActionDeliveryMethod'] delivery_method: Notification delivery method.
-                 *Allowed value*: ``EMAIL``
+                *Allowed value*: ``EMAIL``
         :param pulumi.Input['RuleNotificationRecipientTypeArgs'] recipient: Notification recipient.
         :param pulumi.Input[builtins.str] subject: The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         """
@@ -3316,7 +3316,7 @@ class RuleSendNotificationActionArgs:
     def content_type(self) -> pulumi.Input['RuleSendNotificationActionContentType']:
         """
         Content type format.
-          *Allowed value*: ``PLAIN_TEXT``
+         *Allowed value*: ``PLAIN_TEXT``
         """
         return pulumi.get(self, "content_type")
 
@@ -3329,7 +3329,7 @@ class RuleSendNotificationActionArgs:
     def delivery_method(self) -> pulumi.Input['RuleSendNotificationActionDeliveryMethod']:
         """
         Notification delivery method.
-          *Allowed value*: ``EMAIL``
+         *Allowed value*: ``EMAIL``
         """
         return pulumi.get(self, "delivery_method")
 

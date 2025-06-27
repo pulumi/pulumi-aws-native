@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3Tables
     [AwsNativeResourceType("aws-native:s3tables:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the namespace.
+        /// </summary>
         [Output("namespace")]
         public Output<string> NamespaceValue { get; private set; } = null!;
 
@@ -71,6 +74,9 @@ namespace Pulumi.AwsNative.S3Tables
 
     public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the namespace.
+        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> NamespaceValue { get; set; } = null!;
 

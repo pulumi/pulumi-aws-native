@@ -39,7 +39,7 @@ export interface GetRuleResult {
     readonly name?: string;
     /**
      * The publish status of the rule.
-     *   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+     *  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
      */
     readonly publishStatus?: enums.connect.RulePublishStatus;
     /**

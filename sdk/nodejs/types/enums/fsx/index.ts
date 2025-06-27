@@ -9,3 +9,15 @@ export const DataRepositoryAssociationEventType = {
 } as const;
 
 export type DataRepositoryAssociationEventType = (typeof DataRepositoryAssociationEventType)[keyof typeof DataRepositoryAssociationEventType];
+
+export const S3AccessPointAttachmentOpenZfsFileSystemIdentityType = {
+    Posix: "POSIX",
+} as const;
+
+export type S3AccessPointAttachmentOpenZfsFileSystemIdentityType = (typeof S3AccessPointAttachmentOpenZfsFileSystemIdentityType)[keyof typeof S3AccessPointAttachmentOpenZfsFileSystemIdentityType];
+
+export const S3AccessPointAttachmentType = {
+    Openzfs: "OPENZFS",
+} as const;
+
+export type S3AccessPointAttachmentType = (typeof S3AccessPointAttachmentType)[keyof typeof S3AccessPointAttachmentType];

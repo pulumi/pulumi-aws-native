@@ -373,6 +373,45 @@ export const CapabilityX12Version = {
 
 export type CapabilityX12Version = (typeof CapabilityX12Version)[keyof typeof CapabilityX12Version];
 
+export const PartnershipLineTerminator = {
+    Crlf: "CRLF",
+    Lf: "LF",
+    Cr: "CR",
+} as const;
+
+export type PartnershipLineTerminator = (typeof PartnershipLineTerminator)[keyof typeof PartnershipLineTerminator];
+
+export const PartnershipWrapFormat = {
+    Segment: "SEGMENT",
+    OneLine: "ONE_LINE",
+    LineLength: "LINE_LENGTH",
+} as const;
+
+export type PartnershipWrapFormat = (typeof PartnershipWrapFormat)[keyof typeof PartnershipWrapFormat];
+
+export const PartnershipX12FunctionalAcknowledgment = {
+    DoNotGenerate: "DO_NOT_GENERATE",
+    GenerateAllSegments: "GENERATE_ALL_SEGMENTS",
+    GenerateWithoutTransactionSetResponseLoop: "GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP",
+} as const;
+
+export type PartnershipX12FunctionalAcknowledgment = (typeof PartnershipX12FunctionalAcknowledgment)[keyof typeof PartnershipX12FunctionalAcknowledgment];
+
+export const PartnershipX12TechnicalAcknowledgment = {
+    DoNotGenerate: "DO_NOT_GENERATE",
+    GenerateAllSegments: "GENERATE_ALL_SEGMENTS",
+} as const;
+
+export type PartnershipX12TechnicalAcknowledgment = (typeof PartnershipX12TechnicalAcknowledgment)[keyof typeof PartnershipX12TechnicalAcknowledgment];
+
+export const PartnershipX12gs05TimeFormat = {
+    Hhmm: "HHMM",
+    Hhmmss: "HHMMSS",
+    Hhmmssdd: "HHMMSSDD",
+} as const;
+
+export type PartnershipX12gs05TimeFormat = (typeof PartnershipX12gs05TimeFormat)[keyof typeof PartnershipX12gs05TimeFormat];
+
 export const ProfileLogging = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -413,6 +452,13 @@ export const TransformerToFormat = {
 } as const;
 
 export type TransformerToFormat = (typeof TransformerToFormat)[keyof typeof TransformerToFormat];
+
+export const TransformerX12SplitBy = {
+    None: "NONE",
+    Transaction: "TRANSACTION",
+} as const;
+
+export type TransformerX12SplitBy = (typeof TransformerX12SplitBy)[keyof typeof TransformerX12SplitBy];
 
 export const TransformerX12TransactionSet = {
     X12100: "X12_100",

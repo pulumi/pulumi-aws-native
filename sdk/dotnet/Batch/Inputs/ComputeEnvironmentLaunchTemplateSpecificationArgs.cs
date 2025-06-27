@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
             set => _overrides = value;
         }
 
+        /// <summary>
+        /// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
+        /// </summary>
         [Input("userdataType")]
         public Input<Pulumi.AwsNative.Batch.ComputeEnvironmentLaunchTemplateSpecificationUserdataType>? UserdataType { get; set; }
 

@@ -27,11 +27,16 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         ///  For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public readonly string? OriginAccessIdentity;
+        public readonly int? OriginReadTimeout;
 
         [OutputConstructor]
-        private DistributionS3OriginConfig(string? originAccessIdentity)
+        private DistributionS3OriginConfig(
+            string? originAccessIdentity,
+
+            int? originReadTimeout)
         {
             OriginAccessIdentity = originAccessIdentity;
+            OriginReadTimeout = originReadTimeout;
         }
     }
 }

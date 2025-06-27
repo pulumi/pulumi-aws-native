@@ -23,6 +23,18 @@ __all__ = [
     'DataRepositoryAssociationAutoImportPolicyArgsDict',
     'DataRepositoryAssociationS3Args',
     'DataRepositoryAssociationS3ArgsDict',
+    'S3AccessPointAttachmentFileSystemGidArgs',
+    'S3AccessPointAttachmentFileSystemGidArgsDict',
+    'S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs',
+    'S3AccessPointAttachmentOpenZfsFileSystemIdentityArgsDict',
+    'S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs',
+    'S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgsDict',
+    'S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs',
+    'S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgsDict',
+    'S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs',
+    'S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict',
+    'S3AccessPointAttachmentS3AccessPointArgs',
+    'S3AccessPointAttachmentS3AccessPointArgsDict',
 ]
 
 MYPY = False
@@ -191,5 +203,226 @@ class DataRepositoryAssociationS3Args:
     @auto_import_policy.setter
     def auto_import_policy(self, value: Optional[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs']]):
         pulumi.set(self, "auto_import_policy", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentFileSystemGidArgsDict(TypedDict):
+        gid: pulumi.Input[builtins.float]
+elif False:
+    S3AccessPointAttachmentFileSystemGidArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentFileSystemGidArgs:
+    def __init__(__self__, *,
+                 gid: pulumi.Input[builtins.float]):
+        pulumi.set(__self__, "gid", gid)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> pulumi.Input[builtins.float]:
+        return pulumi.get(self, "gid")
+
+    @gid.setter
+    def gid(self, value: pulumi.Input[builtins.float]):
+        pulumi.set(self, "gid", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentOpenZfsFileSystemIdentityArgsDict(TypedDict):
+        posix_user: pulumi.Input['S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgsDict']
+        type: pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityType']
+elif False:
+    S3AccessPointAttachmentOpenZfsFileSystemIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs:
+    def __init__(__self__, *,
+                 posix_user: pulumi.Input['S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs'],
+                 type: pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityType']):
+        pulumi.set(__self__, "posix_user", posix_user)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="posixUser")
+    def posix_user(self) -> pulumi.Input['S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs']:
+        return pulumi.get(self, "posix_user")
+
+    @posix_user.setter
+    def posix_user(self, value: pulumi.Input['S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs']):
+        pulumi.set(self, "posix_user", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityType']):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgsDict(TypedDict):
+        gid: pulumi.Input[builtins.float]
+        uid: pulumi.Input[builtins.float]
+        secondary_gids: NotRequired[pulumi.Input[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgsDict']]]]
+elif False:
+    S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs:
+    def __init__(__self__, *,
+                 gid: pulumi.Input[builtins.float],
+                 uid: pulumi.Input[builtins.float],
+                 secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgs']]]] = None):
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
+        if secondary_gids is not None:
+            pulumi.set(__self__, "secondary_gids", secondary_gids)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> pulumi.Input[builtins.float]:
+        return pulumi.get(self, "gid")
+
+    @gid.setter
+    def gid(self, value: pulumi.Input[builtins.float]):
+        pulumi.set(self, "gid", value)
+
+    @property
+    @pulumi.getter
+    def uid(self) -> pulumi.Input[builtins.float]:
+        return pulumi.get(self, "uid")
+
+    @uid.setter
+    def uid(self, value: pulumi.Input[builtins.float]):
+        pulumi.set(self, "uid", value)
+
+    @property
+    @pulumi.getter(name="secondaryGids")
+    def secondary_gids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgs']]]]:
+        return pulumi.get(self, "secondary_gids")
+
+    @secondary_gids.setter
+    def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgs']]]]):
+        pulumi.set(self, "secondary_gids", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgsDict(TypedDict):
+        file_system_identity: pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityArgsDict']
+        volume_id: pulumi.Input[builtins.str]
+elif False:
+    S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs:
+    def __init__(__self__, *,
+                 file_system_identity: pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs'],
+                 volume_id: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "file_system_identity", file_system_identity)
+        pulumi.set(__self__, "volume_id", volume_id)
+
+    @property
+    @pulumi.getter(name="fileSystemIdentity")
+    def file_system_identity(self) -> pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs']:
+        return pulumi.get(self, "file_system_identity")
+
+    @file_system_identity.setter
+    def file_system_identity(self, value: pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs']):
+        pulumi.set(self, "file_system_identity", value)
+
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "volume_id")
+
+    @volume_id.setter
+    def volume_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "volume_id", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict(TypedDict):
+        vpc_id: pulumi.Input[builtins.str]
+elif False:
+    S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs:
+    def __init__(__self__, *,
+                 vpc_id: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "vpc_id", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentS3AccessPointArgsDict(TypedDict):
+        alias: NotRequired[pulumi.Input[builtins.str]]
+        policy: NotRequired[Any]
+        resource_arn: NotRequired[pulumi.Input[builtins.str]]
+        vpc_configuration: NotRequired[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict']]
+elif False:
+    S3AccessPointAttachmentS3AccessPointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentS3AccessPointArgs:
+    def __init__(__self__, *,
+                 alias: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[Any] = None,
+                 resource_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 vpc_configuration: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']] = None):
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+        if vpc_configuration is not None:
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[Any]:
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[Any]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']]:
+        return pulumi.get(self, "vpc_configuration")
+
+    @vpc_configuration.setter
+    def vpc_configuration(self, value: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']]):
+        pulumi.set(self, "vpc_configuration", value)
 
 

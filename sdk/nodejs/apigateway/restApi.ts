@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
- *  On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
+ *   On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
  *
  * ## Example Usage
  * ### Example
@@ -467,7 +467,7 @@ export class RestApi extends pulumi.CustomResource {
      */
     public readonly disableExecuteApiEndpoint!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+     * A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
      */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.RestApiEndpointConfiguration | undefined>;
     /**
@@ -601,7 +601,7 @@ export interface RestApiArgs {
      */
     disableExecuteApiEndpoint?: pulumi.Input<boolean>;
     /**
-     * A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+     * A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.RestApiEndpointConfigurationArgs>;
     /**

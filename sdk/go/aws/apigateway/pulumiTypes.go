@@ -122,13 +122,19 @@ func (o ApiKeyStageKeyArrayOutput) Index(i pulumi.IntInput) ApiKeyStageKeyOutput
 	}).(ApiKeyStageKeyOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type ApiKeyTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The value for the specified tag key.
 	Value string `pulumi:"value"`
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type ClientCertificateTag struct {
 	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 	Key string `pulumi:"key"`
@@ -1338,10 +1344,13 @@ func (o DeploymentStageDescriptionPtrOutput) Variables() pulumi.StringMapOutput 
 	}).(pulumi.StringMapOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type DeploymentTag struct {
-	// The key name of the tag
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 	Key string `pulumi:"key"`
-	// The value for the tag
+	// The value for the specified tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -1356,10 +1365,13 @@ type DeploymentTagInput interface {
 	ToDeploymentTagOutputWithContext(context.Context) DeploymentTagOutput
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type DeploymentTagArgs struct {
-	// The key name of the tag
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag
+	// The value for the specified tag key.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1400,6 +1412,9 @@ func (i DeploymentTagArray) ToDeploymentTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentTagArrayOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type DeploymentTagOutput struct{ *pulumi.OutputState }
 
 func (DeploymentTagOutput) ElementType() reflect.Type {
@@ -1414,12 +1429,12 @@ func (o DeploymentTagOutput) ToDeploymentTagOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The key name of the tag
+// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 func (o DeploymentTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value for the tag
+// The value for the specified tag key.
 func (o DeploymentTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1548,7 +1563,7 @@ type DomainNameAccessAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// The “EndpointConfiguration“ property type specifies the endpoint types of an Amazon API Gateway domain name.
+// The “EndpointConfiguration“ property type specifies the endpoint types and IP address types of an Amazon API Gateway domain name.
 //
 //	``EndpointConfiguration`` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
 type DomainNameEndpointConfiguration struct {
@@ -1569,7 +1584,7 @@ type DomainNameEndpointConfigurationInput interface {
 	ToDomainNameEndpointConfigurationOutputWithContext(context.Context) DomainNameEndpointConfigurationOutput
 }
 
-// The “EndpointConfiguration“ property type specifies the endpoint types of an Amazon API Gateway domain name.
+// The “EndpointConfiguration“ property type specifies the endpoint types and IP address types of an Amazon API Gateway domain name.
 //
 //	``EndpointConfiguration`` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
 type DomainNameEndpointConfigurationArgs struct {
@@ -1632,7 +1647,7 @@ func (i *domainNameEndpointConfigurationPtrType) ToDomainNameEndpointConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameEndpointConfigurationPtrOutput)
 }
 
-// The “EndpointConfiguration“ property type specifies the endpoint types of an Amazon API Gateway domain name.
+// The “EndpointConfiguration“ property type specifies the endpoint types and IP address types of an Amazon API Gateway domain name.
 //
 //	``EndpointConfiguration`` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
 type DomainNameEndpointConfigurationOutput struct{ *pulumi.OutputState }
@@ -1869,6 +1884,9 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type DomainNameTag struct {
 	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 	Key *string `pulumi:"key"`
@@ -2707,7 +2725,7 @@ func (o MethodResponseArrayOutput) Index(i pulumi.IntInput) MethodResponseOutput
 	}).(MethodResponseOutput)
 }
 
-// The “EndpointConfiguration“ property type specifies the endpoint types of a REST API.
+// The “EndpointConfiguration“ property type specifies the endpoint types and IP address types of a REST API.
 //
 //	``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
 type RestApiEndpointConfiguration struct {
@@ -2730,7 +2748,7 @@ type RestApiEndpointConfigurationInput interface {
 	ToRestApiEndpointConfigurationOutputWithContext(context.Context) RestApiEndpointConfigurationOutput
 }
 
-// The “EndpointConfiguration“ property type specifies the endpoint types of a REST API.
+// The “EndpointConfiguration“ property type specifies the endpoint types and IP address types of a REST API.
 //
 //	``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
 type RestApiEndpointConfigurationArgs struct {
@@ -2795,7 +2813,7 @@ func (i *restApiEndpointConfigurationPtrType) ToRestApiEndpointConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiEndpointConfigurationPtrOutput)
 }
 
-// The “EndpointConfiguration“ property type specifies the endpoint types of a REST API.
+// The “EndpointConfiguration“ property type specifies the endpoint types and IP address types of a REST API.
 //
 //	``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
 type RestApiEndpointConfigurationOutput struct{ *pulumi.OutputState }
@@ -3094,6 +3112,9 @@ func (o RestApiS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type RestApiTag struct {
 	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 	Key string `pulumi:"key"`
@@ -3647,10 +3668,13 @@ func (o StageMethodSettingArrayOutput) Index(i pulumi.IntInput) StageMethodSetti
 	}).(StageMethodSettingOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type StageTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
+	// The value for the specified tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -3953,10 +3977,13 @@ func (o UsagePlanQuotaSettingsPtrOutput) Period() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type UsagePlanTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The value for the specified tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -4156,6 +4183,9 @@ func (o UsagePlanThrottleSettingsMapOutput) MapIndex(k pulumi.StringInput) Usage
 	}).(UsagePlanThrottleSettingsOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type VpcLinkTag struct {
 	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 	Key string `pulumi:"key"`

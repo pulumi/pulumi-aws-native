@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     {
         /// <summary>
         /// The type of the reference. ``DATE`` must be of type Epoch timestamp. 
-        ///   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+        ///  *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Connect.RuleReferenceType> Type { get; set; } = null!;
