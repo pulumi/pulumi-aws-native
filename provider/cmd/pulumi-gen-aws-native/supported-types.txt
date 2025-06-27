@@ -399,6 +399,7 @@ AWS::EC2::SubnetCidrBlock
 AWS::EC2::SubnetNetworkAclAssociation
 AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TrafficMirrorFilter
+AWS::EC2::TrafficMirrorFilterRule
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayAttachment
 AWS::EC2::TransitGatewayConnect
@@ -505,6 +506,7 @@ AWS::FMS::NotificationChannel
 AWS::FMS::Policy
 AWS::FMS::ResourceSet
 AWS::FSx::DataRepositoryAssociation
+AWS::FSx::S3AccessPointAttachment
 AWS::FinSpace::Environment
 AWS::Forecast::Dataset
 AWS::Forecast::DatasetGroup
