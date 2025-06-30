@@ -170,6 +170,7 @@ class AnalyzerConfigurationProperties(dict):
                  unused_access_configuration: Optional['outputs.AnalyzerUnusedAccessConfiguration'] = None):
         """
         The configuration for the analyzer
+        :param 'AnalyzerInternalAccessConfiguration' internal_access_configuration: Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment.
         :param 'AnalyzerUnusedAccessConfiguration' unused_access_configuration: Specifies the configuration of an unused access analyzer for an AWS organization or account.
         """
         if internal_access_configuration is not None:
@@ -180,6 +181,9 @@ class AnalyzerConfigurationProperties(dict):
     @property
     @pulumi.getter(name="internalAccessConfiguration")
     def internal_access_configuration(self) -> Optional['outputs.AnalyzerInternalAccessConfiguration']:
+        """
+        Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment.
+        """
         return pulumi.get(self, "internal_access_configuration")
 
     @property

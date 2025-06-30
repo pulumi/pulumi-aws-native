@@ -127,6 +127,22 @@ export const SubscriptionFilterDistribution = {
  */
 export type SubscriptionFilterDistribution = (typeof SubscriptionFilterDistribution)[keyof typeof SubscriptionFilterDistribution];
 
+export const TransformerEventSource = {
+    CloudTrail: "CloudTrail",
+    Route53Resolver: "Route53Resolver",
+    VpcFlow: "VPCFlow",
+    EksAudit: "EKSAudit",
+    Awswaf: "AWSWAF",
+} as const;
+
+export type TransformerEventSource = (typeof TransformerEventSource)[keyof typeof TransformerEventSource];
+
+export const TransformerOcsfVersion = {
+    V11: "V1.1",
+} as const;
+
+export type TransformerOcsfVersion = (typeof TransformerOcsfVersion)[keyof typeof TransformerOcsfVersion];
+
 export const TransformerProcessorListToMapPropertiesFlattenedElement = {
     First: "first",
     Last: "last",

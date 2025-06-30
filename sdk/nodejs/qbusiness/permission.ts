@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,6 +45,7 @@ export class Permission extends pulumi.CustomResource {
      * The unique identifier of the Amazon Q Business application.
      */
     public readonly applicationId!: pulumi.Output<string>;
+    public readonly conditions!: pulumi.Output<outputs.qbusiness.PermissionCondition[] | undefined>;
     /**
      * Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
      */
@@ -76,16 +80,18 @@ export class Permission extends pulumi.CustomResource {
             }
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["conditions"] = args ? args.conditions : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
             resourceInputs["statementId"] = args ? args.statementId : undefined;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["conditions"] = undefined /*out*/;
             resourceInputs["principal"] = undefined /*out*/;
             resourceInputs["statementId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["actions[*]", "applicationId", "principal", "statementId"] };
+        const replaceOnChanges = { replaceOnChanges: ["actions[*]", "applicationId", "conditions[*]", "principal", "statementId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Permission.__pulumiType, name, resourceInputs, opts);
     }
@@ -103,6 +109,7 @@ export interface PermissionArgs {
      * The unique identifier of the Amazon Q Business application.
      */
     applicationId: pulumi.Input<string>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.qbusiness.PermissionConditionArgs>[]>;
     /**
      * Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
      */

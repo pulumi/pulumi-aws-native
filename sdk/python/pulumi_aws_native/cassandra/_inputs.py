@@ -25,6 +25,8 @@ __all__ = [
     'TableAutoScalingSpecificationArgsDict',
     'TableBillingModeArgs',
     'TableBillingModeArgsDict',
+    'TableCdcSpecificationArgs',
+    'TableCdcSpecificationArgsDict',
     'TableClusteringKeyColumnArgs',
     'TableClusteringKeyColumnArgsDict',
     'TableColumnArgs',
@@ -340,6 +342,47 @@ class TableBillingModeArgs:
     @provisioned_throughput.setter
     def provisioned_throughput(self, value: Optional[pulumi.Input['TableProvisionedThroughputArgs']]):
         pulumi.set(self, "provisioned_throughput", value)
+
+
+if not MYPY:
+    class TableCdcSpecificationArgsDict(TypedDict):
+        """
+        Represents the CDC configuration for the table
+        """
+        status: pulumi.Input['TableCdcStatus']
+        view_type: NotRequired[pulumi.Input['TableCdcViewType']]
+elif False:
+    TableCdcSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableCdcSpecificationArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input['TableCdcStatus'],
+                 view_type: Optional[pulumi.Input['TableCdcViewType']] = None):
+        """
+        Represents the CDC configuration for the table
+        """
+        pulumi.set(__self__, "status", status)
+        if view_type is not None:
+            pulumi.set(__self__, "view_type", view_type)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['TableCdcStatus']:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['TableCdcStatus']):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="viewType")
+    def view_type(self) -> Optional[pulumi.Input['TableCdcViewType']]:
+        return pulumi.get(self, "view_type")
+
+    @view_type.setter
+    def view_type(self, value: Optional[pulumi.Input['TableCdcViewType']]):
+        pulumi.set(self, "view_type", value)
 
 
 if not MYPY:

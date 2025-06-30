@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.QBusiness
         /// A list of action configurations specifying the allowed actions and any associated filters.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataAccessorActionConfiguration> ActionConfigurations;
+        public readonly Outputs.DataAccessorAuthenticationDetail? AuthenticationDetail;
         /// <summary>
         /// The timestamp when the data accessor was created.
         /// </summary>
@@ -112,6 +113,8 @@ namespace Pulumi.AwsNative.QBusiness
         private GetDataAccessorResult(
             ImmutableArray<Outputs.DataAccessorActionConfiguration> actionConfigurations,
 
+            Outputs.DataAccessorAuthenticationDetail? authenticationDetail,
+
             string? createdAt,
 
             string? dataAccessorArn,
@@ -127,6 +130,7 @@ namespace Pulumi.AwsNative.QBusiness
             string? updatedAt)
         {
             ActionConfigurations = actionConfigurations;
+            AuthenticationDetail = authenticationDetail;
             CreatedAt = createdAt;
             DataAccessorArn = dataAccessorArn;
             DataAccessorId = dataAccessorId;

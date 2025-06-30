@@ -15,6 +15,11 @@ export type DbClusterParameterGroup = import("./dbClusterParameterGroup").DbClus
 export const DbClusterParameterGroup: typeof import("./dbClusterParameterGroup").DbClusterParameterGroup = null as any;
 utilities.lazyLoad(exports, ["DbClusterParameterGroup"], () => require("./dbClusterParameterGroup"));
 
+export { DbInstanceArgs } from "./dbInstance";
+export type DbInstance = import("./dbInstance").DbInstance;
+export const DbInstance: typeof import("./dbInstance").DbInstance = null as any;
+utilities.lazyLoad(exports, ["DbInstance"], () => require("./dbInstance"));
+
 export { DbParameterGroupArgs } from "./dbParameterGroup";
 export type DbParameterGroup = import("./dbParameterGroup").DbParameterGroup;
 export const DbParameterGroup: typeof import("./dbParameterGroup").DbParameterGroup = null as any;
@@ -35,6 +40,11 @@ export const getDbClusterParameterGroup: typeof import("./getDbClusterParameterG
 export const getDbClusterParameterGroupOutput: typeof import("./getDbClusterParameterGroup").getDbClusterParameterGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getDbClusterParameterGroup","getDbClusterParameterGroupOutput"], () => require("./getDbClusterParameterGroup"));
 
+export { GetDbInstanceArgs, GetDbInstanceResult, GetDbInstanceOutputArgs } from "./getDbInstance";
+export const getDbInstance: typeof import("./getDbInstance").getDbInstance = null as any;
+export const getDbInstanceOutput: typeof import("./getDbInstance").getDbInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getDbInstance","getDbInstanceOutput"], () => require("./getDbInstance"));
+
 export { GetDbParameterGroupArgs, GetDbParameterGroupResult, GetDbParameterGroupOutputArgs } from "./getDbParameterGroup";
 export const getDbParameterGroup: typeof import("./getDbParameterGroup").getDbParameterGroup = null as any;
 export const getDbParameterGroupOutput: typeof import("./getDbParameterGroup").getDbParameterGroupOutput = null as any;
@@ -54,6 +64,8 @@ const _module = {
                 return new DbCluster(name, <any>undefined, { urn })
             case "aws-native:neptune:DbClusterParameterGroup":
                 return new DbClusterParameterGroup(name, <any>undefined, { urn })
+            case "aws-native:neptune:DbInstance":
+                return new DbInstance(name, <any>undefined, { urn })
             case "aws-native:neptune:DbParameterGroup":
                 return new DbParameterGroup(name, <any>undefined, { urn })
             case "aws-native:neptune:DbSubnetGroup":

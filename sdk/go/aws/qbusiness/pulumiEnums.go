@@ -1099,6 +1099,171 @@ func (in *applicationSubscriptionTypePtr) ToApplicationSubscriptionTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationSubscriptionTypePtrOutput)
 }
 
+type DataAccessorAuthenticationType string
+
+const (
+	DataAccessorAuthenticationTypeAwsIamIdcTti      = DataAccessorAuthenticationType("AWS_IAM_IDC_TTI")
+	DataAccessorAuthenticationTypeAwsIamIdcAuthCode = DataAccessorAuthenticationType("AWS_IAM_IDC_AUTH_CODE")
+)
+
+func (DataAccessorAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorAuthenticationType)(nil)).Elem()
+}
+
+func (e DataAccessorAuthenticationType) ToDataAccessorAuthenticationTypeOutput() DataAccessorAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(DataAccessorAuthenticationTypeOutput)
+}
+
+func (e DataAccessorAuthenticationType) ToDataAccessorAuthenticationTypeOutputWithContext(ctx context.Context) DataAccessorAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAccessorAuthenticationTypeOutput)
+}
+
+func (e DataAccessorAuthenticationType) ToDataAccessorAuthenticationTypePtrOutput() DataAccessorAuthenticationTypePtrOutput {
+	return e.ToDataAccessorAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataAccessorAuthenticationType) ToDataAccessorAuthenticationTypePtrOutputWithContext(ctx context.Context) DataAccessorAuthenticationTypePtrOutput {
+	return DataAccessorAuthenticationType(e).ToDataAccessorAuthenticationTypeOutputWithContext(ctx).ToDataAccessorAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e DataAccessorAuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAccessorAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAccessorAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAccessorAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAccessorAuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorAuthenticationType)(nil)).Elem()
+}
+
+func (o DataAccessorAuthenticationTypeOutput) ToDataAccessorAuthenticationTypeOutput() DataAccessorAuthenticationTypeOutput {
+	return o
+}
+
+func (o DataAccessorAuthenticationTypeOutput) ToDataAccessorAuthenticationTypeOutputWithContext(ctx context.Context) DataAccessorAuthenticationTypeOutput {
+	return o
+}
+
+func (o DataAccessorAuthenticationTypeOutput) ToDataAccessorAuthenticationTypePtrOutput() DataAccessorAuthenticationTypePtrOutput {
+	return o.ToDataAccessorAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorAuthenticationTypeOutput) ToDataAccessorAuthenticationTypePtrOutputWithContext(ctx context.Context) DataAccessorAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAccessorAuthenticationType) *DataAccessorAuthenticationType {
+		return &v
+	}).(DataAccessorAuthenticationTypePtrOutput)
+}
+
+func (o DataAccessorAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAccessorAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAccessorAuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAccessorAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAccessorAuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAccessorAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorAuthenticationType)(nil)).Elem()
+}
+
+func (o DataAccessorAuthenticationTypePtrOutput) ToDataAccessorAuthenticationTypePtrOutput() DataAccessorAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o DataAccessorAuthenticationTypePtrOutput) ToDataAccessorAuthenticationTypePtrOutputWithContext(ctx context.Context) DataAccessorAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o DataAccessorAuthenticationTypePtrOutput) Elem() DataAccessorAuthenticationTypeOutput {
+	return o.ApplyT(func(v *DataAccessorAuthenticationType) DataAccessorAuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret DataAccessorAuthenticationType
+		return ret
+	}).(DataAccessorAuthenticationTypeOutput)
+}
+
+func (o DataAccessorAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAccessorAuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAccessorAuthenticationTypeInput is an input type that accepts values of the DataAccessorAuthenticationType enum
+// A concrete instance of `DataAccessorAuthenticationTypeInput` can be one of the following:
+//
+//	DataAccessorAuthenticationTypeAwsIamIdcTti
+//	DataAccessorAuthenticationTypeAwsIamIdcAuthCode
+type DataAccessorAuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToDataAccessorAuthenticationTypeOutput() DataAccessorAuthenticationTypeOutput
+	ToDataAccessorAuthenticationTypeOutputWithContext(context.Context) DataAccessorAuthenticationTypeOutput
+}
+
+var dataAccessorAuthenticationTypePtrType = reflect.TypeOf((**DataAccessorAuthenticationType)(nil)).Elem()
+
+type DataAccessorAuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToDataAccessorAuthenticationTypePtrOutput() DataAccessorAuthenticationTypePtrOutput
+	ToDataAccessorAuthenticationTypePtrOutputWithContext(context.Context) DataAccessorAuthenticationTypePtrOutput
+}
+
+type dataAccessorAuthenticationTypePtr string
+
+func DataAccessorAuthenticationTypePtr(v string) DataAccessorAuthenticationTypePtrInput {
+	return (*dataAccessorAuthenticationTypePtr)(&v)
+}
+
+func (*dataAccessorAuthenticationTypePtr) ElementType() reflect.Type {
+	return dataAccessorAuthenticationTypePtrType
+}
+
+func (in *dataAccessorAuthenticationTypePtr) ToDataAccessorAuthenticationTypePtrOutput() DataAccessorAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(DataAccessorAuthenticationTypePtrOutput)
+}
+
+func (in *dataAccessorAuthenticationTypePtr) ToDataAccessorAuthenticationTypePtrOutputWithContext(ctx context.Context) DataAccessorAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAccessorAuthenticationTypePtrOutput)
+}
+
 type DataSourceAttributeValueOperator string
 
 const (
@@ -2624,6 +2789,169 @@ func (in *indexTypePtr) ToIndexTypePtrOutputWithContext(ctx context.Context) Ind
 	return pulumi.ToOutputWithContext(ctx, in).(IndexTypePtrOutput)
 }
 
+type PermissionConditionConditionOperator string
+
+const (
+	PermissionConditionConditionOperatorStringEquals = PermissionConditionConditionOperator("StringEquals")
+)
+
+func (PermissionConditionConditionOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionConditionConditionOperator)(nil)).Elem()
+}
+
+func (e PermissionConditionConditionOperator) ToPermissionConditionConditionOperatorOutput() PermissionConditionConditionOperatorOutput {
+	return pulumi.ToOutput(e).(PermissionConditionConditionOperatorOutput)
+}
+
+func (e PermissionConditionConditionOperator) ToPermissionConditionConditionOperatorOutputWithContext(ctx context.Context) PermissionConditionConditionOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PermissionConditionConditionOperatorOutput)
+}
+
+func (e PermissionConditionConditionOperator) ToPermissionConditionConditionOperatorPtrOutput() PermissionConditionConditionOperatorPtrOutput {
+	return e.ToPermissionConditionConditionOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e PermissionConditionConditionOperator) ToPermissionConditionConditionOperatorPtrOutputWithContext(ctx context.Context) PermissionConditionConditionOperatorPtrOutput {
+	return PermissionConditionConditionOperator(e).ToPermissionConditionConditionOperatorOutputWithContext(ctx).ToPermissionConditionConditionOperatorPtrOutputWithContext(ctx)
+}
+
+func (e PermissionConditionConditionOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PermissionConditionConditionOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PermissionConditionConditionOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PermissionConditionConditionOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PermissionConditionConditionOperatorOutput struct{ *pulumi.OutputState }
+
+func (PermissionConditionConditionOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionConditionConditionOperator)(nil)).Elem()
+}
+
+func (o PermissionConditionConditionOperatorOutput) ToPermissionConditionConditionOperatorOutput() PermissionConditionConditionOperatorOutput {
+	return o
+}
+
+func (o PermissionConditionConditionOperatorOutput) ToPermissionConditionConditionOperatorOutputWithContext(ctx context.Context) PermissionConditionConditionOperatorOutput {
+	return o
+}
+
+func (o PermissionConditionConditionOperatorOutput) ToPermissionConditionConditionOperatorPtrOutput() PermissionConditionConditionOperatorPtrOutput {
+	return o.ToPermissionConditionConditionOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionConditionConditionOperatorOutput) ToPermissionConditionConditionOperatorPtrOutputWithContext(ctx context.Context) PermissionConditionConditionOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionConditionConditionOperator) *PermissionConditionConditionOperator {
+		return &v
+	}).(PermissionConditionConditionOperatorPtrOutput)
+}
+
+func (o PermissionConditionConditionOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PermissionConditionConditionOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PermissionConditionConditionOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PermissionConditionConditionOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionConditionConditionOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PermissionConditionConditionOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PermissionConditionConditionOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionConditionConditionOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionConditionConditionOperator)(nil)).Elem()
+}
+
+func (o PermissionConditionConditionOperatorPtrOutput) ToPermissionConditionConditionOperatorPtrOutput() PermissionConditionConditionOperatorPtrOutput {
+	return o
+}
+
+func (o PermissionConditionConditionOperatorPtrOutput) ToPermissionConditionConditionOperatorPtrOutputWithContext(ctx context.Context) PermissionConditionConditionOperatorPtrOutput {
+	return o
+}
+
+func (o PermissionConditionConditionOperatorPtrOutput) Elem() PermissionConditionConditionOperatorOutput {
+	return o.ApplyT(func(v *PermissionConditionConditionOperator) PermissionConditionConditionOperator {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionConditionConditionOperator
+		return ret
+	}).(PermissionConditionConditionOperatorOutput)
+}
+
+func (o PermissionConditionConditionOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionConditionConditionOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PermissionConditionConditionOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PermissionConditionConditionOperatorInput is an input type that accepts values of the PermissionConditionConditionOperator enum
+// A concrete instance of `PermissionConditionConditionOperatorInput` can be one of the following:
+//
+//	PermissionConditionConditionOperatorStringEquals
+type PermissionConditionConditionOperatorInput interface {
+	pulumi.Input
+
+	ToPermissionConditionConditionOperatorOutput() PermissionConditionConditionOperatorOutput
+	ToPermissionConditionConditionOperatorOutputWithContext(context.Context) PermissionConditionConditionOperatorOutput
+}
+
+var permissionConditionConditionOperatorPtrType = reflect.TypeOf((**PermissionConditionConditionOperator)(nil)).Elem()
+
+type PermissionConditionConditionOperatorPtrInput interface {
+	pulumi.Input
+
+	ToPermissionConditionConditionOperatorPtrOutput() PermissionConditionConditionOperatorPtrOutput
+	ToPermissionConditionConditionOperatorPtrOutputWithContext(context.Context) PermissionConditionConditionOperatorPtrOutput
+}
+
+type permissionConditionConditionOperatorPtr string
+
+func PermissionConditionConditionOperatorPtr(v string) PermissionConditionConditionOperatorPtrInput {
+	return (*permissionConditionConditionOperatorPtr)(&v)
+}
+
+func (*permissionConditionConditionOperatorPtr) ElementType() reflect.Type {
+	return permissionConditionConditionOperatorPtrType
+}
+
+func (in *permissionConditionConditionOperatorPtr) ToPermissionConditionConditionOperatorPtrOutput() PermissionConditionConditionOperatorPtrOutput {
+	return pulumi.ToOutput(in).(PermissionConditionConditionOperatorPtrOutput)
+}
+
+func (in *permissionConditionConditionOperatorPtr) ToPermissionConditionConditionOperatorPtrOutputWithContext(ctx context.Context) PermissionConditionConditionOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PermissionConditionConditionOperatorPtrOutput)
+}
+
 type PluginApiSchemaType string
 
 const (
@@ -4144,6 +4472,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQAppsControlModePtrInput)(nil)).Elem(), ApplicationQAppsControlMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSubscriptionTypeInput)(nil)).Elem(), ApplicationSubscriptionType("Q_LITE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSubscriptionTypePtrInput)(nil)).Elem(), ApplicationSubscriptionType("Q_LITE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorAuthenticationTypeInput)(nil)).Elem(), DataAccessorAuthenticationType("AWS_IAM_IDC_TTI"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorAuthenticationTypePtrInput)(nil)).Elem(), DataAccessorAuthenticationType("AWS_IAM_IDC_TTI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAttributeValueOperatorInput)(nil)).Elem(), DataSourceAttributeValueOperator("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAttributeValueOperatorPtrInput)(nil)).Elem(), DataSourceAttributeValueOperator("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAudioExtractionStatusInput)(nil)).Elem(), DataSourceAudioExtractionStatus("ENABLED"))
@@ -4160,6 +4490,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexAttributeTypePtrInput)(nil)).Elem(), IndexAttributeType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexTypeInput)(nil)).Elem(), IndexType("ENTERPRISE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexTypePtrInput)(nil)).Elem(), IndexType("ENTERPRISE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionConditionConditionOperatorInput)(nil)).Elem(), PermissionConditionConditionOperator("StringEquals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionConditionConditionOperatorPtrInput)(nil)).Elem(), PermissionConditionConditionOperator("StringEquals"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PluginApiSchemaTypeInput)(nil)).Elem(), PluginApiSchemaType("OPEN_API_V3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PluginApiSchemaTypePtrInput)(nil)).Elem(), PluginApiSchemaType("OPEN_API_V3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PluginStateEnumInput)(nil)).Elem(), PluginStateEnum("ENABLED"))
@@ -4189,6 +4521,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSubscriptionTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationSubscriptionTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAccessorAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(DataAccessorAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAttributeValueOperatorOutput{})
 	pulumi.RegisterOutputType(DataSourceAttributeValueOperatorPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAudioExtractionStatusOutput{})
@@ -4209,6 +4543,8 @@ func init() {
 	pulumi.RegisterOutputType(IndexStatusPtrOutput{})
 	pulumi.RegisterOutputType(IndexTypeOutput{})
 	pulumi.RegisterOutputType(IndexTypePtrOutput{})
+	pulumi.RegisterOutputType(PermissionConditionConditionOperatorOutput{})
+	pulumi.RegisterOutputType(PermissionConditionConditionOperatorPtrOutput{})
 	pulumi.RegisterOutputType(PluginApiSchemaTypeOutput{})
 	pulumi.RegisterOutputType(PluginApiSchemaTypePtrOutput{})
 	pulumi.RegisterOutputType(PluginBuildStatusOutput{})

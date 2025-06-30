@@ -210,6 +210,34 @@ namespace Pulumi.AwsNative.QBusiness
     }
 
     [EnumType]
+    public readonly struct DataAccessorAuthenticationType : IEquatable<DataAccessorAuthenticationType>
+    {
+        private readonly string _value;
+
+        private DataAccessorAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAccessorAuthenticationType AwsIamIdcTti { get; } = new DataAccessorAuthenticationType("AWS_IAM_IDC_TTI");
+        public static DataAccessorAuthenticationType AwsIamIdcAuthCode { get; } = new DataAccessorAuthenticationType("AWS_IAM_IDC_AUTH_CODE");
+
+        public static bool operator ==(DataAccessorAuthenticationType left, DataAccessorAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(DataAccessorAuthenticationType left, DataAccessorAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(DataAccessorAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAccessorAuthenticationType other && Equals(other);
+        public bool Equals(DataAccessorAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataSourceAttributeValueOperator : IEquatable<DataSourceAttributeValueOperator>
     {
         private readonly string _value;
@@ -498,6 +526,33 @@ namespace Pulumi.AwsNative.QBusiness
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IndexType other && Equals(other);
         public bool Equals(IndexType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PermissionConditionConditionOperator : IEquatable<PermissionConditionConditionOperator>
+    {
+        private readonly string _value;
+
+        private PermissionConditionConditionOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PermissionConditionConditionOperator StringEquals { get; } = new PermissionConditionConditionOperator("StringEquals");
+
+        public static bool operator ==(PermissionConditionConditionOperator left, PermissionConditionConditionOperator right) => left.Equals(right);
+        public static bool operator !=(PermissionConditionConditionOperator left, PermissionConditionConditionOperator right) => !left.Equals(right);
+
+        public static explicit operator string(PermissionConditionConditionOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PermissionConditionConditionOperator other && Equals(other);
+        public bool Equals(PermissionConditionConditionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

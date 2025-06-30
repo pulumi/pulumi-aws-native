@@ -6550,7 +6550,7 @@ func (o RuleNotificationRecipientTypeOutput) UserTags() pulumi.StringMapOutput {
 // Information about the reference when the “referenceType“ is “URL“. Otherwise, null. (Supports variable injection in the “Value“ field.)
 type RuleReference struct {
 	// The type of the reference. ``DATE`` must be of type Epoch timestamp.
-	//   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+	//  *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
 	Type RuleReferenceType `pulumi:"type"`
 	// A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
 	Value string `pulumi:"value"`
@@ -6570,7 +6570,7 @@ type RuleReferenceInput interface {
 // Information about the reference when the “referenceType“ is “URL“. Otherwise, null. (Supports variable injection in the “Value“ field.)
 type RuleReferenceArgs struct {
 	// The type of the reference. ``DATE`` must be of type Epoch timestamp.
-	//   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+	//  *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
 	Type RuleReferenceTypeInput `pulumi:"type"`
 	// A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
 	Value pulumi.StringInput `pulumi:"value"`
@@ -6665,10 +6665,10 @@ type RuleSendNotificationAction struct {
 	// Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 	Content string `pulumi:"content"`
 	// Content type format.
-	//   *Allowed value*: ``PLAIN_TEXT``
+	//  *Allowed value*: ``PLAIN_TEXT``
 	ContentType RuleSendNotificationActionContentType `pulumi:"contentType"`
 	// Notification delivery method.
-	//   *Allowed value*: ``EMAIL``
+	//  *Allowed value*: ``EMAIL``
 	DeliveryMethod RuleSendNotificationActionDeliveryMethod `pulumi:"deliveryMethod"`
 	// Notification recipient.
 	Recipient RuleNotificationRecipientType `pulumi:"recipient"`
@@ -6692,10 +6692,10 @@ type RuleSendNotificationActionArgs struct {
 	// Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 	Content pulumi.StringInput `pulumi:"content"`
 	// Content type format.
-	//   *Allowed value*: ``PLAIN_TEXT``
+	//  *Allowed value*: ``PLAIN_TEXT``
 	ContentType RuleSendNotificationActionContentTypeInput `pulumi:"contentType"`
 	// Notification delivery method.
-	//   *Allowed value*: ``EMAIL``
+	//  *Allowed value*: ``EMAIL``
 	DeliveryMethod RuleSendNotificationActionDeliveryMethodInput `pulumi:"deliveryMethod"`
 	// Notification recipient.
 	Recipient RuleNotificationRecipientTypeInput `pulumi:"recipient"`

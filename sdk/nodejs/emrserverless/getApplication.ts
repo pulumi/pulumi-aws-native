@@ -46,6 +46,10 @@ export interface GetApplicationResult {
      */
     readonly autoStopConfiguration?: outputs.emrserverless.ApplicationAutoStopConfiguration;
     /**
+     * The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+     */
+    readonly identityCenterConfiguration?: outputs.emrserverless.ApplicationIdentityCenterConfiguration;
+    /**
      * The image configuration applied to all worker types.
      */
     readonly imageConfiguration?: outputs.emrserverless.ApplicationImageConfigurationInput;

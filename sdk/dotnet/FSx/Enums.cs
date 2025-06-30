@@ -35,4 +35,64 @@ namespace Pulumi.AwsNative.FSx
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+    /// </summary>
+    [EnumType]
+    public readonly struct S3AccessPointAttachmentOpenZfsFileSystemIdentityType : IEquatable<S3AccessPointAttachmentOpenZfsFileSystemIdentityType>
+    {
+        private readonly string _value;
+
+        private S3AccessPointAttachmentOpenZfsFileSystemIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static S3AccessPointAttachmentOpenZfsFileSystemIdentityType Posix { get; } = new S3AccessPointAttachmentOpenZfsFileSystemIdentityType("POSIX");
+
+        public static bool operator ==(S3AccessPointAttachmentOpenZfsFileSystemIdentityType left, S3AccessPointAttachmentOpenZfsFileSystemIdentityType right) => left.Equals(right);
+        public static bool operator !=(S3AccessPointAttachmentOpenZfsFileSystemIdentityType left, S3AccessPointAttachmentOpenZfsFileSystemIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(S3AccessPointAttachmentOpenZfsFileSystemIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is S3AccessPointAttachmentOpenZfsFileSystemIdentityType other && Equals(other);
+        public bool Equals(S3AccessPointAttachmentOpenZfsFileSystemIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of Amazon FSx volume that the S3 access point is attached to.
+    /// </summary>
+    [EnumType]
+    public readonly struct S3AccessPointAttachmentType : IEquatable<S3AccessPointAttachmentType>
+    {
+        private readonly string _value;
+
+        private S3AccessPointAttachmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static S3AccessPointAttachmentType Openzfs { get; } = new S3AccessPointAttachmentType("OPENZFS");
+
+        public static bool operator ==(S3AccessPointAttachmentType left, S3AccessPointAttachmentType right) => left.Equals(right);
+        public static bool operator !=(S3AccessPointAttachmentType left, S3AccessPointAttachmentType right) => !left.Equals(right);
+
+        public static explicit operator string(S3AccessPointAttachmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is S3AccessPointAttachmentType other && Equals(other);
+        public bool Equals(S3AccessPointAttachmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

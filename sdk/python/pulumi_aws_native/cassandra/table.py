@@ -29,6 +29,7 @@ class TableArgs:
                  partition_key_columns: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]],
                  auto_scaling_specifications: Optional[pulumi.Input['TableAutoScalingSpecificationArgs']] = None,
                  billing_mode: Optional[pulumi.Input['TableBillingModeArgs']] = None,
+                 cdc_specification: Optional[pulumi.Input['TableCdcSpecificationArgs']] = None,
                  client_side_timestamps_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]] = None,
                  default_time_to_live: Optional[pulumi.Input[builtins.int]] = None,
@@ -78,6 +79,8 @@ class TableArgs:
             pulumi.set(__self__, "auto_scaling_specifications", auto_scaling_specifications)
         if billing_mode is not None:
             pulumi.set(__self__, "billing_mode", billing_mode)
+        if cdc_specification is not None:
+            pulumi.set(__self__, "cdc_specification", cdc_specification)
         if client_side_timestamps_enabled is not None:
             pulumi.set(__self__, "client_side_timestamps_enabled", client_side_timestamps_enabled)
         if clustering_key_columns is not None:
@@ -149,6 +152,15 @@ class TableArgs:
     @billing_mode.setter
     def billing_mode(self, value: Optional[pulumi.Input['TableBillingModeArgs']]):
         pulumi.set(self, "billing_mode", value)
+
+    @property
+    @pulumi.getter(name="cdcSpecification")
+    def cdc_specification(self) -> Optional[pulumi.Input['TableCdcSpecificationArgs']]:
+        return pulumi.get(self, "cdc_specification")
+
+    @cdc_specification.setter
+    def cdc_specification(self, value: Optional[pulumi.Input['TableCdcSpecificationArgs']]):
+        pulumi.set(self, "cdc_specification", value)
 
     @property
     @pulumi.getter(name="clientSideTimestampsEnabled")
@@ -280,6 +292,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_specifications: Optional[pulumi.Input[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']]] = None,
                  billing_mode: Optional[pulumi.Input[Union['TableBillingModeArgs', 'TableBillingModeArgsDict']]] = None,
+                 cdc_specification: Optional[pulumi.Input[Union['TableCdcSpecificationArgs', 'TableCdcSpecificationArgsDict']]] = None,
                  client_side_timestamps_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict']]]]] = None,
                  default_time_to_live: Optional[pulumi.Input[builtins.int]] = None,
@@ -1287,6 +1300,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_specifications: Optional[pulumi.Input[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']]] = None,
                  billing_mode: Optional[pulumi.Input[Union['TableBillingModeArgs', 'TableBillingModeArgsDict']]] = None,
+                 cdc_specification: Optional[pulumi.Input[Union['TableCdcSpecificationArgs', 'TableCdcSpecificationArgsDict']]] = None,
                  client_side_timestamps_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict']]]]] = None,
                  default_time_to_live: Optional[pulumi.Input[builtins.int]] = None,
@@ -1309,6 +1323,7 @@ class Table(pulumi.CustomResource):
 
             __props__.__dict__["auto_scaling_specifications"] = auto_scaling_specifications
             __props__.__dict__["billing_mode"] = billing_mode
+            __props__.__dict__["cdc_specification"] = cdc_specification
             __props__.__dict__["client_side_timestamps_enabled"] = client_side_timestamps_enabled
             __props__.__dict__["clustering_key_columns"] = clustering_key_columns
             __props__.__dict__["default_time_to_live"] = default_time_to_live
@@ -1350,6 +1365,7 @@ class Table(pulumi.CustomResource):
 
         __props__.__dict__["auto_scaling_specifications"] = None
         __props__.__dict__["billing_mode"] = None
+        __props__.__dict__["cdc_specification"] = None
         __props__.__dict__["client_side_timestamps_enabled"] = None
         __props__.__dict__["clustering_key_columns"] = None
         __props__.__dict__["default_time_to_live"] = None
@@ -1383,6 +1399,11 @@ class Table(pulumi.CustomResource):
         If you don't specify a value for this property, then the table will use on-demand mode.
         """
         return pulumi.get(self, "billing_mode")
+
+    @property
+    @pulumi.getter(name="cdcSpecification")
+    def cdc_specification(self) -> pulumi.Output[Optional['outputs.TableCdcSpecification']]:
+        return pulumi.get(self, "cdc_specification")
 
     @property
     @pulumi.getter(name="clientSideTimestampsEnabled")

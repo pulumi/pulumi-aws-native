@@ -714,6 +714,9 @@ namespace Pulumi.AwsNative.Cassandra
         [Output("billingMode")]
         public Output<Outputs.TableBillingMode?> BillingMode { get; private set; } = null!;
 
+        [Output("cdcSpecification")]
+        public Output<Outputs.TableCdcSpecification?> CdcSpecification { get; private set; } = null!;
+
         /// <summary>
         /// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
         /// </summary>
@@ -862,6 +865,9 @@ namespace Pulumi.AwsNative.Cassandra
         /// </summary>
         [Input("billingMode")]
         public Input<Inputs.TableBillingModeArgs>? BillingMode { get; set; }
+
+        [Input("cdcSpecification")]
+        public Input<Inputs.TableCdcSpecificationArgs>? CdcSpecification { get; set; }
 
         /// <summary>
         /// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.

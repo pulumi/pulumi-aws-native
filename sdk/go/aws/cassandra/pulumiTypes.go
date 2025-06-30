@@ -746,6 +746,157 @@ func (o TableBillingModePtrOutput) ProvisionedThroughput() TableProvisionedThrou
 	}).(TableProvisionedThroughputPtrOutput)
 }
 
+// Represents the CDC configuration for the table
+type TableCdcSpecification struct {
+	Status   TableCdcStatus    `pulumi:"status"`
+	ViewType *TableCdcViewType `pulumi:"viewType"`
+}
+
+// TableCdcSpecificationInput is an input type that accepts TableCdcSpecificationArgs and TableCdcSpecificationOutput values.
+// You can construct a concrete instance of `TableCdcSpecificationInput` via:
+//
+//	TableCdcSpecificationArgs{...}
+type TableCdcSpecificationInput interface {
+	pulumi.Input
+
+	ToTableCdcSpecificationOutput() TableCdcSpecificationOutput
+	ToTableCdcSpecificationOutputWithContext(context.Context) TableCdcSpecificationOutput
+}
+
+// Represents the CDC configuration for the table
+type TableCdcSpecificationArgs struct {
+	Status   TableCdcStatusInput      `pulumi:"status"`
+	ViewType TableCdcViewTypePtrInput `pulumi:"viewType"`
+}
+
+func (TableCdcSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCdcSpecification)(nil)).Elem()
+}
+
+func (i TableCdcSpecificationArgs) ToTableCdcSpecificationOutput() TableCdcSpecificationOutput {
+	return i.ToTableCdcSpecificationOutputWithContext(context.Background())
+}
+
+func (i TableCdcSpecificationArgs) ToTableCdcSpecificationOutputWithContext(ctx context.Context) TableCdcSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableCdcSpecificationOutput)
+}
+
+func (i TableCdcSpecificationArgs) ToTableCdcSpecificationPtrOutput() TableCdcSpecificationPtrOutput {
+	return i.ToTableCdcSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TableCdcSpecificationArgs) ToTableCdcSpecificationPtrOutputWithContext(ctx context.Context) TableCdcSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableCdcSpecificationOutput).ToTableCdcSpecificationPtrOutputWithContext(ctx)
+}
+
+// TableCdcSpecificationPtrInput is an input type that accepts TableCdcSpecificationArgs, TableCdcSpecificationPtr and TableCdcSpecificationPtrOutput values.
+// You can construct a concrete instance of `TableCdcSpecificationPtrInput` via:
+//
+//	        TableCdcSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableCdcSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTableCdcSpecificationPtrOutput() TableCdcSpecificationPtrOutput
+	ToTableCdcSpecificationPtrOutputWithContext(context.Context) TableCdcSpecificationPtrOutput
+}
+
+type tableCdcSpecificationPtrType TableCdcSpecificationArgs
+
+func TableCdcSpecificationPtr(v *TableCdcSpecificationArgs) TableCdcSpecificationPtrInput {
+	return (*tableCdcSpecificationPtrType)(v)
+}
+
+func (*tableCdcSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableCdcSpecification)(nil)).Elem()
+}
+
+func (i *tableCdcSpecificationPtrType) ToTableCdcSpecificationPtrOutput() TableCdcSpecificationPtrOutput {
+	return i.ToTableCdcSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableCdcSpecificationPtrType) ToTableCdcSpecificationPtrOutputWithContext(ctx context.Context) TableCdcSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableCdcSpecificationPtrOutput)
+}
+
+// Represents the CDC configuration for the table
+type TableCdcSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableCdcSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCdcSpecification)(nil)).Elem()
+}
+
+func (o TableCdcSpecificationOutput) ToTableCdcSpecificationOutput() TableCdcSpecificationOutput {
+	return o
+}
+
+func (o TableCdcSpecificationOutput) ToTableCdcSpecificationOutputWithContext(ctx context.Context) TableCdcSpecificationOutput {
+	return o
+}
+
+func (o TableCdcSpecificationOutput) ToTableCdcSpecificationPtrOutput() TableCdcSpecificationPtrOutput {
+	return o.ToTableCdcSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TableCdcSpecificationOutput) ToTableCdcSpecificationPtrOutputWithContext(ctx context.Context) TableCdcSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableCdcSpecification) *TableCdcSpecification {
+		return &v
+	}).(TableCdcSpecificationPtrOutput)
+}
+
+func (o TableCdcSpecificationOutput) Status() TableCdcStatusOutput {
+	return o.ApplyT(func(v TableCdcSpecification) TableCdcStatus { return v.Status }).(TableCdcStatusOutput)
+}
+
+func (o TableCdcSpecificationOutput) ViewType() TableCdcViewTypePtrOutput {
+	return o.ApplyT(func(v TableCdcSpecification) *TableCdcViewType { return v.ViewType }).(TableCdcViewTypePtrOutput)
+}
+
+type TableCdcSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableCdcSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableCdcSpecification)(nil)).Elem()
+}
+
+func (o TableCdcSpecificationPtrOutput) ToTableCdcSpecificationPtrOutput() TableCdcSpecificationPtrOutput {
+	return o
+}
+
+func (o TableCdcSpecificationPtrOutput) ToTableCdcSpecificationPtrOutputWithContext(ctx context.Context) TableCdcSpecificationPtrOutput {
+	return o
+}
+
+func (o TableCdcSpecificationPtrOutput) Elem() TableCdcSpecificationOutput {
+	return o.ApplyT(func(v *TableCdcSpecification) TableCdcSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TableCdcSpecification
+		return ret
+	}).(TableCdcSpecificationOutput)
+}
+
+func (o TableCdcSpecificationPtrOutput) Status() TableCdcStatusPtrOutput {
+	return o.ApplyT(func(v *TableCdcSpecification) *TableCdcStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(TableCdcStatusPtrOutput)
+}
+
+func (o TableCdcSpecificationPtrOutput) ViewType() TableCdcViewTypePtrOutput {
+	return o.ApplyT(func(v *TableCdcSpecification) *TableCdcViewType {
+		if v == nil {
+			return nil
+		}
+		return v.ViewType
+	}).(TableCdcViewTypePtrOutput)
+}
+
 type TableClusteringKeyColumn struct {
 	// The name and data type of this clustering key column.
 	Column TableColumn `pulumi:"column"`
@@ -1925,6 +2076,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAutoScalingSpecificationPtrInput)(nil)).Elem(), TableAutoScalingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBillingModeInput)(nil)).Elem(), TableBillingModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBillingModePtrInput)(nil)).Elem(), TableBillingModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCdcSpecificationInput)(nil)).Elem(), TableCdcSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCdcSpecificationPtrInput)(nil)).Elem(), TableCdcSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnInput)(nil)).Elem(), TableClusteringKeyColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnArrayInput)(nil)).Elem(), TableClusteringKeyColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnInput)(nil)).Elem(), TableColumnArgs{})
@@ -1949,6 +2102,8 @@ func init() {
 	pulumi.RegisterOutputType(TableAutoScalingSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableBillingModeOutput{})
 	pulumi.RegisterOutputType(TableBillingModePtrOutput{})
+	pulumi.RegisterOutputType(TableCdcSpecificationOutput{})
+	pulumi.RegisterOutputType(TableCdcSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableClusteringKeyColumnOutput{})
 	pulumi.RegisterOutputType(TableClusteringKeyColumnArrayOutput{})
 	pulumi.RegisterOutputType(TableColumnOutput{})

@@ -341,6 +341,8 @@ __all__ = [
     'SseSpecificationPropertiesArgsDict',
     'TagSpecificationArgs',
     'TagSpecificationArgsDict',
+    'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs',
+    'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict',
     'TransitGatewayConnectOptionsArgs',
     'TransitGatewayConnectOptionsArgsDict',
     'VerifiedAccessEndpointCidrOptionsArgs',
@@ -16335,6 +16337,56 @@ class TagSpecificationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+
+if not MYPY:
+    class TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict(TypedDict):
+        from_port: pulumi.Input[builtins.int]
+        """
+        The first port in the Traffic Mirror port range.
+        """
+        to_port: pulumi.Input[builtins.int]
+        """
+        The last port in the Traffic Mirror port range.
+        """
+elif False:
+    TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: pulumi.Input[builtins.int],
+                 to_port: pulumi.Input[builtins.int]):
+        """
+        :param pulumi.Input[builtins.int] from_port: The first port in the Traffic Mirror port range.
+        :param pulumi.Input[builtins.int] to_port: The last port in the Traffic Mirror port range.
+        """
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> pulumi.Input[builtins.int]:
+        """
+        The first port in the Traffic Mirror port range.
+        """
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> pulumi.Input[builtins.int]:
+        """
+        The last port in the Traffic Mirror port range.
+        """
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "to_port", value)
 
 
 if not MYPY:

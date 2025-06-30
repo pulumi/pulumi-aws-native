@@ -245,6 +245,7 @@ func (o AnalyzerArchiveRuleArrayOutput) Index(i pulumi.IntInput) AnalyzerArchive
 
 // The configuration for the analyzer
 type AnalyzerConfigurationProperties struct {
+	// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment.
 	InternalAccessConfiguration *AnalyzerInternalAccessConfiguration `pulumi:"internalAccessConfiguration"`
 	// Specifies the configuration of an unused access analyzer for an AWS organization or account.
 	UnusedAccessConfiguration *AnalyzerUnusedAccessConfiguration `pulumi:"unusedAccessConfiguration"`
@@ -263,6 +264,7 @@ type AnalyzerConfigurationPropertiesInput interface {
 
 // The configuration for the analyzer
 type AnalyzerConfigurationPropertiesArgs struct {
+	// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment.
 	InternalAccessConfiguration AnalyzerInternalAccessConfigurationPtrInput `pulumi:"internalAccessConfiguration"`
 	// Specifies the configuration of an unused access analyzer for an AWS organization or account.
 	UnusedAccessConfiguration AnalyzerUnusedAccessConfigurationPtrInput `pulumi:"unusedAccessConfiguration"`
@@ -346,6 +348,7 @@ func (o AnalyzerConfigurationPropertiesOutput) ToAnalyzerConfigurationProperties
 	}).(AnalyzerConfigurationPropertiesPtrOutput)
 }
 
+// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment.
 func (o AnalyzerConfigurationPropertiesOutput) InternalAccessConfiguration() AnalyzerInternalAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationProperties) *AnalyzerInternalAccessConfiguration {
 		return v.InternalAccessConfiguration
@@ -383,6 +386,7 @@ func (o AnalyzerConfigurationPropertiesPtrOutput) Elem() AnalyzerConfigurationPr
 	}).(AnalyzerConfigurationPropertiesOutput)
 }
 
+// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment.
 func (o AnalyzerConfigurationPropertiesPtrOutput) InternalAccessConfiguration() AnalyzerInternalAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnalyzerConfigurationProperties) *AnalyzerInternalAccessConfiguration {
 		if v == nil {

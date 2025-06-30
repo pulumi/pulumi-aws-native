@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("originAccessIdentity")]
         public Input<string>? OriginAccessIdentity { get; set; }
 
+        [Input("originReadTimeout")]
+        public Input<int>? OriginReadTimeout { get; set; }
+
         public DistributionS3OriginConfigArgs()
         {
         }

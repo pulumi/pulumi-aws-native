@@ -34,6 +34,7 @@ export interface GetDataAccessorResult {
      * A list of action configurations specifying the allowed actions and any associated filters.
      */
     readonly actionConfigurations?: outputs.qbusiness.DataAccessorActionConfiguration[];
+    readonly authenticationDetail?: outputs.qbusiness.DataAccessorAuthenticationDetail;
     /**
      * The timestamp when the data accessor was created.
      */

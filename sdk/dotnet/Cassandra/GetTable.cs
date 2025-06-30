@@ -84,6 +84,7 @@ namespace Pulumi.AwsNative.Cassandra
         /// If you don't specify a value for this property, then the table will use on-demand mode.
         /// </summary>
         public readonly Outputs.TableBillingMode? BillingMode;
+        public readonly Outputs.TableCdcSpecification? CdcSpecification;
         /// <summary>
         /// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
         /// </summary>
@@ -116,6 +117,8 @@ namespace Pulumi.AwsNative.Cassandra
         private GetTableResult(
             Outputs.TableBillingMode? billingMode,
 
+            Outputs.TableCdcSpecification? cdcSpecification,
+
             int? defaultTimeToLive,
 
             Outputs.TableEncryptionSpecification? encryptionSpecification,
@@ -127,6 +130,7 @@ namespace Pulumi.AwsNative.Cassandra
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             BillingMode = billingMode;
+            CdcSpecification = cdcSpecification;
             DefaultTimeToLive = defaultTimeToLive;
             EncryptionSpecification = encryptionSpecification;
             PointInTimeRecoveryEnabled = pointInTimeRecoveryEnabled;

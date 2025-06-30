@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.B2bi.Inputs
 
     public sealed class PartnershipCapabilityOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("inboundEdi")]
+        public Input<Inputs.PartnershipInboundEdiOptionsArgs>? InboundEdi { get; set; }
+
         /// <summary>
         /// A structure that contains the outbound EDI options.
         /// </summary>

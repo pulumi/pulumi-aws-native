@@ -544,6 +544,636 @@ type DataRepositoryAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
+type S3AccessPointAttachmentFileSystemGid struct {
+	// The GID of the file system user.
+	Gid float64 `pulumi:"gid"`
+}
+
+// S3AccessPointAttachmentFileSystemGidInput is an input type that accepts S3AccessPointAttachmentFileSystemGidArgs and S3AccessPointAttachmentFileSystemGidOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentFileSystemGidInput` via:
+//
+//	S3AccessPointAttachmentFileSystemGidArgs{...}
+type S3AccessPointAttachmentFileSystemGidInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentFileSystemGidOutput() S3AccessPointAttachmentFileSystemGidOutput
+	ToS3AccessPointAttachmentFileSystemGidOutputWithContext(context.Context) S3AccessPointAttachmentFileSystemGidOutput
+}
+
+type S3AccessPointAttachmentFileSystemGidArgs struct {
+	// The GID of the file system user.
+	Gid pulumi.Float64Input `pulumi:"gid"`
+}
+
+func (S3AccessPointAttachmentFileSystemGidArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentFileSystemGid)(nil)).Elem()
+}
+
+func (i S3AccessPointAttachmentFileSystemGidArgs) ToS3AccessPointAttachmentFileSystemGidOutput() S3AccessPointAttachmentFileSystemGidOutput {
+	return i.ToS3AccessPointAttachmentFileSystemGidOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentFileSystemGidArgs) ToS3AccessPointAttachmentFileSystemGidOutputWithContext(ctx context.Context) S3AccessPointAttachmentFileSystemGidOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentFileSystemGidOutput)
+}
+
+// S3AccessPointAttachmentFileSystemGidArrayInput is an input type that accepts S3AccessPointAttachmentFileSystemGidArray and S3AccessPointAttachmentFileSystemGidArrayOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentFileSystemGidArrayInput` via:
+//
+//	S3AccessPointAttachmentFileSystemGidArray{ S3AccessPointAttachmentFileSystemGidArgs{...} }
+type S3AccessPointAttachmentFileSystemGidArrayInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentFileSystemGidArrayOutput() S3AccessPointAttachmentFileSystemGidArrayOutput
+	ToS3AccessPointAttachmentFileSystemGidArrayOutputWithContext(context.Context) S3AccessPointAttachmentFileSystemGidArrayOutput
+}
+
+type S3AccessPointAttachmentFileSystemGidArray []S3AccessPointAttachmentFileSystemGidInput
+
+func (S3AccessPointAttachmentFileSystemGidArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]S3AccessPointAttachmentFileSystemGid)(nil)).Elem()
+}
+
+func (i S3AccessPointAttachmentFileSystemGidArray) ToS3AccessPointAttachmentFileSystemGidArrayOutput() S3AccessPointAttachmentFileSystemGidArrayOutput {
+	return i.ToS3AccessPointAttachmentFileSystemGidArrayOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentFileSystemGidArray) ToS3AccessPointAttachmentFileSystemGidArrayOutputWithContext(ctx context.Context) S3AccessPointAttachmentFileSystemGidArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentFileSystemGidArrayOutput)
+}
+
+type S3AccessPointAttachmentFileSystemGidOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentFileSystemGidOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentFileSystemGid)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentFileSystemGidOutput) ToS3AccessPointAttachmentFileSystemGidOutput() S3AccessPointAttachmentFileSystemGidOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentFileSystemGidOutput) ToS3AccessPointAttachmentFileSystemGidOutputWithContext(ctx context.Context) S3AccessPointAttachmentFileSystemGidOutput {
+	return o
+}
+
+// The GID of the file system user.
+func (o S3AccessPointAttachmentFileSystemGidOutput) Gid() pulumi.Float64Output {
+	return o.ApplyT(func(v S3AccessPointAttachmentFileSystemGid) float64 { return v.Gid }).(pulumi.Float64Output)
+}
+
+type S3AccessPointAttachmentFileSystemGidArrayOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentFileSystemGidArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]S3AccessPointAttachmentFileSystemGid)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentFileSystemGidArrayOutput) ToS3AccessPointAttachmentFileSystemGidArrayOutput() S3AccessPointAttachmentFileSystemGidArrayOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentFileSystemGidArrayOutput) ToS3AccessPointAttachmentFileSystemGidArrayOutputWithContext(ctx context.Context) S3AccessPointAttachmentFileSystemGidArrayOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentFileSystemGidArrayOutput) Index(i pulumi.IntInput) S3AccessPointAttachmentFileSystemGidOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) S3AccessPointAttachmentFileSystemGid {
+		return vs[0].([]S3AccessPointAttachmentFileSystemGid)[vs[1].(int)]
+	}).(S3AccessPointAttachmentFileSystemGidOutput)
+}
+
+type S3AccessPointAttachmentOpenZfsFileSystemIdentity struct {
+	// Specifies the UID and GIDs of the file system POSIX user.
+	PosixUser S3AccessPointAttachmentOpenZfsPosixFileSystemUser `pulumi:"posixUser"`
+	// Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+	Type S3AccessPointAttachmentOpenZfsFileSystemIdentityType `pulumi:"type"`
+}
+
+// S3AccessPointAttachmentOpenZfsFileSystemIdentityInput is an input type that accepts S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs and S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentOpenZfsFileSystemIdentityInput` via:
+//
+//	S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs{...}
+type S3AccessPointAttachmentOpenZfsFileSystemIdentityInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentOpenZfsFileSystemIdentityOutput() S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput
+	ToS3AccessPointAttachmentOpenZfsFileSystemIdentityOutputWithContext(context.Context) S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput
+}
+
+type S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs struct {
+	// Specifies the UID and GIDs of the file system POSIX user.
+	PosixUser S3AccessPointAttachmentOpenZfsPosixFileSystemUserInput `pulumi:"posixUser"`
+	// Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+	Type S3AccessPointAttachmentOpenZfsFileSystemIdentityTypeInput `pulumi:"type"`
+}
+
+func (S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentOpenZfsFileSystemIdentity)(nil)).Elem()
+}
+
+func (i S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityOutput() S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput {
+	return i.ToS3AccessPointAttachmentOpenZfsFileSystemIdentityOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput)
+}
+
+type S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentOpenZfsFileSystemIdentity)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityOutput() S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput {
+	return o
+}
+
+// Specifies the UID and GIDs of the file system POSIX user.
+func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput) PosixUser() S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentOpenZfsFileSystemIdentity) S3AccessPointAttachmentOpenZfsPosixFileSystemUser {
+		return v.PosixUser
+	}).(S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput)
+}
+
+// Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput) Type() S3AccessPointAttachmentOpenZfsFileSystemIdentityTypeOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentOpenZfsFileSystemIdentity) S3AccessPointAttachmentOpenZfsFileSystemIdentityType {
+		return v.Type
+	}).(S3AccessPointAttachmentOpenZfsFileSystemIdentityTypeOutput)
+}
+
+type S3AccessPointAttachmentOpenZfsPosixFileSystemUser struct {
+	// The GID of the file system user.
+	Gid float64 `pulumi:"gid"`
+	// The list of secondary GIDs for the file system user.
+	SecondaryGids []S3AccessPointAttachmentFileSystemGid `pulumi:"secondaryGids"`
+	// The UID of the file system user.
+	Uid float64 `pulumi:"uid"`
+}
+
+// S3AccessPointAttachmentOpenZfsPosixFileSystemUserInput is an input type that accepts S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs and S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentOpenZfsPosixFileSystemUserInput` via:
+//
+//	S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs{...}
+type S3AccessPointAttachmentOpenZfsPosixFileSystemUserInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput() S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput
+	ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserOutputWithContext(context.Context) S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput
+}
+
+type S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs struct {
+	// The GID of the file system user.
+	Gid pulumi.Float64Input `pulumi:"gid"`
+	// The list of secondary GIDs for the file system user.
+	SecondaryGids S3AccessPointAttachmentFileSystemGidArrayInput `pulumi:"secondaryGids"`
+	// The UID of the file system user.
+	Uid pulumi.Float64Input `pulumi:"uid"`
+}
+
+func (S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentOpenZfsPosixFileSystemUser)(nil)).Elem()
+}
+
+func (i S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput() S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput {
+	return i.ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput)
+}
+
+type S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentOpenZfsPosixFileSystemUser)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput() S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput {
+	return o
+}
+
+// The GID of the file system user.
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) Gid() pulumi.Float64Output {
+	return o.ApplyT(func(v S3AccessPointAttachmentOpenZfsPosixFileSystemUser) float64 { return v.Gid }).(pulumi.Float64Output)
+}
+
+// The list of secondary GIDs for the file system user.
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) SecondaryGids() S3AccessPointAttachmentFileSystemGidArrayOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentOpenZfsPosixFileSystemUser) []S3AccessPointAttachmentFileSystemGid {
+		return v.SecondaryGids
+	}).(S3AccessPointAttachmentFileSystemGidArrayOutput)
+}
+
+// The UID of the file system user.
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) Uid() pulumi.Float64Output {
+	return o.ApplyT(func(v S3AccessPointAttachmentOpenZfsPosixFileSystemUser) float64 { return v.Uid }).(pulumi.Float64Output)
+}
+
+type S3AccessPointAttachmentS3AccessPoint struct {
+	// The S3 access point's alias.
+	Alias *string `pulumi:"alias"`
+	// The S3 access point's policy.
+	Policy interface{} `pulumi:"policy"`
+	// The S3 access point's ARN.
+	ResourceArn *string `pulumi:"resourceArn"`
+	// The S3 access point's virtual private cloud (VPC) configuration.
+	VpcConfiguration *S3AccessPointAttachmentS3AccessPointVpcConfiguration `pulumi:"vpcConfiguration"`
+}
+
+// S3AccessPointAttachmentS3AccessPointInput is an input type that accepts S3AccessPointAttachmentS3AccessPointArgs and S3AccessPointAttachmentS3AccessPointOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentS3AccessPointInput` via:
+//
+//	S3AccessPointAttachmentS3AccessPointArgs{...}
+type S3AccessPointAttachmentS3AccessPointInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentS3AccessPointOutput() S3AccessPointAttachmentS3AccessPointOutput
+	ToS3AccessPointAttachmentS3AccessPointOutputWithContext(context.Context) S3AccessPointAttachmentS3AccessPointOutput
+}
+
+type S3AccessPointAttachmentS3AccessPointArgs struct {
+	// The S3 access point's alias.
+	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// The S3 access point's policy.
+	Policy pulumi.Input `pulumi:"policy"`
+	// The S3 access point's ARN.
+	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
+	// The S3 access point's virtual private cloud (VPC) configuration.
+	VpcConfiguration S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrInput `pulumi:"vpcConfiguration"`
+}
+
+func (S3AccessPointAttachmentS3AccessPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentS3AccessPoint)(nil)).Elem()
+}
+
+func (i S3AccessPointAttachmentS3AccessPointArgs) ToS3AccessPointAttachmentS3AccessPointOutput() S3AccessPointAttachmentS3AccessPointOutput {
+	return i.ToS3AccessPointAttachmentS3AccessPointOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentS3AccessPointArgs) ToS3AccessPointAttachmentS3AccessPointOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointOutput)
+}
+
+func (i S3AccessPointAttachmentS3AccessPointArgs) ToS3AccessPointAttachmentS3AccessPointPtrOutput() S3AccessPointAttachmentS3AccessPointPtrOutput {
+	return i.ToS3AccessPointAttachmentS3AccessPointPtrOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentS3AccessPointArgs) ToS3AccessPointAttachmentS3AccessPointPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointOutput).ToS3AccessPointAttachmentS3AccessPointPtrOutputWithContext(ctx)
+}
+
+// S3AccessPointAttachmentS3AccessPointPtrInput is an input type that accepts S3AccessPointAttachmentS3AccessPointArgs, S3AccessPointAttachmentS3AccessPointPtr and S3AccessPointAttachmentS3AccessPointPtrOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentS3AccessPointPtrInput` via:
+//
+//	        S3AccessPointAttachmentS3AccessPointArgs{...}
+//
+//	or:
+//
+//	        nil
+type S3AccessPointAttachmentS3AccessPointPtrInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentS3AccessPointPtrOutput() S3AccessPointAttachmentS3AccessPointPtrOutput
+	ToS3AccessPointAttachmentS3AccessPointPtrOutputWithContext(context.Context) S3AccessPointAttachmentS3AccessPointPtrOutput
+}
+
+type s3accessPointAttachmentS3AccessPointPtrType S3AccessPointAttachmentS3AccessPointArgs
+
+func S3AccessPointAttachmentS3AccessPointPtr(v *S3AccessPointAttachmentS3AccessPointArgs) S3AccessPointAttachmentS3AccessPointPtrInput {
+	return (*s3accessPointAttachmentS3AccessPointPtrType)(v)
+}
+
+func (*s3accessPointAttachmentS3AccessPointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentS3AccessPoint)(nil)).Elem()
+}
+
+func (i *s3accessPointAttachmentS3AccessPointPtrType) ToS3AccessPointAttachmentS3AccessPointPtrOutput() S3AccessPointAttachmentS3AccessPointPtrOutput {
+	return i.ToS3AccessPointAttachmentS3AccessPointPtrOutputWithContext(context.Background())
+}
+
+func (i *s3accessPointAttachmentS3AccessPointPtrType) ToS3AccessPointAttachmentS3AccessPointPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointPtrOutput)
+}
+
+type S3AccessPointAttachmentS3AccessPointOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentS3AccessPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentS3AccessPoint)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOutput) ToS3AccessPointAttachmentS3AccessPointOutput() S3AccessPointAttachmentS3AccessPointOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOutput) ToS3AccessPointAttachmentS3AccessPointOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOutput) ToS3AccessPointAttachmentS3AccessPointPtrOutput() S3AccessPointAttachmentS3AccessPointPtrOutput {
+	return o.ToS3AccessPointAttachmentS3AccessPointPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOutput) ToS3AccessPointAttachmentS3AccessPointPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3AccessPointAttachmentS3AccessPoint) *S3AccessPointAttachmentS3AccessPoint {
+		return &v
+	}).(S3AccessPointAttachmentS3AccessPointPtrOutput)
+}
+
+// The S3 access point's alias.
+func (o S3AccessPointAttachmentS3AccessPointOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentS3AccessPoint) *string { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+// The S3 access point's policy.
+func (o S3AccessPointAttachmentS3AccessPointOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentS3AccessPoint) interface{} { return v.Policy }).(pulumi.AnyOutput)
+}
+
+// The S3 access point's ARN.
+func (o S3AccessPointAttachmentS3AccessPointOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentS3AccessPoint) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
+}
+
+// The S3 access point's virtual private cloud (VPC) configuration.
+func (o S3AccessPointAttachmentS3AccessPointOutput) VpcConfiguration() S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentS3AccessPoint) *S3AccessPointAttachmentS3AccessPointVpcConfiguration {
+		return v.VpcConfiguration
+	}).(S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput)
+}
+
+type S3AccessPointAttachmentS3AccessPointPtrOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentS3AccessPointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentS3AccessPoint)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentS3AccessPointPtrOutput) ToS3AccessPointAttachmentS3AccessPointPtrOutput() S3AccessPointAttachmentS3AccessPointPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointPtrOutput) ToS3AccessPointAttachmentS3AccessPointPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointPtrOutput) Elem() S3AccessPointAttachmentS3AccessPointOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPoint) S3AccessPointAttachmentS3AccessPoint {
+		if v != nil {
+			return *v
+		}
+		var ret S3AccessPointAttachmentS3AccessPoint
+		return ret
+	}).(S3AccessPointAttachmentS3AccessPointOutput)
+}
+
+// The S3 access point's alias.
+func (o S3AccessPointAttachmentS3AccessPointPtrOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Alias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 access point's policy.
+func (o S3AccessPointAttachmentS3AccessPointPtrOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPoint) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Policy
+	}).(pulumi.AnyOutput)
+}
+
+// The S3 access point's ARN.
+func (o S3AccessPointAttachmentS3AccessPointPtrOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 access point's virtual private cloud (VPC) configuration.
+func (o S3AccessPointAttachmentS3AccessPointPtrOutput) VpcConfiguration() S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPoint) *S3AccessPointAttachmentS3AccessPointVpcConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConfiguration
+	}).(S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput)
+}
+
+type S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration struct {
+	// The file system identity used to authorize file access requests made using the S3 access point.
+	FileSystemIdentity S3AccessPointAttachmentOpenZfsFileSystemIdentity `pulumi:"fileSystemIdentity"`
+	// The ID of the FSx for OpenZFS volume that the S3 access point is attached to.
+	VolumeId string `pulumi:"volumeId"`
+}
+
+// S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationInput is an input type that accepts S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs and S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationInput` via:
+//
+//	S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs{...}
+type S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput() S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput
+	ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutputWithContext(context.Context) S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput
+}
+
+type S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs struct {
+	// The file system identity used to authorize file access requests made using the S3 access point.
+	FileSystemIdentity S3AccessPointAttachmentOpenZfsFileSystemIdentityInput `pulumi:"fileSystemIdentity"`
+	// The ID of the FSx for OpenZFS volume that the S3 access point is attached to.
+	VolumeId pulumi.StringInput `pulumi:"volumeId"`
+}
+
+func (S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration)(nil)).Elem()
+}
+
+func (i S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs) ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput() S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput {
+	return i.ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs) ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput)
+}
+
+type S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput) ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput() S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput) ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput {
+	return o
+}
+
+// The file system identity used to authorize file access requests made using the S3 access point.
+func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput) FileSystemIdentity() S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration) S3AccessPointAttachmentOpenZfsFileSystemIdentity {
+		return v.FileSystemIdentity
+	}).(S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput)
+}
+
+// The ID of the FSx for OpenZFS volume that the S3 access point is attached to.
+func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput) VolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration) string { return v.VolumeId }).(pulumi.StringOutput)
+}
+
+type S3AccessPointAttachmentS3AccessPointVpcConfiguration struct {
+	// Specifies the virtual private cloud (VPC) for the S3 access point VPC configuration, if one exists.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// S3AccessPointAttachmentS3AccessPointVpcConfigurationInput is an input type that accepts S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs and S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentS3AccessPointVpcConfigurationInput` via:
+//
+//	S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs{...}
+type S3AccessPointAttachmentS3AccessPointVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentS3AccessPointVpcConfigurationOutput() S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput
+	ToS3AccessPointAttachmentS3AccessPointVpcConfigurationOutputWithContext(context.Context) S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput
+}
+
+type S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs struct {
+	// Specifies the virtual private cloud (VPC) for the S3 access point VPC configuration, if one exists.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (i S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs) ToS3AccessPointAttachmentS3AccessPointVpcConfigurationOutput() S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput {
+	return i.ToS3AccessPointAttachmentS3AccessPointVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs) ToS3AccessPointAttachmentS3AccessPointVpcConfigurationOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput)
+}
+
+func (i S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs) ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput {
+	return i.ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs) ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput).ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutputWithContext(ctx)
+}
+
+// S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrInput is an input type that accepts S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs, S3AccessPointAttachmentS3AccessPointVpcConfigurationPtr and S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrInput` via:
+//
+//	        S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput
+	ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutputWithContext(context.Context) S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput
+}
+
+type s3accessPointAttachmentS3AccessPointVpcConfigurationPtrType S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs
+
+func S3AccessPointAttachmentS3AccessPointVpcConfigurationPtr(v *S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs) S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrInput {
+	return (*s3accessPointAttachmentS3AccessPointVpcConfigurationPtrType)(v)
+}
+
+func (*s3accessPointAttachmentS3AccessPointVpcConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentS3AccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (i *s3accessPointAttachmentS3AccessPointVpcConfigurationPtrType) ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput {
+	return i.ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *s3accessPointAttachmentS3AccessPointVpcConfigurationPtrType) ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput)
+}
+
+type S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput) ToS3AccessPointAttachmentS3AccessPointVpcConfigurationOutput() S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput) ToS3AccessPointAttachmentS3AccessPointVpcConfigurationOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput) ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput {
+	return o.ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput) ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3AccessPointAttachmentS3AccessPointVpcConfiguration) *S3AccessPointAttachmentS3AccessPointVpcConfiguration {
+		return &v
+	}).(S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput)
+}
+
+// Specifies the virtual private cloud (VPC) for the S3 access point VPC configuration, if one exists.
+func (o S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentS3AccessPointVpcConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentS3AccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput) ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput) ToS3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput) Elem() S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPointVpcConfiguration) S3AccessPointAttachmentS3AccessPointVpcConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret S3AccessPointAttachmentS3AccessPointVpcConfiguration
+		return ret
+	}).(S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput)
+}
+
+// Specifies the virtual private cloud (VPC) for the S3 access point VPC configuration, if one exists.
+func (o S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPointVpcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationAutoExportPolicyInput)(nil)).Elem(), DataRepositoryAssociationAutoExportPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationAutoExportPolicyPtrInput)(nil)).Elem(), DataRepositoryAssociationAutoExportPolicyArgs{})
@@ -551,10 +1181,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationAutoImportPolicyPtrInput)(nil)).Elem(), DataRepositoryAssociationAutoImportPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3Input)(nil)).Elem(), DataRepositoryAssociationS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3PtrInput)(nil)).Elem(), DataRepositoryAssociationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentFileSystemGidInput)(nil)).Elem(), S3AccessPointAttachmentFileSystemGidArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentFileSystemGidArrayInput)(nil)).Elem(), S3AccessPointAttachmentFileSystemGidArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOpenZfsFileSystemIdentityInput)(nil)).Elem(), S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOpenZfsPosixFileSystemUserInput)(nil)).Elem(), S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointPtrInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointVpcConfigurationInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoExportPolicyOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoExportPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoImportPolicyOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoImportPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3Output{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3PtrOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentFileSystemGidOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentFileSystemGidArrayOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointPtrOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput{})
 }

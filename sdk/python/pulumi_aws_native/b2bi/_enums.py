@@ -11,12 +11,18 @@ __all__ = [
     'CapabilityType',
     'CapabilityX12TransactionSet',
     'CapabilityX12Version',
+    'PartnershipLineTerminator',
+    'PartnershipWrapFormat',
+    'PartnershipX12FunctionalAcknowledgment',
+    'PartnershipX12TechnicalAcknowledgment',
+    'PartnershipX12gs05TimeFormat',
     'ProfileLogging',
     'TransformerFileFormat',
     'TransformerFromFormat',
     'TransformerMappingTemplateLanguage',
     'TransformerStatus',
     'TransformerToFormat',
+    'TransformerX12SplitBy',
     'TransformerX12TransactionSet',
     'TransformerX12Version',
 ]
@@ -389,6 +395,40 @@ class CapabilityX12Version(builtins.str, Enum):
     VERSION5010_HIPAA = "VERSION_5010_HIPAA"
 
 
+@pulumi.type_token("aws-native:b2bi:PartnershipLineTerminator")
+class PartnershipLineTerminator(builtins.str, Enum):
+    CRLF = "CRLF"
+    LF = "LF"
+    CR = "CR"
+
+
+@pulumi.type_token("aws-native:b2bi:PartnershipWrapFormat")
+class PartnershipWrapFormat(builtins.str, Enum):
+    SEGMENT = "SEGMENT"
+    ONE_LINE = "ONE_LINE"
+    LINE_LENGTH = "LINE_LENGTH"
+
+
+@pulumi.type_token("aws-native:b2bi:PartnershipX12FunctionalAcknowledgment")
+class PartnershipX12FunctionalAcknowledgment(builtins.str, Enum):
+    DO_NOT_GENERATE = "DO_NOT_GENERATE"
+    GENERATE_ALL_SEGMENTS = "GENERATE_ALL_SEGMENTS"
+    GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP = "GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP"
+
+
+@pulumi.type_token("aws-native:b2bi:PartnershipX12TechnicalAcknowledgment")
+class PartnershipX12TechnicalAcknowledgment(builtins.str, Enum):
+    DO_NOT_GENERATE = "DO_NOT_GENERATE"
+    GENERATE_ALL_SEGMENTS = "GENERATE_ALL_SEGMENTS"
+
+
+@pulumi.type_token("aws-native:b2bi:PartnershipX12gs05TimeFormat")
+class PartnershipX12gs05TimeFormat(builtins.str, Enum):
+    HHMM = "HHMM"
+    HHMMSS = "HHMMSS"
+    HHMMSSDD = "HHMMSSDD"
+
+
 @pulumi.type_token("aws-native:b2bi:ProfileLogging")
 class ProfileLogging(builtins.str, Enum):
     ENABLED = "ENABLED"
@@ -422,6 +462,12 @@ class TransformerStatus(builtins.str, Enum):
 @pulumi.type_token("aws-native:b2bi:TransformerToFormat")
 class TransformerToFormat(builtins.str, Enum):
     X12 = "X12"
+
+
+@pulumi.type_token("aws-native:b2bi:TransformerX12SplitBy")
+class TransformerX12SplitBy(builtins.str, Enum):
+    NONE = "NONE"
+    TRANSACTION = "TRANSACTION"
 
 
 @pulumi.type_token("aws-native:b2bi:TransformerX12TransactionSet")

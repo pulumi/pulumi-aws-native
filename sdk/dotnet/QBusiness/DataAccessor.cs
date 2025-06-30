@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        [Output("authenticationDetail")]
+        public Output<Outputs.DataAccessorAuthenticationDetail?> AuthenticationDetail { get; private set; } = null!;
+
         /// <summary>
         /// The timestamp when the data accessor was created.
         /// </summary>
@@ -142,6 +145,9 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
+
+        [Input("authenticationDetail")]
+        public Input<Inputs.DataAccessorAuthenticationDetailArgs>? AuthenticationDetail { get; set; }
 
         /// <summary>
         /// The friendly name of the data accessor.

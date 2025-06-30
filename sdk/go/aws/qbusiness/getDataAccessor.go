@@ -33,6 +33,7 @@ type LookupDataAccessorArgs struct {
 type LookupDataAccessorResult struct {
 	// A list of action configurations specifying the allowed actions and any associated filters.
 	ActionConfigurations []DataAccessorActionConfiguration `pulumi:"actionConfigurations"`
+	AuthenticationDetail *DataAccessorAuthenticationDetail `pulumi:"authenticationDetail"`
 	// The timestamp when the data accessor was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The Amazon Resource Name (ARN) of the data accessor.
@@ -86,6 +87,10 @@ func (o LookupDataAccessorResultOutput) ToLookupDataAccessorResultOutputWithCont
 // A list of action configurations specifying the allowed actions and any associated filters.
 func (o LookupDataAccessorResultOutput) ActionConfigurations() DataAccessorActionConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupDataAccessorResult) []DataAccessorActionConfiguration { return v.ActionConfigurations }).(DataAccessorActionConfigurationArrayOutput)
+}
+
+func (o LookupDataAccessorResultOutput) AuthenticationDetail() DataAccessorAuthenticationDetailPtrOutput {
+	return o.ApplyT(func(v LookupDataAccessorResult) *DataAccessorAuthenticationDetail { return v.AuthenticationDetail }).(DataAccessorAuthenticationDetailPtrOutput)
 }
 
 // The timestamp when the data accessor was created.

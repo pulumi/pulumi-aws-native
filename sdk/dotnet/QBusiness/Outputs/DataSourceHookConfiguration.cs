@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
         /// </summary>
         public readonly Outputs.DataSourceDocumentAttributeCondition? InvocationCondition;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+        /// The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
         /// </summary>
         public readonly string? LambdaArn;
         /// <summary>

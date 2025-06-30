@@ -26,13 +26,13 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.CloudFormation.StackSetConcurrencyMode? ConcurrencyMode;
         /// <summary>
-        /// The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+        /// The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
         /// 
         /// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
         /// </summary>
         public readonly int? FailureToleranceCount;
         /// <summary>
-        /// The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+        /// The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
         /// 
         /// When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
         /// 

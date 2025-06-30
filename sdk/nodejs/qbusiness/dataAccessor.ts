@@ -45,6 +45,7 @@ export class DataAccessor extends pulumi.CustomResource {
      * The unique identifier of the Amazon Q Business application.
      */
     public readonly applicationId!: pulumi.Output<string>;
+    public readonly authenticationDetail!: pulumi.Output<outputs.qbusiness.DataAccessorAuthenticationDetail | undefined>;
     /**
      * The timestamp when the data accessor was created.
      */
@@ -103,6 +104,7 @@ export class DataAccessor extends pulumi.CustomResource {
             }
             resourceInputs["actionConfigurations"] = args ? args.actionConfigurations : undefined;
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["authenticationDetail"] = args ? args.authenticationDetail : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -114,6 +116,7 @@ export class DataAccessor extends pulumi.CustomResource {
         } else {
             resourceInputs["actionConfigurations"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["authenticationDetail"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dataAccessorArn"] = undefined /*out*/;
             resourceInputs["dataAccessorId"] = undefined /*out*/;
@@ -142,6 +145,7 @@ export interface DataAccessorArgs {
      * The unique identifier of the Amazon Q Business application.
      */
     applicationId: pulumi.Input<string>;
+    authenticationDetail?: pulumi.Input<inputs.qbusiness.DataAccessorAuthenticationDetailArgs>;
     /**
      * The friendly name of the data accessor.
      */
