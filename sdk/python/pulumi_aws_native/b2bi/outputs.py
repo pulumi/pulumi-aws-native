@@ -24,12 +24,18 @@ __all__ = [
     'CapabilityS3Location',
     'CapabilityX12Details',
     'PartnershipCapabilityOptions',
+    'PartnershipInboundEdiOptions',
     'PartnershipOutboundEdiOptionsProperties',
+    'PartnershipWrapOptions',
+    'PartnershipX12AcknowledgmentOptions',
+    'PartnershipX12ControlNumbers',
     'PartnershipX12Delimiters',
     'PartnershipX12Envelope',
     'PartnershipX12FunctionalGroupHeaders',
+    'PartnershipX12InboundEdiOptions',
     'PartnershipX12InterchangeControlHeaders',
     'PartnershipX12OutboundEdiHeaders',
+    'TransformerAdvancedOptions',
     'TransformerEdiTypeProperties',
     'TransformerFormatOptionsProperties',
     'TransformerInputConversion',
@@ -37,7 +43,9 @@ __all__ = [
     'TransformerOutputConversion',
     'TransformerSampleDocumentKeys',
     'TransformerSampleDocuments',
+    'TransformerX12AdvancedOptions',
     'TransformerX12Details',
+    'TransformerX12SplitOptions',
 ]
 
 @pulumi.output_type
@@ -226,7 +234,9 @@ class PartnershipCapabilityOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "outboundEdi":
+        if key == "inboundEdi":
+            suggest = "inbound_edi"
+        elif key == "outboundEdi":
             suggest = "outbound_edi"
 
         if suggest:
@@ -241,12 +251,24 @@ class PartnershipCapabilityOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 inbound_edi: Optional['outputs.PartnershipInboundEdiOptions'] = None,
                  outbound_edi: Optional['outputs.PartnershipOutboundEdiOptionsProperties'] = None):
         """
+        :param 'PartnershipInboundEdiOptions' inbound_edi: A structure that contains the inbound EDI options for the capability.
         :param 'PartnershipOutboundEdiOptionsProperties' outbound_edi: A structure that contains the outbound EDI options.
         """
+        if inbound_edi is not None:
+            pulumi.set(__self__, "inbound_edi", inbound_edi)
         if outbound_edi is not None:
             pulumi.set(__self__, "outbound_edi", outbound_edi)
+
+    @property
+    @pulumi.getter(name="inboundEdi")
+    def inbound_edi(self) -> Optional['outputs.PartnershipInboundEdiOptions']:
+        """
+        A structure that contains the inbound EDI options for the capability.
+        """
+        return pulumi.get(self, "inbound_edi")
 
     @property
     @pulumi.getter(name="outboundEdi")
@@ -255,6 +277,25 @@ class PartnershipCapabilityOptions(dict):
         A structure that contains the outbound EDI options.
         """
         return pulumi.get(self, "outbound_edi")
+
+
+@pulumi.output_type
+class PartnershipInboundEdiOptions(dict):
+    def __init__(__self__, *,
+                 x12: Optional['outputs.PartnershipX12InboundEdiOptions'] = None):
+        """
+        :param 'PartnershipX12InboundEdiOptions' x12: A structure that contains X12-specific options for processing inbound X12 EDI files.
+        """
+        if x12 is not None:
+            pulumi.set(__self__, "x12", x12)
+
+    @property
+    @pulumi.getter
+    def x12(self) -> Optional['outputs.PartnershipX12InboundEdiOptions']:
+        """
+        A structure that contains X12-specific options for processing inbound X12 EDI files.
+        """
+        return pulumi.get(self, "x12")
 
 
 @pulumi.output_type
@@ -267,6 +308,144 @@ class PartnershipOutboundEdiOptionsProperties(dict):
     @pulumi.getter
     def x12(self) -> 'outputs.PartnershipX12Envelope':
         return pulumi.get(self, "x12")
+
+
+@pulumi.output_type
+class PartnershipWrapOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lineLength":
+            suggest = "line_length"
+        elif key == "lineTerminator":
+            suggest = "line_terminator"
+        elif key == "wrapBy":
+            suggest = "wrap_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnershipWrapOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnershipWrapOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnershipWrapOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 line_length: Optional[builtins.float] = None,
+                 line_terminator: Optional['PartnershipLineTerminator'] = None,
+                 wrap_by: Optional['PartnershipWrapFormat'] = None):
+        if line_length is not None:
+            pulumi.set(__self__, "line_length", line_length)
+        if line_terminator is not None:
+            pulumi.set(__self__, "line_terminator", line_terminator)
+        if wrap_by is not None:
+            pulumi.set(__self__, "wrap_by", wrap_by)
+
+    @property
+    @pulumi.getter(name="lineLength")
+    def line_length(self) -> Optional[builtins.float]:
+        return pulumi.get(self, "line_length")
+
+    @property
+    @pulumi.getter(name="lineTerminator")
+    def line_terminator(self) -> Optional['PartnershipLineTerminator']:
+        return pulumi.get(self, "line_terminator")
+
+    @property
+    @pulumi.getter(name="wrapBy")
+    def wrap_by(self) -> Optional['PartnershipWrapFormat']:
+        return pulumi.get(self, "wrap_by")
+
+
+@pulumi.output_type
+class PartnershipX12AcknowledgmentOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionalAcknowledgment":
+            suggest = "functional_acknowledgment"
+        elif key == "technicalAcknowledgment":
+            suggest = "technical_acknowledgment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnershipX12AcknowledgmentOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnershipX12AcknowledgmentOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnershipX12AcknowledgmentOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 functional_acknowledgment: 'PartnershipX12FunctionalAcknowledgment',
+                 technical_acknowledgment: 'PartnershipX12TechnicalAcknowledgment'):
+        pulumi.set(__self__, "functional_acknowledgment", functional_acknowledgment)
+        pulumi.set(__self__, "technical_acknowledgment", technical_acknowledgment)
+
+    @property
+    @pulumi.getter(name="functionalAcknowledgment")
+    def functional_acknowledgment(self) -> 'PartnershipX12FunctionalAcknowledgment':
+        return pulumi.get(self, "functional_acknowledgment")
+
+    @property
+    @pulumi.getter(name="technicalAcknowledgment")
+    def technical_acknowledgment(self) -> 'PartnershipX12TechnicalAcknowledgment':
+        return pulumi.get(self, "technical_acknowledgment")
+
+
+@pulumi.output_type
+class PartnershipX12ControlNumbers(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startingFunctionalGroupControlNumber":
+            suggest = "starting_functional_group_control_number"
+        elif key == "startingInterchangeControlNumber":
+            suggest = "starting_interchange_control_number"
+        elif key == "startingTransactionSetControlNumber":
+            suggest = "starting_transaction_set_control_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnershipX12ControlNumbers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnershipX12ControlNumbers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnershipX12ControlNumbers.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 starting_functional_group_control_number: Optional[builtins.float] = None,
+                 starting_interchange_control_number: Optional[builtins.float] = None,
+                 starting_transaction_set_control_number: Optional[builtins.float] = None):
+        if starting_functional_group_control_number is not None:
+            pulumi.set(__self__, "starting_functional_group_control_number", starting_functional_group_control_number)
+        if starting_interchange_control_number is not None:
+            pulumi.set(__self__, "starting_interchange_control_number", starting_interchange_control_number)
+        if starting_transaction_set_control_number is not None:
+            pulumi.set(__self__, "starting_transaction_set_control_number", starting_transaction_set_control_number)
+
+    @property
+    @pulumi.getter(name="startingFunctionalGroupControlNumber")
+    def starting_functional_group_control_number(self) -> Optional[builtins.float]:
+        return pulumi.get(self, "starting_functional_group_control_number")
+
+    @property
+    @pulumi.getter(name="startingInterchangeControlNumber")
+    def starting_interchange_control_number(self) -> Optional[builtins.float]:
+        return pulumi.get(self, "starting_interchange_control_number")
+
+    @property
+    @pulumi.getter(name="startingTransactionSetControlNumber")
+    def starting_transaction_set_control_number(self) -> Optional[builtins.float]:
+        return pulumi.get(self, "starting_transaction_set_control_number")
 
 
 @pulumi.output_type
@@ -321,15 +500,40 @@ class PartnershipX12Delimiters(dict):
 
 @pulumi.output_type
 class PartnershipX12Envelope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "wrapOptions":
+            suggest = "wrap_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnershipX12Envelope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnershipX12Envelope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnershipX12Envelope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 common: Optional['outputs.PartnershipX12OutboundEdiHeaders'] = None):
+                 common: Optional['outputs.PartnershipX12OutboundEdiHeaders'] = None,
+                 wrap_options: Optional['outputs.PartnershipWrapOptions'] = None):
         if common is not None:
             pulumi.set(__self__, "common", common)
+        if wrap_options is not None:
+            pulumi.set(__self__, "wrap_options", wrap_options)
 
     @property
     @pulumi.getter
     def common(self) -> Optional['outputs.PartnershipX12OutboundEdiHeaders']:
         return pulumi.get(self, "common")
+
+    @property
+    @pulumi.getter(name="wrapOptions")
+    def wrap_options(self) -> Optional['outputs.PartnershipWrapOptions']:
+        return pulumi.get(self, "wrap_options")
 
 
 @pulumi.output_type
@@ -380,6 +584,42 @@ class PartnershipX12FunctionalGroupHeaders(dict):
     @pulumi.getter(name="responsibleAgencyCode")
     def responsible_agency_code(self) -> Optional[builtins.str]:
         return pulumi.get(self, "responsible_agency_code")
+
+
+@pulumi.output_type
+class PartnershipX12InboundEdiOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acknowledgmentOptions":
+            suggest = "acknowledgment_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnershipX12InboundEdiOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnershipX12InboundEdiOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnershipX12InboundEdiOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 acknowledgment_options: Optional['outputs.PartnershipX12AcknowledgmentOptions'] = None):
+        """
+        :param 'PartnershipX12AcknowledgmentOptions' acknowledgment_options: Specifies acknowledgment options for inbound X12 EDI files. These options control how functional and technical acknowledgments are handled.
+        """
+        if acknowledgment_options is not None:
+            pulumi.set(__self__, "acknowledgment_options", acknowledgment_options)
+
+    @property
+    @pulumi.getter(name="acknowledgmentOptions")
+    def acknowledgment_options(self) -> Optional['outputs.PartnershipX12AcknowledgmentOptions']:
+        """
+        Specifies acknowledgment options for inbound X12 EDI files. These options control how functional and technical acknowledgments are handled.
+        """
+        return pulumi.get(self, "acknowledgment_options")
 
 
 @pulumi.output_type
@@ -477,8 +717,12 @@ class PartnershipX12OutboundEdiHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "functionalGroupHeaders":
+        if key == "controlNumbers":
+            suggest = "control_numbers"
+        elif key == "functionalGroupHeaders":
             suggest = "functional_group_headers"
+        elif key == "gs05TimeFormat":
+            suggest = "gs05_time_format"
         elif key == "interchangeControlHeaders":
             suggest = "interchange_control_headers"
         elif key == "validateEdi":
@@ -496,18 +740,29 @@ class PartnershipX12OutboundEdiHeaders(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 control_numbers: Optional['outputs.PartnershipX12ControlNumbers'] = None,
                  delimiters: Optional['outputs.PartnershipX12Delimiters'] = None,
                  functional_group_headers: Optional['outputs.PartnershipX12FunctionalGroupHeaders'] = None,
+                 gs05_time_format: Optional['PartnershipX12gs05TimeFormat'] = None,
                  interchange_control_headers: Optional['outputs.PartnershipX12InterchangeControlHeaders'] = None,
                  validate_edi: Optional[builtins.bool] = None):
+        if control_numbers is not None:
+            pulumi.set(__self__, "control_numbers", control_numbers)
         if delimiters is not None:
             pulumi.set(__self__, "delimiters", delimiters)
         if functional_group_headers is not None:
             pulumi.set(__self__, "functional_group_headers", functional_group_headers)
+        if gs05_time_format is not None:
+            pulumi.set(__self__, "gs05_time_format", gs05_time_format)
         if interchange_control_headers is not None:
             pulumi.set(__self__, "interchange_control_headers", interchange_control_headers)
         if validate_edi is not None:
             pulumi.set(__self__, "validate_edi", validate_edi)
+
+    @property
+    @pulumi.getter(name="controlNumbers")
+    def control_numbers(self) -> Optional['outputs.PartnershipX12ControlNumbers']:
+        return pulumi.get(self, "control_numbers")
 
     @property
     @pulumi.getter
@@ -520,6 +775,11 @@ class PartnershipX12OutboundEdiHeaders(dict):
         return pulumi.get(self, "functional_group_headers")
 
     @property
+    @pulumi.getter(name="gs05TimeFormat")
+    def gs05_time_format(self) -> Optional['PartnershipX12gs05TimeFormat']:
+        return pulumi.get(self, "gs05_time_format")
+
+    @property
     @pulumi.getter(name="interchangeControlHeaders")
     def interchange_control_headers(self) -> Optional['outputs.PartnershipX12InterchangeControlHeaders']:
         return pulumi.get(self, "interchange_control_headers")
@@ -528,6 +788,19 @@ class PartnershipX12OutboundEdiHeaders(dict):
     @pulumi.getter(name="validateEdi")
     def validate_edi(self) -> Optional[builtins.bool]:
         return pulumi.get(self, "validate_edi")
+
+
+@pulumi.output_type
+class TransformerAdvancedOptions(dict):
+    def __init__(__self__, *,
+                 x12: Optional['outputs.TransformerX12AdvancedOptions'] = None):
+        if x12 is not None:
+            pulumi.set(__self__, "x12", x12)
+
+    @property
+    @pulumi.getter
+    def x12(self) -> Optional['outputs.TransformerX12AdvancedOptions']:
+        return pulumi.get(self, "x12")
 
 
 @pulumi.output_type
@@ -578,6 +851,8 @@ class TransformerInputConversion(dict):
         suggest = None
         if key == "fromFormat":
             suggest = "from_format"
+        elif key == "advancedOptions":
+            suggest = "advanced_options"
         elif key == "formatOptions":
             suggest = "format_options"
 
@@ -594,8 +869,11 @@ class TransformerInputConversion(dict):
 
     def __init__(__self__, *,
                  from_format: 'TransformerFromFormat',
+                 advanced_options: Optional['outputs.TransformerAdvancedOptions'] = None,
                  format_options: Optional['outputs.TransformerFormatOptionsProperties'] = None):
         pulumi.set(__self__, "from_format", from_format)
+        if advanced_options is not None:
+            pulumi.set(__self__, "advanced_options", advanced_options)
         if format_options is not None:
             pulumi.set(__self__, "format_options", format_options)
 
@@ -603,6 +881,11 @@ class TransformerInputConversion(dict):
     @pulumi.getter(name="fromFormat")
     def from_format(self) -> 'TransformerFromFormat':
         return pulumi.get(self, "from_format")
+
+    @property
+    @pulumi.getter(name="advancedOptions")
+    def advanced_options(self) -> Optional['outputs.TransformerAdvancedOptions']:
+        return pulumi.get(self, "advanced_options")
 
     @property
     @pulumi.getter(name="formatOptions")
@@ -744,6 +1027,36 @@ class TransformerSampleDocuments(dict):
 
 
 @pulumi.output_type
+class TransformerX12AdvancedOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "splitOptions":
+            suggest = "split_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformerX12AdvancedOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformerX12AdvancedOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformerX12AdvancedOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 split_options: Optional['outputs.TransformerX12SplitOptions'] = None):
+        if split_options is not None:
+            pulumi.set(__self__, "split_options", split_options)
+
+    @property
+    @pulumi.getter(name="splitOptions")
+    def split_options(self) -> Optional['outputs.TransformerX12SplitOptions']:
+        return pulumi.get(self, "split_options")
+
+
+@pulumi.output_type
 class TransformerX12Details(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -779,5 +1092,35 @@ class TransformerX12Details(dict):
     @pulumi.getter
     def version(self) -> Optional['TransformerX12Version']:
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class TransformerX12SplitOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "splitBy":
+            suggest = "split_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformerX12SplitOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformerX12SplitOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformerX12SplitOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 split_by: Optional['TransformerX12SplitBy'] = None):
+        if split_by is not None:
+            pulumi.set(__self__, "split_by", split_by)
+
+    @property
+    @pulumi.getter(name="splitBy")
+    def split_by(self) -> Optional['TransformerX12SplitBy']:
+        return pulumi.get(self, "split_by")
 
 

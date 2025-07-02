@@ -9,6 +9,8 @@ from enum import Enum
 __all__ = [
     'KeyspaceRegionListItem',
     'KeyspaceReplicationSpecificationReplicationStrategy',
+    'TableCdcStatus',
+    'TableCdcViewType',
     'TableClusteringKeyColumnOrderBy',
     'TableEncryptionType',
     'TableMode',
@@ -48,6 +50,26 @@ class KeyspaceReplicationSpecificationReplicationStrategy(builtins.str, Enum):
     """
     SINGLE_REGION = "SINGLE_REGION"
     MULTI_REGION = "MULTI_REGION"
+
+
+@pulumi.type_token("aws-native:cassandra:TableCdcStatus")
+class TableCdcStatus(builtins.str, Enum):
+    """
+    Indicates whether CDC is enabled or disabled for the table
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:cassandra:TableCdcViewType")
+class TableCdcViewType(builtins.str, Enum):
+    """
+    Specifies what data should be captured in the change data stream
+    """
+    NEW_IMAGE = "NEW_IMAGE"
+    OLD_IMAGE = "OLD_IMAGE"
+    KEYS_ONLY = "KEYS_ONLY"
+    NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES"
 
 
 @pulumi.type_token("aws-native:cassandra:TableClusteringKeyColumnOrderBy")

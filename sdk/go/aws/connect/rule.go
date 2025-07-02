@@ -26,7 +26,7 @@ type Rule struct {
 	// The name of the rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The publish status of the rule.
-	//   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+	//  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
 	PublishStatus RulePublishStatusOutput `pulumi:"publishStatus"`
 	// The Amazon Resource Name (ARN) of the rule.
 	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
@@ -105,7 +105,7 @@ type ruleArgs struct {
 	// The name of the rule.
 	Name *string `pulumi:"name"`
 	// The publish status of the rule.
-	//   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+	//  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
 	PublishStatus RulePublishStatus `pulumi:"publishStatus"`
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -124,7 +124,7 @@ type RuleArgs struct {
 	// The name of the rule.
 	Name pulumi.StringPtrInput
 	// The publish status of the rule.
-	//   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+	//  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
 	PublishStatus RulePublishStatusInput
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags aws.TagArrayInput

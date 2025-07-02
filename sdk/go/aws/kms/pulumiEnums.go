@@ -14,7 +14,8 @@ import (
 //
 //	To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.
 //	You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations.
-//	 CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+//	  +  CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+//	 +  ``EXTERNAL`` is not supported for ML-DSA keys.
 type KeyOrigin string
 
 const (
@@ -207,6 +208,11 @@ func (in *keyOriginPtr) ToKeyOriginPtrOutputWithContext(ctx context.Context) Key
 //
 //	 +  Other asymmetric elliptic curve key pairs (signing and verification)
 //	 +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
+//
+//	 +  Asymmetric ML-DSA key pairs (signing and verification)
+//	 +   ``ML_DSA_44``
+//	 +   ``ML_DSA_65``
+//	 +   ``ML_DSA_87``
 //
 //	 +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
 //	 +  ``SM2`` (China Regions only)
@@ -411,7 +417,8 @@ func (in *keySpecPtr) ToKeySpecPtrOutputWithContext(ctx context.Context) KeySpec
 //	+  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.
 //	+  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
 //	+  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.
-//	+  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.
+//	+  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs, specify ``SIGN_VERIFY``.
+//	+  For asymmetric KMS keys with ML-DSA key pairs, specify ``SIGN_VERIFY``.
 //	+  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``.
 type KeyUsage string
 

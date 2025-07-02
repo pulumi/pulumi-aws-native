@@ -60,6 +60,7 @@ export class GlobalTable extends pulumi.CustomResource {
      * Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
      */
     public readonly globalSecondaryIndexes!: pulumi.Output<outputs.dynamodb.GlobalTableGlobalSecondaryIndex[] | undefined>;
+    public readonly globalTableWitnesses!: pulumi.Output<outputs.dynamodb.GlobalTableWitness[] | undefined>;
     /**
      * Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
      */
@@ -68,6 +69,7 @@ export class GlobalTable extends pulumi.CustomResource {
      * Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
      */
     public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.GlobalTableLocalSecondaryIndex[] | undefined>;
+    public readonly multiRegionConsistency!: pulumi.Output<enums.dynamodb.GlobalTableMultiRegionConsistency | undefined>;
     /**
      * Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
      *
@@ -142,8 +144,10 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["attributeDefinitions"] = args ? args.attributeDefinitions : undefined;
             resourceInputs["billingMode"] = args ? args.billingMode : undefined;
             resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
+            resourceInputs["globalTableWitnesses"] = args ? args.globalTableWitnesses : undefined;
             resourceInputs["keySchema"] = args ? args.keySchema : undefined;
             resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
+            resourceInputs["multiRegionConsistency"] = args ? args.multiRegionConsistency : undefined;
             resourceInputs["replicas"] = args ? args.replicas : undefined;
             resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["streamSpecification"] = args ? args.streamSpecification : undefined;
@@ -160,8 +164,10 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["attributeDefinitions"] = undefined /*out*/;
             resourceInputs["billingMode"] = undefined /*out*/;
             resourceInputs["globalSecondaryIndexes"] = undefined /*out*/;
+            resourceInputs["globalTableWitnesses"] = undefined /*out*/;
             resourceInputs["keySchema"] = undefined /*out*/;
             resourceInputs["localSecondaryIndexes"] = undefined /*out*/;
+            resourceInputs["multiRegionConsistency"] = undefined /*out*/;
             resourceInputs["replicas"] = undefined /*out*/;
             resourceInputs["sseSpecification"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
@@ -203,6 +209,7 @@ export interface GlobalTableArgs {
      * Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableGlobalSecondaryIndexArgs>[]>;
+    globalTableWitnesses?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableWitnessArgs>[]>;
     /**
      * Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
      */
@@ -211,6 +218,7 @@ export interface GlobalTableArgs {
      * Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
      */
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableLocalSecondaryIndexArgs>[]>;
+    multiRegionConsistency?: pulumi.Input<enums.dynamodb.GlobalTableMultiRegionConsistency>;
     /**
      * Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
      *

@@ -956,7 +956,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Output[builtins.str]:
         """
-        Not currently supported in AWS CloudFormation .
+        The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
         """
         return pulumi.get(self, "service_arn")
 

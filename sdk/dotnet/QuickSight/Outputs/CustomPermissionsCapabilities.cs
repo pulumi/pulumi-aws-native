@@ -49,10 +49,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The ability to export to CSV files.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ExportToCsv;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ExportToCsvInScheduledReports;
         /// <summary>
         /// The ability to export to Excel files.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ExportToExcel;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ExportToExcelInScheduledReports;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ExportToPdf;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ExportToPdfInScheduledReports;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? IncludeContentInScheduledReportsEmail;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? PrintReports;
         /// <summary>
         /// The ability to rename shared folders.
         /// </summary>
@@ -102,7 +108,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? exportToCsv,
 
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? exportToCsvInScheduledReports,
+
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? exportToExcel,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? exportToExcelInScheduledReports,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? exportToPdf,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? exportToPdfInScheduledReports,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? includeContentInScheduledReportsEmail,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? printReports,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? renameSharedFolders,
 
@@ -127,7 +145,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             CreateSharedFolders = createSharedFolders;
             CreateSpiceDataset = createSpiceDataset;
             ExportToCsv = exportToCsv;
+            ExportToCsvInScheduledReports = exportToCsvInScheduledReports;
             ExportToExcel = exportToExcel;
+            ExportToExcelInScheduledReports = exportToExcelInScheduledReports;
+            ExportToPdf = exportToPdf;
+            ExportToPdfInScheduledReports = exportToPdfInScheduledReports;
+            IncludeContentInScheduledReportsEmail = includeContentInScheduledReportsEmail;
+            PrintReports = printReports;
             RenameSharedFolders = renameSharedFolders;
             ShareAnalyses = shareAnalyses;
             ShareDashboards = shareDashboards;

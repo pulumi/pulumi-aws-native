@@ -340,6 +340,17 @@ class Snapshot(dict):
                  snapshot_create_time: Optional[builtins.str] = None,
                  snapshot_name: Optional[builtins.str] = None,
                  status: Optional['SnapshotStatus'] = None):
+        """
+        :param builtins.str admin_username: The username of the database within a snapshot.
+        :param builtins.str kms_key_id: The unique identifier of the KMS key used to encrypt the snapshot.
+        :param builtins.str namespace_arn: The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+        :param builtins.str namespace_name: The name of the namepsace.
+        :param builtins.str owner_account: The owner AWS ; account of the snapshot.
+        :param builtins.str snapshot_arn: The Amazon Resource Name (ARN) of the snapshot.
+        :param builtins.str snapshot_create_time: The timestamp of when the snapshot was created.
+        :param builtins.str snapshot_name: The name of the snapshot.
+        :param 'SnapshotStatus' status: The status of the snapshot.
+        """
         if admin_username is not None:
             pulumi.set(__self__, "admin_username", admin_username)
         if kms_key_id is not None:
@@ -364,26 +375,41 @@ class Snapshot(dict):
     @property
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> Optional[builtins.str]:
+        """
+        The username of the database within a snapshot.
+        """
         return pulumi.get(self, "admin_username")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[builtins.str]:
+        """
+        The unique identifier of the KMS key used to encrypt the snapshot.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="namespaceArn")
     def namespace_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+        """
         return pulumi.get(self, "namespace_arn")
 
     @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[builtins.str]:
+        """
+        The name of the namepsace.
+        """
         return pulumi.get(self, "namespace_name")
 
     @property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> Optional[builtins.str]:
+        """
+        The owner AWS ; account of the snapshot.
+        """
         return pulumi.get(self, "owner_account")
 
     @property
@@ -394,21 +420,33 @@ class Snapshot(dict):
     @property
     @pulumi.getter(name="snapshotArn")
     def snapshot_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the snapshot.
+        """
         return pulumi.get(self, "snapshot_arn")
 
     @property
     @pulumi.getter(name="snapshotCreateTime")
     def snapshot_create_time(self) -> Optional[builtins.str]:
+        """
+        The timestamp of when the snapshot was created.
+        """
         return pulumi.get(self, "snapshot_create_time")
 
     @property
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> Optional[builtins.str]:
+        """
+        The name of the snapshot.
+        """
         return pulumi.get(self, "snapshot_name")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['SnapshotStatus']:
+        """
+        The status of the snapshot.
+        """
         return pulumi.get(self, "status")
 
 

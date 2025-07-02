@@ -38,6 +38,34 @@ namespace Pulumi.AwsNative.DynamoDb
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct GlobalTableMultiRegionConsistency : IEquatable<GlobalTableMultiRegionConsistency>
+    {
+        private readonly string _value;
+
+        private GlobalTableMultiRegionConsistency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GlobalTableMultiRegionConsistency Eventual { get; } = new GlobalTableMultiRegionConsistency("EVENTUAL");
+        public static GlobalTableMultiRegionConsistency Strong { get; } = new GlobalTableMultiRegionConsistency("STRONG");
+
+        public static bool operator ==(GlobalTableMultiRegionConsistency left, GlobalTableMultiRegionConsistency right) => left.Equals(right);
+        public static bool operator !=(GlobalTableMultiRegionConsistency left, GlobalTableMultiRegionConsistency right) => !left.Equals(right);
+
+        public static explicit operator string(GlobalTableMultiRegionConsistency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GlobalTableMultiRegionConsistency other && Equals(other);
+        public bool Equals(GlobalTableMultiRegionConsistency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The precision for the time and date that the stream was created.
     /// </summary>

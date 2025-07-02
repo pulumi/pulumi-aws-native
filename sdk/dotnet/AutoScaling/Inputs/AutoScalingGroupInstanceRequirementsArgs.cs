@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     /// The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
     ///  When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
     ///  To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-    ///   +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-    ///   +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+    ///   +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+    ///   +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
     ///   
     ///   You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
     ///   For an example template, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html).
     ///  For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances*.
-    ///   ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+    ///  ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
     /// </summary>
     public sealed class AutoScalingGroupInstanceRequirementsArgs : global::Pulumi.ResourceArgs
     {
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public Input<string>? BareMetal { get; set; }
 
         /// <summary>
-        /// The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        /// The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
         ///  Default: No minimum or maximum limits
         /// </summary>
         [Input("baselineEbsBandwidthMbps")]
@@ -132,7 +132,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public Input<Inputs.AutoScalingGroupBaselinePerformanceFactorsRequestArgs>? BaselinePerformanceFactors { get; set; }
 
         /// <summary>
-        /// Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        /// Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide*.
         ///  Default: ``excluded``
         /// </summary>
         [Input("burstablePerformance")]
@@ -146,6 +146,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         ///   +  For instance types with Intel CPUs, specify ``intel``.
         ///   +  For instance types with AMD CPUs, specify ``amd``.
         ///   +  For instance types with AWS CPUs, specify ``amazon-web-services``.
+        ///   +  For instance types with Apple CPUs, specify ``apple``.
         ///   
         ///   Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
         ///   Default: Any manufacturer
@@ -176,7 +177,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
 
         /// <summary>
         /// Indicates whether current or previous generation instance types are included.
-        ///   +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        ///   +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
         ///   +  For previous generation instance types, specify ``previous``.
         ///   
         ///  Default: Any current or previous generation
@@ -188,7 +189,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         }
 
         /// <summary>
-        /// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        /// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.
         ///  Default: ``included``
         /// </summary>
         [Input("localStorage")]

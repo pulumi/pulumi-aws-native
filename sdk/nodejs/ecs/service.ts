@@ -157,7 +157,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly schedulingStrategy!: pulumi.Output<enums.ecs.ServiceSchedulingStrategy | undefined>;
     /**
-     * Not currently supported in AWS CloudFormation .
+     * The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
      */
     public /*out*/ readonly serviceArn!: pulumi.Output<string>;
     /**

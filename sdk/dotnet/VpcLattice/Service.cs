@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string?> CustomDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The DNS information of the service.
+        /// Describes the DNS information of the service. This field is read-only.
         /// </summary>
         [Output("dnsEntry")]
         public Output<Outputs.ServiceDnsEntry?> DnsEntry { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Input<string>? CustomDomainName { get; set; }
 
         /// <summary>
-        /// The DNS information of the service.
+        /// Describes the DNS information of the service. This field is read-only.
         /// </summary>
         [Input("dnsEntry")]
         public Input<Inputs.ServiceDnsEntryArgs>? DnsEntry { get; set; }

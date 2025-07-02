@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.Ecs
         public string Cluster { get; set; } = null!;
 
         /// <summary>
-        /// Not currently supported in AWS CloudFormation .
+        /// The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
         /// </summary>
         [Input("serviceArn", required: true)]
         public string ServiceArn { get; set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.AwsNative.Ecs
         public Input<string> Cluster { get; set; } = null!;
 
         /// <summary>
-        /// Not currently supported in AWS CloudFormation .
+        /// The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
         /// </summary>
         [Input("serviceArn", required: true)]
         public Input<string> ServiceArn { get; set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         public readonly Pulumi.AwsNative.Ecs.ServicePropagateTags? PropagateTags;
         /// <summary>
-        /// Not currently supported in AWS CloudFormation .
+        /// The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
         /// </summary>
         public readonly string? ServiceArn;
         /// <summary>

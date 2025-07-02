@@ -61,6 +61,8 @@ __all__ = [
     'GlobalTableTimeToLiveSpecificationArgsDict',
     'GlobalTableWarmThroughputArgs',
     'GlobalTableWarmThroughputArgsDict',
+    'GlobalTableWitnessArgs',
+    'GlobalTableWitnessArgsDict',
     'GlobalTableWriteOnDemandThroughputSettingsArgs',
     'GlobalTableWriteOnDemandThroughputSettingsArgsDict',
     'GlobalTableWriteProvisionedThroughputSettingsArgs',
@@ -1705,6 +1707,29 @@ class GlobalTableWarmThroughputArgs:
     @write_units_per_second.setter
     def write_units_per_second(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "write_units_per_second", value)
+
+
+if not MYPY:
+    class GlobalTableWitnessArgsDict(TypedDict):
+        region: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    GlobalTableWitnessArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GlobalTableWitnessArgs:
+    def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 if not MYPY:

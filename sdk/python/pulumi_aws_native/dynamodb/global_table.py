@@ -28,7 +28,9 @@ class GlobalTableArgs:
                  replicas: pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]],
                  billing_mode: Optional[pulumi.Input[builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]] = None,
+                 global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]] = None,
+                 multi_region_consistency: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']] = None,
                  sse_specification: Optional[pulumi.Input['GlobalTableSseSpecificationArgs']] = None,
                  stream_specification: Optional[pulumi.Input['GlobalTableStreamSpecificationArgs']] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -74,8 +76,12 @@ class GlobalTableArgs:
             pulumi.set(__self__, "billing_mode", billing_mode)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if global_table_witnesses is not None:
+            pulumi.set(__self__, "global_table_witnesses", global_table_witnesses)
         if local_secondary_indexes is not None:
             pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
+        if multi_region_consistency is not None:
+            pulumi.set(__self__, "multi_region_consistency", multi_region_consistency)
         if sse_specification is not None:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if stream_specification is not None:
@@ -165,6 +171,15 @@ class GlobalTableArgs:
         pulumi.set(self, "global_secondary_indexes", value)
 
     @property
+    @pulumi.getter(name="globalTableWitnesses")
+    def global_table_witnesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]]]:
+        return pulumi.get(self, "global_table_witnesses")
+
+    @global_table_witnesses.setter
+    def global_table_witnesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]]]):
+        pulumi.set(self, "global_table_witnesses", value)
+
+    @property
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]]:
         """
@@ -175,6 +190,15 @@ class GlobalTableArgs:
     @local_secondary_indexes.setter
     def local_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]]):
         pulumi.set(self, "local_secondary_indexes", value)
+
+    @property
+    @pulumi.getter(name="multiRegionConsistency")
+    def multi_region_consistency(self) -> Optional[pulumi.Input['GlobalTableMultiRegionConsistency']]:
+        return pulumi.get(self, "multi_region_consistency")
+
+    @multi_region_consistency.setter
+    def multi_region_consistency(self, value: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']]):
+        pulumi.set(self, "multi_region_consistency", value)
 
     @property
     @pulumi.getter(name="sseSpecification")
@@ -272,8 +296,10 @@ class GlobalTable(pulumi.CustomResource):
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
+                 multi_region_consistency: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
                  stream_specification: Optional[pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
@@ -344,8 +370,10 @@ class GlobalTable(pulumi.CustomResource):
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
+                 multi_region_consistency: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
                  stream_specification: Optional[pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
@@ -368,10 +396,12 @@ class GlobalTable(pulumi.CustomResource):
             __props__.__dict__["attribute_definitions"] = attribute_definitions
             __props__.__dict__["billing_mode"] = billing_mode
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
+            __props__.__dict__["global_table_witnesses"] = global_table_witnesses
             if key_schema is None and not opts.urn:
                 raise TypeError("Missing required property 'key_schema'")
             __props__.__dict__["key_schema"] = key_schema
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
+            __props__.__dict__["multi_region_consistency"] = multi_region_consistency
             if replicas is None and not opts.urn:
                 raise TypeError("Missing required property 'replicas'")
             __props__.__dict__["replicas"] = replicas
@@ -413,8 +443,10 @@ class GlobalTable(pulumi.CustomResource):
         __props__.__dict__["attribute_definitions"] = None
         __props__.__dict__["billing_mode"] = None
         __props__.__dict__["global_secondary_indexes"] = None
+        __props__.__dict__["global_table_witnesses"] = None
         __props__.__dict__["key_schema"] = None
         __props__.__dict__["local_secondary_indexes"] = None
+        __props__.__dict__["multi_region_consistency"] = None
         __props__.__dict__["replicas"] = None
         __props__.__dict__["sse_specification"] = None
         __props__.__dict__["stream_arn"] = None
@@ -467,6 +499,11 @@ class GlobalTable(pulumi.CustomResource):
         return pulumi.get(self, "global_secondary_indexes")
 
     @property
+    @pulumi.getter(name="globalTableWitnesses")
+    def global_table_witnesses(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalTableWitness']]]:
+        return pulumi.get(self, "global_table_witnesses")
+
+    @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Output[Sequence['outputs.GlobalTableKeySchema']]:
         """
@@ -481,6 +518,11 @@ class GlobalTable(pulumi.CustomResource):
         Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
         """
         return pulumi.get(self, "local_secondary_indexes")
+
+    @property
+    @pulumi.getter(name="multiRegionConsistency")
+    def multi_region_consistency(self) -> pulumi.Output[Optional['GlobalTableMultiRegionConsistency']]:
+        return pulumi.get(self, "multi_region_consistency")
 
     @property
     @pulumi.getter

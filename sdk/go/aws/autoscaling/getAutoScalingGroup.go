@@ -102,7 +102,7 @@ type LookupAutoScalingGroupResult struct {
 	NotificationConfiguration        *AutoScalingGroupNotificationConfiguration `pulumi:"notificationConfiguration"`
 	// Configures an Auto Scaling group to send notifications when specified events take place.
 	NotificationConfigurations []AutoScalingGroupNotificationConfiguration `pulumi:"notificationConfigurations"`
-	// The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide for Linux Instances*.
+	// The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide*.
 	//   A *cluster* placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group.
 	PlacementGroup *string `pulumi:"placementGroup"`
 	// The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named ``AWSServiceRoleForAutoScaling``, which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -331,7 +331,7 @@ func (o LookupAutoScalingGroupResultOutput) NotificationConfigurations() AutoSca
 	}).(AutoScalingGroupNotificationConfigurationArrayOutput)
 }
 
-// The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide for Linux Instances*.
+// The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide*.
 //
 //	A *cluster* placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group.
 func (o LookupAutoScalingGroupResultOutput) PlacementGroup() pulumi.StringPtrOutput {

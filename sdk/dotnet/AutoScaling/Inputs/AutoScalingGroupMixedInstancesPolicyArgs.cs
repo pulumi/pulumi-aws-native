@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     ///   +  Amazon EC2 can terminate an individual Spot Instance as the availability of, or price for, Spot Instances changes
     ///   
     ///  When a Spot Instance is terminated, Amazon EC2 Auto Scaling group attempts to launch a replacement instance to maintain the desired capacity for the group. 
-    ///   ``MixedInstancesPolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+    ///  ``MixedInstancesPolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
     /// </summary>
     public sealed class AutoScalingGroupMixedInstancesPolicyArgs : global::Pulumi.ResourceArgs
     {

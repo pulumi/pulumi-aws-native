@@ -29,18 +29,30 @@ __all__ = [
     'CapabilityX12DetailsArgsDict',
     'PartnershipCapabilityOptionsArgs',
     'PartnershipCapabilityOptionsArgsDict',
+    'PartnershipInboundEdiOptionsArgs',
+    'PartnershipInboundEdiOptionsArgsDict',
     'PartnershipOutboundEdiOptionsPropertiesArgs',
     'PartnershipOutboundEdiOptionsPropertiesArgsDict',
+    'PartnershipWrapOptionsArgs',
+    'PartnershipWrapOptionsArgsDict',
+    'PartnershipX12AcknowledgmentOptionsArgs',
+    'PartnershipX12AcknowledgmentOptionsArgsDict',
+    'PartnershipX12ControlNumbersArgs',
+    'PartnershipX12ControlNumbersArgsDict',
     'PartnershipX12DelimitersArgs',
     'PartnershipX12DelimitersArgsDict',
     'PartnershipX12EnvelopeArgs',
     'PartnershipX12EnvelopeArgsDict',
     'PartnershipX12FunctionalGroupHeadersArgs',
     'PartnershipX12FunctionalGroupHeadersArgsDict',
+    'PartnershipX12InboundEdiOptionsArgs',
+    'PartnershipX12InboundEdiOptionsArgsDict',
     'PartnershipX12InterchangeControlHeadersArgs',
     'PartnershipX12InterchangeControlHeadersArgsDict',
     'PartnershipX12OutboundEdiHeadersArgs',
     'PartnershipX12OutboundEdiHeadersArgsDict',
+    'TransformerAdvancedOptionsArgs',
+    'TransformerAdvancedOptionsArgsDict',
     'TransformerEdiTypePropertiesArgs',
     'TransformerEdiTypePropertiesArgsDict',
     'TransformerFormatOptionsPropertiesArgs',
@@ -55,8 +67,12 @@ __all__ = [
     'TransformerSampleDocumentKeysArgsDict',
     'TransformerSampleDocumentsArgs',
     'TransformerSampleDocumentsArgsDict',
+    'TransformerX12AdvancedOptionsArgs',
+    'TransformerX12AdvancedOptionsArgsDict',
     'TransformerX12DetailsArgs',
     'TransformerX12DetailsArgsDict',
+    'TransformerX12SplitOptionsArgs',
+    'TransformerX12SplitOptionsArgsDict',
 ]
 
 MYPY = False
@@ -250,6 +266,10 @@ class CapabilityX12DetailsArgs:
 
 if not MYPY:
     class PartnershipCapabilityOptionsArgsDict(TypedDict):
+        inbound_edi: NotRequired[pulumi.Input['PartnershipInboundEdiOptionsArgsDict']]
+        """
+        A structure that contains the inbound EDI options for the capability.
+        """
         outbound_edi: NotRequired[pulumi.Input['PartnershipOutboundEdiOptionsPropertiesArgsDict']]
         """
         A structure that contains the outbound EDI options.
@@ -260,12 +280,28 @@ elif False:
 @pulumi.input_type
 class PartnershipCapabilityOptionsArgs:
     def __init__(__self__, *,
+                 inbound_edi: Optional[pulumi.Input['PartnershipInboundEdiOptionsArgs']] = None,
                  outbound_edi: Optional[pulumi.Input['PartnershipOutboundEdiOptionsPropertiesArgs']] = None):
         """
+        :param pulumi.Input['PartnershipInboundEdiOptionsArgs'] inbound_edi: A structure that contains the inbound EDI options for the capability.
         :param pulumi.Input['PartnershipOutboundEdiOptionsPropertiesArgs'] outbound_edi: A structure that contains the outbound EDI options.
         """
+        if inbound_edi is not None:
+            pulumi.set(__self__, "inbound_edi", inbound_edi)
         if outbound_edi is not None:
             pulumi.set(__self__, "outbound_edi", outbound_edi)
+
+    @property
+    @pulumi.getter(name="inboundEdi")
+    def inbound_edi(self) -> Optional[pulumi.Input['PartnershipInboundEdiOptionsArgs']]:
+        """
+        A structure that contains the inbound EDI options for the capability.
+        """
+        return pulumi.get(self, "inbound_edi")
+
+    @inbound_edi.setter
+    def inbound_edi(self, value: Optional[pulumi.Input['PartnershipInboundEdiOptionsArgs']]):
+        pulumi.set(self, "inbound_edi", value)
 
     @property
     @pulumi.getter(name="outboundEdi")
@@ -278,6 +314,38 @@ class PartnershipCapabilityOptionsArgs:
     @outbound_edi.setter
     def outbound_edi(self, value: Optional[pulumi.Input['PartnershipOutboundEdiOptionsPropertiesArgs']]):
         pulumi.set(self, "outbound_edi", value)
+
+
+if not MYPY:
+    class PartnershipInboundEdiOptionsArgsDict(TypedDict):
+        x12: NotRequired[pulumi.Input['PartnershipX12InboundEdiOptionsArgsDict']]
+        """
+        A structure that contains X12-specific options for processing inbound X12 EDI files.
+        """
+elif False:
+    PartnershipInboundEdiOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PartnershipInboundEdiOptionsArgs:
+    def __init__(__self__, *,
+                 x12: Optional[pulumi.Input['PartnershipX12InboundEdiOptionsArgs']] = None):
+        """
+        :param pulumi.Input['PartnershipX12InboundEdiOptionsArgs'] x12: A structure that contains X12-specific options for processing inbound X12 EDI files.
+        """
+        if x12 is not None:
+            pulumi.set(__self__, "x12", x12)
+
+    @property
+    @pulumi.getter
+    def x12(self) -> Optional[pulumi.Input['PartnershipX12InboundEdiOptionsArgs']]:
+        """
+        A structure that contains X12-specific options for processing inbound X12 EDI files.
+        """
+        return pulumi.get(self, "x12")
+
+    @x12.setter
+    def x12(self, value: Optional[pulumi.Input['PartnershipX12InboundEdiOptionsArgs']]):
+        pulumi.set(self, "x12", value)
 
 
 if not MYPY:
@@ -300,6 +368,138 @@ class PartnershipOutboundEdiOptionsPropertiesArgs:
     @x12.setter
     def x12(self, value: pulumi.Input['PartnershipX12EnvelopeArgs']):
         pulumi.set(self, "x12", value)
+
+
+if not MYPY:
+    class PartnershipWrapOptionsArgsDict(TypedDict):
+        line_length: NotRequired[pulumi.Input[builtins.float]]
+        line_terminator: NotRequired[pulumi.Input['PartnershipLineTerminator']]
+        wrap_by: NotRequired[pulumi.Input['PartnershipWrapFormat']]
+elif False:
+    PartnershipWrapOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PartnershipWrapOptionsArgs:
+    def __init__(__self__, *,
+                 line_length: Optional[pulumi.Input[builtins.float]] = None,
+                 line_terminator: Optional[pulumi.Input['PartnershipLineTerminator']] = None,
+                 wrap_by: Optional[pulumi.Input['PartnershipWrapFormat']] = None):
+        if line_length is not None:
+            pulumi.set(__self__, "line_length", line_length)
+        if line_terminator is not None:
+            pulumi.set(__self__, "line_terminator", line_terminator)
+        if wrap_by is not None:
+            pulumi.set(__self__, "wrap_by", wrap_by)
+
+    @property
+    @pulumi.getter(name="lineLength")
+    def line_length(self) -> Optional[pulumi.Input[builtins.float]]:
+        return pulumi.get(self, "line_length")
+
+    @line_length.setter
+    def line_length(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "line_length", value)
+
+    @property
+    @pulumi.getter(name="lineTerminator")
+    def line_terminator(self) -> Optional[pulumi.Input['PartnershipLineTerminator']]:
+        return pulumi.get(self, "line_terminator")
+
+    @line_terminator.setter
+    def line_terminator(self, value: Optional[pulumi.Input['PartnershipLineTerminator']]):
+        pulumi.set(self, "line_terminator", value)
+
+    @property
+    @pulumi.getter(name="wrapBy")
+    def wrap_by(self) -> Optional[pulumi.Input['PartnershipWrapFormat']]:
+        return pulumi.get(self, "wrap_by")
+
+    @wrap_by.setter
+    def wrap_by(self, value: Optional[pulumi.Input['PartnershipWrapFormat']]):
+        pulumi.set(self, "wrap_by", value)
+
+
+if not MYPY:
+    class PartnershipX12AcknowledgmentOptionsArgsDict(TypedDict):
+        functional_acknowledgment: pulumi.Input['PartnershipX12FunctionalAcknowledgment']
+        technical_acknowledgment: pulumi.Input['PartnershipX12TechnicalAcknowledgment']
+elif False:
+    PartnershipX12AcknowledgmentOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PartnershipX12AcknowledgmentOptionsArgs:
+    def __init__(__self__, *,
+                 functional_acknowledgment: pulumi.Input['PartnershipX12FunctionalAcknowledgment'],
+                 technical_acknowledgment: pulumi.Input['PartnershipX12TechnicalAcknowledgment']):
+        pulumi.set(__self__, "functional_acknowledgment", functional_acknowledgment)
+        pulumi.set(__self__, "technical_acknowledgment", technical_acknowledgment)
+
+    @property
+    @pulumi.getter(name="functionalAcknowledgment")
+    def functional_acknowledgment(self) -> pulumi.Input['PartnershipX12FunctionalAcknowledgment']:
+        return pulumi.get(self, "functional_acknowledgment")
+
+    @functional_acknowledgment.setter
+    def functional_acknowledgment(self, value: pulumi.Input['PartnershipX12FunctionalAcknowledgment']):
+        pulumi.set(self, "functional_acknowledgment", value)
+
+    @property
+    @pulumi.getter(name="technicalAcknowledgment")
+    def technical_acknowledgment(self) -> pulumi.Input['PartnershipX12TechnicalAcknowledgment']:
+        return pulumi.get(self, "technical_acknowledgment")
+
+    @technical_acknowledgment.setter
+    def technical_acknowledgment(self, value: pulumi.Input['PartnershipX12TechnicalAcknowledgment']):
+        pulumi.set(self, "technical_acknowledgment", value)
+
+
+if not MYPY:
+    class PartnershipX12ControlNumbersArgsDict(TypedDict):
+        starting_functional_group_control_number: NotRequired[pulumi.Input[builtins.float]]
+        starting_interchange_control_number: NotRequired[pulumi.Input[builtins.float]]
+        starting_transaction_set_control_number: NotRequired[pulumi.Input[builtins.float]]
+elif False:
+    PartnershipX12ControlNumbersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PartnershipX12ControlNumbersArgs:
+    def __init__(__self__, *,
+                 starting_functional_group_control_number: Optional[pulumi.Input[builtins.float]] = None,
+                 starting_interchange_control_number: Optional[pulumi.Input[builtins.float]] = None,
+                 starting_transaction_set_control_number: Optional[pulumi.Input[builtins.float]] = None):
+        if starting_functional_group_control_number is not None:
+            pulumi.set(__self__, "starting_functional_group_control_number", starting_functional_group_control_number)
+        if starting_interchange_control_number is not None:
+            pulumi.set(__self__, "starting_interchange_control_number", starting_interchange_control_number)
+        if starting_transaction_set_control_number is not None:
+            pulumi.set(__self__, "starting_transaction_set_control_number", starting_transaction_set_control_number)
+
+    @property
+    @pulumi.getter(name="startingFunctionalGroupControlNumber")
+    def starting_functional_group_control_number(self) -> Optional[pulumi.Input[builtins.float]]:
+        return pulumi.get(self, "starting_functional_group_control_number")
+
+    @starting_functional_group_control_number.setter
+    def starting_functional_group_control_number(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "starting_functional_group_control_number", value)
+
+    @property
+    @pulumi.getter(name="startingInterchangeControlNumber")
+    def starting_interchange_control_number(self) -> Optional[pulumi.Input[builtins.float]]:
+        return pulumi.get(self, "starting_interchange_control_number")
+
+    @starting_interchange_control_number.setter
+    def starting_interchange_control_number(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "starting_interchange_control_number", value)
+
+    @property
+    @pulumi.getter(name="startingTransactionSetControlNumber")
+    def starting_transaction_set_control_number(self) -> Optional[pulumi.Input[builtins.float]]:
+        return pulumi.get(self, "starting_transaction_set_control_number")
+
+    @starting_transaction_set_control_number.setter
+    def starting_transaction_set_control_number(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "starting_transaction_set_control_number", value)
 
 
 if not MYPY:
@@ -354,15 +554,19 @@ class PartnershipX12DelimitersArgs:
 if not MYPY:
     class PartnershipX12EnvelopeArgsDict(TypedDict):
         common: NotRequired[pulumi.Input['PartnershipX12OutboundEdiHeadersArgsDict']]
+        wrap_options: NotRequired[pulumi.Input['PartnershipWrapOptionsArgsDict']]
 elif False:
     PartnershipX12EnvelopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PartnershipX12EnvelopeArgs:
     def __init__(__self__, *,
-                 common: Optional[pulumi.Input['PartnershipX12OutboundEdiHeadersArgs']] = None):
+                 common: Optional[pulumi.Input['PartnershipX12OutboundEdiHeadersArgs']] = None,
+                 wrap_options: Optional[pulumi.Input['PartnershipWrapOptionsArgs']] = None):
         if common is not None:
             pulumi.set(__self__, "common", common)
+        if wrap_options is not None:
+            pulumi.set(__self__, "wrap_options", wrap_options)
 
     @property
     @pulumi.getter
@@ -372,6 +576,15 @@ class PartnershipX12EnvelopeArgs:
     @common.setter
     def common(self, value: Optional[pulumi.Input['PartnershipX12OutboundEdiHeadersArgs']]):
         pulumi.set(self, "common", value)
+
+    @property
+    @pulumi.getter(name="wrapOptions")
+    def wrap_options(self) -> Optional[pulumi.Input['PartnershipWrapOptionsArgs']]:
+        return pulumi.get(self, "wrap_options")
+
+    @wrap_options.setter
+    def wrap_options(self, value: Optional[pulumi.Input['PartnershipWrapOptionsArgs']]):
+        pulumi.set(self, "wrap_options", value)
 
 
 if not MYPY:
@@ -421,6 +634,38 @@ class PartnershipX12FunctionalGroupHeadersArgs:
     @responsible_agency_code.setter
     def responsible_agency_code(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "responsible_agency_code", value)
+
+
+if not MYPY:
+    class PartnershipX12InboundEdiOptionsArgsDict(TypedDict):
+        acknowledgment_options: NotRequired[pulumi.Input['PartnershipX12AcknowledgmentOptionsArgsDict']]
+        """
+        Specifies acknowledgment options for inbound X12 EDI files. These options control how functional and technical acknowledgments are handled.
+        """
+elif False:
+    PartnershipX12InboundEdiOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PartnershipX12InboundEdiOptionsArgs:
+    def __init__(__self__, *,
+                 acknowledgment_options: Optional[pulumi.Input['PartnershipX12AcknowledgmentOptionsArgs']] = None):
+        """
+        :param pulumi.Input['PartnershipX12AcknowledgmentOptionsArgs'] acknowledgment_options: Specifies acknowledgment options for inbound X12 EDI files. These options control how functional and technical acknowledgments are handled.
+        """
+        if acknowledgment_options is not None:
+            pulumi.set(__self__, "acknowledgment_options", acknowledgment_options)
+
+    @property
+    @pulumi.getter(name="acknowledgmentOptions")
+    def acknowledgment_options(self) -> Optional[pulumi.Input['PartnershipX12AcknowledgmentOptionsArgs']]:
+        """
+        Specifies acknowledgment options for inbound X12 EDI files. These options control how functional and technical acknowledgments are handled.
+        """
+        return pulumi.get(self, "acknowledgment_options")
+
+    @acknowledgment_options.setter
+    def acknowledgment_options(self, value: Optional[pulumi.Input['PartnershipX12AcknowledgmentOptionsArgs']]):
+        pulumi.set(self, "acknowledgment_options", value)
 
 
 if not MYPY:
@@ -526,8 +771,10 @@ class PartnershipX12InterchangeControlHeadersArgs:
 
 if not MYPY:
     class PartnershipX12OutboundEdiHeadersArgsDict(TypedDict):
+        control_numbers: NotRequired[pulumi.Input['PartnershipX12ControlNumbersArgsDict']]
         delimiters: NotRequired[pulumi.Input['PartnershipX12DelimitersArgsDict']]
         functional_group_headers: NotRequired[pulumi.Input['PartnershipX12FunctionalGroupHeadersArgsDict']]
+        gs05_time_format: NotRequired[pulumi.Input['PartnershipX12gs05TimeFormat']]
         interchange_control_headers: NotRequired[pulumi.Input['PartnershipX12InterchangeControlHeadersArgsDict']]
         validate_edi: NotRequired[pulumi.Input[builtins.bool]]
 elif False:
@@ -536,18 +783,33 @@ elif False:
 @pulumi.input_type
 class PartnershipX12OutboundEdiHeadersArgs:
     def __init__(__self__, *,
+                 control_numbers: Optional[pulumi.Input['PartnershipX12ControlNumbersArgs']] = None,
                  delimiters: Optional[pulumi.Input['PartnershipX12DelimitersArgs']] = None,
                  functional_group_headers: Optional[pulumi.Input['PartnershipX12FunctionalGroupHeadersArgs']] = None,
+                 gs05_time_format: Optional[pulumi.Input['PartnershipX12gs05TimeFormat']] = None,
                  interchange_control_headers: Optional[pulumi.Input['PartnershipX12InterchangeControlHeadersArgs']] = None,
                  validate_edi: Optional[pulumi.Input[builtins.bool]] = None):
+        if control_numbers is not None:
+            pulumi.set(__self__, "control_numbers", control_numbers)
         if delimiters is not None:
             pulumi.set(__self__, "delimiters", delimiters)
         if functional_group_headers is not None:
             pulumi.set(__self__, "functional_group_headers", functional_group_headers)
+        if gs05_time_format is not None:
+            pulumi.set(__self__, "gs05_time_format", gs05_time_format)
         if interchange_control_headers is not None:
             pulumi.set(__self__, "interchange_control_headers", interchange_control_headers)
         if validate_edi is not None:
             pulumi.set(__self__, "validate_edi", validate_edi)
+
+    @property
+    @pulumi.getter(name="controlNumbers")
+    def control_numbers(self) -> Optional[pulumi.Input['PartnershipX12ControlNumbersArgs']]:
+        return pulumi.get(self, "control_numbers")
+
+    @control_numbers.setter
+    def control_numbers(self, value: Optional[pulumi.Input['PartnershipX12ControlNumbersArgs']]):
+        pulumi.set(self, "control_numbers", value)
 
     @property
     @pulumi.getter
@@ -568,6 +830,15 @@ class PartnershipX12OutboundEdiHeadersArgs:
         pulumi.set(self, "functional_group_headers", value)
 
     @property
+    @pulumi.getter(name="gs05TimeFormat")
+    def gs05_time_format(self) -> Optional[pulumi.Input['PartnershipX12gs05TimeFormat']]:
+        return pulumi.get(self, "gs05_time_format")
+
+    @gs05_time_format.setter
+    def gs05_time_format(self, value: Optional[pulumi.Input['PartnershipX12gs05TimeFormat']]):
+        pulumi.set(self, "gs05_time_format", value)
+
+    @property
     @pulumi.getter(name="interchangeControlHeaders")
     def interchange_control_headers(self) -> Optional[pulumi.Input['PartnershipX12InterchangeControlHeadersArgs']]:
         return pulumi.get(self, "interchange_control_headers")
@@ -584,6 +855,29 @@ class PartnershipX12OutboundEdiHeadersArgs:
     @validate_edi.setter
     def validate_edi(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "validate_edi", value)
+
+
+if not MYPY:
+    class TransformerAdvancedOptionsArgsDict(TypedDict):
+        x12: NotRequired[pulumi.Input['TransformerX12AdvancedOptionsArgsDict']]
+elif False:
+    TransformerAdvancedOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransformerAdvancedOptionsArgs:
+    def __init__(__self__, *,
+                 x12: Optional[pulumi.Input['TransformerX12AdvancedOptionsArgs']] = None):
+        if x12 is not None:
+            pulumi.set(__self__, "x12", x12)
+
+    @property
+    @pulumi.getter
+    def x12(self) -> Optional[pulumi.Input['TransformerX12AdvancedOptionsArgs']]:
+        return pulumi.get(self, "x12")
+
+    @x12.setter
+    def x12(self, value: Optional[pulumi.Input['TransformerX12AdvancedOptionsArgs']]):
+        pulumi.set(self, "x12", value)
 
 
 if not MYPY:
@@ -633,6 +927,7 @@ class TransformerFormatOptionsPropertiesArgs:
 if not MYPY:
     class TransformerInputConversionArgsDict(TypedDict):
         from_format: pulumi.Input['TransformerFromFormat']
+        advanced_options: NotRequired[pulumi.Input['TransformerAdvancedOptionsArgsDict']]
         format_options: NotRequired[pulumi.Input['TransformerFormatOptionsPropertiesArgsDict']]
 elif False:
     TransformerInputConversionArgsDict: TypeAlias = Mapping[str, Any]
@@ -641,8 +936,11 @@ elif False:
 class TransformerInputConversionArgs:
     def __init__(__self__, *,
                  from_format: pulumi.Input['TransformerFromFormat'],
+                 advanced_options: Optional[pulumi.Input['TransformerAdvancedOptionsArgs']] = None,
                  format_options: Optional[pulumi.Input['TransformerFormatOptionsPropertiesArgs']] = None):
         pulumi.set(__self__, "from_format", from_format)
+        if advanced_options is not None:
+            pulumi.set(__self__, "advanced_options", advanced_options)
         if format_options is not None:
             pulumi.set(__self__, "format_options", format_options)
 
@@ -654,6 +952,15 @@ class TransformerInputConversionArgs:
     @from_format.setter
     def from_format(self, value: pulumi.Input['TransformerFromFormat']):
         pulumi.set(self, "from_format", value)
+
+    @property
+    @pulumi.getter(name="advancedOptions")
+    def advanced_options(self) -> Optional[pulumi.Input['TransformerAdvancedOptionsArgs']]:
+        return pulumi.get(self, "advanced_options")
+
+    @advanced_options.setter
+    def advanced_options(self, value: Optional[pulumi.Input['TransformerAdvancedOptionsArgs']]):
+        pulumi.set(self, "advanced_options", value)
 
     @property
     @pulumi.getter(name="formatOptions")
@@ -806,6 +1113,29 @@ class TransformerSampleDocumentsArgs:
 
 
 if not MYPY:
+    class TransformerX12AdvancedOptionsArgsDict(TypedDict):
+        split_options: NotRequired[pulumi.Input['TransformerX12SplitOptionsArgsDict']]
+elif False:
+    TransformerX12AdvancedOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransformerX12AdvancedOptionsArgs:
+    def __init__(__self__, *,
+                 split_options: Optional[pulumi.Input['TransformerX12SplitOptionsArgs']] = None):
+        if split_options is not None:
+            pulumi.set(__self__, "split_options", split_options)
+
+    @property
+    @pulumi.getter(name="splitOptions")
+    def split_options(self) -> Optional[pulumi.Input['TransformerX12SplitOptionsArgs']]:
+        return pulumi.get(self, "split_options")
+
+    @split_options.setter
+    def split_options(self, value: Optional[pulumi.Input['TransformerX12SplitOptionsArgs']]):
+        pulumi.set(self, "split_options", value)
+
+
+if not MYPY:
     class TransformerX12DetailsArgsDict(TypedDict):
         transaction_set: NotRequired[pulumi.Input['TransformerX12TransactionSet']]
         version: NotRequired[pulumi.Input['TransformerX12Version']]
@@ -839,5 +1169,28 @@ class TransformerX12DetailsArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input['TransformerX12Version']]):
         pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class TransformerX12SplitOptionsArgsDict(TypedDict):
+        split_by: NotRequired[pulumi.Input['TransformerX12SplitBy']]
+elif False:
+    TransformerX12SplitOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransformerX12SplitOptionsArgs:
+    def __init__(__self__, *,
+                 split_by: Optional[pulumi.Input['TransformerX12SplitBy']] = None):
+        if split_by is not None:
+            pulumi.set(__self__, "split_by", split_by)
+
+    @property
+    @pulumi.getter(name="splitBy")
+    def split_by(self) -> Optional[pulumi.Input['TransformerX12SplitBy']]:
+        return pulumi.get(self, "split_by")
+
+    @split_by.setter
+    def split_by(self, value: Optional[pulumi.Input['TransformerX12SplitBy']]):
+        pulumi.set(self, "split_by", value)
 
 

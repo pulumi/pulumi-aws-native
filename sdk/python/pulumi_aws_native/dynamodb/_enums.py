@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision',
+    'GlobalTableMultiRegionConsistency',
     'TableKinesisStreamSpecificationApproximateCreationDateTimePrecision',
 ]
 
@@ -19,6 +20,12 @@ class GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision(
     """
     MICROSECOND = "MICROSECOND"
     MILLISECOND = "MILLISECOND"
+
+
+@pulumi.type_token("aws-native:dynamodb:GlobalTableMultiRegionConsistency")
+class GlobalTableMultiRegionConsistency(builtins.str, Enum):
+    EVENTUAL = "EVENTUAL"
+    STRONG = "STRONG"
 
 
 @pulumi.type_token("aws-native:dynamodb:TableKinesisStreamSpecificationApproximateCreationDateTimePrecision")

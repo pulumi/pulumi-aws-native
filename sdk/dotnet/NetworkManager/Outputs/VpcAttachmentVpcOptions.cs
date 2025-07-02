@@ -21,18 +21,32 @@ namespace Pulumi.AwsNative.NetworkManager.Outputs
         /// </summary>
         public readonly bool? ApplianceModeSupport;
         /// <summary>
+        /// Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
+        /// </summary>
+        public readonly bool? DnsSupport;
+        /// <summary>
         /// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
         /// </summary>
         public readonly bool? Ipv6Support;
+        /// <summary>
+        /// Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
+        /// </summary>
+        public readonly bool? SecurityGroupReferencingSupport;
 
         [OutputConstructor]
         private VpcAttachmentVpcOptions(
             bool? applianceModeSupport,
 
-            bool? ipv6Support)
+            bool? dnsSupport,
+
+            bool? ipv6Support,
+
+            bool? securityGroupReferencingSupport)
         {
             ApplianceModeSupport = applianceModeSupport;
+            DnsSupport = dnsSupport;
             Ipv6Support = ipv6Support;
+            SecurityGroupReferencingSupport = securityGroupReferencingSupport;
         }
     }
 }

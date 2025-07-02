@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
 
     /// <summary>
     /// Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
-    ///   ``LaunchTemplate`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+    ///  ``LaunchTemplate`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
     /// </summary>
     public sealed class AutoScalingGroupLaunchTemplateArgs : global::Pulumi.ResourceArgs
     {

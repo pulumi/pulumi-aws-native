@@ -2637,7 +2637,7 @@ class RuleReference(dict):
         """
         Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. (Supports variable injection in the ``Value`` field.)
         :param 'RuleReferenceType' type: The type of the reference. ``DATE`` must be of type Epoch timestamp. 
-                 *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+                *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         :param builtins.str value: A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
         """
         pulumi.set(__self__, "type", type)
@@ -2648,7 +2648,7 @@ class RuleReference(dict):
     def type(self) -> 'RuleReferenceType':
         """
         The type of the reference. ``DATE`` must be of type Epoch timestamp. 
-          *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+         *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         """
         return pulumi.get(self, "type")
 
@@ -2695,9 +2695,9 @@ class RuleSendNotificationAction(dict):
         Information about the send notification action.
         :param builtins.str content: Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         :param 'RuleSendNotificationActionContentType' content_type: Content type format.
-                 *Allowed value*: ``PLAIN_TEXT``
+                *Allowed value*: ``PLAIN_TEXT``
         :param 'RuleSendNotificationActionDeliveryMethod' delivery_method: Notification delivery method.
-                 *Allowed value*: ``EMAIL``
+                *Allowed value*: ``EMAIL``
         :param 'RuleNotificationRecipientType' recipient: Notification recipient.
         :param builtins.str subject: The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         """
@@ -2721,7 +2721,7 @@ class RuleSendNotificationAction(dict):
     def content_type(self) -> 'RuleSendNotificationActionContentType':
         """
         Content type format.
-          *Allowed value*: ``PLAIN_TEXT``
+         *Allowed value*: ``PLAIN_TEXT``
         """
         return pulumi.get(self, "content_type")
 
@@ -2730,7 +2730,7 @@ class RuleSendNotificationAction(dict):
     def delivery_method(self) -> 'RuleSendNotificationActionDeliveryMethod':
         """
         Notification delivery method.
-          *Allowed value*: ``EMAIL``
+         *Allowed value*: ``EMAIL``
         """
         return pulumi.get(self, "delivery_method")
 

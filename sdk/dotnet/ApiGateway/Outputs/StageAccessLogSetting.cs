@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 
     /// <summary>
     /// The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
-    ///   ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
+    ///  ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
     /// </summary>
     [OutputType]
     public sealed class StageAccessLogSetting

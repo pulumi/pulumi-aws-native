@@ -104,6 +104,11 @@ type LookupKeyResult struct {
 	//   +  Other asymmetric elliptic curve key pairs (signing and verification)
 	//   +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
 	//
+	//   +  Asymmetric ML-DSA key pairs (signing and verification)
+	//   +   ``ML_DSA_44``
+	//   +   ``ML_DSA_65``
+	//   +   ``ML_DSA_87``
+	//
 	//   +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
 	//   +  ``SM2`` (China Regions only)
 	KeySpec *KeySpec `pulumi:"keySpec"`
@@ -114,7 +119,8 @@ type LookupKeyResult struct {
 	//   +  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.
 	//   +  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
 	//   +  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.
-	//   +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.
+	//   +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs, specify ``SIGN_VERIFY``.
+	//   +  For asymmetric KMS keys with ML-DSA key pairs, specify ``SIGN_VERIFY``.
 	//   +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``.
 	KeyUsage *KeyUsage `pulumi:"keyUsage"`
 	// Creates a multi-Region primary key that you can replicate in other AWS-Regions. You can't change the ``MultiRegion`` value after the KMS key is created.
@@ -128,7 +134,8 @@ type LookupKeyResult struct {
 	// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material.
 	//  To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.
 	//  You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations.
-	//   CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+	//    +  CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+	//   +  ``EXTERNAL`` is not supported for ML-DSA keys.
 	Origin *KeyOrigin `pulumi:"origin"`
 	// Assigns one or more tags to the replica key.
 	//   Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see [ABAC for](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *Developer Guide*.
@@ -255,6 +262,11 @@ func (o LookupKeyResultOutput) KeyPolicy() pulumi.AnyOutput {
 //	 +  Other asymmetric elliptic curve key pairs (signing and verification)
 //	 +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
 //
+//	 +  Asymmetric ML-DSA key pairs (signing and verification)
+//	 +   ``ML_DSA_44``
+//	 +   ``ML_DSA_65``
+//	 +   ``ML_DSA_87``
+//
 //	 +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
 //	 +  ``SM2`` (China Regions only)
 func (o LookupKeyResultOutput) KeySpec() KeySpecPtrOutput {
@@ -269,7 +281,8 @@ func (o LookupKeyResultOutput) KeySpec() KeySpecPtrOutput {
 //	+  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.
 //	+  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
 //	+  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.
-//	+  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.
+//	+  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs, specify ``SIGN_VERIFY``.
+//	+  For asymmetric KMS keys with ML-DSA key pairs, specify ``SIGN_VERIFY``.
 //	+  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``.
 func (o LookupKeyResultOutput) KeyUsage() KeyUsagePtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *KeyUsage { return v.KeyUsage }).(KeyUsagePtrOutput)
@@ -291,7 +304,8 @@ func (o LookupKeyResultOutput) MultiRegion() pulumi.BoolPtrOutput {
 //
 //	To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.
 //	You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations.
-//	 CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+//	  +  CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+//	 +  ``EXTERNAL`` is not supported for ML-DSA keys.
 func (o LookupKeyResultOutput) Origin() KeyOriginPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *KeyOrigin { return v.Origin }).(KeyOriginPtrOutput)
 }

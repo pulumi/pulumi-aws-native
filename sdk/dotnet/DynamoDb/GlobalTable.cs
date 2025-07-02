@@ -46,6 +46,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("globalSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
 
+        [Output("globalTableWitnesses")]
+        public Output<ImmutableArray<Outputs.GlobalTableWitness>> GlobalTableWitnesses { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
         /// </summary>
@@ -57,6 +60,9 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         [Output("localSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.GlobalTableLocalSecondaryIndex>> LocalSecondaryIndexes { get; private set; } = null!;
+
+        [Output("multiRegionConsistency")]
+        public Output<Pulumi.AwsNative.DynamoDb.GlobalTableMultiRegionConsistency?> MultiRegionConsistency { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
@@ -216,6 +222,14 @@ namespace Pulumi.AwsNative.DynamoDb
             set => _globalSecondaryIndexes = value;
         }
 
+        [Input("globalTableWitnesses")]
+        private InputList<Inputs.GlobalTableWitnessArgs>? _globalTableWitnesses;
+        public InputList<Inputs.GlobalTableWitnessArgs> GlobalTableWitnesses
+        {
+            get => _globalTableWitnesses ?? (_globalTableWitnesses = new InputList<Inputs.GlobalTableWitnessArgs>());
+            set => _globalTableWitnesses = value;
+        }
+
         [Input("keySchema", required: true)]
         private InputList<Inputs.GlobalTableKeySchemaArgs>? _keySchema;
 
@@ -239,6 +253,9 @@ namespace Pulumi.AwsNative.DynamoDb
             get => _localSecondaryIndexes ?? (_localSecondaryIndexes = new InputList<Inputs.GlobalTableLocalSecondaryIndexArgs>());
             set => _localSecondaryIndexes = value;
         }
+
+        [Input("multiRegionConsistency")]
+        public Input<Pulumi.AwsNative.DynamoDb.GlobalTableMultiRegionConsistency>? MultiRegionConsistency { get; set; }
 
         [Input("replicas", required: true)]
         private InputList<Inputs.GlobalTableReplicaSpecificationArgs>? _replicas;

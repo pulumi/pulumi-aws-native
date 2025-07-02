@@ -3264,12 +3264,13 @@ func (o ContainerGroupDefinitionStatusPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether to apply fleet or location capacities on fleet creation.
+// Determines when and how to apply fleet or location capacities. If you choose ON_CREATE_AND_UPDATE_WITH_AUTOSCALING, MinSize and MaxSize will still be applied on creation and on updates, but DesiredEC2Instances will only be applied once on fleet creation and will be ignored during updates to prevent conflicts with auto-scaling.
 type FleetApplyCapacity string
 
 const (
-	FleetApplyCapacityOnUpdate          = FleetApplyCapacity("ON_UPDATE")
-	FleetApplyCapacityOnCreateAndUpdate = FleetApplyCapacity("ON_CREATE_AND_UPDATE")
+	FleetApplyCapacityOnUpdate                         = FleetApplyCapacity("ON_UPDATE")
+	FleetApplyCapacityOnCreateAndUpdate                = FleetApplyCapacity("ON_CREATE_AND_UPDATE")
+	FleetApplyCapacityOnCreateAndUpdateWithAutoscaling = FleetApplyCapacity("ON_CREATE_AND_UPDATE_WITH_AUTOSCALING")
 )
 
 func (FleetApplyCapacity) ElementType() reflect.Type {
@@ -3396,6 +3397,7 @@ func (o FleetApplyCapacityPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //
 //	FleetApplyCapacityOnUpdate
 //	FleetApplyCapacityOnCreateAndUpdate
+//	FleetApplyCapacityOnCreateAndUpdateWithAutoscaling
 type FleetApplyCapacityInput interface {
 	pulumi.Input
 

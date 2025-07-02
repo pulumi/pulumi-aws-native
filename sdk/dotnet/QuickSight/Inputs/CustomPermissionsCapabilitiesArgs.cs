@@ -66,11 +66,29 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("exportToCsv")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToCsv { get; set; }
 
+        [Input("exportToCsvInScheduledReports")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToCsvInScheduledReports { get; set; }
+
         /// <summary>
         /// The ability to export to Excel files.
         /// </summary>
         [Input("exportToExcel")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToExcel { get; set; }
+
+        [Input("exportToExcelInScheduledReports")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToExcelInScheduledReports { get; set; }
+
+        [Input("exportToPdf")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToPdf { get; set; }
+
+        [Input("exportToPdfInScheduledReports")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToPdfInScheduledReports { get; set; }
+
+        [Input("includeContentInScheduledReportsEmail")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? IncludeContentInScheduledReportsEmail { get; set; }
+
+        [Input("printReports")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? PrintReports { get; set; }
 
         /// <summary>
         /// The ability to rename shared folders.

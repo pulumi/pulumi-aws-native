@@ -17,6 +17,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DataAccessorArgs', 'DataAccessor']
@@ -28,6 +29,7 @@ class DataAccessorArgs:
                  application_id: pulumi.Input[builtins.str],
                  display_name: pulumi.Input[builtins.str],
                  principal: pulumi.Input[builtins.str],
+                 authentication_detail: Optional[pulumi.Input['DataAccessorAuthenticationDetailArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataAccessor resource.
@@ -35,12 +37,15 @@ class DataAccessorArgs:
         :param pulumi.Input[builtins.str] application_id: The unique identifier of the Amazon Q Business application.
         :param pulumi.Input[builtins.str] display_name: The friendly name of the data accessor.
         :param pulumi.Input[builtins.str] principal: The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+        :param pulumi.Input['DataAccessorAuthenticationDetailArgs'] authentication_detail: The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to associate with the data accessor.
         """
         pulumi.set(__self__, "action_configurations", action_configurations)
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "principal", principal)
+        if authentication_detail is not None:
+            pulumi.set(__self__, "authentication_detail", authentication_detail)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -93,6 +98,18 @@ class DataAccessorArgs:
         pulumi.set(self, "principal", value)
 
     @property
+    @pulumi.getter(name="authenticationDetail")
+    def authentication_detail(self) -> Optional[pulumi.Input['DataAccessorAuthenticationDetailArgs']]:
+        """
+        The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+        """
+        return pulumi.get(self, "authentication_detail")
+
+    @authentication_detail.setter
+    def authentication_detail(self, value: Optional[pulumi.Input['DataAccessorAuthenticationDetailArgs']]):
+        pulumi.set(self, "authentication_detail", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -113,6 +130,7 @@ class DataAccessor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict']]]]] = None,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
+                 authentication_detail: Optional[pulumi.Input[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -124,6 +142,7 @@ class DataAccessor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict']]]] action_configurations: A list of action configurations specifying the allowed actions and any associated filters.
         :param pulumi.Input[builtins.str] application_id: The unique identifier of the Amazon Q Business application.
+        :param pulumi.Input[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict']] authentication_detail: The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
         :param pulumi.Input[builtins.str] display_name: The friendly name of the data accessor.
         :param pulumi.Input[builtins.str] principal: The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to associate with the data accessor.
@@ -154,6 +173,7 @@ class DataAccessor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict']]]]] = None,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
+                 authentication_detail: Optional[pulumi.Input[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -172,6 +192,7 @@ class DataAccessor(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
+            __props__.__dict__["authentication_detail"] = authentication_detail
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
@@ -210,6 +231,7 @@ class DataAccessor(pulumi.CustomResource):
 
         __props__.__dict__["action_configurations"] = None
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["authentication_detail"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["data_accessor_arn"] = None
         __props__.__dict__["data_accessor_id"] = None
@@ -235,6 +257,14 @@ class DataAccessor(pulumi.CustomResource):
         The unique identifier of the Amazon Q Business application.
         """
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="authenticationDetail")
+    def authentication_detail(self) -> pulumi.Output[Optional['outputs.DataAccessorAuthenticationDetail']]:
+        """
+        The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+        """
+        return pulumi.get(self, "authentication_detail")
 
     @property
     @pulumi.getter(name="createdAt")

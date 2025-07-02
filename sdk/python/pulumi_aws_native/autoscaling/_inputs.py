@@ -241,8 +241,8 @@ if not MYPY:
         capacity_distribution_strategy: NotRequired[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy']]
         """
         If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``. 
-          +   ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
-          +   ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+          +  ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+          +  ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
         """
 elif False:
     AutoScalingGroupAvailabilityZoneDistributionArgsDict: TypeAlias = Mapping[str, Any]
@@ -254,8 +254,8 @@ class AutoScalingGroupAvailabilityZoneDistributionArgs:
         """
         ``AvailabilityZoneDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
         :param pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy'] capacity_distribution_strategy: If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``. 
-                 +   ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
-                 +   ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+                 +  ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+                 +  ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
         """
         if capacity_distribution_strategy is not None:
             pulumi.set(__self__, "capacity_distribution_strategy", capacity_distribution_strategy)
@@ -265,8 +265,8 @@ class AutoScalingGroupAvailabilityZoneDistributionArgs:
     def capacity_distribution_strategy(self) -> Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy']]:
         """
         If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``. 
-          +   ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
-          +   ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+          +  ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+          +  ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
         """
         return pulumi.get(self, "capacity_distribution_strategy")
 
@@ -431,10 +431,10 @@ if not MYPY:
         capacity_reservation_preference: pulumi.Input[builtins.str]
         """
         The capacity reservation preference. The following options are available: 
-          +   ``capacity-reservations-only`` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
-          +   ``capacity-reservations-first`` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
-          +   ``none`` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity. 
-          +   ``default`` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
+          +  ``capacity-reservations-only`` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+          +  ``capacity-reservations-first`` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+          +  ``none`` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity. 
+          +  ``default`` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
         """
         capacity_reservation_target: NotRequired[pulumi.Input['AutoScalingGroupCapacityReservationTargetArgsDict']]
         """
@@ -451,10 +451,10 @@ class AutoScalingGroupCapacityReservationSpecificationArgs:
         """
         Describes the Capacity Reservation preference and targeting options. If you specify ``open`` or ``none`` for ``CapacityReservationPreference``, do not specify a ``CapacityReservationTarget``.
         :param pulumi.Input[builtins.str] capacity_reservation_preference: The capacity reservation preference. The following options are available: 
-                 +   ``capacity-reservations-only`` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
-                 +   ``capacity-reservations-first`` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
-                 +   ``none`` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity. 
-                 +   ``default`` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
+                 +  ``capacity-reservations-only`` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+                 +  ``capacity-reservations-first`` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+                 +  ``none`` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity. 
+                 +  ``default`` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
         :param pulumi.Input['AutoScalingGroupCapacityReservationTargetArgs'] capacity_reservation_target: Describes a target Capacity Reservation or Capacity Reservation resource group.
         """
         pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
@@ -466,10 +466,10 @@ class AutoScalingGroupCapacityReservationSpecificationArgs:
     def capacity_reservation_preference(self) -> pulumi.Input[builtins.str]:
         """
         The capacity reservation preference. The following options are available: 
-          +   ``capacity-reservations-only`` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
-          +   ``capacity-reservations-first`` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
-          +   ``none`` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity. 
-          +   ``default`` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
+          +  ``capacity-reservations-only`` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+          +  ``capacity-reservations-first`` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+          +  ``none`` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity. 
+          +  ``default`` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
         """
         return pulumi.get(self, "capacity_reservation_preference")
 
@@ -652,13 +652,13 @@ if not MYPY:
         The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
          When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
          To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-          +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-          +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+          +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+          +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
           
           You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
           For an example template, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html).
          For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances*.
-          ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+         ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
         """
         memory_mi_b: pulumi.Input['AutoScalingGroupMemoryMiBRequestArgsDict']
         """
@@ -726,7 +726,7 @@ if not MYPY:
         """
         baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input['AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgsDict']]
         """
-        The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
          Default: No minimum or maximum limits
         """
         baseline_performance_factors: NotRequired[pulumi.Input['AutoScalingGroupBaselinePerformanceFactorsRequestArgsDict']]
@@ -735,7 +735,7 @@ if not MYPY:
         """
         burstable_performance: NotRequired[pulumi.Input[builtins.str]]
         """
-        Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide*.
          Default: ``excluded``
         """
         cpu_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
@@ -744,6 +744,7 @@ if not MYPY:
           +  For instance types with Intel CPUs, specify ``intel``.
           +  For instance types with AMD CPUs, specify ``amd``.
           +  For instance types with AWS CPUs, specify ``amazon-web-services``.
+          +  For instance types with Apple CPUs, specify ``apple``.
           
           Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
           Default: Any manufacturer
@@ -758,14 +759,14 @@ if not MYPY:
         instance_generations: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
         Indicates whether current or previous generation instance types are included.
-          +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
+          +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
           +  For previous generation instance types, specify ``previous``.
           
          Default: Any current or previous generation
         """
         local_storage: NotRequired[pulumi.Input[builtins.str]]
         """
-        Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.
          Default: ``included``
         """
         local_storage_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
@@ -858,13 +859,13 @@ class AutoScalingGroupInstanceRequirementsArgs:
         The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
          When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
          To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-          +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-          +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+          +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+          +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
           
           You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
           For an example template, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html).
          For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances*.
-          ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+         ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
         :param pulumi.Input['AutoScalingGroupMemoryMiBRequestArgs'] memory_mi_b: The minimum and maximum instance memory size for an instance type, in MiB.
         :param pulumi.Input['AutoScalingGroupVCpuCountRequestArgs'] v_cpu_count: The minimum and maximum number of vCPUs for an instance type.
         :param pulumi.Input['AutoScalingGroupAcceleratorCountRequestArgs'] accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type.
@@ -902,15 +903,16 @@ class AutoScalingGroupInstanceRequirementsArgs:
                  Default: All instance types
         :param pulumi.Input[builtins.str] bare_metal: Indicates whether bare metal instance types are included, excluded, or required.
                 Default: ``excluded``
-        :param pulumi.Input['AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs'] baseline_ebs_bandwidth_mbps: The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        :param pulumi.Input['AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs'] baseline_ebs_bandwidth_mbps: The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
                 Default: No minimum or maximum limits
         :param pulumi.Input['AutoScalingGroupBaselinePerformanceFactorsRequestArgs'] baseline_performance_factors: The baseline performance factors for the instance requirements.
-        :param pulumi.Input[builtins.str] burstable_performance: Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        :param pulumi.Input[builtins.str] burstable_performance: Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide*.
                 Default: ``excluded``
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cpu_manufacturers: Lists which specific CPU manufacturers to include.
                  +  For instance types with Intel CPUs, specify ``intel``.
                  +  For instance types with AMD CPUs, specify ``amd``.
                  +  For instance types with AWS CPUs, specify ``amazon-web-services``.
+                 +  For instance types with Apple CPUs, specify ``apple``.
                  
                  Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
                  Default: Any manufacturer
@@ -919,11 +921,11 @@ class AutoScalingGroupInstanceRequirementsArgs:
                  If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
                  Default: No excluded instance types
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] instance_generations: Indicates whether current or previous generation instance types are included.
-                 +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
+                 +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
                  +  For previous generation instance types, specify ``previous``.
                  
                 Default: Any current or previous generation
-        :param pulumi.Input[builtins.str] local_storage: Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        :param pulumi.Input[builtins.str] local_storage: Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.
                 Default: ``included``
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] local_storage_types: Indicates the type of local storage that is required.
                  +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
@@ -1143,7 +1145,7 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @pulumi.getter(name="baselineEbsBandwidthMbps")
     def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs']]:
         """
-        The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
          Default: No minimum or maximum limits
         """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
@@ -1168,7 +1170,7 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @pulumi.getter(name="burstablePerformance")
     def burstable_performance(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide*.
          Default: ``excluded``
         """
         return pulumi.get(self, "burstable_performance")
@@ -1185,6 +1187,7 @@ class AutoScalingGroupInstanceRequirementsArgs:
           +  For instance types with Intel CPUs, specify ``intel``.
           +  For instance types with AMD CPUs, specify ``amd``.
           +  For instance types with AWS CPUs, specify ``amazon-web-services``.
+          +  For instance types with Apple CPUs, specify ``apple``.
           
           Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
           Default: Any manufacturer
@@ -1215,7 +1218,7 @@ class AutoScalingGroupInstanceRequirementsArgs:
     def instance_generations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         Indicates whether current or previous generation instance types are included.
-          +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
+          +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
           +  For previous generation instance types, specify ``previous``.
           
          Default: Any current or previous generation
@@ -1230,7 +1233,7 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @pulumi.getter(name="localStorage")
     def local_storage(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.
          Default: ``included``
         """
         return pulumi.get(self, "local_storage")
@@ -1372,7 +1375,7 @@ if not MYPY:
         """
         Use this structure to specify the distribution of On-Demand Instances and Spot Instances and the allocation strategies used to fulfill On-Demand and Spot capacities for a mixed instances policy.
          For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
-          ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+         ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
         """
         on_demand_allocation_strategy: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1425,7 +1428,7 @@ class AutoScalingGroupInstancesDistributionArgs:
         """
         Use this structure to specify the distribution of On-Demand Instances and Spot Instances and the allocation strategies used to fulfill On-Demand and Spot capacities for a mixed instances policy.
          For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
-          ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+         ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
         :param pulumi.Input[builtins.str] on_demand_allocation_strategy: The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
                 The following lists the valid values:
                  + lowest-price Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify InstanceRequirements. + prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify InstanceRequirements and cannot be used for groups that do.
@@ -1552,7 +1555,7 @@ if not MYPY:
           
          Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.
          After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.
-          ``LaunchTemplateOverrides`` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+         ``LaunchTemplateOverrides`` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
         """
         instance_requirements: NotRequired[pulumi.Input['AutoScalingGroupInstanceRequirementsArgsDict']]
         """
@@ -1562,7 +1565,7 @@ if not MYPY:
         """
         instance_type: NotRequired[pulumi.Input[builtins.str]]
         """
-        The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
          You can specify up to 40 instance types per Auto Scaling group.
         """
         launch_template_specification: NotRequired[pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgsDict']]
@@ -1593,11 +1596,11 @@ class AutoScalingGroupLaunchTemplateOverridesArgs:
           
          Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.
          After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.
-          ``LaunchTemplateOverrides`` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+         ``LaunchTemplateOverrides`` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
         :param pulumi.Input['AutoScalingGroupInstanceRequirementsArgs'] instance_requirements: The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
                 You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. 
                  If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
-        :param pulumi.Input[builtins.str] instance_type: The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        :param pulumi.Input[builtins.str] instance_type: The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
                 You can specify up to 40 instance types per Auto Scaling group.
         :param pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs'] launch_template_specification: Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the ``LaunchTemplate`` definition. For more information, see [Specifying a different launch template for an instance type](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html) in the *Amazon EC2 Auto Scaling User Guide*. 
                 You can specify up to 20 launch templates per Auto Scaling group. The launch templates specified in the overrides and in the ``LaunchTemplate`` definition count towards this limit.
@@ -1632,7 +1635,7 @@ class AutoScalingGroupLaunchTemplateOverridesArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
          You can specify up to 40 instance types per Auto Scaling group.
         """
         return pulumi.get(self, "instance_type")
@@ -1677,7 +1680,7 @@ if not MYPY:
           +  The ID or the name of the launch template, but not both.
           +  The version of the launch template.
           
-          ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
+         ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
          For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
          For examples of launch templates, see [Create launch templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-launch-templates.html).
         """
@@ -1712,7 +1715,7 @@ class AutoScalingGroupLaunchTemplateSpecificationArgs:
           +  The ID or the name of the launch template, but not both.
           +  The version of the launch template.
           
-          ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
+         ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
          For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
          For examples of launch templates, see [Create launch templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-launch-templates.html).
         :param pulumi.Input[builtins.str] version: The version number of the launch template.
@@ -1774,7 +1777,7 @@ if not MYPY:
     class AutoScalingGroupLaunchTemplateArgsDict(TypedDict):
         """
         Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
-          ``LaunchTemplate`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+         ``LaunchTemplate`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
         """
         launch_template_specification: pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgsDict']
         """
@@ -1794,7 +1797,7 @@ class AutoScalingGroupLaunchTemplateArgs:
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLaunchTemplateOverridesArgs']]]] = None):
         """
         Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
-          ``LaunchTemplate`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+         ``LaunchTemplate`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
         :param pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs'] launch_template_specification: The launch template.
         :param pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLaunchTemplateOverridesArgs']]] overrides: Any properties that you specify override the same properties in the launch template.
         """
@@ -2247,7 +2250,7 @@ if not MYPY:
           +  Amazon EC2 can terminate an individual Spot Instance as the availability of, or price for, Spot Instances changes
           
          When a Spot Instance is terminated, Amazon EC2 Auto Scaling group attempts to launch a replacement instance to maintain the desired capacity for the group. 
-          ``MixedInstancesPolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+         ``MixedInstancesPolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
         """
         launch_template: pulumi.Input['AutoScalingGroupLaunchTemplateArgsDict']
         """
@@ -2274,7 +2277,7 @@ class AutoScalingGroupMixedInstancesPolicyArgs:
           +  Amazon EC2 can terminate an individual Spot Instance as the availability of, or price for, Spot Instances changes
           
          When a Spot Instance is terminated, Amazon EC2 Auto Scaling group attempts to launch a replacement instance to maintain the desired capacity for the group. 
-          ``MixedInstancesPolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+         ``MixedInstancesPolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
         :param pulumi.Input['AutoScalingGroupLaunchTemplateArgs'] launch_template: One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
         :param pulumi.Input['AutoScalingGroupInstancesDistributionArgs'] instances_distribution: The instances distribution.
         """
@@ -2435,7 +2438,7 @@ if not MYPY:
         notification_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
         A list of event types that send a notification. Event types can include any of the following types. 
-          *Allowed values*:
+         *Allowed values*:
           +   ``autoscaling:EC2_INSTANCE_LAUNCH`` 
           +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR`` 
           +   ``autoscaling:EC2_INSTANCE_TERMINATE`` 
@@ -2456,7 +2459,7 @@ class AutoScalingGroupNotificationConfigurationArgs:
          For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] notification_types: A list of event types that send a notification. Event types can include any of the following types. 
-                 *Allowed values*:
+                *Allowed values*:
                  +   ``autoscaling:EC2_INSTANCE_LAUNCH`` 
                  +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR`` 
                  +   ``autoscaling:EC2_INSTANCE_TERMINATE`` 
@@ -2484,7 +2487,7 @@ class AutoScalingGroupNotificationConfigurationArgs:
     def notification_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         A list of event types that send a notification. Event types can include any of the following types. 
-          *Allowed values*:
+         *Allowed values*:
           +   ``autoscaling:EC2_INSTANCE_LAUNCH`` 
           +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR`` 
           +   ``autoscaling:EC2_INSTANCE_TERMINATE`` 
@@ -2724,9 +2727,9 @@ if not MYPY:
         Identifies the traffic source.
          For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
          For example: 
-          +  Application Load Balancer ARN: ``arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456`` 
-          +  Classic Load Balancer name: ``my-classic-load-balancer`` 
-          +  VPC Lattice ARN: ``arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456`` 
+          +  Application Load Balancer ARN: ``arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456``
+          +  Classic Load Balancer name: ``my-classic-load-balancer``
+          +  VPC Lattice ARN: ``arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456``
           
          To get the ARN of a target group for a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer, or the name of a Classic Load Balancer, use the Elastic Load Balancing [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) and [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operations.
          To get the ARN of a target group for VPC Lattice, use the VPC Lattice [GetTargetGroup](https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_GetTargetGroup.html) API operation.
@@ -2735,9 +2738,9 @@ if not MYPY:
         """
         Provides additional context for the value of ``Identifier``.
          The following lists the valid values:
-          +   ``elb`` if ``Identifier`` is the name of a Classic Load Balancer.
-          +   ``elbv2`` if ``Identifier`` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-          +   ``vpc-lattice`` if ``Identifier`` is the ARN of a VPC Lattice target group.
+          +  ``elb`` if ``Identifier`` is the name of a Classic Load Balancer.
+          +  ``elbv2`` if ``Identifier`` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
+          +  ``vpc-lattice`` if ``Identifier`` is the ARN of a VPC Lattice target group.
           
          Required if the identifier is the name of a Classic Load Balancer.
         """
@@ -2754,17 +2757,17 @@ class AutoScalingGroupTrafficSourceIdentifierArgs:
         :param pulumi.Input[builtins.str] identifier: Identifies the traffic source.
                 For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
                 For example: 
-                 +  Application Load Balancer ARN: ``arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456`` 
-                 +  Classic Load Balancer name: ``my-classic-load-balancer`` 
-                 +  VPC Lattice ARN: ``arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456`` 
+                 +  Application Load Balancer ARN: ``arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456``
+                 +  Classic Load Balancer name: ``my-classic-load-balancer``
+                 +  VPC Lattice ARN: ``arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456``
                  
                 To get the ARN of a target group for a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer, or the name of a Classic Load Balancer, use the Elastic Load Balancing [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) and [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operations.
                 To get the ARN of a target group for VPC Lattice, use the VPC Lattice [GetTargetGroup](https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_GetTargetGroup.html) API operation.
         :param pulumi.Input[builtins.str] type: Provides additional context for the value of ``Identifier``.
                 The following lists the valid values:
-                 +   ``elb`` if ``Identifier`` is the name of a Classic Load Balancer.
-                 +   ``elbv2`` if ``Identifier`` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-                 +   ``vpc-lattice`` if ``Identifier`` is the ARN of a VPC Lattice target group.
+                 +  ``elb`` if ``Identifier`` is the name of a Classic Load Balancer.
+                 +  ``elbv2`` if ``Identifier`` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
+                 +  ``vpc-lattice`` if ``Identifier`` is the ARN of a VPC Lattice target group.
                  
                 Required if the identifier is the name of a Classic Load Balancer.
         """
@@ -2778,9 +2781,9 @@ class AutoScalingGroupTrafficSourceIdentifierArgs:
         Identifies the traffic source.
          For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
          For example: 
-          +  Application Load Balancer ARN: ``arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456`` 
-          +  Classic Load Balancer name: ``my-classic-load-balancer`` 
-          +  VPC Lattice ARN: ``arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456`` 
+          +  Application Load Balancer ARN: ``arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456``
+          +  Classic Load Balancer name: ``my-classic-load-balancer``
+          +  VPC Lattice ARN: ``arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456``
           
          To get the ARN of a target group for a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer, or the name of a Classic Load Balancer, use the Elastic Load Balancing [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) and [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operations.
          To get the ARN of a target group for VPC Lattice, use the VPC Lattice [GetTargetGroup](https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_GetTargetGroup.html) API operation.
@@ -2797,9 +2800,9 @@ class AutoScalingGroupTrafficSourceIdentifierArgs:
         """
         Provides additional context for the value of ``Identifier``.
          The following lists the valid values:
-          +   ``elb`` if ``Identifier`` is the name of a Classic Load Balancer.
-          +   ``elbv2`` if ``Identifier`` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-          +   ``vpc-lattice`` if ``Identifier`` is the ARN of a VPC Lattice target group.
+          +  ``elb`` if ``Identifier`` is the name of a Classic Load Balancer.
+          +  ``elbv2`` if ``Identifier`` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
+          +  ``vpc-lattice`` if ``Identifier`` is the ARN of a VPC Lattice target group.
           
          Required if the identifier is the name of a Classic Load Balancer.
         """

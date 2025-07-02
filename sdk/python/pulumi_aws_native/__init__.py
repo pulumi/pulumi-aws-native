@@ -1595,6 +1595,7 @@ _utilities.register(
    "aws-native:ec2:SubnetNetworkAclAssociation": "SubnetNetworkAclAssociation",
    "aws-native:ec2:SubnetRouteTableAssociation": "SubnetRouteTableAssociation",
    "aws-native:ec2:TrafficMirrorFilter": "TrafficMirrorFilter",
+   "aws-native:ec2:TrafficMirrorFilterRule": "TrafficMirrorFilterRule",
    "aws-native:ec2:TransitGateway": "TransitGateway",
    "aws-native:ec2:TransitGatewayAttachment": "TransitGatewayAttachment",
    "aws-native:ec2:TransitGatewayConnect": "TransitGatewayConnect",
@@ -1857,7 +1858,8 @@ _utilities.register(
   "mod": "fsx",
   "fqn": "pulumi_aws_native.fsx",
   "classes": {
-   "aws-native:fsx:DataRepositoryAssociation": "DataRepositoryAssociation"
+   "aws-native:fsx:DataRepositoryAssociation": "DataRepositoryAssociation",
+   "aws-native:fsx:S3AccessPointAttachment": "S3AccessPointAttachment"
   }
  },
  {
@@ -2234,7 +2236,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.kinesis",
   "classes": {
    "aws-native:kinesis:ResourcePolicy": "ResourcePolicy",
-   "aws-native:kinesis:Stream": "Stream"
+   "aws-native:kinesis:Stream": "Stream",
+   "aws-native:kinesis:StreamConsumer": "StreamConsumer"
   }
  },
  {
@@ -2532,6 +2535,7 @@ _utilities.register(
   "classes": {
    "aws-native:neptune:DbCluster": "DbCluster",
    "aws-native:neptune:DbClusterParameterGroup": "DbClusterParameterGroup",
+   "aws-native:neptune:DbInstance": "DbInstance",
    "aws-native:neptune:DbParameterGroup": "DbParameterGroup",
    "aws-native:neptune:DbSubnetGroup": "DbSubnetGroup"
   }

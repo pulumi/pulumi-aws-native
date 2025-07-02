@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// A description of the bot locale. Use this to help identify the bot locale in lists.
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.BotGenerativeAiSettings? GenerativeAiSettings;
         /// <summary>
         /// One or more intents defined for the locale.
         /// </summary>
@@ -55,6 +56,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             string? description,
 
+            Outputs.BotGenerativeAiSettings? generativeAiSettings,
+
             ImmutableArray<Outputs.BotIntent> intents,
 
             string localeId,
@@ -67,6 +70,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         {
             CustomVocabulary = customVocabulary;
             Description = description;
+            GenerativeAiSettings = generativeAiSettings;
             Intents = intents;
             LocaleId = localeId;
             NluConfidenceThreshold = nluConfidenceThreshold;

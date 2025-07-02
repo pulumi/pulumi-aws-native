@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.B2bi
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the email address associated with this trading partner.
+        /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
@@ -60,6 +63,9 @@ namespace Pulumi.AwsNative.B2bi
         [Output("partnershipId")]
         public Output<string> PartnershipId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the phone number associated with the partnership.
+        /// </summary>
         [Output("phone")]
         public Output<string?> Phone { get; private set; } = null!;
 
@@ -150,6 +156,9 @@ namespace Pulumi.AwsNative.B2bi
         [Input("capabilityOptions")]
         public Input<Inputs.PartnershipCapabilityOptionsArgs>? CapabilityOptions { get; set; }
 
+        /// <summary>
+        /// Specifies the email address associated with this trading partner.
+        /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
@@ -159,6 +168,9 @@ namespace Pulumi.AwsNative.B2bi
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the phone number associated with the partnership.
+        /// </summary>
         [Input("phone")]
         public Input<string>? Phone { get; set; }
 

@@ -12,6 +12,13 @@ export const GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePre
  */
 export type GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision = (typeof GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision)[keyof typeof GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision];
 
+export const GlobalTableMultiRegionConsistency = {
+    Eventual: "EVENTUAL",
+    Strong: "STRONG",
+} as const;
+
+export type GlobalTableMultiRegionConsistency = (typeof GlobalTableMultiRegionConsistency)[keyof typeof GlobalTableMultiRegionConsistency];
+
 export const TableKinesisStreamSpecificationApproximateCreationDateTimePrecision = {
     Microsecond: "MICROSECOND",
     Millisecond: "MILLISECOND",

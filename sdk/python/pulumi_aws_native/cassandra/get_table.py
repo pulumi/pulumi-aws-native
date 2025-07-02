@@ -27,10 +27,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableResult:
-    def __init__(__self__, billing_mode=None, default_time_to_live=None, encryption_specification=None, point_in_time_recovery_enabled=None, regular_columns=None, tags=None):
+    def __init__(__self__, billing_mode=None, cdc_specification=None, default_time_to_live=None, encryption_specification=None, point_in_time_recovery_enabled=None, regular_columns=None, tags=None):
         if billing_mode and not isinstance(billing_mode, dict):
             raise TypeError("Expected argument 'billing_mode' to be a dict")
         pulumi.set(__self__, "billing_mode", billing_mode)
+        if cdc_specification and not isinstance(cdc_specification, dict):
+            raise TypeError("Expected argument 'cdc_specification' to be a dict")
+        pulumi.set(__self__, "cdc_specification", cdc_specification)
         if default_time_to_live and not isinstance(default_time_to_live, int):
             raise TypeError("Expected argument 'default_time_to_live' to be a int")
         pulumi.set(__self__, "default_time_to_live", default_time_to_live)
@@ -59,6 +62,11 @@ class GetTableResult:
         If you don't specify a value for this property, then the table will use on-demand mode.
         """
         return pulumi.get(self, "billing_mode")
+
+    @property
+    @pulumi.getter(name="cdcSpecification")
+    def cdc_specification(self) -> Optional['outputs.TableCdcSpecification']:
+        return pulumi.get(self, "cdc_specification")
 
     @property
     @pulumi.getter(name="defaultTimeToLive")
@@ -115,6 +123,7 @@ class AwaitableGetTableResult(GetTableResult):
             yield self
         return GetTableResult(
             billing_mode=self.billing_mode,
+            cdc_specification=self.cdc_specification,
             default_time_to_live=self.default_time_to_live,
             encryption_specification=self.encryption_specification,
             point_in_time_recovery_enabled=self.point_in_time_recovery_enabled,
@@ -140,6 +149,7 @@ def get_table(keyspace_name: Optional[builtins.str] = None,
 
     return AwaitableGetTableResult(
         billing_mode=pulumi.get(__ret__, 'billing_mode'),
+        cdc_specification=pulumi.get(__ret__, 'cdc_specification'),
         default_time_to_live=pulumi.get(__ret__, 'default_time_to_live'),
         encryption_specification=pulumi.get(__ret__, 'encryption_specification'),
         point_in_time_recovery_enabled=pulumi.get(__ret__, 'point_in_time_recovery_enabled'),
@@ -162,6 +172,7 @@ def get_table_output(keyspace_name: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:cassandra:getTable', __args__, opts=opts, typ=GetTableResult)
     return __ret__.apply(lambda __response__: GetTableResult(
         billing_mode=pulumi.get(__response__, 'billing_mode'),
+        cdc_specification=pulumi.get(__response__, 'cdc_specification'),
         default_time_to_live=pulumi.get(__response__, 'default_time_to_live'),
         encryption_specification=pulumi.get(__response__, 'encryption_specification'),
         point_in_time_recovery_enabled=pulumi.get(__response__, 'point_in_time_recovery_enabled'),
