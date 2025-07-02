@@ -5774,6 +5774,58 @@
       }
     }
   },
+  "aws-native:ec2:TrafficMirrorFilterRule": {
+    "cfTypeName": "AWS::EC2::TrafficMirrorFilterRule",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "The description of the Traffic Mirror Filter rule."
+      },
+      "destinationCidrBlock": {
+        "type": "string",
+        "description": "The destination CIDR block to assign to the Traffic Mirror rule."
+      },
+      "destinationPortRange": {
+        "$ref": "#/types/aws-native:ec2:TrafficMirrorFilterRuleTrafficMirrorPortRange",
+        "description": "The destination port range."
+      },
+      "protocol": {
+        "type": "integer",
+        "description": "The number of protocol, for example 17 (UDP), to assign to the Traffic Mirror rule."
+      },
+      "ruleAction": {
+        "type": "string",
+        "description": "The action to take on the filtered traffic (accept/reject)."
+      },
+      "ruleNumber": {
+        "type": "integer",
+        "description": "The number of the Traffic Mirror rule."
+      },
+      "sourceCidrBlock": {
+        "type": "string",
+        "description": "The source CIDR block to assign to the Traffic Mirror Filter rule."
+      },
+      "sourcePortRange": {
+        "$ref": "#/types/aws-native:ec2:TrafficMirrorFilterRuleTrafficMirrorPortRange",
+        "description": "The source port range."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Any tags assigned to the Traffic Mirror Filter rule."
+      },
+      "trafficDirection": {
+        "type": "string",
+        "description": "The direction of traffic (ingress/egress)."
+      },
+      "trafficMirrorFilterId": {
+        "type": "string",
+        "description": "The ID of the filter that this rule is associated with."
+      }
+    }
+  },
   "aws-native:ec2:TransitGateway": {
     "cfTypeName": "AWS::EC2::TransitGateway",
     "properties": {
@@ -9057,11 +9109,11 @@
       },
       "keySpec": {
         "$ref": "#/types/aws-native:kms:KeySpec",
-        "description": "Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*.\n The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.\n  If you change the value of the ``KeySpec`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.\n   [services that are integrated with](https://docs.aws.amazon.com/kms/features/#AWS_Service_Integration) use symmetric encryption KMS keys to protect your data. These services do not support encryption with asymmetric KMS keys. For help determining whether a KMS key is asymmetric, see [Identifying asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *Developer Guide*.\n  KMS supports the following key specs for KMS keys:\n  +  Symmetric encryption key (default)\n  +  ``SYMMETRIC_DEFAULT`` (AES-256-GCM)\n  \n  +  HMAC keys (symmetric)\n  +   ``HMAC_224`` \n  +   ``HMAC_256`` \n  +   ``HMAC_384`` \n  +   ``HMAC_512`` \n  \n  +  Asymmetric RSA key pairs (encryption and decryption *or* signing and verification)\n  +   ``RSA_2048`` \n  +   ``RSA_3072`` \n  +   ``RSA_4096`` \n  \n  +  Asymmetric NIST-recommended elliptic curve key pairs (signing and verification *or* deriving shared secrets)\n  +  ``ECC_NIST_P256`` (secp256r1)\n  +  ``ECC_NIST_P384`` (secp384r1)\n  +  ``ECC_NIST_P521`` (secp521r1)\n  \n  +  Other asymmetric elliptic curve key pairs (signing and verification)\n  +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.\n  \n  +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)\n  +  ``SM2`` (China Regions only)"
+        "description": "Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*.\n The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.\n  If you change the value of the ``KeySpec`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.\n   [services that are integrated with](https://docs.aws.amazon.com/kms/features/#AWS_Service_Integration) use symmetric encryption KMS keys to protect your data. These services do not support encryption with asymmetric KMS keys. For help determining whether a KMS key is asymmetric, see [Identifying asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *Developer Guide*.\n  KMS supports the following key specs for KMS keys:\n  +  Symmetric encryption key (default)\n  +  ``SYMMETRIC_DEFAULT`` (AES-256-GCM)\n  \n  +  HMAC keys (symmetric)\n  +   ``HMAC_224`` \n  +   ``HMAC_256`` \n  +   ``HMAC_384`` \n  +   ``HMAC_512`` \n  \n  +  Asymmetric RSA key pairs (encryption and decryption *or* signing and verification)\n  +   ``RSA_2048`` \n  +   ``RSA_3072`` \n  +   ``RSA_4096`` \n  \n  +  Asymmetric NIST-recommended elliptic curve key pairs (signing and verification *or* deriving shared secrets)\n  +  ``ECC_NIST_P256`` (secp256r1)\n  +  ``ECC_NIST_P384`` (secp384r1)\n  +  ``ECC_NIST_P521`` (secp521r1)\n  \n  +  Other asymmetric elliptic curve key pairs (signing and verification)\n  +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.\n  \n  +  Asymmetric ML-DSA key pairs (signing and verification)\n  +   ``ML_DSA_44`` \n  +   ``ML_DSA_65`` \n  +   ``ML_DSA_87`` \n  \n  +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)\n  +  ``SM2`` (China Regions only)"
       },
       "keyUsage": {
         "$ref": "#/types/aws-native:kms:KeyUsage",
-        "description": "Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.\n  If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.\n  Select only one valid value.\n  +  For symmetric encryption KMS keys, omit the parameter or specify ``ENCRYPT_DECRYPT``.\n  +  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.\n  +  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.\n  +  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.\n  +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.\n  +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``."
+        "description": "Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.\n  If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.\n  Select only one valid value.\n  +  For symmetric encryption KMS keys, omit the parameter or specify ``ENCRYPT_DECRYPT``.\n  +  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.\n  +  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.\n  +  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.\n  +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs, specify ``SIGN_VERIFY``.\n  +  For asymmetric KMS keys with ML-DSA key pairs, specify ``SIGN_VERIFY``.\n  +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``."
       },
       "multiRegion": {
         "type": "boolean",
@@ -9069,7 +9121,7 @@
       },
       "origin": {
         "$ref": "#/types/aws-native:kms:KeyOrigin",
-        "description": "The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material.\n To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.\n You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations. \n  CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values."
+        "description": "The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material.\n To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.\n You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations. \n   +  CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.\n  +  ``EXTERNAL`` is not supported for ML-DSA keys."
       },
       "pendingWindowInDays": {
         "type": "integer",
@@ -10236,6 +10288,58 @@
       }
     }
   },
+  "aws-native:neptune:DbInstance": {
+    "cfTypeName": "AWS::Neptune::DBInstance",
+    "properties": {
+      "allowMajorVersionUpgrade": {
+        "type": "boolean",
+        "description": "Indicates that major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version."
+      },
+      "autoMinorVersionUpgrade": {
+        "type": "boolean",
+        "description": "Indicates that minor version patches are applied automatically.\n\nWhen updating this property, some interruptions may occur."
+      },
+      "availabilityZone": {
+        "type": "string",
+        "description": "Specifies the name of the Availability Zone the DB instance is located in."
+      },
+      "dbClusterIdentifier": {
+        "type": "string",
+        "description": "If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of."
+      },
+      "dbInstanceClass": {
+        "type": "string",
+        "description": "Contains the name of the compute and memory capacity class of the DB instance.\n\nIf you update this property, some interruptions may occur."
+      },
+      "dbInstanceIdentifier": {
+        "type": "string",
+        "description": "Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance."
+      },
+      "dbParameterGroupName": {
+        "type": "string",
+        "description": "The name of an existing DB parameter group or a reference to an AWS::Neptune::DBParameterGroup resource created in the template. If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot."
+      },
+      "dbSnapshotIdentifier": {
+        "type": "string",
+        "description": "This parameter is not supported.\n\n`AWS::Neptune::DBInstance` does not support restoring from snapshots.\n\n`AWS::Neptune::DBCluster` does support restoring from snapshots.\n\n"
+      },
+      "dbSubnetGroupName": {
+        "type": "string",
+        "description": "A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new virtual private cloud (VPC)."
+      },
+      "preferredMaintenanceWindow": {
+        "type": "string",
+        "description": "Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC)."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An arbitrary set of tags (key-value pairs) for this DB instance."
+      }
+    }
+  },
   "aws-native:neptunegraph:PrivateGraphEndpoint": {
     "cfTypeName": "AWS::NeptuneGraph::PrivateGraphEndpoint",
     "properties": {
@@ -11106,6 +11210,10 @@
         "type": "string",
         "description": "The unique identifier of the Amazon Q Business application."
       },
+      "authenticationDetail": {
+        "$ref": "#/types/aws-native:qbusiness:DataAccessorAuthenticationDetail",
+        "description": "The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor."
+      },
       "displayName": {
         "type": "string",
         "description": "The friendly name of the data accessor."
@@ -11227,6 +11335,12 @@
       "applicationId": {
         "type": "string",
         "description": "The unique identifier of the Amazon Q Business application."
+      },
+      "conditions": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:qbusiness:PermissionCondition"
+        }
       },
       "principal": {
         "type": "string",
@@ -12882,6 +12996,7 @@
     "properties": {
       "namespace": {
         "type": "string",
+        "description": "The name of the namespace.",
         "language": {
           "csharp": {
             "name": "NamespaceValue"
