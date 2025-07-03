@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.Evs.Inputs
     public sealed class LicenseInfoPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
+        /// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must cover a minimum of 256 cores.
         /// </summary>
         [Input("solutionKey", required: true)]
         public Input<string> SolutionKey { get; set; } = null!;
 
         /// <summary>
-        /// The VSAN license key. This license unlocks vSAN features.
+        /// The VSAN license key. This license unlocks vSAN features. The vSAN license key must provide at least 110 TiB of vSAN capacity.
         /// </summary>
         [Input("vsanKey", required: true)]
         public Input<string> VsanKey { get; set; } = null!;

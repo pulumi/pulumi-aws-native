@@ -93,16 +93,16 @@
   "primaryIdentifier" : [ "/properties/ApplicationName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "elasticbeanstalk:CreateApplication" ]
+      "permissions" : [ "elasticbeanstalk:CreateApplication", "elasticbeanstalk:DescribeApplications", "s3:CreateBucket", "s3:PutBucketAcl", "s3:PutBucketObjectLockConfiguration", "s3:PutBucketVersioning", "s3:PutBucketOwnershipControls", "s3:PutBucketPolicy", "s3:PutBucketPublicAccessBlock", "s3:PutObject", "s3:ListBucket", "s3:GetObject", "s3:GetBucketLocation", "s3:GetBucketPolicy", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "elasticbeanstalk:DescribeApplications" ]
     },
     "update" : {
-      "permissions" : [ "elasticbeanstalk:UpdateApplication", "elasticbeanstalk:UpdateApplicationResourceLifecycle" ]
+      "permissions" : [ "elasticbeanstalk:UpdateApplication", "elasticbeanstalk:UpdateApplicationResourceLifecycle", "elasticbeanstalk:DescribeApplications", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "elasticbeanstalk:DeleteApplication" ]
+      "permissions" : [ "elasticbeanstalk:DeleteApplication", "elasticbeanstalk:DescribeApplications", "s3:ListBucket" ]
     },
     "list" : {
       "permissions" : [ "elasticbeanstalk:DescribeApplications" ]

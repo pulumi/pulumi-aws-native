@@ -279,6 +279,7 @@ class CampaignCommunicationLimitsConfig(dict):
         """
         Communication limits config
         :param 'CampaignCommunicationLimits' all_channels_subtypes: The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
+        :param 'CampaignInstanceLimitsHandling' instance_limits_handling: Opt-in or Opt-out from instance-level limits.
         """
         if all_channels_subtypes is not None:
             pulumi.set(__self__, "all_channels_subtypes", all_channels_subtypes)
@@ -296,6 +297,9 @@ class CampaignCommunicationLimitsConfig(dict):
     @property
     @pulumi.getter(name="instanceLimitsHandling")
     def instance_limits_handling(self) -> Optional['CampaignInstanceLimitsHandling']:
+        """
+        Opt-in or Opt-out from instance-level limits.
+        """
         return pulumi.get(self, "instance_limits_handling")
 
 

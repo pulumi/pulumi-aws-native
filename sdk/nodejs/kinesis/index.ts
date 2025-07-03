@@ -15,6 +15,11 @@ export const getStream: typeof import("./getStream").getStream = null as any;
 export const getStreamOutput: typeof import("./getStream").getStreamOutput = null as any;
 utilities.lazyLoad(exports, ["getStream","getStreamOutput"], () => require("./getStream"));
 
+export { GetStreamConsumerArgs, GetStreamConsumerResult, GetStreamConsumerOutputArgs } from "./getStreamConsumer";
+export const getStreamConsumer: typeof import("./getStreamConsumer").getStreamConsumer = null as any;
+export const getStreamConsumerOutput: typeof import("./getStreamConsumer").getStreamConsumerOutput = null as any;
+utilities.lazyLoad(exports, ["getStreamConsumer","getStreamConsumerOutput"], () => require("./getStreamConsumer"));
+
 export { ResourcePolicyArgs } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
@@ -24,6 +29,11 @@ export { StreamArgs } from "./stream";
 export type Stream = import("./stream").Stream;
 export const Stream: typeof import("./stream").Stream = null as any;
 utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
+
+export { StreamConsumerArgs } from "./streamConsumer";
+export type StreamConsumer = import("./streamConsumer").StreamConsumer;
+export const StreamConsumer: typeof import("./streamConsumer").StreamConsumer = null as any;
+utilities.lazyLoad(exports, ["StreamConsumer"], () => require("./streamConsumer"));
 
 
 // Export enums:
@@ -37,6 +47,8 @@ const _module = {
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:kinesis:Stream":
                 return new Stream(name, <any>undefined, { urn })
+            case "aws-native:kinesis:StreamConsumer":
+                return new StreamConsumer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

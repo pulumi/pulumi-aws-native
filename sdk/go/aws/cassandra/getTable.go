@@ -37,7 +37,8 @@ type LookupTableResult struct {
 	// - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
 	//
 	// If you don't specify a value for this property, then the table will use on-demand mode.
-	BillingMode *TableBillingMode `pulumi:"billingMode"`
+	BillingMode      *TableBillingMode      `pulumi:"billingMode"`
+	CdcSpecification *TableCdcSpecification `pulumi:"cdcSpecification"`
 	// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
 	DefaultTimeToLive *int `pulumi:"defaultTimeToLive"`
 	// The encryption at rest options for the table.
@@ -99,6 +100,10 @@ func (o LookupTableResultOutput) ToLookupTableResultOutputWithContext(ctx contex
 // If you don't specify a value for this property, then the table will use on-demand mode.
 func (o LookupTableResultOutput) BillingMode() TableBillingModePtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *TableBillingMode { return v.BillingMode }).(TableBillingModePtrOutput)
+}
+
+func (o LookupTableResultOutput) CdcSpecification() TableCdcSpecificationPtrOutput {
+	return o.ApplyT(func(v LookupTableResult) *TableCdcSpecification { return v.CdcSpecification }).(TableCdcSpecificationPtrOutput)
 }
 
 // Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.

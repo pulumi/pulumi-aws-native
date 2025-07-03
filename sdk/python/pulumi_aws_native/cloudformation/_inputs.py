@@ -707,13 +707,13 @@ if not MYPY:
         """
         failure_tolerance_count: NotRequired[pulumi.Input[builtins.int]]
         """
-        The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+        The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
         Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
         """
         failure_tolerance_percentage: NotRequired[pulumi.Input[builtins.int]]
         """
-        The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+        The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
         When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 
@@ -766,10 +766,10 @@ class StackSetOperationPreferencesArgs:
                
                If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
                - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
-        :param pulumi.Input[builtins.int] failure_tolerance_count: The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+        :param pulumi.Input[builtins.int] failure_tolerance_count: The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
                
                Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
-        :param pulumi.Input[builtins.int] failure_tolerance_percentage: The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+        :param pulumi.Input[builtins.int] failure_tolerance_percentage: The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
                
                When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
                
@@ -825,7 +825,7 @@ class StackSetOperationPreferencesArgs:
     @pulumi.getter(name="failureToleranceCount")
     def failure_tolerance_count(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+        The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
         Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
         """
@@ -839,7 +839,7 @@ class StackSetOperationPreferencesArgs:
     @pulumi.getter(name="failureTolerancePercentage")
     def failure_tolerance_percentage(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+        The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
         When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 

@@ -7,9 +7,11 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_table import *
 from .get_table_bucket import *
 from .get_table_bucket_policy import *
 from .namespace import *
+from .table import *
 from .table_bucket import *
 from .table_bucket_policy import *
 from ._inputs import *

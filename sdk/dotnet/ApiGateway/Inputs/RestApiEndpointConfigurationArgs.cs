@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
     /// <summary>
-    /// The ``EndpointConfiguration`` property type specifies the endpoint types of a REST API.
+    /// The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of a REST API.
     ///  ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
     /// </summary>
     public sealed class RestApiEndpointConfigurationArgs : global::Pulumi.ResourceArgs

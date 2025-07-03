@@ -2992,6 +2992,8 @@ class DistributionOrigin(dict):
             suggest = "origin_path"
         elif key == "originShield":
             suggest = "origin_shield"
+        elif key == "responseCompletionTimeout":
+            suggest = "response_completion_timeout"
         elif key == "s3OriginConfig":
             suggest = "s3_origin_config"
         elif key == "vpcOriginConfig":
@@ -3018,6 +3020,7 @@ class DistributionOrigin(dict):
                  origin_custom_headers: Optional[Sequence['outputs.DistributionOriginCustomHeader']] = None,
                  origin_path: Optional[builtins.str] = None,
                  origin_shield: Optional['outputs.DistributionOriginShield'] = None,
+                 response_completion_timeout: Optional[builtins.int] = None,
                  s3_origin_config: Optional['outputs.DistributionS3OriginConfig'] = None,
                  vpc_origin_config: Optional['outputs.DistributionVpcOriginConfig'] = None):
         """
@@ -3071,6 +3074,8 @@ class DistributionOrigin(dict):
             pulumi.set(__self__, "origin_path", origin_path)
         if origin_shield is not None:
             pulumi.set(__self__, "origin_shield", origin_shield)
+        if response_completion_timeout is not None:
+            pulumi.set(__self__, "response_completion_timeout", response_completion_timeout)
         if s3_origin_config is not None:
             pulumi.set(__self__, "s3_origin_config", s3_origin_config)
         if vpc_origin_config is not None:
@@ -3156,6 +3161,11 @@ class DistributionOrigin(dict):
          For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_shield")
+
+    @property
+    @pulumi.getter(name="responseCompletionTimeout")
+    def response_completion_timeout(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "response_completion_timeout")
 
     @property
     @pulumi.getter(name="s3OriginConfig")
@@ -3671,6 +3681,8 @@ class DistributionS3OriginConfig(dict):
         suggest = None
         if key == "originAccessIdentity":
             suggest = "origin_access_identity"
+        elif key == "originReadTimeout":
+            suggest = "origin_read_timeout"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DistributionS3OriginConfig. Access the value via the '{suggest}' property getter instead.")
@@ -3684,7 +3696,8 @@ class DistributionS3OriginConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 origin_access_identity: Optional[builtins.str] = None):
+                 origin_access_identity: Optional[builtins.str] = None,
+                 origin_read_timeout: Optional[builtins.int] = None):
         """
         A complex type that contains information about the Amazon S3 origin. If the origin is a custom origin or an S3 bucket that is configured as a website endpoint, use the ``CustomOriginConfig`` element instead.
         :param builtins.str origin_access_identity: If you're using origin access control (OAC) instead of origin access identity, specify an empty ``OriginAccessIdentity`` element. For more information, see [Restricting access to an](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
@@ -3698,6 +3711,8 @@ class DistributionS3OriginConfig(dict):
         """
         if origin_access_identity is not None:
             pulumi.set(__self__, "origin_access_identity", origin_access_identity)
+        if origin_read_timeout is not None:
+            pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
 
     @property
     @pulumi.getter(name="originAccessIdentity")
@@ -3713,6 +3728,11 @@ class DistributionS3OriginConfig(dict):
          For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_access_identity")
+
+    @property
+    @pulumi.getter(name="originReadTimeout")
+    def origin_read_timeout(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "origin_read_timeout")
 
 
 @pulumi.output_type

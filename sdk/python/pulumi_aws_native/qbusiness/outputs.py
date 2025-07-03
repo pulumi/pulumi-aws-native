@@ -27,11 +27,14 @@ __all__ = [
     'DataAccessorActionConfiguration',
     'DataAccessorActionFilterConfiguration',
     'DataAccessorAttributeFilter',
+    'DataAccessorAuthenticationConfigurationProperties',
+    'DataAccessorAuthenticationDetail',
     'DataAccessorDocumentAttribute',
     'DataAccessorDocumentAttributeValue0Properties',
     'DataAccessorDocumentAttributeValue1Properties',
     'DataAccessorDocumentAttributeValue2Properties',
     'DataAccessorDocumentAttributeValue3Properties',
+    'DataAccessorIdcTrustedTokenIssuerConfiguration',
     'DataSourceAudioExtractionConfiguration',
     'DataSourceDocumentAttributeCondition',
     'DataSourceDocumentAttributeTarget',
@@ -50,6 +53,7 @@ __all__ = [
     'IndexDocumentAttributeConfiguration',
     'IndexStatistics',
     'IndexTextDocumentStatistics',
+    'PermissionCondition',
     'PluginApiSchema0Properties',
     'PluginApiSchema1Properties',
     'PluginAuthConfiguration0Properties',
@@ -542,6 +546,104 @@ class DataAccessorAttributeFilter(dict):
 
 
 @pulumi.output_type
+class DataAccessorAuthenticationConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idcTrustedTokenIssuerConfiguration":
+            suggest = "idc_trusted_token_issuer_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAccessorAuthenticationConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAccessorAuthenticationConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAccessorAuthenticationConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idc_trusted_token_issuer_configuration: 'outputs.DataAccessorIdcTrustedTokenIssuerConfiguration'):
+        pulumi.set(__self__, "idc_trusted_token_issuer_configuration", idc_trusted_token_issuer_configuration)
+
+    @property
+    @pulumi.getter(name="idcTrustedTokenIssuerConfiguration")
+    def idc_trusted_token_issuer_configuration(self) -> 'outputs.DataAccessorIdcTrustedTokenIssuerConfiguration':
+        return pulumi.get(self, "idc_trusted_token_issuer_configuration")
+
+
+@pulumi.output_type
+class DataAccessorAuthenticationDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "authenticationConfiguration":
+            suggest = "authentication_configuration"
+        elif key == "externalIds":
+            suggest = "external_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAccessorAuthenticationDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAccessorAuthenticationDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAccessorAuthenticationDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_type: 'DataAccessorAuthenticationType',
+                 authentication_configuration: Optional['outputs.DataAccessorAuthenticationConfigurationProperties'] = None,
+                 external_ids: Optional[Sequence[builtins.str]] = None):
+        """
+        :param 'DataAccessorAuthenticationType' authentication_type: The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:
+               
+               - `AWS_IAM_IDC_TTI` - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.
+               - `AWS_IAM_IDC_AUTH_CODE` - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.
+        :param 'DataAccessorAuthenticationConfigurationProperties' authentication_configuration: The specific authentication configuration based on the authentication type.
+        :param Sequence[builtins.str] external_ids: A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        if authentication_configuration is not None:
+            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        if external_ids is not None:
+            pulumi.set(__self__, "external_ids", external_ids)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> 'DataAccessorAuthenticationType':
+        """
+        The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:
+
+        - `AWS_IAM_IDC_TTI` - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.
+        - `AWS_IAM_IDC_AUTH_CODE` - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="authenticationConfiguration")
+    def authentication_configuration(self) -> Optional['outputs.DataAccessorAuthenticationConfigurationProperties']:
+        """
+        The specific authentication configuration based on the authentication type.
+        """
+        return pulumi.get(self, "authentication_configuration")
+
+    @property
+    @pulumi.getter(name="externalIds")
+    def external_ids(self) -> Optional[Sequence[builtins.str]]:
+        """
+        A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
+        """
+        return pulumi.get(self, "external_ids")
+
+
+@pulumi.output_type
 class DataAccessorDocumentAttribute(dict):
     def __init__(__self__, *,
                  name: builtins.str,
@@ -684,6 +786,35 @@ class DataAccessorDocumentAttributeValue3Properties(dict):
     @pulumi.getter(name="dateValue")
     def date_value(self) -> builtins.str:
         return pulumi.get(self, "date_value")
+
+
+@pulumi.output_type
+class DataAccessorIdcTrustedTokenIssuerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idcTrustedTokenIssuerArn":
+            suggest = "idc_trusted_token_issuer_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAccessorIdcTrustedTokenIssuerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAccessorIdcTrustedTokenIssuerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAccessorIdcTrustedTokenIssuerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idc_trusted_token_issuer_arn: builtins.str):
+        pulumi.set(__self__, "idc_trusted_token_issuer_arn", idc_trusted_token_issuer_arn)
+
+    @property
+    @pulumi.getter(name="idcTrustedTokenIssuerArn")
+    def idc_trusted_token_issuer_arn(self) -> builtins.str:
+        return pulumi.get(self, "idc_trusted_token_issuer_arn")
 
 
 @pulumi.output_type
@@ -1051,7 +1182,7 @@ class DataSourceHookConfiguration(dict):
         :param 'DataSourceDocumentAttributeCondition' invocation_condition: The condition used for when a Lambda function should be invoked.
                
                For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
-        :param builtins.str lambda_arn: The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+        :param builtins.str lambda_arn: The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
         :param builtins.str role_arn: The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
         :param builtins.str s3_bucket_name: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
         """
@@ -1078,7 +1209,7 @@ class DataSourceHookConfiguration(dict):
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> Optional[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+        The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -1487,6 +1618,53 @@ class IndexTextDocumentStatistics(dict):
         The number of text documents indexed.
         """
         return pulumi.get(self, "indexed_text_document_count")
+
+
+@pulumi.output_type
+class PermissionCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionKey":
+            suggest = "condition_key"
+        elif key == "conditionOperator":
+            suggest = "condition_operator"
+        elif key == "conditionValues":
+            suggest = "condition_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_key: builtins.str,
+                 condition_operator: 'PermissionConditionConditionOperator',
+                 condition_values: Sequence[builtins.str]):
+        pulumi.set(__self__, "condition_key", condition_key)
+        pulumi.set(__self__, "condition_operator", condition_operator)
+        pulumi.set(__self__, "condition_values", condition_values)
+
+    @property
+    @pulumi.getter(name="conditionKey")
+    def condition_key(self) -> builtins.str:
+        return pulumi.get(self, "condition_key")
+
+    @property
+    @pulumi.getter(name="conditionOperator")
+    def condition_operator(self) -> 'PermissionConditionConditionOperator':
+        return pulumi.get(self, "condition_operator")
+
+    @property
+    @pulumi.getter(name="conditionValues")
+    def condition_values(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "condition_values")
 
 
 @pulumi.output_type

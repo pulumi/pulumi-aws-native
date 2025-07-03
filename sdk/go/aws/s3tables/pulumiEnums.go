@@ -342,13 +342,689 @@ func (in *tableBucketUnreferencedFileRemovalStatusPtr) ToTableBucketUnreferenced
 	return pulumi.ToOutputWithContext(ctx, in).(TableBucketUnreferencedFileRemovalStatusPtrOutput)
 }
 
+// Indicates whether the Compaction maintenance action is enabled.
+type TableCompactionStatus string
+
+const (
+	TableCompactionStatusEnabled  = TableCompactionStatus("enabled")
+	TableCompactionStatusDisabled = TableCompactionStatus("disabled")
+)
+
+func (TableCompactionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCompactionStatus)(nil)).Elem()
+}
+
+func (e TableCompactionStatus) ToTableCompactionStatusOutput() TableCompactionStatusOutput {
+	return pulumi.ToOutput(e).(TableCompactionStatusOutput)
+}
+
+func (e TableCompactionStatus) ToTableCompactionStatusOutputWithContext(ctx context.Context) TableCompactionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableCompactionStatusOutput)
+}
+
+func (e TableCompactionStatus) ToTableCompactionStatusPtrOutput() TableCompactionStatusPtrOutput {
+	return e.ToTableCompactionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e TableCompactionStatus) ToTableCompactionStatusPtrOutputWithContext(ctx context.Context) TableCompactionStatusPtrOutput {
+	return TableCompactionStatus(e).ToTableCompactionStatusOutputWithContext(ctx).ToTableCompactionStatusPtrOutputWithContext(ctx)
+}
+
+func (e TableCompactionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableCompactionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableCompactionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableCompactionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableCompactionStatusOutput struct{ *pulumi.OutputState }
+
+func (TableCompactionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCompactionStatus)(nil)).Elem()
+}
+
+func (o TableCompactionStatusOutput) ToTableCompactionStatusOutput() TableCompactionStatusOutput {
+	return o
+}
+
+func (o TableCompactionStatusOutput) ToTableCompactionStatusOutputWithContext(ctx context.Context) TableCompactionStatusOutput {
+	return o
+}
+
+func (o TableCompactionStatusOutput) ToTableCompactionStatusPtrOutput() TableCompactionStatusPtrOutput {
+	return o.ToTableCompactionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TableCompactionStatusOutput) ToTableCompactionStatusPtrOutputWithContext(ctx context.Context) TableCompactionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableCompactionStatus) *TableCompactionStatus {
+		return &v
+	}).(TableCompactionStatusPtrOutput)
+}
+
+func (o TableCompactionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableCompactionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableCompactionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableCompactionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableCompactionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableCompactionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableCompactionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TableCompactionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableCompactionStatus)(nil)).Elem()
+}
+
+func (o TableCompactionStatusPtrOutput) ToTableCompactionStatusPtrOutput() TableCompactionStatusPtrOutput {
+	return o
+}
+
+func (o TableCompactionStatusPtrOutput) ToTableCompactionStatusPtrOutputWithContext(ctx context.Context) TableCompactionStatusPtrOutput {
+	return o
+}
+
+func (o TableCompactionStatusPtrOutput) Elem() TableCompactionStatusOutput {
+	return o.ApplyT(func(v *TableCompactionStatus) TableCompactionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TableCompactionStatus
+		return ret
+	}).(TableCompactionStatusOutput)
+}
+
+func (o TableCompactionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableCompactionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableCompactionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableCompactionStatusInput is an input type that accepts values of the TableCompactionStatus enum
+// A concrete instance of `TableCompactionStatusInput` can be one of the following:
+//
+//	TableCompactionStatusEnabled
+//	TableCompactionStatusDisabled
+type TableCompactionStatusInput interface {
+	pulumi.Input
+
+	ToTableCompactionStatusOutput() TableCompactionStatusOutput
+	ToTableCompactionStatusOutputWithContext(context.Context) TableCompactionStatusOutput
+}
+
+var tableCompactionStatusPtrType = reflect.TypeOf((**TableCompactionStatus)(nil)).Elem()
+
+type TableCompactionStatusPtrInput interface {
+	pulumi.Input
+
+	ToTableCompactionStatusPtrOutput() TableCompactionStatusPtrOutput
+	ToTableCompactionStatusPtrOutputWithContext(context.Context) TableCompactionStatusPtrOutput
+}
+
+type tableCompactionStatusPtr string
+
+func TableCompactionStatusPtr(v string) TableCompactionStatusPtrInput {
+	return (*tableCompactionStatusPtr)(&v)
+}
+
+func (*tableCompactionStatusPtr) ElementType() reflect.Type {
+	return tableCompactionStatusPtrType
+}
+
+func (in *tableCompactionStatusPtr) ToTableCompactionStatusPtrOutput() TableCompactionStatusPtrOutput {
+	return pulumi.ToOutput(in).(TableCompactionStatusPtrOutput)
+}
+
+func (in *tableCompactionStatusPtr) ToTableCompactionStatusPtrOutputWithContext(ctx context.Context) TableCompactionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableCompactionStatusPtrOutput)
+}
+
+// Format of the table.
+type TableOpenTableFormat string
+
+const (
+	TableOpenTableFormatIceberg = TableOpenTableFormat("ICEBERG")
+)
+
+func (TableOpenTableFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOpenTableFormat)(nil)).Elem()
+}
+
+func (e TableOpenTableFormat) ToTableOpenTableFormatOutput() TableOpenTableFormatOutput {
+	return pulumi.ToOutput(e).(TableOpenTableFormatOutput)
+}
+
+func (e TableOpenTableFormat) ToTableOpenTableFormatOutputWithContext(ctx context.Context) TableOpenTableFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableOpenTableFormatOutput)
+}
+
+func (e TableOpenTableFormat) ToTableOpenTableFormatPtrOutput() TableOpenTableFormatPtrOutput {
+	return e.ToTableOpenTableFormatPtrOutputWithContext(context.Background())
+}
+
+func (e TableOpenTableFormat) ToTableOpenTableFormatPtrOutputWithContext(ctx context.Context) TableOpenTableFormatPtrOutput {
+	return TableOpenTableFormat(e).ToTableOpenTableFormatOutputWithContext(ctx).ToTableOpenTableFormatPtrOutputWithContext(ctx)
+}
+
+func (e TableOpenTableFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableOpenTableFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableOpenTableFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableOpenTableFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableOpenTableFormatOutput struct{ *pulumi.OutputState }
+
+func (TableOpenTableFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOpenTableFormat)(nil)).Elem()
+}
+
+func (o TableOpenTableFormatOutput) ToTableOpenTableFormatOutput() TableOpenTableFormatOutput {
+	return o
+}
+
+func (o TableOpenTableFormatOutput) ToTableOpenTableFormatOutputWithContext(ctx context.Context) TableOpenTableFormatOutput {
+	return o
+}
+
+func (o TableOpenTableFormatOutput) ToTableOpenTableFormatPtrOutput() TableOpenTableFormatPtrOutput {
+	return o.ToTableOpenTableFormatPtrOutputWithContext(context.Background())
+}
+
+func (o TableOpenTableFormatOutput) ToTableOpenTableFormatPtrOutputWithContext(ctx context.Context) TableOpenTableFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableOpenTableFormat) *TableOpenTableFormat {
+		return &v
+	}).(TableOpenTableFormatPtrOutput)
+}
+
+func (o TableOpenTableFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableOpenTableFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableOpenTableFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableOpenTableFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableOpenTableFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableOpenTableFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableOpenTableFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOpenTableFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOpenTableFormat)(nil)).Elem()
+}
+
+func (o TableOpenTableFormatPtrOutput) ToTableOpenTableFormatPtrOutput() TableOpenTableFormatPtrOutput {
+	return o
+}
+
+func (o TableOpenTableFormatPtrOutput) ToTableOpenTableFormatPtrOutputWithContext(ctx context.Context) TableOpenTableFormatPtrOutput {
+	return o
+}
+
+func (o TableOpenTableFormatPtrOutput) Elem() TableOpenTableFormatOutput {
+	return o.ApplyT(func(v *TableOpenTableFormat) TableOpenTableFormat {
+		if v != nil {
+			return *v
+		}
+		var ret TableOpenTableFormat
+		return ret
+	}).(TableOpenTableFormatOutput)
+}
+
+func (o TableOpenTableFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableOpenTableFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableOpenTableFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableOpenTableFormatInput is an input type that accepts values of the TableOpenTableFormat enum
+// A concrete instance of `TableOpenTableFormatInput` can be one of the following:
+//
+//	TableOpenTableFormatIceberg
+type TableOpenTableFormatInput interface {
+	pulumi.Input
+
+	ToTableOpenTableFormatOutput() TableOpenTableFormatOutput
+	ToTableOpenTableFormatOutputWithContext(context.Context) TableOpenTableFormatOutput
+}
+
+var tableOpenTableFormatPtrType = reflect.TypeOf((**TableOpenTableFormat)(nil)).Elem()
+
+type TableOpenTableFormatPtrInput interface {
+	pulumi.Input
+
+	ToTableOpenTableFormatPtrOutput() TableOpenTableFormatPtrOutput
+	ToTableOpenTableFormatPtrOutputWithContext(context.Context) TableOpenTableFormatPtrOutput
+}
+
+type tableOpenTableFormatPtr string
+
+func TableOpenTableFormatPtr(v string) TableOpenTableFormatPtrInput {
+	return (*tableOpenTableFormatPtr)(&v)
+}
+
+func (*tableOpenTableFormatPtr) ElementType() reflect.Type {
+	return tableOpenTableFormatPtrType
+}
+
+func (in *tableOpenTableFormatPtr) ToTableOpenTableFormatPtrOutput() TableOpenTableFormatPtrOutput {
+	return pulumi.ToOutput(in).(TableOpenTableFormatPtrOutput)
+}
+
+func (in *tableOpenTableFormatPtr) ToTableOpenTableFormatPtrOutputWithContext(ctx context.Context) TableOpenTableFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableOpenTableFormatPtrOutput)
+}
+
+// Indicates whether the SnapshotManagement maintenance action is enabled.
+type TableSnapshotManagementStatus string
+
+const (
+	TableSnapshotManagementStatusEnabled  = TableSnapshotManagementStatus("enabled")
+	TableSnapshotManagementStatusDisabled = TableSnapshotManagementStatus("disabled")
+)
+
+func (TableSnapshotManagementStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSnapshotManagementStatus)(nil)).Elem()
+}
+
+func (e TableSnapshotManagementStatus) ToTableSnapshotManagementStatusOutput() TableSnapshotManagementStatusOutput {
+	return pulumi.ToOutput(e).(TableSnapshotManagementStatusOutput)
+}
+
+func (e TableSnapshotManagementStatus) ToTableSnapshotManagementStatusOutputWithContext(ctx context.Context) TableSnapshotManagementStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableSnapshotManagementStatusOutput)
+}
+
+func (e TableSnapshotManagementStatus) ToTableSnapshotManagementStatusPtrOutput() TableSnapshotManagementStatusPtrOutput {
+	return e.ToTableSnapshotManagementStatusPtrOutputWithContext(context.Background())
+}
+
+func (e TableSnapshotManagementStatus) ToTableSnapshotManagementStatusPtrOutputWithContext(ctx context.Context) TableSnapshotManagementStatusPtrOutput {
+	return TableSnapshotManagementStatus(e).ToTableSnapshotManagementStatusOutputWithContext(ctx).ToTableSnapshotManagementStatusPtrOutputWithContext(ctx)
+}
+
+func (e TableSnapshotManagementStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableSnapshotManagementStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableSnapshotManagementStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableSnapshotManagementStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableSnapshotManagementStatusOutput struct{ *pulumi.OutputState }
+
+func (TableSnapshotManagementStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSnapshotManagementStatus)(nil)).Elem()
+}
+
+func (o TableSnapshotManagementStatusOutput) ToTableSnapshotManagementStatusOutput() TableSnapshotManagementStatusOutput {
+	return o
+}
+
+func (o TableSnapshotManagementStatusOutput) ToTableSnapshotManagementStatusOutputWithContext(ctx context.Context) TableSnapshotManagementStatusOutput {
+	return o
+}
+
+func (o TableSnapshotManagementStatusOutput) ToTableSnapshotManagementStatusPtrOutput() TableSnapshotManagementStatusPtrOutput {
+	return o.ToTableSnapshotManagementStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TableSnapshotManagementStatusOutput) ToTableSnapshotManagementStatusPtrOutputWithContext(ctx context.Context) TableSnapshotManagementStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSnapshotManagementStatus) *TableSnapshotManagementStatus {
+		return &v
+	}).(TableSnapshotManagementStatusPtrOutput)
+}
+
+func (o TableSnapshotManagementStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableSnapshotManagementStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableSnapshotManagementStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableSnapshotManagementStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableSnapshotManagementStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableSnapshotManagementStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableSnapshotManagementStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TableSnapshotManagementStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSnapshotManagementStatus)(nil)).Elem()
+}
+
+func (o TableSnapshotManagementStatusPtrOutput) ToTableSnapshotManagementStatusPtrOutput() TableSnapshotManagementStatusPtrOutput {
+	return o
+}
+
+func (o TableSnapshotManagementStatusPtrOutput) ToTableSnapshotManagementStatusPtrOutputWithContext(ctx context.Context) TableSnapshotManagementStatusPtrOutput {
+	return o
+}
+
+func (o TableSnapshotManagementStatusPtrOutput) Elem() TableSnapshotManagementStatusOutput {
+	return o.ApplyT(func(v *TableSnapshotManagementStatus) TableSnapshotManagementStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TableSnapshotManagementStatus
+		return ret
+	}).(TableSnapshotManagementStatusOutput)
+}
+
+func (o TableSnapshotManagementStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableSnapshotManagementStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableSnapshotManagementStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableSnapshotManagementStatusInput is an input type that accepts values of the TableSnapshotManagementStatus enum
+// A concrete instance of `TableSnapshotManagementStatusInput` can be one of the following:
+//
+//	TableSnapshotManagementStatusEnabled
+//	TableSnapshotManagementStatusDisabled
+type TableSnapshotManagementStatusInput interface {
+	pulumi.Input
+
+	ToTableSnapshotManagementStatusOutput() TableSnapshotManagementStatusOutput
+	ToTableSnapshotManagementStatusOutputWithContext(context.Context) TableSnapshotManagementStatusOutput
+}
+
+var tableSnapshotManagementStatusPtrType = reflect.TypeOf((**TableSnapshotManagementStatus)(nil)).Elem()
+
+type TableSnapshotManagementStatusPtrInput interface {
+	pulumi.Input
+
+	ToTableSnapshotManagementStatusPtrOutput() TableSnapshotManagementStatusPtrOutput
+	ToTableSnapshotManagementStatusPtrOutputWithContext(context.Context) TableSnapshotManagementStatusPtrOutput
+}
+
+type tableSnapshotManagementStatusPtr string
+
+func TableSnapshotManagementStatusPtr(v string) TableSnapshotManagementStatusPtrInput {
+	return (*tableSnapshotManagementStatusPtr)(&v)
+}
+
+func (*tableSnapshotManagementStatusPtr) ElementType() reflect.Type {
+	return tableSnapshotManagementStatusPtrType
+}
+
+func (in *tableSnapshotManagementStatusPtr) ToTableSnapshotManagementStatusPtrOutput() TableSnapshotManagementStatusPtrOutput {
+	return pulumi.ToOutput(in).(TableSnapshotManagementStatusPtrOutput)
+}
+
+func (in *tableSnapshotManagementStatusPtr) ToTableSnapshotManagementStatusPtrOutputWithContext(ctx context.Context) TableSnapshotManagementStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableSnapshotManagementStatusPtrOutput)
+}
+
+// Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to 'IcebergMetadata', and its only possible value is 'Yes'.
+type TableWithoutMetadata string
+
+const (
+	TableWithoutMetadataYes = TableWithoutMetadata("Yes")
+)
+
+func (TableWithoutMetadata) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableWithoutMetadata)(nil)).Elem()
+}
+
+func (e TableWithoutMetadata) ToTableWithoutMetadataOutput() TableWithoutMetadataOutput {
+	return pulumi.ToOutput(e).(TableWithoutMetadataOutput)
+}
+
+func (e TableWithoutMetadata) ToTableWithoutMetadataOutputWithContext(ctx context.Context) TableWithoutMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableWithoutMetadataOutput)
+}
+
+func (e TableWithoutMetadata) ToTableWithoutMetadataPtrOutput() TableWithoutMetadataPtrOutput {
+	return e.ToTableWithoutMetadataPtrOutputWithContext(context.Background())
+}
+
+func (e TableWithoutMetadata) ToTableWithoutMetadataPtrOutputWithContext(ctx context.Context) TableWithoutMetadataPtrOutput {
+	return TableWithoutMetadata(e).ToTableWithoutMetadataOutputWithContext(ctx).ToTableWithoutMetadataPtrOutputWithContext(ctx)
+}
+
+func (e TableWithoutMetadata) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableWithoutMetadata) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableWithoutMetadata) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableWithoutMetadata) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableWithoutMetadataOutput struct{ *pulumi.OutputState }
+
+func (TableWithoutMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableWithoutMetadata)(nil)).Elem()
+}
+
+func (o TableWithoutMetadataOutput) ToTableWithoutMetadataOutput() TableWithoutMetadataOutput {
+	return o
+}
+
+func (o TableWithoutMetadataOutput) ToTableWithoutMetadataOutputWithContext(ctx context.Context) TableWithoutMetadataOutput {
+	return o
+}
+
+func (o TableWithoutMetadataOutput) ToTableWithoutMetadataPtrOutput() TableWithoutMetadataPtrOutput {
+	return o.ToTableWithoutMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o TableWithoutMetadataOutput) ToTableWithoutMetadataPtrOutputWithContext(ctx context.Context) TableWithoutMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableWithoutMetadata) *TableWithoutMetadata {
+		return &v
+	}).(TableWithoutMetadataPtrOutput)
+}
+
+func (o TableWithoutMetadataOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableWithoutMetadataOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableWithoutMetadata) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableWithoutMetadataOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableWithoutMetadataOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableWithoutMetadata) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableWithoutMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (TableWithoutMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableWithoutMetadata)(nil)).Elem()
+}
+
+func (o TableWithoutMetadataPtrOutput) ToTableWithoutMetadataPtrOutput() TableWithoutMetadataPtrOutput {
+	return o
+}
+
+func (o TableWithoutMetadataPtrOutput) ToTableWithoutMetadataPtrOutputWithContext(ctx context.Context) TableWithoutMetadataPtrOutput {
+	return o
+}
+
+func (o TableWithoutMetadataPtrOutput) Elem() TableWithoutMetadataOutput {
+	return o.ApplyT(func(v *TableWithoutMetadata) TableWithoutMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret TableWithoutMetadata
+		return ret
+	}).(TableWithoutMetadataOutput)
+}
+
+func (o TableWithoutMetadataPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableWithoutMetadataPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableWithoutMetadata) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableWithoutMetadataInput is an input type that accepts values of the TableWithoutMetadata enum
+// A concrete instance of `TableWithoutMetadataInput` can be one of the following:
+//
+//	TableWithoutMetadataYes
+type TableWithoutMetadataInput interface {
+	pulumi.Input
+
+	ToTableWithoutMetadataOutput() TableWithoutMetadataOutput
+	ToTableWithoutMetadataOutputWithContext(context.Context) TableWithoutMetadataOutput
+}
+
+var tableWithoutMetadataPtrType = reflect.TypeOf((**TableWithoutMetadata)(nil)).Elem()
+
+type TableWithoutMetadataPtrInput interface {
+	pulumi.Input
+
+	ToTableWithoutMetadataPtrOutput() TableWithoutMetadataPtrOutput
+	ToTableWithoutMetadataPtrOutputWithContext(context.Context) TableWithoutMetadataPtrOutput
+}
+
+type tableWithoutMetadataPtr string
+
+func TableWithoutMetadataPtr(v string) TableWithoutMetadataPtrInput {
+	return (*tableWithoutMetadataPtr)(&v)
+}
+
+func (*tableWithoutMetadataPtr) ElementType() reflect.Type {
+	return tableWithoutMetadataPtrType
+}
+
+func (in *tableWithoutMetadataPtr) ToTableWithoutMetadataPtrOutput() TableWithoutMetadataPtrOutput {
+	return pulumi.ToOutput(in).(TableWithoutMetadataPtrOutput)
+}
+
+func (in *tableWithoutMetadataPtr) ToTableWithoutMetadataPtrOutputWithContext(ctx context.Context) TableWithoutMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableWithoutMetadataPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationSseAlgorithmInput)(nil)).Elem(), TableBucketEncryptionConfigurationSseAlgorithm("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationSseAlgorithmPtrInput)(nil)).Elem(), TableBucketEncryptionConfigurationSseAlgorithm("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalStatusInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalStatusPtrInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCompactionStatusInput)(nil)).Elem(), TableCompactionStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCompactionStatusPtrInput)(nil)).Elem(), TableCompactionStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOpenTableFormatInput)(nil)).Elem(), TableOpenTableFormat("ICEBERG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOpenTableFormatPtrInput)(nil)).Elem(), TableOpenTableFormat("ICEBERG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSnapshotManagementStatusInput)(nil)).Elem(), TableSnapshotManagementStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSnapshotManagementStatusPtrInput)(nil)).Elem(), TableSnapshotManagementStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableWithoutMetadataInput)(nil)).Elem(), TableWithoutMetadata("Yes"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableWithoutMetadataPtrInput)(nil)).Elem(), TableWithoutMetadata("Yes"))
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationSseAlgorithmOutput{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationSseAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalStatusOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalStatusPtrOutput{})
+	pulumi.RegisterOutputType(TableCompactionStatusOutput{})
+	pulumi.RegisterOutputType(TableCompactionStatusPtrOutput{})
+	pulumi.RegisterOutputType(TableOpenTableFormatOutput{})
+	pulumi.RegisterOutputType(TableOpenTableFormatPtrOutput{})
+	pulumi.RegisterOutputType(TableSnapshotManagementStatusOutput{})
+	pulumi.RegisterOutputType(TableSnapshotManagementStatusPtrOutput{})
+	pulumi.RegisterOutputType(TableWithoutMetadataOutput{})
+	pulumi.RegisterOutputType(TableWithoutMetadataPtrOutput{})
 }

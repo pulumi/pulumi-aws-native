@@ -71,15 +71,22 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The tags of the image recipe.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetImageRecipeResult(
             Outputs.ImageRecipeAdditionalInstanceConfiguration? additionalInstanceConfiguration,
 
-            string? arn)
+            string? arn,
+
+            ImmutableDictionary<string, string>? tags)
         {
             AdditionalInstanceConfiguration = additionalInstanceConfiguration;
             Arn = arn;
+            Tags = tags;
         }
     }
 }

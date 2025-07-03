@@ -7,6 +7,9 @@ export const ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType =
     EksNodeadm: "EKS_NODEADM",
 } as const;
 
+/**
+ * The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
+ */
 export type ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType = (typeof ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType)[keyof typeof ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType];
 
 export const ComputeEnvironmentLaunchTemplateSpecificationUserdataType = {
@@ -14,6 +17,9 @@ export const ComputeEnvironmentLaunchTemplateSpecificationUserdataType = {
     EksNodeadm: "EKS_NODEADM",
 } as const;
 
+/**
+ * The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
+ */
 export type ComputeEnvironmentLaunchTemplateSpecificationUserdataType = (typeof ComputeEnvironmentLaunchTemplateSpecificationUserdataType)[keyof typeof ComputeEnvironmentLaunchTemplateSpecificationUserdataType];
 
 export const ConsumableResourceResourceType = {

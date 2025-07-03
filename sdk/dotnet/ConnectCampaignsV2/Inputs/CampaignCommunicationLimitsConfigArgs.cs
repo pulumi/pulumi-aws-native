@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
         [Input("allChannelsSubtypes")]
         public Input<Inputs.CampaignCommunicationLimitsArgs>? AllChannelsSubtypes { get; set; }
 
+        /// <summary>
+        /// Opt-in or Opt-out from instance-level limits.
+        /// </summary>
         [Input("instanceLimitsHandling")]
         public Input<Pulumi.AwsNative.ConnectCampaignsV2.CampaignInstanceLimitsHandling>? InstanceLimitsHandling { get; set; }
 

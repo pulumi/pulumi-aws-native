@@ -3333,6 +3333,103 @@ func (o GlobalTableWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+type GlobalTableWitness struct {
+	// The name of the AWS Region that serves as a witness for the MRSC global table.
+	Region *string `pulumi:"region"`
+}
+
+// GlobalTableWitnessInput is an input type that accepts GlobalTableWitnessArgs and GlobalTableWitnessOutput values.
+// You can construct a concrete instance of `GlobalTableWitnessInput` via:
+//
+//	GlobalTableWitnessArgs{...}
+type GlobalTableWitnessInput interface {
+	pulumi.Input
+
+	ToGlobalTableWitnessOutput() GlobalTableWitnessOutput
+	ToGlobalTableWitnessOutputWithContext(context.Context) GlobalTableWitnessOutput
+}
+
+type GlobalTableWitnessArgs struct {
+	// The name of the AWS Region that serves as a witness for the MRSC global table.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GlobalTableWitnessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableWitness)(nil)).Elem()
+}
+
+func (i GlobalTableWitnessArgs) ToGlobalTableWitnessOutput() GlobalTableWitnessOutput {
+	return i.ToGlobalTableWitnessOutputWithContext(context.Background())
+}
+
+func (i GlobalTableWitnessArgs) ToGlobalTableWitnessOutputWithContext(ctx context.Context) GlobalTableWitnessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableWitnessOutput)
+}
+
+// GlobalTableWitnessArrayInput is an input type that accepts GlobalTableWitnessArray and GlobalTableWitnessArrayOutput values.
+// You can construct a concrete instance of `GlobalTableWitnessArrayInput` via:
+//
+//	GlobalTableWitnessArray{ GlobalTableWitnessArgs{...} }
+type GlobalTableWitnessArrayInput interface {
+	pulumi.Input
+
+	ToGlobalTableWitnessArrayOutput() GlobalTableWitnessArrayOutput
+	ToGlobalTableWitnessArrayOutputWithContext(context.Context) GlobalTableWitnessArrayOutput
+}
+
+type GlobalTableWitnessArray []GlobalTableWitnessInput
+
+func (GlobalTableWitnessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalTableWitness)(nil)).Elem()
+}
+
+func (i GlobalTableWitnessArray) ToGlobalTableWitnessArrayOutput() GlobalTableWitnessArrayOutput {
+	return i.ToGlobalTableWitnessArrayOutputWithContext(context.Background())
+}
+
+func (i GlobalTableWitnessArray) ToGlobalTableWitnessArrayOutputWithContext(ctx context.Context) GlobalTableWitnessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableWitnessArrayOutput)
+}
+
+type GlobalTableWitnessOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableWitnessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableWitness)(nil)).Elem()
+}
+
+func (o GlobalTableWitnessOutput) ToGlobalTableWitnessOutput() GlobalTableWitnessOutput {
+	return o
+}
+
+func (o GlobalTableWitnessOutput) ToGlobalTableWitnessOutputWithContext(ctx context.Context) GlobalTableWitnessOutput {
+	return o
+}
+
+// The name of the AWS Region that serves as a witness for the MRSC global table.
+func (o GlobalTableWitnessOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalTableWitness) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type GlobalTableWitnessArrayOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableWitnessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalTableWitness)(nil)).Elem()
+}
+
+func (o GlobalTableWitnessArrayOutput) ToGlobalTableWitnessArrayOutput() GlobalTableWitnessArrayOutput {
+	return o
+}
+
+func (o GlobalTableWitnessArrayOutput) ToGlobalTableWitnessArrayOutputWithContext(ctx context.Context) GlobalTableWitnessArrayOutput {
+	return o
+}
+
+func (o GlobalTableWitnessArrayOutput) Index(i pulumi.IntInput) GlobalTableWitnessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalTableWitness {
+		return vs[0].([]GlobalTableWitness)[vs[1].(int)]
+	}).(GlobalTableWitnessOutput)
+}
+
 type GlobalTableWriteOnDemandThroughputSettings struct {
 	// Maximum number of write request settings for the specified replica of a global table.
 	MaxWriteRequestUnits *int `pulumi:"maxWriteRequestUnits"`
@@ -6656,6 +6753,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableTimeToLiveSpecificationPtrInput)(nil)).Elem(), GlobalTableTimeToLiveSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWarmThroughputInput)(nil)).Elem(), GlobalTableWarmThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWarmThroughputPtrInput)(nil)).Elem(), GlobalTableWarmThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWitnessInput)(nil)).Elem(), GlobalTableWitnessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWitnessArrayInput)(nil)).Elem(), GlobalTableWitnessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWriteOnDemandThroughputSettingsInput)(nil)).Elem(), GlobalTableWriteOnDemandThroughputSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWriteOnDemandThroughputSettingsPtrInput)(nil)).Elem(), GlobalTableWriteOnDemandThroughputSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWriteProvisionedThroughputSettingsInput)(nil)).Elem(), GlobalTableWriteProvisionedThroughputSettingsArgs{})
@@ -6740,6 +6839,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableTimeToLiveSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableWarmThroughputOutput{})
 	pulumi.RegisterOutputType(GlobalTableWarmThroughputPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableWitnessOutput{})
+	pulumi.RegisterOutputType(GlobalTableWitnessArrayOutput{})
 	pulumi.RegisterOutputType(GlobalTableWriteOnDemandThroughputSettingsOutput{})
 	pulumi.RegisterOutputType(GlobalTableWriteOnDemandThroughputSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableWriteProvisionedThroughputSettingsOutput{})

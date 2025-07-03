@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetComponentResult:
-    def __init__(__self__, arn=None, encrypted=None, type=None):
+    def __init__(__self__, arn=None, encrypted=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if encrypted and not isinstance(encrypted, bool):
             raise TypeError("Expected argument 'encrypted' to be a bool")
         pulumi.set(__self__, "encrypted", encrypted)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -54,6 +57,14 @@ class GetComponentResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        The tags associated with the component.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional['ComponentType']:
         """
         The type of the component denotes whether the component is used to build the image or only to test it. 
@@ -69,6 +80,7 @@ class AwaitableGetComponentResult(GetComponentResult):
         return GetComponentResult(
             arn=self.arn,
             encrypted=self.encrypted,
+            tags=self.tags,
             type=self.type)
 
 
@@ -88,6 +100,7 @@ def get_component(arn: Optional[builtins.str] = None,
     return AwaitableGetComponentResult(
         arn=pulumi.get(__ret__, 'arn'),
         encrypted=pulumi.get(__ret__, 'encrypted'),
+        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_component_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentResult]:
@@ -104,4 +117,5 @@ def get_component_output(arn: Optional[pulumi.Input[builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetComponentResult(
         arn=pulumi.get(__response__, 'arn'),
         encrypted=pulumi.get(__response__, 'encrypted'),
+        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

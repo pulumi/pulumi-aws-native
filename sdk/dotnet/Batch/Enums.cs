@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Batch
 {
+    /// <summary>
+    /// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
+    /// </summary>
     [EnumType]
     public readonly struct ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType : IEquatable<ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType>
     {
@@ -35,6 +38,9 @@ namespace Pulumi.AwsNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
+    /// </summary>
     [EnumType]
     public readonly struct ComputeEnvironmentLaunchTemplateSpecificationUserdataType : IEquatable<ComputeEnvironmentLaunchTemplateSpecificationUserdataType>
     {

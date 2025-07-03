@@ -313,7 +313,6 @@ namespace Pulumi.AwsNative.ImageBuilder
                     "name",
                     "platform",
                     "supportedOsVersions[*]",
-                    "tags.*",
                     "uri",
                     "version",
                 },

@@ -67,11 +67,19 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The Amazon Resource Name (ARN) of the container recipe.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Tags that are attached to the container recipe.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
-        private GetContainerRecipeResult(string? arn)
+        private GetContainerRecipeResult(
+            string? arn,
+
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
+            Tags = tags;
         }
     }
 }

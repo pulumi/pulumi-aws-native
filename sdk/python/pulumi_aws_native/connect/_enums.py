@@ -320,7 +320,7 @@ class RoutingProfileChannel(builtins.str, Enum):
 class RulePublishStatus(builtins.str, Enum):
     """
     The publish status of the rule.
-      *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+     *Allowed values*: ``DRAFT`` | ``PUBLISHED``
     """
     DRAFT = "DRAFT"
     PUBLISHED = "PUBLISHED"
@@ -330,7 +330,7 @@ class RulePublishStatus(builtins.str, Enum):
 class RuleReferenceType(builtins.str, Enum):
     """
     The type of the reference. ``DATE`` must be of type Epoch timestamp. 
-      *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+     *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
     """
     URL = "URL"
     ATTACHMENT = "ATTACHMENT"
@@ -344,7 +344,7 @@ class RuleReferenceType(builtins.str, Enum):
 class RuleSendNotificationActionContentType(builtins.str, Enum):
     """
     Content type format.
-      *Allowed value*: ``PLAIN_TEXT``
+     *Allowed value*: ``PLAIN_TEXT``
     """
     PLAIN_TEXT = "PLAIN_TEXT"
 
@@ -353,7 +353,7 @@ class RuleSendNotificationActionContentType(builtins.str, Enum):
 class RuleSendNotificationActionDeliveryMethod(builtins.str, Enum):
     """
     Notification delivery method.
-      *Allowed value*: ``EMAIL``
+     *Allowed value*: ``EMAIL``
     """
     EMAIL = "EMAIL"
 

@@ -1340,6 +1340,8 @@ type ContainerFleetLogConfiguration struct {
 	// - `S3` -- Store logs in an Amazon S3 bucket that you define. This bucket must reside in the fleet's home AWS Region.
 	// - `NONE` -- Don't collect container logs.
 	LogDestination *ContainerFleetLogDestination `pulumi:"logDestination"`
+	// If log destination is CLOUDWATCH, logs are sent to the specified log group in Amazon CloudWatch.
+	LogGroupArn *string `pulumi:"logGroupArn"`
 	// The name of the S3 bucket to pull logs from if S3 is the LogDestination
 	S3BucketName *string `pulumi:"s3BucketName"`
 }
@@ -1363,6 +1365,8 @@ type ContainerFleetLogConfigurationArgs struct {
 	// - `S3` -- Store logs in an Amazon S3 bucket that you define. This bucket must reside in the fleet's home AWS Region.
 	// - `NONE` -- Don't collect container logs.
 	LogDestination ContainerFleetLogDestinationPtrInput `pulumi:"logDestination"`
+	// If log destination is CLOUDWATCH, logs are sent to the specified log group in Amazon CloudWatch.
+	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
 	// The name of the S3 bucket to pull logs from if S3 is the LogDestination
 	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
 }
@@ -1454,6 +1458,11 @@ func (o ContainerFleetLogConfigurationOutput) LogDestination() ContainerFleetLog
 	return o.ApplyT(func(v ContainerFleetLogConfiguration) *ContainerFleetLogDestination { return v.LogDestination }).(ContainerFleetLogDestinationPtrOutput)
 }
 
+// If log destination is CLOUDWATCH, logs are sent to the specified log group in Amazon CloudWatch.
+func (o ContainerFleetLogConfigurationOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerFleetLogConfiguration) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
+}
+
 // The name of the S3 bucket to pull logs from if S3 is the LogDestination
 func (o ContainerFleetLogConfigurationOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerFleetLogConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
@@ -1495,6 +1504,16 @@ func (o ContainerFleetLogConfigurationPtrOutput) LogDestination() ContainerFleet
 		}
 		return v.LogDestination
 	}).(ContainerFleetLogDestinationPtrOutput)
+}
+
+// If log destination is CLOUDWATCH, logs are sent to the specified log group in Amazon CloudWatch.
+func (o ContainerFleetLogConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the S3 bucket to pull logs from if S3 is the LogDestination

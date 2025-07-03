@@ -14,13 +14,21 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     public sealed class PartnershipCapabilityOptions
     {
         /// <summary>
+        /// A structure that contains the inbound EDI options for the capability.
+        /// </summary>
+        public readonly Outputs.PartnershipInboundEdiOptions? InboundEdi;
+        /// <summary>
         /// A structure that contains the outbound EDI options.
         /// </summary>
         public readonly Outputs.PartnershipOutboundEdiOptionsProperties? OutboundEdi;
 
         [OutputConstructor]
-        private PartnershipCapabilityOptions(Outputs.PartnershipOutboundEdiOptionsProperties? outboundEdi)
+        private PartnershipCapabilityOptions(
+            Outputs.PartnershipInboundEdiOptions? inboundEdi,
+
+            Outputs.PartnershipOutboundEdiOptionsProperties? outboundEdi)
         {
+            InboundEdi = inboundEdi;
             OutboundEdi = outboundEdi;
         }
     }

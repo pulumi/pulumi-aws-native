@@ -125,7 +125,7 @@ if not MYPY:
     class DeploymentAccessLogSettingArgsDict(TypedDict):
         """
         The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
-          ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
+         ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
         """
         destination_arn: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -145,7 +145,7 @@ class DeploymentAccessLogSettingArgs:
                  format: Optional[pulumi.Input[builtins.str]] = None):
         """
         The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
-          ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
+         ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
         :param pulumi.Input[builtins.str] destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
         :param pulumi.Input[builtins.str] format: A single line format of the access logs of data, as specified by selected $context variables. The format must include at least `$context.requestId` .
         """
@@ -952,13 +952,17 @@ class DeploymentStageDescriptionArgs:
 
 if not MYPY:
     class DeploymentTagArgsDict(TypedDict):
+        """
+        An array of key-value pairs to apply to this resource.
+         For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+        """
         key: pulumi.Input[builtins.str]
         """
-        The key name of the tag
+        A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
         """
         value: pulumi.Input[builtins.str]
         """
-        The value for the tag
+        The value for the specified tag key.
         """
 elif False:
     DeploymentTagArgsDict: TypeAlias = Mapping[str, Any]
@@ -969,8 +973,10 @@ class DeploymentTagArgs:
                  key: pulumi.Input[builtins.str],
                  value: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] key: The key name of the tag
-        :param pulumi.Input[builtins.str] value: The value for the tag
+        An array of key-value pairs to apply to this resource.
+         For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+        :param pulumi.Input[builtins.str] key: A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+        :param pulumi.Input[builtins.str] value: The value for the specified tag key.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -979,7 +985,7 @@ class DeploymentTagArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[builtins.str]:
         """
-        The key name of the tag
+        A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
         """
         return pulumi.get(self, "key")
 
@@ -991,7 +997,7 @@ class DeploymentTagArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[builtins.str]:
         """
-        The value for the tag
+        The value for the specified tag key.
         """
         return pulumi.get(self, "value")
 
@@ -1004,7 +1010,7 @@ if not MYPY:
     class DocumentationPartLocationArgsDict(TypedDict):
         """
         The ``Location`` property specifies the location of the Amazon API Gateway API entity that the documentation applies to. ``Location`` is a property of the [AWS::ApiGateway::DocumentationPart](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html) resource.
-         For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.
+          For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.
         """
         method: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1039,7 +1045,7 @@ class DocumentationPartLocationArgs:
                  type: Optional[pulumi.Input['DocumentationPartLocationType']] = None):
         """
         The ``Location`` property specifies the location of the Amazon API Gateway API entity that the documentation applies to. ``Location`` is a property of the [AWS::ApiGateway::DocumentationPart](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html) resource.
-         For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.
+          For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.
         :param pulumi.Input[builtins.str] method: The HTTP verb of a method. It is a valid field for the API entity types of `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `method` attribute must match that of the parent entity exactly.
         :param pulumi.Input[builtins.str] name: The name of the targeted API entity. It is a valid and required field for the API entity types of `AUTHORIZER` , `MODEL` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` and `RESPONSE_HEADER` . It is an invalid field for any other entity type.
         :param pulumi.Input[builtins.str] path: The URL path of the target. It is a valid field for the API entity types of `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `/` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other `location` attributes, the child entity's `path` attribute must match that of the parent entity as a prefix.
@@ -1121,7 +1127,7 @@ class DocumentationPartLocationArgs:
 if not MYPY:
     class DomainNameEndpointConfigurationArgsDict(TypedDict):
         """
-        The ``EndpointConfiguration`` property type specifies the endpoint types of an Amazon API Gateway domain name.
+        The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of an Amazon API Gateway domain name.
          ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
         """
         ip_address_type: NotRequired[pulumi.Input[builtins.str]]
@@ -1141,7 +1147,7 @@ class DomainNameEndpointConfigurationArgs:
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
-        The ``EndpointConfiguration`` property type specifies the endpoint types of an Amazon API Gateway domain name.
+        The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of an Amazon API Gateway domain name.
          ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
         :param pulumi.Input[builtins.str] ip_address_type: The IP address types that can invoke this DomainName. Use `ipv4` to allow only IPv4 addresses to invoke this DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke this DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
@@ -1788,7 +1794,7 @@ class MethodResponseArgs:
 if not MYPY:
     class RestApiEndpointConfigurationArgsDict(TypedDict):
         """
-        The ``EndpointConfiguration`` property type specifies the endpoint types of a REST API.
+        The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of a REST API.
          ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
         """
         ip_address_type: NotRequired[pulumi.Input[builtins.str]]
@@ -1813,7 +1819,7 @@ class RestApiEndpointConfigurationArgs:
                  types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vpc_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
-        The ``EndpointConfiguration`` property type specifies the endpoint types of a REST API.
+        The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of a REST API.
          ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
         :param pulumi.Input[builtins.str] ip_address_type: The IP address types that can invoke an API (RestApi). Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
@@ -1867,7 +1873,7 @@ if not MYPY:
     class RestApiS3LocationArgsDict(TypedDict):
         """
         ``S3Location`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource that specifies the Amazon S3 location of a OpenAPI (formerly Swagger) file that defines a set of RESTful APIs in JSON or YAML.
-         On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
+          On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
         """
         bucket: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1897,7 +1903,7 @@ class RestApiS3LocationArgs:
                  version: Optional[pulumi.Input[builtins.str]] = None):
         """
         ``S3Location`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource that specifies the Amazon S3 location of a OpenAPI (formerly Swagger) file that defines a set of RESTful APIs in JSON or YAML.
-         On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
+          On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
         :param pulumi.Input[builtins.str] bucket: The name of the S3 bucket where the OpenAPI file is stored.
         :param pulumi.Input[builtins.str] e_tag: The Amazon S3 ETag (a file checksum) of the OpenAPI file. If you don't specify a value, API Gateway skips ETag validation of your OpenAPI file.
         :param pulumi.Input[builtins.str] key: The file name of the OpenAPI file (Amazon S3 object name).
@@ -1965,7 +1971,7 @@ if not MYPY:
     class StageAccessLogSettingArgsDict(TypedDict):
         """
         The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
-          ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
+         ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
         """
         destination_arn: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1985,7 +1991,7 @@ class StageAccessLogSettingArgs:
                  format: Optional[pulumi.Input[builtins.str]] = None):
         """
         The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
-          ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
+         ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
         :param pulumi.Input[builtins.str] destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``. This parameter is required to enable access logging.
         :param pulumi.Input[builtins.str] format: A single line format of the access logs of data, as specified by selected [$context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least ``$context.requestId``. This parameter is required to enable access logging.
         """

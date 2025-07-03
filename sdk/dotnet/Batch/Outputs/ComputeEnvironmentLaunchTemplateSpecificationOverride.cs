@@ -38,6 +38,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
         /// </summary>
         public readonly ImmutableArray<string> TargetInstanceTypes;
+        /// <summary>
+        /// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Batch.ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType? UserdataType;
         /// <summary>
         /// The version number of the launch template, `$Default` , or `$Latest` .

@@ -14,11 +14,16 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     public sealed class PartnershipX12Envelope
     {
         public readonly Outputs.PartnershipX12OutboundEdiHeaders? Common;
+        public readonly Outputs.PartnershipWrapOptions? WrapOptions;
 
         [OutputConstructor]
-        private PartnershipX12Envelope(Outputs.PartnershipX12OutboundEdiHeaders? common)
+        private PartnershipX12Envelope(
+            Outputs.PartnershipX12OutboundEdiHeaders? common,
+
+            Outputs.PartnershipWrapOptions? wrapOptions)
         {
             Common = common;
+            WrapOptions = wrapOptions;
         }
     }
 }

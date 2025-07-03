@@ -2205,6 +2205,37 @@ namespace Pulumi.AwsNative.Bedrock
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Tier name for tier configuration in content filters policy
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardrailContentFiltersTierName : IEquatable<GuardrailContentFiltersTierName>
+    {
+        private readonly string _value;
+
+        private GuardrailContentFiltersTierName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailContentFiltersTierName Classic { get; } = new GuardrailContentFiltersTierName("CLASSIC");
+        public static GuardrailContentFiltersTierName Standard { get; } = new GuardrailContentFiltersTierName("STANDARD");
+
+        public static bool operator ==(GuardrailContentFiltersTierName left, GuardrailContentFiltersTierName right) => left.Equals(right);
+        public static bool operator !=(GuardrailContentFiltersTierName left, GuardrailContentFiltersTierName right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailContentFiltersTierName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailContentFiltersTierName other && Equals(other);
+        public bool Equals(GuardrailContentFiltersTierName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct GuardrailContextualGroundingAction : IEquatable<GuardrailContextualGroundingAction>
     {
@@ -2536,6 +2567,37 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GuardrailTopicType other && Equals(other);
         public bool Equals(GuardrailTopicType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Tier name for tier configuration in topic policy
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardrailTopicsTierName : IEquatable<GuardrailTopicsTierName>
+    {
+        private readonly string _value;
+
+        private GuardrailTopicsTierName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailTopicsTierName Classic { get; } = new GuardrailTopicsTierName("CLASSIC");
+        public static GuardrailTopicsTierName Standard { get; } = new GuardrailTopicsTierName("STANDARD");
+
+        public static bool operator ==(GuardrailTopicsTierName left, GuardrailTopicsTierName right) => left.Equals(right);
+        public static bool operator !=(GuardrailTopicsTierName left, GuardrailTopicsTierName right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailTopicsTierName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailTopicsTierName other && Equals(other);
+        public bool Equals(GuardrailTopicsTierName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

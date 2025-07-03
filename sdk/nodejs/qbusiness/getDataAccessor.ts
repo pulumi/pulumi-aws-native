@@ -35,6 +35,10 @@ export interface GetDataAccessorResult {
      */
     readonly actionConfigurations?: outputs.qbusiness.DataAccessorActionConfiguration[];
     /**
+     * The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+     */
+    readonly authenticationDetail?: outputs.qbusiness.DataAccessorAuthenticationDetail;
+    /**
      * The timestamp when the data accessor was created.
      */
     readonly createdAt?: string;

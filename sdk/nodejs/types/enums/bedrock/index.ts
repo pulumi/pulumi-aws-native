@@ -730,6 +730,16 @@ export const GuardrailContentFilterType = {
  */
 export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
 
+export const GuardrailContentFiltersTierName = {
+    Classic: "CLASSIC",
+    Standard: "STANDARD",
+} as const;
+
+/**
+ * Tier name for tier configuration in content filters policy
+ */
+export type GuardrailContentFiltersTierName = (typeof GuardrailContentFiltersTierName)[keyof typeof GuardrailContentFiltersTierName];
+
 export const GuardrailContextualGroundingAction = {
     Block: "BLOCK",
     None: "NONE",
@@ -857,6 +867,16 @@ export const GuardrailTopicType = {
  * Type of topic in a policy
  */
 export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
+
+export const GuardrailTopicsTierName = {
+    Classic: "CLASSIC",
+    Standard: "STANDARD",
+} as const;
+
+/**
+ * Tier name for tier configuration in topic policy
+ */
+export type GuardrailTopicsTierName = (typeof GuardrailTopicsTierName)[keyof typeof GuardrailTopicsTierName];
 
 export const GuardrailWordAction = {
     Block: "BLOCK",

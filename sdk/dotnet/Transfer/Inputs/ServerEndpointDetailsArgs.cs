@@ -30,6 +30,7 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         /// &gt; - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
         /// &gt; - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
         /// &gt; - Call the `UpdateServer` API to set or change this parameter.
+        /// &gt; - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
         /// </summary>
         public InputList<string> AddressAllocationIds
         {

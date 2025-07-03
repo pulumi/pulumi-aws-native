@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
+export const getTable: typeof import("./getTable").getTable = null as any;
+export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
+
 export { GetTableBucketArgs, GetTableBucketResult, GetTableBucketOutputArgs } from "./getTableBucket";
 export const getTableBucket: typeof import("./getTableBucket").getTableBucket = null as any;
 export const getTableBucketOutput: typeof import("./getTableBucket").getTableBucketOutput = null as any;
@@ -19,6 +24,11 @@ export { NamespaceArgs } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
 utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+
+export { TableArgs } from "./table";
+export type Table = import("./table").Table;
+export const Table: typeof import("./table").Table = null as any;
+utilities.lazyLoad(exports, ["Table"], () => require("./table"));
 
 export { TableBucketArgs } from "./tableBucket";
 export type TableBucket = import("./tableBucket").TableBucket;
@@ -40,6 +50,8 @@ const _module = {
         switch (type) {
             case "aws-native:s3tables:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
+            case "aws-native:s3tables:Table":
+                return new Table(name, <any>undefined, { urn })
             case "aws-native:s3tables:TableBucket":
                 return new TableBucket(name, <any>undefined, { urn })
             case "aws-native:s3tables:TableBucketPolicy":

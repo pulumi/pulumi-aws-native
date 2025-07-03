@@ -9,7 +9,9 @@ import typing
 from ._enums import *
 from .get_resource_policy import *
 from .get_stream import *
+from .get_stream_consumer import *
 from .resource_policy import *
 from .stream import *
+from .stream_consumer import *
 from ._inputs import *
 from . import outputs

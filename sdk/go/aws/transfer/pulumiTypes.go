@@ -592,6 +592,7 @@ type ServerEndpointDetails struct {
 	// > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
 	// > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
 	// > - Call the `UpdateServer` API to set or change this parameter.
+	// > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
 	AddressAllocationIds []string `pulumi:"addressAllocationIds"`
 	// A list of security groups IDs that are available to attach to your server's endpoint.
 	//
@@ -638,6 +639,7 @@ type ServerEndpointDetailsArgs struct {
 	// > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
 	// > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
 	// > - Call the `UpdateServer` API to set or change this parameter.
+	// > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
 	AddressAllocationIds pulumi.StringArrayInput `pulumi:"addressAllocationIds"`
 	// A list of security groups IDs that are available to attach to your server's endpoint.
 	//
@@ -749,6 +751,7 @@ func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsPtrOutputWithContext
 // > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
 // > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
 // > - Call the `UpdateServer` API to set or change this parameter.
+// > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
 func (o ServerEndpointDetailsOutput) AddressAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.AddressAllocationIds }).(pulumi.StringArrayOutput)
 }
@@ -820,6 +823,7 @@ func (o ServerEndpointDetailsPtrOutput) Elem() ServerEndpointDetailsOutput {
 // > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
 // > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
 // > - Call the `UpdateServer` API to set or change this parameter.
+// > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
 func (o ServerEndpointDetailsPtrOutput) AddressAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerEndpointDetails) []string {
 		if v == nil {

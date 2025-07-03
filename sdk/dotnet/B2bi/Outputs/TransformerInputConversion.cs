@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     [OutputType]
     public sealed class TransformerInputConversion
     {
+        public readonly Outputs.TransformerAdvancedOptions? AdvancedOptions;
         public readonly Outputs.TransformerFormatOptionsProperties? FormatOptions;
         public readonly Pulumi.AwsNative.B2bi.TransformerFromFormat FromFormat;
 
         [OutputConstructor]
         private TransformerInputConversion(
+            Outputs.TransformerAdvancedOptions? advancedOptions,
+
             Outputs.TransformerFormatOptionsProperties? formatOptions,
 
             Pulumi.AwsNative.B2bi.TransformerFromFormat fromFormat)
         {
+            AdvancedOptions = advancedOptions;
             FormatOptions = formatOptions;
             FromFormat = fromFormat;
         }

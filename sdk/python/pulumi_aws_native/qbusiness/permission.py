@@ -14,6 +14,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['PermissionArgs', 'Permission']
 
@@ -23,7 +26,8 @@ class PermissionArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  application_id: pulumi.Input[builtins.str],
                  principal: pulumi.Input[builtins.str],
-                 statement_id: pulumi.Input[builtins.str]):
+                 statement_id: pulumi.Input[builtins.str],
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionConditionArgs']]]] = None):
         """
         The set of arguments for constructing a Permission resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] actions: The list of Amazon Q Business actions that the ISV is allowed to perform.
@@ -35,6 +39,8 @@ class PermissionArgs:
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "principal", principal)
         pulumi.set(__self__, "statement_id", statement_id)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
@@ -84,6 +90,15 @@ class PermissionArgs:
     def statement_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "statement_id", value)
 
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionConditionArgs']]]]:
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
 
 @pulumi.type_token("aws-native:qbusiness:Permission")
 class Permission(pulumi.CustomResource):
@@ -93,6 +108,7 @@ class Permission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PermissionConditionArgs', 'PermissionConditionArgsDict']]]]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  statement_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -132,6 +148,7 @@ class Permission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PermissionConditionArgs', 'PermissionConditionArgsDict']]]]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  statement_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -149,13 +166,14 @@ class Permission(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
+            __props__.__dict__["conditions"] = conditions
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
             if statement_id is None and not opts.urn:
                 raise TypeError("Missing required property 'statement_id'")
             __props__.__dict__["statement_id"] = statement_id
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["actions[*]", "applicationId", "principal", "statementId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["actions[*]", "applicationId", "conditions[*]", "principal", "statementId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Permission, __self__).__init__(
             'aws-native:qbusiness:Permission',
@@ -181,6 +199,7 @@ class Permission(pulumi.CustomResource):
 
         __props__.__dict__["actions"] = None
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["conditions"] = None
         __props__.__dict__["principal"] = None
         __props__.__dict__["statement_id"] = None
         return Permission(resource_name, opts=opts, __props__=__props__)
@@ -200,6 +219,11 @@ class Permission(pulumi.CustomResource):
         The unique identifier of the Amazon Q Business application.
         """
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Output[Optional[Sequence['outputs.PermissionCondition']]]:
+        return pulumi.get(self, "conditions")
 
     @property
     @pulumi.getter

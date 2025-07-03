@@ -16,6 +16,7 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
+	// The name of the namespace.
 	Namespace      pulumi.StringOutput `pulumi:"namespace"`
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
 }
@@ -71,12 +72,14 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
+	// The name of the namespace.
 	Namespace      string `pulumi:"namespace"`
 	TableBucketArn string `pulumi:"tableBucketArn"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
+	// The name of the namespace.
 	Namespace      pulumi.StringInput
 	TableBucketArn pulumi.StringInput
 }
@@ -118,6 +121,7 @@ func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) Names
 	return o
 }
 
+// The name of the namespace.
 func (o NamespaceOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }

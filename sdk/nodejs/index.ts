@@ -217,6 +217,7 @@ import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as nimblestudio from "./nimblestudio";
 import * as oam from "./oam";
+import * as odb from "./odb";
 import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
 import * as opensearchservice from "./opensearchservice";
@@ -448,6 +449,7 @@ export {
     networkmanager,
     nimblestudio,
     oam,
+    odb,
     omics,
     opensearchserverless,
     opensearchservice,

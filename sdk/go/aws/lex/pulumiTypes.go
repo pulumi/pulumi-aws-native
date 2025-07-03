@@ -5861,6 +5861,1053 @@ func (o BotFulfillmentUpdatesSpecificationPtrOutput) UpdateResponse() BotFulfill
 	}).(BotFulfillmentUpdateResponseSpecificationPtrOutput)
 }
 
+type BotGenerativeAiSettings struct {
+	BuildtimeSettings *BotGenerativeAiSettingsBuildtimeSettingsProperties `pulumi:"buildtimeSettings"`
+	RuntimeSettings   *BotGenerativeAiSettingsRuntimeSettingsProperties   `pulumi:"runtimeSettings"`
+}
+
+// BotGenerativeAiSettingsInput is an input type that accepts BotGenerativeAiSettingsArgs and BotGenerativeAiSettingsOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsInput` via:
+//
+//	BotGenerativeAiSettingsArgs{...}
+type BotGenerativeAiSettingsInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsOutput() BotGenerativeAiSettingsOutput
+	ToBotGenerativeAiSettingsOutputWithContext(context.Context) BotGenerativeAiSettingsOutput
+}
+
+type BotGenerativeAiSettingsArgs struct {
+	BuildtimeSettings BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrInput `pulumi:"buildtimeSettings"`
+	RuntimeSettings   BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrInput   `pulumi:"runtimeSettings"`
+}
+
+func (BotGenerativeAiSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettings)(nil)).Elem()
+}
+
+func (i BotGenerativeAiSettingsArgs) ToBotGenerativeAiSettingsOutput() BotGenerativeAiSettingsOutput {
+	return i.ToBotGenerativeAiSettingsOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsArgs) ToBotGenerativeAiSettingsOutputWithContext(ctx context.Context) BotGenerativeAiSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsOutput)
+}
+
+func (i BotGenerativeAiSettingsArgs) ToBotGenerativeAiSettingsPtrOutput() BotGenerativeAiSettingsPtrOutput {
+	return i.ToBotGenerativeAiSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsArgs) ToBotGenerativeAiSettingsPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsOutput).ToBotGenerativeAiSettingsPtrOutputWithContext(ctx)
+}
+
+// BotGenerativeAiSettingsPtrInput is an input type that accepts BotGenerativeAiSettingsArgs, BotGenerativeAiSettingsPtr and BotGenerativeAiSettingsPtrOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsPtrInput` via:
+//
+//	        BotGenerativeAiSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotGenerativeAiSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsPtrOutput() BotGenerativeAiSettingsPtrOutput
+	ToBotGenerativeAiSettingsPtrOutputWithContext(context.Context) BotGenerativeAiSettingsPtrOutput
+}
+
+type botGenerativeAiSettingsPtrType BotGenerativeAiSettingsArgs
+
+func BotGenerativeAiSettingsPtr(v *BotGenerativeAiSettingsArgs) BotGenerativeAiSettingsPtrInput {
+	return (*botGenerativeAiSettingsPtrType)(v)
+}
+
+func (*botGenerativeAiSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettings)(nil)).Elem()
+}
+
+func (i *botGenerativeAiSettingsPtrType) ToBotGenerativeAiSettingsPtrOutput() BotGenerativeAiSettingsPtrOutput {
+	return i.ToBotGenerativeAiSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *botGenerativeAiSettingsPtrType) ToBotGenerativeAiSettingsPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsPtrOutput)
+}
+
+type BotGenerativeAiSettingsOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettings)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsOutput) ToBotGenerativeAiSettingsOutput() BotGenerativeAiSettingsOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsOutput) ToBotGenerativeAiSettingsOutputWithContext(ctx context.Context) BotGenerativeAiSettingsOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsOutput) ToBotGenerativeAiSettingsPtrOutput() BotGenerativeAiSettingsPtrOutput {
+	return o.ToBotGenerativeAiSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BotGenerativeAiSettingsOutput) ToBotGenerativeAiSettingsPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotGenerativeAiSettings) *BotGenerativeAiSettings {
+		return &v
+	}).(BotGenerativeAiSettingsPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsOutput) BuildtimeSettings() BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettings) *BotGenerativeAiSettingsBuildtimeSettingsProperties {
+		return v.BuildtimeSettings
+	}).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsOutput) RuntimeSettings() BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettings) *BotGenerativeAiSettingsRuntimeSettingsProperties {
+		return v.RuntimeSettings
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput)
+}
+
+type BotGenerativeAiSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettings)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsPtrOutput) ToBotGenerativeAiSettingsPtrOutput() BotGenerativeAiSettingsPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsPtrOutput) ToBotGenerativeAiSettingsPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsPtrOutput) Elem() BotGenerativeAiSettingsOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettings) BotGenerativeAiSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BotGenerativeAiSettings
+		return ret
+	}).(BotGenerativeAiSettingsOutput)
+}
+
+func (o BotGenerativeAiSettingsPtrOutput) BuildtimeSettings() BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettings) *BotGenerativeAiSettingsBuildtimeSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.BuildtimeSettings
+	}).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsPtrOutput) RuntimeSettings() BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettings) *BotGenerativeAiSettingsRuntimeSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeSettings
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput)
+}
+
+type BotGenerativeAiSettingsBuildtimeSettingsProperties struct {
+	DescriptiveBotBuilderSpecification     *BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties     `pulumi:"descriptiveBotBuilderSpecification"`
+	SampleUtteranceGenerationSpecification *BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties `pulumi:"sampleUtteranceGenerationSpecification"`
+}
+
+// BotGenerativeAiSettingsBuildtimeSettingsPropertiesInput is an input type that accepts BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs and BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsBuildtimeSettingsPropertiesInput` via:
+//
+//	BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs{...}
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput
+	ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesOutputWithContext(context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput
+}
+
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs struct {
+	DescriptiveBotBuilderSpecification     BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrInput     `pulumi:"descriptiveBotBuilderSpecification"`
+	SampleUtteranceGenerationSpecification BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrInput `pulumi:"sampleUtteranceGenerationSpecification"`
+}
+
+func (BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsBuildtimeSettingsProperties)(nil)).Elem()
+}
+
+func (i BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput {
+	return i.ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput)
+}
+
+func (i BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput {
+	return i.ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput).ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrInput is an input type that accepts BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs, BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtr and BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrInput` via:
+//
+//	        BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput
+	ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutputWithContext(context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput
+}
+
+type botGenerativeAiSettingsBuildtimeSettingsPropertiesPtrType BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs
+
+func BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtr(v *BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs) BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrInput {
+	return (*botGenerativeAiSettingsBuildtimeSettingsPropertiesPtrType)(v)
+}
+
+func (*botGenerativeAiSettingsBuildtimeSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsBuildtimeSettingsProperties)(nil)).Elem()
+}
+
+func (i *botGenerativeAiSettingsBuildtimeSettingsPropertiesPtrType) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput {
+	return i.ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botGenerativeAiSettingsBuildtimeSettingsPropertiesPtrType) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput)
+}
+
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsBuildtimeSettingsProperties)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput {
+	return o.ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotGenerativeAiSettingsBuildtimeSettingsProperties) *BotGenerativeAiSettingsBuildtimeSettingsProperties {
+		return &v
+	}).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput) DescriptiveBotBuilderSpecification() BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsBuildtimeSettingsProperties) *BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties {
+		return v.DescriptiveBotBuilderSpecification
+	}).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput) SampleUtteranceGenerationSpecification() BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsBuildtimeSettingsProperties) *BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties {
+		return v.SampleUtteranceGenerationSpecification
+	}).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput)
+}
+
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsBuildtimeSettingsProperties)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput) Elem() BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsBuildtimeSettingsProperties) BotGenerativeAiSettingsBuildtimeSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotGenerativeAiSettingsBuildtimeSettingsProperties
+		return ret
+	}).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput)
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput) DescriptiveBotBuilderSpecification() BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsBuildtimeSettingsProperties) *BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.DescriptiveBotBuilderSpecification
+	}).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput) SampleUtteranceGenerationSpecification() BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsBuildtimeSettingsProperties) *BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.SampleUtteranceGenerationSpecification
+	}).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput)
+}
+
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties struct {
+	BedrockModelSpecification *BotBedrockModelSpecification `pulumi:"bedrockModelSpecification"`
+	Enabled                   bool                          `pulumi:"enabled"`
+}
+
+// BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesInput is an input type that accepts BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs and BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesInput` via:
+//
+//	BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs{...}
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput
+	ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutputWithContext(context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput
+}
+
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs struct {
+	BedrockModelSpecification BotBedrockModelSpecificationPtrInput `pulumi:"bedrockModelSpecification"`
+	Enabled                   pulumi.BoolInput                     `pulumi:"enabled"`
+}
+
+func (BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties)(nil)).Elem()
+}
+
+func (i BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput {
+	return i.ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput)
+}
+
+func (i BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput {
+	return i.ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput).ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrInput is an input type that accepts BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs, BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtr and BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrInput` via:
+//
+//	        BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput
+	ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutputWithContext(context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput
+}
+
+type botGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrType BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs
+
+func BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtr(v *BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs) BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrInput {
+	return (*botGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrType)(v)
+}
+
+func (*botGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties)(nil)).Elem()
+}
+
+func (i *botGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrType) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput {
+	return i.ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrType) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput)
+}
+
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput {
+	return o.ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties) *BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties {
+		return &v
+	}).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput) BedrockModelSpecification() BotBedrockModelSpecificationPtrOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties) *BotBedrockModelSpecification {
+		return v.BedrockModelSpecification
+	}).(BotBedrockModelSpecificationPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput) Elem() BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties) BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties
+		return ret
+	}).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput)
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput) BedrockModelSpecification() BotBedrockModelSpecificationPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties) *BotBedrockModelSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockModelSpecification
+	}).(BotBedrockModelSpecificationPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties struct {
+	BedrockModelSpecification *BotBedrockModelSpecification `pulumi:"bedrockModelSpecification"`
+	Enabled                   bool                          `pulumi:"enabled"`
+}
+
+// BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesInput is an input type that accepts BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs and BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesInput` via:
+//
+//	BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs{...}
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput
+	ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutputWithContext(context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput
+}
+
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs struct {
+	BedrockModelSpecification BotBedrockModelSpecificationPtrInput `pulumi:"bedrockModelSpecification"`
+	Enabled                   pulumi.BoolInput                     `pulumi:"enabled"`
+}
+
+func (BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties)(nil)).Elem()
+}
+
+func (i BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput {
+	return i.ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput)
+}
+
+func (i BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput {
+	return i.ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput).ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrInput is an input type that accepts BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs, BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtr and BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrInput` via:
+//
+//	        BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput
+	ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutputWithContext(context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput
+}
+
+type botGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrType BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs
+
+func BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtr(v *BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs) BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrInput {
+	return (*botGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrType)(v)
+}
+
+func (*botGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties)(nil)).Elem()
+}
+
+func (i *botGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrType) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput {
+	return i.ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrType) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput)
+}
+
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput {
+	return o.ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties) *BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties {
+		return &v
+	}).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput) BedrockModelSpecification() BotBedrockModelSpecificationPtrOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties) *BotBedrockModelSpecification {
+		return v.BedrockModelSpecification
+	}).(BotBedrockModelSpecificationPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+type BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput) ToBotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput) Elem() BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties) BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties
+		return ret
+	}).(BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput)
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput) BedrockModelSpecification() BotBedrockModelSpecificationPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties) *BotBedrockModelSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockModelSpecification
+	}).(BotBedrockModelSpecificationPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsProperties struct {
+	NluImprovementSpecification            *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties            `pulumi:"nluImprovementSpecification"`
+	SlotResolutionImprovementSpecification *BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties `pulumi:"slotResolutionImprovementSpecification"`
+}
+
+// BotGenerativeAiSettingsRuntimeSettingsPropertiesInput is an input type that accepts BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs and BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsRuntimeSettingsPropertiesInput` via:
+//
+//	BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs{...}
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesOutputWithContext(context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs struct {
+	NluImprovementSpecification            BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrInput            `pulumi:"nluImprovementSpecification"`
+	SlotResolutionImprovementSpecification BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrInput `pulumi:"slotResolutionImprovementSpecification"`
+}
+
+func (BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsProperties)(nil)).Elem()
+}
+
+func (i BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput {
+	return i.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput)
+}
+
+func (i BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput {
+	return i.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput).ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrInput is an input type that accepts BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs, BotGenerativeAiSettingsRuntimeSettingsPropertiesPtr and BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrInput` via:
+//
+//	        BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutputWithContext(context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput
+}
+
+type botGenerativeAiSettingsRuntimeSettingsPropertiesPtrType BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs
+
+func BotGenerativeAiSettingsRuntimeSettingsPropertiesPtr(v *BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs) BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrInput {
+	return (*botGenerativeAiSettingsRuntimeSettingsPropertiesPtrType)(v)
+}
+
+func (*botGenerativeAiSettingsRuntimeSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsRuntimeSettingsProperties)(nil)).Elem()
+}
+
+func (i *botGenerativeAiSettingsRuntimeSettingsPropertiesPtrType) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput {
+	return i.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botGenerativeAiSettingsRuntimeSettingsPropertiesPtrType) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput)
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsProperties)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput {
+	return o.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotGenerativeAiSettingsRuntimeSettingsProperties) *BotGenerativeAiSettingsRuntimeSettingsProperties {
+		return &v
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput) NluImprovementSpecification() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsRuntimeSettingsProperties) *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties {
+		return v.NluImprovementSpecification
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput) SlotResolutionImprovementSpecification() BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsRuntimeSettingsProperties) *BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties {
+		return v.SlotResolutionImprovementSpecification
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput)
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsRuntimeSettingsProperties)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput) Elem() BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsRuntimeSettingsProperties) BotGenerativeAiSettingsRuntimeSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotGenerativeAiSettingsRuntimeSettingsProperties
+		return ret
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput) NluImprovementSpecification() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsRuntimeSettingsProperties) *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.NluImprovementSpecification
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput) SlotResolutionImprovementSpecification() BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsRuntimeSettingsProperties) *BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.SlotResolutionImprovementSpecification
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput)
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties struct {
+	Enabled bool `pulumi:"enabled"`
+}
+
+// BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesInput is an input type that accepts BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs and BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesInput` via:
+//
+//	BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs{...}
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutputWithContext(context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties)(nil)).Elem()
+}
+
+func (i BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput {
+	return i.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput)
+}
+
+func (i BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput {
+	return i.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput).ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrInput is an input type that accepts BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs, BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtr and BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrInput` via:
+//
+//	        BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutputWithContext(context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput
+}
+
+type botGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrType BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs
+
+func BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtr(v *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrInput {
+	return (*botGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrType)(v)
+}
+
+func (*botGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties)(nil)).Elem()
+}
+
+func (i *botGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrType) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput {
+	return i.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrType) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput)
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput {
+	return o.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties) *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties {
+		return &v
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput) Elem() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties
+		return ret
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties struct {
+	BedrockModelSpecification *BotBedrockModelSpecification `pulumi:"bedrockModelSpecification"`
+	Enabled                   bool                          `pulumi:"enabled"`
+}
+
+// BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesInput is an input type that accepts BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs and BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesInput` via:
+//
+//	BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs{...}
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutputWithContext(context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs struct {
+	BedrockModelSpecification BotBedrockModelSpecificationPtrInput `pulumi:"bedrockModelSpecification"`
+	Enabled                   pulumi.BoolInput                     `pulumi:"enabled"`
+}
+
+func (BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties)(nil)).Elem()
+}
+
+func (i BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput {
+	return i.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput)
+}
+
+func (i BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput {
+	return i.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput).ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrInput is an input type that accepts BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs, BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtr and BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrInput` via:
+//
+//	        BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutputWithContext(context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput
+}
+
+type botGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrType BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs
+
+func BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtr(v *BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs) BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrInput {
+	return (*botGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrType)(v)
+}
+
+func (*botGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties)(nil)).Elem()
+}
+
+func (i *botGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrType) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput {
+	return i.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrType) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput)
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput {
+	return o.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties) *BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties {
+		return &v
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput) BedrockModelSpecification() BotBedrockModelSpecificationPtrOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties) *BotBedrockModelSpecification {
+		return v.BedrockModelSpecification
+	}).(BotBedrockModelSpecificationPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput) Elem() BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties) BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties
+		return ret
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput) BedrockModelSpecification() BotBedrockModelSpecificationPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties) *BotBedrockModelSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockModelSpecification
+	}).(BotBedrockModelSpecificationPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type BotGrammarSlotTypeSetting struct {
 	// The source of the grammar used to create the slot type.
 	Source *BotGrammarSlotTypeSource `pulumi:"source"`
@@ -7780,7 +8827,8 @@ type BotLocale struct {
 	// Specifies a custom vocabulary to use with a specific locale.
 	CustomVocabulary *BotCustomVocabulary `pulumi:"customVocabulary"`
 	// A description of the bot locale. Use this to help identify the bot locale in lists.
-	Description *string `pulumi:"description"`
+	Description          *string                  `pulumi:"description"`
+	GenerativeAiSettings *BotGenerativeAiSettings `pulumi:"generativeAiSettings"`
 	// One or more intents defined for the locale.
 	Intents []BotIntent `pulumi:"intents"`
 	// The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales.
@@ -7815,7 +8863,8 @@ type BotLocaleArgs struct {
 	// Specifies a custom vocabulary to use with a specific locale.
 	CustomVocabulary BotCustomVocabularyPtrInput `pulumi:"customVocabulary"`
 	// A description of the bot locale. Use this to help identify the bot locale in lists.
-	Description pulumi.StringPtrInput `pulumi:"description"`
+	Description          pulumi.StringPtrInput           `pulumi:"description"`
+	GenerativeAiSettings BotGenerativeAiSettingsPtrInput `pulumi:"generativeAiSettings"`
 	// One or more intents defined for the locale.
 	Intents BotIntentArrayInput `pulumi:"intents"`
 	// The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales.
@@ -7894,6 +8943,10 @@ func (o BotLocaleOutput) CustomVocabulary() BotCustomVocabularyPtrOutput {
 // A description of the bot locale. Use this to help identify the bot locale in lists.
 func (o BotLocaleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotLocale) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o BotLocaleOutput) GenerativeAiSettings() BotGenerativeAiSettingsPtrOutput {
+	return o.ApplyT(func(v BotLocale) *BotGenerativeAiSettings { return v.GenerativeAiSettings }).(BotGenerativeAiSettingsPtrOutput)
 }
 
 // One or more intents defined for the locale.
@@ -16237,6 +17290,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotFulfillmentUpdateResponseSpecificationPtrInput)(nil)).Elem(), BotFulfillmentUpdateResponseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotFulfillmentUpdatesSpecificationInput)(nil)).Elem(), BotFulfillmentUpdatesSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotFulfillmentUpdatesSpecificationPtrInput)(nil)).Elem(), BotFulfillmentUpdatesSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsInput)(nil)).Elem(), BotGenerativeAiSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsPtrInput)(nil)).Elem(), BotGenerativeAiSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsBuildtimeSettingsPropertiesInput)(nil)).Elem(), BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrInput)(nil)).Elem(), BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesInput)(nil)).Elem(), BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrInput)(nil)).Elem(), BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesInput)(nil)).Elem(), BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrInput)(nil)).Elem(), BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesInput)(nil)).Elem(), BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrInput)(nil)).Elem(), BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesInput)(nil)).Elem(), BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrInput)(nil)).Elem(), BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesInput)(nil)).Elem(), BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrInput)(nil)).Elem(), BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotGrammarSlotTypeSettingInput)(nil)).Elem(), BotGrammarSlotTypeSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotGrammarSlotTypeSettingPtrInput)(nil)).Elem(), BotGrammarSlotTypeSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotGrammarSlotTypeSourceInput)(nil)).Elem(), BotGrammarSlotTypeSourceArgs{})
@@ -16450,6 +17517,20 @@ func init() {
 	pulumi.RegisterOutputType(BotFulfillmentUpdateResponseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotFulfillmentUpdatesSpecificationOutput{})
 	pulumi.RegisterOutputType(BotFulfillmentUpdatesSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsPtrOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsBuildtimeSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsBuildtimeSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsRuntimeSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BotGrammarSlotTypeSettingOutput{})
 	pulumi.RegisterOutputType(BotGrammarSlotTypeSettingPtrOutput{})
 	pulumi.RegisterOutputType(BotGrammarSlotTypeSourceOutput{})

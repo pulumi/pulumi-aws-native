@@ -116,6 +116,7 @@ import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as oam from "./oam";
+import * as odb from "./odb";
 import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
 import * as opensearchservice from "./opensearchservice";
@@ -295,6 +296,7 @@ export {
     mwaa,
     networkfirewall,
     oam,
+    odb,
     omics,
     opensearchserverless,
     opensearchservice,

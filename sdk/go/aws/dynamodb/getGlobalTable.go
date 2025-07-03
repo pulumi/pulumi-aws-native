@@ -45,13 +45,24 @@ type LookupGlobalTableResult struct {
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
+	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+	GlobalTableWitnesses []GlobalTableWitness `pulumi:"globalTableWitnesses"`
+	// Specifies the consistency mode for a new global table.
+	//
+	// You can specify one of the following consistency modes:
+	//
+	// - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+	// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+	//
+	// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+	MultiRegionConsistency *GlobalTableMultiRegionConsistency `pulumi:"multiRegionConsistency"`
 	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
 	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
 	// >
 	// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
 	//
-	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
 	Replicas []GlobalTableReplicaSpecification `pulumi:"replicas"`
 	// Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
 	SseSpecification *GlobalTableSseSpecification `pulumi:"sseSpecification"`
@@ -59,7 +70,7 @@ type LookupGlobalTableResult struct {
 	//
 	// > You must specify the `StreamSpecification` property to use this attribute.
 	StreamArn *string `pulumi:"streamArn"`
-	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
 	StreamSpecification *GlobalTableStreamSpecification `pulumi:"streamSpecification"`
 	// Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
 	TableId *string `pulumi:"tableId"`
@@ -134,13 +145,30 @@ func (o LookupGlobalTableResultOutput) GlobalSecondaryIndexes() GlobalTableGloba
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableGlobalSecondaryIndex { return v.GlobalSecondaryIndexes }).(GlobalTableGlobalSecondaryIndexArrayOutput)
 }
 
+// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+func (o LookupGlobalTableResultOutput) GlobalTableWitnesses() GlobalTableWitnessArrayOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableWitness { return v.GlobalTableWitnesses }).(GlobalTableWitnessArrayOutput)
+}
+
+// Specifies the consistency mode for a new global table.
+//
+// You can specify one of the following consistency modes:
+//
+// - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+//
+// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+func (o LookupGlobalTableResultOutput) MultiRegionConsistency() GlobalTableMultiRegionConsistencyPtrOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableMultiRegionConsistency { return v.MultiRegionConsistency }).(GlobalTableMultiRegionConsistencyPtrOutput)
+}
+
 // Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 //
 // > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
 // >
 // > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
 //
-// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
 func (o LookupGlobalTableResultOutput) Replicas() GlobalTableReplicaSpecificationArrayOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableReplicaSpecification { return v.Replicas }).(GlobalTableReplicaSpecificationArrayOutput)
 }
@@ -157,7 +185,7 @@ func (o LookupGlobalTableResultOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
 func (o LookupGlobalTableResultOutput) StreamSpecification() GlobalTableStreamSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableStreamSpecification { return v.StreamSpecification }).(GlobalTableStreamSpecificationPtrOutput)
 }

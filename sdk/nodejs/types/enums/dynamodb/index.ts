@@ -12,6 +12,23 @@ export const GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePre
  */
 export type GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision = (typeof GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision)[keyof typeof GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision];
 
+export const GlobalTableMultiRegionConsistency = {
+    Eventual: "EVENTUAL",
+    Strong: "STRONG",
+} as const;
+
+/**
+ * Specifies the consistency mode for a new global table.
+ *
+ * You can specify one of the following consistency modes:
+ *
+ * - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+ * - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+ *
+ * If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+ */
+export type GlobalTableMultiRegionConsistency = (typeof GlobalTableMultiRegionConsistency)[keyof typeof GlobalTableMultiRegionConsistency];
+
 export const TableKinesisStreamSpecificationApproximateCreationDateTimePrecision = {
     Microsecond: "MICROSECOND",
     Millisecond: "MILLISECOND",

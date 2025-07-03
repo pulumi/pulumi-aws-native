@@ -194,6 +194,31 @@
       },
       "required" : [ "Region" ],
       "additionalProperties" : false
+    },
+    "CdcSpecification" : {
+      "description" : "Represents the CDC configuration for the table",
+      "type" : "object",
+      "properties" : {
+        "Status" : {
+          "$ref" : "#/definitions/CdcStatus"
+        },
+        "ViewType" : {
+          "$ref" : "#/definitions/CdcViewType"
+        }
+      },
+      "required" : [ "Status" ],
+      "additionalProperties" : false
+    },
+    "CdcStatus" : {
+      "description" : "Indicates whether CDC is enabled or disabled for the table",
+      "type" : "string",
+      "enum" : [ "ENABLED", "DISABLED" ]
+    },
+    "CdcViewType" : {
+      "description" : "Specifies what data should be captured in the change data stream",
+      "type" : "string",
+      "enum" : [ "NEW_IMAGE", "OLD_IMAGE", "KEYS_ONLY", "NEW_AND_OLD_IMAGES" ],
+      "default" : "NEW_AND_OLD_IMAGES"
     }
   },
   "properties" : {
@@ -267,6 +292,9 @@
     "AutoScalingSpecifications" : {
       "$ref" : "#/definitions/AutoScalingSpecification"
     },
+    "CdcSpecification" : {
+      "$ref" : "#/definitions/CdcSpecification"
+    },
     "ReplicaSpecifications" : {
       "type" : "array",
       "minItems" : 1,
@@ -292,13 +320,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "cassandra:Create", "cassandra:CreateMultiRegionResource", "cassandra:Select", "cassandra:SelectMultiRegionResource", "cassandra:TagResource", "cassandra:TagMultiRegionResource", "kms:CreateGrant", "kms:DescribeKey", "kms:Encrypt", "kms:Decrypt", "application-autoscaling:DescribeScalableTargets", "application-autoscaling:DescribeScalingPolicies", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:RegisterScalableTarget", "application-autoscaling:PutScalingPolicy", "cloudwatch:DeleteAlarms", "cloudwatch:DescribeAlarms", "cloudwatch:GetMetricData", "cloudwatch:PutMetricAlarm" ]
+      "permissions" : [ "cassandra:Create", "cassandra:CreateMultiRegionResource", "cassandra:Select", "cassandra:SelectMultiRegionResource", "cassandra:TagResource", "cassandra:TagMultiRegionResource", "kms:CreateGrant", "kms:DescribeKey", "kms:Encrypt", "kms:Decrypt", "application-autoscaling:DescribeScalableTargets", "application-autoscaling:DescribeScalingPolicies", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:RegisterScalableTarget", "application-autoscaling:PutScalingPolicy", "cloudwatch:DeleteAlarms", "cloudwatch:DescribeAlarms", "cloudwatch:GetMetricData", "cloudwatch:PutMetricAlarm", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "cassandra:Select", "cassandra:SelectMultiRegionResource", "application-autoscaling:DescribeScalableTargets", "application-autoscaling:DescribeScalingPolicies", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:RegisterScalableTarget", "application-autoscaling:PutScalingPolicy", "cloudwatch:DeleteAlarms", "cloudwatch:DescribeAlarms", "cloudwatch:GetMetricData", "cloudwatch:PutMetricAlarm" ]
     },
     "update" : {
-      "permissions" : [ "cassandra:Alter", "cassandra:AlterMultiRegionResource", "cassandra:Select", "cassandra:SelectMultiRegionResource", "cassandra:TagResource", "cassandra:TagMultiRegionResource", "cassandra:UntagResource", "cassandra:UntagMultiRegionResource", "kms:CreateGrant", "kms:DescribeKey", "kms:Encrypt", "kms:Decrypt", "application-autoscaling:DescribeScalableTargets", "application-autoscaling:DescribeScalingPolicies", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:RegisterScalableTarget", "application-autoscaling:PutScalingPolicy", "cloudwatch:DeleteAlarms", "cloudwatch:DescribeAlarms", "cloudwatch:GetMetricData", "cloudwatch:PutMetricAlarm" ]
+      "permissions" : [ "cassandra:Alter", "cassandra:AlterMultiRegionResource", "cassandra:Select", "cassandra:SelectMultiRegionResource", "cassandra:TagResource", "cassandra:TagMultiRegionResource", "cassandra:UntagResource", "cassandra:UntagMultiRegionResource", "kms:CreateGrant", "kms:DescribeKey", "kms:Encrypt", "kms:Decrypt", "application-autoscaling:DescribeScalableTargets", "application-autoscaling:DescribeScalingPolicies", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:RegisterScalableTarget", "application-autoscaling:PutScalingPolicy", "cloudwatch:DeleteAlarms", "cloudwatch:DescribeAlarms", "cloudwatch:GetMetricData", "cloudwatch:PutMetricAlarm", "iam:CreateServiceLinkedRole" ]
     },
     "delete" : {
       "permissions" : [ "cassandra:Drop", "cassandra:DropMultiRegionResource", "cassandra:Select", "cassandra:SelectMultiRegionResource", "application-autoscaling:DescribeScalableTargets", "application-autoscaling:DescribeScalingPolicies", "application-autoscaling:DeregisterScalableTarget", "application-autoscaling:RegisterScalableTarget", "application-autoscaling:PutScalingPolicy", "cloudwatch:DeleteAlarms", "cloudwatch:DescribeAlarms", "cloudwatch:GetMetricData", "cloudwatch:PutMetricAlarm" ]

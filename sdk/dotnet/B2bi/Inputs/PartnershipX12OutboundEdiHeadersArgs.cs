@@ -12,11 +12,17 @@ namespace Pulumi.AwsNative.B2bi.Inputs
 
     public sealed class PartnershipX12OutboundEdiHeadersArgs : global::Pulumi.ResourceArgs
     {
+        [Input("controlNumbers")]
+        public Input<Inputs.PartnershipX12ControlNumbersArgs>? ControlNumbers { get; set; }
+
         [Input("delimiters")]
         public Input<Inputs.PartnershipX12DelimitersArgs>? Delimiters { get; set; }
 
         [Input("functionalGroupHeaders")]
         public Input<Inputs.PartnershipX12FunctionalGroupHeadersArgs>? FunctionalGroupHeaders { get; set; }
+
+        [Input("gs05TimeFormat")]
+        public Input<Pulumi.AwsNative.B2bi.PartnershipX12gs05TimeFormat>? Gs05TimeFormat { get; set; }
 
         [Input("interchangeControlHeaders")]
         public Input<Inputs.PartnershipX12InterchangeControlHeadersArgs>? InterchangeControlHeaders { get; set; }

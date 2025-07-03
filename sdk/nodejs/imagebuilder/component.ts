@@ -284,7 +284,7 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["changeDescription", "data", "description", "kmsKeyId", "name", "platform", "supportedOsVersions[*]", "tags.*", "uri", "version"] };
+        const replaceOnChanges = { replaceOnChanges: ["changeDescription", "data", "description", "kmsKeyId", "name", "platform", "supportedOsVersions[*]", "uri", "version"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Component.__pulumiType, name, resourceInputs, opts);
     }

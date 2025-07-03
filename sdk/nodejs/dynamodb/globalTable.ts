@@ -61,6 +61,10 @@ export class GlobalTable extends pulumi.CustomResource {
      */
     public readonly globalSecondaryIndexes!: pulumi.Output<outputs.dynamodb.GlobalTableGlobalSecondaryIndex[] | undefined>;
     /**
+     * The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+     */
+    public readonly globalTableWitnesses!: pulumi.Output<outputs.dynamodb.GlobalTableWitness[] | undefined>;
+    /**
      * Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
      */
     public readonly keySchema!: pulumi.Output<outputs.dynamodb.GlobalTableKeySchema[]>;
@@ -69,13 +73,24 @@ export class GlobalTable extends pulumi.CustomResource {
      */
     public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.GlobalTableLocalSecondaryIndex[] | undefined>;
     /**
+     * Specifies the consistency mode for a new global table.
+     *
+     * You can specify one of the following consistency modes:
+     *
+     * - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+     * - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+     *
+     * If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+     */
+    public readonly multiRegionConsistency!: pulumi.Output<enums.dynamodb.GlobalTableMultiRegionConsistency | undefined>;
+    /**
      * Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
      *
      * > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
      * > 
      * > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
      *
-     * You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+     * You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
      */
     public readonly replicas!: pulumi.Output<outputs.dynamodb.GlobalTableReplicaSpecification[]>;
     /**
@@ -89,7 +104,7 @@ export class GlobalTable extends pulumi.CustomResource {
      */
     public /*out*/ readonly streamArn!: pulumi.Output<string>;
     /**
-     * Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+     * Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
      */
     public readonly streamSpecification!: pulumi.Output<outputs.dynamodb.GlobalTableStreamSpecification | undefined>;
     /**
@@ -142,8 +157,10 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["attributeDefinitions"] = args ? args.attributeDefinitions : undefined;
             resourceInputs["billingMode"] = args ? args.billingMode : undefined;
             resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
+            resourceInputs["globalTableWitnesses"] = args ? args.globalTableWitnesses : undefined;
             resourceInputs["keySchema"] = args ? args.keySchema : undefined;
             resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
+            resourceInputs["multiRegionConsistency"] = args ? args.multiRegionConsistency : undefined;
             resourceInputs["replicas"] = args ? args.replicas : undefined;
             resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["streamSpecification"] = args ? args.streamSpecification : undefined;
@@ -160,8 +177,10 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["attributeDefinitions"] = undefined /*out*/;
             resourceInputs["billingMode"] = undefined /*out*/;
             resourceInputs["globalSecondaryIndexes"] = undefined /*out*/;
+            resourceInputs["globalTableWitnesses"] = undefined /*out*/;
             resourceInputs["keySchema"] = undefined /*out*/;
             resourceInputs["localSecondaryIndexes"] = undefined /*out*/;
+            resourceInputs["multiRegionConsistency"] = undefined /*out*/;
             resourceInputs["replicas"] = undefined /*out*/;
             resourceInputs["sseSpecification"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
@@ -204,6 +223,10 @@ export interface GlobalTableArgs {
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableGlobalSecondaryIndexArgs>[]>;
     /**
+     * The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+     */
+    globalTableWitnesses?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableWitnessArgs>[]>;
+    /**
      * Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
      */
     keySchema: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableKeySchemaArgs>[]>;
@@ -212,13 +235,24 @@ export interface GlobalTableArgs {
      */
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableLocalSecondaryIndexArgs>[]>;
     /**
+     * Specifies the consistency mode for a new global table.
+     *
+     * You can specify one of the following consistency modes:
+     *
+     * - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+     * - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+     *
+     * If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+     */
+    multiRegionConsistency?: pulumi.Input<enums.dynamodb.GlobalTableMultiRegionConsistency>;
+    /**
      * Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
      *
      * > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
      * > 
      * > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
      *
-     * You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+     * You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
      */
     replicas: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableReplicaSpecificationArgs>[]>;
     /**
@@ -226,7 +260,7 @@ export interface GlobalTableArgs {
      */
     sseSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableSseSpecificationArgs>;
     /**
-     * Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+     * Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
      */
     streamSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableStreamSpecificationArgs>;
     /**

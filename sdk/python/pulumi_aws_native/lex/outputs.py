@@ -63,6 +63,13 @@ __all__ = [
     'BotFulfillmentStartResponseSpecification',
     'BotFulfillmentUpdateResponseSpecification',
     'BotFulfillmentUpdatesSpecification',
+    'BotGenerativeAiSettings',
+    'BotGenerativeAiSettingsBuildtimeSettingsProperties',
+    'BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties',
+    'BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties',
+    'BotGenerativeAiSettingsRuntimeSettingsProperties',
+    'BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties',
+    'BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties',
     'BotGrammarSlotTypeSetting',
     'BotGrammarSlotTypeSource',
     'BotImageResponseCard',
@@ -2129,6 +2136,249 @@ class BotFulfillmentUpdatesSpecification(dict):
 
 
 @pulumi.output_type
+class BotGenerativeAiSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "buildtimeSettings":
+            suggest = "buildtime_settings"
+        elif key == "runtimeSettings":
+            suggest = "runtime_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotGenerativeAiSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotGenerativeAiSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotGenerativeAiSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 buildtime_settings: Optional['outputs.BotGenerativeAiSettingsBuildtimeSettingsProperties'] = None,
+                 runtime_settings: Optional['outputs.BotGenerativeAiSettingsRuntimeSettingsProperties'] = None):
+        if buildtime_settings is not None:
+            pulumi.set(__self__, "buildtime_settings", buildtime_settings)
+        if runtime_settings is not None:
+            pulumi.set(__self__, "runtime_settings", runtime_settings)
+
+    @property
+    @pulumi.getter(name="buildtimeSettings")
+    def buildtime_settings(self) -> Optional['outputs.BotGenerativeAiSettingsBuildtimeSettingsProperties']:
+        return pulumi.get(self, "buildtime_settings")
+
+    @property
+    @pulumi.getter(name="runtimeSettings")
+    def runtime_settings(self) -> Optional['outputs.BotGenerativeAiSettingsRuntimeSettingsProperties']:
+        return pulumi.get(self, "runtime_settings")
+
+
+@pulumi.output_type
+class BotGenerativeAiSettingsBuildtimeSettingsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "descriptiveBotBuilderSpecification":
+            suggest = "descriptive_bot_builder_specification"
+        elif key == "sampleUtteranceGenerationSpecification":
+            suggest = "sample_utterance_generation_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotGenerativeAiSettingsBuildtimeSettingsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotGenerativeAiSettingsBuildtimeSettingsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotGenerativeAiSettingsBuildtimeSettingsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 descriptive_bot_builder_specification: Optional['outputs.BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties'] = None,
+                 sample_utterance_generation_specification: Optional['outputs.BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties'] = None):
+        if descriptive_bot_builder_specification is not None:
+            pulumi.set(__self__, "descriptive_bot_builder_specification", descriptive_bot_builder_specification)
+        if sample_utterance_generation_specification is not None:
+            pulumi.set(__self__, "sample_utterance_generation_specification", sample_utterance_generation_specification)
+
+    @property
+    @pulumi.getter(name="descriptiveBotBuilderSpecification")
+    def descriptive_bot_builder_specification(self) -> Optional['outputs.BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties']:
+        return pulumi.get(self, "descriptive_bot_builder_specification")
+
+    @property
+    @pulumi.getter(name="sampleUtteranceGenerationSpecification")
+    def sample_utterance_generation_specification(self) -> Optional['outputs.BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties']:
+        return pulumi.get(self, "sample_utterance_generation_specification")
+
+
+@pulumi.output_type
+class BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockModelSpecification":
+            suggest = "bedrock_model_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: builtins.bool,
+                 bedrock_model_specification: Optional['outputs.BotBedrockModelSpecification'] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if bedrock_model_specification is not None:
+            pulumi.set(__self__, "bedrock_model_specification", bedrock_model_specification)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="bedrockModelSpecification")
+    def bedrock_model_specification(self) -> Optional['outputs.BotBedrockModelSpecification']:
+        return pulumi.get(self, "bedrock_model_specification")
+
+
+@pulumi.output_type
+class BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockModelSpecification":
+            suggest = "bedrock_model_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: builtins.bool,
+                 bedrock_model_specification: Optional['outputs.BotBedrockModelSpecification'] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if bedrock_model_specification is not None:
+            pulumi.set(__self__, "bedrock_model_specification", bedrock_model_specification)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="bedrockModelSpecification")
+    def bedrock_model_specification(self) -> Optional['outputs.BotBedrockModelSpecification']:
+        return pulumi.get(self, "bedrock_model_specification")
+
+
+@pulumi.output_type
+class BotGenerativeAiSettingsRuntimeSettingsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nluImprovementSpecification":
+            suggest = "nlu_improvement_specification"
+        elif key == "slotResolutionImprovementSpecification":
+            suggest = "slot_resolution_improvement_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotGenerativeAiSettingsRuntimeSettingsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotGenerativeAiSettingsRuntimeSettingsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotGenerativeAiSettingsRuntimeSettingsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 nlu_improvement_specification: Optional['outputs.BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties'] = None,
+                 slot_resolution_improvement_specification: Optional['outputs.BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties'] = None):
+        if nlu_improvement_specification is not None:
+            pulumi.set(__self__, "nlu_improvement_specification", nlu_improvement_specification)
+        if slot_resolution_improvement_specification is not None:
+            pulumi.set(__self__, "slot_resolution_improvement_specification", slot_resolution_improvement_specification)
+
+    @property
+    @pulumi.getter(name="nluImprovementSpecification")
+    def nlu_improvement_specification(self) -> Optional['outputs.BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties']:
+        return pulumi.get(self, "nlu_improvement_specification")
+
+    @property
+    @pulumi.getter(name="slotResolutionImprovementSpecification")
+    def slot_resolution_improvement_specification(self) -> Optional['outputs.BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties']:
+        return pulumi.get(self, "slot_resolution_improvement_specification")
+
+
+@pulumi.output_type
+class BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties(dict):
+    def __init__(__self__, *,
+                 enabled: builtins.bool):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> builtins.bool:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockModelSpecification":
+            suggest = "bedrock_model_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: builtins.bool,
+                 bedrock_model_specification: Optional['outputs.BotBedrockModelSpecification'] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if bedrock_model_specification is not None:
+            pulumi.set(__self__, "bedrock_model_specification", bedrock_model_specification)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="bedrockModelSpecification")
+    def bedrock_model_specification(self) -> Optional['outputs.BotBedrockModelSpecification']:
+        return pulumi.get(self, "bedrock_model_specification")
+
+
+@pulumi.output_type
 class BotGrammarSlotTypeSetting(dict):
     def __init__(__self__, *,
                  source: Optional['outputs.BotGrammarSlotTypeSource'] = None):
@@ -2979,6 +3229,8 @@ class BotLocale(dict):
             suggest = "nlu_confidence_threshold"
         elif key == "customVocabulary":
             suggest = "custom_vocabulary"
+        elif key == "generativeAiSettings":
+            suggest = "generative_ai_settings"
         elif key == "slotTypes":
             suggest = "slot_types"
         elif key == "voiceSettings":
@@ -3000,6 +3252,7 @@ class BotLocale(dict):
                  nlu_confidence_threshold: builtins.float,
                  custom_vocabulary: Optional['outputs.BotCustomVocabulary'] = None,
                  description: Optional[builtins.str] = None,
+                 generative_ai_settings: Optional['outputs.BotGenerativeAiSettings'] = None,
                  intents: Optional[Sequence['outputs.BotIntent']] = None,
                  slot_types: Optional[Sequence['outputs.BotSlotType']] = None,
                  voice_settings: Optional['outputs.BotVoiceSettings'] = None):
@@ -3025,6 +3278,8 @@ class BotLocale(dict):
             pulumi.set(__self__, "custom_vocabulary", custom_vocabulary)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if generative_ai_settings is not None:
+            pulumi.set(__self__, "generative_ai_settings", generative_ai_settings)
         if intents is not None:
             pulumi.set(__self__, "intents", intents)
         if slot_types is not None:
@@ -3063,6 +3318,11 @@ class BotLocale(dict):
         A description of the bot locale. Use this to help identify the bot locale in lists.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="generativeAiSettings")
+    def generative_ai_settings(self) -> Optional['outputs.BotGenerativeAiSettings']:
+        return pulumi.get(self, "generative_ai_settings")
 
     @property
     @pulumi.getter

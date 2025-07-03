@@ -16,6 +16,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetDataAccessorResult',
@@ -26,10 +27,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataAccessorResult:
-    def __init__(__self__, action_configurations=None, created_at=None, data_accessor_arn=None, data_accessor_id=None, display_name=None, idc_application_arn=None, tags=None, updated_at=None):
+    def __init__(__self__, action_configurations=None, authentication_detail=None, created_at=None, data_accessor_arn=None, data_accessor_id=None, display_name=None, idc_application_arn=None, tags=None, updated_at=None):
         if action_configurations and not isinstance(action_configurations, list):
             raise TypeError("Expected argument 'action_configurations' to be a list")
         pulumi.set(__self__, "action_configurations", action_configurations)
+        if authentication_detail and not isinstance(authentication_detail, dict):
+            raise TypeError("Expected argument 'authentication_detail' to be a dict")
+        pulumi.set(__self__, "authentication_detail", authentication_detail)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -59,6 +63,14 @@ class GetDataAccessorResult:
         A list of action configurations specifying the allowed actions and any associated filters.
         """
         return pulumi.get(self, "action_configurations")
+
+    @property
+    @pulumi.getter(name="authenticationDetail")
+    def authentication_detail(self) -> Optional['outputs.DataAccessorAuthenticationDetail']:
+        """
+        The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+        """
+        return pulumi.get(self, "authentication_detail")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -124,6 +136,7 @@ class AwaitableGetDataAccessorResult(GetDataAccessorResult):
             yield self
         return GetDataAccessorResult(
             action_configurations=self.action_configurations,
+            authentication_detail=self.authentication_detail,
             created_at=self.created_at,
             data_accessor_arn=self.data_accessor_arn,
             data_accessor_id=self.data_accessor_id,
@@ -151,6 +164,7 @@ def get_data_accessor(application_id: Optional[builtins.str] = None,
 
     return AwaitableGetDataAccessorResult(
         action_configurations=pulumi.get(__ret__, 'action_configurations'),
+        authentication_detail=pulumi.get(__ret__, 'authentication_detail'),
         created_at=pulumi.get(__ret__, 'created_at'),
         data_accessor_arn=pulumi.get(__ret__, 'data_accessor_arn'),
         data_accessor_id=pulumi.get(__ret__, 'data_accessor_id'),
@@ -175,6 +189,7 @@ def get_data_accessor_output(application_id: Optional[pulumi.Input[builtins.str]
     __ret__ = pulumi.runtime.invoke_output('aws-native:qbusiness:getDataAccessor', __args__, opts=opts, typ=GetDataAccessorResult)
     return __ret__.apply(lambda __response__: GetDataAccessorResult(
         action_configurations=pulumi.get(__response__, 'action_configurations'),
+        authentication_detail=pulumi.get(__response__, 'authentication_detail'),
         created_at=pulumi.get(__response__, 'created_at'),
         data_accessor_arn=pulumi.get(__response__, 'data_accessor_arn'),
         data_accessor_id=pulumi.get(__response__, 'data_accessor_id'),

@@ -327,6 +327,8 @@ if typing.TYPE_CHECKING:
     nimblestudio = __nimblestudio
     import pulumi_aws_native.oam as __oam
     oam = __oam
+    import pulumi_aws_native.odb as __odb
+    odb = __odb
     import pulumi_aws_native.omics as __omics
     omics = __omics
     import pulumi_aws_native.opensearchserverless as __opensearchserverless
@@ -632,6 +634,7 @@ else:
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
     nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
     oam = _utilities.lazy_import('pulumi_aws_native.oam')
+    odb = _utilities.lazy_import('pulumi_aws_native.odb')
     omics = _utilities.lazy_import('pulumi_aws_native.omics')
     opensearchserverless = _utilities.lazy_import('pulumi_aws_native.opensearchserverless')
     opensearchservice = _utilities.lazy_import('pulumi_aws_native.opensearchservice')
@@ -1595,6 +1598,8 @@ _utilities.register(
    "aws-native:ec2:SubnetNetworkAclAssociation": "SubnetNetworkAclAssociation",
    "aws-native:ec2:SubnetRouteTableAssociation": "SubnetRouteTableAssociation",
    "aws-native:ec2:TrafficMirrorFilter": "TrafficMirrorFilter",
+   "aws-native:ec2:TrafficMirrorFilterRule": "TrafficMirrorFilterRule",
+   "aws-native:ec2:TrafficMirrorTarget": "TrafficMirrorTarget",
    "aws-native:ec2:TransitGateway": "TransitGateway",
    "aws-native:ec2:TransitGatewayAttachment": "TransitGatewayAttachment",
    "aws-native:ec2:TransitGatewayConnect": "TransitGatewayConnect",
@@ -1857,7 +1862,8 @@ _utilities.register(
   "mod": "fsx",
   "fqn": "pulumi_aws_native.fsx",
   "classes": {
-   "aws-native:fsx:DataRepositoryAssociation": "DataRepositoryAssociation"
+   "aws-native:fsx:DataRepositoryAssociation": "DataRepositoryAssociation",
+   "aws-native:fsx:S3AccessPointAttachment": "S3AccessPointAttachment"
   }
  },
  {
@@ -2234,7 +2240,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.kinesis",
   "classes": {
    "aws-native:kinesis:ResourcePolicy": "ResourcePolicy",
-   "aws-native:kinesis:Stream": "Stream"
+   "aws-native:kinesis:Stream": "Stream",
+   "aws-native:kinesis:StreamConsumer": "StreamConsumer"
   }
  },
  {
@@ -2532,6 +2539,7 @@ _utilities.register(
   "classes": {
    "aws-native:neptune:DbCluster": "DbCluster",
    "aws-native:neptune:DbClusterParameterGroup": "DbClusterParameterGroup",
+   "aws-native:neptune:DbInstance": "DbInstance",
    "aws-native:neptune:DbParameterGroup": "DbParameterGroup",
    "aws-native:neptune:DbSubnetGroup": "DbSubnetGroup"
   }
@@ -2598,6 +2606,17 @@ _utilities.register(
   "classes": {
    "aws-native:oam:Link": "Link",
    "aws-native:oam:Sink": "Sink"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "odb",
+  "fqn": "pulumi_aws_native.odb",
+  "classes": {
+   "aws-native:odb:CloudAutonomousVmCluster": "CloudAutonomousVmCluster",
+   "aws-native:odb:CloudExadataInfrastructure": "CloudExadataInfrastructure",
+   "aws-native:odb:CloudVmCluster": "CloudVmCluster",
+   "aws-native:odb:OdbNetwork": "OdbNetwork"
   }
  },
  {
@@ -3051,6 +3070,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.s3tables",
   "classes": {
    "aws-native:s3tables:Namespace": "Namespace",
+   "aws-native:s3tables:Table": "Table",
    "aws-native:s3tables:TableBucket": "TableBucket",
    "aws-native:s3tables:TableBucketPolicy": "TableBucketPolicy"
   }

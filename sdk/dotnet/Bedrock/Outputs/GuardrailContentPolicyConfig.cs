@@ -17,13 +17,21 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     public sealed class GuardrailContentPolicyConfig
     {
         /// <summary>
+        /// Guardrail tier config for content policy
+        /// </summary>
+        public readonly Outputs.GuardrailContentPolicyConfigContentFiltersTierConfigProperties? ContentFiltersTierConfig;
+        /// <summary>
         /// List of content filter configs in content policy.
         /// </summary>
         public readonly ImmutableArray<Outputs.GuardrailContentFilterConfig> FiltersConfig;
 
         [OutputConstructor]
-        private GuardrailContentPolicyConfig(ImmutableArray<Outputs.GuardrailContentFilterConfig> filtersConfig)
+        private GuardrailContentPolicyConfig(
+            Outputs.GuardrailContentPolicyConfigContentFiltersTierConfigProperties? contentFiltersTierConfig,
+
+            ImmutableArray<Outputs.GuardrailContentFilterConfig> filtersConfig)
         {
+            ContentFiltersTierConfig = contentFiltersTierConfig;
             FiltersConfig = filtersConfig;
         }
     }

@@ -672,7 +672,8 @@ func (o CampaignCommunicationLimitsPtrOutput) CommunicationLimitList() CampaignC
 // Communication limits config
 type CampaignCommunicationLimitsConfig struct {
 	// The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
-	AllChannelsSubtypes    *CampaignCommunicationLimits    `pulumi:"allChannelsSubtypes"`
+	AllChannelsSubtypes *CampaignCommunicationLimits `pulumi:"allChannelsSubtypes"`
+	// Opt-in or Opt-out from instance-level limits.
 	InstanceLimitsHandling *CampaignInstanceLimitsHandling `pulumi:"instanceLimitsHandling"`
 }
 
@@ -690,7 +691,8 @@ type CampaignCommunicationLimitsConfigInput interface {
 // Communication limits config
 type CampaignCommunicationLimitsConfigArgs struct {
 	// The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
-	AllChannelsSubtypes    CampaignCommunicationLimitsPtrInput    `pulumi:"allChannelsSubtypes"`
+	AllChannelsSubtypes CampaignCommunicationLimitsPtrInput `pulumi:"allChannelsSubtypes"`
+	// Opt-in or Opt-out from instance-level limits.
 	InstanceLimitsHandling CampaignInstanceLimitsHandlingPtrInput `pulumi:"instanceLimitsHandling"`
 }
 
@@ -777,6 +779,7 @@ func (o CampaignCommunicationLimitsConfigOutput) AllChannelsSubtypes() CampaignC
 	return o.ApplyT(func(v CampaignCommunicationLimitsConfig) *CampaignCommunicationLimits { return v.AllChannelsSubtypes }).(CampaignCommunicationLimitsPtrOutput)
 }
 
+// Opt-in or Opt-out from instance-level limits.
 func (o CampaignCommunicationLimitsConfigOutput) InstanceLimitsHandling() CampaignInstanceLimitsHandlingPtrOutput {
 	return o.ApplyT(func(v CampaignCommunicationLimitsConfig) *CampaignInstanceLimitsHandling {
 		return v.InstanceLimitsHandling
@@ -817,6 +820,7 @@ func (o CampaignCommunicationLimitsConfigPtrOutput) AllChannelsSubtypes() Campai
 	}).(CampaignCommunicationLimitsPtrOutput)
 }
 
+// Opt-in or Opt-out from instance-level limits.
 func (o CampaignCommunicationLimitsConfigPtrOutput) InstanceLimitsHandling() CampaignInstanceLimitsHandlingPtrOutput {
 	return o.ApplyT(func(v *CampaignCommunicationLimitsConfig) *CampaignInstanceLimitsHandling {
 		if v == nil {

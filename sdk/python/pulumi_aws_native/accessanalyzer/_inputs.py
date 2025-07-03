@@ -168,6 +168,9 @@ if not MYPY:
         The configuration for the analyzer
         """
         internal_access_configuration: NotRequired[pulumi.Input['AnalyzerInternalAccessConfigurationArgsDict']]
+        """
+        Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment.
+        """
         unused_access_configuration: NotRequired[pulumi.Input['AnalyzerUnusedAccessConfigurationArgsDict']]
         """
         Specifies the configuration of an unused access analyzer for an AWS organization or account.
@@ -182,6 +185,7 @@ class AnalyzerConfigurationPropertiesArgs:
                  unused_access_configuration: Optional[pulumi.Input['AnalyzerUnusedAccessConfigurationArgs']] = None):
         """
         The configuration for the analyzer
+        :param pulumi.Input['AnalyzerInternalAccessConfigurationArgs'] internal_access_configuration: Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment.
         :param pulumi.Input['AnalyzerUnusedAccessConfigurationArgs'] unused_access_configuration: Specifies the configuration of an unused access analyzer for an AWS organization or account.
         """
         if internal_access_configuration is not None:
@@ -192,6 +196,9 @@ class AnalyzerConfigurationPropertiesArgs:
     @property
     @pulumi.getter(name="internalAccessConfiguration")
     def internal_access_configuration(self) -> Optional[pulumi.Input['AnalyzerInternalAccessConfigurationArgs']]:
+        """
+        Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment.
+        """
         return pulumi.get(self, "internal_access_configuration")
 
     @internal_access_configuration.setter

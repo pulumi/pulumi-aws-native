@@ -197,6 +197,7 @@ __all__ = [
     'SpotFleetVCpuCountRangeRequest',
     'SseSpecificationProperties',
     'TagSpecification',
+    'TrafficMirrorFilterRuleTrafficMirrorPortRange',
     'TransitGatewayConnectOptions',
     'TransitGatewayPeeringAttachmentPeeringAttachmentStatus',
     'VerifiedAccessEndpointCidrOptions',
@@ -14528,6 +14529,54 @@ class TagSpecification(dict):
         The tags to apply to the resource.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class TrafficMirrorFilterRuleTrafficMirrorPortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrafficMirrorFilterRuleTrafficMirrorPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrafficMirrorFilterRuleTrafficMirrorPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrafficMirrorFilterRuleTrafficMirrorPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: builtins.int,
+                 to_port: builtins.int):
+        """
+        :param builtins.int from_port: The first port in the Traffic Mirror port range.
+        :param builtins.int to_port: The last port in the Traffic Mirror port range.
+        """
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> builtins.int:
+        """
+        The first port in the Traffic Mirror port range.
+        """
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> builtins.int:
+        """
+        The last port in the Traffic Mirror port range.
+        """
+        return pulumi.get(self, "to_port")
 
 
 @pulumi.output_type
