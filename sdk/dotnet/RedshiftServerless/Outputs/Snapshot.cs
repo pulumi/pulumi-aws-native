@@ -13,15 +13,42 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
     [OutputType]
     public sealed class Snapshot
     {
+        /// <summary>
+        /// The username of the database within a snapshot.
+        /// </summary>
         public readonly string? AdminUsername;
+        /// <summary>
+        /// The unique identifier of the KMS key used to encrypt the snapshot.
+        /// </summary>
         public readonly string? KmsKeyId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+        /// </summary>
         public readonly string? NamespaceArn;
+        /// <summary>
+        /// The name of the namepsace.
+        /// </summary>
         public readonly string? NamespaceName;
+        /// <summary>
+        /// The owner AWS ; account of the snapshot.
+        /// </summary>
         public readonly string? OwnerAccount;
         public readonly int? RetentionPeriod;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the snapshot.
+        /// </summary>
         public readonly string? SnapshotArn;
+        /// <summary>
+        /// The timestamp of when the snapshot was created.
+        /// </summary>
         public readonly string? SnapshotCreateTime;
+        /// <summary>
+        /// The name of the snapshot.
+        /// </summary>
         public readonly string? SnapshotName;
+        /// <summary>
+        /// The status of the snapshot.
+        /// </summary>
         public readonly Pulumi.AwsNative.RedshiftServerless.SnapshotStatus? Status;
 
         [OutputConstructor]

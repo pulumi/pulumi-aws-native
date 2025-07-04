@@ -55,7 +55,6 @@ class TaskDefinitionArgs:
         :param pulumi.Input[builtins.str] family: The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
                 A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
                  To use revision numbers when you update a task definition, specify this property. If you don't specify a value, CFNlong generates a new task definition each time that you update it.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]] inference_accelerators: The Elastic Inference accelerators to use for the containers in the task.
         :param pulumi.Input[builtins.str] ipc_mode: The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance.
                 If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose.
                 If you are setting namespaced kernel parameters using ``systemControls`` for the containers in the task, the following will apply to your IPC resource namespace. For more information, see [System Controls](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -225,9 +224,6 @@ class TaskDefinitionArgs:
     @property
     @pulumi.getter(name="inferenceAccelerators")
     def inference_accelerators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]]:
-        """
-        The Elastic Inference accelerators to use for the containers in the task.
-        """
         return pulumi.get(self, "inference_accelerators")
 
     @inference_accelerators.setter
@@ -626,7 +622,6 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] family: The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
                 A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
                  To use revision numbers when you update a task definition, specify this property. If you don't specify a value, CFNlong generates a new task definition each time that you update it.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]] inference_accelerators: The Elastic Inference accelerators to use for the containers in the task.
         :param pulumi.Input[builtins.str] ipc_mode: The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance.
                 If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose.
                 If you are setting namespaced kernel parameters using ``systemControls`` for the containers in the task, the following will apply to your IPC resource namespace. For more information, see [System Controls](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -1028,9 +1023,6 @@ class TaskDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="inferenceAccelerators")
     def inference_accelerators(self) -> pulumi.Output[Optional[Sequence['outputs.TaskDefinitionInferenceAccelerator']]]:
-        """
-        The Elastic Inference accelerators to use for the containers in the task.
-        """
         return pulumi.get(self, "inference_accelerators")
 
     @property

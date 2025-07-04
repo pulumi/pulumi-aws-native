@@ -176,6 +176,179 @@ func (in *globalTableKinesisStreamSpecificationApproximateCreationDateTimePrecis
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
 }
 
+// Specifies the consistency mode for a new global table.
+//
+// You can specify one of the following consistency modes:
+//
+// - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+//
+// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+type GlobalTableMultiRegionConsistency string
+
+const (
+	GlobalTableMultiRegionConsistencyEventual = GlobalTableMultiRegionConsistency("EVENTUAL")
+	GlobalTableMultiRegionConsistencyStrong   = GlobalTableMultiRegionConsistency("STRONG")
+)
+
+func (GlobalTableMultiRegionConsistency) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableMultiRegionConsistency)(nil)).Elem()
+}
+
+func (e GlobalTableMultiRegionConsistency) ToGlobalTableMultiRegionConsistencyOutput() GlobalTableMultiRegionConsistencyOutput {
+	return pulumi.ToOutput(e).(GlobalTableMultiRegionConsistencyOutput)
+}
+
+func (e GlobalTableMultiRegionConsistency) ToGlobalTableMultiRegionConsistencyOutputWithContext(ctx context.Context) GlobalTableMultiRegionConsistencyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GlobalTableMultiRegionConsistencyOutput)
+}
+
+func (e GlobalTableMultiRegionConsistency) ToGlobalTableMultiRegionConsistencyPtrOutput() GlobalTableMultiRegionConsistencyPtrOutput {
+	return e.ToGlobalTableMultiRegionConsistencyPtrOutputWithContext(context.Background())
+}
+
+func (e GlobalTableMultiRegionConsistency) ToGlobalTableMultiRegionConsistencyPtrOutputWithContext(ctx context.Context) GlobalTableMultiRegionConsistencyPtrOutput {
+	return GlobalTableMultiRegionConsistency(e).ToGlobalTableMultiRegionConsistencyOutputWithContext(ctx).ToGlobalTableMultiRegionConsistencyPtrOutputWithContext(ctx)
+}
+
+func (e GlobalTableMultiRegionConsistency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GlobalTableMultiRegionConsistency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GlobalTableMultiRegionConsistency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GlobalTableMultiRegionConsistency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GlobalTableMultiRegionConsistencyOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableMultiRegionConsistencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableMultiRegionConsistency)(nil)).Elem()
+}
+
+func (o GlobalTableMultiRegionConsistencyOutput) ToGlobalTableMultiRegionConsistencyOutput() GlobalTableMultiRegionConsistencyOutput {
+	return o
+}
+
+func (o GlobalTableMultiRegionConsistencyOutput) ToGlobalTableMultiRegionConsistencyOutputWithContext(ctx context.Context) GlobalTableMultiRegionConsistencyOutput {
+	return o
+}
+
+func (o GlobalTableMultiRegionConsistencyOutput) ToGlobalTableMultiRegionConsistencyPtrOutput() GlobalTableMultiRegionConsistencyPtrOutput {
+	return o.ToGlobalTableMultiRegionConsistencyPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableMultiRegionConsistencyOutput) ToGlobalTableMultiRegionConsistencyPtrOutputWithContext(ctx context.Context) GlobalTableMultiRegionConsistencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableMultiRegionConsistency) *GlobalTableMultiRegionConsistency {
+		return &v
+	}).(GlobalTableMultiRegionConsistencyPtrOutput)
+}
+
+func (o GlobalTableMultiRegionConsistencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GlobalTableMultiRegionConsistencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalTableMultiRegionConsistency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GlobalTableMultiRegionConsistencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableMultiRegionConsistencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalTableMultiRegionConsistency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GlobalTableMultiRegionConsistencyPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableMultiRegionConsistencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableMultiRegionConsistency)(nil)).Elem()
+}
+
+func (o GlobalTableMultiRegionConsistencyPtrOutput) ToGlobalTableMultiRegionConsistencyPtrOutput() GlobalTableMultiRegionConsistencyPtrOutput {
+	return o
+}
+
+func (o GlobalTableMultiRegionConsistencyPtrOutput) ToGlobalTableMultiRegionConsistencyPtrOutputWithContext(ctx context.Context) GlobalTableMultiRegionConsistencyPtrOutput {
+	return o
+}
+
+func (o GlobalTableMultiRegionConsistencyPtrOutput) Elem() GlobalTableMultiRegionConsistencyOutput {
+	return o.ApplyT(func(v *GlobalTableMultiRegionConsistency) GlobalTableMultiRegionConsistency {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalTableMultiRegionConsistency
+		return ret
+	}).(GlobalTableMultiRegionConsistencyOutput)
+}
+
+func (o GlobalTableMultiRegionConsistencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableMultiRegionConsistencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GlobalTableMultiRegionConsistency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GlobalTableMultiRegionConsistencyInput is an input type that accepts values of the GlobalTableMultiRegionConsistency enum
+// A concrete instance of `GlobalTableMultiRegionConsistencyInput` can be one of the following:
+//
+//	GlobalTableMultiRegionConsistencyEventual
+//	GlobalTableMultiRegionConsistencyStrong
+type GlobalTableMultiRegionConsistencyInput interface {
+	pulumi.Input
+
+	ToGlobalTableMultiRegionConsistencyOutput() GlobalTableMultiRegionConsistencyOutput
+	ToGlobalTableMultiRegionConsistencyOutputWithContext(context.Context) GlobalTableMultiRegionConsistencyOutput
+}
+
+var globalTableMultiRegionConsistencyPtrType = reflect.TypeOf((**GlobalTableMultiRegionConsistency)(nil)).Elem()
+
+type GlobalTableMultiRegionConsistencyPtrInput interface {
+	pulumi.Input
+
+	ToGlobalTableMultiRegionConsistencyPtrOutput() GlobalTableMultiRegionConsistencyPtrOutput
+	ToGlobalTableMultiRegionConsistencyPtrOutputWithContext(context.Context) GlobalTableMultiRegionConsistencyPtrOutput
+}
+
+type globalTableMultiRegionConsistencyPtr string
+
+func GlobalTableMultiRegionConsistencyPtr(v string) GlobalTableMultiRegionConsistencyPtrInput {
+	return (*globalTableMultiRegionConsistencyPtr)(&v)
+}
+
+func (*globalTableMultiRegionConsistencyPtr) ElementType() reflect.Type {
+	return globalTableMultiRegionConsistencyPtrType
+}
+
+func (in *globalTableMultiRegionConsistencyPtr) ToGlobalTableMultiRegionConsistencyPtrOutput() GlobalTableMultiRegionConsistencyPtrOutput {
+	return pulumi.ToOutput(in).(GlobalTableMultiRegionConsistencyPtrOutput)
+}
+
+func (in *globalTableMultiRegionConsistencyPtr) ToGlobalTableMultiRegionConsistencyPtrOutputWithContext(ctx context.Context) GlobalTableMultiRegionConsistencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GlobalTableMultiRegionConsistencyPtrOutput)
+}
+
 // The precision for the time and date that the stream was created.
 type TableKinesisStreamSpecificationApproximateCreationDateTimePrecision string
 
@@ -345,10 +518,14 @@ func (in *tableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtr
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput)(nil)).Elem(), GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrInput)(nil)).Elem(), GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableMultiRegionConsistencyInput)(nil)).Elem(), GlobalTableMultiRegionConsistency("EVENTUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableMultiRegionConsistencyPtrInput)(nil)).Elem(), GlobalTableMultiRegionConsistency("EVENTUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput)(nil)).Elem(), TableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrInput)(nil)).Elem(), TableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
 	pulumi.RegisterOutputType(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput{})
 	pulumi.RegisterOutputType(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableMultiRegionConsistencyOutput{})
+	pulumi.RegisterOutputType(GlobalTableMultiRegionConsistencyPtrOutput{})
 	pulumi.RegisterOutputType(TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput{})
 	pulumi.RegisterOutputType(TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput{})
 }

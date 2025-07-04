@@ -13,143 +13,6 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type TemplateListControlSelectAllOptions struct {
-	// The visibility configuration of the `Select all` options in a list control.
-	Visibility interface{} `pulumi:"visibility"`
-}
-
-// TemplateListControlSelectAllOptionsInput is an input type that accepts TemplateListControlSelectAllOptionsArgs and TemplateListControlSelectAllOptionsOutput values.
-// You can construct a concrete instance of `TemplateListControlSelectAllOptionsInput` via:
-//
-//	TemplateListControlSelectAllOptionsArgs{...}
-type TemplateListControlSelectAllOptionsInput interface {
-	pulumi.Input
-
-	ToTemplateListControlSelectAllOptionsOutput() TemplateListControlSelectAllOptionsOutput
-	ToTemplateListControlSelectAllOptionsOutputWithContext(context.Context) TemplateListControlSelectAllOptionsOutput
-}
-
-type TemplateListControlSelectAllOptionsArgs struct {
-	// The visibility configuration of the `Select all` options in a list control.
-	Visibility pulumi.Input `pulumi:"visibility"`
-}
-
-func (TemplateListControlSelectAllOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateListControlSelectAllOptions)(nil)).Elem()
-}
-
-func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsOutput() TemplateListControlSelectAllOptionsOutput {
-	return i.ToTemplateListControlSelectAllOptionsOutputWithContext(context.Background())
-}
-
-func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSelectAllOptionsOutput)
-}
-
-func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
-	return i.ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSelectAllOptionsOutput).ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx)
-}
-
-// TemplateListControlSelectAllOptionsPtrInput is an input type that accepts TemplateListControlSelectAllOptionsArgs, TemplateListControlSelectAllOptionsPtr and TemplateListControlSelectAllOptionsPtrOutput values.
-// You can construct a concrete instance of `TemplateListControlSelectAllOptionsPtrInput` via:
-//
-//	        TemplateListControlSelectAllOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateListControlSelectAllOptionsPtrInput interface {
-	pulumi.Input
-
-	ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput
-	ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Context) TemplateListControlSelectAllOptionsPtrOutput
-}
-
-type templateListControlSelectAllOptionsPtrType TemplateListControlSelectAllOptionsArgs
-
-func TemplateListControlSelectAllOptionsPtr(v *TemplateListControlSelectAllOptionsArgs) TemplateListControlSelectAllOptionsPtrInput {
-	return (*templateListControlSelectAllOptionsPtrType)(v)
-}
-
-func (*templateListControlSelectAllOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateListControlSelectAllOptions)(nil)).Elem()
-}
-
-func (i *templateListControlSelectAllOptionsPtrType) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
-	return i.ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *templateListControlSelectAllOptionsPtrType) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSelectAllOptionsPtrOutput)
-}
-
-type TemplateListControlSelectAllOptionsOutput struct{ *pulumi.OutputState }
-
-func (TemplateListControlSelectAllOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateListControlSelectAllOptions)(nil)).Elem()
-}
-
-func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsOutput() TemplateListControlSelectAllOptionsOutput {
-	return o
-}
-
-func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsOutput {
-	return o
-}
-
-func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
-	return o.ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateListControlSelectAllOptions) *TemplateListControlSelectAllOptions {
-		return &v
-	}).(TemplateListControlSelectAllOptionsPtrOutput)
-}
-
-// The visibility configuration of the `Select all` options in a list control.
-func (o TemplateListControlSelectAllOptionsOutput) Visibility() pulumi.AnyOutput {
-	return o.ApplyT(func(v TemplateListControlSelectAllOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
-}
-
-type TemplateListControlSelectAllOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateListControlSelectAllOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateListControlSelectAllOptions)(nil)).Elem()
-}
-
-func (o TemplateListControlSelectAllOptionsPtrOutput) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateListControlSelectAllOptionsPtrOutput) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateListControlSelectAllOptionsPtrOutput) Elem() TemplateListControlSelectAllOptionsOutput {
-	return o.ApplyT(func(v *TemplateListControlSelectAllOptions) TemplateListControlSelectAllOptions {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateListControlSelectAllOptions
-		return ret
-	}).(TemplateListControlSelectAllOptionsOutput)
-}
-
-// The visibility configuration of the `Select all` options in a list control.
-func (o TemplateListControlSelectAllOptionsPtrOutput) Visibility() pulumi.AnyOutput {
-	return o.ApplyT(func(v *TemplateListControlSelectAllOptions) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Visibility
-	}).(pulumi.AnyOutput)
-}
-
 type TemplateLoadingAnimation struct {
 	// The visibility configuration of `LoadingAnimation` .
 	Visibility interface{} `pulumi:"visibility"`
@@ -49229,8 +49092,6 @@ type VpcConnectionTag struct {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSelectAllOptionsInput)(nil)).Elem(), TemplateListControlSelectAllOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSelectAllOptionsPtrInput)(nil)).Elem(), TemplateListControlSelectAllOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLoadingAnimationInput)(nil)).Elem(), TemplateLoadingAnimationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLoadingAnimationPtrInput)(nil)).Elem(), TemplateLoadingAnimationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLocalNavigationConfigurationInput)(nil)).Elem(), TemplateLocalNavigationConfigurationArgs{})
@@ -49777,8 +49638,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
-	pulumi.RegisterOutputType(TemplateListControlSelectAllOptionsOutput{})
-	pulumi.RegisterOutputType(TemplateListControlSelectAllOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLoadingAnimationOutput{})
 	pulumi.RegisterOutputType(TemplateLoadingAnimationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLocalNavigationConfigurationOutput{})

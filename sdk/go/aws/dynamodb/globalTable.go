@@ -31,17 +31,28 @@ type GlobalTable struct {
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 	GlobalSecondaryIndexes GlobalTableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
+	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+	GlobalTableWitnesses GlobalTableWitnessArrayOutput `pulumi:"globalTableWitnesses"`
 	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 	KeySchema GlobalTableKeySchemaArrayOutput `pulumi:"keySchema"`
 	// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
 	LocalSecondaryIndexes GlobalTableLocalSecondaryIndexArrayOutput `pulumi:"localSecondaryIndexes"`
+	// Specifies the consistency mode for a new global table.
+	//
+	// You can specify one of the following consistency modes:
+	//
+	// - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+	// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+	//
+	// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+	MultiRegionConsistency GlobalTableMultiRegionConsistencyPtrOutput `pulumi:"multiRegionConsistency"`
 	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
 	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
 	// >
 	// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
 	//
-	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
 	Replicas GlobalTableReplicaSpecificationArrayOutput `pulumi:"replicas"`
 	// Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
 	SseSpecification GlobalTableSseSpecificationPtrOutput `pulumi:"sseSpecification"`
@@ -49,7 +60,7 @@ type GlobalTable struct {
 	//
 	// > You must specify the `StreamSpecification` property to use this attribute.
 	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
-	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
 	StreamSpecification GlobalTableStreamSpecificationPtrOutput `pulumi:"streamSpecification"`
 	// Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
 	TableId pulumi.StringOutput `pulumi:"tableId"`
@@ -135,21 +146,32 @@ type globalTableArgs struct {
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
+	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+	GlobalTableWitnesses []GlobalTableWitness `pulumi:"globalTableWitnesses"`
 	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
 	// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
 	LocalSecondaryIndexes []GlobalTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
+	// Specifies the consistency mode for a new global table.
+	//
+	// You can specify one of the following consistency modes:
+	//
+	// - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+	// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+	//
+	// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+	MultiRegionConsistency *GlobalTableMultiRegionConsistency `pulumi:"multiRegionConsistency"`
 	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
 	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
 	// >
 	// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
 	//
-	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
 	Replicas []GlobalTableReplicaSpecification `pulumi:"replicas"`
 	// Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
 	SseSpecification *GlobalTableSseSpecification `pulumi:"sseSpecification"`
-	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
 	StreamSpecification *GlobalTableStreamSpecification `pulumi:"streamSpecification"`
 	// A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
@@ -180,21 +202,32 @@ type GlobalTableArgs struct {
 	//
 	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 	GlobalSecondaryIndexes GlobalTableGlobalSecondaryIndexArrayInput
+	// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+	GlobalTableWitnesses GlobalTableWitnessArrayInput
 	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 	KeySchema GlobalTableKeySchemaArrayInput
 	// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
 	LocalSecondaryIndexes GlobalTableLocalSecondaryIndexArrayInput
+	// Specifies the consistency mode for a new global table.
+	//
+	// You can specify one of the following consistency modes:
+	//
+	// - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+	// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+	//
+	// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+	MultiRegionConsistency GlobalTableMultiRegionConsistencyPtrInput
 	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
 	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
 	// >
 	// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
 	//
-	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
 	Replicas GlobalTableReplicaSpecificationArrayInput
 	// Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
 	SseSpecification GlobalTableSseSpecificationPtrInput
-	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
 	StreamSpecification GlobalTableStreamSpecificationPtrInput
 	// A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
@@ -274,6 +307,11 @@ func (o GlobalTableOutput) GlobalSecondaryIndexes() GlobalTableGlobalSecondaryIn
 	return o.ApplyT(func(v *GlobalTable) GlobalTableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(GlobalTableGlobalSecondaryIndexArrayOutput)
 }
 
+// The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+func (o GlobalTableOutput) GlobalTableWitnesses() GlobalTableWitnessArrayOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableWitnessArrayOutput { return v.GlobalTableWitnesses }).(GlobalTableWitnessArrayOutput)
+}
+
 // Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 func (o GlobalTableOutput) KeySchema() GlobalTableKeySchemaArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableKeySchemaArrayOutput { return v.KeySchema }).(GlobalTableKeySchemaArrayOutput)
@@ -284,13 +322,25 @@ func (o GlobalTableOutput) LocalSecondaryIndexes() GlobalTableLocalSecondaryInde
 	return o.ApplyT(func(v *GlobalTable) GlobalTableLocalSecondaryIndexArrayOutput { return v.LocalSecondaryIndexes }).(GlobalTableLocalSecondaryIndexArrayOutput)
 }
 
+// Specifies the consistency mode for a new global table.
+//
+// You can specify one of the following consistency modes:
+//
+// - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+//
+// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+func (o GlobalTableOutput) MultiRegionConsistency() GlobalTableMultiRegionConsistencyPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableMultiRegionConsistencyPtrOutput { return v.MultiRegionConsistency }).(GlobalTableMultiRegionConsistencyPtrOutput)
+}
+
 // Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 //
 // > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
 // >
 // > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
 //
-// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
 func (o GlobalTableOutput) Replicas() GlobalTableReplicaSpecificationArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableReplicaSpecificationArrayOutput { return v.Replicas }).(GlobalTableReplicaSpecificationArrayOutput)
 }
@@ -307,7 +357,7 @@ func (o GlobalTableOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
 }
 
-// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
 func (o GlobalTableOutput) StreamSpecification() GlobalTableStreamSpecificationPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableStreamSpecificationPtrOutput { return v.StreamSpecification }).(GlobalTableStreamSpecificationPtrOutput)
 }

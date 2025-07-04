@@ -21,3 +21,41 @@ export const TableBucketUnreferencedFileRemovalStatus = {
  * Indicates whether the Unreferenced File Removal maintenance action is enabled.
  */
 export type TableBucketUnreferencedFileRemovalStatus = (typeof TableBucketUnreferencedFileRemovalStatus)[keyof typeof TableBucketUnreferencedFileRemovalStatus];
+
+export const TableCompactionStatus = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * Indicates whether the Compaction maintenance action is enabled.
+ */
+export type TableCompactionStatus = (typeof TableCompactionStatus)[keyof typeof TableCompactionStatus];
+
+export const TableOpenTableFormat = {
+    Iceberg: "ICEBERG",
+} as const;
+
+/**
+ * Format of the table.
+ */
+export type TableOpenTableFormat = (typeof TableOpenTableFormat)[keyof typeof TableOpenTableFormat];
+
+export const TableSnapshotManagementStatus = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * Indicates whether the SnapshotManagement maintenance action is enabled.
+ */
+export type TableSnapshotManagementStatus = (typeof TableSnapshotManagementStatus)[keyof typeof TableSnapshotManagementStatus];
+
+export const TableWithoutMetadata = {
+    Yes: "Yes",
+} as const;
+
+/**
+ * Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to 'IcebergMetadata', and its only possible value is 'Yes'.
+ */
+export type TableWithoutMetadata = (typeof TableWithoutMetadata)[keyof typeof TableWithoutMetadata];

@@ -26,6 +26,10 @@ export interface GetContainerRecipeResult {
      * The Amazon Resource Name (ARN) of the container recipe.
      */
     readonly arn?: string;
+    /**
+     * Tags that are attached to the container recipe.
+     */
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource schema for AWS::ImageBuilder::ContainerRecipe

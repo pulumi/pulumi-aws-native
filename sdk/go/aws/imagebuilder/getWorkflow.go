@@ -30,6 +30,8 @@ type LookupWorkflowArgs struct {
 type LookupWorkflowResult struct {
 	// The Amazon Resource Name (ARN) of the workflow.
 	Arn *string `pulumi:"arn"`
+	// The tags associated with the workflow.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupWorkflowOutput(ctx *pulumi.Context, args LookupWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupWorkflowResultOutput {
@@ -67,6 +69,11 @@ func (o LookupWorkflowResultOutput) ToLookupWorkflowResultOutputWithContext(ctx 
 // The Amazon Resource Name (ARN) of the workflow.
 func (o LookupWorkflowResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The tags associated with the workflow.
+func (o LookupWorkflowResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

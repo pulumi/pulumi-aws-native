@@ -72,19 +72,14 @@
   },
   "additionalProperties" : false,
   "required" : [ "Name", "Platform", "Version" ],
-  "oneOf" : [ {
-    "required" : [ "Data" ]
-  }, {
-    "required" : [ "Uri" ]
-  } ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Type", "/properties/Encrypted" ],
   "writeOnlyProperties" : [ "/properties/Data", "/properties/Uri" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/ChangeDescription", "/properties/Description", "/properties/Platform", "/properties/Data", "/properties/Uri", "/properties/KmsKeyId", "/properties/SupportedOsVersions", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/ChangeDescription", "/properties/Description", "/properties/Platform", "/properties/Data", "/properties/Uri", "/properties/KmsKeyId", "/properties/SupportedOsVersions" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
@@ -92,6 +87,9 @@
   "handlers" : {
     "create" : {
       "permissions" : [ "iam:CreateServiceLinkedRole", "iam:GetRole", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext", "kms:Encrypt", "kms:Decrypt", "s3:GetObject", "s3:HeadBucket", "s3:GetBucketLocation", "imagebuilder:TagResource", "imagebuilder:GetComponent", "imagebuilder:CreateComponent" ]
+    },
+    "update" : {
+      "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetComponent", "kms:Decrypt" ]

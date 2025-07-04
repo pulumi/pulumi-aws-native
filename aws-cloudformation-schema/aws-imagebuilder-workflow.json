@@ -55,19 +55,14 @@
   },
   "additionalProperties" : false,
   "required" : [ "Name", "Type", "Version" ],
-  "oneOf" : [ {
-    "required" : [ "Data" ]
-  }, {
-    "required" : [ "Uri" ]
-  } ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/Data", "/properties/Uri" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/ChangeDescription", "/properties/Description", "/properties/Data", "/properties/Uri", "/properties/Type", "/properties/KmsKeyId", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/ChangeDescription", "/properties/Description", "/properties/Data", "/properties/Uri", "/properties/Type", "/properties/KmsKeyId" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
@@ -78,6 +73,9 @@
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetWorkflow", "kms:Decrypt" ]
+    },
+    "update" : {
+      "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "imagebuilder:GetWorkflow", "imagebuilder:UntagResource", "imagebuilder:DeleteWorkflow" ]

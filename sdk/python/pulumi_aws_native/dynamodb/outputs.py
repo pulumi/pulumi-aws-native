@@ -40,6 +40,7 @@ __all__ = [
     'GlobalTableTargetTrackingScalingPolicyConfiguration',
     'GlobalTableTimeToLiveSpecification',
     'GlobalTableWarmThroughput',
+    'GlobalTableWitness',
     'GlobalTableWriteOnDemandThroughputSettings',
     'GlobalTableWriteProvisionedThroughputSettings',
     'TableAttributeDefinition',
@@ -1421,6 +1422,25 @@ class GlobalTableWarmThroughput(dict):
         Represents the number of write operations your base table can instantaneously support.
         """
         return pulumi.get(self, "write_units_per_second")
+
+
+@pulumi.output_type
+class GlobalTableWitness(dict):
+    def __init__(__self__, *,
+                 region: Optional[builtins.str] = None):
+        """
+        :param builtins.str region: The name of the AWS Region that serves as a witness for the MRSC global table.
+        """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[builtins.str]:
+        """
+        The name of the AWS Region that serves as a witness for the MRSC global table.
+        """
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type

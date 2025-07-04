@@ -147,7 +147,6 @@ namespace Pulumi.AwsNative.ImageBuilder
                     "name",
                     "parentImage",
                     "platformOverride",
-                    "tags.*",
                     "targetRepository",
                     "version",
                     "workingDirectory",

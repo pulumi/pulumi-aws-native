@@ -60,7 +60,6 @@ func NewImageRecipe(ctx *pulumi.Context,
 		"description",
 		"name",
 		"parentImage",
-		"tags.*",
 		"version",
 		"workingDirectory",
 	})

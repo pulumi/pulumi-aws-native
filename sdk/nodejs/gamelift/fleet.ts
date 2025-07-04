@@ -42,7 +42,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly anywhereConfiguration!: pulumi.Output<outputs.gamelift.FleetAnywhereConfiguration | undefined>;
     /**
-     * Determines whether to apply fleet or location capacities on fleet creation.
+     * Determines when and how to apply fleet or location capacities. If you choose ON_CREATE_AND_UPDATE_WITH_AUTOSCALING, MinSize and MaxSize will still be applied on creation and on updates, but DesiredEC2Instances will only be applied once on fleet creation and will be ignored during updates to prevent conflicts with auto-scaling.
      */
     public readonly applyCapacity!: pulumi.Output<enums.gamelift.FleetApplyCapacity | undefined>;
     /**
@@ -236,7 +236,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["applyCapacity", "buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
+        const replaceOnChanges = { replaceOnChanges: ["buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
@@ -251,7 +251,7 @@ export interface FleetArgs {
      */
     anywhereConfiguration?: pulumi.Input<inputs.gamelift.FleetAnywhereConfigurationArgs>;
     /**
-     * Determines whether to apply fleet or location capacities on fleet creation.
+     * Determines when and how to apply fleet or location capacities. If you choose ON_CREATE_AND_UPDATE_WITH_AUTOSCALING, MinSize and MaxSize will still be applied on creation and on updates, but DesiredEC2Instances will only be applied once on fleet creation and will be ignored during updates to prevent conflicts with auto-scaling.
      */
     applyCapacity?: pulumi.Input<enums.gamelift.FleetApplyCapacity>;
     /**

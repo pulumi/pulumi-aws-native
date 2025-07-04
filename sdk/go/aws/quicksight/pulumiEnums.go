@@ -46582,6 +46582,7 @@ const (
 	DataSourceResourceStatusUpdateInProgress   = DataSourceResourceStatus("UPDATE_IN_PROGRESS")
 	DataSourceResourceStatusUpdateSuccessful   = DataSourceResourceStatus("UPDATE_SUCCESSFUL")
 	DataSourceResourceStatusUpdateFailed       = DataSourceResourceStatus("UPDATE_FAILED")
+	DataSourceResourceStatusPendingUpdate      = DataSourceResourceStatus("PENDING_UPDATE")
 	DataSourceResourceStatusDeleted            = DataSourceResourceStatus("DELETED")
 )
 
@@ -46858,13 +46859,16 @@ const (
 	DataSourceTypeOracle              = DataSourceType("ORACLE")
 	DataSourceTypePostgresql          = DataSourceType("POSTGRESQL")
 	DataSourceTypePresto              = DataSourceType("PRESTO")
+	DataSourceTypeQbusiness           = DataSourceType("QBUSINESS")
 	DataSourceTypeRedshift            = DataSourceType("REDSHIFT")
 	DataSourceTypeS3                  = DataSourceType("S3")
 	DataSourceTypeS3Tables            = DataSourceType("S3_TABLES")
+	DataSourceTypeS3KnowledgeBase     = DataSourceType("S3_KNOWLEDGE_BASE")
 	DataSourceTypeSalesforce          = DataSourceType("SALESFORCE")
 	DataSourceTypeServicenow          = DataSourceType("SERVICENOW")
 	DataSourceTypeSnowflake           = DataSourceType("SNOWFLAKE")
 	DataSourceTypeSpark               = DataSourceType("SPARK")
+	DataSourceTypeSpice               = DataSourceType("SPICE")
 	DataSourceTypeSqlserver           = DataSourceType("SQLSERVER")
 	DataSourceTypeTeradata            = DataSourceType("TERADATA")
 	DataSourceTypeTimestream          = DataSourceType("TIMESTREAM")
@@ -46879,6 +46883,11 @@ const (
 	DataSourceTypeAppflow             = DataSourceType("APPFLOW")
 	DataSourceTypeImpala              = DataSourceType("IMPALA")
 	DataSourceTypeGlue                = DataSourceType("GLUE")
+	DataSourceTypeGoogleDrive         = DataSourceType("GOOGLE_DRIVE")
+	DataSourceTypeConfluence          = DataSourceType("CONFLUENCE")
+	DataSourceTypeSharepoint          = DataSourceType("SHAREPOINT")
+	DataSourceTypeOneDrive            = DataSourceType("ONE_DRIVE")
+	DataSourceTypeWebCrawler          = DataSourceType("WEB_CRAWLER")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -47025,13 +47034,16 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeOracle
 //	DataSourceTypePostgresql
 //	DataSourceTypePresto
+//	DataSourceTypeQbusiness
 //	DataSourceTypeRedshift
 //	DataSourceTypeS3
 //	DataSourceTypeS3Tables
+//	DataSourceTypeS3KnowledgeBase
 //	DataSourceTypeSalesforce
 //	DataSourceTypeServicenow
 //	DataSourceTypeSnowflake
 //	DataSourceTypeSpark
+//	DataSourceTypeSpice
 //	DataSourceTypeSqlserver
 //	DataSourceTypeTeradata
 //	DataSourceTypeTimestream
@@ -47046,6 +47058,11 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeAppflow
 //	DataSourceTypeImpala
 //	DataSourceTypeGlue
+//	DataSourceTypeGoogleDrive
+//	DataSourceTypeConfluence
+//	DataSourceTypeSharepoint
+//	DataSourceTypeOneDrive
+//	DataSourceTypeWebCrawler
 type DataSourceTypeInput interface {
 	pulumi.Input
 

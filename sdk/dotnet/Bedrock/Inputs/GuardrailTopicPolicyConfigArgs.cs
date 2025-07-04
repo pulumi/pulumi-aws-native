@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
             set => _topicsConfig = value;
         }
 
+        /// <summary>
+        /// Guardrail tier config for topic policy
+        /// </summary>
+        [Input("topicsTierConfig")]
+        public Input<Inputs.GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs>? TopicsTierConfig { get; set; }
+
         public GuardrailTopicPolicyConfigArgs()
         {
         }

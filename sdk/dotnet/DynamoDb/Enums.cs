@@ -39,6 +39,44 @@ namespace Pulumi.AwsNative.DynamoDb
     }
 
     /// <summary>
+    /// Specifies the consistency mode for a new global table.
+    /// 
+    /// You can specify one of the following consistency modes:
+    /// 
+    /// - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+    /// - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+    /// 
+    /// If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+    /// </summary>
+    [EnumType]
+    public readonly struct GlobalTableMultiRegionConsistency : IEquatable<GlobalTableMultiRegionConsistency>
+    {
+        private readonly string _value;
+
+        private GlobalTableMultiRegionConsistency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GlobalTableMultiRegionConsistency Eventual { get; } = new GlobalTableMultiRegionConsistency("EVENTUAL");
+        public static GlobalTableMultiRegionConsistency Strong { get; } = new GlobalTableMultiRegionConsistency("STRONG");
+
+        public static bool operator ==(GlobalTableMultiRegionConsistency left, GlobalTableMultiRegionConsistency right) => left.Equals(right);
+        public static bool operator !=(GlobalTableMultiRegionConsistency left, GlobalTableMultiRegionConsistency right) => !left.Equals(right);
+
+        public static explicit operator string(GlobalTableMultiRegionConsistency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GlobalTableMultiRegionConsistency other && Equals(other);
+        public bool Equals(GlobalTableMultiRegionConsistency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The precision for the time and date that the stream was created.
     /// </summary>
     [EnumType]

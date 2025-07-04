@@ -38,6 +38,20 @@
         }
       }
     },
+    "IdentityCenterConfiguration" : {
+      "description" : "The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "IdentityCenterInstanceArn" : {
+          "description" : "The IAM IdentityCenter instance arn",
+          "type" : "string",
+          "maxLength" : 1024,
+          "minLength" : 1,
+          "pattern" : "^arn:(aws[a-zA-Z0-9-]*):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$"
+        }
+      }
+    },
     "ConfigurationList" : {
       "type" : "array",
       "description" : "Runtime configuration for batch and interactive JobRun.",
@@ -570,6 +584,10 @@
     "SchedulerConfiguration" : {
       "description" : "The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.",
       "$ref" : "#/definitions/SchedulerConfiguration"
+    },
+    "IdentityCenterConfiguration" : {
+      "description" : "The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.",
+      "$ref" : "#/definitions/IdentityCenterConfiguration"
     }
   },
   "additionalProperties" : false,
@@ -588,7 +606,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "kms:CreateKey", "kms:CreateAlias", "kms:DescribeKey", "kms:EnableKey", "kms:ListGrants", "kms:ListAliases", "kms:ListKeyPolicies", "kms:ListKeys", "kms:PutKeyPolicy", "kms:UpdateKeyDescription", "kms:UpdateAlias", "kms:UpdatePrimaryRegion", "kms:RevokeGrant", "kms:DisableKey", "kms:DisableKeyRotation", "kms:GetKeyPolicy", "kms:GetKeyRotationStatus", "kms:DeleteAlias", "kms:ScheduleKeyDeletion", "kms:CancelKeyDeletion", "kms:GenerateDataKey", "kms:TagResource", "kms:UntagResource", "kms:Decrypt", "emr-serverless:CreateApplication", "emr-serverless:TagResource", "emr-serverless:GetApplication", "iam:CreateServiceLinkedRole", "ec2:CreateNetworkInterface", "ecr:BatchGetImage", "ecr:DescribeImages", "ecr:GetDownloadUrlForLayer" ]
+      "permissions" : [ "kms:CreateKey", "kms:CreateAlias", "kms:DescribeKey", "kms:EnableKey", "kms:ListGrants", "kms:ListAliases", "kms:ListKeyPolicies", "kms:ListKeys", "kms:PutKeyPolicy", "kms:UpdateKeyDescription", "kms:UpdateAlias", "kms:UpdatePrimaryRegion", "kms:RevokeGrant", "kms:DisableKey", "kms:DisableKeyRotation", "kms:GetKeyPolicy", "kms:GetKeyRotationStatus", "kms:DeleteAlias", "kms:ScheduleKeyDeletion", "kms:CancelKeyDeletion", "kms:GenerateDataKey", "kms:TagResource", "kms:UntagResource", "kms:Decrypt", "emr-serverless:CreateApplication", "emr-serverless:TagResource", "emr-serverless:GetApplication", "iam:CreateServiceLinkedRole", "ec2:CreateNetworkInterface", "ecr:BatchGetImage", "ecr:DescribeImages", "ecr:GetDownloadUrlForLayer", "sso:DescribeInstance", "sso:CreateApplication", "sso:DeleteApplication", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationAssignmentConfiguration", "sso:PutApplicationGrant", "sso:PutApplicationAccessScope" ]
     },
     "read" : {
       "permissions" : [ "emr-serverless:GetApplication" ]
@@ -597,7 +615,7 @@
       "permissions" : [ "emr-serverless:UpdateApplication", "emr-serverless:TagResource", "emr-serverless:UntagResource", "emr-serverless:GetApplication", "ec2:CreateNetworkInterface", "ecr:BatchGetImage", "ecr:DescribeImages", "ecr:GetDownloadUrlForLayer", "kms:CreateKey", "kms:CreateAlias", "kms:DescribeKey", "kms:EnableKey", "kms:ListGrants", "kms:ListAliases", "kms:ListKeyPolicies", "kms:ListKeys", "kms:PutKeyPolicy", "kms:UpdateKeyDescription", "kms:UpdateAlias", "kms:UpdatePrimaryRegion", "kms:RevokeGrant", "kms:DisableKey", "kms:DisableKeyRotation", "kms:GetKeyPolicy", "kms:GetKeyRotationStatus", "kms:DeleteAlias", "kms:ScheduleKeyDeletion", "kms:CancelKeyDeletion", "kms:GenerateDataKey", "kms:TagResource", "kms:UntagResource", "kms:Decrypt" ]
     },
     "delete" : {
-      "permissions" : [ "emr-serverless:DeleteApplication", "emr-serverless:GetApplication" ]
+      "permissions" : [ "emr-serverless:DeleteApplication", "emr-serverless:GetApplication", "sso:DeleteApplication" ]
     },
     "list" : {
       "permissions" : [ "emr-serverless:ListApplications" ]

@@ -8,6 +8,8 @@ from enum import Enum
 
 __all__ = [
     'DataRepositoryAssociationEventType',
+    'S3AccessPointAttachmentOpenZfsFileSystemIdentityType',
+    'S3AccessPointAttachmentType',
 ]
 
 
@@ -16,3 +18,19 @@ class DataRepositoryAssociationEventType(builtins.str, Enum):
     NEW = "NEW"
     CHANGED = "CHANGED"
     DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:fsx:S3AccessPointAttachmentOpenZfsFileSystemIdentityType")
+class S3AccessPointAttachmentOpenZfsFileSystemIdentityType(builtins.str, Enum):
+    """
+    Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+    """
+    POSIX = "POSIX"
+
+
+@pulumi.type_token("aws-native:fsx:S3AccessPointAttachmentType")
+class S3AccessPointAttachmentType(builtins.str, Enum):
+    """
+    The type of Amazon FSx volume that the S3 access point is attached to.
+    """
+    OPENZFS = "OPENZFS"

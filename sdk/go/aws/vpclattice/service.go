@@ -31,7 +31,7 @@ type Service struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The custom domain name of the service.
 	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
-	// The DNS information of the service.
+	// Describes the DNS information of the service. This field is read-only.
 	DnsEntry ServiceDnsEntryPtrOutput `pulumi:"dnsEntry"`
 	// The date and time that the service was last updated, specified in ISO-8601 format.
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
@@ -99,7 +99,7 @@ type serviceArgs struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The custom domain name of the service.
 	CustomDomainName *string `pulumi:"customDomainName"`
-	// The DNS information of the service.
+	// Describes the DNS information of the service. This field is read-only.
 	DnsEntry *ServiceDnsEntry `pulumi:"dnsEntry"`
 	// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
@@ -120,7 +120,7 @@ type ServiceArgs struct {
 	CertificateArn pulumi.StringPtrInput
 	// The custom domain name of the service.
 	CustomDomainName pulumi.StringPtrInput
-	// The DNS information of the service.
+	// Describes the DNS information of the service. This field is read-only.
 	DnsEntry ServiceDnsEntryPtrInput
 	// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
@@ -200,7 +200,7 @@ func (o ServiceOutput) CustomDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
 }
 
-// The DNS information of the service.
+// Describes the DNS information of the service. This field is read-only.
 func (o ServiceOutput) DnsEntry() ServiceDnsEntryPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceDnsEntryPtrOutput { return v.DnsEntry }).(ServiceDnsEntryPtrOutput)
 }

@@ -25,6 +25,8 @@ __all__ = [
     'ApplicationCloudWatchLoggingConfigurationArgsDict',
     'ApplicationConfigurationObjectArgs',
     'ApplicationConfigurationObjectArgsDict',
+    'ApplicationIdentityCenterConfigurationArgs',
+    'ApplicationIdentityCenterConfigurationArgsDict',
     'ApplicationImageConfigurationInputArgs',
     'ApplicationImageConfigurationInputArgsDict',
     'ApplicationInitialCapacityConfigKeyValuePairArgs',
@@ -320,6 +322,42 @@ class ApplicationConfigurationObjectArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class ApplicationIdentityCenterConfigurationArgsDict(TypedDict):
+        """
+        The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+        """
+        identity_center_instance_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The IAM IdentityCenter instance arn
+        """
+elif False:
+    ApplicationIdentityCenterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationIdentityCenterConfigurationArgs:
+    def __init__(__self__, *,
+                 identity_center_instance_arn: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+        :param pulumi.Input[builtins.str] identity_center_instance_arn: The IAM IdentityCenter instance arn
+        """
+        if identity_center_instance_arn is not None:
+            pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+
+    @property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The IAM IdentityCenter instance arn
+        """
+        return pulumi.get(self, "identity_center_instance_arn")
+
+    @identity_center_instance_arn.setter
+    def identity_center_instance_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "identity_center_instance_arn", value)
 
 
 if not MYPY:

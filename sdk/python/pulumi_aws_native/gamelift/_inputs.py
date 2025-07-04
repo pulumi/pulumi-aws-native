@@ -688,6 +688,10 @@ if not MYPY:
         - `S3` -- Store logs in an Amazon S3 bucket that you define. This bucket must reside in the fleet's home AWS Region.
         - `NONE` -- Don't collect container logs.
         """
+        log_group_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        If log destination is CLOUDWATCH, logs are sent to the specified log group in Amazon CloudWatch.
+        """
         s3_bucket_name: NotRequired[pulumi.Input[builtins.str]]
         """
         The name of the S3 bucket to pull logs from if S3 is the LogDestination
@@ -699,6 +703,7 @@ elif False:
 class ContainerFleetLogConfigurationArgs:
     def __init__(__self__, *,
                  log_destination: Optional[pulumi.Input['ContainerFleetLogDestination']] = None,
+                 log_group_arn: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         A policy the location and provider of logs from the fleet.
@@ -707,10 +712,13 @@ class ContainerFleetLogConfigurationArgs:
                - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
                - `S3` -- Store logs in an Amazon S3 bucket that you define. This bucket must reside in the fleet's home AWS Region.
                - `NONE` -- Don't collect container logs.
+        :param pulumi.Input[builtins.str] log_group_arn: If log destination is CLOUDWATCH, logs are sent to the specified log group in Amazon CloudWatch.
         :param pulumi.Input[builtins.str] s3_bucket_name: The name of the S3 bucket to pull logs from if S3 is the LogDestination
         """
         if log_destination is not None:
             pulumi.set(__self__, "log_destination", log_destination)
+        if log_group_arn is not None:
+            pulumi.set(__self__, "log_group_arn", log_group_arn)
         if s3_bucket_name is not None:
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
 
@@ -729,6 +737,18 @@ class ContainerFleetLogConfigurationArgs:
     @log_destination.setter
     def log_destination(self, value: Optional[pulumi.Input['ContainerFleetLogDestination']]):
         pulumi.set(self, "log_destination", value)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        If log destination is CLOUDWATCH, logs are sent to the specified log group in Amazon CloudWatch.
+        """
+        return pulumi.get(self, "log_group_arn")
+
+    @log_group_arn.setter
+    def log_group_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "log_group_arn", value)
 
     @property
     @pulumi.getter(name="s3BucketName")

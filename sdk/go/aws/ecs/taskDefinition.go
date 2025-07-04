@@ -302,8 +302,7 @@ type TaskDefinition struct {
 	// The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 	//  A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
 	//   To use revision numbers when you update a task definition, specify this property. If you don't specify a value, CFNlong generates a new task definition each time that you update it.
-	Family pulumi.StringPtrOutput `pulumi:"family"`
-	// The Elastic Inference accelerators to use for the containers in the task.
+	Family                pulumi.StringPtrOutput                        `pulumi:"family"`
 	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayOutput `pulumi:"inferenceAccelerators"`
 	// The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance.
 	//  If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose.
@@ -447,8 +446,7 @@ type taskDefinitionArgs struct {
 	// The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 	//  A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
 	//   To use revision numbers when you update a task definition, specify this property. If you don't specify a value, CFNlong generates a new task definition each time that you update it.
-	Family *string `pulumi:"family"`
-	// The Elastic Inference accelerators to use for the containers in the task.
+	Family                *string                              `pulumi:"family"`
 	InferenceAccelerators []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
 	// The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance.
 	//  If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose.
@@ -532,8 +530,7 @@ type TaskDefinitionArgs struct {
 	// The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 	//  A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
 	//   To use revision numbers when you update a task definition, specify this property. If you don't specify a value, CFNlong generates a new task definition each time that you update it.
-	Family pulumi.StringPtrInput
-	// The Elastic Inference accelerators to use for the containers in the task.
+	Family                pulumi.StringPtrInput
 	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayInput
 	// The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance.
 	//  If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose.
@@ -673,7 +670,6 @@ func (o TaskDefinitionOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The Elastic Inference accelerators to use for the containers in the task.
 func (o TaskDefinitionOutput) InferenceAccelerators() TaskDefinitionInferenceAcceleratorArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionInferenceAcceleratorArrayOutput { return v.InferenceAccelerators }).(TaskDefinitionInferenceAcceleratorArrayOutput)
 }

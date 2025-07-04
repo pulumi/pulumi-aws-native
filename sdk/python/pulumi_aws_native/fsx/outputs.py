@@ -21,6 +21,12 @@ __all__ = [
     'DataRepositoryAssociationAutoExportPolicy',
     'DataRepositoryAssociationAutoImportPolicy',
     'DataRepositoryAssociationS3',
+    'S3AccessPointAttachmentFileSystemGid',
+    'S3AccessPointAttachmentOpenZfsFileSystemIdentity',
+    'S3AccessPointAttachmentOpenZfsPosixFileSystemUser',
+    'S3AccessPointAttachmentS3AccessPoint',
+    'S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration',
+    'S3AccessPointAttachmentS3AccessPointVpcConfiguration',
 ]
 
 @pulumi.output_type
@@ -147,5 +153,284 @@ class DataRepositoryAssociationS3(dict):
          The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
         """
         return pulumi.get(self, "auto_import_policy")
+
+
+@pulumi.output_type
+class S3AccessPointAttachmentFileSystemGid(dict):
+    def __init__(__self__, *,
+                 gid: builtins.float):
+        """
+        :param builtins.float gid: The GID of the file system user.
+        """
+        pulumi.set(__self__, "gid", gid)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> builtins.float:
+        """
+        The GID of the file system user.
+        """
+        return pulumi.get(self, "gid")
+
+
+@pulumi.output_type
+class S3AccessPointAttachmentOpenZfsFileSystemIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "posixUser":
+            suggest = "posix_user"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in S3AccessPointAttachmentOpenZfsFileSystemIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        S3AccessPointAttachmentOpenZfsFileSystemIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        S3AccessPointAttachmentOpenZfsFileSystemIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 posix_user: 'outputs.S3AccessPointAttachmentOpenZfsPosixFileSystemUser',
+                 type: 'S3AccessPointAttachmentOpenZfsFileSystemIdentityType'):
+        """
+        :param 'S3AccessPointAttachmentOpenZfsPosixFileSystemUser' posix_user: Specifies the UID and GIDs of the file system POSIX user.
+        :param 'S3AccessPointAttachmentOpenZfsFileSystemIdentityType' type: Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+        """
+        pulumi.set(__self__, "posix_user", posix_user)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="posixUser")
+    def posix_user(self) -> 'outputs.S3AccessPointAttachmentOpenZfsPosixFileSystemUser':
+        """
+        Specifies the UID and GIDs of the file system POSIX user.
+        """
+        return pulumi.get(self, "posix_user")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'S3AccessPointAttachmentOpenZfsFileSystemIdentityType':
+        """
+        Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class S3AccessPointAttachmentOpenZfsPosixFileSystemUser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secondaryGids":
+            suggest = "secondary_gids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in S3AccessPointAttachmentOpenZfsPosixFileSystemUser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        S3AccessPointAttachmentOpenZfsPosixFileSystemUser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        S3AccessPointAttachmentOpenZfsPosixFileSystemUser.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gid: builtins.float,
+                 uid: builtins.float,
+                 secondary_gids: Optional[Sequence['outputs.S3AccessPointAttachmentFileSystemGid']] = None):
+        """
+        :param builtins.float gid: The GID of the file system user.
+        :param builtins.float uid: The UID of the file system user.
+        :param Sequence['S3AccessPointAttachmentFileSystemGid'] secondary_gids: The list of secondary GIDs for the file system user.
+        """
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
+        if secondary_gids is not None:
+            pulumi.set(__self__, "secondary_gids", secondary_gids)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> builtins.float:
+        """
+        The GID of the file system user.
+        """
+        return pulumi.get(self, "gid")
+
+    @property
+    @pulumi.getter
+    def uid(self) -> builtins.float:
+        """
+        The UID of the file system user.
+        """
+        return pulumi.get(self, "uid")
+
+    @property
+    @pulumi.getter(name="secondaryGids")
+    def secondary_gids(self) -> Optional[Sequence['outputs.S3AccessPointAttachmentFileSystemGid']]:
+        """
+        The list of secondary GIDs for the file system user.
+        """
+        return pulumi.get(self, "secondary_gids")
+
+
+@pulumi.output_type
+class S3AccessPointAttachmentS3AccessPoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+        elif key == "vpcConfiguration":
+            suggest = "vpc_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in S3AccessPointAttachmentS3AccessPoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        S3AccessPointAttachmentS3AccessPoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        S3AccessPointAttachmentS3AccessPoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alias: Optional[builtins.str] = None,
+                 policy: Optional[Any] = None,
+                 resource_arn: Optional[builtins.str] = None,
+                 vpc_configuration: Optional['outputs.S3AccessPointAttachmentS3AccessPointVpcConfiguration'] = None):
+        """
+        :param builtins.str alias: The S3 access point's alias.
+        :param Any policy: The S3 access point's policy.
+        :param builtins.str resource_arn: The S3 access point's ARN.
+        :param 'S3AccessPointAttachmentS3AccessPointVpcConfiguration' vpc_configuration: The S3 access point's virtual private cloud (VPC) configuration.
+        """
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+        if vpc_configuration is not None:
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[builtins.str]:
+        """
+        The S3 access point's alias.
+        """
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[Any]:
+        """
+        The S3 access point's policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[builtins.str]:
+        """
+        The S3 access point's ARN.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> Optional['outputs.S3AccessPointAttachmentS3AccessPointVpcConfiguration']:
+        """
+        The S3 access point's virtual private cloud (VPC) configuration.
+        """
+        return pulumi.get(self, "vpc_configuration")
+
+
+@pulumi.output_type
+class S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemIdentity":
+            suggest = "file_system_identity"
+        elif key == "volumeId":
+            suggest = "volume_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system_identity: 'outputs.S3AccessPointAttachmentOpenZfsFileSystemIdentity',
+                 volume_id: builtins.str):
+        """
+        :param 'S3AccessPointAttachmentOpenZfsFileSystemIdentity' file_system_identity: The file system identity used to authorize file access requests made using the S3 access point.
+        :param builtins.str volume_id: The ID of the FSx for OpenZFS volume that the S3 access point is attached to.
+        """
+        pulumi.set(__self__, "file_system_identity", file_system_identity)
+        pulumi.set(__self__, "volume_id", volume_id)
+
+    @property
+    @pulumi.getter(name="fileSystemIdentity")
+    def file_system_identity(self) -> 'outputs.S3AccessPointAttachmentOpenZfsFileSystemIdentity':
+        """
+        The file system identity used to authorize file access requests made using the S3 access point.
+        """
+        return pulumi.get(self, "file_system_identity")
+
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> builtins.str:
+        """
+        The ID of the FSx for OpenZFS volume that the S3 access point is attached to.
+        """
+        return pulumi.get(self, "volume_id")
+
+
+@pulumi.output_type
+class S3AccessPointAttachmentS3AccessPointVpcConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in S3AccessPointAttachmentS3AccessPointVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        S3AccessPointAttachmentS3AccessPointVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        S3AccessPointAttachmentS3AccessPointVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_id: builtins.str):
+        """
+        :param builtins.str vpc_id: Specifies the virtual private cloud (VPC) for the S3 access point VPC configuration, if one exists.
+        """
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> builtins.str:
+        """
+        Specifies the virtual private cloud (VPC) for the S3 access point VPC configuration, if one exists.
+        """
+        return pulumi.get(self, "vpc_id")
 
 

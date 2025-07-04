@@ -1716,11 +1716,11 @@ type StackSetOperationPreferences struct {
 	// If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
 	// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
 	ConcurrencyMode *StackSetConcurrencyMode `pulumi:"concurrencyMode"`
-	// The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+	// The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
 	FailureToleranceCount *int `pulumi:"failureToleranceCount"`
-	// The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+	// The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 	//
@@ -1766,11 +1766,11 @@ type StackSetOperationPreferencesArgs struct {
 	// If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
 	// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
 	ConcurrencyMode StackSetConcurrencyModePtrInput `pulumi:"concurrencyMode"`
-	// The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+	// The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
 	FailureToleranceCount pulumi.IntPtrInput `pulumi:"failureToleranceCount"`
-	// The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+	// The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 	//
@@ -1884,14 +1884,14 @@ func (o StackSetOperationPreferencesOutput) ConcurrencyMode() StackSetConcurrenc
 	return o.ApplyT(func(v StackSetOperationPreferences) *StackSetConcurrencyMode { return v.ConcurrencyMode }).(StackSetConcurrencyModePtrOutput)
 }
 
-// The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+// The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 //
 // Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
 func (o StackSetOperationPreferencesOutput) FailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.FailureToleranceCount }).(pulumi.IntPtrOutput)
 }
 
-// The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+// The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 //
 // When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 //
@@ -1969,7 +1969,7 @@ func (o StackSetOperationPreferencesPtrOutput) ConcurrencyMode() StackSetConcurr
 	}).(StackSetConcurrencyModePtrOutput)
 }
 
-// The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+// The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 //
 // Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
 func (o StackSetOperationPreferencesPtrOutput) FailureToleranceCount() pulumi.IntPtrOutput {
@@ -1981,7 +1981,7 @@ func (o StackSetOperationPreferencesPtrOutput) FailureToleranceCount() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+// The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 //
 // When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 //

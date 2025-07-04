@@ -574,6 +574,8 @@ func (o CapabilityX12DetailsPtrOutput) Version() CapabilityX12VersionPtrOutput {
 }
 
 type PartnershipCapabilityOptions struct {
+	// A structure that contains the inbound EDI options for the capability.
+	InboundEdi *PartnershipInboundEdiOptions `pulumi:"inboundEdi"`
 	// A structure that contains the outbound EDI options.
 	OutboundEdi *PartnershipOutboundEdiOptionsProperties `pulumi:"outboundEdi"`
 }
@@ -590,6 +592,8 @@ type PartnershipCapabilityOptionsInput interface {
 }
 
 type PartnershipCapabilityOptionsArgs struct {
+	// A structure that contains the inbound EDI options for the capability.
+	InboundEdi PartnershipInboundEdiOptionsPtrInput `pulumi:"inboundEdi"`
 	// A structure that contains the outbound EDI options.
 	OutboundEdi PartnershipOutboundEdiOptionsPropertiesPtrInput `pulumi:"outboundEdi"`
 }
@@ -671,6 +675,11 @@ func (o PartnershipCapabilityOptionsOutput) ToPartnershipCapabilityOptionsPtrOut
 	}).(PartnershipCapabilityOptionsPtrOutput)
 }
 
+// A structure that contains the inbound EDI options for the capability.
+func (o PartnershipCapabilityOptionsOutput) InboundEdi() PartnershipInboundEdiOptionsPtrOutput {
+	return o.ApplyT(func(v PartnershipCapabilityOptions) *PartnershipInboundEdiOptions { return v.InboundEdi }).(PartnershipInboundEdiOptionsPtrOutput)
+}
+
 // A structure that contains the outbound EDI options.
 func (o PartnershipCapabilityOptionsOutput) OutboundEdi() PartnershipOutboundEdiOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v PartnershipCapabilityOptions) *PartnershipOutboundEdiOptionsProperties { return v.OutboundEdi }).(PartnershipOutboundEdiOptionsPropertiesPtrOutput)
@@ -700,6 +709,16 @@ func (o PartnershipCapabilityOptionsPtrOutput) Elem() PartnershipCapabilityOptio
 	}).(PartnershipCapabilityOptionsOutput)
 }
 
+// A structure that contains the inbound EDI options for the capability.
+func (o PartnershipCapabilityOptionsPtrOutput) InboundEdi() PartnershipInboundEdiOptionsPtrOutput {
+	return o.ApplyT(func(v *PartnershipCapabilityOptions) *PartnershipInboundEdiOptions {
+		if v == nil {
+			return nil
+		}
+		return v.InboundEdi
+	}).(PartnershipInboundEdiOptionsPtrOutput)
+}
+
 // A structure that contains the outbound EDI options.
 func (o PartnershipCapabilityOptionsPtrOutput) OutboundEdi() PartnershipOutboundEdiOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v *PartnershipCapabilityOptions) *PartnershipOutboundEdiOptionsProperties {
@@ -708,6 +727,143 @@ func (o PartnershipCapabilityOptionsPtrOutput) OutboundEdi() PartnershipOutbound
 		}
 		return v.OutboundEdi
 	}).(PartnershipOutboundEdiOptionsPropertiesPtrOutput)
+}
+
+type PartnershipInboundEdiOptions struct {
+	// A structure that contains X12-specific options for processing inbound X12 EDI files.
+	X12 *PartnershipX12InboundEdiOptions `pulumi:"x12"`
+}
+
+// PartnershipInboundEdiOptionsInput is an input type that accepts PartnershipInboundEdiOptionsArgs and PartnershipInboundEdiOptionsOutput values.
+// You can construct a concrete instance of `PartnershipInboundEdiOptionsInput` via:
+//
+//	PartnershipInboundEdiOptionsArgs{...}
+type PartnershipInboundEdiOptionsInput interface {
+	pulumi.Input
+
+	ToPartnershipInboundEdiOptionsOutput() PartnershipInboundEdiOptionsOutput
+	ToPartnershipInboundEdiOptionsOutputWithContext(context.Context) PartnershipInboundEdiOptionsOutput
+}
+
+type PartnershipInboundEdiOptionsArgs struct {
+	// A structure that contains X12-specific options for processing inbound X12 EDI files.
+	X12 PartnershipX12InboundEdiOptionsPtrInput `pulumi:"x12"`
+}
+
+func (PartnershipInboundEdiOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipInboundEdiOptions)(nil)).Elem()
+}
+
+func (i PartnershipInboundEdiOptionsArgs) ToPartnershipInboundEdiOptionsOutput() PartnershipInboundEdiOptionsOutput {
+	return i.ToPartnershipInboundEdiOptionsOutputWithContext(context.Background())
+}
+
+func (i PartnershipInboundEdiOptionsArgs) ToPartnershipInboundEdiOptionsOutputWithContext(ctx context.Context) PartnershipInboundEdiOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipInboundEdiOptionsOutput)
+}
+
+func (i PartnershipInboundEdiOptionsArgs) ToPartnershipInboundEdiOptionsPtrOutput() PartnershipInboundEdiOptionsPtrOutput {
+	return i.ToPartnershipInboundEdiOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i PartnershipInboundEdiOptionsArgs) ToPartnershipInboundEdiOptionsPtrOutputWithContext(ctx context.Context) PartnershipInboundEdiOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipInboundEdiOptionsOutput).ToPartnershipInboundEdiOptionsPtrOutputWithContext(ctx)
+}
+
+// PartnershipInboundEdiOptionsPtrInput is an input type that accepts PartnershipInboundEdiOptionsArgs, PartnershipInboundEdiOptionsPtr and PartnershipInboundEdiOptionsPtrOutput values.
+// You can construct a concrete instance of `PartnershipInboundEdiOptionsPtrInput` via:
+//
+//	        PartnershipInboundEdiOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartnershipInboundEdiOptionsPtrInput interface {
+	pulumi.Input
+
+	ToPartnershipInboundEdiOptionsPtrOutput() PartnershipInboundEdiOptionsPtrOutput
+	ToPartnershipInboundEdiOptionsPtrOutputWithContext(context.Context) PartnershipInboundEdiOptionsPtrOutput
+}
+
+type partnershipInboundEdiOptionsPtrType PartnershipInboundEdiOptionsArgs
+
+func PartnershipInboundEdiOptionsPtr(v *PartnershipInboundEdiOptionsArgs) PartnershipInboundEdiOptionsPtrInput {
+	return (*partnershipInboundEdiOptionsPtrType)(v)
+}
+
+func (*partnershipInboundEdiOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipInboundEdiOptions)(nil)).Elem()
+}
+
+func (i *partnershipInboundEdiOptionsPtrType) ToPartnershipInboundEdiOptionsPtrOutput() PartnershipInboundEdiOptionsPtrOutput {
+	return i.ToPartnershipInboundEdiOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *partnershipInboundEdiOptionsPtrType) ToPartnershipInboundEdiOptionsPtrOutputWithContext(ctx context.Context) PartnershipInboundEdiOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipInboundEdiOptionsPtrOutput)
+}
+
+type PartnershipInboundEdiOptionsOutput struct{ *pulumi.OutputState }
+
+func (PartnershipInboundEdiOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipInboundEdiOptions)(nil)).Elem()
+}
+
+func (o PartnershipInboundEdiOptionsOutput) ToPartnershipInboundEdiOptionsOutput() PartnershipInboundEdiOptionsOutput {
+	return o
+}
+
+func (o PartnershipInboundEdiOptionsOutput) ToPartnershipInboundEdiOptionsOutputWithContext(ctx context.Context) PartnershipInboundEdiOptionsOutput {
+	return o
+}
+
+func (o PartnershipInboundEdiOptionsOutput) ToPartnershipInboundEdiOptionsPtrOutput() PartnershipInboundEdiOptionsPtrOutput {
+	return o.ToPartnershipInboundEdiOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipInboundEdiOptionsOutput) ToPartnershipInboundEdiOptionsPtrOutputWithContext(ctx context.Context) PartnershipInboundEdiOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnershipInboundEdiOptions) *PartnershipInboundEdiOptions {
+		return &v
+	}).(PartnershipInboundEdiOptionsPtrOutput)
+}
+
+// A structure that contains X12-specific options for processing inbound X12 EDI files.
+func (o PartnershipInboundEdiOptionsOutput) X12() PartnershipX12InboundEdiOptionsPtrOutput {
+	return o.ApplyT(func(v PartnershipInboundEdiOptions) *PartnershipX12InboundEdiOptions { return v.X12 }).(PartnershipX12InboundEdiOptionsPtrOutput)
+}
+
+type PartnershipInboundEdiOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnershipInboundEdiOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipInboundEdiOptions)(nil)).Elem()
+}
+
+func (o PartnershipInboundEdiOptionsPtrOutput) ToPartnershipInboundEdiOptionsPtrOutput() PartnershipInboundEdiOptionsPtrOutput {
+	return o
+}
+
+func (o PartnershipInboundEdiOptionsPtrOutput) ToPartnershipInboundEdiOptionsPtrOutputWithContext(ctx context.Context) PartnershipInboundEdiOptionsPtrOutput {
+	return o
+}
+
+func (o PartnershipInboundEdiOptionsPtrOutput) Elem() PartnershipInboundEdiOptionsOutput {
+	return o.ApplyT(func(v *PartnershipInboundEdiOptions) PartnershipInboundEdiOptions {
+		if v != nil {
+			return *v
+		}
+		var ret PartnershipInboundEdiOptions
+		return ret
+	}).(PartnershipInboundEdiOptionsOutput)
+}
+
+// A structure that contains X12-specific options for processing inbound X12 EDI files.
+func (o PartnershipInboundEdiOptionsPtrOutput) X12() PartnershipX12InboundEdiOptionsPtrOutput {
+	return o.ApplyT(func(v *PartnershipInboundEdiOptions) *PartnershipX12InboundEdiOptions {
+		if v == nil {
+			return nil
+		}
+		return v.X12
+	}).(PartnershipX12InboundEdiOptionsPtrOutput)
 }
 
 type PartnershipOutboundEdiOptions0Properties struct {
@@ -852,6 +1008,484 @@ type PartnershipTag struct {
 	Key string `pulumi:"key"`
 	// Contains one or more values that you assigned to the key name that you create.
 	Value string `pulumi:"value"`
+}
+
+type PartnershipWrapOptions struct {
+	LineLength     *float64                   `pulumi:"lineLength"`
+	LineTerminator *PartnershipLineTerminator `pulumi:"lineTerminator"`
+	WrapBy         *PartnershipWrapFormat     `pulumi:"wrapBy"`
+}
+
+// PartnershipWrapOptionsInput is an input type that accepts PartnershipWrapOptionsArgs and PartnershipWrapOptionsOutput values.
+// You can construct a concrete instance of `PartnershipWrapOptionsInput` via:
+//
+//	PartnershipWrapOptionsArgs{...}
+type PartnershipWrapOptionsInput interface {
+	pulumi.Input
+
+	ToPartnershipWrapOptionsOutput() PartnershipWrapOptionsOutput
+	ToPartnershipWrapOptionsOutputWithContext(context.Context) PartnershipWrapOptionsOutput
+}
+
+type PartnershipWrapOptionsArgs struct {
+	LineLength     pulumi.Float64PtrInput            `pulumi:"lineLength"`
+	LineTerminator PartnershipLineTerminatorPtrInput `pulumi:"lineTerminator"`
+	WrapBy         PartnershipWrapFormatPtrInput     `pulumi:"wrapBy"`
+}
+
+func (PartnershipWrapOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipWrapOptions)(nil)).Elem()
+}
+
+func (i PartnershipWrapOptionsArgs) ToPartnershipWrapOptionsOutput() PartnershipWrapOptionsOutput {
+	return i.ToPartnershipWrapOptionsOutputWithContext(context.Background())
+}
+
+func (i PartnershipWrapOptionsArgs) ToPartnershipWrapOptionsOutputWithContext(ctx context.Context) PartnershipWrapOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipWrapOptionsOutput)
+}
+
+func (i PartnershipWrapOptionsArgs) ToPartnershipWrapOptionsPtrOutput() PartnershipWrapOptionsPtrOutput {
+	return i.ToPartnershipWrapOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i PartnershipWrapOptionsArgs) ToPartnershipWrapOptionsPtrOutputWithContext(ctx context.Context) PartnershipWrapOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipWrapOptionsOutput).ToPartnershipWrapOptionsPtrOutputWithContext(ctx)
+}
+
+// PartnershipWrapOptionsPtrInput is an input type that accepts PartnershipWrapOptionsArgs, PartnershipWrapOptionsPtr and PartnershipWrapOptionsPtrOutput values.
+// You can construct a concrete instance of `PartnershipWrapOptionsPtrInput` via:
+//
+//	        PartnershipWrapOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartnershipWrapOptionsPtrInput interface {
+	pulumi.Input
+
+	ToPartnershipWrapOptionsPtrOutput() PartnershipWrapOptionsPtrOutput
+	ToPartnershipWrapOptionsPtrOutputWithContext(context.Context) PartnershipWrapOptionsPtrOutput
+}
+
+type partnershipWrapOptionsPtrType PartnershipWrapOptionsArgs
+
+func PartnershipWrapOptionsPtr(v *PartnershipWrapOptionsArgs) PartnershipWrapOptionsPtrInput {
+	return (*partnershipWrapOptionsPtrType)(v)
+}
+
+func (*partnershipWrapOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipWrapOptions)(nil)).Elem()
+}
+
+func (i *partnershipWrapOptionsPtrType) ToPartnershipWrapOptionsPtrOutput() PartnershipWrapOptionsPtrOutput {
+	return i.ToPartnershipWrapOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *partnershipWrapOptionsPtrType) ToPartnershipWrapOptionsPtrOutputWithContext(ctx context.Context) PartnershipWrapOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipWrapOptionsPtrOutput)
+}
+
+type PartnershipWrapOptionsOutput struct{ *pulumi.OutputState }
+
+func (PartnershipWrapOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipWrapOptions)(nil)).Elem()
+}
+
+func (o PartnershipWrapOptionsOutput) ToPartnershipWrapOptionsOutput() PartnershipWrapOptionsOutput {
+	return o
+}
+
+func (o PartnershipWrapOptionsOutput) ToPartnershipWrapOptionsOutputWithContext(ctx context.Context) PartnershipWrapOptionsOutput {
+	return o
+}
+
+func (o PartnershipWrapOptionsOutput) ToPartnershipWrapOptionsPtrOutput() PartnershipWrapOptionsPtrOutput {
+	return o.ToPartnershipWrapOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipWrapOptionsOutput) ToPartnershipWrapOptionsPtrOutputWithContext(ctx context.Context) PartnershipWrapOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnershipWrapOptions) *PartnershipWrapOptions {
+		return &v
+	}).(PartnershipWrapOptionsPtrOutput)
+}
+
+func (o PartnershipWrapOptionsOutput) LineLength() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PartnershipWrapOptions) *float64 { return v.LineLength }).(pulumi.Float64PtrOutput)
+}
+
+func (o PartnershipWrapOptionsOutput) LineTerminator() PartnershipLineTerminatorPtrOutput {
+	return o.ApplyT(func(v PartnershipWrapOptions) *PartnershipLineTerminator { return v.LineTerminator }).(PartnershipLineTerminatorPtrOutput)
+}
+
+func (o PartnershipWrapOptionsOutput) WrapBy() PartnershipWrapFormatPtrOutput {
+	return o.ApplyT(func(v PartnershipWrapOptions) *PartnershipWrapFormat { return v.WrapBy }).(PartnershipWrapFormatPtrOutput)
+}
+
+type PartnershipWrapOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnershipWrapOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipWrapOptions)(nil)).Elem()
+}
+
+func (o PartnershipWrapOptionsPtrOutput) ToPartnershipWrapOptionsPtrOutput() PartnershipWrapOptionsPtrOutput {
+	return o
+}
+
+func (o PartnershipWrapOptionsPtrOutput) ToPartnershipWrapOptionsPtrOutputWithContext(ctx context.Context) PartnershipWrapOptionsPtrOutput {
+	return o
+}
+
+func (o PartnershipWrapOptionsPtrOutput) Elem() PartnershipWrapOptionsOutput {
+	return o.ApplyT(func(v *PartnershipWrapOptions) PartnershipWrapOptions {
+		if v != nil {
+			return *v
+		}
+		var ret PartnershipWrapOptions
+		return ret
+	}).(PartnershipWrapOptionsOutput)
+}
+
+func (o PartnershipWrapOptionsPtrOutput) LineLength() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PartnershipWrapOptions) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.LineLength
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o PartnershipWrapOptionsPtrOutput) LineTerminator() PartnershipLineTerminatorPtrOutput {
+	return o.ApplyT(func(v *PartnershipWrapOptions) *PartnershipLineTerminator {
+		if v == nil {
+			return nil
+		}
+		return v.LineTerminator
+	}).(PartnershipLineTerminatorPtrOutput)
+}
+
+func (o PartnershipWrapOptionsPtrOutput) WrapBy() PartnershipWrapFormatPtrOutput {
+	return o.ApplyT(func(v *PartnershipWrapOptions) *PartnershipWrapFormat {
+		if v == nil {
+			return nil
+		}
+		return v.WrapBy
+	}).(PartnershipWrapFormatPtrOutput)
+}
+
+type PartnershipX12AcknowledgmentOptions struct {
+	FunctionalAcknowledgment PartnershipX12FunctionalAcknowledgment `pulumi:"functionalAcknowledgment"`
+	TechnicalAcknowledgment  PartnershipX12TechnicalAcknowledgment  `pulumi:"technicalAcknowledgment"`
+}
+
+// PartnershipX12AcknowledgmentOptionsInput is an input type that accepts PartnershipX12AcknowledgmentOptionsArgs and PartnershipX12AcknowledgmentOptionsOutput values.
+// You can construct a concrete instance of `PartnershipX12AcknowledgmentOptionsInput` via:
+//
+//	PartnershipX12AcknowledgmentOptionsArgs{...}
+type PartnershipX12AcknowledgmentOptionsInput interface {
+	pulumi.Input
+
+	ToPartnershipX12AcknowledgmentOptionsOutput() PartnershipX12AcknowledgmentOptionsOutput
+	ToPartnershipX12AcknowledgmentOptionsOutputWithContext(context.Context) PartnershipX12AcknowledgmentOptionsOutput
+}
+
+type PartnershipX12AcknowledgmentOptionsArgs struct {
+	FunctionalAcknowledgment PartnershipX12FunctionalAcknowledgmentInput `pulumi:"functionalAcknowledgment"`
+	TechnicalAcknowledgment  PartnershipX12TechnicalAcknowledgmentInput  `pulumi:"technicalAcknowledgment"`
+}
+
+func (PartnershipX12AcknowledgmentOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipX12AcknowledgmentOptions)(nil)).Elem()
+}
+
+func (i PartnershipX12AcknowledgmentOptionsArgs) ToPartnershipX12AcknowledgmentOptionsOutput() PartnershipX12AcknowledgmentOptionsOutput {
+	return i.ToPartnershipX12AcknowledgmentOptionsOutputWithContext(context.Background())
+}
+
+func (i PartnershipX12AcknowledgmentOptionsArgs) ToPartnershipX12AcknowledgmentOptionsOutputWithContext(ctx context.Context) PartnershipX12AcknowledgmentOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipX12AcknowledgmentOptionsOutput)
+}
+
+func (i PartnershipX12AcknowledgmentOptionsArgs) ToPartnershipX12AcknowledgmentOptionsPtrOutput() PartnershipX12AcknowledgmentOptionsPtrOutput {
+	return i.ToPartnershipX12AcknowledgmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i PartnershipX12AcknowledgmentOptionsArgs) ToPartnershipX12AcknowledgmentOptionsPtrOutputWithContext(ctx context.Context) PartnershipX12AcknowledgmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipX12AcknowledgmentOptionsOutput).ToPartnershipX12AcknowledgmentOptionsPtrOutputWithContext(ctx)
+}
+
+// PartnershipX12AcknowledgmentOptionsPtrInput is an input type that accepts PartnershipX12AcknowledgmentOptionsArgs, PartnershipX12AcknowledgmentOptionsPtr and PartnershipX12AcknowledgmentOptionsPtrOutput values.
+// You can construct a concrete instance of `PartnershipX12AcknowledgmentOptionsPtrInput` via:
+//
+//	        PartnershipX12AcknowledgmentOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartnershipX12AcknowledgmentOptionsPtrInput interface {
+	pulumi.Input
+
+	ToPartnershipX12AcknowledgmentOptionsPtrOutput() PartnershipX12AcknowledgmentOptionsPtrOutput
+	ToPartnershipX12AcknowledgmentOptionsPtrOutputWithContext(context.Context) PartnershipX12AcknowledgmentOptionsPtrOutput
+}
+
+type partnershipX12AcknowledgmentOptionsPtrType PartnershipX12AcknowledgmentOptionsArgs
+
+func PartnershipX12AcknowledgmentOptionsPtr(v *PartnershipX12AcknowledgmentOptionsArgs) PartnershipX12AcknowledgmentOptionsPtrInput {
+	return (*partnershipX12AcknowledgmentOptionsPtrType)(v)
+}
+
+func (*partnershipX12AcknowledgmentOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipX12AcknowledgmentOptions)(nil)).Elem()
+}
+
+func (i *partnershipX12AcknowledgmentOptionsPtrType) ToPartnershipX12AcknowledgmentOptionsPtrOutput() PartnershipX12AcknowledgmentOptionsPtrOutput {
+	return i.ToPartnershipX12AcknowledgmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *partnershipX12AcknowledgmentOptionsPtrType) ToPartnershipX12AcknowledgmentOptionsPtrOutputWithContext(ctx context.Context) PartnershipX12AcknowledgmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipX12AcknowledgmentOptionsPtrOutput)
+}
+
+type PartnershipX12AcknowledgmentOptionsOutput struct{ *pulumi.OutputState }
+
+func (PartnershipX12AcknowledgmentOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipX12AcknowledgmentOptions)(nil)).Elem()
+}
+
+func (o PartnershipX12AcknowledgmentOptionsOutput) ToPartnershipX12AcknowledgmentOptionsOutput() PartnershipX12AcknowledgmentOptionsOutput {
+	return o
+}
+
+func (o PartnershipX12AcknowledgmentOptionsOutput) ToPartnershipX12AcknowledgmentOptionsOutputWithContext(ctx context.Context) PartnershipX12AcknowledgmentOptionsOutput {
+	return o
+}
+
+func (o PartnershipX12AcknowledgmentOptionsOutput) ToPartnershipX12AcknowledgmentOptionsPtrOutput() PartnershipX12AcknowledgmentOptionsPtrOutput {
+	return o.ToPartnershipX12AcknowledgmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12AcknowledgmentOptionsOutput) ToPartnershipX12AcknowledgmentOptionsPtrOutputWithContext(ctx context.Context) PartnershipX12AcknowledgmentOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnershipX12AcknowledgmentOptions) *PartnershipX12AcknowledgmentOptions {
+		return &v
+	}).(PartnershipX12AcknowledgmentOptionsPtrOutput)
+}
+
+func (o PartnershipX12AcknowledgmentOptionsOutput) FunctionalAcknowledgment() PartnershipX12FunctionalAcknowledgmentOutput {
+	return o.ApplyT(func(v PartnershipX12AcknowledgmentOptions) PartnershipX12FunctionalAcknowledgment {
+		return v.FunctionalAcknowledgment
+	}).(PartnershipX12FunctionalAcknowledgmentOutput)
+}
+
+func (o PartnershipX12AcknowledgmentOptionsOutput) TechnicalAcknowledgment() PartnershipX12TechnicalAcknowledgmentOutput {
+	return o.ApplyT(func(v PartnershipX12AcknowledgmentOptions) PartnershipX12TechnicalAcknowledgment {
+		return v.TechnicalAcknowledgment
+	}).(PartnershipX12TechnicalAcknowledgmentOutput)
+}
+
+type PartnershipX12AcknowledgmentOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnershipX12AcknowledgmentOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipX12AcknowledgmentOptions)(nil)).Elem()
+}
+
+func (o PartnershipX12AcknowledgmentOptionsPtrOutput) ToPartnershipX12AcknowledgmentOptionsPtrOutput() PartnershipX12AcknowledgmentOptionsPtrOutput {
+	return o
+}
+
+func (o PartnershipX12AcknowledgmentOptionsPtrOutput) ToPartnershipX12AcknowledgmentOptionsPtrOutputWithContext(ctx context.Context) PartnershipX12AcknowledgmentOptionsPtrOutput {
+	return o
+}
+
+func (o PartnershipX12AcknowledgmentOptionsPtrOutput) Elem() PartnershipX12AcknowledgmentOptionsOutput {
+	return o.ApplyT(func(v *PartnershipX12AcknowledgmentOptions) PartnershipX12AcknowledgmentOptions {
+		if v != nil {
+			return *v
+		}
+		var ret PartnershipX12AcknowledgmentOptions
+		return ret
+	}).(PartnershipX12AcknowledgmentOptionsOutput)
+}
+
+func (o PartnershipX12AcknowledgmentOptionsPtrOutput) FunctionalAcknowledgment() PartnershipX12FunctionalAcknowledgmentPtrOutput {
+	return o.ApplyT(func(v *PartnershipX12AcknowledgmentOptions) *PartnershipX12FunctionalAcknowledgment {
+		if v == nil {
+			return nil
+		}
+		return &v.FunctionalAcknowledgment
+	}).(PartnershipX12FunctionalAcknowledgmentPtrOutput)
+}
+
+func (o PartnershipX12AcknowledgmentOptionsPtrOutput) TechnicalAcknowledgment() PartnershipX12TechnicalAcknowledgmentPtrOutput {
+	return o.ApplyT(func(v *PartnershipX12AcknowledgmentOptions) *PartnershipX12TechnicalAcknowledgment {
+		if v == nil {
+			return nil
+		}
+		return &v.TechnicalAcknowledgment
+	}).(PartnershipX12TechnicalAcknowledgmentPtrOutput)
+}
+
+type PartnershipX12ControlNumbers struct {
+	StartingFunctionalGroupControlNumber *float64 `pulumi:"startingFunctionalGroupControlNumber"`
+	StartingInterchangeControlNumber     *float64 `pulumi:"startingInterchangeControlNumber"`
+	StartingTransactionSetControlNumber  *float64 `pulumi:"startingTransactionSetControlNumber"`
+}
+
+// PartnershipX12ControlNumbersInput is an input type that accepts PartnershipX12ControlNumbersArgs and PartnershipX12ControlNumbersOutput values.
+// You can construct a concrete instance of `PartnershipX12ControlNumbersInput` via:
+//
+//	PartnershipX12ControlNumbersArgs{...}
+type PartnershipX12ControlNumbersInput interface {
+	pulumi.Input
+
+	ToPartnershipX12ControlNumbersOutput() PartnershipX12ControlNumbersOutput
+	ToPartnershipX12ControlNumbersOutputWithContext(context.Context) PartnershipX12ControlNumbersOutput
+}
+
+type PartnershipX12ControlNumbersArgs struct {
+	StartingFunctionalGroupControlNumber pulumi.Float64PtrInput `pulumi:"startingFunctionalGroupControlNumber"`
+	StartingInterchangeControlNumber     pulumi.Float64PtrInput `pulumi:"startingInterchangeControlNumber"`
+	StartingTransactionSetControlNumber  pulumi.Float64PtrInput `pulumi:"startingTransactionSetControlNumber"`
+}
+
+func (PartnershipX12ControlNumbersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipX12ControlNumbers)(nil)).Elem()
+}
+
+func (i PartnershipX12ControlNumbersArgs) ToPartnershipX12ControlNumbersOutput() PartnershipX12ControlNumbersOutput {
+	return i.ToPartnershipX12ControlNumbersOutputWithContext(context.Background())
+}
+
+func (i PartnershipX12ControlNumbersArgs) ToPartnershipX12ControlNumbersOutputWithContext(ctx context.Context) PartnershipX12ControlNumbersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipX12ControlNumbersOutput)
+}
+
+func (i PartnershipX12ControlNumbersArgs) ToPartnershipX12ControlNumbersPtrOutput() PartnershipX12ControlNumbersPtrOutput {
+	return i.ToPartnershipX12ControlNumbersPtrOutputWithContext(context.Background())
+}
+
+func (i PartnershipX12ControlNumbersArgs) ToPartnershipX12ControlNumbersPtrOutputWithContext(ctx context.Context) PartnershipX12ControlNumbersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipX12ControlNumbersOutput).ToPartnershipX12ControlNumbersPtrOutputWithContext(ctx)
+}
+
+// PartnershipX12ControlNumbersPtrInput is an input type that accepts PartnershipX12ControlNumbersArgs, PartnershipX12ControlNumbersPtr and PartnershipX12ControlNumbersPtrOutput values.
+// You can construct a concrete instance of `PartnershipX12ControlNumbersPtrInput` via:
+//
+//	        PartnershipX12ControlNumbersArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartnershipX12ControlNumbersPtrInput interface {
+	pulumi.Input
+
+	ToPartnershipX12ControlNumbersPtrOutput() PartnershipX12ControlNumbersPtrOutput
+	ToPartnershipX12ControlNumbersPtrOutputWithContext(context.Context) PartnershipX12ControlNumbersPtrOutput
+}
+
+type partnershipX12ControlNumbersPtrType PartnershipX12ControlNumbersArgs
+
+func PartnershipX12ControlNumbersPtr(v *PartnershipX12ControlNumbersArgs) PartnershipX12ControlNumbersPtrInput {
+	return (*partnershipX12ControlNumbersPtrType)(v)
+}
+
+func (*partnershipX12ControlNumbersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipX12ControlNumbers)(nil)).Elem()
+}
+
+func (i *partnershipX12ControlNumbersPtrType) ToPartnershipX12ControlNumbersPtrOutput() PartnershipX12ControlNumbersPtrOutput {
+	return i.ToPartnershipX12ControlNumbersPtrOutputWithContext(context.Background())
+}
+
+func (i *partnershipX12ControlNumbersPtrType) ToPartnershipX12ControlNumbersPtrOutputWithContext(ctx context.Context) PartnershipX12ControlNumbersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipX12ControlNumbersPtrOutput)
+}
+
+type PartnershipX12ControlNumbersOutput struct{ *pulumi.OutputState }
+
+func (PartnershipX12ControlNumbersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipX12ControlNumbers)(nil)).Elem()
+}
+
+func (o PartnershipX12ControlNumbersOutput) ToPartnershipX12ControlNumbersOutput() PartnershipX12ControlNumbersOutput {
+	return o
+}
+
+func (o PartnershipX12ControlNumbersOutput) ToPartnershipX12ControlNumbersOutputWithContext(ctx context.Context) PartnershipX12ControlNumbersOutput {
+	return o
+}
+
+func (o PartnershipX12ControlNumbersOutput) ToPartnershipX12ControlNumbersPtrOutput() PartnershipX12ControlNumbersPtrOutput {
+	return o.ToPartnershipX12ControlNumbersPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12ControlNumbersOutput) ToPartnershipX12ControlNumbersPtrOutputWithContext(ctx context.Context) PartnershipX12ControlNumbersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnershipX12ControlNumbers) *PartnershipX12ControlNumbers {
+		return &v
+	}).(PartnershipX12ControlNumbersPtrOutput)
+}
+
+func (o PartnershipX12ControlNumbersOutput) StartingFunctionalGroupControlNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PartnershipX12ControlNumbers) *float64 { return v.StartingFunctionalGroupControlNumber }).(pulumi.Float64PtrOutput)
+}
+
+func (o PartnershipX12ControlNumbersOutput) StartingInterchangeControlNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PartnershipX12ControlNumbers) *float64 { return v.StartingInterchangeControlNumber }).(pulumi.Float64PtrOutput)
+}
+
+func (o PartnershipX12ControlNumbersOutput) StartingTransactionSetControlNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PartnershipX12ControlNumbers) *float64 { return v.StartingTransactionSetControlNumber }).(pulumi.Float64PtrOutput)
+}
+
+type PartnershipX12ControlNumbersPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnershipX12ControlNumbersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipX12ControlNumbers)(nil)).Elem()
+}
+
+func (o PartnershipX12ControlNumbersPtrOutput) ToPartnershipX12ControlNumbersPtrOutput() PartnershipX12ControlNumbersPtrOutput {
+	return o
+}
+
+func (o PartnershipX12ControlNumbersPtrOutput) ToPartnershipX12ControlNumbersPtrOutputWithContext(ctx context.Context) PartnershipX12ControlNumbersPtrOutput {
+	return o
+}
+
+func (o PartnershipX12ControlNumbersPtrOutput) Elem() PartnershipX12ControlNumbersOutput {
+	return o.ApplyT(func(v *PartnershipX12ControlNumbers) PartnershipX12ControlNumbers {
+		if v != nil {
+			return *v
+		}
+		var ret PartnershipX12ControlNumbers
+		return ret
+	}).(PartnershipX12ControlNumbersOutput)
+}
+
+func (o PartnershipX12ControlNumbersPtrOutput) StartingFunctionalGroupControlNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PartnershipX12ControlNumbers) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.StartingFunctionalGroupControlNumber
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o PartnershipX12ControlNumbersPtrOutput) StartingInterchangeControlNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PartnershipX12ControlNumbers) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.StartingInterchangeControlNumber
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o PartnershipX12ControlNumbersPtrOutput) StartingTransactionSetControlNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PartnershipX12ControlNumbers) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.StartingTransactionSetControlNumber
+	}).(pulumi.Float64PtrOutput)
 }
 
 type PartnershipX12Delimiters struct {
@@ -1018,7 +1652,8 @@ func (o PartnershipX12DelimitersPtrOutput) SegmentTerminator() pulumi.StringPtrO
 }
 
 type PartnershipX12Envelope struct {
-	Common *PartnershipX12OutboundEdiHeaders `pulumi:"common"`
+	Common      *PartnershipX12OutboundEdiHeaders `pulumi:"common"`
+	WrapOptions *PartnershipWrapOptions           `pulumi:"wrapOptions"`
 }
 
 // PartnershipX12EnvelopeInput is an input type that accepts PartnershipX12EnvelopeArgs and PartnershipX12EnvelopeOutput values.
@@ -1033,7 +1668,8 @@ type PartnershipX12EnvelopeInput interface {
 }
 
 type PartnershipX12EnvelopeArgs struct {
-	Common PartnershipX12OutboundEdiHeadersPtrInput `pulumi:"common"`
+	Common      PartnershipX12OutboundEdiHeadersPtrInput `pulumi:"common"`
+	WrapOptions PartnershipWrapOptionsPtrInput           `pulumi:"wrapOptions"`
 }
 
 func (PartnershipX12EnvelopeArgs) ElementType() reflect.Type {
@@ -1117,6 +1753,10 @@ func (o PartnershipX12EnvelopeOutput) Common() PartnershipX12OutboundEdiHeadersP
 	return o.ApplyT(func(v PartnershipX12Envelope) *PartnershipX12OutboundEdiHeaders { return v.Common }).(PartnershipX12OutboundEdiHeadersPtrOutput)
 }
 
+func (o PartnershipX12EnvelopeOutput) WrapOptions() PartnershipWrapOptionsPtrOutput {
+	return o.ApplyT(func(v PartnershipX12Envelope) *PartnershipWrapOptions { return v.WrapOptions }).(PartnershipWrapOptionsPtrOutput)
+}
+
 type PartnershipX12EnvelopePtrOutput struct{ *pulumi.OutputState }
 
 func (PartnershipX12EnvelopePtrOutput) ElementType() reflect.Type {
@@ -1148,6 +1788,15 @@ func (o PartnershipX12EnvelopePtrOutput) Common() PartnershipX12OutboundEdiHeade
 		}
 		return v.Common
 	}).(PartnershipX12OutboundEdiHeadersPtrOutput)
+}
+
+func (o PartnershipX12EnvelopePtrOutput) WrapOptions() PartnershipWrapOptionsPtrOutput {
+	return o.ApplyT(func(v *PartnershipX12Envelope) *PartnershipWrapOptions {
+		if v == nil {
+			return nil
+		}
+		return v.WrapOptions
+	}).(PartnershipWrapOptionsPtrOutput)
 }
 
 type PartnershipX12FunctionalGroupHeaders struct {
@@ -1311,6 +1960,145 @@ func (o PartnershipX12FunctionalGroupHeadersPtrOutput) ResponsibleAgencyCode() p
 		}
 		return v.ResponsibleAgencyCode
 	}).(pulumi.StringPtrOutput)
+}
+
+type PartnershipX12InboundEdiOptions struct {
+	// Specifies acknowledgment options for inbound X12 EDI files. These options control how functional and technical acknowledgments are handled.
+	AcknowledgmentOptions *PartnershipX12AcknowledgmentOptions `pulumi:"acknowledgmentOptions"`
+}
+
+// PartnershipX12InboundEdiOptionsInput is an input type that accepts PartnershipX12InboundEdiOptionsArgs and PartnershipX12InboundEdiOptionsOutput values.
+// You can construct a concrete instance of `PartnershipX12InboundEdiOptionsInput` via:
+//
+//	PartnershipX12InboundEdiOptionsArgs{...}
+type PartnershipX12InboundEdiOptionsInput interface {
+	pulumi.Input
+
+	ToPartnershipX12InboundEdiOptionsOutput() PartnershipX12InboundEdiOptionsOutput
+	ToPartnershipX12InboundEdiOptionsOutputWithContext(context.Context) PartnershipX12InboundEdiOptionsOutput
+}
+
+type PartnershipX12InboundEdiOptionsArgs struct {
+	// Specifies acknowledgment options for inbound X12 EDI files. These options control how functional and technical acknowledgments are handled.
+	AcknowledgmentOptions PartnershipX12AcknowledgmentOptionsPtrInput `pulumi:"acknowledgmentOptions"`
+}
+
+func (PartnershipX12InboundEdiOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipX12InboundEdiOptions)(nil)).Elem()
+}
+
+func (i PartnershipX12InboundEdiOptionsArgs) ToPartnershipX12InboundEdiOptionsOutput() PartnershipX12InboundEdiOptionsOutput {
+	return i.ToPartnershipX12InboundEdiOptionsOutputWithContext(context.Background())
+}
+
+func (i PartnershipX12InboundEdiOptionsArgs) ToPartnershipX12InboundEdiOptionsOutputWithContext(ctx context.Context) PartnershipX12InboundEdiOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipX12InboundEdiOptionsOutput)
+}
+
+func (i PartnershipX12InboundEdiOptionsArgs) ToPartnershipX12InboundEdiOptionsPtrOutput() PartnershipX12InboundEdiOptionsPtrOutput {
+	return i.ToPartnershipX12InboundEdiOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i PartnershipX12InboundEdiOptionsArgs) ToPartnershipX12InboundEdiOptionsPtrOutputWithContext(ctx context.Context) PartnershipX12InboundEdiOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipX12InboundEdiOptionsOutput).ToPartnershipX12InboundEdiOptionsPtrOutputWithContext(ctx)
+}
+
+// PartnershipX12InboundEdiOptionsPtrInput is an input type that accepts PartnershipX12InboundEdiOptionsArgs, PartnershipX12InboundEdiOptionsPtr and PartnershipX12InboundEdiOptionsPtrOutput values.
+// You can construct a concrete instance of `PartnershipX12InboundEdiOptionsPtrInput` via:
+//
+//	        PartnershipX12InboundEdiOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartnershipX12InboundEdiOptionsPtrInput interface {
+	pulumi.Input
+
+	ToPartnershipX12InboundEdiOptionsPtrOutput() PartnershipX12InboundEdiOptionsPtrOutput
+	ToPartnershipX12InboundEdiOptionsPtrOutputWithContext(context.Context) PartnershipX12InboundEdiOptionsPtrOutput
+}
+
+type partnershipX12InboundEdiOptionsPtrType PartnershipX12InboundEdiOptionsArgs
+
+func PartnershipX12InboundEdiOptionsPtr(v *PartnershipX12InboundEdiOptionsArgs) PartnershipX12InboundEdiOptionsPtrInput {
+	return (*partnershipX12InboundEdiOptionsPtrType)(v)
+}
+
+func (*partnershipX12InboundEdiOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipX12InboundEdiOptions)(nil)).Elem()
+}
+
+func (i *partnershipX12InboundEdiOptionsPtrType) ToPartnershipX12InboundEdiOptionsPtrOutput() PartnershipX12InboundEdiOptionsPtrOutput {
+	return i.ToPartnershipX12InboundEdiOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *partnershipX12InboundEdiOptionsPtrType) ToPartnershipX12InboundEdiOptionsPtrOutputWithContext(ctx context.Context) PartnershipX12InboundEdiOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnershipX12InboundEdiOptionsPtrOutput)
+}
+
+type PartnershipX12InboundEdiOptionsOutput struct{ *pulumi.OutputState }
+
+func (PartnershipX12InboundEdiOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipX12InboundEdiOptions)(nil)).Elem()
+}
+
+func (o PartnershipX12InboundEdiOptionsOutput) ToPartnershipX12InboundEdiOptionsOutput() PartnershipX12InboundEdiOptionsOutput {
+	return o
+}
+
+func (o PartnershipX12InboundEdiOptionsOutput) ToPartnershipX12InboundEdiOptionsOutputWithContext(ctx context.Context) PartnershipX12InboundEdiOptionsOutput {
+	return o
+}
+
+func (o PartnershipX12InboundEdiOptionsOutput) ToPartnershipX12InboundEdiOptionsPtrOutput() PartnershipX12InboundEdiOptionsPtrOutput {
+	return o.ToPartnershipX12InboundEdiOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12InboundEdiOptionsOutput) ToPartnershipX12InboundEdiOptionsPtrOutputWithContext(ctx context.Context) PartnershipX12InboundEdiOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnershipX12InboundEdiOptions) *PartnershipX12InboundEdiOptions {
+		return &v
+	}).(PartnershipX12InboundEdiOptionsPtrOutput)
+}
+
+// Specifies acknowledgment options for inbound X12 EDI files. These options control how functional and technical acknowledgments are handled.
+func (o PartnershipX12InboundEdiOptionsOutput) AcknowledgmentOptions() PartnershipX12AcknowledgmentOptionsPtrOutput {
+	return o.ApplyT(func(v PartnershipX12InboundEdiOptions) *PartnershipX12AcknowledgmentOptions {
+		return v.AcknowledgmentOptions
+	}).(PartnershipX12AcknowledgmentOptionsPtrOutput)
+}
+
+type PartnershipX12InboundEdiOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnershipX12InboundEdiOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipX12InboundEdiOptions)(nil)).Elem()
+}
+
+func (o PartnershipX12InboundEdiOptionsPtrOutput) ToPartnershipX12InboundEdiOptionsPtrOutput() PartnershipX12InboundEdiOptionsPtrOutput {
+	return o
+}
+
+func (o PartnershipX12InboundEdiOptionsPtrOutput) ToPartnershipX12InboundEdiOptionsPtrOutputWithContext(ctx context.Context) PartnershipX12InboundEdiOptionsPtrOutput {
+	return o
+}
+
+func (o PartnershipX12InboundEdiOptionsPtrOutput) Elem() PartnershipX12InboundEdiOptionsOutput {
+	return o.ApplyT(func(v *PartnershipX12InboundEdiOptions) PartnershipX12InboundEdiOptions {
+		if v != nil {
+			return *v
+		}
+		var ret PartnershipX12InboundEdiOptions
+		return ret
+	}).(PartnershipX12InboundEdiOptionsOutput)
+}
+
+// Specifies acknowledgment options for inbound X12 EDI files. These options control how functional and technical acknowledgments are handled.
+func (o PartnershipX12InboundEdiOptionsPtrOutput) AcknowledgmentOptions() PartnershipX12AcknowledgmentOptionsPtrOutput {
+	return o.ApplyT(func(v *PartnershipX12InboundEdiOptions) *PartnershipX12AcknowledgmentOptions {
+		if v == nil {
+			return nil
+		}
+		return v.AcknowledgmentOptions
+	}).(PartnershipX12AcknowledgmentOptionsPtrOutput)
 }
 
 type PartnershipX12InterchangeControlHeaders struct {
@@ -1537,8 +2325,10 @@ func (o PartnershipX12InterchangeControlHeadersPtrOutput) UsageIndicatorCode() p
 }
 
 type PartnershipX12OutboundEdiHeaders struct {
+	ControlNumbers            *PartnershipX12ControlNumbers            `pulumi:"controlNumbers"`
 	Delimiters                *PartnershipX12Delimiters                `pulumi:"delimiters"`
 	FunctionalGroupHeaders    *PartnershipX12FunctionalGroupHeaders    `pulumi:"functionalGroupHeaders"`
+	Gs05TimeFormat            *PartnershipX12gs05TimeFormat            `pulumi:"gs05TimeFormat"`
 	InterchangeControlHeaders *PartnershipX12InterchangeControlHeaders `pulumi:"interchangeControlHeaders"`
 	ValidateEdi               *bool                                    `pulumi:"validateEdi"`
 }
@@ -1555,8 +2345,10 @@ type PartnershipX12OutboundEdiHeadersInput interface {
 }
 
 type PartnershipX12OutboundEdiHeadersArgs struct {
+	ControlNumbers            PartnershipX12ControlNumbersPtrInput            `pulumi:"controlNumbers"`
 	Delimiters                PartnershipX12DelimitersPtrInput                `pulumi:"delimiters"`
 	FunctionalGroupHeaders    PartnershipX12FunctionalGroupHeadersPtrInput    `pulumi:"functionalGroupHeaders"`
+	Gs05TimeFormat            PartnershipX12gs05TimeFormatPtrInput            `pulumi:"gs05TimeFormat"`
 	InterchangeControlHeaders PartnershipX12InterchangeControlHeadersPtrInput `pulumi:"interchangeControlHeaders"`
 	ValidateEdi               pulumi.BoolPtrInput                             `pulumi:"validateEdi"`
 }
@@ -1638,6 +2430,10 @@ func (o PartnershipX12OutboundEdiHeadersOutput) ToPartnershipX12OutboundEdiHeade
 	}).(PartnershipX12OutboundEdiHeadersPtrOutput)
 }
 
+func (o PartnershipX12OutboundEdiHeadersOutput) ControlNumbers() PartnershipX12ControlNumbersPtrOutput {
+	return o.ApplyT(func(v PartnershipX12OutboundEdiHeaders) *PartnershipX12ControlNumbers { return v.ControlNumbers }).(PartnershipX12ControlNumbersPtrOutput)
+}
+
 func (o PartnershipX12OutboundEdiHeadersOutput) Delimiters() PartnershipX12DelimitersPtrOutput {
 	return o.ApplyT(func(v PartnershipX12OutboundEdiHeaders) *PartnershipX12Delimiters { return v.Delimiters }).(PartnershipX12DelimitersPtrOutput)
 }
@@ -1646,6 +2442,10 @@ func (o PartnershipX12OutboundEdiHeadersOutput) FunctionalGroupHeaders() Partner
 	return o.ApplyT(func(v PartnershipX12OutboundEdiHeaders) *PartnershipX12FunctionalGroupHeaders {
 		return v.FunctionalGroupHeaders
 	}).(PartnershipX12FunctionalGroupHeadersPtrOutput)
+}
+
+func (o PartnershipX12OutboundEdiHeadersOutput) Gs05TimeFormat() PartnershipX12gs05TimeFormatPtrOutput {
+	return o.ApplyT(func(v PartnershipX12OutboundEdiHeaders) *PartnershipX12gs05TimeFormat { return v.Gs05TimeFormat }).(PartnershipX12gs05TimeFormatPtrOutput)
 }
 
 func (o PartnershipX12OutboundEdiHeadersOutput) InterchangeControlHeaders() PartnershipX12InterchangeControlHeadersPtrOutput {
@@ -1682,6 +2482,15 @@ func (o PartnershipX12OutboundEdiHeadersPtrOutput) Elem() PartnershipX12Outbound
 	}).(PartnershipX12OutboundEdiHeadersOutput)
 }
 
+func (o PartnershipX12OutboundEdiHeadersPtrOutput) ControlNumbers() PartnershipX12ControlNumbersPtrOutput {
+	return o.ApplyT(func(v *PartnershipX12OutboundEdiHeaders) *PartnershipX12ControlNumbers {
+		if v == nil {
+			return nil
+		}
+		return v.ControlNumbers
+	}).(PartnershipX12ControlNumbersPtrOutput)
+}
+
 func (o PartnershipX12OutboundEdiHeadersPtrOutput) Delimiters() PartnershipX12DelimitersPtrOutput {
 	return o.ApplyT(func(v *PartnershipX12OutboundEdiHeaders) *PartnershipX12Delimiters {
 		if v == nil {
@@ -1698,6 +2507,15 @@ func (o PartnershipX12OutboundEdiHeadersPtrOutput) FunctionalGroupHeaders() Part
 		}
 		return v.FunctionalGroupHeaders
 	}).(PartnershipX12FunctionalGroupHeadersPtrOutput)
+}
+
+func (o PartnershipX12OutboundEdiHeadersPtrOutput) Gs05TimeFormat() PartnershipX12gs05TimeFormatPtrOutput {
+	return o.ApplyT(func(v *PartnershipX12OutboundEdiHeaders) *PartnershipX12gs05TimeFormat {
+		if v == nil {
+			return nil
+		}
+		return v.Gs05TimeFormat
+	}).(PartnershipX12gs05TimeFormatPtrOutput)
 }
 
 func (o PartnershipX12OutboundEdiHeadersPtrOutput) InterchangeControlHeaders() PartnershipX12InterchangeControlHeadersPtrOutput {
@@ -1723,6 +2541,139 @@ type ProfileTag struct {
 	Key string `pulumi:"key"`
 	// Contains one or more values that you assigned to the key name that you create.
 	Value string `pulumi:"value"`
+}
+
+type TransformerAdvancedOptions struct {
+	X12 *TransformerX12AdvancedOptions `pulumi:"x12"`
+}
+
+// TransformerAdvancedOptionsInput is an input type that accepts TransformerAdvancedOptionsArgs and TransformerAdvancedOptionsOutput values.
+// You can construct a concrete instance of `TransformerAdvancedOptionsInput` via:
+//
+//	TransformerAdvancedOptionsArgs{...}
+type TransformerAdvancedOptionsInput interface {
+	pulumi.Input
+
+	ToTransformerAdvancedOptionsOutput() TransformerAdvancedOptionsOutput
+	ToTransformerAdvancedOptionsOutputWithContext(context.Context) TransformerAdvancedOptionsOutput
+}
+
+type TransformerAdvancedOptionsArgs struct {
+	X12 TransformerX12AdvancedOptionsPtrInput `pulumi:"x12"`
+}
+
+func (TransformerAdvancedOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerAdvancedOptions)(nil)).Elem()
+}
+
+func (i TransformerAdvancedOptionsArgs) ToTransformerAdvancedOptionsOutput() TransformerAdvancedOptionsOutput {
+	return i.ToTransformerAdvancedOptionsOutputWithContext(context.Background())
+}
+
+func (i TransformerAdvancedOptionsArgs) ToTransformerAdvancedOptionsOutputWithContext(ctx context.Context) TransformerAdvancedOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerAdvancedOptionsOutput)
+}
+
+func (i TransformerAdvancedOptionsArgs) ToTransformerAdvancedOptionsPtrOutput() TransformerAdvancedOptionsPtrOutput {
+	return i.ToTransformerAdvancedOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TransformerAdvancedOptionsArgs) ToTransformerAdvancedOptionsPtrOutputWithContext(ctx context.Context) TransformerAdvancedOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerAdvancedOptionsOutput).ToTransformerAdvancedOptionsPtrOutputWithContext(ctx)
+}
+
+// TransformerAdvancedOptionsPtrInput is an input type that accepts TransformerAdvancedOptionsArgs, TransformerAdvancedOptionsPtr and TransformerAdvancedOptionsPtrOutput values.
+// You can construct a concrete instance of `TransformerAdvancedOptionsPtrInput` via:
+//
+//	        TransformerAdvancedOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformerAdvancedOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTransformerAdvancedOptionsPtrOutput() TransformerAdvancedOptionsPtrOutput
+	ToTransformerAdvancedOptionsPtrOutputWithContext(context.Context) TransformerAdvancedOptionsPtrOutput
+}
+
+type transformerAdvancedOptionsPtrType TransformerAdvancedOptionsArgs
+
+func TransformerAdvancedOptionsPtr(v *TransformerAdvancedOptionsArgs) TransformerAdvancedOptionsPtrInput {
+	return (*transformerAdvancedOptionsPtrType)(v)
+}
+
+func (*transformerAdvancedOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerAdvancedOptions)(nil)).Elem()
+}
+
+func (i *transformerAdvancedOptionsPtrType) ToTransformerAdvancedOptionsPtrOutput() TransformerAdvancedOptionsPtrOutput {
+	return i.ToTransformerAdvancedOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *transformerAdvancedOptionsPtrType) ToTransformerAdvancedOptionsPtrOutputWithContext(ctx context.Context) TransformerAdvancedOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerAdvancedOptionsPtrOutput)
+}
+
+type TransformerAdvancedOptionsOutput struct{ *pulumi.OutputState }
+
+func (TransformerAdvancedOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerAdvancedOptions)(nil)).Elem()
+}
+
+func (o TransformerAdvancedOptionsOutput) ToTransformerAdvancedOptionsOutput() TransformerAdvancedOptionsOutput {
+	return o
+}
+
+func (o TransformerAdvancedOptionsOutput) ToTransformerAdvancedOptionsOutputWithContext(ctx context.Context) TransformerAdvancedOptionsOutput {
+	return o
+}
+
+func (o TransformerAdvancedOptionsOutput) ToTransformerAdvancedOptionsPtrOutput() TransformerAdvancedOptionsPtrOutput {
+	return o.ToTransformerAdvancedOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerAdvancedOptionsOutput) ToTransformerAdvancedOptionsPtrOutputWithContext(ctx context.Context) TransformerAdvancedOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerAdvancedOptions) *TransformerAdvancedOptions {
+		return &v
+	}).(TransformerAdvancedOptionsPtrOutput)
+}
+
+func (o TransformerAdvancedOptionsOutput) X12() TransformerX12AdvancedOptionsPtrOutput {
+	return o.ApplyT(func(v TransformerAdvancedOptions) *TransformerX12AdvancedOptions { return v.X12 }).(TransformerX12AdvancedOptionsPtrOutput)
+}
+
+type TransformerAdvancedOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerAdvancedOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerAdvancedOptions)(nil)).Elem()
+}
+
+func (o TransformerAdvancedOptionsPtrOutput) ToTransformerAdvancedOptionsPtrOutput() TransformerAdvancedOptionsPtrOutput {
+	return o
+}
+
+func (o TransformerAdvancedOptionsPtrOutput) ToTransformerAdvancedOptionsPtrOutputWithContext(ctx context.Context) TransformerAdvancedOptionsPtrOutput {
+	return o
+}
+
+func (o TransformerAdvancedOptionsPtrOutput) Elem() TransformerAdvancedOptionsOutput {
+	return o.ApplyT(func(v *TransformerAdvancedOptions) TransformerAdvancedOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerAdvancedOptions
+		return ret
+	}).(TransformerAdvancedOptionsOutput)
+}
+
+func (o TransformerAdvancedOptionsPtrOutput) X12() TransformerX12AdvancedOptionsPtrOutput {
+	return o.ApplyT(func(v *TransformerAdvancedOptions) *TransformerX12AdvancedOptions {
+		if v == nil {
+			return nil
+		}
+		return v.X12
+	}).(TransformerX12AdvancedOptionsPtrOutput)
 }
 
 type TransformerEdiType0Properties struct {
@@ -2000,8 +2951,9 @@ func (o TransformerFormatOptionsPropertiesPtrOutput) X12() TransformerX12Details
 }
 
 type TransformerInputConversion struct {
-	FormatOptions *TransformerFormatOptionsProperties `pulumi:"formatOptions"`
-	FromFormat    TransformerFromFormat               `pulumi:"fromFormat"`
+	AdvancedOptions *TransformerAdvancedOptions         `pulumi:"advancedOptions"`
+	FormatOptions   *TransformerFormatOptionsProperties `pulumi:"formatOptions"`
+	FromFormat      TransformerFromFormat               `pulumi:"fromFormat"`
 }
 
 // TransformerInputConversionInput is an input type that accepts TransformerInputConversionArgs and TransformerInputConversionOutput values.
@@ -2016,8 +2968,9 @@ type TransformerInputConversionInput interface {
 }
 
 type TransformerInputConversionArgs struct {
-	FormatOptions TransformerFormatOptionsPropertiesPtrInput `pulumi:"formatOptions"`
-	FromFormat    TransformerFromFormatInput                 `pulumi:"fromFormat"`
+	AdvancedOptions TransformerAdvancedOptionsPtrInput         `pulumi:"advancedOptions"`
+	FormatOptions   TransformerFormatOptionsPropertiesPtrInput `pulumi:"formatOptions"`
+	FromFormat      TransformerFromFormatInput                 `pulumi:"fromFormat"`
 }
 
 func (TransformerInputConversionArgs) ElementType() reflect.Type {
@@ -2097,6 +3050,10 @@ func (o TransformerInputConversionOutput) ToTransformerInputConversionPtrOutputW
 	}).(TransformerInputConversionPtrOutput)
 }
 
+func (o TransformerInputConversionOutput) AdvancedOptions() TransformerAdvancedOptionsPtrOutput {
+	return o.ApplyT(func(v TransformerInputConversion) *TransformerAdvancedOptions { return v.AdvancedOptions }).(TransformerAdvancedOptionsPtrOutput)
+}
+
 func (o TransformerInputConversionOutput) FormatOptions() TransformerFormatOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v TransformerInputConversion) *TransformerFormatOptionsProperties { return v.FormatOptions }).(TransformerFormatOptionsPropertiesPtrOutput)
 }
@@ -2127,6 +3084,15 @@ func (o TransformerInputConversionPtrOutput) Elem() TransformerInputConversionOu
 		var ret TransformerInputConversion
 		return ret
 	}).(TransformerInputConversionOutput)
+}
+
+func (o TransformerInputConversionPtrOutput) AdvancedOptions() TransformerAdvancedOptionsPtrOutput {
+	return o.ApplyT(func(v *TransformerInputConversion) *TransformerAdvancedOptions {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedOptions
+	}).(TransformerAdvancedOptionsPtrOutput)
 }
 
 func (o TransformerInputConversionPtrOutput) FormatOptions() TransformerFormatOptionsPropertiesPtrOutput {
@@ -2698,6 +3664,139 @@ type TransformerTag struct {
 	Value string `pulumi:"value"`
 }
 
+type TransformerX12AdvancedOptions struct {
+	SplitOptions *TransformerX12SplitOptions `pulumi:"splitOptions"`
+}
+
+// TransformerX12AdvancedOptionsInput is an input type that accepts TransformerX12AdvancedOptionsArgs and TransformerX12AdvancedOptionsOutput values.
+// You can construct a concrete instance of `TransformerX12AdvancedOptionsInput` via:
+//
+//	TransformerX12AdvancedOptionsArgs{...}
+type TransformerX12AdvancedOptionsInput interface {
+	pulumi.Input
+
+	ToTransformerX12AdvancedOptionsOutput() TransformerX12AdvancedOptionsOutput
+	ToTransformerX12AdvancedOptionsOutputWithContext(context.Context) TransformerX12AdvancedOptionsOutput
+}
+
+type TransformerX12AdvancedOptionsArgs struct {
+	SplitOptions TransformerX12SplitOptionsPtrInput `pulumi:"splitOptions"`
+}
+
+func (TransformerX12AdvancedOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12AdvancedOptions)(nil)).Elem()
+}
+
+func (i TransformerX12AdvancedOptionsArgs) ToTransformerX12AdvancedOptionsOutput() TransformerX12AdvancedOptionsOutput {
+	return i.ToTransformerX12AdvancedOptionsOutputWithContext(context.Background())
+}
+
+func (i TransformerX12AdvancedOptionsArgs) ToTransformerX12AdvancedOptionsOutputWithContext(ctx context.Context) TransformerX12AdvancedOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12AdvancedOptionsOutput)
+}
+
+func (i TransformerX12AdvancedOptionsArgs) ToTransformerX12AdvancedOptionsPtrOutput() TransformerX12AdvancedOptionsPtrOutput {
+	return i.ToTransformerX12AdvancedOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TransformerX12AdvancedOptionsArgs) ToTransformerX12AdvancedOptionsPtrOutputWithContext(ctx context.Context) TransformerX12AdvancedOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12AdvancedOptionsOutput).ToTransformerX12AdvancedOptionsPtrOutputWithContext(ctx)
+}
+
+// TransformerX12AdvancedOptionsPtrInput is an input type that accepts TransformerX12AdvancedOptionsArgs, TransformerX12AdvancedOptionsPtr and TransformerX12AdvancedOptionsPtrOutput values.
+// You can construct a concrete instance of `TransformerX12AdvancedOptionsPtrInput` via:
+//
+//	        TransformerX12AdvancedOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformerX12AdvancedOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTransformerX12AdvancedOptionsPtrOutput() TransformerX12AdvancedOptionsPtrOutput
+	ToTransformerX12AdvancedOptionsPtrOutputWithContext(context.Context) TransformerX12AdvancedOptionsPtrOutput
+}
+
+type transformerX12AdvancedOptionsPtrType TransformerX12AdvancedOptionsArgs
+
+func TransformerX12AdvancedOptionsPtr(v *TransformerX12AdvancedOptionsArgs) TransformerX12AdvancedOptionsPtrInput {
+	return (*transformerX12AdvancedOptionsPtrType)(v)
+}
+
+func (*transformerX12AdvancedOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerX12AdvancedOptions)(nil)).Elem()
+}
+
+func (i *transformerX12AdvancedOptionsPtrType) ToTransformerX12AdvancedOptionsPtrOutput() TransformerX12AdvancedOptionsPtrOutput {
+	return i.ToTransformerX12AdvancedOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *transformerX12AdvancedOptionsPtrType) ToTransformerX12AdvancedOptionsPtrOutputWithContext(ctx context.Context) TransformerX12AdvancedOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12AdvancedOptionsPtrOutput)
+}
+
+type TransformerX12AdvancedOptionsOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12AdvancedOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12AdvancedOptions)(nil)).Elem()
+}
+
+func (o TransformerX12AdvancedOptionsOutput) ToTransformerX12AdvancedOptionsOutput() TransformerX12AdvancedOptionsOutput {
+	return o
+}
+
+func (o TransformerX12AdvancedOptionsOutput) ToTransformerX12AdvancedOptionsOutputWithContext(ctx context.Context) TransformerX12AdvancedOptionsOutput {
+	return o
+}
+
+func (o TransformerX12AdvancedOptionsOutput) ToTransformerX12AdvancedOptionsPtrOutput() TransformerX12AdvancedOptionsPtrOutput {
+	return o.ToTransformerX12AdvancedOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerX12AdvancedOptionsOutput) ToTransformerX12AdvancedOptionsPtrOutputWithContext(ctx context.Context) TransformerX12AdvancedOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerX12AdvancedOptions) *TransformerX12AdvancedOptions {
+		return &v
+	}).(TransformerX12AdvancedOptionsPtrOutput)
+}
+
+func (o TransformerX12AdvancedOptionsOutput) SplitOptions() TransformerX12SplitOptionsPtrOutput {
+	return o.ApplyT(func(v TransformerX12AdvancedOptions) *TransformerX12SplitOptions { return v.SplitOptions }).(TransformerX12SplitOptionsPtrOutput)
+}
+
+type TransformerX12AdvancedOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12AdvancedOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerX12AdvancedOptions)(nil)).Elem()
+}
+
+func (o TransformerX12AdvancedOptionsPtrOutput) ToTransformerX12AdvancedOptionsPtrOutput() TransformerX12AdvancedOptionsPtrOutput {
+	return o
+}
+
+func (o TransformerX12AdvancedOptionsPtrOutput) ToTransformerX12AdvancedOptionsPtrOutputWithContext(ctx context.Context) TransformerX12AdvancedOptionsPtrOutput {
+	return o
+}
+
+func (o TransformerX12AdvancedOptionsPtrOutput) Elem() TransformerX12AdvancedOptionsOutput {
+	return o.ApplyT(func(v *TransformerX12AdvancedOptions) TransformerX12AdvancedOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerX12AdvancedOptions
+		return ret
+	}).(TransformerX12AdvancedOptionsOutput)
+}
+
+func (o TransformerX12AdvancedOptionsPtrOutput) SplitOptions() TransformerX12SplitOptionsPtrOutput {
+	return o.ApplyT(func(v *TransformerX12AdvancedOptions) *TransformerX12SplitOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SplitOptions
+	}).(TransformerX12SplitOptionsPtrOutput)
+}
+
 type TransformerX12Details struct {
 	TransactionSet *TransformerX12TransactionSet `pulumi:"transactionSet"`
 	Version        *TransformerX12Version        `pulumi:"version"`
@@ -2846,6 +3945,139 @@ func (o TransformerX12DetailsPtrOutput) Version() TransformerX12VersionPtrOutput
 	}).(TransformerX12VersionPtrOutput)
 }
 
+type TransformerX12SplitOptions struct {
+	SplitBy *TransformerX12SplitBy `pulumi:"splitBy"`
+}
+
+// TransformerX12SplitOptionsInput is an input type that accepts TransformerX12SplitOptionsArgs and TransformerX12SplitOptionsOutput values.
+// You can construct a concrete instance of `TransformerX12SplitOptionsInput` via:
+//
+//	TransformerX12SplitOptionsArgs{...}
+type TransformerX12SplitOptionsInput interface {
+	pulumi.Input
+
+	ToTransformerX12SplitOptionsOutput() TransformerX12SplitOptionsOutput
+	ToTransformerX12SplitOptionsOutputWithContext(context.Context) TransformerX12SplitOptionsOutput
+}
+
+type TransformerX12SplitOptionsArgs struct {
+	SplitBy TransformerX12SplitByPtrInput `pulumi:"splitBy"`
+}
+
+func (TransformerX12SplitOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12SplitOptions)(nil)).Elem()
+}
+
+func (i TransformerX12SplitOptionsArgs) ToTransformerX12SplitOptionsOutput() TransformerX12SplitOptionsOutput {
+	return i.ToTransformerX12SplitOptionsOutputWithContext(context.Background())
+}
+
+func (i TransformerX12SplitOptionsArgs) ToTransformerX12SplitOptionsOutputWithContext(ctx context.Context) TransformerX12SplitOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12SplitOptionsOutput)
+}
+
+func (i TransformerX12SplitOptionsArgs) ToTransformerX12SplitOptionsPtrOutput() TransformerX12SplitOptionsPtrOutput {
+	return i.ToTransformerX12SplitOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TransformerX12SplitOptionsArgs) ToTransformerX12SplitOptionsPtrOutputWithContext(ctx context.Context) TransformerX12SplitOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12SplitOptionsOutput).ToTransformerX12SplitOptionsPtrOutputWithContext(ctx)
+}
+
+// TransformerX12SplitOptionsPtrInput is an input type that accepts TransformerX12SplitOptionsArgs, TransformerX12SplitOptionsPtr and TransformerX12SplitOptionsPtrOutput values.
+// You can construct a concrete instance of `TransformerX12SplitOptionsPtrInput` via:
+//
+//	        TransformerX12SplitOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformerX12SplitOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTransformerX12SplitOptionsPtrOutput() TransformerX12SplitOptionsPtrOutput
+	ToTransformerX12SplitOptionsPtrOutputWithContext(context.Context) TransformerX12SplitOptionsPtrOutput
+}
+
+type transformerX12SplitOptionsPtrType TransformerX12SplitOptionsArgs
+
+func TransformerX12SplitOptionsPtr(v *TransformerX12SplitOptionsArgs) TransformerX12SplitOptionsPtrInput {
+	return (*transformerX12SplitOptionsPtrType)(v)
+}
+
+func (*transformerX12SplitOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerX12SplitOptions)(nil)).Elem()
+}
+
+func (i *transformerX12SplitOptionsPtrType) ToTransformerX12SplitOptionsPtrOutput() TransformerX12SplitOptionsPtrOutput {
+	return i.ToTransformerX12SplitOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *transformerX12SplitOptionsPtrType) ToTransformerX12SplitOptionsPtrOutputWithContext(ctx context.Context) TransformerX12SplitOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12SplitOptionsPtrOutput)
+}
+
+type TransformerX12SplitOptionsOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12SplitOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12SplitOptions)(nil)).Elem()
+}
+
+func (o TransformerX12SplitOptionsOutput) ToTransformerX12SplitOptionsOutput() TransformerX12SplitOptionsOutput {
+	return o
+}
+
+func (o TransformerX12SplitOptionsOutput) ToTransformerX12SplitOptionsOutputWithContext(ctx context.Context) TransformerX12SplitOptionsOutput {
+	return o
+}
+
+func (o TransformerX12SplitOptionsOutput) ToTransformerX12SplitOptionsPtrOutput() TransformerX12SplitOptionsPtrOutput {
+	return o.ToTransformerX12SplitOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerX12SplitOptionsOutput) ToTransformerX12SplitOptionsPtrOutputWithContext(ctx context.Context) TransformerX12SplitOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerX12SplitOptions) *TransformerX12SplitOptions {
+		return &v
+	}).(TransformerX12SplitOptionsPtrOutput)
+}
+
+func (o TransformerX12SplitOptionsOutput) SplitBy() TransformerX12SplitByPtrOutput {
+	return o.ApplyT(func(v TransformerX12SplitOptions) *TransformerX12SplitBy { return v.SplitBy }).(TransformerX12SplitByPtrOutput)
+}
+
+type TransformerX12SplitOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12SplitOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerX12SplitOptions)(nil)).Elem()
+}
+
+func (o TransformerX12SplitOptionsPtrOutput) ToTransformerX12SplitOptionsPtrOutput() TransformerX12SplitOptionsPtrOutput {
+	return o
+}
+
+func (o TransformerX12SplitOptionsPtrOutput) ToTransformerX12SplitOptionsPtrOutputWithContext(ctx context.Context) TransformerX12SplitOptionsPtrOutput {
+	return o
+}
+
+func (o TransformerX12SplitOptionsPtrOutput) Elem() TransformerX12SplitOptionsOutput {
+	return o.ApplyT(func(v *TransformerX12SplitOptions) TransformerX12SplitOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerX12SplitOptions
+		return ret
+	}).(TransformerX12SplitOptionsOutput)
+}
+
+func (o TransformerX12SplitOptionsPtrOutput) SplitBy() TransformerX12SplitByPtrOutput {
+	return o.ApplyT(func(v *TransformerX12SplitOptions) *TransformerX12SplitBy {
+		if v == nil {
+			return nil
+		}
+		return v.SplitBy
+	}).(TransformerX12SplitByPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationPropertiesInput)(nil)).Elem(), CapabilityConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityEdiConfigurationInput)(nil)).Elem(), CapabilityEdiConfigurationArgs{})
@@ -2855,18 +4087,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityX12DetailsInput)(nil)).Elem(), CapabilityX12DetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipCapabilityOptionsInput)(nil)).Elem(), PartnershipCapabilityOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipCapabilityOptionsPtrInput)(nil)).Elem(), PartnershipCapabilityOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipInboundEdiOptionsInput)(nil)).Elem(), PartnershipInboundEdiOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipInboundEdiOptionsPtrInput)(nil)).Elem(), PartnershipInboundEdiOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipOutboundEdiOptionsPropertiesInput)(nil)).Elem(), PartnershipOutboundEdiOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipOutboundEdiOptionsPropertiesPtrInput)(nil)).Elem(), PartnershipOutboundEdiOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipWrapOptionsInput)(nil)).Elem(), PartnershipWrapOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipWrapOptionsPtrInput)(nil)).Elem(), PartnershipWrapOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12AcknowledgmentOptionsInput)(nil)).Elem(), PartnershipX12AcknowledgmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12AcknowledgmentOptionsPtrInput)(nil)).Elem(), PartnershipX12AcknowledgmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12ControlNumbersInput)(nil)).Elem(), PartnershipX12ControlNumbersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12ControlNumbersPtrInput)(nil)).Elem(), PartnershipX12ControlNumbersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12DelimitersInput)(nil)).Elem(), PartnershipX12DelimitersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12DelimitersPtrInput)(nil)).Elem(), PartnershipX12DelimitersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12EnvelopeInput)(nil)).Elem(), PartnershipX12EnvelopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12EnvelopePtrInput)(nil)).Elem(), PartnershipX12EnvelopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12FunctionalGroupHeadersInput)(nil)).Elem(), PartnershipX12FunctionalGroupHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12FunctionalGroupHeadersPtrInput)(nil)).Elem(), PartnershipX12FunctionalGroupHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12InboundEdiOptionsInput)(nil)).Elem(), PartnershipX12InboundEdiOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12InboundEdiOptionsPtrInput)(nil)).Elem(), PartnershipX12InboundEdiOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12InterchangeControlHeadersInput)(nil)).Elem(), PartnershipX12InterchangeControlHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12InterchangeControlHeadersPtrInput)(nil)).Elem(), PartnershipX12InterchangeControlHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12OutboundEdiHeadersInput)(nil)).Elem(), PartnershipX12OutboundEdiHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12OutboundEdiHeadersPtrInput)(nil)).Elem(), PartnershipX12OutboundEdiHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerAdvancedOptionsInput)(nil)).Elem(), TransformerAdvancedOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerAdvancedOptionsPtrInput)(nil)).Elem(), TransformerAdvancedOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerEdiTypePropertiesInput)(nil)).Elem(), TransformerEdiTypePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerEdiTypePropertiesPtrInput)(nil)).Elem(), TransformerEdiTypePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerFormatOptionsPropertiesInput)(nil)).Elem(), TransformerFormatOptionsPropertiesArgs{})
@@ -2881,8 +4125,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerSampleDocumentKeysArrayInput)(nil)).Elem(), TransformerSampleDocumentKeysArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerSampleDocumentsInput)(nil)).Elem(), TransformerSampleDocumentsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerSampleDocumentsPtrInput)(nil)).Elem(), TransformerSampleDocumentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12AdvancedOptionsInput)(nil)).Elem(), TransformerX12AdvancedOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12AdvancedOptionsPtrInput)(nil)).Elem(), TransformerX12AdvancedOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12DetailsInput)(nil)).Elem(), TransformerX12DetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12DetailsPtrInput)(nil)).Elem(), TransformerX12DetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12SplitOptionsInput)(nil)).Elem(), TransformerX12SplitOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12SplitOptionsPtrInput)(nil)).Elem(), TransformerX12SplitOptionsArgs{})
 	pulumi.RegisterOutputType(CapabilityConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(CapabilityConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CapabilityEdiConfigurationOutput{})
@@ -2896,18 +4144,30 @@ func init() {
 	pulumi.RegisterOutputType(CapabilityX12DetailsPtrOutput{})
 	pulumi.RegisterOutputType(PartnershipCapabilityOptionsOutput{})
 	pulumi.RegisterOutputType(PartnershipCapabilityOptionsPtrOutput{})
+	pulumi.RegisterOutputType(PartnershipInboundEdiOptionsOutput{})
+	pulumi.RegisterOutputType(PartnershipInboundEdiOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PartnershipOutboundEdiOptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(PartnershipOutboundEdiOptionsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PartnershipWrapOptionsOutput{})
+	pulumi.RegisterOutputType(PartnershipWrapOptionsPtrOutput{})
+	pulumi.RegisterOutputType(PartnershipX12AcknowledgmentOptionsOutput{})
+	pulumi.RegisterOutputType(PartnershipX12AcknowledgmentOptionsPtrOutput{})
+	pulumi.RegisterOutputType(PartnershipX12ControlNumbersOutput{})
+	pulumi.RegisterOutputType(PartnershipX12ControlNumbersPtrOutput{})
 	pulumi.RegisterOutputType(PartnershipX12DelimitersOutput{})
 	pulumi.RegisterOutputType(PartnershipX12DelimitersPtrOutput{})
 	pulumi.RegisterOutputType(PartnershipX12EnvelopeOutput{})
 	pulumi.RegisterOutputType(PartnershipX12EnvelopePtrOutput{})
 	pulumi.RegisterOutputType(PartnershipX12FunctionalGroupHeadersOutput{})
 	pulumi.RegisterOutputType(PartnershipX12FunctionalGroupHeadersPtrOutput{})
+	pulumi.RegisterOutputType(PartnershipX12InboundEdiOptionsOutput{})
+	pulumi.RegisterOutputType(PartnershipX12InboundEdiOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PartnershipX12InterchangeControlHeadersOutput{})
 	pulumi.RegisterOutputType(PartnershipX12InterchangeControlHeadersPtrOutput{})
 	pulumi.RegisterOutputType(PartnershipX12OutboundEdiHeadersOutput{})
 	pulumi.RegisterOutputType(PartnershipX12OutboundEdiHeadersPtrOutput{})
+	pulumi.RegisterOutputType(TransformerAdvancedOptionsOutput{})
+	pulumi.RegisterOutputType(TransformerAdvancedOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TransformerEdiTypePropertiesOutput{})
 	pulumi.RegisterOutputType(TransformerEdiTypePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TransformerFormatOptionsPropertiesOutput{})
@@ -2922,6 +4182,10 @@ func init() {
 	pulumi.RegisterOutputType(TransformerSampleDocumentKeysArrayOutput{})
 	pulumi.RegisterOutputType(TransformerSampleDocumentsOutput{})
 	pulumi.RegisterOutputType(TransformerSampleDocumentsPtrOutput{})
+	pulumi.RegisterOutputType(TransformerX12AdvancedOptionsOutput{})
+	pulumi.RegisterOutputType(TransformerX12AdvancedOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TransformerX12DetailsOutput{})
 	pulumi.RegisterOutputType(TransformerX12DetailsPtrOutput{})
+	pulumi.RegisterOutputType(TransformerX12SplitOptionsOutput{})
+	pulumi.RegisterOutputType(TransformerX12SplitOptionsPtrOutput{})
 }

@@ -121,7 +121,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["workingDirectory"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["blockDeviceMappings[*]", "components[*]", "description", "name", "parentImage", "tags.*", "version", "workingDirectory"] };
+        const replaceOnChanges = { replaceOnChanges: ["blockDeviceMappings[*]", "components[*]", "description", "name", "parentImage", "version", "workingDirectory"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ImageRecipe.__pulumiType, name, resourceInputs, opts);
     }

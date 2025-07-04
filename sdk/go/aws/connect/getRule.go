@@ -36,7 +36,7 @@ type LookupRuleResult struct {
 	// The name of the rule.
 	Name *string `pulumi:"name"`
 	// The publish status of the rule.
-	//   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+	//  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
 	PublishStatus *RulePublishStatus `pulumi:"publishStatus"`
 	// The Amazon Resource Name (ARN) of the rule.
 	RuleArn *string `pulumi:"ruleArn"`

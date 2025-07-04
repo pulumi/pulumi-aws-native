@@ -39,6 +39,7 @@ export interface GetTableResult {
      * If you don't specify a value for this property, then the table will use on-demand mode.
      */
     readonly billingMode?: outputs.cassandra.TableBillingMode;
+    readonly cdcSpecification?: outputs.cassandra.TableCdcSpecification;
     /**
      * Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
      */

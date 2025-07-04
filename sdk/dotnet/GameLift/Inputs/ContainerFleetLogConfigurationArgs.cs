@@ -26,6 +26,12 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public Input<Pulumi.AwsNative.GameLift.ContainerFleetLogDestination>? LogDestination { get; set; }
 
         /// <summary>
+        /// If log destination is CLOUDWATCH, logs are sent to the specified log group in Amazon CloudWatch.
+        /// </summary>
+        [Input("logGroupArn")]
+        public Input<string>? LogGroupArn { get; set; }
+
+        /// <summary>
         /// The name of the S3 bucket to pull logs from if S3 is the LogDestination
         /// </summary>
         [Input("s3BucketName")]

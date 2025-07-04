@@ -2457,6 +2457,7 @@ class DataSourceResourceStatus(builtins.str, Enum):
     UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
     UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
     UPDATE_FAILED = "UPDATE_FAILED"
+    PENDING_UPDATE = "PENDING_UPDATE"
     DELETED = "DELETED"
 
 
@@ -2490,13 +2491,16 @@ class DataSourceType(builtins.str, Enum):
     ORACLE = "ORACLE"
     POSTGRESQL = "POSTGRESQL"
     PRESTO = "PRESTO"
+    QBUSINESS = "QBUSINESS"
     REDSHIFT = "REDSHIFT"
     S3 = "S3"
     S3_TABLES = "S3_TABLES"
+    S3_KNOWLEDGE_BASE = "S3_KNOWLEDGE_BASE"
     SALESFORCE = "SALESFORCE"
     SERVICENOW = "SERVICENOW"
     SNOWFLAKE = "SNOWFLAKE"
     SPARK = "SPARK"
+    SPICE = "SPICE"
     SQLSERVER = "SQLSERVER"
     TERADATA = "TERADATA"
     TIMESTREAM = "TIMESTREAM"
@@ -2511,6 +2515,11 @@ class DataSourceType(builtins.str, Enum):
     APPFLOW = "APPFLOW"
     IMPALA = "IMPALA"
     GLUE = "GLUE"
+    GOOGLE_DRIVE = "GOOGLE_DRIVE"
+    CONFLUENCE = "CONFLUENCE"
+    SHAREPOINT = "SHAREPOINT"
+    ONE_DRIVE = "ONE_DRIVE"
+    WEB_CRAWLER = "WEB_CRAWLER"
 
 
 @pulumi.type_token("aws-native:quicksight:FolderSharingModel")

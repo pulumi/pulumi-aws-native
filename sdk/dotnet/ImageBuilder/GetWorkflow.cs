@@ -67,11 +67,19 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The Amazon Resource Name (ARN) of the workflow.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The tags associated with the workflow.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
-        private GetWorkflowResult(string? arn)
+        private GetWorkflowResult(
+            string? arn,
+
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
+            Tags = tags;
         }
     }
 }

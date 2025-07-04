@@ -92,6 +92,7 @@ import * as backup from "./backup";
 import * as backupgateway from "./backupgateway";
 import * as batch from "./batch";
 import * as bedrock from "./bedrock";
+import * as billing from "./billing";
 import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
@@ -217,6 +218,7 @@ import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as nimblestudio from "./nimblestudio";
 import * as oam from "./oam";
+import * as odb from "./odb";
 import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
 import * as opensearchservice from "./opensearchservice";
@@ -323,6 +325,7 @@ export {
     backupgateway,
     batch,
     bedrock,
+    billing,
     budgets,
     cassandra,
     ce,
@@ -448,6 +451,7 @@ export {
     networkmanager,
     nimblestudio,
     oam,
+    odb,
     omics,
     opensearchserverless,
     opensearchservice,

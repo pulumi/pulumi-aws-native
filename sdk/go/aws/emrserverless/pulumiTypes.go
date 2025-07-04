@@ -639,6 +639,146 @@ func (o ApplicationConfigurationObjectArrayOutput) Index(i pulumi.IntInput) Appl
 	}).(ApplicationConfigurationObjectOutput)
 }
 
+// The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+type ApplicationIdentityCenterConfiguration struct {
+	// The IAM IdentityCenter instance arn
+	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
+}
+
+// ApplicationIdentityCenterConfigurationInput is an input type that accepts ApplicationIdentityCenterConfigurationArgs and ApplicationIdentityCenterConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationIdentityCenterConfigurationInput` via:
+//
+//	ApplicationIdentityCenterConfigurationArgs{...}
+type ApplicationIdentityCenterConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationIdentityCenterConfigurationOutput() ApplicationIdentityCenterConfigurationOutput
+	ToApplicationIdentityCenterConfigurationOutputWithContext(context.Context) ApplicationIdentityCenterConfigurationOutput
+}
+
+// The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+type ApplicationIdentityCenterConfigurationArgs struct {
+	// The IAM IdentityCenter instance arn
+	IdentityCenterInstanceArn pulumi.StringPtrInput `pulumi:"identityCenterInstanceArn"`
+}
+
+func (ApplicationIdentityCenterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationIdentityCenterConfigurationArgs) ToApplicationIdentityCenterConfigurationOutput() ApplicationIdentityCenterConfigurationOutput {
+	return i.ToApplicationIdentityCenterConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationIdentityCenterConfigurationArgs) ToApplicationIdentityCenterConfigurationOutputWithContext(ctx context.Context) ApplicationIdentityCenterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIdentityCenterConfigurationOutput)
+}
+
+func (i ApplicationIdentityCenterConfigurationArgs) ToApplicationIdentityCenterConfigurationPtrOutput() ApplicationIdentityCenterConfigurationPtrOutput {
+	return i.ToApplicationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationIdentityCenterConfigurationArgs) ToApplicationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) ApplicationIdentityCenterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIdentityCenterConfigurationOutput).ToApplicationIdentityCenterConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationIdentityCenterConfigurationPtrInput is an input type that accepts ApplicationIdentityCenterConfigurationArgs, ApplicationIdentityCenterConfigurationPtr and ApplicationIdentityCenterConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationIdentityCenterConfigurationPtrInput` via:
+//
+//	        ApplicationIdentityCenterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationIdentityCenterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationIdentityCenterConfigurationPtrOutput() ApplicationIdentityCenterConfigurationPtrOutput
+	ToApplicationIdentityCenterConfigurationPtrOutputWithContext(context.Context) ApplicationIdentityCenterConfigurationPtrOutput
+}
+
+type applicationIdentityCenterConfigurationPtrType ApplicationIdentityCenterConfigurationArgs
+
+func ApplicationIdentityCenterConfigurationPtr(v *ApplicationIdentityCenterConfigurationArgs) ApplicationIdentityCenterConfigurationPtrInput {
+	return (*applicationIdentityCenterConfigurationPtrType)(v)
+}
+
+func (*applicationIdentityCenterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (i *applicationIdentityCenterConfigurationPtrType) ToApplicationIdentityCenterConfigurationPtrOutput() ApplicationIdentityCenterConfigurationPtrOutput {
+	return i.ToApplicationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationIdentityCenterConfigurationPtrType) ToApplicationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) ApplicationIdentityCenterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIdentityCenterConfigurationPtrOutput)
+}
+
+// The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+type ApplicationIdentityCenterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationIdentityCenterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationIdentityCenterConfigurationOutput) ToApplicationIdentityCenterConfigurationOutput() ApplicationIdentityCenterConfigurationOutput {
+	return o
+}
+
+func (o ApplicationIdentityCenterConfigurationOutput) ToApplicationIdentityCenterConfigurationOutputWithContext(ctx context.Context) ApplicationIdentityCenterConfigurationOutput {
+	return o
+}
+
+func (o ApplicationIdentityCenterConfigurationOutput) ToApplicationIdentityCenterConfigurationPtrOutput() ApplicationIdentityCenterConfigurationPtrOutput {
+	return o.ToApplicationIdentityCenterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationIdentityCenterConfigurationOutput) ToApplicationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) ApplicationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationIdentityCenterConfiguration) *ApplicationIdentityCenterConfiguration {
+		return &v
+	}).(ApplicationIdentityCenterConfigurationPtrOutput)
+}
+
+// The IAM IdentityCenter instance arn
+func (o ApplicationIdentityCenterConfigurationOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationIdentityCenterConfiguration) *string { return v.IdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationIdentityCenterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationIdentityCenterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationIdentityCenterConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationIdentityCenterConfigurationPtrOutput) ToApplicationIdentityCenterConfigurationPtrOutput() ApplicationIdentityCenterConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationIdentityCenterConfigurationPtrOutput) ToApplicationIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) ApplicationIdentityCenterConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationIdentityCenterConfigurationPtrOutput) Elem() ApplicationIdentityCenterConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationIdentityCenterConfiguration) ApplicationIdentityCenterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationIdentityCenterConfiguration
+		return ret
+	}).(ApplicationIdentityCenterConfigurationOutput)
+}
+
+// The IAM IdentityCenter instance arn
+func (o ApplicationIdentityCenterConfigurationPtrOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationIdentityCenterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterInstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // The image configuration.
 type ApplicationImageConfigurationInput struct {
 	// The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
@@ -2534,6 +2674,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCloudWatchLoggingConfigurationPtrInput)(nil)).Elem(), ApplicationCloudWatchLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigurationObjectInput)(nil)).Elem(), ApplicationConfigurationObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigurationObjectArrayInput)(nil)).Elem(), ApplicationConfigurationObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdentityCenterConfigurationInput)(nil)).Elem(), ApplicationIdentityCenterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdentityCenterConfigurationPtrInput)(nil)).Elem(), ApplicationIdentityCenterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationImageConfigurationInputInput)(nil)).Elem(), ApplicationImageConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationImageConfigurationInputPtrInput)(nil)).Elem(), ApplicationImageConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityConfigInput)(nil)).Elem(), ApplicationInitialCapacityConfigArgs{})
@@ -2568,6 +2710,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationCloudWatchLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationConfigurationObjectOutput{})
 	pulumi.RegisterOutputType(ApplicationConfigurationObjectArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationIdentityCenterConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationIdentityCenterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationImageConfigurationInputOutput{})
 	pulumi.RegisterOutputType(ApplicationImageConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityConfigOutput{})

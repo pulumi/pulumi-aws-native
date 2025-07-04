@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The port.&lt;/p&gt;
         /// </summary>
         public readonly double Port;
+        public readonly bool? UseServiceName;
 
         [OutputConstructor]
         private DataSourceOracleParameters(
@@ -35,11 +36,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string host,
 
-            double port)
+            double port,
+
+            bool? useServiceName)
         {
             Database = database;
             Host = host;
             Port = port;
+            UseServiceName = useServiceName;
         }
     }
 }

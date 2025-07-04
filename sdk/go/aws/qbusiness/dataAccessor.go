@@ -21,6 +21,8 @@ type DataAccessor struct {
 	ActionConfigurations DataAccessorActionConfigurationArrayOutput `pulumi:"actionConfigurations"`
 	// The unique identifier of the Amazon Q Business application.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+	AuthenticationDetail DataAccessorAuthenticationDetailPtrOutput `pulumi:"authenticationDetail"`
 	// The timestamp when the data accessor was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Amazon Resource Name (ARN) of the data accessor.
@@ -100,6 +102,8 @@ type dataAccessorArgs struct {
 	ActionConfigurations []DataAccessorActionConfiguration `pulumi:"actionConfigurations"`
 	// The unique identifier of the Amazon Q Business application.
 	ApplicationId string `pulumi:"applicationId"`
+	// The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+	AuthenticationDetail *DataAccessorAuthenticationDetail `pulumi:"authenticationDetail"`
 	// The friendly name of the data accessor.
 	DisplayName string `pulumi:"displayName"`
 	// The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
@@ -114,6 +118,8 @@ type DataAccessorArgs struct {
 	ActionConfigurations DataAccessorActionConfigurationArrayInput
 	// The unique identifier of the Amazon Q Business application.
 	ApplicationId pulumi.StringInput
+	// The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+	AuthenticationDetail DataAccessorAuthenticationDetailPtrInput
 	// The friendly name of the data accessor.
 	DisplayName pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
@@ -167,6 +173,11 @@ func (o DataAccessorOutput) ActionConfigurations() DataAccessorActionConfigurati
 // The unique identifier of the Amazon Q Business application.
 func (o DataAccessorOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataAccessor) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+func (o DataAccessorOutput) AuthenticationDetail() DataAccessorAuthenticationDetailPtrOutput {
+	return o.ApplyT(func(v *DataAccessor) DataAccessorAuthenticationDetailPtrOutput { return v.AuthenticationDetail }).(DataAccessorAuthenticationDetailPtrOutput)
 }
 
 // The timestamp when the data accessor was created.

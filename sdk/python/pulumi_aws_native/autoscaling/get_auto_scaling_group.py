@@ -353,7 +353,7 @@ class GetAutoScalingGroupResult:
     @pulumi.getter(name="placementGroup")
     def placement_group(self) -> Optional[builtins.str]:
         """
-        The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide for Linux Instances*.
+        The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide*.
           A *cluster* placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group.
         """
         return pulumi.get(self, "placement_group")

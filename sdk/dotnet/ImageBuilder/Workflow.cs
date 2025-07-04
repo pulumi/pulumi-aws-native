@@ -105,7 +105,6 @@ namespace Pulumi.AwsNative.ImageBuilder
                     "description",
                     "kmsKeyId",
                     "name",
-                    "tags.*",
                     "type",
                     "uri",
                     "version",

@@ -775,9 +775,9 @@ func (o InitialVlansPropertiesPtrOutput) VmkManagement() EnvironmentInitialVlanI
 
 // The license information for an EVS environment
 type LicenseInfoProperties struct {
-	// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
+	// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must cover a minimum of 256 cores.
 	SolutionKey string `pulumi:"solutionKey"`
-	// The VSAN license key. This license unlocks vSAN features.
+	// The VSAN license key. This license unlocks vSAN features. The vSAN license key must provide at least 110 TiB of vSAN capacity.
 	VsanKey string `pulumi:"vsanKey"`
 }
 
@@ -794,9 +794,9 @@ type LicenseInfoPropertiesInput interface {
 
 // The license information for an EVS environment
 type LicenseInfoPropertiesArgs struct {
-	// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
+	// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must cover a minimum of 256 cores.
 	SolutionKey pulumi.StringInput `pulumi:"solutionKey"`
-	// The VSAN license key. This license unlocks vSAN features.
+	// The VSAN license key. This license unlocks vSAN features. The vSAN license key must provide at least 110 TiB of vSAN capacity.
 	VsanKey pulumi.StringInput `pulumi:"vsanKey"`
 }
 
@@ -827,12 +827,12 @@ func (o LicenseInfoPropertiesOutput) ToLicenseInfoPropertiesOutputWithContext(ct
 	return o
 }
 
-// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
+// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must cover a minimum of 256 cores.
 func (o LicenseInfoPropertiesOutput) SolutionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseInfoProperties) string { return v.SolutionKey }).(pulumi.StringOutput)
 }
 
-// The VSAN license key. This license unlocks vSAN features.
+// The VSAN license key. This license unlocks vSAN features. The vSAN license key must provide at least 110 TiB of vSAN capacity.
 func (o LicenseInfoPropertiesOutput) VsanKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseInfoProperties) string { return v.VsanKey }).(pulumi.StringOutput)
 }

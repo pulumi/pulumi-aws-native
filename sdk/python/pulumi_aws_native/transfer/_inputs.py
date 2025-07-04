@@ -416,6 +416,7 @@ if not MYPY:
         > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
         > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
         > - Call the `UpdateServer` API to set or change this parameter.
+        > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
         """
         security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -469,6 +470,7 @@ class ServerEndpointDetailsArgs:
                > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
                > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
                > - Call the `UpdateServer` API to set or change this parameter.
+               > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security groups IDs that are available to attach to your server's endpoint.
                
                > This property can only be set when `EndpointType` is set to `VPC` .
@@ -513,6 +515,7 @@ class ServerEndpointDetailsArgs:
         > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
         > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
         > - Call the `UpdateServer` API to set or change this parameter.
+        > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
         """
         return pulumi.get(self, "address_allocation_ids")
 

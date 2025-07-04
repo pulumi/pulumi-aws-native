@@ -9,3 +9,21 @@ export const DataRepositoryAssociationEventType = {
 } as const;
 
 export type DataRepositoryAssociationEventType = (typeof DataRepositoryAssociationEventType)[keyof typeof DataRepositoryAssociationEventType];
+
+export const S3AccessPointAttachmentOpenZfsFileSystemIdentityType = {
+    Posix: "POSIX",
+} as const;
+
+/**
+ * Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+ */
+export type S3AccessPointAttachmentOpenZfsFileSystemIdentityType = (typeof S3AccessPointAttachmentOpenZfsFileSystemIdentityType)[keyof typeof S3AccessPointAttachmentOpenZfsFileSystemIdentityType];
+
+export const S3AccessPointAttachmentType = {
+    Openzfs: "OPENZFS",
+} as const;
+
+/**
+ * The type of Amazon FSx volume that the S3 access point is attached to.
+ */
+export type S3AccessPointAttachmentType = (typeof S3AccessPointAttachmentType)[keyof typeof S3AccessPointAttachmentType];
