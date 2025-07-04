@@ -192,14 +192,11 @@
   "required" : [ "Name", "Version", "Components", "ParentImage" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/Components", "/properties/ParentImage", "/properties/Description", "/properties/BlockDeviceMappings", "/properties/WorkingDirectory", "/properties/Tags" ],
-  "propertyTransform" : {
-    "/properties/BlockDeviceMappings/*/Ebs/VolumeType" : "$uppercase(VolumeType)"
-  },
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/Components", "/properties/ParentImage", "/properties/Description", "/properties/BlockDeviceMappings", "/properties/WorkingDirectory" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
@@ -210,6 +207,9 @@
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetImageRecipe" ]
+    },
+    "update" : {
+      "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "imagebuilder:UntagResource", "imagebuilder:GetImageRecipe", "imagebuilder:DeleteImageRecipe" ]
