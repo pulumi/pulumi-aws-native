@@ -139,10 +139,10 @@
   "description" : "The distribution tenant.",
   "handlers" : {
     "create" : {
-      "permissions" : [ "acm:DescribeCertificate", "acm:RequestCertificate", "cloudfront:CreateDistributionTenant", "cloudfront:GetDistributionTenant", "cloudfront:GetManagedCertificateDetails", "cloudfront:TagResource", "cloudfront:VerifyDnsConfiguration" ]
+      "permissions" : [ "acm:DescribeCertificate", "acm:RequestCertificate", "cloudfront:CreateDistributionTenant", "cloudfront:GetDistributionTenant", "cloudfront:GetManagedCertificateDetails", "cloudfront:TagResource", "cloudfront:VerifyDnsConfiguration", "wafv2:GetWebACL" ]
     },
     "delete" : {
-      "permissions" : [ "cloudfront:DeleteDistributionTenant", "cloudfront:UpdateDistributionTenant", "cloudfront:GetDistributionTenant" ]
+      "permissions" : [ "cloudfront:DeleteDistributionTenant", "cloudfront:UpdateDistributionTenant", "cloudfront:GetDistributionTenant", "wafv2:GetWebACL" ]
     },
     "list" : {
       "permissions" : [ "cloudfront:ListDistributionTenants", "cloudfront:ListTagsForResource" ]
@@ -151,7 +151,7 @@
       "permissions" : [ "cloudfront:GetDistributionTenant", "cloudfront:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "acm:DescribeCertificate", "acm:RequestCertificate", "cloudfront:GetDistributionTenant", "cloudfront:GetManagedCertificateDetails", "cloudfront:UpdateDistributionTenant", "cloudfront:ListTagsForResource", "cloudfront:TagResource", "cloudfront:UntagResource", "cloudfront:VerifyDnsConfiguration" ]
+      "permissions" : [ "acm:DescribeCertificate", "acm:RequestCertificate", "cloudfront:GetDistributionTenant", "cloudfront:GetManagedCertificateDetails", "cloudfront:UpdateDistributionTenant", "cloudfront:ListTagsForResource", "cloudfront:TagResource", "cloudfront:UntagResource", "cloudfront:VerifyDnsConfiguration", "wafv2:GetWebACL" ]
     }
   },
   "primaryIdentifier" : [ "/properties/Id" ],
