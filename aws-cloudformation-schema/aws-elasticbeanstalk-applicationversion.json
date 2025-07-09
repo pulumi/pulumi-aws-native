@@ -55,10 +55,10 @@
       "permissions" : [ "elasticbeanstalk:DescribeApplicationVersions" ]
     },
     "update" : {
-      "permissions" : [ "elasticbeanstalk:UpdateApplicationVersion" ]
+      "permissions" : [ "elasticbeanstalk:UpdateApplicationVersion", "elasticbeanstalk:DescribeApplicationVersions" ]
     },
     "delete" : {
-      "permissions" : [ "elasticbeanstalk:DeleteApplicationVersion" ]
+      "permissions" : [ "elasticbeanstalk:DeleteApplicationVersion", "elasticbeanstalk:DescribeApplicationVersions" ]
     },
     "list" : {
       "permissions" : [ "elasticbeanstalk:DescribeApplicationVersions" ]
