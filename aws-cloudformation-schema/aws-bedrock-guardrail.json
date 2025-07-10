@@ -73,6 +73,17 @@
           "maxItems" : 6,
           "minItems" : 1,
           "description" : "List of content filter configs in content policy."
+        },
+        "ContentFiltersTierConfig" : {
+          "type" : "object",
+          "properties" : {
+            "TierName" : {
+              "$ref" : "#/definitions/ContentFiltersTierName"
+            }
+          },
+          "required" : [ "TierName" ],
+          "additionalProperties" : false,
+          "description" : "Guardrail tier config for content policy"
         }
       },
       "required" : [ "FiltersConfig" ],
@@ -362,6 +373,17 @@
           },
           "minItems" : 1,
           "description" : "List of topic configs in topic policy."
+        },
+        "TopicsTierConfig" : {
+          "type" : "object",
+          "properties" : {
+            "TierName" : {
+              "$ref" : "#/definitions/TopicsTierName"
+            }
+          },
+          "required" : [ "TierName" ],
+          "additionalProperties" : false,
+          "description" : "Guardrail tier config for topic policy"
         }
       },
       "required" : [ "TopicsConfig" ],
@@ -422,6 +444,16 @@
         }
       },
       "additionalProperties" : false
+    },
+    "ContentFiltersTierName" : {
+      "type" : "string",
+      "description" : "Tier name for tier configuration in content filters policy",
+      "enum" : [ "CLASSIC", "STANDARD" ]
+    },
+    "TopicsTierName" : {
+      "type" : "string",
+      "description" : "Tier name for tier configuration in topic policy",
+      "enum" : [ "CLASSIC", "STANDARD" ]
     }
   },
   "properties" : {
