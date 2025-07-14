@@ -104,6 +104,10 @@
       "description" : "A DB subnet group that you want to associate with this DB cluster. \n If you are restoring a DB cluster to a point in time with ``RestoreType`` set to ``copy-on-write``, and don't specify a DB subnet group name, then the DB cluster is restored with a default DB subnet group.\n Valid for: Aurora DB clusters and Multi-AZ DB clusters",
       "type" : "string"
     },
+    "DeleteAutomatedBackups" : {
+      "type" : "boolean",
+      "description" : ""
+    },
     "DeletionProtection" : {
       "description" : "A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.\n Valid for: Aurora DB clusters and Multi-AZ DB clusters",
       "type" : "boolean"
@@ -439,10 +443,10 @@
   "createOnlyProperties" : [ "/properties/AvailabilityZones", "/properties/ClusterScalabilityType", "/properties/DBClusterIdentifier", "/properties/DBSubnetGroupName", "/properties/DBSystemId", "/properties/DatabaseName", "/properties/EngineMode", "/properties/KmsKeyId", "/properties/PubliclyAccessible", "/properties/RestoreToTime", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/StorageEncrypted", "/properties/UseLatestRestorableTime" ],
   "conditionalCreateOnlyProperties" : [ "/properties/Engine", "/properties/GlobalClusterIdentifier", "/properties/MasterUsername" ],
   "primaryIdentifier" : [ "/properties/DBClusterIdentifier" ],
-  "writeOnlyProperties" : [ "/properties/ClusterScalabilityType", "/properties/DBInstanceParameterGroupName", "/properties/MasterUserPassword", "/properties/RestoreToTime", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/UseLatestRestorableTime" ],
+  "writeOnlyProperties" : [ "/properties/ClusterScalabilityType", "/properties/DBInstanceParameterGroupName", "/properties/DeleteAutomatedBackups", "/properties/MasterUserPassword", "/properties/RestoreToTime", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/UseLatestRestorableTime" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:CreateServiceLinkedRole", "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:CreateDBCluster", "rds:CreateDBInstance", "rds:DescribeDBClusters", "rds:DescribeDBClusterSnapshots", "rds:DescribeDBSnapshots", "rds:DescribeEvents", "rds:EnableHttpEndpoint", "rds:ModifyDBCluster", "rds:RestoreDBClusterFromSnapshot", "rds:RestoreDBClusterToPointInTime", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
+      "permissions" : [ "iam:CreateServiceLinkedRole", "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:CreateDBCluster", "rds:CreateDBInstance", "rds:DescribeDBClusters", "rds:DescribeDBClusterSnapshots", "rds:DescribeDBSnapshots", "rds:DescribeEvents", "rds:EnableHttpEndpoint", "rds:ModifyDBCluster", "rds:RestoreDBClusterFromSnapshot", "rds:RestoreDBClusterToPointInTime", "rds:DescribeDBClusterSnapshots", "secretsmanager:CreateSecret", "secretsmanager:TagResource" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {
