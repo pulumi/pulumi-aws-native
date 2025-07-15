@@ -136,6 +136,7 @@ AWS::Bedrock::IntelligentPromptRouter
 AWS::Bedrock::KnowledgeBase
 AWS::Bedrock::Prompt
 AWS::Bedrock::PromptVersion
+AWS::Billing::BillingView
 AWS::Budgets::BudgetsAction
 AWS::CE::AnomalyMonitor
 AWS::CE::AnomalySubscription
@@ -399,6 +400,8 @@ AWS::EC2::SubnetCidrBlock
 AWS::EC2::SubnetNetworkAclAssociation
 AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TrafficMirrorFilter
+AWS::EC2::TrafficMirrorFilterRule
+AWS::EC2::TrafficMirrorTarget
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayAttachment
 AWS::EC2::TransitGatewayConnect
@@ -505,6 +508,7 @@ AWS::FMS::NotificationChannel
 AWS::FMS::Policy
 AWS::FMS::ResourceSet
 AWS::FSx::DataRepositoryAssociation
+AWS::FSx::S3AccessPointAttachment
 AWS::FinSpace::Environment
 AWS::Forecast::Dataset
 AWS::Forecast::DatasetGroup
@@ -672,6 +676,7 @@ AWS::Kendra::Index
 AWS::KendraRanking::ExecutionPlan
 AWS::Kinesis::ResourcePolicy
 AWS::Kinesis::Stream
+AWS::Kinesis::StreamConsumer
 AWS::KinesisAnalyticsV2::Application
 AWS::KinesisFirehose::DeliveryStream
 AWS::KinesisVideo::SignalingChannel
@@ -791,6 +796,7 @@ AWS::MemoryDB::SubnetGroup
 AWS::MemoryDB::User
 AWS::Neptune::DBCluster
 AWS::Neptune::DBClusterParameterGroup
+AWS::Neptune::DBInstance
 AWS::Neptune::DBParameterGroup
 AWS::Neptune::DBSubnetGroup
 AWS::NeptuneGraph::Graph
@@ -820,6 +826,10 @@ AWS::NimbleStudio::LaunchProfile
 AWS::NimbleStudio::StreamingImage
 AWS::NimbleStudio::Studio
 AWS::NimbleStudio::StudioComponent
+AWS::ODB::CloudAutonomousVmCluster
+AWS::ODB::CloudExadataInfrastructure
+AWS::ODB::CloudVmCluster
+AWS::ODB::OdbNetwork
 AWS::OSIS::Pipeline
 AWS::Oam::Link
 AWS::Oam::Sink
@@ -988,8 +998,10 @@ AWS::S3Outposts::Bucket
 AWS::S3Outposts::BucketPolicy
 AWS::S3Outposts::Endpoint
 AWS::S3Tables::Namespace
+AWS::S3Tables::Table
 AWS::S3Tables::TableBucket
 AWS::S3Tables::TableBucketPolicy
+AWS::S3Tables::TablePolicy
 AWS::SES::ConfigurationSet
 AWS::SES::ConfigurationSetEventDestination
 AWS::SES::ContactList

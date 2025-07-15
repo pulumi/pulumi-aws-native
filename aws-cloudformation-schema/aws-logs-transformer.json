@@ -55,6 +55,9 @@
         "ParsePostgres" : {
           "$ref" : "#/definitions/ParsePostgres"
         },
+        "ParseToOCSF" : {
+          "$ref" : "#/definitions/ParseToOCSF"
+        },
         "ParseKeyValue" : {
           "type" : "object",
           "properties" : {
@@ -414,6 +417,22 @@
       },
       "additionalProperties" : false
     },
+    "ParseToOCSF" : {
+      "type" : "object",
+      "properties" : {
+        "Source" : {
+          "$ref" : "#/definitions/NonEmptyString"
+        },
+        "EventSource" : {
+          "$ref" : "#/definitions/EventSource"
+        },
+        "OcsfVersion" : {
+          "$ref" : "#/definitions/OcsfVersion"
+        }
+      },
+      "additionalProperties" : false,
+      "required" : [ "EventSource", "OcsfVersion" ]
+    },
     "AddKeyEntry" : {
       "type" : "object",
       "properties" : {
@@ -547,6 +566,14 @@
     "MaxLengthString" : {
       "type" : "string",
       "maxLength" : 128
+    },
+    "EventSource" : {
+      "type" : "string",
+      "enum" : [ "CloudTrail", "Route53Resolver", "VPCFlow", "EKSAudit", "AWSWAF" ]
+    },
+    "OcsfVersion" : {
+      "type" : "string",
+      "enum" : [ "V1.1" ]
     }
   },
   "primaryIdentifier" : [ "/properties/LogGroupIdentifier" ],
